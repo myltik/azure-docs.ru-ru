@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 42d617ffeb8c2fee6be6d747b39d80b09774a1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ca91721e691eca239478c4ac8b85e2652babdfd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-user-permissions-at-the-file-and-folder-levels"></a>Управление разрешениями пользователя на уровнях файлов и папок
 
-[Кластеры HDInsight, присоединенные к домену](hdinsight-domain-joined-introduction.md), используют строгую аутентификацию пользователей через Azure Active Directory (Azure AD), а также политики *контроля доступа на основе ролей* (RBAC) для таких служб, как YARN и Hive. Если в качестве хранилища данных по умолчанию для кластера вы используете службу хранилища Azure или Windows Azure Storage Blob (WASB), вы можете дополнительно применять разрешения на уровне папок и файлов. С помощью Apache Ranger вы можете управлять доступом к файлам кластера для пользователей и групп, синхронизированных с Azure AD.
+[Кластеры HDInsight, присоединенные к домену](./domain-joined/apache-domain-joined-introduction.md), используют строгую аутентификацию пользователей через Azure Active Directory (Azure AD), а также политики *контроля доступа на основе ролей* (RBAC) для таких служб, как YARN и Hive. Если в качестве хранилища данных по умолчанию для кластера вы используете службу хранилища Azure или Windows Azure Storage Blob (WASB), вы можете дополнительно применять разрешения на уровне папок и файлов. С помощью Apache Ranger вы можете управлять доступом к файлам кластера для пользователей и групп, синхронизированных с Azure AD.
 <!-- [synchronized Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md). -->
 
 Экземпляр Apache Ranger кластеров HDInsight, присоединенных к домену, предоставляется с предварительно настроенной службой Ranger-WASB. Служба Ranger-WASB представляет собой механизм управления политиками, который похож на Ranger-HDFS, но имеет отличия в логике применения политик доступа Ranger. В службе Ranger-WASB используется запрет (DENY) по умолчанию, если для входящего запроса не существует подходящей политики Ranger. Служба Ranger не передает проверку разрешений в WASB.
@@ -69,7 +69,7 @@ resource: path=/app-logs/{USER}, user: {USER}, recursive=true, permissions: all,
 
 ## <a name="manage-file-and-folder-level-permissions-with-apache-ranger"></a>Управление разрешениями на уровне папок и файлов в Apache Ranger
 
-Выполните [эти инструкции](hdinsight-domain-joined-configure.md), чтобы подготовить новый кластер, присоединенный к домену, если у вас его еще нет.
+Выполните [эти инструкции](./domain-joined/apache-domain-joined-configure.md), чтобы подготовить новый кластер, присоединенный к домену, если у вас его еще нет.
 
 Откройте Ranger-WASB по адресу `https://<YOUR CLUSTER NAME>.azurehdinsight.net/ranger/`. Введите имя пользователя и пароль администратора кластера, которые вы указали при создании кластера.
 
@@ -117,8 +117,8 @@ resource: path=/app-logs/{USER}, user: {USER}, recursive=true, permissions: all,
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Настройка политик Hive в присоединенном к домену кластере HDInsight (предварительная версия)](hdinsight-domain-joined-run-hive.md)
-* [Управление присоединенными к домену кластерами HDInsight (предварительная версия)](hdinsight-domain-joined-manage.md)
+* [Настройка политик Hive в присоединенном к домену кластере HDInsight (предварительная версия)](./domain-joined/apache-domain-joined-run-hive.md)
+* [Управление присоединенными к домену кластерами HDInsight (предварительная версия)](./domain-joined/apache-domain-joined-manage.md)
 * [Authorize users for Ambari Views](hdinsight-authorize-users-to-ambari.md) (Управление пользователями для Ambari Views)
 
 <!-- * [Synchronize Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md) -->

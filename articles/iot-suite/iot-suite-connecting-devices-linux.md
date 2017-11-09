@@ -1,5 +1,5 @@
 ---
-title: "Подключение устройства с помощью C в Linux | Документация Майкрософт"
+title: "Подготовка устройств Linux к удаленному мониторингу с помощью C в Azure | Документация Майкрософт"
 description: "Описывает, как подключить устройство к предварительно настроенному решению для удаленного мониторинга из набора Azure IoT Suite с помощью приложения на C в среде Linux."
 services: 
 suite: iot-suite
@@ -13,59 +13,67 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 09/16/2017
 ms.author: dobett
-ms.openlocfilehash: 9adbc9cc13f0b4cafa3a3a7703c46f8085b15232
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 542d1e0c4c4d6cfa5d2fe9df90a7a34c72f19fc0
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>Подключение устройства к предварительно настроенному решению для удаленного мониторинга (Linux)
+
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## <a name="build-and-run-a-sample-c-client-linux"></a>Сборка и запуск примера клиента Linux на C
-Описанные ниже действия показывают, как создать клиентское приложение, которое взаимодействует с предварительно настроенным решением для удаленного мониторинга. Это приложение на языке C, созданное и запущенное на устройстве Ubuntu Linux.
+В этом руководстве показано, как подключить физическое устройство к предварительно настроенному решению для удаленного мониторинга.
 
-Для выполнения этих действий необходимо устройство под управлением Ubuntu версии 15.04 или 15.10. Прежде чем продолжить, установите необходимые пакеты на устройство Ubuntu, используя следующую команду.
+## <a name="create-a-c-client-project-on-linux"></a>Создание клиентского проекта C в Linux
 
-```
+Как и для большинства внедряемых приложений, работающих на устройствах с ограниченными ресурсами, клиентский код для приложения на устройстве пишется на языке C. В этом руководстве вы создадите приложение на компьютере под управлением Ubuntu (Linux).
+
+Для выполнения этих действий необходимо устройство под управлением Ubuntu версии 15.04 или более поздней версии. Прежде чем продолжить, установите необходимые пакеты на устройство Ubuntu, используя следующую команду.
+
+```sh
 sudo apt-get install cmake gcc g++
 ```
 
-## <a name="install-the-client-libraries-on-your-device"></a>Установка клиентских библиотек на устройство
-Клиентские библиотеки центра IoT Azure доступны в виде пакета, который можно установить на устройство Ubuntu с помощью команды **apt-get** . Выполните следующие действия, чтобы установить пакет, содержащий файлы клиентских библиотек Центра Интернета вещей и заголовков, на компьютер Ubuntu.
+### <a name="install-the-client-libraries-on-your-device"></a>Установка клиентских библиотек на устройство
+
+Клиентские библиотеки Центра Интернета вещей Azure доступны в виде пакета, который можно установить на устройство Ubuntu с помощью команды **apt-get**. Выполните следующие действия, чтобы установить пакет, содержащий файлы клиентских библиотек Центра Интернета вещей и заголовков, на компьютер Ubuntu.
 
 1. В оболочке добавьте репозиторий azureiot на компьютер:
-   
-    ```
+
+    ```sh
     sudo add-apt-repository ppa:aziotsdklinux/ppa-azureiot
     sudo apt-get update
     ```
-2. Установите пакет azure-iot-sdk-c-dev.
-   
-    ```
+
+1. Установите пакет azure-iot-sdk-c-dev.
+
+    ```sh
     sudo apt-get install -y azure-iot-sdk-c-dev
     ```
 
-## <a name="install-the-parson-json-parser"></a>Установка средства синтаксического анализа JSON Parson
+### <a name="install-the-parson-json-parser"></a>Установка средства синтаксического анализа JSON Parson
+
 Клиентские библиотеки Центра Интернета вещей используют средство синтаксического анализа JSON Parson для анализа полезных данных сообщения. В подходящей папке на компьютере клонируйте репозиторий GitHub для Parson, используя следующую команду:
 
-```
+```sh
 git clone https://github.com/kgabis/parson.git
 ```
 
-## <a name="prepare-your-project"></a>Подготовка проекта
-На компьютере Ubuntu создайте папку **remote\_monitoring**. В папке **remote\_monitoring**:
+### <a name="prepare-your-project"></a>Подготовка проекта
 
-- Создайте четыре файла: **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h** и **CMakeLists.txt**.
-- Создайте папку с именем **parson**.
+На компьютере Ubuntu создайте папку с именем `remote_monitoring`. В папке `remote_monitoring`:
 
-Скопируйте файлы **parson.c** и **parson.h** из локальной копии репозитория Parson в папку **remote\_monitoring/parson**.
+- Создайте четыре файла: `main.c`, `remote_monitoring.c`, `remote_monitoring.h` и `CMakeLists.txt`.
+- Создайте папку с именем `parson`.
 
-Откройте в текстовом редакторе файл **remote\_monitoring.c**. Добавьте следующие операторы `#include` :
-   
-```
+Скопируйте файлы `parson.c` и `parson.h` из локальной копии репозитория Parson в папку `remote_monitoring/parson`.
+
+Откройте файл `remote_monitoring.c` в текстовом редакторе. Добавьте следующие операторы `#include` :
+
+```c
 #include "iothubtransportmqtt.h"
 #include "schemalib.h"
 #include "iothub_client.h"
@@ -78,34 +86,36 @@ git clone https://github.com/kgabis/parson.git
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
-## <a name="call-the-remotemonitoringrun-function"></a>Вызов функции remote\_monitoring\_run
-Откройте в текстовом редакторе файл **remote_monitoring.h**. Добавьте следующий код:
+## <a name="add-code-to-run-the-app"></a>Добавление кода для запуска приложения
 
-```
+Откройте файл `remote_monitoring.h` в текстовом редакторе. Добавьте следующий код:
+
+```c
 void remote_monitoring_run(void);
 ```
 
-Откройте в текстовом редакторе файл **main.c** . Добавьте следующий код:
+Откройте файл `main.c` в текстовом редакторе. Добавьте следующий код:
 
-```
+```c
 #include "remote_monitoring.h"
 
 int main(void)
 {
-    remote_monitoring_run();
+  remote_monitoring_run();
 
-    return 0;
+  return 0;
 }
 ```
 
 ## <a name="build-and-run-the-application"></a>Создание и запуск приложения
+
 Ниже приведены указания по использованию *CMake* для создания клиентского приложения.
 
-1. Откройте в текстовом редакторе файл **CMakeLists.txt** из папки **remote_monitoring**.
+1. Откройте в текстовом редакторе файл **CMakeLists.txt** из папки `remote_monitoring`.
 
 1. Добавьте следующие операторы, чтобы определить способ сборки клиентского приложения.
-   
-    ```
+
+    ```cmake
     macro(compileAsC99)
       if (CMAKE_VERSION VERSION_LESS "3.1")
         if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
@@ -151,20 +161,20 @@ int main(void)
         m
     )
     ```
-1. В папке **remote_monitoring** создайте папку для хранения файлов *make*, которые создает CMake, а затем выполните команды **cmake** и **make**, как показано ниже.
-   
-    ```
+
+1. В папке `remote_monitoring` создайте папку для хранения файлов *make*, созданных с помощью CMake. Затем запустите команды **cmake** и **make** следующим образом:
+
+    ```sh
     mkdir cmake
     cd cmake
     cmake ../
     make
     ```
 
-1. Запустите клиентское приложение и отправьте данные телеметрии в центр IoT.
-   
-    ```
+1. Запустите клиентское приложение и отправьте данные телеметрии в Центр Интернета вещей.
+
+    ```sh
     ./sample_app
     ```
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
-

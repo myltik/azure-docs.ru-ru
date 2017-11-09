@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/25/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f7810d519da500a33c2e1cd15b8de54835f304d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74beeffe04fa4b6dba4db8687bdebe79e0d750f4
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Устранение неполадок с подключением к виртуальной машине Azure через удаленный рабочий стол
 Подключение протокола удаленного рабочего стола (RDP) к виртуальной машине Azure под управлением Windows может завершиться неудачно по нескольким причинам. В этом случае доступ к виртуальной машине будет невозможен. Эта проблема может быть вызвана службой удаленного рабочего стола на виртуальной машине, сетевым подключением или клиентом удаленного рабочего стола на главном компьютере. В этой статье описываются некоторые из наиболее распространенных методов устранения проблем подключения по протоколу RDP. 

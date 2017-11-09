@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1e286044fb1a1b367fcac2dc14c47f68d5ed120d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6a7c6bdf3deaee3a3949fe409a7fab6b7664695
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Вход для пользователей учетных записей Майкрософт и Azure AD в одном приложении
 Раньше разработчику приложения, поддерживающего как личные учетные записи Майкрософт, так и рабочие учетные записи Azure Active Directory, необходимо было обеспечивать интеграцию с двумя отдельными системами.  **Конечная точка Azure AD версии 2.0** представляет новую версию API аутентификации, которая позволяет выполнять вход пользователей с учетными записями обоих типов с помощью простой интеграции.  Приложения, использующие конечную точку версии 2.0, также могут использовать интерфейсы REST API из [Microsoft Graph](https://graph.microsoft.io) с помощью учетной записи любого из этих типов.
@@ -49,13 +49,8 @@ ms.lasthandoff: 10/11/2017
 * [Области и разрешения в конечной точке версии 2.0](active-directory-v2-scopes.md)
 * [Microsoft Graph](https://graph.microsoft.io)
 
-## <a name="help--support"></a>Справка и поддержка
-Это лучшие места, чтобы получить помощь в разработке для Azure Active Directory.
-
-* [Stack Overflow`azure-active-directory` и `adal`теги](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)
-* [Отзывы об Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)
-
-
 > [!NOTE]
 > Если требуется использовать вход только с рабочими или учебными учетными записями из Azure Active Directory, следует начать изучение с нашего [руководства разработчика Azure AD](active-directory-developers-guide.md).  Конечная точка версии 2.0 предназначена для разработчиков, которым необходимо явно выполнять вход с личными учетными записями Майкрософт.
 
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

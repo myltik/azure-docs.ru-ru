@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Заметки о выпуске для компонентов Hadoop в Azure HDInsight
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 
 * **Новые функции в Hive**. Ознакомьтесь с [документацией по Hortonworks](https://hortonworks.com/apache/hive/#section_4).
 
-* **Интерфейс командной строки Hive объявлен нерекомендуемым**: использовать интерфейс командной строки Hive не рекомендуется, вместо него пользователям предлагается использовать Beeline. Дополнительные сведения см. в [документации Apache](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Инструкции по использованию Beeline с HDInsight см. в разделе [Использование Hive с Hadoop в HDInsight с применением Beeline](hdinsight-hadoop-use-hive-beeline.md).
+* **Интерфейс командной строки Hive объявлен нерекомендуемым**: использовать интерфейс командной строки Hive не рекомендуется, вместо него пользователям предлагается использовать Beeline. Дополнительные сведения см. в [документации Apache](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Инструкции по использованию Beeline с HDInsight см. в разделе [Использование Hive с Hadoop в HDInsight с применением Beeline](hadoop/apache-hadoop-use-hive-beeline.md).
 
 * **Новые возможности в Apache Phoenix и HBase**.
     * Поддержка квоты хранилища: обычно используется в мультитенантных средах для ограничения емкости, выделяемой для хранения данных на уровне таблицы и пространства имен.

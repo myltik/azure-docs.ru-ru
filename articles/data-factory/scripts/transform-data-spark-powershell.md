@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: spelluru
-ms.openlocfilehash: 42135f0a0101ba82bca0d662ae4b970f799f70d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 195b7276346827479fbbe10dfaaaa9ed1d754967
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Сценарий PowerShell. Преобразование данных в облаке с помощью фабрики данных Azure
 
@@ -24,23 +24,64 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
+## <a name="prerequisites"></a>Предварительные требования
+* **Учетная запись хранения Azure.** Создайте входной файл и сценарий Python и передайте их в службу хранилища Azure. Выходные данные программы Spark хранятся в этой учетной записи хранения. Кластер Spark по запросу использует ту же учетную запись хранения, что и его основное хранилище.  
+
+### <a name="upload-python-script-to-your-blob-storage-account"></a>Отправка скрипта Python в учетную запись хранилища BLOB-объектов
+1. Создайте файл Python с именем **WordCount_Spark.py** со следующим содержимым: 
+
+    ```python
+    import sys
+    from operator import add
+    
+    from pyspark.sql import SparkSession
+    
+    def main():
+        spark = SparkSession\
+            .builder\
+            .appName("PythonWordCount")\
+            .getOrCreate()
+            
+        lines = spark.read.text("wasbs://adftutorial@<storageaccountname>.blob.core.windows.net/spark/inputfiles/minecraftstory.txt").rdd.map(lambda r: r[0])
+        counts = lines.flatMap(lambda x: x.split(' ')) \
+            .map(lambda x: (x, 1)) \
+            .reduceByKey(add)
+        counts.saveAsTextFile("wasbs://adftutorial@<storageaccountname>.blob.core.windows.net/spark/outputfiles/wordcount")
+        
+        spark.stop()
+    
+    if __name__ == "__main__":
+        main()
+    ```
+2. Замените свойство **storageAccountName&lt;&gt;** именем своей учетной записи хранения Azure. Затем сохраните файл. 
+3. В хранилище BLOB-объектов Azure создайте контейнер с именем **adftutorial**, если он не существует. 
+4. Создайте папку с именем **spark**.
+5. Создайте вложенную папку с именем **script** в папке **spark**. 
+6. Отправьте файл **WordCount_Spark.py** во вложенную папку **script**. 
+
+
+### <a name="upload-the-input-file"></a>Отправка входного файла
+1. Создайте файл с определенным текстом и назовите его **minecraftstory.txt**. Программа Spark подсчитывает количество слов в этом тексте. 
+2. Создайте вложенную папку `inputfiles` в папке `spark` в контейнере больших двоичных объектов. 
+3. Отправьте файл `minecraftstory.txt` во вложенную папку `inputfiles`. 
+
 ## <a name="sample-script"></a>Пример скрипта
 > [!IMPORTANT]
 > Этот скрипт создает JSON-файлы, определяющие сущности фабрики данных (связанную службу, набор данных и конвейер) на жестком диске в папке c:\.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/transform-data-using-spark/transform-data-using-spark.ps1?highlight=9,12-15,18,21-23,26-29,32-37 "Transform data using Spark")]
+[!code-powershell[main](../../../powershell_scripts/data-factory/transform-data-using-spark/transform-data-using-spark.ps1 "Transform data using Spark")]
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
 
 После выполнения примера скрипта можно удалить группу ресурсов и все связанные с ней ресурсы, выполнив следующую команду.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourceGroupName
 ```
 Чтобы удалить фабрику данных из группы ресурсов, выполните следующую команду: 
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name "<data factory name>" -ResourceGroupName "<resource group name>"
+Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Описание скрипта
@@ -62,4 +103,4 @@ Remove-AzureRmDataFactoryV2 -Name "<data factory name>" -ResourceGroupName "<res
 
 Дополнительные сведения о Azure PowerShell см. в [документации по Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Дополнительные примеры скриптов PowerShell для базы данных Azure Cosmos DB можно найти [здесь](../samples-powershell.md).
+Дополнительные примеры сценариев PowerShell для Azure Data Factory приведены [здесь](../samples-powershell.md).

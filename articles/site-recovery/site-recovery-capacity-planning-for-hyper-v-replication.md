@@ -1,5 +1,5 @@
 ---
-title: "Запуск планировщика ресурсов Hyper-V для Site Recovery | Документация Майкрософт"
+title: "Планировщик ресурсов Hyper-V для Azure Site Recovery | Документация Майкрософт"
 description: "В этой статье объясняется, как запустить планировщик ресурсов Hyper-V для Azure Site Recovery."
 services: site-recovery
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 10/30/2017
 ms.author: nisoneji
-ms.openlocfilehash: 272b5abb5e6451164ca7900dda399b6aac65f986
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db790f9dc56605b5b752e7ab797903e32b2fc675
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="run-the-hyper-v-capacity-planner-tool-for-site-recovery"></a>Запуск планировщика ресурсов Hyper-V для Site Recovery
+# <a name="hyper-v-capacity-planner-tool-for-site-recovery"></a>Планировщик ресурсов Hyper-V для Site Recovery
 
 Во время развертывания Azure Site Recovery вам нужно будет определить свои требования к репликации и пропускной способности. Планировщик ресурсов Hyper-V для Site Recovery поможет вам сделать это для репликации виртуальных машин Hyper-V.
 

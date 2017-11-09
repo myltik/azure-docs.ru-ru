@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: e0aaf710d230f7667fff32b50ddb64104509d740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d84dde1f70023abcfd0c15f5425d3cbaeb8c765
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C. Добавление Google+ в качестве поставщика удостоверений OAuth2 с помощью пользовательских политик
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 10/11/2017
 4.  В пункте **Параметры** используйте вариант **Вручную**.
 5.  Для параметра **Имя** используйте значение `GoogleSecret`.  
     Префикс `B2C_1A_` может быть добавлен автоматически.
-6.  В поле **Секрет** введите свой секрет приложения Майкрософт с сайта https://apps.dev.microsoft.com.
+6.  В поле **Secret** (Секрет) введите скопированный выше секрет приложения Google из [консоли разработчиков Google](https://console.developers.google.com/).
 7.  Для параметра **Использование ключа** задайте значение **Подпись**.
 8.  Нажмите кнопку **Создать**
 9.  Убедитесь, что вы создали ключ `B2C_1A_GoogleSecret`.

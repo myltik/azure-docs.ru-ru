@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 412fc8b76d2b5ac45532d3ccb7a2ab7361d53596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Что представляют собой компоненты и версии Hadoop, доступные в HDInsight?
 
@@ -174,7 +174,7 @@ Azure HDInsight предлагает облачные решения для ра
 
 | Компонент HDInsight "Премиум" | Описание |
 | --- | --- |
-| Присоединенные к домену кластеры HDInsight |Присоединение кластеров HDInsight к доменам Active Directory Azure (Azure AD) обеспечивает безопасность корпоративного уровня. В HDInsight уровня "Премиум" можно настраивать список сотрудников из вашей компании, которые могут пройти проверку подлинности через Azure AD для входа в кластер HDInsight. Корпоративный администратор может настроить управление доступом на основе ролей для обеспечения защиты Hive с помощью [Apache Ranger](http://hortonworks.com/apache/ranger/) и ограничить доступ к данным до требуемого уровня. Наконец, администратор может провести аудит доступа к данным по сотрудникам, а также аудит любых изменений в политиках контроля доступа, обеспечивая высокий уровень контроля над корпоративными ресурсами. Дополнительные сведения см. в статье [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Настройка присоединенных к домену кластеров HDInsight). |
+| Присоединенные к домену кластеры HDInsight |Присоединение кластеров HDInsight к доменам Active Directory Azure (Azure AD) обеспечивает безопасность корпоративного уровня. В HDInsight уровня "Премиум" можно настраивать список сотрудников из вашей компании, которые могут пройти проверку подлинности через Azure AD для входа в кластер HDInsight. Корпоративный администратор может настроить управление доступом на основе ролей для обеспечения защиты Hive с помощью [Apache Ranger](http://hortonworks.com/apache/ranger/) и ограничить доступ к данным до требуемого уровня. Наконец, администратор может провести аудит доступа к данным по сотрудникам, а также аудит любых изменений в политиках контроля доступа, обеспечивая высокий уровень контроля над корпоративными ресурсами. Дополнительные сведения см. в статье [Configure domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-configure.md) (Настройка присоединенных к домену кластеров HDInsight). |
 
 ### <a name="cluster-types-supported-in-hdinsight-premium"></a>Типы кластеров, поддерживаемые HDInsight уровня "Премиум"
 Ниже перечислены типы кластера, которые поддерживаются в HDInsight уровня "Премиум".

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 1ad536a53d64b0144f6396393830bc0c5cbe4fb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Порты, используемые службами Hadoop в HDInsight
 
@@ -48,17 +48,17 @@ ms.lasthandoff: 10/11/2017
 | sshd |23 |SSH |Подключает клиенты к sshd на дополнительном головном узле. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Веб-интерфейс Ambari. См. статью [Управление кластерами HDInsight с помощью веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md). |
 | Ambari |443 |HTTPS |REST API Ambari. См. статью [Управление кластерами HDInsight с помощью REST API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). |
-| WebHCat |443 |HTTPS |REST API HCatalog. См. статьи [Выполнение заданий Pig с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-pig-curl.md), [Выполнение заданий Pig с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-pig-curl.md) и [Выполнение заданий MapReduce с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-mapreduce-curl.md). |
-| HiveServer2 |443 |ODBC |Подключение к Hive с помощью ODBC. См. статью [Подключение Excel к Hadoop с помощью драйвера Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 |443 |JDBC |Подключение к Hive с помощью JDBC. См. статью [Подключение к Hive в Azure HDInsight с помощью драйвера Hive JDBC](hdinsight-connect-hive-jdbc-driver.md). |
+| WebHCat |443 |HTTPS |REST API HCatalog. См. статьи [Выполнение заданий Pig с помощью Curl с использованием Hadoop в HDInsight](hadoop/apache-hadoop-use-pig-curl.md), [Выполнение заданий Pig с помощью Curl с использованием Hadoop в HDInsight](hadoop/apache-hadoop-use-pig-curl.md) и [Выполнение заданий MapReduce с помощью Curl с использованием Hadoop в HDInsight](hadoop/apache-hadoop-use-mapreduce-curl.md). |
+| HiveServer2 |443 |ODBC |Подключение к Hive с помощью ODBC. См. статью [Подключение Excel к Hadoop с помощью драйвера Microsoft Hive ODBC](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
+| HiveServer2 |443 |JDBC |Подключение к Hive с помощью JDBC. См. статью [Подключение к Hive в Azure HDInsight с помощью драйвера Hive JDBC](hadoop/apache-hadoop-connect-hive-jdbc-driver.md). |
 
 Приведенные ниже сведения доступны для определенных типов кластеров.
 
 | служба | Порт | Протокол | Тип кластера | Описание |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |REST API HBase. См. статью [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Linux в HDInsight](hdinsight-hbase-tutorial-get-started-linux.md). |
-| Livy |443 |HTTPS |Spark |Spark REST API. См. статью [Удаленная отправка заданий Spark в кластер Apache Spark в HDInsight на платформе Linux с помощью Livy](hdinsight-apache-spark-livy-rest-interface.md). |
-| Storm |443 |HTTPS |Storm |Веб-интерфейс Storm. См. статью [Развертывание топологий Apache Storm в HDInsight под управлением Linux и управление ими](hdinsight-storm-deploy-monitor-topology-linux.md). |
+| Stargate |443 |HTTPS |HBase |REST API HBase. См. статью [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Linux в HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md). |
+| Livy |443 |HTTPS |Spark |Spark REST API. См. статью [Удаленная отправка заданий Spark в кластер Apache Spark в HDInsight на платформе Linux с помощью Livy](spark/apache-spark-livy-rest-interface.md). |
+| Storm |443 |HTTPS |Storm |Веб-интерфейс Storm. См. статью [Развертывание топологий Apache Storm в HDInsight под управлением Linux и управление ими](storm/apache-storm-deploy-monitor-topology-linux.md). |
 
 ### <a name="authentication"></a>Аутентификация
 

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Создание внешнего интерфейса веб-службы для приложения с помощью ASP.NET Core
 По умолчанию службы Azure Service Fabric не предоставляют общедоступный интерфейс для веб-служб. Чтобы сделать свое приложение функциональным для клиентов HTTP, вам нужно создать веб-проект, который будет работать в качестве точки входа и обмениваться данными с отдельными службами.
@@ -210,12 +210,6 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     ![Отображаемое в браузере значение счетчика с отслеживанием состояния][browser-aspnet-counter-value]
    
     Периодически обновляйте браузер, чтобы отслеживать актуальные показания счетчика.
-
-## <a name="kestrel-and-weblistener"></a>Kestrel и WebListener
-
-Для веб-сервера ASP.NET Core по умолчанию, известного как Kestrel, [не поддерживается обработка прямого трафика Интернета](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). В результате ASP.NET Core шаблон службы без отслеживания состояния для Service Fabric использует [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) по умолчанию. 
-
-Дополнительные сведения о Kestrel и WebListener в службах Service Fabric см. в статье [ASP.NET Core в Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="connecting-to-a-reliable-actor-service"></a>Подключение к службе Reliable Actors
 В этом руководстве описывается добавление веб-интерфейса для обеспечения связи со службой с отслеживанием состояния. Однако сходную модель можно использовать для обмена данными с субъектами. При создании проекта Reliable Actor Visual Studio автоматически создает проект интерфейса. Этот интерфейс можно использовать для создания в веб-проекте прокси-сервера субъекта для взаимодействия с субъектом. Коммуникационный канал предоставляется автоматически. Поэтому вам не нужно предпринимать какие-либо действия по настройке `ServiceRemotingListener` , как в случае со службами с отслеживанием состояния.

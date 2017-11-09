@@ -11,22 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d8ad132ec47a81971a3405970eeddab3b1598ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3b34921168661089946b5c5dd9e6d489880733b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Устранение неполадок в работе шлюза управления данными
 В этой статье приводятся сведения об устранении неполадок в работе шлюза управления данными.
 
 > [!NOTE]
-> Подробные сведения о шлюзе см. в статье [Шлюз управления данными](data-factory-data-management-gateway.md). Сведения о пошаговом перемещении данных из локальной базы данных SQL Server в хранилище BLOB-объектов Microsoft Azure с помощью шлюза см. в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
->
->
+> Статья относится к версии 1 фабрики данных Azure, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, ознакомьтесь с [локальной средой выполнения интеграции в фабрике данных версии 2](../create-self-hosted-integration-runtime.md).
+
+Подробные сведения о шлюзе см. в статье [Шлюз управления данными](data-factory-data-management-gateway.md). Сведения о пошаговом перемещении данных из локальной базы данных SQL Server в хранилище BLOB-объектов Microsoft Azure с помощью шлюза см. в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
 
 ## <a name="failed-to-install-or-register-gateway"></a>Не удалось установить и зарегистрировать шлюз
 ### <a name="1-problem"></a>1. Проблема

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 6d00c776da3be0f799b82160c45f4c47a965b4bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Мониторинг конвейеров фабрики данных Azure и управление ими с помощью приложения для мониторинга и управления
 > [!div class="op_single_selector"]
@@ -27,6 +27,9 @@ ms.lasthandoff: 10/11/2017
 > * [Использование приложения для мониторинга и управления](data-factory-monitor-manage-app.md)
 >
 >
+
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, ознакомьтесь с [отслеживанием конвейеров фабрики данных и управлением ими в версии 2](../monitor-visually.md).
 
 В этой статье описывается, как с помощью приложения для мониторинга и управления отслеживать конвейеры фабрики данных, управлять ими и выполнять их отладку. В ней также приводятся инструкции по настройке оповещений в случае сбоев. Вы можете начать работу с приложением, посмотрев следующее видео:
 

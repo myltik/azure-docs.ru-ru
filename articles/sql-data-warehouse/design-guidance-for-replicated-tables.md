@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 39ac9aa678464c497d9f7963bab802141ce9e854
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 413a9df6d224e53ba42313f6dc5e740710d418e3
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Руководство по проектированию для использования реплицированных таблиц в хранилище данных SQL Azure
 В данной статье представлены рекомендации по проектированию реплицированных таблиц в схеме хранилища данных SQL Azure. Данные рекомендации позволяют повысить производительность запросов за счет уменьшения перемещения данных и упрощения запросов.
@@ -140,7 +140,7 @@ WHERE d.FiscalYear = 2004
 
 Перестроение требуется после следующего:
 - Загрузка или изменение данных
-- Масштабирование хранилища с использованием другого параметра DWU
+- Масштабирование хранилища данных с использованием другого [уровня обслуживания](performance-tiers.md#service-levels).
 - Обновление определения таблицы
 
 Перестроение не требуется после следующего:

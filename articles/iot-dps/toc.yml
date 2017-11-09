@@ -29,12 +29,15 @@
       href: concepts-service.md
     - name: Основные понятия безопасности
       href: concepts-security.md
+    - name: Безопасность
 - name: Практические руководства
   items:
     - name: Управление регистрацией устройств
       href: how-to-manage-enrollments.md
     - name: Использование HSM с пакетом SDK
       href: use-hsm-with-sdk.md
+    - name: Управление доступом к службе подготовки
+      href: how-to-control-access.md
 - name: Справочные материалы
   items:
     - name: REST

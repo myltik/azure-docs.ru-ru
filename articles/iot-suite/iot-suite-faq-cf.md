@@ -1,5 +1,5 @@
 ---
-title: "Часто задаваемые вопросы о подключенной фабрике Azure IoT Suite | Документация Майкрософт"
+title: "Решение подключенной фабрики Azure (часто задаваемые вопросы) | Документация Майкрософт"
 description: "Часто задаваемые вопросы о подключенной фабрике IoT Suite."
 services: 
 suite: iot-suite
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: corywink
-ms.openlocfilehash: babd39d5e2f290d9e3f7fc3a232937c6ccfc85c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f0d6fb377c21f5ece77a878fd285b5dda2f4fbc
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Часто задаваемые вопросы о предварительно настроенном решении для подключенной фабрики IoT Suite
 

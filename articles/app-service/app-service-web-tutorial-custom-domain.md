@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ac105b82b9bc25e6cc9f5cdf21f34400a09b3934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d7c99b1b02a0450cae406e2bc70a7e5563e2ac2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure
 
@@ -279,10 +279,10 @@ ms.lasthandoff: 10/11/2017
 Приведенная ниже команда добавляет заданное настраиваемое DNS-имя для приложения службы приложений. 
 
 ```bash 
-az appservice web config hostname add \
-    --webapp <app_name> \
+az webapp config hostname add \
+    --webapp-name <app_name> \
     --resource-group <resource_group_name> \ 
-    --name <fully_qualified_domain_name> 
+    --hostname <fully_qualified_domain_name> 
 ``` 
 
 Дополнительные сведения см. в статье [Сопоставление пользовательского домена с веб-приложением](scripts/app-service-cli-configure-custom-domain.md). 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
-ms.author: corywink
-ms.openlocfilehash: 5039dd30f85278b4e3bbba938ef40077af2c5c75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 09/21/2017
+ms.author: dobett
+ms.openlocfilehash: 9dfb0c898e74063719b3fd242d1fa9be2b89246c
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Часто задаваемые вопросы об IoT Suite
 
@@ -28,96 +28,76 @@ ms.lasthandoff: 10/11/2017
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Где можно найти исходный код для предварительно настроенных решений?
 
 Исходный код хранится в следующих репозиториях GitHub:
-* [Предварительно настроенное решение для удаленного мониторинга][lnk-remote-monitoring-github]
-* [Предварительно настроенное решение по диагностическому обслуживанию][lnk-predictive-maintenance-github]
+
+* [Remote Monitoring preconfigured solution with Azure IoT](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) (Предварительно настроенное решение для удаленного мониторинга с Центром Интернета вещей Azure)
+* [Remote Monitoring preconfigured solution with Azure IoT](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) (Предварительно настроенное решение для удаленного мониторинга с Центром Интернета вещей Azure)
+* [Microsoft Azure IoT Suite](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Предварительно настроенное решение для подключенной фабрики](https://github.com/Azure/azure-iot-connected-factory)
 
-### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>Как обновить до последней версии предварительно настроенное решение удаленного мониторинга, которое использует функции управления устройствами Центра Интернета вещей?
+### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Сколько стоит подготовка нового решения для удаленного мониторинга?
 
-* При развертывании предварительно настроенного решения с сайта https://www.azureiotsuite.com/ всегда развертывается новый экземпляр последней его версии.
-* При развертывании предварительно настроенного решения с помощью командной строки можно обновить существующее развертывание, добавив новый код. См. сведения о [развертывании в облаке][lnk-cloud-deployment] в [репозитории][lnk-remote-monitoring-github] GitHub.
+Предусмотрено два варианта развертывания нового предварительно настроенного решения:
 
-### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Как добавить поддержку нового метода устройства в предварительно настроенное решение для удаленного мониторинга?
+* *Базовый* вариант предназначен для разработчиков, которым нужно сократить затраты на разработку, или для клиентов, которые хотят создать демонстрационную версию или решение для подтверждения концепции.
+* *Стандартный* вариант предназначен для предприятий, желающих развернуть производственную инфраструктуру.
 
-См. сведения в разделе [Добавление в симулятор поддержки для нового метода][lnk-add-method] статьи [Настройка предварительно настроенного решения][lnk-customize].
+### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Как обеспечить сокращение расходов при разработке решения?
 
-### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>Почему виртуальное устройство игнорирует изменения требуемых свойств?
-В предварительно настроенном решении для мониторинга код виртуального устройства использует только требуемые свойства **Desired.Config.TemperatureMeanValue** и **Desired.Config.TelemetryInterval**, чтобы обновить сообщаемые свойства. Все прочие запросы на изменение требуемых свойств игнорируются.
+Помимо двух разных вариантов развертывания в новом решении для удаленного мониторинга предусмотрена возможность включения и отключения всех виртуальных устройств по требованию. При отключении виртуальных устройств уменьшается объем данных, принимаемых решением, и, следовательно, сокращаются расходы.
 
-### <a name="my-device-does-not-appear-in-the-list-of-devices-in-the-solution-dashboard-why"></a>Почему устройство не отображается в списке устройств на панели мониторинга решения?
+### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>Доступна ли новая архитектура микрослужб для всех трех типов предварительно настроенных решений?
 
-Для возврата списка устройств на панели мониторинга решения используется запрос. В настоящее время запрос не может возвращать более 10 000 устройств. Попробуйте ограничить условие поиска для запроса.
+Сейчас архитектура микрослужб используется только в решении для удаленного мониторинга, так как в нем охватывается самый широкий сценарий.
+
+### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Каковы преимущества новой архитектуры на базе микрослужб с открытым кодом в новом обновлении?
+
+За последние два года облачная архитектура значительно улучшилась. Микрослужбы стали оптимальным вариантом, который обеспечивает масштабируемость и гибкость без снижения скорости разработки. В некоторых службах Майкрософт по умолчанию используется шаблон архитектуры, который обеспечивает высокую надежность и масштабируемость. Мы реализуем полученные знания на практике, чтобы предоставить своим клиентам преимущества.
+
+### <a name="is-the-new-preconfigured-solution-available-in-the-same-geographic-region-as-the-existing-solution"></a>Доступно ли новое предварительно настроенное решение в том же географическом регионе, что и имеющееся?
+
+Да, новое решение для удаленного мониторинга доступно в том же географическом регионе.
+
+### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Какая разница между базовым и стандартным вариантами развертывания? Какой из них стоит выбрать?
+
+Каждый вариант развертывания предназначен для разных целей. Базовый вариант развертывания предназначен для начала работы и разработки решений для подтверждения концепции и небольших демонстрационных версий. В этом варианте вы получаете оптимизированную архитектуру с минимально необходимым набором ресурсов и низкой стоимостью. Стандартный вариант развертывания предназначен для сборки и настройки рабочего решения. Этот вариант предоставляет необходимые для развертывания компоненты, позволяющие достичь этой цели. Чтобы обеспечить надежность и масштабирование, микрослужбы приложения создаются как контейнеры Docker и развертываются с помощью оркестратора (по умолчанию Kubernetes). Оркестратор выполняет развертывание, масштабирование и управление приложением. Выберите вариант исходя из своих нужд. В зависимости от этапа вашего проекта вы можете выбрать первый, второй или оба.
+
+### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Можно ли продолжить использовать имеющиеся ресурсы в Azure IoT Suite?
+
+Да. Любое имеющееся решение продолжает работать в подписке Azure, а исходный код остается доступным на GitHub.
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>В чем разница между удалением группы ресурсов на портале Azure и нажатием кнопки "Удалить" в предварительно настроенном решении на сайте azureiotsuite.com?
 
-* Если удалить предварительно настроенное решение на сайте [azureiotsuite.com][lnk-azureiotsuite], будут удалены все ресурсы, подготовленные при создании этого решения. Если вы добавляли в группу ресурсов дополнительные ресурсы, они также будут удалены. 
-* Если удалить группу ресурсов на [портале Azure][lnk-azure-portal], будут удалены ресурсы в этой группе. Вам также придется удалить приложение Azure Active Directory, связанное с предварительно настроенным решением, на[ классическом портале Azure][lnk-classic-portal].
+* Если удалить предварительно настроенное решение на сайте [azureiotsuite.com](https://www.azureiotsuite.com/), будут удалены все ресурсы, подготовленные при его создании. Если вы добавляли в группу ресурсов дополнительные ресурсы, они также будут удалены.
+* Если удалить группу ресурсов на [портале Azure](https://portal.azure.com), будут удалены ресурсы в этой группе. Вам также придется удалить приложение Azure Active Directory, связанное с предварительно настроенным решением.
 
-### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Сколько экземпляров центров IoT можно подготовить в рамках одной подписки?
+### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Сколько экземпляров центров Интернета вещей можно подготовить в рамках одной подписки?
 
-По умолчанию [в рамках одной подписки можно подготовить 10 экземпляров Центра Интернета вещей][link-azuresublimits]. Можно создать [запрос в службу поддержки Azure][link-azuresupportticket], чтобы увеличить этот лимит. Так как каждое предварительно настроенное решение подготавливает новый Центр Интернета вещей, в рамках одной подписки можно подготовить до 10 таких решений. 
+По умолчанию [в рамках одной подписки можно подготовить 10 экземпляров Центра Интернета вещей](../azure-subscription-service-limits.md#iot-hub-limits). Вы можете отправить [запрос в службу поддержки Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade), чтобы увеличить этот лимит. Так как каждое предварительно настроенное решение подготавливает новый Центр Интернета вещей, в рамках одной подписки можно подготовить до 10 таких решений.
 
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Сколько экземпляров Azure Cosmos DB можно подготовить в рамках одной подписки?
 
-Пятьдесят. Вы можете направить [запрос в службу поддержки Azure][link-azuresupportticket], чтобы увеличить это количество, но по умолчанию в рамках одной подписки можно подготовить только 50 экземпляров Cosmos DB. 
+Пятьдесят. Вы можете отправить [запрос в службу поддержки Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade), чтобы увеличить это количество, но по умолчанию в рамках одной подписки можно подготовить только 50 экземпляров Cosmos DB.
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Сколько бесплатных API-интерфейсов Карт Bing можно подготовить в рамках одной подписки?
 
 Два. В рамках подписки Azure можно создать только две карты Bing уровня 1 с внутренними транзакциями для корпоративных планов. Решение для удаленного мониторинга по умолчанию подготавливается с помощью плана уровня 1 с внутренними транзакциями. Иными словами, используя одну подписку, в которую не вносились изменения, вы можете подготовить не более двух решений для удаленного мониторинга.
 
-### <a name="i-have-a-remote-monitoring-solution-deployment-with-a-static-map-how-do-i-add-an-interactive-bing-map"></a>У меня есть развернутое решение для удаленного мониторинга со статической картой. Как мне добавить интерактивную карту Bing?
-
-1. Получите на [портале Azure][lnk-azure-portal] ключ QueryKey API для Карт Bing для предприятий: 
-   
-   1. На [портале Azure][lnk-azure-portal] перейдите в группу ресурсов с учетной записью API для Карт Bing для предприятий.
-   2. Щелкните **Все параметры** и **Управление ключами**. 
-   3. Вы увидите два ключа: **MasterKey** и **QueryKey**. Скопируйте значение ключа **QueryKey**.
-      
-      > [!NOTE]
-      > У вас нет учетной записи Bing Maps API for Enterprise? Создайте ее на [портале Azure][lnk-azure-portal], щелкнув "+ Создать". Затем найдите API для Карт Bing для предприятий и следуйте подсказкам по созданию.
-      > 
-      > 
-2. Разверните последний фрагмент кода из архива [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
-3. Запустите развертывание (локально или в облаке) в соответствии с руководством по развертыванию, которое находится в папке /docs/ репозитория. 
-4. Запустив развертывание (локально или в облаке), найдите в корневой папке файл *.user.config, созданный во время развертывания. Откройте этот файл в текстовом редакторе. 
-5. Измените следующую строку, чтобы включить скопированное из ключа **QueryKey** значение: 
-   
-   `<setting name="MapApiQueryKey" value="" />`
-
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>Можно ли создать предварительно настроенное решение при наличии Microsoft Azure для DreamSpark?
 
-Сейчас нельзя создавать предварительно настроенные решения с использованием учетной записи [Microsoft Azure для DreamSpark][lnk-dreamspark]. Но вы можете создать [бесплатную пробную учетную запись Azure][lnk-30daytrial] всего за несколько минут. Это позволит вам создать предварительно настроенное решение.
+Сейчас нельзя создавать предварительно настроенные решения с использованием учетной записи [Microsoft Azure для DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99). Но вы можете создать [бесплатную пробную учетную запись Azure](https://azure.microsoft.com/free/) всего за несколько минут. Это позволит вам создать предварительно настроенное решение.
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>Можно ли создать предварительно настроенное решение при наличии подписки поставщика облачных решений (CSP)?
 
-В настоящее время создание предварительно настроенных решений с помощью подписки поставщика облачных решений (CSP) недоступно. Но вы можете создать [бесплатную пробную учетную запись Azure][lnk-30daytrial] всего за несколько минут. Это позволит вам создать предварительно настроенное решение.
+В настоящее время создание предварительно настроенных решений с помощью подписки поставщика облачных решений (CSP) недоступно. Но вы можете создать [бесплатную пробную учетную запись Azure](https://azure.microsoft.com/free/) всего за несколько минут. Это позволит вам создать предварительно настроенное решение.
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>Как удалить клиент AAD?
 
-Ознакомьтесь с записью блога Эрика Голпа (Eric Golpe) [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Пошаговое руководство по удалению клиента Azure AD).
+Ознакомьтесь с записью блога Эрика Голпа (Eric Golpe) [Walkthrough of Deleting an Azure AD Tenant](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx) (Пошаговое руководство по удалению клиента Azure AD).
 
 ### <a name="next-steps"></a>Дальнейшие действия
 
 Вы также можете ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
 
-* [Обзор предварительно настроенного решения прогнозируемого обслуживания][lnk-predictive-overview]
+* [Обзор предварительно настроенного решения прогнозируемого обслуживания](iot-suite-predictive-overview.md)
 * [Начало работы с предварительно настроенным решением для подключенной фабрики](iot-suite-connected-factory-overview.md)
-* [Все аспекты безопасности Интернета вещей][lnk-security-groundup]
-
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-security-groundup]: securing-iot-ground-up.md
-
-[link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
-[link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
-[lnk-azure-portal]: https://portal.azure.com
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-classic-portal]: https://manage.windowsazure.com
-[lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring 
-[lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 
-[lnk-30daytrial]: https://azure.microsoft.com/free/
-[lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
-[lnk-cloud-deployment]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
-[lnk-add-method]: iot-suite-guidance-on-customizing-preconfigured-solutions.md#add-support-for-a-new-method-to-the-simulator
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-predictive-maintenance-github]: https://github.com/Azure/azure-iot-predictive-maintenance
+* [Комплексная защита в Интернете вещей](securing-iot-ground-up.md)

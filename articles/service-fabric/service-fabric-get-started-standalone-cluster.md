@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/06/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5c8f4c784eed7b64810a3dd1c36c043d22a66936
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5438d8d366ef989d5ae29581477513f8c884c4b3
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>Создание первого изолированного кластера Service Fabric
 Вы можете создать изолированный кластер Service Fabric на локально или в облаке на виртуальных машинах или компьютерах под управлением Windows Server 2012 R2 или Windows Server 2016. Это краткое руководство поможет вам создать изолированный кластер разработки в течение нескольких минут.  Завершив работу с этим руководством, вы получите работающий на отдельном компьютере кластер с тремя узлами, в который вы можете развертывать приложения.

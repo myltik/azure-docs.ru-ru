@@ -12,14 +12,14 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 10/23/2017
+ms.workload: Active
+ms.date: 10/25/2017
 ms.author: carlrab
-ms.openlocfilehash: c5853b7f4af02e096a0678de14abd5c0b3d7ab0c
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 1505b85a8828cd64045a982ece48e49d85ea3314
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-features"></a>Возможности базы данных SQL Azure
 
@@ -41,6 +41,8 @@ ms.lasthandoff: 10/24/2017
 | [Группы доступности AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Функция высокого уровня доступности включается в каждой базе данных. Сведения об аварийном восстановлении см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md). |
 | [Присоединение базы данных](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Нет |
 | [Роли приложений](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Да |
+|[Аудит](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Да](sql-database-auditing.md)|
+| [Автоматическая настройка](/sql/relational-databases/automatic-tuning/automatic-tuning)| [Да](sql-database-automatic-tuning.md)|
 | [BACPAC-файл (экспорт)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Да. Дополнительные сведения см. в статье [Экспорт базы данных SQL Azure в BACPAC-файл](sql-database-export.md). |
 | [BACPAC-файл (импорт)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Да. Дополнительные сведения см. в статье [Импорт BACPAC-файла в новую базу данных SQL Azure](sql-database-import.md). |
 | [Команда BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Нет. Дополнительные сведения см. в статье [Подробнее об автоматически создаваемых резервных копиях в Базе данных SQL](sql-database-automated-backups.md). |
@@ -69,6 +71,7 @@ ms.lasthandoff: 10/24/2017
 | [Инструкции языка DML](https://docs.microsoft.com/sql/t-sql/queries/queries) | Да |
 | [Триггеры DML](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/create-dml-triggers) | Большинство. Дополнительные сведения см. в разделах по отдельным инструкциям. | 
 | [Динамические административные представления](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Некоторые. Дополнительные сведения см. в разделах по отдельным динамическим административным представлениям. |
+|[Динамическое маскирование данных](/sql/relational-databases/security/dynamic-data-masking)|[Да](sql-database-dynamic-data-masking-get-started.md)|
 | [Уведомления о событиях](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Нет. Дополнительные сведения см. в статье [Создание оповещений для базы данных SQL Azure и хранилища данных с помощью портала Azure](sql-database-insights-alerts-portal.md). |
 | [Выражения](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Да |
 | [Расширенные события](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Некоторые дополнительные сведения см. в статье [Расширенные события в Базе данных SQL](sql-database-xevent-db-diff-from-svr.md) |

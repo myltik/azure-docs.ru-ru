@@ -12,57 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/24/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Таблица поддержки для репликации на дополнительный сайт с помощью Azure Site Recovery
 
-В этой статье перечислены поддерживаемые конфигурации и компоненты при использовании Azure Site Recovery для репликации на дополнительный локальный сайт.
+В этой статье перечислены поддерживаемые конфигурации и компоненты при использовании службы [Azure Site Recovery](site-recovery-overview.md) для репликации на дополнительный локальный сайт.
 
-## <a name="deployment-options"></a>Варианты развертывания
+## <a name="supported-scenarios"></a>Поддерживаемые сценарии использования.
 
-**Развертывание** | **VMware или физический сервер** | **Hyper-V (с или без SCVMM)**
---- | --- | --- | ---
-**Портал Azure** | Из локальных виртуальных машин VMware на дополнительный сайт VMware.<br/><br/> Скачайте [руководство пользователя InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (недоступно на портале Azure). | Из локальных виртуальных машин Hyper-V (в облаках VMM) на дополнительный сайт VMM.<br></br> Не поддерживается без VMM.  <br/><br/> Только стандартная репликация Hyper-V. SAN не поддерживается.
-**Классический портал.** | Доступен только режим обслуживания. Создать хранилища невозможно. | Доступен только режим обслуживания.<br></br> Не поддерживается без SCVMM.
-**PowerShell** | Не поддерживается | Поддерживаются<br></br> Не поддерживается без SCVMM.
-
-## <a name="on-premises-servers"></a>Локальные серверы
-
-### <a name="virtualization-servers"></a>Серверы виртуализации
-
-**Развертывание** | **Поддержка**
+**Развертывание** | **Дополнительные сведения** 
 --- | ---
-**Виртуальная машина VMware или физический сервер** | vSphere 6.0, 5.5 или 5.1 с последними обновлениями
-**Hyper-V (с VMM)** | VMM 2016 и VMM 2012 R2
+**Из VMware в VMware** | Аварийное восстановление локальных виртуальных машин VMware на дополнительный сайт VMware.<br/><br/> Скачайте [руководство пользователя InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf).
+**Из Hyper-V в Hyper-V** | Аварийное восстановление локальных виртуальных машин Hyper-V (в облаках VMM) на дополнительный сайт VMM.<br></br> Не поддерживается без VMM.
 
-  >[!Note]
-  > Сейчас облака VMM 2016, сочетающие узлы Windows Server 2016 и 2012 R2, не поддерживаются.
-  > Конфигурации, которые включают в себя обновление существующих версий SCVMM, начиная с SCVMM 2012 R2 и заканчивая SCVMM 2016, в настоящее время не поддерживаются.
-### <a name="host-servers"></a>Серверы узлов
+
+
+  
+
+## <a name="host-servers"></a>Серверы узлов
 
 **Развертывание** | **Поддержка**
 --- | ---
 **Виртуальная машина VMware или физический сервер** | vCenter 5.5 или vCenter 6.0 (поддержка только функций vCenter 5.5) 
-**Hyper-V (без VMM)** | При репликации на дополнительный сайт конфигурация не поддерживается.
-**Hyper-V с VMM** | Windows Server 2016 и Windows Server 2012 R2 с последними обновлениями.<br/><br/> Узлами Windows Server 2016 должен управлять сервер VMM 2016.
+**Hyper-V с VMM** | Windows Server 2016 и Windows Server 2012 R2 с последними обновлениями.<br/><br/> Узлами Windows Server 2016 должен управлять сервер VMM 2016.<br/><br/> Сейчас облака VMM 2016, сочетающие узлы Windows Server 2016 и 2012 R2, не поддерживаются.<br/><br/> Развертывание, включающее в себя обновление существующей среды VMM 2012 R2 до System Center 2016, сейчас не поддерживаются.
+
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Поддержка версий ОС для реплицируемых виртуальных машин
-В таблице ниже представлены сведения о поддержке операционных систем в различных сценариях развертывания при использовании Azure Site Recovery. Эта поддержка относится к любой рабочей нагрузке, выполняемой в указанной ОС.
+
+В следующей таблице указаны сведения о поддержке операционных систем для компьютеров, реплицируемых с помощью Site Recovery. В поддерживаемой операционной системе может выполняться любая рабочая нагрузка.
 
 **VMware или физический сервер** | **Hyper-V (с VMM)**
---- | --- | ---
+--- | ---
 64-разрядная версия Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 как минимум с пакетом обновления 1 (SP1).<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2. <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 или 6.5 с ядром, совместимым с Red Hat, или с ядром Unbreakable Enterprise Kernel Release 3 (UEK3). <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Любая операционная система на виртуальной машине, [ поддерживаемая Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
->[!Note]
->Реплицировать можно только компьютеры под управлением Linux со следующими типами хранилищ: файловая система (EXT3, ETX4, ReiserFS, XFS), многомаршрутное подключение устройств, диспетчер томов (LVM2).
->Физические серверы с хранилищем контроллера HP CCISS не поддерживаются.
->Файловая система ReiserFS поддерживается только в SUSE Linux Enterprise Server 11 с пакетом обновления 3 (SP3).
+## <a name="linux-machine-storage"></a>Хранилище компьютера Linux
+
+Можно реплицировать только компьютеры Linux со следующими характеристиками хранилища:
+
+- файловая система: EXT3, ETX4, ReiserFS, XFS;
+- программное обеспечение Multipath — Device Mapper;
+- диспетчер томов: LVM2.
+- Физические серверы с хранилищем контроллера HP CCISS не поддерживаются.
+- Файловая система ReiserFS поддерживается только в SUSE Linux Enterprise Server 11 с пакетом обновления 3 (SP3).
 
 ## <a name="network-configuration"></a>Конфигурация сети
 
@@ -135,5 +132,5 @@ RDM | Да | Недоступно
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- [Репликация виртуальных машин Hyper-V из облаков VMM на вторичный сайт VMM](site-recovery-vmm-to-vmm.md)
-- [Репликация виртуальных машин и физических серверов VMware на дополнительный сайт](site-recovery-vmware-to-vmware.md)
+- [Репликация виртуальных машин Hyper-V из облаков VMM на вторичный сайт VMM](tutorial-vmm-to-vmm.md)
+- [Репликация виртуальных машин и физических серверов VMware на дополнительный сайт](tutorial-vmware-to-vmware.md)

@@ -8,6 +8,41 @@
 ### [Развертывание предварительно настроенного решения](iot-suite-remote-monitoring-deploy.md)
 ### [Использование предварительно настроенного решения](iot-suite-remote-monitoring-explore.md)
 
+## Удаленный мониторинг (предварительная версия)
+### [Что такое предварительно настроенные решения?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [Часто задаваемые вопросы](iot-suite-v1-faq.md)
+
+### Начало работы
+#### [Приступая к работе с предварительно настроенными решениями](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Разрешения для azureiotsuite.com](iot-suite-v1-permissions.md)
+#### [Пошаговое руководство по решению для удаленного мониторинга](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Подключение устройства Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+##### Использование C
+###### [Смоделированные данные](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
+###### [Использование реальных датчиков](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
+###### [Реализация обновления встроенного ПО](iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
+##### Использование Node.js
+###### [Смоделированные данные](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
+###### [Использование реальных датчиков](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
+###### [Реализация обновления встроенного ПО](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### Подключение шлюза Intel NUC
+##### [Смоделированные данные](iot-suite-v1-gateway-kit-get-started-simulator.md)
+##### [Использование реальных датчиков](iot-suite-v1-gateway-kit-get-started-sensortag.md)
+
+### Практическое руководство
+#### Подключение виртуального устройства
+##### [C в Windows](iot-suite-v1-connecting-devices.md)
+##### [C в Linux](iot-suite-v1-connecting-devices-linux.md)
+##### [Node.js](iot-suite-v1-connecting-devices-node.md)
+#### [Подключение приложения логики к решению для удаленного мониторинга](iot-suite-v1-logic-apps-tutorial.md)
+#### [Настройка предварительно настроенного решения](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Использование динамической телеметрии с решением для удаленного мониторинга](iot-suite-v1-dynamic-telemetry.md)
+#### [Создание настраиваемого правила в решении для удаленного мониторинга](iot-suite-v1-custom-rule.md)
+#### [Сведения об устройстве в решении для удаленного мониторинга](iot-suite-v1-remote-monitoring-device-info.md)
+
+
+
+
 ## Диагностическое обслуживание
 ### [Обзор решения для диагностического обслуживания](iot-suite-predictive-overview.md)
 ### [Пошаговое руководство по решению для диагностического обслуживания](iot-suite-predictive-walkthrough.md)

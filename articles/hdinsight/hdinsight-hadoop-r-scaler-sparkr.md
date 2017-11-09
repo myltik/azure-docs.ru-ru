@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b84c365defbaadbc83c86e6e387c15a63e0f17ce
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Совместное использование ScaleR и SparkR в HDInsight
 
@@ -552,7 +552,7 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 - Общие сведения об R Server см. в статье [Начало работы с Microsoft R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node).
 
-- Сведения об R Server в HDInsight см. в статьях [Основные сведения об R Server и возможностях открытого кода R в HDInsight](hdinsight-hadoop-r-server-overview.md) и [Приступая к работе с R Server в HDInsight](hdinsight-hadoop-r-server-get-started.md).
+- Сведения об R Server в HDInsight см. в статьях [Основные сведения об R Server и возможностях открытого кода R в HDInsight](r-server/r-server-overview.md) и [Приступая к работе с R Server в HDInsight](r-server/r-server-get-started.md).
 
 Дополнительные сведения об использовании SparkR см. в следующих статьях:
 

@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
-ms.openlocfilehash: 69c1d41a4c2dbddd20c0e603ef335f3030a484d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f4070c5a02e559bd299033865aa5258532498aa
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Использование Azure CLI 2.0 со службой хранилища Azure
 
@@ -393,7 +393,7 @@ az storage share snapshot -n <share name>
 }
 ```
 
-### <a name="list-share-napshots"></a>Вывод списка моментальных снимков общей папки
+### <a name="list-share-snapshots"></a>Вывод списка моментальных снимков общих ресурсов
 
 Вы можете вывести список моментальных снимков определенной общей папки с помощью команды `az storage share list --include-snapshots`.
 
@@ -437,7 +437,7 @@ az storage share list --include-snapshots
 ]
 ```
 
-### <a name="browse-share-snapshots"></a>Просмотр снимков общей папки
+### <a name="browse-share-snapshots"></a>Просмотр снимков общего ресурса
 Вы также можете перейти к определенному моментальному снимку общей папки, чтобы просмотреть его содержимое. Для этого используйте команду `az storage file list`. Укажите имя общей папки `--share-name <snare name>` и метку времени `--snapshot '2017-10-04T19:45:18.0000000Z'`.
 
 ```azurecli-interactive
@@ -458,7 +458,7 @@ IMG_1634.JPG    1495999           file
 IMG_1635.JPG    974058            file
 
 ```
-### <a name="restore-from-share-snapshots"></a>Восстановление из моментальных снимков общей папки
+### <a name="restore-from-share-snapshots"></a>Восстановление из моментальных снимков общего ресурса
 
 Вы можете восстановить файл, скопировав или скачав его из моментального снимка общей папки с помощью команды `az storage file download`.
 

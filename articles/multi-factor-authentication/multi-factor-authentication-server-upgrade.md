@@ -3,7 +3,7 @@ title: "Обновление сервера Azure MFA | Документация
 description: "Пошаговые инструкции по обновлению сервера Многофакторной идентификации Azure до более новой версии."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 3a2fb7413fa1391969d00ad281fd1ade3e0f40a8
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 4bc248994d4188691d620ffbc8012325f047325a
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Обновление сервера Многофакторной идентификации Azure до последней версии
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/18/2017
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Установка последней версии сервера Azure MFA
 
-1. Следуйте указаниям в разделе [Загрузка сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#download-the-mfa-server), чтобы скачать последнюю версию сервера Azure MFA.
+1. Следуйте указаниям в разделе, посвященном [загрузке сервера Многофакторной идентификации Azure](multi-factor-authentication-get-started-server.md#download-the-mfa-server), чтобы скачать последнюю версию сервера Azure MFA.
 2. Создайте резервную копию файла данных сервера MFA, который находится в расположении C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (если расположение по умолчанию не было изменено при установке) на главном сервере MFA.
 3. Если для обеспечения высокой доступности работает несколько серверов, то измените клиентские системы, которые выполняют аутентификацию на сервере Mногофакторной идентификации, чтобы они прекратили отправлять трафик на обновляемые серверы Mногофакторной идентификации. При использовании подсистемы балансировки нагрузки удалите из нее сервер Mногофакторной идентификации, выполните обновление, а затем снова добавьте сервер в ферму.
 4. Запустите новый установщик на каждом сервере MFA. Сначала обновите подчиненные серверы, так как они смогут считывать устаревший файл данных, реплицируемый главным сервером. 

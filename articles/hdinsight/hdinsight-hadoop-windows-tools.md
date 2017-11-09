@@ -10,11 +10,11 @@ ms.date: 05/17/2017
 ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: e4f231c1f9b903d6cc7f2b062b30d2a072be8493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9e4476334db95c66650f663dc3d8d13df2c5b52
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Работа в экосистеме Hadoop в HDInsight на компьютере с Windows
 
@@ -28,7 +28,7 @@ Azure PowerShell — это среда сценариев, которая по�
 При помощи PowerShell можно выполнять такие задачи:
 
 * [создавать кластеры](hdinsight-hadoop-create-linux-clusters-azure-powershell.md);
-* [Выполнение запросов Hive с помощью PowerShell](hdinsight-hadoop-use-hive-powershell.md)
+* [Выполнение запросов Hive с помощью PowerShell](hadoop/apache-hadoop-use-hive-powershell.md)
 * [управлять кластерами](hdinsight-administer-use-powershell.md).
 
 Указания по установке и настройке последней версии Azure PowerShell см. [здесь](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Если у вас есть сценарии, в которые нужно добавить новые командлеты для Azure Resource Manager, см. статью [Переход к средствам разработки на основе Azure Resource Manager для кластеров HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -38,17 +38,17 @@ Azure PowerShell — это среда сценариев, которая по�
 * **[Azure Cloud Shell (предварительная версия)](https://docs.microsoft.com/azure/cloud-shell/quickstart)** — интерактивная оболочка командной строки, выполняемая в браузере и на портале Azure.
 * **[Веб-интерфейс Ambari](hdinsight-hadoop-manage-ambari.md)** — служебная программа для управления и мониторинга, доступная на портале Azure. Она позволяет управлять разными видами заданий, например:
     * [интеграция Ambari с REST API](hdinsight-hadoop-manage-ambari-rest-api.md);
-    * [используйте представление Hive в Ambari](hdinsight-hadoop-use-hive-ambari-view.md)
+    * [используйте представление Hive в Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
     * [использование представлений Tez в Ambari](hdinsight-debug-ambari-tez-view.md).
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Средства Data Lake (Hadoop) для Visual Studio
 Средства Data Lake для Visual Studio позволяют развертывать топологии Storm и управлять ими. Эти средства также устанавливают пакет SDK для SCP.NET, который позволяет разрабатывать топологии Storm на языке C# с помощью Visual Studio.
 
-Перед выполнением приведенных ниже примеров [установите средства Data Lake для Visual Studio и попробуйте работать с ними](hdinsight-hadoop-visual-studio-tools-get-started.md). 
+Перед выполнением приведенных ниже примеров [установите средства Data Lake для Visual Studio и попробуйте работать с ними](hadoop/apache-hadoop-visual-studio-tools-get-started.md). 
 
 При помощи средств Data Lake и Visual Studio можно выполнять следующие задачи:
-* [Развертывать топологии Storm и управлять ими](hdinsight-storm-deploy-monitor-topology-linux.md).
-* [Разрабатывать топологии Storm на языке C#](hdinsight-storm-develop-csharp-visual-studio-topology.md). Биты содержат примеры шаблонов топологий Storm, которые можно подключать к базам данных, таким как Azure Cosmos DB и база данных SQL.
+* [Развертывать топологии Storm и управлять ими](storm/apache-storm-deploy-monitor-topology-linux.md).
+* [Разрабатывать топологии Storm на языке C#](storm/apache-storm-develop-csharp-visual-studio-topology.md). Биты содержат примеры шаблонов топологий Storm, которые можно подключать к базам данных, таким как Azure Cosmos DB и база данных SQL.
 
 ## <a name="visual-studio-and-the-net-sdk"></a>Visual Studio и пакет SDK для .NET 
 
@@ -56,8 +56,8 @@ Visual Studio с пакетом SDK для .NET позволяет управл�
 
 При помощи пакета SDK для .NET в Visual Studio можно выполнять следующие задачи:
 * [создавать кластеры и работать в HDInsight из приложения .NET Framework](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md);
-* [выполнять запросы Hive с помощью пакета SDK для .NET](hdinsight-hadoop-use-hive-dotnet-sdk.md);
-* [использовать определяемые пользователем функции C# при потоковой передаче Hive и Pig в Hadoop](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md).
+* [выполнять запросы Hive с помощью пакета SDK для .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md);
+* [использовать определяемые пользователем функции C# при потоковой передаче Hive и Pig в Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
 > Совет. Если вы используете решения .NET с кластерами HDInsight под управлением Windows, мы советуем перенести эти решения в кластеры под управлением Linux. Дополнительные сведения см. в статье [Перенос решений .NET из HDInsight под управлением Windows в HDInsight под управлением Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
@@ -68,15 +68,15 @@ Visual Studio с пакетом SDK для .NET позволяет управл�
 * разрабатывать и запускать приложения Scala Spark в локальной среде.
 
 В этих статьях описывается: 
-* [Создание приложений Spark для кластера HDInsight с помощью набора средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md) (Intellij IDEA).
-* [Создание приложений Spark для кластера HDInsight с помощью набора средств Azure для Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md) (Eclipse IDE или Scala IDE для Eclipse). 
+* [Создание приложений Spark для кластера HDInsight с помощью набора средств Azure для IntelliJ](spark/apache-spark-intellij-tool-plugin.md) (Intellij IDEA).
+* [Создание приложений Spark для кластера HDInsight с помощью набора средств Azure для Eclipse](spark/apache-spark-eclipse-tool-plugin.md) (Eclipse IDE или Scala IDE для Eclipse). 
 
 
 ## <a name="notebooks-on-spark-for-data-scientists"></a>Записные книжки в Spark для специалистов по обработке и анализу данных 
 Кластеры Apache Spark в HDInsight включают записные книжки Zeppelin и ядра, которые можно использовать с записными книжками Jupyter. 
 
-* [Использование записных книжек Zeppelin с кластером Apache Spark в Azure HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
-* [Ядра для записных книжек Jupyter с кластерами Apache Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md) 
+* [Использование записных книжек Zeppelin с кластером Apache Spark в Azure HDInsight](spark/apache-spark-zeppelin-notebook.md)
+* [Ядра для записных книжек Jupyter с кластерами Apache Spark в HDInsight](spark/apache-spark-jupyter-notebook-kernels.md) 
 
 
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Запуск средств и технологии Linux в Windows

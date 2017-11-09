@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 10/31/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: e38a92fc48636476f00fe18c735901d906799fde
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 514fa3490e480647f0923c99bd9606a3726d4d30
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Создание реестра контейнеров на портале Azure
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/14/2017
 
 ![Создание реестра контейнеров на портале Azure][qs-portal-03]
 
-В этом кратком руководстве мы создадим *базовый* реестр. Реестр контейнеров Azure доступен в нескольких номерах SKU, которые кратко описаны в следующей таблице. См. дополнительные сведения о [номерах SKU реестра контейнеров](container-registry-skus.md).
+В этом кратком руководстве мы создадим реестр уровня *Базовый*. Реестр контейнеров Azure доступен в нескольких номерах SKU, которые кратко описаны в следующей таблице. См. дополнительные сведения о [номерах SKU реестра контейнеров](container-registry-skus.md).
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -65,11 +65,11 @@ ms.lasthandoff: 10/14/2017
 
 Перед отправкой и извлечением образов контейнеров необходимо войти в экземпляр ACR. Чтобы сделать это, используйте команду [docker login](https://docs.docker.com/engine/reference/commandline/login/). Замените значения *username* (имя пользователя), *password* (пароль) и *login server* (сервер входа) значениями, записанными на предыдущем шаге.
 
-```
+```bash
 docker login --username <username> --password <password> <login server>
 ```
 
-После выполнения эта команда возвращает сообщение "Login Succeeded" (Вход выполнен).
+По завершении команда возвращает `Login Succeeded`. Также может появиться предупреждение системы безопасности, рекомендующее использовать параметр `--password-stdin`. Хотя его использование выходит за рамки данной статьи, мы рекомендуем следовать данной рекомендации. Чтобы получить дополнительные сведения, ознакомьтесь с описанием команды [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
 ## <a name="push-image-to-acr"></a>Отправка образа в ACR
 

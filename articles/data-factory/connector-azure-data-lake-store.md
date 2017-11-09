@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: e4f92c0c4d9307837ef6c760acd8eaa846938ded
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e6e56dd7ce1a16cadf35f9efe959ac490a65071
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Копирование данных в хранилище Azure Data Lake Store и из него с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,6 +51,11 @@ ms.lasthandoff: 10/11/2017
 - Идентификатор приложения
 - Ключ приложения
 - Tenant ID
+
+[!TIP]
+> Убедитесь, что в Azure Data Lake Store субъекту-службе предоставлено правильное разрешение.
+>- Чтобы использовать Azure Data Lake Store в качестве источника, предоставьте разрешение на доступ к данным по крайней мере на **чтение и выполнение** для просмотра и копирования содержимого папки, или разрешение на **чтение** для копирования одного файла. Управление доступом на уровне учетной записи не требуется.
+>- Чтобы использовать Azure Data Lake Store в качестве приемника, предоставьте разрешение на доступ к данным по крайней мере на **запись и выполнение** для создания дочерних элементов в папке. Если для расширения возможностей копирования используется среда IR Azure (источник и приемник находятся в облаке), чтобы фабрика данных смогла определить регион Data Lake Store, назначьте в Системе управления идентификацией и доступом (IAM) роль по крайней мере **читателя**. Если вы хотите избежать этой роли IAM, [создайте среду IR Azure](create-azure-integration-runtime.md#create-azure-ir), используя расположение Data Lake Store, и привяжите связанную службу Data Lake Store, как в приведенном ниже примере.
 
 Поддерживаются следующие свойства:
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
-ms.openlocfilehash: 0130823b6a6f5a4883ad640c9bcefc89b82b2cd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76da0d4e805c732d40a7bd02e5c70973c792e26c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Общие сведения о защите от атак DDoS Azure уровня "Стандартный"
 
@@ -35,12 +35,12 @@ ms.lasthandoff: 10/11/2017
 
 ![Защита от атак DDoS Azure уровня "Стандартный"](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
-Защиту от атак DDoS уровня "Стандартный" можно использовать для сценариев разработки и тестирования. Оставить отзыв о защите можно на следующих ресурсах:
+Мы рекомендуем вам попробовать службу "Защита от атак DDoS" уровня "Стандартный" в среде разработки, тестовой среде или рабочей среде. Чтобы отправить отзыв о своем опыте работы, используйте следующие ресурсы:
 - [Защита от атак DDoS Azure на форуме Microsoft Azure](https://feedback.azure.com/forums/905032-azure-ddos-protection). 
 - [Защита от атак DDoS Azure на форуме MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azureddosprotection)
 - [Защита от атак DDoS Azure на Stack Overflow](https://stackoverflow.com/tags/azure-ddos/info)
 
-Если вам необходима поддержка, можно [отправить запрос в службу поддержки Azure](../azure-supportability/how-to-create-azure-support-request.md).
+Если вам необходима поддержка, можно [отправить запрос в службу поддержки Azure](../azure-supportability/how-to-create-azure-support-request.md). Служба "Защита от атак DDoS" уровня "Стандартный" находится на этапе предварительной версии, поэтому поддержка предоставляется наилучшим возможным образом.
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>Типы атак DDoS, которые можно устранить с помощью защиты от атак DDoS уровня "Стандартный"
 

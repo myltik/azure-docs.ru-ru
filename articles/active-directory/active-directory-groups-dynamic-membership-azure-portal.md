@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 958ee2f12ebbd46472972a3012ec59aecbc23126
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5e101c4b92868181a6b627d060a9c8e72a7837c4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Создание правил на основе атрибутов для динамического членства в группах в Azure Active Directory
 В Azure Active Directory (Azure AD) можно создать дополнительные правила для включения сложного, основанного на атрибутах динамического членства в группах. В этой статье подробно описываются атрибуты и синтаксис для создания правил динамического членства пользователей или устройств.
@@ -296,7 +296,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Изменение динамического членства на статическое (и наоборот)
 Можно изменить способ управления членством в группе. Это удобно, если требуется сохранить имя и идентификатор группы в системе, чтобы все существующие ссылки на эту группу по-прежнему были действительны. При создании новой группы эти ссылки потребовалось бы обновить.
 
-Выполняется обновление портала Azure для поддержки этой функции. Пока что можно использовать [классический портал Azure](https://manage.windowsazure.com) (следуйте инструкциям, приведенным [здесь](active-directory-accessmanagement-groups-with-advanced-rules.md#changing-dynamic-membership-to-static-and-vice-versa)) или командлеты PowerShell, как показано ниже.
+Выполняется обновление портала Azure для поддержки этой функции. Пока что можно использовать [классический портал Azure](https://manage.windowsazure.com) (следуйте инструкциям, приведенным [здесь](active-directory-accessmanagement-groups-with-advanced-rules.md)) или командлеты PowerShell, как показано ниже.
 
 > [!WARNING]
 > При изменении существующей статической группы на динамическую из нее удаляются все элементы, а затем обрабатывается правило членства для добавления новых элементов. Если группа используется для управления доступом к приложениям и ресурсам, исходных элементы могут временно утратить этот доступ, пока не завершится обработка правила членства.

@@ -1,25 +1,150 @@
 ---
 title: "Отслеживание фабрики данных Azure с помощью программных средств | Документация Майкрософт"
-description: "Узнайте, как с помощью действия хранимой процедуры SQL Server можно вызвать хранимую процедуру в Базе данных SQL Azure или хранилище данных SQL Azure из конвейера фабрики данных."
+description: "Узнайте, как отслеживать конвейер в фабрике данных с помощью различных пакетов средств разработки программного обеспечения (пакетов SDK)."
 services: data-factory
 documentationcenter: 
 author: spelluru
 manager: jhubbard
-editor: monicar
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 10/25/2017
 ms.author: spelluru
-ms.openlocfilehash: b6250cb4e77ecaaeccdffe293710b52bfca5f8c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 376bc64bee85fbc073b6ea4a39ecd013c23e791f
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="programmatically-monitor-an-azure-data-factory"></a>Отслеживание фабрики данных Azure с помощью программных средств 
+# <a name="programmatically-monitor-an-azure-data-factory"></a>Отслеживание фабрики данных Azure с помощью программных средств
+В этой статье описывается как отслеживать конвейер в фабрике данных с помощью различных пакетов средств разработки программного обеспечения (пакетов SDK). 
+
+> [!NOTE]
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, прочитайте статью [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью приложения для мониторинга и управления](v1/data-factory-monitor-manage-pipelines.md).
+
+## <a name="net"></a>.NET
+Полное пошаговое руководство по созданию и отслеживанию конвейера с помощью пакета SDK для .NET приведено в разделе [Создание фабрики данных и конвейера с помощью пакета SDK .NET](quickstart-create-data-factory-dot-net.md).
+
+1. Добавьте следующий код, чтобы постоянно проверять состояние выполнения конвейера до завершения копирования данных.
+
+    ```csharp
+    // Monitor the pipeline run
+    Console.WriteLine("Checking pipeline run status...");
+    PipelineRun pipelineRun;
+    while (true)
+    {
+        pipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, runResponse.RunId);
+        Console.WriteLine("Status: " + pipelineRun.Status);
+        if (pipelineRun.Status == "InProgress")
+            System.Threading.Thread.Sleep(15000);
+        else
+            break;
+    }
+    ```
+
+2. Добавьте следующий код, извлекающий сведения о выполнении действия копирования, например размер записанных и прочитанных данных.
+
+    ```csharp
+    // Check the copy activity run details
+    Console.WriteLine("Checking copy activity run details...");
+   
+    List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
+    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
+    if (pipelineRun.Status == "Succeeded")
+        Console.WriteLine(activityRuns.First().Output);
+    else
+        Console.WriteLine(activityRuns.First().Error);
+    Console.WriteLine("\nPress any key to exit...");
+    Console.ReadKey();
+    ```
+
+Полная документация по пакету SDK для .NET приведена в [справочнике по пакету SDK для .NET для фабрики данных](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
+
+## <a name="python"></a>Python
+Полное пошаговое руководство по созданию и отслеживанию конвейера с помощью пакета SDK для Python приведено в разделе [Создание фабрики данных и конвейера с помощью Python](quickstart-create-data-factory-python.md).
+
+Для отслеживания работы конвейера добавьте следующий код.
+
+```python
+#Monitor the pipeline run
+time.sleep(30)
+pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
+print("\n\tPipeline run status: {}".format(pipeline_run.status))
+activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
+print_activity_run_details(activity_runs_paged[0])
+```
+
+Полная документация по пакету SDK для Python приведена в [справочнике по пакету SDK для Python для фабрики данных](/python/api/overview/azure/datafactory?view=azure-python).
+
+## <a name="rest-api"></a>Интерфейс REST API
+Полное пошаговое руководство по созданию и отслеживанию конвейера с помощью REST API приведено в разделе [Создание фабрики данных Azure и конвейера с помощью REST API](quickstart-create-data-factory-rest-api.md).
+ 
+1. Запустите следующий скрипт, чтобы проверять состояние выполнения, пока не закончится копирование данных.
+
+    ```powershell
+    $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelineruns/${runId}?api-version=${apiVersion}"
+    while ($True) {
+        $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
+        Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
+
+        if ($response.Status -eq "InProgress") {
+            Start-Sleep -Seconds 15
+        }
+        else {
+            $response | ConvertTo-Json
+            break
+        }
+    }
+    ```
+2. Запустите следующий скрипт, извлекающий сведения о выполнении действия копирования, например размер записанных и прочитанных данных.
+
+    ```PowerShell
+    $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelineruns/${runId}/activityruns?api-version=${apiVersion}&startTime="+(Get-Date).ToString('yyyy-MM-dd')+"&endTime="+(Get-Date).AddDays(1).ToString('yyyy-MM-dd')+"&pipelineName=Adfv2QuickStartPipeline"
+    $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
+    $response | ConvertTo-Json
+    ```
+
+Полная документация по REST API приведена в [справочнике по REST API фабрики данных](/rest/api/datafactory/).
+
+## <a name="powershell"></a>PowerShell
+Полное пошаговое руководство по созданию и отслеживанию конвейера с помощью PowerShell приведено в разделе [Создание фабрики данных и конвейера с помощью пакета PowerShell](quickstart-create-data-factory-powershell.md).
+
+1. Запустите следующий скрипт, чтобы проверять состояние выполнения, пока не закончится копирование данных.
+
+    ```powershell
+    while ($True) {
+        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+
+        if ($run) {
+            if ($run.Status -ne 'InProgress') {
+                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
+                $run
+                break
+            }
+            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+        }
+
+        Start-Sleep -Seconds 30
+    }
+    ```
+2. Запустите следующий скрипт, извлекающий сведения о выполнении действия копирования, например размер записанных и прочитанных данных.
+
+    ```powershell
+    Write-Host "Activity run details:" -foregroundcolor "Yellow"
+    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result
+    
+    Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
+    $result.Output -join "`r`n"
+    
+    Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
+    $result.Error -join "`r`n"
+    ```
+
+Полная документация по командлетам PowerShell приведена в [справочнике по командлетам PowerShell для фабрики данных](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об использовании Azure Monitor для отслеживания конвейеров фабрики данных см. в статье [Monitor data factories using Azure Monitor](monitor-using-azure-monitor.md) (Отслеживание фабрик данных с помощью Azure Monitor). 

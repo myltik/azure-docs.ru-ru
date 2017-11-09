@@ -13,11 +13,11 @@ caps.latest.revision: "60"
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: b18b6f02f14db352289e3ab7e8b07a220868ce76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2873f61dcab9a14089949f27f40ca5bedaf14ee
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Схема WebRole для определения облачных служб Azure
 Веб-роль Azure — это роль, которая настраивается для программирования веб-приложений с поддержкой IIS 7, например ASP.NET, PHP, Windows Communication Foundation и FastCGI.
@@ -297,7 +297,7 @@ ms.lasthandoff: 10/11/2017
 |permissionLevel|string|необязательный параметр. Указывает права доступа, предоставленные процессам роли. Если вы хотите, чтобы только процессы с повышенными привилегиями имели доступ к закрытому ключу, укажите разрешение `elevated`. Разрешение `limitedOrElevated` позволяет всем процессам роли получать доступ к закрытому ключу. Возможные значения: `limitedOrElevated` или `elevated`. По умолчанию используется значение `limitedOrElevated`.|  
 
 ##  <a name="Imports"></a> Imports  
-Элемент `Imports` описывает коллекцию модулей импорта для веб-роли, которые добавляют компоненты в гостевую ОС. Этот элемент является родительским для элемента `Import`. Он является необязательным, и в роли может быть только один блок среды выполнения.
+Элемент `Imports` описывает коллекцию модулей импорта для веб-роли, которые добавляют компоненты в гостевую ОС. Этот элемент является родительским для элемента `Import`. Это необязательный элемент, и в роли может быть только один блок импорта. 
 
 Элемент `Imports` доступен только при использовании пакета Azure SDK версии 1.3 или выше.
 

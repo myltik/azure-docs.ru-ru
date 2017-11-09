@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 99b9f047525f46f68dc2c1029f6d53fbda87b69e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76c9382cc5210bb5ac8551ebb7b16ecabe0dcd39
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Пошаговое руководство обработки и анализа данных HDInsight Spark с использованием PySpark и Scala в Azure
 
-В этих пошаговых руководствах для выполнения прогнозной аналитики в кластере Azure Spark используются PySpark и Scala. Они предусматривают выполнение инструкций, описанных в процессе обработки и анализа данных группы. Процесс обработки и анализа данных группы представлен в статье [Жизненный цикл процесса обработки и анализа данных группы](overview.md). Обзор Spark в HDInsight см. в статье [Общие сведения о Spark в HDInsight](../../hdinsight/hdinsight-apache-spark-overview.md).
+В этих пошаговых руководствах для выполнения прогнозной аналитики в кластере Azure Spark используются PySpark и Scala. Они предусматривают выполнение инструкций, описанных в процессе обработки и анализа данных группы. Процесс обработки и анализа данных группы представлен в статье [Жизненный цикл процесса обработки и анализа данных группы](overview.md). Обзор Spark в HDInsight см. в статье [Общие сведения о Spark в HDInsight](../../hdinsight/spark/apache-spark-overview.md).
 
 Дополнительные пошаговые инструкции по обработке и анализу данных группы объединены по используемой **платформе**. Дополнительные сведения об этих примерах см. в статье [Пошаговые руководства по процессу обработки и анализа данных группы](walkthroughs.md).
 

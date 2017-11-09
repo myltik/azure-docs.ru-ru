@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/03/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: fa8f63c8da5019ed42ea8ec067d3d3d174976dd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5eb681e5f5c3b5944ff2d101056ae7c7cd60fac2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Публикация удаленного рабочего стола с помощью прокси приложения Azure AD
 
@@ -49,9 +49,6 @@ ms.lasthandoff: 10/11/2017
 - Необходимо, чтобы [были развернуты службы удаленных рабочих столов (RDS)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) и [включен прокси приложения](active-directory-application-proxy-enable.md).
 
 - В этом сценарии предполагается, что пользователи подключаются через Internet Explorer на компьютерах под управлением Windows 7 или Windows 10, которые подключаются через страницу веб-сайта удаленных рабочих столов. Если требуется поддержка других операционных систем, то см. раздел [Поддержка других конфигураций клиента](#support-for-other-client-configurations).
-
-  >[!NOTE]
-  >Обновление Windows 10 Creators Update в настоящее время не поддерживается.
 
 - В Internet Explorer включите надстройку RDS ActiveX.
 

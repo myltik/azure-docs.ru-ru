@@ -136,11 +136,30 @@
 ## [Интеграция со службой управления API](service-fabric-api-management-overview.md)
 
 ## Мониторинг и диагностика
-### [Обзор](service-fabric-diagnostics-overview.md)
-### [Модель обеспечения работоспособности](service-fabric-health-introduction.md)
-### [Диагностика в Reliable Services с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
-### [Диагностика в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-### [Счетчики производительности для отслеживания Reliable Services](service-fabric-reliable-serviceremoting-diagnostics.md)
+### [Приложения мониторинга и диагностики](service-fabric-diagnostics-overview.md)
+### Создание событий
+#### [Создание событий на уровне платформы](service-fabric-diagnostics-event-generation-infra.md)
+##### [Операционный канал](service-fabric-diagnostics-event-generation-operational.md)
+##### [События Reliable Services](service-fabric-reliable-services-diagnostics.md)
+##### [События Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+##### [Метрики производительности](service-fabric-diagnostics-event-generation-perf.md)
+##### [Мониторинг удаленного взаимодействия со службой](service-fabric-reliable-serviceremoting-diagnostics.md)
+#### [Создание событий на уровне приложения](service-fabric-diagnostics-event-generation-app.md)
+### Проверка работоспособности приложения и кластера
+#### [Отслеживание работоспособности Service Fabric](service-fabric-health-introduction.md)
+#### [Проверка работоспособности службы и оповещение о проблемах](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Добавление настраиваемых отчетов о работоспособности](service-fabric-report-health.md)
+#### [Устранение неполадок с помощью отчетов о работоспособности системы](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [Просмотр отчетов о работоспособности](service-fabric-view-entities-aggregated-health.md)
+### Статистическая обработка событий
+#### [Статистическая обработка событий с помощью EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Статистическая обработка событий с помощью системы диагностики Azure
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Анализ событий
+#### [Анализ событий с помощью Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [Анализ событий с помощью OMS](service-fabric-diagnostics-event-analysis-oms.md)
+### [Устранение неполадок локального кластера](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Практические руководства
 ## Настройка среды разработки
@@ -317,30 +336,12 @@
 #### [Перемещение служб](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## Мониторинг и диагностика
-### [Приложения мониторинга и диагностики](service-fabric-diagnostics-overview.md)
-### Создание событий
-#### [Создание событий на уровне платформы](service-fabric-diagnostics-event-generation-infra.md)
-##### [Операционный канал](service-fabric-diagnostics-event-generation-operational.md)
-##### [События Reliable Services](service-fabric-reliable-services-diagnostics.md)
-##### [События Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-##### [Метрики производительности](service-fabric-diagnostics-event-generation-perf.md)
-#### [Создание событий на уровне приложения](service-fabric-diagnostics-event-generation-app.md)
-### Проверка работоспособности приложения и кластера
-#### [Отслеживание работоспособности Service Fabric](service-fabric-health-introduction.md)
-#### [Проверка работоспособности службы и оповещение о проблемах](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-#### [Добавление настраиваемых отчетов о работоспособности](service-fabric-report-health.md)
-#### [Устранение неполадок с помощью отчетов о работоспособности системы](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-#### [Просмотр отчетов о работоспособности](service-fabric-view-entities-aggregated-health.md)
-#### [Отслеживание контейнеров Windows Server](service-fabric-diagnostics-containers-windowsserver.md)
-### Статистическая обработка событий
-#### [Статистическая обработка событий с помощью EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
-#### Статистическая обработка событий с помощью системы диагностики Azure
-##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
-##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
-### Анализ событий
-#### [Анализ событий с помощью Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-#### [Анализ событий с помощью OMS](service-fabric-diagnostics-event-analysis-oms.md)
-### [Устранение неполадок локального кластера](service-fabric-troubleshoot-local-cluster-setup.md)
+### OMS
+#### [Настройка OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
+#### [Добавление агента OMS](service-fabric-diagnostics-oms-agent.md)
+#### [Мониторинг контейнеров](service-fabric-diagnostics-oms-containers.md)
+### Мониторинг производительности
+#### [Мониторинг производительности с помощью WAD](service-fabric-diagnostics-perf-wad.md)
 
 # Справочные материалы
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)

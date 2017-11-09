@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bc0a7127457b2203e3a351d7825d203bba69f4ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74ee639af5e941c098cbdd1fafd96a0e1ce1b036
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Перемещение данных из MySQL с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 > Советы по устранению неполадок, связанных со шлюзом или подключением, см. в разделе [Устранение неполадок в работе шлюза](data-factory-data-management-gateway.md#troubleshooting-gateway-issues).
 
 ## <a name="supported-versions-and-installation"></a>Поддерживаемые версии и установка
-Чтобы подключить шлюз управления данными к базе данных MySQL, соединитель [MySQL Connector/Net для Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (версии 6.6.5 или более поздней) необходимо установить на тот же компьютер, что и шлюз управления данными. Поддерживается MySQL версии 5.1 и более.
+Чтобы подключить шлюз управления данными к базе данных MySQL, соединитель [MySQL Connector/Net для Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (версии 6.6.5 или более поздней) необходимо установить на тот же компьютер, что и шлюз управления данными. Это 32-разрядная версия драйвера совместима с 64-разрядной версией шлюза управления данными. Поддерживается MySQL версии 5.1 и более.
 
 > [!TIP]
 > Если произошла ошибка "Аутентификация не пройдена из-за закрытия транспортного потока удаленной стороной", то рекомендуется обновить соединитель MySQL Connector/Net до более поздней версии.

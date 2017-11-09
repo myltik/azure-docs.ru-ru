@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 10/26/2017
 ms.author: twooley
-ms.openlocfilehash: 6b54bb616accb926af9364865bf4108fe0aa3bc8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: d91a23ae4eb5aee14d3d2fef74467e7f33c458cc
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Обновление 1710 Azure Stack (сборка 20171020.1)
 
@@ -55,9 +55,12 @@ ms.lasthandoff: 10/25/2017
 
 Этот раздел содержит известные проблемы, которые могут возникнуть во время установки обновления 1710.
 
+> [!IMPORTANT]
+> В случае сбоя обновления при следующей попытке выполнить его используйте командлет `Resume-AzureStackUpdate` из привилегированной конечной точки. Не возобновляйте обновление с помощью портала администрирования. (Это известная проблема в этом выпуске.) Дополнительные сведения см. в статье [Мониторинг обновлений в Azure Stack с помощью привилегированной конечной точки](azure-stack-monitor-update.md).
+
 | Симптом  | Причина:  | Способы устранения: |
 |---------|---------|---------|
-|При выполнении обновления может произойти ошибка, подобная следующей ошибке в шаге "Storage Hosts Restart Storage Node" (Перезапуск узла хранилища в узлах хранилища) в плане действия обновления.<br><br>**{"name": "Перезапуск узлов хранилища", "description": "Перезапуск узлов хранилища.", "errorMessage": "Тип Restart роли BareMetal вызвал исключение: \n\n Компьютер HostName-05 пропускается. Не удалось извлечь его LastBootUpTime через службу WMI со следующим сообщением об ошибке: сервер RPC недоступен. (Исключение из HRESULT: 0x800706BA).\nat Restart-Host** | Эта проблема вызвана потенциально неисправным драйвером в некоторых конфигурациях. | 1. Войдите в веб-интерфейс контроллера управления основной платой (BMC) и перезапустите узел, указанный в сообщении об ошибке.<br><br>2) Возобновите обновление. |
+|При выполнении обновления может произойти ошибка, подобная следующей ошибке в шаге "Storage Hosts Restart Storage Node" (Перезапуск узла хранилища в узлах хранилища) в плане действия обновления.<br><br>**{"name": "Перезапуск узлов хранилища", "description": "Перезапуск узлов хранилища.", "errorMessage": "Тип Restart роли BareMetal вызвал исключение: \n\n Компьютер HostName-05 пропускается. Не удалось извлечь его LastBootUpTime через службу WMI со следующим сообщением об ошибке: сервер RPC недоступен. (Исключение из HRESULT: 0x800706BA).\nat Restart-Host** | Эта проблема вызвана потенциально неисправным драйвером в некоторых конфигурациях. | 1. Войдите в веб-интерфейс контроллера управления основной платой (BMC) и перезапустите узел, указанный в сообщении об ошибке.<br><br>2) Возобновите обновление с помощью привилегированной конечной точки. |
 | При выполнении обновления, процесс обновления останавливается и не продолжается после шага "Step: Running step 2.4 - Install update" (Шаг: выполнение шага 2.4. "Установка обновления") плана действий по обновлению.<br><br>За этим шагом следует ряд процессов копирования NUPKG-файлов во внутренние файловые ресурсы инфраструктуры. Например:<br><br>**Копирование 1 файла из content\PerfCollector\VirtualMachines \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\PerfCounterConfiguration**  | Проблема вызвана переполнением дисков на виртуальной машине инфраструктуры и проблемой в масштабируемом файловом сервере (SOFS) Windows Server. Она будет решена в последующем обновлении файлов журнала. | Обратитесь за помощью в службу поддержки пользователей Майкрософт. | 
 | При выполнении обновления в шаге "Step: Running step 2.13.2 - Update *VM_Name*" (Шаг: выполнение шага 2.13.2 "Обновление (имя виртуальной машины)") плана действий обновления может возникнуть ошибка, аналогичная следующей. (Имя виртуальной машины может отличаться).<br><br>**ActionPlanInstanceWarning ece-MachineName: WarningMessage:Task: вызов интерфейса LiveUpdate роли Cloud\Fabric\WAS завершился со сбоем:<br>Тип LiveUpdate роли WAS вызвал исключение:<br>Ошибки во время инициализации хранения: произошла ошибка при попытке вызова API службы хранилища Microsoft: {"Сообщение": "Истекло время ожидания при обмене данными с Service Fabric. Тип исключения: TimeoutException. Сообщение об исключении: превышено время ожидания операции."}**  | Проблема вызвана истечением времени ожидания операции ввода-вывода в Windows Server, которое будет устранено в последующих обновлениях. | Обратитесь за помощью в службу поддержки пользователей Майкрософт.
 | При выполнении обновления, может произойти ошибка, аналогичная приведенным ниже, на шаге Step 21 Restart SQL server VMs (Шаг 21. Перезапуск виртуальных машин сервера SQL).<br><br>**Тип LiveUpdateRestart роли VirtualMachines вызвал исключение:<br>VerboseMessage: запрос к [VirtualMachines:LiveUpdateRestart] для виртуальной машины MachineName-Sql01. - 10/13/2017 г. 5:11:50 PM VerboseMessage: [VirtualMachines: LiveUpdateRestart] виртуальная машина помечена как HighlyAvailable. -5:11:50 PM VerboseMessage 10/13/2017 г.: [VirtualMachines:LiveUpdateRestart] в MS.Internal.ServerClusters.ExceptionHelp.Build at MS.Internal.ServerClusters.ClusterResource.BeginTakeOffline(Boolean force) в Microsoft.FailoverClusters.PowerShell.StopClusterResourceCommand.BeginTimedOperation() в Microsoft.FailoverClusters.PowerShell.TimedCmdlet.WrappedProcessRecord() в Microsoft.FailoverClusters.PowerShell.FCCmdlet.ProcessRecord() - 10/13/2017 5:11:50 PM WarningMessage:Task: не удалось вызвать интерфейс LiveUpdateRestart роли Cloud\Fabric\VirtualMachines:** | Эта проблема может возникать, если не удалось перезагрузить виртуальную машину. | Обратитесь за помощью в службу поддержки пользователей Майкрософт.

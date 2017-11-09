@@ -380,6 +380,8 @@
           href: how-to-use-perfInsights.md
         - name: Расширение виртуальной машины для диагностики производительности
           href: performance-diagnostics-vm-extension.md
+        - name: Использование вложенной виртуализации
+          href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

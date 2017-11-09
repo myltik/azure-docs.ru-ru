@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 472c3f35e2ae32550be62826407689f93101041f
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 94d725cfb072091e57c96d3b2aca7b2e73657eef
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -250,7 +250,7 @@ _**Рис. 1.** Конфигурация отказоустойчивого кл
 * Экземпляр SCS (A)SCS кластеризованный. К нему можно получить доступ виртуально с использованием имени узла **<(A)SCSVirtualHostName>**.
 * Файлы глобального узла SAP помещаются в файловый ресурс SMB. К ним можно получить доступ с использованием имени узла <SAPGLOBALHost>\\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 * Экземпляр SAP (A)SCS устанавливается на локальный диск на обоих узлах кластера.
-* Имя сети **<(A)SCSVirtualHostName>** отличается от **<SAPGLOBALHost>**.
+* Имя сети **<(A)SCSVirtualHostName>** отличается от **&lt;SAPGLOBALHost&gt;**.
 
 ![Рис. 2. Новая архитектура SAP (A)SCS HA с файловым ресурсом SMB][sap-ha-guide-figure-8004]
 
