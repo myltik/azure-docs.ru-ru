@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3cf0007f09c40fbccf58fbaee32df7be9bb2fa1a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 22aa6c82aec7b8f6a16131878943fadd7762c1c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Развертывание реестра контейнеров Azure и его использование
 
@@ -60,7 +60,7 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 
 ## <a name="container-registry-login"></a>Вход в реестр контейнеров
 
-Выполните команду [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login), чтобы войти в экземпляр ACR. Укажите уникальное имя реестра контейнеров, заданное для него при создании.
+Выполните команду [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login), чтобы войти в экземпляр ACR. Укажите уникальное имя реестра контейнеров, заданное для него при создании.
 
 ```azurecli
 az acr login --name <acrName>

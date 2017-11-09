@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: e21925b8f84f0805f41fd698965cac09286b92c1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Работа с поддержкой веб-канала изменений в Azure Cosmos DB
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 11/02/2017
 * Реализация пакетной аналитики для данных с помощью [Apache Hadoop](run-hadoop-with-hdinsight.md).
 * Выполнение переносов в другую учетную запись Azure Cosmos DB с использованием другой схемы секционирования без простоев.
 * Реализация [лямбда-конвейеров в Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) с помощью Azure Cosmos DB. Azure Cosmos DB предоставляет масштабируемое решение базы данных, которое может обрабатывать операции приема и запроса, а также реализовывать лямбда-архитектуры с низкой совокупной стоимостью владения. 
-* Получение и хранение данных о событиях с устройств, датчиков, инфраструктуры и приложений и обработка этих событий в реальном времени с помощью [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) или [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+* Получение и хранение данных о событиях с устройств, датчиков, инфраструктуры и приложений и обработка этих событий в реальном времени с помощью [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md) или [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 
 
 На следующем рисунке показано, как лямбда-конвейеры, которые выполняют прием и запрос с помощью Azure Cosmos DB, используют канал изменений: 
 
