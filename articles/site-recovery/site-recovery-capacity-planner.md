@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 10/30/2017
 ms.author: nisoneji
-ms.openlocfilehash: 134e17ebda3105be2b53d072fdef7aeda4a98bde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="plan-capacity-for-protecting-virtual-machines-and-physical-servers-in-azure-site-recovery"></a>Планирование производительности для защиты виртуальных машин и физических серверов в Azure Site Recovery
+# <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Планирование загрузки для защиты виртуальных машин Hyper-V с помощью Site Recovery
 
-Планировщик ресурсов Azure Site Recovery позволяет определить требования к производительности для репликации виртуальных машин Hyper-V, виртуальных машин VMware и физических серверов под управлением Windows и Linux с помощью Azure Site Recovery.
+Планировщик ресурсов Azure Site Recovery позволяет определить требования к ресурсам для репликации виртуальных машин Hyper-V с помощью Azure Site Recovery.
 
 С помощью планировщика ресурсов Site Recovery можно проанализировать исходную среду и рабочие нагрузки и оценить требования к пропускной способности, а также определить объем ресурсов сервера, которые следует выделить в исходном расположении, и ресурсов (виртуальных машин, хранилищ и т. д.), требуемых для целевого расположения.
 
@@ -35,11 +35,8 @@ ms.lasthandoff: 10/11/2017
 
 
 1. Соберите сведения о среде, включая информацию о виртуальных машинах, количестве дисков на виртуальную машину и объеме хранилища на диск.
-2. Определите частоту ежедневных изменений (обновлений) реплицированных данных. Для этого:
-
-   * При репликации виртуальных машин Hyper-V следует скачать [средство планирования загрузки Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057), чтобы получить сведения о частоте изменений. См. [дополнительные сведения](site-recovery-capacity-planning-for-hyper-v-replication.md) об этом средстве. Мы советует использовать это средство в течение недели, чтобы получить средние значения.
-   * При репликации виртуальных машин VMware используйте [планировщик ресурсов Azure Site Recovery](./site-recovery-deployment-planner.md), чтобы выяснить скорость изменения данных.
-   * При репликации физических серверов необходимо оценить частоту изменений вручную.
+2. Определите частоту ежедневных изменений (обновлений) реплицированных данных. Для этого скачайте [планировщик ресурсов Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057), чтобы получить сведения о частоте изменений. См. [дополнительные сведения](site-recovery-capacity-planning-for-hyper-v-replication.md) об этом средстве. Мы советует использовать это средство в течение недели, чтобы получить средние значения.
+   
 
 ## <a name="run-the-quick-planner"></a>Запуск средства быстрого планирования
 1. Скачайте и откройте [планировщик ресурсов Azure Site Recovery](http://aka.ms/asr-capacity-planner-excel) . Для этого потребуется запустить макрос, поэтому при появлении запроса выберите включение редактирования и содержимого.
@@ -50,8 +47,8 @@ ms.lasthandoff: 10/11/2017
 
    * В списке **Select your scenario** (Выберите сценарий) выберите пункт **Из Hyper-V в Azure** или **Из VMware или физического сервера в Azure**.
    * В поле **Average daily data change rate (%)** (Средняя частота ежедневного изменения данных (%)) введите данные, полученные с помощью [инструмента планирования ресурсов Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) или [планировщика ресурсов Azure Site Recovery](./site-recovery-deployment-planner.md).  
-   * **Сжатие** применяется только к сжатию при репликации виртуальных машин VMware или физических серверов в Azure. Расчетное сжатие составляет 30 % и более, но при необходимости значение параметра можно изменить. Для сжатия при репликации виртуальных машин Hyper-V в Azure можно использовать устройства сторонних производителей, например Riverbed.
-   * В поле **Retention Inputs** (Хранение входных данных) укажите срок хранения реплик. При репликации VMware или физических серверов следует указать значение в днях. При репликации Hyper-V укажите время в часах.
+   * Параметр **Сжатие** не используется при репликации виртуальных машин Hyper-V в Azure. Чтобы использовать сжатие, воспользуйтесь устройством сторонних производителей, например Riverbed.
+   * В поле **Retention Inputs** (Хранение входных данных) укажите срок хранения реплик в часах.
    * В полях **Number of hours in which initial replication for the batch of virtual machines should complete** (Период (в часах), в течение которого должна быть выполнена начальная репликация для пакета виртуальных машин) и **Number of virtual machines per initial replication batch** (Число виртуальных машин на пакет начальной репликации) указываются параметры, используемые для вычисления требований к начальной репликации.  При развертывании службы Site Recovery необходимо выполнить отправку всего начального набора данных.
 
    ![Входные данные](./media/site-recovery-capacity-planner/inputs.png)
@@ -126,3 +123,7 @@ ms.lasthandoff: 10/11/2017
 2. Чтобы внести изменения, измените данные на листе **Workload Qualification** (Оценка рабочей нагрузки) и нажмите кнопку **Submit data to the planner tool** (Отправить данные в средство планирования) еще раз.  
 
    ![Планировщик ресурсов](./media/site-recovery-capacity-planner/capacity-planner.png)
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+[Узнайте, как запустить](site-recovery-capacity-planning-for-hyper-v-replication.md) планировщик ресурсов.

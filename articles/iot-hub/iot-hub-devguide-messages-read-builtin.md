@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: f864ca586e8e607168ae7b46a1eaa297eca1cfb8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: c9e6aa03e3a1e0592223630c7b81634bcb09add6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Чтение сообщений, пересылаемых с устройства в облако, из встроенной конечной точки
 
@@ -62,14 +62,14 @@ ms.lasthandoff: 10/24/2017
 Ниже приведен список пакетов SDK и интеграций, которые можно применять к совместимым с концентраторами событий конечным точкам, которые предоставляет Центр Интернета вещей:
 
 * [клиент концентраторов событий Java;](https://github.com/Azure/azure-event-hubs-java)
-* [Воронка Apache Storm](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). Вы можете просмотреть [источник воронки](https://github.com/apache/storm/tree/master/external/storm-eventhubs) на портале GitHub.
-* [интеграция Apache Spark.](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md)
+* [Воронка Apache Storm](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Вы можете просмотреть [источник воронки](https://github.com/apache/storm/tree/master/external/storm-eventhubs) на портале GitHub.
+* [интеграция Apache Spark.](../hdinsight/spark/apache-spark-eventhub-streaming.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Дополнительные сведения о конечных точках Центра Интернета вещей см. в [этом разделе][lnk-endpoints].
+Дополнительные сведения о конечных точках Центра Интернета вещей см. в руководстве [Конечные точки Центра Интернета вещей][lnk-endpoints].
 
-В руководствах по [началу работы][lnk-get-started] рассказывается, как отправлять сообщения из устройства в облако с имитируемых устройств и читать их из встроенной конечной точки. Дополнительные сведения см. в руководстве [по обработке сообщений Центра Интернета вещей, отправляемых с устройства в облако с помощью маршрутов][lnk-d2c-tutorial].
+В руководствах по [началу работы][lnk-get-started] рассказывается, как отправлять сообщения из устройства в облако с имитируемых устройств и читать их из встроенной конечной точки. Дополнительные сведения см. в руководстве [по обработке сообщений Центра Интернета вещей, отправляемых с устройства в облако, с помощью маршрутов][lnk-d2c-tutorial].
 
 Сведения о перенаправлении сообщений, отправляемых с устройства в облако на пользовательские конечные точки, см. в статье [Use message routes and custom endpoints for device-to-cloud messages][lnk-custom] (Использование маршрутов сообщений и пользовательских конечных точек для сообщений, отправляемых с устройства в облако).
 

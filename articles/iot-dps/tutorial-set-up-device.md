@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Настройка устройства для подготовки с помощью службы подготовки устройств для Центра Интернета вещей
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="select-a-hardware-security-module"></a>Выбор аппаратного модуля безопасности
 
-[Клиентский пакет SDK службы подготовки устройств](https://github.com/Azure/azure-iot-sdk-c/tree/master/dps_client) поддерживает два типа аппаратных модулей безопасности (или HSM): 
+[Клиентский пакет SDK службы подготовки устройств](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) поддерживает два типа аппаратных модулей безопасности (или HSM): 
 
 - [Доверенный платформенный модуль (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
     - Доверенный платформенный модуль (TPM) является установленным стандартом для большинства платформ устройств на базе Windows, а также нескольких устройств на базе Linux и Ubuntu. Производитель устройства может выбрать этот HSM, если устройства выполняются под управлением любой из этих операционных систем, а также если необходим установленный стандарт HSM. С микросхемами доверенного платформенного модуля (TPM) можно только регистрировать каждое устройство отдельно в службе подготовки устройств. В целях разработки можно использовать симулятор доверенного платформенного модуля на компьютере разработки Windows или Linux.

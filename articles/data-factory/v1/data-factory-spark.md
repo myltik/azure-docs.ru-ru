@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 3690b5f62d8384d255d420946f6ac1cfd47b9317
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0eff48ec65a01a2fc3fa9f7652dd8e1a0fc8dd2a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Вызов программ Spark из конвейеров фабрики данных Azure
 
@@ -34,6 +34,9 @@ ms.lasthandoff: 10/11/2017
 > * [Действие хранимой процедуры](data-factory-stored-proc-activity.md)
 > * [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
 > * [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
+
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных Azure, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, см. статью о [преобразовании данных с использованием действия Spark в фабрике данных версии 2](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Введение
 Действие Spark — это одно из [действий преобразования данных](data-factory-data-transformation-activities.md), которое поддерживает фабрика данных Azure. Это действие запускает указанную программу Spark в кластере Apache Spark в Azure HDInsight.    
@@ -53,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="prerequisites"></a>Предварительные требования
 1. Создайте **учетную запись хранения Azure общего назначения**, следуя указаниям в [этом разделе](../../storage/common/storage-create-storage-account.md#create-a-storage-account).  
-2. Создайте **кластер Apache Spark в Azure HDInsight**, следуя инструкциям в [этом руководстве](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Свяжите учетную запись хранения Azure, созданную на шаге 1, с этим кластером.  
+2. Создайте **кластер Apache Spark в Azure HDInsight**, следуя инструкциям в [этом руководстве](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Свяжите учетную запись хранения Azure, созданную на шаге 1, с этим кластером.  
 3. Скачайте и просмотрите файл скрипта Python **test.py**, который расположен по адресу: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
 3.  Отправьте файл **test.py** в папку **pyFiles** контейнера **adfspark** в хранилище BLOB-объектов Azure. Создайте контейнер и папку, если их нет.
 
@@ -231,7 +234,7 @@ ms.lasthandoff: 10/11/2017
     ![Результаты запроса Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Подробные инструкции см. в разделе [Выполнение запроса Spark SQL](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). 
+Подробные инструкции см. в разделе [Выполнение запроса Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>Устранение неполадок
 Так как вы задали для **getDebugInfo** значение **Always**, вы увидите вложенную папку **log** в папке **pyFiles** в контейнере больших двоичных объектов Azure. В файле журнала в папке log содержатся дополнительные сведения. Этот файл журнала особенно полезен в случае возникновения ошибки. В рабочей среде вы можете настроить состояние ошибки **Failure**.

@@ -1,5 +1,5 @@
 ---
-title: "Развертывание шлюза для подключенной фабрики Azure IoT Suite | Документация Майкрософт"
+title: "Развертывание шлюза для подключенной фабрики Azure | Документация Майкрософт"
 description: "Узнайте, как развернуть шлюз в ОС Windows или Linux, чтобы обеспечить подключение к предварительно настроенному решению подключенной фабрики."
 services: 
 suite: iot-suite
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
-ms.openlocfilehash: 341b3860e103f54d97d325e18fc17f4895f804f0
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 9f11d93be49f7d88012b1274ad61495e38a2e9a9
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Развертывание шлюза в ОС Windows или Linux для предварительно настроенного решения подключенной фабрики
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 10/17/2017
 
     Скопируйте значение поля **Строка подключения — первичный ключ**.
 
-1. Настройте шлюз для своего Центра Интернета вещей. Для этого **один раз** запустите из оболочки два модуля шлюза, используя следующую команду:
+1. Настройте шлюз для своего центра Интернета вещей. Для этого **один раз** запустите из оболочки два модуля шлюза, используя следующую команду:
 
     `sudo docker run -it --rm -h <ApplicationName> -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/ -v /shared:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName> "<IoTHubOwnerConnectionString>"`
 

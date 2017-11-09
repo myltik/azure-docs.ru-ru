@@ -4,7 +4,7 @@ description: "Локальный шлюз данных необходим тог
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 10/30/2017
 ms.author: owend
-ms.openlocfilehash: 47f05a22811307617f475e79145f70a0233f5895
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Подключение к локальным источникам данных с помощью локального шлюза данных Azure
 Локальный шлюз данных действует как мост, обеспечивая передачу данных между локальными источниками данных и серверами служб Azure Analysis Services в облаке. Последняя версия шлюза работает с несколькими серверами служб Azure Analysis Services в том же регионе, а также с Azure Logic Apps, Power BI, Power Apps и Microsoft Flow. Несколько служб в одном регионе можно связать с одним шлюзом. 
@@ -129,6 +129,9 @@ ms.lasthandoff: 10/12/2017
 
 **Вопрос**. Может ли служба Windows шлюза работать с учетной записью Azure Active Directory? <br/>
 **Ответ**. Нет. Службе Windows требуется действительная учетная запись Windows. По умолчанию служба будет выполняться с идентификатором безопасности службы NT SERVICE\PBIEgwService.
+
+**Вопрос**. Как перехватить шлюз? <br/>
+**Ответ**. Чтобы перехватить шлюз (запустив установку или изменение в разделе "Панель управления" > "Программы"), необходимо быть владельцем ресурса шлюза в Azure и иметь ключ восстановления. Владельцы ресурса шлюза настраиваются в разделе управления доступом.
 
 ### <a name="high-availability"></a>Высокий уровень доступности и аварийное восстановление
 

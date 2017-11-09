@@ -3,7 +3,7 @@ title: "Использование паролей приложений в Azure 
 description: "Эта страница содержит сведения для пользователей о паролях приложений и их назначении в Azure MFA."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: yossib
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 1ecc2bdef5ff7ef8ed8dded7dc12428ce9657821
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3b9dd38c993b7f04dfc419ba06be0783cb66eb2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Что такое пароли приложений в службе Azure Multi-Factor Authentication
+# <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Что такое пароли приложений в службе Многофакторной идентификации Azure
 Сейчас некоторые не использующие браузер приложения, например собственный почтовый клиент Apple, использующий Exchange Active Sync, не поддерживают многофакторную проверку подлинности. Многофакторная проверка подлинности активируется для каждого пользователя.  Это означает, что пользователь не может использовать многофакторную проверку подлинности в таких случаях:
 
 - Пользователь включил многофакторную проверку подлинности.

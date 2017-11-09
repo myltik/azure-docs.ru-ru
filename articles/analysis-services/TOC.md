@@ -20,6 +20,7 @@
 ## [Установка и настройка локального шлюза данных](analysis-services-gateway-install.md)
 ## [Получение клиентских библиотек](analysis-services-data-providers.md)
 ## [Резервное копирование и восстановление](analysis-services-backup.md)
+## [Настройка масштабирования реплик запросов](analysis-services-scale-out.md)
 ## [Подключение с помощью Excel](analysis-services-connect-excel.md)
 ## [Подключение с помощью Power BI](analysis-services-connect-pbi.md)
 ## [Создание ODC-файла](analysis-services-odc.md)

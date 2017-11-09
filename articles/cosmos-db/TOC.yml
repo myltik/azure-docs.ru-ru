@@ -244,32 +244,36 @@
               href: gremlin-support.md
         - name: API таблицы
           items:
-            - name: Обзор хранилища таблиц
-              href: table-storage-overview.md
-            - name: Руководство по проектированию хранилищ таблиц
-              href: table-storage-design-guide.md
-            - name: API REST хранилищ таблиц
-              href: /rest/api/storageservices/Table-Service-Concepts
-            - name: Учебники
+            - name: Разработка с помощью средств для работы с таблицами
+              href: table-support.md
+            - name: Хранилище таблиц Azure
               items:
-                - name: .NET
-                  href: table-storage-how-to-use-dotnet.md
-                - name: 'F#'
-                  href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
-                - name: Node.js
-                  href: table-storage-cloud-service-nodejs.md
-                - name: Java
-                  href: table-storage-how-to-use-java.md
-                - name: Node.js
-                  href: table-storage-how-to-use-nodejs.md
-                - name: C++
-                  href: table-storage-how-to-use-c-plus.md
-                - name: PHP
-                  href: table-storage-how-to-use-php.md
-                - name: Python
-                  href: table-storage-how-to-use-python.md
-                - name: Ruby
-                  href: table-storage-how-to-use-ruby.md
+                - name: Обзор хранилища таблиц
+                  href: table-storage-overview.md
+                - name: Руководство по проектированию хранилищ таблиц
+                  href: table-storage-design-guide.md
+                - name: API REST хранилищ таблиц
+                  href: /rest/api/storageservices/Table-Service-Concepts
+                - name: Практическое руководство
+                  items:
+                    - name: .NET
+                      href: table-storage-how-to-use-dotnet.md
+                    - name: 'F#'
+                      href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+                    - name: Node.js
+                      href: table-storage-cloud-service-nodejs.md
+                    - name: Java
+                      href: table-storage-how-to-use-java.md
+                    - name: Node.js
+                      href: table-storage-how-to-use-nodejs.md
+                    - name: C++
+                      href: table-storage-how-to-use-c-plus.md
+                    - name: PHP
+                      href: table-storage-how-to-use-php.md
+                    - name: Python
+                      href: table-storage-how-to-use-python.md
+                    - name: Ruby
+                      href: table-storage-how-to-use-ruby.md
         - name: Веб-канал изменений
           href: change-feed.md
         - name: Геопространственные данные

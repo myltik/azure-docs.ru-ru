@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: c7a6e32089a084d200cd0bb7a57f8f8a1e1bb04e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d702f4e0746f07c5420853a7b93bdc793e4f288
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Копирование данных из MySQL с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 Чтобы использовать этот соединитель MySQL, сделайте следующее:
 
 - Настроить локальную среду выполнения интеграции. Дополнительные сведения см. в статье [Создание и настройка локальной среды выполнения интеграции](create-self-hosted-integration-runtime.md).
-- Установите [соединитель MySQL Connector/Net для Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) версии 6.6.5 или более поздней на компьютере среды выполнения интеграции.
+- Установите [соединитель MySQL Connector/Net для Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) версии 6.6.5 или более поздней на компьютере среды выполнения интеграции. Это 32-разрядная версия драйвера совместима с 64-разрядной версией среды IR.
 
 > [!TIP]
 > Если произошла ошибка "Аутентификация не пройдена из-за закрытия транспортного потока удаленной стороной", то рекомендуется обновить соединитель MySQL Connector/Net до более поздней версии.

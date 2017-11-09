@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: f8e78030182b93259238a4f154de11f616915ec6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7936f47007285e3f7fa1d3220efa022a6e3881ca
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Развертывание сброса пароля без регистрации пользователя
 
@@ -137,14 +137,14 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Дополнительные сведения о сбросе пароля с помощью Azure AD см. в следующих источниках:
-
-* [**Быстрое начало работы с самостоятельным сбросом пароля в Azure AD**](active-directory-passwords-getting-started.md). Запуск и выполнение службы самостоятельного управления паролями Azure AD. 
-* [**Licensing requirements for Azure AD self-service password reset**](active-directory-passwords-licensing.md) (Требования к лицензированию самостоятельного сброса пароля в Azure AD). Сведения о настройке лицензирования Azure AD.
-* [**Развертывание функции сброса паролей для пользователей**](active-directory-passwords-best-practices.md). Рекомендации по планированию и развертыванию SSPR для пользователей.
-* [**Настройка компонентов управления паролями в соответствии с требованиями организации**](active-directory-passwords-customize.md). Сведения о настройке интерфейса и параметров использования SSPR для организации.
-* [**Политики и ограничения для паролей в Azure Active Directory**](active-directory-passwords-policy.md). Общие сведения и информация об установке политик паролей Azure AD.
-* [**Reporting options for Azure AD password management**](active-directory-passwords-reporting.md) (Параметры отчетов для управления паролями Azure AD). Определяйте, кто и когда использовал функцию SSPR.
-* [**Как работает управление паролями в Azure Active Directory**](active-directory-passwords-how-it-works.md). Сведения о принципе работы управления паролями.
-* [**Вопросы и ответы об управлении паролями**](active-directory-passwords-faq.md). Как? Почему? Что? Где? Кто? Когда? Здесь приведены ответы на интересующие вас вопросы.
-* [**Устранение неполадок, связанных с управлением паролями**](active-directory-passwords-troubleshoot.md). Сведения об устранении распространенных проблем с SSPR.
+* [Как развернуть самостоятельный сброс пароля?](active-directory-passwords-best-practices.md)
+* [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md).
+* [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md).
+* [Требования к лицензированию самостоятельного сброса пароля в Azure AD](active-directory-passwords-licensing.md).
+* [Доступные пользователям методы проверки подлинности](active-directory-passwords-how-it-works.md#authentication-methods).
+* [Параметры политики для SSPR](active-directory-passwords-policy.md).
+* [Обзор обратной записи паролей](active-directory-passwords-writeback.md).
+* [Параметры отчетов для управления паролями Azure AD](active-directory-passwords-reporting.md).
+* [Руководство по самостоятельному сбросу пароля в Azure AD](active-directory-passwords-how-it-works.md).
+* [Как устранить неполадки самостоятельного сброса пароля](active-directory-passwords-troubleshoot.md)
+* [Вопросы, не вошедшие в другие статьи](active-directory-passwords-faq.md)

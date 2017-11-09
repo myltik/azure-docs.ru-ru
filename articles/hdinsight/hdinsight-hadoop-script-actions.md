@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e182e6b43fd2d17524c1da36cf4c204bb1b865a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b10887bcfa7f7c25375bd990ec5e97d0fefbacf
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Разработка скриптов c действиями сценария для кластеров HDInsight под управлением Windows
 Узнайте, как разрабатывать скрипты действия сценария для HDInsight. Дополнительную информацию о скриптах с действиями сценария см. в статье [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md). Аналогичные сведения для кластеров HDInsight под управлением Linux см. в статье [Разработка действий сценариев с помощью HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -245,7 +245,7 @@ HDInsight предоставляет несколько скриптов для 
 
 ## <a name="debug-custom-scripts"></a>Отладка пользовательских сценариев
 Журналы ошибок сценария хранятся вместе с другими выходными данными в учетной записи хранения по умолчанию, заданной для кластера при его создании. Журналы хранятся в таблице с именем *u<фрагмент-имени-кластера><\метка-времени>setuplog*. Это сводные журналы, содержащие записи из всех узлов (рабочих и главного), на которых выполняется сценарий в кластере.
-Для проверки журналов удобно воспользоваться инструментами HDInsight для Visual Studio. Сведения об установке инструментов см. в статье [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio).
+Для проверки журналов удобно воспользоваться инструментами HDInsight для Visual Studio. Сведения об установке инструментов см. в статье [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio).
 
 **Для проверки журнала с помощью Visual Studio**
 

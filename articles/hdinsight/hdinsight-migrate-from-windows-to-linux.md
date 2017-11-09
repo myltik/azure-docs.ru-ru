@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: f2695d4f15fe984cd02cba9ff66033b90d0a4dc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3bba2cfd765505a167fe4776f81d06445a8c39c
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Миграция из кластера HDInsight под управлением Windows на кластер под управлением Linux
 
@@ -188,8 +188,8 @@ Ambari имеет систему предупреждений, которые м
 Кластеры HDInsight под управлением Linux не предоставляют функцию удаленного рабочего стола. Вместо этого можно использовать протокол SSH для удаленного подключения к головным узлам кластера. Дополнительные сведения см. в следующих документах:
 
 * [Использование Hive с Hadoop в HDInsight с применением Beeline](hdinsight-hadoop-use-hive-ssh.md)
-* [Использование Pig с SSH](hdinsight-hadoop-use-pig-ssh.md)
-* [Использование MapReduce с SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
+* [Использование Pig с SSH](hadoop/apache-hadoop-use-pig-ssh.md)
+* [Использование MapReduce с SSH](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
 
@@ -200,11 +200,11 @@ Ambari имеет систему предупреждений, которые м
 
 | В кластерах под управлением Windows я пользуюсь... | В кластерах под управлением Linux... |
 | --- | --- |
-| **редактор Hive;** |[используйте представление Hive в Ambari](hdinsight-hadoop-use-hive-ambari-view.md) |
+| **редактор Hive;** |[используйте представление Hive в Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` для включения Tez. |Tez — ядро выполнения по умолчанию для кластеров под управлением Linux, поэтому инструкция set больше не требуется. |
 | Определяемые пользователем функции C# | Сведения о проверке компонентов C# с помощью HDInsight под управлением Linux см. в разделе [Перенос решений .NET из HDInsight под управлением Windows в HDInsight под управлением Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
 | CMD-файлами или сценариями на сервере, вызываемыми как часть задания Hive |используйте скрипты Bash |
-| `hive` из удаленного рабочего стола. |используйте [Beeline](hdinsight-hadoop-use-hive-beeline.md) или [Hive из сеанса SSH](hdinsight-hadoop-use-hive-ssh.md). |
+| `hive` из удаленного рабочего стола. |используйте [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) или [Hive из сеанса SSH](hdinsight-hadoop-use-hive-ssh.md). |
 
 ### <a name="pig"></a>Pig,
 
@@ -233,7 +233,7 @@ Ambari имеет систему предупреждений, которые м
 
 | В кластерах под управлением Windows я пользуюсь... | В кластерах под управлением Linux... |
 | --- | --- |
-| Панель мониторинга Storm |Панель мониторинга Storm недоступна. Сведения об отправке топологий приведены в разделе [Развертывание и управление топологиями Storm в HDInsight под управлением Linux](hdinsight-storm-deploy-monitor-topology-linux.md) . |
+| Панель мониторинга Storm |Панель мониторинга Storm недоступна. Сведения об отправке топологий приведены в разделе [Развертывание и управление топологиями Storm в HDInsight под управлением Linux](storm/apache-storm-deploy-monitor-topology-linux.md) . |
 | Пользовательский интерфейс Storm |Пользовательский интерфейс Storm доступен по адресу https://CLUSTERNAME.azurehdinsight.net/stormui. |
 | Visual Studio для создания, развертывания и управления C# или гибридными топологиями |Visual Studio можно использовать для создания, развертывания топологий C# (SCP.NET) или гибридных топологий и управления ими в кластерах Storm в HDInsight под управлением Linux. Visual Studio можно использовать только для кластеров, созданных после 28 октября 2016 года. |
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: ashishtha
-ms.openlocfilehash: d08a9a7cc82095b0a90abd98bd4f6d13cdadb671
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 704d76808fbc5f7bde98d2fca291ac7c2796db88
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Управление кластерами Hadoop в HDInsight с помощью портала Azure
 
@@ -163,7 +163,7 @@ HDInsight работает со множеством компонентов Hado
     >balancer
     ```
 
-    Дополнительные сведения об использовании оболочки HBase см. в статье [Начало работы с примером Apache HBase в HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+    Дополнительные сведения об использовании оболочки HBase см. в статье [Начало работы с примером Apache HBase в HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
 
 * Storm
 
@@ -209,7 +209,7 @@ HDInsight работает со множеством компонентов Hado
 * С помощью фабрики данных Azure. Дополнительные сведения о создании связанных служб HDInsight по запросу см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight по запросу с помощью фабрики данных Azure](hdinsight-hadoop-create-linux-clusters-adf.md).
 * С помощью Azure PowerShell.  См. статью [Анализ данных о задержке рейсов с помощью Hive в HDInsight](hdinsight-analyze-flight-delay-data.md).
 * С помощью интерфейса командной строки Azure. См. статью [Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure](hdinsight-administer-use-command-line.md).
-* С помощью пакета SDK для HDInsight .NET. См. статью [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md).
+* С помощью пакета SDK для HDInsight .NET. См. статью [Отправка заданий Hadoop в HDInsight](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Сведения о ценах см. на странице [цен на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Удаление кластера на портале описано в разделе [Удаление кластеров](#delete-clusters).
 
@@ -341,7 +341,7 @@ Ambari изменит пароль на всех узлах в кластере.
 
 ## <a name="connect-to-a-cluster"></a>Подключение к кластеру
 
-* [Использование Hive с HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Использование Hive с HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Использование SSH с HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -353,10 +353,10 @@ Ambari изменит пароль на всех узлах в кластере.
 * [Создание кластеров Hadoop в HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Управление кластерами HDInsight с помощью веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Управление кластерами HDInsight с помощью REST API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [Использование Hive в HDInsight](hdinsight-use-hive.md)
-* [Использование Pig в HDInsight](hdinsight-use-pig.md)
-* [Использование Hadoop Sqoop в HDInsight](hdinsight-use-sqoop.md)
-* [Начало работы с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Использование Hive в HDInsight](hadoop/hdinsight-use-hive.md)
+* [Использование Pig в HDInsight](hadoop/hdinsight-use-pig.md)
+* [Использование Hadoop Sqoop в HDInsight](hadoop/hdinsight-use-sqoop.md)
+* [Начало работы с Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Какая версия Hadoop включена в Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

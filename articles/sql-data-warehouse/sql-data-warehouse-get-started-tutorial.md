@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: elbutter
+ms.openlocfilehash: 791990b6c544a416fc73bea69dc884e0b49d088e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Начало работы с хранилищем данных SQL
 
@@ -198,7 +198,7 @@ ms.lasthandoff: 10/11/2017
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
 
@@ -239,7 +239,7 @@ ms.lasthandoff: 10/11/2017
     ```
 5. Создайте внешние таблицы. Эти таблицы ссылаются на данные, содержащиеся в хранилище BLOB-объектов Azure. Выполните следующие команды T-SQL, чтобы создать несколько внешних таблиц, все из которых будут указывать на BLOB-объект Azure, определенный нами ранее во внешнем источнике данных.
 
-```sql
+  ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -405,14 +405,14 @@ ms.lasthandoff: 10/11/2017
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
-```
+  ```
 
 ### <a name="import-the-data-from-azure-blob-storage"></a>Импорт данных из хранилища BLOB-объектов Azure
 
@@ -430,7 +430,7 @@ ms.lasthandoff: 10/11/2017
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
+
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -441,7 +441,7 @@ ms.lasthandoff: 10/11/2017
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -451,7 +451,7 @@ ms.lasthandoff: 10/11/2017
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-    
+
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -461,7 +461,7 @@ ms.lasthandoff: 10/11/2017
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-    
+
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -471,7 +471,7 @@ ms.lasthandoff: 10/11/2017
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-    
+
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -481,7 +481,7 @@ ms.lasthandoff: 10/11/2017
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-    
+
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -495,9 +495,9 @@ ms.lasthandoff: 10/11/2017
 
 2. Просмотрите данные при загрузке.
 
-   Вы загружаете несколько гигабайт данных и сжимаете их в высокопроизводительные кластеризованные индексы Columnstore. Выполните следующий запрос, использующий динамические административные представления, для отображения состояния загрузки. После запуска запроса сделайте перерыв, пока хранилище данных SQL выполняет объемное задание обработки.
-    
-    ```sql
+  Вы загружаете несколько гигабайт данных и сжимаете их в высокопроизводительные кластеризованные индексы Columnstore. Выполните следующий запрос, использующий динамические административные представления, для отображения состояния загрузки. После запуска запроса сделайте перерыв, пока хранилище данных SQL выполняет объемное задание обработки.
+
+  ```sql
     SELECT
         r.command,
         s.request_id,
@@ -523,7 +523,8 @@ ms.lasthandoff: 10/11/2017
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-    ```
+  ```
+
 
 3. Просмотрите все запросы в системе.
 
@@ -563,7 +564,7 @@ ms.lasthandoff: 10/11/2017
     > [!NOTE]
     > При изменении масштаба запросы не выполняются. Процедура масштабирования **прерывает** выполняющиеся запросы. Вы можете перезапустить их после завершения операции.
     >
-    
+
 5. Выполните операцию сканирования данных о поездках, выбрав первый миллион записей для всех столбцов. Если вы хотите побыстрее перейти к следующему шагу, выберите меньшее число строк. Запишите время, затраченное на выполнение этой операции.
 
     ```sql
@@ -626,11 +627,11 @@ ms.lasthandoff: 10/11/2017
 
     > [!NOTE]
     > Хранилище данных SQL не управляет статистикой автоматически. Статистика важна для производительности запросов, поэтому мы настоятельно рекомендуем создавать и обновлять статистику.
-    > 
+    >
     > **Статистику рекомендуется вести в столбцах, которые являются частью объединения, используются в предложении WHERE или GROUP BY**.
     >
 
-3. Снова выполните запрос из раздела "Предварительные требования" и понаблюдайте за различиями в производительности. Хотя различия в производительности запроса не будут столь значительными, как при масштабировании, вы должны заметить ускорение. 
+4. Снова выполните запрос из раздела "Предварительные требования" и понаблюдайте за различиями в производительности. Хотя различия в производительности запроса не будут столь значительными, как при масштабировании, вы должны заметить ускорение. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

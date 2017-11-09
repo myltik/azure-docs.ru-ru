@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: skwan
-ms.openlocfilehash: 803d0ad64d331dd331e5bab718484cb2fc8247d5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 473a9e3aa3b6ad79a5f50a37c8aadc1bba79f5ae
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/01/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Управляемое удостоверение службы (MSI) для ресурсов Azure
 
@@ -50,12 +50,14 @@ ms.lasthandoff: 10/17/2017
 <br><br>
 | Из ресурса, поддерживающего MSI | Сценарий для ознакомления |
 | ------- | -------- |
-| Виртуальная машина Azure (Windows) | [Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-arm.md) |
+| Виртуальная машина Azure (Windows) | [Получение доступа к Azure Data Lake Store с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-datalake.md) |
+|                    | [Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Получение доступа к Azure SQL с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Получение доступа к службе хранилища Azure с ключом доступа при помощи управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-storage.md) |
 |                    | [Получение доступа к службе хранилища Azure с SAS при помощи управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-storage-sas.md) |
-|                    | [Получение доступа к Azure SQL с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Получение доступа к ресурсу, размещенному не в Azure AD, с помощью управляемого удостоверения службы виртуальной машины Windows и Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
-| Виртуальная машина Azure (Linux)   | [Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-arm.md) |
+| Виртуальная машина Azure (Linux)   | [Получение доступа к Azure Data Lake Store с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-datalake.md) |
+|                    | [Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-arm.md) |
 |                    | [Получение доступа к службе хранилища Azure с ключом доступа при помощи управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-storage.md) |
 |                    | [Получение доступа к службе хранилища Azure с SAS при помощи управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Получение доступа к ресурсу, размещенному не в Azure AD, с помощью управляемого удостоверения службы виртуальной машины Linux и Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |

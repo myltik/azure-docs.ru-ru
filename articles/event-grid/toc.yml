@@ -4,6 +4,8 @@
   items:
     - name: Сведения о службе "Сетка событий Azure"
       href: overview.md
+    - name: Сравнение служб обмена сообщениями
+      href: compare-messaging-services.md
 - name: Быстрое начало работы
   items:
     - name: Маршрутизация событий хранилища BLOB-объектов с помощью Azure CLI

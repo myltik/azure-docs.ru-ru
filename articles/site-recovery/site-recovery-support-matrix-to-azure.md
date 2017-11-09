@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: b4bb049577feb416f498a428bae80ecea418180e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c38a69176f5f9e6a8f8dbcc411b85bef47362880
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Таблица поддержки Azure Site Recovery для репликации из локальной среды в Azure
 
@@ -68,8 +68,11 @@ ms.lasthandoff: 10/11/2017
 
  **VMware или физический сервер** | **Hyper-V (с или без VMM)** |
 --- | --- |
-64-разрядная версия Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 как минимум с пакетом обновления 1 (SP1).<br/>*Windows Server 2016* в настоящее время не поддерживается на виртуальных машинах VMware и физических серверах. <br/><br/> Red Hat Enterprise Linux: 5.2–5.11, 6.1–6.9, 7.0–7.3 <br/><br/>Cent OS: 5.2–5.11, 6.1–6.9, 7.0–7.3 <br/><br/>Сервер Ubuntu версии 14.04 LTS [(поддерживаемые версии ядра)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Сервер Ubuntu версии 16.04 LTS [(поддерживаемые версии ядра)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8;<br/><br/>Oracle Enterprise Linux 6.4, 6.5 с ядром, совместимым с Red Hat, или с ядром Unbreakable Enterprise Kernel Release 3 (UEK3). <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Обновление реплицируемых компьютеров с SLES 11 SP3 до SLES 11 SP4 не поддерживается. Если реплицируемый компьютер обновлен с SLES 11 SP3 до SLES 11 SP4, вам потребуется отключить репликацию и включить повторную защиту компьютера после обновления.) | Любая гостевая ОС, [поддерживаемая Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-разрядная версия Windows Server 2016 (Server Core, сервер с возможностями рабочего стола)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 как минимум с пакетом обновления 1<br/><br/> Red Hat Enterprise Linux: 5.2–5.11, 6.1–6.9, 7.0–7.3 <br/><br/>Cent OS: 5.2–5.11, 6.1–6.9, 7.0–7.3 <br/><br/>Сервер Ubuntu версии 14.04 LTS [(поддерживаемые версии ядра)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Сервер Ubuntu версии 16.04 LTS [(поддерживаемые версии ядра)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8;<br/><br/>Oracle Enterprise Linux 6.4, 6.5 с ядром, совместимым с Red Hat, или с ядром Unbreakable Enterprise Kernel Release 3 (UEK3). <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Обновление реплицируемых компьютеров с SLES 11 SP3 до SLES 11 SP4 не поддерживается. Если реплицируемый компьютер обновлен с SLES 11 SP3 до SLES 11 SP4, вам потребуется отключить репликацию и включить повторную защиту компьютера после обновления.) | Любая гостевая ОС, [поддерживаемая Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
+>[!NOTE]
+>
+> \* Nano Server Windows Server 2016 не поддерживается.
 
 >[!IMPORTANT]
 >(Применимо к репликации серверов VMware и физических серверов в Azure.)
@@ -85,8 +88,10 @@ ms.lasthandoff: 10/11/2017
 14.04 LTS | 9.9 | 3.13.0-24-generic to 3.13.0-117-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic–3.13.0-121-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic–4.4.0-81-generic |
 14.04 LTS | 9.11 | с 3.13.0-24-generic по 3.13.0-128-generic<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>с 4.4.0-21-generic по 4.4.0-91-generic |
+14.04 LTS | 9.12 | с 3.13.0-24-generic по 3.13.0-132-generic<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>с 4.4.0-21-generic по 4.4.0-96-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic–4.4.0-81-generic,<br/>4.8.0-34-generic–4.8.0-56-generic,<br/>4.10.0-14-generic–4.10.0-24-generic |
 16.04 LTS | 9.11 | с 4.4.0-21-generic по 4.4.0-91-generic<br/>с 4.8.0-34-generic по 4.8.0-58-generic<br/>с 4.10.0-14-generic по 4.10.0-32-generic |
+16.04 LTS | 9.12 | с 4.4.0-21-generic по 4.4.0-96-generic<br/>с 4.8.0-34-generic по 4.8.0-58-generic<br/>с 4.10.0-14-generic по 4.10.0-35-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Поддерживаемые файловые системы и конфигурации гостевого хранилища в Linux (серверы VMware и физические серверы)
 
@@ -168,7 +173,8 @@ NFS | Нет | Недоступно
 SMB 3.0 | Нет | Нет
 RDM | Да<br/><br/> Недоступно для физических серверов. | Недоступно
 Диск > 1 ТБ | Да<br/><br/>До 4095 ГБ | Да<br/><br/>До 4095 ГБ
-Диск с размером сектора 4 КБ | Да | Да, поддерживается для виртуальных машин поколения 1<br/><br/>Да, поддерживается для виртуальных машин поколения 2
+Диск с физическими и логическими секторами с размером в 4 КБ. | Да | Не поддерживается для виртуальных машин поколения 1.<br/><br/>Не поддерживается для виртуальных машин поколения 2.
+Диск с физическими секторами размером в 512 байтов и логическими секторами с размером в 4 КБ. | Да |  Да
 Том с чередующимся диском > 1 ТБ<br/><br/> Управление логическими томами (LVM) | Да | Да
 Дисковые пространства | Нет | Да
 "Горячее" добавление или удаление диска | Нет | Нет
@@ -227,10 +233,10 @@ RA-GRS | Да | Да
 
 **Имя** | **Описание** | **Последняя версия** | **Дополнительные сведения**
 --- | --- | --- | --- | ---
-**Поставщик Azure Site Recovery** | Координирует взаимодействие между локальными серверами и Azure <br/><br/> Устанавливается на локальные серверы Virtual Machine Manager или серверы Hyper-V, если сервер Virtual Machine Manager отсутствует. | 5.1.19 ([доступна на портале](http://aka.ms/downloaddra)) | [Новейшие функции и последние исправления](https://support.microsoft.com/kb/3155002)
-**Унифицированная установка Azure Site Recovery (VMware в Azure)** | Координирует взаимодействие между локальными серверами VMware и Azure <br/><br/> Установлена на локальных серверах VMware | 9.3.4246.1 (доступна на портале) | [Новейшие функции и последние исправления](https://support.microsoft.com/kb/3155002)
-**Служба Mobility Service** | Координирует репликацию между локальными серверами VMware или физическими серверами и Azure или вторичным сайтом.<br/><br/> Устанавливается на виртуальной машине VMware или физических серверах, репликацию которых необходимо выполнить.  | Нет (доступна на портале) | Недоступно
-**Агент служб восстановления Microsoft Azure (MARS)** | Координирует репликацию между виртуальными машинами Hyper-V и Azure.<br/><br/> Устанавливается на локальных серверах Hyper-V (с сервером Virtual Machine Manager или без него). | Последняя версия агента ([доступна на портале](http://aka.ms/latestmarsagent)) |
+**Поставщик Azure Site Recovery** | Координирует взаимодействие между локальными серверами и Azure <br/><br/> Устанавливается на локальные серверы Virtual Machine Manager или серверы Hyper-V, если сервер Virtual Machine Manager отсутствует. | 5.1.2700.1 (доступна на портале) | [Новейшие функции и последние исправления](https://aka.ms/latest_asr_updates)
+**Унифицированная установка Azure Site Recovery (VMware в Azure)** | Координирует взаимодействие между локальными серверами VMware и Azure <br/><br/> Установлена на локальных серверах VMware | 9.12.4653.1 (доступна на портале) | [Новейшие функции и последние исправления](https://aka.ms/latest_asr_updates)
+**Служба Mobility Service** | Координирует репликацию между локальными серверами VMware или физическими серверами и Azure или вторичным сайтом.<br/><br/> Устанавливается на виртуальной машине VMware или физических серверах, репликацию которых необходимо выполнить.  | 9.12.4653.1 (доступна на портале) | [Новейшие функции и последние исправления](https://aka.ms/latest_asr_updates)
+**Агент служб восстановления Microsoft Azure (MARS)** | Координирует репликацию между виртуальными машинами Hyper-V и Azure.<br/><br/> Устанавливается на локальных серверах Hyper-V (с сервером Virtual Machine Manager или без него). | Последняя версия агента (доступна на портале) |
 
 
 

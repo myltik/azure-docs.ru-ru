@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 1b6e368df4914e58eb3f8d6481132f25d27312b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 030fb1d87547a4fc78d54a855bca961202f28837
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Настройка функции самостоятельного сброса паролей в Azure AD
 
@@ -28,7 +28,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="customize-the-contact-your-administrator-link"></a>Настройка ссылки "Обратитесь к администратору"
 
-Даже если SSPR не включен, можно воспользоваться ссылкой "Обратитесь к администратору" на портале сброса паролей.  После выбора этой ссылки администратору будет отправлено сообщение электронной почты с запросом на помощь в изменении пароля пользователя. Это сообщение электронной почты отправляется следующим получателям в следующем порядке:
+Даже если SSPR не включен, можно воспользоваться ссылкой "Обратитесь к администратору" на портале сброса паролей.  После выбора этой ссылки администраторам будет отправлено электронное сообщение с просьбой о помощи в изменении пароля пользователя либо пользователи будут направлены на указанный вами URL-адрес. Рекомендуется задать ссылку на адрес электронной почты или веб-сайт, который пользователи будут использовать для поддержки.
+
+![Контакт][Contact]
+
+Это сообщение электронной почты отправляется следующим получателям в следующем порядке:
 
 1. Уведомление получают пользователи с ролью **Администратор паролей**, если она назначена.
 2. Если администраторы паролей отсутствуют, уведомление получают пользователи с ролью **Администратор пользователей**.
@@ -96,16 +100,17 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Дополнительные сведения о сбросе пароля с помощью Azure AD см. в следующих источниках:
+* [Как развернуть самостоятельный сброс пароля?](active-directory-passwords-best-practices.md)
+* [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md).
+* [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md).
+* [Требования к лицензированию самостоятельного сброса пароля в Azure AD](active-directory-passwords-licensing.md).
+* [Какие данные используются для SSPR и какие сведения нужно указывать пользователям?](active-directory-passwords-data.md)
+* [Доступные пользователям методы проверки подлинности](active-directory-passwords-how-it-works.md#authentication-methods).
+* [Параметры политики для SSPR](active-directory-passwords-policy.md).
+* [Обзор обратной записи паролей](active-directory-passwords-writeback.md).
+* [Параметры отчетов для управления паролями Azure AD](active-directory-passwords-reporting.md).
+* [Руководство по самостоятельному сбросу пароля в Azure AD](active-directory-passwords-how-it-works.md).
+* [Как устранить неполадки самостоятельного сброса пароля](active-directory-passwords-troubleshoot.md)
+* [Вопросы, не вошедшие в другие статьи](active-directory-passwords-faq.md)
 
-* [**Быстрое начало работы с самостоятельным сбросом пароля в Azure AD**](active-directory-passwords-getting-started.md). Запуск и выполнение службы самостоятельного управления паролями Azure AD. 
-* [**Licensing requirements for Azure AD self-service password reset**](active-directory-passwords-licensing.md) (Требования к лицензированию самостоятельного сброса пароля в Azure AD). Сведения о настройке лицензирования Azure AD.
-* [**Deploy password reset without requiring end-user registration**](active-directory-passwords-data.md) (Развертывание сброса пароля без регистрации пользователя). Сведения о необходимых данных и их использовании для управления паролями.
-* [**Развертывание функции сброса паролей для пользователей**](active-directory-passwords-best-practices.md). Рекомендации по планированию и развертыванию SSPR для пользователей.
-* [**Политики и ограничения для паролей в Azure Active Directory**](active-directory-passwords-policy.md). Общие сведения и информация об установке политик паролей Azure AD.
-* [**Обзор компонента обратной записи паролей**](active-directory-passwords-writeback.md). Как работает функция обратной записи паролей с вашим локальным каталогом.
-* [**Параметры отчетов для управления паролями Azure AD**](active-directory-passwords-reporting.md). Определяйте, кто и когда использовал функцию SSPR.
-* [**Как работает управление паролями в Azure Active Directory**](active-directory-passwords-how-it-works.md). Сведения о принципе работы управления паролями.
-* [**Вопросы и ответы об управлении паролями**](active-directory-passwords-faq.md). Как? Почему? Что? Где? Кто? Когда? Здесь приведены ответы на интересующие вас вопросы.
-* [**Устранение неполадок, связанных с управлением паролями**](active-directory-passwords-troubleshoot.md). Сведения об устранении распространенных проблем с SSPR.
-
+[Contact]: ./media/active-directory-passwords-customize/sspr-contact-admin.png "Пример обращения по электронной почте к администратору для получения помощи при сбросе пароля"

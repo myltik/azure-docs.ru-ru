@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f1aa4117b389bb127eb7235f69f587dcb715ac25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 373a98855886cc7be7518c664f82bb6f92ca86f3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Устранение неполадок, связанных с низкой производительностью архивации файлов и папок в службе архивации Azure
 В этой статье представлены инструкции по устранению неполадок, которые помогут вам диагностировать причины низкой производительности при архивации файлов и папок при использовании службы архивации Azure. Если архивация файлов выполняется с помощью агента службы архивации Azure, этот процесс может занять больше времени, чем ожидалось. Ниже приведены причины возникновения задержек.

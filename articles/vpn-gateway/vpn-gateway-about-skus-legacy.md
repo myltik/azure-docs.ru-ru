@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 10/31/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3b2126b1ecd1613950bbf311ae08fafd4af0d51f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Работа со SKU шлюза виртуальной сети (старые версии SKU)
 
@@ -39,7 +39,12 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="resize"></a>Изменение размера SKU шлюза (изменение SKU шлюза)
 
-Вы можете изменить номер SKU шлюза в пределах одного семейства SKU. Например, при наличии номера SKU " Стандартный" можно изменить размер до SKU HighPerformance. Размер VPN-шлюза невозможно изменить путем перехода от старых SKU на новые семейства SKU. Например, вы не сможете перейти со SKU " Стандартный" на SKU VpnGw2. 
+Вы можете изменить номер SKU шлюза в пределах одного семейства SKU. Например, при наличии номера SKU " Стандартный" можно изменить размер до SKU HighPerformance. Размер VPN-шлюза невозможно изменить путем перехода от старых SKU на новые семейства SKU. Например, вы не сможете перейти со SKU " Стандартный" на SKU VpnGw2.
+
+>[!IMPORTANT]
+>При изменении размера шлюз будет простаивать 20–30 минут, пока его размер будет изменяться.
+>
+>
 
 Чтобы изменить размер номера SKU шлюза для классической модели развертывания, используйте следующую команду:
 

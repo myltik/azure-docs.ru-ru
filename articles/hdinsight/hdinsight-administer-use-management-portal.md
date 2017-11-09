@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Управление кластерами Hadoop на платформе Windows в HDInsight с помощью портала Azure
 
@@ -61,7 +61,7 @@ HDInsight работает со множеством компонентов Hado
 
 * Используйте действие скрипта для запуска пользовательских скриптов, которые могут настраивать кластер для изменения конфигурации кластера или для установки настраиваемых компонентов, таких как Giraph или Solr. Дополнительные сведения см. в статье [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster.md).
 * При создании кластера используйте параметры настройки кластера в Azure PowerShell или в пакете SDK для HDInsight .NET. Такие изменения конфигурации сохраняются на протяжении всего срока существования кластера и не попадают под воздействие операций повторного создания образа узла, которые периодически выполняет платформа Azure в рамках обслуживания. Дополнительные сведения об использовании параметров настройки кластера см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* Некоторые собственные компоненты Java, такие как Mahout и Cascading, могут выполняться в кластере как JAR-файлы. Эти JAR-файлы можно распространить в хранилище больших двоичных объектов Azure и отправить в кластеры HDInsight с помощью механизмов отправки заданий Hadoop. Подробные сведения см. в статье [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Некоторые собственные компоненты Java, такие как Mahout и Cascading, могут выполняться в кластере как JAR-файлы. Эти JAR-файлы можно распространить в хранилище больших двоичных объектов Azure и отправить в кластеры HDInsight с помощью механизмов отправки заданий Hadoop. Подробные сведения см. в статье [Отправка заданий Hadoop в HDInsight](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
   > Если при развертывании или вызове JAR-файлов в кластерах HDInsight возникают проблемы, обратитесь в [службу поддержки Майкрософт](https://azure.microsoft.com/support/options/).
@@ -213,7 +213,7 @@ HDInsight работает со множеством компонентов Hado
 * С помощью фабрики данных Azure. Выполняемые по запросу и самоопределяющиеся связанные службы HDInsight описаны в статьях [Связанные службы вычислений](../data-factory/compute-linked-services.md) и [Преобразование данных в фабрике данных Azure](../data-factory/transform-data.md).
 * С помощью Azure PowerShell.  См. статью [Анализ данных о задержке рейсов с помощью Hive в HDInsight](hdinsight-analyze-flight-delay-data.md).
 * С помощью интерфейса командной строки Azure. См. статью [Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure](hdinsight-administer-use-command-line.md).
-* С помощью пакета SDK для HDInsight .NET. См. статью [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md).
+* С помощью пакета SDK для HDInsight .NET. См. статью [Отправка заданий Hadoop в HDInsight](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Сведения о ценах см. на странице [цен на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Удаление кластера на портале описано в разделе [Удаление кластеров](#delete-clusters).
 
@@ -271,7 +271,7 @@ HDInsight работает со множеством компонентов Hado
 ## <a name="open-hdinsight-query-console"></a>Открытие консоли запросов HDInsight
 Консоль запросов HDInsight содержит следующие компоненты.
 
-* **Редактор кустов**. Графический пользовательский веб-интерфейс для отправки заданий Hive.  См. статью [Выполнение запросов Hive с помощью консоли запросов](hdinsight-hadoop-use-hive-query-console.md).
+* **Редактор кустов**. Графический пользовательский веб-интерфейс для отправки заданий Hive.  См. статью [Выполнение запросов Hive с помощью консоли запросов](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![Редактор кустов на портале HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **Журнал заданий**. Позволяет отслеживать задания Hadoop.  
@@ -371,8 +371,8 @@ HDInsight работает со множеством компонентов Hado
 * [Администрирование HDInsight с помощью Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Администрирование HDInsight с помощью CLI Azure](hdinsight-administer-use-command-line.md)
 * [Создание кластеров Hadoop в HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-* [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Начало работы с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Отправка заданий Hadoop в HDInsight](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Начало работы с Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Какая версия Hadoop включена в Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

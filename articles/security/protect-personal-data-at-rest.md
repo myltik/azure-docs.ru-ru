@@ -1,7 +1,25 @@
-title: Защита неактивных персональных данных с помощью шифрования в Azure | Документация Майкрософт description: Этот материал входит в цикл статей, которые помогают защитить персональные данные с помощью Azure. services: security documentationcenter: na author: Barclayn manager: MBaldwin editor: TomSh
-
-ms.assetid: ms.service: security ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 08/22/2017 ms.author: barclayn ms.custom: 
-
+---
+title: "Защита неактивных персональных данных с помощью шифрования в Azure | Документация Майкрософт"
+description: "Это статья входит в цикл о защите персональных данных с помощью Azure."
+services: security
+documentationcenter: na
+author: Barclayn
+manager: MBaldwin
+editor: TomSh
+ms.assetid: 
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/31/2017
+ms.author: barclayn
+ms.custom: 
+ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Технологии шифрования Azure. Защита неактивных персональных данных с помощью шифрования
 

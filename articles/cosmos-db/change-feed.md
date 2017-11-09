@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 0971959fb168d92096531d1c081666cf301608cf
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: e21925b8f84f0805f41fd698965cac09286b92c1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Работа с поддержкой веб-канала изменений в Azure Cosmos DB
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 10/14/2017
 
 Если у вас несколько читателей, можно использовать **ChangeFeedOptions**, чтобы распределить нагрузку чтения среди разных потоков или разных клиентов.
 
-Вот и все. С помощью этих нескольких строк кода вы можете начать считывание канала изменений. Полный код, используемый в этой статье, можно получить из [репозитория GitHub azure cosmos-db DocumentFeed](https://github.com/rsarosh/azure-cosmos-db-DocumentFeed).
+Вот и все. С помощью этих нескольких строк кода вы можете начать считывание канала изменений. Полный код, используемый в этой статье, можно получить из [репозитория GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
 
 В коде на шаге 4 **ResponseContinuation** в последней строке имеет последний регистрационный номер транзакции в журнале (LSN) документа, который будет использоваться при следующем чтении новых документов после этого порядкового номера. С помощью свойства **StartTime** в разделе **ChangeFeedOption** вы можете расширить свою сеть, чтобы получить документы. Если свойство **ResponseContinuation** имеет значение NULL, а **StartTime** обращается к данным за прошедшие периоды, то вы получите все документы, которые изменены со **времени начала**. Но если свойство **ResponseContinuation** имеет значение, то система предоставит все ваши документы после номера LSN.
 
@@ -278,7 +278,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 * [Пакет SDK для обработчика веб-канала изменений для DocumentDB .NET: скачивание и заметки о выпуске](documentdb-sdk-dotnet-changefeed.md) 
 * [Microsoft.Azure.DocumentDB.ChangeFeedProcessor](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Пример кода, иллюстрирующий шаги 1–6 выше](https://github.com/rsarosh/Cosmos-ChangeFeedProcessor)
+* [Пример кода, иллюстрирующий шаги 1–6 выше](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Дополнительные примеры на GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Дополнительные сведения об использовании канала изменений с помощью пакета SDK см. в следующих ресурсах:

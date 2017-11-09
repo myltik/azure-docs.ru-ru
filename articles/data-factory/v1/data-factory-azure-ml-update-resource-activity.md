@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a236df1f13666bc8aa1a957e1718b686cdbd240e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 009c7349e82194f9b7f0c8a0c49c427fc78bba85
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Обновление моделей машинного обучения Azure с помощью действия "Обновить ресурс"
 
@@ -33,6 +33,10 @@ ms.lasthandoff: 10/11/2017
 > * [Действие хранимой процедуры](data-factory-stored-proc-activity.md)
 > * [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
 > * [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
+
+
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, ознакомьтесь с [обновлением моделей машинного обучения в фабрике данных версии 2](../update-machine-learning-models.md).
 
 Эта статья дополняет основную статью, посвященную интеграции фабрики данных Azure и машинного обучения Azure: [Создание прогнозирующих конвейеров с помощью машинного обучения Azure и фабрики данных Azure](data-factory-azure-ml-batch-execution-activity.md). Перед прочтением этой статьи ознакомьтесь с основной статьей, если вы еще этого не сделали. 
 
@@ -56,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 Чтобы обновить веб-службу с помощью заново обученной модели, можно вызвать **веб-службу оценки**, воспользовавшись **действием ресурса обновления машинного обучения Azure**. Ниже приведены примеры определений связанной службы. 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>Веб-служба оценки — классическая веб-служба
-Если веб-служба оценки является **классической веб-службой**, то создайте вторую **обновляемую конечную точку не по умолчанию** с помощью [портала Azure](https://manage.windowsazure.com). Инструкции см. в статье [Создание конечных точек](../../machine-learning/machine-learning-create-endpoint.md). Создав обновляемую конечную точку не по умолчанию, выполните следующие действия:
+Если веб-служба оценки является **классической веб-службой**, то создайте вторую **обновляемую конечную точку не по умолчанию** с помощью портала Azure. Инструкции см. в статье [Создание конечных точек](../../machine-learning/machine-learning-create-endpoint.md). Создав обновляемую конечную точку не по умолчанию, выполните следующие действия:
 
 * Щелкните **Выполнение пакета**, чтобы получить значение URI свойства JSON **mlEndpoint**.
 * Затем щелкните **Обновить ресурс**, чтобы получить значение URI свойства JSON **updateResourceEndpoint**. Ключ API указывается на странице конечной точки (в правом нижнем углу).

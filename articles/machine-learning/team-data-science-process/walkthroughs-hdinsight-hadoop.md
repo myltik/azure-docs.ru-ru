@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 5dbfd043f1809f407baf6aa4ca5c5272af425012
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cef2dac8651933765c83410579eafb23460960f9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Пошаговое руководство по обработке и анализу данных HDInsight Hadoop с использованием Hive в Azure 
 
-В этих пошаговых руководствах для прогнозной аналитики с кластером HDInsight Hadoop используется Hive. Они предусматривают выполнение инструкций, описанных в процессе обработки и анализа данных группы. Процесс обработки и анализа данных группы представлен в статье [Жизненный цикл процесса обработки и анализа данных группы](overview.md). Обзор Azure HDInsight см. в статье [Общие сведения об Azure HDInsight, технологической платформе Hadoop и кластерах Hadoop](../../hdinsight/hdinsight-hadoop-introduction.md).
+В этих пошаговых руководствах для прогнозной аналитики с кластером HDInsight Hadoop используется Hive. Они предусматривают выполнение инструкций, описанных в процессе обработки и анализа данных группы. Процесс обработки и анализа данных группы представлен в статье [Жизненный цикл процесса обработки и анализа данных группы](overview.md). Обзор Azure HDInsight см. в статье [Общие сведения об Azure HDInsight, технологической платформе Hadoop и кластерах Hadoop](../../hdinsight/hadoop/apache-hadoop-introduction.md).
 
 Дополнительные пошаговые инструкции по обработке и анализу данных группы объединены по используемой **платформе**. Дополнительные сведения об этих примерах см. в статье [Пошаговые руководства по процессу обработки и анализа данных группы](walkthroughs.md).
 

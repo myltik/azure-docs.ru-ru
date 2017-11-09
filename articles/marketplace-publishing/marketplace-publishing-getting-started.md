@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa00f176ff56c13033907e134fc236c291308028
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Публикация предложения и управление им в Azure Marketplace
 Эта статья поможет разработчикам создать и развернуть решения, а также управлять ими в Azure Marketplace, чтобы их могли приобрести и использовать другие клиенты и партнеры Azure.
@@ -99,9 +99,6 @@ ms.lasthandoff: 10/11/2017
 * [Возврат рабочих значений цен для внесенных в список элементов](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
 * [Возврат рабочих значений для модели выставления счетов](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [Возврат рабочего значения параметра видимости для внесенного в список номера SKU](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
-* [Просмотр и изменение статуса участия в программе поощрения поставщиков облачных решений в Azure Marketplace](marketplace-publishing-csp-incentive.md)
-* [Основная информация об отчетах о выплатах Azure Marketplace](marketplace-publishing-report-payout.md)
-* [Поддержка издателей](marketplace-publishing-get-publisher-support.md)
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 [Настройка Azure PowerShell для создания предложения для Azure Marketplace](marketplace-publishing-powershell-setup.md)

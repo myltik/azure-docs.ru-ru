@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: c1061811d205494969047fa3f91cbf449a25d8ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Создание кластеров Hadoop в HDInsight по запросу с помощью фабрики данных Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -564,7 +564,7 @@ FolderPath задает путь к папке, содержащей выход�
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы узнали, как использовать фабрику данных Azure для создания кластера HDInsight по запросу для обработки заданий Hive. Дополнительные сведения
 
-* [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Документация по HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [Документация по фабрике данных](https://azure.microsoft.com/documentation/services/data-factory/)

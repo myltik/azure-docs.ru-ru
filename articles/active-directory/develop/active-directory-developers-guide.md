@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1baf98616eb48bd3ae45b78ab1ac31e711fa655d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory для разработчиков
 Azure Active Directory является облачной службой идентификации, которая позволяет разработчикам обеспечить безопасный вход любого пользователя с помощью рабочей или учебной учетной записи, поддерживаемой Майкрософт.  В приведенной здесь документации показано, как с помощью стандартных отраслевых протоколов проверки подлинности OAuth и OpenID Connect добавить поддержку Azure AD в ваше приложение.
@@ -59,16 +59,9 @@ Azure Active Directory является облачной службой иден
 | [Глоссарий](active-directory-dev-glossary.md)                                      | Термины и определения слов, используемых в данной документации |
 | [Дополнительные справочные материалы](active-directory-developers-guide-index.md#reference)|     |
 
-## <a name="help--support"></a>Справка и поддержка
-Это лучшие места, чтобы получить помощь в разработке для Azure Active Directory.
-
-|  |  
-|---|
-|[Stack Overflow`azure-active-directory` и `adal`теги](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
-|[Отзывы об Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
-| [Ознакомьтесь с чатом разработки Майкрософт (бесплатно в течение ограниченного периода)](http://aka.ms/devchat) |
-
-<br />
 
 > [!NOTE]
 > Если вам нужно войти в личные учетные записи Майкрософт, вы можете рассмотреть возможность использования [конечной точки Azure AD v2.0](active-directory-appmodel-v2-overview.md).  Конечная точка Azure AD v2.0 — это объединение личных учетных записей Майкрософт и рабочих учетных записей Майкрософт (от Azure AD) в единую систему проверки подлинности.
+
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

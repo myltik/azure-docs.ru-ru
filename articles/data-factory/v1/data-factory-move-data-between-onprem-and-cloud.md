@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 11/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 712b29a347e246ad5afbf842930b0e01749c1203
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39e283e4b0bb5e50d1268e1b2cac53bf9ee71028
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, ознакомьтесь с [копированием данных между локальной средой и облаком с помощью фабрики данных версии 2](../tutorial-hybrid-copy-powershell.md).
+
 Эта статья содержит общие сведения об интеграции данных, хранящихся в локальных и облачных хранилищах данных, с помощью фабрики данных. В статье используются понятия, описанные в статье [Действия по перемещению данных](data-factory-data-movement-activities.md) и других основополагающих статьях о фабрике данных: [наборы данных](data-factory-create-datasets.md) и [конвейеры](data-factory-create-pipelines.md).
 
 ## <a name="data-management-gateway"></a>Шлюз управления данными

@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: jingwang
-ms.openlocfilehash: 758c8e73cf54cd21f4d87f19a64d8d71eee159c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4415417b0737feeb6f6285b29a59c2909d44a0d
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Поддерживаемые форматы файлов и кодеки сжатия в фабрике данных Azure
 
@@ -26,6 +26,9 @@ ms.lasthandoff: 10/11/2017
 * [формат Avro](#avro-format);
 * [формат ORC](#orc-format);
 * [формат Parquet](#parquet-format).
+
+> [!NOTE]
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, ознакомьтесь с [поддерживаемыми форматами файлов и сжатия в фабрике данных версии 1](v1//data-factory-supported-file-and-compression-formats.md).
 
 ## <a name="text-format"></a>Текстовый формат
 

@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 11/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: db18a9f7f68fe47a85e9a160e4e919fc57b1b8e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c22b8c07e6fb27af663c177ad4045615ab209ee1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="data-management-gateway"></a>Шлюз управления данными
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, прочитайте статью о [локальной среде выполнения интеграции в версии 2](../create-self-hosted-integration-runtime.md). 
+
 Шлюз управления данными — это агент клиента, который необходимо установить в локальной среде, чтобы обеспечить копирование данных между облачными и локальными хранилищами данных. Перечень локальных хранилищ данных, поддерживаемых фабрикой данных, приведен в разделе [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 
 Эта статья дополняет пошаговое руководство, приведенное в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md) . В руководстве создается конвейер, который использует шлюз для перемещения данных из локальной базы данных SQL Server в большой двоичный объект Azure. В этой статье содержатся подробные сведения об использовании шлюза управления данными. 

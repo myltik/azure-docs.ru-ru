@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: 370f8973b9b8a0cd0c5220a35218efe81bfd07e0
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 51cdb60d1967f2a4a4ebadbd2717fd580a79da6b
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect. История выпусков версий
 Команда Azure Active Directory (Azure AD) регулярно обновляет службу Azure AD Connect, добавляя новые функции и возможности. Не все эти дополнения применимы для всех пользователей.
@@ -33,6 +33,17 @@ ms.lasthandoff: 10/24/2017
 Действия по переходу с Azure AD Connect | Различные методы [обновления предыдущей версии до последней версии](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect.
 Необходимые разрешения | Разрешения, необходимые для установки обновления, см. в [этом](./active-directory-aadconnect-accounts-permissions.md#upgrade) разделе.
 Загрузить| [Скачать Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+
+## <a name="116490"></a>1.1.649.0
+Состояние: 27 октября 2017 г.
+
+>[!NOTE]
+>Эта сборка недоступна для клиентов, использующих функцию автоматического обновления Azure AD Connect.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issue"></a>Исправленные проблемы
+* Устранена проблема совместимости между Azure AD Connect и агентом Azure AD Connect Health (для синхронизации). Эта проблема затрагивает клиентов, выполняющих обновление на месте Azure AD Connect до версии 1.1.647.0, но в настоящее время использующих агент Azure AD Connect Health версии 3.0.127.0. После обновления агент Azure AD Connect Health больше не может отправлять данные о службе синхронизации Azure AD Connect в службу Azure AD Health. Благодаря этому исправлению агент Azure AD Connect Health версии 3.0.129.0 устанавливается во время обновления на месте Azure AD Connect. В Azure AD Connect Health версии 3.0.129.0 нет проблемы совместимости с Azure AD Connect версии 1.1.649.0.
 
 
 ## <a name="116470"></a>1.1.647.0
@@ -642,9 +653,9 @@ Desktop SSO
 **Новые функции:**
 
 * [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) для тех, кто использует стандартные параметры.
-* Поддержка глобального администратора с помощью многофакторной идентификации (Azure MFA) и управления привилегированными пользователями в мастере установки.
-  * Также необходимо, чтобы при использовании MFA прокси-сервер пропускал трафик по адресу https://secure.aadcdn.microsoftonline-p.com.
-  * Чтобы обеспечить нормальную работу MFA, следует добавить адрес https://secure.aadcdn.microsoftonline-p.com в список надежных сайтов.
+* Поддержка глобального администратора с помощью Многофакторной идентификации (Azure MFA) и управления привилегированными пользователями в мастере установки.
+  * Также необходимо, чтобы при использовании Многофакторной идентификации Azure прокси-сервер пропускал трафик по адресу https://secure.aadcdn.microsoftonline-p.com.
+  * Чтобы обеспечить нормальную работу Многофакторной идентификации Azure, следует добавить адрес https://secure.aadcdn.microsoftonline-p.com в список надежных сайтов.
 * Разрешите изменять способ входа пользователя после первоначальной установки.
 * Разрешите [фильтрацию доменов и подразделений](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) в мастере установки. Это также позволяет подключиться к лесам, в которых доступны не все домены.
 * [Планировщик](active-directory-aadconnectsync-feature-scheduler.md) встроен в модуль синхронизации.

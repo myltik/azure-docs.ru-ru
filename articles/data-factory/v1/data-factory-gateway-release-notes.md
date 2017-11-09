@@ -11,16 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/15/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5b677990efe49b666396728767ee59587a280efe
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 3cc96b22b45e5c741991b11e1bbee758a569bed9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Заметки о выпуске шлюза управления данными
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, ознакомьтесь с [локальной средой выполнения интеграции в версии 2](../create-self-hosted-integration-runtime.md).
+
 Одной из проблем интеграции данных в наше время является перемещение данных между локальной средой и облаком. Для решения этой проблемы в фабрике данных используется шлюз управления данными. Это агент, который можно установить локально для переноса гибридных данных.
 
 Следующие статьи содержат подробные сведения о шлюзе управления данными и о его применении.

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Настройка производительности запросов в Azure Cosmos DB
 Azure Cosmos DB предоставляет [API SQL для запроса данных](documentdb-sql-query.md) без использования схемы или вторичных индексов. В этой статье содержатся следующие сведения для разработчиков:
@@ -253,7 +253,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | Миллисекунды | Время, затраченное на загрузку документов  | 
 | `systemFunctionExecuteTimeInMs` | Миллисекунды | Общее время, затраченное на выполнение (встроенных) функций системы (в миллисекундах)  | 
 | `userFunctionExecuteTimeInMs` | Миллисекунды | Общее время, затраченное на выполнение определяемых пользователем функций (в миллисекундах) | 
-| `retrievedDocumentCount` | Миллисекунды | Общее число полученных документов  | 
+| `retrievedDocumentCount` | count | Общее число полученных документов  | 
 | `retrievedDocumentSize` | Байты | Общий размер полученных документов в байтах  | 
 | `outputDocumentCount` | count | Количество выходных документов | 
 | `writeOutputTimeInMs` | Миллисекунды | Время выполнения запроса в миллисекундах | 

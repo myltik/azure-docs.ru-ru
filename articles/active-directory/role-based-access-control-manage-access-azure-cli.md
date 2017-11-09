@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 77315171754304c965f296670fbba3a4751a3656
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88a5fe33d048814d956a1221802f059cfbcccb0a
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Управление доступом на основе ролей с помощью интерфейса командной строки Azure
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ## <a name="create-a-custom-role"></a>Создание настраиваемой роли
 Чтобы создать настраиваемую роль, используйте следующую команду:
 
-    azure role definition create --role-definition <file path>
+    azure role create --inputfile <file path>
 
 В следующем примере показано создание настраиваемой роли *Оператор виртуальной машины*. Настраиваемая роль предоставляет доступ ко всем операциям чтения поставщиков ресурсов *Microsoft.Compute*, *Microsoft.Storage* и *Microsoft.Network*, а также доступ для запуска, перезапуска и мониторинга виртуальных машин. Эту настраиваемую роль можно использовать в двух подписках. В этом примере в качестве входных данных используется JSON-файл.
 
@@ -159,9 +159,9 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ![Снимок экрана: командная строка RBAC Azure — создание ролей Azure](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## <a name="modify-a-custom-role"></a>Изменение настраиваемой роли
-Чтобы изменить настраиваемую роль, сначала используйте команду `azure role definition list` для получения определения роли. Затем внесите необходимые изменения в файл определения роли. Наконец, с помощью `azure role definition update` сохраните измененное определение роли.
+Чтобы изменить настраиваемую роль, сначала используйте команду `azure role list` для получения определения роли. Затем внесите необходимые изменения в файл определения роли. Наконец, с помощью `azure role set` сохраните измененное определение роли.
 
-    azure role definition update --role-definition <file path>
+    azure role set --inputfile <file path>
 
 В следующем примере операция *Microsoft.Insights/diagnosticSettings/* добавляется в раздел **Actions**, а подписка Azure — в раздел **AssignableScopes** настраиваемой роли "Оператор виртуальной машины".
 
@@ -170,7 +170,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ![Снимок экрана: командная строка RBAC Azure — настройка ролей Azure](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>Удаление настраиваемой роли
-Чтобы удалить настраиваемую роль, сначала используйте команду `azure role definition list` для определения **идентификатора** роли. Затем с помощью команды `azure role definition delete` удалите роль, указав ее **идентификатор**.
+Чтобы удалить настраиваемую роль, сначала используйте команду `azure role list` для определения **идентификатора** роли. Затем с помощью команды `azure role delete` удалите роль, указав ее **идентификатор**.
 
 В следующем примере показано удаление настраиваемой роли *Оператор виртуальной машины* .
 
@@ -182,7 +182,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 Следующая команда перечисляет все роли, доступные для назначения в выбранной подписке.
 
 ```
-azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![Снимок экрана: командная строка RBAC Azure — список ролей Azure](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -190,7 +190,7 @@ azure role definition list --json | jq '.[] | {"name":.properties.roleName, type
 В следующем примере настраиваемая роль *Оператор виртуальной машины* не доступна в подписке *Production4*, так как эта подписка не входит в **AssignableScopes** роли.
 
 ```
-azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![Снимок экрана: командная строка RBAC Azure — список пользовательских ролей Azure](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)

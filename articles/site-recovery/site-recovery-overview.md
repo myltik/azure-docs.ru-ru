@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b4b39cd23557093edaec97f7ef7a3e354f1ecd03
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="about-site-recovery"></a>Сведения о службе Site Recovery
 
@@ -67,8 +67,7 @@ Site Recovery управляет репликацией для:
 **Какие регионы поддерживаются для Site Recovery?** | [Поддерживаемые регионы](https://azure.microsoft.com/regions/services/) |
 **Какие операционные системы можно использовать на реплицируемых компьютерах?** | [Требования для виртуальных машин Azure](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[Требования для виртуальных машин VMware](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Для виртуальных машин Hyper-V поддерживается любая [гостевая ОС](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows), совместимая с Azure и Hyper-V.<br/><br/> [Требования для физических серверов](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 **Какие серверы или узлы VMware требуются?** | Виртуальные машины VMware можно разместить на [поддерживаемых узлах vSphere и серверах vCenter](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
-
-**Какие рабочие нагрузки можно реплицировать?** Можно реплицировать любую рабочую нагрузку, выполняемую на поддерживающем репликацию компьютере. Кроме того, команда Site Recovery выполнила специальную проверку [ряда приложений](site-recovery-workload.md#workload-summary).
+**Какие рабочие нагрузки можно реплицировать?** | Можно реплицировать любую рабочую нагрузку, выполняемую на поддерживающем репликацию компьютере. Кроме того, команда Site Recovery выполнила специальную проверку [ряда приложений](site-recovery-workload.md#workload-summary).
 
 
 

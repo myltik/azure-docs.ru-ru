@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: e9c7ae58825d640a33c7d76eb5016faeb3de2849
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59f1e4c5bf1c1a3ea4af42872246b5230d4c6d24
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Исследование и моделирование данных с помощью Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -136,7 +136,7 @@ Spark может считывать данные и записывать их в
 * **%%local** Указывает, что код в последующих строках будет выполнен локально. В качестве кода должен быть указан корректный код Python.
 * **%%sql -o <variable name>** Выполняет запрос Hive к sqlContext. Если передан параметр -o, результат запроса сохраняется в контексте %%local Python в формате Pandas DataFrame.
 
-Дополнительные сведения о ядрах для записных книжек Jupyter и предустановленных "волшебных командах", которые они предоставляют, см. в статье [Ядра, доступные для использования записными книжками Jupyter с кластерами Apache Spark в HDInsight на платформе Linux](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Дополнительные сведения о ядрах для записных книжек Jupyter и предустановленных "волшебных командах", которые они предоставляют, см. в статье [Ядра, доступные для использования записными книжками Jupyter с кластерами Apache Spark в HDInsight на платформе Linux](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="data-ingestion-from-public-blob"></a>Прием данных из открытого большого двоичного объекта
 Чтобы начать анализ и обработку необходимых данных, требуется переместить их из источников, в которых они находятся, в среду исследования и моделирования данных. В нашем пошаговом руководстве это среда Spark. Этот раздел содержит код, с помощью которого можно выполнить следующие задачи:
@@ -705,7 +705,7 @@ F1 Score = 0.984304060189
 
 **Графическое представление кривой ROC.**
 
-*predictionAndLabelsDF* регистрируется как таблица (*tmp_results*) в предыдущей ячейке. *tmp_results* может использоваться для выполнения запросов и вывода результатов во фрейм данных sqlResults для построения диаграммы. Ниже приведен код:
+*predictionAndLabelsDF* регистрируется как таблица (*tmp_results*) в предыдущей ячейке. *tmp_results* может использоваться для выполнения запросов и вывода результатов во фрейм данных sqlResults для построения графика. Ниже приведен код:
 
     # QUERY RESULTS                              
     %%sql -q -o sqlResults

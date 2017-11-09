@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/01/2017
-ms.openlocfilehash: 38988fc5c0dc05331ea078534cd1a05e9eca2493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: af42d4b59b428e96bdd1280a5ee5073842ede4c2
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Ограничения в базе данных Azure для PostgreSQL
 Служба базы данных Azure для PostgreSQL работает в режиме общедоступной предварительной версии. В следующих разделах описываются действующие ограничения емкости и функциональных возможностей в службе базы данных.

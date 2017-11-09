@@ -21,6 +21,8 @@
       href: tutorial-user-access.md
     - name: 3. Прогнозирование затрат
       href: tutorial-forecast-spending.md
+    - name: 4. Управление затратами
+      href: tutorial-manage-costs.md
 - name: Ресурсы
   items:
     - name: Видео по управлению затратами
