@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: a3d4e5367dd41ce2ade7033cefcc774dcec9c82c
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 1f0d50331aa3986e80542902fd528f98e1c91bc2
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Инструменты Функций Azure для Visual Studio  
 
@@ -35,11 +35,9 @@ ms.lasthandoff: 10/16/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Инструменты Функций Azure включены в рабочую нагрузку "разработка Azure" в [Visual Studio 2017 версии 15.3](https://www.visualstudio.com/vs/) или более поздней. Не забудьте включить рабочую нагрузку **разработка Azure** в своем экземпляре Visual Studio 2017 версии 15.3:
+Инструменты службы "Функции Azure" включены в рабочую нагрузку "разработка Azure" в [Visual Studio 2017 версии 15.4](https://www.visualstudio.com/vs/) или более поздней версии. Не забудьте включить рабочую нагрузку **разработка Azure** в своем экземпляре Visual Studio 2017.
 
 ![Установка Visual Studio 2017 с рабочей нагрузкой разработки в Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
-[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
 Для создания и развертывания функций необходимы также следующие компоненты:
 
