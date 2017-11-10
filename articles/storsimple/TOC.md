@@ -11,8 +11,7 @@
 
 ### Развернуть
 #### [Подготовка к развертыванию](storsimple-virtual-array-deploy1-portal-prep.md)
-##### 
-            [Развертывание службы StorSimple Manager](storsimple-virtual-array-manage-service.md)
+##### [Развертывание службы StorSimple Manager](storsimple-virtual-array-manage-service.md)
 #### [Подготовка в Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Подготовка в VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Настройка в качестве файлового сервера](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -89,8 +88,7 @@
 
 ### Управление
 
-#### 
-            [Использование службы StorSimple Manager](storsimple-8000-manager-service-administration.md)
+#### [Использование службы StorSimple Manager](storsimple-8000-manager-service-administration.md)
 ##### [Восстановление из архива](storsimple-8000-restore-from-backup-set-u2.md)
 ##### [Клонирование тома](storsimple-8000-clone-volume-u2.md)
 ##### [Удаленное подключение к устройству](storsimple-8000-remote-connect.md)
@@ -224,8 +222,7 @@
 #### [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Развернуть
-#### 
-            [Служба StorSimple Manager](storsimple-manage-service.md)
+#### [Служба StorSimple Manager](storsimple-manage-service.md)
 #### [Физическое устройство в Azure (текущая версия)](storsimple-deployment-walkthrough-u2.md)
 ##### [Физическое устройство в Azure (обновление 1)](storsimple-deployment-walkthrough-u1.md)
 ##### [Физическое устройство в Azure (общая доступность)](storsimple-deployment-walkthrough.md)
@@ -239,8 +236,7 @@
 
 ### Управление
 
-#### 
-            [Использование службы StorSimple Manager](storsimple-manager-service-administration.md)
+#### [Использование службы StorSimple Manager](storsimple-manager-service-administration.md)
 ##### [Восстановление из архива](storsimple-restore-from-backup-set-u2.md)
 ###### [Восстановление из архива](storsimple-restore-from-backup-set.md)
 ##### [Клонирование тома](storsimple-clone-volume-u2.md)
