@@ -20,8 +20,6 @@
       items:
         - name: Варианты хранилищ
           href: r-server-storage.md
-        - name: Установка R Studio
-          href: r-server-install-r-studio.md
         - name: Контекст вычислений
           href: r-server-compute-contexts.md
         - name: ScaleR и SparkR

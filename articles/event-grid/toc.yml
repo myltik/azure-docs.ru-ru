@@ -46,6 +46,15 @@
       href: subscription-creation-schema.md
     - name: Схема событий
       href: event-schema.md
+      items:
+        - name: Подписки Azure
+          href: event-schema-subscriptions.md
+        - name: Хранилище BLOB-объектов
+          href: event-schema-blob-storage.md
+        - name: Концентраторы событий
+          href: event-schema-event-hubs.md
+        - name: Группы ресурсов
+          href: event-schema-resource-groups.md
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure
