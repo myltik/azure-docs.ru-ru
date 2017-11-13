@@ -1,12 +1,13 @@
 | Категория | Хранилище данных | Поддерживается в качестве источника | Поддерживается в качестве приемника | Поддерживается [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Поддерживается [локальной IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **Таблицы Azure** |[хранилище BLOB-объектов Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓  |✓  |✓  |✓  |
+| **Таблицы Azure** |[Хранилище BLOB-объектов Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[База данных Azure Cosmos](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓  |✓  |✓   |
-| &nbsp; |[Хранилище озера данных Azure](../articles/data-factory/connector-azure-data-lake-store.md) |✓  |✓  |✓  |✓   |
+| &nbsp; |[Хранилище озера данных Azure](../articles/data-factory/connector-azure-data-lake-store.md) |✓  |✓  |✓  |✓  |
+| &nbsp; |[Хранилище файлов Azure](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓  |✓  |✓   |
 | &nbsp; |[База данных SQL Azure;](../articles/data-factory/connector-azure-sql-database.md) |✓  |✓  |✓  |✓   |
 | &nbsp; |[Хранилище данных Azure SQL](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓  |✓  |✓  |✓   |
 | &nbsp; |[Индекс службы поиска Azure](../articles/data-factory/connector-azure-search.md) | |✓  |✓  |✓  |
-| &nbsp; |[Хранилище таблиц Azure](../articles/data-factory/connector-azure-table-storage.md) |✓  |✓  |✓  |✓   |
+| &nbsp; |[Хранилище таблиц Azure](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓  |✓  |✓   |
 | **Базы данных** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓  | |✓  |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓  |✓  |
 | &nbsp; |[Informix](../articles/data-factory/connector-odbc.md#ibm-informix-source) |✓ | | |✓  |

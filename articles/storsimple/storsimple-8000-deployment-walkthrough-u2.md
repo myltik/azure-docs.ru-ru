@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: bcf42ebb081517d247690ee57c2be274784ef29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Развертывание локального устройства StorSimple (с обновлением 3 и более поздней версии)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 | [Шаг 1. Создание новой службы](#step-1-create-a-new-service) |Настройте облачное управление и хранение для устройства StorSimple. *При наличии существующей службы для других устройств StorSimple пропустите этот шаг*. |
 | [Шаг 2. Получение ключа регистрации службы](#step-2-get-the-service-registration-key) |С помощью этого ключа зарегистрируйте и подключите устройство StorSimple к службе управления. |
 | [Шаг 3. Настройка и регистрация устройства средствами Windows PowerShell для StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Чтобы завершить установку с помощью службы управления, подключите устройство к сети и зарегистрируйте его в Azure. |
-| [Шаг 4. Выполнение минимальной настройки устройства](#step-4-complete-minimum-device-setup)</br>[Необязательно: обновление устройства StorSimple](#scan-for-and-apply-updates) |С помощью службы управления завершите настройку устройства и включите на нем возможность хранения данных. |
+| [Шаг 4. Выполнение минимальной настройки устройства](#step-4-complete-minimum-device-setup)</br>[Рекомендация. Обновите устройство StorSimple](#scan-for-and-apply-updates) |С помощью службы управления завершите настройку устройства и включите на нем возможность хранения данных. |
 | [Шаг 5. Создание контейнера томов](#step-5-create-a-volume-container) |Создайте контейнер для подготовки томов. У контейнера томов имеется учетная запись хранения, пропускная способность и параметры шифрования для всех томов, которые в нем содержатся. |
 | [Шаг 6. Создание тома](#step-6-create-a-volume) |Подготовьте один или несколько томов хранения данных на устройстве StorSimple для ваших серверов. |
 | [Шаг 7. Подключение, инициализация и форматирование тома](#step-7-mount-initialize-and-format-a-volume)</br>[Необязательно: настройка MPIO](storsimple-8000-configure-mpio-windows-server.md) |Подключите серверы к хранилищу iSCSI, предоставляемому устройством. При необходимости настройте MPIO, чтобы обеспечить устойчивость серверов к сбоям канала связи, сети и интерфейса. |
@@ -127,6 +127,8 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [storsimple-8000-complete-minimum-device-setup-u2](../../includes/storsimple-8000-complete-minimum-device-setup-u2.md)]
 
+После минимальной настройки устройства это лучший способ [проверить наличие обновлений и применить их](#scan-for-and-apply-updates).
+
 ## <a name="step-5-create-a-volume-container"></a>Шаг 5. Создание контейнера томов
 У контейнера томов имеется учетная запись хранения, пропускная способность и параметры шифрования для всех томов, которые в нем содержатся. Перед выделением томов на вашем устройстве StorSimple вам необходимо будет создать контейнер томов.
 
@@ -181,7 +183,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 ## <a name="scan-for-and-apply-updates"></a>Проверка наличия обновлений и их применение
-Обновление устройства может занять несколько часов. Дополнительные сведения по установке последнего обновления см. в статье об [установке обновления 4](storsimple-8000-install-update-4.md).
+Обновление устройства может занять несколько часов. Дополнительные сведения по установке последнего обновления см. в статье об [установке обновления 5](storsimple-8000-install-update-5.md).
 
 
 ## <a name="get-the-iqn-of-a-windows-server-host"></a>Получение IQN узла Windows Server

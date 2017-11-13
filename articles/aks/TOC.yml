@@ -51,12 +51,14 @@
       href: /rest/api/aks
 - name: Ресурсы
   items:
-    - name: Стратегия развития Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Цены
-      href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Регионы доступности
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Стратегия
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Отзыв о продукте
+      href: 'https://github.com/Azure/AKS/issues'
     - name: Переполнение стека
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Видеоролики

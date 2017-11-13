@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 0a0fe6f0e353e33cec80a9e06a61e772931cdea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Конечные точки служб виртуальной сети (предварительная версия)
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 Эта функция доступна в предварительной версии для следующих служб и регионов Azure.
 
-- **Служба хранилища Azure** — западно-центральная часть США, западная часть США 2, восточная часть США, западная часть США, восточная Австралия и юго-восточная Австралия.
+- **Служба хранилища Azure** — все области в общедоступном облаке Azure.
 - **База данных SQL Azure** — западно-центральная часть США, западная часть США 2 и восточная часть США.
 
 Самые актуальные уведомления для предварительной версии доступны на странице [обновлений виртуальной сети Azure](https://azure.microsoft.com/updates/?product=virtual-network).

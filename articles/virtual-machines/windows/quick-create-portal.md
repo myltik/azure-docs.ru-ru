@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ccc9694f74b655d5b9497378632f05defdbcbf0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Создание виртуальной машины Windows с помощью портала Azure
 
-Виртуальные машины Azure можно создать на портале Azure. В этом случае для создания и настройки виртуальных машин и всех связанных ресурсов Azure используется пользовательский интерфейс на основе браузера. В этом кратком руководстве содержатся пошаговые инструкции по созданию виртуальной машины и установке веб-сервера на этой виртуальной машине.
+Виртуальные машины Azure можно создать на портале Azure. В этом случае для создания и настройки виртуальных машин и всех связанных ресурсов Azure используется пользовательский интерфейс на основе браузера. В этом кратком руководстве содержатся пошаговые инструкции по созданию виртуальной машины и установке на ней веб-сервера.
 
-Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , прежде чем начинать работу.
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 

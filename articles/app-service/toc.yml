@@ -143,6 +143,8 @@
           href: web-sites-enable-diagnostic-log.md
     - name: Управление приложением
       items:
+        - name: Управление планом размещения
+          href: app-service-plan-manage.md
         - name: Резервное копирование приложения
           href: web-sites-backup.md
         - name: Восстановление из резервной копии

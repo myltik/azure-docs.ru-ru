@@ -36,12 +36,19 @@
 ### [Портал Azure](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Интерфейс командной строки Azure](how-to-routefilter-cli.md)
+## [Переход с общедоступного пиринга на пиринг Майкрософт](how-to-move-peering.md)
 ## [Перемещение каналов из классического развертывания в развертывание с помощью Resource Manager](expressroute-howto-move-arm.md)
 ## [Перенос связанных виртуальных сетей из классической модели развертывания в модель развертывания Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Настройка маршрутизатора для ExpressRoute
 ### [Настройка маршрутизатора](expressroute-config-samples-routing.md)
 ### [Примеры конфигурации маршрутизатора для NAT](expressroute-config-samples-nat.md)
 ## [Настройка решения "Монитор производительности сети" для ExpressRoute](how-to-npm.md)
+## Статьи о классической модели развертывания
+### [Изменение канала](expressroute-howto-circuit-classic.md)
+### [Создание и изменение пиринга для канала ExpressRoute с помощью PowerShell](expressroute-howto-routing-classic.md)
+### [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
+### [Настройка параллельных подключений ExpressRoute и "сеть — сеть"](expressroute-howto-coexist-classic.md)
+### [Добавление шлюза в виртуальную сеть](expressroute-howto-add-gateway-classic.md)
 
 ## Рекомендации
 ### [Рекомендации по безопасности сети и облачным службам](../best-practices-network-security.md)

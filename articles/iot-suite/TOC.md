@@ -88,7 +88,7 @@
 ## [Анализ потока](/azure/stream-analytics/)
 ## [Концентраторы событий](/azure/event-hubs/)
 ## [Центр Интернета вещей](/azure/iot-hub/)
-## [IoT Central](/azure/index#pivot=services&panel=iot)
+## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
 ## [Машинное обучение](/azure/machine-learning/)
 
 # Ресурсы

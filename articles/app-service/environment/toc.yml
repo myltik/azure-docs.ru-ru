@@ -38,6 +38,8 @@
       href: integrate-with-application-gateway.md
     - name: Создание среды ASE с помощью шаблона
       href: create-from-template.md
+    - name: Конфигурация с принудительным туннелированием
+      href: forced-tunnel-support.md
 - name: Справочные материалы
   items:
     - name: Адреса управления

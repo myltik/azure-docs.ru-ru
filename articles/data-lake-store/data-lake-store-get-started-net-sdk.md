@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 10/13/2017
 ms.author: nitinme
-ms.openlocfilehash: fb9be26d3affe898bbbb66ead242dbdb59436bb6
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 018cf772f458bb29712ef9516c3af4e969a94564
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Операции управления учетными записями в Azure Data Lake Store с использованием пакета SDK для .NET
 > [!div class="op_single_selector"]
 > * [ПАКЕТ SDK .NET](data-lake-store-get-started-net-sdk.md)
-> * [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
+> * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
@@ -105,7 +105,7 @@ ms.lasthandoff: 10/12/2017
 * Дополнительные сведения о проверке подлинности пользователей в приложении см. в статье [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md) (Аутентификация пользователей в Data Lake Store с использованием пакета SDK для .NET).
 * Дополнительные сведения о проверке подлинности между службами в приложении см. в статье [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md) (Аутентификация между службами в Data Lake Store с использованием пакета SDK для .NET).
 
-## <a name="create-client-objects"></a>Создание клиентских объектов
+## <a name="create-client-object"></a>Создание клиентского объекта
 В следующем фрагменте кода создается объект клиента учетной записи Data Lake Store, который используется для выдачи запросов управления учетной записью для службы, таких как создание учетной записи, удаление учетной записи и т. д.
 
     // Create client objects and set the subscription ID

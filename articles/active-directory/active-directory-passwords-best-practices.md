@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0be1616f5df915e566dc73c15dbea2e53177aa1c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-successfully-rollout-self-service-password-reset"></a>Как развернуть самостоятельный сброс пароля
 
@@ -38,8 +38,8 @@ ms.lasthandoff: 10/31/2017
 10. Через некоторый промежуток времени просмотрите сведения о зарегистрированных пользователях и об использовании ими этой функции в [отчетах, предоставленных Azure AD](active-directory-passwords-reporting.md).
 11. Когда будете готовы включить сброс пароля для всех пользователей, установите для параметра **Разрешен самостоятельный сброс пароля** значение **Все**. 
 
-    > [!IMPORTANT]
-    > Тестируйте SSPR с использованием учетной записи пользователя, а не администратора, так как Майкрософт имеет строгие требования к проверке подлинности учетных записей Azure типа "администратор". Дополнительные сведения о политике паролей администратора см. в статье [Как работает управление паролями в Azure Active Directory](active-directory-passwords-how-it-works.md).
+   > [!IMPORTANT]
+   > Тестируйте SSPR с использованием учетной записи пользователя, а не администратора, так как Майкрософт имеет строгие требования к проверке подлинности учетных записей Azure типа "администратор". Дополнительные сведения о политике паролей администратора см. в [статье о политике паролей](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="email-based-rollout"></a>Развертывание по электронной почте
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/31/2017
 
 Администраторы могут потребовать от пользователей повторной регистрации по истечении определенного периода времени, установив **количество дней, по истечении которых пользователям будет предложено повторно подтвердить данные проверки подлинности** в промежутке 0–730 дней.
 
-После того как вы включите этот параметр, регистрирующиеся пользователи увидят сообщение о том, что их администратор запрашивает у них подтверждение данных проверки подлинности.
+После того как вы включите этот параметр, для пользователей при входе будет отображаться сообщение о том, что администратор запрашивает у них подтверждение данных аутентификации.
 
 ## <a name="populate-authentication-data"></a>Заполнение данных для проверки подлинности
 
@@ -81,12 +81,12 @@ ms.lasthandoff: 10/31/2017
 
 * [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
 * [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
-* [Требования к лицензированию самостоятельного сброса пароля в Azure AD](active-directory-passwords-licensing.md)
+* [Вопросы по лицензированию](active-directory-passwords-licensing.md)
 * [Какие данные используются для SSPR и какие сведения нужно указывать пользователям](active-directory-passwords-data.md)
 * [Параметры политики для SSPR](active-directory-passwords-policy.md)
-* [Обзор обратной записи паролей](active-directory-passwords-writeback.md)
-* [Параметры отчетов для управления паролями Azure AD](active-directory-passwords-reporting.md)
-* [Руководство по самостоятельному сбросу пароля в Azure AD](active-directory-passwords-how-it-works.md)
+* [Что такое обратная запись паролей и каково ее назначение](active-directory-passwords-writeback.md)
+* [Как сообщать о действиях в SSPR](active-directory-passwords-reporting.md)
+* [Обзор всех параметров SSPR и их значение](active-directory-passwords-how-it-works.md)
 * [Как устранить неполадки самостоятельного сброса пароля](active-directory-passwords-troubleshoot.md)
 * [Вопросы, не вошедшие в другие статьи](active-directory-passwords-faq.md)
 

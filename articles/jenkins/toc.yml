@@ -1,0 +1,65 @@
+- name: Jenkins в Azure
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Jenkins в Azure
+      href: overview.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Создание сервера Jenkins
+      href: /azure/jenkins/install-jenkins-solution-template
+- name: Учебники
+  items:
+    - name: Непрерывная интеграция и поставка в службу приложений
+      href: /azure/jenkins/java-deploy-webapp-tutorial
+      maintainContext: true
+    - name: Непрерывная интеграция и поставка в Kubernetes
+      href: /azure/container-service/kubernetes/container-service-kubernetes-jenkins
+      maintainContext: true
+    - name: Непрерывная интеграция и поставка на виртуальные машины Linux
+      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+      maintainContext: true
+    - name: Создание ресурсов Azure в задании конвейера
+      href: /azure/jenkins/execute-cli-jenkins-pipeline
+      maintainContext: true
+    - name: Масштабирование с помощью агентов виртуальных машин Azure
+      href: /azure/jenkins/jenkins-azure-vm-agents
+      maintainContext: true
+- name: Инструкции
+  items:
+    - name: Безопасность Jenkins в Azure
+      href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
+    - name: Использование подключаемого модуля службы приложений Azure
+      href: deploy-jenkins-app-service-plugin.md
+    - name: Публикация в службе хранилища Azure
+      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+      maintainContext: true
+    - name: Использование Jenkins с VSTS
+      href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
+- name: Примеры
+  items:
+    - name: Примеры заданий и скриптов
+      href: 'https://github.com/Azure/azure-devops-utils/tree/master/jenkins'
+- name: Ресурсы
+  items:
+    - name: Подключаемые модули
+      items:
+        - name: Подключаемый модуль службы приложений Azure
+          href: 'https://plugins.jenkins.io/azure-app-service'
+        - name: Подключаемый модуль агентов контейнеров Azure
+          href: 'https://plugins.jenkins.io/azure-container-agents'
+        - name: Подключаемый модуль Службы контейнеров Azure
+          href: 'https://plugins.jenkins.io/azure-acs'
+        - name: Подключаемый модуль учетных данных Azure
+          href: 'https://plugins.jenkins.io/azure-credentials'
+        - name: Подключаемый модуль функций Azure
+          href: 'https://plugins.jenkins.io/azure-function'
+        - name: Подключаемый модуль для службы хранилища Azure
+          href: 'https://plugins.jenkins.io/windows-azure-storage'
+        - name: Подключаемый модуль агентов виртуальных машин Azure
+          href: 'https://plugins.jenkins.io/azure-vm-agents'
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Домашняя страница Jenkins
+      href: 'https://jenkins.io/'
