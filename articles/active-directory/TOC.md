@@ -87,7 +87,6 @@
 #### [Справочник по продуктам и планам службы в Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Настройка срока действия групп Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Просмотр всех групп](active-directory-groups-view-azure-portal.md)
-### [Включение выделенных групп](active-directory-accessmanagement-dedicated-groups.md)
 ### [Включение доступа для групп в приложениях SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Восстановление удаленной группы Office 365](active-directory-groups-restore-azure-portal.md)
 ### Управление параметрами группы
@@ -254,7 +253,6 @@
 ##### [Классический портал.](active-directory-add-manage-domain-names.md)
 ### [Администрирование каталога](active-directory-administer.md)
 ### [Несколько каталогов](active-directory-licensing-directory-independence.md)
-### [Каталоги Office 365](active-directory-manage-o365-subscription.md)
 ### [Самостоятельная регистрация](active-directory-self-service-signup.md)
 #### [Взятие под контроль неуправляемого каталога](domains-admin-takeover.md)
 ### [Enterprise State Roaming.](active-directory-windows-enterprise-state-roaming-overview.md)

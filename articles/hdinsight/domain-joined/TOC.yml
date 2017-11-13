@@ -1,6 +1,6 @@
 - name: Документация по Azure HDInsight
   href: /azure/hdinsight
-- name: Многопользовательские кластеры в HDInsight
+- name: Безопасность корпоративного уровня в HDInsight
   items:
     - name: Обзор
       href: apache-domain-joined-introduction.md
@@ -13,6 +13,8 @@
   items:
     - name: Настройка присоединенного к домену кластера HDInsight
       href: apache-domain-joined-configure.md
+    - name: Настройка присоединенных к домену кластеров HDInsight с помощью AD DS
+      href: apache-domain-joined-configure-using-azure-adds.md
     - name: Настройка политик Hive
       href: apache-domain-joined-run-hive.md
     - name: Планирование загрузки

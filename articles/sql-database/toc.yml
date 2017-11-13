@@ -309,6 +309,8 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Служба автоматизации Azure
           href: sql-database-manage-automation.md
+        - name: Мониторинг синхронизации данных SQL с помощью Log Analytics OMS
+          href: sql-database-sync-monitor-oms.md
         - name: Рекомендации по синхронизации данных SQL
           href: sql-database-best-practices-data-sync.md
         - name: Устранение неполадок синхронизации данных SQL

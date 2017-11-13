@@ -97,6 +97,8 @@
           href: howto-migrate-using-export-and-import.md
     - name: Настройка параметров сервера
       items:
+        - name: Портал Azure
+          href: howto-configure-server-parameters-using-portal.md
         - name: Инфраструктура CLI Azure
           href: howto-configure-server-parameters-using-cli.md
     - name: Доступ к журналам сервера

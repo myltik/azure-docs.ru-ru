@@ -45,7 +45,7 @@
 ### Портал Azure
 #### [Развертывание ресурсов](resource-group-template-deploy-portal.md)
 #### [Экспорт шаблона](resource-manager-export-template.md)
-### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
+### [REST API](resource-group-template-deploy-rest.md)
 ### [Развертывание в нескольких группах ресурсов](resource-manager-cross-resource-group-deployment.md)
 ### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)
@@ -71,9 +71,7 @@
 
 ## Задание политик ресурсов
 ### [Что представляют собой политики ресурсов?](resource-manager-policy.md)
-### Примеры
-#### [Теги](resource-manager-policy-tags.md)
-#### [Соглашения об именовании](resource-manager-policy-naming-convention.md)
+### [Соглашения об именовании](resource-manager-policy-naming-convention.md)
 
 ## Аудит
 ### [Просмотр журналов действий](resource-group-audit.md)
@@ -89,6 +87,7 @@
 #### [NotFound](resource-manager-not-found-errors.md);
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md);
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md).
 ### Ошибки развертывания виртуальной машины

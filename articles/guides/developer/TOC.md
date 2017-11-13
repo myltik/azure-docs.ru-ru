@@ -1,7 +1,7 @@
 # Обзор
 ## [Руководство для разработчиков](azure-developer-guide.md) 
-## [Общие сведения о службах Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Общие сведения о портале Azure](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Общие сведения о службах Azure](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
+## [Общие сведения о портале Azure](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Пакеты SDK и средства](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Быстрый запуск
@@ -107,6 +107,7 @@
 ## [Выставление счетов](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Ресурсы
+## [Ограничения и квоты Azure](../../azure-subscription-service-limits.md)
 ## [Регионы Azure](https://azure.microsoft.com/regions/)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

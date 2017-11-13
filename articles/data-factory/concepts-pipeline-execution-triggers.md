@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: c319979cce23da69965d4fbab037919461f67b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Выполнение конвейера и триггеры в фабрике данных Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,7 +177,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -189,6 +189,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -202,7 +203,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
@@ -210,17 +211,57 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 }
 ```
 
+> [!IMPORTANT]
+>  Свойство **Параметры** является обязательным для **конвейеров**. Даже если ваш конвейер не принимает никаких параметров, включите для них пустой файл JSON, так как это свойство должно присутствовать.
+
+
 ### <a name="overview-scheduler-trigger-schema"></a>Обзор: схема триггера планировщика
 Таблица ниже содержит обзор основных элементов, связанных с периодичностью выполнения и расписанием триггера.
 
 Свойство JSON |     Описание
 ------------- | -------------
 startTime | startTime имеет формат "дата и время". В простых расписаниях startTime указывает время первого запуска. В сложных расписаниях триггер не запускается раньше, чем startTime.
+endTime | Указывает дату и время окончания для триггера. Триггер не будет выполняться позднее этого времени. Значение элемента endTime не может относиться к прошлому.
+timeZone | В настоящее время поддерживается только формат UTC. 
 recurrence | Объект recurrence указывает правила повторения для триггера. Объект recurrence поддерживает следующие элементы: frequency, interval, endTime, count и schedule. Если задан объект recurrence, нужно обязательно указать элемент frequency. Остальные элементы объекта recurrence не являются обязательными.
 frequency | Представляет единицу частоты, с которой выполняется триггер. Поддерживаются такие значения: `minute`, `hour`, `day`, `week` и `month`.
 interval | interval содержит положительное целое число. Это число обозначает количество единиц частоты, через которые выполняется триггер. Например, если interval имеет значение 3, а для элемента frequency выбран вариант week (неделя), триггер выполняется один раз каждые 3 недели.
-endTime | Указывает дату и время окончания для триггера. Триггер не будет выполняться позднее этого времени. Значение элемента endTime не может относиться к прошлому.
 schedule | Триггер с указанной частотой выполняется по расписанию. Значение schedule содержит изменения с учетом минут, часов, дней недели, чисел месяца и количества недель.
+
+
+### <a name="schedule-trigger-example"></a>Пример триггера расписания
+
+```json
+{
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
+}
+```
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>Общие сведения: параметры по умолчанию, ограничения и примеры для схемы триггера планировщика
 
@@ -251,7 +292,7 @@ schedule | Объект | Нет | None | Объект schedule | `"schedule" : 
 ### <a name="deep-dive-schedule"></a>Подробный обзор: schedule
 С одной стороны, параметр schedule может ограничивать число выполнений триггера. Например, если триггеру назначена ежемесячная частота и параметр schedule, который запускает триггер только в 31-й день месяца, этот триггер будет выполняться только в те месяцы, в которых есть 31 день.
 
-С другой стороны, параметр schedule может увеличивать число выполнений триггера. Например, если триггеру назначена ежемесячная частота и параметр schedule, который запускает триггер в 1-й и 2-й день месяца, этот триггер будет выполняться 1-го и 2-го числа каждого месяца, а не один раз в месяц.
+Обратите внимание, что параметр schedule может увеличивать число выполнений триггера. Например, если триггеру назначена ежемесячная частота и параметр schedule, который запускает триггер в 1-й и 2-й день месяца, этот триггер будет выполняться 1-го и 2-го числа каждого месяца, а не один раз в месяц.
 
 Если в параметре schedule задано несколько элементов, они применяются в порядке от большего к меньшему: номер недели, число месяца, день недели, час и минута.
 
@@ -262,9 +303,9 @@ schedule | Объект | Нет | None | Объект schedule | `"schedule" : 
 --------- | ----------- | ------------
 minutes | Минуты часа, в которые будет выполняться триггер. | <ul><li>Целое число </li><li>массив целых чисел</li></ul>
 hours | Часы дня, в которые будет выполняться триггер. | <ul><li>Целое число </li><li>массив целых чисел</li></ul>
-weekDays | Дни недели, в которые будет выполняться триггер. Указываются только при выборе еженедельной частоты. | <ul><li>Понедельник, вторник, среда, четверг, пятница, суббота, воскресенье</li><li>Массив любого из указанных выше значений (максимальное количество элементов в массиве — 7)</li></p>Без учета регистра</p>
+weekDays | Дни недели, в которые будет выполняться триггер. Указываются только при выборе еженедельной частоты. | <ul><li>Понедельник, вторник, среда, четверг, пятница, суббота, воскресенье</li><li>Массив любого значения (максимальное количество элементов в массиве — 7)</li></p>Без учета регистра</p>
 monthlyOccurrences | Определяет, в какие числа месяца будет выполняться триггер. Указываются только при выборе ежемесячной частоты. | Массив объектов monthlyOccurence: `{ "day": day,  "occurrence": occurence }`. <p> Элемент day определяет день недели, в который будет выполняться триггер, например `{Sunday}` означает каждое воскресенье месяца. Обязательный элемент.<p>Элемент occurence определяет конкретное повторение дня в течение месяца, например `{Sunday, -1}` означает последнее воскресенье месяца. необязательный параметр.
-monthDays | День месяца, в который будет выполняться триггер. Указываются только при выборе ежемесячной частоты. | <ul><li>Любое значение <= -1 и >= -31</li><li>Любое значение >= 1 и <= 31</li><li>Массив указанных выше значений</li>
+monthDays | День месяца, в который будет выполняться триггер. Указываются только при выборе ежемесячной частоты. | <ul><li>Любое значение <= -1 и >= -31</li><li>Любое значение >= 1 и <= 31</li><li>Массив значений</li>
 
 
 ## <a name="examples-recurrence-schedules"></a>Примеры: расписания повторений

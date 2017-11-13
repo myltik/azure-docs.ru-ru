@@ -152,10 +152,10 @@
           href: azure-diagnostics-streaming-event-hubs.md
         - name: Устранение неполадок
           href: azure-diagnostics-troubleshooting.md
-    - name: Использование обозревателя метрик Azure Monitor
-      items:
-        - name: Создание диаграмм метрик
-          href: monitoring-metric-charts.md
+    - name: Создание диаграмм метрик в обозревателе метрик
+      href: monitoring-metric-charts.md
+    - name: Отправка метрик в Grafana
+      href: monitor-send-to-grafana.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

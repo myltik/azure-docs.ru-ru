@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4d568fb2eca418ca939f7a76ac24197a0457fe47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e287ae16c9d1f07f3d4b0cbf8eb6fb2ba3e1d776
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Развертывание локального устройства StorSimple (с обновлением 1)
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 > [!div class="op_single_selector"]
 > * [Обновление 2](storsimple-deployment-walkthrough-u2.md)
 > * [Обновление 1](storsimple-deployment-walkthrough-u1.md)
@@ -108,14 +111,14 @@ ms.lasthandoff: 10/11/2017
 | &nbsp; |&nbsp; |Точка подключения NTFS/буква диска: | |
 
 ## <a name="deployment-prerequisites"></a>Предварительные условия для развертывания
-В следующих разделах разъясняются предварительные условия для настройки вашей службы Диспетчера StorSimple и вашего устройства StorSimple.
+В следующих разделах разъясняются предварительные условия для настройки вашей службы StorSimple Manager и вашего устройства StorSimple.
 
-### <a name="for-the-storsimple-manager-service"></a>Для службы Диспетчера StorSimple
+### <a name="for-the-storsimple-manager-service"></a>Для службы StorSimple Manager
 Перед тем как начать, убедитесь в следующем.
 
 * Имеется учетная запись Майкрософт и данные для доступа к ней.
 * Имеется учетная запись хранения Microsoft Azure и данные для доступа к ней.
-* Ваша подписка Microsoft Azure должна разрешать использование службы диспетчера StorSimple. Необходимо, чтобы ваша подписка была приобретена в соответствии с [соглашением Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
+* Ваша подписка Microsoft Azure должна разрешать использование службы StorSimple Manager. Необходимо, чтобы ваша подписка была приобретена в соответствии с [соглашением Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 * У вас должен быть доступ к программе эмуляции терминала, например PuTTY.
 
 ### <a name="for-the-device-in-the-datacenter"></a>Для устройства в центре обработки данных
@@ -135,7 +138,7 @@ ms.lasthandoff: 10/11/2017
 Следующие пошаговые инструкции позволяют развернуть устройство StorSimple в центре обработки данных.
 
 ## <a name="step-1-create-a-new-service"></a>Шаг 1. Создание новой службы
-Служба Диспетчера StorSimple может управлять несколькими устройствами StorSimple. Для создания нового экземпляра службы Диспетчера StorSimple выполните следующие действия.
+Служба StorSimple Manager может управлять несколькими устройствами StorSimple. Для создания нового экземпляра службы StorSimple Manager выполните следующие действия.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
@@ -148,7 +151,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="step-2-get-the-service-registration-key"></a>шагу 2, "Получение ключа регистрации службы"
-После запуска и настройки службы Диспетчера StorSimple вам необходимо будет получить ключ регистрации службы. Этот ключ используется для регистрации вашего устройства StorSimple в службе и подключения к ней.
+После запуска и настройки службы StorSimple Manager вам необходимо будет получить ключ регистрации службы. Этот ключ используется для регистрации вашего устройства StorSimple в службе и подключения к ней.
 
 На классическом портале Azure выполните указанные ниже действия.
 
@@ -215,7 +218,7 @@ ms.lasthandoff: 10/11/2017
 
 Если вам нужно создать учетную запись хранения Azure в другом регионе, см. пошаговые инструкции в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md).
 
-На классическом портале Azure на странице **Служба диспетчера StorSimple** выполните следующее.
+На классическом портале Azure на странице **Служба StorSimple Manager** выполните следующее.
 
 [!INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
@@ -265,5 +268,5 @@ MPIO представляет собой дополнительный компо
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Настройте [виртуальное устройство](storsimple-virtual-device-u2.md).
-* Для управления устройством StorSimple используется [служба Диспетчера StorSimple](storsimple-manager-service-administration.md) .
+* Для управления устройством StorSimple используется [служба StorSimple Manager](storsimple-manager-service-administration.md) .
 

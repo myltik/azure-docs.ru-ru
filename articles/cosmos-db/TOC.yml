@@ -246,7 +246,9 @@
           items:
             - name: Разработка с помощью средств для работы с таблицами
               href: table-support.md
-            - name: Хранилище таблиц Azure
+            - name: Операции API таблицы в PowerShell
+              href: table-powershell.md
+            - name: табличное хранилище Azure;
               items:
                 - name: Обзор хранилища таблиц
                   href: table-storage-overview.md
@@ -254,7 +256,7 @@
                   href: table-storage-design-guide.md
                 - name: API REST хранилищ таблиц
                   href: /rest/api/storageservices/Table-Service-Concepts
-                - name: Практическое руководство
+                - name: Разработка
                   items:
                     - name: .NET
                       href: table-storage-how-to-use-dotnet.md
@@ -274,6 +276,8 @@
                       href: table-storage-how-to-use-python.md
                     - name: Ruby
                       href: table-storage-how-to-use-ruby.md
+                    - name: PowerShell
+                      href: table-storage-how-to-use-powershell.md
         - name: Веб-канал изменений
           href: change-feed.md
         - name: Геопространственные данные

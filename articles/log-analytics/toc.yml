@@ -28,7 +28,13 @@
 - name: Основные понятия
   items:
     - name: Обновление рабочей области
-      href: log-analytics-log-search-upgrade.md
+      items:
+        - name: Общие сведения об обновлении
+          href: log-analytics-log-search-upgrade.md
+        - name: Сводка изменений
+          href: log-analytics-log-search-upgrade-changes.md
+        - name: Часто задаваемые вопросы по обновлению
+          href: log-analytics-log-search-faq.md
     - name: Часто задаваемые вопросы по Log Analytics
       href: log-analytics-faq.md
     - name: Использование данных
@@ -41,8 +47,6 @@
       items:
         - name: Обзор поиска по журналу
           href: log-analytics-log-search-new.md
-        - name: Часто задаваемые вопросы о поиске по журналам
-          href: log-analytics-log-search-faq.md
         - name: Порталы поиска по журналам
           href: log-analytics-log-search-portals.md
 - name: Практические руководства

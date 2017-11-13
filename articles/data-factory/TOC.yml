@@ -55,10 +55,12 @@
       href: concepts-integration-runtime.md
 - name: Практические руководства
   items:
-    - name: Перенос данных
+    - name: Копирование данных
       items:
-        - name: Общие сведения о действии копирования
+        - name: Копирование данных из поддерживаемых источников в целевые
           href: copy-activity-overview.md
+        - name: Чтение или запись секционированных данных
+          href: how-to-read-write-partitioned-data.md
         - name: Соединители
           items:
             - name: Amazon Redshift
@@ -71,6 +73,8 @@
               href: connector-azure-cosmos-db.md
             - name: Хранилище озера данных Azure
               href: connector-azure-data-lake-store.md
+            - name: База данных Azure для MySQL
+              href: connector-azure-database-for-mysql.md
             - name: Хранилище файлов Azure
               href: connector-azure-file-storage.md
             - name: поиск Azure;
@@ -168,6 +172,8 @@
       items:
         - name: Действие условия If
           href: control-flow-if-condition-activity.md
+        - name: Действие Until
+          href: control-flow-until-activity.md
         - name: Веб-действие
           href: control-flow-web-activity.md
         - name: Действие поиска
@@ -178,6 +184,8 @@
           href: control-flow-execute-pipeline-activity.md
         - name: Действие For Each
           href: control-flow-for-each-activity.md
+        - name: Действие Wait
+          href: control-flow-wait-activity.md
         - name: Язык выражений
           href: control-flow-expression-language-functions.md
         - name: Системные переменные
@@ -190,6 +198,8 @@
           href: store-credentials-in-key-vault.md
         - name: Шифрование учетных данных для локальной среды выполнения интеграции
           href: encrypt-credentials-self-hosted-integration-runtime.md
+        - name: Удостоверение службы фабрики данных
+          href: data-factory-service-identity.md
     - name: Отслеживание и управление
       items:
         - name: Использование пакетов SDK

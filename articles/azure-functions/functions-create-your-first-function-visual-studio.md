@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 016179372d69dc63f5e5226723d87ac6e74b31fd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: aeac4feaeea376ae5231d9c24d44d94f8132af42
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Создание первой функции с помощью Visual Studio
 
@@ -35,12 +35,10 @@ ms.lasthandoff: 10/18/2017
 
 Для работы с этим руководством установите следующие компоненты.
 
-* [Visual Studio 2017 15.3](https://www.visualstudio.com/vs/preview/) или более поздней версии, в том числе рабочая нагрузка **разработки в Azure**.
+* [Visual Studio 2017 15.4](https://www.visualstudio.com/vs/) или более поздней версии, в том числе рабочая нагрузка **разработки в Azure**.
 
     ![Установка Visual Studio 2017 с рабочей нагрузкой разработки в Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
-[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## <a name="create-an-azure-functions-project-in-visual-studio"></a>Создание проекта функций Azure в Visual Studio
@@ -51,9 +49,9 @@ ms.lasthandoff: 10/18/2017
 
 ## <a name="create-the-function"></a>Создание функции
 
-1. Щелкните правой кнопкой мыши узел проекта в **обозревателе решений** и выберите **Добавить** > **Новый элемент**. Выберите **Функция Azure** и нажмите кнопку **Добавить**.
+1. Щелкните правой кнопкой мыши узел проекта в **обозревателе решений** и выберите **Добавить** > **Новый элемент**. Выберите **Функция Azure**, введите `HttpTriggerCSharp.cs` в поле **Имя** и нажмите кнопку **Добавить**.
 
-2. Выберите **HttpTrigger**, укажите **имя функции**, выберите для параметра **Права доступа** значение **Анонимно** и нажмите кнопку **Создать**. Созданная функция доступна для HTTP-запроса из любого клиента. 
+2. Выберите **HttpTrigger**, выберите для параметра **Права доступа** значение **Анонимно** и нажмите кнопку **ОК**. Созданная функция доступна для HTTP-запроса из любого клиента. 
 
     ![Создание функции Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 

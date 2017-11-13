@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 68c9f37b6e241d39911acff9c12aa4c978b4215d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Знакомство со службой Azure Cosmos DB. API таблицы
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 11/02/2017
 * гарантированно высокий уровень доступности;
 * [автоматическое вторичное индексирование](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-С помощью API таблицы вы можете перенести эти приложения в Azure Cosmos DB, не изменяя код, и воспользоваться возможностями уровня "Премиум". API таблицы доступны для .NET и Python.
+С помощью API таблицы вы можете перенести приложения, написанные для хранилища таблиц Azure, в Azure Cosmos DB, не изменяя код, и воспользоваться возможностями уровня "Премиум". API таблицы включает один клиентский пакет SDK для .NET.
 
-Мы рекомендуем просмотреть следующий видеоролик, в котором Аравинд Рамачандран (Aravind Ramachandran) объясняет, как начать использовать API таблицы в Azure Cosmos DB.
+Мы рекомендуем просмотреть следующий видеоролик, в котором Аравинд Рамачандран (Aravind Ramachandran) объясняет, как начать работу с API таблицы для Azure Cosmos DB.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/02/2017
 ## <a name="table-offerings"></a>Сравнение возможностей хранилища таблиц и API таблицы
 Если вы сейчас используете хранилище таблиц Azure, при переходе на API таблицы Azure Cosmos DB, доступный в предварительной версии, вы получите следующие преимущества:
 
-| | Хранилище таблиц Azure | API таблицы Azure Cosmos DB (предварительная версия) |
+| | табличное хранилище Azure; | API таблицы Azure Cosmos DB (предварительная версия) |
 | --- | --- | --- |
 | Задержка | Низкая, без максимального ограничения по задержке. | Задержка операций чтения и записи (доступно при любых объемах по всему миру): менее 10 мс для операций чтения и менее 15 мс для операций записи на уровне 99-го процентиля. |
 | Пропускная способность | Модель с переменной пропускной способностью. Ограничение масштабируемости таблиц — 20 000 операций в секунду. | Высокомасштабируемая с [выделенной зарезервированной пропускной способностью на каждую таблицу](request-units.md) в соответствии с соглашениями об уровне обслуживания. Учетные записи не имеют максимального ограничения пропускной способности и поддерживают выполнение более 10 млн операций в секунду на таблицу. |
@@ -64,5 +64,5 @@ ms.lasthandoff: 11/02/2017
 * [Запрос табличных данных в базе данных Azure Cosmos DB с помощью API таблицы (предварительная версия)](tutorial-query-table.md)
 * [Как настроить глобальное распределение Azure Cosmos DB с помощью API таблицы](tutorial-global-distribution-table.md)
 * [API таблицы .NET для базы данных Azure Cosmos DB. Скачивание и заметки о выпуске](table-sdk-dotnet.md)
-* [Azure Cosmos DB Table API for Python: Release notes and resources](table-sdk-python.md) (API таблицы Python для базы данных Azure Cosmos DB. Заметки о выпуске и ресурсы)
+
 
