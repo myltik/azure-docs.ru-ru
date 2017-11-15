@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 33562f5ac7acdf8f724ac2de68b9e66735af47b3
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 8cc4d44bff6284f2c52423f04e463e324a932abd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Создание среды выполнения интеграции Azure SSIS в фабрике данных Azure
 В этой статье представлены шаги по подготовке среды выполнения интеграции Azure SSIS в фабрике данных Azure. Затем можно использовать SQL Server Data Tools (SSDT) ​​или SQL Server Management Studio (SSMS) для развертывания пакетов служб SSIS для этой среды выполнения в Azure.
 
 > [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, см. [документацию по версии 1 фабрики данных](v1/data-factory-introduction.md).
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, ознакомьтесь с [документацией по фабрике данных версии 1](v1/data-factory-introduction.md).
 
 В руководстве [Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure](tutorial-deploy-ssis-packages-azure.md) показано, как создать среду выполнения интеграции (IR) Azure SSIS, используя базу данных SQL Azure в качестве хранилища для каталога служб SSIS. Эта статья дополняет руководство и содержит инструкции по: 
 
@@ -41,6 +41,10 @@ ms.lasthandoff: 10/26/2017
     - Вы хотите подключиться к локальным хранилищам данных из пакетов SSIS, работающих в среде выполнения интеграции Azure SSIS.
 - **Azure PowerShell**. Следуйте инструкциям по [установке и настройке Azure PowerShell](/powershell/azure/install-azurerm-ps). Вы используете PowerShell для запуска скрипта, чтобы подготовить среду выполнения интеграции Azure SSIS, запускающую пакеты SSIS в облаке. 
 
+> [!NOTE]
+> Список регионов, поддерживаемых фабрикой данных Azure версии 2 и инфраструктурой Integration Runtime служб Azure SSIS, приведен на странице [Доступность продуктов по регионам](https://azure.microsoft.com/regions/services/). Разверните категорию **Данные и аналитика**, чтобы отобразились **фабрика данных версии 2** и **инфраструктура Integration Runtime служб SSIS**.
+
+
 ## <a name="create-variables"></a>Создание переменных
 Определите переменные для использования в скрипте этого руководства:
 
@@ -49,12 +53,12 @@ ms.lasthandoff: 10/26/2017
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-$DataFactoryLocation = "EastUS" # In public preview, only EastUS|EastUS2 are supported.
+$DataFactoryLocation = "EastUS" 
 
 # Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
-$AzureSSISLocation = "EastUS" # In public preview, only EastUS|NorthEurope are supported.
+$AzureSSISLocation = "EastUS" 
 $AzureSSISNodeSize = "Standard_A4_v2" # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeNumber = 2 # In public preview, only 1-10 nodes are supported.
 $AzureSSISMaxParallelExecutionsPerNode = 2 # In public preview, only 1-8 parallel executions per node are supported.

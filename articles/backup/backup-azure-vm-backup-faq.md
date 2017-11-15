@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: d3178413e894c095235dde067b369e3554375aa6
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 85d6ec20fb0447165c672ba267569994e3a96e45
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Вопросы об использовании службы Azure Backup для резервного копирования виртуальных машин
 В этой статье содержатся ответы на часто задаваемые вопросы о компонентах службы Azure Backup для резервного копирования виртуальных машин. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -48,6 +48,9 @@ ms.lasthandoff: 10/30/2017
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Моя виртуальная машина завершила работу. Будет ли выполняться запланированное резервное копирование или резервное копирование по умолчанию?
 Да. Даже если виртуальная машина завершила работу, резервное копирование будет выполняться, а точка восстановления будет отмечена как отказоустойчивая. См. дополнительные сведения о [согласованности данных](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines).
+
+### <a name="can-i-cancel-an-in-progress-backup-job"></a>Можно ли отменить выполняющееся задание резервного копирования?
+Да. Задание резервного копирования можно отменить, если оно находится на этапе "Создание моментального снимка". **Невозможно отменить задание, если выполняется передача данных из моментального снимка**. 
 
 ## <a name="restore"></a>восстановление;
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Что лучше выбрать — восстановление дисков или полное восстановление виртуальной машины?

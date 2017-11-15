@@ -19,7 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
 ---
-## Регистрация приложения в клиенте AD
+## <a name="register-your-application-with-your-ad-tenant"></a>Регистрация приложения в клиенте AD
 Для начала необходимо зарегистрировать приложение в клиенте Azure Active Directory (Azure AD). После этого вашему приложению будет присвоен идентификатор, и оно сможет получать маркеры.
 
 * Войдите на [портал Azure](https://portal.azure.com).

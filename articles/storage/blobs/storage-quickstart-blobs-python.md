@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 44ec416a814ff6a5fef79ef21e2f54ce4ce4da17
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Передача объектов в хранилище BLOB-объектов Azure и из него с помощью Python
 Из этого краткого руководства вы узнаете, как использовать Python для отправки, скачивания и перечисления блочных BLOB-объектов в контейнере в хранилище BLOB-объектов Azure. 
@@ -32,25 +32,7 @@ ms.lasthandoff: 10/17/2017
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Создание учетной записи хранения с помощью портала Azure
-
-Сначала создайте учетную запись хранения общего назначения, которая будет использоваться в этом кратком руководстве. 
-
-1. Войдите на [портал Azure](https://portal.azure.com), используя свою учетную запись Azure. 
-2. В главном меню выберите **Создать** > **Хранилище** > **Учетная запись хранения — BLOB-объект, файл, таблица, очередь**. 
-3. Выберите имя для своей учетной записи хранения. Имя должно содержать от 3 до 24 символов и состоять только из цифр и строчных букв. Оно также должно быть уникальным.
-4. Задайте для параметра `Deployment model` значение **Resource Manager**.
-5. Задайте для параметра`Account kind` значение **Универсальные**.
-6. Задайте для параметра `Performance` значение **Стандартный**. 
-7. Задайте для параметра `Replication` значение **Локально избыточное хранилище (LRS)**.
-8. Задайте для параметра `Storage service encryption` значение **Отключено**.
-9. Задайте для параметра `Secure transfer required` значение **Отключено**.
-10. Выберите свою подписку. 
-11. Для параметра `resource group` создайте группу ресурсов и присвойте ей уникальное имя. 
-12. Выберите `Location` для использования вашей учетной записи хранения.
-13. Щелкните **Закрепить на панели мониторинга** и нажмите кнопку **Создать**, чтобы создать учетную запись хранения. 
-
-Созданная учетная запись хранения будет закреплена на панели мониторинга. Щелкните ее, чтобы открыть. В разделе **Параметры** щелкните **Ключи доступа**. Выберите ключ и скопируйте имя учетной записи хранения в буфер обмена, а затем вставьте его в Блокнот для последующего использования.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Загрузка примера приложения
 [Пример приложения](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git), используемый в этом кратком руководстве, является простым приложением Python.  
@@ -100,8 +82,10 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 
 Теперь у вас есть контейнер CloudBlobContainer и вы можете создать экземпляр объекта **CloudBlockBlob**, который указывает на конкретный BLOB-объект, и выполнять с ним разные операции: отправку, скачивание, копирование и т. д.
 
-В этом разделе вы создадите экземпляры объектов и контейнер, а затем зададите для контейнера разрешения на общий доступ к BLOB-объектам. Контейнер называется **quickstartblobs**. 
+> [!IMPORTANT]
+> Имена контейнеров должны состоять из знаков нижнего регистра. Дополнительные сведения об именовании контейнеров и больших двоичных объектов см. в статье [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Именование контейнеров, больших двоичных объектов и метаданных и ссылка на них).
 
+В этом разделе вы создадите экземпляры объектов и контейнер, а затем зададите для контейнера разрешения на общий доступ к BLOB-объектам. Контейнер называется **quickstartblobs**. 
 
 ```python 
 # Create the BlockBlockService that is used to call the Blob service for the storage account
@@ -156,7 +140,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>Скачивание BLOB-объектов
+## <a name="download-the-blobs"></a>Скачивание больших двоичных объектов
 
 Чтобы скачать BLOB-объекты на локальный диск, воспользуйтесь методом **get\_blob\_to\_path**. Следующий код скачивает BLOB-объект, который мы передали в предыдущем разделе. К имени BLOB-объекта добавляется суффикс _DOWNLOADED, чтобы на локальном диске сохранились оба файла. 
 

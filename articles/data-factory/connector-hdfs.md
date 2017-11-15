@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 6d28b82f892ac88c32ab3e04df19143d69a5a05b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: a81d3264964b2433a2c93034ab815493548f0753
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Копирование данных из HDFS и обратно с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/16/2017
 > Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Перемещение данных из локальной системы HDFS с помощью фабрики данных Azure](v1/data-factory-hdfs-connector.md).
 
 
-## <a name="supported-scenarios"></a>Поддерживаемые сценарии использования.
+## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
 Данные из HDFS можно скопировать в любое поддерживаемое хранилище данных, используемое в качестве приемника. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, см. в таблице [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -67,11 +67,9 @@ ms.lasthandoff: 10/16/2017
 ```json
 {
     "name": "HDFSLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Hdfs",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url" : "http://<machine>:50070/webhdfs/v1/",
             "authenticationType": "Anonymous",
             "userName": "hadoop"
@@ -89,11 +87,9 @@ ms.lasthandoff: 10/16/2017
 ```json
 {
     "name": "HDFSLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Hdfs",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url" : "http://<machine>:50070/webhdfs/v1/",
             "authenticationType": "Windows",
             "userName": "<username>@<domain>.com (for Kerberos auth)",
@@ -388,4 +384,4 @@ ms.lasthandoff: 10/16/2017
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В таблице [Поддерживаемые хранилища данных](copy-activity-overview.md##supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования в фабрике данных Azure.
+В таблице [Поддерживаемые хранилища данных](copy-activity-overview.md#supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования в фабрике данных Azure.

@@ -5,19 +5,22 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 3f9ef7886af20845eddc4c1e71d60911e4b22eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02afe946e5e1ad9730ab07df19676e90485ecf98
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>Создание назначения политики для идентификации ресурсов, которые не соответствуют требованиям, в среде Azure с помощью PowerShell
 
-Чтобы обеспечить соответствие требованиям в Azure, прежде всего нужно определить состояние текущих ресурсов. В этом кратком руководстве представлены пошаговые инструкции по созданию назначения политики, которое позволяет выявить ресурсы, не соответствующие определению политики *Require SQL Server version 12.0* (Требуется SQL Server версии 12.0). Этот процесс позволит определить, какие серверы не соответствуют требованиям (используют неправильную версию).
+Чтобы выяснить соответствие требованиям в Azure, нужно определить состояние текущих ресурсов. В этом кратком руководстве описывается поэтапный процесс создания назначения политики для выявления виртуальных машин, которые не используют управляемые диски.
+
+Этот процесс позволит вам определить, какие виртуальные машины не используют управляемые диски, то есть *не соответствуют требованиям*.
+
 
 PowerShell используется для создания ресурсов Azure и управления ими из командной строки или с помощью скриптов. В этом руководстве подробно описано использование PowerShell для создания назначения политики, которое позволяет выявить в среде Azure ресурсы, не соответствующие требованиям.
 
@@ -29,7 +32,7 @@ PowerShell используется для создания ресурсов Azu
 
 ## <a name="opt-in-to-azure-policy"></a>Регистрация в службе "Политика Azure"
 
-Служба "Политика Azure" сейчас доступна в ограниченной предварительной версии, поэтому вам необходимо зарегистрироваться, чтобы подать запрос на доступ.
+Сейчас служба "Политика Azure"находится на этапе общедоступной предварительной версии, поэтому вам необходимо зарегистрироваться, чтобы запросить доступ к ней.
 
 1. Перейдите к службе "Политика Azure" по адресу https://aka.ms/getpolicy, а затем выберите **Зарегистрироваться** в области слева.
 
@@ -39,11 +42,11 @@ PowerShell используется для создания ресурсов Azu
 
    ![Регистрация для использования службы "Политика Azure"](media/assign-policy-definition/preview-opt-in.png)
 
-   Рассмотрение вашего запроса на регистрацию может длиться несколько дней. Время зависит от числа запросов. После принятия запроса по электронной почте вам будет отправлено сообщение о том, что можно начинать использование службы.
+   Ваш запрос будет автоматически утвержден для использования предварительной версии. Подождите до 30 минут, пока система обработает вашу регистрацию.
 
 ## <a name="create-a-policy-assignment"></a>Создание назначения политики
 
-В этом кратком руководстве мы создадим назначение политики *Require SQL Server Version 12.0* (Требуется SQL Server версии 12.0) и присвоим ей определение. Это определение политики будет выявлять ресурсы, которые не соответствуют заданным в нем условиям.
+В этом кратком руководстве мы создаем назначение политики и назначаем определение *Audit Virtual Machines without Managed Disks*. Это определение политики будет выявлять ресурсы, которые не соответствуют заданным в нем условиям.
 
 Чтобы создать назначение политики, следуйте инструкциям ниже.
 
@@ -62,15 +65,15 @@ $definition = Get-AzureRmPolicyDefinition
 Теперь примените определение политики к требуемой области с помощью командлета `New-AzureRmPolicyAssignment`.
 
 В этом руководстве мы предоставим для этой команды следующие сведения:
-- Отображаемое имя (**Name**) назначения политики. Здесь мы используем имя Require SQL Server version 12.0 Assignment.
-- Определение политики (**Policy**), на основе которой вы создаете назначение. В данном случае это определение политики *Require SQL Server version 12.0*.
+- Отображаемое имя (**Name**) назначения политики. В этом случае используем "Audit Virtual Machines without Managed Disks".
+- Определение политики (**Policy**), на основе которой вы создаете назначение. В данном случае это определение политики — *Audit Virtual Machines without Managed Disks*.
 - Область (**Scope**) определяет, к каким ресурсам или группе ресурсов принудительно применяется назначение политики. Политика может назначаться разным ресурсам: от подписки до групп ресурсов. В этом примере мы назначаем определение политики группе ресурсов **FabrikamOMS**.
-- Идентификатор ресурса (**$definition**) для определения политики. Здесь мы используем для определения политики идентификатор *Require SQL Server 12.0*.
+- **$definition**. Нужно указать идентификатор ресурса для определения политики. Здесь мы используем для определения политики идентификатор *Audit Virtual Machines without Managed Disks*.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "FabrikamOMS"
 $definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
-New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 Теперь все готово к выявлению ресурсов, которые не соответствуют требованиям, что позволит оценить состояние соответствия в среде.
@@ -89,7 +92,7 @@ New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Sc
 Остальные руководства из этой серии являются продолжением этого документа. Если вы намерены переходить к ним, не удаляйте ресурсы, которые создали при работе с этим руководством. В противном случае удалите созданное назначение, выполнив следующую команду:
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name “Require SQL Server version 12.0 Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
+Remove-AzureRmPolicyAssignment -Name “Audit Virtual Machines without Managed Disks Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 11/07/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Глоссарий по Azure Active Directory для разработчика
 Эта статья содержит определения некоторых основных понятий Azure Active Directory (AD), которые могут быть полезны при изучении разработки приложений, использующих Azure AD.
@@ -153,13 +153,13 @@ ms.lasthandoff: 10/11/2017
 Отмена проверки подлинности пользователя, при котором отсоединяется состояние пользователя, связанное с сеансом [клиентского приложения](#client-application) при [входе](#sign-in).
 
 ## <a name="tenant"></a>tenant
-Экземпляр каталога Azure AD, который называют клиентом Azure AD. Он предоставляет широкий набор функций, в том числе такие:
+Экземпляр каталога Azure AD, который называют клиентом Azure AD. Он обеспечивает несколько функций, включая следующие:
 
 * служба реестра интегрированных приложений;
 * аутентификация учетных записей пользователей и зарегистрированных приложений;
 * конечные точки REST, необходимые для поддержки различных протоколов, включая OAuth2 и SAML, в том числе [конечная точка авторизации](#authorization-endpoint), [конечная точка маркера](#token-endpoint) и "общие" конечные точки, используемые [мультитенантными приложениями](#multi-tenant-application).
 
-Клиент также связывается с подпиской Azure AD или Office 365 во время подготовки подписки, что дает возможность управления идентификацией и доступом для подписки. Подробные сведения о различных способах получения доступа к клиенту см. в статье [Как получить клиент Azure Active Directory][AAD-How-To-Tenant]. Сведения о связи между подписками и клиентом Azure AD см. в статье [Связь между подписками Azure и службой Azure Active Directory][AAD-How-Subscriptions-Assoc].
+Создание клиентов Azure AD и их привязка к подпискам Azure и Office 365 выполняется во время регистрации, что обеспечивает возможности системы управления идентификацией и доступом для подписки. Администраторы подписок Azure могут также создать дополнительные клиенты Azure AD с помощью портала Azure. Подробные сведения о различных способах получения доступа к клиенту см. в статье [Как получить клиент Azure Active Directory][AAD-How-To-Tenant]. Сведения о связи между подписками и клиентом Azure AD см. в статье [Связь между подписками Azure и службой Azure Active Directory][AAD-How-Subscriptions-Assoc].
 
 ## <a name="token-endpoint"></a>Конечная точка маркера
 Одна из конечных точек, реализуемых [сервером авторизации](#authorization-server) для поддержки [предоставлений авторизации](#authorization-grant) OAuth2. В зависимости от разрешений она может использоваться для получения [маркера доступа](#access-token) (и связанного маркера обновления) для [клиента](#client-application) или [маркера идентификации](#ID-token) при использовании с протоколом [OpenID Connect][OpenIDConnect].

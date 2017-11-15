@@ -21,14 +21,14 @@ ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
 ---
-# Протокол единого выхода SAML
+# <a name="single-sign-out-saml-protocol"></a>Протокол единого выхода SAML
 Azure Active Directory (Azure AD) поддерживает профиль SAML 2.0 для единого выхода с использованием веб-браузера. Чтобы единый выход работал правильно, во время регистрации приложения необходимо явно зарегистрировать в Azure AD его **LogoutURL** (URL-адрес выхода). Azure AD использует этот URL-адрес для перенаправления пользователей после их выхода.
 
 Эта схема демонстрирует рабочий процесс единого выхода Azure AD.
 
 ![Рабочий процесс единого выхода](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
-## LogoutRequest
+## <a name="logoutrequest"></a>LogoutRequest
 Облачная служба отправляет сообщение `LogoutRequest` в Azure AD, чтобы сообщить о завершении сеанса. Ниже приведен пример элемента `LogoutRequest` .
 
 ```
@@ -38,20 +38,20 @@ Azure Active Directory (Azure AD) поддерживает профиль SAML 2
 </samlp:LogoutRequest>
 ```
 
-### LogoutRequest
+### <a name="logoutrequest"></a>LogoutRequest
 Элемент `LogoutRequest` , передаваемый в Azure AD, должен иметь следующие атрибуты.
 
 * `ID` : признак запроса на выход. Значение `ID` не должно начинаться с цифры. Обычно здесь указывается строковое представление идентификатора GUID с добавлением перед ним строки **id** .
 * `Version` : установите для этого элемента значение **2.0**. Это обязательное значение.
 * `IssueInstant`: это строка `DateTime` со значением в формате всемирного времени (UTC) и с [преобразованием без потери данных ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD ожидает значение такого типа, но не требует его наличия.
 
-### Издатель
+### <a name="issuer"></a>Издатель
 Элемент `Issuer` в `LogoutRequest` должен точно соответствовать одному из имен из списка **ServicePrincipalNames** в облачной службе в Azure AD. Обычно здесь передается **URI идентификатора приложения** , указанный во время регистрации приложения.
 
-### NameID
+### <a name="nameid"></a>NameID
 Значение элемента `NameID` должно точно совпадать с параметром `NameID` для пользователя, выполняющего выход.
 
-## LogoutResponse
+## <a name="logoutresponse"></a>LogoutResponse
 Azure AD отправляет `LogoutResponse` в ответ на элемент `LogoutRequest`. Ниже приведен фрагмент кода с элементом `LogoutResponse`.
 
 ```
@@ -63,13 +63,13 @@ Azure AD отправляет `LogoutResponse` в ответ на элемент
 </samlp:LogoutResponse>
 ```
 
-### LogoutResponse
+### <a name="logoutresponse"></a>LogoutResponse
 Azure AD устанавливает значения `ID`, `Version` и `IssueInstant` для элемента `LogoutResponse`. Он также задает для элемента `InResponseTo` значение, взятое из атрибута `ID` для `LogoutRequest`, который запрашивал ответ.
 
-### Издатель
+### <a name="issuer"></a>Издатель
 Azure AD устанавливает для него значение `https://login.microsoftonline.com/<TenantIdGUID>/`, где <TenantIdGUID> — это идентификатор клиента Azure AD.
 
 Чтобы оценить значение элемента `Issuer` , используйте значение **URI идентификатора приложения** , указанное при регистрации приложения.
 
-### Состояние
+### <a name="status"></a>Состояние
 Azure AD использует элемент `StatusCode`, содержащийся в элементе `Status`, чтобы указать, успешно ли выполнен выход. После неудачной попытки выхода элемент `StatusCode` может также содержать пользовательские сообщения об ошибках.

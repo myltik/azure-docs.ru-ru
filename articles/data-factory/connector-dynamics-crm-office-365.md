@@ -11,18 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 11/02/2017
 ms.author: jingwang
-ms.openlocfilehash: 74a4fca2ff5a0f913b5cb195f42482339e6200cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1af330596052a92237469aba4729474e7fe417aa
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-dynamics-365dynamics-crm-using-azure-data-factory"></a>Копирование данных из Dynamics CRM или Dynamics 365 с помощью фабрики данных Azure
+
 В этой статье описывается, как с помощью действия копирования в фабрике данных Azure копировать данные из Dynamics 365 или Dynamics CRM. Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
 
-## <a name="supported-scenarios"></a>Поддерживаемые сценарии использования.
+> [!NOTE]
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Move data by using Copy Activity](v1/data-factory-data-movement-activities.md) (Перемещение данных с помощью действия копирования).
+
+## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
 Данные из Dynamics 365 или Dynamics CRM можно скопировать в любое хранилище данных, поддерживаемое в качестве приемника. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, см. в таблице [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -39,6 +43,7 @@ ms.lasthandoff: 10/11/2017
 > Чтобы использовать соединитель Dynamics, сохраните пароль в Azure Key Vault и позвольте действию копирования ADF совершать запросы при выполнении копирования данных. Дополнительные сведения о копировании см. в разделе [Свойства связанной службы](#linked-service-properties).
 
 ## <a name="getting-started"></a>Приступая к работе
+
 Вы можете создать конвейер с помощью операции копирования, используя пакет SDK для .NET, пакет SDK для Python, Azure PowerShell, API REST или шаблон Azure Resource Manager. Пошаговые инструкции по созданию конвейера с действием копирования см. в [руководстве по действию копирования](quickstart-create-data-factory-dot-net.md).
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, характерных для Dynamics.

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: d8e2f8fc19ff879e6a7b632f033fd0ed9d77392a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca5105ff8ec45e703a3fb8e0cbb8666eb0b2c38e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Как получить сертификат AppSource для Azure Active Directory
 С помощью [Microsoft AppSource](https://appsource.microsoft.com/) бизнес-пользователи могут обнаруживать бизнес-приложения SaaS (автономные приложения SaaS и дополнения к имеющимся продуктам SaaS Microsoft), использовать их и управлять ими.
@@ -108,9 +108,9 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="get-support"></a>Получение поддержки
-Для интеграции Azure Active Directory мы используем [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory). Кроме того, участники сообщества могут предоставить поддержку. 
+Для интеграции Azure Active Directory мы используем [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource). Кроме того, участники сообщества могут предоставить поддержку. 
 
-Мы настоятельно рекомендуем сначала задавать вопросы на сайте Stack Overflow и просмотреть имеющиеся проблемы, чтобы узнать, не задавал ли кто-то аналогичные вопросы раньше. Пометьте вопросы и комментарии тегом `[azure-active-directory]`.
+Мы настоятельно рекомендуем сначала задавать вопросы на сайте Stack Overflow и просмотреть имеющиеся проблемы, чтобы узнать, не задавал ли кто-то аналогичные вопросы раньше. Пометьте вопросы и комментарии тегами [`[azure-active-directory]` и `[appsource]`](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Оставляйте свои замечания и пожелания в разделе ниже. Они помогают нам улучшать содержимое веб-сайта.
 

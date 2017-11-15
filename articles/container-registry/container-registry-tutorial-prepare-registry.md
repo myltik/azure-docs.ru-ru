@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 88feffc13690a3a33f757a43972c5ef1fe967b7f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 75408dc88b23b615971a23dc6235c563229d75aa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Подготовка геореплицированного реестра контейнеров Azure
 
@@ -247,7 +247,7 @@ v1: digest: sha256:c515bcebf249b591b558318e2d0ec21d1320340dbf335730eb32372ff7d34
 > * создали образ контейнера Docker из источника приложения;
 > * отправили образ контейнера в реестр.
 
-Перейдите к следующему руководству, чтобы ознакомиться с развертыванием контейнера в нескольких экземплярах службы приложений Azure, используя георепликацию для локального обслуживания образов.
+Перейдите к следующему руководству, чтобы ознакомиться с развертыванием контейнера в нескольких экземплярах службы "Веб-приложение для контейнеров" с использованием георепликации для локального обслуживания образов.
 
 > [!div class="nextstepaction"]
 > [Развертывание веб-приложения из реестра контейнеров Azure](container-registry-tutorial-deploy-app.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 77cf65930a6d622e54395dd563901977c9d76170
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Копирование данных из Teradata с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если вы используете службу фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Move data from Teradata using Azure Data Factory](v1/data-factory-onprem-teradata-connector.md) (Перемещение данных из Teradata с использованием фабрики данных Azure).
 
-## <a name="supported-scenarios"></a>Поддерживаемые сценарии использования.
+## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
 Вы можете копировать данные из базы данных Teradata в любое хранилище данных, поддерживаемое в качестве приемника. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, приведен в таблице [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -103,8 +103,7 @@ ms.lasthandoff: 10/11/2017
 ```json
 {
     "name": "TeradataDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<Teradata linked service name>",
@@ -208,4 +207,4 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В таблице [Поддерживаемые хранилища данных](copy-activity-overview.md##supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования в фабрике данных Azure.
+В таблице [Поддерживаемые хранилища данных](copy-activity-overview.md#supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования в фабрике данных Azure.

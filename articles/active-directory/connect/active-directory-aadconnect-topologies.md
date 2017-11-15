@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d7af3a531bc1bcced1a3c48403a6f60afea0f82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8e71541562d397c3f2cc195bfb74cfd60cafdc0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Топологии Azure AD Connect.
 В этой статье описываются различные локальные топологии и топологии Active Directory Azure (Azure AD), в которых служба синхронизации Azure AD Connect используется в качестве основного решения интеграции. Здесь описываются и поддерживаемые, и неподдерживаемые конфигурации.
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
 
 | Рабочая нагрузка | Ограничения |
 --------- | ---------
-| Exchange Online | Если есть несколько локальных организаций Exchange (сервер Exchange развернут для нескольких лесов), необходимо использовать Exchange 2013 с пакетом обновления 1 или более поздней версии. Дополнительные сведения см. в статье [Гибридные развертывания в нескольких лесах Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
+| Exchange Online | Дополнительные сведения о гибридных топологиях, поддерживаемых Exchange Online, см. в разделе [Гибридные развертывания в нескольких лесах Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype для бизнеса | При использовании нескольких локальных лесов единственной поддерживаемой топологией является лес ресурсов учетной записи. Дополнительные сведения см. в статье [Требования к среде Skype для бизнеса Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
 

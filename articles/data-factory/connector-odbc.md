@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 9e65735ed6d19c8b94496fc3d3445e3a9dca2b9d
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: d8fa78585842a7e4414c8decf422c971938b683f
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Копирование данных из хранилищ данных ODBC и обратно с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/20/2017
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Перемещение данных из источника OData с помощью фабрики данных Azure](v1/data-factory-odata-connector.md).
 
-## <a name="supported-scenarios"></a>Поддерживаемые сценарии использования.
+## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
 Данные можно копировать из источника ODBC в любой поддерживаемый приемник данных или из любого поддерживаемого приемника ODBC. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, приведен в таблице [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -66,11 +66,9 @@ ms.lasthandoff: 10/20/2017
 ```json
 {
     "name": "ODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
@@ -95,11 +93,9 @@ ms.lasthandoff: 10/20/2017
 ```json
 {
     "name": "ODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
@@ -134,15 +130,13 @@ ms.lasthandoff: 10/20/2017
 ```json
 {
     "name": "ODBCDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<ODBC linked service name>",
             "type": "LinkedServiceReference"
         },
-        "typeProperties":
-        {
+        "typeProperties": {
             "tableName": "<table name>"
         }
     }
@@ -253,11 +247,9 @@ ms.lasthandoff: 10/20/2017
 ```json
 {
     "name": "InformixLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<Informix connection string or DSN>"
@@ -292,11 +284,9 @@ ms.lasthandoff: 10/20/2017
 ```json
 {
     "name": "MicrosoftAccessLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
@@ -331,11 +321,9 @@ ms.lasthandoff: 10/20/2017
 ```json
 {
     "name": "HistorianLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<GE Historian store connection string or DSN>"
@@ -374,11 +362,9 @@ ms.lasthandoff: 10/20/2017
 ```json
 {
     "name": "SAPHANAViaODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"

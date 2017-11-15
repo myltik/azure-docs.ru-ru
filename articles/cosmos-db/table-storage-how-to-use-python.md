@@ -12,38 +12,37 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 6f8e0ca97a8aea84bf97fc58fe0f4b10e05aa429
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a4480750377b3762346e746867b83c3c2a50e46f
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-use-table-storage-in-python"></a>Как использовать хранилище таблиц в Python
+# <a name="how-to-use-azure-table-storage-with-python"></a>Как использовать хранилище таблиц Azure с Python
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-Из этого руководства вы узнаете, как реализовать стандартные сценарии хранилища таблиц Azure в Python с помощью [пакета SDK для таблиц Azure Cosmos DB для Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table). Здесь описаны такие сценарии, как создание и удаление таблицы, вставка и запрос сущностей.
+В этом руководстве объясняется, как реализовать типичные сценарии хранилища таблиц Azure в Python с помощью [пакета SDK для службы хранилища Microsoft Azure для Python](https://github.com/Azure/azure-storage-python). Здесь описаны такие сценарии, как создание и удаление таблицы, вставка и запрос сущностей.
 
-Работая над сценариями в этом руководстве, вы можете использовать [справочные материалы по API-интерфейсу Python](https://azure.github.io/azure-cosmosdb-python/).
+Работая над сценариями в этом руководстве, вы можете использовать в качестве справки [пакет SDK для службы хранилища Microsoft Azure для Python](https://azure-storage.readthedocs.io/en/latest/index.html).
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
-## <a name="create-an-azure-cosmos-db-account"></a>создание учетной записи Azure Cosmos DB;
-
-[!INCLUDE [cosmos-db-create-dbaccount-table.md](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="install-the-azure-storage-sdk-for-python"></a>Установка пакета SDK для службы хранилища Microsoft Azure для Python
 
-После создания учетной записи Azure Cosmos DB установите [пакет SDK для таблиц Azure Cosmos DB для Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table). Дополнительные сведения по установке пакета SDK см. в файле [README.rst](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table) в репозитории GitHub на странице пакета SDK для таблиц Python.
+После создания учетной записи хранения установите [пакет SDK для службы хранилища Microsoft Azure для Python](https://github.com/Azure/azure-storage-python). Дополнительные сведения по установке пакета SDK см. в файле [README.rst](https://github.com/Azure/azure-storage-python/blob/master/README.rst) в репозитории GitHub Storage SDK for Python (пакет SDK для службы хранилища для Python).
 
 ## <a name="create-a-table"></a>Создание таблицы
 
-Для работы со службой таблиц Azure в Python необходимо импортировать модуль [TableService][py_TableService]. Так как вы работаете с сущностями таблиц, потребуется класс [Entity][py_Entity]. Добавьте следующий код в начало файла Python, чтобы импортировать модуль и класс:
+Для работы со службой таблиц Azure в Python необходимо импортировать модуль [TableService][py_TableService]. Так как вы будете работать с сущностями в таблице, вам также нужен класс [Entity][py_Entity]. Добавьте следующий код в начало файла Python, чтобы импортировать модуль и класс:
 
 ```python
-from azure.cosmosdb.table import TableService, Entity
+from azure.storage.table import TableService, Entity
 ```
 
 Создайте объект [TableService][py_TableService], передав ключ учетной записи и имя учетной записи хранения. Замените `myaccount` и `mykey` именем и ключом своей учетной записи и вызовите метод [create_table][py_create_table], чтобы создать таблицу в службе хранилища Azure.
@@ -113,7 +112,7 @@ table_service.insert_or_replace_entity('tasktable', task)
 В этом примере показано добавление двух сущностей в пакете:
 
 ```python
-from azure.cosmosdb.table import TableBatch
+from azure.storage.table import TableBatch
 batch = TableBatch()
 task004 = {'PartitionKey': 'tasksSeattle', 'RowKey': '004', 'description' : 'Go grocery shopping', 'priority' : 400}
 task005 = {'PartitionKey': 'tasksSeattle', 'RowKey': '005', 'description' : 'Clean the bathroom', 'priority' : 100}
@@ -187,20 +186,20 @@ table_service.delete_table('tasktable')
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Справочная документация по API Python](https://azure.github.io/azure-cosmosdb-python/)
-* [Azure Cosmos DB Table API for Python: Release notes and resources](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table) (API таблицы Python для базы данных Azure Cosmos DB. Заметки о выпуске и ресурсы)
+* [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html) (Справочник по пакету SDK службы хранилища Azure для API Python)
+* [Пакет SDK службы хранилища Azure для Python](https://github.com/Azure/azure-storage-python)
 * [Центр по разработке для Python](https://azure.microsoft.com/develop/python/)
+* [Приступая к работе с обозревателем службы хранилища (предварительная версия)](../vs-azure-tools-storage-manage-with-storage-explorer.md). Обозреватель службы хранилища Microsoft Azure — бесплатное кроссплатформенное приложение для визуализации данных службы хранилища Azure в Windows, macOS и Linux.
 
-
-[py_commit_batch]: https://azure.github.io/azure-cosmosdb-python/azure.cosmosdb.table.tableservice.html
-[py_create_table]: https://azure.github.io/azure-cosmosdb-python/azure.cosmosdb.table.tableservice.html
-[py_delete_entity]: https://azure.github.io/azure-cosmosdb-python/azure.cosmosdb.table.tableservice.html
-[py_delete_table]: https://azure.github.io/azure-cosmosdb-python/azure.cosmosdb.table.tableservice.html
-[py_Entity]: https://azure.github.io/azure-cosmosdb-python/azure.cosmosdb.table.models.html
-[py_get_entity]: https://azure.github.io/azure-cosmosdb-python/azure.cosmosdb.table.tableservice.html
-[py_insert_entity]: https://azure.github.io/azure-cosmosdb-python/azure.cosmosdb.table.tableservice.html
-[py_insert_or_replace_entity]: https://azure.github.io/azure-cosmosdb-python/azure.cosmosdb.table.tableservice.html
-[py_merge_entity]: https://azure.github.io/azure-cosmosdb-python/azure.cosmosdb.table.tableservice.html
-[py_update_entity]: https://azure.github.io/azure-cosmosdb-python/azure.cosmosdb.table.tableservice.html
-[py_TableService]: https://azure.github.io/azure-cosmosdb-python/azure.cosmosdb.table.tableservice.html
-[py_TableBatch]: https://azure.github.io/azure-cosmosdb-python/azure.cosmosdb.table.tablebatch.html
+[py_commit_batch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.commit_batch
+[py_create_table]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.create_table
+[py_delete_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.delete_entity
+[py_delete_table]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.delete_table
+[py_Entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.models.html#azure.storage.table.models.Entity
+[py_get_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.get_entity
+[py_insert_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_entity
+[py_insert_or_replace_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_or_replace_entity
+[py_merge_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.merge_entity
+[py_update_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.update_entity
+[py_TableService]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html
+[py_TableBatch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tablebatch.html#azure.storage.table.tablebatch.TableBatch

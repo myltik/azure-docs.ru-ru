@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0f556c786fdfdf775e00e68740351e7630e0e002
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 591fa6048553db4c347449a68ea4e39f3772d643
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Синхронизация Azure AD Connect: справочник по функциям
 В службе Azure AD Connect функции используются для обработки значения атрибута во время синхронизации.  
@@ -615,12 +615,12 @@ Azure Active Directory использует формат вывода этой �
 может вернуть результат 20140905081453.0Z.
 
 - - -
-### <a name="guid"></a>GUID
+### <a name="guid"></a>Guid
 **Описание.**  
-Функция GUID создает случайный идентификатор GUID.
+Функция Guid создает случайный идентификатор GUID.
 
 **Синтаксис**  
-`str GUID()`
+`str Guid()`
 
 - - -
 ### <a name="iif"></a>IIF

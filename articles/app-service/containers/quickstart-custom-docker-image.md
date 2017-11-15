@@ -1,10 +1,10 @@
 ---
-title: "Использование пользовательского образа Docker Hub для платформы \"Веб-приложения для контейнеров\" | Документация Майкрософт"
-description: "Использование пользовательского образа Docker для платформы \"Веб-приложения для контейнеров\"."
+title: "Использование пользовательского образа Docker Hub для веб-приложения Azure для контейнеров | Документация Майкрософт"
+description: "Как применять пользовательский образ Docker для веб-приложений Azure для контейнеров."
 keywords: "служба приложений azure, веб-приложение, docker, контейнер"
 services: app-service
 documentationcenter: 
-author: naziml
+author: cephalin
 manager: cfowler
 editor: 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
@@ -13,18 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/05/2017
-ms.author: wesmc
+ms.date: 11/02/2017
+ms.author: cephalin;wesmc
 ms.custom: mvc
-ms.openlocfilehash: c85f79cc14cdcecd2a05fc0ff91c4864b9fba277
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 8e7afd89def170ce756aae9e76daf91d78cc20e0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>Использование пользовательского образа Docker Hub для платформы "Веб-приложения для контейнеров"
+# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Использование пользовательского образа Docker Hub для веб-приложения Azure для контейнеров
 
-Служба приложений включает предопределенные стеки приложений на платформе Linux с поддержкой определенных версий, включая PHP 7.0 и Node.js 4.5. Вы также можете использовать пользовательский образ Docker для развертывания веб-приложения в стек приложений, который еще не определен в Azure. В этом кратком руководстве показано, как создать веб-приложение и развернуть в нем образ Docker на основе Python. Создайте веб-приложение с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Служба приложений включает предопределенные стеки приложений на платформе Linux с поддержкой определенных версий, включая PHP 7.0 и Node.js 4.5. Вы также можете использовать пользовательский образ Docker для запуска веб-приложения в стеке приложений, который еще не определен в Azure. В этом кратком руководстве показано, как создать веб-приложение и развернуть в нем [официальный образ Docker на основе Nginx](https://hub.docker.com/r/_/nginx/). Создайте веб-приложение с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+
+![Пример приложения, выполняющегося в Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -39,10 +41,10 @@ ms.lasthandoff: 10/27/2017
 Создайте [веб-приложение](../app-service-web-overview.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). Не забудьте указать уникальное имя приложения вместо `<app name>`.
 
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name nginx
 ```
 
-В предыдущей команде `--deployment-container-image-name` указывает на общедоступный образ Docker Hub [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/). Здесь можно просмотреть его содержимое: [https://github.com/ahmedelnably/dockerimagetest](https://github.com/ahmedelnably/dockerimagetest).
+В предыдущей команде `--deployment-container-image-name` указывает на общедоступный образ Docker Hub [https://hub.docker.com/r/_/nginx/](https://hub.docker.com/r/_/nginx/).
 
 Когда веб-приложение будет создано, в Azure CLI отобразится примерно следующее:
 
@@ -76,4 +78,4 @@ http://<app_name>.azurewebsites.net
 ## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
-> [Создание в Azure веб-приложения Docker Python с подключением к базе данных PostgreSQL](tutorial-docker-python-postgresql-app.md)
+> [Использование пользовательского образа Docker](tutorial-custom-docker-image.md)

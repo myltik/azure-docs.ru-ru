@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 13297eafd957d926dfd311a14c4ba9351e55e2bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f4df68a5cb240e9483cc088c620716bba207439b
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Копирование данных в базу данных SQL Server и из нее с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если используется общедоступная служба фабрики данных версии 1, ознакомьтесь со статьей [Перемещение данных в базу данных SQL Server и обратно на локальных компьютерах и виртуальных машинах Azure IaaS с помощью фабрики данных Azure](v1/data-factory-sqlserver-connector.md).
 
-## <a name="supported-scenarios"></a>Поддерживаемые сценарии использования.
+## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
 Вы можете скопировать данные из любого поддерживаемого в качестве источника хранилища данных в базу данных SQL Server или из нее в любое поддерживаемое в качестве приемника хранилище данных. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, приведен в таблице [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -507,7 +507,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | text |String, Char[] |
 | time |Интервал времени |
 | Timestamp |Byte[] |
-| tinyint; |Byte |
+| tinyint; |Int16 |
 | uniqueidentifier |Guid |
 | varbinary; |Byte[] |
 | varchar. |String, Char[] |

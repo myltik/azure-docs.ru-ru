@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a422b02623a18ac6a1eef460bbada681672e69f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Заметки о выпуске Azure SDK для .NET 2.5.1
 Этот документ содержит заметки о выпуске для пакета Azure SDK для .NET версии 2.5.1. 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
   * (общедоступная предварительная версия) Поддержка автозаполнения ключевых слов и IntelliSense для Hive. Для помощи в создании скриптов Hive в инструменты HDInsight для Visual Studio добавлена поддержка автозаполнения ключевых слов и IntelliSense для Hive.
   * Поддержка Storm. Теперь вы можете использовать инструменты HDInsight для Visual Studio для разработки топологий, источников потоков и обработчиков Storm в C#. Затем можно отправить разработанную топологию в кластер Storm и увидеть состояние топологии, источника потока или обработчика. Для устранения неполадок с топологиями, обработчиками и источниками потоков Storm можно использовать системные журналы или журналы клиента. Кроме того, можно использовать существующие ресурсы JAVA в Storm на HDInsight.
     
-    Дополнительную информацию см. в статье [Начало работы со средствами HDInsight Hadoop для Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
+    Дополнительную информацию см. в статье [Начало работы со средствами HDInsight Hadoop для Visual Studio](../hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 ## <a id="known_issues_2_5_1"></a>Известные проблемы и ограничения пакета SDK для Azure для .NET 2.5.1
 * Приложения API Azure отображаются как назначение развертывания для мобильных приложений. Веб-приложения должны быть единственным назначением для мобильных приложений до последующего выпуска. 

@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="connector-version-release-history"></a>История выпусков версий соединителей
 Соединители для Forefront Identity Manager (FIM) и Microsoft Identity Manager (MIM) часто обновляются.
 
 > [!NOTE]
 > Эта статья касается только FIM и MIM. Установка этих соединителей не поддерживается в Azure AD Connect. Выпущенные соединители предварительно устанавливаются в AADConnect при обновлении до указанной сборки.
+
 
 В этой статье перечисляются все выпущенные соединители.
 
@@ -37,6 +38,29 @@ ms.lasthandoff: 10/11/2017
 * [соединителю PowerShell](active-directory-aadconnectsync-connector-powershell.md) .
 * [соединителю Lotus Domino](active-directory-aadconnectsync-connector-domino.md) .
 
+## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
+
+### <a name="fixed-issues"></a>Исправленные проблемы:
+
+* Lotus Notes:
+  * Параметр фильтрации настраиваемых издателей сертификатов
+  * Для импорта класса ImportOperations было исправлено определение операций, которые могут выполняться в режиме "Представления" и в режиме "Поиск".
+* Универсальный соединитель LDAP.
+  * Каталог OpenLDAP использует различающееся имя в качестве привязки, а не entryUUI. Новый параметр для соединителя GLDAP, который позволяет изменить привязку.
+* Универсальный соединитель SQL:
+  * Исправлена операция экспорта в поле, содержащее тип varbinary(max).
+  * При добавлении двоичных данных из источника данных в объект CSEntry функция DataTypeConversion выдавала сбой на нулевых байтах. Исправлена функция DataTypeConversion класса CSEntryOperationBase.
+
+
+
+
+### <a name="enhancements"></a>Улучшения
+
+* Универсальный соединитель SQL:
+  * Возможность настройки режима для выполнения хранимой процедуры с именованными и неименованными параметрами добавлена в окно конфигурации агента управления универсальным соединителем SQL на странице "Глобальные параметры". На странице "Глобальные параметры" имеется флажок с меткой "Use named parameters to execute a stored procedure" (Использовать именованные параметры для выполнения хранимой процедуры), отвечающий за режим выполнения хранимой процедуры — с именованными параметрами или без них.
+    * В настоящее время возможность выполнения хранимой процедуры с именованными параметрами работает только для баз данных IBM DB2 и Microsoft SQL. Для баз данных Oracle и MySQL этот подход не работает: 
+      * синтаксис SQL в MySQL не поддерживает именованные параметры в хранимых процедурах;
+      * драйвер ODBC для Oracle не поддерживает именованные параметры для хранимых процедур.
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -203,6 +227,22 @@ Lotus:
 * [KB2932635](https://support.microsoft.com/kb/2932635) — 5.3.1003, февраль 2014 г.  
 * [KB2899874](https://support.microsoft.com/kb/2899874) — 5.3.0721, октябрь 2013 г.
 * [KB2875551](https://support.microsoft.com/kb/2875551) — 5.3.0534, август 2013 г.
+
+## <a name="troubleshooting"></a>Устранение неполадок 
+
+> [!NOTE]
+> При обновлении Microsoft Identity Manager или AADConnect с использованием любого соединителя ECMA2. 
+
+Необходимо соответствующим образом обновить определение соединителя после обновления, иначе в журнале событий приложений начнет появляться предупреждение с идентификатором 6947: "Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll" (Версия сборки в конфигурации соединителя AAD ("X.X.XXX.X") ниже текущей версии ("X.X.XXX.X") файла "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll").
+
+Чтобы обновить определение, сделайте следующее.
+* Откройте окно "Свойства" экземпляра соединителя.
+* Выберите "Подключение" и щелкните вкладку "Подключиться к".
+  * Введите пароль для учетной записи соединителя.
+* По очереди щелкните каждую из вкладок свойств.
+  * Если у этого типа соединителя есть вкладка "Секции" с кнопкой "Обновить", нажмите кнопку "Обновить" на этой вкладке.
+* После просмотра всех вкладок свойств нажмите кнопку "ОК", чтобы сохранить изменения.
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

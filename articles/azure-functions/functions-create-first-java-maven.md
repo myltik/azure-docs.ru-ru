@@ -11,14 +11,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/03/2017
+ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 50fd59c288312c7aa5ffe6abf1318a5ec2f406e6
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: ebe9351641f3c4ddade0ea456e8784d59acf9332
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Создание первой функции с помощью Java и Maven (предварительная версия)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/18/2017
 Для разработки функций приложения с помощью Java, должны быть установлены следующие компоненты:
 
 -  [.NET Core](https://www.microsoft.com/net/core) последней версии.
--  [Java Developer Kit (JDK)](https://www.azul.com/downloads/zulu/) версии 1.8.
+-  [Java Developer Kit (JDK)](https://www.azul.com/downloads/zulu/) версии 8.
 -  [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org) 3.0 или более поздней версии.
 -  [Node.js ](https://nodejs.org/download/)версии 8.6 или выше.

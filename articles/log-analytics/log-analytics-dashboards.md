@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22cc516c15353e39c73e762d2b8fa0d787a05ef4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Создание пользовательской панели мониторинга для Log Analytics
 
->[!NOTE]
-> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), то вы не можете создавать новые панели мониторинга или изменять существующие. 
-
 Это руководство поможет вам понять, как панели мониторинга в службе Log Analytics помогают следить за состоянием вашей среды с помощью визуализации всех ваших сохраненных запросов поиска по журналам.
+
+>[!NOTE]
+> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), то вы не можете редактировать имеющуюся панель мониторинга **My Dashboard**. Если в рабочую область не добавлена плитка **My Dashboard**, в обновленной рабочей области также не будет **My Dashboard**. 
 
 ![Пример панели мониторинга](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 
