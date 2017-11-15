@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 3a47ff1eed220cede820e8698c3384300e94688d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 089988354c5e1ca2e8d5d1554084062a655e43da
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-device"></a>Изменение параметров сетевого интерфейса DATA 0 на устройстве StorSimple
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Чтобы просмотреть версию этой статьи для нового портала Azure, перейдите к статье [Изменение параметров сетевого интерфейса DATA 0 на устройстве StorSimple серии 8000](storsimple-8000-modify-data-0.md). Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Обзор
 Устройство Microsoft Azure StorSimple имеет шесть сетевых интерфейсов, от DATA 0 до DATA 5. Интерфейс DATA 0 всегда настраивается с помощью интерфейса Windows PowerShell или последовательной консоли и располагает автоматическим подключением к облаку. Обратите внимание, что сетевой интерфейс DATA 0 невозможно настроить через классический портал Azure. 
 

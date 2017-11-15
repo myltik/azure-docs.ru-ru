@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: af135518f66eb8c94c183f28191f016fcd601ae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 811c06c6355ae881037cceb573ae0f96fa1ec2ad
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Администрирование устройства с помощью Windows PowerShell для StorSimple
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Чтобы просмотреть версию этой статьи для нового портала Azure, перейдите к статье [Администрирование устройства с помощью Windows PowerShell для StorSimple](storsimple-8000-windows-powershell-administration.md). Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Обзор
 Windows PowerShell для StorSimple — это интерфейс командной строки, который можно использовать для управления устройством Microsoft Azure StorSimple. Как видно из названия, данный интерфейс командной строки основан на Windows PowerShell и встроен в ограниченное пространство выполнения. Пользователь командной строки видит ограниченное пространство выполнения как сокращенную версию Windows PowerShell. Данный интерфейс не только поддерживает некоторые основные функции Windows PowerShell, но и включает дополнительные командлеты, предназначенные специально для управления устройством Microsoft Azure StorSimple. 
 

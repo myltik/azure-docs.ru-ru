@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: f8b89b3f6851ec9ee0570f551b5407419fdba2d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1646d800692d93d7dfc2e9a9c48c3671c280e02
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Замена резервного аккумулятора на устройстве StorSimple
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Чтобы просмотреть версию этой статьи для нового портала Azure, перейдите к статье [Замена резервного аккумулятора на устройстве StorSimple](storsimple-8000-battery-replacement.md). Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Обзор
 Блок питания и охлаждения (БПО) устройства Microsoft Azure StorSimple имеет резервный аккумулятор. Он позволит сохранить данные устройства StorSimple при исчезновении питания основного корпуса. Резервный аккумулятор здесь называется *модулем резервного аккумулятора*. Модуль резервного аккумулятора используется только для основного корпуса устройства StorSimple (для корпуса EBOD модуль резервного аккумулятора не используется). 
 

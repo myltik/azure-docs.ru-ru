@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 4bcca3ee5862a0455b6064d0f9c0a91388db9516
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Техническая информация об условном доступе в Azure Active Directory
 
@@ -82,11 +82,7 @@ ms.lasthandoff: 11/01/2017
 
 ## <a name="device-platform-condition"></a>условие платформы устройства;
 
-В политике условного доступа можно настроить условие платформы устройства для привязки политики к клиентской операционной системе.
-
-![Привязка политики доступа к клиентской ОС](./media/active-directory-conditional-access-technical-reference/41.png)
-
-Условный доступ Azure AD поддерживает следующие платформы устройств:
+В политике условного доступа можно настроить условие платформы устройства для привязки политики к клиентской операционной системе. Условный доступ Azure AD поддерживает следующие платформы устройств:
 
 - Android
 
@@ -96,7 +92,12 @@ ms.lasthandoff: 11/01/2017
 
 - Windows
 
-- macOS (предварительная версия)
+- macOS
+
+
+![Привязка политики доступа к клиентской ОС](./media/active-directory-conditional-access-technical-reference/41.png)
+
+
 
 
 
@@ -131,8 +132,8 @@ ms.lasthandoff: 11/01/2017
 | Windows Server 2016    | Chrome                      | Скоро |
 | Windows Server 2012 R2 | Internet Explorer, Chrome   | ![Проверка][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome   | ![Проверка][1] |
-| macOS                  | Safari                      | ![Проверка][1] |
-| macOS                  | Chrome                      | Скоро |
+| macOS                  | Chrome, Safari              | ![Проверка][1] |
+
 
 > [!NOTE]
 > Для поддержки Chrome нужно использовать Windows 10 Creators Update (версия 1703) или более позднюю версию.<br>
@@ -153,7 +154,7 @@ ms.lasthandoff: 11/01/2017
 | Приложение Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS и Android|
 | Приложения Почта, Календарь и Люди, Outlook 2016, Outlook 2013 (с современной аутентификацией)| Office 365 Exchange Online| Windows 10|
 | MFA и политика расположения для приложений Политики на основе устройств не поддерживаются.| Все службы приложения "Мои приложения"| Android и iOS|
-| Microsoft Teams Services — контролируют все службы, которые поддерживают Microsoft Teams, и все их клиентские приложения: для Windows Desktop, iOS, Android, WP, а также веб-клиент.| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS и Android|
+| Microsoft Teams Services — контролируют все службы, которые поддерживают Microsoft Teams, и все их клиентские приложения: для Windows Desktop, iOS, Android, WP, а также веб-клиент.| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android и macOS|
 | Приложения Office 2016, Office 2013 (с современной проверкой подлинности), клиент синхронизации OneDrive (см. [заметки](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
 | Приложения Office 2016, универсальные приложения Office, Office 2013 (с современной проверкой подлинности), клиент синхронизации OneDrive (см. [заметки](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)); поддержка групп Office и SharePoint ожидается в будущем| Office 365 SharePoint Online| Windows 10|
 | Office 2016 для macOS (только Word, Excel, PowerPoint, OneNote). Поддержку OneDrive для бизнеса планируется реализовать в будущем.| Office 365 SharePoint Online| Mac OS X|
@@ -165,6 +166,7 @@ ms.lasthandoff: 11/01/2017
 | Приложение PowerBI. Приложение Power BI для Android в настоящее время не поддерживает условный доступ на основе устройств.| Служба PowerBI| Windows 10, Windows 8.1, Windows 7 и iOS.|
 | Skype для бизнеса| Office 365 Exchange Online| Android, iOS|
 | Приложение Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS и Android|
+
 
 
 

@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 06/30/2017
-ms.openlocfilehash: 7ad4a2fd7452f31689a02b144078a9630bfd5259
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: 0b8ee73ab86dde2b2c09c9fe2e73209d000b3f26
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>База данных Azure для PostgreSQL: подключение и запрос данных с помощью Ruby
 В этом кратком руководстве описывается, как подключиться к базе данных Azure для PostgreSQL с помощью приложения [Ruby](https://www.ruby-lang.org). Здесь также показано, как использовать инструкции SQL для запроса, вставки, обновления и удаления данных в базе данных. В этой статье предполагается, что у вас уже есть опыт разработки на Ruby и вы только начали работу с базой данных Azure для PostgreSQL.
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/24/2017
 - Создайте pg-модуль Ruby с помощью Gem, выполнив команду `sudo gem install pg`.
 
 ## <a name="run-ruby-code"></a>Выполнение кода Ruby 
-- Сохраните код в текстовый файл, а последний — в папку проекта, добавив расширение .rb, например `C:\rubypostgres\read.rb` или `/home/username/rubypostgres/read.rb`.
+- Сохраните код в текстовый файл с расширением RB, а затем сохраните файл в папку проекта, например `C:\rubypostgres\read.rb` или `/home/username/rubypostgres/read.rb`.
 - Чтобы выполнить код, запустите командную строку или оболочку Bash. Перейдите в папку проекта с помощью `cd rubypostgres` и введите команду `ruby read.rb` для запуска приложения.
 
 ## <a name="get-connection-information"></a>Получение сведений о подключении

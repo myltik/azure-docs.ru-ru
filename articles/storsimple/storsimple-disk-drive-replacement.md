@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 0659ab9d304dbfcce72e8c3c79edad68e70b9630
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d236d43fd6c7595f5461204afb33cb38c821cb4b
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-device"></a>Замена диска на устройстве StorSimple
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Чтобы просмотреть версию этой статьи для нового портала Azure, перейдите к статье [Замена диска на устройстве StorSimple серии 8000](storsimple-8000-disk-drive-replacement.md). Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Обзор
 В этом учебнике объясняется, как снять и заменить неисправный или вышедший из строя жесткий диск на устройстве Microsoft Azure StorSimple. Для замены жесткого диска необходимо:
 

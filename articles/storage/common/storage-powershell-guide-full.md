@@ -11,13 +11,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Использование Azure PowerShell со службой хранилища Azure
 
@@ -216,13 +216,19 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 * [Выполнение операций в хранилище BLOB-объектов Azure с помощью Azure PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Как использовать PowerShell для управления службой файлов Azure](../files/storage-how-to-use-files-powershell.md)
 * [Выполнение операций хранилища очередей Azure с помощью Azure PowerShell](../queues/storage-powershell-how-to-use-queues.md)
+* [Выполнение операций в хранилище таблиц Azure с помощью PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+
+API таблицы Azure Cosmos DB предоставляет расширенные функции для хранения таблиц, такие как комплексные возможности глобального распределения, низкие задержки операций чтения и записи, автоматическое вторичное индексирование и выделенная пропускная способность. 
+
+* Дополнительные сведения см. в статье [Знакомство со службой Azure Cosmos DB. API таблицы](../../cosmos-db/table-introduction.md). 
+* Чтобы узнать, как использовать PowerShell для выполнения операций API таблицы Azure Cosmos DB, см. статью [Perform Azure Cosmos DB Table API operations with Azure PowerShell](../../cosmos-db/table-powershell.md) (Выполнение операций в API таблицы Azure Cosmos DB с помощью Azure PowerShell).
 
 ## <a name="azures-independently-deployed-clouds"></a>Облака Azure, развернутые независимо
 
 Большинство людей используют общедоступное облако Azure для глобального развертывания Azure. Но есть и независимые развертывания Microsoft Azure для обеспечения автономности и других целей. Такие независимые развертывания называются средами. Эти доступные среды включают:
 
 * [Облако Azure для государственных организаций](https://azure.microsoft.com/features/gov/)
-* [Облако Azure для Китая, обслуживаемое 21Vianet в Китае](http://www.windowsazure.cn/)
+* [Облако Azure для Китая (обслуживается 21Vianet в Китае)](http://www.windowsazure.cn/).
 * [Облако Azure для Германии](../../germany/germany-welcome.md)
 
 Дополнительные сведения о доступе к эти облакам и связанным службам хранилища с помощью PowerShell см. в руководстве по [управлению службой хранилища в независимых облаках Azure с помощью PowerShell](storage-powershell-independent-clouds.md).

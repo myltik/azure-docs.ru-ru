@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e417458a16a5f23d8b89cbf87ab2713fab352046
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Агрегирование и сбор событий с помощью системы диагностики Microsoft Azure
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ ms.lasthandoff: 10/11/2017
 
 Начиная с выпуска Service Fabric 5.4 для сбора доступны события метрик работоспособности и нагрузки. Это события, создаваемые системой или кодом с помощью интерфейсов API для создания отчетов о работоспособности или нагрузке, в том числе [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) или [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Это обеспечивает статистическую обработку и просмотр состояния работоспособности системы с течением временем, а также оповещение на основе событий работоспособности или нагрузки. Чтобы просмотреть эти события в окне просмотра событий диагностики Visual Studio, добавьте Microsoft-ServiceFabric:4:0x4000000000000008 в список поставщиков трассировки событий Windows.
 
-Чтобы включить сбор событий, измените шаблон Resource Manager, добавив в него следующее.
+Для сбора событий кластера измените `scheduledTransferKeywordFilter` в WadCfg шаблона Resource Manager на `4611686018427387912`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,11 +191,15 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="collect-reverse-proxy-events"></a>Сбор событий обратного прокси-сервера
 
-Начиная с выпуска Service Fabric 5.7 для сбора доступны события [обратного прокси-сервера](service-fabric-reverseproxy.md).
-Обратный прокси-сервер передает события в два канала. Один из них содержит события ошибок, отражающие сбои обработки запросов, а другой содержит подробные события всех запросов, обработанных на обратном прокси-сервере. 
+Начиная с выпуска Service Fabric 5.7, для сбора через каналы данных и обмен сообщениями доступны события [обратного прокси-сервера](service-fabric-reverseproxy.md). 
 
-1. Сбор событий ошибок. Чтобы просмотреть эти события в окне просмотра событий диагностики Visual Studio, добавьте Microsoft-ServiceFabric:4:0x4000000000000010 в список поставщиков трассировки событий Windows.
-Чтобы включить сбор событий из кластеров Azure, измените шаблон Resource Manager, добавив в него следующее.
+Обратный прокси-сервер принудительно отправляет только события ошибок через основной канал данных и обмена сообщениями, которые отражают сбои обработки запросов и критические проблемы. В подробном канале содержатся подробные события о всех запросах, обрабатываемых обратным прокси-сервером. 
+
+Чтобы просмотреть эти события ошибок в окне просмотра событий диагностики Visual Studio, добавьте "Microsoft-ServiceFabric:4:0x4000000000000010" в список поставщиков трассировки событий Windows. Для всей телеметрии запросов измените запись "Microsoft-ServiceFabric" в списке поставщиков трассировки событий Windows, указав "Microsoft-ServiceFabric:4:0x4000000000000020".
+
+Для кластеров, выполняемых в Azure.
+
+Чтобы получить трассировки в главном канале данных и обмена сообщениями, измените значение `scheduledTransferKeywordFilter` в WadCfg шаблона Resource Manager на `4611686018427387920`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -210,8 +214,7 @@ ms.lasthandoff: 10/11/2017
     }
 ```
 
-2. Сбор всех событий обработки запросов. В средстве просмотра событий диагностики Visual Studio измените запись Microsoft-ServiceFabric в списке поставщиков трассировки событий Windows, указав Microsoft-ServiceFabric:4:0x4000000000000020.
-Для кластеров Azure Service Fabric измените шаблон Resource Manager, добавив в него следующее.
+Чтобы собрать все события обработки запросов, включите подробный канал данных и обмена сообщениями, изменив значение `scheduledTransferKeywordFilter` в WadCfg шаблона Resource Manager на `4611686018427387936`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -225,9 +228,8 @@ ms.lasthandoff: 10/11/2017
       }
     }
 ```
-> Рекомендуется с осторожностью включать сбор событий из этого канала, так как это означает сбор всего трафика, проходящего через обратный прокси-сервер, что может привести к быстрому потреблению емкости хранилища.
 
-События на всех узлах кластеров Azure Service Fabric собираются и объединяются в SystemEventTable.
+Включение сбора данных о событиях из результатов этого подробного канала приводит к тому, что многие трассировки генерируются быстро и могут потреблять емкость хранилища. Включайте этот режим в случае крайней необходимости.
 Подробные сведения об устранении неполадок, связанных с событиями обратного прокси-сервера, приведены в [руководстве по диагностике обратного прокси-сервера](service-fabric-reverse-proxy-diagnostics.md).
 
 ## <a name="collect-from-new-eventsource-channels"></a>Сбор из новых каналов EventSource
@@ -252,27 +254,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="collect-performance-counters"></a>Сбор данных счетчиков производительности
 
-Для сбора метрик производительности из кластера добавьте счетчики производительности в элемент WadCfg > DiagnosticMonitorConfiguration в шаблоне Resource Manager для кластера. Дополнительные сведения о счетчиках производительности Service Fabric, которые мы рекомендуем собирать, см. в [этой статье](service-fabric-diagnostics-event-generation-perf.md).
-
-К примеру, установим один счетчик производительности, который будет делать выборку каждые 15 секунд (это можно изменить и указывается в формате "РТ\<время>\<единица_измерения>", например для РТ3М выборка будет выполняться каждые три минуты) и переносить соответствующие данные в требуемую таблицу хранилища каждую минуту.
-
-  ```json
-  "PerformanceCounters": {
-      "scheduledTransferPeriod": "PT1M",
-      "PerformanceCounterConfiguration": [
-          {
-              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-              "sampleRate": "PT15S",
-              "unit": "Percent",
-              "annotation": [
-              ],
-              "sinks": ""
-          }
-      ]
-  }
-  ```
+Для сбора метрик производительности из кластера добавьте счетчики производительности в элемент WadCfg > DiagnosticMonitorConfiguration в шаблоне Resource Manager для кластера. Дополнительные сведения о том, как изменить `WadCfg`, чтобы собрать данные конкретных счетчиков производительности, см. в статье [Performance monitoring with Windows Azure Diagnostics extension](service-fabric-diagnostics-perf-wad.md) (Мониторинг производительности с помощью расширения системы диагностики Microsoft Azure). Список счетчиков производительности Service Fabric, которые мы рекомендуем собирать, см. в статье [Метрики производительности](service-fabric-diagnostics-event-generation-perf.md).
   
-Если вы используете приемник Application Insights, как описано в разделе ниже, и вам нужно, чтобы эти метрики отображались в Application Insights, добавьте имя приемника в соответствующем разделе, как показано выше. Кроме того, создайте отдельную таблицу для отправки счетчиков производительности, чтобы они не вытесняли данные, поступающие с других включенных каналов ведения журналов.
+Если вы используете приемник Application Insights, как описано в разделе ниже, и вам нужно, чтобы эти метрики отображались в Application Insights, добавьте имя приемника в соответствующем разделе, как показано выше. Это позволит автоматически отправлять счетчики производительности, отдельно настроенные для ресурса Application Insights.
 
 
 ## <a name="send-logs-to-application-insights"></a>Отправка журналов в Application Insights

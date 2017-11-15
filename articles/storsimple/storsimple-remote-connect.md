@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b916173e127394d3ea06eded36285bdbbf884b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec625a604660489812b1a8c133fa0156a422b605
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Удаленное подключение к устройству StorSimple серии 8000
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Чтобы просмотреть версию этой статьи для нового портала Azure, перейдите к статье [Удаленное подключение к устройству StorSimple серии 8000](storsimple-8000-remote-connect.md). Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Обзор
 Для подключения к устройству StorSimple можно использовать удаленное взаимодействие Windows PowerShell. При таком способе подключения меню не отображается. (Меню появляется только при подключении к устройству с помощью последовательной консоли.) При использовании удаленного взаимодействия Windows PowerShell вы подключаетесь к конкретному пространству выполнения. Также можно указать язык интерфейса. 
@@ -234,5 +237,5 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше об [использовании Windows PowerShell для администрирования устройства StorSimple](storsimple-windows-powershell-administration.md).
-* Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+* Узнайте больше об [использовании службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 

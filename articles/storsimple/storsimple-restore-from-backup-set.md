@@ -1,6 +1,6 @@
 ---
 title: "Восстановление тома StorSimple из архива | Документация Майкрософт"
-description: "Описание способов использования страницы каталога резервного копирования службы диспетчера StorSimple для восстановления тома StorSimple из резервного набора данных."
+description: "Описание способов использования страницы каталога резервного копирования службы StorSimple Manager для восстановления тома StorSimple из резервного набора данных."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 12484338f5b4d489604d70a657ef0992b6267297
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ed433ba93cb08742e3f0b09cc7acaa2cd62461e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Восстановление тома StorSimple из резервного набора данных
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
 ## <a name="overview"></a>Обзор
@@ -56,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 Прежде чем начать восстановление тома, убедитесь, что он отключен. Сначала следует отключить том на узле, а затем на устройстве. Следуйте указаниям по [отключению тома](storsimple-manage-volumes.md#take-a-volume-offline). Чтобы восстановить том из набора архивации, выполните указанные ниже действия.
 
 ### <a name="to-restore-from-a-backup-set"></a>Восстановление из резервного набора данных
-1. На странице службы диспетчера StorSimple щелкните вкладку **Каталог резервных копий** .
+1. На странице службы StorSimple Manager щелкните вкладку **Каталог резервных копий**.
    
     ![Каталог резервного копирования](./media/storsimple-restore-from-backup-set/HCS_Restore.png)
 2. Выберите резервный набор данных следующим образом:

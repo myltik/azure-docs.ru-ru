@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: be062ce9cfbe7486ef500dd9d27418cbf245d6e0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: b31955e19883f9fe2e7ed6cf7f5076eaf52577c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Обработка уведомлений о плановом обслуживании для виртуальных машин Linux
 
@@ -65,6 +65,8 @@ az vm get-instance-view  - g rgName  -n vmName
 | LastOperationResultCode               | Результат последней попытки инициирования обслуживания на виртуальной машине ||
 
 
+
+
 ## <a name="start-maintenance-on-your-vm-using-cli"></a>Запуск обслуживания вашей виртуальной машины с помощью CLI
 
 Следующий вызов инициирует обслуживание на виртуальной машине, если для `IsCustomerInitiatedMaintenanceAllowed` установлено значение true.
@@ -74,6 +76,28 @@ az vm perform-maintenance rgName vmName
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
+
+## <a name="classic-deployments"></a>Классические развертывания
+
+Если у вас все еще есть устаревшие виртуальные машины, развернутые с использованием классической модели развертывания, вы можете сделать запрос к ним и запустить их обслуживание с помощью CLI 1.0.
+
+Чтобы убедиться, находитесь ли вы в правильном режиме для работы с классической виртуальной машиной, введите:
+
+```
+azure config mode asm
+```
+
+Чтобы узнать состояние обслуживания виртуальной машины с именем *myVM*, введите:
+
+```
+azure vm show myVM 
+``` 
+
+Чтобы начать обслуживание классической виртуальной машины с именем *myVM* в службе *myService* и развертывании *myDeployment*, введите:
+
+```
+azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
+```
 
 
 ## <a name="faq"></a>Часто задаваемые вопросы

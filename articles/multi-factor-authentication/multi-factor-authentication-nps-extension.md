@@ -1,9 +1,9 @@
 ---
 title: "Использование существующих серверов NPS для реализации возможностей MFA Azure | Документация Майкрософт"
-description: "Расширение сервера политики сети для Многофакторной идентификации Azure — это простое решение, позволяющее добавить двухэтапную облачную проверку пользователей в существующую инфраструктуру проверки подлинности."
+description: "Расширение сервера политики сети для Многофакторной идентификации Azure — это простое решение, позволяющее добавить двухэтапную облачную проверку пользователей в существующую инфраструктуру проверки подлинности."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 42b0bda033b1721ba5c0f575ea2ce6b0933f0f45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5e0a852ae9b245ef69fcbff2e87712a31197790
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Интеграция существующей инфраструктуры NPS с Многофакторной идентификацией Azure
 
@@ -52,7 +52,7 @@ VPN-серверы перенаправляют запросы на аутент
 
 ### <a name="licenses"></a>Лицензии
 
-Расширение NPS для Многофакторной идентификации Azure доступно для клиентов с [лицензией на MFA Azure](multi-factor-authentication.md) (входит в состав подписок Azure AD Premium, EMS и MFA).
+Расширение NPS для Многофакторной идентификации Azure доступно для клиентов с [лицензией на MFA Azure](multi-factor-authentication.md) (входит в состав подписок Azure AD Premium, EMS и MFA). Лицензии на основе потребления Azure MFA, такие как лицензии на пользователя или лицензии на аутентификацию, несовместимы с расширением NPS. 
 
 ### <a name="software"></a>Программное обеспечение
 

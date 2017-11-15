@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
+ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 98e75e11b54aea677b8ca1b6f303a48190c6fce8
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 237b8396b56fdec86cc005c121646556825d8e98
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="service-fabric-programming-model-overview"></a>Общие сведения о модели программирования Service Fabric
 Service Fabric предлагает несколько способов записи и управления службами. Службы могут использовать API-интерфейсы платформы Service Fabric, чтобы в полной мере использовать компоненты платформы и платформы приложений. Службы также могут представлять любую скомпилированную исполняемую программу, написанную на любом языке или с помощью любого кода, выполняемого в контейнере, размещенную в кластере Service Fabric.
@@ -42,6 +42,11 @@ Service Fabric предлагает несколько способов запи
 
 [Узнайте больше о надежных службах](service-fabric-reliable-services-introduction.md) или начните с [написания первой надежной службы](service-fabric-reliable-services-quick-start.md).
 
+## <a name="aspnet-core"></a>ASP.NET Core;
+ASP.NET Core — это новая кроссплатформенная среда с открытым кодом для создания современных облачных приложений с подключением к Интернету, таких как веб-приложения, приложения для Интернета вещей и серверные части мобильных приложений. Service Fabric интегрируется с ASP.NET Core, поэтому вы можете писать как приложения без отслеживания состояния, так и приложения с отслеживанием состояния ASP.NET Core, которые используют передовые возможности оркестрации надежных коллекций и Service Fabric.
+
+[Узнайте больше об ASP.NET Core в Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) или начните с [написания вашего первого приложения ASP.NET Core Service Fabric](service-fabric-add-a-web-frontend.md).
+
 ## <a name="reliable-actors"></a>Надежные субъекты
 Платформа надежных субъектов, построенная на базе надежных служб, представляет собой платформу приложений, реализующую модель виртуальных субъектов на основе шаблона проектирования субъектов. Платформа надежных субъектов использует независимые единицы вычислений и состояний с однопоточным выполнением, которые называются субъектами. Платформа надежных субъектов обеспечивает встроенное взаимодействие для субъектов, а также предустановленное сохранение состояния и масштабируемые конфигурации.
 
@@ -49,8 +54,6 @@ Service Fabric предлагает несколько способов запи
 
 [Узнайте больше о надежных субъектах](service-fabric-reliable-actors-introduction.md) или начните с [написания первой службы надежного субъекта](service-fabric-reliable-actors-get-started.md).
 
-## <a name="aspnet-core"></a>ASP.NET Core;
-Service Fabric интегрируется с [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) для создания веб-службы и служб API, которые можно включать в приложения. 
 
 [Создание внешнего интерфейса веб-службы для приложения с помощью ASP.NET Core](service-fabric-add-a-web-frontend.md)
 

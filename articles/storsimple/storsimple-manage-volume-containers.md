@@ -1,6 +1,6 @@
 ---
 title: "Управление контейнерами томов StorSimple | Документация Майкрософт"
-description: "В данной статье рассказывается, как на странице контейнеров томов службы диспетчера StorSimple добавить, изменить или удалить контейнер томов."
+description: "В данной статье рассказывается, как на странице контейнеров томов службы StorSimple Manager добавить, изменить или удалить контейнер томов."
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -12,17 +12,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/24/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: bb55a7a4bff0fd4319de6f6ce958686ad8a4142b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64f88e27267b36ea8654093b6e725e942f5f5c1c
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="use-the-storsimple-manager-service-to-manage-storsimple-volume-containers"></a>Использование службы диспетчера StorSimple для управления контейнерами томов StorSimple
+# <a name="use-the-storsimple-manager-service-to-manage-storsimple-volume-containers"></a>Использование службы StorSimple Manager для управления контейнерами томов StorSimple
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Чтобы просмотреть версию этой статьи для нового портала Azure, перейдите к статье [Использование службы диспетчера устройств StorSimple для управления контейнерами томов StorSimple](storsimple-8000-manage-volume-containers.md). Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Обзор
-В данном учебнике рассказывается, как с помощью службы диспетчера StorSimple создавать контейнеры томов StorSimple и управлять ими.
+В данном учебнике рассказывается, как с помощью службы StorSimple Manager создавать контейнеры томов StorSimple и управлять ими.
 
 Контейнер томов в устройстве Microsoft Azure StorSimple содержит один или несколько томов, которые совместно используют учетную запись хранения, функцию шифрования и параметры потребления полосы пропускания. В устройстве может быть несколько контейнеров томов для всех его томов. 
 
@@ -58,5 +61,5 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше об [управлении томами StorSimple](storsimple-manage-volumes.md). 
-* Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+* Узнайте больше об [использовании службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 

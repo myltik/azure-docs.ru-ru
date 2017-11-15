@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 8d5888904aa7c690e2ee3a2f54e96e663fd96840
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f0729286afdf01ea0ce0e0060f4d7415fa122014
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="use-powershell-to-sync-between-an-azure-sql-database-and-a-sql-server-on-premises-database"></a>Использование PowerShell для синхронизации данных между базой данных SQL Azure и локальной базой данных SQL Server
 
@@ -29,7 +29,9 @@ ms.lasthandoff: 10/31/2017
 
 Для работы с этим примером требуется модуль Azure PowerShell 4.2 или более поздней версии. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
  
-Выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure. 
+Выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+
+Общие сведения о синхронизации данных SQL см. в статье [Синхронизация данных в нескольких облачных и локальных базах данных с помощью синхронизации данных SQL Azure (предварительная версия)](../sql-database-sync-data.md).
 
 ## <a name="sample-script"></a>Пример скрипта
 
@@ -187,11 +189,11 @@ $timer=0
 $timeout=90
 # Check the log and see if refresh has gone through
 Write-Host "Check for successful refresh"
-$IsSucceeded = "false"
-While ($IsSucceeded -eq "False")
+$IsSucceeded = $false
+While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
-    $timer=$timer+1
+    $timer=$timer+10
     $Details = Get-AzureRmSqlSyncSchema -SyncGroupName $SyncGroupName -ServerName $ServerName -DatabaseName $DatabaseName -ResourceGroupName $ResourceGroupName
     if ($Details.LastUpdateTime -gt $StartTime)
       {
@@ -387,3 +389,20 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 Дополнительные сведения об Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 
 Дополнительные примеры сценариев PowerShell для базы данных SQL Azure можно найти в разделе [Примеры Azure PowerShell для базы данных SQL Azure](../sql-database-powershell-samples.md).
+
+Дополнительные сведения о синхронизации данных SQL:
+
+-   [Синхронизация данных в нескольких облачных и локальных базах данных с помощью синхронизации данных SQL](../sql-database-sync-data.md)
+-   [Начало работы с синхронизацией данных SQL Azure (предварительная версия)](../sql-database-get-started-sql-data-sync.md)
+-   [Best practices for SQL Data Sync (Preview)](../sql-database-best-practices-data-sync.md) (Рекомендации по синхронизации данных SQL (предварительная версия))
+-   [Устранение неполадок с синхронизацией данных SQL Azure (предварительная версия)](../sql-database-troubleshoot-data-sync.md)
+
+-   Полные примеры PowerShell, которые демонстрируют, как настроить синхронизацию данных SQL:
+    -   [Использование PowerShell для синхронизации данных между несколькими базами данных SQL Azure](sql-database-sync-data-between-sql-databases.md)
+
+-   [Документация по REST API синхронизации данных SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+Дополнительные сведения о Базе данных SQL:
+
+-   [Обзор Базы данных SQL](../sql-database-technical-overview.md)
+-   [Управление жизненным циклом базы данных](https://msdn.microsoft.com/library/jj907294.aspx)

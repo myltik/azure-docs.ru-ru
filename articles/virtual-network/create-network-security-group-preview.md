@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Фильтрация сетевого трафика с помощью групп безопасности сети и приложений (предварительная версия)
 
@@ -44,6 +44,7 @@ ms.lasthandoff: 10/11/2017
     
     ```azurecli-interactive
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    az provider register --namespace Microsoft.Network
     ``` 
 
 5. Убедитесь, что регистрация прошла успешно, выполнив следующую команду:
@@ -52,7 +53,9 @@ ms.lasthandoff: 10/11/2017
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
-    Не продолжайте процедуру, пока в столбце *state* выходных данных предыдущей команды не появится значение **Registered**. Если вы продолжите до завершения регистрации, вам не удастся корректно выполнить процедуру.
+    > [!WARNING]
+    > Регистрация может занять не более часа. Не продолжайте процедуру, пока в столбце *state* выходных данных предыдущей команды не появится значение **Registered**. Если вы продолжите до завершения регистрации, вам не удастся корректно выполнить процедуру.
+
 6. Выполните следующий сценарий bash, чтобы создать группу ресурсов:
 
     ```azurecli-interactive
@@ -160,7 +163,6 @@ ms.lasthandoff: 10/11/2017
       --name myNic1 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "WebServers" "AppServers"
 
@@ -169,7 +171,6 @@ ms.lasthandoff: 10/11/2017
       --name myNic2 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "AppServers"
 
@@ -178,12 +179,11 @@ ms.lasthandoff: 10/11/2017
       --name myNic3 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "DatabaseServers"
     ```
 
-    Только соответствующее правило безопасности, созданное на шаге 9, применяется к сетевому интерфейсу в зависимости от группы безопасности приложений, в которую он входит. Например, только правило *WebRule* действует для *myWebNic*, так как сетевой интерфейс является членом группы безопасности приложений *WebServers*, и правило указывает группу *WebServers* в качестве места назначения. Правила *AppRule* и *DatabaseRule* не применяются к *myWebNic*, так как сетевой интерфейс не является членом групп безопасности приложений *AppServers*и *DatabaseServers*.
+    Только соответствующее правило безопасности, созданное на шаге 9, применяется к сетевому интерфейсу в зависимости от группы безопасности приложений, в которую он входит. Например, только правило *WebRule* действует для *myNic1*, так как сетевой интерфейс является членом группы безопасности приложений *WebServers*, и правило указывает группу *WebServers* в качестве места назначения. Правила *AppRule* и *DatabaseRule* не применяются к *myNic1*, так как сетевой интерфейс не является членом групп безопасности приложений *AppServers* и *DatabaseServers*.
 
 13. Создайте одну виртуальную машину для каждого типа сервера, подключив соответствующий сетевой интерфейс к каждой виртуальной машине. В этом примере мы создаем виртуальные машины Windows, однако можно заменить *win2016datacenter* на *UbuntuLTS*, чтобы создать виртуальные машины Linux.
 
@@ -239,7 +239,8 @@ ms.lasthandoff: 10/11/2017
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    Не продолжайте процедуру, пока в столбце **RegistrationState** выходных данных предыдущей команды не появится значение *Registered*. Если вы продолжите до завершения регистрации, вам не удастся корректно выполнить процедуру.
+    > [!WARNING]
+    > Регистрация может занять не более часа. Не продолжайте процедуру, пока в столбце *RegistrationState* (Состояние регистрации) выходных данных предыдущей команды не появится значение **Registered** (Зарегистрировано). Если вы продолжите до завершения регистрации, вам не удастся корректно выполнить процедуру.
         
 6. Создайте группу ресурсов:
 
@@ -343,7 +344,6 @@ ms.lasthandoff: 10/11/2017
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webAsg,$appAsg
 
     $nic2 = New-AzureRmNetworkInterface `
@@ -351,7 +351,6 @@ ms.lasthandoff: 10/11/2017
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appAsg
 
     $nic3 = New-AzureRmNetworkInterface `
@@ -359,11 +358,10 @@ ms.lasthandoff: 10/11/2017
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Только соответствующее правило безопасности, созданное на шаге 8, применяется к сетевому интерфейсу в зависимости от группы безопасности приложений, в которую он входит. Например, только правило *WebRule* действует для *myWebNic*, так как сетевой интерфейс является членом группы безопасности приложений *WebServers*, и правило указывает группу *WebServers* в качестве места назначения. Правила *AppRule* и *DatabaseRule* не применяются к *myWebNic*, так как сетевой интерфейс не является членом групп безопасности приложений *AppServers*и *DatabaseServers*.
+    Только соответствующее правило безопасности, созданное на шаге 8, применяется к сетевому интерфейсу в зависимости от группы безопасности приложений, в которую он входит. Например, только правило *WebRule* действует для *myNic1*, так как сетевой интерфейс является членом группы безопасности приложений *WebServers*, и правило указывает группу *WebServers* в качестве места назначения. Правила *AppRule* и *DatabaseRule* не применяются к *myNic1*, так как сетевой интерфейс не является членом групп безопасности приложений *AppServers* и *DatabaseServers*.
 
 13. Создайте одну виртуальную машину для каждого типа сервера, подключив соответствующий сетевой интерфейс к каждой виртуальной машине. В этом примере создаются виртуальные машины Windows, однако перед выполнением сценария можно изменить *-Windows* на *-Linux*, *MicrosoftWindowsServer* на *Canonical*, *WindowsServer* на *UbuntuServer* и *2016-Datacenter* на *14.04.2-LTS*, чтобы создать виртуальные машины Linux.
 

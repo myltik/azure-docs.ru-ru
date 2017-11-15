@@ -9,11 +9,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 10/12/2017
-ms.openlocfilehash: 1d92ffc03b60695c5ff7b6c3d2ac54808c527efd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: a87877f4b213365442400d113a67964ef942341f
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Ключи учетной записи хранения Azure Key Vault
 
@@ -134,15 +134,15 @@ $yourKeyVaultServicePrincipalId = (Get-AzureRmADServicePrincipal -ServicePrincip
 
 ### <a name="set-permissions"></a>Установка разрешений
 
-Убедитесь, что для разрешений хранилища задано значение *Все*. Вы можете получить yourKeyVaultServicePrincipalId и задать разрешения для хранилищ, выполнив указанные ниже команды.
+Убедитесь, что для разрешений хранилища задано значение *Все*. Вы можете получить youruserPrincipalId и задать разрешения для хранилищ, выполнив указанные ниже команды.
 
 ```powershell
-Get-AzureRmADUser -SearchString "your name"
+$youruserPrincipalId = (Get-AzureRmADUser -SearchString "your user principal name").Id
 ```
 Теперь найдите свое имя и получите связанный ObjectId, который будет использоваться при настройке разрешений в хранилище.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $yourKeyVaultServicePrincipalId -PermissionsToStorage all
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $youruserPrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>Разрешить доступ

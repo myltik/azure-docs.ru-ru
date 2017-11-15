@@ -1,6 +1,6 @@
 ---
 title: "Компоненты оборудования StorSimple и их состояние | Документация Майкрософт"
-description: "Узнайте, как отслеживать аппаратные компоненты устройства StorSimple через службу диспетчера StorSimple."
+description: "Узнайте, как отслеживать аппаратные компоненты устройства StorSimple через службу StorSimple Manager."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 93df79c9d349c294b692148a19c9d881c4de4f7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 686a4faf37342e844f3aa0166d9311a438fa753a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>Использование службы диспетчера StorSimple для мониторинга компонентов оборудования и их состояния
+# <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>Использование службы StorSimple Manager для мониторинга компонентов оборудования и их состояния
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Чтобы просмотреть версию этой статьи для нового портала Azure, перейдите к статье [Использование службы диспетчера устройств StorSimple для мониторинга компонентов оборудования и их состояния](storsimple-8000-monitor-hardware-status.md). Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Обзор
-В этой статье описываются различные физические и логические компоненты локального устройства StorSimple. В ней также объясняется, как отслеживать состояние компонента устройства с помощью страницы **Обслуживание** в службе диспетчера StorSimple. 
+В этой статье описываются различные физические и логические компоненты локального устройства StorSimple. В ней также объясняется, как отслеживать состояние компонента устройства с помощью страницы **Обслуживание** в службе StorSimple Manager. 
 
 Страница **Обслуживание** отображает состояние оборудования всех компонентов устройства StorSimple. 
 
@@ -124,7 +127,7 @@ ms.lasthandoff: 10/11/2017
 | Подключение к контроллеру устройства |ВВОД-ВЫВОД |Физический |Controller |Нет |Указывает состояние подключения между модулем ввода-вывода EBOD и контроллером устройства. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Сведения об использовании службы диспетчера StorSimple для администрирования устройства см. в статье [Использование службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+* Сведения об использовании службы StorSimple Manager для администрирования устройства см. в статье [Использование службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 * Для устранения неполадок компонента устройства, в котором возник отказ или снизилась производительность, обратитесь к статье об [индикаторах мониторинга StorSimple](storsimple-monitoring-indicators.md). 
 * Чтобы заменить неисправный компонент аппаратного обеспечения, см. статью [Замена компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
 * Если проблемы с устройством не исчезают, [обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).

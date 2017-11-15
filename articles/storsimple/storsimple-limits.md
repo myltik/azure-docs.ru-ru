@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2adefbe89108bc5a807b7413e821f8fcd0f3f325
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Ограничения системы устройства StorSimple серии 8000
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Чтобы просмотреть версию этой статьи для нового портала Azure, перейдите к статье [Ограничения системы устройства StorSimple серии 8000](storsimple-8000-limits.md). Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Обзор
 StorSimple обеспечивает масштабируемое и гибкое хранение данных для центра обработки данных. Однако существуют некоторые ограничения, которые следует иметь в виду при планировании развертывания и работы решения StorSimple. В следующей таблице описываются эти ограничения и некоторые рекомендации, которые могут вам помочь в использовании решения StorSimple наиболее эффективным образом.
 

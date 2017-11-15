@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: d6dc0ffac1a3e688f93af903f51f798270b63711
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebb469289afc36b08c90ae9839f5bdba41cd90b
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager | Microsoft Azure
 
@@ -61,6 +61,7 @@ ms.lasthandoff: 10/11/2017
 | PrivateIPAddressNotInSubnet | Указанный IP-адрес находится вне диапазона подсети. Измените IP-адрес, чтобы он находился в пределах диапазона подсети. | [IP-адреса](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PropertyChangeNotAllowed | Некоторые свойства нельзя изменить в развернутом ресурсе. При обновлении ресурса измените только допустимые свойства. | [Обновление ресурса](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | RequestDisallowedByPolicy | Подписка включает в себя политику ресурсов, предотвращающую действие, которое вы пытаетесь выполнить во время развертывания. Найдите политику, которая блокирует действие. Измените развертывание в соответствии с ограничениями политики, если это возможно. | [Устранение ошибок с политиками](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| ReservedResourceName | Укажите ресурс, имя которого не включает в себя зарезервированное имя. | [Зарезервированные имена ресурсов](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Дождитесь завершения удаления. | |
 | ResourceGroupNotFound | Проверьте имя целевой группы ресурсов для развертывания. Оно уже должно существовать в подписке. Проверьте контекст подписки. | [Azure CLI](/cli/azure/account?#az_account_set), [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
 | ResourceNotFound | Развертывание ссылается на ресурс, который не может быть разрешен. Убедитесь, что для функции **reference** указаны параметры, необходимые для вашего сценария. | [Устранение ошибок с поиском ресурсов](resource-manager-not-found-errors.md) |

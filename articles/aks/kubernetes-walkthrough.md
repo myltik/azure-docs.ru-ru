@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: a25f91d092c2f72ea1cbc174d1bf8bf48885788a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 89d469b330644b8f5b82a343ea4408d5b8d10b12
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Развертывание кластера Службы контейнеров Azure (AKS)
 
@@ -77,7 +77,7 @@ az group create --name myResourceGroup --location westus2
 az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
 ```
 
-Через несколько минут выполнение команды завершается, и отображаются сведения о кластере в формате JSON.
+Через несколько минут выполнение команды завершается и отображаются сведения о кластере в формате JSON.
 
 ## <a name="connect-to-the-cluster"></a>Подключение к кластеру
 
@@ -93,7 +93,7 @@ az aks install-cli
 Чтобы настроить kubectl для подключения к кластеру Kubernetes, выполните следующую команду. На этом шаге скачиваются учетные данные и настраивается интерфейс командной строки Kubernetes для их использования.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
 ```
 
 Проверьте подключение к кластеру, выполнив команду [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get), чтобы просмотреть список узлов кластера.
@@ -113,7 +113,7 @@ k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
 
 Файл манифеста Kubernetes определяет требуемое состояние для кластера, включая образы контейнеров, которые нужно запустить. В этом примере манифест используется для создания всех объектов, необходимых для запуска приложения Azure для голосования.
 
-Создайте файл с именем `azure-vote.yml` и скопируйте в него следующий YAML-файл: Если вы работаете в Azure Cloud Shell, этот файл можно создать с помощью Vi или Nano, как при работе в виртуальной или физической системе.
+Создайте файл с именем `azure-vote.yml` и скопируйте в него следующий код YAML. Если вы работаете в Azure Cloud Shell, этот файл можно создать с помощью Vi или Nano, как при работе в виртуальной или физической системе.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -211,7 +211,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 Как только *ВНЕШНИЙ IP-АДРЕС* изменится с состояния *ожидания* на *IP-адрес*, используйте команду `CTRL-C`, чтобы остановить процесс отслеживания kubectl.
 
 ```
-azure-vote-front   LoadBalancer   10.0.37.27   52.175.236.185   80:30572/TCP   2m
+azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
 Теперь можно перейти по внешнему IP-адресу в приложение Azure для голосования.

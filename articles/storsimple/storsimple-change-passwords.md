@@ -1,6 +1,6 @@
 ---
 title: "Изменение паролей с помощью диспетчера устройств StorSimple | Документация Майкрософт"
-description: "В этом разделе показано, как использовать службу диспетчера StorSimple для изменения паролей диспетчера моментальных снимков StorSimple и администратора устройства."
+description: "В этом разделе показано, как использовать службу StorSimple Manager для изменения паролей StorSimple Snapshot Manager и администратора устройства."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,17 +12,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 843d0a4bcc1807a6b1995d067e0f9e572307775d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="use-the-storsimple-manager-service-to-change-your-storsimple-passwords"></a>Изменение паролей StorSimple с помощью службы диспетчера StorSimple
+# <a name="use-the-storsimple-manager-service-to-change-your-storsimple-passwords"></a>Изменение паролей StorSimple с помощью службы StorSimple Manager
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Чтобы просмотреть версию этой статьи для нового портала Azure, перейдите к статье [Изменение паролей StorSimple с помощью службы диспетчера устройств StorSimple](storsimple-8000-change-passwords.md). Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Обзор
-Страница **Настройка** классического портала Azure содержит все параметры, которые можно настроить на устройстве StorSimple, контролируемом службой диспетчера StorSimple. В этом учебнике показано, как можно использовать страницу **Настройка** , чтобы изменить пароль администратора устройства или диспетчера моментальных снимков (Snapshot Manager) StorSimple.
+Страница **Настройка** классического портала Azure содержит все параметры, которые можно настроить на устройстве StorSimple, контролируемом службой StorSimple Manager. В этом учебнике показано, как можно использовать страницу **Настройка** , чтобы изменить пароль администратора устройства или диспетчера моментальных снимков (Snapshot Manager) StorSimple.
 
 ## <a name="change-the-device-administrator-password"></a>Изменение пароля администратора устройства
 При использовании интерфейса Windows PowerShell для доступа к устройству StorSimple вам потребуется ввести пароль администратора устройства. После регистрации первого устройства StorSimple в службе пароль по умолчанию для этого интерфейса — *Password1*. Для обеспечения безопасности ваших данных необходимо изменить этот пароль в конце регистрации. Закончить регистрацию, не изменив пароль, невозможно. Дополнительные сведения см. в разделе [Шаг 3. Настройка и регистрация устройства средствами Windows PowerShell для StorSimple](storsimple-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
@@ -55,5 +58,5 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о [безопасности StorSimple](storsimple-security.md).
 * Узнайте больше об [изменении конфигурации устройства](storsimple-modify-device-config.md).
-* Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+* Узнайте больше об [использовании службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 

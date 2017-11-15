@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: f27f038e0507270c0bfe200cb8c86622ebac5372
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Использование групп компьютеров при поиске по журналам Log Analytics
 
@@ -109,13 +109,29 @@ ms.lasthandoff: 10/16/2017
 
 
 ## <a name="using-a-computer-group-in-a-log-search"></a>Использование группы компьютеров при поиске по журналам
-Группу компьютеров можно использовать в запросах, применяя ее псевдоним как функцию. Вот типичный синтаксис для этого:
+Группу компьютеров, созданную с помощью операции поиска по журналам, можно использовать в запросах, применяя ее псевдоним как функцию. Вот типичный синтаксис для этого:
 
   `Table | where Computer in (ComputerGroup)`
 
 Например, следующий запрос возвращает записи UpdateSummary только для тех компьютеров, которые входят в группу компьютеров mycomputergroup.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+Импортированные группы компьютеров и их включенные компьютеры хранятся в таблице **ComputerGroup**.  Например, следующий запрос вернет список компьютеров в группе компьютеров домена из Active Directory. 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+Следующий запрос вернет записи UpdateSummary только для компьютеров из группы компьютеров домена.
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+  
 
 >[!NOTE]
 > Если ваша рабочая область все еще использует [язык запросов Log Analytics прежней версии](log-analytics-log-search-upgrade.md), примените следующий синтаксис для указания группы компьютеров на странице поиска по журналам.  Параметр **Категория** указывать не обязательно. Он нужен, только если у вас есть группы с одинаковыми именами в разных категориях. 

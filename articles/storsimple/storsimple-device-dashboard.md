@@ -1,6 +1,6 @@
 ---
-title: "Использование панели мониторинга устройств диспетчера StorSimple | Документация Майкрософт"
-description: "Описание панели мониторинга устройств диспетчера StorSimple и ее использования для просмотра метрик хранилища и подключенных инициаторов, а также поиска серийного номера и IQN."
+title: "Использование панели мониторинга устройств StorSimple Manager | Документация Майкрософт"
+description: "Описание панели мониторинга устройств StorSimple Manager и ее использования для просмотра метрик хранилища и подключенных инициаторов, а также поиска серийного номера и IQN."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,19 +12,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d8035b9608ca3bac3d4822c7c755b81c96d481e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2209790b54f5dd18a413f2e08ddc6ffd6aef662
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="use-the-device-dashboard-in-storsimple-manager-service"></a>Использование панели мониторинга устройства в службе диспетчера StorSimple  
+# <a name="use-the-device-dashboard-in-storsimple-manager-service"></a>Использование панели мониторинга устройства в службе StorSimple Manager  
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Чтобы просмотреть версию этой статьи для нового портала Azure, перейдите к статье [Использование сводки по устройству в службе диспетчера устройств StorSimple](storsimple-8000-device-dashboard.md). Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Обзор
-Панель мониторинга устройств диспетчера StorSimple предоставляет общие сведения для конкретного устройства StorSimple в отличие от панели мониторинга службы, которая предоставляет сведения обо всех устройствах, включенных в решение Microsoft Azure StorSimple.
+Панель мониторинга устройств StorSimple Manager предоставляет общие сведения для конкретного устройства StorSimple в отличие от панели мониторинга службы, которая предоставляет сведения обо всех устройствах, включенных в решение Microsoft Azure StorSimple.
 
 ![Страница панели мониторинга устройства](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
 
@@ -81,6 +84,6 @@ ms.lasthandoff: 10/11/2017
 3. Прокрутите экран вниз и найдите целевой IQN.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Узнайте больше о [панели мониторинга службы диспетчера StorSimple](storsimple-service-dashboard.md).
-* Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+* Узнайте больше о [панели мониторинга службы StorSimple Manager](storsimple-service-dashboard.md).
+* Узнайте больше об [использовании службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 

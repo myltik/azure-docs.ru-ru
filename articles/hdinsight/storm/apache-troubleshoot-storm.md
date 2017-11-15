@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Устранение неполадок в Storm с помощью Azure HDInsight
 
 Ознакомьтесь с основными проблемами и их разрешением при работе с полезными данными Apache Storm в Apache Ambari.
 
-## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Как получить доступ к пользовательскому интерфейсу Storm в кластере
+## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Как получить доступ к пользовательскому интерфейсу Storm в кластере?
 Есть два способа для получения доступа к пользовательскому интерфейсу Storm из браузера:
 
 ### <a name="ambari-ui"></a>Пользовательский интерфейс Ambari
@@ -42,7 +42,7 @@ https://\<DNS-имя кластера\>/stormui
 
  https://stormcluster.azurehdinsight.net/stormui.
 
-## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Как передать сведения о контрольной точке spout концентратора событий Storm из одной топологии в другую
+## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Как передать сведения о контрольной точке spout концентратора событий Storm из одной топологии в другую?
 
 При разработке топологий, которые считывают концентраторы событий Azure с помощью JAR-файла spout концентратора событий HDInsight Storm, необходимо развернуть топологию, которая имеет то же имя в новом кластере. Однако нужно сохранить данные контрольных точек, которые были зафиксированы в Apache ZooKeeper на старом кластере.
 
@@ -122,7 +122,7 @@ HDInsight поставляется с кворумом Zookeeper, включаю
 * виртуальные машины Java (JVM) рабочей роли для выполнения топологий;
 * агент Ambari.
  
-## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Как найти двоичные файлы объекта spout концентратора событий Storm для разработки
+## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Как найти двоичные файлы объекта spout концентратора событий Storm для разработки?
  
 Дополнительные сведения об использовании JAR-файлов spout концентратора событий Storm с топологией см. на следующих ресурсах.
  
@@ -152,3 +152,5 @@ HDInsight поставляется с кворумом Zookeeper, включаю
  
 Пример: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml.
 
+### <a name="see-also"></a>См. также
+[Устранение неполадок с помощью Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
