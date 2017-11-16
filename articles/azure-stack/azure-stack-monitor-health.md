@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/10/2017
 ms.author: twooley
-ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf454a438f088d8079352ac60ce845185b741327
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Мониторинг работоспособности и оповещений в Azure Stack
 
@@ -36,7 +36,7 @@ Azure Stack предоставляет ряд возможностей для м
  
  Оператор Azure Stack позволяет просматривать состояние работоспособности компонентов на портале администратора или с помощью REST API и PowerShell.
  
-Чтобы просмотреть состояние работоспособности на портале, щелкните нужный регион на плитке **Region management** (Управление регионами). Вы можете просмотреть состояние работоспособности для инфраструктурных ролей и поставщиков ресурсов. В этом выпуске поставщик вычислительных ресурсов не предоставляет сведения о состоянии работоспособности.
+Чтобы просмотреть состояние работоспособности на портале, щелкните нужный регион на плитке **Region management** (Управление регионами). Вы можете просмотреть состояние работоспособности для инфраструктурных ролей и поставщиков ресурсов.
 
 ![Список инфраструктурных ролей](media/azure-stack-monitor-health/image2.png)
 

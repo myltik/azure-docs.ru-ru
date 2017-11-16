@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-policy"></a>Что такое служба "Политика Azure"?
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/06/2017
 
 Любую из этих политик можно назначить с помощью портала Azure, PowerShell или Azure CLI.
 
-Дополнительные сведения о структурах определения политик см. в [этом разделе](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure).
+Дополнительные сведения о структурах определения политик см. в [этом разделе](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Назначение политики
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 11/06/2017
 <!--
 Next link should point to new Concept page for Parameters
 -->
-Дополнительные сведения о параметрах политики см. в [этом разделе](../azure-resource-manager/resource-manager-policy.md#parameters).
+Дополнительные сведения о параметрах политики см. в [этом разделе](policy-definition.md#parameters).
 
 ## <a name="initiative-definition"></a>Определение инициативы
 Определение инициативы — это совокупность определений политик, которые предназначены для достижения одной ключевой цели. Определение инициативы упрощает управление определениями политик и их назначение. Это достигается благодаря группированию набора политик в один отдельный элемент. Например, можно создать инициативу, называемую **Enable Monitoring in Azure Security Center** (Включение мониторинга в центре безопасности Azure) с целью мониторинга всех доступных рекомендаций безопасности в центре безопасности Azure.

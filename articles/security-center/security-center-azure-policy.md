@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: e29c381643b233d38b10f89aed5469043c699f45
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 977f7c075005efb826e862ee582864b0f6efab38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Интеграция политик безопасности центра безопасности со службой "Политика Azure"
 Используя сведения из этой статьи, можно настроить интеграцию политик безопасности центра безопасности Azure на базе службы "Политика Azure". 
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/26/2017
     ![Доступные определения политик](./media/security-center-policies/security-center-policies-fig11.png)
 
     * Для получения подробной информации о политике выберите ее.  
-    Откроется окно **предварительного просмотра** определения. В нем содержится описание определения и ссылка на код JSON, предоставляющий структуру [определения политики](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure).
+    Откроется окно **предварительного просмотра** определения. В нем содержится описание определения и ссылка на код JSON, предоставляющий структуру [определения политики](../azure-policy/policy-definition.md).
 
     ![Окно предварительного просмотра определения](./media/security-center-policies/security-center-policies-fig14.png)
 

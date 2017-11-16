@@ -45,7 +45,7 @@
 ### Портал Azure
 #### [Развертывание ресурсов](resource-group-template-deploy-portal.md)
 #### [Экспорт шаблона](resource-manager-export-template.md)
-### [REST API](resource-group-template-deploy-rest.md)
+### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
 ### [Развертывание в нескольких группах ресурсов](resource-manager-cross-resource-group-deployment.md)
 ### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)
@@ -54,7 +54,7 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
 ### [Портал Azure](resource-group-portal.md)
-### [ИНТЕРФЕЙС REST API](resource-manager-rest-api.md)
+### [REST API](resource-manager-rest-api.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
 ### [Упорядочение подписок с помощью групп управления](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -68,10 +68,6 @@
 #### [Портал Azure](resource-group-create-service-principal-portal.md)
 ### [API проверки подлинности для доступа к подпискам](resource-manager-api-authentication.md)
 ### [Блокировка ресурсов](resource-group-lock-resources.md)
-
-## Задание политик ресурсов
-### [Что представляют собой политики ресурсов?](resource-manager-policy.md)
-### [Соглашения об именовании](resource-manager-policy-naming-convention.md)
 
 ## Аудит
 ### [Просмотр журналов действий](resource-group-audit.md)

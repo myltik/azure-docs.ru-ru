@@ -4,7 +4,7 @@ description: "Описание просмотра данных, которые �
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: feaa9e54-01e0-48c8-a917-1eba0f9d9ec7
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: f86b2bb2c12edc5274777f049906c59dca22ac87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a46735dde28740087d201d7490f135349aad76f6
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Просмотр данных в хранилище больших двоичных объектов Azure с помощью Pandas
 В этом документе описывается просмотр данных, которые хранятся в контейнере больших двоичных объектов Azure, с помощью пакета Python [Pandas](http://pandas.pydata.org/) .
@@ -92,7 +92,7 @@ ms.lasthandoff: 10/11/2017
    Другой способ заменить отсутствующие значения — воспользоваться функцией режима.
    
      dataframe_blobdata_mode = dataframe_blobdata.fillna({'<имя_столбца>':dataframe_blobdata['<имя_столбца>'].mode()[0]})        
-8. Создайте **гистограмму** , используя переменное количество ячеек, чтобы построить распределение переменной.    
+8. Создайте **гистограмму**, используя переменное количество ячеек, чтобы построить распределение переменной.    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    

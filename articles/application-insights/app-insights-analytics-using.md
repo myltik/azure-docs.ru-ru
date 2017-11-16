@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 50161c71443a3cc0192ab2db771bb258058e233c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Использование аналитики в Application Insights
 [Аналитика](app-insights-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов Log Analytics.
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/01/2017
 ### <a name="write-a-query"></a>Напишите запрос
 ![Отображение схемы](./media/app-insights-analytics-using/150.png)
 
-Начните с имен таблиц, перечисленных в левой части окна (либо с операторов [range](https://docs.loganalytics.io/queryLanguage/query_language_rangeoperator.html) или [union](https://docs.loganalytics.io/queryLanguage/query_language_unionoperator.html)). Используйте `|` для создания конвейера [операторов](https://docs.loganalytics.io/learn/cheatsheets/useful_operators.html). 
+Начните с имен таблиц, перечисленных в левой части окна (либо с операторов [range](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/range-operator) или [union](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/union-operator)). Используйте `|` для создания конвейера [операторов](https://docs.loganalytics.io/docs/Learn/References/Useful-operators). 
 
 IntelliSense подскажет вам операторы и элементы выражений, которые можно использовать. Щелкните значок сведений (или нажмите клавиши CTRL+ПРОБЕЛ), чтобы получить более подробное описание и примеры использования каждого элемента.
 
@@ -49,7 +49,7 @@ IntelliSense подскажет вам операторы и элементы в
 
 1. В запросе можно использовать только однократные разрывы строк.
 2. Поместите курсор внутри или в конце запроса, который необходимо выполнить.
-3. Проверьте диапазон времени своего запроса. (Его можно изменить или переопределить, добавив в запрос собственное предложение [`where...timestamp...`](https://docs.loganalytics.io/concepts/concepts_datatypes_timespan.html).)
+3. Проверьте диапазон времени своего запроса. (Его можно изменить или переопределить, добавив в запрос собственное предложение [`where...timestamp...`](https://docs.loganalytics.io/docs/Learn/Tutorials/Date-and-time-operations).)
 3. Щелкните "Начать", чтобы выполнить запрос.
 4. Не помещайте в запрос пустые строки. На одной вкладке запроса можно хранить несколько отдельных запросов, разделив их пустыми строками. Выполняется только запрос с курсором.
 
@@ -71,7 +71,7 @@ IntelliSense подскажет вам операторы и элементы в
 > [!NOTE]
 > При сортировке, группировании и фильтрации в браузере запрос не выполняется повторно. При этом только переупорядочиваются результаты, возвращенные последним запросом. 
 > 
-> Чтобы выполнить эти задачи на сервере до возвращения результатов, создайте запрос с операторами [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html), [summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) и [where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html).
+> Чтобы выполнить эти задачи на сервере до возвращения результатов, создайте запрос с операторами [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator), [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) и [where](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator).
 > 
 > 
 
@@ -99,7 +99,7 @@ IntelliSense подскажет вам операторы и элементы в
 
     Тем не менее можно изменить фильтр диапазона времени, воспользовавшись раскрывающимся меню.
 
-    Или можно переопределить автоматический диапазон, добавив в запрос собственное [предложение `where  ... timestamp ...`](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html). Например:
+    Или можно переопределить автоматический диапазон, добавив в запрос собственное [предложение `where  ... timestamp ...`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator). Например:
 
     `requests | where timestamp > ago('2d')`
 
@@ -107,10 +107,10 @@ IntelliSense подскажет вам операторы и элементы в
 
     Рекомендуется избегать превышения ограничения. Используйте фильтр диапазона времени или операторы, в том числе следующие:
 
-  * [top 100 by timestamp;](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 
-  * [take 100;](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)
-  * [summarize ](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) 
-  * [where timestamp > ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
+  * [top 100 by timestamp;](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
+  * [take 100;](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
+  * [summarize ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [where timestamp > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
 (Требуется более 10 тысяч строк? Рассмотрите возможность использования [непрерывного экспорта](app-insights-export-telemetry.md). Аналитика предназначена для анализа, а не получения необработанных данных.)
 
@@ -121,7 +121,7 @@ IntelliSense подскажет вам операторы и элементы в
 
 Если у вас несколько столбцов правильных типов, можно выбрать оси X и Y, а также столбец измерений, чтобы разделить по ним результаты.
 
-По умолчанию результаты изначально отображаются в виде таблицы, а схему вы выбираете вручную. В конце запроса можно также использовать [директиву render](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html) , чтобы выбрать диаграмму.
+По умолчанию результаты изначально отображаются в виде таблицы, а схему вы выбираете вручную. В конце запроса можно также использовать [директиву render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) , чтобы выбрать диаграмму.
 
 ### <a name="analytics-diagnostics"></a>Диагностика аналитики
 

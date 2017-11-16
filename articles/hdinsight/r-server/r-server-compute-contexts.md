@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: e15a263879ddc0edabc301201019f4209eee1058
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Варианты контекста вычислений для R Server в HDInsight
 
@@ -83,6 +83,5 @@ Microsoft R Server в Azure HDInsight управляет выполнением 
 
 * [Общие сведения об R Server в HDInsight (предварительная версия)](r-server-overview.md)
 * [Приступая к работе с R Server в HDInsight (предварительная версия)](r-server-get-started.md)
-* [Установка RStudio Server в HDInsight (если установка не была выполнена при создании кластера)](r-server-install-r-studio.md)
 * [Параметры службы хранилища Azure для R Server в HDInsight (предварительная версия)](r-server-storage.md)
 

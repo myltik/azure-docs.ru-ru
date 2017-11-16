@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/11/2017
 ms.author: helaw
-ms.openlocfilehash: 3b40a657ee8eb391d14a38cb95acc0729a8dda21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a8e871a3a44cb14503832d2f3a096712f8112a7
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Устранение неполадок, связанных с Microsoft Azure Stack
 
@@ -37,16 +37,6 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>В конце развертывания сеанс PowerShell все еще открыт и выходные данные не отображаются
 Это поведение, скорее всего, является результатом поведения по умолчанию командного окна PowerShell (если оно выбрано). Развертывание комплекта разработки завершилось успешно, но скрипт был приостановлен при выборе окна. Чтобы проверить это, поищите слово "select" в строке заголовка командного окна.  Нажмите клавишу ESC, чтобы отменить выбор, после чего должно отобразиться сообщение о завершении.
-
-## <a name="templates"></a>Шаблоны
-### <a name="azure-template-wont-deploy-to-azure-stack"></a>Шаблон Azure не развертывается в Azure Stack
-Убедитесь, что выполнены следующие условия:
-
-* Шаблон использует службу Microsoft Azure, которая уже доступна или находится в предварительной версии в Azure Stack.
-* API, используемые для определенного ресурса, поддерживаются локальным экземпляром Azure Stack, и указано допустимое целевое расположение ("локальное" в комплекте разработки Azure Stack и "восточная часть США" или "южная Индия" в Azure).
-* Просмотрите [эту статью](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) о командлетах Test-AzureRmResourceGroupDeployment, в которой показаны некоторые различия в синтаксисе Azure Resource Manager.
-
-Можно также использовать шаблоны Azure Stack, которые содержатся в [репозитории GitHub](http://aka.ms/AzureStackGitHub/), чтобы приступить к работе.
 
 ## <a name="virtual-machines"></a>Виртуальные машины
 ### <a name="default-image-and-gallery-item"></a>Элемент коллекции и образ по умолчанию
@@ -75,20 +65,6 @@ ms.lasthandoff: 10/11/2017
 ## <a name="storage"></a>Хранилище
 ### <a name="storage-reclamation"></a>Освобождение хранилища
 Для отображения освобожденной емкости на портале может понадобиться до четырнадцати часов. Освобождение пространства зависит от различных факторов, включая процент использования файлов внутреннего контейнера в хранилище блочных BLOB-объектов. Поэтому, в зависимости от того, какое количество данных удалено, нет гарантии касательно объема пространства, которое можно освободить, запустив сборщик мусора.
-
-## <a name="powershell"></a>PowerShell
-### <a name="resource-providers-not-registered"></a>Поставщики ресурсов не зарегистрированы
-При подключении к подпискам клиента с помощью PowerShell вы увидите, что поставщики ресурсов не регистрируются автоматически. Используйте [модуль подключения](https://github.com/Azure/AzureStack-Tools/tree/master/Connect) или выполните следующую команду из PowerShell (после [установки и подключения](azure-stack-connect-powershell.md) в качестве клиента): 
-  
-       Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
-
-## <a name="cli"></a>Интерфейс командной строки
-
-* Интерактивный режим CLI, то есть команда `az interactive`, еще не поддерживается в Azure Stack.
-* Чтобы получить список образов виртуальных машин, доступных в Azure Stack, используйте команду `az vm images list --all` вместо `az vm image list`. Указание параметра `--all` гарантирует, что ответ возвращает только образы, доступные в среде Azure Stack. 
-* Псевдонимы образов виртуальных машин, доступные в Azure, могут быть неприменимыми для Azure Stack. При использовании образов виртуальных машин вместо псевдонима образа необходимо использовать параметр полного URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0). URN должен соответствовать спецификации образа, полученной из команды `az vm images list`.
-* По умолчанию CLI 2.0 использует в качестве размера образа виртуальной машины по умолчанию "Standard_DS1_v2". Так как этот размер еще не доступен в Azure Stack, необходимо явным образом указать параметр `--size` при создании виртуальной машины. Список размеров виртуальных машин, доступных в Azure Stack, можно получить с помощью команды `az vm list-sizes --location <locationName>`.
-
 
 ## <a name="windows-azure-pack-connector"></a>Соединитель Windows Azure Pack
 * Если изменить пароль учетной записи azurestackadmin, то после развертывания комплекта разработки Azure Stack невозможно настроить многооблачный режим. Таким образом будет невозможно подключиться к целевой среде Windows Azure Pack.

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/18/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2f2b221f5739ac370e110d60ed7812ce9ea5e05f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 173ffbdd70313ef5a0d2af2cf1c8996d2395274a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Обнаружение проблем с помощью правил на основе пороговых значений
 
@@ -27,9 +27,9 @@ ms.lasthandoff: 10/31/2017
 Из этого руководства вы узнаете, как выполнять такие задачи:
 
 >[!div class="checklist"]
-> * Просмотр правил в решении.
+> * Просмотр правил в решении
 > * Создание нового правила
-> * Изменение имеющегося правила.
+> * Изменение имеющегося правила
 > * Удаление правила
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -104,9 +104,9 @@ ms.lasthandoff: 10/31/2017
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Просмотр правил в решении.
+> * Просмотр правил в решении
 > * Создание нового правила
-> * Изменение имеющегося правила.
+> * Изменение имеющегося правила
 > * Удаление правила
 
 Теперь, когда вы знаете, как обнаружить проблемы с помощью правил на основе пороговых значений, предлагаем перейти к дальнейшим действиям:

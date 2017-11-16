@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
-ms.reviewer: jsnow
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 8bb4c754f7bf22198b997ded7a994ccf0e4ad265
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: bf83952b29759ff601685513ace31828404c7b1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Интеграция инфраструктуры VPN с Azure MFA с помощью расширения сервера политики сети для Azure
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/06/2017
 
 Дополнительные сведения об Azure AD Connect см. в статье [История выпусков версий соединителей](../active-directory/connect/active-directory-aadconnect.md). 
 
-### <a name="azure-active-directory-guid-id"></a>Идентификатор GUID Azure Active Directory 
+### <a name="azure-active-directory-guid-id"></a>идентификатор GUID Azure Active Directory. 
 
 Чтобы установить расширение NPS, необходимо знать идентификатор GUID Azure Active Directory. Инструкции по поиску идентификатора GUID Azure Active Directory приведены в следующем разделе.
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/12/2017
 ms.author: rickbyh
-ms.openlocfilehash: 2726f5a78920f0ce47ed9d034e6a597c11b92e98
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b6a7a1d6e7c9f8a921dc73bb3bf629de71f85acf
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Использование аутентификации Azure Active Directory для аутентификации с помощью базы данных SQL или хранилища данных SQL
 Проверка подлинности Azure Active Directory — это механизм подключения к Базе данных SQL Microsoft Azure и [хранилищу данных SQL](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) с помощью удостоверений в Azure Active Directory (Azure AD). С помощью проверки подлинности Azure AD можно централизованно управлять удостоверениями пользователей базы данных и другими службами Майкрософт. Централизованное управление удостоверениями позволяет использовать единое расположение для управления пользователями и упрощает управление разрешениями. Это дает такие преимущества:
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/31/2017
 ## <a name="azure-ad-features-and-limitations"></a>Функции и ограничения Azure AD
 На сервере Azure SQL Server или в хранилище данных SQL можно выполнить подготовку для следующих членов Azure AD.
 
-* Собственные члены — члены, созданные в Azure AD в управляемом домене или в домене клиента. Дополнительные сведения см. в статье [Добавление имени личного домена в Azure Active Directory](../active-directory/active-directory-add-domain.md).
+* Собственные члены — члены, созданные в Azure AD в управляемом домене или в домене клиента. Дополнительные сведения см. в статье [Добавление имени личного домена в Azure Active Directory](../active-directory/active-directory-domains-add-azure-portal.md).
 * Федеративные члены домена — члены, созданные в Azure AD с федеративным доменом. Дополнительные сведения см. в статье [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory).
 * Импортированные члены из других каталогов Azure AD, являющиеся собственными или федеративными членами домена.
 * Группы Active Directory, созданные как группы безопасности.

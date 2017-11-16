@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 11/13/2017
 ms.author: larryfr
-ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a55180b5d65b268d7c9b51307581a5fe777a26fe
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Порты, используемые службами Hadoop в HDInsight
 
@@ -169,8 +169,8 @@ ms.lasthandoff: 11/03/2017
 | служба | Nodes | Порт | Протокол | URL-адрес | Описание |
 | --- | --- | --- | --- | --- | --- |
 | Серверы Thrift Spark |Головные узлы |10002 |Thrift | &nbsp; | Служба для подключения к Spark SQL (с помощью протокола Thrift или JDBC) |
-| Сервер Livy | Головные узлы | 8998 | HTTP | /пакеты | Служба для запуска инструкций, заданий и приложений |
+| Сервер Livy | Головные узлы | 8998 | HTTP | &nbsp; | Служба для запуска инструкций, заданий и приложений |
 
 Примеры:
 
-* Livy: `curl "http://10.0.0.11:8998/batches"`. В этом примере `10.0.0.11` — IP-адрес головного узла, на котором размещена служба Livy.
+* Livy: `curl -u admin -G "http://10.0.0.11:8998/"`. В этом примере `10.0.0.11` — IP-адрес головного узла, на котором размещена служба Livy.

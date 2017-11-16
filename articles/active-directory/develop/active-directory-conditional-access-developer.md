@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Руководство для разработчиков по условному доступу в Azure Active Directory
 
@@ -28,7 +28,7 @@ Azure Active Directory (AD) предоставляет несколько спо
 * разрешение доступа к определенным службам только устройствам, зарегистрированным в Intune;
 * ограничение расположения пользователей и диапазонов IP-адресов.
 
-Дополнительные сведения обо всех возможностях условного доступа см. в статье [Условный доступ на классическом портале Azure](../active-directory-conditional-access.md). 
+Дополнительные сведения обо всех возможностях условного доступа см. в статье [Условный доступ на классическом портале Azure](../active-directory-conditional-access-azure-portal.md). 
 
 В этой статье рассматриваются возможности, которые условный доступ дает разработчикам приложений для Azure AD.  Предполагается знание [однотенантных](active-directory-integrating-applications.md) и [мультитенантных](active-directory-devhowto-multi-tenant-overview.md) приложений, а также [распространенных шаблонов аутентификации](active-directory-authentication-scenarios.md).
 
@@ -48,7 +48,7 @@ Azure Active Directory (AD) предоставляет несколько спо
 * одностраничные приложения, использующие ADAL.js.
 * веб-приложения, которые вызывают ресурс.
 
-Политики условного доступа могут применяться к приложению, а также к веб-API, к которому получает доступ ваше приложение. Дополнительные сведения о том, как настроить политику условного доступа, см. в разделе [Настройка правил доступа для каждого приложения](../active-directory-conditional-access-azuread-connected-apps.md).
+Политики условного доступа могут применяться к приложению, а также к веб-API, к которому получает доступ ваше приложение. Дополнительные сведения о том, как настроить политику условного доступа, см. в разделе [Настройка правил доступа для каждого приложения](../active-directory-conditional-access-azure-portal-get-started.md).
 
 В зависимости от сценария корпоративный клиент может в любое время применять и удалять политики условного доступа.  Чтобы ваше приложение продолжало функционировать при применении новой политики, необходимо реализовать обработку запросов. В следующих примерах показана обработка запроса. 
 
@@ -218,7 +218,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 ## <a name="see-also"></a>См. также
 
-* Дополнительные сведения о возможностях условного доступа см. в статье [Приступая к работе с условным доступом Azure Active Directory](../active-directory-conditional-access.md).
+* Дополнительные сведения о возможностях условного доступа см. в статье [Приступая к работе с условным доступом Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * Дополнительные примеры кода Azure AD см. в [репозитории примеров кода GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Дополнительные сведения о пакете SDK ADAL и доступу к справочной документации см. в статье [Библиотеки проверки подлинности Azure Active Directory](active-directory-authentication-libraries.md).
 * Дополнительные сведения о сценариях с несколькими клиентами см. в статье [Как реализовать вход любого пользователя Azure Active Directory (AD) с помощью шаблона мультитенантного приложения](active-directory-devhowto-multi-tenant-overview.md).

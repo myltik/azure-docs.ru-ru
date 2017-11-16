@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: glenga
-ms.openlocfilehash: 18d3a87da8c240a3153dfa68f9b1d8bd17bbe693
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 10943769e46adf05642e19d6be297820171bb9f6
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Справочник разработчика скриптов C# по функциям Azure
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -375,7 +375,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 
 где `BindingTypeAttribute` — атрибут .NET, определяющий пользовательскую привязку, а `T` — входной или выходной тип, поддерживаемый этим типом привязки. `T` также не может быть параметром типа `out` (например, `out JObject`). Например, выходная привязка таблицы мобильных приложений поддерживает [шесть выходных типов](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), но для `T` можно использовать только [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) или [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs).
 
-В следующем примере кода создается [выходная привязка большого двоичного объекта службы хранилища](functions-bindings-storage-blob.md#using-a-blob-output-binding) с путем к большому двоичному объекту, определенному во время выполнения, а затем записывается строка в большой двоичный объект.
+В следующем примере кода создается [выходная привязка большого двоичного объекта службы хранилища](functions-bindings-storage-blob.md#blob-storage-input--output-bindings) с путем к большому двоичному объекту, определенному во время выполнения, а затем записывается строка в большой двоичный объект.
 
 ```cs
 using Microsoft.Azure.WebJobs;

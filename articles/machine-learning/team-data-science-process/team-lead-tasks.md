@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: 116eaa59eb60833036ad4d3c975c0b86e525f625
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="team-lead-tasks"></a>Задачи руководителя команды
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 10/11/2017
 
 - После того как командный проект **MyTeam** будет создан, нажмите кнопку **Перейти к проекту**, чтобы перейти на домашнюю страницу проекта. 
 
-    ![4.](./media/team-lead-tasks/team-leads-4-create-new-team-3.png)
+    ![4](./media/team-lead-tasks/team-leads-4-create-new-team-3.png)
 
 - Если появилось всплывающее окно **Поздравляем!**, нажмите кнопку **Добавить код** (кнопка в красном прямоугольнике). В противном случае нажмите кнопку **Код** (в желтом прямоугольнике). Откроется страница репозитория Git командного проекта. 
 
@@ -136,7 +136,7 @@ ms.lasthandoff: 10/11/2017
     ![11](./media/team-lead-tasks/team-leads-11-two-repo-in-team.png)
 
 
-## <a name="2-seed-your-team-projecttemplate-and-teamutilities-repositories"></a>2. Заполнение содержимым репозиториев ProjectTemplate и TeamUtilities
+## <a name="2-seed-your-team-projecttemplate-and-teamutilities-repositories"></a>2) Заполнение содержимым репозиториев ProjectTemplate и TeamUtilities
 
 Процедура заполнения использует каталоги на локальной виртуальной машине обработки и анализа данных в качестве промежуточных расположений для хранения и обработки. Если требуется настроить репозитории **ProjectTemplate** и **TeamUtilities** в соответствии с потребностями команды, это можно сделать на предпоследнем шаге следующей процедуры. Ниже объясняется, как заполнить содержимым репозитории **MyTeamProjectTemplate** и **MyTeamUtilities** команды обработки и анализа данных. Отдельные шаги соответствуют подразделам в процедуре заполнения:
 

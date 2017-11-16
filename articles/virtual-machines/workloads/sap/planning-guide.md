@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39b5c70c8740bc06beded42e9066e3be196741a1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -942,7 +942,7 @@ Microsoft Azure предусматривает несколько способо
 >
 > На последнем этапе войдите на виртуальную машину с помощью учетной записи администратора. Откройте окно командной строки Windows с правами *администратора*. Перейдите к папке %windir%\windows\system32\sysprep и запустите программу sysprep.exe.
 > Откроется небольшое окно. Здесь следует установить флажок **Подготовка к использованию**, который по умолчанию снят, и изменить значение параметра завершения работы с "Перезагрузка" (используется по умолчанию) на "Завершение работы". В этой процедуре предполагается, что процесс sysprep выполняется локально в гостевой ОС виртуальной машины.
-> Если вы хотите выполнить процедуру на виртуальной машине, которая уже работает в Azure, то следуйте указаниям в [этой статье](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
+> Если вы хотите выполнить процедуру на виртуальной машине, которая уже работает в Azure, то следуйте указаниям в [этой статье](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 >
 > ![Linux][Logo_Linux] Linux
 >

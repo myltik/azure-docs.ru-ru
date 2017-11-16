@@ -250,8 +250,6 @@
 ### [Отладка службы на Java в Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Локальный мониторинг и диагностика](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## [Развертывание службы управления API и Service Fabric в Azure](service-fabric-api-management-quick-start.md)
-
 ## Миграция из облачных служб
 ### [Сравнение облачных служб и Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Переход к использованию Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -265,7 +263,6 @@
 #### [Диспетчер ресурсов Azure](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Интерфейс командной строки Service Fabric](service-fabric-application-lifecycle-sfctl.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [API-интерфейсы FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Обновление приложений
@@ -281,11 +278,8 @@
 ##### [При выполнении рабочих нагрузок](service-fabric-testability-workload-tests.md)
 ##### [Использование тестовых сценариев](service-fabric-testability-scenarios.md)
 ##### [Использование API-интерфейсов для изменения состояния узла](service-fabric-node-transition-apis.md)
-#### [Нагрузочный тест приложения](service-fabric-vso-load-test.md)
 
-### Настройка непрерывной интеграции
-#### [Настройка непрерывной интеграции с помощью VSTS](service-fabric-set-up-continuous-integration.md)
-#### [Развертывание приложения Linux на Java с помощью Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### [Развертывание приложения Linux на Java с помощью Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## Создание кластеров и управление ими
 ### Кластеры в Azure
@@ -319,21 +313,6 @@
 ### [Визуализация кластера](service-fabric-visualizing-your-cluster.md)
 ### [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md)
 ### [Установка исправлений для узлов кластера](service-fabric-patch-orchestration-application.md)
-
-### Ресурсы кластера: управление и оркестрация
-#### [Обзор диспетчера кластерных ресурсов](service-fabric-cluster-resource-manager-introduction.md)
-#### [Архитектура диспетчера кластерных ресурсов](service-fabric-cluster-resource-manager-architecture.md)
-#### [Описание кластера](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Обзор групп приложений](service-fabric-cluster-resource-manager-application-groups.md)
-#### [Настройка параметров диспетчера кластерных ресурсов](service-fabric-cluster-resource-manager-configure-services.md)
-#### [Метрики потребления ресурсов](service-fabric-cluster-resource-manager-metrics.md)
-#### [Использование сходства служб](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [Политики размещения служб](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [Управление кластером](service-fabric-cluster-resource-manager-management-integration.md)
-#### [Дефрагментация кластера](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [Балансировка кластера](service-fabric-cluster-resource-manager-balancing.md)
-#### [Регулирование](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [Перемещение служб](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## Мониторинг и диагностика
 ### OMS

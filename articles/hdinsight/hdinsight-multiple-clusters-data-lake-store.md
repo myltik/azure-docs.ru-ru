@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 08f860dcf0f1d6c69cee02261b2a4989fc5c694a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92339548768878d03b864853172f3e94ad899693
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Использование нескольких кластеров HDInsight с учетной записью Azure Data Lake Store
 
@@ -52,7 +52,7 @@ Data Lake Store поддерживает неограниченное прост
 - **Субъект-служба** — субъект-служба Azure Active Directory (AAD), связанная с учетной записью.
 - **FINGRP** — группа пользователей, созданная в AAD и содержащая пользователей из финансовой организации.
 
-Инструкции по созданию приложения AAD (при создании которого также создается субъект-служба) см. в разделе [Создание приложения AAD](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Инструкции по созданию группы пользователей в AAD см. в разделе [Управление группами в Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Инструкции по созданию приложения AAD (при создании которого также создается субъект-служба) см. в разделе [Создание приложения AAD](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Инструкции по созданию группы пользователей в AAD см. в разделе [Управление группами в Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 Необходимо учесть следующие основные моменты.
 

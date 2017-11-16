@@ -15,11 +15,11 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 45b2d7a3eba421bda1dd33ce6eae6a1bd84d142b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: dcf43b5b820b41ec8722d843f1484c1607cfbde8
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="approved-vm-images"></a>Утвержденные образы виртуальных машин
 
@@ -31,23 +31,22 @@ ms.lasthandoff: 11/04/2017
 
 [!code-json[main](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.json "Approved VM images")]
 
-
-Можно развернуть шаблон с помощью [портала Azure](#deploy-with-the-portal), [PowerShell](#deploy-with-powershell) или [Azure CLI](#deploy-with-azure-cli).
+Можно развернуть шаблон с помощью [портала Azure](#deploy-with-the-portal), [PowerShell](#deploy-with-powershell) или [интерфейса командной строки Azure](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Развертывание с помощью портала
 
-[![Развертывание в Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade)
+[![Развертывание в Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Развертывание с помощью PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-````powershell
+```powershell
 $definition = New-AzureRmPolicyDefinition -Name "allowed-custom-images" -DisplayName "Approved VM images" -description "This policy governs the approved VM images" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' -Mode All
 $definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> -PolicyDefinition $definition
+$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -imageIds <Approved VM images> -PolicyDefinition $definition
 $assignment
-````
+```
 
 ### <a name="clean-up-powershell-deployment"></a>Очистка развертывания, выполненного с помощью PowerShell
 
@@ -57,19 +56,17 @@ $assignment
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-
 ## <a name="deploy-with-azure-cli"></a>Развертывание с помощью интерфейса командной строки Azure
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-````cli
-
+```azurecli-interactive
 az policy definition create --name 'allowed-custom-images' --display-name 'Approved VM images' --description 'This policy governs the approved VM images' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "allowed-custom-images"
-````
+```
 
-### <a name="clean-up-azure-cli-deployment"></a>Очистка развертывания, выполненного с помощью Azure CLI
+### <a name="clean-up-azure-cli-deployment"></a>Очистка развертывания, выполненного с помощью интерфейса командной строки Azure
 
 Выполните следующую команду, чтобы удалить группу ресурсов, виртуальную машину и все связанные с ней ресурсы.
 
@@ -79,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- Дополнительные примеры шаблонов политик Azure [доступны здесь](../json-samples.md).
+- Дополнительные примеры шаблонов для Политики Azure [доступны здесь](../json-samples.md).

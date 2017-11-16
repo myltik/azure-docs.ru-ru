@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: ed3dc8d441989239f02e12231f06d22fbef9d3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe7cf1e6167de7d0dfaa5ed75c0b7f5ec23b18cf
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="project-lead-tasks"></a>Задачи руководителя проекта
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 
 - Щелкните **Совместная работа над кодом**, чтобы перейти на домашнюю страницу Git командного проекта.  
 
-    ![4.](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
+    ![4](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
 
 - Щелкните стрелку вниз в верхнем левом углу и выберите **+ New repository** (+ Новый репозиторий). 
     
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 - Для создания репозитория Git проекта ***DSProject1*** щелкните **Создать**.
 
 
-## <a name="2-seed-the-dsproject1-project-repository"></a>2. Заполнение репозитория проекта DSProject1
+## <a name="2-seed-the-dsproject1-project-repository"></a>2) Заполнение репозитория проекта DSProject1
 
 На этом этапе нужно заполнить репозиторий (R5) проекта **DSProject1** из репозитория (R3) с шаблоном командного проекта. Процедура заполнения использует каталоги D3 и D5 на локальной DSVM в качестве промежуточных расположений для хранения и обработки. Таким образом путь заполнения: R3 -> D3 -> D5 -> R5.
 
