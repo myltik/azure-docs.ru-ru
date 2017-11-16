@@ -90,6 +90,7 @@
 ## Справочные материалы
 ### [Заметки о выпуске](active-directory-b2c-developer-notes-custom.md)
 ### [Поставщики сеансов единого входа](active-directory-b2c-reference-sso-custom.md)
+### [Настройка языка](active-directory-b2c-language-customization-custom.md)
 ### [Определение инфраструктуры доверия](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # Справочные материалы
