@@ -53,7 +53,7 @@
 ### [Использование удостоверения управляемой службы](api-management-howto-use-managed-service-identity.md)
 ### Интеграция с Service Fabric
 #### [Обзор](../service-fabric/service-fabric-api-management-overview.md)
-#### [Краткое руководство](../service-fabric/service-fabric-api-management-quick-start.md)
+#### [Руководство](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
 
 # Справочные материалы
 ## [Azure PowerShell](/powershell/azure/overview)
