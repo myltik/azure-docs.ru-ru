@@ -9,14 +9,6 @@
 ## [Расширение VS Code для шаблонов](resource-manager-vscode-extension.md)
 ## [Использование Visual Studio с Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Примеры
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Развертывание шаблона](resource-manager-samples-powershell-deploy.md)
-
-## Инфраструктура CLI Azure
-### [Развертывание шаблона](resource-manager-samples-cli-deploy.md)
-
 # Практическое руководство
 ## Создание шаблонов
 ### [Разделы шаблона](resource-group-authoring-templates.md)
@@ -54,7 +46,7 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
 ### [Портал Azure](resource-group-portal.md)
-### [REST API](resource-manager-rest-api.md)
+### [ИНТЕРФЕЙС REST API](resource-manager-rest-api.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
 ### [Упорядочение подписок с помощью групп управления](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
