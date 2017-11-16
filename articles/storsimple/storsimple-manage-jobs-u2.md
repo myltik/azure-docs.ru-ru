@@ -1,6 +1,6 @@
 ---
 title: "Просмотр заданий StorSimple и управление ими | Документация Майкрософт"
-description: "Описывает страницу заданий службы диспетчера StorSimple и способы ее использования для отслеживания недавних, текущих и запланированных заданий."
+description: "Описывает страницу заданий службы StorSimple Manager и способы ее использования для отслеживания недавних, текущих и запланированных заданий."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 6df1b27ce76de7a781ecc40af8430114d80b20d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 44b3550a2457a9f43a54117c6164858a0ef6f095
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs-update-2"></a>Использование службы управления StorSimple для просмотра заданий StorSimple и управления ими (обновление 2)
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Чтобы просмотреть версию этой статьи для нового портала Azure, перейдите к статье [Использование службы диспетчера устройств StorSimple для просмотра и администрирования заданий StorSimple (обновление 3 или более поздней версии)](storsimple-8000-manage-jobs-u2.md). Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 [!INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## <a name="overview"></a>Обзор

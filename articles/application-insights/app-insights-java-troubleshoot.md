@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Устранение неполадок, а также вопросы и ответы по Application Insights для Java
 Возникли вопросы или проблемы при использовании [Azure Application Insights в Java][java]? Ниже приведен ряд советов.
@@ -124,6 +124,13 @@ ms.lasthandoff: 11/01/2017
 **Как долго данные хранятся на портале? Защищен ли он?**
 
 Ознакомьтесь с разделом [Хранение данных и конфиденциальность][data].
+
+## <a name="debug-logging"></a>Ведение журнала отладки
+Application Insights использует модуль `org.apache.http`. Он перемещен в JAR-файлы ядра Application Insights в пространство имен `com.microsoft.applicationinsights.core.dependencies.http`. Это позволяет Application Insights обрабатывать ситуации, в которых разные версии `org.apache.http` существуют в одной базе кода. 
+
+>[!NOTE]
+>Если включить уровень ведения журнала "Отладка" для всех пространств имен в приложении, он будет действовать для всех выполняемых модулей, включая `org.apache.http`, который был переименован в `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights не сможет применять фильтрацию этих вызовов, так как вызов журнала выполняется библиотекой Apache. При уровне ведения журнала "Отладка" создается значительный объем данных журнала, и он не рекомендуется для экземпляров, выполняемых в рабочей среде.
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 **Служба Application Insights настроена для серверного приложения Java. Что еще можно сделать?**

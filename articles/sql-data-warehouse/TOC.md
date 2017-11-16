@@ -16,6 +16,7 @@
 ### [Архитектура MPP](massively-parallel-processing-mpp-architecture.md)
 ### [Уровни производительности](performance-tiers.md)
 ### [Единицы использования хранилища данных](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Ограничения емкости](sql-data-warehouse-service-capacity-limits.md)
 ### [Часто задаваемые вопросы](sql-data-warehouse-overview-faq.md)
 
 ## Архивация и восстановление
@@ -147,7 +148,7 @@
 
 # Справочные материалы
 
-## [Ограничения емкости](sql-data-warehouse-service-capacity-limits.md)
+
 ## T-SQL
 ### [Полный справочник](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [Элементы языка для хранилища данных SQL](sql-data-warehouse-reference-tsql-language-elements.md)

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0c3f9b49c7931371bf3a4eaf1a5a3c6261dad839
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 9fc11352a031ac1c1abcc6c6bd173bd9b0e8a222
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Разработка веб-приложения на основе Node.js и MongoDB в Azure
 
@@ -182,7 +182,7 @@ az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Настройка строки подключения в приложении Node.js
 
-В локальном репозитории MEAN.js создайте файл с именем _local-production.js_ в папке _config/env/_. Чтобы этот файл хранился вне репозитория, настраивается _.gitignore_. 
+В локальном репозитории MEAN.js создайте файл с именем _local-production.js_ в папке _config/env/_. По умолчанию, чтобы этот файл хранился вне репозитория, настраивается _.gitignore_. 
 
 Скопируйте в него следующий код: Замените два заполнителя *\<cosmosdb_name>* именем базы данных Cosmos DB, а заполнитель *\<primary_master_key>* — ключом, скопированным на предыдущем шаге.
 
@@ -209,7 +209,12 @@ gulp prod
 Выполните следующую команду, чтобы использовать строку подключения, которая была настроена в _config/env/local-production.js_.
 
 ```bash
+# Bash
 NODE_ENV=production node server.js
+
+# Windows PowerShell
+$env:NODE_ENV = "production" 
+node server.js
 ```
 
 `NODE_ENV=production` устанавливает переменную среды, указывающую, что Node.js необходимо запустить в рабочей среде.  `node server.js` запускает сервер Node.js с `server.js` в корневой папке репозитория. Так приложение Node.js загружается в Azure. 
@@ -261,7 +266,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 В коде Node.js для доступа к этому параметру приложения, как и к любой переменной среды, используется `process.env.MONGODB_URI`. 
 
-В локальном репозитории MEAN.js откройте файл _config/env/production.js_ (не _config/env/local-production.js_), который содержит конфигурацию для конкретной рабочей среды. Обратите внимание, что приложение MEAN.js по умолчанию уже настроено для использования созданной переменной среды `MONGODB_URI`.
+В локальном репозитории MEAN.js откройте файл _config/env/production.js_ (не _config/env/local-production.js_), который содержит конфигурацию для конкретной рабочей среды. Приложение MEAN.js по умолчанию уже настроено для использования созданной переменной среды `MONGODB_URI`.
 
 ```javascript
 db: {
@@ -416,12 +421,15 @@ exports.update = function (req, res) {
 В окне терминала на локальном компьютере снова проверьте изменения в рабочем режиме.
 
 ```bash
+# Bash
 gulp prod
 NODE_ENV=production node server.js
-```
 
-> [!NOTE]
-> Помните, что ваши изменения в _config/env/production.js_ были отменены, и переменная среды `MONGODB_URI` задается только в веб-приложении, а не на локальном компьютере. Если взглянуть на файл конфигурации, вы увидите, что по умолчанию в рабочей конфигурации используется локальная база данных MongoDB. Это гарантирует, что при локальном тестировании изменений кода рабочие данные не будут затронуты.
+# Windows PowerShell
+gulp prod
+$env:NODE_ENV = "production" 
+node server.js
+```
 
 Откройте в браузере адрес `http://localhost:8443` и убедитесь, что вход выполнен.
 

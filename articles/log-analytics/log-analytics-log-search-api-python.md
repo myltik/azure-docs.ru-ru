@@ -4,23 +4,26 @@ description: "API поиска по журналам службы Log Analytics 
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 11/03/2017
 ms.author: bwren
-ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8a4ec7a6ddf2daeca6ead11460fa076a7eb5c94
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Получение данных из службы Log Analytics с помощью скрипта Python
 [API поиска по журналам службы Log Analytics](log-analytics-log-search-api.md) позволяет любому клиенту REST API извлекать данные из рабочей области Log Analytics.  Эта статья содержит пример скрипта Python, который использует API поиска по журналам службы Log Analytics.  
+
+>[!NOTE]
+> В этой статье используется API поиска по журналам для языка запросов прежней версии Log Analytics.  В эту статью будет включено обновление для рабочих областей, обновленных для использования [языка запросов новой версии Log Analytics](log-analytics-log-search-upgrade.md).
 
 ## <a name="authentication"></a>Аутентификация
 Этот скрипт использует субъект-службу в Azure Active Directory для проверки подлинности в рабочей области.  Субъекты-службы позволяют клиентскому приложению запрашивать выполнение службой проверки подлинности учетной записи, даже если у клиента нет ее имени. Перед выполнением скрипта необходимо создать субъект-службу, как описано в статье [Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md).  В скрипте необходимо указать идентификатор приложения, идентификатор клиента и ключ проверки подлинности. 

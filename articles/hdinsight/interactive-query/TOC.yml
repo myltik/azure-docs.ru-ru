@@ -107,9 +107,6 @@
         - name: Управление кластерами
           href: ../domain-joined/apache-domain-joined-manage.md
           maintainContext: true
-        - name: Управление разрешениями пользователей
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: Анализ больших данных
       items:
         - name: Анализ с помощью Power Query
@@ -188,9 +185,6 @@
           maintainContext: true
         - name: Разрешение пользователям доступа к Ambari Views
           href: ../hdinsight-authorize-users-to-ambari.md
-          maintainContext: true
-        - name: Управление разрешениями пользователя на уровнях файлов и папок
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
           maintainContext: true
     - name: Управление
       items:

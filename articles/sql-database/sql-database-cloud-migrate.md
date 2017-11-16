@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 02/08/2017
+ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Миграция базы данных SQL Server в базу данных SQL в облаке
 В этой статье вы узнаете о двух основных методах миграции базы данных SQL Server 2005 или более поздней версии в базу данных SQL Azure. Первый метод проще, но миграция происходит с простоем, который может длиться достаточно долго. Второй метод более сложен, но значительно сокращает время простоя при выполнении миграции.
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/31/2017
 В обоих случаях необходимо обеспечить совместимость базы данных-источника с базой данных SQL Azure с помощью [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). Начиная с базы данных SQL версии 12, у всех последующих версий базы данных SQL Server функции, не связанные с операциями уровня сервера и операциями между базами данных, [практически не отличаются](sql-database-features.md). Базы данных и приложения, использующие [частично поддерживаемые или неподдерживаемые функции](sql-database-transact-sql-information.md), требуют небольшой [доработки для устранения этих несовместимостей](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) перед миграцией базы данных SQL Server.
 
 > [!NOTE]
-> Сведения о переносе в базу данных SQL Azure баз данных, отличных от SQL Server, в том числе Microsoft Access, Sybase, MySQL Oracle и DB2, см. в блоге, посвященном [помощнику по миграции SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
+> Сведения о переносе в базу данных SQL Azure баз данных, отличных от SQL Server, в том числе Microsoft Access, Sybase, MySQL Oracle и DB2, см. в блоге, посвященном [помощнику по миграции SQL Server](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 > 
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Метод 1. Миграция с простоем
@@ -39,12 +39,11 @@ ms.lasthandoff: 10/31/2017
 
   ![Схема переноса VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. Оцените базу данных для обеспечения совместимости с помощью [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) последней версии.
+1. [Оцените](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) базу данных для обеспечения совместимости с помощью [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) последней версии.
 2. Подготовьте все необходимые исправления в виде скриптов Transact-SQL.
 3. Создайте транзакционно согласованную копию базы данных-источника для миграции. В нее не должны вноситься дальнейшие изменения (такие изменения можно применить вручную после завершения миграции). Существует множество методов замораживания базы данных — от запрета подключения клиента до создания [моментального снимка базы данных](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Разверните скрипты Transact-SQL для применения исправлений к копии базы данных.
-5. [Экспортируйте](sql-database-export.md) копию базы данных в BACPAC-файл на локальном диске.
-6. [Импортируйте](sql-database-import.md) BACPAC-файл как новую базу данных SQL Azure, используя некоторые средства импорта BACPAC, в том числе SQLPackage.exe, который является рекомендуемым средством для повышения производительности.
+5. [Перенесите](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) копию базы данных в новую базу данных SQL Azure с помощью Data Migration Assistant.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Оптимизация производительности передачи данных во время миграции 
 
@@ -94,7 +93,7 @@ ms.lasthandoff: 10/31/2017
 ### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>Некоторые советы и описание различий при миграции в базу данных SQL
 
 1. Использование локального распространителя 
-   - Это отрицательно влияет на производительность сервера. 
+   - Это действие влияет на производительность сервера. 
    - Если снижение производительности неприемлемо, вы можете использовать другой сервер, но это усложнит управление и администрирование.
 2. При выборе папки моментальных снимков убедитесь, что ее емкость достаточна для хранения BCP каждой таблицы, которую требуется реплицировать. 
 3. Создание моментального снимка блокирует связанные таблицы до завершения операции. Учитывайте это при планировании создания моментальных снимков. 

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 05/02/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 8ac4d409f7363e8b4ae98be659a627ac8db8d787
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core в Service Fabric Reliable Services
 
@@ -55,20 +55,20 @@ ASP.NET Core можно использовать двумя различными
 
 Точка входа приложения не подходит для создания WebHost в Reliable Service, так как она используется только для регистрации типа службы в среде выполнения Reliable Service, чтобы иметь возможность создавать экземпляры этого типа службы. WebHost должен быть создан в Reliable Service автоматически. В хост-процессе службы экземпляры службы и (или) реплики могут проходить несколько жизненных циклов. 
 
-Экземпляр Reliable Service представлен с помощью класса службы, производного от `StatelessService` или `StatefulService`. Стек связи для службы содержится в реализации `ICommunicationListener` класса службы. Пакеты NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` содержат реализации `ICommunicationListener`, которые запускают и администрируют ASP.NET Core WebHost для Kestrel или WebListener в Reliable Service.
+Экземпляр Reliable Service представлен с помощью класса службы, производного от `StatelessService` или `StatefulService`. Стек связи для службы содержится в реализации `ICommunicationListener` класса службы. Пакеты NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` содержат реализации `ICommunicationListener`, которые запускают и администрируют ASP.NET Core WebHost для Kestrel или HttpSys в Reliable Service.
 
 ![Размещение ASP.NET Core в Reliable Service][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>Объекты ICommunicationListener в ASP.NET Core
-Реализации `ICommunicationListener` Kestrel и WebListener в пакетах NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` имеют похожие шаблоны использования, но выполняют несколько различные действия для каждого веб-сервера. 
+Реализации `ICommunicationListener` Kestrel и HttpSys в пакетах NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` имеют похожие шаблоны использования, но выполняют несколько различные действия для каждого веб-сервера. 
 
 Оба прослушивателя связи предоставляют конструктор, который принимает следующие аргументы:
  - **`ServiceContext serviceContext`**. Объект `ServiceContext`, содержащий сведения о выполняемой службе.
- - **`string endpointName`**. Имя конфигурации `Endpoint` в файле ServiceManifest.xml. Это основное отличие прослушивателей связи: для WebListener **требуется** конфигурация `Endpoint`, а для Kestrel — нет.
+ - **`string endpointName`**. Имя конфигурации `Endpoint` в файле ServiceManifest.xml. Это основное отличие прослушивателей связи: для HttpSys **требуется** конфигурация `Endpoint`, а для Kestrel — нет.
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**. Реализуемое лямбда-выражение, в котором создается и возвращается `IWebHost`. Это позволяет настроить `IWebHost` так же, как в приложении ASP.NET Core. Лямбда-выражение содержит URL-адрес, который создается в зависимости от используемых параметров интеграции Service Fabric и предоставляемой конфигурации `Endpoint`. Этот URL-адрес можно изменить или использовать "как есть" для запуска веб-сервера.
 
 ## <a name="service-fabric-integration-middleware"></a>ПО промежуточного уровня для интеграции Service Fabric
-Пакет NuGet `Microsoft.ServiceFabric.Services.AspNetCore` содержит метод расширения `UseServiceFabricIntegration` в `IWebHostBuilder`, который добавляет ПО промежуточного слоя, поддерживающее Service Fabric. Это ПО промежуточного слоя настраивает `ICommunicationListener` Kestrel или WebListener, чтобы зарегистрировать уникальный URL-адрес службы с помощью службы именования Service Fabric, а затем проверяет запросы клиентов, чтобы клиенты подключались к правильной службе. Это необходимо в среде общего узла, например Service Fabric, где несколько веб-приложений могут работать на одном физическом компьютере или виртуальной машине, но не используют уникальные имена узлов, чтобы предотвратить ошибочные подключения клиентов к неверной службе. Данный сценарий описан более подробно в следующем разделе.
+Пакет NuGet `Microsoft.ServiceFabric.Services.AspNetCore` содержит метод расширения `UseServiceFabricIntegration` в `IWebHostBuilder`, который добавляет ПО промежуточного слоя, поддерживающее Service Fabric. Это ПО промежуточного слоя настраивает `ICommunicationListener` Kestrel или HttpSys, чтобы зарегистрировать уникальный URL-адрес службы с помощью службы именования Service Fabric, а затем проверяет запросы клиентов, чтобы клиенты подключались к правильной службе. Это необходимо в среде общего узла, например Service Fabric, где несколько веб-приложений могут работать на одном физическом компьютере или виртуальной машине, но не используют уникальные имена узлов, чтобы предотвратить ошибочные подключения клиентов к неверной службе. Данный сценарий описан более подробно в следующем разделе.
 
 ### <a name="a-case-of-mistaken-identity"></a>Причина ошибочный идентификации
 Реплики службы, независимо от протокола, прослушивают уникальное сочетание "IP-адрес:порт". Начав прослушивать, реплика службы конечной точки "IP-адрес:порт" сообщает адрес этой конечной точки службе именования Service Fabric, в которой его могут обнаружить клиенты или другие службы. Если службы используют динамически назначаемые порты приложения, реплика службы может случайно использовать ту же конечную точку "IP-адрес:порт" другой службы, которая ранее находилась на том же физическом компьютере или виртуальной машине. Это может привести к ошибочному подключению клиента к неверной службе, что может произойти, если возникает следующая последовательность событий:
@@ -95,19 +95,19 @@ ASP.NET Core можно использовать двумя различными
 
 ![Интеграция Service Fabric ASP.NET Core][2]
 
-Реализации `ICommunicationListener` Kestrel и WebListener используют этот механизм точно таким же образом. Несмотря на то что WebListener может внутренне различать запросы на основе уникальных URL-адресов с помощью базовой функции совместного использования портов *http.sys*, эта функция *не* используется реализацией `ICommunicationListener` WebListener, так как это приведет к ошибкам с кодами состояния HTTP 503 и HTTP 404 в сценарии, описанном выше. В свою очередь для клиентов это усложняет определение причины ошибки, так как HTTP 503 и HTTP 404 часто используются для указания других ошибок. Таким образом, реализации `ICommunicationListener` Kestrel и WebListener стандартизируют ПО промежуточного слоя, предоставляемое методом расширения `UseServiceFabricIntegration`, чтобы клиенты выполняли только одно действие повторного разрешения конечной точки службы в ответах HTTP 410.
+Реализации `ICommunicationListener` Kestrel и HttpSys используют этот механизм точно таким же образом. Несмотря на то что HttpSys может внутренне различать запросы на основе уникальных URL-адресов с помощью базовой функции совместного использования портов *http.sys*, эта функция *не* используется реализацией `ICommunicationListener` HttpSys, так как это приведет к ошибкам с кодами состояния HTTP 503 и HTTP 404 в сценарии, описанном выше. В свою очередь для клиентов это усложняет определение причины ошибки, так как HTTP 503 и HTTP 404 часто используются для указания других ошибок. Таким образом, реализации `ICommunicationListener` Kestrel и HttpSys стандартизируют ПО промежуточного слоя, предоставляемое методом расширения `UseServiceFabricIntegration`, чтобы клиенты выполняли только одно действие повторного разрешения конечной точки службы в ответах HTTP 410.
 
-## <a name="weblistener-in-reliable-services"></a>WebListener в службах Reliable Services
-WebListener можно использовать в Reliable Service, импортировав пакет NuGet **Microsoft.ServiceFabric.AspNetCore.WebListener**. Этот пакет содержит `WebListenerCommunicationListener`, реализацию `ICommunicationListener`, которая позволяет создавать WebHost ASP.NET Core внутри Reliable Service с помощью WebListener в качестве веб-сервера.
+## <a name="httpsys-in-reliable-services"></a>HttpSys в Reliable Services
+HttpSys можно использовать в Reliable Service, импортировав пакет NuGet **Microsoft.ServiceFabric.AspNetCore.HttpSys**. Этот пакет содержит `HttpSysCommunicationListener`, реализацию `ICommunicationListener`, которая позволяет создавать WebHost ASP.NET Core внутри Reliable Service с помощью HttpSys в качестве веб-сервера.
 
-WebListener основан на [API сервера HTTP Windows](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). При этом используется драйвер ядра *http.sys*, применяемый IIS для обработки HTTP-запросов и их перенаправления в процессы, выполняющие веб-приложения. Это позволяет нескольким процессам на одном физическом компьютере или виртуальной машине размещать на одном порту веб-приложения, которые отличаются уникальным URL-адресом или именем узла. Эти функции в Service Fabric полезны для размещения нескольких веб-сайтов в одном кластере.
+HttpSys основан на [API сервера HTTP Windows](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). При этом используется драйвер ядра *http.sys*, применяемый IIS для обработки HTTP-запросов и их перенаправления в процессы, выполняющие веб-приложения. Это позволяет нескольким процессам на одном физическом компьютере или виртуальной машине размещать на одном порту веб-приложения, которые отличаются уникальным URL-адресом или именем узла. Эти функции в Service Fabric полезны для размещения нескольких веб-сайтов в одном кластере.
 
-На следующей схеме показано, как WebListener использует драйвер ядра *http.sys* в Windows для совместного использования портов:
+На следующей схеме показано, как HttpSys использует драйвер ядра *http.sys* в Windows для совместного использования портов:
 
 ![http.sys][3]
 
-### <a name="weblistener-in-a-stateless-service"></a>WebListener в службе без отслеживания состояния
-Для использования `WebListener` в службе без отслеживания состояния переопределите метод `CreateServiceInstanceListeners` и верните экземпляр `WebListenerCommunicationListener`:
+### <a name="httpsys-in-a-stateless-service"></a>HttpSys в службе без отслеживания состояния
+Для использования `HttpSys` в службе без отслеживания состояния переопределите метод `CreateServiceInstanceListeners` и верните экземпляр `HttpSysCommunicationListener`:
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -115,9 +115,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
     return new ServiceInstanceListener[]
     {
         new ServiceInstanceListener(serviceContext =>
-            new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            new HttpSysCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
                 new WebHostBuilder()
-                    .UseWebListener()
+                    .UseHttpSys()
                     .ConfigureServices(
                         services => services
                             .AddSingleton<StatelessServiceContext>(serviceContext))
@@ -130,13 +130,13 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-### <a name="weblistener-in-a-stateful-service"></a>WebListener в службе с отслеживанием состояния
+### <a name="httpsys-in-a-stateful-service"></a>HttpSys в службе с отслеживанием состояния
 
-`WebListenerCommunicationListener` в настоящее время не предназначен для использования в службах с отслеживанием состояния из-за сложности с базовой функцией совместного использования портов *http.sys*. Дополнительные сведения о динамическом назначении портов WebListener см. в следующем разделе. Для служб с отслеживанием состояния рекомендуемым веб-сервером является Kestrel.
+`HttpSysCommunicationListener` в настоящее время не предназначен для использования в службах с отслеживанием состояния из-за сложности с базовой функцией совместного использования портов *http.sys*. Дополнительные сведения о динамическом назначении портов HttpSys см. в следующем разделе. Для служб с отслеживанием состояния рекомендуемым веб-сервером является Kestrel.
 
 ### <a name="endpoint-configuration"></a>Настройка конечной точки
 
-Для веб-серверов, использующих API сервера HTTP Windows (включая WebListener), требуется конфигурация `Endpoint`. Для веб-серверов, использующих API сервера HTTP Windows, сначала необходимо зарезервировать URL-адрес в *http.sys* (обычно это осуществляется с помощью средства [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx)). Для этого действия требуются повышенные привилегии, которых по умолчанию нет у служб. Параметры HTTP или HTTPS для свойства `Protocol` конфигурации `Endpoint` в файле *ServiceManifest.xml* используются специально для того, чтобы сообщить среде выполнения Service Fabric о необходимости регистрации URL-адреса в *http.sys* от вашего имени с помощью [*надежного шаблона*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) префикса URL-адреса.
+Для веб-серверов, использующих API сервера HTTP Windows (включая HttpSys), требуется конфигурация `Endpoint`. Для веб-серверов, использующих API сервера HTTP Windows, сначала необходимо зарезервировать URL-адрес в *http.sys* (обычно это осуществляется с помощью средства [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx)). Для этого действия требуются повышенные привилегии, которых по умолчанию нет у служб. Параметры HTTP или HTTPS для свойства `Protocol` конфигурации `Endpoint` в файле *ServiceManifest.xml* используются специально для того, чтобы сообщить среде выполнения Service Fabric о необходимости регистрации URL-адреса в *http.sys* от вашего имени с помощью [*надежного шаблона*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) префикса URL-адреса.
 
 Например, чтобы зарезервировать `http://+:80` для службы, в файле ServiceManifest.xml следует использовать следующую конфигурацию:
 
@@ -152,21 +152,21 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 </ServiceManifest>
 ```
 
-Также необходимо передать имя конечной точки в конструктор `WebListenerCommunicationListener`.
+Также необходимо передать имя конечной точки в конструктор `HttpSysCommunicationListener`.
 
 ```csharp
- new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+ new HttpSysCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
  {
      return new WebHostBuilder()
-         .UseWebListener()
+         .UseHttpSys()
          .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
          .UseUrls(url)
          .Build();
  })
 ```
 
-#### <a name="use-weblistener-with-a-static-port"></a>Использование WebListener со статическим портом
-Чтобы использовать статический порт с WebListener, укажите номер порта в конфигурации `Endpoint`.
+#### <a name="use-httpsys-with-a-static-port"></a>Использование статического порта с HttpSys
+Чтобы использовать статический порт с HttpSys, укажите номер порта в конфигурации `Endpoint`:
 
 ```xml
   <Resources>
@@ -176,8 +176,8 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
   </Resources>
 ```
 
-#### <a name="use-weblistener-with-a-dynamic-port"></a>Использование WebListener с динамическим портом
-Чтобы использовать динамически назначаемый порт с WebListener, опустите свойство `Port` в конфигурации `Endpoint`.
+#### <a name="use-httpsys-with-a-dynamic-port"></a>Использование динамического порта с HttpSys
+Чтобы использовать динамически назначаемый порт с HttpSys, опустите свойство `Port` в конфигурации `Endpoint`:
 
 ```xml
   <Resources>
@@ -187,12 +187,12 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
   </Resources>
 ```
 
-Обратите внимание, что динамический порт, выделенный с помощью конфигурации `Endpoint`, предоставляет только один порт *каждому хост-процессу*. Текущая модель размещения Service Fabric позволяет размещать в одном процессе несколько экземпляров службы и (или) реплик. Это означает, что они будут совместно использовать один и тот же порт при выделении с помощью конфигурации `Endpoint`. Множество экземпляров WebListener могут совместно использовать порт с помощью базовой функции совместного использования портов *http.sys*. Это не поддерживается `WebListenerCommunicationListener` из-за сложности обработки клиентских запросов. Для использования динамических портов рекомендуемым веб-сервером является Kestrel.
+Обратите внимание, что динамический порт, выделенный с помощью конфигурации `Endpoint`, предоставляет только один порт *каждому хост-процессу*. Текущая модель размещения Service Fabric позволяет размещать в одном процессе несколько экземпляров службы и (или) реплик. Это означает, что они будут совместно использовать один и тот же порт при выделении с помощью конфигурации `Endpoint`. Множество экземпляров HttpSys могут совместно использовать порт с помощью базовой функции совместного использования портов *http.sys*. Это не поддерживается `HttpSysCommunicationListener` из-за сложности обработки клиентских запросов. Для использования динамических портов рекомендуемым веб-сервером является Kestrel.
 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel в Reliable Services
 Kestrel можно использовать в Reliable Service, импортировав пакет NuGet **Microsoft.ServiceFabric.AspNetCore.Kestrel**. Этот пакет содержит `KestrelCommunicationListener`, реализацию `ICommunicationListener`, которая позволяет создавать WebHost ASP.NET Core внутри Reliable Service с помощью Kestrel в качестве веб-сервера.
 
-Kestrel — это кроссплатформенный веб-сервер для ASP.NET Core на основе libuv, кроссплатформенной библиотеки асинхронных операций ввода-вывода. В отличие от WebListener, Kestrel не использует централизованный диспетчер конечных точек, такой как *http.sys*, и не поддерживает совместное использование порта между несколькими процессами. Каждый экземпляр Kestrel должен использовать уникальный порт.
+Kestrel — это кроссплатформенный веб-сервер для ASP.NET Core на основе libuv, кроссплатформенной библиотеки асинхронных операций ввода-вывода. В отличие от HttpSys, Kestrel не использует централизованный диспетчер конечных точек, такой как *http.sys*, и не поддерживает совместное использование порта между несколькими процессами. Каждый экземпляр Kestrel должен использовать уникальный порт.
 
 ![Kestrel][4]
 
@@ -254,7 +254,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ### <a name="endpoint-configuration"></a>Настройка конечной точки
 Для использования Kestrel конфигурация `Endpoint` не требуется. 
 
-Kestrel является простым автономным веб-сервером, для которого, в отличие от WebListener (или HttpListener), не требуется конфигурация `Endpoint` в файле *ServiceManifest.xml*, так как для запуска регистрация URL-адреса не требуется. 
+Kestrel является простым автономным веб-сервером, для которого, в отличие от HttpSys (или HttpListener), не требуется конфигурация `Endpoint` в файле *ServiceManifest.xml*, так как для запуска регистрация URL-адреса не требуется. 
 
 #### <a name="use-kestrel-with-a-static-port"></a>Использование Kestrel и статического порта
 Можно настроить статический порт в конфигурации `Endpoint` файла ServiceManifest.xml для использования с Kestrel. Хотя это не является обязательным, это дает два потенциальных преимущества:
@@ -302,28 +302,26 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 > Конечные точки службы с отслеживанием состояния не следует делать доступными в Интернете. Кластеры, находящиеся за балансировщиками нагрузки, которые не поддерживают разрешение служб Service Fabric (например, Azure Load Balancer), не смогут предоставить службы с отслеживанием состояния, так как балансировщик нагрузки не сможет обнаруживать и направлять трафик в соответствующую реплику службы с отслеживанием состояния. 
 
 ### <a name="externally-exposed-aspnet-core-stateless-services"></a>Доступные извне службы ASP.NET Core без отслеживания состояния
-WebListener является рекомендуемым веб-сервером для внешних служб, которые предоставляют внешние конечные точки HTTP Windows с доступом в Интернет. Это обеспечивает более надежную защиту от атак и поддерживает функции, которые не поддерживает Kestrel (например, проверка подлинности Windows и общий доступ к портам). 
-
-В настоящее время Kestrel не поддерживается в качестве пограничного сервера (с доступом к Интернету). Для обработки трафика из общедоступного Интернета необходимо использовать обратный прокси-сервер, например IIS или Nginx.
+HttpSys является рекомендуемым веб-сервером для внешних служб, которые предоставляют внешние конечные точки HTTP с доступом в Интернет. В Windows HttpSys дает возможность совместно использовать порты, что позволяет размещать несколько веб-служб на одном и том же наборе узлов с использованием одного и того же порта, дифференцированного по имени узла или пути, не полагаясь на внешний прокси-сервер или шлюз для маршрутизации HTTP-трафика.
  
 Доступная через Интернет, служба без отслеживания состояния должна использовать хорошо известную и стабильную конечную точку, доступную через балансировщик нагрузки. Это URL-адрес, который будет предоставляться пользователям приложения. Рекомендуется следующая конфигурация:
 
 |  |  | **Примечания** |
 | --- | --- | --- |
-| Веб-сервер | WebListener | Если служба доступна только в доверенной сети, такой как интрасеть, можно использовать Kestrel. В противном случае WebListener является предпочтительным вариантом. |
+| Веб-сервер | Kestrel | Kestrel является предпочтительным веб-сервером, так как он поддерживается в Windows и Linux. |
 | Конфигурация порта | static | Хорошо известный статический порт необходимо настроить в конфигурации `Endpoints` файла ServiceManifest.xml, например 80 для HTTP и 443 для HTTPS. |
 | ServiceFabricIntegrationOptions | None | Параметр `ServiceFabricIntegrationOptions.None` должен использоваться при настройке ПО промежуточного слоя интеграции Service Fabric, чтобы служба не пыталась проверять входящие запросы для уникального идентификатора. Внешние пользователи приложения не будут знать уникальные идентификаторы, используемые ПО промежуточного слоя. |
 | Число экземпляров | -1 | При стандартных вариантах использования значение количества экземпляров должно быть равно "-1", чтобы экземпляр становился доступным на всех узлах, получающих трафик от балансировщика нагрузки. |
 
-Если несколько служб, предоставляемых извне, совместно используют один и тот же набор узлов, следует использовать уникальный, но стабильный URL-адрес. Это можно сделать, изменив URL-адрес, указанный при настройке IWebHost. Обратите внимание, что это относится только к WebListener.
+Если несколько служб, предоставляемых извне, совместно используют один и тот же набор узлов, HttpSys следует использовать с уникальным, но стабильным URL-адресом. Это можно сделать, изменив URL-адрес, указанный при настройке IWebHost. Обратите внимание, что это относится только к HttpSys.
 
  ```csharp
- new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+ new HttpSysCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
  {
      url += "/MyUniqueServicePath";
  
      return new WebHostBuilder()
-         .UseWebListener()
+         .UseHttpSys()
          ...
          .UseUrls(url)
          .Build();
@@ -335,7 +333,7 @@ WebListener является рекомендуемым веб-сервером 
 
 |  |  | **Примечания** |
 | --- | --- | --- |
-| Веб-сервер | Kestrel | Несмотря на то что WebListener может использоваться для внутренних служб без отслеживания состояния, Kestrel является рекомендуемым сервером для разрешения совместного использования узла несколькими экземплярами службы.  |
+| Веб-сервер | Kestrel | Несмотря на то что HttpSys может использоваться для внутренних служб без отслеживания состояния, Kestrel является рекомендуемым сервером, на котором разрешено совместно использовать узел нескольким экземплярам службы.  |
 | Конфигурация порта | динамическое назначение | Множество реплик службы с отслеживанием состояния могут совместно использовать хост-процесс или операционную систему, и поэтому для них требуются уникальные порты. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | При динамическом назначении порта этот параметр предотвращает ошибочную идентификацию, описанную ранее. |
 | InstanceCount | любой | Для параметра количества экземпляров может быть присвоено любое значение, необходимое для работы службы. |
@@ -345,7 +343,7 @@ WebListener является рекомендуемым веб-сервером 
 
 |  |  | **Примечания** |
 | --- | --- | --- |
-| Веб-сервер | Kestrel | `WebListenerCommunicationListener` не предназначен для служб с отслеживанием состояния, в которых реплики совместно используют хост-процесс. |
+| Веб-сервер | Kestrel | `HttpSysCommunicationListener` не предназначен для служб с отслеживанием состояния, в которых реплики совместно используют хост-процесс. |
 | Конфигурация порта | динамическое назначение | Множество реплик службы с отслеживанием состояния могут совместно использовать хост-процесс или операционную систему, и поэтому для них требуются уникальные порты. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | При динамическом назначении порта этот параметр предотвращает ошибочную идентификацию, описанную ранее. |
 

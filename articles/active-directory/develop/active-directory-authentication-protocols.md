@@ -21,10 +21,10 @@ ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
 ---
-# Протоколы проверки подлинности Azure Active Directory
+# <a name="azure-active-directory-authentication-protocols"></a>Протоколы проверки подлинности Azure Active Directory
 Служба Azure Active Directory (Azure AD) поддерживает несколько широко используемых протоколов проверки подлинности и авторизации. В перечисленных ниже разделах мы рассказываем о поддерживаемых протоколах и их реализации в Azure AD. Эти разделы содержат обзор поддерживаемых типов утверждений, основные сведения об использовании метаданных федерации, подробную документацию по протоколам OAuth 2.0. и SAML 2.0, а также советы по устранению неполадок.
 
-## Статьи и другие справочные материалы по протоколам проверки подлинности
+## <a name="authentication-protocols-articles-and-reference"></a>Статьи и другие справочные материалы по протоколам проверки подлинности
 * [Важные сведения об откате ключа подписи в Azure AD](active-directory-signing-key-rollover.md) — дополнительные сведения об откате ключа подписи Azure AD, изменениях, которые можно вносить для автоматического обновления ключа, и порядок обновления самых распространенных сценариев приложений.
 * [Справочник по токенам в Azure AD](active-directory-token-and-claims.md) — сведения об утверждениях в токенах, издаваемых Azure AD.
 * [Метаданные федерации](active-directory-federation-metadata.md) — узнайте, как находить и интерпретировать документы метаданных, создаваемые Azure AD.
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 * [Служба обслуживания вызовов с помощью потока On-Behalf-Of](active-directory-protocols-oauth-on-behalf-of.md) — сведения об использовании потока On-Behalf-Of OAuth 2.0 для вызовов между службами.
 * [Справочник по протоколу SAML](active-directory-saml-protocol-reference.md) — сведения о профилях единого входа и единого выхода SAML в Azure AD.
 
-## См. также
+## <a name="see-also"></a>См. также
 [Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md)
 
 [Примеры кода Active Directory](active-directory-code-samples.md)

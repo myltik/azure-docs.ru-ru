@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 06/07/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 189034b049e776a3b929930be937ec60bc1db241
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 989ef9915028c42a4da817bf2dd3aa5ad2beb2ef
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Примеры Azure CLI для Azure Cosmos DB
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 | |  |
 |---|---|
 |**Создание учетной записи, базы данных и контейнеров Azure Cosmos DB**||
-|[Azure Cosmos DB: создание учетной записи API DocumentDB с помощью интерфейса командной строки](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Создание одной учетной записи, базы данных и контейнера API Azure Cosmos DB для использования с API DocumentDB, Graph или таблицей. |
+|[Azure Cosmos DB: Create a DocumentDB API account using PowerShell](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json) (База данных Azure Cosmos: создание учетной записи API DocumentDB с помощью PowerShell)| Создание одной учетной записи, базы данных и контейнера с помощью API Azure Cosmos DB для использования с API DocumentDB. |
 | [Создание учетной записи API MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Создание отдельной учетной записи, базы данных и коллекции API MongoDB в Azure Cosmos DB. |
 |**Масштабирование Azure Cosmos DB**||
 | [Масштабирование пропускной способности контейнера](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Изменение подготовленной пропускной способности контейнера.|

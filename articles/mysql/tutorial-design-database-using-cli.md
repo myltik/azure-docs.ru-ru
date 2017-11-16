@@ -5,16 +5,17 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
+editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: 0e6a92eeb9711b086359ab2cd1aea87a57f1fc36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd59442c0b3aa5d6ed1a9ef287949d1d17fa80f
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Проектирование первой базы данных Azure для MySQL
 
@@ -23,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 > [!div class="checklist"]
 > * создание базы данных Azure для MySQL;
 > * настройка брандмауэра сервера;
-> * использование [средства командной строки MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) для создания базы данных;
+> * использование [программы командной строки MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) для создания базы данных.
 > * Загрузка примера данных
 > * Запрос данных
 > * Обновление данных
@@ -33,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этой статьей вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 Если вы используете несколько подписок, выберите соответствующую подписку, в которой находится ресурс либо в которой за него взимается плата. Выберите конкретный идентификатор подписки вашей учетной записи, выполнив команду [az account set](/cli/azure/account#set).
 ```azurecli-interactive
@@ -102,7 +103,7 @@ az mysql server show --resource-group mycliresource --name mycliserver
 ```
 
 ## <a name="connect-to-the-server-using-mysql"></a>Подключение к серверу с помощью MySQL
-Используйте [средство командной строки MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html), чтобы установить соединение с сервером базы данных Azure для MySQL. В этом примере используется следующая команда:
+Используйте [программу командной строки MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html), чтобы подключиться к серверу базы данных Azure для MySQL. В этом примере используется следующая команда:
 ```cmd
 mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
 ```
@@ -119,9 +120,9 @@ mysql> USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Создание таблиц в базе данных
-Теперь, когда вы знаете, как подключиться к базе данных Azure для MySQL, рассмотрим, как выполнить некоторые основные задачи.
+Теперь, когда вы знаете, как подключиться к базе данных Azure для MySQL, выполните некоторые основные задачи:
 
-Сначала можно создать таблицу и заполнить ее некоторыми данными. Давайте создадим таблицу, в которой хранятся данные инвентаризации.
+Сначала создайте таблицу и заполните ее некоторыми данными. Давайте создадим таблицу, в которой хранятся данные инвентаризации.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -176,7 +177,7 @@ az mysql server restore --resource-group mycliresource --name mycliserver-restor
 > [!div class="checklist"]
 > * создание базы данных Azure для MySQL;
 > * настройка брандмауэра сервера;
-> * использование [средства командной строки MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) для создания базы данных;
+> * использование [программы командной строки MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) для создания базы данных.
 > * Загрузка примера данных
 > * Запрос данных
 > * Обновление данных

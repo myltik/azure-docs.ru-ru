@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: danlep
-ms.openlocfilehash: f6dc9657e64160be1e68a7356863b53131e9b3c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad5c13723eef352148a40e3e7f4f2ff616867296
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Настройка гибридного кластера высокопроизводительных вычислительных систем (HPC) с помощью пакета Microsoft HPC и вычислительных узлов Azure по требованию
 Используйте пакет Microsoft HPC Pack 2012 R2 и Azure для настройки небольшого гибридного кластера высокопроизводительных вычислительных систем (HPC). Приведенный в этой статье кластер состоит из локального головного узла пакета HPC и нескольких вычислительных узлов, развертываемых по требованию в облачной службе Azure. Затем вы сможете выполнять вычислительные задания в гибридном кластере.
@@ -87,7 +87,9 @@ ms.lasthandoff: 10/11/2017
 
 2. Выберите **Подписки** > *имя_вашей_подписки*.
 
-3. Выберите **Сертификаты управления** > **Отправить**.4. На головном узле перейдите к файлу C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Затем выберите **Отправить**.
+3. Выберите **Сертификаты управления** > **Отправить**.
+
+4. На головном узле перейдите к файлу C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Затем выберите **Отправить**.
 
    
 В списке сертификатов управления вы увидите **сертификат управления Azure HPC по умолчанию**.

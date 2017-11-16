@@ -1,9 +1,9 @@
 ---
-title: "Настройка сети для связи с виртуальными машинами после отработки отказа в Azure с помощью Azure Site Recovery | Документы Майкрософт"
+title: "Подключение к виртуальным машинам после отработки отказа в Azure с помощью Azure Site Recovery | Документация Майкрософт"
 description: "Указания по настройке сети для подключения к виртуальным машинам Azure после отработки отказа из локальной среды с помощью Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
-author: rayne-wiselman
+author: prateek9us
 manager: carmonm
 editor: 
 ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/12/2017
-ms.author: raynew
-ms.openlocfilehash: 01c8e664465350b9dd382502c65cc3fda350797c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/05/2017
+ms.author: pratshar
+ms.openlocfilehash: 6c0fa27aeed3e500bd69567f90743cc274144978
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="networking-for-vm-connectivity-after-failover"></a>Настройка сети для связи с виртуальными машинами после отработки отказа
+# <a name="connecting-to-vms-after-failover-to-azure"></a>Подключение к виртуальным машинам после отработки отказа в Azure
 
 Эта статья описывает требования к сети для подключения к виртуальным машинам Azure после использования службы [Azure Site Recovery](site-recovery-overview.md) для репликации и отработки отказа в Azure.
 

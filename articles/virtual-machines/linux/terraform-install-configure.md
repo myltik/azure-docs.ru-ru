@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: d8c357474e040f2e35c51dec0c7785cf98381a37
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Установка и настройка Terraform для подготовки виртуальных машин и другой инфраструктуры в Azure
  
 Terraform предоставляет простой способ определить, просмотреть и развернуть облачную инфраструктуру, используя [простой настраиваемый язык шаблонов](https://www.terraform.io/docs/configuration/syntax.html). В этой статье описываются шаги, необходимые для подготовки ресурсов Azure с помощью Terraform. 
 
 > [!TIP]
-> Среда Terraform является частью [Azure Cloud Shell Bash](/azure/cloud-shell/quickstart) и предварительно настроена с использованием учетных данных и [модулей Azure Terraform](https://registry.terraform.io/modules/Azure).
+> Terraform по умолчанию устанавливается в [оболочке Bash в Azure Cloud Shell](/azure/cloud-shell/quickstart). Он предварительно настроен с учетными данными и [модулями Azure Terraform](https://registry.terraform.io/modules/Azure). Используя Cloud Shell, можно пропустить некоторые части этого документа (а именно установку и настройку).
 
 ## <a name="install-terraform"></a>Установка Terraform
 
@@ -47,9 +47,7 @@ Usage: terraform [--version] [--help] <command> [args]
 
 Войдите для администрирования подписки Azure, выполнив следующую команду:
 
-```azurecli-interactive
-az login
-```
+   `az login`
 
 Если у вас имеется несколько подписок Azure, то команда `az login` возвращает сведения о них. Настройте переменную среды `SUBSCRIPTION_ID`, чтобы она хранила значение возвращаемого поля `id` из подписки, которую необходимо использовать. 
 

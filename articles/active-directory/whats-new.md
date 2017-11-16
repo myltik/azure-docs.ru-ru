@@ -1,27 +1,35 @@
 ---
 title: "Новые возможности Заметки о выпуске для Azure Active Directory | Документация Майкрософт"
-description: "Используйте эти заметки о выпуске, чтобы всегда знать о последних выпусках, известных проблемах, исправлениях, устаревших функциональных возможностях и планах по изменениям в Azure Active Directory (Azure AD)."
+description: "Узнайте о новых возможностях Azure Active Directory (Azure AD), включая последние заметки о выпуске, известные проблемы, исправления ошибок, нерекомендуемые функции и предстоящие изменения."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
 editor: 
+featureFlags: clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1d98233e1bfc2c9a926d7c61737286ec6e4fc422
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 766ab10c853eb56a1203686d21d0e131c44a41b5
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Новые возможности Azure Active Directory
+
+
+
+
+> Будьте в курсе новых возможностей Azure Active Directory, подписавшись на этот [веб-канал](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) в избранном средстве чтения RSS-канала.
+
+
 
 Мы постоянно улучшаем Azure Active Directory. Чтобы вы оставались в курсе последних разработок, в этой статье предоставлены такие сведения:
 
@@ -32,6 +40,18 @@ ms.lasthandoff: 10/27/2017
 -   Планы по изменениям. 
 
 Регулярно просматривайте эту страницу, так как мы обновляем ее ежемесячно.
+
+## <a name="november-2017"></a>Ноябрь 2017 г.
+
+**Тип.** Нерекомендуемая функция  
+**Категория службы.** Сервер управления доступом (ACS)  
+**Возможность продукта.** Служба контроля доступа 
+
+<a name="acs-retirement"></a>
+
+Использование службы контроля доступа Microsoft Azure Active Directory (также называется просто службой контроля доступа, или ACS) будет прекращено в конце 2018 г.  Дополнительные сведения, включая подробное расписание и общее руководство по переходу, будут предоставлены в ближайшие недели. Пока что оставляйте комментарии на этой странице с любыми вопросами, касающимися ACS, и член нашей команды ответит вам.
+
+---
 
 
 ## <a name="october-2017"></a>Октябрь 2017 г.

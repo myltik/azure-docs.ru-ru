@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Привязывание существующего настраиваемого SSL-сертификата к веб-приложениям Azure
 
@@ -151,13 +151,13 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 Чтобы передать SSL-сертификат, щелкните **SSL-сертификаты** в левой области навигации веб-приложения.
 
-Щелкните **Отправить сертификат**.
+Щелкните **Отправить сертификат**. 
 
 В разделе **PFX-файл сертификата** выберите свой PFX-файл. В поле **Пароль сертификата** введите пароль, созданный при экспорте PFX-файла.
 
 Щелкните **Отправить**.
 
-![Передача сертификата](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Передача сертификата](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 По завершении передачи сертификата службой приложений он появится на странице **SSL-сертификаты**.
 
@@ -311,6 +311,10 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## <a name="public-certificates-optional"></a>Открытые сертификаты (необязательно)
+Вы можете передать [открытые сертификаты](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) в свое веб-приложение. Открытые сертификаты можно использовать для веб-приложений в службе приложений или среде службы приложений (ASE). Если необходимо хранить сертификат в хранилище сертификатов LocalMachine, нужно использовать веб-приложение в среде службы приложения. Дополнительные сведения см. в разделе [App Service Certificates now supports public certificates (.cer)](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Служба приложений теперь поддерживает открытые сертификаты (CER-файлы)).
+
+![Передача открытого сертификата](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

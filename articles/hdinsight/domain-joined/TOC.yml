@@ -24,9 +24,6 @@
   items:
     - name: Управление кластерами
       href: apache-domain-joined-manage.md
-    - name: Управление разрешениями пользователей
-      href: ../hdinsight-add-acls-at-file-folder-levels.md
-      maintainContext: true
 - name: Справочные материалы
   items:
     - name: Примеры кода

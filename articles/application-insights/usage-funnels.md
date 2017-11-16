@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: d7af89409cb908f98f86288a0d673ab287e3aaaa
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5d55207784390a68a3b4d87f7a3d4773491d08b8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Узнайте, как клиенты используют ваше приложение с помощью воронок Application Insights
 
@@ -48,3 +48,5 @@ ms.lasthandoff: 11/01/2017
   * [Сохранение](app-insights-usage-retention.md)
   * [Книги](app-insights-usage-workbooks.md)
   * [Добавление контекста пользователей](app-insights-usage-send-user-context.md)
+  * [Экспорт в Power BI](app-insights-export-power-bi.md)
+

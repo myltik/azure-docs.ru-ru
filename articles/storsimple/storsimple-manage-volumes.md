@@ -12,21 +12,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/11/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 31ed9dad8ba56a3746873b7b35e678e97743fbfe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e33f971610b01e9802e8fb12457d9ce88b51813
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="use-the-storsimple-manager-service-to-manage-volumes"></a>Использование службы диспетчера StorSimple для управления томами
+# <a name="use-the-storsimple-manager-service-to-manage-volumes"></a>Использование службы StorSimple Manager для управления томами
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
 ## <a name="overview"></a>Обзор
-В этом учебнике объясняется, как использовать службу диспетчера StorSimple для создания томов и управления ими на устройстве StorSimple и виртуальном устройстве StorSimple.
+В этом учебнике объясняется, как использовать службу StorSimple Manager для создания томов и управления ими на устройстве StorSimple и виртуальном устройстве StorSimple.
 
-Служба диспетчера StorSimple — это расширение классического портала Azure, которое позволяет управлять решениями StorSimple с помощью единого веб-интерфейса. Помимо управления томами, службу диспетчера StorSimple можно использовать для создания служб StorSimple, просмотра устройств, предупреждений, политик резервного копирования и каталога резервных копий, а также управления ими.
+Служба StorSimple Manager — это расширение классического портала Azure, которое позволяет управлять решениями StorSimple с помощью единого веб-интерфейса. Помимо управления томами, службу StorSimple Manager можно использовать для создания служб StorSimple, просмотра устройств, предупреждений, политик резервного копирования и каталога резервных копий, а также управления ими.
 
 > [!NOTE]
 > Azure StorSimple может создавать только тонко подготавливаемые тома. В системе Azure StorSimple вы не можете создавать полностью или частично выделяемые тома.
@@ -176,5 +179,5 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Информация о [Клонировании тома StorSimple](storsimple-clone-volume.md).
-* Информация об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+* Узнайте об [использовании службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 

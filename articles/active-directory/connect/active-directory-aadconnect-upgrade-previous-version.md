@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 52fd9375c71c42feaf87f4a0f4220e1cb3889e63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4f0ec95c02116a19f2d69c6fa1e8aa639c56c69
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: обновление до последней версии
 В этой статье описываются различные варианты обновления установленного экземпляра Azure Active Directory (Azure AD) Connect до последней версии. Мы рекомендуем устанавливать все новые выпуски Azure AD Connect. Действия, описанные в разделе [Обновление со сменой сервера](#swing-migration), можно также использовать при значительных изменениях конфигурации.
@@ -47,6 +47,8 @@ ms.lasthandoff: 10/11/2017
 Если вы внесли изменения в стандартные правила синхронизации, при обновлении они возвращаются к конфигурации по умолчанию. Чтобы после обновления конфигурация сохранялась, внесите изменения, как указано в статье [Службы синхронизации Azure AD Connect: рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
 Во время обновления на месте могут быть внесены изменения, требующие выполнения определенных действий по синхронизации (включая шаг полного импорта и шаг полной синхронизации) после завершения обновления. Сведения о том, как отложить эти действия, см. в разделе [Как отложить полную синхронизацию после обновления](#how-to-defer-full-synchronization-after-upgrade).
+
+При использовании Azure AD Connect с нестандартным соединителем (например, универсальным соединителем LDAP и универсальным соединителем SQL) необходимо обновить соответствующую конфигурацию соединителя в [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) после обновления на месте. Дополнительные сведения о том, как обновить конфигурацию соединителя, см. в статье [История выпусков версий соединителей](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Если не обновить конфигурацию, действия импорта и экспорта для соединителя не будут выполняться правильно. В журнале событий приложений появится ошибка *Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll* (Версия сборки в конфигурации соединителя AAD ("X.X.XXX.X") ниже текущей версии ("X.X.XXX.X") файла "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll").
 
 ## <a name="swing-migration"></a>Обновление со сменой сервера
 При наличии сложного развертывания или большого числа объектов обновление системы "на месте" будет нецелесообразно. У некоторых клиентов процесс может занять несколько дней, в течение которых никакие изменения синхронизироваться не будут. Этот метод также можно использовать, если планируется значительно изменить конфигурацию и нужно проверить ее перед отправкой в облако.

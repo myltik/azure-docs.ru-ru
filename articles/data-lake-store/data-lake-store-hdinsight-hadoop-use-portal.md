@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/14/2017
 ms.author: nitinme
-ms.openlocfilehash: 9dd56efb89e07ea61ae431d1ea2accd721cd6502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6be2b9e21d134461dc00d93c3f188c96c6e7af6e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Создание кластеров HDInsight, использующих Data Lake Store, с помощью портала Azure
 > [!div class="op_single_selector"]
@@ -176,7 +176,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-store-as-primary-storage"></a>Выполнение запроса Hive к данным, хранящимся в Data Lake Store (основное хранилище)
 
-Чтобы выполнить запрос Hive, используйте интерфейс представлений Hive, доступный на портале Ambari. Инструкции по использованию представлений Ambari Hive см. в статье [Использование представления Hive с Hadoop в HDInsight](../hdinsight/hdinsight-hadoop-use-hive-ambari-view.md).
+Чтобы выполнить запрос Hive, используйте интерфейс представлений Hive, доступный на портале Ambari. Инструкции по использованию представлений Ambari Hive см. в статье [Использование представления Hive с Hadoop в HDInsight](../hdinsight/hadoop/apache-hadoop-use-hive-ambari-view.md).
 
 При работе с данными в Data Lake Store изменить можно лишь несколько строк.
 
@@ -199,13 +199,14 @@ ms.lasthandoff: 10/11/2017
 * [Копирование данных из больших двоичных объектов хранилища Azure в хранилище озера данных](data-lake-store-copy-data-azure-storage-blob.md)
 
 ### <a name="use-data-lake-store-with-a-spark-cluster"></a>Использование Data Lake Store с кластером Spark
-Кластер Spark можно использовать для выполнения заданий Spark с данными, хранящимися в Data Lake Store. Дополнительные сведения см. в статье [Использование кластера HDInsight Spark для анализа данных в Data Lake Store](../hdinsight/hdinsight-apache-spark-use-with-data-lake-store.md).
+Кластер Spark можно использовать для выполнения заданий Spark с данными, хранящимися в Data Lake Store. Дополнительные сведения см. в статье [Использование кластера HDInsight Spark для анализа данных в Data Lake Store](../hdinsight/spark/apache-spark-use-with-data-lake-store.md).
 
 
 ### <a name="use-data-lake-store-in-a-storm-topology"></a>Использование хранилища озера данных в топологии Storm
-Хранилище озера данных можно использовать для записи данных из топологии Storm. Инструкции по реализации этого сценария см. в статье [Использование хранилища озера данных Azure с помощью Apache Storm в HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
+Хранилище озера данных можно использовать для записи данных из топологии Storm. Инструкции по реализации этого сценария см. в статье [Использование хранилища озера данных Azure с помощью Apache Storm в HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
+* [Использование Data Lake Store с кластерами Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: создание кластера HDInsight для работы с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx

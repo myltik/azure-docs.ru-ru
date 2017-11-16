@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Вопросы и ответы об управлении паролями
 
@@ -176,6 +176,11 @@ ms.lasthandoff: 10/31/2017
   > **Ответ.** Длительность сеанса сброса пароля — 15 минут. С начала операции сброса пароля у пользователя есть 15 минут на выполнение этой операции. По истечении этого времени одноразовый секретный код, полученный по электронной почте или в SMS, становится недействительным.
   >
   >
+* **Вопрос. Можно ли заблокировать пользователям возможность сброса пароля?**
+
+  > **Ответ.** Да. Если вы используете группу для включения самостоятельного сброса пароля, то вы можете удалить пользователя из группы, которая позволяет ему эту возможность.
+  >
+  >
 
 ## <a name="password-change"></a>Изменение пароля
 
@@ -187,6 +192,11 @@ ms.lasthandoff: 10/31/2017
 * **Вопрос. Могут ли мои пользователи получать уведомления на портале Office по истечении срока действия локального пароля?**
 
   > **Ответ.** Если вы используете службы AD FS, вы можете настроить отправку уведомления, следуя инструкциям по [отправке утверждений политики паролей с помощью служб AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Если вы используете синхронизацию хэша паролей, сейчас вы не сможете настроить отправку уведомлений. Это связано с тем, что мы не синхронизируем политики паролей из локальных сред, поэтому мы не можем публиковать уведомления об истечении срока действия в облачных интерфейсах. В любом случае вы также можете [уведомлять пользователей, что срок действия их паролей скоро завершится, с помощью PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+* **Вопрос. Можно ли заблокировать пользователям возможность изменения пароля?**
+
+  > **Ответ.** Для пользователей в облаке эта возможность не блокируется. Для локальных пользователей можно установить флажок `User cannot change password`, и эти пользователи не смогут изменить свой пароль.
   >
   >
 
@@ -264,8 +274,8 @@ ms.lasthandoff: 10/31/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Как развернуть самостоятельный сброс пароля](active-directory-passwords-best-practices.md)
-* [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md).
-* [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md).
+* [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
+* [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
 * [Вопросы по лицензированию](active-directory-passwords-licensing.md)
 * [Какие данные используются для SSPR и какие сведения нужно указывать для пользователей](active-directory-passwords-data.md)
 * [Доступные пользователям методы проверки подлинности](active-directory-passwords-how-it-works.md#authentication-methods)

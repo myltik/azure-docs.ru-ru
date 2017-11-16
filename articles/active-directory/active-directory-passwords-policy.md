@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5c33f08e54d522e0eea13a3e267f14f407fc59b6
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9d61f46070e6956c60f1135b98a9ebe71011b922
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Политики и ограничения для паролей в Azure Active Directory
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>Установка политик срока действия пароля в Azure Active Directory
 
-Глобальный администратор облачной службы Майкрософт может использовать модуль Azure Active Directory для Windows PowerShell, чтобы настроить неограниченный срок действия паролей пользователей. Можно также использовать командлеты Windows PowerShell, чтобы удалить бессрочную конфигурацию или просмотреть, какие пользовательские пароли имеют неограниченный срок действия. Эта справка касается других поставщиков. Таких как Microsoft Intune и Office 365, которые используют Microsoft Azure Active Directory для служб идентификации и каталогов.
+Глобальный администратор облачной службы Майкрософт может использовать модуль Azure Active Directory для Windows PowerShell, чтобы настроить неограниченный срок действия паролей пользователей. Можно также использовать командлеты Windows PowerShell, чтобы удалить бессрочную конфигурацию или просмотреть, какие пользовательские пароли имеют неограниченный срок действия. Эта справка касается других поставщиков. Таких как Microsoft Intune и Office 365, которые используют Microsoft Azure Active Directory для служб идентификации и каталогов. Это единственное, что может быть изменено в политике.
 
 > [!NOTE]
 > Неограниченный срок действия можно настроить только для паролей учетных записей пользователей, которые не синхронизируются в процессе синхронизации каталогов. Дополнительные сведения о синхронизации каталогов см. в статье [Приступая к работе с Azure AD Connect с использованием стандартных параметров](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
@@ -128,18 +128,21 @@ ms.lasthandoff: 10/31/2017
    * Чтобы установить бессрочный пароль для одного пользователя, выполните следующий командлет, используя имя участника-пользователя (UPN) или идентификатор пользователя: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * Чтобы установить бессрочные пароли для всех пользователей в организации, выполните следующий командлет: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
+   > [!WARNING]
+   > Если задать `-PasswordNeverExpires $true`, срок действия пароля по-прежнему будет истекать согласно значению атрибута `pwdLastSet`. Это значит, что если задать пароли бессрочными, а затем по истечению более 90 дней (согласно значению атрибута `pwdLastSet`) установить значение `-PasswordNeverExpires $false`, то все пароли, у которых значение атрибута `pwdLastSet` превышает 90 дней, необходимо изменить при следующем входе в систему. Это изменение может повлиять на большое количество пользователей. 
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о сбросе пароля с помощью Azure AD см. в следующих источниках:
 
-* [Как развернуть самостоятельный сброс пароля?](active-directory-passwords-best-practices.md)
-* [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md).
-* [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md).
-* [Требования к лицензированию самостоятельного сброса пароля в Azure AD](active-directory-passwords-licensing.md).
-* [Какие данные используются для SSPR и какие сведения нужно указывать пользователям?](active-directory-passwords-data.md)
+* [Как развернуть самостоятельный сброс пароля](active-directory-passwords-best-practices.md)
+* [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
+* [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
+* [Вопросы по лицензированию](active-directory-passwords-licensing.md)
+* [Какие данные используются для SSPR и какие сведения нужно указывать для пользователей](active-directory-passwords-data.md)
 * [Доступные пользователям методы проверки подлинности](active-directory-passwords-how-it-works.md#authentication-methods).
 * [Обзор обратной записи паролей](active-directory-passwords-writeback.md).
-* [Параметры отчетов для управления паролями Azure AD](active-directory-passwords-reporting.md).
-* [Руководство по самостоятельному сбросу пароля в Azure AD](active-directory-passwords-how-it-works.md).
+* [Как сообщать о действиях в SSPR](active-directory-passwords-reporting.md)
+* [Обзор всех параметров SSPR и их значение](active-directory-passwords-how-it-works.md)
 * [Как устранить неполадки самостоятельного сброса пароля](active-directory-passwords-troubleshoot.md)
 * [Вопросы, не вошедшие в другие статьи](active-directory-passwords-faq.md)

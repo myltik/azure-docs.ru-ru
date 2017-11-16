@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9ae4442f57170746eb0de94849b09625be51264
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Включение подключения к удаленному рабочему столу для роли в облачных службах Azure
 > [!div class="op_single_selector"]
 > * [Портал Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Классический портал Azure](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
->
->
 
 С помощью удаленного рабочего стола обеспечивается доступ к рабочему столу экземпляра, работающего в Azure. Подключение к удаленному рабочему столу позволяет диагностировать и устранять неполадки выполняющегося приложения.
 
@@ -47,7 +44,7 @@ ms.lasthandoff: 10/11/2017
     ![Удаленный рабочий стол в облачных службах](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > Если включить удаленный рабочий стол и нажать кнопку «ОК» (флажок), все экземпляры роли будут перезапущены. Если в роли установлен сертификат для шифрования пароля, перезапуск не производится. Чтобы не выполнять перезапуск, [загрузите сертификат для облачной службы](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) и вернитесь в диалоговое окно.
+   > Если включить удаленный рабочий стол и нажать кнопку «ОК» (флажок), все экземпляры роли будут перезапущены. Если в роли установлен сертификат для шифрования пароля, перезапуск не производится. Чтобы не выполнять перезапуск, [загрузите сертификат для облачной службы](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) и вернитесь в диалоговое окно.
    >
    >
 3. В разделе **Роли** выберите роль, которую требуется обновить, или щелкните **Все**, чтобы задать все роли.
@@ -70,5 +67,5 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-[Настройка облачных служб](cloud-services-how-to-configure.md)
+[Настройка облачных служб](cloud-services-how-to-configure-portal.md)
 [Часто задаваемые вопросы об облачных службах](cloud-services-faq.md)

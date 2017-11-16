@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: ee334186dffaa1f88cf05717b6a5ba1e819a8cdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Распространенные вопросы о Service Fabric
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 
 Как правило, нет. Service Fabric сохраняет состояние на локальных временных дисках, и это означает, что если виртуальная машина перемещается на другой узел, данные не перемещаются вместе с ней. Во время работы это не проблема, так как состояние нового узла обновляется с помощью других узлов. Однако если остановить все узлы и затем перезагрузить их, существует значительная вероятность, что большинство узлов будут запущены на новых серверах и восстановить систему не удастся.
 
-Если нужно создать кластеры для тестирования приложения перед его развертыванием, мы рекомендуем динамически создавать кластеры в процессе [непрерывной интеграции и непрерывного развертывания](service-fabric-set-up-continuous-integration.md).
+Если нужно создать кластеры для тестирования приложения перед его развертыванием, мы рекомендуем динамически создавать кластеры в процессе [непрерывной интеграции и непрерывного развертывания](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
 
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>Как обновить операционную систему (например, с Windows Server 2012 до Windows Server 2016)?

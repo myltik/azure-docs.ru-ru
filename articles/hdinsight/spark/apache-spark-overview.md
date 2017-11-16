@@ -4,7 +4,7 @@ description: "В этой статье представлены общие св�
 keywords: "что такое apache spark, кластер spark, введение в spark, spark в hdinsight"
 services: hdinsight
 documentationcenter: 
-author: maxluk
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
-ms.author: maxluk
-ms.openlocfilehash: eafa3962e335cbb781ff0e1497374c008ac564df
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: nitinme
+ms.openlocfilehash: 5ab6adb1cc3afb5733307cfb52029f9358904859
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Общие сведения о Spark в HDInsight
 

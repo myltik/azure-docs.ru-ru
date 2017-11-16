@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2017
-ms.openlocfilehash: b9287c7151c96aaccbcda81c111cfe36ead5ab38
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Устранение неполадок при развертывании службы и настройке среды
 Следующие сведения помогут вам определить причину возникновения ошибок при настройке среды управления моделями.
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/13/2017
 Чтобы во время подготовки среды отображались сведения об отладке и трассировке, используйте флаги `--debug` и `--verbose` в команде установки.
 
 ```
-az ml env setup -l <loation> -n <name> -c --debug --verbose 
+az ml env setup -l <location> -n <name> -c --debug --verbose 
 ```
 
 ## <a name="service-deployment"></a>Развертывание службы
@@ -89,7 +89,9 @@ az ml service create realtime -m <modelfile>.pkl -f score.py -n <service name> -
 ```
 
 ## <a name="other-common-problems"></a>Другие распространенные проблемы
-- Если команду `env setup` выполнить не удается, убедитесь, что в подписке доступно достаточное количество ядер.
-- Не используйте символ подчеркивания (_) в имени веб-службы (как в *my_webservice*).
-- Повторите попытку, если при вызове веб-службы возникает ошибка **502 — Недопустимый шлюз**. Обычно это означает, что контейнер еще не развернут в кластере.
-- Если при создании службы возникает ошибка **CrashLoopBackOff**, проверьте журналы. Она обычно является результатом отсутствующих зависимостей в функции **init**.
+- Если происходит сбой команды `env setup` с сообщением `LocationNotAvailableForResourceType`, возможно, используется неверное расположение (регион) для ресурсов машинного обучения. Убедитесь, что с параметром `-l` задано расположение `eastus2`, `westcentralus` или `australiaeast`.
+- Если происходит сбой команды `env setup` с сообщением `Resource quota limit exceeded`, убедитесь, что в подписке достаточное количество ядер и что ресурсы не используются в других процессах.
+- Если происходит сбой команды `env setup` с сообщением `Invalid environment name. Name must only contain lowercase alphanumeric characters`, убедитесь, что имя службы не содержит заглавных букв, знаков или символа подчеркивания (_) (как в *my_environment*).
+- Если происходит сбой команды `service create` с сообщением `Service Name: [service_name] is invalid. The name of a service must consist of lower case alphanumeric characters (etc.)`, убедитесь, что имя службы содержит от 3 до 32 знаков, начинается и заканчивается строчными буквенно-цифровыми знаками, не содержит заглавных букв, знаков, кроме дефиса (-) и точки (. ), или символ подчеркивания (_) (как в *my_webservice*).
+- Повторите попытку, если при вызове веб-службы возникает ошибка `502 Bad Gateway`. Обычно это означает, что контейнер еще не развернут в кластере.
+- Если при создании службы возникает ошибка `CrashLoopBackOff`, проверьте журналы. Она обычно является результатом отсутствующих зависимостей в функции **init**.

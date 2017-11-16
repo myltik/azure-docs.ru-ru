@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 68031d548bdbeda9a83d1bceaaea7c5bbcab3188
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad497a0244f9c7cdad34faf807cc9ed10ea704d
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Использование удаленного рабочего стола для подключения к виртуальной машине Microsoft Azure на базе Linux
 > [!IMPORTANT] 
@@ -79,7 +79,7 @@ RDP (протокол удаленного рабочего стола) — э�
     #sudo systemctl start xrdp
     #sudo systemctl enable xrdp
 
-В Ubuntu после установки управляющей программы xrdp она автоматически запустится и включится при загрузке системы.
+В Ubuntu программа xrdp после установки автоматически запустится и включится при загрузке системы.
 
 ## <a name="using-xfce-if-you-are-using-an-ubuntu-version-later-than-ubuntu-1204lts"></a>Использование xfce при работе с версией Ubuntu, выпущенной после Ubuntu 12.04LTS
 Так как текущая версия xrdp не поддерживает Gnome Desktop из версий Ubuntu, выпущенных после Ubuntu 12.04LTS, вместо нее мы будем использовать `xfce` Desktop.

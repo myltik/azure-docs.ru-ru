@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3e4eef12c1d19be6e0f1051caaa5cf2e98626aef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f9882ebc86b8119e6e683c7442ee3448a8d111b
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Создание приложения-функции на портале Azure
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 В Функциях Azure имеются два разных плана обслуживания: план потребления и план службы приложений. План потребления автоматически выделяет вычислительные ресурсы в процессе выполнения кода, масштабируя их в соответствии с нагрузкой и освобождая, когда код не выполняется. План службы приложений предоставляет приложению-функции доступ ко всем средствам службы приложений. План обслуживания нужно выбрать при создании приложения-функции, и в настоящее время невозможно изменить выбранный план. Дополнительные сведения см. в разделе [Выбор правильного плана обслуживания для Функций Azure](functions-scale.md).
 
-Если вы планируете выполнить функции JavaScript в плане службы приложений, следует выбрать план с использованием меньшего числа ядер. Дополнительные сведения см. в разделе [обзора функций для JavaScript](functions-reference-node.md#choose-single-core-app-service-plans).
+Если вы планируете выполнить функции JavaScript в плане службы приложений, следует выбрать план с использованием меньшего числа ядер. Дополнительные сведения см. в разделе [обзора функций для JavaScript](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 

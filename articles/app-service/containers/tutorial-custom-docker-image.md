@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8660bd09ea09e2c4c81da9c3ef66a1a448d3db43
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4ba53dd1239290c64907ed431d404b2d1be66c36
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Использование пользовательского образа Docker для платформы "Веб-приложения для контейнеров".
 
@@ -279,7 +279,7 @@ SSH обеспечивает безопасный обмен данными ме
     > [!NOTE]
     > Эта конфигурация не разрешает внешние подключения к контейнеру. SSH доступен только на сайте Kudu и на сайте SCM. Сайты Kudu и SCM проходят проверку подлинности с учетными данными для публикации.
 
-* Инструкция [COPY](https://docs.docker.com/engine/reference/builder/#copy) указывает ядру Docker копировать файл [sshd_config](http://man.openbsd.org/sshd_config) в каталог */etc/ssh/*. Файл конфигурации должен быть создан на основе этого файла [sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+* Инструкция [COPY](https://docs.docker.com/engine/reference/builder/#copy) указывает ядру Docker копировать файл [sshd_config](http://man.openbsd.org/sshd_config) в каталог */etc/ssh/*. Файл конфигурации должен быть создан на основе этого файла [sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -329,7 +329,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Поздравляем! Вы настроили пользовательский образ Docker для платформы "Веб-приложения для контейнеров".
+Поздравляем! Вы настроили пользовательский образ Docker для платформы "Веб-приложение для контейнеров".
 
 ## <a name="use-a-private-image-from-docker-hub-optional"></a>Использование частного образа из центра Docker Hub (необязательно)
 
@@ -493,7 +493,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-В Cloud Shell выполните команду [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set), чтобы назначить пользовательский образ Docker для веб-приложения. Замените значения *\<app_name>*, *\<docker-registry-server-url>*, _<registry-username>_ и _<password>_. Для реестра контейнеров Azure значение *\<docker-registry-server-url>* указывается в формате `https://<azure-container-registry-name>.azurecr.io`. 
+В Cloud Shell выполните команду [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set), чтобы назначить пользовательский образ Docker для веб-приложения. Замените значения *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ и _\<password>_. Для реестра контейнеров Azure значение *\<docker-registry-server-url>* указывается в формате `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -534,4 +534,5 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Служба приложений Azure на платформе Linux: вопросы и ответы](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [Создание в Azure веб-приложения Docker Python с подключением к базе данных PostgreSQL](tutorial-docker-python-postgresql-app.md)

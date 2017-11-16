@@ -107,7 +107,7 @@
 ## [Выставление счетов](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Ресурсы
-## [Ограничения и квоты Azure](../../azure-subscription-service-limits.md)
+## [Ограничения и квоты Azure](../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Регионы Azure](https://azure.microsoft.com/regions/)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

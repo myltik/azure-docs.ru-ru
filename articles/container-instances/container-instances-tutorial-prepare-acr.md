@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
+editor: mmacy
 tags: acs, azure-container-service
 keywords: "Docker, контейнеры, микрослужбы, Kubernetes, DC/OS, Azure"
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 8cb00210ee260383d546be4faf141c133661156b
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 848f6cbde49efdcfe96fc58ebc4160e0ea39f3f2
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Развертывание реестра контейнеров Azure и его использование
 
@@ -54,13 +54,19 @@ Azure Cloud Shell не включает в себя компоненты Docker,
 az group create --name myResourceGroup --location eastus
 ```
 
-Создайте реестр контейнеров Azure с помощью команды[az acr create](/cli/azure/acr#create). Имя контейнера реестра **должно быть уникальным**. В следующем примере мы используем имя *mycontainerregistry082*.
+Создайте реестр контейнеров Azure с помощью команды[az acr create](/cli/azure/acr#create). Имя реестра контейнеров **должно быть уникальным** в пределах Azure и содержать от 5 до 50 буквенно-цифровых знаков. Замените `<acrName>` уникальным именем реестра.
+
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+```
+
+Например, чтобы создать реестр контейнеров Azure *mycontainerregistry082*, выполните следующую команду.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
-В этом руководстве будет использоваться имя `<acrname>` как заполнитель выбранного имени реестра контейнеров.
+В этом руководстве будет использоваться имя `<acrName>` как заполнитель выбранного имени реестра контейнеров.
 
 ## <a name="container-registry-login"></a>Вход в реестр контейнеров
 
@@ -70,7 +76,7 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 az acr login --name <acrName>
 ```
 
-После выполнения эта команда возвращает сообщение Login Succeeded (Вход выполнен).
+По завершении команда возвращает сообщение `Login Succeeded`.
 
 ## <a name="tag-container-image"></a>Добавление тега к образу контейнера
 
@@ -89,13 +95,21 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-Чтобы получить имя loginServer, выполните следующую команду.
+Чтобы получить имя loginServer, выполните следующую команду. Замените `<acrName>` именем реестра контейнеров.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Добавьте к образу *aci-tutorial-app* тег loginServer реестра контейнеров. Кроме того, добавьте `:v1` в конец имени образа. Этот тег указывает номер версии образа.
+Выходные данные примера:
+
+```
+Result
+------------------------
+mycontainerregistry082.azurecr.io
+```
+
+Добавьте к образу *aci-tutorial-app* тег loginServer реестра контейнеров. Кроме того, добавьте `:v1` в конец имени образа. Этот тег указывает номер версии образа. Замените `<acrLoginServer>` результатом только что выполненной команды `az acr show`.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -117,12 +131,23 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9
 
 ## <a name="push-image-to-azure-container-registry"></a>Передача образа в реестр контейнеров Azure
 
-Передайте образ *aci-tutorial-app* в реестр.
-
-Используйте следующий пример, заменив имя loginServer реестра контейнеров именем loginServer своей среды.
+Отправьте образ *aci-tutorial-app* в реестр командой `docker push`. Замените `<acrLoginServer>` полным именем сервера входа, полученным на предыдущем шаге.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
+```
+
+Операция `push` займет от нескольких секунд до нескольких минут, в зависимости от подключения к Интернету. Ее выходные данные будут иметь следующий вид.
+
+```bash
+The push refers to a repository [mycontainerregistry082.azurecr.io/aci-tutorial-app]
+3db9cac20d49: Pushed
+13f653351004: Pushed
+4cd158165f4d: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05715 size: 1576
 ```
 
 ## <a name="list-images-in-azure-container-registry"></a>Получение списка образов в реестре контейнеров Azure

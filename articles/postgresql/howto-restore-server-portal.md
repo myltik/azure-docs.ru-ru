@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/20/2017
-ms.openlocfilehash: 3f1ffa20b58c52558e880ed6a0ef4ca674173973
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/03/2017
+ms.openlocfilehash: 903fd2ff446e1963ab5cfcec745766188b74efcf
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Как заархивировать и восстановить сервер в базе данных Azure для PostgreSQL с помощью портала Azure
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/25/2017
 
    ![Портал Azure: поиск сервера](media/postgresql-howto-restore-server-portal/1-locate.png)
 
-3. На панели инструментов в колонке "Обзор" сервера нажмите кнопку **Restore** (Восстановить). Откроется колонка "Восстановление".
+3. На панели инструментов страницы "Обзор" сервера нажмите кнопку **Restore** (Восстановить). Откроется страница "Восстановление".
 
    ![База данных Azure для PostgreSQL: колонка "Восстановление" в колонке "Обзор"](./media/postgresql-howto-restore-server-portal/2_server.png)
 

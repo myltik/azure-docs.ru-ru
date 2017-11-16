@@ -1,5 +1,5 @@
 ---
-title: "Как выполнить резервное копирование и восстановление сервера в базе данных Azure для PostgreSQL | Документация Майкрософт"
+title: "Резервное копирование и восстановление сервера в базе данных Azure для PostgreSQL | Документация Майкрософт"
 description: "Узнайте, как выполнить резервное копирование и восстановление сервера в базе данных Azure для PostgreSQL с помощью Azure CLI."
 services: postgresql
 author: jasonwhowell
@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 871887e67d686a965a0648d2c6f0c72b3008db05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 0cfce63b1523f939dc2d706dba771e56ce9ccd6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Как выполнить резервное копирование и восстановление сервера в базе данных Azure для PostgreSQL с помощью Azure CLI
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Как выполнить резервное копирование и восстановление сервера в базе данных Azure для PostgreSQL с помощью Azure CLI
 
 Используйте базу данных Azure для PostgreSQL, чтобы восстановить базу данных сервера с более ранней точки во времени за период от 7 до 35 дней.
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 > [!IMPORTANT]
 > Если вы решили установить и использовать Azure CLI локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы проверить версию, в командной строке Azure CLI введите `az --version`. Чтобы выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="back-up-happens-automatically"></a>Резервное копирование выполняется автоматически
+## <a name="backup-happens-automatically"></a>Резервное копирование выполняется автоматически
 При использовании базы данных Azure для PostgreSQL служба базы данных автоматически создает резервную копию службы каждые 5 минут. 
 
 Для уровня "Базовый" доступны резервные копии за 7 дней. Для уровня "Стандартный" — за 35 дней. Дополнительные сведения см. в статье [Параметры и производительность базы данных Azure для PostgreSQL: возможности, доступные в каждой ценовой категории](concepts-service-tiers.md).

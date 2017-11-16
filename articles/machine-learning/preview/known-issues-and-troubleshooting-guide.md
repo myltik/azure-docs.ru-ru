@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench: руководство по устранению неполадок и описание известных проблем 
 С помощью сведений в этой статье можно найти и исправить ошибки или сбои, обнаруженные при использовании приложения Azure Machine Learning Workbench. 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/23/2017
 Можно заархивировать содержимое этих папок и отправить нам для диагностики.
 
 ### <a name="workbench-desktop-app"></a>Классическое приложение Workbench
-В случае аварийного завершения Workbench файлы журнала можно найти здесь:
+Если возникли проблемы с входом или в случае аварийного завершения Workbench, файлы журнала можно найти здесь:
 ```
 # Windows
 %APPDATA%\AmlWorkbench
@@ -83,6 +83,23 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
 - Преобразования кластеризации текста не поддерживается на компьютере Mac.
 
 - Библиотека RevoScalePy поддерживается только в Windows и Linux (в контейнерах Docker). Она не поддерживается в macOS.
+
+## <a name="delete-experimentation-account"></a>Удаление учетной записи службы "Экспериментирование"
+С помощью интерфейса командной строки можно удалить учетную запись службы "Экспериментирование". Но сначала необходимо удалить дочерние рабочие области и дочерние проекты в этих рабочих областях.
+
+```azure-cli
+# delete a project
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+
+# delete a workspace 
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+
+# delete an experimentation account
+$ az ml account experimentation delete -g <resource group name> -n <experimentation account name>
+```
+
+Вы также можете удалить проекты и рабочие области из приложения Workbench.
+
 
 ## <a name="file-name-too-long-on-windows"></a>Имя файла слишком длинное для Windows
 Если используется Workbench для Windows, вы можете столкнуться с используемым по умолчанию ограничением длины имени файла в 260 знаков. Признаком этого может быть вводящее в заблуждение сообщение об ошибке, например "Системе не удается найти указанный путь". Можно изменить параметр раздела реестра, чтобы разрешить гораздо более длинные пути к файлам. Прочитайте [эту статью](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath), чтобы узнать больше о том, как настроить раздел реестра _MAX_PATH_.

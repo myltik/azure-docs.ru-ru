@@ -1,6 +1,6 @@
 ---
 title: "Управление политиками архивации StorSimple | Документация Майкрософт"
-description: "Объясняет, как использовать службу диспетчера StorSimple для создания резервных копий, созданных вручную, расписания снятия резервных копий и срока хранения резервных копий, а также для управления ими."
+description: "Объясняет, как использовать службу StorSimple Manager для создания резервных копий, созданных вручную, расписания снятия резервных копий и срока хранения резервных копий, а также для управления ими."
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -12,19 +12,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/10/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: c1e9d5d0450bab5d371aafb40fd7c5920d39dfdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89382bbed05034f7bb61df2c5d1b09461da44651
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="use-the-storsimple-manager-service-to-manage-backup-policies"></a>Использование службы диспетчера StorSimple для управления политиками архивации
+# <a name="use-the-storsimple-manager-service-to-manage-backup-policies"></a>Использование службы StorSimple Manager для управления политиками архивации
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 [!INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
 ## <a name="overview"></a>Обзор
-В данном учебнике рассказывается, как на странице **Политики архивации** службы диспетчера StorSimple управлять процессами архивации и хранения резервных копий для томов StorSimple. Кроме того, в нем описан способ выполнения архивации вручную.
+В данном учебнике рассказывается, как на странице **Политики архивации** службы StorSimple Manager управлять процессами архивации и хранения резервных копий для томов StorSimple. Кроме того, в нем описан способ выполнения архивации вручную.
 
 На странице **Политики архивации** можно управлять политиками архивации и планировать создание локальных и облачных моментальных копий. (Политики архивации используются для настройки расписаний архивации и хранения резервных копий для коллекции томов). Политики архивации позволяют делать снимок нескольких томов одновременно. Это означает, что резервные копии, созданные политикой архивации, будут отказоустойчивыми. На этой странице отображаются политики архивации, их типы, сопоставленные тома, количество хранимых резервных копий и переключатели для включения этих политик.
 
@@ -78,5 +81,5 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storsimple-create-custom-backup-policy](../../includes/storsimple-create-custom-backup-policy.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+Узнайте больше об [использовании службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 

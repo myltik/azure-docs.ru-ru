@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5a095663b7e716fd63322c9f89f67a1f3187638b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 341d275fbf9f80ac9e3363757d880b9546bdee13
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Создание и развертывание приложения с интерфейсной службой веб-API ASP.NET Core и серверной службой с отслеживанием состояния
 Это руководство представляет первую часть цикла.  Здесь описывается, как создать приложение Azure Service Fabric с интерфейсной службой веб-API ASP.NET Core и серверной службой с отслеживанием состояния для хранения данных. После завершения этого руководства вы получите приложение для голосования с клиентской частью в виде веб-приложения ASP.NET Core, которое сохраняет результаты голосования во внутренней службе с отслеживанием состояния в кластере. Если вы не хотите вручную создавать приложение для голосования, вы можете [скачать исходный код](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) для завершенного приложения и сразу перейти к [описанию примера приложения для голосования](#walkthrough_anchor).
@@ -228,7 +228,11 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 ```
 
 ### <a name="update-the-votingwebcs-file"></a>Обновление файла VotingWeb.cs
-Откройте файл *VotingWeb.cs*, который создает WebHost Core ASP.NET в пределах службы без отслеживания состояния с помощью веб-сервера WebListener.  Добавьте директиву `using System.Net.Http;` в начало файла.  Замените функцию `CreateServiceInstanceListeners()` следующим образом, а затем сохраните изменения.
+Откройте файл *VotingWeb.cs*, который создает WebHost Core ASP.NET в пределах службы без отслеживания состояния с помощью веб-сервера WebListener.  
+
+Добавьте директиву `using System.Net.Http;` в начало файла.  
+
+Замените функцию `CreateServiceInstanceListeners()` следующим образом, а затем сохраните изменения.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -257,7 +261,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ### <a name="add-the-votescontrollercs-file"></a>Добавление файла VotesController.cs
-Добавьте контроллер, который определяет действия голосования. В папке **Controllers** щелкните правой кнопкой, а затем выберите **Добавить -> Новый элемент -> Класс**.  Назовите файл VotesController.cs и нажмите кнопку **Добавить**.  Замените содержимое файла следующим образом, а затем сохраните изменения.  Затем на этапе [Обновление файла VotesController.cs](#updatevotecontroller_anchor) этот файл будет изменен для чтения и записи данных голосования, полученных из серверной службы.  А пока контроллер возвращает статические строковые данные в представление.
+Добавьте контроллер, который определяет действия голосования. В папке **Controllers** щелкните правой кнопкой, а затем выберите **Добавить -> Новый элемент -> Класс**.  Назовите файл VotesController.cs и нажмите кнопку **Добавить**.  
+
+Замените содержимое файла следующим образом, а затем сохраните изменения.  Затем на этапе [Обновление файла VotesController.cs](#updatevotecontroller_anchor) этот файл будет изменен для чтения и записи данных голосования, полученных из серверной службы.  А пока контроллер возвращает статические строковые данные в представление.
 
 ```csharp
 using System;
@@ -296,7 +302,23 @@ namespace VotingWeb.Controllers
 }
 ```
 
+### <a name="configure-the-listening-port"></a>Настройка порта прослушивания
+Когда создается интерфейсная служба VotingWeb, Visual Studio случайным образом выбирает порт для ее прослушивания.  Так как служба VotingWeb выступает в роли клиентской части этого приложения и принимает внешний трафик, мы привяжем эту службу к фиксированному и хорошо известному порту. В обозревателе решений откройте файл *VotingWeb/PackageRoot/ServiceManifest.xml*.  В разделе **Ресурсы** найдите ресурс **Конечная точка** и задайте для **порта** значение 80 или номер другого порта. Для локального развертывания и запуска приложения порт прослушивания приложения должен быть открыт и доступен на компьютере.
 
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+Обновите значение свойства "URL-адрес приложения" в проекте Voting, чтобы в веб-браузере открывался правильный порт при отладке с помощью клавиши F5.  В обозревателе решений выберите проект **Voting** и обновите свойство **URL-адрес приложения**.
+
+![URL-адрес приложения](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### <a name="deploy-and-run-the-application-locally"></a>Локальное развертывание и запуск приложения
 Теперь можно запустить приложение. Чтобы начать отладку, разверните приложение, нажав в Visual Studio клавишу `F5`. Если Visual Studio не была открыта ранее с правами **администратора**, `F5` завершается неудачно.

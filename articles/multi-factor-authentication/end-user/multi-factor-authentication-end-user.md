@@ -1,6 +1,6 @@
 ---
 title: "Приступая к работе с двухфакторной проверкой подлинности | Документация Майкрософт"
-description: "Приведенные на этой странице сведения о многофакторной проверке подлинности в службе Azure помогут пользователям начать работу с Azure Multi-Factor Authentication."
+description: "Приведенные на этой странице сведения о многофакторной проверке подлинности в службе Azure помогут пользователям начать работу с Многофакторной идентификацией Azure."
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: barlan
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: cb6e652794de6cda8b5fc7c7e466f880833a1a14
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 498dcea10b35fb8c11f848496ca403ac3e026e93
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Что для меня означает Azure Multi-Factor Authentication
+# <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Что для меня означает служба Многофакторной идентификации Azure
 Вы получили сообщение электронной почты от сотрудника ИТ-отдела или даже от самого начальника о том, что для вашей учетной записи будет выполнена дополнительная проверка безопасности.  Так что же это значит?
 
 Не беспокойтесь. Просто ваша организация вводит дополнительные меры по проверке вашей личности при входе в систему. Для этой проверки используется сочетание вашего имени пользователя и пароля, а также номер телефона.  

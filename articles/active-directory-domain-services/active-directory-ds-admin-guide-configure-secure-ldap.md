@@ -4,7 +4,7 @@ description: "Настройка защищенного протокола LDAP 
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 93afa49166c5b31d23237c308b9d34f6d6f3507d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05af1ccc9702891980e60a1c1db4c527ffbed0fa
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Настройка защищенного протокола LDAP (LDAPS) для управляемого домена доменных служб Azure AD
 В этой статье показано, как включить протокол LDAPS для управляемого домена доменных служб Azure AD. Защищенный протокол LDAP также называется "LDAP через SSL или TLS".
@@ -55,31 +55,36 @@ ms.lasthandoff: 10/11/2017
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Задача 1. Получение сертификата для защищенного протокола LDAP
 Первая задача предполагает получение сертификата, который будет использоваться для защищенного доступа LDAP к управляемому домену. Существует два варианта.
 
-* Получите сертификат в центре сертификации. Это может быть общедоступный центр сертификации.
+* Получить сертификат в общедоступном центре сертификации.
 * Создать самозаверяющий сертификат.
-
-### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Вариант А (рекомендуется). Получение сертификата защищенного протокола LDAP из центра сертификации
-Если ваша организация получает свои сертификаты из общедоступного центра сертификации, то необходимо получить сертификат защищенного протокола LDAP из этого ЦС.
-
-При запросе сертификата должны быть выполнены все требования, описанные в разделе [Требования к сертификату защищенного протокола LDAP](#requirements-for-the-secure-ldap-certificate).
 
 > [!NOTE]
 > Клиентские компьютеры, которым требуется подключение к управляемому домену по защищенному протоколу LDAP, должны доверять издателю сертификата защищенного протокола LDAP.
 >
+
+### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Вариант А (рекомендуется). Получение сертификата защищенного протокола LDAP из центра сертификации
+Если ваша организация получает свои сертификаты из общедоступного центра сертификации, то получите сертификат защищенного протокола LDAP из этого ЦС.
+
+> [!TIP]
+> **Используйте самозаверяющие сертификаты для управляемых доменов с суффиксами доменов .onmicrosoft.com.**
+> Если доменное имя DNS управляемого домена заканчивается на .onmicrosoft.com, то вы не можете получить сертификат защищенного протокола LDAP из общедоступного ЦС. Поскольку корпорация Майкрософт является владельцем домена onmicrosoft.com, общедоступные центры сертификации отказываются выдавать сертификаты защищенного протокола LDAP для домена с этим суффиксом. Для данного сценария создайте самозаверяющий сертификат и используйте его для настройки защищенного протокола LDAP.
 >
 
+Убедитесь, что полученный из общедоступного ЦС сертификат, удовлетворяет всем требованиям, описанным в разделе [Требования к сертификату защищенного протокола LDAP](#requirements-for-the-secure-ldap-certificate).
+
+
 ### <a name="option-b---create-a-self-signed-certificate-for-secure-ldap"></a>Вариант Б. Создание самозаверяющего сертификата для защищенного протокола LDAP
-Если вы не планируете использовать сертификат из общедоступного центра сертификации, то вы можете создать самозаверяющий сертификат для защищенного протокола LDAP.
+Если вы не планируете использовать сертификат из общедоступного центра сертификации, то вы можете создать самозаверяющий сертификат для защищенного протокола LDAP. Выберите этот параметр, если доменное имя DNS вашего управляемого домена заканчивается на .onmicrosoft.com.
 
 **Создание самозаверяющего сертификата с использованием PowerShell**
 
 Чтобы создать самозаверяющий сертификат, на компьютере Windows откройте новое окно PowerShell с правами **администратора** и введите следующие команды.
+```
+$lifetime=Get-Date
+New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
+```
 
-    $lifetime=Get-Date
-
-    New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
-
-В примере выше замените *.contoso100.com на DNS-имя своего управляемого домена. Например, если вы создали управляемый домен contoso100.onmicrosoft.com, замените* .contoso100.com в приведенном выше скрипте на *.contoso100.onmicrosoft.com.
+В примере выше замените *.contoso100.com на DNS-имя своего управляемого домена. Например, если вы создали управляемый домен contoso100.onmicrosoft.com, то замените* .contoso100.com в приведенном выше сценарии на *.contoso100.onmicrosoft.com.
 
 ![Выбор каталога Azure AD](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

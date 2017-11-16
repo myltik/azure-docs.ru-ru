@@ -21,10 +21,10 @@ ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
 ---
-# Вызовы между службами с помощью учетных данных клиента (общий секрет или сертификат)
+# <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Вызовы между службами с помощью учетных данных клиента (общий секрет или сертификат)
 Процесс предоставления учетных данных клиента OAuth 2.0 позволяет веб-службе (*конфиденциальный клиент*) вместо олицетворения пользователя использовать свои собственные учетные данные для аутентификации при вызове другой веб-службы. В этом сценарии клиент обычно является службой среднего уровня, веб-службой, службой управляющей программы или веб-сайтом. Для большей надежности Azure AD также позволяет вызывающей службе использовать в качестве учетных данных сертификат (вместо общего секрета).
 
-## Схема потока предоставления учетных данных клиента
+## <a name="client-credentials-grant-flow-diagram"></a>Схема потока предоставления учетных данных клиента
 На следующей схеме показано, как работает поток предоставления учетных данных клиента в Azure Active Directory (Azure AD).
 
 ![Поток предоставления учетных данных клиента OAuth2.0](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
@@ -34,20 +34,20 @@ ms.lasthandoff: 10/11/2017
 3. Маркер доступа используется для проверки подлинности при обращении к защищенному ресурсу.
 4. Данные из защищенного ресурса возвращаются в веб-приложение.
 
-## Регистрация служб в Azure AD
+## <a name="register-the-services-in-azure-ad"></a>Регистрация служб в Azure AD
 Зарегистрируйте вызывающую службу и службу, принимающую вызов, в Azure Active Directory (Azure AD). Подробные инструкции см. в статье [Интеграция приложений с Azure Active Directory](active-directory-integrating-applications.md).
 
-## Запрос маркера доступа
+## <a name="request-an-access-token"></a>Запрос маркера доступа
 Чтобы запросить маркер доступа, используйте запрос HTTP POST к конечной точке Azure AD конкретного клиента.
 
 ```
 https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
-## Запрос маркера взаимного доступа между службами
+## <a name="service-to-service-access-token-request"></a>Запрос маркера взаимного доступа между службами
 Существует два сценария. Их выбор зависит от типа защиты клиентского приложения — с помощью общего секрета или с помощью сертификата.
 
-### Первый сценарий: запрос маркера доступа с помощью общего секрета
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Первый сценарий: запрос маркера доступа с помощью общего секрета
 При использовании общего секрета запрос маркера взаимного доступа между службами содержит следующие параметры:
 
 | Параметр |  | Описание |
@@ -57,7 +57,7 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 | client_secret |обязательно |Введите ключ, зарегистрированный для вызывающей веб-службы или управляющей программы в Azure AD. Чтобы создать ключ, на портале Azure щелкните **Active Directory**, перейдите в другой каталог, выберите приложение, затем щелкните **Параметры** > **Ключи** и добавьте ключ.|
 | resource |обязательно |Введите URI идентификатора приложения принимающей вызов веб-службы. Чтобы найти URI кода приложения, на портале Azure щелкните **Active Directory**, перейдите в другой каталог, выберите приложение-службу, затем щелкните **Параметры** > **Свойства**. |
 
-#### Пример
+#### <a name="example"></a>Пример
 Следующий запрос HTTP POST запрашивает маркер доступа для веб-службы https://service.contoso.com/. Параметр `client_id` определяет веб-службу, которая запрашивает маркер доступа.
 
 ```
@@ -68,7 +68,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-### Второй сценарий: запрос маркера доступа с помощью сертификата
+### <a name="second-case-access-token-request-with-a-certificate"></a>Второй сценарий: запрос маркера доступа с помощью сертификата
 Запрос маркера взаимного доступа между службами с помощью сертификата содержит следующие параметры:
 
 | Параметр |  | Описание |
@@ -81,7 +81,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 
 Обратите внимание на то, что параметры являются почти такими же, как и при использовании запроса с помощью общего секрета, за исключением параметра client_secret, который заменяется двумя параметрами: client_assertion_type и client_assertion.
 
-#### Пример
+#### <a name="example"></a>Пример
 Следующий запрос HTTP POST запрашивает маркер доступа для веб-службы https://service.contoso.com/ с помощью сертификата. Параметр `client_id` определяет веб-службу, которая запрашивает маркер доступа.
 
 ```
@@ -92,7 +92,7 @@ Content-Type: application/x-www-form-urlencoded
 resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b3bf&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
 ```
 
-### Ответ маркера взаимного доступа между службами
+### <a name="service-to-service-access-token-response"></a>Ответ маркера взаимного доступа между службами
 
 Если доступ предоставлен, то ответ будет содержать JSON-файл OAuth 2.0 со следующими параметрами:
 
@@ -105,7 +105,7 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 | not_before |Время, начиная с которого маркер доступа становится доступным. Дата представляется как количество секунд с 1970-01-01T0:0:0Z в формате UTC до истечения срока действия маркера.|
 | resource |URI идентификатора приложения принимающей вызов веб-службы. |
 
-#### Пример ответа
+#### <a name="example-of-response"></a>Пример ответа
 В следующем примере показано сообщение о предоставлении доступа в ответ на запрос маркера доступа к веб-службе.
 
 ```
@@ -118,6 +118,6 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 }
 ```
 
-## Дополнительные материалы
+## <a name="see-also"></a>Дополнительные материалы
 * [OAuth 2.0 в Azure AD](active-directory-protocols-oauth-code.md)
 * [Пример вызова между службами с помощью общего секрета (на языке C#)](https://github.com/Azure-Samples/active-directory-dotnet-daemon) и [Пример вызова между службами с помощью сертификата (на языке C#)](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

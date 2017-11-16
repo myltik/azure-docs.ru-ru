@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 816bf1426704d3391550e80c0700f1b011683a94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e444c4505d4744c95e08c4ef0d33566356785c81
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Создание пространства имен концентраторов событий и концентратора событий с помощью портала Azure
 
 ## <a name="create-an-event-hubs-namespace"></a>Создание пространства имен концентраторов событий
-1. Войдите на [портал Azure][Azure portal] и щелкните **Создать** в левой верхней части экрана.
+1. Войдите на [портал Azure][Azure portal] и щелкните **Создать ресурс** в левой верхней части экрана.
 1. Последовательно выберите **Интернет вещей** и **Концентраторы событий**.
    
     ![](./media/event-hubs-create/create-event-hub9.png)
-1. В колонке **Создание пространства имен** укажите имя пространства имен. Система немедленно проверяет, доступно ли оно.
+1. В разделе **создания пространства имен** укажите имя пространства имен. Система немедленно проверяет, доступно ли оно.
    
     ![](./media/event-hubs-create/create-event-hub1.png)
 1. Убедившись, что пространство имен доступно, выберите ценовую категорию: "Базовый" или "Стандартный". Также выберите подписку Azure, группу ресурсов и расположение для создания ресурса. 

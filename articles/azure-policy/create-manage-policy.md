@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/01/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 55e5a60294fc5ccb2a55b1e572af2fd27c68f462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbf6e13efaad196c39e4fce0900fa40d7511122
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Создание политик и управление ими для обеспечения соответствия требованиям
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-## <a name="opt-in-to-azure-policy"></a>Регистрация для использования Политики Azure
+## <a name="opt-in-to-azure-policy"></a>Регистрация в службе "Политика Azure"
 
 Служба "Политика Azure" сейчас доступна в ограниченной предварительной версии, поэтому вам необходимо зарегистрироваться, чтобы подать запрос на доступ.
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 
    ![Регистрация для использования Политики Azure](media/assign-policy-definition/preview-opt-in.png)
 
-   Подтверждение запроса на регистрацию может занять несколько дней, в зависимости от числа запросов. После принятия запроса вы будете уведомлены по электронной почте о том, что можете начать пользоваться службой.
+   Подтверждение запроса на регистрацию может занять несколько дней, в зависимости от числа запросов. После принятия запроса по электронной почте вам будет отправлено сообщение о том, что можно начинать использование службы.
 
 ## <a name="assign-a-policy"></a>Назначение политики
 
@@ -56,12 +56,12 @@ ms.lasthandoff: 10/11/2017
 
    ![Назначение определения политики](media/create-manage-policy/select-assign-policy.png)
 
-4. На странице **Назначить политику** щелкните ![кнопку определения политики](media/assign-policy-definition/definitions-button.png) рядом с полем **Политика**, чтобы открыть список доступных определений.
+4. На странице **Назначить политику** нажмите ![кнопку определения политики](media/assign-policy-definition/definitions-button.png) рядом с полем **Политика**, чтобы открыть список доступных определений.
 
    ![Список доступных определений политик](media/create-manage-policy/open-policy-definitions.png)
 
 5. Выберите **Require SQL Server Version 12.0** (Требовать наличия SQL Server версии 12.0).
-   
+
    ![Поиск политики](media/create-manage-policy/select-available-definition.png)
 
 6. Введите отображаемое **имя** для назначения политики. Здесь мы используем имя *Require SQL Server version 12.0* (Требовать наличия SQL Server версии 12.0). При желании вы можете добавить необязательное **описание**. Описание предоставляет сведения о том, как назначение этой политики проверяет все создаваемые в среде серверы SQL Server на наличие версии 12.0.
@@ -93,7 +93,7 @@ ms.lasthandoff: 10/11/2017
       - параметры политики;
       - правила и условия политики — в данном случае номер SKU виртуальной машины, соответствующий серии G;
       - действие политики — в этом случае **Отменить**.
-   
+
    Код JSON должен выглядеть следующим образом:
 
 ```json
@@ -118,9 +118,225 @@ ms.lasthandoff: 10/11/2017
 }
 ```
 
+<!-- Update the following link to the top level samples page
+-->
    Образцы кода JSON см. в статье [Общие сведения о политике ресурсов](../azure-resource-manager/resource-manager-policy.md).
-   
+
 4. Щелкните **Сохранить**.
+
+## <a name="create-a-policy-definition-with-rest-api"></a>Создание определения политики с использованием REST API
+
+Для создания политики вы можете использовать REST API для определений политик. API REST позволяет создавать и удалять определения политик и получать сведения о существующих определениях.
+Чтобы создать определение политики, используйте следующий пример.
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+
+```
+Добавьте текст запроса. Ниже приведен соответствующий пример.
+
+```
+{
+  "properties": {
+    "parameters": {
+      "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+      }
+    },
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('allowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+## <a name="create-a-policy-definition-with-powershell"></a>Создание определения политики с помощью PowerShell
+
+Прежде чем продолжить работу с примером PowerShell, убедитесь, что у вас установлена последняя версия Azure PowerShell. Параметры политики были добавлены в версии 3.6.0. Если установлена более ранняя версия, примеры возвращают ошибку из-за того, что параметр не найден.
+
+Определение политики можно создать с помощью командлета `New-AzureRmPolicyDefinition`.
+
+Чтобы создать определение политики из файла, передайте путь в файл. Для внешнего файла используйте следующий пример.
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+Для применения локального файла используйте следующий пример.
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+Для создания определения политики с помощью встроенного правила используйте следующий пример.
+
+```
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+Выходные данные сохраняются в объекте `$definition`, который используется при назначении политики.
+В следующем примере создается определение политики, которое включает параметры:
+
+```
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}'
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
+```
+
+## <a name="view-policy-definitions"></a>Просмотр определений политик
+
+Чтобы просмотреть все определения политик в подписке, используйте приведенную ниже команду.
+
+```
+Get-AzureRmPolicyDefinition
+```
+
+Она возвращает все доступные определения политик, включая встроенные политики. Каждая политика возвращается в приведенном ниже формате.
+
+```
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+## <a name="create-a-policy-definition-with-azure-cli"></a>Создание определения политики с использованием Azure CLI
+
+Определение политики можно создать с помощью Azure CLI, выполнив в нем команду определения политики.
+Для создания определения политики с помощью встроенного правила используйте следующий пример.
+
+```
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+## <a name="view-policy-definitions"></a>Просмотр определений политик
+
+Чтобы просмотреть все определения политик в подписке, используйте приведенную ниже команду.
+
+```
+az policy definition list
+```
+
+Она возвращает все доступные определения политик, включая встроенные политики. Каждая политика возвращается в приведенном ниже формате.
+
+```
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
+}
+```
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Создание определения инициативы и его назначение
 
@@ -166,7 +382,7 @@ ms.lasthandoff: 10/11/2017
    - Ценовая категория: "Стандартный".
    - Область применить назначения: **Azure Advisor Capacity Dev**.
 
-5. Выберите **Назначить**. 
+5. Выберите **Назначить**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Обход запрета на создание несоответствующих или отклоненных ресурсов
 
@@ -205,4 +421,4 @@ ms.lasthandoff: 10/11/2017
 Дополнительные сведения о структурах определения политик см. в статье:
 
 > [!div class="nextstepaction"]
-> [Структура определения политики](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)
+> [Структура определения политики Azure](policy-definition.md)

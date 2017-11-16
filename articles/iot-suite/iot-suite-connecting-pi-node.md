@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: d401dde25bf4ab430ac045fb6cfd90050a7ec2e7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5242d6d7abba1dc06f8e01b26a2d3bfdecb1d630
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Подключение устройства Raspberry Pi к предварительно настроенному решению для удаленного мониторинга (Node.js)
 
@@ -107,7 +107,7 @@ ms.lasthandoff: 10/31/2017
     var Message = require('azure-iot-device').Message;
     ```
 
-1. После операторов `require` добавьте указанные ниже объявления переменных. Замените значения заполнителей `{Device Id}` и `{Device Key}` ранее записанными значениями для своего устройства, подготовленного в решении для удаленного мониторинга. Замените `{IoTHub Name}` именем узла Центра Интернета вещей, используемым в решении. Например, если имя узла Центра Интернета вещей — `contoso.azure-devices.net`, замените `{IoTHub Name}` на `contoso`.
+1. После операторов `require` добавьте указанные ниже объявления переменных. Замените значения заполнителей `{Device Id}` и `{Device Key}` ранее записанными значениями для своего устройства, подготовленного в решении для удаленного мониторинга. Замените `{IoTHub Name}` именем узла Центра Интернета вещей, используемым в решении. Например, если имя узла Центра Интернета вещей — `contoso.azure-devices.net`, замените `{IoTHub Name}` на `contoso`:
 
     ```nodejs
     var connectionString = 'HostName={IoTHub Name}.azure-devices.net;DeviceId={Device Id};SharedAccessKey={Device Key}';
@@ -140,7 +140,7 @@ ms.lasthandoff: 10/31/2017
     var deviceLongitude = -122.13476;
     ```
 
-1. Добавьте следующую переменную, чтобы определить, какие передаваемые свойства должны отправляться в решение. Эти свойства содержат метаданные для описания методов и данных телеметрии, используемых устройством.
+1. Добавьте следующую переменную, чтобы определить, какие передаваемые свойства должны отправляться в решение. Эти свойства содержат метаданные для описания методов и данных телеметрии, используемых устройством:
 
     ```nodejs
     var reportedProperties = {
@@ -211,7 +211,7 @@ ms.lasthandoff: 10/31/2017
     }
     ```
 
-1. Добавьте приведенную ниже функцию для обработки вызовов прямого метода из решения. Решение использует прямые методы для выполнения действий на устройствах.
+1. Добавьте приведенную ниже функцию для обработки вызовов прямого метода из решения. Решение использует прямые методы для выполнения действий на устройствах:
 
     ```nodejs
     function onDirectMethod(request, response) {

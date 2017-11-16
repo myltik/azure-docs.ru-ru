@@ -1,6 +1,6 @@
 ---
 title: "Просмотр заданий StorSimple и управление ими | Документация Майкрософт"
-description: "Описывает страницу заданий службы диспетчера StorSimple и способы ее использования для отслеживания недавних, текущих и запланированных заданий."
+description: "Описывает страницу заданий службы StorSimple Manager и способы ее использования для отслеживания недавних, текущих и запланированных заданий."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,19 +12,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 7d9377bb8f3cb8c587823c2d71d61dfb9b50f52f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 426fd3ec76157670c9d192f007adacc4284abb42
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs"></a>Использование службы управления StorSimple для просмотра заданий StorSimple и управления ими
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 [!INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## <a name="overview"></a>Обзор
-Страница **Задания** — это центральный портал для просмотра заданий, которые были запущены на устройствах, подключенных к службе StorSimple Manager, и управления ими. Вы можете просмотреть запланированные, запущенные, завершенные и неудачные задания для нескольких устройств. Результаты представляются в табличном формате. 
+Страница **Задания** — это центральный портал для просмотра заданий, которые были запущены на устройствах, подключенных к службе StorSimple Manager, и управления ими. Вы можете просмотреть запланированные, запущенные, завершенные и неудачные задания для нескольких устройств. Результаты представляются в табличном формате.
 
 ![Страница "Задания"](./media/storsimple-manage-jobs/HCS_JobsPage.png)
 

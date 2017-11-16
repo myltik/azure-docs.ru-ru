@@ -3,7 +3,7 @@ title: "Этап развертывания облачной службы (Node.
 description: "Узнайте, как можно сначала выполнить развертывание приложения Azure в промежуточной среде, а затем в рабочей среде с помощью переключения виртуальных IP-адресов (VIP)."
 services: cloud-services
 documentationcenter: nodejs
-author: TomArcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 ms.assetid: d65d26a6-b424-49cd-a88c-7ef46bb112a8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: b3000ed769e8c60eccb21e26f53ce7ccb7e68d7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: 307741d0792b34332d98bfa4f2d62c9fd1cf07a1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Развертывание приложения в промежуточной среде Azure
 Упакованное приложение можно развернуть в промежуточной среде в Azure и протестировать его перед развертыванием в рабочей среде, где оно будет доступно пользователям через Интернет. Промежуточная среда в точности схожа с рабочей средой за исключением того, что доступ к приложению в промежуточной среде возможен только с использованием допустимого URL-адреса, который создается Azure. Убедившись, что приложение работает правильно, вы можете развернуть его в рабочей среде, выполнив переключение виртуальных IP-адресов (VIP).
@@ -72,4 +72,4 @@ ms.lasthandoff: 10/11/2017
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
+[Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production

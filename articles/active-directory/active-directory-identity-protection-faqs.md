@@ -11,16 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0a030c635255d2e6fcbacd5c138f8d09b1ef85b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d0505caf75a3e6433e2c9fd9795b3176d66d297
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Вопросы и ответы о защите идентификации Azure Active Directory
+
+Эта статья содержит ответы на часто задаваемые вопросы о защите идентификации Azure Active Directory (Azure AD). Дополнительные сведения см. в статье [Защита идентификации Azure Active Directory](active-directory-identityprotection.md). 
 
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>Почему для некоторых событий риска отображается состояние "Закрыто (системные)"?
@@ -30,12 +32,18 @@ ms.lasthandoff: 10/11/2017
 ---
 
 ## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>Требуется ли роль глобального администратора для использования защиты идентификации на портале Azure?
-**Ответ.** **Нет**. Для использования защиты идентификации можно иметь роль читателя безопасности, администратора безопасности или глобального администратора.
+**Ответ.** Нет. Для использования защиты идентификации можно иметь роль читателя безопасности, администратора безопасности или глобального администратора.
 
 ---
 
 ## <a name="how-do-i-get-identity-protection"></a>Как начать использовать защиту идентификации?
+
 **Ответ.** Ответ на этот вопрос есть в разделе [Приступая к работе с Azure Active Directory Premium](active-directory-get-started-premium.md).
 
 ---
 
+## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>Как сортировать пользователей в разделе "Пользователи, находящиеся в группе риска"?
+
+**Ответ.** Скачайте отчет по пользователям, находящимся в группе риска, нажав кнопку **Загрузить** в верхней части страницы **Пользователи, находящиеся в группе риска**. Затем можно отсортировать скачанные данные на основе доступных полей, таких как "Последнее обновление (в формате UTC)".
+
+---

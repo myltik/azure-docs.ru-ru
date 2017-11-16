@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: acd61e9980b143ebbb81d2d144bdac9134e20a11
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Руководство по расширенной подготовке данных для системы совместного использования велосипедов при помощи Azure Machine Learning Workbench
 Служба "Машинное обучение Azure" (предварительная версия) — это полнофункциональное интегрированное аналитическое решение для специалистов по обработке данных. Оно помогает подготавливать данные, разрабатывать эксперименты и развертывать модели в масштабе облака.
@@ -348,7 +348,6 @@ ms.lasthandoff: 10/13/2017
 
    ```python
    maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
-   maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
    minVal = min(df["HOURLYDRYBULBTEMPF_Mean"])
    df["HOURLYDRYBULBTEMPF_Mean"] = (df["HOURLYDRYBULBTEMPF_Mean"]-minVal)/(maxVal-minVal)
    df.rename(columns={"HOURLYDRYBULBTEMPF_Mean":"N_DryBulbTemp"},inplace=True)
@@ -493,7 +492,7 @@ ms.lasthandoff: 10/13/2017
 
 ### <a name="remove-columns"></a>Удаление столбцов
 
-В данных поездок каждая строка представляет событие поездки на велосипеде. Для этого руководства требуются только столбцы **starttime** и **start station**. Удалите другие столбцы.Для этого одновременно выберите эти два столбца, щелкните правой кнопкой мыши заголовок столбца и выберите **Сохранить столбец**. Остальные столбцы будут удалены.
+В данных поездок каждая строка представляет событие поездки на велосипеде. Для этого руководства требуются только столбцы **starttime** и **start station id**. Удалите другие столбцы.Для этого одновременно выберите эти два столбца, щелкните правой кнопкой мыши заголовок столбца и выберите **Сохранить столбец**. Остальные столбцы будут удалены.
 
 ![Изображение параметра сохранения столбца](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 

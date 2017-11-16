@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: c0175d4fb98614d41423b7204fe7eb2aa50d23dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Использование Azure Application Insights для анализа информации о том, как пользователи используют приложение
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/01/2017
 - Загрузите и установите [отладчик моментальных снимков Visual Studio](http://aka.ms/snapshotdebugger).
 - Разверните приложение .NET в Azure и [включите пакет SDK для Application Insights](app-insights-asp-net.md). 
 - Включите [отправку из приложения телеметрии](app-insights-usage-overview.md#send-telemetry-from-your-app) для пользовательских событий и просмотров страниц.
-- Включите [отправку контекста пользователя](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-usage-send-user-context) для отслеживания действий с привязкой ко времени, чтобы максимально эффективно применить информацию об использовании.
+- Включите [отправку контекста пользователя](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) для отслеживания действий с привязкой ко времени, чтобы максимально эффективно применить информацию об использовании.
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 Войдите на портал Azure по адресу [https://portal.azure.com](https://portal.azure.com).

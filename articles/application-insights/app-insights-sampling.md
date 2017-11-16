@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ed612a0e2101397fb1074de61db07d2361f8463
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sampling-in-application-insights"></a>Выборка в Application Insights
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/01/2017
 
 Точки данных, отклоненные выборкой, доступны не во всех функциях Application Insights, например [Непрерывный экспорт](app-insights-export-telemetry.md).
 
-Выборка приема не работает во время действия адаптивной или фиксированной выборки на основе пакета SDK. Если частота выборки в пакете SDK меньше 100 %, заданная частота выборки приема не учитывается.
+Выборка приема не работает во время действия адаптивной или фиксированной выборки на основе пакета SDK. Обратите внимание на то, что адаптивная выборка включена по умолчанию, если пакет SDK для ASP.NET включен в Visual Studio или с помощью монитора состояния, а выборка при приеме отключена. Если частота выборки в пакете SDK меньше 100 %, заданная частота выборки приема не учитывается.
 
 > [!WARNING]
 > Значение, отображаемое на плитке, обозначает значение, которое вы задали для выборки приема. Оно не отражает фактическую частоту выборки, если действует выборка пакета SDK.

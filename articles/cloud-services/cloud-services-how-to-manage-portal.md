@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 4650cebe18153e3b10bbec685a66a590348c99e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Управление облачными службами
-> [!div class="op_single_selector"]
-> * [Портал Azure](cloud-services-how-to-manage-portal.md)
-> * [классическом портале Azure](cloud-services-how-to-manage.md)
->
->
-
 В области **Облачные службы (классические)** портала Azure можно обновить роль службы или развертывание, перенести промежуточное развертывание в рабочую среду, привязать ресурсы к облачной службе для просмотра их зависимостей и масштабирования, а также удалить облачную службу или развертывание.
 
 Дополнительные сведения о том, как масштабировать облачную службу, доступны [здесь](cloud-services-how-to-scale-portal.md).

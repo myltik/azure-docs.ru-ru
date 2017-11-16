@@ -1,6 +1,6 @@
 ---
 title: "Настройка кластеров HDInsight с помощью действий скрипта — Azure | Документы Майкрософт"
-description: "Добавление настраиваемых компонентов в кластеры HDInsight на основе Linux с помощью действий скриптов. Действия скриптов — это скрипты Bash, которые можно использовать для настройки конфигурации кластера или добавления дополнительных служб и служебных программ, таких как Hue, Solr или R."
+description: "Добавление настраиваемых компонентов в кластеры HDInsight на основе Linux с помощью действий сценариев. Действия сценариев — это сценарии Bash, которые можно использовать для настройки конфигурации кластера или добавления дополнительных служб и служебных программ, таких как Hue, Solr или R."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 0c5d00b6cb9f68a1a0e474f81c969eb1b5654c67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Настройка кластеров HDInsight под управлением Linux с помощью действия сценария
+# <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Настройка кластеров HDInsight под управлением Linux с помощью действий сценариев
 
 В кластерах HDInsight есть параметр конфигурации **Действие скрипта** , вызывающий пользовательские скрипты, с помощью которых можно настроить кластер. Эти скрипты используются для установки дополнительных компонентов и изменения параметров конфигурации. Действия скрипта можно использовать во время или после создания кластера.
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 * **AMBARI.RUN\_CUSTOM\_COMMAND.** Это разрешение по умолчанию назначено для роли администратора Ambari.
 * **CLUSTER.RUN\_CUSTOM\_COMMAND.** Это разрешение по умолчанию назначено для администратора кластера HDInsight и администратора Ambari.
 
-Дополнительные сведения о работе с разрешениями в присоединенном к домену кластере HDInsight см. в статье [Управление присоединенными к домену кластерами HDInsight (предварительная версия)](hdinsight-domain-joined-manage.md).
+Дополнительные сведения о работе с разрешениями в присоединенном к домену кластере HDInsight см. в статье [Управление присоединенными к домену кластерами HDInsight (предварительная версия)](./domain-joined/apache-domain-joined-manage.md).
 
 ## <a name="access-control"></a>управление доступом;
 
@@ -53,9 +53,9 @@ ms.lasthandoff: 10/11/2017
 * [Начало работы с управлением доступом на портале Azure](../active-directory/role-based-access-control-what-is.md)
 * [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md)
 
-## <a name="understanding-script-actions"></a>Что такое действия скриптов
+## <a name="understanding-script-actions"></a>Что такое действия сценариев
 
-Действие скрипта — это просто скрипт Bash, в который вы вводите универсальный код ресурса (URI) и для которого вы указываете параметры. Скрипт выполняется на узлах в кластере HDInsight. Ниже приведены характеристики и возможности действий скриптов.
+Действие сценария — это сценарий Bash, в который вы вводите универсальный код ресурса (URI) и для которого вы указываете параметры. Скрипт выполняется на узлах в кластере HDInsight. Ниже приведены характеристики и возможности действий скриптов.
 
 * Они должны храниться в URI, доступном из кластера HDInsight. Возможные места хранения:
 
@@ -108,12 +108,12 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="script-action-in-the-cluster-creation-process"></a>Действие сценария в процессе создания кластера
 
-Действия скриптов, используемые в процессе создания кластера и выполняющиеся в существующем кластере, несколько отличаются:
+Действия сценариев, используемые в процессе создания кластера и выполняющиеся в имеющемся кластере, немного отличаются:
 
 * Скрипт **сохраняется автоматически**.
 * **Ошибка** в скрипте может вызвать сбой создания кластера.
 
-На следующей схеме показано, когда выполняется действие сценария в процессе создания.
+На следующей схеме показано, когда выполняется действие сценария в процессе создания:
 
 ![Настройка кластера HDInsight и этапы создания кластера][img-hdi-cluster-states]
 
@@ -150,9 +150,9 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Если вы изменили пароль пользователя (администратора) кластера после создания кластера, может происходить сбой при выполнении действий скриптов для этого кластера. Если у вас есть сохраненные действия скриптов, нацеленные на рабочие узлы, они могут завершиться ошибкой при масштабировании кластера.
 
-## <a name="example-script-action-scripts"></a>Пример действий сценария
+## <a name="example-script-action-scripts"></a>Пример сценариев действий сценария
 
-Действия скриптов можно использовать с помощью следующих служебных средств:
+Сценарии действия сценария можно использовать с помощью следующих служебных программ:
 
 * Портал Azure
 * Azure PowerShell
@@ -171,7 +171,7 @@ ms.lasthandoff: 10/11/2017
 | **Предварительная загрузка библиотек Hive** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. См статью [Добавление библиотек Hive в кластеры HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 | **Установка или обновление Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash См. статью [Установка или обновление Mono в HDInsight](hdinsight-hadoop-install-mono.md). |
 
-## <a name="use-a-script-action-during-cluster-creation"></a>Использование действия скрипта при создании кластера
+## <a name="use-a-script-action-during-cluster-creation"></a>Использование действия сценария при создании кластера
 
 В этом разделе приведены примеры различных способов использования действий скриптов при создании кластера HDInsight.
 
@@ -211,229 +211,29 @@ ms.lasthandoff: 10/11/2017
 
 3. Чтобы создать кластер, в разделе __Сводка по кластерам__ нажмите __Создать__.
 
-### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Использование действия сценария на основе шаблонов диспетчера ресурсов Azure
+### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Использование действия сценария на основе шаблонов Azure Resource Manager
 
-Примеры в этом разделе демонстрируют использование действий скриптов с шаблонами Azure Resource Manager.
+Действия сценария можно использовать с шаблонами Azure Resource Manager. Пример см. в статье [Create HDInsight Linux Cluster and run a script action](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/) (Создание кластера HDInsight под управлением Linux и запуск действия сценария).
 
-#### <a name="before-you-begin"></a>Перед началом работы
+В этом примере добавляется действие сценария с помощью следующего кода:
 
-* Сведения о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
-* Инструкции по созданию шаблонов см. в статье [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) (Создание шаблонов Azure Resource Manager).
-* Сведения об использовании Azure PowerShell с Resource Manager см. в [этой статье](../azure-resource-manager/powershell-azure-resource-manager.md).
-
-#### <a name="create-clusters-using-script-action"></a>Создание кластеров с помощью действия скрипта
-
-1. Скопируйте следующий шаблон в папку на своем компьютере. Он устанавливает Giraph на головные и рабочие узлы в кластере. Чтобы убедиться, что шаблон JSON является допустимым, Вставьте содержимое шаблона в [JSONLint](http://jsonlint.com/) — интерактивное средство проверки JSON.
-
-            {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-                "clusterLocation": {
-                    "type": "string",
-                    "defaultValue": "West US",
-                    "allowedValues": [ "West US" ]
-                },
-                "clusterName": {
-                    "type": "string"
-                },
-                "clusterUserName": {
-                    "type": "string",
-                    "defaultValue": "admin"
-                },
-                "clusterUserPassword": {
-                    "type": "securestring"
-                },
-                "sshUserName": {
-                    "type": "string",
-                    "defaultValue": "username"
-                },
-                "sshPassword": {
-                    "type": "securestring"
-                },
-                "clusterStorageAccountName": {
-                    "type": "string"
-                },
-                "clusterStorageAccountResourceGroup": {
-                    "type": "string"
-                },
-                "clusterStorageType": {
-                    "type": "string",
-                    "defaultValue": "Standard_LRS",
-                    "allowedValues": [
-                        "Standard_LRS",
-                        "Standard_GRS",
-                        "Standard_ZRS"
-                    ]
-                },
-                "clusterStorageAccountContainer": {
-                    "type": "string"
-                },
-                "clusterHeadNodeCount": {
-                    "type": "int",
-                    "defaultValue": 1
-                },
-                "clusterWorkerNodeCount": {
-                    "type": "int",
-                    "defaultValue": 2
-                }
-            },
-            "variables": {
-            },
-            "resources": [
-                {
-                    "name": "[parameters('clusterStorageAccountName')]",
-                    "type": "Microsoft.Storage/storageAccounts",
-                    "location": "[parameters('clusterLocation')]",
-                    "apiVersion": "2015-05-01-preview",
-                    "dependsOn": [ ],
-                    "tags": { },
-                    "properties": {
-                        "accountType": "[parameters('clusterStorageType')]"
-                    }
-                },
-                {
-                    "name": "[parameters('clusterName')]",
-                    "type": "Microsoft.HDInsight/clusters",
-                    "location": "[parameters('clusterLocation')]",
-                    "apiVersion": "2015-03-01-preview",
-                    "dependsOn": [
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('clusterStorageAccountName'))]"
-                    ],
-                    "tags": { },
-                    "properties": {
-                        "clusterVersion": "3.2",
-                        "osType": "Linux",
-                        "clusterDefinition": {
-                            "kind": "hadoop",
-                            "configurations": {
-                                "gateway": {
-                                    "restAuthCredential.isEnabled": true,
-                                    "restAuthCredential.username": "[parameters('clusterUserName')]",
-                                    "restAuthCredential.password": "[parameters('clusterUserPassword')]"
-                                }
-                            }
-                        },
-                        "storageProfile": {
-                            "storageaccounts": [
-                                {
-                                    "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
-                                    "isDefault": true,
-                                    "container": "[parameters('clusterStorageAccountContainer')]",
-                                    "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
-                                }
-                            ]
-                        },
-                        "computeProfile": {
-                            "roles": [
-                                {
-                                    "name": "headnode",
-                                    "targetInstanceCount": "[parameters('clusterHeadNodeCount')]",
-                                    "hardwareProfile": {
-                                        "vmSize": "Large"
-                                    },
-                                    "osProfile": {
-                                        "linuxOperatingSystemProfile": {
-                                            "username": "[parameters('sshUserName')]",
-                                            "password": "[parameters('sshPassword')]"
-                                        }
-                                    },
-                                    "scriptActions": [
-                                        {
-                                            "name": "installGiraph",
-                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh",
-                                            "parameters": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "workernode",
-                                    "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
-                                    "hardwareProfile": {
-                                        "vmSize": "Large"
-                                    },
-                                    "osProfile": {
-                                        "linuxOperatingSystemProfile": {
-                                            "username": "[parameters('sshUserName')]",
-                                            "password": "[parameters('sshPassword')]"
-                                        }
-                                    },
-                                    "scriptActions": [
-                                        {
-                                            "name": "installR",
-                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
-                                            "parameters": ""
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    }
-                }
-            ],
-            "outputs": {
-                "cluster":{
-                    "type" : "object",
-                    "value" : "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
-                }
-            }
+    "scriptActions": [
+        {
+            "name": "setenvironmentvariable",
+            "uri": "[parameters('scriptActionUri')]",
+            "parameters": "headnode"
         }
-2. Запустите Azure PowerShell и войдите в учетную запись Azure. После предоставления учетных данных команда возвращает информацию о вашей учетной записи.
+    ]
 
-        Add-AzureRmAccount
+Дополнительные сведения о развертывании шаблона см. в следующих документах:
 
-        Id                             Type       ...
-        --                             ----
-        someone@example.com            User       ...
-3. Если у вас несколько подписок, укажите подписку, которую вы хотите использовать для развертывания.
+* [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
-        Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
+* [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
 
-    > [!NOTE]
-    > Используйте `Get-AzureRmSubscription` для получения списка всех подписок, связанных с вашей учетной записью, в котором указан идентификатор каждой подписки.
+### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Использование действия сценария при создании кластера с помощью Azure PowerShell
 
-4. Создайте группу ресурсов, если у вас нет существующей группы ресурсов. Введите имя группы ресурсов и расположение, необходимое для решения. Появится сводка по новой группе ресурсов.
-
-        New-AzureRmResourceGroup -Name myresourcegroup -Location "West US"
-
-        ResourceGroupName : myresourcegroup
-        Location          : westus
-        ProvisioningState : Succeeded
-        Tags              :
-        Permissions       :
-                            Actions  NotActions
-                            =======  ==========
-                            *
-        ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
-
-5. Чтобы создать развертывание для группы ресурсов, выполните командлет **New-AzureRmResourceGroupDeployment** и укажите необходимые параметры. Параметры включают следующие данные:
-
-    * имя развертывания;
-    * имя группы ресурсов;
-    * путь или URL-адрес к созданному шаблону.
-
-  Если для вашего шаблона требуются какие-либо параметры, необходимо также передать их. В данном случае для действия сценария по установке R в кластере никакие параметры не требуются.
-
-        New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
-
-    Появится запрос на задание значений параметров, определенных в шаблоне.
-
-1. После развертывания группы ресурсов вы увидите сводку по развертыванию.
-
-          DeploymentName    : mydeployment
-          ResourceGroupName : myresourcegroup
-          ProvisioningState : Succeeded
-          Timestamp         : 8/14/2017 7:00:27 PM
-          Mode              : Incremental
-          ...
-
-2. Если развертывание завершается сбоем, вы можете использовать следующие командлеты для получения информации об ошибках.
-
-        Get-AzureRmResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
-
-### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Использование действия скрипта при создании кластера с помощью Azure PowerShell
-
-В этом разделе мы используем командлет [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx), чтобы вызвать скрипты с помощью действия скрипта для настройки кластера. Прежде чем продолжить, убедитесь, что вы установили и настроили Azure PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
+В этом разделе используется командлет [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) для вызова сценариев, настраивающих кластер. Прежде чем продолжить, убедитесь, что вы установили и настроили Azure PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
 Следующий скрипт демонстрирует применение действия скрипта при создании кластера с помощью PowerShell:
 
@@ -441,11 +241,11 @@ ms.lasthandoff: 10/11/2017
 
 Создание кластера может занять несколько минут.
 
-### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>Использование действия скрипта при создании кластера с помощью пакета SDK HDInsight для .NET
+### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>Использование действия сценария при создании кластера с помощью пакета SDK HDInsight для .NET
 
 Пакет SDK HDInsight для .NET предоставляет клиентские библиотеки, которые упрощают работу с кластерами HDInsight из приложения .NET. Пример кода см. в статье [Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action).
 
-## <a name="apply-a-script-action-to-a-running-cluster"></a>Применение действия скрипта в работающем кластере
+## <a name="apply-a-script-action-to-a-running-cluster"></a>Применение действия сценария в работающем кластере
 
 В этом разделе вы узнаете, как применять действия скриптов к работающему кластеру.
 
@@ -460,7 +260,7 @@ ms.lasthandoff: 10/11/2017
    > [!NOTE]
    > Кроме того, можно щелкнуть **Все параметры**, а затем выбрать **Действия скрипта** в разделе "Параметры".
 
-3. В верхней части раздела "Действия скрипта" выберите **+Отправить новое**.
+3. В верхней части раздела "Действия скрипта" выберите **Отправить новое**.
 
     ![Добавление скрипта в работающий кластер](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
@@ -482,7 +282,7 @@ ms.lasthandoff: 10/11/2017
 
 5. Наконец, нажмите кнопку **Создать**, чтобы применить скрипт к кластеру.
 
-### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Применение действия скрипта в работающем кластере с помощью Azure PowerShell
+### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Применение действия сценария в работающем кластере с помощью Azure PowerShell
 
 Прежде чем продолжить, убедитесь, что вы установили и настроили Azure PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
@@ -535,13 +335,13 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="apply-a-script-action-to-a-running-cluster-using-rest-api"></a>Применение действия сценария в работающем кластере с помощью REST API
 
-См. статью [Run Script Actions on a running cluster](https://msdn.microsoft.com/library/azure/mt668441.aspx) (Выполнение действий скрипта в работающем кластере).
+Ознакомьтесь со статьей [Cluster](https://msdn.microsoft.com/library/azure/mt668441.aspx) (Кластер).
 
-### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Применение действия скрипта в работающем кластере с помощью пакета SDK HDInsight для .NET
+### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Применение действия сценария в работающем кластере с помощью пакета SDK HDInsight для .NET
 
 Пример использования пакета SDK для .NET для применения скриптов к кластеру см. на странице [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
-## <a name="view-history-promote-and-demote-script-actions"></a>Просмотр журнала и изменения типа действий скриптов
+## <a name="view-history-promote-and-demote-script-actions"></a>Просмотр журнала, повышение уровня и изменение типа действий сценариев
 
 ### <a name="using-the-azure-portal"></a>Использование портала Azure
 
@@ -554,15 +354,15 @@ ms.lasthandoff: 10/11/2017
    > [!NOTE]
    > Кроме того, можно щелкнуть **Все параметры**, а затем выбрать **Действия скрипта** в разделе "Параметры".
 
-4. Журнал скриптов для этого кластера отображается в разделе "Действия скрипта". Эти сведения включают в себя список сохраняемых скриптов. Как показано на снимке экрана ниже, в этом кластере был выполнен скрипт Solr. Сохраняемых скриптов на нем не видно.
+4. Журнал сценариев для этого кластера отображается в разделе "Действия скрипта". Эти сведения включают в себя список сохраняемых скриптов. Как показано на снимке экрана ниже, в этом кластере был выполнен скрипт Solr. Сохраняемых скриптов на нем не видно.
 
-    ![Раздел "Действия скриптов"](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
+    ![Раздел "Действия скрипта"](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
 
 5. При выборе сценария в журнале отображается соответствующий раздел "Свойства". В верхней части экрана можно повторно запустить скрипт или изменить его тип.
 
     ![Раздел "Свойства действий скрипта"](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. Можно также использовать элемент **…** справа от записей в разделе "Действия скрипта" для выполнения действий.
+6. Вы также можете использовать элемент **…** справа от записей в разделе "Действия скрипта" для выполнения действий.
 
     ![Использование действий скриптов](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 
@@ -639,7 +439,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Веб-панель Ambari с выбранной записью ops](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
 
-3. Найдите записи, для которых в столбце **Операции** указано **run\_customscriptaction**. Такие записи создаются при выполнении действий скриптов.
+3. Найдите записи, для которых в столбце **Операции** указано **run\_customscriptaction**. Такие записи создаются при выполнении действий сценариев.
 
     ![Снимок экрана операций](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
 
@@ -647,7 +447,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="access-logs-from-the-default-storage-account"></a>Доступ к журналам из учетной записи хранения по умолчанию
 
-При сбое создания кластера из-за ошибки в действии скрипта журналы по-прежнему будут доступными в учетной записи хранения кластера.
+Если из-за ошибки сценария при создании кластера происходит сбой, журналы сохраняются в учетной записи хранения кластера.
 
 * Журналы хранилища находятся в `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
@@ -703,19 +503,19 @@ sudo pip install azure-storage==0.20.0
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>Журнал не отображает скрипты, используемые во время создания кластера
 
-Если кластер создан до 15 марта 2016 г., в журнале действий скриптов могут отсутствовать записи. Если размер кластера изменен после 15 марта 2016 г., скрипты, используемые при создании кластера, будут отображаться в журнале, так как они применялись на новых узлах кластера при изменении размера.
+Если кластер создан до 15 марта 2016 г., в журнале действий сценариев могут отсутствовать записи. При изменении размера кластера сценарии фиксируются в журнале действий сценариев.
 
 Есть два исключения.
 
-* Если кластер создан до 1 сентября 2015 г. Это дата добавления действий скриптов. Если кластер был создан раньше, действия скриптов не могли использоваться при его создании.
+* Если кластер создан до 1 сентября 2015 г. Это дата добавления действий сценариев. Если кластер был создан раньше, действия сценариев не могли использоваться при его создании.
 
-* Если при создании кластера использовалось несколько действий скриптов, для которых использовалось одно имя, или же если для разных скриптов использовалось одно имя и один универсальный код ресурса (URI), но разные параметры. В таких случаях происходит следующая ошибка:
+* Если при создании кластера использовалось несколько действий сценариев, для которых использовалось одно имя, или же если для разных сценариев использовалось одно имя и один универсальный код ресурса (URI), но разные параметры. В таких случаях происходит следующая ошибка:
 
     В таком кластере из-за конфликта имен скриптов в существующих скриптах новые действия скриптов выполняться не будут. Имена скриптов, указанные при создании кластера, должны быть уникальными. Существующие скрипты выполняются при изменении размера.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Разработка скриптов действия сценария для HDInsight](hdinsight-hadoop-script-actions-linux.md)
+* [Разработка действий сценариев с помощью HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md)
 * [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Добавление дополнительных учетных записей хранения Azure в HDInsight](hdinsight-hadoop-add-storage.md)

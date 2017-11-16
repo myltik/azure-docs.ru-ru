@@ -1,6 +1,6 @@
 ---
 title: "Руководство по использованию ретранслятора WCF служебной шины Azure | Документация Майкрософт"
-description: "Создание службы и клиентского приложения служебной шины с помощью ретранслятора WCF."
+description: "Создание клиентского приложения и приложения службы с помощью ретранслятора WCF."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Руководство по ретранслятору WCF Azure
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 
 3. Установка пакета NuGet для служебной шины. Этот пакет автоматически добавляет ссылки на библиотеки служебной шины, а также элемент WCF **System.ServiceModel**. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) — это пространство имен, которое предоставляет программный доступ к основным функциям WCF. Служебная шина использует множество объектов и атрибутов WCF для определения контрактов службы.
 
-    В обозревателе решений щелкните правой кнопкой мыши проект и выберите пункт **Управление пакетами NuGet**. Щелкните вкладку **Обзор** и выполните поиск `Microsoft Azure Service Bus`. Убедитесь, что имя проекта указано в поле **Версии**. Щелкните **Установить**и примите условия использования.
+    В обозревателе решений щелкните правой кнопкой мыши проект и выберите пункт **Управление пакетами NuGet**. Щелкните вкладку **Обзор**, а затем найдите **WindowsAzure.ServiceBus**. Убедитесь, что имя проекта указано в поле **Версии**. Щелкните **Установить**и примите условия использования.
 
     ![][3]
 4. В обозревателе решений дважды щелкните файл Program.cs, чтобы открыть его в редакторе.

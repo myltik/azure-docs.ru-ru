@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
-ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b4cb2d168676d52a90942a116905e6669b16639
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="api-versions-in-azure-search"></a>Версии API в службе поиска Azure
 Служба поиска Azure развертывает обновления компонентов на регулярной основе. Иногда (но не всегда) для сохранения обратной совместимости после таких обновлений нам приходится публиковать новые версии API. Публикация новой версии позволяет вам выбирать, когда и как интегрировать обновления службы поиска в код.
@@ -36,9 +36,9 @@ ms.lasthandoff: 10/11/2017
 | Интерфейсы | Последняя основная версия | Состояние |
 | --- | --- | --- |
 | [Пакет SDK для .NET](https://aka.ms/search-sdk) |3.0 |Общедоступная версия, выпущенная в ноябре 2016 г. |
-| [Предварительная версия пакета SDK для .NET](https://aka.ms/search-sdk-preview) |2.0-preview |Предварительная версия, выпущенная в августе 2016 г. |
+| [Предварительная версия пакета SDK для .NET](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Предварительная версия, выпущенная в мае 2017 г. |
 | [API REST службы](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Общедоступная версия |
-| [Предварительная версия API REST службы](search-api-2015-02-28-preview.md) |2015-02-28-Preview |Предварительный просмотр |
+| [Предварительная версия API REST службы](search-api-2016-09-01-preview.md) |2016-09-01-Preview |Предварительный просмотр |
 | [Пакет SDK управления для .NET](https://aka.ms/search-mgmt-sdk) |2015-08-19 |Общедоступная версия |
 | [Интерфейс API REST для управления.](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Общедоступная версия |
 

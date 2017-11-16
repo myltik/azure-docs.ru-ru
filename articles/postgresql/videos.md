@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/05/2017
-ms.openlocfilehash: c5d4b85755750f3c06320ac623601ff155b2a704
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.openlocfilehash: 069ad2fcdd11f6fd2c7c282d28dbfa67edb902a1
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Видеоролики, посвященные базе данных Azure для PostgreSQL
 [Как начать работу с новой службой "База данных Azure для PostgreSQL"](https://channel9.msdn.com/events/Build/2017/B8046)

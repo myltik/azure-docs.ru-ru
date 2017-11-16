@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/03/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8c6ebddef89d48d8121da5777e62e311c234666
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Замена модуля контроллера на устройстве StorSimple
+> [!NOTE]
+> Классический портал StorSimple устарел. Диспетчеры устройств StorSimple автоматически перейдут на новый портал Azure в соответствии с графиком устаревания. Вы получите сообщение электронной почты и уведомление с портала, касающиеся этого перехода. Этот документ скоро также перестанет использоваться. Чтобы просмотреть версию этой статьи для нового портала Azure, перейдите к статье [Замена модуля контроллера на устройстве StorSimple](storsimple-8000-controller-replacement.md). Сведения, связанные с переходом, см. в [ответах на вопросы о перемещении на портал Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Обзор
 В этом учебнике объясняется, как снять и заменить один или оба модуля контроллера на устройстве StorSimple. В нем также обсуждается базовая логика сценариев замены одного или двух контроллеров.
 
@@ -79,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 #### <a name="to-remove-a-single-failed-controller-module"></a>Для снятия одного неисправного модуля контроллера
-1. На классическом портале Azure в службе диспетчера StorSimple перейдите на вкладку **Устройства** , а затем щелкните имя устройства, которое требуется отслеживать.
+1. На классическом портале Azure в службе StorSimple Manager перейдите на вкладку **Устройства** , а затем щелкните имя устройства, которое требуется отслеживать.
 2. Последовательно выберите **Обслуживание > Состояние оборудования**. Состояние контроллера 0 или 1 должно отображаться красным цветом, который указывает на сбой.
    
    > [!NOTE]
