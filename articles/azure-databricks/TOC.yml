@@ -1,0 +1,25 @@
+- name: Документация по Azure Databricks
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Что такое Azure Databricks?
+      href: what-is-azure-databricks.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Создание рабочей области Databricks
+      href: quickstart-create-databricks-workspace-portal.md
+- name: Ресурсы
+  items:
+    - name: Документация по Databricks
+      href: 'https://docs.azuredatabricks.net/user-guide/index.html'
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: Переполнение стека
+      href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
+    - name: Регионы доступности
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Варианты поддержки
+      href: 'https://azure.microsoft.com/support/options/'
