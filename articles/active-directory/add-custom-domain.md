@@ -14,11 +14,11 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 2ea119b56f467f57b5929dec05bfd645028578ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2f0287202e1b39f395354b1124078b7b0dc95a7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Краткое руководство. Добавление личного домена в Azure Active Directory
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 Если в организации используется несколько имен личных доменов, например contoso.com и contosobank.com, вы можете добавить не более 900 имен. Выполнив действия, описанные в этой статье, можно добавить все свои доменные имена.
 
 ### <a name="learn-more"></a>Подробнее
-[Общие сведения об именах личных доменов Azure AD](active-directory-add-domain-concepts.md)
+[Общие сведения об именах личных доменов Azure AD](active-directory-domains-manage-azure-portal.md)
 
 [Управление именами пользовательских доменов](active-directory-domains-manage-azure-portal.md)
 
