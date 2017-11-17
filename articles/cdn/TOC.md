@@ -11,7 +11,7 @@
 ### [Хранилище](cdn-create-a-storage-account-with-cdn.md)
 ### [Общий доступ к ресурсам независимо от источника](cdn-cors.md)
 ### [Добавление личного домена к конечной точке CDN](cdn-map-content-to-custom-domain.md)
-### [Включение HTTPS для пользовательского домена](cdn-custom-ssl.md)
+### [Настройка HTTPS в личном домене](cdn-custom-ssl.md)
 ## Оптимизация содержимого
 ### [Общие сведения об оптимизации](cdn-optimization-overview.md)
 ####[Оптимизация больших файлов](cdn-large-file-optimization.md)

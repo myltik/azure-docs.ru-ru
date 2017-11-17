@@ -37,6 +37,8 @@
       href: container-instances-mounting-azure-files-volume.md
     - name: Развертывание из реестра контейнеров Azure
       href: container-instances-using-azure-container-registry.md
+    - name: Выполнение контейнерных задач
+      href: container-instances-restart-policy.md
     - name: Устранение неполадок развертываний
       href: container-instances-troubleshooting.md
 - name: Справочные материалы

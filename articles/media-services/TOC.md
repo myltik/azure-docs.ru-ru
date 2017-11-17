@@ -106,7 +106,8 @@
 
 ## [Потоковая трансляция в реальном времени](media-services-manage-channels-overview.md)
 ### [Локальные кодировщики](media-services-live-streaming-with-onprem-encoders.md)
-#### [Портал](media-services-portal-live-passthrough-get-started.md)
+#### [Рекомендуемые локальные кодировщики](media-services-recommended-encoders.md)
+#### [Портал Azure](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Потоковая трансляция с использованием облачного кодировщика](media-services-manage-live-encoder-enabled-channels.md)
 #### [Портал Azure](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -118,6 +119,13 @@
 #### [Кодировщик Wirecast](media-services-configure-wirecast-live-encoder.md)
 ### [Обработка длительных операций](media-services-dotnet-long-operations.md)
 ### [Спецификация Fragmented MP4 Live Ingest](media-services-fmp4-live-ingest-overview.md)
+
+## [Обрезка содержимого](media-services-azure-media-clipper-overview.md)
+### [Начало работы с Azure Media Clipper](media-services-azure-media-clipper-getting-started.md)
+### [Загрузка файлов в Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+### [Настройка пользовательских сочетаний клавиш](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Отправка заданий обрезки](media-services-azure-media-clipper-submit-job.md)
+### [Портал Azure](media-services-azure-media-clipper-portal.md)
 
 ## [Защита](media-services-content-protection-overview.md)
 ### [Настройка системы защиты содержимого на портале Azure](media-services-portal-protect-content.md)

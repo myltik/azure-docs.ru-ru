@@ -1,0 +1,37 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по Azure Time Series Insights
+metadata:
+  title: Документация по Azure Time Series Insights. Руководства и справочник по API | Документация Майкрософт
+  description: 'Узнайте, как выполнять в облаке аналитику IoT с помощью полностью управляемого модуля обработки событий. Анализируйте в реальном времени данные, поступающие от приложений, датчиков, устройств и из других источников.'
+  services: time-series-insights
+  author: kfile
+  manager: jhubbard
+  ms.service: time-series-insights
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/13/2017
+  ms.author: kfile
+abstract:
+  description: 'Настройка среды службы "Аналитика временных рядов", а также просмотр и анализ данных временных рядов для решений Интернета вещей или подключенных устройств. Документация включает описание требований, руководства, справочники по API и другие статьи, которые помогут вам быстро приступить к работе.'
+sections:
+  - title: 5-минутные руководства по началу работы
+    items:
+      - type: paragraph
+        text: 'Узнайте, как развернуть Log Analytics и настроить сбор данных в Azure, в локальных ресурсах и ресурсах других поставщиков облачных служб.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/time-series-insights/media/index/time-series-insights.svg'
+            text: Знакомство со службой "Аналитика временных рядов Azure"
+            href: /azure/time-series-insights/time-series-quickstart
+  - title: Справочные материалы
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Интерфейсы API
+            html: <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">API запроса</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Синтаксис запросов</a></p>

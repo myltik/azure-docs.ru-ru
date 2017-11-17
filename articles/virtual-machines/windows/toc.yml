@@ -125,7 +125,7 @@
           href: ps-template.md
         - name: Подключение к виртуальной машине
           href: connect-logon.md
-        - name: Использование лицензирования AHUB
+        - name: Использование лицензии с преимуществом гибридного использования Azure
           href: hybrid-use-benefit-licensing.md
         - name: "Использование прав на мультитенантное размещение для Windows\_10"
           href: windows-desktop-multitenant-hosting-deployment.md
@@ -141,6 +141,17 @@
           href: policy.md
         - name: создать хранилище ключей;
           href: key-vault-setup.md
+    - name: Защита виртуальных машин
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      items:
+        - name: Резервное копирование одной виртуальной машины
+          items:
+            - name: Портал Azure
+              href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Azure PowerShell
+              href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Резервное копирование нескольких виртуальных машин
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Управление виртуальными машинами
       items:
         - name: Общие задачи в PowerShell
@@ -167,6 +178,8 @@
           href: scheduled-events.md
         - name: Монитор метаданных
           href: instance-metadata-service.md
+        - name: Включение вложенной виртуализации
+          href: nested-virtualization.md
     - name: Использование образов
       items:
         - name: Поиск и использование образов

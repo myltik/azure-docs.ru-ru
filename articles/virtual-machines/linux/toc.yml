@@ -143,6 +143,17 @@
               href: ssh-from-windows.md
             - name: Подробные инструкции
               href: create-ssh-keys-detailed.md
+    - name: Защита виртуальных машин
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+        - name: Резервное копирование одной виртуальной машины
+          href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Резервное копирование нескольких виртуальных машин
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Восстановление диска
+          href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Восстановление отдельных файлов
+          href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Управление виртуальными машинами
       items:
         - name: Общие задачи в CLI
