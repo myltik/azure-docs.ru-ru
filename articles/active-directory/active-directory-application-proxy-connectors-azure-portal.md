@@ -15,17 +15,13 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 477f20bd552460176be92f1db70bb0f76de8bac1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей
-> [!div class="op_single_selector"]
-> * [Портал Azure](active-directory-application-proxy-connectors-azure-portal.md)
-> * [классическом портале Azure](active-directory-application-proxy-connectors.md)
->
 
 Клиенты используют прокси приложения Azure AD все чаще и для большего числа приложений. Поэтому мы решили повысить гибкость прокси приложения, обеспечив создание дополнительных топологий. Можно создать группы соединителей прокси приложения. Это даст возможность назначить специальные соединители для обслуживания определенных приложений. Эта обеспечивает больший контроль и расширяет возможности оптимизации развертывания прокси приложения. 
 

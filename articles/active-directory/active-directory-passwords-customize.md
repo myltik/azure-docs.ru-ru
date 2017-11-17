@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 030fb1d87547a4fc78d54a855bca961202f28837
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: f2b172208185e343c9c10d55036c20d60346778c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Настройка функции самостоятельного сброса паролей в Azure AD
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/31/2017
 
 Во всех случаях уведомление будет отправлено не более чем 100 получателям.
 
-Дополнительные сведения о различных ролях администраторов и их назначении см. в документе [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
+Дополнительные сведения о различных ролях администраторов и их назначении см. в документе [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 ### <a name="disable-contact-your-administrator-emails"></a>Отключение отправки электронных сообщений при выборе ссылки "Обратитесь к администратору"
 
@@ -100,16 +100,16 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Как развернуть самостоятельный сброс пароля?](active-directory-passwords-best-practices.md)
-* [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md).
-* [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md).
-* [Требования к лицензированию самостоятельного сброса пароля в Azure AD](active-directory-passwords-licensing.md).
-* [Какие данные используются для SSPR и какие сведения нужно указывать пользователям?](active-directory-passwords-data.md)
-* [Доступные пользователям методы проверки подлинности](active-directory-passwords-how-it-works.md#authentication-methods).
-* [Параметры политики для SSPR](active-directory-passwords-policy.md).
-* [Обзор обратной записи паролей](active-directory-passwords-writeback.md).
-* [Параметры отчетов для управления паролями Azure AD](active-directory-passwords-reporting.md).
-* [Руководство по самостоятельному сбросу пароля в Azure AD](active-directory-passwords-how-it-works.md).
+* [Как развернуть самостоятельный сброс пароля](active-directory-passwords-best-practices.md)
+* [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
+* [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
+* [Вопросы по лицензированию](active-directory-passwords-licensing.md)
+* [Какие данные используются для SSPR и какие сведения нужно указывать для пользователей](active-directory-passwords-data.md)
+* [Доступные пользователям методы проверки подлинности](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Параметры политики для SSPR](active-directory-passwords-policy.md)
+* [Что такое обратная запись паролей и каково ее назначение](active-directory-passwords-writeback.md)
+* [Как сообщать о действиях в SSPR](active-directory-passwords-reporting.md)
+* [Обзор всех параметров SSPR и их значение](active-directory-passwords-how-it-works.md)
 * [Как устранить неполадки самостоятельного сброса пароля](active-directory-passwords-troubleshoot.md)
 * [Вопросы, не вошедшие в другие статьи](active-directory-passwords-faq.md)
 

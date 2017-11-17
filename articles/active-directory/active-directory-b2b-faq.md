@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: bfedbbf8b26e1b129584a6a644e64a15635f5723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 Нет. Функции службы совместной работы Azure AD B2B доступны только на [портале Azure](https://portal.azure.com) и на [панели доступа](https://myapps.microsoft.com/). 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Можно ли настроить более интуитивно понятную страницу входа для гостевых пользователей службы совместной работы B2B?
-Конечно. Ознакомьтесь с [записью блога об этой функции](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Дополнительные сведения о настройке страницы входа вашей организации см. в статье [Добавление фирменной символики на страницу входа и панели доступа](active-directory-add-company-branding.md).
+Конечно. Ознакомьтесь с [записью блога об этой функции](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Дополнительные сведения о настройке страницы входа вашей организации см. в статье [Добавление фирменной символики на страницу входа и панели доступа](customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Имеют ли пользователи службы совместной работы B2B доступ к SharePoint Online и OneDrive?
 Да. Но возможность поиска имеющихся гостевых пользователей в средстве выбора людей в SharePoint Online **отключена** по умолчанию. Чтобы включить поиск имеющихся гостевых пользователей, установите для параметра **ShowPeoplePickerSuggestionsForGuestUsers** значение **Включено**. Вы можете включить этот параметр на уровне клиента или коллекции сайта. Его можно изменить с помощью командлетов Set-SPOTenant и Set-SPOSite. С помощью этих командлетов участники могут выполнить в каталоге поиск всех имеющихся гостевых пользователей. Изменения в области клиента не влияют на уже подготовленные сайты SharePoint Online.

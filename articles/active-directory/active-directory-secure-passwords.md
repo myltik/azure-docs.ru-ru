@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3810c6fc3e6d6abf6e41047a303f8d0ecfe1c7ec
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Многоуровневый подход к безопасности паролей Azure AD
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 * настройка требований к сложности пароля;
 * регулярная и периодическая смена пароля.
 
-Сведения о сбросе пароля в Azure Active Directory см. в статье [Самостоятельный сброс пароля в Azure AD для ИТ-специалистов](active-directory-passwords.md).
+Сведения о сбросе пароля в Azure Active Directory см. в статье [Самостоятельный сброс пароля в Azure AD для ИТ-специалистов](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="azure-ad-password-protections"></a>Защита паролей в Azure AD
 
@@ -74,7 +74,7 @@ Azure AD и учетные записи Майкрософт обеспечив�
 
   ![Блокировка учетной записи Майкрософт](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Сведения о сбросе пароля в Azure Active Directory см. в статье [Самостоятельный сброс пароля в Azure AD для ИТ-специалистов](active-directory-passwords.md).
+Сведения о сбросе пароля в Azure Active Directory см. в статье [Самостоятельный сброс пароля в Azure AD для ИТ-специалистов](active-directory-passwords-update-your-own-password.md).
 
   >[!NOTE]
   >Если вы являетесь администратором Azure AD, возможно, вам понадобится использовать [Windows Hello](https://www.microsoft.com/windows/windows-hello), чтобы избежать создания традиционных паролей пользователями.

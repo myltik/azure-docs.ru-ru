@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b27363a38c1a5955e062d1e5c036b542341e16bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Устранение неполадок: элемент Active Directory отсутствует или недоступен
 Многие указания по использованию функций и служб Azure Active Directory начинаются с «Перейдите на портал управления Azure и щелкните **Active Directory**». Но что делать, если расширение или пункт меню Active Directory не отображается или помечен **Недоступно**? В этой статье вы найдете нужные ответы. В ней описываются условия, при которых элемент **Active Directory** не отображается или недоступен, и дальнейшие действия в такой ситуации.
@@ -39,11 +39,11 @@ ms.lasthandoff: 10/11/2017
 * У клиента Azure есть хотя бы одно пространство имен контроля доступа Azure AD (ACS). Дополнительные сведения см. в статье о [пространстве имен контроля доступа](https://msdn.microsoft.com/library/azure/gg185908.aspx).
   
     ИЛИ
-* У клиента Azure есть хотя бы один поставщик Azure Multi-Factor Authentication. Дополнительные сведения см. в статье [Администрирование поставщиков Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+* У клиента Azure есть хотя бы один поставщик Многофакторной идентификации Azure. Дополнительные сведения см. в статье [Администрирование поставщиков Многофакторной идентификации Azure](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
-Чтобы создать пространство имен контроля доступа или поставщик Multi-Factor Authentication, щелкните **+Создать** > **Службы приложений** > **Active Directory**.
+Чтобы создать пространство имен контроля доступа или поставщик Многофакторной идентификации, щелкните **+Создать** > **Службы приложений** > **Active Directory**.
 
-Чтобы получить права администратора для каталога, обратитесь к администратору, чтобы он назначил вашей учетной записи роль администратора. Дополнительные сведения см. в статье [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
+Чтобы получить права администратора для каталога, обратитесь к администратору, чтобы он назначил вашей учетной записи роль администратора. Дополнительные сведения см. в статье [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="active-directory-is-not-available"></a>Active Directory недоступен
 Элемент **Active Directory** отобразится, если щелкнуть **+Создать** > **Службы приложений**. В частности, элемент Active Directory появляется, когда любая из функций Active Directory, такая как каталог, управление доступом или поставщик Multi-Factor Auth, доступна текущему пользователю.

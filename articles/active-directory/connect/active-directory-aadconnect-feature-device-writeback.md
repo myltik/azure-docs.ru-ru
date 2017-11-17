@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac5c39eac34221992803f3b27db241263f828b36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: включение обратной записи устройств
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 * когда необходимо включить условный доступ на основе устройств служб ADFS (2012 R2 или более поздней версии) к защищенным приложениям (отношения доверия с проверяющей стороной).
 
-Это обеспечивает дополнительную защиту и гарантию того, что доступ к приложениям предоставляется только доверенным устройствам. Дополнительные сведения о настройке условного доступа см. в статьях [Управление рисками с помощью условного доступа](../active-directory-conditional-access.md) и [Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Это обеспечивает дополнительную защиту и гарантию того, что доступ к приложениям предоставляется только доверенным устройствам. Дополнительные сведения о настройке условного доступа см. в статьях [Управление рисками с помощью условного доступа](../active-directory-conditional-access-azure-portal.md) и [Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 > [!IMPORTANT]
 > <li>Устройства должны находиться в том же лесу, что и пользователи. Поскольку обратная запись устройств должна производиться в один лес, эта функция в настоящий момент не поддерживает развертывание с несколькими лесами пользователей.</li>
@@ -141,7 +141,7 @@ ms.lasthandoff: 10/11/2017
 ![Устранение неполадок, проверка разрешений в конфигурации регистрации устройства](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 
 ## <a name="additional-information"></a>Дополнительная информация
-* [Управление рисками с помощью условного доступа](../active-directory-conditional-access.md)
+* [Управление рисками с помощью условного доступа](../active-directory-conditional-access-azure-portal.md)
 * [Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory](../active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия

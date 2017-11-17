@@ -15,11 +15,11 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15c392c6e94abaff7c28bc672cfe61c7551ede4d
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Аспекты топологии сети при использовании прокси приложения Azure Active Directory
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 10/11/2017
 
 Все больше организаций перемещают сети в размещенные среды. В этой ситуации приложения также могут мигрировать в размещенную среду, оставаясь в пределах корпоративной сети и домена. В шаблонах, которые описаны в предыдущем разделе, можно учесть новое расположение приложения. Если вы рассматриваете этот вариант, перейдите на страницу [Доменные службы Azure Active Directory](../active-directory-domain-services/active-directory-ds-overview.md).
 
-Кроме того, рассмотрите возможность использования [групп соединителей](active-directory-application-proxy-connectors.md) для целевых приложений, находящихся в разных расположениях и сетях. 
+Кроме того, рассмотрите возможность использования [групп соединителей](active-directory-application-proxy-connectors-azure-portal.md) для целевых приложений, находящихся в разных расположениях и сетях. 
 
 ## <a name="common-use-cases"></a>Распространенные варианты использования
 
@@ -174,5 +174,5 @@ ms.lasthandoff: 10/11/2017
 
 - [Включение прокси приложения](active-directory-application-proxy-enable.md)
 - [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
-- [Включение условного доступа](active-directory-application-proxy-conditional-access.md)
+- [Включение условного доступа](application-proxy-enable-remote-access-sharepoint.md)
 - [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 96a33547329931903d264d5ec4ea8da76e36a0a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6987ad8f36de55ac49785b41bb193721aa78321b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Вход пользователей с помощью сквозной проверки подлинности Azure Active Directory
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 - *Безопасность*
   - Локальные пароли ни в каком виде не хранятся в облаке.
   - Агент устанавливает только исходящие подключения из вашей сети. Таким образом, вам не нужно устанавливать агент в сети периметра.
-  - Защита учетных записей пользователей благодаря взаимодействию с [политиками условного доступа Azure AD](../active-directory-conditional-access-azure-portal.md), включая Многофакторную Идентификацию (MFA), и [фильтрации атак методом подбора пароля](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
+  - Защита учетных записей пользователей благодаря взаимодействию с [политиками условного доступа Azure AD](../active-directory-conditional-access-azure-portal.md), включая Многофакторную идентификацию (MFA), и [фильтрации атак методом подбора пароля](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
 - *Высокая доступность*
   - Дополнительные агенты можно установить на нескольких локальных серверах, чтобы достичь высокого уровня доступности запросов на вход.
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
 - Поддерживает вход пользователей во все браузерные приложения и клиентские приложения Microsoft Office, которые используют [современную проверку подлинности](https://aka.ms/modernauthga).
 - Именем пользователя для входа может быть либо локальное имя пользователя по умолчанию (`userPrincipalName`), либо другой атрибут, настроенный в Azure AD Connect (известный как `Alternate ID`).
-- Эта функция взаимодействует с функциями [условного доступа](../active-directory-conditional-access.md), такими как Многофакторная Идентификация (MFA), для защиты пользователей.
+- Эта функция взаимодействует с функциями [условного доступа](../active-directory-conditional-access-azure-portal.md), такими как Многофакторная Идентификация (MFA), для защиты пользователей.
 - Она интегрирована с [самостоятельным управлением паролями](../active-directory-passwords-overview.md) на основе облака, включая обратную запись паролей в локальный каталог Active Directory и защиту пароля с помощью запрета часто используемых паролей.
 - Среды с несколькими лесами поддерживаются, если между лесами AD существуют отношения доверия и правильно настроена маршрутизация по суффиксу имени.
 - Это бесплатная функция, и для ее использования не требуются платные выпуски Azure AD.
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - [**Краткое руководство по сквозной проверке подлинности Azure Active Directory**](active-directory-aadconnect-pass-through-authentication-quick-start.md). Настройка и подготовка к работе сквозной проверки подлинности Azure Active Directory.
-- [**Интеллектуальная блокировка.**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) Настройте возможность интеллектуальной блокировки на клиенте для защиты учетных записей пользователей.
+- [**Интеллектуальная блокировка**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md). Настройте возможность интеллектуальной блокировки на клиенте для защиты учетных записей пользователей.
 - [**Текущие ограничения**](active-directory-aadconnect-pass-through-authentication-current-limitations.md). Сведения о том, какие сценарии поддерживаются, а какие нет.
 - [**Техническое руководство по сквозной проверке подлинности Azure Active Directory**](active-directory-aadconnect-pass-through-authentication-how-it-works.md). Сведения о том, как работает эта функция.
 - [**Часто задаваемые вопросы**](active-directory-aadconnect-pass-through-authentication-faq.md). Ответы на часто задаваемые вопросы.

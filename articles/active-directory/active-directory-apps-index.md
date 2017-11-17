@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 3910c62e61d77f479da9fae2e1a8c0575c543281
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: d8ed395abb31a1cb41e35456ab5892a2e7c3a750
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Указатель статей по управлению приложениями в Azure Active Directory
 В этой статье представлен полный список всех статей о различных функциях приложений в Azure Active Directory (Azure AD).
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/23/2017
 |:---:| --- |
 | Введение в проблемы управления приложениями, решаемые с помощью Azure AD |[Управление приложениями с помощью Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
 | Обзор различных функций в Azure AD, связанных с включением единого входа, определением пользователей, у которых есть доступ к приложениям, и способов запуска приложений |[Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md) |
-| Обзор различных этапов интеграции приложений в Azure AD |[Интеграция Azure Active Directory с приложениями](active-directory-integrating-applications-getting-started.md)<br /><br />[Включение единого входа для приложений SaaS](active-directory-sso-integrate-saas-apps.md)<br /><br />[Управление доступом к приложениям](active-directory-managing-access-to-apps.md) |
+| Обзор различных этапов интеграции приложений в Azure AD |[Интеграция Azure Active Directory с приложениями](active-directory-integrating-applications-getting-started.md)<br /><br />[Включение единого входа для приложений SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Управление доступом к приложениям](active-directory-managing-access-to-apps.md) |
 | Технические сведения о представлении приложений в Azure AD |[Как и почему приложения добавляются в Azure AD](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Статьи по устранению неполадок
@@ -80,8 +80,8 @@ ms.lasthandoff: 10/23/2017
 |:---:| --- |
 | Общие сведения о прокси приложения Azure AD и принципах его работы |[Предоставление безопасного удаленного доступа к локальному приложению](active-directory-application-proxy-get-started.md) |
 | Руководства по настройке прокси приложения и публикации первого приложения |[Настройка прокси приложения Azure AD](active-directory-application-proxy-enable.md)<br /><br />[Автоматическая установка соединителя прокси приложения](active-directory-application-proxy-silent-installation.md)<br /><br />[Публикация приложений с помощью прокси приложения](active-directory-application-proxy-publish.md)<br /><br />[Работа с пользовательскими доменами в прокси приложения Azure AD](active-directory-application-proxy-custom-domains.md) |
-| Включение единого входа и условного доступа для приложений, опубликованных с помощью прокси приложения |[Единый вход с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Работа с условным доступом](active-directory-application-proxy-conditional-access.md) |
-| Рекомендации по использованию прокси приложения в определенных сценариях |[Включение собственных клиентских приложений для взаимодействия с приложениями прокси](active-directory-application-proxy-native-client.md)<br /><br />[Работа с приложениями, поддерживающими утверждения, в прокси приложения](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей](active-directory-application-proxy-connectors.md) |
+| Включение единого входа и условного доступа для приложений, опубликованных с помощью прокси приложения |[Единый вход с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Работа с условным доступом](application-proxy-enable-remote-access-sharepoint.md) |
+| Рекомендации по использованию прокси приложения в определенных сценариях |[Включение собственных клиентских приложений для взаимодействия с приложениями прокси](active-directory-application-proxy-native-client.md)<br /><br />[Работа с приложениями, поддерживающими утверждения, в прокси приложения](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей](active-directory-application-proxy-connectors-azure-portal.md) |
 | Руководство по устранению неполадок прокси приложения |[Устранение неполадок прокси-сервера приложений](active-directory-application-proxy-troubleshoot.md) |
 
 Прокси приложения доступно для всех выпусков Azure AD, и его можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), то вы можете [использовать группы для предоставления доступа к приложениям](#managing-access-to-applications).
@@ -107,10 +107,9 @@ Azure AD Connect доступно для [всех выпусков Azure Active
 
 | Путеводитель по статьям |  |
 |:---:| --- |
-| Общие сведения о возможностях условного доступа, предлагаемых в Azure AD, Office 365 и Intune |[Управление рисками с помощью условного доступа](active-directory-conditional-access.md) |
-| Включение условного доступа для определенных типов ресурсов |[Условный доступ к приложениям SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Условный доступ к службам Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Условный доступ к локальным приложениям](active-directory-conditional-access.md)<br /><br />[Работа с условным доступом](active-directory-application-proxy-conditional-access.md) |
-
-| Регистрация устройств в Azure Active Directory для включения политики условного доступа на основе устройств |[Общие сведения о регистрации устройств Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Включение автоматической регистрации присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Действия для устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Действия для устройств Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
+| Общие сведения о возможностях условного доступа, предлагаемых в Azure AD, Office 365 и Intune |[Управление рисками с помощью условного доступа](active-directory-conditional-access-azure-portal.md) |
+| Включение условного доступа для определенных типов ресурсов |[Условный доступ к приложениям SaaS](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Условный доступ к службам Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Условный доступ к локальным приложениям](active-directory-conditional-access-azure-portal.md)<br /><br />[Работа с условным доступом](application-proxy-enable-remote-access-sharepoint.md) |
+| Регистрация устройств в Azure Active Directory для включения политики условного доступа на основе устройств |[Общие сведения о регистрации устройств Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Включение автоматической регистрации присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Действия для устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Действия для устройств Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | Использование приложения Microsoft Authenticator для двухфакторной проверки подлинности |[Начало работы с приложением Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
@@ -162,8 +161,8 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 |:---:| --- |
 | Обзор функций управления доступом Azure AD |[Введение в управление доступом к приложениям](active-directory-managing-access-to-apps.md)<br /><br />[Как работает управление доступом в Azure AD](active-directory-manage-groups.md)<br /><br />[Использование группы для управления доступом к приложениям SaaS](active-directory-accessmanagement-group-saasapps.md) |
 | Включение самостоятельного управления приложениями и группами |[Самостоятельное управление приложениями](active-directory-self-service-application-access.md)<br /><br />[Настройка Azure Active Directory для управления самостоятельным доступом к приложениям](active-directory-accessmanagement-self-service-group-management.md) |
-| Указания по настройке групп в Azure AD |[Создание групп безопасности](active-directory-accessmanagement-manage-groups.md)<br /><br />[Назначение владельцев для группы](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Выделенные группы в Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md) |
-| Использование динамических групп для автоматического заполнения участников группы с помощью правил членства на основе атрибутов |[Динамическое членство в группах: расширенные правила](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[Устранение неполадок динамического членства в группах](active-directory-accessmanagement-troubleshooting.md) |
+| Указания по настройке групп в Azure AD |[Создание групп безопасности](active-directory-groups-create-azure-portal.md)<br /><br />[Назначение владельцев для группы](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Выделенные группы в Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md) |
+| Использование динамических групп для автоматического заполнения участников группы с помощью правил членства на основе атрибутов |[Динамическое членство в группах: расширенные правила](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Устранение неполадок динамического членства в группах](active-directory-accessmanagement-troubleshooting.md) |
 
 Управление доступом к приложениям на основе групп поддерживается в [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) и [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/). Самостоятельное управление группами и приложениями, а также динамические группы — это функции [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/) .
 
@@ -211,4 +210,4 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 
 [Доменные службы Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds/)
 
-[Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
+[Многофакторная идентификация Azure](https://azure.microsoft.com/services/multi-factor-authentication/)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 0cab39bb3ce5c42fac543171baea498eb894c502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9ff22c7b4793112da5211162ed9cd58ac86d238
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Управление службами федерации Active Directory и их настройка с помощью Azure AD Connect
 В этой статье описывается управление службами федерации Active Directory (AD FS) и их настройка с помощью Azure Active Directory (Azure AD) Connect, а также рассматриваются другие стандартные задачи AD FS, которые может потребоваться выполнить для полной настройки фермы AD FS.
@@ -170,7 +170,7 @@ Azure AD Connect может проверить текущую работоспо
 
    ![Домен Azure AD](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
-    Когда вы выберете домен, мастер предоставит соответствующие сведения о дальнейших действиях, которые будут выполнены мастером, а также о результатах настроек. В некоторых случаях при выборе домена, еще не проверенного в Azure AD, мастер предоставит сведения, которые помогут проверить домен. Дополнительные сведения см. в разделе [Добавление имени личного домена в Azure Active Directory](../active-directory-add-domain.md).
+    Когда вы выберете домен, мастер предоставит соответствующие сведения о дальнейших действиях, которые будут выполнены мастером, а также о результатах настроек. В некоторых случаях при выборе домена, еще не проверенного в Azure AD, мастер предоставит сведения, которые помогут проверить домен. Дополнительные сведения см. в разделе [Добавление имени личного домена в Azure Active Directory](../active-directory-domains-add-azure-portal.md).
 
 5. Щелкните **Далее**. На странице **Готово к настройке** отображается список действий, которые выполнит Azure AD Connect. Чтобы завершить настройку, нажмите кнопку **Установить** .
 

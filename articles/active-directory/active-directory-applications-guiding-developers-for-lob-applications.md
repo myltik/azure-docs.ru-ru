@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b119be9c06d8c1ccc8e747168429e6c2d2e7a8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76bb8d239b54b5236d077b98a5908c230cdc31a1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Разработка бизнес-приложений для Azure Active Directory
 Это руководство содержит сведения о разработке бизнес-приложений для Azure Active Directory (AD). Оно предназначено специально для глобальных администраторов Active Directory и Office 365.
 
 ## <a name="overview"></a>Обзор
-Создание приложений, интегрированных с Azure AD, предоставляет пользователям в вашей организации возможность единого входа в Office 365. Помещение приложения в Azure AD позволяет управлять политикой аутентификации для этого приложения. Дополнительные сведения об условном доступе и защите приложений с помощью Многофакторной идентификации (MFA) см. в статье [Приступая к работе с условным доступом Azure Active Directory](active-directory-conditional-access-azuread-connected-apps.md).
+Создание приложений, интегрированных с Azure AD, предоставляет пользователям в вашей организации возможность единого входа в Office 365. Помещение приложения в Azure AD позволяет управлять политикой аутентификации для этого приложения. Дополнительные сведения об условном доступе и защите приложений с помощью Многофакторной идентификации (MFA) см. в статье [Приступая к работе с условным доступом Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 Зарегистрируйте свое приложение для использования Azure Active Directory. Регистрация приложения означает, что разработчики смогут использовать Azure AD для аутентификации пользователей и для запроса доступа к ресурсам пользователей, таким как электронная почта, календарь и документы.
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 * подавление процедуры использования согласия пользователей.
 
 ## <a name="configure-access-rules"></a>Настройка правил доступа
-Настройте правила доступа для каждого приложения SaaS. Например, это может быть запрос на многофакторную проверку подлинности или предоставление доступа только для пользователей в доверенных сетях. Подробные сведения см. в документе [Приступая к работе с условным доступом Azure Active Directory](active-directory-conditional-access-azuread-connected-apps.md).
+Настройте правила доступа для каждого приложения SaaS. Например, это может быть запрос на многофакторную проверку подлинности или предоставление доступа только для пользователей в доверенных сетях. Подробные сведения см. в документе [Приступая к работе с условным доступом Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>настройка приложения для запроса назначений пользователей и назначение пользователей;
 По умолчанию пользователи могут получить доступ к приложениям без назначения. Однако если приложение предоставляет роли или вы хотите, чтобы приложение отображалось на панели доступа пользователя, то следует запросить назначение пользователей.
@@ -78,6 +78,6 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="related-articles"></a>Связанные статьи
 * [Как обеспечить безопасный удаленный доступ к локальным приложениям](active-directory-application-proxy-get-started.md)
-* [Предварительная версия Azure условного доступа для приложений SaaS](active-directory-conditional-access-azuread-connected-apps.md)
+* [Предварительная версия Azure условного доступа для приложений SaaS](active-directory-conditional-access-azure-portal-get-started.md)
 * [Управление доступом к приложениям с помощью Azure AD](active-directory-managing-access-to-apps.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)

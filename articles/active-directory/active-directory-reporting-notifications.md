@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e561061cadd88e2c5670e27f2a66ef21002e30b0
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: fa8ca5940bb437c1e5c3939262db000544b04e36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Уведомления отчетов Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Какие отчеты создают уведомления по электронной почте
@@ -47,5 +47,5 @@ ms.lasthandoff: 10/18/2017
 ## <a name="whats-next"></a>Что дальше?
 * Интересуют доступные отчеты о безопасности, аудиту и действиях? См. раздел [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md).
 * [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Добавление фирменной символики компании на страницах  входа и панели доступа](active-directory-add-company-branding.md)
+* [Добавление фирменной символики компании на страницах  входа и панели доступа](customize-branding.md)
 
