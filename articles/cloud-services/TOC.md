@@ -34,32 +34,21 @@
 #### [Установка .NET в роли облачной службы с помощью задачи](cloud-services-dotnet-install-dotnet.md)
 
 ### Настройка удаленного рабочего стола
-#### [Портал Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [Классический портал.](cloud-services-role-enable-remote-desktop.md)
-#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Портал](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Развернуть
-### Создание и развертывание облачной службы на портале
-#### [Портал Azure](cloud-services-how-to-create-deploy-portal.md)
-#### [Классический портал.](cloud-services-how-to-create-deploy.md)
+### [Создание и развертывание облачной службы на портале](cloud-services-how-to-create-deploy-portal.md)
 ### [Создание пустого контейнера облачной службы в PowerShell](cloud-services-powershell-create-cloud-container.md)
-### Настройка пользовательского имени домена
-#### [Портал](cloud-services-custom-domain-name-portal.md)
-#### [Классический портал](cloud-services-custom-domain-name.md)
+### [Настройка пользовательского имени домена](cloud-services-custom-domain-name-portal.md)
 ### [Развертывание облачной службы (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Подключение к пользовательскому контроллеру домена](cloud-services-connect-to-custom-domain.md)
 
 ## Управление службой
-### Общие задачи управления
-#### [Портал Azure](cloud-services-how-to-manage-portal.md)
-#### [Классический портал.](cloud-services-how-to-manage.md)
-### Настройка облачной службы
-#### [Портал Azure](cloud-services-how-to-configure-portal.md)
-#### [Классический портал.](cloud-services-how-to-configure.md)
+### [Общие задачи управления](cloud-services-how-to-manage-portal.md)
+### [Настройка облачной службы](cloud-services-how-to-configure-portal.md)
 ### [Управление облачной службой с помощью службы автоматизации Azure](automation-manage-cloud-services.md)
-### Настройка автоматического масштабирования
-#### [Портал Azure](cloud-services-how-to-scale-portal.md)
-#### [Классический портал.](cloud-services-how-to-scale.md)
+### [Настройка автоматического масштабирования](cloud-services-how-to-scale-portal.md)
 ### [Использование языка Python для управления ресурсами Azure](cloud-services-python-how-to-use-service-management.md)
 
 ### [Исправления гостевой ОС](cloud-services-guestos-msrc-releases.md)
@@ -71,11 +60,9 @@
 
 ## Управление сертификатами
 ### [Облачные службы и сертификаты управления](cloud-services-certs-create.md)
-### Настройка SSL 
-#### [Портал](cloud-services-configure-ssl-certificate-portal.md)
-#### [Классический портал](cloud-services-configure-ssl-certificate.md)
+### [Настройка SSL](cloud-services-configure-ssl-certificate-portal.md)
 
-## Мониторинг
+## Монитор
 ### [Мониторинг облачной службы](cloud-services-how-to-monitor.md)
 ### [Тестирование производительности](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Тестирование с помощью профилировщика Visual Studio](cloud-services-performance-testing-visual-studio-profiler.md)
