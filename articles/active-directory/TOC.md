@@ -73,7 +73,6 @@
 ## [Управление группами и членами](active-directory-manage-groups.md)
 ### Управление группами
 #### [Портал Azure](active-directory-groups-create-azure-portal.md)
-#### [Классический портал.](active-directory-accessmanagement-manage-groups.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Управление членами группы](active-directory-groups-members-azure-portal.md)
 ### [Управление владельцами групп](active-directory-accessmanagement-managing-group-owners.md)
@@ -94,7 +93,6 @@
 #### [Командлеты](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Создание дополнительных правил
 #### [Портал Azure](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [Классический портал](active-directory-accessmanagement-groups-with-advanced-rules.md)
 ### [Настройка групп самообслуживания](active-directory-accessmanagement-self-service-group-management.md)
 ### [Устранение неполадок](active-directory-accessmanagement-troubleshooting.md)
 
@@ -135,6 +133,7 @@
 #### [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
 ### [Принципы работы SSPR](active-directory-passwords-how-it-works.md)
 ### [Руководство по развертыванию SSPR](active-directory-passwords-best-practices.md)
+### [SSPR и Windows 10](active-directory-passwords-login.md)
 ### [Политики SSPR](active-directory-passwords-policy.md)
 ### [Настройка SSPR](active-directory-passwords-customize.md)
 ### [Требования к данным SSPR](active-directory-passwords-data.md)
@@ -209,8 +208,8 @@
 #### С помощью классического портала
 ##### [Скачивание соединителей](application-proxy-enable-classic-portal.md)
 ##### [Публикация приложений](active-directory-application-proxy-publish.md)
-##### [Использование соединителей](active-directory-application-proxy-connectors.md)
-##### [Условный доступ](active-directory-application-proxy-conditional-access.md)
+##### [Использование соединителей](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Условный доступ](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Управление корпоративными приложениями
 #### [Назначение пользователей](active-directory-coreapps-assign-user-azure-portal.md)
@@ -222,6 +221,7 @@
 #### [Управление параметрами единого входа для корпоративных приложений](active-directory-enterprise-apps-manage-sso.md)
 #### [Расширенные параметры подписи сертификатов для приложений SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Скрытие сторонних приложений в пользовательском интерфейсе](active-directory-coreapps-hide-third-party-app.md)
+### [Настройка автоматического ускорения входа с помощью политики обнаружения домашней области](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Управление доступом к приложениям](active-directory-managing-access-to-apps.md)
 #### [Самостоятельный доступ к приложениям](active-directory-self-service-application-access.md)
@@ -248,9 +248,8 @@
 ## Управление каталогом
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Имена пользовательских доменов
-#### [Обзор](active-directory-add-domain-concepts.md)
+#### [Обзор](active-directory-domains-manage-azure-portal.md)
 #### [Управление доменными именами](active-directory-domains-manage-azure-portal.md)
-##### [Классический портал.](active-directory-add-manage-domain-names.md)
 ### [Администрирование каталога](active-directory-administer.md)
 ### [Несколько каталогов](active-directory-licensing-directory-independence.md)
 ### [Самостоятельная регистрация](active-directory-self-service-signup.md)

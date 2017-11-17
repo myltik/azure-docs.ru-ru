@@ -17,6 +17,7 @@
 #### [Azure AD и пакетная служба](batch-aad-auth.md)
 #### [Azure AD и управление пакетной службой](batch-aad-auth-management.md)
 ### [Виртуальные машины для ресурсоемких вычислений](batch-pool-compute-intensive-sizes.md)
+### [Контейнерные рабочие нагрузки](batch-docker-container-workloads.md)
 ### [Параллельные задачи узла](batch-parallel-node-tasks.md)
 ### [Подсчет задач по состоянию](batch-get-task-counts.md)
 ### [Создание пула с помощью пользовательского образа](batch-custom-images.md)

@@ -15,7 +15,7 @@
   items:
     - name: Создание кластера виртуальных машин с помощью модулей Terraform
       href: terraform-create-vm-cluster-module.md
-    - name: Создание кластера виртуальных машин с помощью Cloud Shell
+    - name: Создание кластера виртуальных машин с помощью Terraform и HCL
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Подготовка масштабируемого набора виртуальных машин с инфраструктурой
       href: terraform-create-vm-scaleset-network-disks-hcl.md

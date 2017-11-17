@@ -2,6 +2,7 @@
 ## [Что такое Stream Analytics?](stream-analytics-introduction.md)
 ## [Сравнение Storm и Stream Analytics](stream-analytics-comparison-storm.md)
 
+
 # Начало работы
 ## [Обработка потоковых данных Интернета вещей](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Выявление мошенничества в реальном времени](stream-analytics-real-time-fraud-detection.md)
@@ -13,7 +14,9 @@
 ### [Социальные сети](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Оценка в реальном времени с помощью машинного обучения](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Обработка событий в режиме реального времени](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Stream Analytics в IoT Edge (предварительная версия)](stream-analytics-edge.md)
 ### [Руководство по обнаружению аномалий в Azure (предварительная версия)](stream-analytics-machine-learning-anomaly-detection.md)
+### [Моделирование высокочастотного трейдинга с помощью Stream Analytics](stream-analytics-high-frequency-trading.md)
 
 ## Создание заданий
 ### [Формирование входных данных](stream-analytics-define-inputs.md)

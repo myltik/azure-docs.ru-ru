@@ -14,6 +14,9 @@
 ## [Сохраняемое хранилище в PowerShell](persisting-shell-storage-powershell.md)
 ## [Использование окна](using-the-shell-window.md)
 
+# Примеры
+## [Развертывание ресурсов Azure с помощью Terraform в Bash](example-terraform-bash.md)
+
 # [Цены](pricing.md)
 
 # [Устранение неполадок](troubleshooting.md)

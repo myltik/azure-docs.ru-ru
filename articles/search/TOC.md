@@ -3,7 +3,6 @@
 
 # Начало работы
 
-## [Выбор SKU](search-sku-tier.md)
 ## [Создание службы](search-create-service-portal.md)
 ## [Создание индекса](search-what-is-an-index.md)
 ### [Портал Azure](search-create-index-portal.md)
@@ -20,21 +19,24 @@
 
 # Учебники
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [Предварительный просмотр синонимов .NET](search-synonyms-tutorial-sdk.md)
-## [Портал](search-get-started-portal.md)
+## [Разработка в .NET](search-howto-dotnet-sdk.md)
+## [Предварительная версия функции синонимов в .NET](search-synonyms-tutorial-sdk.md)
+## [Индексатор данных SQL в .NET](search-indexer-tutorial.md)
+## [Пошаговое руководство по порталу](search-get-started-portal.md)
 ## [Поиск частично структурированных данных](search-semi-structured-data.md)
-## [Node.js](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [Знакомство с REST API](search-fiddler.md)
 
 # Практическое руководство
 
-## Планирование и проектирование
+## планирование и разработка
+### [Выбор SKU](search-sku-tier.md)
 ### [Ограничения служб](search-limits-quotas-capacity.md)
 ### [Масштабируемость службы](search-capacity-planning.md)
 ### [Конструктивные шаблоны для мультитенантности](search-modeling-multitenant-saas-applications.md)
 ## Разработка
 ### [Версии API](search-api-versions.md)
+### [Разработка в Node.js](search-get-started-nodejs.md)
+### [Разработка в Java](search-get-started-java.md)
 ### [Обновление пакета SDK](search-dotnet-sdk-migration.md)
 ### [Обновление REST API](search-api-migration.md)
 ### [Моделирование сложных типов данных](search-howto-complex-data-types.md)

@@ -91,6 +91,8 @@
       items:
         - name: Таблицы Azure
           items:
+            - name: Добавление непрерывного мониторинга
+              href: app-insights-vsts-continuous-monitoring.md
             - name: Профилировщик
               href: app-insights-profiler.md
             - name: Включение профилировщика

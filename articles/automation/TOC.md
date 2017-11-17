@@ -71,7 +71,7 @@
 ## Решения
 ### [Управление обновлениями](../operations-management-suite/oms-solution-update-management.md)
 #### [Управление обновлениями для нескольких виртуальных машин](manage-update-multi.md)
-#### [Интеграция SCCMr со службой управления обновлениями OMS](oms-solution-updatemgmt-sccmintegration.md)
+#### [Интеграция SCCM со службой управления обновлениями OMS](oms-solution-updatemgmt-sccmintegration.md)
 ### [отслеживание изменений;](../log-analytics/log-analytics-change-tracking.md)
 ### [Отслеживание изменений в виртуальных машинах](automation-vm-change-tracking.md)
 ### [Управление виртуальной машиной с помощью сбора данных инвентаризации](automation-vm-inventory.md)

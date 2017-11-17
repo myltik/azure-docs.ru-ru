@@ -12,10 +12,19 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/24/2017
+  ms.date: 11/15/2017
   ms.author: carolz
 abstract:
-  description: "Azure Cosmos DB\_– это глобально распределенная служба базы данных, которая позволяет гибко и независимо масштабировать пропускную способность и ресурсы хранилища в любых регионах в рамках полного соглашения об уровне обслуживания.  С помощью базы данных Cosmos вы можете разрабатывать документы, пары \"ключ-значение\" или базы данных графов, используя ряд популярных API-интерфейсов и модели программирования. Узнайте, как использовать базу данных Cosmos, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами."
+  description: "Azure Cosmos DB\_— это многомодельная глобально распределенная служба баз данных. Используйте эти руководства и примеры для разработки баз данных, содержащих документы или пары \"ключ — значение\", баз данных Wide Column Store и баз данных графов, используя популярные API-интерфейсы и модели программирования. Затем научитесь реплицировать данные в любом количестве регионов Azure и масштабировать пропускную способность независимо от хранилища, используя при этом все преимущества полных соглашений об уровне обслуживания."
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: 'Создавайте мобильные приложения глобального масштаба за считаные минуты (16:17)'
+    href: 'https://azure.microsoft.com/en-us/resources/videos/build-2017-azure-cosmos-db-build-planet-scale-mobile-apps-in-minutes/'
+    width: 250
 sections:
   - title: 5-минутные руководства по началу работы
     items:
@@ -25,9 +34,9 @@ sections:
         style: dataMatrix
         columns:
           - image:
-              src: media/index/logo_net.svg
-          - image:
               src: media/index/logo_java.svg
+          - image:
+              src: media/index/logo_net.svg
           - image:
               src: media/index/logo_nodejs.svg
           - image:
@@ -37,31 +46,38 @@ sections:
         rows:
           - title: API DocumentDB
             values:
-              - href: /azure/cosmos-db/create-documentdb-dotnet
               - href: /azure/cosmos-db/create-documentdb-java
+              - href: /azure/cosmos-db/create-documentdb-dotnet
               - href: /azure/cosmos-db/create-documentdb-nodejs
               - href: /azure/cosmos-db/create-documentdb-python
               - href: null
           - title: API MongoDB
             values:
-              - href: /azure/cosmos-db/create-mongodb-dotnet
               - href: /azure/cosmos-db/create-mongodb-java
+              - href: /azure/cosmos-db/create-mongodb-dotnet
               - href: /azure/cosmos-db/create-mongodb-nodejs
               - href: null
               - href: null
           - title: API Graph
             values:
-              - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-java
+              - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-nodejs
               - href: null
               - href: /azure/cosmos-db/create-graph-gremlin-console
           - title: API таблицы
             values:
+              - href: /azure/cosmos-db/create-table-java
               - href: /azure/cosmos-db/create-table-dotnet
+              - href: /azure/cosmos-db/create-table-nodejs
+              - href: /azure/cosmos-db/create-table-python
               - href: null
-              - href: null
-              - href: null
+          - title: API Cassandra
+            values:
+              - href: /azure/cosmos-db/create-cassandra-java
+              - href: /azure/cosmos-db/create-cassandra-dotnet
+              - href: /azure/cosmos-db/create-cassandra-nodejs
+              - href: /azure/cosmos-db/create-cassandra-python
               - href: null
   - title: Пошаговые руководства
     items:
@@ -70,8 +86,8 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: "Разработка приложений с помощью Cosmos\_DB&#58; <a href=\"/azure/cosmos-db/tutorial-develop-documentdb-dotnet\">DocumentDB</a> | <a href=\"/azure/cosmos-db/tutorial-develop-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-develop-table-dotnet\">Таблица</a> | <a href=\"/azure/cosmos-db/tutorial-develop-graph-dotnet\">Graph</a>"
-          - html: "Импорт данных в Cosmos\_DB&#58; <a href=\"import-data\">DocumentDB</a> | <a href=\"mongodb-migrate\">MongoDB</a>"
+          - html: "Разработка приложений с помощью Cosmos\_DB&#58; <a href=\"/azure/cosmos-db/tutorial-develop-documentdb-dotnet\">DocumentDB</a> | <a href=\"/azure/cosmos-db/tutorial-develop-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-develop-table-dotnet\">Таблица</a> | <a href=\"/azure/cosmos-db/tutorial-develop-graph-dotnet\">Graph</a> | <a href=\"https://aka.ms/cassandratutorial\">Cassandra</a>"
+          - html: "Импорт данных в Cosmos\_DB&#58; <a href=\"import-data\">DocumentDB</a> | <a href=\"mongodb-migrate\">MongoDB</a> | <a href=\"https://aka.ms/tableapiimporttool\">Таблица</a> | <a href=\"https://aka.ms/cassandraimport\">Cassandra</a>"
           - html: "Запрос данных с помощью Cosmos\_DB&#58; <a href=\"/azure/cosmos-db/tutorial-query-documentdb\">DocumentDB</a> | <a href=\"/azure/cosmos-db/tutorial-query-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-query-table\">Таблица</a> | <a href=\"/azure/cosmos-db/tutorial-query-graph\">Graph</a>"
           - html: "Репликация глобальных баз данных с помощью Cosmos\_DB&#58; <a href=\"/azure/cosmos-db/tutorial-global-distribution-documentdb\">DocumentDB</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-table\">Таблица</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-graph\">Graph</a>"
           - html: <a href="local-emulator">Разработка приложений локально с помощью эмулятора</a>
@@ -95,6 +111,6 @@ sections:
           - title: API-интерфейсы MongoDB
             html: '<p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Сетевой протокол</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>'
           - title: API-интерфейсы таблицы
-            html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p>
+            html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.js</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
           - title: API-интерфейсы Gremlin
             html: '<p><a href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>'
