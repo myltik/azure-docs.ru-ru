@@ -1,32 +1,31 @@
 ---
 title: "Как масштабировать среду Azure Time Series Insights | Документация Майкрософт"
-description: "Это руководство содержит сведения о масштабировании среды Azure Time Series Insights"
-keywords: 
+description: "В этом руководстве описано масштабирование среды Azure Time Series Insights. Используйте портал Azure для добавления или вычитания ресурсов в ценовой категории SKU."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: ba6bd1ab05bb7e24dd1bc307218e7a772fbde601
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: a6f10e14e3f9e5761734738caddc247d9e4a90cd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Как масштабировать среду Azure Time Series Insights
 
-Это руководство содержит сведения о масштабировании среды Time Series Insights.
+В этой статье описывается, как изменять емкость среды Time Series Insights с помощью портала Azure. Емкость — множитель, применяемый к скорости входящих данных, емкости хранилища и затратам, связанным с выбранным SKU. 
 
-> [!NOTE]
-> Увеличение масштаба в разных номерах SKU запрещено. Среду с номером SKU S1 нельзя преобразовать в среду S2.
+Портал Azure можно использовать для увеличения или уменьшения емкости в пределах ценовой категории SKU. 
+
+Однако изменение ценовой категории SKU запрещено. Например, среду со SKU S1 нельзя преобразовать в среду S2 или наоборот. 
+
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>Скорость приема и емкость номера SKU S1
 
@@ -44,12 +43,20 @@ ms.lasthandoff: 10/11/2017
 
 Емкость масштабируется линейно, поэтому номер SKU S1 с емкостью 2 поддерживает скорость приема 2 ГБ (2 млн событий) в неделю и 60 ГБ (60 млн событий) в месяц.
 
-## <a name="changing-the-capacity-of-your-environment"></a>Изменение емкости среды
+## <a name="change-the-capacity-of-your-environment"></a>Изменение емкости среды
+1. Найдите и выберите среду Time Series Insights на портале Azure. 
 
-1. На портале Azure выберите среду, емкость которой требуется изменить.
-1. В разделе "Параметры" щелкните "Настроить".
-1. Используйте ползунок показателя емкости для выбора емкости, соответствующей требованиям скорости приема и емкости хранилища.
+2. В разделе **Параметры** выберите **Свойства**.
+
+   ![configure.png](media/scale-your-environment/configure.png)
+
+3. Настройте ползунок **емкости** соответственно требованиям скорости приема и емкости хранилища. Обратите внимание, что скорость приема, емкость хранилища и оценочная стоимость обновляются динамически, чтобы показать эффект изменения. 
+
+   ![Ползунок](media/scale-your-environment/slider.png)
+
+   Кроме того, можно ввести число множителя емкости в текстовом поле справа от ползунка. 
+
+4. Выберите **Сохранить**, чтобы масштабировать среду. Индикатор хода выполнения будет отображаться, пока изменения не зафиксируются. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
-* Убедитесь, что новой емкости недостаточно для предотвращения регулирования. Дополнительные сведения см. в разделе *Регулирование среды* [здесь](time-series-insights-diagnose-and-solve-problems.md).
+Убедитесь, что новой емкости недостаточно для предотвращения регулирования. Дополнительные сведения см. в статье [Диагностика и устранение неполадок в среде Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
