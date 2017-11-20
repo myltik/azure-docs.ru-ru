@@ -65,6 +65,8 @@
       href: functions-triggers-bindings.md
     - name: Языки
       items:
+        - name: Поддерживаемые языки
+          href: supported-languages.md
         - name: 'Сценарии C#'
           href: functions-reference-csharp.md
         - name: Библиотека классов .NET

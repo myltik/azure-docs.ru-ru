@@ -370,6 +370,8 @@
           items:
             - name: Развертывание примера приложения
               href: saas-multitenantdb-get-started-deploy.md
+            - name: Подготовка клиентов
+              href: saas-multitenantdb-provision-and-catalog.md
             - name: Мониторинг производительности базы данных
               href: saas-multitenantdb-performance-monitoring.md
             - name: Выполнение ad-hoc-запросов
