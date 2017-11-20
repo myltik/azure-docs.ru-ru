@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 4a430fb250b9145166a3a212d416a4f1c754473f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e9e0024c645d0e04e7cf9b17e440d7d8c10af232
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Пошаговое руководство по предварительно настроенному решению для диагностического обслуживания
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/31/2017
 
 Синие блоки — это службы Azure, подготовленные в регионе, в котором развернуто предварительно настроенное решение. Список регионов, в которых можно развернуть предварительно настроенное решение, отображается на [странице подготовки][lnk-azureiotsuite].
 
-Зеленый блок — это виртуальное устройство, представляющее двигатель самолета. Дополнительные сведения о виртуальных устройствах см. в следующем разделе.
+Зеленый блок — это виртуальное устройство, представляющее двигатель самолета. См. дополнительные сведения о [виртуальных устройствах](#simulated-devices).
 
 Серые блоки представляют компоненты, реализующие возможности *управления устройствами*. В текущем выпуске предварительно настроенного решения для диагностического обслуживания эти ресурсы не подготавливаются. Дополнительные сведения об управлении устройствами см. в статье [Пошаговое руководство по работе с настроенным решением для удаленного мониторинга][lnk-remote-monitoring].
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/31/2017
 **Узел обработчика событий** выполняется в веб-задании Azure. **Обработчик событий** принимает средние значения датчика за завершенный цикл. Он передает эти значения в API, который предоставляет обученную модель для вычисления оставшегося срока полезного использования двигателя. API предоставляет рабочая область машинного обучения, подготавливаемая как часть решения.
 
 ## <a name="machine-learning"></a>Машинное обучение
-Компонент машинного обучения использует модель на основе данных, собранных с настоящих двигателей самолета. Вы можете перейти к рабочей области машинного обучения с помощью плитки на странице [azureiotsuite.com][lnk-azureiotsuite] подготовленного решения. Плитка доступна, когда решение находится в состоянии **Готово**.
+Компонент машинного обучения использует модель на основе данных, собранных с настоящих двигателей самолета. Вы можете перейти к рабочей области машинного обучения с помощью плитки решения на странице [azureiotsuite.com][lnk-azureiotsuite]. Плитка доступна, когда решение находится в состоянии **Готово**.
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -78,10 +78,10 @@ ms.lasthandoff: 10/31/2017
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 
-[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-remote-monitoring]: iot-suite-v1-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-v1-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

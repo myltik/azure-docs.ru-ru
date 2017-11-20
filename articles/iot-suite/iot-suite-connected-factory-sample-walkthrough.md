@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 675a3b0fb59e449f0f76f8201d62768c03144818
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Пошаговое руководство по работе с предварительно настроенным решением подключенной фабрики
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 10/31/2017
 
 Сейчас TSI не позволяет клиентам настраивать продолжительность хранения данных.
 
-TSI отправляет запрос к данным узла с помощью SearchSpan (Time.From, Time.To) и выполняет вычисление на основе значений OPC UA ApplicationUri, OPC UA NodeId или OPC UA DisplayName.
+TSI отправляет запрос к данным узла с помощью **SearchSpan** (**Time.From**, **Time.To**) и выполняет вычисление на основе значений **OPC UA ApplicationUri**, **OPC UA NodeId** или **OPC UA DisplayName**.
 
 Чтобы получить данные для датчиков общей эффективности оборудования и ключевых показателей эффективности, а также диаграммы временных рядов, данные группируются по количеству событий (Sum — всего событий, Avg — среднее количество, Min — минимальное количество и Max — максимальное количество).
 
@@ -238,9 +238,9 @@ TSI отправляет запрос к данным узла с помощью
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: iot-suite-permissions.md
+[lnk-permissions]: iot-suite-v1-permissions.md

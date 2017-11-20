@@ -1,6 +1,6 @@
 ---
 title: "Варианты Интернета вещей Microsoft Azure | Документация Майкрософт"
-description: "Выберите способ реализации решения Интернета Вещей Azure: с помощью IoT Suite, IoT Central или Центра Интернета вещей."
+description: "Выберите способ реализации решения Интернета вещей: с помощью Azure IoT Suite, Microsoft IoT Central или Центра Интернета вещей."
 services: 
 suite: iot-suite
 author: dominicbetts
@@ -8,14 +8,14 @@ manager: timlt
 ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.topic: get-started-article
-ms.date: 09/21/2017
+ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd98d42ab391d471d2302066dc2baf2c64f56f55
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e00dd828ef24b9bc97665f0f5fe8d7e14f4e4630
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="compare-azure-iot-options"></a>Сравнение вариантов Интернета вещей Azure
 
@@ -33,18 +33,18 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="azure-iot-hub"></a>Центр Интернета вещей Azure
 
-Центр Интернета вещей Azure — основная платформа как услуга (PaaS) Azure, которую используют IoT Central и IoT Suite. Центр Интернета вещей обеспечивает надежную и безопасную двунаправленную связь между миллионами устройств Интернета вещей и облачным устройством. Он помогает решить трудности реализации Интернета вещей, такие как:
+Центр Интернета вещей Azure — это базовая платформа Azure (PaaS), которую используют Microsoft IoT Central и Azure IoT Suite. Центр Интернета вещей обеспечивает надежную и безопасную двунаправленную связь между миллионами устройств Интернета вещей и облачным устройством. Он помогает решить трудности реализации Интернета вещей, такие как:
 
 * взаимодействие устройств большого объема и управление ими;
 * прием больших объемов данных телеметрии;
 * контроль и управление устройствами;
 * обеспечение безопасности устройства.
 
-## <a name="compare-iot-suite-and-iot-central"></a>Сравнение IoT Suite и IoT Central
+## <a name="compare-azure-iot-suite-and-microsoft-iot-central"></a>Сравнение Azure IoT Suite и Microsoft IoT Central
 
-Выбор продукта Интернета вещей Azure является важной частью планирования решения Интернета вещей. Центр Интернета вещей — это отдельная служба Azure, которая сама по себе не предоставляет комплексное решение Интернета вещей. Центр Интернета вещей можно использовать в качестве отправной точки для любого решения Интернета вещей. Для его применения вам не требуется Azure IoT Suite или IoT Central. IoT Suite и IoT Central используют Центр Интернета вещей вместе с другими службами Azure. В следующей таблице перечислены основные различия между IoT Suite и IoT Central, которые помогут выбрать оптимальный вариант в соответствии с вашими требованиями:
+Выбор продукта Интернета вещей Azure является важной частью планирования решения Интернета вещей. Центр Интернета вещей — это отдельная служба Azure, которая сама по себе не предоставляет комплексное решение Интернета вещей. Центр Интернета вещей можно использовать в качестве отправной точки для любого решения Интернета вещей. Для его применения вам не требуется Azure IoT Suite или IoT Central. Azure IoT Suite и Microsoft IoT Central используют Центр Интернета вещей наряду с другими службами Azure. В следующей таблице перечислены основные различия между Azure IoT Suite и Microsoft IoT Central, которые помогут выбрать оптимальный вариант в соответствии с вашими требованиями:
 
-|                        | IoT Suite | IoT Central |
+|                        | Набор Azure IoT Suite | Microsoft IoT Central |
 | ---------------------- | --------- | ----------- |
 | Основное использование | Чтобы ускорить разработку пользовательского решения Интернета вещей, которому необходима максимальная гибкость. | Чтобы ускорить выход на рынок простых решений Интернета вещей, которым не требуется глубокая настройка службы. |
 | Доступ к базовым службам PaaS          | У вас есть доступ к базовым службам Azure, можно управлять ими или заменить их при необходимости. | Программное обеспечение как услуга. Полностью управляемое решение, базовые службы не предоставляются. |
@@ -63,6 +63,6 @@ ms.lasthandoff: 10/31/2017
 
 На основе выбранного продукта и подхода предлагаются следующие шаги:
 
-* **IoT Suite**: [Что такое предварительно настроенные решения Azure IoT Suite?](iot-suite-what-are-preconfigured-solutions.md)
-* **IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
+* **Azure IoT Suite**: [Что такое предварительно настроенные решения Azure IoT Suite?](iot-suite-what-are-preconfigured-solutions.md)
+* **Microsoft IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **Центр Интернета вещей**: [Общие сведения о службе Центра Интернета вещей Azure](../iot-hub/iot-hub-what-is-iot-hub.md).

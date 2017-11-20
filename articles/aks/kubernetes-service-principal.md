@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a532c8f69bfb19d26538aafe7c74f062dee06d9f
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 6c61d99f1d023ac643455faae10ef284f1f5bb14
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Субъекты-службы со Службой контейнеров Azure (AKS)
 
@@ -34,13 +34,13 @@ ms.lasthandoff: 10/24/2017
 
 Чтобы создать субъект-службу в Azure AD, вы должны иметь права на регистрацию приложения в клиенте Azure AD и назначение приложению роли в подписке Azure. Если у вас нет необходимых разрешений, вам может потребоваться попросить администратора Azure AD или администратора подписки предоставить их или предварительно создать субъект-службу для кластера Kubernetes.
 
-Кроме того, нужно установить и настроить Azure CLI версии 2.0.20 или более поздней. Чтобы узнать версию, выполните команду az --version. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli).
+Кроме того, нужно установить и настроить Azure CLI версии 2.0.21 или выше. Чтобы узнать версию, выполните команду az --version. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## <a name="create-sp-with-aks-cluster"></a>Создание субъекта-службы с кластером AKS
 
 При развертывании кластера AKS с помощью команды `az aks create` вы можете автоматически создать субъект-службу.
 
-В следующем примере создается кластер AKS, и так как не указан имеющийся субъект-служба, для кластера создается новый. Чтобы завершить эту операцию, учетной записи требуются необходимые права для создания субъекта-службы. 
+В следующем примере создается кластер AKS, и так как не указан имеющийся субъект-служба, для кластера создается новый. Чтобы завершить эту операцию, учетной записи требуются необходимые права для создания субъекта-службы.
 
 ```azurecli
 az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys

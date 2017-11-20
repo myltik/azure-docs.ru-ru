@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 7fbb47390b6b1d918cbef0770ce1822591341866
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3b56c91accfb6fe6358032e1dd329a931abfc3c1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Начало работы с предварительно настроенным решением для подключенной фабрики
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/31/2017
 > [!NOTE]
 > Если при развертывании предварительно настроенного решения возникают проблемы, см. статьи [Разрешения на сайте azureiotsuite.com][lnk-permissions] и [Frequently asked questions for IoT Suite connected factory preconfigured solution](iot-suite-faq-cf.md) (Часто задаваемые вопросы о предварительно настроенном решении подключенной фабрики IoT Suite). Если проблемы не удается устранить, отправьте запрос в службу поддержки на [портале][lnk-portal].
 
-Есть ли сведения, которые вы ожидали увидеть и которые не указаны для вашего решения? Сообщите нам о своих предложениях на сайте [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
+Есть ли сведения, которые вы ожидали увидеть и которые не указаны для вашего решения? Поделитесь своими предложениями на сайте [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
 ## <a name="scenario-overview"></a>Обзор сценария
 
@@ -302,5 +302,5 @@ ms.lasthandoff: 10/31/2017
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
-[lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-permissions]: iot-suite-v1-permissions.md
+[lnk-faq]: iot-suite-v1-faq.md
