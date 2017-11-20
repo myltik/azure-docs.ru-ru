@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/28/2017
-ms.openlocfilehash: cabba8ce04d62d35ca40b3ae35d9d40a6ec7b2b9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Часть 1. Классификация цветков ириса: подготовка данных
 Служба "Машинное обучение Azure" (предварительная версия) — это полнофункциональное интегрированное аналитическое решение для специалистов по обработке и анализу данных. Оно помогает подготавливать данные, разрабатывать эксперименты и развертывать модели в масштабе облака.
@@ -69,7 +69,9 @@ ms.lasthandoff: 11/04/2017
    ![Выбор файла iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
-   >Обязательно выберите файл **iris.csv** из текущего каталога проекта для этого упражнения. Иначе последующие шаги могут завершиться ошибкой. 
+   >Обязательно выберите файл **iris.csv** из текущего каталога проекта для этого упражнения. Иначе последующие шаги могут завершиться ошибкой.
+   
+4. Выбрав файл, нажмите кнопку **Готово**.
 
 4. Будет создан файл с именем **iris-1.dsource**. Файлу присвоено уникальное имя с дефисом и единицей, так как пример проекта уже содержит ненумерованный файл **iris.dsource**.  
 

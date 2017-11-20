@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 80e8e85f058a5cec2e3ae6a6cff5cb8a363370e1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Начало работы с Azure CDN
 В этой статье описывается, как включить Azure CDN путем создания профиля CDN и конечной точки.
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/12/2017
    > Доступ к содержимому CDN с использованием HTTPS имеет следующие ограничения.
    > 
    > * Необходимо использовать сертификат SSL, предоставленный сетью CDN. Сертификаты третьих сторон не поддерживаются.
-   > * Поддержка HTTPS для личных доменов Azure CDN предоставляется только с продуктами **Azure CDN от Verizon** (категории "Стандартный" и "Премиум"). Недоступно в продуктах **Azure CDN из Akamai**. Дополнительные сведения см. в статье [Включение и отключение протокола HTTPS в личном домене сети доставки содержимого Azure](cdn-custom-ssl.md).
+   > * Поддержка HTTPS для личных доменов Azure CDN предоставляется только с продуктами **Azure CDN от Verizon** (категории "Стандартный" и "Премиум"). Недоступно в продуктах **Azure CDN из Akamai**. См. дополнительные сведения о [настройке протокола HTTPS для личного домена Azure CDN](cdn-custom-ssl.md).
   
 9. Нажмите кнопку **Создать** , чтобы создать новую конечную точку.
    

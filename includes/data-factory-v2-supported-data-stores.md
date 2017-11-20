@@ -3,6 +3,7 @@
 | **Таблицы Azure** |[Хранилище BLOB-объектов Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[База данных Azure Cosmos](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓  |✓  |✓   |
 | &nbsp; |[Хранилище озера данных Azure](../articles/data-factory/connector-azure-data-lake-store.md) |✓  |✓  |✓  |✓  |
+| &nbsp; |[База данных Azure для MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ | |✓  |✓  |
 | &nbsp; |[Хранилище файлов Azure](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓  |✓  |✓   |
 | &nbsp; |[База данных SQL Azure;](../articles/data-factory/connector-azure-sql-database.md) |✓  |✓  |✓  |✓   |
 | &nbsp; |[Хранилище данных Azure SQL](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓  |✓  |✓  |✓   |
@@ -27,11 +28,11 @@
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |✓ | |✓  |✓  |
 | &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |✓ | |✓  |✓  |
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |✓ | |✓  |✓  |
-| **Прочее** |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | |✓  |✓  |
-| &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | |✓  |✓  |
+| **Прочее** |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓  |✓  |✓  |
+| &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) |✓ | | |✓  |
 | &nbsp; |[Базовый HTTP-запрос](../articles/data-factory/connector-http.md) |✓ | |✓  |✓  |
 | &nbsp; |[Generic OData](../articles/data-factory/connector-odata.md) |✓ | |✓  |✓  |
 | &nbsp; |[Универсальные данные ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓  | |✓  |
-| &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ | |✓  |✓  |
+| &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[Веб-таблица (таблица HTML)](../articles/data-factory/connector-web-table.md) |✓ | |✓  |✓  |

@@ -13,25 +13,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 5e05f07f2d9a15ab57f993e88b7cdeb03550f8ac
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c4e0d792ae8f4c17d53430f49d81d179e56b9722
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Введение в Apache Kafka в HDInsight (предварительная версия)
+# <a name="introducing-apache-kafka-on-hdinsight"></a>Общие сведения об Apache Kafka в HDInsight
 
 [Apache Kafka](https://kafka.apache.org) — это распределенная платформа потоковой передачи с открытым исходным кодом, которую можно использовать для создания конвейеров и приложений потоковой передачи данных в режиме реального времени. Kafka также предоставляет функцию брокера сообщений, подобную очереди сообщений, с помощью которой можно выполнять публикацию и подписываться на именованные потоки данных. Kafka в HDInsight предоставляет управляемую, высокомасштабируемую службу с высоким уровнем доступности в облаке Microsoft Azure.
 
 ## <a name="why-use-kafka-on-hdinsight"></a>Преимущества Apache Kafka в HDInsight
 
-Kafka предоставляет следующие возможности.
+Использование Kafka в HDInsight обеспечивает следующие преимущества:
+
+* Соглашение об уровне обслуживания: [сведения о соглашении об уровне обслуживания для HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
 * Модель обмена сообщениями по схеме "публикация — подписка". Kafka предоставляет API производителя для публикации записей в разделе Kafka. При подписке на раздел используется API пользователя.
 
-* Потоковая обработка. Kafka часто используется с Apache Storm или Spark для потоковой обработки в режиме реального времени. В Kafka 0.10.0.0 (HDInsight версии 3.5) представлен API, позволяющий создавать решения для потоковой передачи без использования Storm или Spark.
+* Потоковая обработка. Kafka часто используется с Apache Storm или Spark для потоковой обработки в режиме реального времени. В Kafka 0.10.0.0 (HDInsight 3.5 и 3.6) представлен API для потоковой передачи, позволяющий создавать соответствующие решения без использования Storm или Spark.
 
 * Горизонтальное масштабирование. В Kafka потоки разделяются между узлами в кластере HDInsight. Процессы пользователя можно связать с отдельными секциями для обеспечения балансировки нагрузки при использовании записей.
 
