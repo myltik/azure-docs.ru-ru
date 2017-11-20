@@ -25,11 +25,8 @@
 ###### [Смоделированные данные](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Использование реальных датчиков](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Реализация обновления встроенного ПО](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### Подключение шлюза Intel NUC
-##### [Смоделированные данные](iot-suite-v1-gateway-kit-get-started-simulator.md)
-##### [Использование реальных датчиков](iot-suite-v1-gateway-kit-get-started-sensortag.md)
 
-### Практическое руководство
+### Практические руководства
 #### Подключение виртуального устройства
 ##### [C в Windows](iot-suite-v1-connecting-devices.md)
 ##### [C в Linux](iot-suite-v1-connecting-devices-linux.md)
@@ -51,7 +48,7 @@
 ### [Общие сведения о решении подключенного производства](iot-suite-connected-factory-overview.md)
 ### [Инструкция по работе с решением для организации подключенного производства](iot-suite-connected-factory-sample-walkthrough.md)
 
-# Практическое руководство
+# Практические руководства
 ## удаленный мониторинг;
 ### [Выполнение расширенного мониторинга](iot-suite-remote-monitoring-monitor.md)
 ### [Использование правил для обнаружения проблем](iot-suite-remote-monitoring-automate.md)

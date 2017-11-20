@@ -3,7 +3,7 @@
 ## [Что такое Центр Интернета вещей в Azure?](iot-hub-what-is-iot-hub.md)
 ## [Обзор управления устройствами](iot-hub-device-management-overview.md)
 
-# [Приступая к работе](iot-hub-get-started.md)
+# [Начало работы](iot-hub-get-started.md)
 
 ## Настройка устройства
 ### [Моделирование устройства на ПК](iot-hub-get-started-simulated.md)
@@ -28,12 +28,6 @@
 #### [Подключение Sparkfun ESP8266 Thing Dev к Центру Интернета вещей в облаке Azure](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Adafruit Feather M0 с Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
-#### Использование начального набора шлюза Интернета вещей
-##### [Настройка Intel NUC в качестве шлюза](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Подключение шлюза к Центру Интернета вещей](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Использование шлюза для преобразования данных](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-##### [Устранение неполадок](iot-hub-gateway-kit-c-troubleshooting.md)
-
 ## Расширенные сценарии IoT
 ### [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
 ### [Сохранение сообщений Центра Интернета вещей в хранилище данных Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -43,7 +37,7 @@
 ### [Управление устройствами с помощью средства iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 ### [Удаленный мониторинг и использование уведомлений с помощью Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-# Практическое руководство
+# Практические руководства
 ## План
 ### [Сравнение Центра Интернета вещей с концентраторами событий](iot-hub-compare-event-hubs.md)
 ### [Масштабирование своего решения](iot-hub-scaling.md)
@@ -147,30 +141,6 @@
 ##### [Понятия безопасности в контексте сертификатов X.509 ЦС](iot-hub-x509ca-concept.md)
 #### [Приступая к работе c защитой с помощью сертификата X.509 ЦС](iot-hub-security-x509-get-started.md)
 ##### [Создание сертификатов с помощью PowerShell](iot-hub-security-x509-create-certificates.md)
-
-## Edge Интернета вещей Azure
-### [Обзор](iot-hub-iot-edge-overview.md)
-### Начало работы
-#### [Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Windows](iot-hub-windows-iot-edge-get-started.md)
-### Моделирование устройства
-#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
-#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
-### [Использование реального устройства](iot-hub-iot-edge-physical-device.md)
-### Создание модуля
-#### [Java](iot-hub-iot-edge-create-module-java.md)
-#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
-#### [.NET Standard](iot-hub-iot-edge-create-module-dotnet-core.md)
-#### [Node.js](iot-hub-iot-edge-create-module-js.md)
-### Создание
-#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
-#### [Модуль .NET Сore](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
-#### [Управляемый шлюз .NET Сore](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
-#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
-#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
-#### [Динамическое добавление модулей](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
-#### [Внепроцессный модуль прокси](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
-#### [Узел собственного модуля](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)

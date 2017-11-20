@@ -248,12 +248,12 @@
 ## Управление каталогом
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Имена пользовательских доменов
-#### [Обзор](active-directory-domains-manage-azure-portal.md)
-#### [Управление доменными именами](active-directory-domains-manage-azure-portal.md)
+#### [Краткое руководство](add-custom-domain.md)
+#### [Добавление имен личных доменов](active-directory-domains-manage-azure-portal.md)
 ### [Администрирование каталога](active-directory-administer.md)
 ### [Несколько каталогов](active-directory-licensing-directory-independence.md)
 ### [Самостоятельная регистрация](active-directory-self-service-signup.md)
-#### [Взятие под контроль неуправляемого каталога](domains-admin-takeover.md)
+### [Взятие под контроль неуправляемого каталога](domains-admin-takeover.md)
 ### [Enterprise State Roaming.](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Включение](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Параметры групповой политики](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
