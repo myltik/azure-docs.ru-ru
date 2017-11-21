@@ -6,6 +6,7 @@
 ## [Регистрация с помощью учетной записи Office 365](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Оформление подписки на Office 365 с помощью учетной записи Azure](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Упорядочение ресурсов с помощью групп управления](billing-enterprise-mgmt-group-overview.md)
+## [Экономия за счет использования зарезервированных экземпляров виртуальных машин](billing-save-compute-costs-reservations.md)
 ## [Ограничения и квоты](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # Практическое руководство
@@ -17,9 +18,13 @@
 ### [Значение терминов, связанных с потреблением](billing-understand-your-usage.md)
 ### [Информация о расходах на внешние службы](billing-understand-your-azure-marketplace-charges.md)
 ### [Сопоставление единиц измерения бесплатных служб](billing-understand-free-service-meter-mapping.md)
+### [Затраты на программные продукты Windows при использовании зарезервированных экземпляров виртуальных машин](billing-reserved-instance-windows-software-costs.md)
+### [Общие сведения о применении скидки на зарезервированные экземпляры виртуальных машин](billing-understand-vm-reservation-charges.md)
 ### [Предельная сумма расходов](billing-spending-limit.md)
 ### [Настройка платежных оповещений](billing-set-up-alerts.md)
 ### [Устранение проблемы просроченных платежей](billing-azure-subscription-past-due-balance.md)
+### [Общие сведения об использовании зарезервированных экземпляров с оплатой по мере использования](billing-understand-reserved-instance-usage.md)
+### [Общие сведения об использовании зарезервированных экземпляров с соглашением о регистрации Azure Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Управление подписками
 ### [Управление ролями администратора](billing-add-change-azure-subscription-administrator.md)
@@ -34,6 +39,7 @@
 ### [Обновление платежной информации](billing-how-to-change-credit-card.md)
 ### [Привязывание клиента Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Оплата подписок по счету](billing-how-to-pay-by-invoice.md)
+## [Управление зарезервированными экземплярами виртуальных машин](billing-manage-reserved-vm-instance.md)
 ## Устранение неполадок
 ### [Проблемы при регистрации](https://support.microsoft.com/en-us/help/4042959)
 ### [Карта не принимается](https://support.microsoft.com/en-us/help/4042960)

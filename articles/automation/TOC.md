@@ -32,6 +32,7 @@
 ### [Настройка входных параметров Runbook](automation-runbook-input-parameters.md)
 ### [Обработка ошибок в графических модулях Runbook](automation-runbook-graphical-error-handling.md)
 ### [Отслеживание задания Runbook](automation-runbook-execution.md)
+### [Создание задач наблюдателя](automation-watchers-tutorial.md)
 ### [Изменение параметров Runbook](automation-runbook-settings.md)
 ### [Управление данными службы автоматизации Azure](automation-managing-data.md)
 ### [Вызов модуля Runbook службы автоматизации Azure из оповещения Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
