@@ -1,6 +1,6 @@
 ---
-title: "Создание фабрики данных Azure с помощью PowerShell | Документация Майкрософт"
-description: "Создайте фабрику данных Azure для копирования данных из одного расположения в другое в хранилище BLOB-объектов Azure."
+title: "Копирование данных в хранилище BLOB-объектов с помощью фабрики данных Azure | Документация Майкрософт"
+description: "Создайте фабрику данных Azure, чтобы копировать данные между двумя папками в хранилище BLOB-объектов Azure, одна из которых находится в другом расположении в пределах того же хранилища."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,18 +13,18 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 63e4c654409651f6655da1bed6ab2f544cf024dd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8ee2f48db009da4660a03f91194c4e99f6ecac4a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="create-an-azure-data-factory-and-pipeline-using-powershell"></a>Создание фабрики данных Azure и конвейера с помощью PowerShell
+# <a name="create-an-azure-data-factory-using-powershell"></a>Создание фабрики данных Azure с помощью PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Версия 1 — общедоступная](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Версия 2 — предварительная](quickstart-create-data-factory-powershell.md)
 
-В этом кратком руководстве описано создание фабрики данных Azure с помощью PowerShell. В этой фабрике данных создаваемый конвейер копирует данные из одного расположения в другое расположение в хранилище BLOB-объектов Azure. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [руководстве по преобразованию данных с помощью Spark](transform-data-using-spark.md). 
+В этом кратком руководстве описано создание фабрики данных Azure с помощью PowerShell. Конвейер, который вы создадите в этой фабрике данных, копирует данные из одной папки в другую в хранилище BLOB-объектов Azure. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [руководстве по преобразованию данных с помощью Spark](transform-data-using-spark.md). 
 
 Эта статья не содержит подробный обзор службы фабрики данных. Общие сведения о службе фабрики данных Azure см. в статье [Введение в фабрику данных Azure](introduction.md).
 
