@@ -88,15 +88,21 @@
       href: endorsed-distros.md
     - name: Обслуживание и обновления
       href: maintenance-and-updates.md
-    - name: Хранилище
-      href: azure-vm-storage-overview.md
+    - name: Дисковый накопитель
+      href: about-disks-and-vhds.md
       items:
+        - name: Управляемые диски
+          href: managed-disks-overview.md
         - name: Хранилище уровня "Премиум"
           href: premium-storage.md
         - name: Производительность хранилища класса Premium
           href: premium-storage-performance.md
         - name: Хранилище уровня "Стандартный"
           href: standard-storage.md
+        - name: Целевые показатели масштабируемости для дисков
+          href: disk-scalability-targets.md
+        - name: Резервное копирование и аварийное восстановление дисков
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Сеть
       href: network-overview.md
     - name: Автоматическое масштабирование приложений
@@ -156,6 +162,8 @@
           href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Управление виртуальными машинами
       items:
+        - name: Предоплата за использование виртуальных машин. Зарезервированные экземпляры
+          href: prepay-reserved-vm-instances.md
         - name: Общие задачи в CLI
           href: cli-manage.md
         - name: Перемещение виртуальной машины
@@ -312,8 +320,6 @@
               href: n-series-driver-setup.md
     - name: Управление хранилищем
       items:
-        - name: Сведения об управляемых дисках
-          href: managed-disks-overview.md
         - name: Часто задаваемые вопросы о дисках
           href: faq-for-disks.md
         - name: Добавление диска
@@ -328,8 +334,6 @@
           href: expand-disks.md
         - name: Моментальный снимок диска
           href: snapshot-copy-managed-disk.md
-        - name: Резервное копирование и аварийное восстановление дисков
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Резервное копирование неуправляемых дисков
           href: incremental-snapshots.md
         - name: Преобразование виртуальной машины для использования управляемых дисков
