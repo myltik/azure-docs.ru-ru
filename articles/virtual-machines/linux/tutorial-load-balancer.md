@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 25e2538e220327a078a6527e667dfcd6cb838b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения
 Балансировка нагрузки обеспечивает более высокий уровень доступности за счет распределения входящих запросов между несколькими виртуальными машинами. В этом руководстве вы узнаете о различных компонентах балансировщика нагрузки Azure Load Balancer, распределяющего трафик и обеспечивающего высокую доступность. Вы узнаете, как выполнять следующие задачи:
@@ -162,10 +162,13 @@ for i in `seq 1 3`; do
 done
 ```
 
+Когда все три виртуальных сетевых адаптера будут созданы, переходите к следующему шагу.
+
+
 ## <a name="create-virtual-machines"></a>Создание виртуальных машин
 
 ### <a name="create-cloud-init-config"></a>Создание конфигурации cloud-init
-В предыдущем руководстве [Как настроить виртуальную машину Linux при первой загрузке](tutorial-automate-vm-deployment.md) вы узнали, как автоматизировать настройку виртуальной машины с помощью cloud-init. Тот же самый файл конфигурации cloud-init можно использовать и для установки NGINX, а также для запуска простого приложения Node.js "Hello World".
+В предыдущем руководстве [Как настроить виртуальную машину Linux при первой загрузке](tutorial-automate-vm-deployment.md) вы узнали, как автоматизировать настройку виртуальной машины с помощью cloud-init. Этот же файл конфигурации cloud-init можно использовать для установки NGINX, а также для запуска простого приложения Node.js "Hello World" на следующем шаге. Чтобы увидеть подсистему балансировки нагрузки в действии, в конце руководства мы откроем это простое приложение в веб-браузере.
 
 В текущей оболочке создайте файл *cloud-init.txt* и вставьте в него следующую конфигурацию. Например, создайте файл в Cloud Shell, не на локальном компьютере. Введите `sensible-editor cloud-init.txt`, чтобы создать файл и просмотреть список доступных редакторов. Убедитесь, что весь файл cloud-init скопирован правильно, особенно первая строка:
 
@@ -253,7 +256,7 @@ az network public-ip show \
     --output tsv
 ```
 
-После этого можно ввести общедоступный IP-адрес в веб-браузер. Помните, прежде чем подсистема балансировки нагрузки начнет распределять трафик между виртуальными машинами, виртуальные машины должны быть подготовлены. Эта подготовка может занять несколько минут. Отображается приложение, а также имя узла виртуальной машины, на которую балансировщик нагрузки направил трафик, как показано в следующем примере:
+После этого можно ввести общедоступный IP-адрес в веб-браузер. Прежде чем подсистема балансировки нагрузки начнет распределять трафик между виртуальными машинами, виртуальные машины должны быть подготовлены. Эта подготовка может занять несколько минут. Отображается приложение, а также имя узла виртуальной машины, на которую балансировщик нагрузки направил трафик, как показано в следующем примере:
 
 ![Запуск приложения Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
 
@@ -277,6 +280,24 @@ az network nic ip-config address-pool remove \
 
 Чтобы увидеть, как балансировщик нагрузки распределяет трафик между оставшимися двумя виртуальными машинами, на которых выполняется приложение, принудительно обновите веб-браузер. Теперь можно выполнить обслуживание на виртуальной машине, например установить обновления операционной системы или перезагрузить виртуальную машину.
 
+Чтобы просмотреть список виртуальных машин с виртуальными сетевыми адаптерами, подключенными к подсистеме балансировки нагрузки, используйте команду [az network lb address-pool show](/cli/azure/network/lb/address-pool#show). Запросите и отфильтруйте идентификатор виртуального сетевого адаптера, как показано ниже.
+
+```azurecli-interactive
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+Ниже показан пример выходных данных, из которого следует, что виртуальный сетевой адаптер для виртуальной машины 2 больше не является частью серверного пула адресов.
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### <a name="add-a-vm-to-the-load-balancer"></a>Добавление виртуальной машины в балансировщик нагрузки
 После выполнения обслуживания виртуальной машины, или если необходимо расширить емкость, можно добавить виртуальную машину во внутренний пул адресов с помощью команды [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#add). В следующем примере в *myLoadBalancer* добавляется виртуальная сетевая карта для **myVM2**.
 
@@ -288,6 +309,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+Чтобы убедиться, что виртуальный сетевой адаптер подключен к серверному пулу адресов, еще раз выполните команду [az network lb address-pool show](/cli/azure/network/lb/address-pool#show).
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

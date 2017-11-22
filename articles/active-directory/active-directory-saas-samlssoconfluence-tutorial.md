@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17bd8294c957c0666ffe75d1ff06b863f1176048
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Руководство по интеграции Azure Active Directory с SAML SSO for Confluence by resolution GmbH
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_certificate.png) 
 
-6. Нажмите кнопку **Сохранить** .
+6. Нажмите кнопку **Сохранить**.
 
     ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)  
     
@@ -169,26 +169,53 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon3.png)
     
-16. На странице **SAML SingleSignOn Plugin Configuration** (Конфигурация подключаемого модуля единого входа SAML) нажмите кнопку **Add additional Identity Provider** (Добавить дополнительный поставщик удостоверений), чтобы настроить параметры поставщика удостоверений.
+16. На странице **SAML SingleSignOn Plugin Configuration** (Конфигурация подключаемого модуля единого входа SAML) нажмите кнопку **Add new IdP** (Добавить новый поставщик удостоверений), чтобы настроить параметры поставщика удостоверений.
 
     ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon4.png)
 
-17. На этой странице сделайте следующее.
+17. На странице **Choose your SAML Identity Provider** (Выбор поставщика удостоверений SAML) выполните следующие действия:
 
-    ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon5.png)
+    ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon5a.png)
  
-    а. Добавьте **имя** поставщика удостоверений (например, Azure AD).
+    а. Для типа поставщика удостоверений выберите значение **Azure AD**.
     
-    b. Добавьте **описание** поставщика удостоверений (например, Azure AD).
+    b. Добавьте **имя** поставщика удостоверений (например, Azure AD).
+    
+    c. Добавьте **описание** поставщика удостоверений (например, Azure AD).
+    
+    d. Щелкните **Далее**.
+    
+18. На странице **Identity provider configuration** (Настройка поставщика удостоверений) нажмите кнопку **Next** (Далее).
 
-    c. Щелкните **XML** и выберите файл **метаданных**, скачанный с портала Azure.
+    ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon5b.png)
 
-    г) Нажмите кнопку **Load** (Загрузить).
+19. На странице **Import SAML IdP Metadata** (Импорт метаданных поставщика удостоверений SAML) выполните следующие действия:
 
-    д. Будут считаны метаданные поставщика удостоверений и заполнены поля, как показано на снимке экрана. 
-18. Нажмите кнопку **Save settings** (Сохранить параметры), чтобы сохранить параметры.
+    ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon5c.png)
 
-    ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
+    а. Нажмите кнопку **Load File** (Загрузить файл) и выберите XML-файл метаданных, который вы скачали на шаге 5.
+
+    b. Нажмите кнопку **Import** (Импортировать).
+    
+    c. Дождитесь завершения импорта.
+    
+    d. Нажмите кнопку **Next** (Далее).
+    
+20. На странице **User ID attribute and transformation** (Атрибут и преобразование идентификатора пользователя) нажмите кнопку **Next** (Далее).
+
+    ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon5d.png)
+    
+21. На странице **User creation and update** (Создание и изменение пользователя) нажмите кнопку **Save & Next** (Сохранить и продолжить), чтобы сохранить параметры.   
+    
+    ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon6a.png)
+    
+22. На странице **Test your settings** (Проверка параметров) нажмите кнопку **Skip test & configure manually** (Пропустить проверку и настроить вручную), чтобы не выполнять проверку на этом этапе. Проверка будет выполнена на одном из следующих этапов, и для этого потребуется выполнить некоторые настройки на портале Azure. 
+    
+    ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon6b.png)
+    
+23. В открывшемся окне с сообщением **Skipping the test means...** (Если вы пропустите проверку...) нажмите кнопку **OK**.
+    
+    ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon6c.png)
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).

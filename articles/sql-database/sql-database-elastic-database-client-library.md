@@ -13,18 +13,18 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: a8bfbf2e30f8568212ab49ba1772588cc9e45b38
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Создание масштабируемых облачных баз данных
 Масштабирование баз данных можно легко выполнить с помощью средств и функций масштабирования для базы данных SQL Azure. В частности, для создания и управления масштабируемыми базами данных можно использовать **клиентскую библиотеку эластичных баз данных** . Она позволяет легко разрабатывать сегментированные приложения с сотнями — или даже тысячами — баз данных SQL Azure. [задания обработки эластичных БД](sql-database-elastic-jobs-powershell.md) , чтобы упростить управление этими базами данных.
 
-Чтобы установить библиотеку, перейдите по ссылке [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Чтобы установить библиотеку, перейдите к NuGet по ссылке [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
 ## <a name="documentation"></a>Документация
 1. [Приступая к работе с инструментами эластичных баз данных](sql-database-elastic-scale-get-started.md)
@@ -54,22 +54,32 @@ ms.lasthandoff: 10/31/2017
 
 Как правило, клиенты, использующие средства работы с эластичными базами данных, могут получить полную функциональности T-SQL при отправке операций в пределах одного сегмента в отличие от операций между сегментами, для которых применяется собственная семантика.
 
+
+
 ## <a name="next-steps"></a>Дальнейшие действия
-Попробуйте [пример приложения](sql-database-elastic-scale-get-started.md) , демонстрирующий функции клиента. 
 
-Чтобы установить библиотеку, перейдите к разделу [Клиентская библиотека эластичной базы данных](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+- См. статью о [клиентской библиотеке эластичной базы данных](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), чтобы **установить** библиотеку при помощи NuGet.
 
-Инструкции по использованию инструмента разбиения/слияния см. в статье [Перемещение данных между масштабируемыми облачными базами данных](sql-database-elastic-scale-overview-split-and-merge.md).
+- См. статью [Приступая к работе с инструментами эластичных баз данных](sql-database-elastic-scale-get-started.md), чтобы изучить **пример приложения**, который демонстрирует функции клиента.
 
-[Теперь исходный код клиентской библиотеки эластичной базы данных является открытым!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+- Используйте библиотеку с отрытым кодом [Azure/elastic-db-tools на сайте Github](https://github.com/Azure/elastic-db-tools).
+    - Клиентская библиотека инструментов эластичных баз данных позволяет разработчикам ADO.NET создавать приложения, реализуя и используя в базе данных SQL Azure шаблон для сегментирования баз данных.
 
-Используйте [запросы к эластичной БД](sql-database-elastic-query-overview.md).
+- [Теперь исходный код клиентской библиотеки эластичной базы данных является открытым!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) - **запись блога** о клиентской библиотеке эластичных баз данных за 09.09.2015.
 
-Библиотека с открытым кодом доступна на сайте [GitHub](https://github.com/Azure/elastic-db-tools). 
+- См. сведения в [обзоре эластичных запросов к базе данных SQL Azure](sql-database-elastic-query-overview.md).
+
+- Инструкции по использованию **средства разбиения и слияния** см. в статье [Перемещение данных между масштабируемыми облачными базами данных](sql-database-elastic-scale-overview-split-and-merge.md).
+
+
+
+<!-- Additional resources H2 -->
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory-faq"></a>Часто задаваемые вопросы о фабрике данных Azure
 Эта статья относится к версии 2 службы фабрики данных Azure. Она содержит ответы на часто задаваемые вопросы о фабрике данных.  
@@ -152,7 +152,7 @@ ms.lasthandoff: 10/26/2017
 Подробные сведения о ценах на фабрику данных Azure см. на [этой странице](https://azure.microsoft.com/pricing/details/data-factory/).
 
 ## <a name="what-regions-support-azure-data-factory-version-2"></a>В каких регионах поддерживается фабрики данных Azure версии 2?
-Сейчас фабрики данных версии 2 можно создавать в таких регионах: восточная часть США и восточная часть США 2. Тем не менее фабрика данных может использовать среду выполнения интеграции в другом регионе для перемещения данных между хранилищами данных, диспетчеризации действий по службам вычислений или диспетчеризации пакетов служб SSIS. Дополнительные сведения см. в разделе [Data Factory locations](concepts-integration-runtime.md#integration-runtime-location) (Расположения фабрики данных).
+Сейчас фабрики данных версии 2 можно создавать в таких регионах: восточная часть США, восточная часть США 2 и Западная Европа. Тем не менее фабрика данных может использовать среду выполнения интеграции в другом регионе для перемещения данных между хранилищами данных, диспетчеризации действий по службам вычислений или диспетчеризации пакетов служб SSIS. Дополнительные сведения см. в разделе [Data Factory locations](concepts-integration-runtime.md#integration-runtime-location) (Расположения фабрики данных).
 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Как оставаться в курсе последних новостей о фабрике данных?
 Чтобы узнавать о последних новостях о фабрике данных Azure, используйте следующие сайты:

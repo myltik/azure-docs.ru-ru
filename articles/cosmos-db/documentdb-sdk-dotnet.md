@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fcd3b9647833d15d0fd7913f3be55f18f665d094
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 25fd7ca3a7a6f2bd9b361bd459a707bad49449e4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Пакет SDK для Azure Cosmos DB .NET: скачивание и заметки о выпуске
 > [!div class="op_single_selector"]
@@ -51,6 +51,15 @@ ms.lasthandoff: 10/26/2017
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+### <a name="a-name11901190"></a><a name="1.19.0"/>1.19.0
+
+* Изменена фирменная символика с Azure DocumentDB на Azure Cosmos DB в справочной документации по API, сведениях о метаданных в сборках и пакете NuGet. 
+* Предоставлены данные диагностики и сведения о задержке ответов на запросы, отправленные в режиме прямого соединения. Имена свойств: RequestDiagnosticsString и RequestLatency в классе ResourceResponse.
+* Для этой версии пакета SDK требуется последняя версия эмулятора Azure Cosmos DB. Ее можно скачать по адресу https://aka.ms/cosmosdb-emulator. 
+
+### <a name="a-name11811181"></a><a name="1.18.1"/>1.18.1 
+
+* Внутренние изменения в системных сборках друзей корпорации Microsoft.
 
 ### <a name="a-name11801180"></a><a name="1.18.0"/>1.18.0 
 
@@ -261,6 +270,8 @@ ms.lasthandoff: 10/26/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.19.0](#1.19.0) |10 ноября 2017 г. |--- |
+| [1.18.1](#1.18.1) |7 ноября 2017 г. |--- |
 | [1.18.0](#1.18.0) |17 октября 2017 г. |--- |
 | [1.17.0](#1.17.0) |10 августа 2017 г. |--- |
 | [1.16.1](#1.16.1) |7 августа 2017 г. |--- |

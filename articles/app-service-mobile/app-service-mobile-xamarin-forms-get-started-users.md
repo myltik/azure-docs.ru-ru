@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
-ms.openlocfilehash: 9e14e95793bcc81ad46783fd50ba223eec4ea360
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81c731f560ed9cdc56416076cd44cba504fa614d
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Добавление проверки подлинности в приложение Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 Для безопасной аутентификации требуется определить новую схему URL-адресов для своего приложения. Это позволяет системе аутентификации выполнять перенаправление обратно в приложение после завершения процесса аутентификации. В этом руководстве мы повсеместно используем схему URL-адресов _appname_. Тем не менее можно использовать любую схему URL-адресов на свой выбор. Она должна быть уникальной для мобильного приложения. Вот как можно включить перенаправление на стороне сервера.
 
-1. На портале Azure выберите свою службу приложений.
+1. На [портале Azure][8] выберите свою службу приложений.
 
 2. Выберите пункт меню **Аутентификация или авторизация**.
 
@@ -166,9 +166,9 @@ ms.lasthandoff: 10/11/2017
 
     Если используется поставщик удостоверений, отличающийся от Facebook, выберите другое значение [MobileServiceAuthenticationProvider][7].
 
-6. Добавьте следующий код в узел <application> файла AndroidManifest.xml:
+6. Обновите файл **AndroidManifest.xml**, добавив следующий код XML в элемент `<application>`:
 
-```xml
+    ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
@@ -177,15 +177,15 @@ ms.lasthandoff: 10/11/2017
         <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
       </intent-filter>
     </activity>
-```
-
-1. Добавьте следующий код в метод **OnCreate** в классе **MainActivity** перед вызовом метода `LoadApplication()`:
+    ```
+    Замените имя репозитория `{url_scheme_of_your_app}` своей схемой URL-адреса.
+7. Добавьте следующий код в метод **OnCreate** в классе **MainActivity** перед вызовом метода `LoadApplication()`:
 
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
 
     Этот код гарантирует, что структура проверки подлинности инициализируется перед загрузкой приложения.
-2. Повторно выполните сборку и запустите приложение. Потом выполните вход, используя выбранный поставщик проверки подлинности, и убедитесь, что у вас есть доступ к данным в качестве прошедшего проверку подлинности пользователя.
+8. Повторно выполните сборку и запустите приложение. Потом выполните вход, используя выбранный поставщик проверки подлинности, и убедитесь, что у вас есть доступ к данным в качестве прошедшего проверку подлинности пользователя.
 
 ## <a name="add-authentication-to-the-ios-app"></a>Добавление проверки подлинности в приложение iOS
 В этом разделе показано, как реализовать интерфейс **IAuthenticate** в проекте приложения iOS. Пропустите этот раздел, если вы не пользуетесь устройствами iOS.
@@ -236,23 +236,23 @@ ms.lasthandoff: 10/11/2017
         }
 
     Если используется поставщик удостоверений, отличающийся от Facebook, выберите другое значение [MobileServiceAuthenticationProvider].
-
-6. Обновите класс AppDelegate, добавив перегрузку метода OpenUrl(UIApplication app, NSUrl url, NSDictionary options).
+    
+6. Обновите класс **AppDelegate**, добавив перегрузку метода **OpenUrl**, как показано ниже:
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
         }
-
-6. Добавьте следующую строку кода в метод **FinishedLaunching** перед вызовом `LoadApplication()`:
+   
+7. Добавьте следующую строку кода в метод **FinishedLaunching** перед вызовом `LoadApplication()`:
 
         App.Init(this);
 
     Этот код гарантирует, что структура проверки подлинности инициализируется перед тем, как приложение загрузится.
 
-6. Добавьте **{схема_URL-адреса_вашего_приложения}** для схемы URL-адресов в файле Info.plist.
+8. Откройте Info.plist и добавьте **тип URL-адреса**. Для параметра **Идентификатор** задайте имя по своему выбору, для параметра **Схемы URL-адресов** укажите схему URL-адреса приложения, а для параметра **Роль** установите значение None.
 
-7. Повторно выполните сборку и запустите приложение. Потом выполните вход, используя выбранный поставщик проверки подлинности, и убедитесь, что у вас есть доступ к данным в качестве прошедшего проверку подлинности пользователя.
+9. Повторно выполните сборку и запустите приложение. Потом выполните вход, используя выбранный поставщик проверки подлинности, и убедитесь, что у вас есть доступ к данным в качестве прошедшего проверку подлинности пользователя.
 
 ## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Добавление проверки подлинности в проекты приложений Windows 10 (включая Phone)
 В этом разделе показано, как реализовать интерфейс **IAuthenticate** в проекте приложения Windows 10. Те же действия применяются для проектов универсальной платформы Windows (UWP), но с помощью проекта **UWP** (с указанными изменениями). Пропустите этот раздел, если вы не пользуетесь устройствами Windows.
@@ -306,7 +306,7 @@ ms.lasthandoff: 10/11/2017
             return success;
         }
 
-    Если используется поставщик удостоверений, отличающийся от Facebook, выберите другое значение [MobileServiceAuthenticationProvider].
+    Если используется поставщик удостоверений, отличающийся от Facebook, выберите другое значение [MobileServiceAuthenticationProvider][7].
 
 1. Добавьте следующую строку кода в конструктор для класса **MainPage`LoadApplication()` перед вызовом метода** :
 
@@ -326,12 +326,9 @@ ms.lasthandoff: 10/11/2017
                 ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
                 TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(protocolArgs.Uri);
             }
-
        }
 
-   Если переопределение метода уже присутствует, добавьте условный код из приведенного выше фрагмента.  Этот код не требуется для универсальных проектов Windows.
-
-3. Добавьте **{схема_URL-адреса_вашего_приложения}** в файл Package.appxmanifest. 
+3. Откройте файл Package.appxmanifest и добавьте объявление **протокола**. Для параметра **Отображаемое имя** задайте имя по своему выбору, а для параметра **Имя** укажите схему URL-адреса приложения.
 
 4. Повторно выполните сборку и запустите приложение. Потом выполните вход, используя выбранный поставщик проверки подлинности, и убедитесь, что у вас есть доступ к данным в качестве прошедшего проверку подлинности пользователя.
 
@@ -355,3 +352,4 @@ ms.lasthandoff: 10/11/2017
 [5]: app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
 [6]: app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
+[8]: https://portal.azure.com

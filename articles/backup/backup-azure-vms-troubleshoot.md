@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 096c97f4cb41ff8df2e646f59dbc0bf845721ac7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c4ea3e3714f6a3989a260937c2c67815a6dd6f7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Устранение неполадок при архивации виртуальных машин Azure
 > [!div class="op_single_selector"]
@@ -32,6 +32,11 @@ ms.lasthandoff: 10/11/2017
 ## <a name="backup"></a>Резервное копирование
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Ошибка: указанная конфигурация диска не поддерживается
+
+> [!NOTE]
+> У нас есть закрытая предварительная версия, в которой поддерживается резервное копирование для виртуальных машин с неуправляемыми дисками, емкостью больше 1 ТБ. Дополнительные сведения см. на странице [закрытой предварительной версии для поддержки резервного копирования виртуальных машин с дисками большого размера](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+>
+>
 
 Сейчас служба Azure Backup не поддерживает размер диска [больше 1023 ГБ](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
 - При наличии дисков, размер которых больше 1 ТБ, [подключите новые диски](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal), размер которых меньше 1 ТБ. <br>

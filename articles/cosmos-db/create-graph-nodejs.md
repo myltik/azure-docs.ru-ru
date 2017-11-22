@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: denlee
-ms.openlocfilehash: 228d739ac4505d9f16c43bb484dd8050631f084e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB. Создание приложения Node.js с помощью API Graph
 
@@ -75,9 +75,23 @@ Azure Cosmos DB — это глобально распределенная мн�
         });
     ```
 
-  Все конфигурации находятся в файле `config.js`, который мы изменим в следующем разделе.
+  Все конфигурации находятся в файле `config.js`, который мы изменим в [следующем разделе](#update-your-connection-string).
 
-* Выполнение шагов Gremlin с использованием метода `client.execute`.
+* Для выполнения различных операций Gremlin определяется набор функций. Это один из них:
+
+    ```nodejs
+    function addVertex1(callback)
+    {
+        console.log('Running Add Vertex1'); 
+        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
+          if (err) callback(console.error(err));
+          console.log("Result: %s\n", JSON.stringify(results));
+          callback(null)
+        });
+    }
+    ```
+
+* Каждая функция выполняет метод `client.execute` с параметром строки запроса Gremlin. Ниже приведен пример выполнения `g.V().count()`:
 
     ```nodejs
     console.log('Running Count'); 
@@ -88,11 +102,28 @@ Azure Cosmos DB — это глобально распределенная мн�
     });
     ```
 
+* В конце файла все методы вызываются с помощью метода `async.waterfall()`. После этого они выполняются один за другим:
+
+    ```nodejs
+    try{
+        async.waterfall([
+            dropGraph,
+            addVertex1,
+            addVertex2,
+            addEdge,
+            countVertices
+            ], finish);
+    } catch(err) {
+        console.log(err)
+    }
+    ```
+
+
 ## <a name="update-your-connection-string"></a>Обновление строки подключения
 
 1. Откройте файл config.js. 
 
-2. В файле сonfig.js заполните значения ключа config.endpoint значением **Gremlin URI** со страницы **обзора** на портале Azure. 
+2. В файле сonfig.js заполните значения ключа `config.endpoint` значением **Gremlin URI** со страницы **обзора** на портале Azure. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 

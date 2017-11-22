@@ -1,50 +1,50 @@
 ---
-title: "Добавление эталонного набора данных в среду Azure Time Series Insights | Документация Майкрософт"
-description: "Это руководство содержит сведения о добавлении эталонного набора данных в среду Time Series Insights."
-keywords: 
+title: "Как добавить эталонный набор данных в среду Аналитики временных рядов Azure | Документация Майкрософт"
+description: "Из этой статьи вы узнаете, как добавить эталонный набор данных в среду Аналитики временных рядов Azure. Соединив эталонные данные с исходными, можно получить расширенные значения."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: venkatgct
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: b94ca172dba71b407ee5e9a40c283a97602efd17
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 7cdcefbd0daec3b7bab59680afa1470624583c74
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Создание эталонного набора данных для среды Time Series Insights с помощью портала Ibiza
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Создание эталонного набора данных для среды Аналитики временных рядов с помощью портала Azure
 
-Эталонный набор данных — это коллекция элементов, дополненных событиями из вашего источника события. Обработчик входящего трафика Time Series Insights соединяет событие из источника события с элементом в эталонном наборе данных. Это дополненное событие становится доступным для запроса. Это соединение основано на ключах, определенных в эталонном наборе данных.
+Из этой статьи вы узнаете, как добавить эталонный набор данных в среду Аналитики временных рядов Azure. Соединив эталонные данные с исходными, можно получить расширенные значения.
 
-## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Действия для добавления эталонного набора данных в среду
+Эталонный набор данных — это коллекция элементов, дополненных событиями из вашего источника события. Обработчик входящего трафика Аналитики временных рядов соединяет событие из источника события с элементом в эталонном наборе данных. Это дополненное событие становится доступным для запроса. Это соединение основано на ключах, определенных в эталонном наборе данных.
 
-1. Выполните вход на [портал Azure](https://portal.azure.com).
-2. Щелкните "Все ресурсы" в меню слева на портале Azure.
-3. Выберите среду Time Series Insights.
+## <a name="add-a-reference-data-set"></a>Добавление эталонного набора данных
 
-    ![Создание эталонного набора данных Time Series Insights](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
+1. Войдите на [портал Azure](https://portal.azure.com).
 
-4. Выберите "Эталонные наборы данных" и щелкните "+ Добавить".
+2. Найдите существующую среду Аналитики временных рядов. На портале Azure в меню слева щелкните **Все ресурсы**. Выберите среду Аналитики временных рядов.
 
-    ![Создание эталонного набора данных Time Series Insights — сведения](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
+3. В разделе **Топология окружения** щелкните **Эталонные наборы данных**.
 
-5. Укажите имя эталонного набора данных.
-6. Укажите имя ключа и его тип. Эти имя и тип используются для выбора правильного свойства из события в источнике события. Например, если вы указали имя ключа DeviceId и тип String, обработчик входящего трафика Time Series Insights ищет свойство с именем DeviceId и типом String во входящих событиях. Вы можете указать несколько ключей для соединения с событием. Сопоставление имен ключей выполняется с учетом регистра.
+    ![Создание эталонного набора данных для Аналитики временных рядов](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
 
-     ![Создание эталонного набора данных Time Series Insights — сведения](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
+4. Щелкните **+ Добавить**, чтобы добавить новый эталонный набор данных.
 
-7. Щелкните "Создать".
+5. Укажите уникальное **имя эталонного набора данных**.
+
+    ![Создание эталонного набора данных для Аналитики временных рядов — сведения](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
+
+6. В пустом поле укажите **имя ключа** и выберите его **тип**. Эти имя и тип используются для выбора правильного свойства из событий в источнике событий с целью привязки к эталонным данным. 
+
+   Например, если вы укажете имя ключа **DeviceId** и тип **String**, обработчик входящего трафика Аналитики временных рядов будет искать свойство с именем **DeviceId** и типом **String** в каждом входящем событии, чтобы привязаться к нему. Вы можете указать несколько ключей для соединения с событием. Сопоставление имен ключей выполняется с учетом регистра.
+
+7. Нажмите кнопку **Создать**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
 * [Управление эталонными данными](time-series-insights-manage-reference-data-csharp.md) программными средствами.
 * Полный справочник по API см. [здесь](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

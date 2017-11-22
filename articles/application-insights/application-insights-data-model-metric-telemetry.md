@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cfdf3b70f6fdb2ddd5f89a72c931d3b6be54132
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: bd09e2a21c25097fa4b378cb2dbe2787edbb1967
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Телеметрия метрик: модель данных Application Insights
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/01/2017
 
 Телеметрия предварительно вычисленных метрик предполагает, что период статистической обработки составлял одну минуту.
 
-Существует несколько известных имен метрик, поддерживаемых Application Insights. 
+Существует несколько известных имен метрик, поддерживаемых Application Insights. Эти метрики помещаются в таблицу performanceCounters.
 
 Метрика, представляющая счетчики системы и процессов:
 
@@ -65,6 +65,8 @@ ms.lasthandoff: 11/01/2017
 Стандартное отклонение вычисленной метрики. Не следует задавать для измерения.
 
 ## <a name="custom-properties"></a>Пользовательские свойства
+
+Если пользовательское свойство метрики `CustomPerfCounter` имеет значение `true`, это означает, что метрика представляет счетчик производительности Windows. Эти метрики помещаются в таблицу performanceCounters, а не в customMetrics. Кроме того, анализируется имя этой метрики для извлечения имени категории, счетчика и экземпляра.
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 

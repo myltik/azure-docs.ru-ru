@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 02317d1b74d10d0fb3a2a08d8f4292a6be0438c2
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Краткое руководство. Создание приложения API таблицы с помощью .NET и Azure Cosmos DB 
 
@@ -67,7 +67,7 @@ Azure Cosmos DB — это глобально распределенная мн�
 2. Выполните команду ниже, чтобы клонировать репозиторий с примером. Эта команда создает копию примера приложения на локальном компьютере. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. Затем откройте файл решения TableStorage в Visual Studio. 
@@ -78,22 +78,25 @@ Azure Cosmos DB — это глобально распределенная мн�
 
 1. На [портале Azure](http://portal.azure.com/) нажмите кнопку **Строка подключения**. 
 
-    Используйте кнопки копирования в правой части экрана, чтобы скопировать строку подключения.
+    Используйте кнопки копирования в правой части экрана, чтобы скопировать основную строку подключения.
 
-    ![Просмотр и копирование строки подключения на панели строки подключения](./media/create-table-dotnet/connection-string.png)
+    ![Просмотр и копирование основной строки подключения на панели строки подключения](./media/create-table-dotnet/connection-string.png)
 
 2. В Visual Studio откройте файл app.config. 
 
-3. Вставьте значение строки подключения в файл App.config в качестве значения AzureCosmosDBTableAPIConnectionString. 
+3. В этом руководстве не используется эмулятор хранения. Раскомментируйте элемент StorageConnectionString в строке 8 и закомментируйте элемент StorageConnectionString в строке 7. 
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+3. Вставьте значение первичной строки подключения в значение StorageConnectionString в строке 8. 
 
-    > [!NOTE]
-    > Чтобы использовать это приложение с хранилищем таблиц Azure, необходимо изменить строку подключения в файле `App.config file`. В качестве значения параметра AccountName используйте имя учетной записи таблицы, а в качестве параметра AccountKey — первичный ключ службы хранилища Azure. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
-    >
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    ```
+
+    Теперь строка 8 должна выглядеть примерно так:
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
 
 4. Сохраните файл App.config.
 

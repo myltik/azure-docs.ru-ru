@@ -1,5 +1,5 @@
 ---
-title: "Сохранение файлов в Azure Cloud Shell (предварительная версия) | Документация Майкрософт"
+title: "Сохранение файлов с помощью PowerShell в Azure Cloud Shell (предварительная версия) | Документация Майкрософт"
 description: "Пошаговое руководство по сохранению файлов в Azure Cloud Shell."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: damaerte
-ms.openlocfilehash: 933af3860bfe087a0b4db7eff53d4b978a1475da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d0e20d670e49cdfe64614d1fc6f5739fde6155
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-works"></a>Как работает Cloud Shell
-Cloud Shell сохраняет файлы с помощью приведенного ниже метода. 
+## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Как PowerShell работает в Azure Cloud Shell (предварительная версия)
+PowerShell в Cloud Shell (предварительная версия) позволяет сохранять файлы с помощью приведенного ниже метода. 
 * Подключение выбранного файлового ресурса как `clouddrive` в каталоге `$Home`, чтобы взаимодействовать с ним напрямую.
 
 ## <a name="list-cloud-drive-file-shares"></a>Вывод списка файловых ресурсов на облачном диске

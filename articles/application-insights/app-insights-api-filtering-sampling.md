@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 9261f44a0c0400a0a8d908b0ff72318c637771de
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5f4db2e79575202d3d9fa1601fb182c7a0881338
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Фильтрация и предварительная обработка данных телеметрии в пакете SDK для Application Insights
 
@@ -335,6 +335,9 @@ public void Process(ITelemetry item)
 * Свойство TelemetryProcessors позволяет полностью заменить или удалить элемент телеметрии.
 * Свойство TelemetryProcessors не обрабатывает данные телеметрии счетчика производительности.
 
+## <a name="troubleshooting-applicationinsightsconfig"></a>Устранение неполадок с файлом ApplicationInsights.config
+* Убедитесь, что полное имя типа и имя сборки указаны правильно.
+* Убедитесь, что файл applicationinsights.config находится в выходном каталоге и содержит все последние изменения.
 
 ## <a name="reference-docs"></a>Справочная документация
 * [Обзор API](app-insights-api-custom-events-metrics.md)

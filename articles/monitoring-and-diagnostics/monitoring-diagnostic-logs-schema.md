@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: johnkem
-ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Поддерживаемые службы, схемы и категории для журналов диагностики Azure
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 | Data Lake Analytics |[Доступ к журналам диагностики для Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Хранилище озера данных |[Доступ к журналам диагностики Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Концентраторы событий |[Журналы диагностики концентраторов событий Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
-| Центр IoT | [Использование Azure Monitor](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
+| Центр Интернета вещей | [Использование Azure Monitor](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Хранилище ключей |[Ведение журнала хранилища ключей Azure](../key-vault/key-vault-logging.md) |
 | Балансировщик нагрузки |[Log Analytics для Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Приложения логики |[Настраиваемая схема отслеживания сообщений B2B для приложений логики](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
@@ -56,20 +56,36 @@ ms.lasthandoff: 10/11/2017
 ## <a name="supported-log-categories-per-resource-type"></a>Поддерживаемые категории журнала для каждого типа ресурса
 |Тип ресурса|Категория|Отображаемое имя категории|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|Двигатель|Двигатель|
+|Microsoft.AnalysisServices/servers|служба|служба|
 |Microsoft.ApiManagement/service|GatewayLogs|Журналы, относящихся к шлюзу ApiManagement.|
 |Microsoft.Automation/automationAccounts|JobLogs|Журналы заданий|
 |Microsoft.Automation/automationAccounts|JobStreams|Потоки заданий|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Состояние узла DSC.|
 |Microsoft.Batch/batchAccounts|ServiceLog|Журналы служб|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Возвращает метрики конечной точки, например пропускную способность, исходящий трафик и т. д.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DataFactory/factories;|ActivityRuns|Журнал выполнения действий конвейера|
+|Microsoft.DataFactory/factories;|PipelineRuns|Журнал запусков конвейера|
+|Microsoft.DataFactory/factories;|TriggerRuns|Журнал запусков триггера|
 |Microsoft.DataLakeAnalytics/accounts|Аудит|Журналы аудита|
 |Microsoft.DataLakeAnalytics/accounts|Запросы|Журналы запросов|
 |Microsoft.DataLakeStore/accounts|Аудит|Журналы аудита|
 |Microsoft.DataLakeStore/accounts|Запросы|Журналы запросов|
+|Microsoft.Devices/IotHubs|Подключения|Подключения|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|Телеметрия устройства|
+|Microsoft.Devices/IotHubs|C2DCommands|Команды, отправляемые из облака на устройство|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Операции с удостоверениями устройства|
+|Microsoft.Devices/IotHubs|FileUploadOperations|Операции отправки файлов|
+|Microsoft.Devices/IotHubs|Маршруты|Маршруты|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|Операции переноса с двойника устройства в облако|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|Операции переноса из облака на двойник устройства|
+|Microsoft.Devices/IotHubs|TwinQueries|Запросы к двойникам|
+|Microsoft.Devices/IotHubs|JobsOperations|Операции заданий|
+|Microsoft.Devices/IotHubs|DirectMethods|Прямые методы|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Операции с устройствами|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Операции со службой|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Журналы архивации|
 |Microsoft.EventHub/namespaces|OperationalLogs|Журналы операций|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Журналы автомасштабирования.|
@@ -78,6 +94,7 @@ ms.lasthandoff: 10/11/2017
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Событие группы безопасности сети|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Счетчик правил группы безопасности сети|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Событие потока правил группы безопасности сети|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|События оповещения балансировщика нагрузки|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Состояние работоспособности балансировщика нагрузки|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Уведомления о защите от атак DDoS|
@@ -85,6 +102,11 @@ ms.lasthandoff: 10/11/2017
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Журнал доступа к шлюзу приложений|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Журнал производительности шлюза приложений|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Журнал брандмауэра шлюза приложений|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Журналы диагностики шлюзов|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Журналы диагностики туннелей|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Журналы диагностики маршрутов|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Событие вывода результатов проверки работоспособности диспетчера трафика|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Таблица счетчиков GWM.|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Данные отчетов службы архивации Azure|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Задания Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|События Azure Site Recovery|
@@ -93,7 +115,6 @@ ms.lasthandoff: 10/11/2017
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Точки восстановления Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Журналы операций|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Журналы операций|
-|Microsoft.Sql/servers/databases|QueryStore|Хранилище запросов|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Статистика среды выполнения хранилища запросов|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Статистика времени ожидания хранилища запросов|
 |Microsoft.Sql/servers/databases|Errors|Errors|

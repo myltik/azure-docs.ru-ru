@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
-ms.author: sethm;hillaryc
-ms.openlocfilehash: 5a4e69ea7e13cb017f8fb432c524c6a8ce9228a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: sethm
+ms.openlocfilehash: beebfb496604b422e091cd3b4425933f3cea1283
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="partitioned-queues-and-topics"></a>Секционированные очереди и разделы
 Служебная шина Azure использует несколько посредников сообщений для обработки сообщений и несколько хранилищ сообщений для их хранения. Обычная очередь или раздел обрабатываются одним брокером сообщений и сохраняются в одном хранилище сообщений. *Секции* служебной шины позволяют секционировать очереди, разделы или *сущности обмена сообщениями* между несколькими брокерами сообщений и хранилищами сообщений. Это означает, что общая пропускная способность секционированной сущности больше не ограничивается производительностью одного брокера сообщений или хранилища сообщений. Кроме того, при возникновении временного сбоя хранилища сообщений секционированная очередь или раздел останутся доступными. Секционированные очереди и разделы могут предоставлять все расширенные функции служебной шины, в том числе поддержку транзакций и сеансов.
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="enable-partitioning"></a>Включение секционирования
 
-Для использования секционированных очередей и разделов служебной шины Azure необходимо использовать пакет SDK для Azure 2.2 или более поздней версии или указать `api-version=2013-10` в HTTP-запросах.
+Чтобы применять секционированные очереди и разделы в службе "Служебная шина Azure", используйте пакет SDK для Azure 2.2 или более поздней версии либо укажите `api-version=2013-10` или более позднюю версию в HTTP-запросах.
 
 ### <a name="standard"></a>Standard
 
@@ -63,7 +63,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Кроме того, секционированную очередь или раздел можно создать на [портале Azure][Azure portal] или в Visual Studio. При создании очереди или раздела на портале флажок **Включить секционирование**, расположенный в колонке **Создать** очереди или раздела, установлен по умолчанию. Этот параметр можно отключить только в сущности уровня "Стандартный". При секционировании на уровне "Премиум" он включен всегда. В Visual Studio установите флажок **Включить секционирование** в диалоговом окне **Новая очередь** или **Новый раздел**.
+Кроме того, секционированную очередь или раздел можно создать на [портале Azure][Azure portal] или в Visual Studio. Когда вы создаете очередь или раздел, на портале по умолчанию установлен флажок **Включить секционирование** в диалоговом окне **Создать**. Этот параметр можно отключить только в сущности уровня "Стандартный". При секционировании на уровне "Премиум" он включен всегда. В Visual Studio установите флажок **Включить секционирование** в диалоговом окне **Новая очередь** или **Новый раздел**.
 
 ## <a name="use-of-partition-keys"></a>Использование ключей секции
 Когда сообщение добавляется в секционированную очередь или раздел, служебная шина проверяет наличие ключа секции. Если ключ есть, то фрагмент выбирается на основе этого ключа. Если ключа нет, то фрагмент выбирается на основе внутреннего алгоритма.
@@ -82,7 +82,7 @@ ns.CreateTopic(td);
 ### <a name="not-using-a-partition-key"></a>Неиспользование ключа секции
 При отсутствии ключа секции служебная шина распределяет сообщение по принципу циклического перебора всем фрагментам секционированной очереди или раздела. Если выбранный фрагмент недоступен, служебная шина назначает сообщение другому фрагменту. Таким образом, операция отправки выполняется даже при временной недоступности хранилища сообщений. Тем не менее вы не получите гарантированного количества, обеспечиваемого ключом раздела.
 
-Более подробно компромисс между доступностью (нет ключа раздела) и целостностью (с использованием ключа раздела) рассматривается [в этой статье](../event-hubs/event-hubs-availability-and-consistency.md). Эта информация применяется в равной степени в отношении сущностей служебной шины с разделами и разделов концентраторов событий.
+Более подробно компромисс между доступностью (нет ключа раздела) и целостностью (с использованием ключа раздела) рассматривается [в этой статье](../event-hubs/event-hubs-availability-and-consistency.md). Эта информация также применима к секционированным сущностям службы "Служебная шина".
 
 Чтобы у служебной шины было достаточно времени для того, чтобы поместить сообщение в другой фрагмент, значение свойства [MessagingFactorySettings.OperationTimeout][MessagingFactorySettings.OperationTimeout], указываемое клиентом, который отправляет сообщение, должно быть больше 15 секунд. Рекомендуется установить свойство [OperationTimeout][OperationTimeout] в значение по умолчанию 60 секунд.
 
@@ -127,14 +127,14 @@ committableTransaction.Commit();
 
 ## <a name="considerations-and-guidelines"></a>Рекомендации и советы
 * **Функции высокого уровня согласованности**. Если сущность использует такие функции, как сеансы, обнаружение дубликатов или явное управление ключом секционирования, то операции обмена сообщениями всегда направляются в определенные фрагменты. Если любой из фрагментов сталкивается с высоким трафиком или базовое хранилище неработоспособно, то эти операции завершаются сбоем и их доступность ограничивается. В целом уровень согласованности гораздо выше, чем при использовании несекционированных сущностей, поэтому проблемы возникают лишь в некоторой части трафика. Дополнительные сведения см. в этом [обсуждении доступности и целостности](../event-hubs/event-hubs-availability-and-consistency.md).
-* **Управление**. Такие операции, как создание, обновление и удаление, должны выполняться во всех фрагментах сущности. Если какой-либо из фрагментов находится в неработоспособном состоянии, это может привести к сбою этих операций. Для операции GET требуется, чтобы сведения, например количество сообщений, были собраны для всех фрагментов. Если какой-либо из фрагментов находится в неработоспособном состоянии, состояние доступности сущности отображается как ограниченное.
+* **Управление**. Такие операции, как создание, обновление и удаление, должны выполняться во всех фрагментах сущности. Если какой-либо из фрагментов неработоспособен, может произойти сбой этих операций. Для операции GET требуется, чтобы сведения, например количество сообщений, были собраны для всех фрагментов. Если какой-либо из фрагментов находится в неработоспособном состоянии, состояние доступности сущности отображается как ограниченное.
 * **Сообщения небольших объемов**. Чтобы получить все сообщения в таких сценариях, особенно при использовании протокола HTTP, может потребоваться выполнить несколько операций получения. Для запросов на получение внешний интерфейс выполняет операцию получения во всех фрагментах и кэширует все полученные ответы. Это кэширование повышает производительность последующего запроса на получение при том же подключении, уменьшая задержки получения. Тем не менее при наличии нескольких подключений или использовании протокола HTTP для каждого запроса устанавливается новое подключение. Таким образом, нет никакой гарантии, что запрос будет выполняться на том же узле. Если все имеющиеся сообщения блокируются и кэшируются в другом внешнем интерфейсе, операция получения возвращает значение **NULL**. Когда в конечном итоге срок действия сообщений истекает, их снова можно получать. Рекомендуется выполнить проверку активности HTTP.
-* **Обзор и просмотр сообщений**. Метод [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) не всегда возвращает количество сообщений, указанное в свойстве [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_MessageCount). На это есть две причины. Первая причина — объединенный размер коллекции сообщений превышает максимальный размер в 256 КБ. Вторая причина заключается в том, что если для [свойства EnablePartitioning](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning) очереди или раздела задано значение **true**, то секция может содержать недостаточно сообщений для выполнения запроса. Как правило, если приложению требуется получить определенное количество сообщений, оно должно вызывать метод [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_), пока не получит желаемое количество сообщений или пока не закончатся сообщения, которые можно просмотреть. Дополнительные сведения, включая примеры кода, см. в разделах [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) или [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PeekBatch_System_Int32_).
+* **Обзор и просмотр сообщений**. Метод [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) не всегда возвращает количество сообщений, указанное в свойстве [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount). На это есть две причины. Первая причина — общий размер коллекции сообщений превышает максимальное значение в 256 КБ. Вторая причина заключается в том, что если для [свойства EnablePartitioning](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) очереди или раздела задано значение **true**, то секция может содержать недостаточно сообщений для выполнения запроса. Как правило, если приложению требуется получить определенное количество сообщений, оно должно вызывать метод [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch), пока не получит желаемое количество сообщений или пока не закончатся сообщения, которые можно просмотреть. Дополнительные сведения, включая примеры кода, см. в документах по API [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) или [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch).
 
 ## <a name="latest-added-features"></a>Новые функции
 * Теперь для секционированных сущностей поддерживаются операции добавления и удаления правила. В отличие от несекционированных сущностей эти операции не поддерживаются при выполнении транзакций. 
 * Теперь AMQP может использоваться для обмена сообщениями (отправка и получение) с секционированными сущностями.
-* Теперь протокол AMQP поддерживается для следующих операций: [пакетная отправка](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_BrokeredMessage__), [пакетное получение](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_ReceiveBatch_System_Int32_), [получение по порядковому номеру](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_Receive_System_Int64_), [обзор](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_Peek), [блокировка обновления](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_RenewMessageLock_System_Guid_), [планирование сообщений](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_ScheduleMessageAsync_Microsoft_ServiceBus_Messaging_BrokeredMessage_System_DateTimeOffset_), [отмена запланированных сообщений](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_CancelScheduledMessageAsync_System_Int64_), [добавление правила](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [удаление правила](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [блокировка обновления сеанса](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_RenewLock), [установка состояния сеанса](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_), [получение состояния сеанса](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_GetState) и [перечисление сеансов](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessionsAsync).
+* Теперь протокол AMQP поддерживается для следующих операций: [пакетная отправка](/dotnet/api/microsoft.servicebus.messaging.queueclient.sendbatch), [пакетное получение](/dotnet/api/microsoft.servicebus.messaging.queueclient.receivebatch), [получение по порядковому номеру](/dotnet/api/microsoft.servicebus.messaging.queueclient.receive), [обзор](/dotnet/api/microsoft.servicebus.messaging.queueclient.peek), [блокировка обновления](/dotnet/api/microsoft.servicebus.messaging.queueclient.renewmessagelock), [планирование сообщений](/dotnet/api/microsoft.servicebus.messaging.queueclient.schedulemessageasync), [отмена запланированных сообщений](/dotnet/api/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync), [добавление правила](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [удаление правила](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [блокировка обновления сеанса](/dotnet/api/microsoft.servicebus.messaging.messagesession.renewlock), [установка состояния сеанса](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate), [получение состояния сеанса](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate) и [перечисление сеансов](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions).
 
 ## <a name="partitioned-entities-limitations"></a>Ограничения секционированных сущностей
 В настоящее время служебная шина накладывает следующие ограничения на секционированные очереди и разделы:
@@ -143,20 +143,20 @@ committableTransaction.Commit();
 * В настоящее время служебная шина обеспечивает до 100 секционированных очередей или разделов на пространство имен. Каждая секционированная очередь или раздел учитывается в квоте в 10 000 сущностей на пространство имен (не относится к уровню "Премиум").
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о секционировании сущностей обмена сообщениями см. в статье [Руководство по использованию протокола AMQP 1.0 в служебной шине и концентраторах событий Azure][AMQP 1.0 support for Service Bus partitioned queues and topics]. 
+Ознакомьтесь с основными понятиями спецификации для обмена сообщениями AMQP 1.0 в [руководстве по протоколу AMQP 1.0](service-bus-amqp-protocol-guide.md).
 
 [Service Bus architecture]: service-bus-architecture.md
 [Azure portal]: https://portal.azure.com
-[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
-[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnablePartitioning
-[BrokeredMessage.SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId
-[BrokeredMessage.PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_PartitionKey
-[SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId
-[PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_PartitionKey
-[QueueDescription.RequiresDuplicateDetection]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection
-[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-[MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-[MessagingFactorySettings.OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
+[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
+[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
+[BrokeredMessage.SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid
+[BrokeredMessage.PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey
+[SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid
+[PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey
+[QueueDescription.RequiresDuplicateDetection]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection
+[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid
+[MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid
+[MessagingFactorySettings.OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout
+[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout
+[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md

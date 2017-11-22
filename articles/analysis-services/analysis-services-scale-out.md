@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: 0e58862684e62a65cf11266cc0320a9acd781f07
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Горизонтальное масштабирование служб Azure Analysis Services
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/06/2017
 
 Независимо от числа реплик запросов, имеющихся в пуле запросов, обработка рабочих нагрузок не распределяется между репликами запросов. Один сервер выступает в качестве сервера обработки. Реплики запросов обслуживают только запросы к моделям, синхронизируемым между всеми репликами в пуле запросов. 
 
-После завершения операции обработки необходимо выполнить синхронизацию сервера обработки и серверов-реплик запросов. При автоматизации операций обработки важно настроить синхронизацию после их успешного завершения.
+После завершения операции обработки необходимо выполнить синхронизацию сервера обработки и серверов-реплик запросов. При автоматизации операций обработки важно настроить синхронизацию после их успешного завершения. Синхронизацию можно выполнить вручную на портале или с помощью PowerShell либо REST API.
 
 > [!NOTE]
 > Горизонтальное масштабирование доступно для серверов в ценовой категории "Стандартный". Каждая реплика запросов оплачивается по той же ставке, что и сервер.
@@ -58,12 +58,10 @@ ms.lasthandoff: 11/06/2017
 
 Табличные модели на сервере-источнике синхронизируются с серверами-репликами. После завершения синхронизации пул запросов начинает распределять входящие запросы между серверами-репликами. 
 
-### <a name="powershell"></a>PowerShell
-Выполните командлет [Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Укажите значение параметра `-Capacity` больше 1.
 
 ## <a name="synchronization"></a>Синхронизация 
 
-При подготовке новых реплик запросов службы Azure Analysis Services автоматически реплицируют модели во всех репликах. Можно также выполнять синхронизацию вручную. При обработке моделей следует выполнять синхронизацию, чтобы обновления синхронизировались между репликами запросов.
+При подготовке новых реплик запросов службы Azure Analysis Services автоматически реплицируют модели во всех репликах. Можно также выполнить синхронизацию вручную с помощью портала или REST API. При обработке моделей следует выполнять синхронизацию, чтобы обновления синхронизировались между репликами запросов.
 
 ### <a name="in-azure-portal"></a>На портале Azure
 
@@ -72,12 +70,16 @@ ms.lasthandoff: 11/06/2017
 ![Ползунок горизонтального масштабирования](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>Интерфейс REST API
+Используйте операцию **sync**.
 
-Синхронизация модели:   
-`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="synchronize-a-model"></a>Синхронизация модели:   
+`POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
-Получение состояния синхронизации модели:  
-`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="get-sync-status"></a>Получение состояния синхронизации  
+`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+### <a name="powershell"></a>PowerShell
+Чтобы запустить синхронизацию из PowerShell, [обновите модуль AzureRM до версии](https://github.com/Azure/azure-powershell/releases) 5.01 или более поздней версии. Используйте командлет [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## <a name="connections"></a>Подключения
 

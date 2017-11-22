@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Интеграция Enterprise с преобразованием данных XML
 ## <a name="overview"></a>Обзор
@@ -50,6 +50,11 @@ ms.lasthandoff: 10/11/2017
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Выберите действие **Преобразовать XML**.   
 6. Добавьте **содержимое** XML, которое будет преобразовано. В качестве **содержимого** можно использовать любые данные XML, получаемые в HTTP-запросе. В этом примере выберите текст HTTP-запроса, активировавшего приложение логики.
+
+   > [!NOTE]
+   > Убедитесь, что содержимое для **преобразования XML** предоставлено в формате XML. Если содержимое предоставлено не в формате XML или в кодировке Base 64, необходимо указать выражение для обработки содержимого. Например, можно использовать [функции](logic-apps-workflow-definition-language.md#functions), такие как ```@base64ToBinary``` для декодирования содержимого или ```@xml``` для обработки содержимого в формате XML.
+ 
+
 7. Выберите имя **карты** , которую вы хотите использовать для преобразования. Эта карта должна находиться в вашей учетной записи интеграции. На предыдущем шаге вы уже предоставили приложению логики доступ к своей учетной записи интеграции, содержащей карту.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Сохраните результаты своих действий.  

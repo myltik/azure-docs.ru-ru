@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/15/2017
 ms.author: maroche
-ms.openlocfilehash: 1f637acffdbf31f6c69124282f50dc5830ad9f5b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Источники данных, поддерживаемые в каталоге данных Azure
 
@@ -42,32 +42,32 @@ ms.lasthandoff: 11/03/2017
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Файл Azure Data Lake Store</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Хранилище больших двоичных объектов Azure</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Каталог службы хранилища Azure</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Таблица служба хранилища Azure</td>
@@ -75,10 +75,10 @@ ms.lasthandoff: 11/03/2017
       <td>✓ </td>
       <td>✓ </td>
       <td>
-        <font size="2"></font>
+        <font size="2">
       </td>
       <td>
-        <font size="2"></font>
+        <font size="2">
       </td>
     </tr>
     <tr>
@@ -86,364 +86,364 @@ ms.lasthandoff: 11/03/2017
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Файл HDFS</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Таблица Hive</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Представление Hive</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Таблица MySQL</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Представление MySQL</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Таблица базы данных Oracle</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Представление базы данных Oracle</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Другие (универсальный ресурс)</td>
       <td>✓ </td>
       <td>✓ </td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Таблица хранилища данных SQL Azure</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI, SQL Server Data Tools</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
+      <td></td>
     </tr>
     <tr>
       <td>Представление хранилища данных SQL</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI, SQL Server Data Tools</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
+      <td></td>
     </tr>
     <tr>
       <td>Размерность SQL Server Analysis Services</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Ключевые показатели эффективности SQL Server Analysis Services</td>
       <td>✓</td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Измерение SQL Server Analysis Services</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Таблица SQL Server Analysis Services</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Отчет для служб SQL Server Reporting Services</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>"Обзор"</font></td>
-      <td><font size=2>Только серверы в основном режиме. Режим SharePoint не поддерживается.</font></td>
+      <td>"Обзор"</td>
+      <td>Только серверы в основном режиме. Режим SharePoint не поддерживается.</td>
     </tr>
     <tr>
       <td>Таблица SQL Server</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI, SQL Server Data Tools</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
+      <td></td>
     </tr>
     <tr>
       <td>Представление SQL Server</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI, SQL Server Data Tools</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
+      <td></td>
     </tr>
     <tr>
       <td>Таблица Teradata</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Представление Teradata</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Представление SAP Hana</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Таблица DB2</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Представление DB2</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Файл файловой системы</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Каталог FTP</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Файл FTP</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Отчет HTTP</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Конечная точка HTTP</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Файл HTTP</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Набор сущностей OData</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Функция OData</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Таблица PostgreSQL</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Представление PostgreSQL</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Представление SAP Hana</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td> Объект SalesForce</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Список SharePoint </td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Коллекция Azure Cosmos DB</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Универсальная таблица ODBC</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Универсальное представление ODBC</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Таблица Cassandra</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2>Публикация в качестве ресурса ODBC</font></td>
+      <td>✓</td>
+      <td></td>
+      <td>Публикация в качестве универсального ресурса ODBC</td>
     </tr>
     <tr>
       <td>Представление Cassandra</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2>Публикация в качестве ресурса ODBC</font></td>
+      <td>✓</td>
+      <td></td>
+      <td>Публикация в качестве универсального ресурса ODBC</td>
     </tr>
     <tr>
       <td>Таблица Sybase</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Представление Sybase</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Таблица MongoDB</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2>Публикация в качестве ресурса ODBC</font></td>
+      <td>✓</td>
+      <td></td>
+      <td>Публикация в качестве универсального ресурса ODBC</td>
     </tr>
     <tr>
       <td>Представление MongoDB</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2>Публикация в качестве ресурса ODBC</font></td>
+      <td>✓</td>
+      <td></td>
+      <td>Публикация в качестве универсального ресурса ODBC</td>
     </tr>
 </table>
 
-Если вам требуется поддержка дополнительных источников, отправьте запрос функции на [форум по каталогу данных Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Если вам нужна поддержка определенного источника данных, предложите свой вариант (или проголосуйте за него, если он уже указан) на [форумах обратной связи каталога данных Azure](https://feedback.azure.com/forums/906052-data-catalog).
 
 
 ## <a name="data-source-reference-specification"></a>Спецификация ссылки на источник данных
@@ -462,519 +462,948 @@ ms.lasthandoff: 11/03/2017
       <td>Контейнер</td>
       <td>Озеро данных</td>
       <td>
-        <font size=2> Протокол: webhdfs <br>Аутентификация: {basic, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Хранилище озера данных Azure</td>
-      <td>Таблица</td>
-      <td>Каталог, файл</td>
+      <td>Azure Data Lake Store</td>
+      <td>Table</td>
+      <td>Directory, file</td>
       <td>
-        <font size=2> Протокол: webhdfs <br>Аутентификация: {basic, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Хранилище Azure</td>
-      <td>Контейнер</td>
-      <td>Контейнер</td>
+      <td>Azure Storage</td>
+      <td>Container</td>
+      <td>Container</td>
       <td>
-        <font size=2> Протокол: azure-blobs <br>Аутентификация: {azure-access-key} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container </font>
+        
+            Protocol: azure-blobs
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container
+        
       </td>
     </tr>
     <tr>
-      <td>Хранилище Azure</td>
-      <td>Таблица</td>
-      <td>Большой двоичный объект, каталог</td>
+      <td>Azure Storage</td>
+      <td>Table</td>
+      <td>Blob, directory</td>
       <td>
-        <font size=2> Протокол: azure-blobs <br>Аутентификация: {azure-access-key} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name </font>
+        
+            Protocol: azure-blobs
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
+        
       </td>
     </tr>
     <tr>
-      <td>Хранилище Azure</td>
-      <td>Контейнер</td>
-      <td>Контейнер</td>
+      <td>Azure Storage</td>
+      <td>Container</td>
+      <td>Container</td>
       <td>
-        <font size=2> Протокол: azure-tables <br>Аутентификация: {azure-access-key} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account </font>
+        
+            Protocol: azure-tables
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+        
       </td>
     </tr>
     <tr>
-      <td>Хранилище Azure</td>
-      <td>Таблица</td>
-      <td>Таблица</td>
+      <td>Azure Storage</td>
+      <td>Table</td>
+      <td>Table</td>
       <td>
-        <font size=2> Протокол: azure-tables <br>Аутентификация: {azure-access-key} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name </font>
+        
+            Protocol: azure-tables
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
+        
       </td>
     </tr>
     <tr>
       <td>Cosmos</td>
-      <td>Контейнер</td>
-      <td>Виртуальный кластер</td>
+      <td>Container</td>
+      <td>Virtual cluster</td>
       <td>
-        <font size=2> Протокол: cosmos <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: cosmos
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Cosmos</td>
-      <td>Таблица</td>
-      <td>Поток, набор потоков, представление</td>
+      <td>Table</td>
+      <td>Stream, stream set, view</td>
       <td>
-        <font size=2> Протокол: cosmos <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: cosmos
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>DataZen</td>
-      <td>Контейнер</td>
-      <td>Сайт</td>
+      <td>Datazen</td>
+      <td>Container</td>
+      <td>Site</td>
       <td>
-        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>DataZen</td>
-      <td>Отчет</td>
-      <td>Отчет, панель мониторинга</td>
+      <td>Datazen</td>
+      <td>Report</td>
+      <td>Report, dashboard</td>
       <td>
-        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>DB2</td>
-      <td>Контейнер</td>
-      <td>База данных</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Протокол: DB2 <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        
+            Protocol: db2
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>DB2</td>
-      <td>Таблица</td>
-      <td>Таблица, представление</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Протокол: DB2 <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema </font>
+        
+            Protocol: db2
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+        
       </td>
     </tr>
     <tr>
-      <td>Файловая система</td>
-      <td>Таблица</td>
-      <td>Файл</td>
+      <td>File system</td>
+      <td>Table</td>
+      <td>File</td>
       <td>
-        <font size=2> Протокол: файл <br>Аутентификация: {none, basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path </font>
+        
+            Protocol: file
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path
+        
       </td>
     </tr>
     <tr>
       <td>FTP</td>
-      <td>Таблица</td>
-      <td>Каталог, файл</td>
+      <td>Table</td>
+      <td>Directory, file</td>
       <td>
-        <font size=2> Протокол: ftp <br>Аутентификация: {none, basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: ftp
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Распределенная файловая система Hadoop</td>
-      <td>Контейнер</td>
-      <td>HDInsight</td>
+      <td>Hadoop Distributed File System</td>
+      <td>Container</td>
+      <td>Cluster</td>
       <td>
-        <font size=2> Протокол: webhdfs <br>Аутентификация: {basic, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Распределенная файловая система Hadoop</td>
-      <td>Таблица</td>
-      <td>Каталог, файл</td>
+      <td>Hadoop Distributed File System</td>
+      <td>Table</td>
+      <td>Directory, file</td>
       <td>
-        <font size=2> Протокол: webhdfs <br>Аутентификация: {basic, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Hive</td>
-      <td>Контейнер</td>
-      <td>База данных</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Протокол: hive <br>Аутентификация: {hdinsight, basic, username, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+        
+            Protocol: hive
+            <br>Authentication: {HDInsight, basic, username, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>connectionProperties:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2}
+        
       </td>
     </tr>
     <tr>
       <td>Hive</td>
-      <td>Таблица</td>
-      <td>Таблица, представление</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Протокол: hive <br>Аутентификация: {hdinsight, basic, username, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+        
+            Protocol: hive
+            <br>Authentication: {HDInsight, basic, username, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>connectionProperties:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2}
+        
       </td>
     </tr>
     <tr>
       <td>HTTP</td>
-      <td>Контейнер</td>
-      <td>Сайт</td>
+      <td>Container</td>
+      <td>Site</td>
       <td>
-        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>HTTP</td>
-      <td>Отчет</td>
-      <td>Отчет, панель мониторинга</td>
+      <td>Report</td>
+      <td>Report, dashboard</td>
       <td>
-        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>HTTP</td>
-      <td>Таблица</td>
-      <td>Конечная точка, файл</td>
+      <td>Table</td>
+      <td>Endpoint, file</td>
       <td>
-        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>MySQL</td>
-      <td>Контейнер</td>
-      <td>База данных</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Протокол: mysql <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        
+            Protocol: mysql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>MySQL</td>
-      <td>Таблица</td>
-      <td>Таблица, представление</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Протокол: mysql <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        
+            Protocol: mysql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>OData</td>
-      <td>Контейнер</td>
-      <td>Контейнер сущностей</td>
+      <td>Container</td>
+      <td>Entity container</td>
       <td>
-        <font size=2> Протокол: odata <br>Аутентификация: {none, basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: odata
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>OData</td>
-      <td>Таблица</td>
-      <td>Набор сущностей, функция</td>
+      <td>Table</td>
+      <td>Entity set, function</td>
       <td>
-        <font size=2> Протокол: odata <br>Аутентификация: {none, basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resource </font>
+        
+            Protocol: odata
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resource
+        
       </td>
     </tr>
     <tr>
-      <td>База данных Oracle</td>
-      <td>Контейнер</td>
-      <td>База данных</td>
+      <td>Oracle Database</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Протокол: oracle <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        
+            Protocol: oracle
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
-      <td>База данных Oracle</td>
-      <td>Таблица</td>
-      <td>Таблица, представление</td>
+      <td>Oracle Database</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Протокол: oracle <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        
+            Protocol: oracle
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>PostgreSQL</td>
-      <td>Контейнер</td>
-      <td>База данных</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Протокол: postgresql <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        
+            Protocol: postgresql
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>PostgreSQL</td>
-      <td>Таблица</td>
-      <td>Таблица, представление</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Протокол: postgresql <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        
+            Protocol: postgresql
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>Power BI</td>
-      <td>Контейнер</td>
-      <td>Сайт</td>
+      <td>Power BI Desktop</td>
+      <td>Container</td>
+      <td>Site</td>
       <td>
-        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Power BI</td>
-      <td>Отчет</td>
-      <td>Отчет, панель мониторинга</td>
+      <td>Power BI Desktop</td>
+      <td>Report</td>
+      <td>Report, dashboard</td>
       <td>
-        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Power Query</td>
-      <td>Таблица</td>
-      <td>Гибридные данные</td>
+      <td>Table</td>
+      <td>Data mashup</td>
       <td>
-        <font size=2> Протокол: power-query <br>Аутентификация: {oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: power-query
+            <br>Authentication: {oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Salesforce</td>
-      <td>Таблица</td>
-      <td>Объект</td>
+      <td>Table</td>
+      <td>Object</td>
       <td>
-        <font size=2> Протокол: salesforce-com <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
+        
+            Protocol: salesforce-com
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName
+        
       </td>
     </tr>
     <tr>
       <td>SAP HANA</td>
-      <td>Контейнер</td>
-      <td>сервер;</td>
+      <td>Container</td>
+      <td>Server</td>
       <td>
-        <font size=2> Протокол: sap-hana-sql <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server </font>
+        
+            Protocol: sap-hana-sql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+        
       </td>
     </tr>
     <tr>
       <td>SAP HANA</td>
-      <td>Таблица</td>
-      <td>Просмотр</td>
+      <td>Table</td>
+      <td>View</td>
       <td>
-        <font size=2> Протокол: sap-hana-sql <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        
+            Protocol: sap-hana-sql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SharePoint</td>
-      <td>Таблица</td>
-      <td>список</td>
+      <td>Table</td>
+      <td>List</td>
       <td>
-        <font size=2> Протокол: sharepoint-list <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: sharepoint-list
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Хранилище данных SQL</td>
-      <td>Команда</td>
-      <td>Хранимая процедура</td>
+      <td>SQL Data Warehouse</td>
+      <td>Command</td>
+      <td>Stored procedure</td>
       <td>
-        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>Хранилище данных SQL</td>
+      <td>SQL Data Warehouse</td>
       <td>TableValuedFunction</td>
-      <td>Функция с табличным значением</td>
+      <td>Table-valued function</td>
       <td>
-        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>Хранилище данных SQL</td>
-      <td>Контейнер</td>
-      <td>База данных</td>
+      <td>SQL Data Warehouse</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        
+            Protocol: tds
+          <br>Authentication: {protocol, windows}
+          <br>Address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
-      <td>Хранилище данных SQL</td>
-      <td>Таблица</td>
-      <td>Таблица, представление</td>
+      <td>SQL Data Warehouse</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
-      <td>Команда</td>
-      <td>Хранимая процедура</td>
+      <td>Command</td>
+      <td>Stored procedure</td>
       <td>
-        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
       <td>TableValuedFunction</td>
-      <td>Функция с табличным значением</td>
+      <td>Table-valued function</td>
       <td>
-        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
-      <td>Контейнер</td>
-      <td>База данных</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
-      <td>Таблица</td>
-      <td>Таблица, представление</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>Многомерная модель служб SQL Server Analysis Services</td>
-      <td>Контейнер</td>
-      <td>Модель</td>
+      <td>SQL Server Analysis Services multidimensional</td>
+      <td>Container</td>
+      <td>Model</td>
       <td>
-        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+        
       </td>
     </tr>
     <tr>
-      <td>Многомерная модель служб SQL Server Analysis Services</td>
-      <td>Ключевой показатель эффективности</td>
-      <td>Ключевой показатель эффективности</td>
+      <td>SQL Server Analysis Services multidimensional</td>
+      <td>KPI</td>
+      <td>KPI</td>
       <td>
-        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI}
+        
       </td>
     </tr>
     <tr>
-      <td>Многомерная модель служб SQL Server Analysis Services</td>
+      <td>SQL Server Analysis Services multidimensional</td>
       <td>Measure</td>
       <td>Measure</td>
       <td>
-        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure}
+        
       </td>
     </tr>
     <tr>
-      <td>Многомерная модель служб SQL Server Analysis Services</td>
-      <td>Таблица</td>
-      <td>Измерение</td>
+      <td>SQL Server Analysis Services multidimensional</td>
+      <td>Table</td>
+      <td>Dimension</td>
       <td>
-        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimension} </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimension}
+        
       </td>
     </tr>
     <tr>
-      <td>Таблица SQL Server Analysis Services</td>
-      <td>Контейнер</td>
-      <td>Модель</td>
+      <td>SQL Server Analysis Services tabular</td>
+      <td>Container</td>
+      <td>Model</td>
       <td>
-        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+        
       </td>
     </tr>
     <tr>
-      <td>Таблица SQL Server Analysis Services</td>
-      <td>Ключевой показатель эффективности</td>
-      <td>Ключевой показатель эффективности</td>
+      <td>SQL Server Analysis Services tabular</td>
+      <td>KPI</td>
+      <td>KPI</td>
       <td>
-        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI}
+        
       </td>
     </tr>
     <tr>
-      <td>Таблица SQL Server Analysis Services</td>
+      <td>SQL Server Analysis Services tabular</td>
       <td>Measure</td>
       <td>Measure</td>
       <td>
-        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure}
+        
       </td>
     </tr>
     <tr>
-      <td>Таблица SQL Server Analysis Services</td>
-      <td>Таблица</td>
-      <td>Таблица</td>
+      <td>SQL Server Analysis Services tabular</td>
+      <td>Table</td>
+      <td>Table</td>
       <td>
-        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Table} </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Table}
+        
       </td>
     </tr>
     <tr>
-      <td>Службы отчетов SQL Server</td>
-      <td>Контейнер</td>
-      <td>сервер;</td>
+      <td>SQL Server Reporting Services</td>
+      <td>Container</td>
+      <td>Server</td>
       <td>
-        <font size=2> Протокол: reporting-services <br>Аутентификация: {windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
+        
+            Protocol: reporting-services
+            <br>Authentication: {windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010}
+        
       </td>
     </tr>
     <tr>
-      <td>Службы отчетов SQL Server</td>
-      <td>Отчет</td>
-      <td>Отчет</td>
+      <td>SQL Server Reporting Services</td>
+      <td>Report</td>
+      <td>Report</td>
       <td>
-        <font size=2> Протокол: reporting-services <br>Аутентификация: {windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
+        
+            Protocol: reporting-services
+            <br>Authentication: {windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010}
+        
       </td>
     </tr>
     <tr>
       <td>Teradata</td>
-      <td>Контейнер</td>
-      <td>База данных</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Протокол: teradata <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        
+            Protocol: teradata
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Teradata</td>
-      <td>Таблица</td>
-      <td>Таблица, представление</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Протокол: teradata <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        
+            Protocol: teradata
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Master Data Services</td>
-      <td>Контейнер</td>
-      <td>Модель</td>
+      <td>Container</td>
+      <td>Model</td>
       <td>
-        <font size="2"> Протокол: mssql-mds <br>Аутентификация: {windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version </font>
+        <font size="2">
+          Protocol: mssql-mds
+          <br>Authentication: {windows}
+          <br>Address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Master Data Services</td>
-      <td>Таблица</td>
-      <td>Сущность</td>
+      <td>Table</td>
+      <td>Entity</td>
       <td>
-        <font size="2"> Протокол: mssql-mds <br>Аутентификация: {windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity </font>
+        <font size="2">
+          Protocol: mssql-mds
+          <br>Authentication: {windows}
+          <br>Address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity
+        
       </td>
     </tr>
     <tr>
       <td>Azure Cosmos DB</td>
-      <td>Контейнер</td>
-      <td>База данных</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Протокол: document-db <br>Аутентификация: {azure-access-key} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        
+            Protocol: document-db
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Azure Cosmos DB</td>
-      <td>Коллекция</td>
-      <td>Коллекция</td>
+      <td>Collection</td>
+      <td>Collection</td>
       <td>
-        <font size=2> Протокол: document-db <br>Аутентификация: {azure-access-key} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; collection </font>
+        
+            Protocol: document-db
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; collection
+        
       </td>
     </tr>
     <tr>
-      <td>Универсальные данные ODBC</td>
-      <td>Контейнер</td>
-      <td>База данных</td>
+      <td>Generic ODBC</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Протокол: odbc <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        
+            Protocol: odbc
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
-      <td>Универсальные данные ODBC</td>
-      <td>Таблица</td>
-      <td>Таблица, представление</td>
+      <td>Generic ODBC</td>
+      <td>Table</td>
+      <td>Table, View</td>
       <td>
-        <font size=2> Протокол: odbc <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema </font>
+        
+            Protocol: odbc
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+        
       </td>
     </tr>
     <tr>
       <td>Sybase</td>
-      <td>Контейнер</td>
-      <td>База данных</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Протокол: sybase <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        
+            protocol: sybase
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Sybase</td>
-      <td>Таблица</td>
-      <td>Таблица, представление</td>
+      <td>Table</td>
+      <td>Table, View</td>
       <td>
-        <font size=2> Протокол: sybase <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        
+            protocol: sybase
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>Другой (ни один из указанных выше)</td>
+      <td>Other (none of the above)</td>
       <td>\*</td>
       <td>\*</td>
       <td>
-        <font size=2> Протокол: generic-asset <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
+        
+            Protocol: generic-asset
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId
+        
       </td>
     </tr>
 </table>

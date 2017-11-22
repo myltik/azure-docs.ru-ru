@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: alexwun
-ms.openlocfilehash: 49003c16c262180afcdba22c5557c91297cb2840
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 723cf7d98022e8bbb4f1e3c8c0836a4c53c6a078
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Общие сведения о параметре ImageStoreConnectionString
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 Поставщик файловой системы используется вместо службы хранилища образов для локализированных кластеров, размещенных на локальных компьютерах, в период разработки, чтобы немного ускорить их начальную загрузку. Разница обычно невелика, но это полезная оптимизация для большинства разработчиков. Это позволяет также развернуть локализированный кластер на локальном компьютере, используя поставщики хранилища других типов, но обычно для этого нет причин, так как рабочий процесс разработки и тестирования не зависит от поставщика. Кроме описанного выше назначения, поставщики файловой системы и службы хранилища Azure существует только для поддержки прежних версий.
 
-Поэтому параметр ImageStoreConnectionString можно настроить, просто обычно используется значение по умолчанию. При публикации в Azure с помощью [Visual Studio][12] этот параметр автоматически настраивается соответствующим образом. При программном развертывании в кластеры, размещенные в Azure, всегда используется строка подключения fabric:ImageStore. Но если вы сомневаетесь, ее значение всегда можно проверить, получив манифест кластера с помощью [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) или [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Локальные тестовый кластер и рабочий кластер всегда должны использовать поставщик службы хранилища образов.
+Поэтому параметр ImageStoreConnectionString можно настроить, просто обычно используется значение по умолчанию. При публикации в Azure с помощью Visual Studio этот параметр автоматически настраивается соответствующим образом. При программном развертывании в кластеры, размещенные в Azure, всегда используется строка подключения fabric:ImageStore. Но если вы сомневаетесь, ее значение всегда можно проверить, получив манифест кластера с помощью [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) или [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Локальные тестовый кластер и рабочий кластер всегда должны использовать поставщик службы хранилища образов.
 
 ### <a name="next-steps"></a>Дальнейшие действия
 [Развертывание и удаление приложений с помощью PowerShell][10]
@@ -55,4 +55,4 @@ ms.lasthandoff: 10/11/2017
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-[12]: service-fabric-publish-app-remote-cluster.md
+

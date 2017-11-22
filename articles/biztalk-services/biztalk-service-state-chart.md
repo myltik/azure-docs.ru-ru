@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05470e75fc7b46603c8fce3a98c66ac6a24758a8
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Что можно и что нельзя сделать с помощью состояния службы BizTalk
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 В зависимости от текущего состояния службы BizTalk существуют операции, которые можно или нельзя выполнять со службой BizTalk.
 
-Например, можно подготовить новую службу BizTalk на классическом портале Azure. После успешного завершения этого процесса служба BizTalk переводится в состояние `active`. В активном состоянии службу BizTalk остановить, приостановить и удалить. Если при попытке остановить службу BizTalk произошел сбой, то она переходит в состояние `StopFailed`. Службу BizTalk в состоянии `StopFailed` можно перезапустить. При попытке выполнения запрещенной операции, например возобновления, произойдет следующая ошибка.
+Например, можно подготовить новую службу BizTalk. После успешного завершения этого процесса служба BizTalk переводится в состояние `active`. В активном состоянии службу BizTalk остановить, приостановить и удалить. Если при попытке остановить службу BizTalk произошел сбой, то она переходит в состояние `StopFailed`. Службу BizTalk в состоянии `StopFailed` можно перезапустить. При попытке выполнения запрещенной операции, например возобновления, произойдет следующая ошибка.
 
 `Operation not allowed`
 
@@ -52,7 +52,6 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="see-also"></a>См. также
-* [Создание службы BizTalk с помощью классического портала Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [Просмотр вкладок "Панель мониторинга", "Монитор", "Масштаб", "Настройка" и "Гибридное подключение"](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Службы BizTalk: диаграмма выпусков](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [Службы BizTalk: резервное копирование и восстановление](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

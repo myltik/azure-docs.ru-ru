@@ -1,12 +1,12 @@
-В Cloud Shell создайте [веб-приложение](../articles/app-service/containers/app-service-linux-intro.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). Не забудьте указать уникальное имя приложения вместо `<app_name>`.
+В Cloud Shell создайте [веб-приложение](../articles/app-service/containers/app-service-linux-intro.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). 
 
-Для среды выполнения в следующей команде задано значение `dotnetcore|1.1`. Чтобы просмотреть все поддерживаемые среды выполнения, выполните команду [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
+В следующем примере замените `<app_name>`глобальным уникальным именем приложения (допустимые символы: `a-z`, `0-9` и `-`). Для среды выполнения установлено значение `dotnetcore|1.1`. Чтобы просмотреть все поддерживаемые среды выполнения, выполните команду [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git
 ```
 
-После создания веб-приложения в Azure CLI отобразится примерно следующее:
+Когда веб-приложение будет создано, в Azure CLI отобразится примерно следующее:
 
 ```json
 Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'

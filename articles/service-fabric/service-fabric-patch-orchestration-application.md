@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Установка исправлений операционной системы Windows в кластере Service Fabric
 
@@ -51,14 +51,6 @@ ms.lasthandoff: 10/18/2017
 > Приложение для управления исправлениями использует для включения и выключения узла, а также проверки работоспособности системную службу Service Fabric, которая называется Repair Manager. Задание восстановления, созданное приложением для управления исправлениями, отслеживает ход обновления Windows для каждого узла.
 
 ## <a name="prerequisites"></a>Предварительные требования
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>Минимальная поддерживаемая версия среды выполнения Service Fabric
-
-#### <a name="azure-clusters"></a>Кластеры Azure
-Приложение для управления исправлениями должно выполняться в кластерах Azure со средой выполнения Service Fabric версии 5.5 или выше.
-
-#### <a name="standalone-on-premises-clusters"></a>Автономные локальные кластеры
-Приложение для управления исправлениями должно выполняться в автономных кластерах со средой выполнения Service Fabric версии 5.6 или выше.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Включение службы Repair Manager (если она еще не запущена)
 
@@ -135,59 +127,6 @@ ms.lasthandoff: 10/18/2017
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Отключение автоматического обновления Windows на всех узлах
 
 Автоматическое обновление Windows может привести к потере доступности из-за одновременного перезапуска нескольких узлов кластера. Приложение для управления исправлениями по умолчанию попытается выключить автоматическое обновление Windows на каждом узле кластера. Но если параметры задаются администратором или групповой политикой, советуем явно настроить для политики обновления Windows параметр уведомления о скачивании.
-
-### <a name="optional-enable-azure-diagnostics"></a>Включение системы диагностики Azure (необязательно)
-
-Для кластеров со средой выполнения Service Fabric версии `5.6.220.9494` и выше журналы приложения для оркестрации исправлений будут собираться как часть журналов Service Fabric.
-Этот шаг можно пропустить, если кластер работает под управлением среды выполнения Service Fabric версии `5.6.220.9494` и выше.
-
-Для кластеров со средой выполнения Service Fabric более ранней версии, чем `5.6.220.9494`, журналы приложения для оркестрации исправлений собираются локально на каждом узле кластера.
-Мы рекомендуем настроить систему диагностики Azure, чтобы отправлять журналы из всех узлов в центральное расположение.
-
-Сведения о включении системы диагностики Azure см. в статье [Сбор журналов с помощью системы диагностики Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
-
-Журналы приложения для управления исправлениями формируются в расположениях, соответствующих следующим фиксированным идентификаторам поставщиков.
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-В шаблоне Resource Manager перейдите к разделу `EtwEventSourceProviderConfiguration` в группе `WadCfg` и добавьте следующие записи:
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> Если в кластере Service Fabric несколько типов узлов, добавьте раздел выше для всех разделов `WadCfg`.
 
 ## <a name="download-the-app-package"></a>Загрузка пакета установки
 
@@ -303,20 +242,16 @@ RebootRequired | true — требовалась перезагрузка<br> f
 
 ## <a name="diagnosticshealth-events"></a>События диагностики и работоспособности
 
-### <a name="collect-patch-orchestration-app-logs"></a>Сбора журналов приложения для управления исправлениями
+### <a name="diagnostic-logs"></a>Журналы диагностики
 
-В среде выполнения версии `5.6.220.9494` и выше журналы приложения для управления исправлениями собираются как часть журналов Service Fabric.
-Для кластеров под управлением среды выполнения Service Fabric более ранней версии, чем `5.6.220.9494`, для сбора журналов можно использовать один из указанных ниже методов.
+Журналы приложения для оркестрации исправлений собираются как часть журналов среды выполнения Service Fabric.
 
-#### <a name="locally-on-each-node"></a>Локально на каждом узле
+При необходимости можно собирать журналы, используя любой конвейер или средство диагностики. Приложение для оркестрации исправлений использует следующие фиксированные идентификаторы поставщиков для записи событий в журнал с использованием класса [EventSource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1).
 
-Если версия среды выполнения Service Fabric ниже, чем `5.6.220.9494`, журналы собираются локально на каждом узле кластера Service Fabric. Журналы находятся в каталоге \[Диск\_установки\_Service Fabric\]:\\PatchOrchestrationApplication\\logs.
-
-Например, если платформа Service Fabric установлена на диске D, путь будет таким: D:\\PatchOrchestrationApplication\\logs.
-
-#### <a name="central-location"></a>Центральное расположение
-
-Если система диагностики Azure была настроена предварительно, то журналы приложения для управления исправлениями доступны в службе хранилища Azure.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>Отчеты о работоспособности
 

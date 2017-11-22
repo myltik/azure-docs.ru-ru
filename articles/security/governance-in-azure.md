@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c63eb15e8d575da91fd8198ca9d486f7fdb2b38d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="governance-in-azure"></a>Система управления в Azure
 
@@ -225,14 +225,14 @@ Azure Resource Manager анализирует зависимости, чтобы
 Политики ресурсов позволяют создавать стандартные правила для организации. Можно создать политики, обеспечивающие добавление к ресурсам тегов с соответствующими значениями.
 
 > [!Note]
-> Дополнительные сведения см. в разделе [Применение политик ресурсов для тегов](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags).
+> Дополнительные сведения см. в статье [Инициатива политики тегов для выставления счетов](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Ресурсы с тегами можно также просмотреть на портале Azure.
 
 В [отчете об использовании](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) вашей подписки содержатся имена тегов и их значения, которые позволяют разделить затраты по тегам.
 
 > [!Note]
-> Дополнительные сведения о тегах см. в статье [Использование тегов для организации ресурсов в Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+> Дополнительные сведения о тегах см. в статье [Инициатива политики тегов для выставления счетов](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Действительны следующие ограничения для тегов.
 

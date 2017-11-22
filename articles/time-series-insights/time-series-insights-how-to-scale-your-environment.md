@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: a6f10e14e3f9e5761734738caddc247d9e4a90cd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Как масштабировать среду Azure Time Series Insights
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/15/2017
 
    ![configure.png](media/scale-your-environment/configure.png)
 
-3. Настройте ползунок **емкости** соответственно требованиям скорости приема и емкости хранилища. Обратите внимание, что скорость приема, емкость хранилища и оценочная стоимость обновляются динамически, чтобы показать эффект изменения. 
+3. Настройте ползунок **емкости** соответственно требованиям скорости приема и емкости хранилища. Обратите внимание, что **скорость приема**, **емкость хранилища** и **оценочная стоимость** обновляются динамически, чтобы показать эффект изменения. 
 
    ![Ползунок](media/scale-your-environment/slider.png)
 
@@ -59,4 +59,5 @@ ms.lasthandoff: 11/15/2017
 4. Выберите **Сохранить**, чтобы масштабировать среду. Индикатор хода выполнения будет отображаться, пока изменения не зафиксируются. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Убедитесь, что новой емкости недостаточно для предотвращения регулирования. Дополнительные сведения см. в статье [Диагностика и устранение неполадок в среде Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
+> [!div class="nextstepaction"]
+> [Убедитесь, что новой емкости достаточно для предотвращения регулирования](time-series-insights-diagnose-and-solve-problems.md).

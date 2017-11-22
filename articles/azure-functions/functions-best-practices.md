@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3df59afe595265fba88f7274154a36d42139859
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d59ef16de433ac9691f6996eab2bf56f056feb88
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Оптимизация производительности и надежности Функций Azure
 
@@ -66,8 +66,7 @@ ms.lasthandoff: 10/18/2017
 
 Если элемент очереди уже обработан, разрешите холостой цикл выполнения функции.
 
-Воспользуйтесь предоставленными возможностями защиты для компонентов, используемых на платформе Функций Azure. Например, ознакомьтесь с разделом **Обработка подозрительных сообщений очереди** в документации по [триггерам очереди службы хранилища Azure](functions-bindings-storage-queue.md#trigger).
- 
+Воспользуйтесь предоставленными возможностями защиты для компонентов, используемых на платформе Функций Azure. Например, ознакомьтесь с разделом **Обработка подозрительных сообщений очереди** в документации по [триггерам и привязкам очереди службы хранилища Azure](functions-bindings-storage-queue.md#trigger---poison-messages). 
 
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Не используйте тестовый и рабочий код в одном приложении-функции
 
@@ -97,4 +96,3 @@ ms.lasthandoff: 10/18/2017
 
 Так как Функции Azure используют службу приложений Azure, необходимо также ознакомиться с рекомендациями для нее.
 * [Шаблоны и методики оптимизации производительности HTTP](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-

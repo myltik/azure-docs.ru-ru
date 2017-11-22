@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: a746ace47c4f1190b7a695014543670a1a9cf879
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 78ce74450ce933e2aced4b6e62504373de7954f8
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Защита файлового сервера с помощью Azure Site Recovery 
 
 Служба [Azure Site Recovery](site-recovery-overview.md) помогает реализовать стратегию непрерывности бизнес-процессов и аварийного восстановления (BCDR), обеспечивая работоспособность и доступность бизнес-приложений во время запланированных и незапланированных простоев. Site Recovery управляет аварийным восстановлением локальных компьютеров и виртуальных машин Azure, включая операции репликации, отработки отказа и восстановления различных рабочих нагрузок.
 
-Эта статья содержит сведения о защите файлового сервера с помощью Azure Site Recovery, а также другие рекомендации в соответствии с различными средами. 
+Эта статья содержит сведения о защите файлового сервера с помощью Azure Site Recovery, а также другие рекомендации в соответствии с различными средами.     
 
 - [защита компьютеров с файловым сервером Azure IaaS](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines);
 - [защита локальных файловых серверов](#replicate-an-onpremises-file-server-using-azure-site-recovery).
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/01/2017
 
 Ниже представлена схема, которая упрощает выбор стратегии для использования в среде файлового сервера.
 
-![дерево принятия решений](media/site-recovery-file-server/decisiontree.png)
+![decisiontree](media/site-recovery-file-server/decisiontree.png)
 
 
 ### <a name="factors-to-consider-while-making-disaster-recovery-decision"></a>Факторы, на которые стоит обратить внимание при выборе решения для аварийного восстановления

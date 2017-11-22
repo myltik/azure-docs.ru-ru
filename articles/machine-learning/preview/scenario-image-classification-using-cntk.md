@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: eefede6196bedf208d9b14cee63632922223a6d6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Классификация изображений в Azure Machine Learning Workbench
 
@@ -52,9 +52,11 @@ ms.lasthandoff: 11/08/2017
 4. Выделенный GPU не требуется для выполнения обучения SVM в части 1, однако он нужен для уточнения DNN, описанного в части 2. Если вам не хватает мощного графического процессора, вы хотите выполнить обучение с использованием нескольких графических процессоров или у вас нет компьютера Windows, тогда рассмотрите возможность использования виртуальной машины глубокого обучения Azure с операционной системой Windows. Руководство по развертыванию одним щелчком мыши см. [здесь](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning). После развертывания подключитесь к виртуальной машине через подключение к удаленному рабочему столу, установите на ней Workbench и выполните код локально на виртуальной машине.
 5. Необходимо установить различные библиотеки Python, например OpenCV. В Workbench в меню *File* (Файл) щелкните *Open Command Prompt* (Открыть командную строку) и выполните следующие команды, чтобы установить эти зависимости:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl` после скачивания расширения wheel OpenCV по адресу http://www.lfd.uci.edu/~gohlke/pythonlibs/ (точное имя файла и версия могут изменяться).
-    - `conda install matplotlib numpy pillow`
-    - `conda install -c conda-forge bqplot`
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` после скачивания расширения wheel OpenCV по адресу http://www.lfd.uci.edu/~gohlke/pythonlibs/ (точное имя файла и версия могут изменяться).
+    - `conda install pillow`
+    - `pip install -U numpy`
+    - `pip install bqplot`
+    - `jupyter nbextension enable --py --sys-prefix bqplot`
 
 ### <a name="troubleshooting--known-bugs"></a>Устранение неполадок и известные ошибки
 - Графический процессор необходим для работы со второй частью руководства. В противном случае при попытке уточнения DNN возникнет ошибка "Batch normalization training on CPU is not yet implemented" (Пакетная нормализация обучения в ЦП еще не реализована).
@@ -91,12 +93,10 @@ ms.lasthandoff: 11/08/2017
 
 Скрипт `0_downloadData.py` скачивает все изображения в каталог *DATA_DIR/images/fashionTexture/*. Некоторые из 428 URL-адресов могут быть неработающими. Это просто означает, что у вас будет меньше изображений для обучения и тестирования.
 
-На следующем изображении показаны примеры для атрибутов "в крапинку" (два левых столбца), "в полоску" (два средних столбца) и "леопард" (два правых столбца). Заметки сделаны в соответствии с элементами верхней одежды.
+На следующем изображении показаны примеры для атрибутов "в крапинку" (слева), "в полоску" (посередине) и "леопард" (справа). Заметки сделаны в соответствии с элементами верхней одежды.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 

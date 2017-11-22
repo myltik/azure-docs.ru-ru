@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2017
 ms.author: gwallace
-ms.openlocfilehash: 9ea7f77d3bbe45de49c798fe3d51151e1a5a6658
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью Node.js
 
@@ -103,7 +103,11 @@ Sample finished running. When you hit <ENTER> key, the temporary files will be d
 
 После проверки файлов нажмите любую клавишу для завершения демонстрации и удаления тестовых файлов. Теперь, когда известна функциональность примера, откройте файл index.js, чтобы взглянуть на код. 
 
-## <a name="get-references-to-the-storage-objects"></a>Получение ссылок на объекты хранилища
+## <a name="understand-the-sample-code"></a>Разбор примера кода
+
+Давайте разберем пример кода, чтобы понять, как он работает.
+
+### <a name="get-references-to-the-storage-objects"></a>Получение ссылок на объекты хранилища
 
 Сначала необходимо создать ссылки на `BlobService`, используемые для доступа к хранилищу BLOB-объектов и управлению им. Эти объекты зависят друг от друга — каждый объект используется следующим в списке объектом.
 
@@ -120,7 +124,7 @@ blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLe
     if (error) return callback(error);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>Отправка BLOB-объектов в контейнер
+### <a name="upload-blobs-to-the-container"></a>Отправка BLOB-объектов в контейнер
 
 Хранилище BLOB-объектов поддерживает блочные, добавочные и страничные BLOB-объекты. Чаще всего используются блочные BLOB-объекты. В этом кратком руководстве они используются, так как идеально подходят для хранения текста и двоичных данных.
 
@@ -141,7 +145,7 @@ console.log('   Uploaded Blob URL:', blobService.getUrl(CONTAINER_NAME, BLOCK_BL
 
 Существует несколько методов отправки, которые можно использовать с хранилищем BLOB-объектов. Например, если у вас есть поток в памяти, можно применить метод [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) вместо [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
 
-## <a name="list-the-blobs-in-a-container"></a>Перечисление BLOB-объектов в контейнере
+### <a name="list-the-blobs-in-a-container"></a>Перечисление BLOB-объектов в контейнере
 
 Затем приложение получает список файлов в контейнере с помощью метода [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Следующий код извлекает список BLOB-объектов, затем переходит по ним, отображая найденные URI. Можно скопировать URI из окна командной строки и вставить его в адресную строку браузера для просмотра файла.
 
@@ -158,7 +162,7 @@ blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
     console.log('\n');
 ```
 
-## <a name="download-blobs"></a>Скачивание больших двоичных объектов
+### <a name="download-blobs"></a>Скачивание больших двоичных объектов
 
 Чтобы скачать большие двоичные объекты на локальный диск, воспользуйтесь методом [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
 
@@ -171,7 +175,7 @@ handleError(error);
 console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 ```
 
-## <a name="clean-up-resources"></a>Очистка ресурсов
+### <a name="clean-up-resources"></a>Очистка ресурсов
 
 Если вам больше не нужны большие двоичные объекты, отправленные при работе с этим руководством, удалите весь контейнер с помощью метода [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) и [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Кроме того, удалите созданные файлы, если они больше не требуются. Это осуществляется, когда вы нажимаете клавишу ВВОД для выхода из приложения.
 

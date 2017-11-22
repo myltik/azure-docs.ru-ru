@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: denlee
 ms.custom: mvc
-ms.openlocfilehash: b1419e5aad9446b9d96450cfad79b200cda9a518
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB. Разработка с помощью API Graph на .NET
 Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете быстро создавать и запрашивать документы, пары "ключ — значение" и базы данных графов, используя преимущества возможностей глобального распределения и горизонтального масштабирования базы данных Azure Cosmos DB. 
@@ -53,7 +53,6 @@ Gremlin — это функциональный язык программиро
 
 > [!TIP]
 > * Уже есть учетная запись Azure Cosmos DB? В таком случае перейдите к [настройке решения Visual Studio](#SetupVS).
-> * У вас была учетная запись Azure DocumentDB? Если да, ваша учетная запись теперь является учетной записью Azure Cosmos DB, поэтому вы можете сразу перейти к [настройке решения Visual Studio](#SetupVS).  
 > * Если вы используете эмулятор Azure Cosmos DB, выполните действия, описанные в статье об [эмуляторе Azure Cosmos DB](local-emulator.md), чтобы настроить эмулятор и сразу перейти к [настройке решения Visual Studio](#SetupVS). 
 >
 > 
@@ -86,7 +85,7 @@ string authKey = ConfigurationManager.AppSettings["AuthKey"];
 
 Скопируйте универсальный код ресурса (URI) с портала и вставьте его в параметр `Endpoint` в свойстве конечной точки, указанном выше. Затем скопируйте на портале значение поля "Первичный ключ" и вставьте его в приведенное выше свойство `AuthKey`. 
 
-![Снимок экрана портала Azure в ходе работы с руководством при создании приложения C#. Отображена учетная запись базы данных Azure Cosmos DB со следующими выделенными элементами: кнопка "Ключи" в области навигации базы данных Azure Cosmos DB, а также значения универсального кода ресурса и первичного ключа в колонке "Ключи"] [ключи] 
+![Снимок экрана портала Azure в ходе работы с руководством при создании приложения C#. Отображена учетная запись базы данных Azure Cosmos DB со следующими выделенными элементами: кнопка "Ключи" в области навигации базы данных Azure Cosmos DB, а также значения URI и первичного ключа в колонке "Ключи"](./media/tutorial-develop-graph-dotnet/keys.png) 
  
 ## <a id="instantiate"></a>Создание экземпляра DocumentClient 
 Создайте экземпляр **DocumentClient**.  

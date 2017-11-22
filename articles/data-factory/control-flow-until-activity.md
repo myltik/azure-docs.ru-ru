@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 25581fa1aa2086accabc9b480d936ebae0338dd3
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Действие Until в фабрике данных Azure
 Действие Until предоставляет те же функциональные возможности, что и циклическая структура do-until в языках программирования. Оно выполняет набор действий в цикле, пока условие, связанное с действием, не получит значение true. Можно указать значение времени ожидания для действия until в фабрике данных. 
@@ -60,7 +60,7 @@ ms.lasthandoff: 11/08/2017
 name | Имя действия `Until`. | Строка | Да
 type | Необходимо задать **Until**. | Строка | Да
 expression | Выражение, для которого возвращается значение true или false. | Выражение.  | Да
-timeout | Цикл do-until выполняется, пока не истечет указанное здесь время ожидания. | Строка. `d.hh:mm:ss` (или) `hh:mm:ss`. Значение по умолчанию — 7 дней. | Нет
+timeout | Цикл do-until выполняется, пока не истечет указанное здесь время ожидания. | Строка. `d.hh:mm:ss` (или) `hh:mm:ss`. Значение по умолчанию — 7 дней. Максимальное значение — 90 дней. | Нет
 Действия | Набор действий, которые выполняются до тех пор, пока выражение не получит значение `true`. | Массив действий. |  Да
 
 ## <a name="example-1"></a>Пример 1

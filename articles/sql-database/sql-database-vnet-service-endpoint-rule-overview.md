@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e1bb3e9f09ca7f5463228da4079b06ad2e771def
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Использование конечных точек службы и правил виртуальной сети для базы данных SQL Azure
 
@@ -141,6 +141,9 @@ ms.lasthandoff: 10/31/2017
 - Каждый сервер базы данных SQL Azure может использовать до 128 записей ACL для любой заданной виртуальной сети.
 
 - Правила виртуальной сети применяются только к виртуальным сетям Azure Resource Manager, но не к сетям на основе [классической модели развертывания][arm-deployment-model-568f].
+
+- Включение конечных точек службы виртуальной сети для базы данных SQL Azure также включает конечные точки для служб MySQL и PostGres Azure. Тем не менее, если конечные точки включены в базе данных, подключиться через них к экземплярам MySQL или Postgres не удастся.
+    - Основной причиной является то, что сейчас MySQL и PostGres не поддерживают списки управления доступом (ACL).
 
 - К приведенным ниже элементам сети применяются диапазоны IP-адресов в брандмауэре, а правила виртуальной сети — нет:
     - [виртуальная частная сеть (VPN) типа "сеть — сеть"][vpn-gateway-indexmd-608y].

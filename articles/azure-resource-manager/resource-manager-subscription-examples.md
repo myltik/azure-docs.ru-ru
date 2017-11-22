@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Примеры реализации корпоративного каркаса Azure
 В этом разделе приведены примеры того, как предприятие может реализовать рекомендации по созданию [корпоративного каркаса Azure](resource-manager-subscription-governance.md). В нем на примере вымышленной компании Contoso приводятся рекомендации для распространенных сценариев.
@@ -68,7 +68,7 @@ Contoso создает систему управления исходным ко
 * Дейва заботят затраты. Следовательно, он хочет предотвратить создание владельцами приложений неоправданно дорогих виртуальных машин.  
 * Так как это приложение обслуживает разработчиков в нескольких подразделениях, Дейв хочет добавить к каждому ресурсу теги подразделения и владельца приложения. Используя эти теги, подразделение ETS сможет выставлять счета соответствующим командам.
 
-Дейв создает следующие [политики Resource Manager](resource-manager-policy.md).
+Он создает перечисленные ниже [политики Azure](../azure-policy/azure-policy-introduction.md):
 
 | Поле | Результат | Описание |
 | --- | --- | --- |

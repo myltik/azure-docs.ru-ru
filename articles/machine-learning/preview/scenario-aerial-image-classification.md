@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: cfffe5145f8762558e6ee573f6f2bb69d32424ad
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="aerial-image-classification"></a>Классификация изображений аэрофотосъемки
 
@@ -133,6 +133,11 @@ ms.lasthandoff: 10/31/2017
     Укажите значение `key1` в качестве ключа к хранилищу данных в следующей команде, а затем выполните ее, чтобы сохранить значение.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
+    ```
+1. Создайте файловый ресурс с именем `baitshare` в учетной записи хранения с помощью следующей команды:
+
+    ```
+    az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. В предпочитаемом текстовом редакторе загрузите файл `settings.cfg` из подкаталога Code проекта Azure Machine Learning Workbench и вставьте имя и ключ учетной записи хранения в соответствии с полученными рекомендациями. Сохраните и закройте файл `settings.cfg`.
 1. Если вы еще этого не сделали, скачайте и установите служебную программу [AzCopy](http://aka.ms/downloadazcopy). Убедитесь, что исполняемый файл AzCopy расположен в вашем системном пути. Для этого введите AzCopy и нажмите клавишу ВВОД, чтобы отобразить документацию о нем.
@@ -287,9 +292,9 @@ set PATH_TO_PROJECT=[The filepath of your project's root directory]
 
 ### <a name="prepare-the-azure-machine-learning-workbench-execution-environment"></a>Подготовка среды выполнения Azure Machine Learning Workbench
 
-#### <a name="register-the-hdinsight-cluster-as-an-azure-machine-learning-workbench-compute-target"></a>Регистрация кластера HDInsight в качестве целевого объекта вычисления Azure Machine Learning Workbench
+#### <a name="register-the-hdinsight-cluster-as-an-azure-machine-learning-workbench-compute-target"></a>Регистрация кластера HDInsight в качестве целевой среды вычислений Azure Machine Learning Workbench
 
-Создав кластер HDInsight, зарегистрируйте его в качестве целевого объекта вычисления для вашего проекта следующим образом:
+Создав кластер HDInsight, зарегистрируйте его в качестве целевой среды вычислений для вашего проекта следующим образом:
 
 1.  Выполните следующую команду в интерфейсе командной строки Машинного обучения Azure:
 
@@ -406,7 +411,7 @@ az ml experiment submit -c myhdi Code\03_Deployment\batch_score_spark.py --confi
 
 ## <a name="conclusions"></a>Заключение
 
-Azure Machine Learning Workbench помогает специалистам по обработке и анализу данных легко развертывать свой код на удаленных целевых объектах вычислений. В этом примере локальный код обучения MMLSpark был развернут для удаленного выполнения в кластере HDInsight, а локальный сценарий запустил задание обучения в кластере GPU искусственного интеллекта пакетной службы Azure. Журнал выполнения Azure Machine Learning Workbench отслеживает эффективность нескольких моделей и помогает определить наиболее точную модель. Функция записной книжки Jupyter Workbench помогает визуализировать прогнозы моделей в интерактивной графической среде.
+Azure Machine Learning Workbench помогает специалистам по обработке и анализу данных легко развертывать свой код в удаленных целевых средах вычислений. В этом примере локальный код обучения MMLSpark был развернут для удаленного выполнения в кластере HDInsight, а локальный сценарий запустил задание обучения в кластере GPU искусственного интеллекта пакетной службы Azure. Журнал выполнения Azure Machine Learning Workbench отслеживает эффективность нескольких моделей и помогает определить наиболее точную модель. Функция записной книжки Jupyter Workbench помогает визуализировать прогнозы моделей в интерактивной графической среде.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы глубже изучить этот пример, сделайте следующее:

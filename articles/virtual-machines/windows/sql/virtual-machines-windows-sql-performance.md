@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: e502be189a29590ebe0d848b3ec43611db8d035d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 11/02/2017
 
   * Если хранилище уровня "Премиум" не применяется (сценарии разработки и тестирования), то рекомендуется добавить максимальное количество дисков данных, поддерживаемое для вашего [размера виртуальной машины](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и использовать чередование дисков.
 
-* **Политика кэширования**: для дисков данных хранилища уровня "Премиум" включите кэширование операций чтения только на дисках данных, где размещаются файлы данных и база данных TempDB. Если хранилище класса Premium не используется, не включайте кэширование ни для каких дисков данных. Указания по настройке кэширования дисков см. в следующих разделах: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) и [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
+* **Политика кэширования**: для дисков данных хранилища уровня "Премиум" включите кэширование операций чтения только на дисках данных, где размещаются файлы данных и база данных TempDB. Если хранилище класса Premium не используется, не включайте кэширование ни для каких дисков данных. Инструкции по настройке кэширования дисков см. в указанных ниже статьях. Сведения о классической модели развертывания (ASM) см. в статьях [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) и [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Сведения о модели развертывания с помощью Azure Resource Manager см. в статьях [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) и [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
 
   > [!WARNING]
   > Остановите службу SQL Server при настройке кэширования дисков виртуальной машины Azure, чтобы избежать возможного повреждения баз данных.

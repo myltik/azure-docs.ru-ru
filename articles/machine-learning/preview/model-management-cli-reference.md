@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 3eb604321c244c6ceeb76d08ae39b21d1e777ece
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="model-management-command-line-interface-reference"></a>Справочник по интерфейсу командной строки для службы управления моделями
 
@@ -69,6 +69,8 @@ ms.lasthandoff: 11/09/2017
                      the active MLC env.
 
 **Настройка среды развертывания**
+
+Для следующей команды установки требуется разрешение на доступ к подписке уровня участника. Если такого разрешения нет, требуется хотя бы соответствующее разрешение на доступ к группе ресурсов, в которую выполняется развертывание. Для этого вам нужно указать имя группы ресурсов как часть команды установки с помощью флага `-g`. 
 
 Есть два варианта развертывания: *локально* и *в кластере*. Если задать параметр `--cluster` (или `-c`), будет подготовлен кластер ACS. Базовый синтаксис установки выглядит так:
 

@@ -1,8 +1,8 @@
-В Cloud Shell создайте план службы приложений, выполнив команду [az appservice plan create](/cli/azure/appservice/plan#create).
+В Cloud Shell создайте план службы приложений в группе ресурсов, выполнив команду [az appservice plan create](/cli/azure/appservice/plan#create).
 
-[!INCLUDE [app-service-plan](app-service-plan-linux.md)]
+<!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-В следующем примере создается план службы приложений с именем `myAppServicePlan` ценовой категории **Стандартный** в контейнере Linux:
+В следующем примере создается план службы приложений с именем `myAppServicePlan` в ценовой категории **Стандартный** (`--sku S1`) в контейнере Linux (`--is-linux`).
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux

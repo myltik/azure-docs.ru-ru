@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 11/11/2017
 ms.author: sngun
-ms.openlocfilehash: 5ef64e727615d17ae550efbc7ea427936d7d4c3b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Установка и настройка интерфейса командной строки для работы с Azure Stack
 
@@ -204,6 +204,15 @@ az group create \
 Если группа ресурсов будет успешно создана, команда выше возвратит следующие свойства созданного ресурса:
 
 ![Выходные данные при создании группы ресурсов](media/azure-stack-connect-cli/image1.png)
+
+## <a name="known-issues"></a>Известные проблемы
+При использовании CLI в Azure Stack следует помнить о некоторых известных проблемах.
+
+* Интерактивный режим CLI, то есть команда `az interactive`, еще не поддерживается в Azure Stack.
+* Чтобы получить список образов виртуальных машин, доступных в Azure Stack, используйте команду `az vm images list --all` вместо `az vm image list`. Указание параметра `--all` гарантирует, что ответ возвращает только образы, доступные в среде Azure Stack. 
+* Псевдонимы образов виртуальных машин, доступные в Azure, могут быть неприменимыми для Azure Stack. При использовании образов виртуальных машин вместо псевдонима образа необходимо использовать параметр полного URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0). Этот URN должен соответствовать спецификации образа, полученной из команды `az vm images list`.
+* По умолчанию CLI 2.0 использует в качестве размера образа виртуальной машины по умолчанию "Standard_DS1_v2". Так как этот размер еще не доступен в Azure Stack, необходимо явным образом указать параметр `--size` при создании виртуальной машины. Список размеров виртуальных машин, доступных в Azure Stack, можно получить с помощью команды `az vm list-sizes --location <locationName>`.
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

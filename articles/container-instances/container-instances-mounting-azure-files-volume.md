@@ -1,5 +1,5 @@
 ---
-title: "Подключение тома файлов Azure в Экземплярах контейнеров Azure"
+title: "Подключение тома службы файлов Azure в службе \"Экземпляры контейнеров Azure\""
 description: "Узнайте, как подключить том файлов Azure для сохранения состояния с помощью Экземпляров контейнеров Azure"
 services: container-instances
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Подключение файлового ресурса Azure с помощью Экземпляров контейнеров Azure
+# <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Подключение общего ресурса службы файлов Azure с помощью службы "Экземпляры контейнеров Azure"
 
 По умолчанию в Экземплярах контейнеров Azure не отслеживается состояние. Если происходит сбой в контейнере или он завершает работу, все сведения о состоянии будут утеряны. Чтобы сохранить состояние после истечения времени существования контейнера, необходимо подключить том из внешнего хранилища. В этой статье показано, как подключить файловый ресурс Azure для использования с Экземплярами контейнеров Azure.
 
@@ -66,7 +66,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Сохранение сведений о доступе к учетной записи хранения с помощью хранилища ключей Azure
+## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Сохранение сведений о доступе к учетной записи хранения с помощью Azure Key Vault
 
 Ключи учетной записи хранения обеспечивают защиту при доступе к данным, поэтому мы рекомендуем хранить их в хранилище ключей Azure.
 
@@ -185,16 +185,16 @@ az keyvault show --name $KEYVAULT_NAME --query [id] -o tsv
 С определенным шаблоном можно создать контейнер и подключить его том с помощью Azure CLI. Предположим, что файл шаблона называется *azuredeploy.json*, а файл параметров — *azuredeploy.parameters.json*. Командная строка будет выглядеть следующим образом:
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-После запуска контейнера можно использовать простое веб-приложение, развернутое с помощью образа **seanmckenna/aci-hellofiles**, чтобы управлять файлами в файловом ресурсе Azure по указанному вами пути подключения. Получите IP-адрес веб-приложения, выполнив приведенную ниже команду.
+После запуска контейнера можно использовать простое веб-приложение, развернутое с помощью образа **seanmckenna/aci-hellofiles**, чтобы управлять файлами в общем ресурсе службы файлов Azure по указанному вами пути подключения. Получите IP-адрес для веб-приложения с помощью команды [az container show](/cli/azure/container#az_container_show).
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-С помощью такого средства, как [обозреватель хранилищ Microsoft Azure](http://storageexplorer.com), можно извлечь и проверить файл, записанный в файловый ресурс.
+С помощью такого средства, как [обозреватель хранилищ Microsoft Azure](https://storageexplorer.com), можно извлечь и проверить файл, записанный в файловый ресурс.
 
 >[!NOTE]
 > Дополнительные сведения об использовании шаблонов Azure Resource Manager, файлов параметров и развертывании с помощью Azure CLI см. в разделе [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).

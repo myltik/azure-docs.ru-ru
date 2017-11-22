@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ebf63cd6d0f9e62d1001d74ce06b4849e08c0de0
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Копирование данных в индекс службы "Поиск Azure" с использованием фабрики данных Azure
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/06/2017
 | connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать среду выполнения интеграции Azure или локальную среду IR (если хранилище данных расположено в частной сети). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет |
 
 > [!IMPORTANT]
-> При копировании данных из облачного хранилища данных в индекс связанной службы "Поиск Azure" необходимо обратиться к интегрированной среде выполнения Azure, явно задав регион в connactVia. Задайте регион, в котором находится служба "Поиск Azure". Дополнительные сведения см. в разделе "Интегрированная среда выполнения Azure" (concepts-integration-runtime.md#azure-integration-runtime).
+> При копировании данных из облачного хранилища данных в индекс связанной службы "Поиск Azure" необходимо обратиться к интегрированной среде выполнения Azure, явно задав регион в connactVia. Задайте регион, в котором находится служба "Поиск Azure". Дополнительные сведения о среде IR Azure см. [здесь](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Пример**
 

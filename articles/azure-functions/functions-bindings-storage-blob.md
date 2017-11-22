@@ -1,6 +1,6 @@
 ---
-title: "Привязки BLOB-объектов службы для Функций Azure | Документы Майкрософт"
-description: "Узнайте, как использовать триггеры и привязки службы хранилища Azure в функциях Azure."
+title: "Привязки хранилища BLOB-объектов для Функций Azure"
+description: "Узнайте, как использовать триггеры и привязки хранилища BLOB-объектов Azure в службе \"Функции Azure\"."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -8,7 +8,6 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"
-ms.assetid: aba8976c-6568-4ec7-86f5-410efd6b0fb9
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -16,102 +15,258 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 79b9dbee89a4e33a1768343b9242d6b2b1118355
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: e0c608fe3a80c9d704774e592a1eba383bbdffe8
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Привязки хранилища BLOB-объектов для Функций Azure
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-В этой статье рассматривается настройка привязок хранилища BLOB-объектов Azure в Функциях Azure, а также работа с ними. Функции Azure поддерживают привязки триггера, а также входные и выходные привязки для хранилища BLOB-объектов Azure. Описание возможностей, доступных во всех привязках, см. в статье [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md).
+В этой статье рассматривается работа с привязками хранилища BLOB-объектов Azure в службе "Функции Azure". Служба "Функции Azure" поддерживает привязки триггера, а также входные и выходные привязки для больших двоичных объектов.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> [Учетная запись хранения только для больших двоичных объектов](../storage/common/storage-create-storage-account.md#blob-storage-accounts) не поддерживается. Триггерам и привязкам хранилища BLOB-объектов требуется учетная запись хранения общего назначения. 
-> 
+> [Учетные записи хранения только для больших двоичных объектов](../storage/common/storage-create-storage-account.md#blob-storage-accounts) не поддерживаются. Триггерам и привязкам хранилища BLOB-объектов требуется учетная запись хранения общего назначения. 
 
-<a name="trigger"></a>
-<a name="storage-blob-trigger"></a>
-## <a name="blob-storage-triggers-and-bindings"></a>Триггеры и привязки хранилища BLOB-объектов
+## <a name="blob-storage-trigger"></a>Триггер хранилища BLOB-объектов
 
-При использовании триггера хранилища BLOB-объектов Azure код функции вызывается при обнаружении нового или обновленного BLOB-объекта. Содержимое BLOB-объекта предоставляется в качестве входных данных функции.
-
-Определите триггер хранилища BLOB-объектов на вкладке **Интеграция** портала функций. Портал создает следующее определение в разделе **bindings** файла *function.json*:
-
-```json
-{
-    "name": "<The name used to identify the trigger data in your code>",
-    "type": "blobTrigger",
-    "direction": "in",
-    "path": "<container to monitor, and optionally a blob name pattern - see below>",
-    "connection": "<Name of app setting - see below>"
-}
-```
-
-Привязки для ввода и вывода BLOB-объекта определяются с использованием `blob` в качестве типа привязки:
-
-```json
-{
-  "name": "<The name used to identify the blob input in your code>",
-  "type": "blob",
-  "direction": "in", // other supported directions are "inout" and "out"
-  "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
-},
-```
-
-* Свойство `path` поддерживает выражения привязки и параметры фильтра. См. раздел [Шаблоны имен](#pattern).
-* Свойство `connection` должно включать в себя имя параметра приложения, содержащего строку подключения к службе хранилища. На портале Azure стандартный редактор на вкладке **Интеграция** автоматически настраивает этот параметр приложения при выборе учетной записи хранения.
+Используйте триггер хранилища BLOB-объектов, чтобы запустить функцию при обнаружении нового или обновленного большого двоичного объекта. Содержимое BLOB-объекта предоставляется в качестве входных данных функции.
 
 > [!NOTE]
 > Если используется триггер BLOB-объекта в плане потребления, то после того как приложение-функция стало неактивным, обработка новых BLOB-объектов может осуществляться с задержкой до 10 минут. После запуска приложения-функции BLOB-объекты обрабатываются немедленно. Во избежание этой начальной задержки рассмотрите один из следующих вариантов:
 > - Используйте план службы приложений с включенной функцией AlwaysOn.
-> - Используйте другой механизм для активации обработки большого двоичного объекта, например сообщение очереди, содержащее имя большого двоичного объекта. Пример см. в разделе [Триггер очереди с привязкой BLOB-объекта для ввода](#input-sample).
+> - Используйте другой механизм для активации обработки большого двоичного объекта, например сообщение очереди, содержащее имя большого двоичного объекта. Пример см. в разделе этой статьи с [образцом входных и выходных привязок большого двоичного объекта](#input--output---example).
 
-<a name="pattern"></a>
+## <a name="trigger---example"></a>Пример триггера
 
-### <a name="name-patterns"></a>Шаблоны имен
-Шаблон имени BLOB-объекта можно указать в свойстве `path`, которое может представлять собой фильтр или выражение привязки. См. раздел [Выражения привязки и шаблоны](functions-triggers-bindings.md#binding-expressions-and-patterns).
+Языковой пример см. в разделах:
 
-Например, чтобы отфильтровать BLOB-объекты, которые начинаются со строки "original", используйте приведенное ниже определение. Этот путь находит BLOB-объект с именем *original-Blob1.txt* в контейнере *input*. В этом примере переменная `name` в коде функции имеет значение `Blob1`.
+* [Предкомпилированный код C#](#trigger---c-example)
+* [Сценарий C#](#trigger---c-script-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="trigger---c-example"></a>Пример C# в триггере
+
+В следующем примере показан [предкомпилированный код C#](functions-dotnet-class-library.md), который делает запись в журнал при добавлении или обновлении большого двоичного объекта в контейнере `samples-workitems`.
+
+```csharp
+[FunctionName("BlobTriggerCSharp")]        
+public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, TraceWriter log)
+{
+    log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+}
+```
+
+Дополнительные сведения об атрибуте `BlobTrigger` см. в разделе [Атрибуты триггера для предкомпилированного кода C#](#trigger---attributes-for-precompiled-c).
+
+### <a name="trigger---c-script-example"></a>Пример скрипта C# в триггере
+
+В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и коде [скрипта C#](functions-reference-csharp.md), который использует привязку. Функция делает запись в журнал при добавлении или обновлении большого двоичного объекта в контейнере `samples-workitems`.
+
+Данные привязки в файле *function.json*:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myBlob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+В разделе [Конфигурация](#trigger---configuration) описываются эти свойства.
+
+Ниже приведен код скрипта C#, который выполняет привязку к `Stream`.
+
+```cs
+public static void Run(Stream myBlob, TraceWriter log)
+{
+   log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+}
+```
+
+Ниже приведен код скрипта C#, который выполняет привязку к `CloudBlockBlob`.
+
+```cs
+#r "Microsoft.WindowsAzure.Storage"
+
+using Microsoft.WindowsAzure.Storage.Blob;
+
+public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
+{
+    log.Info($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
+}
+```
+
+### <a name="trigger---javascript-example"></a>Пример JavaScript в триггере
+
+В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и [коде JavaScript] (functions-reference-node.md), который использует привязку. Функция делает запись в журнал при добавлении или обновлении большого двоичного объекта в контейнере `samples-workitems`.
+
+Ниже показан файл *function.json*.
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myBlob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+В разделе [Конфигурация](#trigger---configuration) описываются эти свойства.
+
+Ниже показан код JavaScript.
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
+    context.done();
+};
+```
+
+## <a name="trigger---attributes-for-precompiled-c"></a>Атрибуты триггера для предкомпилированного кода C#
+
+В функциях [предкомпилированного кода C#](functions-dotnet-class-library.md) используйте следующие атрибуты для настройки триггера большого двоичного объекта:
+
+* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+
+  Конструктор атрибута принимает строку пути, которая указывает на контейнер для просмотра, и при необходимости [шаблон имени большого двоичного объекта](#trigger---blob-name-patterns). Ниже приведен пример:
+
+  ```csharp
+  [FunctionName("ResizeImage")]
+  public static void Run(
+      [BlobTrigger("sample-images/{name}")] Stream image, 
+      [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  ```
+
+  Чтобы указать учетную запись хранения, которую нужно использовать, можно задать свойство `Connection`, как показано в следующем примере.
+
+   ```csharp
+  [FunctionName("ResizeImage")]
+  public static void Run(
+      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
+      [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  ```
+
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+
+  Предоставляет еще один способ указать используемую учетную запись хранения. Конструктор принимает имя параметра приложения, содержащего строку подключения к службе хранилища. Атрибут может применяться на уровне класса, метода или параметра. Ниже показан пример уровня класса и метода.
+
+  ```csharp
+  [StorageAccount("ClassLevelStorageAppSetting")]
+  public static class AzureFunctions
+  {
+      [FunctionName("BlobTrigger")]
+      [StorageAccount("FunctionLevelStorageAppSetting")]
+      public static void Run( //...
+  ```
+
+Используемая учетная запись хранения определяется в следующем порядке:
+
+* Свойство `Connection` атрибута `BlobTrigger`.
+* Атрибут `StorageAccount`, примененный к тому же параметру, что и `BlobTrigger`.
+* Атрибут `StorageAccount`, примененный к функции.
+* Атрибут `StorageAccount`, примененный к классу.
+* Учетная запись хранения по умолчанию для приложения-функции (параметр приложения AzureWebJobsStorage).
+
+## <a name="trigger---configuration"></a>Конфигурация триггера
+
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `BlobTrigger`.
+
+|свойство function.json | Свойство атрибута |Описание|
+|---------|---------|----------------------|
+|**type** | Недоступно | Нужно задать значение `blobTrigger`. Это свойство задается автоматически при создании триггера на портале Azure.|
+|**direction** | Недоступно | Нужно задать значение `in`. Это свойство задается автоматически при создании триггера на портале Azure. Исключения приведены в этом [разделе](#trigger---usage). |
+|**name** | Недоступно | Имя переменной, представляющей большой двоичный объект в коде функции. | 
+|**path** | **BlobPath** |Контейнер для мониторинга.  Может быть [шаблоном имени большого двоичного объекта](#trigger-blob-name-patterns). | 
+|**подключение** | **Connection** | Имя параметра приложения, содержащего строку подключения к службе хранилища, используемой для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyStorage, среда выполнения службы "Функции" будет искать параметр приложения с именем AzureWebJobsMyStorage. Если оставить строку `connection` пустой, среда выполнения службы "Функции" будет использовать строку подключения к службе хранилища по умолчанию для параметра приложения с именем `AzureWebJobsStorage`.<br><br>Строка подключения необходима для учетной записи хранения общего назначения, а не [учетной записи хранения только для больших двоичных объектов](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+
+## <a name="trigger---usage"></a>Использование триггера
+
+В коде и скрипте C# для доступа к данным большого двоичного объекта используйте параметр метода, например `Stream paramName`. В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. Вы можете выполнить привязку к одному из следующих типов:
+
+* `TextReader`
+* `Stream`
+* `ICloudBlob` (требует направления привязки inout в *function.json*);
+* `CloudBlockBlob` (требует направления привязки inout в *function.json*);
+* `CloudPageBlob` (требует направления привязки inout в *function.json*);
+* `CloudAppendBlob` (требует направления привязки inout в *function.json*).
+
+Как уже отмечалось выше, некоторые из этих типов требуют направления привязки `inout` в файле *function.json*. Это направление не поддерживается стандартным редактором на портале Azure, поэтому необходимо использовать расширенный редактор.
+
+Если ожидаются текстовые большие двоичные объекты, можно выполнить привязку к типу `string`. Это рекомендуется делать только в том случае, если BLOB-объект имеет небольшой размер, так как в память загружается все содержимое BLOB-объекта. Как правило, предпочтительнее использовать тип `Stream` или `CloudBlockBlob`.
+
+В JavaScript доступ к данным входного большого двоичного объекта можно получить, используя `context.bindings.<name>`.
+
+## <a name="trigger---blob-name-patterns"></a>Шаблоны имени большого двоичного объекта в триггере
+
+Вы можете указать шаблон имени большого двоичного объекта в свойстве `path` в файле *function.json* или в конструкторе атрибута `BlobTrigger`. Шаблон имени может быть [выражением фильтра или привязки](functions-triggers-bindings.md#binding-expressions-and-patterns).
+
+### <a name="filter-on-blob-name"></a>Фильтрация по имени большого двоичного объекта
+
+Следующий пример активируется только для больших двоичных объектов в контейнере `input`, который начинается со строки original-.
 
 ```json
 "path": "input/original-{name}",
 ```
+ 
+Если *original-Blob1.txt* — имя большого двоичного объекта, значением переменной `name` в коде функции будет `Blob1`.
 
-Чтобы выполнить привязку имени и расширения файла BLOB-объекта по отдельности, используйте два шаблона. Этот путь также находит BLOB-объект с именем *original-Blob1.txt*, но передает в код функции другие переменные: `blobname` и `blobextension` со значениями *original-Blob1* и *txt* соответственно.
+### <a name="filter-on-file-type"></a>Фильтрация по типу файла
 
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-
-Тип файлов больших двоичных объектов можно ограничить, используя фиксированное значение для расширения файла. Например, чтобы триггер активировался только для файлов PNG, используйте следующий шаблон:
+Далее приведены примеры триггеров только из файлов *PNG*:
 
 ```json
 "path": "samples/{name}.png",
 ```
 
-Фигурные скобки используются в качестве специальных символов в шаблонах имен. Чтобы указать имена BLOB-объектов с фигурными скобками, экранируйте скобки, используя две фигурные скобки. Следующий пример находит BLOB-объект с именем *{20140101}-soundfile.mp3* в контейнере *images*, а в качестве значения переменной `name` в коде функции будет задано *soundfile.mp3*. 
+### <a name="filter-on-curly-braces-in-file-names"></a>Фильтрация по фигурным скобкам в именах файлов
+
+Чтобы найти фигурные скобки в именах файлов, экранируйте скобки, используя две фигурные скобки. В следующем примере показана фильтрация по большим двоичным объектам, имена которых содержат фигурные скобки:
 
 ```json
 "path": "images/{{20140101}}-{name}",
 ```
 
-### <a name="trigger-metadata"></a>Метаданные триггера
+Если *{20140101}-soundfile.mp3* — имя большого двоичного объекта, значением переменной `name` в коде функции будет *soundfile.mp3*. 
 
-Триггер BLOB-объектов предоставляет несколько свойств метаданных. Эти свойства можно использовать как часть выражений привязки в других привязках или как параметры в коде. Эти значения имеют ту же семантику, что и [CloudBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
+### <a name="get-file-name-and-extension"></a>Получение имени и расширения файла
 
-- **BlobTrigger**. Введите `string`. Путь к BLOB-объекту, активирующему триггер
-- **Uri** Введите `System.Uri`. Код URI BLOB-объекта для основного расположения.
-- **Properties** Введите `Microsoft.WindowsAzure.Storage.Blob.BlobProperties`. Системные свойства BLOB-объекта.
-- **Metadata** Введите `IDictionary<string,string>`. Определяемые пользователем метаданные для BLOB-объекта.
+В следующем примере показано, как выполнить привязку имени и расширения файла большого двоичного объекта по отдельности:
 
-<a name="receipts"></a>
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+Если большой двоичный объект имеет имя *original-Blob1.txt*, он передает в код функции переменные `blobname` и `blobextension` со значениями *original-Blob1* и *txt* соответственно.
 
-### <a name="blob-receipts"></a>Уведомления о получении большого двоичного объекта
+## <a name="trigger---metadata"></a>Метаданные триггера
+
+Триггер BLOB-объектов предоставляет несколько свойств метаданных. Эти свойства можно использовать как часть выражений привязки в других привязках или как параметры в коде. Эти значения имеют ту же семантику, что и тип [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
+
+
+|Свойство  |Тип  |Описание  |
+|---------|---------|---------|
+|`BlobTrigger`|`string`|Путь к большому двоичному объекту, активирующему триггер.|
+|`Uri`|`System.Uri`|Код URI BLOB-объекта для основного расположения.|
+|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Системные свойства BLOB-объекта. |
+|`Metadata` |`IDictionary<string,string>`|Определяемые пользователем метаданные для BLOB-объекта.|
+
+## <a name="trigger---blob-receipts"></a>Уведомления о получении большого двоичного объекта в триггере
+
 Среда выполнения Функций Azure гарантирует, что для одного и того же нового или обновленного BLOB-объекта функция активации BLOB-объекта будет вызываться только один раз. Для определения того, обработана ли версия этого BLOB-объекта, сохраняются *уведомления о получении BLOB-объекта*.
 
 Функции Azure сохраняют уведомления о получении BLOB-объектов в контейнере с именем *azure-webjobs-hosts* в учетной записи хранения Azure для приложения-функции (указывается с помощью параметра приложения `AzureWebJobsStorage`). Уведомление о получении большого двоичного объекта содержит следующую информацию:
@@ -124,9 +279,8 @@ ms.lasthandoff: 10/30/2017
 
 Чтобы выполнить принудительную повторную обработку большого двоичного объекта, удалите уведомление о получении этого большого двоичного объекта из контейнера *azure-webjobs-hosts* вручную.
 
-<a name="poison"></a>
+## <a name="trigger---poison-blobs"></a>Триггеры подозрительных больших двоичных объектов
 
-### <a name="handling-poison-blobs"></a>Обработка подозрительных больших двоичных объектов
 При сбое функции триггера BLOB-объекта Функции Azure по умолчанию выполняют ее для этого BLOB-объекта еще 5 раз. 
 
 В случае сбоя после 5 попыток запуска Функции Azure добавляют сообщение в очередь службы хранилища с именем *webjobs-blobtrigger-poison*. Сообщением очереди для подозрительных больших двоичных объектов является объект JSON, содержащий следующие свойства:
@@ -137,110 +291,67 @@ ms.lasthandoff: 10/30/2017
 * BlobName
 * ETag (идентификатор версии BLOB-объектов, например 0x8D1DC6E70A277EF)
 
-### <a name="blob-polling-for-large-containers"></a>Опрос больших двоичных объектов для больших контейнеров
-Если отслеживаемый контейнер BLOB-объектов содержит более 10 000 BLOB-объектов, среда выполнения Функций проверяет файлы журналов, чтобы найти новые или измененные BLOB-объекты. Это не происходит в режиме реального времени. После создания большого двоичного объекта функция может не вызываться несколько минут или даже дольше. Кроме того, [журналы службы хранилища создаются по принципу лучшего из возможного](/rest/api/storageservices/About-Storage-Analytics-Logging), то есть не гарантируется регистрация всех событий. В некоторых случаях журналы могут пропускаться. Если требуется повысить скорость или надежность обработки BLOB-объектов, при создании BLOB-объекта рекомендуем создать [сообщение очереди](../storage/queues/storage-dotnet-how-to-use-queues.md). Затем для обработки BLOB-объекта используйте [триггер очереди](functions-bindings-storage-queue.md) вместо триггера BLOB-объекта.
+## <a name="trigger---polling-for-large-containers"></a>Опрос для больших контейнеров в триггере
 
-<a name="triggerusage"></a>
+Если отслеживаемый контейнер BLOB-объектов содержит более 10 000 BLOB-объектов, среда выполнения Функций проверяет файлы журналов, чтобы найти новые или измененные BLOB-объекты. Этот процесс может привести к задержкам. После создания большого двоичного объекта функция может не вызываться несколько минут или даже дольше. Кроме того, [журналы службы хранилища создаются по принципу лучшего из возможного](/rest/api/storageservices/About-Storage-Analytics-Logging), Регистрация всех событий не гарантируется. В некоторых случаях журналы могут пропускаться. Если требуется повысить скорость или надежность обработки BLOB-объектов, при создании BLOB-объекта рекомендуем создать [сообщение очереди](../storage/queues/storage-dotnet-how-to-use-queues.md). Затем для обработки BLOB-объекта используйте [триггер очереди](functions-bindings-storage-queue.md) вместо триггера BLOB-объекта. Другой вариант — использовать службу "Сетка событий". Дополнительные сведения см. в руководстве [Автоматическое изменение размера переданных изображений с помощью службы "Сетка событий"](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
-## <a name="using-a-blob-trigger-and-input-binding"></a>Использование триггера BLOB-объекта и привязки для ввода
-В функциях .NET для доступа к данным BLOB-объекта используйте параметр метода, например `Stream paramName`. Здесь `paramName` — это значение, указанное в [конфигурации триггера](#trigger). В функциях Node.js доступ к данным входного BLOB-объекта можно получить, используя `context.bindings.<name>`.
+## <a name="blob-storage-input--output-bindings"></a>Входные и выходные привязки для хранилища BLOB-объектов
 
-В .NET привязку можно выполнять к любым типам, приведенным в списке ниже. При использовании в привязке для ввода некоторые из этих типов требуют направления привязки `inout` в файле *function.json*. Это направление не поддерживается стандартным редактором, поэтому необходимо использовать расширенный редактор.
+Используйте входные и выходные привязки хранилища BLOB-объектов для чтения и записи больших двоичных объектов.
 
-* `TextReader`
-* `Stream`
-* `ICloudBlob` (требует направления привязки inout)
-* `CloudBlockBlob` (требует направления привязки inout)
-* `CloudPageBlob` (требует направления привязки inout)
-* `CloudAppendBlob` (требует направления привязки inout)
+## <a name="input--output---example"></a>Пример входных и выходных данных
 
-Если ожидаются текстовые BLOB-объекты, привязку также можно выполнить к типу .NET `string`. Это рекомендуется делать только в том случае, если BLOB-объект имеет небольшой размер, так как в память загружается все содержимое BLOB-объекта. Как правило, предпочтительнее использовать тип `Stream` или `CloudBlockBlob`.
+Языковой пример см. в разделах:
 
-## <a name="trigger-sample"></a>Пример триггера
-Предположим, что у вас есть следующий файл function.json, определяющий триггер хранилища BLOB-объектов:
+* [Предкомпилированный код C#](#input--output---c-example).
+* [Сценарий C#](#input--output---c-script-example)
+* [JavaScript](#input--output---javascript-example)
 
-```json
+### <a name="input--output---c-example"></a>Пример входных и выходных данных C#
+
+Ниже приведен пример функции [предкомпилированного кода C#](functions-dotnet-class-library.md), которая использует одну входную и две выходных привязки больших двоичных объектов. Эта функция активируется путем создания большого двоичного объекта образа в контейнере *sample-images*. Она создает небольшие и средние копии большого двоичного объекта образа. 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
 {
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myBlob",
-            "type": "blobTrigger",
-            "direction": "in",
-            "path": "samples-workitems",
-            "connection":"MyStorageAccount"
-        }
-    ]
+    var imageBuilder = ImageResizer.ImageBuilder.Current;
+    var size = imageDimensionsTable[ImageSize.Small];
+
+    imageBuilder.Build(image, imageSmall,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+
+    image.Position = 0;
+    size = imageDimensionsTable[ImageSize.Medium];
+
+    imageBuilder.Build(image, imageMedium,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
 }
-```
 
-Ознакомьтесь с примером для конкретного языка, регистрирующим содержимое каждого большого двоичного объекта, который добавляется в отслеживаемый контейнер.
+public enum ImageSize { ExtraSmall, Small, Medium }
 
-* [C#](#triggercsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="blob-trigger-examples-in-c"></a>Примеры триггеров BLOB-объектов на C# #
-
-```cs
-// Blob trigger sample using a Stream binding
-public static void Run(Stream myBlob, TraceWriter log)
-{
-   log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
-}
-```
-
-```cs
-// Blob trigger binding to a CloudBlockBlob
-#r "Microsoft.WindowsAzure.Storage"
-
-using Microsoft.WindowsAzure.Storage.Blob;
-
-public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
-{
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
-}
-```
-
-<a name="triggernodejs"></a>
-
-### <a name="trigger-example-in-nodejs"></a>Пример триггера в Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
-    context.done();
+private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
+    { ImageSize.ExtraSmall, (320, 200) },
+    { ImageSize.Small,      (640, 400) },
+    { ImageSize.Medium,     (800, 600) }
 };
-```
-<a name="outputusage"></a>
-<a name="storage-blob-output-binding"></a>
+```        
 
-## <a name="using-a-blob-output-binding"></a>Использование привязки BLOB-объекта для вывода
+### <a name="input--output---c-script-example"></a>Пример входных и выходных данных скрипта C#
 
-В функциях .NET следует использовать либо параметр `out string` в сигнатуре функции, либо один из типов из приведенного ниже списка. В функциях Node.js доступ к выходному большому двоичному объекту можно получить, используя `context.bindings.<name>`.
+В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и коде [скрипта C#](functions-reference-csharp.md), который использует привязку. Эта функция копирует большой двоичный объект. Она активируется сообщением очереди, содержащим имя копируемого большого двоичного объекта. Новый большой двоичный объект получает имя *{originalblobname}-Copy*.
 
-В функциях .NET можно выполнить вывод одного из следующих типов:
-
-* `out string`
-* `TextWriter`
-* `Stream`
-* `CloudBlobStream`
-* `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
-
-<a name="input-sample"></a>
-
-## <a name="queue-trigger-with-blob-input-and-output-sample"></a>Пример триггера очереди с вводом и выводом BLOB-объекта
-Предположим, что у вас есть приведенный ниже файл function.json, определяющий [триггер хранилища очередей](functions-bindings-storage-queue.md), а также входные и выходные данные хранилища BLOB-объектов. Обратите внимание на использование свойства метаданных `queueTrigger` В свойствах `path` входных и выходных данных BLOB-объекта:
+В файле *function.json* свойство метаданных `queueTrigger` используется для указания имени большого двоичного объекта в свойствах `path`:
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -249,14 +360,14 @@ module.exports = function(context) {
       "name": "myInputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
     },
     {
       "name": "myOutputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "out"
     }
   ],
@@ -264,30 +375,58 @@ module.exports = function(context) {
 }
 ``` 
 
-Ознакомьтесь с примером для конкретного языка, копирующим входной большой двоичный объект в выходной большой двоичный объект.
+В разделе [Конфигурация](#input--output---configuration) описываются эти свойства.
 
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
-<a name="incsharp"></a>
-
-### <a name="blob-binding-example-in-c"></a>Пример привязки BLOB-объекта на C# #
+Ниже приведен код скрипта C#.
 
 ```cs
-// Copy blob from input to output, based on a queue trigger
-public static void Run(string myQueueItem, Stream myInputBlob, out Stream myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, Stream myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
 
-<a name="innodejs"></a>
+### <a name="input--output---javascript-example"></a>Пример входных и выходных данных JavaScript
 
-### <a name="blob-binding-example-in-nodejs"></a>Пример привязки BLOB-объекта в Node.js
+В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и [коде JavaScript] (functions-reference-node.md), который использует привязку. Эта функция копирует большой двоичный объект. Она активируется сообщением очереди, содержащим имя копируемого большого двоичного объекта. Новый большой двоичный объект получает имя *{originalblobname}-Copy*.
+
+В файле *function.json* свойство метаданных `queueTrigger` используется для указания имени большого двоичного объекта в свойствах `path`:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+В разделе [Конфигурация](#input--output---configuration) описываются эти свойства.
+
+Ниже показан код JavaScript.
 
 ```javascript
-// Copy blob from input to output, based on a queue trigger
 module.exports = function(context) {
     context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
@@ -295,6 +434,66 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+## <a name="input--output---attributes-for-precompiled-c"></a>Входные и выходные данные атрибутов для предкомпилированного кода C#
 
+Для функций [предкомпилированного кода C#](functions-dotnet-class-library.md) используйте атрибут [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+
+Конструктор атрибута принимает путь к большому двоичному объекту и параметр `FileAccess`, указывающий на чтение или запись, как показано в следующем примере:
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+```
+
+Чтобы указать учетную запись хранения, которую нужно использовать, можно задать свойство `Connection`, как показано в следующем примере.
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
+```
+
+Чтобы указать учетную запись хранения на уровне класса, метода или параметра, можно использовать атрибут `StorageAccount`. Дополнительные сведения см. в разделе [Атрибуты триггера для предкомпилированного кода C#](#trigger---attributes-for-precompiled-c).
+
+## <a name="input--output---configuration"></a>Входная и выходная конфигурация
+
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `Blob`.
+
+|свойство function.json | Свойство атрибута |Описание|
+|---------|---------|----------------------|
+|**type** | Недоступно | Нужно задать значение `blob`. |
+|**direction** | Недоступно | Входной привязке должно быть присвоено значение `in`, а выходной — out. Исключения приведены в этом [разделе](#input--output---usage). |
+|**name** | Недоступно | Имя переменной, представляющей большой двоичный объект в коде функции.  Задайте значение `$return`, ссылающееся на возвращаемое значение функции.|
+|**path** |**BlobPath** | Путь к большому двоичному объекту. | 
+|**подключение** |**Connection**| Имя параметра приложения, содержащего строку подключения к службе хранилища, используемой для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyStorage, среда выполнения службы "Функции" будет искать параметр приложения с именем AzureWebJobsMyStorage. Если оставить строку `connection` пустой, среда выполнения службы "Функции" будет использовать строку подключения к службе хранилища по умолчанию для параметра приложения с именем `AzureWebJobsStorage`.<br><br>Строка подключения необходима для учетной записи хранения общего назначения, а не [учетной записи хранения только для больших двоичных объектов](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+|Недоступно | **Access** | Указывает, какая операция будет выполняться (запись или чтение). |
+
+## <a name="input--output---usage"></a>Использование входной и выходной привязки
+
+В предкомпилированном коде и скрипте C# получите доступ к большому двоичному объекту с помощью параметра метода (например, `Stream paramName`). В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. Вы можете выполнить привязку к одному из следующих типов:
+
+* `out string`
+* `TextWriter` 
+* `TextReader`
+* `Stream`
+* `ICloudBlob` (требует направления привязки inout в *function.json*);
+* `CloudBlockBlob` (требует направления привязки inout в *function.json*);
+* `CloudPageBlob` (требует направления привязки inout в *function.json*);
+* `CloudAppendBlob` (требует направления привязки inout в *function.json*).
+
+Как уже отмечалось выше, некоторые из этих типов требуют направления привязки `inout` в файле *function.json*. Это направление не поддерживается стандартным редактором на портале Azure, поэтому необходимо использовать расширенный редактор.
+
+При чтении текста больших двоичных объектов можно выполнить привязку к типу `string`. Этот тип рекомендуется использовать, только если большой двоичный объект имеет небольшой размер, так как в память загружается все содержимое большого двоичного объекта. Как правило, предпочтительнее использовать тип `Stream` или `CloudBlockBlob`.
+
+В JavaScript получите доступ к данным больших двоичных объектов с помощью `context.bindings.<name>`.
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+> [!div class="nextstepaction"]
+> [Создание функции, активируемой хранилищем BLOB-объектов Azure](functions-create-storage-blob-triggered-function.md)
+
+> [!div class="nextstepaction"]
+> [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

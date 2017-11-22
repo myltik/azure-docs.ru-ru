@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0a6a19cffafb940b13135fb3df4d7bdf57aa7ce
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Копирование данных из хранилища файлов Azure и обратно с помощью фабрики данных Azure
 
@@ -48,11 +48,11 @@ ms.lasthandoff: 11/06/2017
 | host | Указывает конечную точку хранилища файлов Azure в качестве `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Да |
 | userid | Укажите пользователя для доступа к хранилищу файлов Azure как `"userid": "AZURE\\<storage name>"`. | Да |
 | пароль | Укажите ключ доступа к хранилищу. Пометьте это поле в качестве SecureString.<br/> | Да |
-| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать среду выполнения интеграции Azure или локальную среду IR (если хранилище данных расположено в частной сети). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет |
+| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать среду выполнения интеграции Azure или локальную среду IR (если хранилище данных расположено в частной сети). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |"Нет" для источника, "Да" для приемника |
 
->[!TIP]
-> - Чтобы выполнить копирование в хранилище файлов Azure с помощью Azure Integration Runtime, нужно явно [создать среду IR Azure](create-azure-integration-runtime.md#create-azure-ir) с расположением хранилища файлов и выполнить сопоставление в связанной службе, как показано в следующем примере.
-> - Чтобы выполнить операцию копирования из хранилища файлов Azure и обратно с помощью локальной среды IR за пределами Azure, не забудьте открыть исходящий TCP-порт 445 в локальной сети.
+>[!IMPORTANT]
+> - Чтобы копировать данные в хранилище файлов Azure с помощью Azure Integration Runtime, нужно явно [создать среду IR Azure](create-azure-integration-runtime.md#create-azure-ir) с расположением хранилища файлов и выполнить сопоставление в связанной службе, как показано в следующем примере.
+> - Чтобы выполнить копирование из хранилища файлов Azure и обратно с помощью локальной среды IR за пределами Azure, не забудьте открыть исходящий TCP-порт 445 в локальной сети.
 
 **Пример**
 

@@ -1,5 +1,5 @@
 ---
-title: "Управление сроком действия больших двоичных объектов службы хранилища Azure в Azure CDN | Документация Майкрософт"
+title: "Управление сроком действия хранилища BLOB-объектов Azure в сети доставки содержимого Azure | Microsoft Docs"
 description: "Сведения о возможностях контроля времени жизни BLOB-объектов в кэшировании Azure CDN."
 services: cdn
 documentationcenter: 
@@ -12,31 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b8f9d439184b91f8105e6bd136e48525632a85
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Управление сроком действия больших двоичных объектов службы хранилища Azure в Azure CDN
+# <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Управление сроком действия хранилища BLOB-объектов Azure в сети доставки содержимого Azure
 > [!div class="op_single_selector"]
 > * [Веб-приложения и облачные службы Azure, ASP.NET или IIS](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Служба BLOB-объектов в службе хранилища Azure](cdn-manage-expiration-of-blob-content.md)
+> * [хранилище BLOB-объектов Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-[Служба BLOB-объектов](../storage/common/storage-introduction.md#blob-storage) в [службе хранилища Azure](../storage/common/storage-introduction.md) — это один из возможных источников на основе Azure, интегрированных с Azure CDN.  Любое общедоступное содержимое BLOB-объекта может кэшироваться в Azure CDN до истечения его срока жизни (TTL).  Срок жизни определяется [*Cache-Control* ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) , указанным в HTTP-ответе службы хранилища Azure.
+[Служба BLOB-объектов](../storage/common/storage-introduction.md#blob-storage) в [службе хранилища Azure](../storage/common/storage-introduction.md) — это один из нескольких источников в облаке Azure, интегрированных с сетью доставки содержимого (CDN) Azure. Любое общедоступное содержимое BLOB-объекта может кэшироваться в Azure CDN до истечения его срока жизни (TTL). Срок жизни определяется заголовком [`Cache-Control`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9), который указывается в HTTP-ответе службы хранилища Azure.
 
 > [!TIP]
-> Вы можете не указывать срок жизни для большого двоичного объекта.  Тогда Azure CDN по умолчанию применит срок жизни длительностью семь дней.
+> Срок жизни для BLOB-объекта можно не указывать. Тогда Azure CDN по умолчанию применит срок жизни длительностью семь дней.
 > 
-> Дополнительные сведения о том, как Azure CDN ускоряет доступ к большим двоичным объектам и другим файлам, см. в статье [Общие сведения о сети доставки содержимого (CDN) Azure](cdn-overview.md).
+> Дополнительные сведения о том, как Azure CDN ускоряет доступ к BLOB-объектам и другим файлам, см. в статье [Общие сведения о сети доставки содержимого (CDN) Azure](cdn-overview.md).
 > 
-> Дополнительные сведения о службе BLOB-объектов службы хранилища Azure см. в разделе [Основные понятия службы BLOB-объектов](https://msdn.microsoft.com/library/dd179376.aspx). 
-> 
-> 
+> Дополнительные сведения о хранилище BLOB-объектов Azure см. в статье [Общие сведения о хранилище BLOB-объектов](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+ 
 
 В этом руководстве описано несколько способов определения срока жизни (TTL) для большого двоичного объекта в службе хранилища Azure.  
 
@@ -93,14 +92,14 @@ class Program
 ```
 
 > [!TIP]
-> На [этой странице](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)вы найдете множество примеров кода .NET для службы хранилища Azure.
+> Другие примеры кода .NET для хранилища BLOB-объектов Azure см. на [этой странице](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
 > 
 > 
 
 ## <a name="other-methods"></a>Другие методы
 * [Интерфейс командной строки Azure](../cli-install-nodejs.md)
   
-    При отправке большого двоичного объекта определите свойство *cacheControl* с помощью параметра `-p`.  В этом примере устанавливается срок жизни 3600 секунд (1 час).
+    При отправке большого двоичного объекта задайте свойство *cacheControl* с помощью параметра `-p`. В этом примере устанавливается срок жизни 3600 секунд (1 час).
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
@@ -112,10 +111,10 @@ class Program
   
     Некоторые сторонние средства управления хранилищем Azure позволяют определять свойство *CacheControl* для больших двоичных объектов. 
 
-## <a name="testing-the-cache-control-header"></a>Проверка заголовка *Cache-Control*
-Вы легко можете проверить установленный для BLOB-объектов срок жизни.  Для этого проверьте наличие заголовка [Cache-Control](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)в своем BLOB-объекте с помощью *средств разработчика* в любом браузере.  Для проверки заголовков ответа можно использовать и другие средства, например **wget**, [Postman](https://www.getpostman.com/) или [Fiddler](http://www.telerik.com/fiddler).
+## <a name="testing-the-cache-control-header"></a>Проверка заголовка Cache-Control
+Вы легко можете проверить установленный для BLOB-объектов срок жизни.  Используя встроенные в браузер [средства разработчика](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), убедитесь, что ваш BLOB-объект содержит заголовок ответа `Cache-Control`. Для просмотра заголовков ответа можно использовать и другие средства, например **wget**, [Postman](https://www.getpostman.com/) или [Fiddler](http://www.telerik.com/fiddler).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Ознакомьтесь с дополнительными сведениями о заголовке *Cache-Control*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9).
+* [Подробная информация о заголовке `Cache-Control`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9).
 * [Узнайте, как управлять сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure](cdn-manage-expiration-of-cloud-service-content.md).
 

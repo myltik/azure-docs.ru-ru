@@ -4,7 +4,7 @@ description: "Это второе руководство из серии, пос
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Развертывание виртуального массива StorSimple — подготовка в VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Обзор
-В руководстве описана подготовка и подключение виртуального массива StorSimple в главной системе под управлением VMware ESXi 5.5 и более поздних версий. Сведения, приведенные в этой статье, относятся к развертыванию виртуальных массивов StorSimple на портале Azure, а также в облаке Microsoft Azure для государственных организаций.
+В руководстве описана подготовка и подключение виртуального массива StorSimple в главной системе под управлением VMware ESXi 5.0, 5.5 или 6.0. Сведения, приведенные в этой статье, относятся к развертыванию виртуальных массивов StorSimple на портале Azure, а также в облаке Microsoft Azure для государственных организаций.
 
 Чтобы подготовить виртуальное устройство и подключиться к нему, требуются права администратора. Подготовка и начальная настройка могут занять около 10 минут.
 
 ## <a name="provisioning-prerequisites"></a>Предварительные требования к подготовке
-Ниже приведены предварительные требования для подготовки виртуального устройства в главной системе под управлением VMware ESXi 5.5 и более поздних версий.
+Ниже приведены предварительные требования для подготовки виртуального устройства в главной системе под управлением VMware ESXi 5.0, 5.5 или 6.0.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Предварительные требования для службы диспетчера устройств StorSimple
 Перед тем как начать, убедитесь в следующем.
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Шаг 1. Обеспечение соответствия главной системы минимальным требованиям к виртуальному устройству
 Для создания виртуального устройства необходимы такие компоненты:
 
-* Доступ к главной системе под управлением VMware ESXi Server 5.5 и более поздних версий.
+* Доступ к главной системе под управлением VMware ESXi Server 5.0, 5.5 или 6.0.
 * Наличие в системе клиента VMware vSphere для управления узлом ESXi.
 
   * Не менее 4 ядер.
@@ -183,6 +183,9 @@ ms.lasthandoff: 10/11/2017
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 Теперь виртуальная машина подготовлена. Следующий шаг — запуск машины и получение IP-адреса.
+
+> [!NOTE]
+> Корпорация Майкрософт не рекомендует устанавливать средства VMware в виртуальный массива (как в подготовке выше). Установка средств VMware создаст неподдерживаемую конфигурацию.
 
 ## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Шаг 3. Запуск виртуального устройства и получение IP-адреса
 Чтобы запустить виртуальное устройство и подключиться к нему, сделайте следующее.

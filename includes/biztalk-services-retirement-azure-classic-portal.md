@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Портал является устаревшим. Чтобы узнать, как управлять экземплярами MABS, изучите статью [REST API for Managing BizTalk Services on Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx) (REST API для управления службами BizTalk в Azure).
