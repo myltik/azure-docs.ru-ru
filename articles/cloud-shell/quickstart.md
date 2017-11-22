@@ -1,5 +1,5 @@
 ---
-title: "Краткое руководство по Bash в Azure Cloud Shell (предварительная версия) | Документация Майкрософт"
+title: "Краткое руководство по Bash в Azure Cloud Shell | Документация Майкрософт"
 description: "Краткое руководство по Bash в Cloud Shell"
 services: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Краткое руководство по Bash в Azure Cloud Shell
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="start-cloud-shell"></a>Запуск Cloud Shell
 1. Запустите **Cloud Shell** в верхней панели навигации портала Azure. <br>
 ![](media/quickstart/shell-icon.png)
-2. Выберите подписку для создания учетной записи хранения и общей папки Azure.
+2. Выберите подписку для создания учетной записи хранения и общей папки для службы файлов Microsoft Azure.
 3. Нажмите кнопку "Создать хранилище".
 
 > [!TIP]
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> Открытый и закрытый ключи, используемые для проверки подлинности виртуальной машины, помещаются в `/User/.ssh/id_rsa` и `/User/.ssh/id_rsa.pub` с помощью Azure CLI 2.0 по умолчанию. Папка в формате SSH сохраняется в образе размером 5 ГБ, размещенном в подключенной общей папке Azure.
+> Открытый и закрытый ключи, используемые для проверки подлинности виртуальной машины, помещаются в `/User/.ssh/id_rsa` и `/User/.ssh/id_rsa.pub` с помощью Azure CLI 2.0 по умолчанию. Папка в формате SSH сохраняется в образе размером 5 ГБ, размещенном в подключенной общей папке службы файлов Azure.
 
 Имя пользователя на этой виртуальной машине будет использоваться в Cloud Shell ($User@Azure:).
 
@@ -79,4 +79,4 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 [Дополнительные сведения о сохранении файлов для Bash в Cloud Shell.](persisting-shell-storage.md) <br>
 [Справочник команд Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[Знакомство с хранилищем файлов Azure](../storage/files/storage-files-introduction.md) <br>
+[Общие сведения о службе файлов Azure](../storage/files/storage-files-introduction.md) <br>

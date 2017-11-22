@@ -1,6 +1,6 @@
 ---
-title: "Устранение неполадок Azure Cloud Shell (предварительная версия) | Документация Майкрософт"
-description: "Устранение неполадок Azure Cloud Shell"
+title: "Устранение неполадок Azure Cloud Shell | Документация Майкрософт"
+description: "Устранение неполадок Azure Cloud Shell."
 services: azure
 documentationcenter: 
 author: maertendMSFT
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 89d5d8df9327c6136fbd00078f6a34f78d85032e
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 59aec1cb6433e90caf683b4bce98c92e9f79fd18
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Устранение неполадок Azure Cloud Shell.
 

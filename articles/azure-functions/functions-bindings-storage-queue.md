@@ -1,6 +1,6 @@
 ---
-title: "Привязки хранилища очередей для Функций Azure | Документы Майкрософт"
-description: "Узнайте, как использовать триггеры и привязки службы хранилища Azure в функциях Azure."
+title: "Привязки хранилища очередей для службы \"Функции Azure\""
+description: "Узнайте, как использовать триггер службы хранилища очередей Azure и выходную привязку в службе \"Функции Azure\"."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -8,80 +8,59 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"
-ms.assetid: 4e6a837d-e64f-45a0-87b7-aa02688a75f3
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: b68ce106ceb25d19ee0bbde287891d553a448560
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 9cf506d571c8d67a1e48ce34860db3dbc3445509
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="azure-functions-queue-storage-bindings"></a>Привязки хранилища очередей для Функций Azure
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+# <a name="azure-functions-queue-storage-bindings"></a>Привязки хранилища очередей для службы "Функции Azure"
 
-В этой статье описывается, как настроить и запрограммировать привязки хранилища очередей Azure в Функциях Azure. Функции Azure поддерживают привязки триггера и выходные привязки для очередей Azure. Описание возможностей, доступных во всех привязках, см. в статье [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md).
+В этой статье рассматривается работа с привязками хранилища очередей Azure в службе "Функции Azure". Служба "Функции Azure" поддерживает привязки триггера и выходные привязки для очередей.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a name="trigger"></a>
-
 ## <a name="queue-storage-trigger"></a>Триггер хранилища очередей
-Триггер хранилища очередей Azure позволяет отслеживать появление новых сообщений в очереди хранилища и реагировать на них. 
 
-Определите триггер очереди на вкладке **Интеграция** портала функций. Портал создает следующее определение в разделе **bindings** файла *function.json*:
+Используйте триггер очереди для запуска функции при получении нового элемента очереди. Сообщение очереди предоставляется в качестве входных данных функции.
 
-```json
+## <a name="trigger---example"></a>Пример триггера
+
+Языковой пример см. в разделах:
+
+* [Предкомпилированный код C#](#trigger---c-example)
+* [Сценарий C#](#trigger---c-script-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="trigger---c-example"></a>Пример C# в триггере
+
+В следующем примере показан [предкомпилированный код C#](functions-dotnet-class-library.md), который выполняет опрос очереди `myqueue-items`, а затем делает запись в журнал при каждой обработке элемента очереди.
+
+```csharp
+public static class QueueFunctions
 {
-    "type": "queueTrigger",
-    "direction": "in",
-    "name": "<The name used to identify the trigger data in your code>",
-    "queueName": "<Name of queue to poll>",
-    "connection":"<Name of app setting - see below>"
+    [FunctionName("QueueTrigger")]
+    public static void QueueTrigger(
+        [QueueTrigger("myqueue-items")] string myQueueItem, 
+        TraceWriter log)
+    {
+        log.Info($"C# function processed: {myQueueItem}");
+    }
 }
 ```
 
-* Свойство `connection` должно включать в себя имя параметра приложения, содержащего строку подключения к службе хранилища. На портале Azure стандартный редактор на вкладке **Интеграция** автоматически настраивает этот параметр приложения при выборе учетной записи хранения.
+### <a name="trigger---c-script-example"></a>Пример скрипта C# в триггере
 
-Дополнительные параметры можно указать в [файле host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) для дальнейшей настройки триггеров хранилища очередей. Например, в файле host.json можно изменить интервал опроса очереди.
+В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и коде [скрипта C#](functions-reference-csharp.md), который использует привязку. Эта функция выполняет опрос очереди `myqueue-items`, а затем делает запись в журнал при каждой обработке элемента очереди.
 
-<a name="triggerusage"></a>
-
-## <a name="using-a-queue-trigger"></a>Использование триггера очереди
-В функциях Node.js доступ к данным очереди можно получить, используя `context.bindings.<name>`.
-
-
-В функциях .NET для доступа к полезным данным очереди используйте параметр метода, например `CloudQueueMessage paramName`. Здесь `paramName` — это значение, указанное в [конфигурации триггера](#trigger). Сообщение очереди можно десериализировать в один из следующих типов:
-
-* Объект POCO. Используется, если полезные данные очереди являются объектом JSON. Среда выполнения функций десериализирует полезные данные в объект POCO. 
-* `string`
-* `byte[]`
-* [`CloudQueueMessage`]
-
-<a name="meta"></a>
-
-### <a name="queue-trigger-metadata"></a>Метаданные триггера очереди
-Триггер очереди предоставляет несколько свойств метаданных. Эти свойства можно использовать как часть выражений привязки в других привязках или как параметры в коде. Эти значения имеют ту же семантику, что и [`CloudQueueMessage`].
-
-* **QueueTrigger** — полезные данные очереди (в случае, если это допустимая строка)
-* **DequeueCount** — тип `int`. Количество раз, когда сообщение было выведено из очереди.
-* **ExpirationTime** — тип `DateTimeOffset?`. Время истечения срока действия сообщения.
-* **Id** — тип `string`. Идентификатор сообщения в очереди.
-* **InsertionTime** — тип `DateTimeOffset?`. Время, когда сообщение было добавлено в очередь.
-* **NextVisibleTime** — введите `DateTimeOffset?`. Время, когда сообщение станет видимым в следующий раз.
-* **PopReceipt** — тип `string`. Уведомление о получении сообщения.
-
-Сведения об использовании метаданных очереди см. в разделе [Пример триггера](#triggersample)
-
-<a name="triggersample"></a>
-
-## <a name="trigger-sample"></a>Пример триггера
-Предположим, что у вас есть следующий файл function.json, определяющий триггер очереди:
+Ниже показан файл *function.json*.
 
 ```json
 {
@@ -92,20 +71,16 @@ ms.lasthandoff: 10/20/2017
             "direction": "in",
             "name": "myQueueItem",
             "queueName": "myqueue-items",
-            "connection":"MyStorageConnectionString"
+            "connection":"MyStorageConnectionAppSetting"
         }
     ]
 }
 ```
 
-Ознакомьтесь с примером для конкретного языка, загружающим и регистрирующим метаданные очереди.
+В разделе [Конфигурация](#trigger---configuration) описываются эти свойства.
 
-* [C#](#triggercsharp)
-* [Node.js](#triggernodejs)
+Ниже приведен код скрипта C#.
 
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Пример триггера на языке C# #
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 
@@ -133,17 +108,32 @@ public static void Run(CloudQueueMessage myQueueItem,
 }
 ```
 
-<!--
-<a name="triggerfsharp"></a>
-### Trigger sample in F# ## 
-```fsharp
+В этом [разделе](#trigger---usage) показано свойство `myQueueItem`, имя которому назначает свойство `name` в function.json.  В разделе [Метаданные сообщений](#trigger---message-metadata) показаны все остальные переменные.
 
+### <a name="trigger---javascript-example"></a>Пример JavaScript в триггере
+
+В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и [функции JavaScript](functions-reference-node.md), которая использует привязку. Эта функция выполняет опрос очереди `myqueue-items`, а затем делает запись в журнал при каждой обработке элемента очереди.
+
+Ниже показан файл *function.json*.
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "type": "queueTrigger",
+            "direction": "in",
+            "name": "myQueueItem",
+            "queueName": "myqueue-items",
+            "connection":"MyStorageConnectionAppSetting"
+        }
+    ]
+}
 ```
--->
 
-<a name="triggernodejs"></a>
+В разделе [Конфигурация](#trigger---configuration) описываются эти свойства.
 
-### <a name="trigger-sample-in-nodejs"></a>Пример триггера для Node.js
+Ниже показан код JavaScript.
 
 ```javascript
 module.exports = function (context) {
@@ -152,58 +142,144 @@ module.exports = function (context) {
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
     context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
-    context.log('id=', context.bindingData.id);
+    context.log('id =', context.bindingData.id);
     context.log('popReceipt =', context.bindingData.popReceipt);
     context.log('dequeueCount =', context.bindingData.dequeueCount);
     context.done();
 };
 ```
 
-### <a name="handling-poison-queue-messages"></a>Обработка подозрительных сообщений очереди
-При сбое функции триггера очереди по умолчанию Функции Azure выполняют ее для заданного сообщения очереди еще пять раз (включая первую попытку). В случае сбоя всех пяти попыток среда выполнения функций добавляет сообщение в хранилище очередей с именем *&lt;имя_превоначальной_очереди>-poison*. Можно написать функции для обработки сообщений из очереди подозрительных сообщений путем внесения их в журнал или отправки уведомления о необходимости ручного вмешательства. 
+В этом [разделе](#trigger---usage) показано свойство `myQueueItem`, имя которому назначает свойство `name` в function.json.  В разделе [Метаданные сообщений](#trigger---message-metadata) показаны все остальные переменные.
 
-Для обработки сообщений о сбоях вручную проверьте значение `dequeueCount` сообщения в очереди (см. раздел [Метаданные триггера очереди](#meta)).
+## <a name="trigger---attributes-for-precompiled-c"></a>Атрибуты триггера для предкомпилированного кода C#
+ 
+Для функций [предкомпилированного кода C#](functions-dotnet-class-library.md) используйте следующие атрибуты, чтобы настроить триггер очереди:
 
-<a name="output"></a>
+* [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+
+  Конструктор атрибута принимает имя очереди для отслеживания, как показано в следующем примере:
+
+  ```csharp
+  [FunctionName("QueueTrigger")]
+  public static void Run(
+      [QueueTrigger("myqueue-items")] string myQueueItem, 
+      TraceWriter log)
+  ```
+
+  Чтобы указать учетную запись хранения, которую нужно использовать, можно задать свойство `Connection`, как показано в следующем примере.
+
+  ```csharp
+  [FunctionName("QueueTrigger")]
+  public static void Run(
+      [QueueTrigger("myqueue-items", Connection = "StorageConnectionAppSetting")] string myQueueItem, 
+      TraceWriter log)
+  ```
+ 
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+
+  Предоставляет еще один способ указать используемую учетную запись хранения. Конструктор принимает имя параметра приложения, содержащего строку подключения к службе хранилища. Атрибут может применяться на уровне класса, метода или параметра. Ниже показан пример уровня класса и метода.
+
+  ```csharp
+  [StorageAccount("ClassLevelStorageAppSetting")]
+  public static class AzureFunctions
+  {
+      [FunctionName("QueueTrigger")]
+      [StorageAccount("FunctionLevelStorageAppSetting")]
+      public static void Run( //...
+  ```
+
+Используемая учетная запись хранения определяется в следующем порядке:
+
+* Свойство `Connection` атрибута `QueueTrigger`.
+* Атрибут `StorageAccount`, примененный к тому же параметру, что и `QueueTrigger`.
+* Атрибут `StorageAccount`, примененный к функции.
+* Атрибут `StorageAccount`, примененный к классу.
+* Параметр приложения AzureWebJobsStorage.
+
+## <a name="trigger---configuration"></a>Конфигурация триггера
+
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `QueueTrigger`.
+
+|свойство function.json | Свойство атрибута |Описание|
+|---------|---------|----------------------|
+|**type** | Недоступно| Нужно задать значение `queueTrigger`. Это свойство задается автоматически при создании триггера на портале Azure.|
+|**direction**| Недоступно | Только в файле *function.json*. Нужно задать значение `in`. Это свойство задается автоматически при создании триггера на портале Azure. |
+|**name** | Недоступно |Имя переменной, представляющей очередь в коде функции.  | 
+|**queueName** | **QueueName**| Имя очереди для опроса. | 
+|**подключение** | **Connection** |Имя параметра приложения, содержащего строку подключения к службе хранилища, используемой для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyStorage, среда выполнения службы "Функции" будет искать параметр приложения с именем AzureWebJobsMyStorage. Если оставить строку `connection` пустой, среда выполнения службы "Функции" будет использовать строку подключения к службе хранилища по умолчанию для параметра приложения с именем `AzureWebJobsStorage`.<br/>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+
+## <a name="trigger---usage"></a>Использование триггера
+ 
+В коде и скрипте C# для доступа к данным большого двоичного объекта используйте параметр метода, например `Stream paramName`. В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. Вы можете выполнить привязку к одному из следующих типов:
+
+* Объект POCO. Среда выполнения службы "Функции" десериализирует полезные данные JSON в объект POCO. 
+* `string`
+* `byte[]`
+* [CloudQueueMessage]
+
+В JavaScript используйте `context.bindings.<name>`, чтобы получить доступ к полезным данным элемента очереди. Если полезные данные представлены в виде JSON, они десериализируются в объект.
+
+## <a name="trigger---message-metadata"></a>Метаданные сообщения триггера
+
+Триггер очереди предоставляет несколько свойств метаданных. Эти свойства можно использовать как часть выражений привязки в других привязках или как параметры в коде. Эти значения имеют ту же семантику, что и [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+
+|Свойство|Тип|Описание|
+|--------|----|-----------|
+|`QueueTrigger`|`string`|Полезные данные очереди (если это допустимая строка). Если полезные данные очереди сообщений представлены в виде строки, значение `QueueTrigger` совпадает со значением переменной, имя которой назначено свойством `name` в файле *function.json*.|
+|`DequeueCount`|`int`|Количество раз, когда сообщение было выведено из очереди.|
+|`ExpirationTime`|`DateTimeOffset?`|Время истечения срока действия сообщения.|
+|`Id`|`string`|Идентификатор сообщения в очереди.|
+|`InsertionTime`|`DateTimeOffset?`|Время, когда сообщение было добавлено в очередь.|
+|`NextVisibleTime`|`DateTimeOffset?`|Время, когда сообщение станет видимым в следующий раз.|
+|`PopReceipt`|`string`|Уведомление о получении сообщения.|
+
+## <a name="trigger---poison-messages"></a>Триггеры сообщений о сбое
+
+При сбое функции триггера очереди по умолчанию служба "Функции Azure" выполняет ее для заданного сообщения очереди еще пять раз (включая первую попытку). В случае сбоя всех пяти попыток среда выполнения функций добавляет сообщение в очередь с именем *&lt;имя_первоначальной_очереди>-poison*. Можно написать функции для обработки сообщений из очереди подозрительных сообщений путем внесения их в журнал или отправки уведомления о необходимости ручного вмешательства.
+
+Для обработки сообщений о сбоях вручную проверьте значение [dequeueCount](#trigger---message-metadata) сообщения очереди.
+
+## <a name="trigger---hostjson-properties"></a>Свойства host.json в триггере
+
+В файле [host.json](functions-host-json.md#queues) содержатся параметры, управляющие поведением очереди триггера.
+
+[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## <a name="queue-storage-output-binding"></a>Выходная привязка хранилища очередей
-Выходная привязка хранилища очередей Azure позволяет записывать сообщения в очередь. 
 
-Определите выходную привязку очереди на вкладке **Интеграция** портала функций. Портал создает следующее определение в разделе **bindings** файла *function.json*:
+Используйте выходную привязку хранилища очередей Azure, чтобы записать сообщения в очередь.
 
-```json
+## <a name="output---example"></a>Пример выходных данных
+
+Языковой пример см. в разделах:
+
+* [Предкомпилированный код C#](#output---c-example)
+* [Сценарий C#](#output---c-script-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>Пример выходных данных C#
+
+В следующем примере показан [предкомпилированный код C#](functions-dotnet-class-library.md), который создает сообщения очереди для каждого полученного HTTP-запроса.
+
+```csharp
+[StorageAccount("AzureWebJobsStorage")]
+public static class QueueFunctions
 {
-   "type": "queue",
-   "direction": "out",
-   "name": "<The name used to identify the trigger data in your code>",
-   "queueName": "<Name of queue to write to>",
-   "connection":"<Name of app setting - see below>"
+    [FunctionName("QueueOutput")]
+    [return: Queue("myqueue-items")]
+    public static string QueueOutput([HttpTrigger] dynamic input,  TraceWriter log)
+    {
+        log.Info($"C# function processed: {input.Text}");
+        return input.Text;
+    }
 }
 ```
 
-* Свойство `connection` должно включать в себя имя параметра приложения, содержащего строку подключения к службе хранилища. На портале Azure стандартный редактор на вкладке **Интеграция** автоматически настраивает этот параметр приложения при выборе учетной записи хранения.
+### <a name="output---c-script-example"></a>Пример выходных данных скрипта C#
 
-<a name="outputusage"></a>
+В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и коде [скрипта C#](functions-reference-csharp.md), который использует привязку. С помощью этой функции можно создать элемент очереди с полезными данными POCO для каждого полученного HTTP-запроса.
 
-## <a name="using-a-queue-output-binding"></a>Использование выходной привязки очереди
-В функциях Node.js доступ к выходной очереди можно получить, используя `context.bindings.<name>`.
-
-В функциях .NET можно выполнить вывод одного из указанных ниже типов. Если имеется параметр типа `T`, параметр `T` должен иметь один из поддерживаемых типов вывода, например `string` или POCO.
-
-* `out T` (сериализируется как JSON)
-* `out string`
-* `out byte[]`
-* `out` [`CloudQueueMessage`] 
-* `ICollector<T>`
-* `IAsyncCollector<T>`
-* [`CloudQueue`](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
-
-В качестве выходной привязки можно также использовать возвращаемый тип метода.
-
-<a name="outputsample"></a>
-
-## <a name="queue-output-sample"></a>Пример вывода очереди
-В следующем файле *function.json* определяется триггер HTTP с выходной привязкой очереди:
+Ниже показан файл *function.json*.
 
 ```json
 {
@@ -224,23 +300,17 @@ module.exports = function (context) {
       "direction": "out",
       "name": "$return",
       "queueName": "outqueue",
-      "connection": "MyStorageConnectionString",
+      "connection": "MyStorageConnectionAppSetting",
     }
   ]
 }
 ``` 
 
-См. пример для конкретного языка, который выводит сообщение в очереди с входящими полезными данными HTTP.
+В разделе [Конфигурация](#output---configuration) описываются эти свойства.
 
-* [C#](#outcsharp)
-* [Node.js](#outnodejs)
-
-<a name="outcsharp"></a>
-
-### <a name="queue-output-sample-in-c"></a>Пример вывода очереди на C# #
+Ниже приведен код скрипта C#, который создает одно сообщение очереди.
 
 ```cs
-// C# example of HTTP trigger binding to a custom POCO, with a queue output binding
 public class CustomQueueMessage
 {
     public string PersonName { get; set; }
@@ -253,19 +323,53 @@ public static CustomQueueMessage Run(CustomQueueMessage input, TraceWriter log)
 }
 ```
 
-Для отправки нескольких сообщений используйте `ICollector`:
+За один раз можно отправить несколько сообщений с помощью параметра `ICollector` или `IAsyncCollector`. Ниже приведен код скрипта C#, который отправляет несколько сообщений (одно — с данными HTTP-запроса, а другое — с кодовыми значениями).
 
 ```cs
-public static void Run(CustomQueueMessage input, ICollector<CustomQueueMessage> myQueueItem, TraceWriter log)
+public static void Run(
+    CustomQueueMessage input, 
+    ICollector<CustomQueueMessage> myQueueItem, 
+    TraceWriter log)
 {
     myQueueItem.Add(input);
     myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
 
-<a name="outnodejs"></a>
+### <a name="output---javascript-example"></a>Пример выходных данных JavaScript
 
-### <a name="queue-output-sample-in-nodejs"></a>Пример вывода очереди для Node.js
+В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и [функции JavaScript](functions-reference-node.md), которая использует привязку. Эта функция создает элемент очереди для каждого полученного HTTP-запроса.
+
+Ниже показан файл *function.json*.
+
+```json
+{
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "authLevel": "function",
+      "name": "input"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "return"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "$return",
+      "queueName": "outqueue",
+      "connection": "MyStorageConnectionAppSetting",
+    }
+  ]
+}
+``` 
+
+В разделе [Конфигурация](#output---configuration) описываются эти свойства.
+
+Ниже показан код JavaScript.
 
 ```javascript
 module.exports = function (context, input) {
@@ -273,22 +377,76 @@ module.exports = function (context, input) {
 };
 ```
 
-Отправка нескольких сообщений:
+Вы можете отправить несколько сообщений одновременно, определив массив сообщений для выходной привязки `myQueueItem`. Следующий код JavaScript отправляет два сообщения очереди с четко фиксированными значениями для каждого полученного HTTP-запроса.
 
 ```javascript
 module.exports = function(context) {
-    // Define a message array for the myQueueItem output binding. 
     context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
 ```
 
+## <a name="output---attributes-for-precompiled-c"></a>Выходные данные атрибутов для предкомпилированного кода C#
+ 
+Для функций [предкомпилированного кода C#](functions-dotnet-class-library.md) используйте атрибут [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+
+Этот атрибут применяется к параметру `out` или возвращаемому значению функции. Конструктор атрибута принимает имя очереди, как показано в следующем примере:
+
+```csharp
+[FunctionName("QueueOutput")]
+[return: Queue("myqueue-items")]
+public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+```
+
+Чтобы указать учетную запись хранения, которую нужно использовать, можно задать свойство `Connection`, как показано в следующем примере.
+
+```csharp
+[FunctionName("QueueOutput")]
+[return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
+public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+```
+
+Чтобы указать учетную запись хранения на уровне класса, метода или параметра, можно использовать атрибут `StorageAccount`. Дополнительные сведения см. в разделе [Атрибуты триггера для предкомпилированного кода C#](#trigger---attributes-for-precompiled-c).
+
+## <a name="output---configuration"></a>Выходная конфигурация
+
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `Queue`.
+
+|свойство function.json | Свойство атрибута |Описание|
+|---------|---------|----------------------|
+|**type** | Недоступно | Нужно задать значение `queue`. Это свойство задается автоматически при создании триггера на портале Azure.|
+|**direction** | Недоступно | Нужно задать значение `out`. Это свойство задается автоматически при создании триггера на портале Azure. |
+|**name** | Недоступно | Имя переменной, представляющей очередь в коде функции. Задайте значение `$return`, ссылающееся на возвращаемое значение функции.| 
+|**queueName** |**QueueName** | Имя очереди. | 
+|**подключение** | **Connection** |Имя параметра приложения, содержащего строку подключения к службе хранилища, используемой для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyStorage, среда выполнения службы "Функции" будет искать параметр приложения с именем AzureWebJobsMyStorage. Если оставить строку `connection` пустой, среда выполнения службы "Функции" будет использовать строку подключения к службе хранилища по умолчанию для параметра приложения с именем `AzureWebJobsStorage`.<br>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+
+## <a name="output---usage"></a>Использование выходной привязки
+ 
+В коде и скрипте C# запишите одно сообщение очереди с помощью параметра метода, например `out T paramName`. В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. Вы можете использовать этот метод типа возвращаемого значения вместо параметра `out`. `T` может быть любого из следующих типов:
+
+* объект POCO, сериализуемый как JSON;
+* `string`
+* `byte[]`
+* [CloudQueueMessage] 
+
+В коде и скрипте C# запишите несколько сообщений очереди с помощью одного из следующих типов: 
+
+* `ICollector<T>` или `IAsyncCollector<T>`
+* [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue).
+
+В функциях JavaScript используйте `context.bindings.<name>`, чтобы получить доступ к выходной очереди сообщений. Строку или сериализуемый объект JSON можно использовать для полезных данных элемента очереди.
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Пример функции, которая использует триггеры и привязки хранилища очередей, доступен в статье [Создание функции, активируемой хранилищем очередей Azure](functions-create-storage-queue-triggered-function.md).
+> [!div class="nextstepaction"]
+> [Создание функции, активируемой хранилищем очередей Azure](functions-create-storage-queue-triggered-function.md)
 
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+> [!div class="nextstepaction"]
+> [Добавление сообщений в очередь службы хранилища Azure с помощью Функций](functions-integrate-storage-queue-output-binding.md)
+
+> [!div class="nextstepaction"]
+> [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)
 
 <!-- LINKS -->
 
-[`CloudQueueMessage`]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[CloudQueueMessage]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage

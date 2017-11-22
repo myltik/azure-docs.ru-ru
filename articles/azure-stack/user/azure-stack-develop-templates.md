@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/13/2017
 ms.author: helaw
-ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9109c58b29d5f09f1a86068a87c5e7f839228af
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Рекомендации по использованию шаблона Azure Resource Manager
 
-*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
 
 При разработке приложения очень важно обеспечить мобильность шаблона в контексте взаимодействия Azure и Azure Stack.  Эта статья содержит рекомендации по разработке [шаблонов](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) Azure Resource Manager. С ее помощью вы сможете создать прототип приложения и протестировать развертывание в Azure без доступа к среде Azure Stack.
+
+## <a name="resource-provider-availability"></a>Доступность поставщика ресурсов
+Шаблон, который вы планируете развернуть, должен использовать службу Microsoft Azure, которая уже доступна или находится в предварительной версии в Azure Stack.
 
 ## <a name="public-namespaces"></a>Общедоступные пространства имен
 Так как среда Azure Stack размещена в центре обработки данных, она использует собственные пространства имен конечных точек службы, а не пространства общедоступного облака Azure. Поэтому при попытке развернуть в Azure Stack встроенные общедоступные конечные точки в шаблонах Resource Manager происходит ошибка. Вместо этого можно использовать функцию *создания ссылки* и *объединения*, чтобы динамически создать конечную точку службы на основе значений, полученных от поставщика ресурсов во время развертывания. Например, чтобы не указывать *blob.core.windows.net* в шаблоне, получите [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) для динамической настройки конечной точки *osDisk.URI*.
@@ -73,7 +76,6 @@ ms.lasthandoff: 10/11/2017
       }
     }
     ]
-
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Развертывание шаблонов с помощью PowerShell](azure-stack-deploy-template-powershell.md)

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 67a5c1494f2944e91fed2b077cf04e8906788c1e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Архивация Windows Server в Azure
 
@@ -42,9 +42,9 @@ ms.lasthandoff: 11/09/2017
 
 Перед архивацией Windows Server необходимо создать место для хранения резервных копий или точек восстановления. [Хранилище служб восстановления](backup-azure-recovery-services-vault-overview.md) — это контейнер Azure, в котором хранятся резервные копии Windows Server. Выполните следующие шаги для создания хранилища служб восстановления на портале Azure. 
 
-1. В левом меню выберите **Больше служб** и в списке служб введите **службы восстановления**. Щелкните **Хранилища служб восстановления**.
+1. В левом меню выберите **Все службы** и в списке служб введите **службы восстановления**. Щелкните **Хранилища служб восстановления**.
 
-   ![Открытие хранилища служб восстановления](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+   ![Открытие хранилища служб восстановления](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  В меню **Хранилища служб восстановления** щелкните **Добавить**.
 
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/09/2017
 
 1.  В консоли агента служб восстановления Microsoft Azure выберите **Мгновенная архивация**.
 
-    ![Download Agent for Windows Server or Windows Client](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![Download Agent for Windows Server or Windows Client](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  В мастере **мгновенной архивации** выберите тип объекта (**Файлы и папки** или **Состояние системы**), резервную копию которого требуется создать, и нажмите кнопку **Далее**. 
 3. На странице **Подтверждение** проверьте параметры, которые мастер **мгновенной архивации** будет использовать для архивации данных на сервере. Затем нажмите кнопку **Архивировать**.

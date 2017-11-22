@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: 7500ed798519671ba864cc185efffa0f93a8be70
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ba824ed1bad49c71f8de9f2da8249945d9430222
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Ускорение аналитики больших данных в реальном времени с помощью соединителя Spark для Cosmos DB
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/04/2017
 
 ## <a name="download"></a>Загрузить
 
-Чтобы приступить к работе, скачайте соединитель Spark для Azure Cosmos DB (предварительная версия) из репозитория [azure cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/) в GitHub.
+Чтобы приступить к работе, скачайте соединитель Spark для Azure Cosmos DB из репозитория [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/) на сайте GitHub.
 
 ## <a name="connector-components"></a>Компоненты соединителя
 

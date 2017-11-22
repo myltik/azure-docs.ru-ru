@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: d25a0461bf194808f9bd66ddbd120448620eeba0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 90c03f1538197e1cd1c90165417a4ec74c9c5961
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>Защита базы данных SQL Azure
 
@@ -242,7 +242,7 @@ ms.lasthandoff: 10/31/2017
 Из этого руководства вы узнаете, как быстро усилить защиту базы данных от действий пользователей-злоумышленников и несанкционированного доступа.  Вы научились выполнять следующие задачи: 
 
 > [!div class="checklist"]
-> * Настройка правил брандмауэра для сервера и базы данных.
+> * Настройка правил брандмауэра для сервера и (или) базы данных.
 > * Подключение к базе данных с помощью безопасной строки подключения.
 > * Управление доступом пользователей.
 > * Защита данных с помощью шифрования

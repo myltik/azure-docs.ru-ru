@@ -4,7 +4,7 @@ description: "В статье описываются новые возможно
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 672757e82bcf645b705f46a9975e09c9dc5eef92
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Заметки о выпуске, посвященные обновлению 5 для устройств серии StorSimple 8000
 
@@ -31,6 +31,7 @@ ms.lasthandoff: 10/11/2017
 Перед развертыванием обновления в решении StorSimple просмотрите сведения, содержащиеся в заметках о выпуске.
 
 > [!IMPORTANT]
+> * Обновление 5 является обязательным, и его следует установить незамедлительно. Дополнительные сведения см. в статье [Установка обновления 5 на устройство StorSimple](storsimple-8000-install-update-5.md).
 > * Обновление 5 включает в себя обновления программного обеспечения для устройств, встроенного ПО диска, безопасности ОС, а также другие обновления ОС. Установка этого обновления занимает примерно 4,5–2 часа. Обновление встроенного ПО диска нарушает работу системы и приводит к простою для вашего устройства. Мы рекомендуем применить обновление 5, чтобы поддерживать актуальное состояние устройства.
 > * Для новых выпусков обновления могут отображаться не сразу, поскольку развертывание обновлений выполняется поэтапно. Подождите несколько дней и затем повторите попытку поиска обновлений, так как они станут доступными в ближайшее время.
 

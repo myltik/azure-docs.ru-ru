@@ -4,8 +4,12 @@
 
 | ОС | Драйвер |
 | -------- |------------- |
-| Windows Server 2016 | [370.12](https://go.microsoft.com/fwlink/?linkid=836843) (EXE-файл) |
-| Windows Server 2012 R2 | [370.12](https://go.microsoft.com/fwlink/?linkid=836844) (EXE-файл)  |
+| Windows Server 2016 | [385.41](https://go.microsoft.com/fwlink/?linkid=836843) (EXE-файл) |
+| Windows Server 2012 R2 | [385.41](https://go.microsoft.com/fwlink/?linkid=836844) (EXE-файл)  |
+
+> [!NOTE]
+> Корпорация Майкрософт перераспределяет установщики драйверов NVIDIA GRID для виртуальных машин NV. Установите только эти драйверы GRID на виртуальных машинах Azure серии NV. Эти драйверы содержат лицензии на ПО виртуального графического процессора GRID в Azure.
+>
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>Драйверы NVIDIA Tesla для экземпляров NC
 

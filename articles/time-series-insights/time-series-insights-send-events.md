@@ -12,14 +12,14 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 543fafac63423ab874c6c8e40d91a1ce0f161987
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Отправка событий в среду Time Series Insights через концентратор событий
-Это статья содержит сведения о том, как создать и настроить концентратор событий и запустить пример приложения для передачи событий. Если у вас уже есть концентратор событий, содержащий события в формате JSON, пропустите это руководство и просмотрите свою среду в [Time Series Insights](https://insights.timeseries.azure.com).
+Это статья содержит сведения о том, как создать и настроить концентратор событий и запустить пример приложения для передачи событий. Если у вас уже есть концентратор событий, содержащий события в формате JSON, пропустите это руководство и просмотрите свою среду в службе [Аналитика временных рядов](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Настройка концентратора событий
 1. Чтобы создать концентратор событий, следуйте инструкциям из [документации](../event-hubs/event-hubs-create.md) по концентратору событий.
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/15/2017
 
 3. Выберите концентратор событий, щелкнув его имя.
 
-4. В разделе "Сущности" в центре окна настройки снова выберите **Концентраторы событий**.
+4. В разделе **Сущности** в центре окна настройки снова выберите **Концентраторы событий**.
 
 5. Выберите имя концентратора событий, чтобы настроить его.
 
@@ -244,4 +244,5 @@ namespace Microsoft.Rdx.DataGenerator
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Просмотрите свою среду в [обозревателе службы "Аналитика временных рядов"](https://insights.timeseries.azure.com).
+> [!div class="nextstepaction"]
+> [Просмотрите свою среду в обозревателе службы "Аналитика временных рядов"](https://insights.timeseries.azure.com).

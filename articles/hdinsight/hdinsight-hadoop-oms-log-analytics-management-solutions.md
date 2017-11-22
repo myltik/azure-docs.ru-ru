@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/08/2017
 ms.author: nitinme
-ms.openlocfilehash: 21b474e37ef0a6037e05ee1fe8e5088cb3e3601d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc959f763e9a84199130bae845cb62c493676977
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="add-hdinsight-cluster-management-solutions-to-log-analytics-preview"></a>Добавление решений по управлению кластерами HDInsight в Log Analytics (предварительная версия)
+# <a name="add-hdinsight-cluster-management-solutions-to-log-analytics"></a>Добавление решений по управлению кластерами HDInsight в Log Analytics
 
 HDInsight предоставляет решения по управлению для кластеров, которые можно добавлять в Azure Log Analytics. [Решения по управлению](../log-analytics/log-analytics-add-solutions.md) добавляют функциональные возможности в OMS, предоставляя тем самым дополнительные средства анализа и работы с данными в Log Analytics. Эти решения собирают важные метрики производительности из кластеров HDInsight и предоставляют средства для поиска метрик. Кроме того, они позволяют использовать визуализации и панели мониторинга для большинства типов кластеров, которые поддерживаются в HDInsight. На основе этих метрик можно создавать пользовательские правила мониторинга и оповещения. 
 
@@ -33,25 +33,29 @@ HDInsight предоставляет решения по управлению д
 
 ## <a name="add-cluster-specific-management-solutions"></a>Добавление решений по управлению кластерами
 
-В этом разделе мы добавим решение по управлению кластерами HBase в существующую рабочую область OMS. В ближайшее время будут реализованы аналогичные решения для других типов кластеров HDInsight.
+В этом разделе мы добавим решение по управлению кластерами HBase в существующую рабочую область OMS.
 
-1. Откройте панель мониторинга OMS. На портале Azure откройте колонку кластера HDInsight, которая связана с Azure Log Analytics, выберите вкладку "Мониторинг" и щелкните **Открыть панель мониторинга OMS**.
+1. Откройте кластер HDInsigt на портале Azure, выберите **Мониторинг**, затем нажмите кнопку **Открыть панель мониторинга OMS**.
 
     ![Открытие панели мониторинга OMS](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-log-analytics-open-oms-dashboard.png "Открытие панели мониторинга OMS")
 
-1. На панели мониторинга OMS щелкните **Коллекции решений** или значок конструктора представлений в области слева.
+1. На панели мониторинга OMS щелкните **Коллекции решений** или значок **конструктора представлений** в области слева.
 
     ![Добавление решения по управлению в OMS](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-add-management-solution-oms-portal.png "Добавление решения по управлению в OMS")
 
-2. В коллекции решений выберите плитку **Мониторинг HDInsight HBase**.
+2. В коллекции решений выберите одну из плиток:
 
-    ![Поиск решения по управлению HBase](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/find-hbase-management-solution.png "Поиск решения по управлению HBase")
+    - Мониторинг HDInsight Hadoop
+    - Мониторинг HDInsight HBase (предварительная версия)
+    - Мониторинг Kafka HDInsight
+    - Мониторинг HDInsight Storm
+    - Мониторинг HDInsight Spark
 
-3. На следующем экране нажмите кнопку **Добавить**.
+3. На следующем экране нажмите кнопку **Добавить**.  На следующем рисунке показана кнопка "Добавить" для мониторинга HBase.
 
      ![Добавление решения по управлению HBase](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/add-hbase-management-solution.png "Добавление решения по управлению HBase")
 
-4. На панели мониторинга OMS должна отобразиться плитка для решения по управлению HBase. Если кластер, связанный с OMS (в рамках предварительных требований для этой статьи), является кластером HBase, на плитке отобразятся имя кластера и число связанных узлов.
+4. На панели мониторинга OMS должна отобразиться плитка решения по управлению HBase. Если кластер, связанный с OMS (в рамках предварительных требований для этой статьи), является кластером HBase, на плитке отобразятся имя кластера и число связанных узлов.
 
     ![Добавленное решение по управлению HBase](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/added-hbase-management-solution.png "Добавленное решение по управлению HBase")
 

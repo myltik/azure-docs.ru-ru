@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7122e2f5f7ebc8ef0c6b2083257f26d8d2e5e345
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Рекомендации по обеспечению безопасности виртуальных машин Azure
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="vm-authentication-and-access-control"></a>Проверка подлинности виртуальной машины и управление доступом к ней
 
-Для защиты виртуальной машины в первую очередь необходимо предоставить возможность настройки новых виртуальных машин только авторизованным пользователям. С помощью [политик Azure Resource Manager](../azure-resource-manager/resource-manager-policy.md), можно настраивать соглашения, касающиеся ресурсов в организации, создавать настраиваемые политики и применять их к ресурсам, например к [группам ресурсов](../azure-resource-manager/resource-group-overview.md).
+Для защиты виртуальной машины в первую очередь необходимо предоставить возможность настройки новых виртуальных машин только авторизованным пользователям. С помощью [политик Azure](../azure-policy/azure-policy-introduction.md) можно настраивать соглашения, касающиеся ресурсов в организации, создавать настраиваемые политики и применять их к ресурсам, например к [группам ресурсов](../azure-resource-manager/resource-group-overview.md).
 
 Виртуальные машины, которые относятся к группе ресурсов, наследуют ее политики. Этот способ является предпочтительным для управления виртуальными машинами, но вы также можете контролировать доступ к политикам для отдельных виртуальных машин с помощью [управления доступом на основе ролей (RBAC)](../active-directory/role-based-access-control-configure.md).
 

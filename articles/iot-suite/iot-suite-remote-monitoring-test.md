@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 732ec45003481b0e2f2eca03b6ae13772d325ef1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0e6cc412fdb3ea7b9d8291b9f963e6412ae994a9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Тестирование решения с помощью виртуальных устройств
 
@@ -39,6 +39,10 @@ ms.lasthandoff: 10/31/2017
 | Имя   | Значения      |
 | ------ | ----------- |
 | Состояние | on, off |
+| в сети | true, false |
+
+> [!NOTE]
+> Значение телеметрии **в сети** является обязательным для всех типов имитации.
 
 *Методы*
 
@@ -74,7 +78,7 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Для работы с этим руководством нужен развернутый экземпляр решения удаленного мониторинга в подписке Azure.
+Для работы с этим руководством нужен развернутый экземпляр решения для удаленного мониторинга в подписке Azure.
 
 Если решение удаленного мониторинга еще не развернуто, выполните инструкции из руководства [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) (Развертывание предварительно настроенного решения удаленного мониторинга).
 
@@ -173,13 +177,13 @@ ms.lasthandoff: 10/31/2017
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
 1. Сохраните файл `lightbulb-01.json`.
 
-### <a name="simulate-custom-device-behavior"></a>Моделирование реакции на событие пользовательского устройства
+### <a name="simulate-custom-device-behavior"></a>моделировать реакцию на событие пользовательского устройства;
 
 Реакция на событие моделирования типа устройства **Lightbulb** определена в файле `scripts/lightbulb-01-state.js`. Ниже показано, как изменить файл `scripts/lightbulb-01-state.js`, чтобы определить реакцию на событие устройства **Lightbulb**.
 
@@ -267,7 +271,11 @@ ms.lasthandoff: 10/31/2017
 
 Сведения о проверке и отладке в локальной среде см. в статье о [службе моделирования устройств](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md).
 
-Настройте проект, чтобы скопировать новые файлы устройства **Lightbulb** в выходной каталог.
+Настройте проект, чтобы скопировать новые файлы устройства **Lightbulb** в выходной каталог:
+
+* Если вы используете Visual Studio, обязательно добавьте три новых файла Lightbulb, которые были созданы в предыдущем разделе, в проект решения **Services**. Затем с помощью **обозревателя решений** отметьте их для копирования в выходной каталог.
+
+* Если вы используете Visual Studio Code, откройте файл **Services.csproj** и добавьте три новых файла Lightbulb, созданных в предыдущем разделе. Примеры см. в записях существующего файла модели **Services.csproj**.
 
 Сведения о проверке нового устройства в развернутом решении см. в следующих источниках:
 
@@ -299,12 +307,12 @@ ms.lasthandoff: 10/31/2017
 1. Выполните команду ниже, чтобы клонировать репозиторий **device-simulation** GitHub на локальный компьютер (если вы еще не сделали это).
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+    git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-1. Каждый тип устройства имеет JSON-файл модели и связанные скрипты. Они хранятся в папке `data/devicemodels`. Тип виртуального устройства **Chiller** определен в следующих файлах:
-    * `data/devicemodels/chiller-01.json`
-    * `data/devicemodels/scripts/chiller-01-state.js`
+1. Каждый тип устройства имеет JSON-файл модели и связанные скрипты. Они хранятся в папке `Services/data/devicemodels`. Тип виртуального устройства **Chiller** определен в следующих файлах:
+    * `Services/data/devicemodels/chiller-01.json`
+    * `Services/data/devicemodels/scripts/chiller-01-state.js`
 
 ### <a name="specify-the-new-telemetry-type"></a>Указание нового типа данных телеметрии
 

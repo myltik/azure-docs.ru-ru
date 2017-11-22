@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Создание бессерверного API с помощью Функций Azure
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/08/2017
 
 ## <a name="proxies-overview"></a>Общие сведения о прокси-серверах
 
-В следующем разделе вы получите доступ к вашему API через прокси-сервер. Прокси-серверы Функций Azure — это предварительная версия функции, позволяющая вам перенаправлять запросы к другим ресурсам. Вы определяете конечную точку HTTP точно так же, как триггер HTTP, но вместо написания кода для выполнения при вызове этой конечной точки вы указываете URL-адрес для удаленной реализации. Это позволяет вам собрать несколько источников API в единую поверхность API, которую можно легко использовать. Это особенно полезно, если вы хотите создать свой API как микрослужбы.
+В следующем разделе вы получите доступ к вашему API через прокси-сервер. Функция "Прокси-серверы Функций Azure" позволяет вам перенаправлять запросы к другим ресурсам. Вы определяете конечную точку HTTP точно так же, как триггер HTTP, но вместо написания кода для выполнения при вызове этой конечной точки вы указываете URL-адрес для удаленной реализации. Это позволяет вам собрать несколько источников API в единую поверхность API, которую можно легко использовать. Это особенно полезно, если вы хотите создать свой API как микрослужбы.
 
 Прокси-сервер может указывать на любой ресурс HTTP, например:
 - Функции Azure 
@@ -75,7 +75,7 @@ ms.lasthandoff: 11/08/2017
 - Контейнеры Docker в [службе приложений под управлением Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro).
 - Любой другой размещенный API.
 
-Дополнительные сведения о прокси-сервере см. в статье [Работа с прокси Функций Azure (предварительная версия)].
+Дополнительные сведения о прокси-серверах см. в статье [Работа с функцией "Прокси-серверы Функций Azure"].
 
 ## <a name="create-your-first-proxy"></a>Создание первого прокси-сервера
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/08/2017
 ### <a name="creating-a-proxy-on-the-frontend"></a>Создание прокси-сервера в интерфейсе
 
 1. Вернитесь к своему приложению-функции интерфейса на портале.
-1. В области навигации слева щелкните значок "+" рядом с "Прокси (предварительная версия)".
+1. В области навигации слева щелкните значок "+" рядом с Proxies (Прокси-серверы).
     ![Создание прокси](./media/functions-create-serverless-api/creating-proxy.png)
 1. Используйте настройки прокси-сервера, как указано в таблице. 
 
@@ -187,9 +187,9 @@ ms.lasthandoff: 11/08/2017
 Следующие ссылки могут оказаться полезными при дальнейшей разработке API:
 
 - [Привязки HTTP и webhook в функциях Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [Работа с прокси Функций Azure (предварительная версия)]
+- [Работа с функцией "Прокси-серверы Функций Azure"]
 - [Создание метаданных OpenAPI 2.0 (Swagger) для приложения-функции (предварительная версия)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Работа с прокси Функций Azure (предварительная версия)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Работа с функцией "Прокси-серверы Функций Azure"]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

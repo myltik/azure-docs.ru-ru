@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: a294a3f92163f78bace56654c284c4e83623b829
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="sprint-1---november-2017"></a>Спринт 1 — ноябрь 2017 г. 
 
@@ -127,13 +127,13 @@ ms.lasthandoff: 11/09/2017
 - Служба создания образов теперь поддерживает создание образов для служб и устройств Центра Интернета вещей Azure.
 
 ### <a name="sample-projects"></a>Примеры проектов
-- Образец проекта _классификация цветков ириса_:
+- Пример проекта [_Классификация цветков ириса_](./tutorial-classifying-iris-part-1.md):
     - `iris_pyspark.py` переименовывается в `iris_spark.py`.
-    - `iris_score.py` переименовывается в `iris-score.py`.
+    - `iris_score.py` переименовывается в `score_iris.py`.
     - `iris.dprep` и `iris.dsource` обновлены, чтобы отображать последние обновления модуля подготовки данных.
     - Записная книжка `iris.ipynb` изменена для работы в кластере HDInsight.
     - Журнал выполнения включен в ячейку записной книжки `iris.ipynb`.
-- Исправлен шаг "Обработка значения ошибки" в примере проекта _Расширенная подготовка данных для системы совместного использования велосипедов_.
-- В примере проекта _Использование MMLSpark для классификации уровней дохода населения_ формат `docker.runconfig` обновлен с JSON до YAML.
-- В примере проекта "Распределенная настройка гиперпараметров с помощью" формат `docker.runconfig` обновлен с JSON до YAML.
-- Представлен новый пример проекта _Классификация изображений с помощью CNTK_.
+- Исправлен шаг обработки значения ошибки в примере проекта [_Расширенная подготовка данных для системы совместного использования велосипедов_](./tutorial-bikeshare-dataprep.md).
+- В примере проекта [_Using MMLSpark to classify adult income level_](https://github.com/Azure/MachineLearningSamples-mmlspark) (Использование MMLSpark для классификации уровней дохода населения) формат `docker.runconfig` обновлен с JSON до YAML.
+- В примере проекта [_Распределенная настройка гиперпараметров_](./scenario-distributed-tuning-of-hyperparameters.md) формат `docker.runconfig` обновлен с JSON до YAML.
+- Представлен новый пример проекта [_Классификация изображений с помощью CNTK_](./scenario-image-classification-using-cntk.md).

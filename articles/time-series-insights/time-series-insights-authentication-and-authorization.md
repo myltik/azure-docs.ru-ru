@@ -1,29 +1,26 @@
 ---
-title: "Настройка проверки подлинности и авторизации для пользовательского приложения, которое вызывает API Azure Time Series Insights | Документация Майкрософт"
-description: "В этом руководстве описывается настройка проверки подлинности и авторизации для пользовательского приложения, которое вызывает API Azure Time Series Insights"
-keywords: 
+title: "Как настроить аутентификацию и авторизацию для пользовательского приложения, которое вызывает API Аналитика временных рядов Azure | Документация Майкрософт"
+description: "В этой статье описывается настройка аутентификации и авторизации для пользовательского приложения, которое вызывает API \"Аналитика временных рядов Azure\"."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: dmdenmsft
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/24/2017
 ms.author: dmden
-ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Проверка подлинности и авторизация для API Azure Time Series Insights
 
-В этой статье описывается настройка пользовательского приложения, которое вызывает API Azure Time Series Insights.
+В этой статье объясняется, как настроить аутентификацию и авторизацию для пользовательского приложения, которое вызывает API "Аналитика временных рядов Azure".
 
 ## <a name="service-principal"></a>Субъект-служба
 
@@ -102,11 +99,9 @@ ms.lasthandoff: 10/11/2017
     string accessToken = token.AccessToken;
     ```
 
+Используйте идентификатор и ключ приложения для аутентификации с помощью службы "Аналитика временных рядов Azure". 
+
 ## <a name="next-steps"></a>Дальнейшие действия
-
-Используйте идентификатор и ключ приложения в приложении. Пример кода, который вызывает API Time Series Insights, см. в статье [Запрос данных из среды Azure Time Series Insights с помощью C##](time-series-insights-query-data-csharp.md).
-
-## <a name="see-also"></a>См. также
-
-* Дополнительные сведения об API запроса см. в [этой статье](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
-* [Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- Пример кода, который вызывает API Time Series Insights, см. в статье [Запрос данных из среды Azure Time Series Insights с помощью C##](time-series-insights-query-data-csharp.md).
+- Справочные сведения об API см. в статье об [API запросов к службе "Аналитика временных рядов Azure"](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
+- [Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md)

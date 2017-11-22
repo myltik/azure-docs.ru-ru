@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2810d13d40272269341751b19b3010a8b135139
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Установка и настройка Terraform для подготовки виртуальных машин и другой инфраструктуры в Azure
  
 Terraform предоставляет простой способ определить, просмотреть и развернуть облачную инфраструктуру, используя [простой настраиваемый язык шаблонов](https://www.terraform.io/docs/configuration/syntax.html). В этой статье описываются шаги, необходимые для подготовки ресурсов Azure с помощью Terraform. 
 
 > [!TIP]
-> Terraform по умолчанию устанавливается в [оболочке Bash в Azure Cloud Shell](/azure/cloud-shell/quickstart). Он предварительно настроен с учетными данными и [модулями Azure Terraform](https://registry.terraform.io/modules/Azure). Используя Cloud Shell, можно пропустить некоторые части этого документа (а именно установку и настройку).
+Дополнительные сведения об использовании Terraform с Azure см. в [центре документации по Terraform](/azure/terraform). Средство Terraform установлено в [Cloud Shell](/terraform/terraform-cloud-shell) по умолчанию. Используя Cloud Shell, можно пропустить некоторые части этого документа (а именно установку и настройку).
 
 ## <a name="install-terraform"></a>Установка Terraform
 

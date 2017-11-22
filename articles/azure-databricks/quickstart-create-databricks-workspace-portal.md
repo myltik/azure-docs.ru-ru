@@ -1,6 +1,6 @@
 ---
-title: "Краткое руководство. Создание рабочей области Azure Databricks с помощью портала Azure | Документация Майкрософт"
-description: "Это краткое руководство содержит сведения об использовании портала Azure для создания рабочей области Azure Databricks и кластера Apache Spark."
+title: "Краткое руководство. Запуск первого задания Spark в Azure Databricks с помощью портала Azure | Документация Майкрософт"
+description: "Это краткое руководство содержит сведения об использовании портала Azure для создания рабочей области Azure Databricks и кластера Apache Spark и запуска задания Spark."
 services: azure-databricks
 documentationcenter: 
 author: nitinme
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: 9d4ee88cf3788071ba6b1eca909c1fe5e6044d03
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: d384a1aef89941c2c9b547e5e0d05bb562578393
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="quickstart-get-started-with-azure-databricks-using-the-azure-portal"></a>Краткое руководство. Начало работы со службой Azure Databricks с помощью портала Azure
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Краткое руководство. Запуск задания Spark в Azure Databricks с помощью портала Azure
 
 Это краткое руководство содержит сведения о создании рабочей области Azure Databricks и кластера Apache Spark в этой рабочей области. Наконец, вы узнаете, как выполнить задание Spark на кластере Databricks. Дополнительные сведения об Azure Databricks см. в статье [Что такое Azure Databricks?](what-is-azure-databricks.md).
 
@@ -31,7 +31,11 @@ ms.lasthandoff: 11/15/2017
 
 В этом разделе вы создадите рабочую область Azure Databricks с помощью портала Azure. 
 
-1. На портале Azure щелкните **+**, выберите **Данные+аналитика**, а затем — **Azure Databricks (Preview)** (Azure Databricks (предварительная версия)). В разделе **Azure Databricks** выберите **Создать**.
+1. На портале Azure щелкните **+**, выберите **Данные+аналитика**, а затем — **Azure Databricks (Preview)** (Azure Databricks (предварительная версия)). 
+
+    ![Databricks на портале Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
+
+2. В разделе **Azure Databricks (предварительная версия)** выберите **Создать**.
 
     > [!NOTE]
     > Сейчас Azure Databricks находится в ограниченной предварительной версии. Если вы хотите, чтобы ваша подписка Azure учитывалась при создании списка разрешений для предварительной версии, необходимо заполнить [форму регистрации](https://databricks.azurewebsites.net/).

@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: d201c8395adf47fa3d9f790b77b1d29dda5a0aeb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="work-with-azure-functions-proxies-preview"></a>Работа с прокси в Функциях Azure (предварительная версия)
-
-> [!NOTE] 
-> Сейчас доступна предварительная версия прокси Функций Azure. Предварительная версия предоставляется бесплатно, но на выполнение прокси распространяется стандартная тарификация Функций. Дополнительные сведения см. на странице [цен на Функции Azure](https://azure.microsoft.com/pricing/details/functions/).
+# <a name="work-with-azure-functions-proxies"></a>Работа с функцией "Прокси-серверы Функций Azure"
 
 В этой статье описано, как настроить прокси Функций Azure и работать с ними. Эта функция позволяет указать конечные точки в приложении-функции, реализуемые другим ресурсом. Эти прокси можно использовать для разбиения большого API-интерфейса на несколько приложений-функций (как в архитектуре микрослужб), сохраняя при этом единую область API для клиентов.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!NOTE] 
+> На выполнение прокси-сервера распространяется стандартная тарификация службы "Функции". Дополнительные сведения см. на странице [цен на Функции Azure](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="create"></a>Создание прокси-сервера
 

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 35d05b7003d731610df816c8470acc9133a4a6de
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Выполнение операций в API таблицы Azure Cosmos DB с помощью Azure PowerShell 
 
@@ -47,7 +47,7 @@ API таблицы Azure Cosmos DB позволяет хранить и запр
 Install-Module AzureRmStorageTable
 ```
 
-Пока API таблицы Azure Cosmos DB находится в предварительной версии, также необходимо установить сборки локально, чтобы использовать эти командлеты PowerShell. Инструкции о том, как это сделать, см. в статье [Azure RM Storage Tables PowerShell module now includes support for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/) (Модуль PowerShell таблиц хранилища Azure RM теперь включает поддержку таблиц Cosmos DB).
+Затем установите сборки Azure Cosmos DB локально, чтобы использовать эти командлеты PowerShell. Инструкции о том, как это сделать, см. в статье [Azure RM Storage Tables PowerShell module now includes support for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/) (Модуль PowerShell таблиц хранилища Azure RM теперь включает поддержку таблиц Cosmos DB).
 
 Чтобы выполнить приведенные ниже упражнения, необходима учетная запись базы данных Azure Cosmos DB. Если у вас ее нет, создайте такую учетную запись с помощью [портала Azure](https://portal.azure.com). Дополнительные сведения о создании учетной записи базы данных см. в разделе [Создание учетной записи базы данных](create-table-dotnet.md#create-a-database-account).
 

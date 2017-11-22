@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 796f3b5a4dd56a0160986600cbbcf38faf8add56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1622149009a37b864e84caa158da960ccc03ca65
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Как закодировать ресурс с помощью Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -265,6 +265,12 @@ ms.lasthandoff: 10/11/2017
     . . .
 
 
+## <a name="advanced-encoding-features-to-explore"></a>Функции расширенного кодирования для ознакомления
+* [Как создавать эскизы](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Создание эскизов во время кодирования](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Обрезка видео во время кодирования](media-services-crop-video.md)
+* [Настройка предустановок для кодирования](media-services-custom-mes-presets-with-dotnet.md)
+* [Создание наложения или подложки для видео с использованием изображением](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

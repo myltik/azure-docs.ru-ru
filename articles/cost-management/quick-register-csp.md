@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 11/13/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: bcb072a2f2ab8c0e5097fca2c95309464483cb53
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 84f2fec61f791d4fc9264eaa01e24180696da853
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Регистрация в партнерской программе CSP и просмотр данных о затратах
 
@@ -22,7 +22,13 @@ ms.lasthandoff: 10/17/2017
 
 
 >[!NOTE]
->Чтобы завершить регистрацию, необходимо быть администратором партнерской программы с доступом к API Центра партнеров. Для аутентификации и доступа к данным необходимо настроить API Центра партнеров. Дополнительные сведения см. в разделе о [подключении к API Центра партнеров](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). Кроме того, непрямые пользователи CSP могут использовать Cloudyn, только если их прямой торговый посредник CSP зарегистрирован в Cloudyn с возможностью предоставлять доступ для своих клиентов и подписок.
+
+>Только прямые партнеры CSP и косвенные поставщики CSP могут зарегистрироваться в Cloudyn.
+>
+>Для аутентификации и доступа к данным необходимо настроить API Центра партнеров. Для подготовки доступа к API необходима учетная запись глобального администратора Центра партнеров.
+Дополнительные сведения см. в разделе о [подключении к API Центра партнеров](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>
+>Доступ к Cloudyn можно предоставить торговым представителям косвенного CSP, после того как его косвенные поставщик CSP зарегистрируется в Cloudyn. Торговые представители косвенного CSP могут предоставить доступ к Cloudyn клиентам и подпискам Azure.
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 

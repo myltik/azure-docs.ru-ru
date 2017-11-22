@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Передача объектов в хранилище BLOB-объектов Azure и из него с помощью Python
 Из этого краткого руководства вы узнаете, как использовать Python для отправки, скачивания и перечисления блочных BLOB-объектов в контейнере в хранилище BLOB-объектов Azure. 
@@ -73,7 +73,11 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 
 После проверки файлов нажмите любую клавишу для завершения демонстрации и удаления тестовых файлов. Теперь вы знаете, что делает этот пример. Давайте откроем файл example.py и изучим его код. 
 
-## <a name="get-references-to-the-storage-objects"></a>Получение ссылок на объекты хранилища
+## <a name="understand-the-sample-code"></a>Разбор примера кода
+
+Давайте разберем пример кода, чтобы понять, как он работает.
+
+### <a name="get-references-to-the-storage-objects"></a>Получение ссылок на объекты хранилища
 Сначала необходимо создать ссылки на объекты, используемые для доступа к хранилищу BLOB-объектов и управлению им. Эти объекты зависят друг от друга, и каждый из них используется следующим в списке объектом.
 
 * Создайте экземпляр объекта **BlockBlobService**, указывающий на службу BLOB-объектов в учетной записи хранения. 
@@ -98,7 +102,7 @@ block_blob_service.create_container(container_name)
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
-## <a name="upload-blobs-to-the-container"></a>Отправка BLOB-объектов в контейнер
+### <a name="upload-blobs-to-the-container"></a>Отправка BLOB-объектов в контейнер
 
 Хранилище BLOB-объектов поддерживает блочные, добавочные и страничные BLOB-объекты. Чаще всего используются блочные BLOB-объекты. Именно этот тип представлен в этом кратком руководстве.  
 
@@ -128,7 +132,7 @@ block_blob_service.create_blob_from_path(container_name, local_file_name, full_p
 
 Блочные BLOB-объекты могут иметь размер 4,7 ТБ и представлять собой любые объекты, начиная от электронных таблиц Excel до больших видеофайлов. Страничные BLOB-объекты в основном используются для файлов виртуального жесткого диска, применяемых для поддержки виртуальных машин IaaS. Добавочные BLOB-объекты используются для ведения журнала, например если требуется выполнить запись в файл и затем добавлять дополнительные сведения. Большинство объектов, находящихся в хранилище BLOB-объектов, представляют собой блочные BLOB-объекты.
 
-## <a name="list-the-blobs-in-a-container"></a>Перечисление BLOB-объектов в контейнере
+### <a name="list-the-blobs-in-a-container"></a>Перечисление BLOB-объектов в контейнере
 
 Список файлов в контейнере можно получить с помощью метода **list_blobs**. Этот метод возвращает генератор. Следующий код извлекает список BLOB-объектов и поочередно перебирает их, отображая имена найденных в контейнере BLOB-объектов.  
 
@@ -140,7 +144,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>Скачивание больших двоичных объектов
+### <a name="download-the-blobs"></a>Скачивание больших двоичных объектов
 
 Чтобы скачать BLOB-объекты на локальный диск, воспользуйтесь методом **get\_blob\_to\_path**. Следующий код скачивает BLOB-объект, который мы передали в предыдущем разделе. К имени BLOB-объекта добавляется суффикс _DOWNLOADED, чтобы на локальном диске сохранились оба файла. 
 
@@ -152,7 +156,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-## <a name="clean-up-resources"></a>Очистка ресурсов
+### <a name="clean-up-resources"></a>Очистка ресурсов
 Если вам больше не нужны BLOB-объекты, отправленные при работе с этим руководством, удалите весь контейнер с помощью метода **delete\_container**. Если вам не нужны созданные файлы, удалите их с помощью метода **delete\_blob**.
 
 ```python

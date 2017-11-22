@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 09/19/2017
+ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 1e884754682ecab4cdf097bd75caa6fcf2e0a29c
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Автоматическая настройка в базе данных SQL Azure
 
@@ -46,10 +46,7 @@ ms.lasthandoff: 11/06/2017
 
 Автоматические механизмы настройки отлажены и были усовершенствованы на сотнях тысяч баз данных, работающих в Azure. Автоматические операции настройки проверяются автоматически, чтобы обеспечить положительное улучшение производительности рабочей нагрузки. Регрессионные рекомендации по производительности динамически обнаруживаются и оперативно отменяются. Журнал выполнения настройки позволяет отслеживать улучшения, сделанные механизмом настройки для каждой базы данных SQL Azure. 
 
-В приведенном ниже видео представлены принципы работы автоматической настройки и типичные сценарии использования.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
->
+![Как работает автоматическая настройка](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
 Автоматическая настройка базы данных SQL Azure использует основную логику совместно с механизмом автоматической настройки SQL Server. Дополнительные технические сведения о встроенном механизме настройки см. в статье [Automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning) (Автоматическая настройка).
 
@@ -60,6 +57,12 @@ ms.lasthandoff: 11/06/2017
 Автоматическая настройка может работать автономно путем автоматического применения рекомендаций по настройке, включая проверки прироста производительности. 
 
 Для большего контроля можно отключить автоматическое применение рекомендаций по настройке и применять их вручную с помощью портала Azure. Можно также использовать решение только для просмотра автоматических рекомендаций по настройке и применять их вручную, используя скрипты и средства по своему усмотрению. 
+
+В приведенном ниже видео представлены принципы работы автоматической настройки и типичные сценарии использования.
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
+>
 
 ## <a name="automatic-tuning-options"></a>Параметры автоматической настройки
 

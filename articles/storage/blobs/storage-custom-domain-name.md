@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: cbc8654bf1755826afa2cf83e5476e88903e0854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Настройка пользовательского доменного имени для конечной точки хранилища BLOB-объектов
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 Промежуточный метод рассматривается в разделе [Регистрация личного домена для учетной записи хранения с помощью промежуточного поддомена *asverify*](#register-a-custom-domain-using-the-asverify-subdomain).
 
 ## <a name="register-a-custom-domain"></a>Регистрация личного домена
-Эта процедура используется для регистрации личного домена, если допускается кратковременная недоступность домена для пользователей домена или если на личном домене в данный момент не размещается никакое приложение.
+Эта процедура используется для регистрации личного домена, если допускается кратковременная недоступность домена для пользователей домена или если на личном домене в данный момент не размещается никакое приложение. Службу Azure DNS можно использовать для настройки пользовательского DNS-имени для вашего хранилища BLOB-объектов Azure. Дополнительные сведения см. в статье [Использование Azure DNS для указания параметров личного домена для службы Azure](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage).
 
 Если личный домен поддерживает приложение, не допускающее простоя, то следует использовать процедуру, описанную в разделе [Регистрация личного домена для учетной записи хранения с помощью промежуточного поддомена *asverify*](#register-a-custom-domain-using-the-asverify-subdomain).
 

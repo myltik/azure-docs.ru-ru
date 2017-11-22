@@ -6,7 +6,11 @@
 
 | Дистрибутив | Драйвер |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Версия 7.3 на основе CentOS | NVIDIA GRID 4.3, драйверы ветви R367|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Версия 7.3 на основе CentOS | NVIDIA GRID 5.0, драйверы ветви R384|
+
+> [!NOTE]
+> Корпорация Майкрософт перераспределяет установщики драйверов NVIDIA GRID для виртуальных машин NV. Установите только эти драйверы GRID на виртуальных машинах Azure серии NV. Эти драйверы содержат лицензии на ПО виртуального графического процессора GRID в Azure.
+>
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>Драйверы NVIDIA Tesla для экземпляров NC
 | Дистрибутив | Драйвер |

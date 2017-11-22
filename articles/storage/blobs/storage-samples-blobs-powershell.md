@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: sample
-ms.date: 06/13/2017
+ms.date: 11/07/2017
 ms.author: robinsh
-ms.openlocfilehash: 74f6e8eb6dd29633fbf518831b446a149fbbddc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bbf818a023219e1673a8864e8bf9a8ecd6110b85
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Примеры Azure PowerShell для хранилища BLOB-объектов Azure
 
@@ -28,7 +28,8 @@ ms.lasthandoff: 10/11/2017
 | | |
 |---|---|
 |**Учетные записи хранения**||
-| [Создание учетной записи хранения и получение или смена ее ключей доступа](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fcli%2fazure%2ftoc.json)| Создает учетную запись хранения Azure и получает и меняет один из ее ключей доступа. |
+| [Создание учетной записи хранения и получение или смена ее ключей доступа](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Создает учетную запись хранения Azure и получает и меняет один из ее ключей доступа. |
 |**Хранилище BLOB-объектов**||
-| [Calculate the size of a Blob storage container](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fcli%2fazure%2ftoc.json) (Вычисление размера контейнера хранилища BLOB-объектов) | Вычисление общего размера всех больших двоичных объектов в контейнере. |
-| [Delete containers based on container name prefix](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fcli%2fazure%2ftoc.json) (Удаление контейнеров на основе префикса имени контейнера) | Удаление контейнеров, начинающихся с указанной строки. |
+| [Calculate the size of a Blob storage container](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) (Вычисление размера контейнера хранилища BLOB-объектов) | Вычисление общего размера всех больших двоичных объектов в контейнере. |
+| [Вычисление размера контейнера в хранилище BLOB-объектов для выставления счетов](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Вычисление размера контейнера в хранилище BLOB-объектов для оценки затрат при выставлении счетов. |
+| [Delete containers based on container name prefix](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) (Удаление контейнеров на основе префикса имени контейнера) | Удаление контейнеров, начинающихся с указанной строки. |

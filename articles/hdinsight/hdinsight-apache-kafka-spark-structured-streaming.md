@@ -12,15 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 9eb39989bdec330e47e6233be5c1347ff716bed2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: df767617842d5f331b5c4dda6d87d6a999ee1d1b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Использование структурированной потоковой передачи Spark с Kafka (предварительная версия) в HDInsight
+# <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Использование структурированной потоковой передачи Spark с Kafka в HDInsight
 
 Узнайте, как использовать структурированную потоковую передачу Spark для чтения данных из Apache Kafka в Azure HDInsight.
 
@@ -52,7 +52,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 
     Этот шаблон создает следующие ресурсы:
 
-    * Kafka в кластере HDInsight 3.5;
+    * Kafka в кластере HDInsight 3.6;
     * Spark в кластере HDInsight 3.6;
     * виртуальную сеть Azure, содержащую кластеры HDInsight.
 

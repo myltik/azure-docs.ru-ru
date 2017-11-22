@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Таблица поддержки для репликации на дополнительный сайт с помощью Azure Site Recovery
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/01/2017
 
 **Развертывание** | **Дополнительные сведения** 
 --- | ---
-**Из VMware в VMware** | Аварийное восстановление локальных виртуальных машин VMware на дополнительный сайт VMware.<br/><br/> Скачайте [руководство пользователя InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf).
+**Из VMware в VMware** | Аварийное восстановление локальных виртуальных машин VMware на дополнительный сайт VMware.<br/><br/> Скачайте [руководство пользователя InMage Scout](https://aka.ms/asr-scout-user-guide).
 **Из Hyper-V в Hyper-V** | Аварийное восстановление локальных виртуальных машин Hyper-V (в облаках VMM) на дополнительный сайт VMM.<br></br> Не поддерживается без VMM.
 
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/01/2017
 
 **Развертывание** | **Поддержка**
 --- | ---
-**Виртуальная машина VMware или физический сервер** | vCenter 5.5 или vCenter 6.0 (поддержка только функций vCenter 5.5) 
+**Виртуальная машина VMware или физический сервер** | vCenter 5.5, 6.0 или 6.5 (поддержка только функций vCenter 5.5)
 **Hyper-V с VMM** | Windows Server 2016 и Windows Server 2012 R2 с последними обновлениями.<br/><br/> Узлами Windows Server 2016 должен управлять сервер VMM 2016.<br/><br/> Сейчас облака VMM 2016, сочетающие узлы Windows Server 2016 и 2012 R2, не поддерживаются.<br/><br/> Развертывание, включающее в себя обновление существующей среды VMM 2012 R2 до System Center 2016, сейчас не поддерживаются.
 
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/01/2017
 
 **VMware или физический сервер** | **Hyper-V (с VMM)**
 --- | ---
-64-разрядная версия Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 как минимум с пакетом обновления 1 (SP1).<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2. <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 или 6.5 с ядром, совместимым с Red Hat, или с ядром Unbreakable Enterprise Kernel Release 3 (UEK3). <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Любая операционная система на виртуальной машине, [ поддерживаемая Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+64-разрядная версия Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 как минимум с пакетом обновления 1 (SP1).<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1 или 7.2. <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1 или 7.2. <br/><br/> Oracle Enterprise Linux 6.4, 6.5 или 6.8 с ядром, совместимым с Red Hat, или с ядром Unbreakable Enterprise Kernel Release 3 (UEK3). <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Любая операционная система на виртуальной машине, [ поддерживаемая Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Хранилище компьютера Linux
 
@@ -104,15 +104,15 @@ VHD (VHDX) | Недоступно | Да (до 16 дисков)
 Виртуальная машина 2-го поколения | Недоступно | Да
 Общий диск кластера | Да  | Нет
 Зашифрованный диск | Нет | Нет
-UEFI| Нет | Недоступно
+UEFI| Да | Недоступно
 NFS | Нет | Нет
 SMB 3.0 | Нет | Нет
 RDM | Да | Недоступно
-Диск > 1 ТБ | Нет | Да
+Диск > 1 ТБ | Да | Да
 Том с чередующимся диском > 1 ТБ<br/><br/> Диспетчер логических томов | Да | Да
 Дисковые пространства | Нет | Да
-"Горячее" добавление или удаление диска | Нет | Нет
-Исключение диска | Нет | Да
+"Горячее" добавление или удаление диска | Да | Нет
+Исключение диска | Да | Да
 Многопутевой (MPIO) | Недоступно | Да
 
 ## <a name="vaults"></a>Хранилища

@@ -1,6 +1,6 @@
 ---
 title: "Основные понятия работы с сервером в базе данных Azure для PostgreSQL | Документация Майкрософт"
-description: "В этой статье приведены рекомендации и указания по работе с серверами базы данных Azure для PostgreSQL."
+description: "В этой статье приведены советы и рекомендации по настройке серверов Базы данных Azure для PostgreSQL и управлению ими."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/08/2017
+ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Серверы базы данных Azure для PostgreSQL
 В этой статье приведены рекомендации и указания по работе с серверами базы данных Azure для PostgreSQL.
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/06/2017
 - выравнивает ресурсы в регионе;
 - предоставляет конечную точку подключения к серверу и базе данных (.postgresql.database.azure.com);
 - обеспечивает область для политик управления, применяемых к базам данных: имена входа, брандмауэр, пользователи, роли, конфигурации и т. д.;
-- доступен в нескольких версиях (дополнительные сведения см. в статье [Поддерживаемые версии в базе данных Azure для PostgreSQL](concepts-supported-versions.md));
+- доступен в нескольких версиях (дополнительные сведения см. в статье [Поддерживаемые версии базы данных PostgreSQL](concepts-supported-versions.md));
 - расширяется пользователями (дополнительные сведения см. в статье [Использование расширений PostgreSQL в базе данных Azure для PostgreSQL](concepts-extensions.md)).
 
 На сервере базы данных Azure для PostgreSQL можно создать одну или несколько баз данных. Можно создать по одной базе данных на каждом сервере, чтобы использовать все ресурсы, или несколько баз данных, чтобы предоставить общий доступ к ресурсам. Цена формируется для каждого сервера, исходя из конфигурации ценовой категории, единиц вычислений и хранилища (ГБ). Дополнительные сведения см. в разделе [Ценовые категории](./concepts-service-tiers.md).
@@ -47,9 +47,16 @@ ms.lasthandoff: 11/06/2017
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Как управлять сервером?
-Управлять серверами базы данных Azure для PostgreSQL можно с помощью портала Azure или [Azure CLI](/cli/azure/postgres).
+Серверами Базы данных Azure для PostgreSQL можно управлять с помощью [портала Azure](https://portal.azure.com) и [Azure CLI](/cli/azure/postgres).
+
+## <a name="server-parameters"></a>Параметры сервера
+Параметры сервера PostgreSQL определяют конфигурацию сервера. В Базе данных Azure для PostgreSQL параметры можно просматривать и изменять с помощью портала Azure или Azure CLI. 
+
+Так как База данных Azure для PostgreSQL — это управляемая служба для Postgres, настраиваемые параметры в ней являются подмножеством параметров локального экземпляра Postgres. Дополнительные сведения о параметрах Postgres см. в [документации PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config.html). При создании сервера Базы данных Azure для PostgreSQL для его параметров устанавливаются стандартные значения. Пользователи не могут настраивать параметры, для изменения которых требуется перезагрузка сервера или права суперпользователя.
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - Обзор службы содержится в статье [Что такое база данных Azure для PostgreSQL](overview.md).
 - Сведения о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня служб** представлены в статье [Параметры и производительность базы данных Azure для PostgreSQL: возможности, доступные в каждой ценовой категории](concepts-service-tiers.md).
 - Сведения о подключении к службе см. в статье [Библиотеки подключений для базы данных Azure для PostgreSQL](concepts-connection-libraries.md).
+- Просмотр и изменение параметров сервера с помощью [портала Azure](howto-configure-server-parameters-using-portal.md) или [Azure CLI](howto-configure-server-parameters-using-cli.md).

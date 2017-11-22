@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 9629a86e72e0d5943f0e50e04268720fbedf6c35
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 36443ec86c15edce27bdc4f50cabcaf2e14936bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Действие копирования в фабрике данных Azure
 
@@ -65,6 +65,10 @@ ms.lasthandoff: 11/04/2017
 * копирование файлов в текстовом формате (CSV) из локальной файловой системы и запись в большой двоичный объект Azure в формате AVRO;
 * копирование ZIP-файлов из локальной файловой системы, их распаковка и размещение в Azure Data Lake Store.
 * копирование данных в сжатом с помощью GZip текстовом формате (CSV) из большого двоичного объекта Azure и запись в базу данных SQL Azure;
+
+## <a name="supported-regions"></a>Поддерживаемые регионы
+
+Служба, управляющая действием копирования, является общедоступной в регионах и географических областях, перечисленных в разделе [Расположение среды выполнения интеграции](concepts-integration-runtime.md#integration-runtime-location). Глобально доступная топология обеспечивает эффективное перемещение данных, обычно позволяя избежать "прыжков" по разным регионам. Дополнительные сведения о доступности фабрики данных и перемещения данных в регионе см. на [этой странице](https://azure.microsoft.com/regions/#services).
 
 ## <a name="configuration"></a>Конфигурация
 

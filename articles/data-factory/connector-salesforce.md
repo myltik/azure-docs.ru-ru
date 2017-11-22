@@ -1,6 +1,6 @@
 ---
-title: "Копирование данных из Salesforce с помощью фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как копировать данные из Salesforce на поддерживаемые приемники хранилища данных с помощью действия копирования в конвейере фабрики данных Azure."
+title: "Копирование данных в Salesforce или из Salesforce с помощью фабрики данных Azure | Документация Майкрософт"
+description: "Узнайте, как копировать данные из Salesforce в поддерживаемые приемники данных и (или) из поддерживаемых источников данных в Salesforce с помощью действия копирования в конвейере фабрики данных Azure."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -11,29 +11,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 7978e955bf5516a853443555ab10a69dcf22d63f
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 017d03b76bd19a0b3a1e19c22233c61be9067d0d
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="copy-data-from-salesforce-using-azure-data-factory"></a>Копирование данных из Salesforce с помощью фабрики данных Azure
+# <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Копирование данных в Salesforce или из Salesforce с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Версия 1 — общедоступная](v1/data-factory-salesforce-connector.md)
 > * [Версия 2 — предварительная](connector-salesforce.md)
 
-В этой статье описывается, как с помощью действия копирования в фабрике данных Azure копировать данные из базы данных Salesforce. Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
+В этой статье описывается, как с помощью действия копирования в фабрике данных Azure копировать данные в Salesforce или из Salesforce. Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
 
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Перемещение данных из Salesforce с помощью фабрики данных Azure](v1/data-factory-salesforce-connector.md).
 
 ## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
-Данные из базы данных Salesforce можно скопировать в любое хранилище данных, поддерживаемое в качестве приемника. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, приведен в таблице [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
+Данные можно копировать из Salesforce в любой поддерживаемый приемник данных или из любого поддерживаемого источника данных Salesforce. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, приведен в таблице [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
 
-В частности, этот соединитель Salesforce поддерживает следующие выпуски Salesforce: **Developer Edition, Professional Edition, Enterprise Edition или Unlimited Edition**. Он также поддерживает копирование данных из **рабочей среды Salesforce, песочницы и пользовательского домена**.
+В частности, этот соединитель Salesforce поддерживает следующее.
+
+- Любой из следующих выпусков Salesforce: **Developer Edition, Professional Edition, Enterprise Edition или Unlimited Edition**.
+- Копирование данных в **рабочую среду, песочницу или пользовательский домен Salesforce**, а также из них.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -60,15 +63,20 @@ ms.lasthandoff: 11/06/2017
 | Свойство | Описание | Обязательно |
 |:--- |:--- |:--- |
 | type |Для свойства type нужно задать значение **Salesforce**. |Да |
-| environmentUrl | Укажите URL-адрес экземпляра Salesforce. <br><br> Значение по умолчанию — `"https://login.salesforce.com"`. <br> Чтобы скопировать данные из песочницы, укажите `"https://test.salesforce.com"`. <br> Чтобы скопировать данные из пользовательского домена, укажите URL-адрес, например `"https://[domain].my.salesforce.com"`. |Нет |
+| environmentUrl | Укажите URL-адрес экземпляра Salesforce. <br> Значение по умолчанию — `"https://login.salesforce.com"`. <br> Чтобы скопировать данные из песочницы, укажите `"https://test.salesforce.com"`. <br> Чтобы скопировать данные из пользовательского домена, укажите URL-адрес, например `"https://[domain].my.salesforce.com"`. |Нет |
 | Имя пользователя |Укажите имя пользователя для учетной записи пользователя. |Да |
-| password |Укажите пароль для учетной записи пользователя. |Да |
-| securityToken |Укажите маркер безопасности для учетной записи пользователя. Инструкции по получению и сбросу маркера безопасности см. в статье [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности). Общие сведения о маркере безопасности см. в статье [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Безопасность и API). |Да |
+| password |Укажите пароль для учетной записи пользователя.<br/><br/>Вы можете обозначить это поле как SecureString, чтобы безопасно хранить его в ADF, или сохранить пароль в Azure Key Vault и передавать его оттуда в действие копирования ADF при фактическом копировании данных. Подробнее это описано в статье [о хранении учетных данных в Key Vault](store-credentials-in-key-vault.md). |Да |
+| securityToken |Укажите маркер безопасности для учетной записи пользователя. Инструкции по получению и сбросу маркера безопасности см. в статье [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности). Общие сведения о маркере безопасности см. в статье [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Безопасность и API).<br/><br/>Вы можете обозначить это поле как SecureString, чтобы безопасно хранить его в ADF, или сохранить маркер безопасности в Azure Key Vault и передавать его оттуда в действие копирования ADF при фактическом копировании данных. Подробнее это описано в статье [о хранении учетных данных в Key Vault](store-credentials-in-key-vault.md). |Да |
+| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. | "Нет" для источника, "Да" для приемника |
 
-**Пример**
+>[!IMPORTANT]
+>Чтобы копировать данные в Salesforce, [создайте Azure IR](create-azure-integration-runtime.md#create-azure-ir) явным образом в расположении, близком к вашей системе Salesforce, и сопоставьте его в связанной службе, как показано в следующем примере.
+
+**Пример: хранение учетных данных в ADF**
 
 ```json
 {
+    "name": "SalesforceLinkedService",
     "properties": {
         "type": "Salesforce",
         "typeProperties": {
@@ -81,22 +89,59 @@ ms.lasthandoff: 11/06/2017
                 "type": "SecureString",
                 "value": "<security token>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
-    },
-    "name": "SalesforceLinkedService"
+    }
+}
+```
+
+**Пример: хранение учетных данных в Azure Key Vault**
+
+```json
+{
+    "name": "SalesforceLinkedService",
+    "properties": {
+        "type": "Salesforce",
+        "typeProperties": {
+            "username": "<username>",
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "secretName": "<secret name of password in AKV>",
+                "store":{
+                    "referenceName": "<Azure Key Vault linked service>",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            "securityToken": {
+                "type": "AzureKeyVaultSecret",
+                "secretName": "<secret name of security token in AKV>",
+                "store":{
+                    "referenceName": "<Azure Key Vault linked service>",
+                    "type": "LinkedServiceReference"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
 }
 ```
 
 ## <a name="dataset-properties"></a>Свойства набора данных
 
-Полный список разделов и свойств, доступных для определения наборов данных, см. в статье о наборах данных. Этот раздел содержит список свойств, поддерживаемых набором данных Salesforce.
+Полный список разделов и свойств, доступных для определения наборов данных, см. в статье о [наборах данных](concepts-datasets-linked-services.md). Этот раздел содержит список свойств, поддерживаемых набором данных Salesforce.
 
-Чтобы скопировать данные из Salesforce, установите свойство type набора данных **RelationalTable**. Поддерживаются следующие свойства:
+Чтобы скопировать данные в Salesforce или из Salesforce, для свойства type набора данных установите значение **SalesforceObject**. Поддерживаются следующие свойства:
 
 | Свойство | Описание | Обязательно |
 |:--- |:--- |:--- |
-| type | Свойство type для набора данных должно иметь значение **RelationalTable**. | Да |
-| tableName | Имя таблицы в базе данных Salesforce. | Нет (если свойство query указано в источнике действия) |
+| type | Для свойства type нужно задать значение **SalesforceObject**.  | Да |
+| objectApiName | Имя объекта Salesforce, из которого извлекаются данные. | "Нет" для источника, "Да" для приемника |
 
 > [!IMPORTANT]
 > Имя API для любых настраиваемых объектов должно содержать приставку __c.
@@ -108,31 +153,38 @@ ms.lasthandoff: 11/06/2017
 ```json
 {
     "name": "SalesforceDataset",
-    "properties":
-    {
-        "type": "RelationalTable",
+    "properties": {
+        "type": "SalesforceObject",
         "linkedServiceName": {
             "referenceName": "<Salesforce linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
-            "tableName": "MyTable__c"
+            "objectApiName": "MyTable__c"
         }
     }
 }
 ```
 
-## <a name="copy-activity-properties"></a>Свойства действия копирования
-
-Полный список разделов и свойств, используемых для определения действий, см. в статье [Конвейеры и действия в фабрике данных Azure](concepts-pipelines-activities.md). Этот раздел содержит список свойств, поддерживаемых источником Salesforce.
-
-### <a name="salesforce-as-source"></a>Salesforce в качестве источника
-
-Чтобы копировать данные из Salesforce, установите тип источника **RelationalSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
+>[!NOTE]
+>Для сохранения обратной совместимости допускается копирование данных из Salesforce с использованием прежнего типа набора данных (RelationalTable). Но мы рекомендуем вам изменить тип на новое значение (SalesforceObject).
 
 | Свойство | Описание | Обязательно |
 |:--- |:--- |:--- |
-| type | Свойство type источника действия копирования должно иметь значение **RelationalSource**. | Да |
+| type | Свойство type для набора данных должно иметь значение **RelationalTable**. | Да |
+| tableName | Имя таблицы в Salesforce | Нет (если свойство query указано в источнике действия) |
+
+## <a name="copy-activity-properties"></a>Свойства действия копирования
+
+Полный список разделов и свойств, используемых для определения действий, см. в статье [Конвейеры и действия в фабрике данных Azure](concepts-pipelines-activities.md). Этот раздел содержит список свойств, поддерживаемых источником и приемником Salesforce.
+
+### <a name="salesforce-as-source"></a>Salesforce в качестве источника
+
+Чтобы копировать данные из Salesforce, установите тип источника **SalesforceSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
+
+| Свойство | Описание | Обязательно |
+|:--- |:--- |:--- |
+| type | Свойство type источника действия копирования должно иметь значение **SalesforceSource**. | Да |
 | query |Используйте пользовательский запрос для чтения данных. Вы можете использовать запрос SQL-92 или запрос, написанный на [объектно-ориентированном языке запросов Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Например, `select * from MyTable__c`. | Нет (если для набора данных задано свойство tableName) |
 
 > [!IMPORTANT]
@@ -161,7 +213,7 @@ ms.lasthandoff: 11/06/2017
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SalesforceSource",
                 "query": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c"
             },
             "sink": {
@@ -172,11 +224,61 @@ ms.lasthandoff: 11/06/2017
 ]
 ```
 
+>[!NOTE]
+>Для сохранения обратной совместимости допускается копирование данных из Salesforce с использованием прежнего типа набора данных (RelationalSource). Но мы рекомендуем вам изменить тип на новое значение (SalesforceSource).
+
+### <a name="salesforce-as-sink"></a>Salesforce в качестве приемника
+
+Чтобы скопировать данные в Salesforce, установите тип приемника **SalesforceSink** в действии копирования. В разделе **sink** действия копирования поддерживаются следующие свойства:
+
+| Свойство | Описание | Обязательно |
+|:--- |:--- |:--- |
+| type | Свойство type приемника действия копирования должно иметь значение **SalesforceSink**. | Да |
+| writeBehavior | Поведение операции при записи.<br/>Допустимые значения: **Insert** (Вставка) и **Upsert** (Вставка-обновление). | Нет (по умолчанию используется Insert) |
+| externalIdFieldName | Имя поля для внешнего идентификатора при операции upsert. Это поле должно быть определено в объекте Salesforce как External Id Field (Поле внешнего идентификатора), и в соответствующих входных данных не должно быть значений NULL. | "Да" для операции Upsert (Вставка-обновление) |
+| writeBatchSize | Количество строк данных, записываемых в Salesforce одним пакетом. | Нет (по умолчанию используется значение 5000) |
+| ignoreNullValues | Указывает, следует ли игнорировать значения NULL из входных данных во время операции записи.<br/>Допустимые значения: **true** (да) и **false** (нет).<br>- **true** обозначает, что данные в целевом объекте остаются без изменений при операциях вставки-обновления (upsert) или обновления (update), а при операции вставки (insert) записывается установленное значение по умолчанию.<br/>- **false** обозначает, что данные в целевом объекте заменяются значением NULL при выполнении операции вставки-обновления (upsert) или обновления (update), а выполнении операции вставки (insert) записывается значение NULL. | Нет (по умолчанию используется значение false) |
+
+### <a name="example-salesforce-sink-in-copy-activity"></a>Пример: приемник Salesforce в действии копирования
+
+```json
+"activities":[
+    {
+        "name": "CopyToSalesforce",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Salesforce input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "SalesforceSink",
+                "writeBehavior": "Upsert",
+                "externalIdFieldName": "CustomerId__c",
+                "writeBatchSize": 10000,
+                "ignoreNullValues": true
+            }
+        }
+    }
+]
+```
+
 ## <a name="query-tips"></a>Советы по запросам
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Извлечение данных из отчета Salesforce
 
-Из отчетов Salesforce можно извлекать данные, указывая запросы в формате `{call "<report name>"}. Example: `"{call \"TestReport\"}"`.
+Вы можете извлекать данные из отчетов Salesforce, указывая запросы в формате `{call "<report name>"}`. Пример: `"query": "{call \"TestReport\"}"`.
 
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Восстановление удаленных записей из корзины Salesforce
 
@@ -189,8 +291,8 @@ ms.lasthandoff: 11/06/2017
 
 При указании запроса SOQL или SQL обратите внимание на различие в формате даты и времени. Например:
 
-* **Пример SOQL**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', <datetime parameter>, <datetime parameter>)`
-* **Пример SQL**: `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', <datetime parameter>, <datetime parameter>)`
+* **Пример SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **Пример SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
 
 ## <a name="data-type-mapping-for-salesforce"></a>Сопоставление типов данных для Salesforce
 
@@ -218,6 +320,5 @@ ms.lasthandoff: 11/06/2017
 | Текст (зашифрованный) |Строка |
 | URL-адрес |Строка |
 
-
 ## <a name="next-steps"></a>Дальнейшие действия
-В таблице [Поддерживаемые хранилища данных](copy-activity-overview.md##supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования в фабрике данных Azure.
+В таблице [Поддерживаемые хранилища данных](copy-activity-overview.md#supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования в фабрике данных Azure.

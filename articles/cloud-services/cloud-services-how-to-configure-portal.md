@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 409b3bb26648ef1b811dfaaf37690c8220046729
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Настройка облачных служб
-> [!div class="op_single_selector"]
-> * [Портал Azure](cloud-services-how-to-configure-portal.md)
-> * [Классический портал Azure](cloud-services-how-to-configure.md)
->
->
-
 Часто используемые параметры облачной службы можно настроить на портале Azure. Также можно напрямую изменить файлы конфигурации. Для этого загрузите и измените нужный файл, а затем отправьте его для обновления конфигурации облачной службы. В любом случае обновления конфигурации применяются ко всем экземплярам ролей.
 
 Также вы можете управлять экземплярами ролей облачной службы или подключиться к ним с помощью удаленного рабочего стола.
@@ -77,9 +71,9 @@ ms.lasthandoff: 10/11/2017
 Здесь можно настроить диаграммы для этой плитки или добавить правило оповещения.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>Перезагрузка, повторное создание образа и использование удаленного рабочего стола
-Сейчас на **портале Azure**нельзя настроить использование удаленного рабочего стола. Но вы можете настроить его с помощью [классического портала Azure](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) или [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+Вы можете настроить удаленный рабочий стол с помощью [портала Azure (настройка удаленного рабочего стола)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) или [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-Щелкните экземпляр облачной службы.
+Чтобы выполнить перезагрузку, повторно создать образ или использовать удаленный рабочий стол в облачной службе, щелкните экземпляр облачной службы.
 
 ![Экземпляр облачной службы](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

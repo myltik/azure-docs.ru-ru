@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: damaerte
-ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 13289d9b18b4c53a2569b9a8772715b38ed22cf7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Функции и инструменты для PowerShell в Azure Cloud Shell
+# <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Функции и инструменты для PowerShell в Azure Cloud Shell (предварительная версия)
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Также доступны функции и инструменты для [Bash](features.md).
 
-PowerShell в Cloud Shell выполняется в `Windows Server 2016`.
+PowerShell в Cloud Shell (предварительная версия) выполняется в `Windows Server 2016`.
 
 ## <a name="features"></a>Функции
 
 ### <a name="secure-automatic-authentication"></a>Безопасная автоматическая аутентификация
 
-PowerShell в Cloud Shell безопасно и автоматически выполняет аутентификацию доступа к учетным записям для Azure PowerShell.
+PowerShell в Cloud Shell (предварительная версия) безопасно и автоматически выполняет аутентификацию доступа к учетным записям для Azure PowerShell.
 
 ### <a name="files-persistence-across-sessions"></a>Сохранение файлов между сеансами
 
@@ -45,7 +45,7 @@ PowerShell в Cloud Shell безопасно и автоматически вы�
 
 ### <a name="azure-drive-azure"></a>Диск Azure (Azure:)
 
-PowerShell в Cloud Shell запускается на диске Azure (`Azure:`).
+PowerShell в Cloud Shell (предварительная версия) запускается на диске Azure (`Azure:`).
 Диск Azure облегчает обнаружение ресурсов Azure и перемещение по ним, включая вычислительные ресурсы, сетевые ресурсы, ресурсы хранилища и т. д., предоставляя возможности навигации как у файловой системы.
 Для управления этими ресурсами можно использовать привычные [командлеты Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure).
 Любые изменения, внесенные в ресурсы Azure либо непосредственно на портале Azure, либо с помощью командлетов Azure PowerShell, сразу же отражаются на диске Azure.
@@ -109,6 +109,6 @@ PowerShell в Cloud Shell запускается на диске Azure (`Azure:`
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Краткое руководство по использованию PowerShell в Cloud Shell](quickstart-powershell.md)
+[Краткое руководство по использованию PowerShell в Cloud Shell (предварительная версия)](quickstart-powershell.md)
 
 [Дополнительные сведения об Azure PowerShell](https://docs.microsoft.com/powershell/azure/)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 11/01/2017
 ms.author: maroche
-ms.openlocfilehash: 0623847ea1e79c3a45a8fbdcc1d3a551864aefd6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: da7ac8f323f9b2ec6303fbc85aa570373a538bcf
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Как просматривать связанные ресурсы данных в каталоге данных Azure
 Каталог данных Azure позволяет просматривать ресурсы данных, связанные с выбранным ресурсом, и связи между ними. 
@@ -30,6 +30,9 @@ ms.lasthandoff: 11/03/2017
 - База данных SQL Azure
 - MySQL
 - Oracle
+
+> [!NOTE]
+> Чтобы в каталоге данных импортировать связь между двумя ресурсами данных, необходимо одновременно зарегистрировать оба ресурса. Если один из них добавлен отдельно, добавьте его и другой ресурс еще раз, чтобы импортировать связи между этими ресурсами.
 
 ## <a name="view-related-data-assets"></a>Просмотр связанных ресурсов данных
 Для просмотра ресурсов данных, связанных с выбранным набором данных, используйте вкладку **Связи**, как показано на следующем рисунке: 

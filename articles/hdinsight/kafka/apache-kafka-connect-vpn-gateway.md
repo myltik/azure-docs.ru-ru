@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Подключение к Kafka HDInsight (предварительная версия) с помощью виртуальной сети Azure
+# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Подключение к Kafka в HDInsight с помощью виртуальной сети Azure
 
 Узнайте, как подключиться напрямую к Kafka в HDInsight с помощью виртуальной сети Azure. В этой статье приведены сведения о подключении к Kafka с использованием приведенных ниже конфигураций.
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/06/2017
 
 HDInsight не разрешает прямое подключение к Kafka через общедоступный Интернет. Вместо этого клиенты Kafka (производители и потребители) должны использовать один из следующих методов подключения.
 
-* Запустите клиент в той же виртуальной сети, что и Kafka в HDInsight. Сведения об использовании этой конфигурации см. в статье [Приступая к работе с Apache Kafka (предварительная версия) в HDInsight](apache-kafka-get-started.md). Клиент работает непосредственно на узлах кластера HDInsight или на другой виртуальной машине в той же сети.
+* Запустите клиент в той же виртуальной сети, что и Kafka в HDInsight. Сведения об использовании этой конфигурации см. в статье [Приступая к работе с Apache Kafka в HDInsight](apache-kafka-get-started.md). Клиент работает непосредственно на узлах кластера HDInsight или на другой виртуальной машине в той же сети.
 
 * Подключите частную сеть, например локальную, к виртуальной сети. Эта конфигурация разрешает клиентам в локальной сети напрямую работать с Kafka. Чтобы включить эту конфигурацию, сделайте следующее:
 

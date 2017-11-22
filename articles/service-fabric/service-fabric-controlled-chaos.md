@@ -12,26 +12,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 11/10/2017
 ms.author: motanv
-ms.openlocfilehash: 3b3b93bc9ec5ecdcfc289e5b62e84de6aa4172ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c78d9e77d807f3ccf8c1f56d856abad8135989c2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Вызов контролируемого хаоса в кластерах Service Fabric
 Крупномасштабные распределенные системы, такие как облачные инфраструктуры, ненадежны по своей сути. Azure Service Fabric позволяет разработчикам создавать надежные распределенные службы на основе ненадежной инфраструктуры. Чтобы писать надежные распределенные службы на основе ненадежной инфраструктуры, разработчики должны иметь возможность проверять стабильность работы своих служб, когда для базовой ненадежной инфраструктуры выполняются сложные переходы состояния из-за ошибок.
 
 [Служба внесения ошибок и анализа кластера](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-testability-overview) (также называемая службой анализа ошибок) позволяет разработчикам вызывать ошибки для тестирования работы служб. Эти целевые имитируемые ошибки, например [перезапуск секции](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), помогают выполнять самые распространенные переходы между состояниями. При этом целевым имитируемым ошибкам по определению свойственна погрешность, поэтому могут происходить ошибки, которые появляются только в трудной для прогнозирования, длинной и сложной последовательности переходов между состояниями. Для неискаженного тестирования без можно использовать Chaos.
 
-Chaos моделирует в кластере периодические сбои, чередуя как нормальные, так и ненормальные ошибки, на протяжении долгого периода времени. Настроив частоту и тип ошибок в инструменте Chaos, его можно запускать или останавливать через API-интерфейсы C# или PowerShell, чтобы создавать сбои в работе кластера и службы. Можно настроить запуск Chaos в течение указанного периода времени (например, на один час), после чего Chaos останавливается автоматически. Или можно вызывать API StopChaos (C# или Powershell) для остановки в любое время.
+Chaos моделирует в кластере периодические сбои, чередуя как нормальные, так и ненормальные ошибки, на протяжении долгого периода времени. Нормальная ошибка должна включать набор вызовов API Service Fabric. Например, перезапуск реплики является нормальной ошибкой, поскольку включает закрытие реплики с последующим открытием. Также Chaos применяет такие нормальные ошибки, как удаление реплики и перемещение первичной или вторичной реплики. Завершение процесса, например перезапуск узла или перезапуск пакета кода, считается ненормальной ошибкой. 
+
+Настроив частоту и тип ошибок в инструменте Chaos, его можно запускать или останавливать через API-интерфейсы C#, PowerShell или REST API, чтобы моделировать сбои в работе кластера и службы. Можно настроить выполнение Chaos в течение указанного периода времени (например, на один час), после чего Chaos останавливается автоматически. Также можно в любой момент вызывать API StopChaos (C#, Powershell или REST) для его остановки.
 
 > [!NOTE]
 > Текущая версия Chaos вызывает только безопасные ошибки, то есть при отсутствии внешних ошибок исключена вероятность потери кворума или данных.
 >
 
-Во время выполнения Chaos создает различные события, которые записывают состояние выполнения в определенный момент времени. Например, ExecutingFaultsEvent содержит все сбои, которые Chaos выполняет в этой итерации. ValidationFailedEvent содержит сведения о сбое проверки (проблемы работоспособности и стабильности), обнаруженном во время проверки кластера. Для получения отчета о выполнении Chaos можно вызывать API GetChaosReportAsync (C# или Powershell). Эти события сохраняются в [надежном словаре](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), для которого настроена политика усечения, диктуемая двумя конфигурациями: **MaxStoredChaosEventCount** (значение по умолчанию — 25 000) и **StoredActionCleanupIntervalInSeconds** (значение по умолчанию — 3600). Каждые *StoredActionCleanupIntervalInSeconds* Chaos выполняет проверку. В результате проверки определенное число последних событий (*MaxStoredChaosEventCount*) удаляется из надежного словаря.
+Во время выполнения Chaos создает различные события, которые записывают состояние выполнения в определенный момент времени. Например, ExecutingFaultsEvent содержит все сбои, которые Chaos выполняет в этой итерации. ValidationFailedEvent содержит сведения о сбое проверки (проблемы работоспособности и стабильности), обнаруженном во время проверки кластера. Для получения отчета о выполнении Chaos можно вызывать API GetChaosReportAsync (C#, Powershell или REST). Эти события сохраняются в [надежном словаре](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), для которого настроена политика усечения, диктуемая двумя конфигурациями: **MaxStoredChaosEventCount** (значение по умолчанию — 25 000) и **StoredActionCleanupIntervalInSeconds** (значение по умолчанию — 3600). Каждые *StoredActionCleanupIntervalInSeconds* Chaos выполняет проверку. В результате проверки определенное число последних событий (*MaxStoredChaosEventCount*) удаляется из надежного словаря.
 
 ## <a name="faults-induced-in-chaos"></a>Ошибки, вызываемые Chaos
 Chaos генерирует сбои во всем кластере Service Fabric и вмещает сбои за месяцы или годы работы всего в несколько часов тестирования. Сочетание ошибок с чередованием с высокой частотой возникновения сбоев позволяет находить проблемы, которые иначе были бы упущены. Это упражнение Chaos обеспечивает значительное улучшение качества кода службы.
@@ -45,9 +47,9 @@ Chaos вызывает ошибки следующих категорий:
 * перемещение первичной реплики (настраивается);
 * перемещение вторичной реплики (настраивается).
 
-Chaos выполняет несколько итераций. Каждая из них включает в себя сбои и проверку кластера в течение указанного периода времени. Вы можете настроить время, затрачиваемое на стабилизацию работы и проверку кластера для успешной его работы. В случае обнаружения сбоя при проверке кластера Chaos создает и сохраняет событие ValidationFailedEvent с меткой времени в формате UTC и подробными сведениями об ошибке. Например, рассмотрим экземпляр Chaos, для которого настроено выполнение в течение одного часа и не более трех одновременных сбоев. Chaos вызывает три сбоя и проверяет работоспособность кластера. Затем он выполняет итерацию предыдущего шага, пока выполнение не будет явным образом остановлено посредством API StopChaosAsync или через один час. Если при какой-либо итерации кластер становится неработоспособным, то есть его работа не стабилизируется в течение заданного времени (MaxClusterStabilizationTimeout), Chaos создает событие ValidationFailedEvent. Это событие указывает на наличие ошибки, которую необходимо дополнительно изучить.
+Chaos выполняет несколько итераций. Каждая из них включает в себя сбои и проверку кластера в течение указанного периода времени. Вы можете настроить время, затрачиваемое на стабилизацию работы и проверку кластера для успешной его работы. В случае обнаружения сбоя при проверке кластера Chaos создает и сохраняет событие ValidationFailedEvent с меткой времени в формате UTC и подробными сведениями об ошибке. Например, рассмотрим экземпляр Chaos, для которого настроено выполнение в течение одного часа и не более трех одновременных сбоев. Chaos вызывает три сбоя и проверяет работоспособность кластера. Затем он выполняет итерацию предыдущего шага, пока выполнение не будет явным образом остановлено посредством API StopChaosAsync или через один час. Если при какой-либо итерации кластер становится неработоспособным, то есть его работа не стабилизируется и не восстанавливается в течение заданного времени (MaxClusterStabilizationTimeout), Chaos создает событие ValidationFailedEvent. Это событие указывает на наличие ошибки, которую необходимо дополнительно изучить.
 
-Чтобы узнать какие ошибки созданы инструментом Chaos, можно использовать API GetChaosReport (PowerShell или C#). API возвращает следующий сегмент отчета Chaos, основанного на переданном маркере продолжения или диапазоне времени. Можно указать ContinuationToken для получения следующего сегмента отчета Chaos или указать диапазон времени с помощью параметров StartTimeUtc и EndTimeUtc, но нельзя указать ContinuationToken и диапазон времени одновременно. При наличии более 100 событий Chaos отчет Chaos возвращается по сегментам, каждый из которых содержит не более 100 событий.
+Чтобы узнать, какие ошибки созданы инструментом Chaos, можно использовать API GetChaosReport (C#, Powershell или REST). API возвращает следующий сегмент отчета Chaos, основанного на переданном маркере продолжения или диапазоне времени. Можно указать ContinuationToken для получения следующего сегмента отчета Chaos или указать диапазон времени с помощью параметров StartTimeUtc и EndTimeUtc, но нельзя указать ContinuationToken и диапазон времени одновременно. При наличии более 100 событий Chaos отчет Chaos возвращается по сегментам, каждый из которых содержит не более 100 событий.
 
 ## <a name="important-configuration-options"></a>Важные параметры конфигурации
 * **TimeToRun**. Общее время выполнения Chaos до успешного завершения. Вы можете остановить выполнение Chaos до истечения периода TimeToRun с помощью API StopChaos.
@@ -68,6 +70,9 @@ Chaos выполняет несколько итераций. Каждая из 
 * **WaitTimeBetweenFaults**. Время ожидания между двумя последовательными сбоями в одной итерации. Чем выше значение, тем меньше степень параллелизма (или перекрывания) в ошибках.
 * **ClusterHealthPolicy**. Политика работоспособности кластера используется для проверки работоспособности кластера между итерациями Chaos. Если работоспособность кластера находится в состоянии ошибки или непредвиденного исключения во время выполнения ошибки, Chaos ожидает 30 минут до следующей проверки работоспособности, чтобы дать кластеру время восстановить работу.
 * **Context**. Коллекция (string, string) пар "ключ —значение". Для записи сведений о запуске Chaos можно использовать карту. Максимальное число таких пар — 100. Каждая строка (ключ или значение) может содержать не более 4095 символов. Эту карту настраивает стартер запуска Chaos, чтобы при необходимости сохранять контекст конкретного выполнения.
+* **ChaosTargetFilter.** Этот фильтр можно использовать, чтобы направлять ошибки Chaos только в узлы определенного типа или только в определенные экземпляры приложения. Если фильтр ChaosTargetFilter не используется, Chaos создает ошибки во всех сущностях кластера. Если фильтр ChaosTargetFilter используется, Chaos создает ошибки только в тех сущностях, которые соответствуют параметрам ChaosTargetFilter. NodeTypeInclusionList и ApplicationInclusionList допускают только семантику объединения. Другими словами, вы не сможете использовать пересечение условий NodeTypeInclusionList и ApplicationInclusionList. Например, нельзя создать правило "создавать ошибки в этом приложении, только если оно размещено в узле этого типа". Если правило NodeTypeInclusionList или ApplicationInclusionList включают определенную сущность, ее нельзя исключить с помощью ChaosTargetFilter. В приложении X могут создаваться ошибки Chaos, даже если оно не входит в список ApplicationInclusionList, если в определенный момент это приложение будет выполняться в узле типа Y, включенного в список NodeTypeInclusionList. Если NodeTypeInclusionList и ApplicationInclusionList одновременно не указаны или имеют значение NULL, создается исключение ArgumentException.
+    * **NodeTypeInclusionList.** Это список типов узлов, которые нужно включать в ошибки Chaos. Для узлов этого типа применяются все типы ошибок (перезапуск узла, перезапуск пакета кода, удаление реплики, перезапуск реплики, перемещение первичной и вторичной реплик). Если определенный тип узла (скажем, тип узла X) не включен в список NodeTypeInclusionList, в узле типа X никогда не создаются ошибки уровня узла (например, перезапуск узла), но могут создаваться ошибки уровня пакета кода или реплики, если в узле типа X в определенный момент будет выполняться приложение из списка ApplicationInclusionList. В этот список можно включить не более 100 имен типов узлов. Чтобы увеличить это число, измените параметр конфигурации MaxNumberOfNodeTypesInChaosTargetFilter.
+    * **ApplicationInclusionList**. Это список URI приложений, которые нужно включать в ошибки Chaos. Все реплики, относящиеся к службам этих приложений, становятся доступными для ошибок реплики Chaos (перезапуск реплики, удаление реплики, перемещения первичной или вторичной реплики). Chaos может перезапустить пакет кода, только если в нем размещены реплики указанных приложений. Если приложение не включено в этот список, для него иногда могут создаваться ошибки Chaos, если в определенный момент это приложение будет выполняться в узле определенного типа, включенного в список NodeTypeInclusionList. Но если, например, приложение X привязано к типу узла Y посредством ограничений размещения и при этом приложение X отсутствует в списке ApplicationInclusionList и тип узла Y отсутствует в списке NodeTypeInclusionList, то для такого приложения X никогда не будут применяться ошибки. В этот список можно включить не более 1000 имен приложений. Чтобы увеличить это число, измените параметр конфигурации MaxNumberOfApplicationsInChaosTargetFilter.
 
 ## <a name="how-to-run-chaos"></a>Выполнение Chaos
 
@@ -88,7 +93,6 @@ class Program
         {
             return x.TimeStampUtc.Equals(y.TimeStampUtc);
         }
-
         public int GetHashCode(ChaosEvent obj)
         {
             return obj.TimeStampUtc.GetHashCode();
@@ -101,15 +105,66 @@ class Program
         using (var client = new FabricClient(clusterConnectionString))
         {
             var startTimeUtc = DateTime.UtcNow;
-            var stabilizationTimeout = TimeSpan.FromSeconds(30.0);
+
+            // The maximum amount of time to wait for all cluster entities to become stable and healthy. 
+            // Chaos executes in iterations and at the start of each iteration it validates the health of cluster entities. 
+            // During validation if a cluster entity is not stable and healthy within MaxClusterStabilizationTimeoutInSeconds, Chaos generates a validation failed event.
+            var maxClusterStabilizationTimeout = TimeSpan.FromSeconds(30.0);
+
             var timeToRun = TimeSpan.FromMinutes(60.0);
+
+            // MaxConcurrentFaults is the maximum number of concurrent faults induced per iteration. 
+            // Chaos executes in iterations and two consecutive iterations are separated by a validation phase. 
+            // The higher the concurrency, the more aggressive the injection of faults -- inducing more complex series of states to uncover bugs. 
+            // The recommendation is to start with a value of 2 or 3 and to exercise caution while moving up.
             var maxConcurrentFaults = 3;
 
+            // Describes a map, which is a collection of (string, string) type key-value pairs. The map can be used to record information about
+            // the Chaos run. There cannot be more than 100 such pairs and each string (key or value) can be at most 4095 characters long.
+            // This map is set by the starter of the Chaos run to optionally store the context about the specific run.
+            var startContext = new Dictionary<string, string>{{"ReasonForStart", "Testing"}};
+
+            // Time-separation (in seconds) between two consecutive iterations of Chaos. The larger the value, the lower the fault injection rate.
+            var waitTimeBetweenIterations = TimeSpan.FromSeconds(10);
+
+            // Wait time (in seconds) between consecutive faults within a single iteration. 
+            // The larger the value, the lower the overlapping between faults and the simpler the sequence of state transitions that the cluster goes through. 
+            // The recommendation is to start with a value between 1 and 5 and exercise caution while moving up.
+            var waitTimeBetweenFaults = TimeSpan.Zero;
+
+            // Passed-in cluster health policy is used to validate health of the cluster in between Chaos iterations. 
+            var clusterHealthPolicy = new ClusterHealthPolicy
+            {
+                ConsiderWarningAsError = false,
+                MaxPercentUnhealthyApplications = 100,
+                MaxPercentUnhealthyNodes = 100
+            };
+
+            // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
+            // for nodes of type 'FrontEndType'
+            var nodetypeInclusionList = new List<string> { "FrontEndType"};
+
+            // In addition to the faults included by nodetypeInclusionList, 
+            // restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
+            // even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+            var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
+
+            // List of cluster entities to target for Chaos faults.
+            var chaosTargetFilter = new ChaosTargetFilter
+            {
+                NodeTypeInclusionList = nodetypeInclusionList,
+                ApplicationInclusionList = applicationInclusionList
+            };
+
             var parameters = new ChaosParameters(
-                stabilizationTimeout,
+                maxClusterStabilizationTimeout,
                 maxConcurrentFaults,
                 true, /* EnableMoveReplicaFault */
-                timeToRun);
+                timeToRun,
+                startContext,
+                waitTimeBetweenIterations,
+                waitTimeBetweenFaults,
+                clusterHealthPolicy) {ChaosTargetFilter = chaosTargetFilter};
 
             try
             {
@@ -124,9 +179,37 @@ class Program
 
             var eventSet = new HashSet<ChaosEvent>(new ChaosEventComparer());
 
+            string continuationToken = null;
+
             while (true)
             {
-                var report = client.TestManager.GetChaosReportAsync(filter).GetAwaiter().GetResult();
+                ChaosReport report;
+                try
+                {
+                    report = string.IsNullOrEmpty(continuationToken)
+                        ? client.TestManager.GetChaosReportAsync(filter).GetAwaiter().GetResult()
+                        : client.TestManager.GetChaosReportAsync(continuationToken).GetAwaiter().GetResult();
+                }
+                catch (Exception e)
+                {
+                    if (e is FabricTransientException)
+                    {
+                        Console.WriteLine("A transient exception happened: '{0}'", e);
+                    }
+                    else if(e is TimeoutException)
+                    {
+                        Console.WriteLine("A timeout exception happened: '{0}'", e);
+                    }
+                    else
+                    {
+                        throw;
+                    }
+
+                    Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
+                    continue;
+                }
+
+                continuationToken = report.ContinuationToken;
 
                 foreach (var chaosEvent in report.History)
                 {
@@ -153,18 +236,59 @@ class Program
 ```
 
 ```powershell
-$connection = "localhost:19000"
-$timeToRun = 60
-$maxStabilizationTimeSecs = 180
-$concurrentFaults = 3
-$waitTimeBetweenIterationsSec = 60
+$clusterConnectionString = "localhost:19000"
+$timeToRunMinute = 60
 
-Connect-ServiceFabricCluster $connection
+# The maximum amount of time to wait for all cluster entities to become stable and healthy. 
+# Chaos executes in iterations and at the start of each iteration it validates the health of cluster entities. 
+# During validation if a cluster entity is not stable and healthy within MaxClusterStabilizationTimeoutInSeconds, Chaos generates a validation failed event.
+$maxClusterStabilizationTimeSecs = 30
+
+# MaxConcurrentFaults is the maximum number of concurrent faults induced per iteration. 
+# Chaos executes in iterations and two consecutive iterations are separated by a validation phase. 
+# The higher the concurrency, the more aggressive the injection of faults -- inducing more complex series of states to uncover bugs. 
+# The recommendation is to start with a value of 2 or 3 and to exercise caution while moving up.
+$maxConcurrentFaults = 3
+
+# Time-separation (in seconds) between two consecutive iterations of Chaos. The larger the value, the lower the fault injection rate.
+$waitTimeBetweenIterationsSec = 10
+
+# Wait time (in seconds) between consecutive faults within a single iteration. 
+# The larger the value, the lower the overlapping between faults and the simpler the sequence of state transitions that the cluster goes through. 
+# The recommendation is to start with a value between 1 and 5 and exercise caution while moving up.
+$waitTimeBetweenFaultsSec = 0
+
+# Passed-in cluster health policy is used to validate health of the cluster in between Chaos iterations. 
+$clusterHealthPolicy = new-object -TypeName System.Fabric.Health.ClusterHealthPolicy
+$clusterHealthPolicy.MaxPercentUnhealthyNodes = 100
+$clusterHealthPolicy.MaxPercentUnhealthyApplications = 100
+$clusterHealthPolicy.ConsiderWarningAsError = $False
+
+# Describes a map, which is a collection of (string, string) type key-value pairs. The map can be used to record information about
+# the Chaos run. There cannot be more than 100 such pairs and each string (key or value) can be at most 4095 characters long.
+# This map is set by the starter of the Chaos run to optionally store the context about the specific run.
+$context = @{"ReasonForStart" = "Testing"}
+
+#List of cluster entities to target for Chaos faults.
+$chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.ChaosTargetFilter
+$chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
+
+# All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
+# for nodes of type 'FrontEndType'
+$chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
+$chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
+
+# In addition to the faults included by nodetypeInclusionList, 
+# restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
+# even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+$chaosTargetFilter.ApplicationInclusionList.Add("fabric:/TestApp2")
+
+Connect-ServiceFabricCluster $clusterConnectionString
 
 $events = @{}
 $now = [System.DateTime]::UtcNow
 
-Start-ServiceFabricChaos -TimeToRunMinute $timeToRun -MaxConcurrentFaults $concurrentFaults -MaxClusterStabilizationTimeoutSec $maxStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec
+Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy -ChaosTargetFilter $chaosTargetFilter
 
 while($true)
 {
@@ -182,23 +306,18 @@ while($true)
             }
             else
             {
+                Write-Host $e
+                # When Chaos stops, a StoppedEvent is created.
+                # If a StoppedEvent is found, exit the loop.
                 if($e -is [System.Fabric.Chaos.DataStructures.StoppedEvent])
                 {
-                    $stopped = $true
+                    return
                 }
-
-                Write-Host $e
             }
         }
     }
 
-    if($stopped -eq $true)
-    {
-        break
-    }
-
     Start-Sleep -Seconds 1
 }
-
-Stop-ServiceFabricChaos
 ```
+git 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory и Многофакторная идентификация. Защита персональных данных с помощью управления удостоверениями и доступом
 
@@ -113,7 +113,7 @@ Microsoft Azure предоставляет средства управления
 
 Инструкции по управлению RBAC Azure с помощью PowerShell см. в статье [Управление доступом на основе ролей с помощью Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
 
-### <a name="azure-multi-factor-authentication"></a>Многофакторная идентификация Microsoft Azure;
+### <a name="azure-multi-factor-authentication"></a>Многофакторная идентификация Azure
 
 [Многофакторная идентификация Azure](https://docs.microsoft.com/azure/multi-factor-authentication/) (MFA) — это двухфакторная проверка подлинности, которая помогает защитить доступ к данным и приложениям, не усложняя при этом процесс входа пользователя в систему. Служба обеспечивает строгую аутентификацию с помощью различных способов проверки — телефонного звонка, текстового сообщения или проверки в мобильном приложении.
 
@@ -121,23 +121,23 @@ Microsoft Azure предоставляет средства управления
 
 #### <a name="how-do-i-enable-azure-to-use-mfa"></a>Использование Многофакторной идентификации в Azure
 
-При наличии у пользователей лицензий, которые предусматривают использование Многофакторной идентификации в Azure, вам не нужно включать Azure MFA. В противном случае необходимо создавать поставщика Многофакторной идентификации в каталоге. Для этого выполните следующие действия.
+Если у пользователей есть лицензии, позволяющие работать с Многофакторной идентификацией Azure, вам нужно только настроить Azure MFA для группы пользователей или каждого пользователя отдельно. 
 
-1. Войдите на классический портал Azure как администратор и выберите **Active Directory**.
+![Пользователи, для которых настроена Многофакторная идентификация](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-2. Выберите **поставщиков Многофакторной идентификации**.
+Если у вас нет лицензий, вам нужно определить наиболее подходящий тип развертывания. Рекомендуем сначала прочесть статью, посвященную [теме выбора решения Многофакторной идентификации Azure](../multi-factor-authentication/multi-factor-authentication-get-started.md). Если вы решили, что вам нужен сервер Многофакторной идентификации, выполните такие действия:
 
-3. Выберите **Создать**, а затем в разделе **Службы приложений** щелкните **Поставщик многофакторной проверки подлинности**.
+1. Войдите на портал Azure как администратор и выберите **Active Directory**.
 
-4. Выберите **Быстрое создание**.
+2. Выберите **Сервер MFA**.
 
-5. Заполните поле "Имя" и выберите модель использования (для аутентификации или включенного пользователя).
+3. Укажите время ожидания. 
 
-6. Назначьте каталог, с которым связан поставщик MFA.
+    ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-7. Нажмите кнопку **Создать** .
+4. Нажмите кнопку **Сохранить**
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+В этом же окне можно скачать сервер Многофакторной идентификации. Дополнительные сведения о том, как выбрать размер и спланировать развертывание, см. в статье [Приступая к работе с сервером Многофакторной идентификации Azure](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
 Дополнительные сведения об управлении поставщиком Многофакторной идентификации см. в статье [Начало работы с поставщиком Azure Multi Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider).
 
@@ -158,7 +158,7 @@ Microsoft Azure предоставляет средства управления
 5. Установите флажок рядом с именем пользователя.
 6. Справа, в разделе быстрых действий, щелкните **Включить**.
 
-   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/mfa-bulk.png)
 
 7. Подтвердите свой выбор во всплывающем окне, которое откроется.  Пользователям, для которых включена MFA, будет предложено зарегистрироваться при очередном входе.
 

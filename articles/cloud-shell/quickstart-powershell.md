@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: fd1d340bc0408eaeb0b7b18235df109224eae5f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Краткое руководство по использованию PowerShell в Azure Cloud Shell
+# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Краткое руководство по использованию PowerShell в Azure Cloud Shell (предварительная версия)
 
 В этом документе объясняется, как использовать PowerShell в Cloud Shell на [портале Azure](https://aka.ms/PSCloudPreview).
 
@@ -227,7 +227,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 ### <a name="discover-webapps"></a>Обнаружение веб-приложений
 
-Войдя в папку `WebApps`, можно легко перейти к своим ресурсам хранилища.
+Войдите в папку `WebApps`, чтобы перейти к ресурсам своих веб-приложений.
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -243,15 +243,15 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 
 
-# You can use Azure cmdlets to Start/Stop your web apps for example,
+# You can use Azure cmdlets to Start/Stop your web apps
 PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
 
 Name           State    ResourceGroup        EnabledHostNames                   Location
 ----           -----    -------------        ----------------                   --------
 mywebapp1      Running  MyResourceGroup1     {mywebapp1.azurewebsites.net ...   West US
 
-# Refresh the current state with -force
-PS Azure:\MySubscriptionName\WebApps> dir -force
+# Refresh the current state with -Force
+PS Azure:\MySubscriptionName\WebApps> dir -Force
 
     Directory: Azure:\MySubscriptionName\WebApps
 
@@ -282,7 +282,7 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 PS Azure:\> Get-Help
 ```
 
-Чтобы получить справку по определенному командлету, можно ввести Get-Help и этот командлет, как показано ниже.
+Чтобы получить справку по определенному командлету, введите Get-Help и этот командлет.
 
 ``` Powershell
 PS Azure:\> Get-Help Get-AzureRmVM
@@ -290,7 +290,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## <a name="use-azure-file-storage-to-store-your-data"></a>Использование хранилищя файлов Azure для хранения данных
 
-Можно создать сценарий, например `helloworld.ps1`, и сохранить его на облачном диске, чтобы использовать во всех сеансах оболочки.
+Создайте скрипт, например `helloworld.ps1`, и сохраните его на диске `CloudDrive`, чтобы использовать во всех сеансах оболочки.
 
 ``` Powershell
 cd C:\users\ContainerAdministrator\CloudDrive
@@ -310,13 +310,13 @@ Hello World!
 
 ## <a name="use-git"></a>Использование Git
 
-Чтобы клонировать репозиторий Git в Cloud Shell, необходимо создать [личный маркер доступа][githubtoken] и использовать его в качестве имени пользователя. Создав маркер, клонируйте репозиторий, как показано ниже.
+Чтобы клонировать репозиторий Git в Cloud Shell, создайте [личный маркер доступа][githubtoken] и используйте его в качестве имени пользователя. Создав маркер, клонируйте репозиторий, как показано ниже.
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-Так как сеансы в Cloud Shell не сохраняются после выхода из системы или истечения срока действия сеанса, при следующем входе в систему файл конфигурации Git будет отсутствовать. Чтобы сохранить конфигурацию Git, необходимо сохранить GITCONFIG-файл для `CloudDrive` и скопировать его или создать символьную ссылку на него при запуске `CloudShell`. Создайте символьную ссылку на `CloudDrive`, добавив следующий фрагмент кода в файл profile.ps1.
+Так как сеансы в Cloud Shell не сохраняются после выхода из системы или истечения срока действия сеанса, при следующем входе в систему файл конфигурации Git будет отсутствовать. Чтобы сохранить конфигурацию Git, необходимо сохранить GITCONFIG-файл на диске `CloudDrive` и скопировать его или создать символьную ссылку на него при запуске Cloud Shell. Создайте символьную ссылку на `CloudDrive`, добавив следующий фрагмент кода в файл profile.ps1.
 
  ``` PowerShell
  

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a13a5777161ab18840501d7d7e1d52192c22315
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Пакет SDK Node.js для Azure Cosmos DB: заметки о выпуске и ресурсы
 > [!div class="op_single_selector"]
@@ -60,6 +60,14 @@ ms.lasthandoff: 10/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="1.14.0"/>1.14.0</a>
+* Добавлена поддержка согласованности сеанса.
+* Для этой версии пакета SDK требуется последняя версия эмулятора Azure Cosmos DB. Ее можно скачать по адресу https://aka.ms/cosmosdb-emulator.
+
+### <a name="1.13.0"/>1.13.0</a>
+* Поддерживаются запросы splitproofed между секциями.
+* Добавлена поддержка ссылок на ресурсы, которые начинаются или заканчиваются знаком косой черты (и соответствующие тесты).
 
 ### <a name="1.12.2"/>1.12.2</a>
 *   Исправлена документация npm.
@@ -177,6 +185,8 @@ ms.lasthandoff: 10/11/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.14.0](#1.14.0) |9 ноября 2017 г. |--- |
+| [1.13.0](#1.13.0) |11 октября 2017 г. |--- |
 | [1.12.2](#1.12.2) |10 августа 2017 г. |--- |
 | [1.12.1](#1.12.1) |10 августа 2017 г. |--- |
 | [1.12.0](#1.12.0) |10 мая 2017 г. |--- |

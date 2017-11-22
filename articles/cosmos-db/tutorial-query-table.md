@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Запрос табличных данных в базе данных Azure Cosmos DB с помощью API таблицы (предварительная версия)
+# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>База данных Azure Cosmos DB. Запрос табличных данных с помощью API таблицы
 
-[API таблицы](table-introduction.md) (предварительная версия) в базе данных Azure Cosmos DB поддерживает OData и запросы [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) к данным "ключ — значение" (таблицы).  
+[API таблицы](table-introduction.md) в службе Azure Cosmos DB поддерживает OData и запросы [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) к данным "ключ — значение" (таблицы).  
 
 В этой статье рассматриваются следующие задачи: 
 
@@ -38,13 +38,13 @@ ms.lasthandoff: 10/11/2017
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Так как база данных Azure Cosmos DB совместима с API хранилища таблиц Azure, сведения о запросе с помощью API таблицы см. в [этой статье] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities). 
+Дополнительные сведения о запросах к таблицам и сущностям с помощью API таблицы см. в [этой статье] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities). 
 
-Дополнительные сведения о расширенных возможностях, предлагаемых базой данных Azure Cosmos DB, см. в статьях [Введение в базу данных Azure Cosmos DB: API таблицы](table-introduction.md) и [Разработка с помощью API таблицы на .NET в базе данных Azure Cosmos DB](tutorial-develop-table-dotnet.md). 
+Дополнительные сведения о расширенных возможностях, предлагаемых базой данных Azure Cosmos DB, см. в статьях [Знакомство со службой Azure Cosmos DB. API таблицы](table-introduction.md) и [Разработка с помощью API таблицы базы данных Azure Cosmos DB на языке .NET](tutorial-develop-table-dotnet.md). 
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Чтобы эти запросы работали, у вас должна быть учетная запись базы данных Azure Cosmos DB и данные сущности в контейнере. У вас их нет? Выполните процедуры [краткого руководства](https://aka.ms/acdbtnetqs) или [руководства разработчика](https://aka.ms/acdbtabletut), чтобы создать учетную запись и заполнить базу данных.
+Чтобы эти запросы работали, у вас должна быть учетная запись базы данных Azure Cosmos DB и данные сущности в контейнере. У вас их нет? Выполните процедуры [краткого руководства](create-table-dotnet.md) или [руководства разработчика](tutorial-develop-table-dotnet.md), чтобы создать учетную запись и заполнить базу данных.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Запросы PartitionKey и RowKey
 Так как свойства PartitionKey и RowKey образуют первичный ключ сущности, вы можете использовать специальный синтаксис, чтобы идентифицировать сущность: 
@@ -109,9 +109,9 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 В этом руководстве вы выполнили следующее:
 
 > [!div class="checklist"]
-> * Научились запрашивать данные таблиц в базе данных Azure Cosmos с помощью API таблицы (предварительная версия). 
+> * Научились выполнять запросы с помощью API таблицы
 
 Теперь вы можете приступать к следующему руководству, чтобы узнать, как глобально распределять данные.
 
 > [!div class="nextstepaction"]
-> [Глобальное распределение данных](tutorial-global-distribution-documentdb.md)
+> [Глобальное распределение данных](tutorial-global-distribution-table.md)
