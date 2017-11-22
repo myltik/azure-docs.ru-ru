@@ -378,6 +378,8 @@
               href: saas-multitenantdb-adhoc-reporting.md
             - name: Управление схемой для нескольких клиентов
               href: saas-multitenantdb-schema-management.md
+            - name: 'Извлечение, преобразование и загрузка для анализа'
+              href: saas-multitenantdb-tenant-analytics.md
     - name: Разработка приложений
       items:
         - name: C и C++

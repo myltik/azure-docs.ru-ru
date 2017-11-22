@@ -49,7 +49,7 @@ sections:
         style: unordered
         items:
           - html: <a href="service-fabric-tutorial-create-dotnet-app">Развертывание приложения .NET</a>
-          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Контейнеризация существующего приложения .NET</a>
+          - html: <a href="service-fabric-host-app-in-a-container">Контейнеризация существующего приложения .NET</a>
           - html: <a href="service-fabric-tutorial-create-container-images">Создание приложения-контейнера Linux</a>
           - html: Создание кластера <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> или <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a> и управление им
   - title: Бесплатные видеоуроки PluralSight
