@@ -1,6 +1,6 @@
 ---
-title: "Обеспечение высокого уровня доступности экземпляра SAP (A)SCS с несколькими ИД безопасности с помощью отказоустойчивой кластеризации Windows Server и файлового ресурса в Azure | Документация Майкрософт"
-description: "Обеспечение высокого уровня доступности экземпляра SAP (A)SCS с несколькими ИД безопасности с помощью отказоустойчивой кластеризации Windows Server и файлового ресурса в Azure"
+title: "Обеспечение высокого уровня доступности экземпляра SAP ASCS/SCS с несколькими ИД безопасности с помощью отказоустойчивой кластеризации Windows Server и файлового ресурса в Azure | Документация Майкрософт"
+description: "Обеспечение высокого уровня доступности экземпляра SAP ASCS/SCS с несколькими ИД безопасности с помощью отказоустойчивой кластеризации Windows Server и файлового ресурса в Azure"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f0beae1c92c40bb89decc6ca567aed98c5e29b4
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3522e7ef0e3d49ce1bd8bed750b239fa384af8b8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/14/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -193,127 +193,127 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-# <a name="sap-ascs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Обеспечение высокого уровня доступности экземпляра SAP (A)SCS с несколькими ИД безопасности с помощью отказоустойчивой кластеризации Windows Server и файлового ресурса в Azure
+# <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Обеспечение высокого уровня доступности экземпляра ASCS/SCS с несколькими ИД безопасности с помощью отказоустойчивой кластеризации Windows Server и файлового ресурса в Azure
 
 > ![Windows][Logo_Windows] Windows
 >
 
 В сентябре 2016 г. корпорация Майкрософт выпустила функцию, которая дает возможность управлять несколькими виртуальными IP-адресами с помощью [внутренней подсистемы балансировки нагрузки Azure][load-balancer-multivip-overview]. Эта функция уже существует во внешней подсистеме балансировки нагрузки Azure.
 
-При наличии развертывания SAP внутреннюю подсистему балансировки нагрузки можно использовать для создания конфигурации кластера Windows для SAP ASCS/SCS.
+Если у вас есть развертывание SAP, для создания конфигурации кластера Windows для экземпляров SAP Central Services (ASCS/SCS) можно использовать внутреннюю подсистему балансировки нагрузки.
 
 В этой статье основное внимание уделяется переходу от отдельной установки ASCS/SCS к конфигурации SAP с несколькими ИД безопасности с помощью установки дополнительных кластеризованных экземпляров SAP ASCS/SCS в существующем отказоустойчивом кластере Windows Server (WSFC) с **файловым ресурсом**. Выполнив эти действия, вы настроите кластер SAP с несколькими ИД безопасности.
 
 > [!NOTE]
 >
-> Эта функция доступна только в модели развертывания с помощью **Azure Resource Manager**.
+> Эта функция доступна только в модели развертывания с помощью Azure Resource Manager.
 >
 >Существует ограничение для числа частных внешних IP-адресов на одну внутреннюю подсистему балансировки нагрузки Azure.
 >
 >Максимальное количество экземпляров SAP ASCS/SCS в одном кластере WSFC равно максимальному количеству частных внешних IP-адресов на одну внутреннюю подсистему балансировки нагрузки Azure.
 >
 
-Дополнительные сведения об ограничениях подсистемы балансировки нагрузки см. в пункте "Частный внешний IP-адрес на балансировщик нагрузки" раздела [Ограничения сети — Azure Resource Manager][networking-limits-azure-resource-manager].
+Дополнительные сведения об ограничениях подсистемы балансировки нагрузки см. в разделе [Ограничения сети — Azure Resource Manager][networking-limits-azure-resource-manager].
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Вы уже настроили кластер WSFC, который используется для **одного** экземпляра SAP ASCS/SCS, с помощью **файлового ресурса**, как показано на этой схеме.
+Вы уже настроили кластер WSFC, который используется для одного экземпляра SAP ASCS/SCS, с помощью **файлового ресурса**, как показано на этой схеме.
 
-![Рис. 1. Экземпляр SAP (A)SCS и SOFS, развернутые в двух кластерах][sap-ha-guide-figure-8007]
+![Рис. 1. Экземпляр SAP ASCS/SCS и SOFS, развернутые в двух кластерах][sap-ha-guide-figure-8007]
 
-_**Рис. 1.** Экземпляр SAP (A)SCS и SOFS, развернутые в двух кластерах_
+_**Рис. 1.** Экземпляр SAP ASCS/SCS и SOFS, развернутые в двух кластерах_
 
 > [!IMPORTANT]
 > Установка должна соответствовать двум таким условиям:
 > * Экземпляры SAP ASCS/SCS должны совместно использовать один кластер WSFC.
-> * Для каждого ИД безопасности СУБД должен быть выделен кластер WSFC.
+> * Для каждого идентификатора безопасности системы управления базами данных (СУБД) должен быть выделен кластер WSFC.
 > * Серверы приложений SAP, связанные с одним ИД безопасности системы SAP, должны размещаться на выделенных виртуальных машинах.
 
-## <a name="sap-ascs-multi-sid-architecture-with-file-share"></a>Архитектура с несколькими идентификаторами безопасности SAP (A)SCS с файловым ресурсом
+## <a name="sap-ascsscs-multi-sid-architecture-with-file-share"></a>Архитектура SAP ASCS/SCS с несколькими идентификаторами безопасности и файловым ресурсом
 
-Цель описанных здесь действий — установить несколько кластеризованных экземпляров SAP ABAP ASCS или SAP Java SCS в одном кластере WSFC, как показано на этой схеме:
+Здесь описано, как установить несколько кластеризованных экземпляров SAP Advanced Business Application Programming (ASCS) или SAP Java (SCS) в одном кластере WSFC, как показано на этой схеме: 
 
-![Рис. 2. Конфигурация с несколькими идентификаторами безопасности SAP в двух кластерах][sap-ha-guide-figure-8008]
+![Рис. 2. Конфигурация SAP с несколькими идентификаторами безопасности в двух кластерах][sap-ha-guide-figure-8008]
 
-_**Рис. 2.** Конфигурация с несколькими идентификаторами безопасности SAP в двух кластерах_
+_**Рис. 2.** Конфигурация SAP с несколькими идентификаторами безопасности в двух кластерах_
 
-Установка дополнительной системы SAP**&lt;SID2&gt;** идентична установке одной системы <SID>. Необходимо выполнить два дополнительных этапа подготовки в кластере (A)SCS, а также в кластере SOFS файлового ресурса.
+Установка дополнительной системы **SAP\<SID2>** идентична установке одной системы <SID>. Необходимо выполнить два дополнительных этапа подготовки в кластере ASCS/SCS и в кластере SOFS файлового ресурса.
 
-## <a name="infrastructure-preparation-for-sap-multi-sid-scenario"></a>Подготовка инфраструктуры для сценария с несколькими идентификаторами безопасности SAP
+## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Подготовка инфраструктуры для сценария SAP с несколькими ИД безопасности
 
-### <a name="infrastructure-preparation-on-domain-controller"></a>Подготовка инфраструктуры на контроллере домена
+### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>Подготовка инфраструктуры на контроллере домена
 
-Создайте группу домена **&lt;Домен&gt;\SAP_&lt;SID2&gt;_GlobalAdmin**, например, с &lt;SID2&gt; = PR2. Имя группы домена — <Domain>\SAP_PR2_GlobalAdmin.
+Создайте группу домена **\<Домен>\SAP_\<SID2>_GlobalAdmin**, например, с \<SID2> = PR2. Имя группы домена — \<Домен>\SAP_PR2_GlobalAdmin.
 
-### <a name="infrastructure-preparation-on-ascs-cluster"></a>Подготовка инфраструктуры в кластере (A)SCS
+### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>Подготовка инфраструктуры в кластере ASCS/SCS
 
-Необходимо подготовить инфраструктуру в существующем кластере (A)SCS для второго &lt;ИД безопасности&gt; SAP:
+Необходимо подготовить инфраструктуру в существующем кластере ASCS/SCS для второго \<ИД безопасности> SAP:
 
-* Создание имени виртуального узла для кластеризованного экземпляра SAP ASCS/SCS на DNS-сервере
-* Добавление IP-адреса в существующую внутреннюю подсистему балансировки нагрузки Azure с помощью PowerShell
+* Создайте на DNS-сервере имя виртуального узла для кластеризованного экземпляра SAP ASCS/SCS.
+* С помощью PowerShell добавьте IP-адрес в существующую внутреннюю подсистему балансировки нагрузки Azure.
 
-Дополнительные сведения см. в разделе [Подготовка инфраструктуры для сценария с несколькими идентификаторами безопасности SAP][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare].
+Дополнительные сведения см. в статье [о подготовке инфраструктуры для сценария SAP с несколькими идентификаторами безопасности][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare].
 
 
-### <a name="infrastructure-preparation-on-sofs-cluster-using-existing-sap-global-host"></a>Подготовка инфраструктуры в кластере SOFS с помощью существующего глобального узла SAP
+### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Подготовка инфраструктуры в кластере SOFS с использованием существующего глобального узла SAP
 
-Вы можете повторно использовать существующий **&lt;SAPGLOBALHost&gt;** и **Volume1** первой системы SAP <SID1>.
+Вы можете использовать узел \<SAPGLOBALHost> и Volume1, созданные для первой системы SAP <SID1>.
 
-![Рис. 3. SOFS с несколькими ИД безопасности с аналогичным именем глобального узла SAP][sap-ha-guide-figure-8014]
+![Рис. 3. SOFS с несколькими ИД безопасности размещается на глобальном узле SAP][sap-ha-guide-figure-8014]
 
-_**Рис. 3.** SOFS с несколькими ИД безопасности с аналогичным именем глобального узла SAP_
+_**Рис. 3.** SOFS с несколькими ИД безопасности размещается на глобальном узле SAP_
 
 > [!IMPORTANT]
->Для второй системы **SAP&lt;SID2&gt;** используются аналогичное имя сети **&lt;SAPGlobalHost&gt;** и Volume1.
->Если необходимо повторно воспользоваться тем же именем сети **&lt;SAPGlobalHost&gt;**, так как у нас есть фиксированное имя общего ресурса **SAPMNT** для разных систем SAP, мы вынуждены использовать тот же **Volume1**.
+>Для второй системы **SAP\<SID2>** используются тот же Volume1 и то же имя сети **\<SAPGlobalHost>**.
+>Поскольку вы уже задали имя общего ресурса **SAPMNT** для систем SAP, снова использовать сетевое имя **\<SAPGlobalHost >** вы можете только в сочетании с тем же **Volume1**.
 >
->Путь к файлу глобального узла <SID2>: C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\
+>На глобальном узле <SID2> используется такой путь к файлу: C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\.
 >
 
-Необходимо подготовить папку глобального узла SAP **...\SYS\..** в кластере SOFS для системы &lt;SID2&gt;.
+Для системы \<SID2> следует подготовить папку ..\SYS\. на глобальном узле SAP в кластере SOFS.
 
-Выполните следующий скрипт PowerShell для подготовки глобального узла SAP для экземпляра &lt;SID2&gt;:
+Выполните следующий скрипт PowerShell, чтобы подготовить глобальный узел SAP для экземпляра \<SID2>.
 
 
 ```PowerShell
 ##################
-# SAP Multi-SID
+# SAP multi-SID
 ##################
 
 $SAPSID2 = "PR2"
 $DomainName2 = "SAPCLUSTER"
 $SAPSIDGlobalAdminGroupName2 = "$DomainName2\SAP_" + $SAPSID2 + "_GlobalAdmin"
 
-# SAP (A)SCS cluster nodes
+# SAP ASCS/SCS cluster nodes
 $ASCSCluster2Node1 = "ja1-ascs-0"
 $ASCSCluster2Node2 = "ja1-ascs-1"
 
-# Define SAP (A)SCS cluster node computer objects
+# Define the SAP ASCS/SCS cluster node computer objects
 $ASCSCluster2ObjectNode1 = "$DomainName2\$ASCSCluster2Node1$"
 $ASCSCluster2ObjectNode2 = "$DomainName2\$ASCSCluster2Node2$"
 
 # Create usr\sap\.. folders on CSV
 $SAPGlobalFolder2 = "C:\ClusterStorage\Volume1\usr\sap\$SAPSID2\SYS"
-New-Item -Path $SAPGlobalFOlder2 -ItemType Directory
+New-Item -Path $SAPGlobalFolder2 -ItemType Directory
 
-# Add permissions for SAP SID2 system
+# Add permissions for the SAP SID2 system
 Grant-SmbShareAccess -Name sapmnt -AccountName $SAPSIDGlobalAdminGroupName2, $ASCSCluster2ObjectNode1, $ASCSCluster2ObjectNode2 -AccessRight Full -Force
 
 
 $UsrSAPFolder = "C:\ClusterStorage\Volume1\usr\sap\"
 
-# Set files & folder security
+# Set file and folder security
 $Acl = Get-Acl $UsrSAPFolder
 
-# Add security object of SAP_<sid>_GlobalAdmin group
+# Add the security object of the SAP_<sid>_GlobalAdmin group
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($SAPSIDGlobalAdminGroupName2,"FullControl", 'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode1$ computer object
+# Add the security object of the clusternode1$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSCluster2ObjectNode1,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode2$ computer object
+# Add the security object of the clusternode2$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSCluster2ObjectNode2,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
@@ -321,15 +321,15 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-### <a name="infrastructure-preparation-on-sofs-cluster-using-different-sap-global-host"></a>Подготовка инфраструктуры в кластере SOFS с помощью другого глобального узла SAP
+### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>Подготовка инфраструктуры в кластере SOFS с использованием другого глобального узла SAP
 
-Можно настроить второй SOFS, например вторую роль кластера SOFS с **&lt;SAPGlobalHost2&gt;** и другим томом **Voulme2** для второго **&lt;SID2&gt;**.
+Вы можете настроить второй SOFS для второго **\<SID2**, например вторую роль кластера SOFS с другим узлом **\<SAPGlobalHost2>** и другим томом **Volume2**.
 
-![Рис. 4. SOFS с несколькими ИД безопасности с аналогичным именем глобального узла SAP 2][sap-ha-guide-figure-8015]
+![Рис. 4. SOFS с несколькими ИД безопасности размещается на глобальном узле SAP 2][sap-ha-guide-figure-8015]
 
-_**Рис. 4.** SOFS с несколькими ИД безопасности с аналогичным именем глобального узла SAP 2_
+_**Рис. 4.** SOFS с несколькими ИД безопасности размещается на глобальном узле SAP 2_
 
-Выполните этот скрипт PowerShell для создания второй роли SOFS с именем &lt;SAPGlobalHost2&gt;:
+Выполните этот скрипт PowerShell, чтобы создать вторую роль SOFS с именем \<SAPGlobalHost2>.
 
 ```PowerShell
 # Create SOFS with SAP Global Host Name 2
@@ -343,25 +343,25 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Рис. 5. SOFS с несколькими ИД безопасности с аналогичным именем глобального узла SAP 2][sap-ha-guide-figure-8016]
+![Рис. 5. SOFS с несколькими ИД безопасности размещается на глобальном узле SAP 2][sap-ha-guide-figure-8016]
 
-_**Рис 5.** Второй **Volume2** в диспетчере отказоустойчивости кластеров_
+_**Рис 5.** Второй том Volume2 в диспетчере отказоустойчивости кластеров_
 
-Создайте глобальную папку SAP для второго **&lt;SID2&gt;** и установите параметры безопасности для файла.
+Создайте глобальную папку SAP для второго \<SID2> и установите для файлов параметры безопасности.
 
 Выполните следующий скрипт PowerShell:
 
 ```PowerShell
-# Create folder for <SID2> on second Volume2 and set file security
+# Create a folder for <SID2> on a second Volume2 and set file security
 $SAPSID = "PR2"
 $DomainName = "SAPCLUSTER"
 $SAPSIDGlobalAdminGroupName = "$DomainName\SAP_" + $SAPSID + "_GlobalAdmin"
 
-# SAP (A)SCS cluster nodes
+# SAP ASCS/SCS cluster nodes
 $ASCSClusterNode1 = "ascs-1"
 $ASCSClusterNode2 = "ascs-2"
 
-# Define SAP (A)SCS cluster node computer objects
+# Define SAP ASCS/SCS cluster node computer objects
 $ASCSClusterObjectNode1 = "$DomainName\$ASCSClusterNode1$"
 $ASCSClusterObjectNode2 = "$DomainName\$ASCSClusterNode2$"
 
@@ -371,18 +371,18 @@ New-Item -Path $SAPGlobalFOlder -ItemType Directory
 
 $UsrSAPFolder = "C:\ClusterStorage\Volume2\usr\sap\"
 
-# Set files & folder security
+# Set file and folder security
 $Acl = Get-Acl $UsrSAPFolder
 
-# Add file security object of SAP_<sid>_GlobalAdmin group
+# Add the file security object of the SAP_<sid>_GlobalAdmin group
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($SAPSIDGlobalAdminGroupName,"FullControl", 'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode1$ computer object
+# Add the security object of the clusternode1$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode1,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode2$ computer object
+# Add the security object of the clusternode2$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode2,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
@@ -390,61 +390,66 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-Чтобы создать общий файловый ресурс SAPMNT в **Volume2** с именем узла **&lt;SAPGlobalHost2&gt;**, для второго SAP **&lt;SID2&gt;** запустите следующий мастер в диспетчере отказоустойчивости кластеров.
+Чтобы создать в томе Volume2 общий файловый ресурс SAPMNT с именем узла *\<SAPGlobalHost2>* для второго SAP \<SID2>, запустите **мастер добавления файлового ресурса** в диспетчере отказоустойчивости кластеров.
 
-Щелкните правой кнопкой мыши группу кластеров SOFS saoglobal2 и выберите "Добавить файловый ресурс".
+Щелкните правой кнопкой мыши группу кластеров SOFS **saoglobal2** и выберите действие **Добавить файловый ресурс**.
 
-![Рис. 6. Добавление файлового ресурса в мастере][sap-ha-guide-figure-8017]
+![Рис. 6. Запуск мастера добавления файлового ресурса][sap-ha-guide-figure-8017]
 
 _**Рис. 6.** Добавление файлового ресурса в мастере_
 
-![Рис 7. Выбор "Общий ресурс SMB — быстрый профиль"][sap-ha-guide-figure-8018]
+<br>
+![Рис 7. "Общий ресурс SMB — быстрый профиль"][sap-ha-guide-figure-8018]
 
-_**Рис 7.** Выбор "Общий ресурс SMB — быстрый профиль"_
+_**Рис 7.** "Общий ресурс SMB — быстрый профиль"_
 
-![Рис 8. Выбор sapglobalhost2 и указание пути на Volume2][sap-ha-guide-figure-8019]
+<br>
+![Рис 8. Выбор "sapglobalhost2" и указание пути на Volume2][sap-ha-guide-figure-8019]
 
-_**Рис 8.** Выбор **sapglobalhost2** и указание пути на Volume2_
+_**Рис 8.** Выбор "sapglobalhost2" и указание пути на Volume2_
 
+<br>
+![Рис 9. Указание имени "sapmnt" для файлового ресурса][sap-ha-guide-figure-8020]
 
-![Рис 9. Указание имени файлового ресурса для sapmnt][sap-ha-guide-figure-8020]
+_**Рис 9.** Указание имени "sapmnt" для файлового ресурса_
 
-_**Рис 9.** Указание имени файлового ресурса для **sapmnt**_
-
+<br>
 ![Рис. 10. Отключение всех параметров][sap-ha-guide-figure-8021]
 
 _**Рис. 10.** Отключение всех параметров_
 
-Установите параметр "Полный доступ" для файлов и ресурса sapmnt:
-* Группа пользователей домена **SAP_&lt;SID&gt;_GlobalAdmin**.
-* Объект-компьютер для узлов кластера (A)SCS **ascs-1$** и **ascs-2$**.
+<br>
+Предоставьте разрешения *Полный доступ* на файлы и ресурс sapmnt для следующих пользователей.
+* Группа пользователей домена **SAP_\<SID>_GlobalAdmin**.
+* Объект-компьютер для узлов кластера ASCS/SCS **ascs-1$** и **ascs-2$**.
 
-![Рис. 11. Установка полного доступа для учетных записей группы пользователей и компьютера][sap-ha-guide-figure-8022]
+![Рис. 11. Разрешения на полный доступ для учетных записей группы пользователей и компьютера][sap-ha-guide-figure-8022]
 
-_**Рис. 11.** Установка полного доступа для учетных записей группы пользователей и компьютера_
+_**Рис. 11**. Предоставление полного доступа для учетных записей группы пользователей и компьютера_
 
-![Рис. 12. Нажатие кнопки "Создать"][sap-ha-guide-figure-8023]
+<br>
+![Рис. 12. Выберите "Создать"][sap-ha-guide-figure-8023]
 
-_**Рис. 12.** Нажатие кнопки "Создать"_
+_**Рис. 12.** Выберите "Создать"_
 
+<br>
 ![Рис. 13. Привязка второго sapmnt к узлу sapglobal2 и создание Volume2][sap-ha-guide-figure-8024]
 
-_**Рис. 13.** Привязка **второго sapmnt** к узлу **sapglobal2** и создание **Volume2**_
+_**Рис. 13.** Привязка второго sapmnt к узлу sapglobal2 и создание Volume2_
 
-## <a name="sap-netweaver-multi-sid-installation"></a>Установка SAP NetWeaver с несколькими ИД безопасности
+<br>
+## <a name="install-sap-netweaver-multi-sid"></a>Установка SAP NetWeaver с несколькими ИД безопасности
 
-### <a name="sap-ltsid2gt-ascs-and-ers-instances-installation"></a>SAP &lt;SID2&gt; (A)SCS и установка экземпляров ERS
+### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>Установка SAP \<SID2>ASCS/SCS и экземпляров ERS
 
-Выполните те же шаги установки и настройки, как описано для одного &lt;SID&gt; SAP.
+Выполните те же шаги установки и настройки, как описано выше для SAP \< с одним ИД безопасности.
 
 ### <a name="install-dbms-and-sap-application-servers"></a>Установка СУБД и серверов приложений SAP
 Установите СУБД и серверы приложений SAP, как описано выше.
 
-
-
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Официальные рекомендации SAP для файлового ресурса высокой доступности: [Installation of an (A)SCS Instance on a Failover Cluster with no Shared Disks][sap-official-ha-file-share-document] (Установка экземпляра (A)SCS в отказоустойчивом кластере без использования общих дисков)
+* Официальные рекомендации SAP для файлового ресурса высокой доступности: [Installation of an ASCS/SCS Instance on a Failover Cluster with no Shared Disks][sap-official-ha-file-share-document] (Установка экземпляра ASCS/SCS в отказоустойчивом кластере без использования общих дисков)
 
 * [Локальные дисковые пространства в Windows Server 2016][s2d-in-win-2016]
 
