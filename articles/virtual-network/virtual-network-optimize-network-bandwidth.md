@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: d77440fe62bbd0e720e5ae60b15574dacc4180c0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Оптимизации пропускной способности сети для виртуальной машины Azure
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/15/2017
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : False
+    Enabled                 : False
     ```
 2. Выполните следующую команду, чтобы включить RSS:
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/15/2017
 3. Убедитесь, что функция RSS включена на виртуальной машине. Для этого еще раз выполните команду `Get-NetAdapterRss`. При успешном выполнении возвращается следующий результат:
 
     ```powershell
-    Name                    :Ethernet
+    Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled              : True
     ```
@@ -55,26 +55,35 @@ ms.lasthandoff: 11/15/2017
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu для новых развертываний
 
-Чтобы получить параметры оптимизации, сначала установите последнюю поддерживаемую версию 16.04-LTS, например:
+Ядро Ubuntu Azure обеспечивает самую высокую производительность сети в Azure. С 21 сентября 2017 г. оно используется по умолчанию. Чтобы получить это ядро, сначала установите последнюю поддерживаемую версию 16.04-LTS, как описано ниже:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
-Завершив обновление, выполните следующие команды, чтобы получить последнюю версию ядра:
+Затем выполните следующие команды, чтобы получить последние обновления. Эти шаги также применимы к виртуальным машинам, которые сейчас выполняются на базе ядра Ubuntu Azure.
 
 ```bash
+#run as root or preface with sudo
+apt-get -y update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+```
+
+Следующий набор необязательных команд может быть полезным для существующих развертываний Ubuntu на базе ядра Azure, но для которых не удалось выполнить дальнейшие обновления без ошибок.
+
+```bash
+#optional steps may be helpful in existing deployments with the Azure kernel
+#run as root or preface with sudo
 apt-get -f install
 apt-get --fix-missing install
 apt-get clean
 apt-get -y update
 apt-get -y upgrade
+apt-get -y dist-upgrade
 ```
 
-Необязательная команда:
-
-`apt-get -y dist-upgrade`
 #### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Обновление ядра Ubuntu Azure для существующих виртуальных машин
 
 Обновив ядро Azure Linux, можно существенно повысить пропускную способность. Чтобы определить необходимость обновления, проверьте вашу версию ядра.
@@ -87,7 +96,7 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-Затем выполните следующие команды (требуется доступ с правами root):
+Проверить наличие ядра Azure просто: номер версии обычно начинается с цифр 4.4. В таком случае выполните следующие команды, как пользователь root.
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -99,14 +108,14 @@ reboot
 
 ### <a name="centos"></a>CentOS
 
-Чтобы получить новейшие параметры оптимизации, сначала обновите систему до последней поддерживаемой версии, например:
+Чтобы получить последние оптимизации, лучше всего создать виртуальную машину, используя последнюю поддерживаемую версию, указав следующие параметры:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-После завершения обновления установите последнюю версию служб интеграции Linux (LIS).
+Вы можете воспользоваться преимуществами использования новых и существующих виртуальных машин, установив последнюю версию служб интеграции Linux (LIS).
 Оптимизация пропускной способности реализована в LIS начиная с 4.2.2-2. Более поздние версии содержат дополнительные усовершенствования. Введите следующие команды для установки новейшей версии LIS:
 
 ```bash
@@ -117,14 +126,14 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-Чтобы получить параметры оптимизации, сначала обновите систему до последней поддерживаемой версии, например:
+Чтобы получить оптимизации, лучше всего создать виртуальную машину, используя последнюю поддерживаемую версию, указав следующие параметры:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-После завершения обновления установите последнюю версию служб интеграции Linux (LIS).
+Вы можете воспользоваться преимуществами использования новых и существующих виртуальных машин, установив последнюю версию служб интеграции Linux (LIS).
 Возможность оптимизации пропускной способности предусмотрена в службах LIS начиная с версии 4.2. Выполните следующие команды, чтобы загрузить и установить LIS:
 
 ```bash
