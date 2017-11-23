@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: genemi
-ms.openlocfilehash: fbfaea938676991cf6280e5dd8c1e1190aa268a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4c90d70bb3b043ef81a224f0f69107eaa6eb0547
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="guidance-and-tips-for-azure-sql-database-multi-tenant-saas-app-example"></a>Рекомендации и советы по использованию примера мультитенантного приложения SaaS для базы данных SQL Azure
 
 
-## <a name="download-and-unblock-the-wingtip-saas-scripts"></a>Загрузка и разблокировка скриптов SaaS Wingtip
+## <a name="download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts"></a>Скачивание и разблокировка скриптов для SaaS-приложения Wingtip Tickets c однотенантной базой данных
 
 Исполняемое содержимое (скрипты, библиотеки DLL) может быть заблокировано Windows, в то время как ZIP-файлы можно загрузить с внешнего источника, а затем извлечь их содержимое. При извлечении скриптов из ZIP-файла ***выполните указанные ниже действия, чтобы разблокировать ZIP-файл перед извлечением***. После этого скрипты можно выполнять.
 
-1. Перейдите к [репозиторию GitHub SaaS Wingtip](https://github.com/Microsoft/WingtipSaaS).
+1. Перейдите к [репозиторию GitHub для SaaS-приложения Wingtip Tickets c однотенантной базой данных](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
 2. Выберите **Clone or download** (Клонировать или скачать).
 3. Выберите **Download ZIP** (Загрузить ZIP) и сохраните файл.
-4. Щелкните правой кнопкой мыши файл **WingtipSaaS-master.zip** и выберите **Свойства**.
+4. Щелкните правой кнопкой мыши файл **WingtipTicketsSaaS-DbPerTenant-master.zip** и выберите **Свойства**.
 5. На вкладке **Общие** выберите **Разблокировать**.
 6. Нажмите кнопку **ОК**.
 7. Извлеките файлы.
 
-Скрипты находятся в папке *..\\WingtipSaaS-master\\Learning Modules*.
+Файлы скриптов находятся в папке *..\\Learning Modules*.
 
 
-## <a name="working-with-the-wingtip-saas-powershell-scripts"></a>Работа со скриптами PowerShell SaaS Wingtip
+## <a name="working-with-the-wingtip-tickets-saas-database-per-tenant-powershell-scripts"></a>Использование скриптов PowerShell для SaaS-приложения Wingtip Tickets c однотенантной базой данных
 
 Чтобы использовать пример с максимальной пользой, необходимо детально изучить приведенные скрипты. Используйте точки останова и пошагово выполните скрипты, изучив особенности реализации различных шаблонов SaaS. Для легкого пошагового выполнения указанных скриптов и прохождения модулей мы рекомендуем использовать [интегрированную среду сценариев PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
 
@@ -73,10 +73,10 @@ ms.lasthandoff: 11/14/2017
 
 Используйте [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) для подключения и просмотра серверов и баз данных приложения.
 
-Для развертывания изначально доступно два сервера баз данных SQL, к которым оно может подключиться: *tenants1-&lt;User&gt;* и *catalog-&lt;User&gt;*. Для успешного выполнения демонстрационного подключения на обоих серверах есть [правило брандмауэра](sql-database-firewall-configure.md), которое разрешает вход через все IP-адреса.
+Для развертывания изначально доступно два сервера баз данных SQL, к которым оно может подключиться: *tenants1-dpt-&lt;пользователь&gt;* и *catalog-dpt-&lt;пользователь&gt;*. Для успешного выполнения демонстрационного подключения на обоих серверах есть [правило брандмауэра](sql-database-firewall-configure.md), которое разрешает вход через все IP-адреса.
 
 
-1. Откройте среду *SSMS* и подключитесь к серверу *tenants1-&lt;пользователь&gt;.database.windows.net*.
+1. Откройте среду *SSMS* и подключитесь к серверу *tenants1-dpt-&lt;пользователь&gt;.database.windows.net*.
 2. Щелкните **Подключить** > **Компонент ядра СУБД…**:
 
    ![сервер каталога](media/saas-dbpertenant-wingtip-app-guidance-tips/connect.png)
@@ -85,7 +85,7 @@ ms.lasthandoff: 11/14/2017
 
    ![connection;](media/saas-dbpertenant-wingtip-app-guidance-tips/tenants1-connect.png)
 
-4. Повторите шаги 2-3 и подключитесь к серверу *catalog-&lt;пользователь&gt;.database.windows.net*.
+4. Повторите шаги 2–3 и подключитесь к серверу *catalog-dpt-&lt;пользователь&gt;.database.windows.net*.
 
 
 После успешного подключения вы увидите оба сервера. Список баз данных может отличаться в зависимости от подготовленных клиентов.
@@ -96,5 +96,5 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Развертывание и изучение мультитенантного приложения SaaS, использующего базу данных SQL Azure](saas-dbpertenant-get-started-deploy.md)
+[Развертывание SaaS-приложения Wingtip Tickets c однотенантной базой данных](saas-dbpertenant-get-started-deploy.md)
 
