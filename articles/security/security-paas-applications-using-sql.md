@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 18509b3fc3a73118f67583a0b087c58f0e51993c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed15ff750e73179f6979d13e45ab27aeee5c82ab
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="securing-paas-databases-in-azure"></a>Защита баз данных PaaS в Azure
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 - для проверки подлинности удостоверений на уровне базы данных используются данные пользователей автономной базы данных;
 - поддержка аутентификации на основе маркеров для приложений, подключающихся к базе данных SQL;
 - поддержка аутентификации с использованием AD FS (федерация доменов) или собственную аутентификацию с помощью имени пользователя и пароля для локального каталога Azure AD без синхронизации домена;
-- поддержка подключений из SQL Server Management Studio, использующих универсальную аутентификацию Active Directory, в том числе [Многофакторную Идентификацию (MFA)](../multi-factor-authentication/multi-factor-authentication.md). MFA обеспечивает надежную аутентификацию с использованием ряда простых вариантов проверки посредством телефонного звонка, текстового сообщения, смарт-карты с ПИН-кодом или уведомления в мобильном приложении. Дополнительные сведения см. в разделе [Поддержка SSMS в Azure AD MFA для базы данных SQL и хранилища данных SQL](../sql-database/sql-database-ssms-mfa-authentication.md).
+- поддержка подключений из SQL Server Management Studio, использующих универсальную аутентификацию Active Directory, в том числе [Многофакторную идентификацию (MFA)](../multi-factor-authentication/multi-factor-authentication.md). MFA обеспечивает надежную аутентификацию с использованием ряда простых вариантов проверки посредством телефонного звонка, текстового сообщения, смарт-карты с ПИН-кодом или уведомления в мобильном приложении. Дополнительные сведения см. в разделе [Поддержка SSMS в Azure AD MFA для базы данных SQL и хранилища данных SQL](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 Дополнительные сведения об аутентификации Azure AD см. в следующих статьях:
 

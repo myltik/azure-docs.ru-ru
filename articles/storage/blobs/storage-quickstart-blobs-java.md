@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/01/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: 2a825e59093b64ab56110f9a045b0325728b39b2
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 5676cef446de7a68d3d8fd1a3b6833a5de184ea1
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Передача объектов в хранилище BLOB-объектов Azure и из него с помощью Java
 
@@ -70,11 +70,16 @@ public static final String storageConnectionString =
 Ниже приведен пример выходных данных для запуска приложения в Windows.
 
 ```
-Location of file: C:\Users\<user>\Documents\results.txt
-File has been written
-URI of blob is: http://myexamplesacct.blob.core.windows.net/quickstartblobs/results.txt
+Azure Blob storage quick start sample
+Creating container: quickstartcontainer
+Creating a sample file at: C:\Users\<user>\AppData\Local\Temp\sampleFile514658495642546986.txt
+Uploading the sample file 
+URI of blob is: https://myexamplesacct.blob.core.windows.net/quickstartcontainer/sampleFile514658495642546986.txt
 The program has completed successfully.
 Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
+
+Deleting the container
+Deleting the source, and downloaded files
 ```
 
  Прежде чем продолжить, проверьте свой каталог по умолчанию ("Мои документы" для пользователей windows) на наличие двух файлов. Вы можете открыть их и убедиться, что они идентичны. Скопируйте URL-адрес BLOB-объекта из окна консоли и вставьте его в адресную строку браузера, чтобы просмотреть содержимое файла в хранилище BLOB-объектов. Если нажать клавишу ВВОД, контейнер хранилища и файлы будут удалены.
@@ -85,7 +90,7 @@ Press the 'Enter' key while in the console to delete the sample files, example c
 
 ## <a name="understand-the-sample-code"></a>Разбор примера кода
 
-Давайте разберем пример кода, чтобы понять, как он работает.
+Разберем пример кода, чтобы понять, как он работает.
 
 ### <a name="get-references-to-the-storage-objects"></a>Получение ссылок на объекты хранилища
 

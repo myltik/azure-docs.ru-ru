@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f2153e783adb955cf9055b09ba9aa2592f51e4b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ee60c5f9a8049523f05a1f3afd6604768dde602
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-operational-security-overview"></a>Обзор операционной безопасности Azure
 Под операционной безопасностью Azure понимаются службы, элементы управления и функции, которые пользователи могут использовать для защиты своих данных, приложений и других ресурсов в Microsoft Azure. [Операционная безопасность Azure](https://docs.microsoft.com/azure/security/azure-operational-security) основывается на знаниях, полученных в процессе эксплуатации ряда уникальных систем корпорации Майкрософт, включая жизненный цикл разработки защищенных приложений (Майкрософт) (SDL) и программу Microsoft Security Response Center, а также на глубокой осведомленности в области угроз кибербезопасности.

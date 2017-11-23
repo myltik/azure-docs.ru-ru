@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Словарь терминов Microsoft Azure: словарь терминов, связанных с облаком на платформе Azure
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 10/11/2017
 Ознакомьтесь со страницей [Сведения о предложении Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## <a name="portal"></a>портал
-Безопасный веб-портал, используемый для развертывания служб Azure и управления ими.  Существует два портала: [портал Azure](http://portal.azure.com/) и [классический портал](http://manage.windowsazure.com/). Некоторые службы доступны в обоих порталах, в то время как другие доступны только в одном из них. В [таблице доступности портала Azure](https://azure.microsoft.com/features/azure-portal/availability/) указано, какие службы доступны на каждом портале.
+Безопасный веб-портал, используемый для развертывания служб Azure и управления ими.
 
 ## <a name="region"></a>region
 Область геообъекта, не пересекающая национальные границы и содержащая один или несколько центров обработки данных. Цены, региональные службы и типы предложений применяются на уровне регионов. Обычно регионы объединяются в пары, даже если находятся в нескольких сотнях километров друг от друга. Пары регионов можно использовать как механизм для аварийного восстановления и сценариев высокой доступности. Также называется *расположением*.  

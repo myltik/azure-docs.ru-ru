@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c7ee06a00488b3f958127f6d7f57324c7ed14ab4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Как включить вложенную виртуализацию в виртуальных машинах Azure
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/15/2017
 Можно настроить эти параметры вручную или использовать предоставленный скрипт PowerShell, автоматизирующий настройку.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Вариант 1. Использование скрипта PowerShell для настройки вложенной виртуализации
-Скрипт PowerShell, который включает вложенную виртуализацию на узле Windows Server 2016, доступен на [GitHub](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Скрипт проверяет предварительные требования, а затем настраивает вложенную виртуализацию на виртуальной машине Azure. Для завершения настройки требуется перезагрузить виртуальную машину Azure. Этот скрипт может работать в других средах, однако это не гарантируется. Просмотрите запись блога Azure с видеодемонстрацией вложенной виртуализации, выполняемой в Azure! https://aka.ms/AzureNVblog.
+Скрипт PowerShell, который включает вложенную виртуализацию на узле Windows Server 2016, доступен на [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Скрипт проверяет предварительные требования, а затем настраивает вложенную виртуализацию на виртуальной машине Azure. Для завершения настройки требуется перезагрузить виртуальную машину Azure. Этот скрипт может работать в других средах, однако это не гарантируется. Просмотрите запись блога Azure с видеодемонстрацией вложенной виртуализации, выполняемой в Azure! https://aka.ms/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Вариант 2. Настройка вложенной виртуализации вручную
 

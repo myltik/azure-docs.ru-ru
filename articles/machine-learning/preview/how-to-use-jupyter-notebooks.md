@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Как использовать записную книжку Jupyter в Azure Machine Learning Workbench
 
 Azure Machine Learning Workbench поддерживает интерактивные эксперименты по обработке и анализу данных путем интеграции записной книжки Jupyter. В этой статье описывается, как эффективно использовать этот компонент, чтобы ускорить проведение интерактивных экспериментов по обработке и анализу данных и повысить их качество.
 
 ## <a name="prerequisites"></a>Предварительные требования
-- [Установите службу "Машинное обучение Azure" и создайте проект](/machine-learning/preview/quickstart-installation.md).
+- [Установите службу "Машинное обучение Azure" и создайте проект](quickstart-installation.md).
 - Ознакомьтесь с [записной книжкой Jupyter](http://jupyter.org/), так как в этой статье нет сведений о том, как ее использовать.
 
 ## <a name="jupyter-notebook-architecture"></a>Архитектура записной книжки Jupyter
@@ -39,7 +39,7 @@ Azure Machine Learning Workbench поддерживает интерактивн
 В Azure ML Workbench можно использовать много разных ядер. Для этого нужно настроить конфигурации запуска и целевые среды вычислений в папке проекта `aml_config`. Добавление новой целевой среды вычислений путем выполнения команды `az ml computetarget attach` эквивалентно добавлению нового ядра.
 
 >[!NOTE]
->Дополнительные сведения о конфигурациях запуска и целевых средах вычислений см. в статье [Overview of Azure Machine Learning experiment execution service](experimentation-service-configuration.md) (Обзор службы выполнения экспериментов службы "Машинное обучение Azure").
+>Дополнительные сведения о конфигурациях запуска и целевых объектах вычислений см. в статье [Overview of Azure Machine Learning experiment execution service](experimentation-service-configuration.md) (Обзор службы выполнения экспериментов службы "Машинное обучение Azure").
 
 ### <a name="kernel-naming-convention"></a>Соглашение об именовании ядер
 Имена ядер обычно имеют формат "\<имя проекта> \<имя конфигурации запуска>". Например, если у вас есть конфигурация запуска с именем _docker python_ в проекте _myIris_, при открытии записной книжки Jupyter можно найти ядро с именем myIris docker-python в списке ядер.
@@ -59,7 +59,7 @@ Azure Machine Learning Workbench поддерживает интерактивн
 Это ядро PySpark выполняет скрипты в контексте Spark в контейнере Docker на локальном компьютере или на удаленной виртуальной машине Linux. Как правило, имя ядра — my_project docker. В связанном файле `docker.runconfig` для поля `Framework` задано значение `PySpark`.
 
 ### <a name="pyspark-kernel-on-hdinsight-cluster"></a>Ядро PySpark в кластере HDInsight
-Это ядро выполняется в удаленном кластере HDInsight, подключенном в качестве целевой среды вычислений для проекта. Как правило, имя ядра — my_project my_hdi. 
+Это ядро выполняется в удаленном кластере HDInsight, подключенном в качестве целевого объекта вычислений для проекта. Как правило, имя ядра — my_project my_hdi. 
 
 >[!IMPORTANT]
 >Чтобы использовать это ядро, в файле `.compute` целевой среды вычислений HDI для поля `yarnDeployMode` необходимо задать значение `client` (значение по умолчанию — `cluster`). 
@@ -76,7 +76,7 @@ Azure Machine Learning Workbench поддерживает интерактивн
 Если нажать кнопку **Start Notebook Server** (Запуск сервера записной книжки), запускается сервер Jupyter, а записная книжка переходит в **режим изменения**. Появляется знакомый пользовательский интерфейс записной книжки Jupyter, встроенный в Workbench. Теперь вы можете настроить ядро в меню **Ядро** и запустить сеанс интерактивной записной книжки. 
 
 >[!NOTE]
->Обратите внимание, что для нелокальных ядер при первом использовании сеанс запускается одну-две минуты. Вы можете выполнить команду `az ml experiment prepare` из окна интерфейса командной строки для подготовки целевой среды вычислений, чтобы после этого ядро запускалось гораздо быстрее.
+>Обратите внимание, что для нелокальных ядер при первом использовании сеанс запускается одну-две минуты. Вы можете выполнить команду `az ml experiment prepare` из окна интерфейса командной строки для подготовки целевого объекта вычислений, чтобы после этого ядро запускалось гораздо быстрее.
 
 ![режим правки](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-04.png)
 

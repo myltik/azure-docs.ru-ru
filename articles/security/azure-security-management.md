@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 026a22355ab1d35fa1fe6b7ba624fed5d10b3e38
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="security-management-in-azure"></a>Управление безопасностью в Azure
 Подписчики Azure могут управлять своими облачными средами с помощью нескольких устройств, в том числе рабочих станций управления, ПК для разработки и даже устройств привилегированных пользователей, у которых есть разрешения на выполнение конкретных задач. В некоторых случаях функции администрирования можно выполнять с помощью веб-консолей, таких как [портал Azure](https://azure.microsoft.com/features/azure-portal/). Кроме того, пользователи могут устанавливать прямое подключение к Azure из локальной системы, используя виртуальные частные сети (VPN), службы терминалов, протоколы клиентских приложений или API управления службами Azure (программным путем). Они также могут использовать присоединенные к домену или изолированные и неуправляемые конечные точки клиентов, например планшеты и смартфоны.

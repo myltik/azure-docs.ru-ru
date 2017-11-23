@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/28/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
+ms.openlocfilehash: 53c5c340dc4e91db29fbbb45893fabe6eec2bc5d
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: c6225d368044ee2b2ab24136c854f81ae473c9e1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Общие сведения о зонах доступности в Azure (предварительная версия)
 
 Зоны доступности помогают защититься от сбоев на уровне центра обработки данных. Зоны расположены в пределах региона Azure. У каждой их них есть собственный независимый источник питания, сеть и система охлаждения. Чтобы обеспечить устойчивость, во всех включенных областях используются минимум три отдельные зоны. Физическое и логическое разделение зон доступности в пределах региона защищает приложения и данные от сбоев на уровне зоны. 
@@ -67,4 +65,3 @@ ms.lasthandoff: 09/22/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - [Шаблоны быстрого запуска](http://aka.ms/azqs)
-

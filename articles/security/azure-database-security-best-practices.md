@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2017
+ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 5bd6fe0dd369b3bbc7ca0d697c964badda557cb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3a9befe5c6607c108e11b583f8b67c483710021
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-database-security-best-practices"></a>Рекомендации по обеспечению безопасности базы данных Azure
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
 -   При проверке подлинности Azure AD используются данные пользователей автономной базы данных для проверки подлинности удостоверений на уровне базы данных.
 -   Azure AD поддерживает проверку подлинности на основе маркеров для приложений, подключающихся к базе данных SQL.
 -   Azure AD поддерживает проверку подлинности с использованием AD FS (федерация доменов) или собственную проверку подлинности с помощью имени пользователя и пароля для локального каталога Azure Active Directory без синхронизации домена.
--   Azure AD поддерживает подключения из SQL Server Management Studio, использующие универсальную проверку подлинности Active Directory, в том числе многофакторную идентификацию (MFA). MFA обеспечивает надежную аутентификацию с использованием ряда простых вариантов проверки посредством телефонного звонка, текстового сообщения, смарт-карты с ПИН-кодом или уведомления в мобильном приложении. Дополнительные сведения см. в разделе [Поддержка SSMS в Azure AD MFA для базы данных SQL и хранилища данных SQL](https://docs.microsoft.com/azure/sql-database/sql-database-ssms-mfa-authentication).
+-   Azure AD поддерживает подключения из SQL Server Management Studio, использующие универсальную проверку подлинности Active Directory, в том числе Многофакторную идентификацию (MFA). MFA обеспечивает надежную аутентификацию с использованием ряда простых вариантов проверки посредством телефонного звонка, текстового сообщения, смарт-карты с ПИН-кодом или уведомления в мобильном приложении. Дополнительные сведения см. в разделе [Поддержка SSMS в Azure AD MFA для базы данных SQL и хранилища данных SQL](https://docs.microsoft.com/azure/sql-database/sql-database-ssms-mfa-authentication).
 
 Для настройки и использования проверки подлинности Azure Active Directory выполните следующие действия.
 

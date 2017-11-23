@@ -1,5 +1,5 @@
 ---
-title: "Создание Центра Интернета вещей с помощью Azure CLI (az.py) | Документация Майкрософт"
+title: "Создание центра Интернета вещей с помощью Azure CLI (az.py) | Документация Майкрософт"
 description: "Как создать Центр Интернета вещей Azure, используя кроссплатформенный Azure CLI 2.0 (az.py)."
 services: iot-hub
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
 ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Создание Центра Интернета вещей с помощью Azure CLI 2.0
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
     az account set --subscription {your subscription name or id}
     ```
 
-## <a name="create-an-iot-hub"></a>Создание Центра Интернета вещей
+## <a name="create-an-iot-hub"></a>Создание центра Интернета вещей
 
 Создайте группу ресурсов и добавьте Центр Интернета вещей с помощью Azure CLI.
 
@@ -114,7 +114,8 @@ az group delete --name {your resource group name}
 
 Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
-* [Создание Центра Интернета вещей через портал Azure][lnk-portal]
+* 
+            [Создание центра Интернета вещей через портал Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

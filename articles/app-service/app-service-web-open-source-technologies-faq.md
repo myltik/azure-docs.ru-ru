@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: c0872619a4897b0ac40629df00053f3e49768f64
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Часто задаваемые вопросы о технологиях с открытым кодом в веб-приложениях Azure
 
@@ -32,14 +32,6 @@ ms.lasthandoff: 11/04/2017
 По вопросам, связанным с базами данных, обращайтесь в [службу поддержки ClearDB](https://www.cleardb.com/developers/help/support). 
 
 Ответы на часто задаваемые вопросы о базе данных ClearDB см. в [этой статье](https://docs.microsoft.com/azure/store-cleardb-faq/).
-
-## <a name="why-isnt-my-cleardb-database-listed-in-the-portal"></a>Почему база данных ClearDB не отображается на портале?
-
-Если вы создали базу данных ClearDB на [портале Azure](http://portal.azure.com/), она не отображается на [классическом портале Azure](http://manage.windowsazure.com/). Чтобы решить эту проблему, вручную свяжите нужную базу данных с веб-приложением.
-
-Аналогично, если вы создали базу данных ClearDB на [классическом портале Azure](http://manage.windowsazure.com/), она не отображается на [портале Azure](http://portal.azure.com/). Для этой ситуации нет решения. 
-
-Дополнительные сведения см. в статье [Часто задаваемые вопросы о базах данных ClearDB MySql в службе приложений Azure](https://docs.microsoft.com/azure/store-cleardb-faq/).
 
 ## <a name="why-wasnt-my-cleardb-database-migrated-during-my-subscription-migration"></a>Почему не удалось перенести базу данных ClearDB при переносе подписки?
 

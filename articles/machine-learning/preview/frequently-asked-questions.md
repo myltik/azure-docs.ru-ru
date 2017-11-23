@@ -9,11 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 75dff9bc10294621218a89b809552c8abcd57017
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 33583fb3d9bca94592c05c4c39c802e673a2ea8a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Часто задаваемые вопросы о службе "Машинное обучение Azure"
 
@@ -165,7 +165,6 @@ Azure Machine Learning Workbench — это дополнительное при
 В общедоступной предварительной версии Workbench поддерживается прием данных из: 
 - локального жесткого диска или сопоставленного сетевого расположения для хранения;
 - большого двоичного объекта Azure или службы хранилища Azure (требуется подписка Azure);
-- Azure Data Lake или Azure Data Lake Storage (требуется подписка Azure);
 - Azure SQL Server;
 - Microsoft SQL Server
 

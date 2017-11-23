@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 64e70013c267a472a57b2cf172fa50d12a170515
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 17eb9b3ff059912e4fe3fafda0b9c435e3983888
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Сведения о подготовке новых клиентов и их регистрации в каталоге
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="get-the-wingtip-application-scripts"></a>Получение сценариев приложения Wingtip
 
-Исходный код и скрипты SaaS-приложения Wingtip Tickets c однотенантной БД доступны в репозитории GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Указания по скачиванию скриптов SaaS Wingtip Tickets см. [здесь](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
+Исходный код и скрипты SaaS-приложения Wingtip Tickets c однотенантной БД доступны в репозитории GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Указания по скачиванию скриптов SaaS Wingtip Tickets см. [здесь](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Подробное пошаговое руководство по подготовке и каталогизации

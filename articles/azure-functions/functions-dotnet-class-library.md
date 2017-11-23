@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: glenga
-ms.openlocfilehash: a3bc07623505371b4f3c230ebadeb577a70fdb5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a856c3b04dc458c0f1e0017066c35edd743565fd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Использование библиотек классов .NET с помощью Функций Azure
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/03/2017
 
 Создайте проект Функций Azure в Visual Studio. Шаблон проекта создает файлы *host.json* и *local.settings.json*. Вы можете [настроить параметры среды выполнения Функций Azure в файле host.json](functions-host-json.md). 
 
-Файл *local.settings.json* хранит параметры приложения, строки подключения и параметры основных инструментов Функций Azure. Дополнительные сведения об этой структуре см. в статье [Как программировать и тестировать функции Azure в локальной среде](functions-run-local.md#local-settings).
+Файл *local.settings.json* хранит параметры приложения, строки подключения и параметры основных инструментов Функций Azure. Дополнительные сведения об этой структуре см. в статье [Как программировать и тестировать функции Azure в локальной среде](functions-run-local.md#local-settings-file).
 
 ### <a name="functionname-attribute"></a>Атрибут FunctionName
 

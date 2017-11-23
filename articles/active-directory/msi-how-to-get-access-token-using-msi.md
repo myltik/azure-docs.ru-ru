@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 168b2ab3676d3f3e2830966f850e14adbe579f85
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>Использование управляемых удостоверений служб виртуальной машины Azure (MSI) для входа и получения маркеров 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)] После включения MSI на виртуальной машине Azure его можно использовать для входа в систему и запроса маркера доступа. В этой статье показаны различные способы использования [субъекта-службы](develop/active-directory-dev-glossary.md#service-principal-object) MSI для входа в систему и получения [маркера доступа только для приложений](develop/active-directory-dev-glossary.md#access-token) для доступа к другим ресурсам, включая:
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/17/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 Если вы планируете использовать примеры PowerShell в этой статье, убедитесь, что установлен [Azure PowerShell версии 4.3.1](https://www.powershellgallery.com/packages/AzureRM) или более поздней. Если вы планируете использовать примеры Azure CLI, есть три варианта:
 - использовать [Azure Cloud Shell](../cloud-shell/overview.md) с портала Azure;

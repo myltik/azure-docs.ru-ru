@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Изоляция в общедоступном облаке Azure
 ##  <a name="introduction"></a>Введение
@@ -103,7 +103,7 @@ Microsoft Azure позволяет выполнять приложения и в
 
 - В Azure AD можно использовать удостоверение как услугу при федерации (с помощью [служб федерации Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-azure-adfs)), синхронизации и репликации локальных каталогов.
 
-- [Многофакторная Идентификация Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) — это служба многофакторной идентификации, которая требует от пользователей подтверждения входа с помощью мобильного приложения, телефонного звонка или текстового сообщения. Ее можно использовать с Azure AD для защиты локальных ресурсов с помощью сервера Многофакторной Идентификации Azure, а также с пользовательскими приложениями и каталогами с помощью пакета SDK.
+- [Многофакторная Идентификация Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) — это служба многофакторной идентификации, которая требует от пользователей подтверждения входа с помощью мобильного приложения, телефонного звонка или текстового сообщения. Ее можно использовать с Azure AD для защиты локальных ресурсов с помощью сервера Многофакторной идентификации Azure, а также с пользовательскими приложениями и каталогами с помощью пакета SDK.
 
 - [Доменные службы Azure AD](https://azure.microsoft.com/services/active-directory-ds/) позволяют присоединять виртуальные машины Azure к домену Active Directory без необходимости развертывать контроллеры домена. Вы можете входить на эти виртуальные машины, используя корпоративные учетные данные Active Directory. Кроме того, вы можете выполнять администрирование виртуальных машин, присоединенных к домену, с помощью групповой политики, применяя базовые средства защиты на всех виртуальных машинах Azure.
 

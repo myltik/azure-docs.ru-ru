@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 6e816f151ea1f71770f00d6d77b65395fe080da3
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 85ea328bdea1aad28765712e3639f6719deab7e2
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-identity-management-security-overview"></a>Общие сведения о безопасности при управлении удостоверениями в Azure
 Решения Майкрософт по управлению удостоверениями и доступом помогают ИТ-службам защищать доступ к приложениям и ресурсам в корпоративных центрах обработки данных и в облаке. Они предоставляют такие дополнительные уровни проверки, как многофакторная проверка подлинности и политики условного доступа. Наблюдение за подозрительной активностью с использованием расширенных отчетов, аудита и предупреждений помогает смягчить потенциальные риски безопасности. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) предоставляет функцию единого входа для тысяч облачных приложений (SaaS), а также доступ к локальным веб-приложениям.
