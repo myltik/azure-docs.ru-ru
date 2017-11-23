@@ -16,9 +16,8 @@
 ### [4. Мониторинг и диагностика](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Контейнеризация существующего приложения .NET
-### [1. Создание защищенного кластера в Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2. Развертывание приложения .NET с помощью Docker Compose](service-fabric-host-app-in-a-container.md)
-### [3. Отслеживание контейнера](service-fabric-tutorial-monitoring-wincontainers.md)
+### [1. Развертывание приложения .NET с помощью Docker Compose](service-fabric-host-app-in-a-container.md)
+### [2. Отслеживание контейнера](service-fabric-tutorial-monitoring-wincontainers.md)
 
 ## Создание приложения-контейнера Linux
 ### [1. Создание образов контейнеров](service-fabric-tutorial-create-container-images.md)
@@ -284,7 +283,6 @@
 ## Создание кластеров и управление ими
 ### Кластеры в Azure
 #### Создание
-##### [Создание первого кластера в Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Портал Azure](service-fabric-cluster-creation-via-portal.md)
 ##### [Диспетчер ресурсов Azure](service-fabric-cluster-creation-via-arm.md)
 #### Масштаб

@@ -5,7 +5,7 @@
 
 # Начало работы
 
-## [Руководство для начинающих](sql-data-warehouse-get-started-tutorial.md)
+## [Руководство по загрузке данных](load-data-from-azure-blob-storage-using-polybase.md)
 ## [Руководство по эластичным запросам](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Рекомендации по использованию хранилища данных SQL Azure](sql-data-warehouse-best-practices.md)
 ## [Управление](sql-data-warehouse-overview-manage.md)
