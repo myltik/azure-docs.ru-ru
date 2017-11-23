@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 2879e72636ffc7603e29fe8f8233a065fe6f897c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 60b55acaf687dae76e054b428b8d6584d8eb09f8
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="restore-an-app-in-azure"></a>Восстановление приложения в Azure
 В этой статье описывается, как в [службе приложений Azure](../app-service/app-service-web-overview.md) восстановить приложение, для которого ранее была создана резервная копия (ознакомьтесь с [архивацией приложения в Azure](web-sites-backup.md)). Вы можете восстановить предыдущее состояние приложения и связанных с ним баз данных по запросу или создать новое приложение на основе одной из резервных копий исходного приложения. Служба приложений Azure поддерживает следующие базы данных для архивации и восстановления:
 - [База данных SQL](https://azure.microsoft.com/en-us/services/sql-database/)
 - [база данных Azure для MySQL (предварительная версия)](https://azure.microsoft.com/en-us/services/mysql);
 - [база данных Azure для PostgreSQL (предварительная версия)](https://azure.microsoft.com/en-us/services/postgres);
-- [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview);
 - [MySQL в приложении](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app).
 
 Восстановление из резервных копий доступно для приложений, выполняемых на уровнях **Стандартный** и **Премиум**. Дополнительные сведения об увеличении масштаба приложения см. в статье [Увеличение масштаба приложения в Azure](web-sites-scale.md). Уровень **Премиум** позволяет создавать большее количество ежедневных резервных копий по сравнению с уровнем **Стандартный**.

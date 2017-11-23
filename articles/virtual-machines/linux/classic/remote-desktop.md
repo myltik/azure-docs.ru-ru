@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 2ad497a0244f9c7cdad34faf807cc9ed10ea704d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 228f3153f47e0b147688fe958a767660976b08be
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Использование удаленного рабочего стола для подключения к виртуальной машине Microsoft Azure на базе Linux
 > [!IMPORTANT] 
@@ -49,18 +49,23 @@ RDP (протокол удаленного рабочего стола) — э�
 
 Для Ubuntu используйте:
 
-    #sudo apt-get update
-    #sudo apt-get install ubuntu-desktop
-
+```bash
+sudo apt-get update
+sudo apt-get install ubuntu-desktop
+```
 
 Для OpenSUSE используйте следующую команду:
 
-    #sudo zypper install gnome-session
+```bash
+sudo zypper install gnome-session
+```
 
 ## <a name="install-xrdp"></a>Установка xrdp
 Для Ubuntu используйте:
 
-    #sudo apt-get install xrdp
+```bash
+sudo apt-get install xrdp
+```
 
 Для OpenSUSE используйте следующую команду:
 
@@ -69,15 +74,18 @@ RDP (протокол удаленного рабочего стола) — э�
 > 
 > 
 
-    #sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
-    #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
-
+```bash
+sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
+sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
+```
 
 ## <a name="start-xrdp-and-set-xdrp-service-at-boot-up"></a>Запуск xrdp и настройка запуска xdrp при загрузке системы
 Для OpenSUSE используйте следующую команду:
 
-    #sudo systemctl start xrdp
-    #sudo systemctl enable xrdp
+```bash
+sudo systemctl start xrdp
+sudo systemctl enable xrdp
+```
 
 В Ubuntu программа xrdp после установки автоматически запустится и включится при загрузке системы.
 
@@ -86,22 +94,29 @@ RDP (протокол удаленного рабочего стола) — э�
 
 Чтобы установить `xfce`, используйте следующую команду:
 
-    #sudo apt-get install xubuntu-desktop
+```bash
+sudo apt-get install xubuntu-desktop
+```
 
 Затем включите `xfce` с помощью команды:
 
-    #echo xfce4-session >~/.xsession
+```bash
+echo xfce4-session >~/.xsession
+```
 
 Измените файл конфигурации `/etc/xrdp/startwm.sh`:
 
-    #sudo vi /etc/xrdp/startwm.sh   
+```bash
+sudo vi /etc/xrdp/startwm.sh   
+```
 
 Добавьте строку `xfce4-session` перед строкой `/etc/X11/Xsession`.
 
 Перезапустите службу xrdp:
 
-    #sudo service xrdp restart
-
+```bash
+sudo service xrdp restart
+```
 
 ## <a name="connect-your-linux-vm-from-a-windows-machine"></a>Подключение к виртуальной машине на базе Linux с компьютера Windows
 На компьютере с Windows запустите клиент удаленного рабочего стола и введите DNS-имя виртуальной машины Linux. Или перейдите на панель мониторинга виртуальной машины на портале Azure и щелкните `Connect`, чтобы подключить виртуальную машину Linux. В этом случае появится окно входа:

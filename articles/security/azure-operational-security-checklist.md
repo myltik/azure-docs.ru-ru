@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 1877e6ab19d504c8be6130578f17b608f123e20a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 499ba030e9768b82dfdc01df416fc9c8fe3de37d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-operational-security-checklist"></a>Контрольный список для обеспечения операционной безопасности Azure
 Развертывание приложения в Azure — быстрое, удобное и экономичное. Перед развертыванием облачного приложения в рабочей среде удобно иметь под рукой контрольный список, содержащий важные и рекомендуемые действия по операционной безопасности, который помогает оценить приложение.

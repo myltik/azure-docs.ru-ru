@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.openlocfilehash: e752e18f6d579633c0cf553224ae7617b774ad0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 697ea4aedb025f4bff4b88df3370ed7c12e7b0d7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Создание приложения MongoDB с помощью Angular и Azure Cosmos DB. Часть 5. Использование Mongoose для подключения к Azure Cosmos DB
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
     const env = require('./env/environment');
 
     // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.dbName}:${env.key}@${env.dbName}.documents.azure.com:${env.cosmosPort}/?ssl=true`; //&replicaSet=globaldb`;
+    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
     function connect() {
      mongoose.set('debug', true);
@@ -91,26 +91,24 @@ ms.lasthandoff: 10/11/2017
 5. Как и в файле mongo.js, нам нужно включать `dbName`, `key` и `cosmosPort`. Поэтому скопируйте следующий код в **environment.js**.
 
     ```javascript
-    const cosmosPort = 1234; // replace with your port
-    const dbName = 'your-cosmos-db-name-goes-here';
-    const key = 'your-key-goes-here';
-
+    // TODO: replace if yours are different
     module.exports = {
-      dbName,
-      key,
-      cosmosPort
+      accountName: 'your-cosmosdb-account-name-goes-here',
+      databaseName: 'admin', 
+      key: 'your-key-goes-here',
+      port: 10255
     };
     ```
 
 ## <a name="get-the-connection-string-information"></a>Получение данных строки подключения
 
-1. В **environment.js** измените значение `cosmosPort` на 10255 (свой порт Cosmos DB можно узнать на портале Azure).
+1. В **environment.js** измените значение `port` на 10255 (свой порт Cosmos DB можно узнать на портале Azure).
 
     ```javascript
-    const cosmosPort = 10255;
+    const port = 10255;
     ```
 
-2. В **environment.js** измените значение `dbName` на имя учетной записи Azure Cosmos DB, которая была создана на [шаге 4](tutorial-develop-mongodb-nodejs-part4.md). 
+2. В **environment.js** измените значение `accountName` на имя учетной записи Azure Cosmos DB, которая была создана на [шаге 4](tutorial-develop-mongodb-nodejs-part4.md). 
 
 3. Получите первичный ключ для учетной записи Azure Cosmos DB, использовав следующую команду CLI в окне терминала: 
 

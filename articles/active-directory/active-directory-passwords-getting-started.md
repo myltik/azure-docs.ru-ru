@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5ba922175a25776c6e27ee03fae9b2941235881
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0320cb33dcab63ea394cf8e13e9aef5cc75951fa
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Быстрое развертывание самостоятельного сброса пароля в Azure AD
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/15/2017
 
 С помощью системы самостоятельного сброса пароля (SSPR) ИТ-администраторы могут предоставить пользователям возможность самостоятельно сбрасывать или разблокировать их пароли и учетные записи. Эта система предоставляет подробные отчеты, которые позволяют отслеживать доступ к ней, а также создает уведомления в случае несанкционированного использования или применения не по назначению.
 
-В этом руководстве предполагается, что у вас уже есть рабочий пробный или лицензированный клиент Azure Active Directory (Azure AD). Сведения о настройке Azure AD см. на странице [бесплатной пробной версии Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/).
+В этом руководстве предполагается, что у вас уже есть рабочий пробный или лицензированный клиент Azure Active Directory (Azure AD). Сведения о настройке Azure AD см. на странице [бесплатной пробной версии Azure Active Directory](get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Включение SSPR для клиента Azure AD
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 11/15/2017
 
 * [Обновление с DirSync или Azure AD Sync до Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Приступая к работе с Azure AD Connect с использованием стандартных параметров](./connect/active-directory-aadconnect-get-started-express.md).
-* [Настройте обратную запись паролей](active-directory-passwords-writeback.md#configuring-password-writeback) для записи паролей Azure AD обратно в ваш локальный каталог.
+* [Настройте обратную запись паролей](active-directory-passwords-writeback.md#configure-password-writeback) для записи паролей Azure AD обратно в ваш локальный каталог.
 
 ### <a name="on-premises-policy-change"></a>Изменение локальной политики
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 1180001c9fe74aab6b51c5b5969b80a8c7e1302f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Обзор облачных вычислений и Microsoft Azure
 
 В этом руководстве приводятся ключевые понятия, связанные с развертыванием и администрированием инфраструктуры Microsoft Azure. Если вы не знакомы с облачными вычислениями и платформой Azure, это руководство поможет быстро приступить к работе, так как содержит сведения об основных понятиях, развертывании и управлении. В многих разделах этого руководства описываются процессы, например развертывание виртуальной машины, а под ними приводится ссылка на дополнительные технические сведения.
@@ -517,4 +515,3 @@ Resource Manager также предлагает возможности разв
 
 - [Создание виртуальной машины Windows](/virtual-machines/windows/quick-create-portal.md)
 - [Создание виртуальной машины Linux](../../virtual-machines/linux/quick-create-portal.md)
-

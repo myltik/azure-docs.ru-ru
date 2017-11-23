@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: 1eac4165c35cb116a359c074bd629c918b58097c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: ca4cb2dea9cdd2e46c3aef042e525acdfc09de8e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью .NET
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 11/13/2017
 ## <a name="prerequisites"></a>Предварительные требования
 
 Для работы с этим руководством установите [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) с указанной ниже рабочей нагрузкой:
-    
-    - **разработка Azure.**
+
+- **разработка Azure.**
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 

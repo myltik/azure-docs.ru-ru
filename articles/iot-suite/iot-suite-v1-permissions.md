@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 4c4916037ad762dbb9dee803dfd45ec2fd89272b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 17d9e496aedfdf98423e821e7f379dc481ffa0a5
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Разрешения на сайте azureiotsuite.com
 
@@ -105,11 +105,7 @@ ms.lasthandoff: 11/06/2017
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Я являюсь администратором службы и хочу изменить сопоставление каталогов подписки и конкретного клиента AAD. Как выполнить эту задачу?
 
-1. Войдите на [классический портал Azure][lnk-classic-portal] и выберите пункт **Параметры** в списке служб слева.
-2. Выберите подписку, для которой вы хотите изменить сопоставление каталогов.
-3. Щелкните **Изменить каталог**.
-4. Выберите в раскрывающемся списке **каталог** , который следует использовать. Щелкните стрелку «Далее».
-5. Проверьте сопоставление каталога и соответствующих соадминистраторов. При перемещении из другого каталога удаляются все соадминистраторы из исходного каталога.
+Ознакомьтесь с разделом [Добавление существующей подписки в каталог Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Я являюсь пользователем (членом) домена в клиенте AAD и создаю предварительно настроенное решение. Как мне получить роль для своего приложения?
 
@@ -151,7 +147,6 @@ ms.lasthandoff: 11/06/2017
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
-[lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md

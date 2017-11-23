@@ -12,11 +12,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 54cb1e11e82c7a9be82252a0b93277353c5005e2
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Подготовка виртуальной машины SQL Server на базе Linux на портале Azure
 
@@ -171,7 +171,7 @@ IP-адрес виртуальной машины можно найти на п�
 
    ```bash
    sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
-   sudo firewall-cmd –-reload
+   sudo firewall-cmd --reload
    ```
 
 ## <a name="next-steps"></a>Дальнейшие действия

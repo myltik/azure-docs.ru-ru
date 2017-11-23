@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 52645f7d7934c9b9cf628fec1c0edc763ce98796
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ba965b9bc23b96adb2b1b7c9306cb7f508f820bf
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>Настройка предварительно настроенного решения
 
@@ -228,55 +228,6 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 
 Значение по умолчанию — 10 минут. Это значение можно изменить в файле [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
-## <a name="manually-set-up-application-roles"></a>Настройка ролей приложений вручную
-
-В следующей процедуре описывается, как добавлять роли приложения **Admin** и **ReadOnly** в предварительно настроенное решение. Обратите внимание, что такие решения, подготовленные на сайте azureiotsuite.com, уже включают роли **Admin** и **ReadOnly**.
-
-Члены роли **ReadOnly** могут просматривать панель мониторинга и список устройств, но им не разрешено добавлять устройства, изменять атрибуты устройств и отправлять команды.  Члены роли **Admin** имеют полный доступ ко всем функциям в решении.
-
-1. Войдите на [классический портал Azure][lnk-classic-portal].
-2. Выберите **Active Directory**.
-3. Щелкните имя клиента AAD, который вы использовали при подготовке решения.
-4. Щелкните **Приложения**.
-5. Щелкните имя приложения, совпадающее с именем предварительно настроенного решения. Если приложение отсутствует в списке, выберите в раскрывающемся списке **Показать** пункт **Приложения, которыми владеет моя компания** и установите флажок.
-6. Внизу страницы щелкните **Управление манифестом**, а затем — **Скачать манифест**.
-7. Эта процедура загружает JSON-файл на ваш локальный компьютер. Откройте этот файл для редактирования в любом текстовом редакторе.
-8. В третьей строке JSON-файла вы можете видеть следующее:
-
-   ```json
-   "appRoles" : [],
-   ```
-   Замените эту строку следующим кодом:
-
-   ```json
-   "appRoles": [
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Administrator access to the application",
-   "displayName": "Admin",
-   "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
-   "isEnabled": true,
-   "value": "Admin"
-   },
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Read only access to device information",
-   "displayName": "Read Only",
-   "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
-   "isEnabled": true,
-   "value": "ReadOnly"
-   } ],
-   ```
-
-9. Сохраните обновленный JSON-файл (можно перезаписать существующий файл).
-10. На классическом портале Azure внизу страницы выберите **Управление манифестом**, а затем — **Отправить манифест**, чтобы отправить JSON-файл, сохраненный на предыдущем шаге.
-11. Теперь вы добавили роли **Admin** и **ReadOnly** в свое приложение.
-12. Чтобы назначить одну из этих ролей пользователю в каталоге, ознакомьтесь со статьей [Разрешения на сайте azureiotsuite.com][lnk-permissions].
-
 ## <a name="feedback"></a>Отзыв
 
 У вас есть предложение по настройке, которое не описано в этом документе? Оставьте его на сайте [User Voice](https://feedback.azure.com/forums/321918-azure-iot) или в комментариях к этой статье. 
@@ -300,6 +251,5 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-cf-customize]: iot-suite-connected-factory-customize.md

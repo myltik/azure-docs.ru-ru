@@ -15,31 +15,32 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 95d58c600bc43059025e739a8cdb062287f4ffb5
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a2347fe9578b35c95d240c5c4dd2bf062077ece
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Краткое руководство. Создание приложения Cassandra с помощью Python и Azure Cosmos DB
 
 В этом руководстве показано, как использовать Python и [API Cassandra](cassandra-introduction.md) Azure Cosmos DB для создания приложения профиля путем клонирования примера с сайта GitHub. Кроме того, здесь показано, как создать учетную запись Azure Cosmos DB с помощью веб-портала Azure.
 
-Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете быстро создавать и запрашивать документы, таблицы, пары "ключ — значение" и базы данных графов, используя преимущества возможностей глобального распределения и горизонтального масштабирования Azure Cosmos DB.   
+Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете быстро создавать и запрашивать документы, таблицы, пары "ключ — значение" и базы данных графов, используя возможности глобального распределения и горизонтального масштабирования Azure Cosmos DB.   
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* Для выполнения этого примера вам потребуется:
-    * [Python](https://www.python.org/downloads/) версии 2.7.14
-    * [Git.](http://git-scm.com/)
-    * [Драйвер Python для Apache Cassandra](https://github.com/datastax/python-driver)
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Кроме того, можно воспользоваться [бесплатной пробной версией Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) без подписки Azure, оплаты и каких-либо обязательств.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Кроме того, [бесплатную пробную версию Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) можно использовать без подписки Azure, без оплаты и каких-либо обязательств.
+Войдите в предварительную версию API Cassandra Azure Cosmos DB. Если вы еще не подали заявку на получение доступа, [зарегистрируйтесь сейчас](cassandra-introduction.md#sign-up-now).
 
+Кроме того, сделайте следующее:
+* [Python](https://www.python.org/downloads/) версии 2.7.14
+* [Git.](http://git-scm.com/)
+* [Драйвер Python для Apache Cassandra](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>Создание учетной записи базы данных
 
-Перед созданием базы данных документов необходимо создать учетную запись Cassandra с Azure Cosmos DB.
+Прежде чем создавать базу данных документов, необходимо создать в Azure Cosmos DB учетную запись Cassandra.
 
 [!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
@@ -130,7 +131,7 @@ Azure Cosmos DB — это глобально распределенная мн
 
 Теперь вернитесь на портал Azure, чтобы получить данные строки подключения. Скопируйте эти данные в приложение. Так вы обеспечите обмен данными между приложением и размещенной базой данных.
 
-1. На [портале Azure](http://portal.azure.com/) нажмите кнопку **Строка подключения**. 
+1. На [портале Azure](http://portal.azure.com/) щелкните **Строка подключения**. 
 
     Вы можете использовать кнопку ![Кнопка "Скопировать"](./media/create-cassandra-python/copy.png) в правой части экрана, чтобы скопировать значение параметра Contact point (Контакт).
 
@@ -187,11 +188,11 @@ Azure Cosmos DB — это глобально распределенная мн
 
 3. Проверьте результаты из командной строки.
 
-    Нажмите клавиши CTRL + C, чтобы остановить выполнение программы и закрыть окно консоли. 
+    Нажмите клавиши CTRL+C, чтобы остановить выполнение программы и закрыть окно консоли. 
 
     ![Просмотр и проверка выходных данных](./media/create-cassandra-python/output.png)
     
-    Откройте обозреватель данных на портале Azure. Здесь вы можете просматривать, запрашивать и изменять новые данные, а также работать с ними. 
+    Откройте обозреватель данных на портале Azure. Здесь вы можете просматривать, запрашивать, изменять и обрабатывать новые данные. 
 
     ![Просмотр данных в обозревателе данных](./media/create-cassandra-python/data-explorer.png)
 
@@ -208,5 +209,5 @@ Azure Cosmos DB — это глобально распределенная мн
 В этом кратком руководстве вы узнали, как создать учетную запись Azure Cosmos DB, коллекцию с помощью обозревателя данных, а также как запустить приложение. Теперь можно импортировать дополнительные данные в учетную запись Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB: Import Cassandra data](cassandra-import-data.md) (Azure Cosmos DB: импорт данных Cassandra)
+> [Импорт данных Cassandra в Azure Cosmos DB](cassandra-import-data.md)
 

@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: ad7434efcead9a250bda9958ade74e798609a25d
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 701a7296368cd8150eedf8cc50b989fdf6112101
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Управление схемой для нескольких клиентов в мультитенантном приложении, использующем базу данных SQL Azure
 
-В [первом руководстве по SaaS-приложению Wingtip Tickets c однотенантной БД](saas-dbpertenant-get-started-deploy.md) показано, как приложение может подготовить клиентскую базу данных и зарегистрировать ее в каталоге. Как и любое приложение, SaaS-приложение Wingtip Tickets c однотенантной БД будет развиваться со временем. При этом предполагаются некоторые изменения в базе данных, такие как новые или измененные схемы, справочные данные и стандартные задачи обслуживания баз данных для обеспечения оптимальной производительности приложения. С приложением SaaS эти изменения необходимо развертывать скоординировано в потенциально большом количестве баз данных клиентов. Чтобы эти изменения были внесены в будущие базы данных клиентов, их нужно включить в процесс подготовки.
+В [первом руководстве по SaaS-приложению Wingtip Tickets c однотенантной БД](saas-dbpertenant-get-started-deploy.md) показано, как приложение может подготовить клиентскую базу данных и зарегистрировать ее в каталоге. Как и любое приложение, SaaS-приложение Wingtip Tickets c однотенантной БД будет развиваться со временем. При этом предполагаются некоторые изменения в базе данных, таких как новые или измененные схемы, справочные данные и стандартные задачи обслуживания баз данных для обеспечения оптимальной производительности приложения. С приложением SaaS эти изменения необходимо развертывать скоординировано в потенциально большом количестве баз данных клиентов. Чтобы эти изменения были внесены в будущие базы данных клиентов, их нужно включить в процесс подготовки.
 
 В этом руководстве рассматривается два сценария: развертывание обновления справочных данных на всех клиентах и перенастройка индекса для таблицы, содержащей справочные данные. [Задания обработки эластичных БД](sql-database-elastic-jobs-overview.md) используются для выполнения этих операций на всех клиентах, а *"золотая"* база данных клиента используется как шаблон для новых баз данных.
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/14/2017
 
 Для работы с этим руководством выполните следующие предварительные требования:
 
-* Развернутое SaaS-приложение Wingtip Tickets c однотенантной БД. См. инструкции из руководства по быстрому [развертыванию SaaS-приложение Wingtip Tickets c однотенантной БД](saas-dbpertenant-get-started-deploy.md).
+* Развернуть SaaS-приложение Wingtip Tickets c однотенантной базой данных. См. инструкции из руководства по быстрому [развертыванию SaaS-приложение Wingtip Tickets c однотенантной БД](saas-dbpertenant-get-started-deploy.md).
 * Установите Azure PowerShell. Дополнительные сведения см. в статье [Начало работы с Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Установите последнюю версию SQL Server Management Studio (SSMS). [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (Скачивание SQL Server Management Studio (SSMS))
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Получение скриптов для SaaS-приложения Wingtip Tickets c однотенантной БД
 
-Скрипты для SaaS-приложения Wingtip Tickets c однотенантной БД и исходный код этого приложения доступны в репозитории GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). [Инструкции по скачиванию скриптов для SaaS-приложения Wingtip Tickets c однотенантной БД](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
+Скрипты для SaaS-приложения Wingtip Tickets c однотенантной БД и исходный код этого приложения доступны в репозитории GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). См. [инструкцию по скачиванию скриптов для SaaS-приложения Wingtip Tickets c однотенантной базой данных](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Создание базы данных учетных записей заданий и учетной записи задания
 

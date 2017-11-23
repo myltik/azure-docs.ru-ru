@@ -3,8 +3,6 @@
 > * [Подключение виртуального устройства к Центру Интернета вещей с помощью .NET](../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md)
 > * [Подключение виртуального устройства к Центру Интернета вещей с помощью Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 > * [Подключение виртуального устройства к Центру Интернета вещей с помощью Node](../articles/iot-hub/iot-hub-node-node-getstarted.md)
-> * [Приступая к работе с пакетом SDK для шлюза Центра Интернета вещей (Linux)](../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md)
-> * [Приступая к работе с архитектурой Edge Интернета вещей в Windows](../articles/iot-hub/iot-hub-windows-iot-edge-get-started.md)
 > * [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md) (Подключение набора для разработки решений Интернета вещей AZ3166 к Центру Интернета вещей Azure в облаке)
 > * [Приступая к работе с Raspberry Pi 3 (Node.JS)](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Raspberry Pi с Python](../articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md)
@@ -14,4 +12,3 @@
 > * [Подключение Adafruit Feather HUZZAH ESP8266 к Центру Интернета вещей Azure в облаке](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md)
 > * [Подключение Sparkfun ESP8266 Thing Dev к Центру Интернета вещей в облаке Azure](../articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 > * [Adafruit Feather M0 с Arduino IDE](../articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
-> * [Настройка Intel NUC в качестве шлюза Интернета вещей](../articles/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)

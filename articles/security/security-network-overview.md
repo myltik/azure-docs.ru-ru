@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 27243856d0c6b70c7515b6bde66b99ef6160eb36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cefc15e7df0dabd9229196d0175dcf6546a6ebce
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-network-security-overview"></a>Обзор сетевой безопасности Azure
 Microsoft Azure включает в себя надежную сетевую инфраструктуру для удовлетворения требований к взаимодействию приложений и служб. Сетевое взаимодействие возможно между ресурсами в Azure, между локальными и размещенными в Azure ресурсами, а также между Интернетом и службой Azure.

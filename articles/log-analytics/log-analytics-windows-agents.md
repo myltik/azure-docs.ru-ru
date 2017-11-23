@@ -3,7 +3,7 @@ title: "Подключение компьютеров Windows к Azure Log Analy
 description: "В этой статье приведена процедура подключения компьютеров Windows в локальной инфраструктуре к службе Log Analytics с помощью настраиваемой версии Microsoft Monitoring Agent (MMA)."
 services: log-analytics
 documentationcenter: 
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: 
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5f04f3b9135167c0f339c58323ebd931b260109
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf3e596f8c287c60531a6911c5797b3de26e570
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Подключение компьютеров Windows к службе Log Analytics в Azure
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 Установить агенты можно с помощью программы установки, командной строки или DSC (настройки требуемого состояния) в службе автоматизации Azure.  
 
 >[!NOTE]
-Для виртуальных машин, запущенных в Azure, установку можно упростить с помощью [расширения виртуальной машины](log-analytics-azure-vm-extension.md).
+Для виртуальных машин, запущенных в Azure, установку можно упростить с помощью [расширения виртуальной машины](../virtual-machines/windows/extensions-oms.md).
 
 На компьютерах, подключенных к Интернету, агент использует это подключение для отправки данных в OMS. Для компьютеров, не подключенных к Интернету, можно использовать прокси-сервер или [шлюз OMS](log-analytics-oms-gateway.md).
 

@@ -4,7 +4,7 @@ description: "Узнайте, как использовать распредел
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
 ms.service: virtual-network
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54e39a1f1627ccf57271d2e8970af72fea3e75f0
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Фильтрация сетевого трафика с помощью групп безопасности сети
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 10/11/2017
 | --- | --- | --- |
 | Портал Azure   | Да | [Да](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Да](virtual-networks-create-nsg-classic-ps.md) | [Да](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI **1.0**   | [Да](virtual-networks-create-nsg-classic-cli.md) | [Да](virtual-networks-create-nsg-cli-nodejs.md) |
+| Azure CLI **1.0**   | [Да](virtual-networks-create-nsg-classic-cli.md) | [Да](virtual-networks-create-nsg-arm-cli.md) |
 | Azure CLI **2.0**   | Нет | [Да](virtual-networks-create-nsg-arm-cli.md) |
 | Шаблон диспетчера ресурсов Azure   | Нет  | [Да](virtual-networks-create-nsg-arm-template.md) |
 

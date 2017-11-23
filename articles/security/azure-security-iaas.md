@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2017
+ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: f93211d289553b7a8afbe8c17fa4847f3d4585a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 376a3e47e5099aa4d74732e0b6ed14ed9af14091
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Рекомендации по безопасности для рабочих нагрузок IaaS в Azure
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 
 [Многофакторная идентификация Azure](../multi-factor-authentication/multi-factor-authentication.md) помогает защитить доступ к данным и приложениям, не усложняя при этом процесс входа пользователя в систему. Служба обеспечивает строгую аутентификацию с помощью простых способов проверки — телефонного звонка, текстового сообщения или уведомления от мобильного приложения. Пользователи могут выбрать наиболее удобный для них способ.
 
-Проще всего использовать многофакторную идентификацию в мобильном приложении Microsoft Authenticator, которое доступно на мобильных устройствах под управлением Windows, IOS и Android. В последнем выпуске Windows 10 и локальном каталоге Active Directory, интегрированном с Azure Active Directory (Azure AD), [Windows Hello для бизнеса](../active-directory/active-directory-azureadjoin-passport-deployment.md) упрощает единый вход в ресурсы Azure. В этом случае устройства с Windows 10 будут использоваться в качестве второго фактора при аутентификации.
+Проще всего использовать многофакторную проверку подлинности через мобильное приложение Microsoft Authenticator, которое доступно на мобильных устройствах под управлением Windows, IOS и Android. В последнем выпуске Windows 10 и локальном каталоге Active Directory, интегрированном с Azure Active Directory (Azure AD), [Windows Hello для бизнеса](../active-directory/active-directory-azureadjoin-passport-deployment.md) упрощает единый вход в ресурсы Azure. В этом случае устройства с Windows 10 будут использоваться в качестве второго фактора при аутентификации.
 
 Для учетных записей, управляющих подпиской Azure, а также для учетных записей, используемых для входа на виртуальные машины, Многофакторная идентификация обеспечивает более высокий уровень безопасности, чем защита одним паролем. Такие же результаты позволяют получить и другие виды двухфакторной аутентификации, но для их внедрения потребуется гораздо больше усилий, если они еще не развернуты в рабочей среде.
 

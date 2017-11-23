@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 05af1ccc9702891980e60a1c1db4c527ffbed0fa
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0d2e7e6f17fecb9809ac76fbfa0db860b7948a7e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Настройка защищенного протокола LDAP (LDAPS) для управляемого домена доменных служб Azure AD
 В этой статье показано, как включить протокол LDAPS для управляемого домена доменных служб Azure AD. Защищенный протокол LDAP также называется "LDAP через SSL или TLS".
@@ -79,9 +79,12 @@ ms.lasthandoff: 11/04/2017
 **Создание самозаверяющего сертификата с использованием PowerShell**
 
 Чтобы создать самозаверяющий сертификат, на компьютере Windows откройте новое окно PowerShell с правами **администратора** и введите следующие команды.
-```
+
+```powershell
 $lifetime=Get-Date
-New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
+New-SelfSignedCertificate -Subject *.contoso100.com `
+  -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
+  -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```
 
 В примере выше замените *.contoso100.com на DNS-имя своего управляемого домена. Например, если вы создали управляемый домен contoso100.onmicrosoft.com, то замените* .contoso100.com в приведенном выше сценарии на *.contoso100.onmicrosoft.com.

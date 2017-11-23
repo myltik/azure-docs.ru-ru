@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
-ms.author: elkuzmen
-ms.openlocfilehash: e3f9fa3e543851e79d9aed9c80ae4a8d2dd3420d
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.date: 11/20/2017
+ms.author: bryanla
+ms.openlocfilehash: f1f51f59a86c7815b5a18aa84dfb315345debcd9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Доступ к Azure Key Vault с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows 
 
@@ -33,8 +33,11 @@ ms.lasthandoff: 10/25/2017
 > * предоставлять виртуальной машине доступ к секрету в Key Vault; 
 > * получать маркер доступа с помощью удостоверения виртуальной машины и использовать его для получения секрета из Key Vault. 
 
+## <a name="prerequisites"></a>Предварительные требования
 
-Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Вход в Azure
 
@@ -88,7 +91,7 @@ MSI на виртуальной машине позволяет получить
 
 Затем добавьте секрет в хранилище Key Vault, чтобы позже извлечь его с помощью кода, который вы запустите на виртуальной машине: 
 
-1. Выберите **Все ресурсы**, а затем найдите и выберите созданное хранилище Key Vault. 
+1. Щелкните **Все ресурсы**, а затем найдите и выберите созданное хранилище Key Vault. 
 2. Выберите **Секреты** и щелкните **Добавить**. 
 3. В разделе **Параметры отправки** выберите **Вручную**. 
 4. Введите имя и значение для секрета.  Значение может быть любым. 
