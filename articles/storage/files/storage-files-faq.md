@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: renash
-ms.openlocfilehash: 871fc85d0b406d2de35a79eb2906ff2d6ada9570
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Часто задаваемые вопросы о службе файлов Azure
 Служба [файлов Azure](storage-files-introduction.md) предоставляет полностью управляемые общие файловые ресурсы в облаке, доступ к которым можно получить с помощью стандартного отраслевого [протокола SMB](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (он также называется Common Internet File System, или CIFS). Общие ресурсы службы файлов Azure можно одновременно подключить к облачным или локальным развертываниям Windows, Linux и macOS. Вы также можете кэшировать общие файловые ресурсы Azure на компьютерах под управлением Windows Server с помощью службы синхронизации файлов Azure (предварительная версия), чтобы получить быстрый доступ из расположения, где используются данные.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/07/2017
 В этой статье приведены ответы на часто задаваемые вопросы о возможностях и функциях службы файлов Azure, включая использование синхронизации файлов Azure в отношении этой службы. Если вы не нашли ответ на свой вопрос, свяжитесь с нами, используя следующие каналы (в порядке эскалации):
 
 1. Раздел комментариев этой статьи.
-2. [Форум службы хранилища Azure](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. [Форум службы хранилища Azure](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata).
 3. [UserVoice службы файлов Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Служба поддержки Майкрософт. Чтобы создать запрос на поддержку на портале Azure, на вкладке **Справка** нажмите кнопку **Справка и поддержка**, а затем выберите **Новый запрос на поддержку**.
 
