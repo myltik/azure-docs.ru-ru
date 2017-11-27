@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: afd7735712d03110a67509a7e94d336219a65b34
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 77078087e2532ac779d25ef63cc7fa19b40f0851
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>Руководство. Копирование данных из локальной среды SQL Server в хранилище BLOB-объектов Azure
-В этом руководстве будет использоваться Azure PowerShell для создания конвейера фабрики данных, который копирует данные из локальной базы данных SQL Server в хранилище BLOB-объектов Azure. Вы создадите и будете использовать локальную среду выполнения интеграции (IR) фабрики данных Azure, которая обеспечивает интеграцию локальных и облачных хранилищ данных.  Сведения об использовании других средств или пакетов SDK для создания фабрики данных см. в [этом кратком руководстве](quickstart-create-data-factory-dot-net.md).
-
-Эта статья не содержит подробный обзор службы фабрики данных. Общие сведения о службе фабрики данных Azure см. в статье [Введение в фабрику данных Azure](introduction.md). 
+В этом руководстве будет использоваться Azure PowerShell для создания конвейера фабрики данных, который копирует данные из локальной базы данных SQL Server в хранилище BLOB-объектов Azure. Вы создадите и будете использовать локальную среду выполнения интеграции, которая перемещает данные между локальным и облачным хранилищами данных. 
 
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, ознакомьтесь с [документацией по фабрике данных версии 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> 
+> Эта статья не содержит подробный обзор службы фабрики данных. Общие сведения о службе фабрики данных Azure см. в статье [Введение в фабрику данных Azure](introduction.md). 
 
 В этом руководстве вы выполните следующие шаги:
 
@@ -38,14 +38,17 @@ ms.lasthandoff: 11/16/2017
 > * Запуск конвейера.
 > * Выполнение мониторинга выполнения конвейера.
 
+## <a name="prerequisites"></a>Предварительные требования
+### <a name="azure-subscription"></a>Подписка Azure.
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
-## <a name="prerequisites"></a>Предварительные требования
+### <a name="azure-roles"></a>Роли Azure
+Чтобы создать экземпляры фабрики данных, нужно назначить учетной записи пользователя, используемой для входа в Azure, роль **участника**, **владельца** либо **администратора** подписки Azure. На портале Azure щелкните **имя пользователя** в правом верхнем углу и выберите **Разрешения**, чтобы просмотреть существующие разрешения в подписке. Если у вас есть доступ к нескольким подпискам, выберите соответствующую подписку. Примеры инструкций по назначению пользователю роли см. в статье [о добавлении ролей](../billing/billing-add-change-azure-subscription-administrator.md).
 
-### <a name="sql-server-2014-or-2016"></a>SQL Server 2014 или 2016. 
-В этом руководстве используйте локальную базу данных SQL Server в качестве **исходного** хранилища данных. Создайте таблицу с именем **emp** в базе данных SQL Server и вставьте в нее несколько примеров записей.
+### <a name="sql-server-201420162017"></a>SQL Server 2014, 2016 или 2017
+В этом руководстве используйте локальную базу данных SQL Server в качестве **исходного** хранилища данных. Конвейер фабрики данных, созданный в рамках этого руководства, копирует данные из этой локальной базы данных SQL Server (источника) в хранилище BLOB-объектов Azure (приемник). Создайте таблицу с именем **emp** в базе данных SQL Server и вставьте в нее несколько примеров записей. 
 
-1. Запустите **SQL Server Management Studio**. Если вы используете SQL Server 2016, может потребоваться отдельно установить SQL Server Management Studio из [центра загрузки](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
+1. Запустите **SQL Server Management Studio** на своем компьютере. Если на нем не установлен пакет SQL Server Management Studio, установите его из [центра загрузки](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
 2. Подключитесь к SQL Server с помощью учетных данных. 
 3. Создайте пример базы данных. В представлении в виде дерева щелкните правой кнопкой мыши элемент **Базы данных** и выберите пункт **Новая база данных**. В диалоговом окне **Новая база данных** введите **имя** базы данных и нажмите кнопку **ОК**. 
 4. Запустите следующий скрипт запроса к базе данных, который создаст таблицу **emp**. В представлении в виде дерева щелкните правой кнопкой мыши созданную **базу данных** и выберите пункт **Новый запрос**. 
@@ -68,10 +71,10 @@ ms.lasthandoff: 11/16/2017
     ```
 
 ### <a name="azure-storage-account"></a>Учетная запись хранения Azure
-В этом руководстве используйте учетную запись хранения Azure общего назначения (хранилища BLOB-объектов) в качестве **целевого (принимающего)** хранилища данных. Если у вас нет учетной записи хранения Azure общего назначения, см. инструкции по [созданию учетной записи хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+В этом руководстве используйте учетную запись хранения Azure общего назначения (хранилища BLOB-объектов) в качестве **целевого (принимающего)** хранилища данных. Если у вас нет учетной записи хранения Azure общего назначения, см. инструкции по [созданию учетной записи хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account). Конвейер фабрики данных, созданный в рамках этого руководства, копирует данные из локальной базы данных SQL Server (источника) в это хранилище BLOB-объектов Azure (приемник). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Получение имени и ключа учетной записи хранения
-В этом кратком руководстве вы будете использовать имя и ключ своей учетной записи хранения Azure. Далее описана процедура получения имени и ключа учетной записи хранения. 
+В этом руководстве вы будете использовать имя и ключ своей учетной записи хранения Azure. Далее описана процедура получения имени и ключа учетной записи хранения. 
 
 1. Откройте браузер и перейдите на [портал Azure](https://portal.azure.com). Войдите, используя имя пользователя и пароль Azure. 
 2. Щелкните **Больше служб >** в меню слева, отфильтруйте содержимое по ключевому слову **хранение**, затем выберите пункт **Учетные записи хранения**.
@@ -84,22 +87,23 @@ ms.lasthandoff: 11/16/2017
 5. Скопируйте значения полей **Имя учетной записи хранения** и **key1** в буфер обмена. Вставьте их в Блокнот или другой редактор и сохраните файл. В этом руководстве будет использоваться имя и ключ учетной записи хранения. 
 
 #### <a name="create-the-adftutorial-container"></a>Создание контейнера adftutorial 
-В этом разделе вы создадите контейнер больших двоичных объектов с именем adftutorial в хранилище BLOB-объектов Azure. 
+В этом разделе вы создадите контейнер больших двоичных объектов с именем **adftutorial** в хранилище BLOB-объектов Azure. 
 
-1. Установите [обозреватель службы хранилища Azure](https://azure.microsoft.com/features/storage-explorer/), если его нет на вашем компьютере. 
-2. Запустите **обозреватель службы хранилища Microsoft Azure** на компьютере.   
-3. В окне **подключения к службе хранилища Azure** выберите **Use a storage account name and key** (Использовать имя и ключ учетной записи хранения) и нажмите кнопку **Next** (Далее). Если окно **подключения к службе хранилища Azure** не отображается, щелкните правой кнопкой мыши элемент **Storage Accounts** (Учетные записи хранения) в представлении в виде дерева, а затем выберите пункт **Connect to Azure storage** (Подключиться к хранилищу Azure). 
+1. На странице **Учетная запись хранения** перейдите на вкладку **Обзор** и щелкните **BLOB-объекты**. 
 
-    ![Подключение к службе хранилища Azure](media/tutorial-hybrid-copy-powershell/storage-explorer-connect-azure-storage.png)
-4. В окне **Присоединение с помощью имени и ключа** вставьте **имя учетной записи** и **ключ учетной записи**, сохраненные на предыдущем шаге. Затем щелкните **Далее**. 
-5. В окне **Connection Summary** (Сводка по подключению) нажмите кнопку **Connect** (Подключиться).
-6. Убедитесь, что ваша учетная запись хранения отображается в представлении в виде дерева в разделе **(Local and Attached)** -> **Storage Accounts** ((Локальные и присоединенные) > Учетные записи хранения). 
-7. Разверните узел **Контейнеры больших двоичных объектов** и убедитесь, что контейнер больших двоичных объектов с именем **adftutorial** не существует. Если он уже существует, пропустите следующие шаги по созданию контейнера. 
-8. Щелкните правой кнопкой мыши элемент **Blob Containers** (Контейнеры больших двоичных объектов) и выберите **Create Blob Container** (Создать контейнер BLOB-объектов).
+    ![Выбор параметра "BLOB-объекты"](media/tutorial-hybrid-copy-powershell/select-blobs.png)
+1. На странице **Служба BLOB-объектов** щелкните **+ Контейнер** на панели инструментов. 
 
-    ![Создание контейнера больших двоичных объектов](media/tutorial-hybrid-copy-powershell/stroage-explorer-create-blob-container-menu.png)
-9. Введите **adftutorial** в качестве имени и нажмите клавишу **ВВОД**. 
-10. Убедитесь, что контейнер **adftutorial** выбран в представлении в виде дерева. Фабрика данных автоматически создает выходную папку в этом контейнере, поэтому ее не нужно создавать. 
+    ![Кнопка добавления контейнера](media/tutorial-hybrid-copy-powershell/add-container-button.png)
+3. В диалоговом окне **Создание контейнера** введите **adftutorial** в поле имени и нажмите кнопку **ОК**. 
+
+    ![Ввод имени контейнера](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+4. Щелкните **adftutorial** в списке контейнеров.  
+
+    ![Выбор контейнера](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+5. Не закрывайте страницу **контейнера** **adftutorial**. Она понадобится для проверки выходных данных в конце этого руководства. Фабрика данных автоматически создает выходную папку в этом контейнере, поэтому ее не нужно создавать.
+
+    ![Страница контейнера](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -113,8 +117,10 @@ ms.lasthandoff: 11/16/2017
 Подробные инструкции см. в статье [Установка и настройка служб Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 #### <a name="log-in-to-azure-powershell"></a>Вход в Azure PowerShell
-Запустите **PowerShell** на компьютере. Не закрывайте Azure PowerShell, пока выполняются описанные в этом кратком руководстве инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
 
+1. Запустите **PowerShell** на компьютере. Не закрывайте Azure PowerShell, пока выполняются описанные в этом кратком руководстве инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
+
+    ![Запуск PowerShell](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 1. Выполните следующую команду и введите имя пользователя Azure и пароль, которые используются для входа на портал Azure.
        
     ```powershell
@@ -125,7 +131,7 @@ ms.lasthandoff: 11/16/2017
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Выполните следующую команду, чтобы выбрать подписку, с которой вы собираетесь работать. Замените значение **SubscriptionId** на идентификатор подписки Azure:
+3. Если у вас несколько подписок Azure, выполните следующую команду, чтобы выбрать нужную подписку. Замените значение **SubscriptionId** на идентификатор подписки Azure:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
@@ -133,15 +139,15 @@ ms.lasthandoff: 11/16/2017
 
 ## <a name="create-a-data-factory"></a>Создать фабрику данных
 
-1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) в двойных кавычках, а затем выполните команду. 
+1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) в двойных кавычках, а затем выполните команду. Например, `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>";
+    $resourceGroupName = "<Specify a name for the Azure resource group>"
     ```
 2. Определите переменную для имени фабрики данных, которую в дальнейшем можно будет использовать в командах PowerShell. 
 
     ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>";
+    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>"
     ```
 1. Определите переменную для расположения фабрики данных: 
 
@@ -154,7 +160,7 @@ ms.lasthandoff: 11/16/2017
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
 
-    Если группа ресурсов уже существует, вы можете не перезаписывать ее. Назначьте переменной `$resourceGroupName` другое значение и повторите попытку. Если вы хотите совместно использовать группу ресурсов с другими пользователями, перейдите к следующему шагу.  
+    Если группа ресурсов уже существует, вы можете не перезаписывать ее. Назначьте переменной `$resourceGroupName` другое значение и еще раз выполните команду.   
 5. Чтобы создать фабрику данных, выполните командлет **Set-AzureRmDataFactoryV2**. 
     
     ```powershell       
@@ -166,17 +172,17 @@ ms.lasthandoff: 11/16/2017
 * Имя фабрики данных Azure должно быть глобально уникальным. Если появляется следующая ошибка, измените имя и повторите попытку.
 
     ```
-    The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
+    The specified Data Factory name 'ADFv2TutorialDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 
-* Чтобы создавать экземпляры фабрики данных, вы должны быть **участником** или **администратором** подписки Azure.
+* Чтобы создать экземпляры фабрики данных, нужно назначить учетной записи пользователя, используемой для входа в Azure, роль **участника**, **владельца** либо **администратора** подписки Azure.
 * Сейчас фабрика данных версии 2 позволяет создавать фабрики данных только в восточной части США, восточной части США 2 и Западной Европе. Хранилища данных (служба хранилища Azure, база данных SQL Azure и т. д.) и вычисления (HDInsight и т. д.), используемые фабрикой данных, могут располагаться в других регионах.
 
 ## <a name="create-a-self-hosted-ir"></a>Создание локальной среды IR
 
-В этом разделе вы создадите локальную среду выполнения интеграции и свяжите ее с локальным узлом (компьютером).
+В этом разделе вы создадите локальную среду выполнения интеграции и свяжете ее с локальным компьютером, на котором находится база данных SQL Server. Локальная среда выполнения интеграции — это компонент, который копирует данные из SQL Server на компьютере в хранилище BLOB-объектов Azure. 
 
-1. Создайте переменную для имени среды выполнения интеграции. 
+1. Создайте переменную для имени среды выполнения интеграции. Запишите это имя. Оно будет использоваться далее в этом руководстве. 
 
     ```powershell
    $integrationRuntimeName = "<your integration runtime name>"
@@ -224,7 +230,7 @@ ms.lasthandoff: 11/16/2017
    State                     : NeedRegistration
    ```
 
-3. Выполните следующую команду, чтобы получить ключи проверки подлинности для регистрации локальной среды выполнения интеграции в службе фабрики данных в облаке. Скопируйте один из ключей для регистрации локальной среды выполнения интеграции.
+3. Выполните следующую команду, чтобы получить **ключи проверки подлинности** для регистрации локальной среды выполнения интеграции в службе фабрики данных в облаке. Скопируйте один из ключей (без двойных кавычек) для регистрации локальной среды выполнения интеграции, которую вы установите на компьютер на следующем шаге.  
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -234,20 +240,21 @@ ms.lasthandoff: 11/16/2017
 
    ```json
    {
-       "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@ab1@eu@VDnzgySwUfaj3pfSUxpvfsXXXXXXx4GHiyF4wboad0Y=",
-       "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@ab1@eu@sh+k/QNJGBltXL46vXXXXXXXXOf/M1Gne5aVqPtbweI="
+       "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
+       "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
    ```
 
 ## <a name="install-integration-runtime"></a>Установка среды выполнения интеграции
-1. [Скачайте](https://www.microsoft.com/download/details.aspx?id=39717) локальную среду выполнения интеграции на локальный компьютер и запустите установку. 
+1. [Скачайте](https://www.microsoft.com/download/details.aspx?id=39717) локальную среду выполнения интеграции на локальный компьютер под управлением Windows и запустите установку. 
 2. В окне **приветствия мастера установки Microsoft Integration Runtime** нажмите кнопку **Далее**.  
 3. На странице **Лицензионное соглашение** примите условия использования и лицензионное соглашение и нажмите кнопку **Далее**. 
 4. На странице **Конечная папка** нажмите кнопку **Далее**. 
 5. На странице **Все готово для установки Microsoft Integration Runtime** нажмите кнопку **Установить**. 
 6. Если появится предупреждающее сообщение о том, что для компьютера, который не используется, настроен переход в спящий режим или режим гибернации, нажмите кнопку **ОК**. 
-7. На странице **Мастер установки Microsoft Integration Runtime завершит работу** нажмите кнопку **Готово**.
-8. На странице **Регистрация Integration Runtime (Self-hosted)** вставьте ключ, созданный в предыдущем разделе, и нажмите кнопку **Зарегистрировать**. 
+7. Если появится окно **Электропитание**, закройте его и перейдите в окно установки. 
+8. На странице **Мастер установки Microsoft Integration Runtime завершит работу** нажмите кнопку **Готово**.
+9. На странице **Регистрация Integration Runtime (Self-hosted)** вставьте ключ, созданный в предыдущем разделе, и нажмите кнопку **Зарегистрировать**. 
 
    ![Регистрация среды выполнения интеграции](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 2. Когда локальная среда выполнения интеграции будет успешно зарегистрирована, вы увидите следующее сообщение:
@@ -264,10 +271,25 @@ ms.lasthandoff: 11/16/2017
 6. Когда узел будет подключен к облачной службе, отобразится следующая страница:
 
    ![Узел подключен](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
+7. Теперь проверьте возможность подключения к базе данных SQL Server.
 
+    ![Вкладка «Диагностика»](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)   
+
+    - В окне **Configuration Manager** перейдите на вкладку **Диагностика**.
+    - В поле **Тип источника данных** выберите **SqlServer**.
+    - Введите имя **сервера**.
+    - Введите имя **базы данных**. 
+    - Выберите режим **проверки подлинности**. 
+    - Введите имя **пользователя**. 
+    - Введите **пароль** для этого имени пользователя.
+    - Нажмите кнопку **проверки**, чтобы убедиться, что эта среда выполнения интеграции может подключаться к серверу SQL Server. Если подключение установлено успешно, появится зеленый флажок. В противном случае появится сообщение об ошибке. Исправьте ошибки и проверьте, может ли среда выполнения интеграции подключаться к SQL Server.
+    
+      
 ## <a name="create-linked-services"></a>Создание связанных служб
+Связанная служба в фабрике данных связывает хранилища данных и службы вычислений с фабрикой данных. В этом руководстве вы свяжете учетную запись хранения Azure и локальную базу данных SQL Server с хранилищем данных. Связанные службы содержат сведения о подключении, используемые службой фабрики данных для подключения к ним в среде выполнения. 
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Создание связанных служб хранилища Azure (место назначения и приемник)
+На этом шаге вы свяжете учетную запись хранения Azure с фабрикой данных.
 
 1. Создайте JSON-файл с именем **AzureStorageLinkedService.json** в папке **C:\ADFv2Tutorial** и добавьте в него приведенное ниже содержимое. Если папка ADFv2Tutorial отсутствует, создайте ее.  
 
@@ -281,16 +303,16 @@ ms.lasthandoff: 11/16/2017
             "typeProperties": {
                 "connectionString": {
                     "type": "SecureString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>;EndpointSuffix=core.windows.net"
                 }
             }
         },
         "name": "AzureStorageLinkedService"
     }
    ```
-2. В **Azure PowerShell** перейдите в папку **ADFv2Tutorial**.
+2. В **Azure PowerShell** перейдите в папку **C:\ADFv2Tutorial**.
 
-   Выполните командлет **Set-AzureRmDataFactoryV2LinkedService**, чтобы создать связанную службу: **AzureStorageLinkedService**. Командлеты, используемые в этом руководстве, принимают значения параметров **ResourceGroupName** и **DataFactoryName**. Кроме того, вы можете передать объект **DataFactory**, возвращенный командлетом Set-AzureRmDataFactoryV2, не вводя параметры ResourceGroupName и DataFactoryName при каждом запуске командлета.
+   Выполните командлет **Set-AzureRmDataFactoryV2LinkedService**, чтобы создать связанную службу: **AzureStorageLinkedService**. 
 
    ```powershell
    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -306,11 +328,14 @@ ms.lasthandoff: 11/16/2017
     ```
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Создание и шифрование связанной службы SQL Server (источник)
+На этом шаге вы свяжете локальную базу данных SQL Server с фабрикой данных.
 
-1. Создайте JSON-файл с именем **SqlServerLinkedService.json** в папке **C:\ADFv2Tutorial** с указанным ниже содержимым. Замените **&lt;servername>**, **&lt;databasename>**, **&lt;username>** и **&lt;password>** собственными именами сервера, базы данных, пользователя и пароля SQL Server, прежде чем сохранить файл. 
+1. Создайте в папке **C:\ADFv2Tutorial** JSON-файл с именем **SqlServerLinkedService.json** с указанным ниже содержимым. Select the right section based on the **authentication** you use to connect to SQL Server.  
 
     > [!IMPORTANT]
-    > Замените **&lt;integration** **runtime** **name>** именем своей среды выполнения интеграции.
+    > Выберите правильный раздел в зависимости от типа **проверки подлинности**, который используется для подключения к SQL Server.
+
+    **Если используется проверка подлинности SQL (sa), скопируйте следующее определение JSON:**
 
     ```json
     {
@@ -329,14 +354,45 @@ ms.lasthandoff: 11/16/2017
         },
         "name": "SqlServerLinkedService"
     }
-   ```
-2. Чтобы зашифровать конфиденциальные данные, содержащиеся в полезных данных JSON в локальной среде выполнения интеграции, выполните командлет **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** и передайте указанные выше полезные данные JSON. Шифрование гарантирует, что учетные данные будут зашифрованы с помощью программного интерфейса защиты данных (API защиты данных). Защищенные данные хранятся на узле локальной среды выполнения интеграции (на локальном компьютере). Полезные выходные данные можно перенаправить в другой JSON-файл (в этом случае encryptedLinkedService.json), содержащий зашифрованные учетные данные.
+   ```    
+    **Если используется проверка подлинности Windows, скопируйте следующее определение JSON:**
+
+    ```json
+    {
+        "properties": {
+            "type": "SqlServer",
+            "typeProperties": {
+                "connectionString": {
+                    "type": "SecureString",
+                    "value": "Server=<server>;Database=<database>;Integrated Security=True"
+                },
+                "userName": "<domain>\\<user>",
+                "password": {
+                    "type": "SecureString",
+                    "value": "<password>"
+                }
+            },
+            "connectVia": {
+                "type": "integrationRuntimeReference",
+                "referenceName": "<integration runtime name>"
+            }
+        },
+        "name": "SqlServerLinkedService"
+    }    
+    ```
+    > [!IMPORTANT]
+    > - Выберите правильный раздел в зависимости от типа **проверки подлинности**, который используется для подключения к SQL Server.
+    > - Замените **&lt;integration** **runtime** **name>** именем своей среды выполнения интеграции.
+    > - Перед сохранением файла замените **&lt;servername>**, **&lt;databasename>**, **&lt;username>** и **&lt;password>** значениями для своей базы данных SQL Server.
+    > - Если в имени учетной записи пользователя или имени сервера необходимо использовать символ косой черты (`\`), добавьте escape-символ (`\`). Пример: `mydomain\\myuser`. 
+
+2. Для шифрования конфиденциальных данных (имени пользователя, пароля и т. д.) выполните командлет **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**. Шифрование гарантирует, что учетные данные будут зашифрованы с помощью программного интерфейса защиты данных (API защиты данных). Зашифрованные данные хранятся на узле локальной среды выполнения интеграции (на локальном компьютере). Полезные выходные данные можно перенаправить в другой JSON-файл (в этом случае encryptedLinkedService.json), содержащий зашифрованные учетные данные.
     
    ```powershell
    New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
-3. Выполните следующую команду с помощью JSON-файла из предыдущего шага для создания **SqlServerLinkedService**:
+3. Выполните следующую команду, которая создает **EncryptedSqlServerLinkedService**:
 
    ```powershell
    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
@@ -347,6 +403,7 @@ ms.lasthandoff: 11/16/2017
 На этом этапе вы создадите наборы входных и выходных данных, которые представляют собой входные и выходные данные для операции копирования (из локальной базы данных SQL Server в хранилище BLOB-объектов Azure).
 
 ### <a name="create-a-dataset-for-source-sql-database"></a>Создание набора данных для исходной базы данных SQL
+На этом шаге вы определите набор данных, представляющий данные в базе данных SQL Server. Это набор данных типа **SqlServerTable**. Он ссылается на **связанную службу SQL Server**, созданную на предыдущем шаге. Связанная служба содержит **сведения о подключении**, используемые службой фабрики данных для подключения к SQL Server в среде выполнения. Этот набор данных указывает **таблицу SQL** в базе данных, содержащий эти данные. В нашем руководстве это таблица `emp`, содержащая исходные данные. 
 
 1. Создайте JSON-файл с именем **SqlServerDataset.json** в папке **C:\ADFv2Tutorial** со следующим содержимым:  
 
@@ -397,11 +454,9 @@ ms.lasthandoff: 11/16/2017
     ```
 
 ### <a name="create-a-dataset-for-sink-azure-blob-storage"></a>Создание набора данных для хранилища BLOB-объектов Azure (приемника)
+На этом шаге определите набор данных, которые необходимо копировать в хранилище BLOB-объектов Azure. Это набор данных типа **AzureBlob**. Он ссылается на **связанную службу хранилища Azure**, созданную ранее в рамках этого руководства. Связанная служба содержит **сведения о подключении**, используемые фабрикой данных для подключения к учетной записи хранения Azure в среде выполнения. В этом **наборе данных** указана **папка** в хранилище Azure, в которую копируются данные из базы данных SQL Server. В этом руководстве используется папка `adftutorial/fromonprem`, где`adftutorial` — это контейнер больших двоичных объектов, а `fromonprem` — собственно папка. 
 
 1. Создайте JSON-файл с именем **AzureBlobDataset.json** в папке **C:\ADFv2Tutorial** со следующим содержимым:
-
-    > [!IMPORTANT]
-    > В этом образце кода предполагается, что у вас есть контейнер с именем **adftutorial** в хранилище BLOB-объектов Azure.
 
     ```json
     {
@@ -438,9 +493,8 @@ ms.lasthandoff: 11/16/2017
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset
     ```
 
-## <a name="create-pipelines"></a>Создание конвейеров
-
-### <a name="create-the-pipeline-sqlservertoblobpipeline"></a>Создание конвейера SqlServerToBlobPipeline
+## <a name="create-a-pipeline"></a>Создание конвейера
+В рамках этого руководства вы создадите конвейер с действием копирования. Действие копирования использует **SqlServerDataset** в качестве входного набора данных, а **AzureBlobDataset** — в качестве выходного набора. Для типа источника задано значение **SqlSource**, а для типа приемника — значение **BlobSink**.
 
 1. Создайте JSON-файл с именем **SqlServerToBlobPipeline.json** в папке **C:\ADFv2Tutorial** со следующим содержимым:
 
@@ -495,16 +549,16 @@ ms.lasthandoff: 11/16/2017
     ```
 
 
+## <a name="create-a-pipeline-run"></a>Создание конвейера
+Запустите выполнение конвейера SQLServerToBlobPipeline и запишите идентификатор выполнения конвейера для будущего мониторинга.
 
-## <a name="start-and-monitor-a-pipeline-run"></a>Запуск и мониторинг выполнения конвейера
+```powershell
+$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
+```
 
-1. Запустите выполнение конвейера SQLServerToBlobPipeline и запишите идентификатор выполнения конвейера для будущего мониторинга.  
+## <a name="monitor-the-pipeline-run"></a>Выполнили мониторинг конвейера.
 
-    ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
-    ```
-
-2. Выполните указанный ниже скрипт, чтобы постоянно проверять состояние выполнения конвейера **SQLServerToBlobPipeline** и вывести конечный результат.
+1. Выполните указанный ниже скрипт, чтобы постоянно проверять состояние выполнения конвейера **SQLServerToBlobPipeline** и выводить конечный результат. Скопируйте приведенный ниже скрипт в окно PowerShell и нажмите клавишу ВВОД.
 
     ```powershell
     while ($True) {
@@ -540,7 +594,7 @@ ms.lasthandoff: 11/16/2017
     Error             : {errorCode, message, failureType, target}
     ```
 
-3. Вы можете получить идентификатор выполнения конвейера **SQLServerToBlobPipeline** и просмотреть подробный результат выполнения действия, как показано ниже.
+3. Вы можете получить идентификатор выполнения конвейера **SQLServerToBlobPipeline** и просмотреть подробный результат выполнения действия с помощью следующей команды: 
 
     ```powershell
     Write-Host "Pipeline 'SQLServerToBlobPipeline' run result:" -foregroundcolor "Yellow"
@@ -561,8 +615,18 @@ ms.lasthandoff: 11/16/2017
       "billedDuration": 3
     }
     ```
+
 ## <a name="verify-the-output"></a>Проверка выходных данных
-Конвейер автоматически создает выходную папку с именем `fromonprem` в контейнере больших двоичных объектов `adftutorial`. Убедитесь, что вы видите в выходной папке файл **dbo.emp.txt**. Используйте [обозреватель хранилищ Azure](https://azure.microsoft.com/features/storage-explorer/), чтобы проверить, созданы ли выходные данные. 
+Конвейер автоматически создает выходную папку с именем `fromonprem` в контейнере больших двоичных объектов `adftutorial`. Убедитесь, что вы видите в выходной папке файл **dbo.emp.txt**. 
+
+1. На странице контейнера **adftutorial** на портале Azure нажмите кнопку **Обновить**, чтобы появилась папка output.
+
+    ![Папка output создана](media/tutorial-hybrid-copy-powershell/fromonprem-folder.png)
+2. В списке папок щелкните `fromonprem`. 
+3. Убедитесь, что отображается файл `dbo.emp.txt`.
+
+    ![Выходной файл](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 В этом примере конвейер копирует данные из одного расположения в другое в хранилище BLOB-объектов Azure. Вы научились выполнять следующие задачи:
