@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2016
 ms.author: saysa
-ms.openlocfilehash: 4fa77da8665908553072792d7f2ede47bf5567dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90faa353a1f6b83ec0cd8b9ee2cd247905ef4524
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Подключаемый модуль Service Fabric для разработки приложений Eclipse на Java
-Eclipse является одной из наиболее часто используемых интегрированных сред разработки (IDE) для разработчиков Java. В этой статье описывается, как настроить среду разработки Eclipse для работы с Azure Service Fabric. Вы узнаете, как установить подключаемый модуль Service Fabric, создать приложение Service Fabric и развернуть его в локальный или удаленный кластер Service Fabric в Eclipse Neon.
+Eclipse является одной из наиболее часто используемых интегрированных сред разработки (IDE) для разработчиков Java. В этой статье описывается, как настроить среду разработки Eclipse для работы с Azure Service Fabric. Вы узнаете, как установить подключаемый модуль Service Fabric, создать приложение Service Fabric и развернуть его в локальный или удаленный кластер Service Fabric в Eclipse Neon. 
+
+> [!NOTE]
+> Подключаемый модуль Eclipse сейчас не поддерживается в Windows. 
 
 ## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>Установка и обновление подключаемого модуля Service Fabric в Eclipse Neon
 Вы можете установить подключаемый модуль Service Fabric в Eclipse. Он позволяет упростить процесс создания и развертывания служб Java.

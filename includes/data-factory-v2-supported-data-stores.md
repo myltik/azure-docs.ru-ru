@@ -35,4 +35,5 @@
 | &nbsp; |[Generic OData](../articles/data-factory/connector-odata.md) |✓ | |✓  |✓  |
 | &nbsp; |[Универсальные данные ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓  | |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓  |✓  |✓  |
+| &nbsp; |[Облачная служба SalesForce](../articles/data-factory/connector-salesforce.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[Веб-таблица (таблица HTML)](../articles/data-factory/connector-web-table.md) |✓ | |✓  |✓  |

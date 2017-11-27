@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Настройка подключения VPN-шлюза между виртуальными сетями с помощью Azure CLI
 
@@ -59,11 +59,17 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="which-set-of-steps-should-i-use"></a>Каким инструкциям следовать?
 
-В этой статье приведены два разных набора действий. Один предназначен для [виртуальных сетей в рамках одной подписки](#samesub), а другой — для [виртуальных сетей в разных подписках](#difsub).
-
-## <a name="samesub"></a>Подключение виртуальных сетей из одной подписки
+В этой статье приведены два разных набора действий: Инструкции по работе с [виртуальными сетями которые находятся в той же подписке](#samesub). Инструкции по работе с этой конфигурацией с использованием TestVNet1 и TestVNet4.
 
 ![Схема подключения между виртуальными сетями](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+Инструкции по работе с [виртуальными сетями, которые находятся в разных подписках](#difsub), описаны в отдельной статье. Инструкции по работе с этой конфигурацией с использованием TestVNet1 и TestVNet5.
+
+![Схема подключения между виртуальными сетями](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
+При необходимости вы можете объединить конфигурации или выбрать ту, с которой вы хотите работать.
+
+## <a name="samesub"></a>Подключение виртуальных сетей из одной подписки
 
 ### <a name="before-you-begin"></a>Перед началом работы
 
@@ -88,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 * Общедоступный IP-адрес: VNet1GWIP
 * Тип VPN: RouteBased
 * Подключение (1–4): VNet1toVNet4
-* Подключение (1–5): VNet1toVNet5
+* Подключение (1–5): VNet1toVNet5 (для виртуальных сетей в разных подписках)
 * Тип подключения: VNet2VNet
 
 **Значения для TestVNet4:**
@@ -255,8 +261,6 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="difsub"></a>Подключение виртуальных сетей из разных подписок
 
-![Схема подключения между виртуальными сетями](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
-
 В этом сценарии мы создадим подключение между TestVNet1 и TestVNet5. Виртуальные сети находятся в разных подписках. Подписки не обязательно должны быть связаны с одним и тем же клиентом Active Directory. В этой конфигурации добавляется дополнительное подключение между виртуальными сетями для подключения TestVNet1 к TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Шаг 5. Создание и настройка TestVNet1
@@ -362,7 +366,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="verify"></a>Проверка подключений
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>Часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть"
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

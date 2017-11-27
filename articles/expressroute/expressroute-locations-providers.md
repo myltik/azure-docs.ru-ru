@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2017
+ms.date: 11/20/2017
 ms.author: kaanan
-ms.openlocfilehash: 89ca57785819ee0ea54a0514bb7d293d9df6644c
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 5a457f843f2529b7279fe245bb47ff52cba76e66
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
 
@@ -85,19 +85,19 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Майами** |C3ntro+, Megaport, Neutrona Networks |
 | **Монреаль** |Bell Canada, Cologix |
 | **Мумбай** |Airtel+, Global CloudXchange (GCX), Sify, Tata Communications |
-| **Нью-Йорк** |Coresite, Equinix, Megaport, Zayo Group |
+| **Нью-Йорк** |Coresite, Equinix, Level 3 Communications, Megaport, Zayo Group |
 | **Ньюпорт (Уэльс)** |Next Generation Data |
 | **Осака** |Equinix, Internet Initiative Japan Inc. (IIJ), NTT Communications, NTT SmartConnect, Softbank |
 | **Париж** |Colt, Intercloud, Interxion, Equinix, Orange |
 | **Квебек** | Megaport |
-| **Сан-Антонио** |Megaport |
+| **Сан-Антонио** |Level 3 Communications, Megaport |
 | **Сан-Паулу** |Ascenty Data Centers+, Equinix, Level 3 Communications, Neutrona Networks, Telefonica, UOLDIVEO |
 | **Сиэтл;** |Equinix, Level 3 Communications, Megaport |
 | **Сеул** |KINX, LG CNS, Sejong Telecom |
 | **Кремниевая долина** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Coresite, Equinix, Level 3 Communications, Orange, Tata Communications, Megaport, Verizon, Zayo Group |
 | **Сингапур** |Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Сидней** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
-| **Токио** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
+| **Токио** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, Level 3 Communications, NTT Communications, Softbank, Verizon |
 | **Торонто** |AT&T NetBond, Bell Canada, Cologix, Console, Equinix, Megaport, Telus, Zayo Group |
 | **Вашингтон, округ Колумбия** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Coresite, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
@@ -149,7 +149,7 @@ ExpressRoute поддерживается во всех регионах и ра
 ## <a name="c1partners"></a>Подключение через дополнительных поставщиков услуг
 | **Расположение** | **Exchange** | **Поставщики услуг подключения** |
 | --- | --- | --- |
-| **Амстердам** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, Nianet, Telia |
+| **Амстердам** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, MainOne, Nianet, Telia |
 | **Чикаго** | Equinix | Lightower, Windstream |
 | **Даллас** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Франкфурт** | Telecity | Nianet, QSC AG |
