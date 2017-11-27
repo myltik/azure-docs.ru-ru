@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/19/2017
 ms.author: subramar
-ms.openlocfilehash: da9aff17c16e179be200677bfbfd1287fff269e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77e357d56fc246de4e0e9af697e770c876d1d78
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Подготовка среды разработки в Linux
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
 ```
 
-### <a name="2-manual-installation"></a>2. Установка вручную
+### <a name="2-manual-installation"></a>2) Установка вручную
 Чтобы установить среду выполнения Service Fabric и общий пакет SDK вручную, ознакомьтесь с остальными разделами руководства.
 
 ## <a name="update-your-apt-sources"></a>Обновление списка источников APT
@@ -135,7 +135,7 @@ sudo apt-get install servicefabricsdkcommon
 
 
 ## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>Настройка генераторов Yeoman для контейнеров и гостевых исполняемых файлов
-Service Fabric предоставляет средства формирования шаблонов для создания приложений Service Fabric из терминала с помощью генераторов шаблонов Yeoman. Чтобы настроить генераторы шаблонов Yeoman Service Fabric, сделайте следующее:
+Service Fabric предоставляет средства формирования шаблонов для создания приложений Service Fabric из терминала с помощью генератора шаблонов Yeoman. Чтобы настроить генераторы шаблонов Yeoman Service Fabric, сделайте следующее:
 
 1. Установите Node.js и NPM на компьютере.
 
@@ -221,6 +221,7 @@ sudo apt-get install -f
 * [Подключаемый модуль Service Fabric для разработки приложений Eclipse на Java](service-fabric-get-started-eclipse.md)
 * [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md)
+* [Подготовка среды разработки Linux в Windows](service-fabric-local-linux-cluster-windows.md)
 * [Manage an Azure Service Fabric application by using Azure Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md) (Управление приложением Azure Service Fabric с помощью интерфейса командной строки Azure Service Fabric)
 * [Различия между Service Fabric для Linux (предварительная версия) и Windows (общедоступная версия)](service-fabric-linux-windows-differences.md)
 * [Azure Service Fabric command line](service-fabric-cli.md) (Интерфейс командной строки Azure Service Fabric)

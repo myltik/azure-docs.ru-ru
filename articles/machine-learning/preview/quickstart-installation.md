@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: fd99fec7ead28c02ffe0d8b8165e8a0ab89d525e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Создание учетной записи для предварительной версии службы "Машинное обучение Azure" и установка Azure Machine Learning Workbench
-Служба "Машинное обучение Microsoft Azure" — это полнофункциональное интегрированное решение для расширенной аналитики, обработки и анализа данных. Оно позволяет специалистам по обработке и анализу данных подготавливать данные, разрабатывать эксперименты и развертывать модели в масштабах облака.
+Служба "Машинное обучение Microsoft Azure" (предварительная версия) — это полнофункциональное интегрированное решение для расширенной аналитики, обработки и анализа данных. Оно позволяет специалистам по обработке и анализу данных подготавливать данные, разрабатывать эксперименты и развертывать модели в масштабах облака.
 
 Это краткое руководство подскажет вам, как создать учетные записи Экспериментирования и Управления моделями в предварительной версии службы "Машинное обучение Azure". Вы также узнаете, как установить приложение рабочего стола Azure Machine Learning Workbench и средства для интерфейса командной строки. Затем мы кратко перечислим функции предварительной версии службы "Машинное обучение Azure" на примере набора данных [Ирисы Фишера](https://en.wikipedia.org/wiki/iris_flower_data_set). Вы построите модель для прогнозирования типа ириса по его физическим характеристикам.  
 
@@ -108,7 +108,7 @@ Azure Machine Learning Workbench можно установить на компь
 
 4. Приложение Azure Machine Learning Workbench будет установлено в следующий каталог: 
 
-   `/Applications/AmlWorkbench.app`
+   `/Applications/Azure ML Workbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-sign-in-for-the-first-time"></a>Запуск Azure Machine Learning Workbench для первого входа
 1. Когда завершится процесс установки, нажмите кнопку **Launch Workbench** (Запуск Workbench) на последней странице программы установки. Если вы уже закрыли программу установки, найдите ярлык Azure Machine Learning Workbench на рабочем столе или пункт **Azure Machine Learning Workbench** в меню **Пуск** и запустите приложение с их помощью.

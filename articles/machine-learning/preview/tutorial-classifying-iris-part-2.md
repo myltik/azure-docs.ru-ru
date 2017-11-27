@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: 5bbfe63d159ba2d09a495908f69f707ed04a02f8
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Часть 2. Классификация цветков ириса: создание модели
 Служба "Машинное обучение Azure" (предварительная версия) — это полнофункциональное интегрированное аналитическое решение для специалистов по обработке и анализу данных. Оно помогает подготавливать данные, разрабатывать эксперименты и развертывать модели в масштабе облака.
@@ -291,7 +291,7 @@ ms.lasthandoff: 11/08/2017
    По выполнении `run.py` вы увидите график в представлении списка журналов выполнения в Workbench.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Выполнение в контейнере Docker на удаленном компьютере
-Чтобы выполнить скрипт в контейнере Docker на удаленном компьютере Linux, необходимо иметь доступ SSH (имя пользователя и пароль) к этому компьютеру. Кроме того, на удаленном компьютере должна быть установлена и запущена подсистема Docker. Самый простой способ получить доступ к такому компьютеру Linux — создать [виртуальную машину для обработки и анализа данных на базе Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) в Azure. 
+Чтобы выполнить скрипт в контейнере Docker на удаленном компьютере Linux, необходимо иметь доступ SSH (имя пользователя и пароль) к этому компьютеру. Кроме того, на удаленном компьютере должна быть установлена и запущена подсистема Docker. Самый простой способ получить доступ к такому компьютеру Linux — создать виртуальную машину для обработки и анализа данных на базе Ubuntu в Azure. См. дополнительные сведения о [создании виртуальной машины для обработки и анализа данных Ubuntu для использования в Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >Виртуальная машина для обработки и анализа данных на базе CentOS *не* поддерживается.
@@ -343,7 +343,9 @@ ms.lasthandoff: 11/08/2017
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Выполнение скрипта в кластере HDInsight
-Этот скрипт также можно выполнить в реальном кластере Spark. 
+Этот скрипт также можно выполнить в кластере HDInsight. См. дополнительные сведения о [создании кластера HDInsight Spark в Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
+
+>![ПРИМЕЧАНИЕ] Кластер HDInsight должен использовать большие двоичные объекты Azure в качестве основного хранилища. Использование хранилища Azure Data Lake еще не поддерживается.
 
 1. Если у вас есть доступ к Spark для кластера Azure HDInsight, создайте команду конфигурации запуска HDInsight, как показано ниже. Укажите в качестве параметров имя кластера HDInsight, имя пользователя HDInsight и пароль. Используйте следующую команду:
 

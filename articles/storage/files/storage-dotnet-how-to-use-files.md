@@ -12,24 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 51180530790fc0077cea4d8aea7088f1f871681b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 66a68a1ca048b50b8e2ba4ac1bb86d367b8a5bb9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="develop-for-azure-files-with-net"></a>Разработка для службы файлов Azure с помощью .NET 
-> [!NOTE]
-> Из этой статьи вы узнаете, как управлять службой файлов Azure с помощью кода .NET. Дополнительные сведения о службе файлов Azure см. в статье [Знакомство с хранилищем файлов Azure](storage-files-introduction.md).
->
+# <a name="develop-for-azure-files-with-net-and-windowsazurestorage"></a>Разработка для службы файлов Azure с помощью .NET и API WindowsAzure.Storage
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
-
-В этом руководстве мы рассмотрим основы использования .NET для разработки приложений и служб, использующих службу файлов Azure для хранения данных файлов. В рамках этого руководства создадим простое консольное приложение, а также покажем, как выполнять базовые действия с .NET и службой файлов Azure:
+В этом руководстве рассматриваются основы использования .NET и API `WindowsAzure.Storage` для разработки приложений, использующих [службу файлов Azure](storage-files-introduction.md) для хранения данных файлов. В рамках этого руководства мы создадим простое консольное приложение для выполнения базовых действий с .NET и службой файлов Azure.
 
 * Получите содержимое файла.
 * Задайте квоту (максимальный размер) для общей папки
@@ -38,9 +33,21 @@ ms.lasthandoff: 10/19/2017
 * Скопируйте файл в BLOB-объект в той же учетной записи хранения
 * Используйте метрики службы хранилища Azure как средство устранения неполадок.
 
-> [!Note]  
-> Так как доступ к службе файлов Azure можно получить с помощью SMB, вы можете написать простые приложения, которые получают доступ к общей папке Azure, используя стандартные классы System.IO для файлового ввода-вывода. Из этой статьи вы узнаете, как создавать приложения, использующие пакет SDK .NET для службы хранилища Azure, который использует [REST API службы файлов](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) для взаимодействия со службой файлов Azure. 
+Дополнительные сведения о службе файлов Azure см. в статье [Общие сведения о службе файлов Azure](storage-files-introduction.md).
 
+[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
+
+## <a name="understanding-the-net-apis"></a>Основные сведения об API-интерфейсах .NET
+
+Служба файлов Azure предлагает два широких подхода к использованию клиентских приложений: SMB (блок сообщений сервера) и REST. В рамках .NET эти подходы абстрагируются с помощью API-интерфейсов `System.IO` и `WindowsAzure.Storage`.
+
+API | Сценарии использования | Примечания
+----|-------------|------
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Требования вашего приложения: <ul><li>чтение и запись файлов по протоколу SMB;</li><li>выполнение на устройстве, которое получает доступ к учетной записи службы файлов Azure через порт 445;</li><li>не требуется управлять параметрами администрирования общей папки.</li></ul> | Программирование файлового ввода-вывода в службе файлов Azure по протоколу SMB ничем не отличается от программирования операций ввода-вывода в сетевой общей папке или на локальном устройстве хранения. Общие сведения о ряде функций в .NET, в том числе и об операциях ввода-вывода, см. в [этом руководстве](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter).
+[WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | Требования вашего приложения: <ul><li>отсутствует доступ к службе файлов Azure по протоколу SMB через порт 445 из-за ограничений брандмауэра или поставщика услуг Интернета;</li><li>требуются административные функции, например возможность задать квоту для общей папки или создать подписанный URL-адрес.</li></ul> | В этой статье приводится пример использования `WindowsAzure.Storage` для файлового ввода-вывода с помощью REST (вместо SMB) и управления общей папкой.
+
+> [!TIP]
+> В зависимости от требований приложения BLOB-объекты Azure могут быть более подходящим вариантом для хранения данных. Дополнительные сведения о выборе между службой файлов Azure и BLOB-объектами Azure см. в статье [Выбор между большими двоичными объектами Azure, службой файлов Azure и дисками Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Создание консольного приложения и получение сборки
 В Visual Studio создайте новое консольное приложение Windows. Ниже показано, как создать консольное приложение в Visual Studio 2017. Эти инструкции применимы и в других версиях Visual Studio.

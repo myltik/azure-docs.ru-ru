@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0c0029d2dea293e71c6e3daf74b85f0234bfdffd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Интеграция решений по обеспечению безопасности в центре безопасности Azure
 В этом документе описана процедура управления решениями по обеспечению безопасности, подключенными к центру безопасности Azure, и добавления новых решений.
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/31/2017
 | Защитник Windows (антивредоносное ПО Майкрософт)                  | Windows Server 2016                   | Нет, встроен в ОС           | Да                       |
 | System Center Endpoint Protection (антивредоносное ПО Майкрософт) | Windows Server 2012 R2, 2012, 2008 R2 | Через расширение                | Да                       |
 | Trend Micro — все версии         | Семейство Windows Server                 | Через расширение                | Да                       |
-| Symantec версии 12 и выше                     | Семейство Windows Server                 | Нет                           | Да                        |
+| Symantec v12.1.1100+                     | Семейство Windows Server                 | Нет                           | Да                        |
 | MacAfee                           | Семейство Windows Server                 | Нет                           | Нет                        |
 | Kaspersky                         | Семейство Windows Server                 | Нет                           | Нет                        |
 | Sophos                            | Семейство Windows Server                 | Нет                           | Нет                        |

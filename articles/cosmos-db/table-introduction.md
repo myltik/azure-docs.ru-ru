@@ -2,7 +2,7 @@
 title: "Знакомство с API таблицы Azure Cosmos DB | Документация Майкрософт"
 description: "Узнайте, как использовать Azure Cosmos DB для хранения больших объемов данных типа \"ключ — значение\" и выполнения запросов к ним с минимальной задержкой с помощью популярных API-интерфейсов MongoDB OSS."
 services: cosmos-db
-author: bhanupr
+author: mimig
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2017
-ms.author: arramac
-ms.openlocfilehash: 87e5555b282ca8efb8d8d3ed7938df94faffb102
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/20/2017
+ms.author: mimig1
+ms.openlocfilehash: da3576c7c2e4609c9d3fac64a3b10794164551e0
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Общие сведения об API таблиц Azure Cosmos DB
 
@@ -55,6 +55,10 @@ ms.lasthandoff: 11/15/2017
 ## <a name="get-started"></a>Начало работы
 
 Создайте учетную запись Azure Cosmos DB на [портале Azure](https://portal.azure.com). Затем приступите к работе, ознакомившись со статьей [Azure Cosmos DB. Создание приложения .NET с помощью API таблицы](create-table-dotnet.md). 
+
+> [!IMPORTANT]
+> Если вы создали учетную запись API таблиц на этапе предварительной версии, создайте [новую учетную запись API таблиц](create-table-dotnet.md#create-a-database-account) для работы с общедоступными пакетами SDK для API таблиц.
+>
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

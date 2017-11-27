@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 767dc34471db7dc1d095929e67e85197711b52ce
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Конечные точки служб виртуальной сети (предварительная версия)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/03/2017
 Эта функция доступна в предварительной версии для следующих служб и регионов Azure.
 
 - **Служба хранилища Azure** — все области в общедоступном облаке Azure.
-- **База данных SQL Azure** — западно-центральная часть США, западная часть США 2 и восточная часть США.
+- **Azure SQL** — все области в общедоступном облаке Azure.
 
 Самые актуальные уведомления для предварительной версии доступны на странице [обновлений виртуальной сети Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -122,4 +122,5 @@ ms.lasthandoff: 11/03/2017
 - Узнайте, как [защитить учетную запись хранения Azure с помощью виртуальной сети](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Узнайте, как [защитить базу данных SQL Azure с помощью виртуальной сети](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Узнайте об [интеграции служб Azure в виртуальных сетях](virtual-network-for-azure-services.md).
+-  Краткое руководство: [шаблон Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) для настройки конечной точки службы в подсети виртуальной сети и защиты учетной записи службы хранилища Azure в этой подсети.
 
