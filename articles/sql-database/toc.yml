@@ -337,13 +337,15 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: Мультитенантное приложение SaaS
       items:
-        - name: Добро пожаловать в Wingtips
+        - name: Пример приложения Wingtip Tickets
           href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: Общее руководство
+          href: saas-tenancy-wingtip-app-guidance-tips.md
         - name: Автономное приложение
           items:
             - name: Развертывание примера приложения
               href: saas-standaloneapp-get-started-deploy.md
-        - name: Количество баз данных для каждого клиента
+        - name: Однотенантная база данных
           href: saas-dbpertenant-wingtip-app-overview.md
           items:
             - name: Ознакомление с руководствами
