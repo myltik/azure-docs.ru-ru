@@ -243,6 +243,7 @@
 ### [Отладка службы .NET в VS](service-fabric-debugging-your-application.md)
 ### [Распространенные ошибки и исключения](service-fabric-errors-and-exceptions.md)
 ### [Локальный мониторинг и диагностика](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+### [Настройка кластера Linux в Windows](service-fabric-local-linux-cluster-windows.md)
 
 ## Работа в среде разработки Linux
 ### [Начало работы с подключаемым модулем Eclipse для разработки приложений Java](service-fabric-get-started-eclipse.md)
@@ -278,7 +279,9 @@
 ##### [Использование тестовых сценариев](service-fabric-testability-scenarios.md)
 ##### [Использование API-интерфейсов для изменения состояния узла](service-fabric-node-transition-apis.md)
 
-### [Развертывание приложения Linux на Java с помощью Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### Настройка непрерывной интеграции
+#### [Настройка непрерывной интеграции с помощью VSTS](service-fabric-set-up-continuous-integration.md)
+#### [Развертывание приложений Linux с помощью Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 
 ## Создание кластеров и управление ими
 ### Кластеры в Azure
