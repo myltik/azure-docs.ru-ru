@@ -77,7 +77,7 @@
         - name: Для высокопроизводительных вычислений
           href: sizes-hpc.md
         - name: Единицы вычислений Azure (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: Обслуживание и обновления
       href: maintenance-and-updates.md
     - name: Дисковый накопитель
