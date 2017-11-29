@@ -83,7 +83,7 @@
         - name: Для высокопроизводительных вычислений
           href: sizes-hpc.md
         - name: Единицы вычислений Azure (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: Рекомендуемые дистрибутивы
       href: endorsed-distros.md
     - name: Обслуживание и обновления

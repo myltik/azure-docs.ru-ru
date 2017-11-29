@@ -185,19 +185,10 @@
 #### [Cетевые режимы контейнеров](service-fabric-networking-modes.md)
 
 ### Создание службы Reliable Services
-#### [Обзор](service-fabric-reliable-services-introduction.md)
-#### Основные понятия
-##### [Жизненный цикл Reliable Services (C#)](service-fabric-reliable-services-lifecycle.md)
-##### [Жизненный цикл Reliable Services (Java)](service-fabric-reliable-services-lifecycle-java.md)
-
 #### Reliable Collections
-##### [Надежные коллекции](service-fabric-reliable-services-reliable-collections.md)
-##### [Reliable Collections: инструкции и рекомендации](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Работа с Reliable Collections](service-fabric-work-with-reliable-collections.md)
-##### [Транзакции и блокировки](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 ##### [Надежная параллельная очередь](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Сериализация надежной коллекции](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Внутренние компоненты Reliable State Manager и Reliable Collections](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Начало работы
 ##### [C# в Windows](service-fabric-reliable-services-quick-start.md)
