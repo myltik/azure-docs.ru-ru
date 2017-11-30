@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 50d185294131e42aaf8b541ab17495fcb40c89dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd16dd889cbe0f05d7e60f444c6c5fa2e65f64a4
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Управление репликами, принадлежащими секциям службы.
@@ -29,8 +29,7 @@ ms.lasthandoff: 10/11/2017
 | --- | --- |
 |    deployed  | Возвращает сведения о реплике, развернутой на узле Service Fabric.|
 |    deployed-list| Возвращает сведения о репликах, развернутых на узле Service Fabric.|
-|    health    | Возвращает сведения о работоспособности реплики службы с отслеживанием состояния Service Fabric
-                   или экземпляра службы без отслеживания состояния Service Fabric.|
+|    health    | Возвращает сведения о работоспособности реплики службы с отслеживанием состояния или экземпляра службы без отслеживания состояния Service Fabric.|
 |    info      | Возвращает сведения реплике секции Service Fabric.|
 |    list      | Возвращает сведения репликах секции службы Service Fabric.|
 |    remove    | Удаляет реплику службы, работающую на узле.|

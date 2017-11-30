@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 592a8716dd15b25b14fed145c11e5f5714cdd41c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3973c7e529cd1d0ecd98ae17d4d979d0d458ef3
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="azure-storage-security-guide"></a>Руководство по безопасности службы хранилища Azure
 ## <a name="overview"></a>Обзор
@@ -354,7 +354,7 @@ SSE позволяет настроить автоматическое шифр�
 Эта функция гарантирует, что все данные на дисках виртуальной машины шифруются при хранении в службе хранилища Azure.
 
 #### <a name="resources"></a>Ресурсы
-* [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+* [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Сравнение шифрования дисков Azure, шифрования службы хранилища и шифрования на стороне клиента
 #### <a name="iaas-vms-and-their-vhd-files"></a>Виртуальные машины IaaS и их файлы VHD
