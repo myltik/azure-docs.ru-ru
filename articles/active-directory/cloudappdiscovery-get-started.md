@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Настройка Cloud App Discovery в Azure AD
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/20/2017
 
 2. [Настройте непрерывные отчеты](https://docs.microsoft.com/cloud-app-security/discovery-docker) для анализа всех журналов, пересылаемых из вашей сети с помощью сборщика журналируемых данных Cloud App Security. Их можно использовать для определения новых приложений и тенденций использования.
 
-3. Если сейчас журналы не поддерживаются, [настройте пользовательское средство синтаксического анализа журналов](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser), чтобы модуль Cloud App Discovery смог их проанализировать.
+3. Если сейчас журналы не поддерживаются, [настройте пользовательское средство синтаксического анализа журналов](https://docs.microsoft.com/cloud-app-security/custom-log-parser), чтобы модуль Cloud App Discovery смог их проанализировать.
   
 ## <a name="log-processing-flow"></a>Процедура обработки журналов
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b263c69554c22978c854d2678ad7eeca91bc71f7
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Приступая к работе с обозревателем службы хранилища (предварительная версия)
 ## <a name="overview"></a>Обзор
@@ -230,7 +230,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Подключение к Azure Cosmos DB с помощью строки подключения][33]
 
-2. Выберите API Azure Cosmos DB, вставьте **строку подключения** и нажмите кнопку **ОК**, чтобы подключиться к учетной записи Azure Cosmos DB. Сведения о том, как получить строку подключения, см. в разделе [Получение строки подключения](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Выберите API Azure Cosmos DB, вставьте **строку подключения** и нажмите кнопку **ОК**, чтобы подключиться к учетной записи Azure Cosmos DB. Сведения о том, как получить строку подключения, см. в разделе [Получение строки подключения](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![Строка подключения][32]
 
