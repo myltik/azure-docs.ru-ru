@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/24/2017
+ms.date: 11/22/2017
 ms.author: asgang
-ms.openlocfilehash: c235102a60b6d11c8b77203121352bd1400f4325
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa8a79cd152a532ef8989e61c2ec9609b826634b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Репликация многоуровневого приложения Dynamics AX с помощью Azure Site Recovery
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 10/11/2017
 
  Дополнительные сведения см. в статье [Защита Active Directory и DNS с Azure Site Recovery](site-recovery-active-directory.md). Далее в этом документе подразумевается, что контроллер домена доступен на сайте аварийного восстановления.
 
-### <a name="2-set-up-sql-server-replication"></a>2. Настройка репликации SQL Server
+### <a name="2-set-up-sql-server-replication"></a>2) Настройка репликации SQL Server
 Технические рекомендации по решению для защиты на уровне SQL см. в статье [Защита SQL Server с помощью аварийного восстановления SQL Server и Azure Site Recovery](site-recovery-sql.md).
 
 ### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Включение защиты для клиента Dynamics AX и виртуальных машин Application Object Server

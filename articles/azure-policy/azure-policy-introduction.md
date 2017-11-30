@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 82c3f4629da635d1006db91e236d38b1aa16695c
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="what-is-azure-policy"></a>Что такое служба "Политика Azure"?
 

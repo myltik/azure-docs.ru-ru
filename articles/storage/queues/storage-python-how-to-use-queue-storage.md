@@ -3,7 +3,7 @@ title: "Как использовать хранилище очередей из
 description: "Узнайте о том, как использовать службу очередей Azure из Python для создания и удаления очередей, а также для вставки, получения и удаления сообщений."
 services: storage
 documentationcenter: python
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: cc0d2da2-379a-4b58-a234-8852b4e3d99d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
-ms.openlocfilehash: 8311d8e29845f2801c4b33f994512113044fcbf7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: tamram
+ms.openlocfilehash: c7976c01436b1c30880bfd4c57cb97f72a4f48b0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Использование хранилища очередей из Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
  
 ### <a name="install-via-pypi"></a>Установка с помощью PyPI
 
-Для установки с помощью индекса пакетов Python (PyPI), введите:
+Для установки с помощью индекса пакетов Python (PyPI) введите:
 
 ```bash
 pip install azure-storage-queue
@@ -50,7 +50,7 @@ pip install azure-storage-queue
 > 
 > 
 
-Другие методы установки см. в разделе [пакета SDK службы хранилища Azure для Python на сайте Github](https://github.com/Azure/azure-storage-python/).
+Другие методы установки см. в статье [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/) (Пакет SDK службы хранилища Microsoft Azure для Python) на сайте Github.
 
 ## <a name="how-to-create-a-queue"></a>Практическое руководство. Создание очереди
 Объект **QueueService** позволяет работать с очередями. Следующий код создает объект **QueueService** . Добавьте следующий код в начало любого файла Python, из которого планируется получать доступ к хранилищу Azure программным способом:

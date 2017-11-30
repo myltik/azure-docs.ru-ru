@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 11/03/2017
+ms.date: 11/28/2017
 ms.custom: mvc
-ms.openlocfilehash: dcd59442c0b3aa5d6ed1a9ef287949d1d17fa80f
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: f17f2cab39b42341886ed86e1c08569ca8f5eff0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Проектирование первой базы данных Azure для MySQL
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/06/2017
 
 Если вы решили установить и использовать интерфейс командной строки локально, для работы с этой статьей вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-Если вы используете несколько подписок, выберите соответствующую подписку, в которой находится ресурс либо в которой за него взимается плата. Выберите конкретный идентификатор подписки вашей учетной записи, выполнив команду [az account set](/cli/azure/account#set).
+Если вы используете несколько подписок, выберите соответствующую подписку, в которой находится ресурс либо в которой за него взимается плата. Выберите конкретный идентификатор подписки вашей учетной записи, выполнив команду [az account set](/cli/azure/account#az_account_set).
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
@@ -56,9 +56,7 @@ az group create --name mycliresource --location westus
 В следующем примере в группе ресурсов `mycliresource` создается сервер базы данных Azure для MySQL с именем `mycliserver`, который расположен в `westus`. Для сервера указано имя администратора для входа `myadmin` и пароль `Password01!`. Он создается с уровнем производительности **Базовый** и **50** единицами вычислений, которые совместно используются всеми базами данных на сервере. В зависимости от потребностей приложения можно увеличить или уменьшить масштаб вычислительных ресурсов и ресурсов хранилища.
 
 ```azurecli-interactive
-az mysql server create --resource-group mycliresource --name mycliserver
---location westus --user myadmin --password Password01!
---performance-tier Basic --compute-units 50
+az mysql server create --resource-group mycliresource --name mycliserver --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
 ## <a name="configure-firewall-rule"></a>Настройка правила брандмауэра

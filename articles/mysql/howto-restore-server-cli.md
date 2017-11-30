@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 10/30/2017
-ms.openlocfilehash: 6a63cccee5be89a1da8f9656c6e7d4c7422702ca
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 11/28/2017
+ms.openlocfilehash: 44b3c68b8df4006d3fe087e5ad4118d7616d3d9a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Как выполнить резервное копирование и восстановление сервера в базе данных Azure для MySQL с помощью Azure CLI
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/31/2017
 ## <a name="restore-a-database-to-a-previous-point-in-time-by-using-the-azure-cli"></a>Восстановление базы данных до предшествующей точки во времени с помощью Azure CLI
 База данных Azure для MySQL позволяет восстановить сервер до предшествующей точки во времени. Восстановленные данные копируются на новый сервер, а имеющийся сервер остается неизменным. Например, если таблица была случайно удалена в полдень, ее можно восстановить до момента сразу перед полуднем. Затем вы можете извлечь отсутствующие таблицы и данные из восстановленной копии сервера. 
 
-Чтобы восстановить сервер, используйте команду Azure CLI [az mysql server restore](/cli/azure/mysql/server#restore).
+Чтобы восстановить сервер, используйте команду Azure CLI [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore).
 
 ### <a name="run-the-restore-command"></a>Выполнение команды restore
 

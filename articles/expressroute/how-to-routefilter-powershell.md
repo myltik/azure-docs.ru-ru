@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 76077be4f443f8e0dd6341d1a87539277f23e1c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Настройка фильтров маршрутов для пиринга Майкрософт с помощью PowerShell
 > [!div class="op_single_selector"]
-> * [Портал Azure](how-to-routefilter-portal.md)
+> * [портале Azure](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
 > * [Интерфейс командной строки Azure](how-to-routefilter-cli.md)
 > 
@@ -129,7 +129,7 @@ Get-AzureRmBgpServiceCommunity
 New-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"
 ```
 
-### <a name="2-create-a-filter-rule"></a>2. Создание правила фильтрации
+### <a name="2-create-a-filter-rule"></a>2) Создание правила фильтрации
 
 Можно указать набор сообществ BGP в виде разделенного запятыми списка, как показано в примере. Чтобы создать новое правило, выполните следующую команду:
  

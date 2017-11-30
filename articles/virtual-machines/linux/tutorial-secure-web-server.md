@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e3ad8a5c08b739d8b2c6e224db0c8f88c1893ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2d6a0b00704e1d97be9a4c5bd00ba37374419e5
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Защита веб-сервера с помощью SSL-сертификатов на виртуальной машине Linux в Azure
 Чтобы защитить веб-серверы, можно использовать сертификат Secure Sockets Later (SSL) для шифрования веб-трафика. SSL-сертификаты могут храниться в Azure Key Vault и разрешать безопасное развертывание сертификатов на виртуальных машинах Linux в Azure. Из этого руководства вы узнаете, как выполнить следующие задачи:
@@ -60,7 +60,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Создание сертификата и его сохранение в Key Vault
-Для использования в рабочей среде следует импортировать действительный сертификат, подписанный доверенным поставщиком, выполнив команду [az keyvault certificate import](/cli/azure/certificate#import). В следующем примере в этом руководстве показано, как можно командой [az keyvault certificate create](/cli/azure/certificate#create) создать самозаверяющий сертификат, использующий политику сертификата по умолчанию.
+Для использования в рабочей среде следует импортировать действительный сертификат, подписанный доверенным поставщиком, выполнив команду [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). В следующем примере в этом руководстве показано, как можно командой [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) создать самозаверяющий сертификат, использующий политику сертификата по умолчанию.
 
 ```azurecli-interactive 
 az keyvault certificate create \

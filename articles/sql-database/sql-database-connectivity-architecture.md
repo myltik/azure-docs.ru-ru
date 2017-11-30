@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 469bd74c0f144ff641fafe8c8f830b1fdbfa7690
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Архитектура подключений к базе данных SQL Azure 
 
-В этой статье описывается архитектура подключения к базе данных SQL Azure и объясняется, как функционируют различные компоненты при передаче трафика к вашему экземпляру базы данных SQL Azure. Эти компоненты подключения к базе данных SQL Azure направляют сетевой трафик к базе данных Azure с помощью клиентов, подключающихся из Azure, и клиентов, подключающихся извне Azure. В этой статье также приведены примеры сценариев, позволяющие изменить параметры подключения, а также рекомендации по изменению параметров подключения по умолчанию. В случае возникновения вопросов после прочтения этой статьи вы можете обратиться к Дхруву Малику, написав на электронный адрес dmalik@microsoft.com. 
+В этой статье описывается архитектура подключения к базе данных SQL Azure и объясняется, как функционируют различные компоненты при передаче трафика к вашему экземпляру базы данных SQL Azure. Эти компоненты подключения к базе данных SQL Azure направляют сетевой трафик к базе данных Azure с помощью клиентов, подключающихся из Azure, и клиентов, подключающихся извне Azure. В этой статье также приведены примеры сценариев, позволяющие изменить параметры подключения, а также рекомендации по изменению параметров подключения по умолчанию. 
 
 ## <a name="connectivity-architecture"></a>Архитектура подключения
 
-На следующей схеме показана общая архитектура подключений к базе данных SQL Azure. 
+На следующей схеме показана общая архитектура подключений к базе данных SQL Azure.
 
 ![Общий вид архитектуры](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
@@ -65,14 +65,14 @@ ms.lasthandoff: 10/31/2017
 | --- | --- |--- |
 | Восточная часть Австралии | 191.238.66.109 | 13.75.149.87 |
 | Юго-Восточная Австралия | 191.239.192.109 | 13.73.109.251 |
-| Южная часть Бразилии | 104.41.11.5 | |    
-| Центральная Канада | 40.85.224.249 | |    
+| Южная часть Бразилии | 104.41.11.5 | |
+| Центральная Канада | 40.85.224.249 | |
 | Восточная Канада | 40.86.226.166 | |
 | Центральный регион США | 23.99.160.139 | 13.67.215.62 |
 | Восточная Азия | 191.234.2.139 | 52.175.33.150 |
 | Восточная часть США 1 | 191.238.6.43 | 40.121.158.30 |
 | Восток США 2 | 191.239.224.107 | 40.79.84.180 |
-| Центральная Индия | 104.211.96.159  | |   
+| Центральная Индия | 104.211.96.159  | |
 | Южная Индия | 104.211.224.146  | |
 | Западная Индия | 104.211.160.80 | |
 | Восточная часть Японии | 191.237.240.43 | 13.78.61.196 |
@@ -84,7 +84,7 @@ ms.lasthandoff: 10/31/2017
 | Южно-центральный регион США | 23.98.162.75 | 13.66.62.124 |
 | Юго-Восточная Азия | 23.100.117.95 | 104.43.15.0 |
 | Север Соединенного Королевства | 13.87.97.210 | |
-| Южная часть Соединенного Королевства 1 | 51.140.184.11 | |    
+| Южная часть Соединенного Королевства 1 | 51.140.184.11 | |
 | Юг Соединенного Королевства 2 | 13.87.34.7 | |
 | Западная часть Великобритании | 51.141.8.11  | |
 | Западно-центральная часть США | 13.78.145.25 | |
@@ -95,12 +95,12 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Изменение политики подключения для базы данных SQL Azure
 
-Чтобы изменить политику подключения базы данных SQL Azure для сервера базы данных SQL Azure, используйте [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+Чтобы изменить политику подключения базы данных SQL Azure для сервера базы данных SQL Azure, используйте [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 
-- Если задана политика подключения **Прокси-сервер**, то всех сетевые пакеты проходят через шлюз базы данных SQL Azure. Для этого режима необходимо разрешить исходящий трафик только через IP-адрес шлюза базы данных SQL Azure. В режиме **Прокси-сервер** задержка выше, чем в режиме **Перенаправление**. 
-- Если используется политика подключения **Перенаправление**, то все сетевые пакеты передаются непосредственно в ПО промежуточного уровня прокси-сервера. Для этого режима необходимо разрешить исходящий трафик для нескольких IP-адресов. 
+- Если задана политика подключения **Прокси-сервер**, то всех сетевые пакеты проходят через шлюз базы данных SQL Azure. Для этого режима необходимо разрешить исходящий трафик только через IP-адрес шлюза базы данных SQL Azure. В режиме **Прокси-сервер** задержка выше, чем в режиме **Перенаправление**.
+- Если используется политика подключения **Перенаправление**, то все сетевые пакеты передаются непосредственно в ПО промежуточного уровня прокси-сервера. Для этого режима необходимо разрешить исходящий трафик для нескольких IP-адресов.
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>Сценарий для изменения параметров подключения через PowerShell 
+## <a name="script-to-change-connection-settings-via-powershell"></a>Сценарий для изменения параметров подключения через PowerShell
 
 > [!IMPORTANT]
 > Для работы этого сценария требуется [модуль Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -140,7 +140,7 @@ $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationCo
 $result = $AuthContext.AcquireToken(
 "https://management.core.windows.net/",
 $clientId,
-[Uri]$uri, 
+[Uri]$uri,
 [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
 )
 
@@ -160,7 +160,7 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Сценарий для изменения параметров подключения через Azure CLI 2.0 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Сценарий для изменения параметров подключения через Azure CLI 2.0
 
 > [!IMPORTANT]
 > Для работы этого сценария требуется [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -169,20 +169,17 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 В приведенном ниже сценарии CLI показано, как изменить политику подключения.
 
 <pre>
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 

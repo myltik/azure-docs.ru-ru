@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Прекращение использования уровней производительности S1, S2 и S3
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Что делать, если мне нужен объем хранилища больше 10 ГБ?
 
-Независимо от того, используется ли коллекция с уровнем производительности S1, S2 или S3 или односекционная коллекция (каждая из которых имеет емкость хранилища 10 ГБ), вы можете воспользоваться средством переноса данных Cosmos DB, чтобы перенести свои данные в секционированную коллекцию с практически неограниченной емкостью хранилища. Сведения о преимуществах секционированной коллекции см. в статье [Секционирование, ключи секции и масштабирование в Azure Cosmos DB](documentdb-partition-data.md). Сведения о том, как перенести коллекцию уровня S1, S2 или S3 или односекционную коллекцию в секционированную коллекцию, см. в разделе [Переход с односекционных на секционированные коллекции](documentdb-partition-data.md#migrating-from-single-partition). 
+Независимо от того, используется ли коллекция с уровнем производительности S1, S2 или S3 или односекционная коллекция (каждая из которых имеет емкость хранилища 10 ГБ), вы можете воспользоваться средством переноса данных Cosmos DB, чтобы перенести свои данные в секционированную коллекцию с практически неограниченной емкостью хранилища. Сведения о преимуществах секционированной коллекции см. в статье [Секционирование, ключи секции и масштабирование в Azure Cosmos DB](documentdb-partition-data.md). 
 
 <a name="change-before"></a>
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 11/15/2017
     > 
     > 
 
-**Переход на односекционные коллекции с помощью пакета SDK для .NET**
+**Перенос в односекционные коллекции с помощью пакета SDK для .NET**
 
 Другой вариант изменения уровней производительности ваших коллекций — воспользоваться пакетами SDK для Azure Cosmos DB. В этом разделе мы рассмотрим процесс изменения уровня производительности коллекции с помощью [API DocumentDB для .NET](documentdb-sdk-dotnet.md). В случае с другими пакетами SDK процедура аналогична.
 
@@ -159,7 +159,7 @@ ms.lasthandoff: 11/15/2017
     await client.ReplaceOfferAsync(offer);
 ```
 
-Посетите [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx), чтобы просмотреть дополнительные примеры и узнать больше о методах нашего предложения:
+Посетите [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) , чтобы просмотреть дополнительные примеры и узнать больше о методах нашего предложения:
 
 * [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
 * [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)

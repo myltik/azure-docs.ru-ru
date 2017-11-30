@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 11/27/2017
 ms.author: alkarche
-ms.openlocfilehash: 7e3b396d290212d3875385521bd7ae92da196b95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a1ff4d4488b37b1969edfbb6f935eccd63413c
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Привязки внешних файлов в Функциях Azure (предварительная версия)
 В этой статье показано, как управлять файлами различных поставщиков SaaS (например, OneDrive, Dropbox) внутри функции, использующей встроенные привязки. Функции Azure поддерживают привязки триггера, а также входные и выходные привязки для внешних файлов.
@@ -362,4 +362,6 @@ module.exports = function(context) {
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)
