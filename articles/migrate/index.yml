@@ -1,0 +1,26 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по службе "Миграция Azure"
+metadata:
+  title: Документация по службе "Миграция Azure". Руководства и справочник по API | Документация Майкрософт
+  description: 'Узнайте, как оценить готовность локальных компьютеров к миграции в Azure'
+  services: migration-planner
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: migration
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/22/2017
+  ms.author: raynew
+abstract:
+  description: 'Служба "Миграция Azure" помогает определить и оценить пригодность локальных компьютеров к переносу в Azure, а также позволяет рассчитать размер и стоимость работающих виртуальных машин Azure.'
+sections:
+  - title: Пошаговые руководства
+    items:
+      - type: paragraph
+        text: 'Узнайте, как оценить готовность виртуальных машин VMware к миграции в Azure'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-assessment-vmware">Обнаружение и оценка локальных виртуальных машин VMware</a>

@@ -29,6 +29,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Заметки к выпуску интегрированных систем
           items:
+            - name: Обновление 1711
+              href: azure-stack-update-1711.md
             - name: Обновление 1710
               href: azure-stack-update-1710.md
     - name: Основные возможности и концепции
@@ -46,7 +48,7 @@
         - name: Развернуть
           href: azure-stack-run-powershell-script.md
         - name: Установка PowerShell
-          href: azure-stack-powershell-configure-quickstart.md
+          href: azure-stack-powershell-install.md
         - name: регистрация;
           href: azure-stack-register.md
         - name: Подключение к Azure Stack

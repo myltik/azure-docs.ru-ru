@@ -133,6 +133,8 @@
       href: distribute-data-globally.md
     - name: Секционирование
       href: partition-data.md
+    - name: Уникальные ключи
+      href: unique-keys.md
     - name: Целостность
       href: consistency-levels.md
     - name: Пропускная способность

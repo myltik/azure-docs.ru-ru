@@ -20,7 +20,7 @@
 
 ## Создание заданий
 ### [Формирование входных данных](stream-analytics-define-inputs.md)
-### [Образец входных данных](stream-analytics-sample-data-input.md)
+### [Тестирование запросов и выборка входных данных](stream-analytics-sample-data-input.md)
 ### [Стандартные шаблоны запросов](stream-analytics-stream-analytics-query-patterns.md)
 ### [Оконные функции](stream-analytics-window-functions.md)
 

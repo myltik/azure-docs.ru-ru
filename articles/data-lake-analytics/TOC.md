@@ -4,6 +4,7 @@
 # Приступая к работе
 ## [Портал Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Интерфейс командной строки Azure](data-lake-analytics-get-started-cli2.md)
 
@@ -29,7 +30,7 @@
 ### [Расширения U-SQL R](data-lake-analytics-u-sql-r-extensions.md)
 ### [Когнитивные возможности U-SQL](data-lake-analytics-u-sql-cognitive.md)
 ### [Анализ журналов веб-сайтов](data-lake-analytics-analyze-weblogs.md)
-### [U-SQL для Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [Пользовательский код U-SQL для Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 
 ## Отладка программ U-SQL
 ### [Мониторинг заданий и устранение неполадок в них](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

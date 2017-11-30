@@ -1,0 +1,51 @@
+- name: Документация по Azure Location Based Services
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Сведения об Azure Location Based Services
+      href: about-location-based-services.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Создание приложения карт с помощью Location Based Services
+      href: quick-demo-map-app.md
+- name: Учебники
+  items:
+    - name: 1. Поиск достопримечательностей
+      href: tutorial-search-location.md
+    - name: 2. Построение маршрута к достопримечательности
+      href: tutorial-route-location.md
+    - name: 3. Несколько маршрутов по видам транспорта
+      href: tutorial-prioritized-routes.md
+- name: Основные понятия
+  items:
+    - name: Наличие информации о геокодировании
+      href: geocoding-coverage.md
+    - name: Наличие информации о дорожном движении
+      href: traffic-coverage.md
+- name: Практические руководства
+  items:
+    - name: Управление учетной записью и ключами
+      href: how-to-manage-account-keys.md
+    - name: Использование Map Control
+      href: how-to-use-map-control.md
+- name: Справочные материалы
+  items:
+    - name: Центр разработчика IoT Azure
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Форум MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Технические примеры использования
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

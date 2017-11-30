@@ -23,6 +23,10 @@
       href: tutorial-forecast-spending.md
     - name: 4. Управление затратами
       href: tutorial-manage-costs.md
+- name: Основные понятия
+  items:
+    - name: Интерпретация отчетов о затратах
+      href: understading-cost-reports.md
 - name: Ресурсы
   items:
     - name: Видео по управлению затратами

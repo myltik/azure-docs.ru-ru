@@ -6,16 +6,16 @@
       href: how-iot-edge-works.md
 - name: Быстрое начало работы
   items:
-    - name: Развертывание в пограничной зоне — Windows
-      href: quickstart.md
     - name: Развертывание в пограничной зоне — Linux
       href: quickstart-linux.md
+    - name: Развертывание в пограничной зоне — Windows
+      href: quickstart.md
 - name: Учебники
   items:
-    - name: Имитация пограничного устройства — Windows
-      href: tutorial-simulate-device-windows.md
     - name: Имитация пограничного устройства — Linux
       href: tutorial-simulate-device-linux.md
+    - name: Имитация пограничного устройства — Windows
+      href: tutorial-simulate-device-windows.md
     - name: 'Разработка модуля C#'
       href: tutorial-csharp-module.md
     - name: Развертывание Azure Stream Analytics
@@ -26,8 +26,8 @@
       href: tutorial-deploy-function.md
 - name: Практические руководства
   items:
-    - name: Создание устройства шлюза
-      href: how-to-create-gateway-device.md
+    - name: Создание прозрачного шлюза
+      href: how-to-create-transparent-gateway.md
     - name: Развертывание и мониторинг в нужном масштабе
       href: how-to-deploy-monitor.md
     - name: Подготовка устройства с ОС "Windows 10 IoT Базовая"
@@ -45,6 +45,8 @@
       href: iot-edge-runtime.md
     - name: Развернутые приложения
       href: module-deployment-monitoring.md
+    - name: Устройство IoT Edge в качестве шлюза
+      href: iot-edge-as-gateway.md
     - name: Безопасность
       href: security.md
 - name: Ресурсы
