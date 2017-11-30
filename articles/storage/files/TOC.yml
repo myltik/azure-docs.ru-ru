@@ -64,6 +64,8 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Настройте строки подключения
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Использование REST API службы хранилища Azure
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Управление
       items:
         - name: PowerShell для службы файлов Azure
