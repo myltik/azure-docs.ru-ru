@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 73d0dabe5b8b179cbc0847c2819947febd6ef4d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6496fb62670c480ce543a51225856f0fb5d89b5
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Доступ к журналам диагностики Azure Data Lake Store
 Узнайте, как включить ведение журнала диагностики для учетной записи Data Lake Store и просматривать журналы, собранные для этой учетной записи.

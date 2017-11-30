@@ -17,17 +17,17 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 8d021538b34c96c1d486c9508df9d4ee91404337
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 524193835bd5d350d6ac312fcc997f6c135abea1
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Использование PowerShell для синхронизации данных между базой данных SQL и локальной базой данных SQL Server
 
 Этот пример PowerShell настраивает синхронизацию данных между базой данных SQL Azure и локальной базой данных SQL Server. 
 
-Для работы с этим примером требуется модуль Azure PowerShell 4.2 или более поздней версии. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
+Для работы с этим примером требуется модуль Azure PowerShell 4.2 или более поздней версии. Выполните командлет `Get-Module -ListAvailable AzureRM`, чтобы узнать установленную версию. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
 Выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure.
 
@@ -395,7 +395,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 -   [Синхронизация данных в нескольких облачных и локальных базах данных с помощью синхронизации данных SQL](../sql-database-sync-data.md)
 -   [Начало работы с синхронизацией данных SQL Azure (предварительная версия)](../sql-database-get-started-sql-data-sync.md)
 -   [Best practices for SQL Data Sync (Preview)](../sql-database-best-practices-data-sync.md) (Рекомендации по синхронизации данных SQL (предварительная версия))
--   [Мониторинг синхронизации данных SQL Azure (предварительная версия) с помощью OMS Log Analytics](../sql-database-sync-monitor-oms.md)
+-   [Мониторинг синхронизации данных SQL Azure с помощью OMS Log Analytics](../sql-database-sync-monitor-oms.md).
 -   [Устранение неполадок с синхронизацией данных SQL Azure (предварительная версия)](../sql-database-troubleshoot-data-sync.md)
 
 -   Полные примеры PowerShell, которые демонстрируют, как настроить синхронизацию данных SQL:

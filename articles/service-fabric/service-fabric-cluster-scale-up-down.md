@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Масштабирование кластера Service Fabric с помощью правил автомасштабирования
 Наборы масштабирования виртуальных машин относятся к вычислительным ресурсам Azure. Их можно использовать для развертывания коллекции виртуальных машин и управления ею как набором. Каждый тип узла, определенный в кластере Service Fabric, настроен как отдельный масштабируемый набор виртуальных машин. Каждый тип узла поддерживает возможность независимого масштабирования, имеет разные наборы открытых портов и собственные метрики емкости. Дополнительные сведения о типах узлов Service Fabric см. в этом [документе](service-fabric-cluster-nodetypes.md). Так как типы узлов Service Fabric в вашем кластере состоят из масштабируемых наборов виртуальных машин на сервере, для каждого типа узлов или масштабируемого набора необходимо настроить правила автомасштабирования.
@@ -72,8 +72,8 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 
 Необходимо выполнить следующие шаги с одним экземпляром виртуальной машины за раз. Это позволит корректно завершить работу системных служб (и ваших служб с отслеживанием состояния) на удаляемом экземпляре виртуальной машины и создать новые реплики на других узлах.
 
-1. Выполните [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) с намерением RemoveNode для отключения узла, который вы собираетесь удалить (самый верхний экземпляр в этом типе узла).
-2. Выполните [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) , чтобы убедиться в том, что узел действительно перешел в отключенное состояние. Если это не так, подождите, пока узел не будет отключен. Эту операцию невозможно ускорить.
+1. Выполните [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) с намерением RemoveNode для отключения узла, который вы собираетесь удалить (самый верхний экземпляр в этом типе узла).
+2. Выполните [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) , чтобы убедиться в том, что узел действительно перешел в отключенное состояние. Если это не так, подождите, пока узел не будет отключен. Эту операцию невозможно ускорить.
 3. Выберите пример из [коллекции шаблонов быстрого запуска](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) и следуйте прилагающимся инструкциям, чтобы изменить число виртуальных машин на одну в этом типе узла. Удаляется самый верхний экземпляр виртуальной машины. 
 4. При необходимости повторите шаги 1–3, но никогда не следует уменьшать число экземпляров в типах первичных узлов до значения меньше гарантируемого уровнем надежности. Ознакомьтесь с дополнительными сведениями об уровнях надежности [здесь](service-fabric-cluster-capacity.md). 
 
@@ -85,8 +85,8 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 
 Необходимо выполнить следующие шаги с одним экземпляром виртуальной машины за раз. Это позволит корректно завершить работу системных служб (и ваших служб с отслеживанием состояния) на удаляемом экземпляре виртуальной машины и создать новые реплики в других расположениях.
 
-1. Выполните [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) с намерением RemoveNode для отключения узла, который вы собираетесь удалить (самый верхний экземпляр в этом типе узла).
-2. Выполните [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) , чтобы убедиться в том, что узел действительно перешел в отключенное состояние. Если это не так, подождите, пока узел не отключится. Эту операцию невозможно ускорить.
+1. Выполните [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) с намерением RemoveNode для отключения узла, который вы собираетесь удалить (самый верхний экземпляр в этом типе узла).
+2. Выполните [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) , чтобы убедиться в том, что узел действительно перешел в отключенное состояние. Если это не так, подождите, пока узел не отключится. Эту операцию невозможно ускорить.
 3. Выберите пример из [коллекции шаблонов быстрого запуска](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) и следуйте прилагающимся инструкциям, чтобы изменить число виртуальных машин на одну в этом типе узла. Будет удален самый верхний экземпляр виртуальной машины. 
 4. При необходимости повторите шаги 1–3, но никогда не следует уменьшать число экземпляров в типах первичных узлов до значения меньше гарантируемого уровнем надежности. Ознакомьтесь с дополнительными сведениями об уровнях надежности [здесь](service-fabric-cluster-capacity.md).
 

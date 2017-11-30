@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: af42d4b59b428e96bdd1280a5ee5073842ede4c2
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Ограничения в базе данных Azure для PostgreSQL
 Служба базы данных Azure для PostgreSQL работает в режиме общедоступной предварительной версии. В следующих разделах описываются действующие ограничения емкости и функциональных возможностей в службе базы данных.
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/06/2017
 
 На каждом уровне служб в предварительной версии службы существует максимальное число подключений, единиц вычислений и максимальный объем хранилища. Ниже перечислены эти ограничения. 
 
-|                            |                   |
+| | |
 | :------------------------- | :---------------- |
 | **Максимальное число подключений**        |                   |
 | Базовый, 50 единиц вычислений     | 50 подключений    |

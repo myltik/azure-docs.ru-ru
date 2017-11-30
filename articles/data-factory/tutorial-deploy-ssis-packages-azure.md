@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 10/06/2017
 ms.author: spelluru
-ms.openlocfilehash: 434c1de8a7310036fb1bb93d45c6b1364ba1fe6a
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 37c096199f4217e31d075fb5b6ee584936e9011b
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/04/2017
 - **Azure PowerShell**. Следуйте инструкциям по [установке и настройке Azure PowerShell](/powershell/azure/install-azurerm-ps). Вы используете PowerShell для запуска скрипта, чтобы подготовить среду выполнения интеграции Azure SSIS, запускающую пакеты SSIS в облаке. 
 
 > [!NOTE]
-> Список регионов, поддерживаемых фабрикой данных Azure версии 2 и инфраструктурой Integration Runtime служб Azure SSIS, см. на странице [Доступность продуктов по регионам](https://azure.microsoft.com/regions/services/). Разверните категорию **Данные и аналитика**, чтобы отобразились **фабрика данных версии 2** и **инфраструктура Integration Runtime служб SSIS**.
+> Список регионов, поддерживаемых фабрикой данных Azure версии 2 и инфраструктурой Integration Runtime служб Azure SSIS, приведен на странице [Доступность продуктов по регионам](https://azure.microsoft.com/regions/services/). Разверните категорию **Данные и аналитика**, чтобы отобразились **фабрика данных версии 2** и **инфраструктура Integration Runtime служб SSIS**.
 
 ## <a name="launch-windows-powershell-ise"></a>Запуск интегрированной среды сценариев Windows PowerShell
 Откройте **интегрированную среду сценариев Windows PowerShell** с правами администратора. 
@@ -55,6 +55,8 @@ ms.lasthandoff: 11/04/2017
 Скопируйте и вставьте следующий скрипт. Укажите значения для переменных. Список поддерживаемых **ценовых категорий** базы данных SQL Azure см. в статье [Ограничения ресурсов базы данных SQL Azure](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
+# Azure Data Factory version 2 information 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -211,9 +213,11 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 
 Список поддерживаемых **ценовых категорий** базы данных SQL Azure см. в статье [Ограничения ресурсов базы данных SQL Azure](../sql-database/sql-database-resource-limits.md). 
 
-Список регионов, поддерживаемых фабрикой данных Azure версии 2 и инфраструктурой Integration Runtime служб Azure SSIS, см. на странице [Доступность продуктов по регионам](https://azure.microsoft.com/regions/services/). Разверните категорию **Данные и аналитика**, чтобы отобразились **фабрика данных версии 2** и **инфраструктура Integration Runtime служб SSIS**.
+Список регионов, поддерживаемых фабрикой данных Azure версии 2 и инфраструктурой Integration Runtime служб Azure SSIS, приведен на странице [Доступность продуктов по регионам](https://azure.microsoft.com/regions/services/). Разверните категорию **Данные и аналитика**, чтобы отобразились **фабрика данных версии 2** и **инфраструктура Integration Runtime служб SSIS**.
 
 ```powershell
+# Azure Data Factory version 2 information 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique

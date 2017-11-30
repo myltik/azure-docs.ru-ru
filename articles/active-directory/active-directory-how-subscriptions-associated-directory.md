@@ -16,11 +16,11 @@ ms.date: 10/17/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: abf207a3ceec708a828170936f7dc7948ccf34a9
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 67df6d893c0770b9210fc73e96865d5c6396796c
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-add-an-azure-subscription-to-azure-active-directory"></a>Как добавить подписку Azure в Azure Active Directory
 Из этой статьи вы узнаете о связи между подпиской Azure и службой Azure Active Directory (Azure AD) и о том, как добавить существующую подписку в каталог Azure AD. Подписка Azure связана с Azure AD отношением доверия. Это означает, что подписка доверяет каталогу проверку подлинности пользователей, служб и устройств. Несколько подписок могут доверять одному и тому же каталогу, но одна конкретная подписка доверяет только одному каталогу. 
@@ -39,7 +39,6 @@ ms.lasthandoff: 10/18/2017
 5. Получатель переходит по ссылке и следует инструкциям, в том числе вводит свои данные для оплаты. Подписка передается после успешного выполнения всех действий получателем. 
 6. Каталог по умолчанию для подписки изменится на каталог, в котором находится пользователь.
 
-Дополнительные сведения см. в статье [Передача прав владения подпиской Azure другой учетной записи](../billing/billing-subscription-transfer.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения об изменении администратора подписки Azure см. в статье [Передача прав владения подпиской Azure другой учетной записи](../billing/billing-subscription-transfer.md).

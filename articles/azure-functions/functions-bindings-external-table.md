@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Привязка внешних таблиц в Функциях Azure (предварительная версия)
 В этой статье показано, как управлять табличными данными для поставщиков SaaS (например, Sharepoint, Dynamics) внутри функции со встроенными привязками. Функции Azure поддерживают входные и выходные привязки для внешних таблиц.
@@ -198,4 +198,6 @@ GO
 Имя dataSetName — default.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

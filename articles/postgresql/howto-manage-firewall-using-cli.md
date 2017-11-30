@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: ec362cec28160b5c4827f6e47614661319ba4039
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: c3cb598825477bd588a6680d5c6ddb07b72eca79
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Создание правил брандмауэра базы данных Azure для PostgreSQL и управление ими с помощью Azure CLI
 Правила брандмауэра уровня сервера позволяют администраторам управлять доступом к серверу базы данных Azure для PostgreSQL с указанного IP-адреса или диапазона IP-адресов. С помощью удобных команд Azure CLI можно создавать, обновлять, удалять, выводить список и отображать правила брандмауэра для управления сервером. Обзор брандмауэров базы данных Azure для PostgreSQL приведен в разделе [Правила брандмауэра сервера базы данных Azure для PostgreSQL](concepts-firewall-rules.md).
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/06/2017
 Команда [az postgres server firewall-rule](/cli/azure/postgres/server/firewall-rule) используется для настройки правил брандмауэра.
 
 ## <a name="list-firewall-rules"></a>Вывод списка правил брандмауэра 
-Чтобы вывести список имеющихся правил брандмауэра сервера, запустите команду [az postgres server firewall-rule list](/cli/azure/postgres/server/firewall-rule#list).
+Чтобы вывести список имеющихся правил брандмауэра сервера, запустите команду [az postgres server firewall-rule list](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_list).
 ```azurecli-interactive
 az postgres server firewall-rule list --resource-group myresourcegroup --server mypgserver-20170401
 ```
@@ -37,7 +37,7 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server 
 az postgres server firewall-rule list --resource-group myresourcegroup --server mypgserver-20170401 --output table
 ```
 ## <a name="create-firewall-rule"></a>Создание правила брандмауэра
-Чтобы создать правило брандмауэра на сервере, выполните команду [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create). 
+Чтобы создать правило брандмауэра на сервере, выполните команду [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create). 
 
 В этом примере всем IP-адресам предоставляется доступ к серверу **mypgserver-20170401.postgres.database.azure.com** путем указания 0.0.0.0 в качестве `--start-ip-address` и 255.255.255.255 в качестве диапазона `--end-ip-address`
 ```azurecli-interactive
@@ -51,7 +51,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup
 При успешном выполнении команды ее выходные данные будут содержать сведения о созданном правиле брандмауэра в используемом по умолчанию формате JSON. Если возникнет сбой, выходные данные будут содержать вместо этого сообщение об ошибке.
 
 ## <a name="update-firewall-rule"></a>Обновление правила брандмауэра 
-Обновите существующее правило брандмауэра на сервере с помощью команды [az postgres server firewall-rule update](/cli/azure/postgres/server/firewall-rule#update). В качестве входных данных укажите имя существующего правила брандмауэра, которое нужно обновить, а также атрибуты начального и конечного IP-адресов.
+Обновите существующее правило брандмауэра на сервере с помощью команды [az postgres server firewall-rule update](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_update). В качестве входных данных укажите имя существующего правила брандмауэра, которое нужно обновить, а также атрибуты начального и конечного IP-адресов.
 ```azurecli-interactive
 az postgres server firewall-rule update --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.255
 ```
@@ -60,14 +60,14 @@ az postgres server firewall-rule update --resource-group myresourcegroup --serve
 > Если правило брандмауэра не существует, оно будет создано командой update.
 
 ## <a name="show-firewall-rule-details"></a>Отображение сведений о правиле брандмауэра
-Вы также можете отобразить сведения об имеющемся правиле брандмауэра на уровне сервера, выполнив команду [az postgres server firewall-rule show](/cli/azure/postgres/server/firewall-rule#show).
+Вы также можете отобразить сведения об имеющемся правиле брандмауэра на уровне сервера, выполнив команду [az postgres server firewall-rule show](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_show).
 ```azurecli-interactive
 az postgres server firewall-rule show --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange"
 ```
 При успешном выполнении команды ее выходные данные будут содержать сведения об указанном правиле брандмауэра в используемом по умолчанию формате JSON. Если возникнет сбой, выходные данные будут содержать вместо этого сообщение об ошибке.
 
 ## <a name="delete-firewall-rule"></a>Удаление правила брандмауэра
-Чтобы отменить доступ к серверу для диапазона IP-адресов, удалите существующее правило брандмауэра, выполнив команду [az postgres server firewall-rule delete](/cli/azure/postgres/server/firewall-rule#delete). Укажите имя существующего правила брандмауэра.
+Чтобы отменить доступ к серверу для диапазона IP-адресов, удалите существующее правило брандмауэра, выполнив команду [az postgres server firewall-rule delete](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_delete). Укажите имя существующего правила брандмауэра.
 ```azurecli-interactive
 az postgres server firewall-rule delete --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange"
 ```

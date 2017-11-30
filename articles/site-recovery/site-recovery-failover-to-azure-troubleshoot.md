@@ -3,8 +3,8 @@ title: "Устранение ошибок отработки отказа в Azu
 description: "В этой статье описываются способы устранения распространенных ошибок при отработке отказа в Azure."
 services: site-recovery
 documentationcenter: 
-author: prateek9us
-manager: gauravd
+author: ponatara
+manager: abhemraj
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/24/2017
+ms.date: 11/22/2017
 ms.author: pratshar
-ms.openlocfilehash: 0e50433e1ccdcbc0010070eec110914f0d33b5ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f9a0298c2abd542d7687778716f644a1d0a47
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Устранение ошибок при отработке отказа виртуальной машины в Azure
 Во время выполнения отработки отказа виртуальной машины в Azure может появиться одна из следующих ошибок. Для устранения неполадок используйте описанные действия для каждого условия ошибки.

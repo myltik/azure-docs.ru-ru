@@ -5,7 +5,7 @@
 При каждом изменении нужно указать полный список префиксов, а не только те префиксы, которые вы хотите изменить. Укажите только те префиксы, которые нужно сохранить. В этом случае это 10.0.0.0/24 и 20.0.0.0/24.
 
 ```azurecli
-az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --connection-name TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
+az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
 ### <a name="withconnection"></a>Изменение префиксов IP-адресов для шлюза локальной сети при наличии подключения шлюза
@@ -15,5 +15,5 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 
 При каждом изменении нужно указать полный список префиксов, а не только те префиксы, которые вы хотите изменить. В этом примере 10.0.0.0/24 и 20.0.0.0/24 уже существуют. Добавьте префиксы 30.0.0.0/24 и 40.0.0.0/24 и укажите все 4 при обновлении.
 
 ```azurecli
-az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 --connection-name TestRG1
+az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 -g TestRG1
 ```

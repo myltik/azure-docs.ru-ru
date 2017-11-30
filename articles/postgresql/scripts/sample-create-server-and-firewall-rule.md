@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: sample
-ms.date: 11/03/2017
-ms.openlocfilehash: c83c5e86ea99a25ff106e0238f4d294bec100c32
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: f92739181a2011be7ce609b65bf7c862ac705129
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Создание сервера базы данных Azure для PostgreSQL и настройка правила брандмауэра с помощью Azure CLI
 Этот пример скрипта CLI создает сервер базы данных Azure для PostgreSQL и настраивает правило брандмауэра на уровне сервера. После успешного выполнения скрипта доступ к серверу PostgreSQL можно получить из всех служб Azure, а также по настроенному IP-адресу.
@@ -37,10 +37,10 @@ ms.lasthandoff: 11/06/2017
 
 | **Команда** | **Примечания** |
 |---|---|
-| [az group create](/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az postgres server create](/cli/azure/postgres/server#create) | Создает сервер PostgreSQL, на котором размещены базы данных. |
-| [az postgres server firewall create](/cli/azure/postgres/server/firewall-rule#create) | Создает правило брандмауэра, чтобы разрешить доступ к серверу и размещенным на нем базам данных по введенному диапазону IP-адресов. |
-| [az group delete](/cli/azure/group#delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
+| [az group create](/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Создает сервер PostgreSQL, на котором размещены базы данных. |
+| [az postgres server firewall create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) | Создает правило брандмауэра, чтобы разрешить доступ к серверу и размещенным на нем базам данных по введенному диапазону IP-адресов. |
+| [az group delete](/cli/azure/group#az_group_delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](/cli/azure/overview).

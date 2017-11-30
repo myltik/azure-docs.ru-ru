@@ -5,21 +5,18 @@ services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
-ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 07/21/2017
+ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 11e8708987f4e085fc8bf1db10144283a9a17d2e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 3496b00960ad1fe1213f2005d2173543988b4ff9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Создание веб-приложения PHP в Azure с подключением к базе данных MySQL
 
@@ -106,7 +103,7 @@ composer install
 
 В корне репозитория создайте файл *.env*. Скопируйте в файл *.env* приведенные ниже переменные. Замените заполнитель _&lt;root_password >_ паролем привилегированного пользователя MySQL.
 
-```
+```txt
 APP_ENV=local
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -158,7 +155,7 @@ php artisan serve
 
 ### <a name="create-a-mysql-server"></a>Создание сервера MySQL
 
-Создайте сервер в базе данных Azure для MySQL (предварительная версия), выполнив команду [az mysql server create](/cli/azure/mysql/server#create).
+Создайте сервер в базе данных Azure для MySQL (предварительная версия), выполнив команду [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create).
 
 В следующей команде замените _&lt;mysql_server_name>_ именем своего сервера MySQL везде, где встречается этот заполнитель. Допустимые символы: `a-z`, `0-9` и `-`. Это имя является частью имени узла сервера MySQL (`<mysql_server_name>.database.windows.net`). Оно должно быть глобально уникальным.
 
@@ -183,7 +180,7 @@ az mysql server create --name <mysql_server_name> --resource-group myResourceGro
 
 ### <a name="configure-server-firewall"></a>Настройка брандмауэра сервера
 
-Создайте правило брандмауэра для сервера MySQL, чтобы разрешить подключения клиентов, выполнив команду [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create).
+Создайте правило брандмауэра для сервера MySQL, чтобы разрешить подключения клиентов, выполнив команду [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -236,7 +233,7 @@ quit
 
 В корневой папке репозитория создайте файл _.env.production_ и скопируйте в него следующие переменные. Замените заполнитель _&lt;mysql_server_name>_.
 
-```
+```txt
 APP_ENV=production
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -334,7 +331,7 @@ git commit -m "database.php updates"
 
 ### <a name="configure-database-settings"></a>Настройка параметров базы данных
 
-В службе приложений переменные среды устанавливаются как _параметры приложения_ с помощью команды [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set).
+В службе приложений переменные среды устанавливаются как _параметры приложения_ с помощью команды [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
 
 Команда ниже позволяет настроить параметры приложения `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` и `DB_PASSWORD`. Замените заполнители _&lt;appname>_ и _&lt;mysql_server_name>_ собственными значениями.
 
@@ -366,7 +363,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 php artisan key:generate --show
 ```
 
-Задайте ключ приложения в веб-приложении службы приложений с помощью команды [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set). Замените заполнители _&lt;appname>_ и _&lt;outputofphpartisankey:generate>_ собственными значениями.
+Задайте ключ приложения в веб-приложении службы приложений с помощью команды [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set). Замените заполнители _&lt;appname>_ и _&lt;outputofphpartisankey:generate>_ собственными значениями.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -378,7 +375,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Задайте путь виртуального приложения для веб-приложения. Этот шаг требуется из-за того, что [жизненный цикл приложения Laravel](https://laravel.com/docs/5.4/lifecycle) начинается в _общем_ каталоге, а не в корневом каталоге приложения. Другие платформы PHP, жизненный цикл которых начинается в корневом каталоге, могут работать без ручной настройки пути виртуального приложения.
 
-Задайте путь виртуального приложения с помощью команды [az resource update](/cli/azure/resource#update). Замените заполнитель _&lt;appname>_ собственным значением.
+Задайте путь виртуального приложения с помощью команды [az resource update](/cli/azure/resource#az_resource_update). Замените заполнитель _&lt;appname>_ собственным значением.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01

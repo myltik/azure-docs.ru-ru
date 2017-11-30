@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 10/12/2017
-ms.openlocfilehash: 3b811376e4c5445ee74124553c6bce247e4f8faf
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.date: 11/28/2017
+ms.openlocfilehash: 6a0d218a9b9cb41a87264cfd5f653bb631b0bce9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Настройка параметров конфигурации сервера с помощью Azure CLI
 С помощью служебной программы командной строки (Azure CLI) можно вывести список параметров конфигурации для сервера базы данных Azure для MySQL, а также отобразить и обновить их. Только подмножество конфигураций ядра предоставляется на уровне сервера и может быть изменено. 
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/12/2017
 - Служебная программа командной строки [Azure CLI 2.0](/cli/azure/install-azure-cli) (или используйте Azure Cloud Shell в браузере).
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Получение списка параметров конфигурации сервера для базы данных Azure для сервера MySQL
-Чтобы перечислить все изменяемые параметры на сервере и их значения, выполните команду [az mysql server configuration list](/cli/azure/mysql/server/configuration#list).
+Чтобы перечислить все изменяемые параметры на сервере и их значения, выполните команду [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list).
 
 Например, можно вывести список параметров конфигурации сервера для сервера **myserver4demo.mysql.database.azure.com** в группе ресурсов **myresourcegroup**.
 ```azurecli-interactive
@@ -41,7 +41,7 @@ az mysql server configuration list --resource-group myresourcegroup --server mys
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server myserver4demo
 ```
 ## <a name="modify-a-server-configuration-parameter-value"></a>Изменение значения параметра конфигурации сервера
-Вы также можете изменить значение определенного параметра конфигурации сервера. При этом обновляется базовое значение конфигурации для ядра СУБД сервера MySQL. Чтобы обновить конфигурацию, выполните команду [az mysql server configuration set](/cli/azure/mysql/server/configuration#set). 
+Вы также можете изменить значение определенного параметра конфигурации сервера. При этом обновляется базовое значение конфигурации для ядра СУБД сервера MySQL. Чтобы обновить конфигурацию, выполните команду [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set). 
 
 Чтобы обновить параметры конфигурации **slow\_query\_log** для сервера **myserver4demo.mysql.database.azure.com** в группе ресурсов **myresourcegroup**, используйте следующую команду:
 ```azurecli-interactive

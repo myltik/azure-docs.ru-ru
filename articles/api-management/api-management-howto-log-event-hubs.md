@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 1aba03102dcd96753ef4db57edce889a43e4e3fc
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 066f151aa96b3a57c86515411ba05a982c10aa5f
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Как регистрировать события в концентраторах событий Azure в службе управления Azure API
 Концентраторы событий Azure — это высокомасштабируемая служба приема данных, которая может обрабатывать миллионы событий в секунду, позволяя вам обрабатывать и анализировать огромное количество данных, создаваемых подключенными устройствами и приложениями. Концентраторы событий выступают в качестве "входной двери"для событий конвейера. После того как данные поступили в концентратор событий, они могут быть преобразованы и сохранены с использованием любого поставщика аналитики в режиме реального времени или адаптера пакетной обработки или хранения. Концентраторы событий отделяют создание потока событий от потребления этих событий, чтобы потребители событий могли обращаться к событиям по собственному расписанию.
@@ -68,7 +68,7 @@ ms.lasthandoff: 10/16/2017
 
 ```json
 {
-  "type" : "AzureEventHub",
+  "loggertype" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/16/2017
 }
 ```
 
-* Для параметра `type` нужно задать значение `AzureEventHub`.
+* Для параметра `loggertype` нужно задать значение `AzureEventHub`.
 * `description` предоставляет дополнительное описание средства ведения журнала. При желании эту строку можно оставить пустой.
 * `credentials` содержит `name` и `connectionString` концентратора событий Azure.
 

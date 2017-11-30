@@ -9,19 +9,19 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 10/18/2017
-ms.openlocfilehash: 6ee2c2c6e6cff824d3167ea600a1ddc778ad011b
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.date: 11/28/2017
+ms.openlocfilehash: 908f28d8bd3d0dcbd03636e69cd47b5c47f3cfde
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Настройка журналов сервера и получение к ним доступа с помощью Azure CLI
 Скачать журналы сервера из базы данных Azure для MySQL можно с помощью портала Azure или Azure CLI, служебной программы командной строки Azure.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Прежде чем приступить к выполнению этого руководства, необходимы следующие компоненты:
-- [сервер базы данных Azure для MySQL](quickstart-create-mysql-server-database-using-azure-cli.md);
+- [сервер базы данных Azure для MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
 - [Azure CLI 2.0](/cli/azure/install-azure-cli) (или используйте Azure Cloud Shell в браузере).
 
 ## <a name="configure-logging-for-azure-database-for-mysql"></a>Настройка ведения журнала для базы данных Azure для MySQL
@@ -40,14 +40,14 @@ az mysql server configuration list --resource-group myresourcegroup --server mys
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Получение списка журналов для сервера базы данных Azure для MySQL
-Чтобы получить список доступных файлов журналов для сервера, выполните команду [az mysql server-logs list](/cli/azure/mysql/server-logs#list).
+Чтобы получить список доступных файлов журналов для сервера, выполните команду [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list).
 
 Вы можете получить список файлов журналов для сервера **myserver4demo.mysql.database.azure.com** в группе ресурсов **myresourcegroup** и направить его в текстовый файл **log\_files\_list.txt.**
 ```azurecli-interactive
 az mysql server-logs list --resource-group myresourcegroup --server myserver4demo > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>Скачивание журналов с сервера
-Команда [az mysql server-logs download](/cli/azure/mysql/server-logs#download) позволяет скачать отдельные файлы журналов для сервера. 
+Команда [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) позволяет скачать отдельные файлы журналов для сервера. 
 
 Этот пример скачивает в локальную среду определенный файл журнала для сервера **myserver4demo.mysql.database.azure.com** в группе ресурсов **myresourcegroup**.
 ```azurecli-interactive

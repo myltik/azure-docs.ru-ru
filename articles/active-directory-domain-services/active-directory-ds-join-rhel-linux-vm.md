@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: 03f0b07e9f4994c616a39692f7a5ba52a154aa0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20cecf0b3e38e8f2241f3589b9548c93730c7783
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Присоединение виртуальной машины Red Hat Enterprise Linux 7 к управляемому домену
 Эта статья покажет, как присоединить виртуальную машину Red Hat Enterprise Linux (RHEL) 7 к управляемому домену доменных служб Azure AD.
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 1. Действующая **подписка Azure**.
 2. **Каталог Azure AD** — синхронизированный с локальным каталогом или каталогом только для облака.
 3. **Доменные службы Azure AD** должны быть включены для каталога Azure AD. Если это еще не сделано, выполните все задачи, описанные в [руководстве по началу работы](active-directory-ds-getting-started.md).
-4. Обязательно укажите IP-адреса управляемого домена как DNS-серверы для виртуальной сети. Дополнительные сведения см. в статье об [обновлении настроек DNS для виртуальной сети Azure](active-directory-ds-getting-started-dns.md).
+4. Обязательно укажите IP-адреса управляемого домена в качестве DNS-серверов для виртуальной сети. Дополнительные сведения см. в статье об [изменении настроек DNS виртуальной сети Azure](active-directory-ds-getting-started-dns.md).
 5. Выполните шаги, необходимые для [синхронизации паролей с управляемым доменом доменных служб Azure AD](active-directory-ds-getting-started-password-sync.md).
 
 
@@ -39,25 +39,25 @@ ms.lasthandoff: 10/11/2017
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]
-> * Разверните виртуальную машину в **той же виртуальной сети, в которой включены доменные службы Azure AD**.
-> * Выберите **подсеть**, отличающуюся от той, где включены доменные службы Azure AD.
+> * Разверните виртуальную машину в **виртуальной сети, для которой включены доменные службы Azure AD**.
+> * Выберите **другую подсеть** (не ту, для которой включены доменные службы Azure AD).
 >
 
 
 ## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Удаленное подключение к только что подготовленной виртуальной машине Linux
-Вы подготовили виртуальную машину RHEL 7.2 в Azure. Следующая задача — удаленно подключиться к виртуальной машине, используя учетную запись локального администратора, созданную при подготовке виртуальной машины.
+Вы подготовили виртуальную машину RHEL 7.2 в Azure. Следующая задача — установить удаленное подключение к виртуальной машине, используя учетную запись локального администратора, созданную при подготовке виртуальной машины.
 
-Выполните инструкции из статьи [Как войти в виртуальную машину под управлением Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Выполните инструкции из статьи о[входе в виртуальную машину под управлением Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Настройка файла hosts на виртуальной машине Linux
-В окне терминала SSH измените файл /etc/hosts, а также IP-адрес вашего компьютера и имя узла.
+В окне терминала SSH откройте файл /etc/hosts для редактирования, чтобы изменить в нем IP-адрес и имя узла вашего компьютера.
 
 ```
 sudo vi /etc/hosts
 ```
 
-В файле hosts введите следующее значение:
+Добавьте следующее значение в файл hosts:
 
 ```
 127.0.0.1 contoso-rhel.contoso100.com contoso-rhel
@@ -66,7 +66,7 @@ sudo vi /etc/hosts
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Установка требуемых пакетов на виртуальную машину Linux
-После этого установите пакеты, необходимые для присоединения к домену, на виртуальную машину. В окне терминала SSH введите следующую команду, чтобы установить необходимые пакеты:
+После этого установите на виртуальную машину пакеты, необходимые для присоединения к домену. В окне терминала SSH введите следующую команду, чтобы установить необходимые пакеты:
 
     ```
     sudo yum install realmd sssd krb5-workstation krb5-libs
@@ -82,12 +82,12 @@ sudo vi /etc/hosts
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE] 
-      > **Устранение неполадок.** Если *realm discover* не удалось найти управляемый домен, сделайте следующее:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-      >
+     > [!NOTE] 
+     > **Устранение неполадок.** Если команда *realm discover* не может найти управляемый домен, сделайте следующее:
+     * Проверьте подключение между доменом и виртуальной машиной (с помощью команды ping).
+     * Убедитесь, что виртуальная машина развернута в одной виртуальной сети с управляемым доменом.
+     * Проверьте, обновлены ли параметры DNS-сервера для виртуальной сети — должны быть указаны контроллеры управляемого домена.
+     >
 
 2. Инициализируйте Kerberos. В окне терминала SSH введите следующую команду: 
 
@@ -121,12 +121,12 @@ sudo vi /etc/hosts
     ssh -l bob@CONTOSO100.COM contoso-rhel.contoso100.com
     ```
 
-2. Чтобы проверить, правильно ли инициализирован корневой каталог, в окне терминала SSH введите такую команду:
+2. Чтобы проверить, правильно ли инициализирован корневой каталог, в окне терминала SSH введите следующую команду:
     ```
     pwd
     ```
 
-3. Чтобы проверить, правильно ли определено членство в группе, в окне терминала SSH введите такую команду:
+3. Чтобы проверить, правильно ли определено членство в группе, в окне терминала SSH введите следующую команду:
     ```
     id
     ```
