@@ -1,190 +1,294 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с песочницей Salesforce | Документация Майкрософт"
-description: "Узнайте, как использовать песочницу Salesforce вместе с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого."
+title: "Руководство по интеграции Azure Active Directory с Salesforce Sandbox | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в Salesforce Sandbox."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 07/21/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: 32835e79188806bb2ff319eea23b1b52ab585ab1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 128d04fdf191b60441b695efef2bf602920d80e6
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Учебник. Интеграция Azure Active Directory с песочницей Salesforce
+# <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Учебник. Интеграция Azure Active Directory с Salesforce Sandbox
 
-Цель данного учебника — показать интеграцию Azure и песочницы Salesforce.  
+В этом руководстве описано, как интегрировать Salesforce Sandbox с Azure Active Directory (Azure AD).
 
->[!TIP]
->Чтобы оставить отзыв и просмотреть отзывы других пользователей, перейдите на [страницу службы поддержки Azure](http://go.microsoft.com/fwlink/?LinkId=521878). 
-> 
+Интеграция Azure AD с Salesforce Sandbox обеспечивает следующие преимущества:
 
-Песочницы позволяет создать несколько копий организации в отдельных средах для различных целей, например для разработки, тестирования и обучения, не подвергая риску данные и приложения в рабочей организации Salesforce.  
+- С помощью Azure AD можно управлять доступом к Salesforce Sandbox.
+- Вы можете включить автоматический вход пользователей в Salesforce Sandbox (единый вход) с учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Дополнительные сведения см. в [статье о песочницах](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+## <a name="prerequisites"></a>Предварительные требования
 
-* Действующая подписка на Azure
-* Песочница на сайте Salesforce.com.
+Чтобы настроить интеграцию Azure AD с Salesforce Sandbox, вам потребуется:
 
-Если у вас еще нет действующей песочницы на сайте Salesforce.com, вам необходимо будет обратиться в Salesforce.
+- подписка Azure AD;
+- подписка Salesforce Sandbox с поддержкой единого входа.
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
-1. Включение интеграции приложений для песочницы Salesforce
-2. Настройка единого входа.
-3. Включение домена
-4. Настройка подготовки учетных записей пользователей
-5. Назначение пользователей
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-![Сценарий](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769571.png "Сценарий")
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="enable-the-application-integration-for-salesforce-sandbox"></a>Включение интеграции приложений для песочницы Salesforce
-В этом разделе показано, как включить интеграцию приложений для песочницы Salesforce.
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-**Чтобы включить интеграцию приложений для песочницы Salesforce, выполните следующие действия:**
+1. Добавление Salesforce Sandbox из коллекции.
+2. Настройка и проверка единого входа в Azure AD
 
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700993.png "Active Directory")
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-   ![Приложения](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700994.png "Приложения")
-4. Чтобы открыть **коллекцию приложений**, щелкните **Добавить приложение**, затем — **Добавить приложение для использования моей организацией**.
-   
-   ![Что необходимо сделать? ](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700995.png "Что необходимо сделать?")
-5. В **поле поиска** введите **Salesforce Sandbox**.
-   
-   ![Коллекция приложений](./media/active-directory-saas-salesforce-sandbox-tutorial/IC710978.png "Коллекция приложений")
-6. В области результатов выберите **Salesforce Sandbox** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-   ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746474.png "Salesforce Sandbox")
-   
-## <a name="configur-single-sign-on-sso"></a>Настройка единого входа
+## <a name="adding-salesforce-sandbox-from-the-gallery"></a>Добавление Salesforce Sandbox из коллекции
+Чтобы настроить интеграцию Salesforce Sandbox с Azure AD, нужно добавить Salesforce Sandbox из коллекции в список управляемых приложений SaaS.
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Salesforce со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+**Чтобы добавить Salesforce Sandbox из коллекции, выполните следующие действия.**
 
-**Чтобы настроить единый вход, выполните следующие действия:**
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-1. На странице интеграции с приложением **Salesforce Sandbox** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/IC749323.png "Настройка единого входа")
-2. На странице **Как пользователи должны входить в Salesforce Sandbox?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-   ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746479.png "Salesforce Sandbox")
-3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес для входа** введите свой URL-адрес, используя следующий шаблон `http://company.my.salesforce.com`, а затем нажмите кнопку **Далее**.
-   
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Настройка URL-адреса приложения")
-4. Если вы уже настроили единый вход для другого экземпляра Salesforce Sandbox в каталоге, необходимо также настроить параметр **Идентификатор**, задав для него то же значение, что и для параметра **URL-адрес входа**. 
- * Поле **Идентификатор** можно найти, установив флажок **Показать дополнительные настройки** на странице **Настроить URL-адрес приложения** диалогового окна.
-5. На странице **Настройка единого входа в Salesforce Sandbox** нажмите кнопку **Скачать сертификат**, а затем сохраните файл сертификата на компьютере.
-   
-   ![Настройка единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781023.png "Настройка единого входа")
-6. В другом окне веб-браузера войдите в свою песочницу Salesforce в качестве администратора.
-7. В верхнем меню щелкните **Настройка**.
-   
-   ![Настройка](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781024.png "Настройка")
-8. В области навигации слева щелкните **Security Controls** (Средства управления безопасностью), а затем — **Параметры единого входа**.
-   
-   ![Параметры единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781025.png "Параметры единого входа")
-9. В разделе «Параметры единого входа» выполните следующие действия:
-   
-   ![Параметры единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781026.png "Параметры единого входа")  
- 1.  Установите флажок **SAML включен**. 
- 2.  Нажмите кнопку **Создать**.
-10. В разделе «Параметры единого входа SAML» выполните следующие действия:
+    ![Кнопка "Azure Active Directory"][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Колонка "Корпоративные приложения"][2]
     
-    ![Параметры единого входа SAML](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781027.png "Параметры единого входа SAML")  
- 1. В текстовом поле "Имя" введите имя конфигурации (например, *SPSSOWAAD\_Test*). 
- 2. На странице **Настройка единого входа в Salesforce Sandbox** классического портала Azure скопируйте значение поля **URL-адрес издателя** и вставьте его в текстовое поле **Издатель**.
- 3. В текстовом поле **Идентификатор сущности** введите **https://test.salesforce.com**, если это первый экземпляр Salesforce Sandbox, добавляемый в каталог. Если вы уже добавили экземпляр Salesforce Sandbox, то для параметра **Идентификатор сущности** введите значение **URL-адрес входа** в следующем формате: `http://company.my.salesforce.com`   
- 4. Чтобы отправить скачанный сертификат, нажмите кнопку **Обзор**.  
- 5. В поле **SAML Identity Type** (Тип удостоверения SAML) выберите значение **Assertion contains the Federation ID from the User object** (Проверочное утверждение содержит идентификатор федерации из объекта User). 
- 6. В поле **SAML Identity Location** (Расположение удостоверения SAML) выберите значение **Identity is in the NameIdentifier element of the Subject statement** (Удостоверение находится в элементе NameIdentifier оператора Subject).
- 7. На странице **Настройка единого входа в Salesforce Sandbox** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес входа поставщика удостоверений**. 
- 8. SFDC не поддерживает выход SAML.  Чтобы обойти эту проблему, вставьте значение https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0 в текстовое поле **URL-адрес для выхода поставщика удостоверений**.
- 9. В поле **Service Provider Initiated Request Binding** (Связывание запросов, инициированных поставщиком услуг) выберите значение **HTTP POST**. 
- 10. Щелкните **Сохранить**.
-11. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781028.png "Настройка единого входа")
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-## <a name="enable-your-domain"></a>Включение домена
-В этом разделе предполагается, что вы уже создали домен.  Дополнительные сведения см. в разделе об [определении имени домена](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
+    ![Кнопка "Новое приложение"][3]
+
+4. В поле поиска введите **Salesforce Sandbox**, выберите **Salesforce Sandbox** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+
+    ![Salesforce Sandbox в списке результатов](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+
+В этом разделе объясняется, как настроить и проверить единый вход Azure AD в Salesforce Sandbox с использованием тестового пользователя Britta Simon.
+
+Чтобы единый вход работал, Azure AD необходима информация о том, какой пользователь в Salesforce Sandbox соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Salesforce Sandbox.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Salesforce Sandbox.
+
+Чтобы настроить и проверить единый вход Azure AD в Salesforce Sandbox, вам потребуется выполнить действия в следующих стандартных блоках.
+
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Salesforce Sandbox](#create-a-salesforce-sandbox-test-user)** требуется для создания в Salesforce Sandbox пользователя Britta Simon, связанного с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Salesforce Sandbox.
+
+**Чтобы настроить единый вход Azure AD в Salesforce Sandbox, выполните следующие действия.**
+
+1. На портале Azure на странице интеграции с приложением **Salesforce Sandbox** щелкните **Единый вход**.
+
+    ![Ссылка "Настройка единого входа"][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_samlbase.png)
+
+3. В разделе **Домен и URL-адреса Salesforce Sandbox** выполните следующие действия.
+
+    ![Сведения о домене и URL-адресах единого входа для приложения Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url.png)
+
+    а. В текстовом поле **URL-адрес для входа** введите значение в следующем формате: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`.
+
+    b. В текстовом поле **Идентификатор** введите значение в следующем формате: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`.
+    
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить их, обратитесь в [службу поддержки клиентов Salesforce](https://help.salesforce.com/support).
+
+4. В разделе **Сертификат подписи SAML** щелкните **Сертификат**, а затем сохраните файл сертификата на компьютере.
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_400.png)
+
+6. В разделе **Конфигурация Salesforce Sandbox** щелкните **Настроить Salesforce Sandbox**, чтобы открыть окно **Настройка единого входа**. Скопируйте **идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+
+    ![Настройка единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_configure.png) 
+
+7. Откройте новую вкладку в браузере и войдите в учетную запись администратора Salesforce Sandbox.
+
+8. Щелкните **Setup** (Настройка) под **значком параметров** в правом верхнем углу страницы.
+
+    ![Настройка единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/configure1.png)
+
+9. В области навигации прокрутите вниз до элемента **Settings** (Параметры) и щелкните **Identity** (Удостоверение), чтобы развернуть соответствующий раздел. Затем щелкните **Параметры единого входа**.
+
+    ![Настройка единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-admin-sso.png)
+
+10. Выберите **SAML Enabled** (SAML включен), а затем щелкните **Save** (Сохранить).
+
+    ![Настройка единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-enable-saml.png)
+
+11. Чтобы настроить параметры единого входа SAML, щелкните **Создать**.
+
+    ![Настройка единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+
+12. В разделе «Параметры единого входа SAML» выполните следующие действия:
+
+    ![Настройка единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-saml-config.png)
+
+    а. В текстовом поле **Name** (Имя) введите имя конфигурации (например, *SPSSOWAAD_Test*). 
+
+    b. В поле **Issuer** (Издатель) вставьте **идентификатор сущности SAML**, скопированный на портале Azure.
+
+    c. В текстовом поле **Entity Id** (Идентификатор сущности) введите `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`, если это первый экземпляр Salesforce Sandbox, добавляемый в каталог. Если вы уже добавили экземпляр Salesforce Sandbox, то для параметра **Идентификатор сущности** введите значение **URL-адрес входа** в следующем формате: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`  
+ 
+    d. Для отправки **сертификата поставщика удостоверений** нажмите кнопку **Choose File** (Выбрать файл), чтобы найти и выбрать файл сертификата, скачанный с портала Azure.  
+
+    д. Для **типа удостоверения SAML** выберите один из следующих вариантов:
+    
+      * Выберите **Assertion contains the User's Salesforce username** (Утверждение содержит имя пользователя Salesforce), если имя пользователя Salesforce передается в утверждении SAML.
+
+      * Выберите **Assertion contains the Federation ID from the User object** (Утверждение содержит идентификатор федерации из объекта-пользователя), если идентификатор федерации из объекта-пользователя передается в утверждении SAML.
+
+      * Выберите **Assertion contains the User ID from the User object** (Утверждение содержит идентификатор пользователя из объекта-пользователя), если идентификатор пользователя из объекта-пользователя передается в утверждении SAML.
+ 
+    f. В поле **SAML Identity Location** (Расположение удостоверения SAML) выберите значение **Identity is in the NameIdentifier element of the Subject statement** (Удостоверение находится в элементе NameIdentifier оператора Subject).
+
+    ж. В поле **Service Provider Initiated Request Binding** (Связывание запросов, инициированных поставщиком услуг) выберите значение **HTTP POST**. 
+
+    h. В текстовое поле **Identity Provider Login URL** (URL-адрес входа поставщика удостоверений) вставьте значение **URL-адреса службы единого входа**, скопированное на портале Azure. 
+
+    i. SFDC не поддерживает выход SAML.  В качестве обходного решения вставьте `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` в текстовое поле **Identity Provider Logout URL** (URL-адрес для выхода поставщика удостоверений).
+
+    j. Щелкните **Сохранить**.
+
+### <a name="enable-your-domain"></a>Включение домена
+В этом разделе предполагается, что вы уже создали домен.  Дополнительные сведения см. в разделе [Define Your Domain Name](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US) (Определение доменного имени).
 
 **Выполните следующие действия, чтобы включить домен:**
 
-1. В области навигации слева щелкните **Управление доменами**, затем — **Мой домен**.
+1. В области навигации слева в Salesforce щелкните **Company Settings** (Параметры компании), чтобы развернуть соответствующий раздел, и выберите пункт **My Domain** (Мой домен).
    
-   ![Мой домен](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781029.png "Мой домен")
+     ![Настройка единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-my-domain.png)
    
    >[!NOTE]
    >Убедитесь в правильности настройки домена. 
-   > 
-2. В разделе **Login Page Settings** (Параметры страницы входа) щелкните **Изменить**, а затем для параметра **Authentication Service** (Служба проверки подлинности) выберите имя параметра единого входа SAML из предыдущего раздела, после чего щелкните **Сохранить**.
-   
-   ![Мой домен](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781030.png "Мой домен")
 
-После настройки домена для входа в песочницу Salesforce пользователям необходимо будет использовать URL-адрес домена.  
+2. В разделе **Authentication Configuration** (Конфигурация аутентификации) щелкните **Edit** (Изменить), а затем для параметра **Authentication Service** (Служба аутентификации) выберите имя параметра единого входа SAML из предыдущего раздела, после чего щелкните **Save** (Сохранить).
+   
+   ![Настройка единого входа](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-edit-auth-config.png)
+
+После настройки домена для входа в Salesforce Sandbox пользователям необходимо будет использовать URL-адрес домена.  
 
 Чтобы получить значение URL-адреса, щелкните профиль единого входа, созданный в предыдущем разделе.
 
-## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
-В этом разделе показано, как включить подготовку учетных записей пользователей Active Directory для песочницы Salesforce.
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
 
-**Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.**
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
-1. На портале Salesforce в верхней области навигации выберите свое имя, чтобы открыть меню пользователя:
-   
-   ![Мои параметры](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698773.png "Мои параметры")
-2. В меню пользователя выберите **Мои параметры**, чтобы открыть страницу **Мои параметры**.
-3. В области навигации слева щелкните **Личный**, чтобы развернуть раздел "Личный", и щелкните **Reset My Security Token** (Сброс маркера безопасности).
-   
-   ![Мои параметры](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698774.png "Мои параметры")
-4. На странице **Reset My Security Token** (Сброс токена безопасности) щелкните **Reset Security Token** (Сбросить токен безопасности), чтобы запросить электронное сообщение, содержащее ваш токен безопасности Salesforce.com.
-   
-   ![Новый маркер](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698776.png "Новый маркер")
-5. Проверьте папку "Входящие" электронной почты на наличие сообщения от Salesforce.com со строкой темы**salesforce.com.com security confirmation**.
-6. Откройте это сообщение и скопируйте значение маркера безопасности.
-7. На странице интеграции приложений **Salesforce Sandbox** классического портала управления Azure щелкните **Настроить подготовку учетных записей пользователей**, чтобы открыть диалоговое окно **Настроить подготовку учетных записей пользователей**.
-   
-   ![Настроить подготовку учетных записей пользователей](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "Настроить подготовку учетных записей пользователей")
-8. На странице **Введите учетные данные песочницы Salesforce, чтобы включить автоматическую подготовку учетных записей пользователей** укажите следующие параметры конфигурации:
-   
-   ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746476.png "Salesforce Sandbox")   
- 1. В текстовом поле **Имя пользователя администратора Salesforce Sandbox** введите имя учетной записи Salesforce Sandbox с профилем **системного администратора** в Salesforce.com.
- 2. В текстовом поле **Пароль администратора Salesforce Sandbox** введите пароль для этой учетной записи.
- 3. В текстовом поле **Токен безопасности пользователя** вставьте значение токена безопасности.
- 4. Щелкните **Проверить** для проверки конфигурации.
- 5. Нажмите кнопку **Далее**, чтобы открыть страницу **Подтверждение**.
-9. На странице **Подтверждение** щелкните **Завершить**, чтобы сохранить конфигурацию.
-   
-## <a name="assigning-users"></a>Назначение пользователей
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+   ![Создание тестового пользователя Azure AD][100]
 
-**Чтобы назначить пользователей песочницы Salesforce, выполните следующие действия:**
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **Salesforce Sandbox** щелкните **Назначить пользователей**.
-   
-   ![Назначение пользователей](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "Назначение пользователей")
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-   ![Да](./media/active-directory-saas-salesforce-sandbox-tutorial/IC767830.png "Да")
+1. На портале Azure в области слева нажмите кнопку **Azure Active Directory**.
 
-Подождите 10 минут и убедитесь, что учетная запись синхронизирована с песочницей Salesforce.
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_01.png)
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_02.png)
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
+
+    ![Кнопка "Добавить"](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_03.png)
+
+4. В диалоговом окне **Пользователь** сделайте следующее.
+
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_04.png)
+
+    а. В поле **Имя** введите **BrittaSimon**.
+
+    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+
+    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
+
+    г) Щелкните **Создать**.
+ 
+### <a name="create-a-salesforce-sandbox-test-user"></a>Создание тестового пользователя Salesforce Sandbox
+
+В этом разделе вы создадите в Salesforce Sandbox пользователя с именем Britta Simon. Salesforce Sandbox поддерживает JIT-подготовку. Эта функция включена по умолчанию.
+В этом разделе никакие действия с вашей стороны не требуются. Если пользователь в Salesforce Sandbox еще не существует, он создается при попытке доступа к Salesforce Sandbox.
+
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к Salesforce Sandbox.
+
+![Назначение роли пользователя][200] 
+
+**Чтобы назначить пользователя Britta Simon в Salesforce Sandbox, выполните следующие действия.**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. Из списка приложений выберите **Salesforce Sandbox**.
+
+    ![Ссылка на Salesforce Sandbox в списке приложений](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_app.png)  
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Ссылка "Пользователи и группы"][202]
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Область "Добавление назначения"][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="test-single-sign-on"></a>Проверка единого входа
+
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув плитку Salesforce Sandbox на панели доступа, вы автоматически войдете в приложение Salesforce Sandbox.
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_203.png
 

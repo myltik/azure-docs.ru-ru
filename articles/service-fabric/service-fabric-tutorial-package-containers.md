@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Упаковка и развертывание контейнеров в виде приложения Service Fabric
 
@@ -218,7 +218,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 Кластеры сообщества — это бесплатные временные кластеры Service Fabric, размещенные в Azure. Их обслуживает команда Service Fabric. Любой пользователь может развертывать приложения в этих кластерах и изучать платформу. Чтобы получить доступ к кластеру сообщества, следуйте инструкциям в [этом разделе](http://aka.ms/tryservicefabric). 
 
-Сведения о создании собственного кластера см. в разделе [Создание первого кластера Service Fabric в Azure](service-fabric-get-started-azure-cluster.md).
+См. дополнительные сведения о [создании кластера Service Fabric в Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Выполнение сборки приложения и его развертывание в кластере
 Приложение можно развернуть в кластере Azure с помощью интерфейса командной строки Service Fabric. На вашем компьютере не установлен интерфейс командной строки Service Fabric, следуйте [этим](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) инструкциям, чтобы установить его. 

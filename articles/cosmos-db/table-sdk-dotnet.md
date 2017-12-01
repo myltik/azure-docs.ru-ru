@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: ae896bc5d795a733357ac08d370433d7475d2eb2
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API таблицы .NET для базы данных Azure Cosmos DB. Скачивание и заметки о выпуске
 > [!div class="op_single_selector"]
@@ -35,6 +35,10 @@ ms.lasthandoff: 11/15/2017
 |**Руководство**|[Разработка с помощью API таблицы базы данных Azure Cosmos DB на языке .NET](tutorial-develop-table-dotnet.md)|
 |**Текущая поддерживаемая платформа**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
+> [!IMPORTANT]
+> Если вы создали учетную запись API таблиц на этапе работы с предварительной версией, для работы с общедоступными пакетами SDK для API таблиц создайте [новую учетную запись](create-table-dotnet.md#create-a-database-account).
+>
+
 ## <a name="release-notes"></a>Заметки о выпуске
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -44,11 +48,11 @@ ms.lasthandoff: 11/15/2017
 * Первоначальный выпуск предварительной версии
 
 ## <a name="release-and-retirement-dates"></a>Даты выпуска и вывода из эксплуатации
-Корпорация Майкрософт отправит уведомление минимум за **12 месяцев** до вывода пакета SDK из эксплуатации, чтобы обеспечить более плавный переход на новую или поддерживаемую версию.
+Корпорация Майкрософт отправляет уведомление минимум за **12 месяцев** до вывода пакета SDK из эксплуатации, чтобы обеспечить более плавный переход на новую или поддерживаемую версию.
 
 Новые функции, возможности и оптимизации добавляются только в текущую версию пакета SDK, поэтому рекомендуется как можно раньше обновлять пакет SDK до последней версии. 
 
-Любые запросы к базе данных Azure Cosmos DB с помощью выведенного из эксплуатации пакета SDK будут отклонены службой.
+Любые запросы к базе данных Azure Cosmos DB с помощью выведенного из эксплуатации пакета SDK отклоняются службой.
 <br/>
 
 | Version (версия) | Дата выпуска | Дата вывода |
@@ -56,7 +60,26 @@ ms.lasthandoff: 11/15/2017
 | [1.0.0](#1.0.0) |15 ноября 2017 г.|--- |
 | [0.9.0 (предварительная версия)](#0.1.0-preview) |11 ноября 2017 г. |--- |
 
+## <a name="troubleshooting"></a>Устранение неполадок
+
+Если возникает ошибка 
+
+```
+Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: 'nuget.org', 
+'CliFallbackFolder', 'Microsoft Visual Studio Offline Packages', 'Microsoft Azure Service Fabric SDK'`
+```
+
+при попытке использовать NuGet-пакет Microsoft.Azure.CosmosDB.Table, ее можно устранить двумя способами.
+
+* Установите пакет Microsoft.Azure.CosmosDB.Table и его зависимости с помощью консоли диспетчера пакетов. Для этого введите в консоли диспетчера пакетов такую команду: 
+    ```
+    Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
+    ```
+    
+* Используя предпочитаемый инструмент управления пакетами Nuget, сначала установите пакет Microsoft.Azure.Storage.Common, а потом — Microsoft.Azure.CosmosDB.Table.
+
 ## <a name="faq"></a>Часто задаваемые вопросы
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>См. также

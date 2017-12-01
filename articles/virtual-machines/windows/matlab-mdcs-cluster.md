@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: b302c6b3c6acbb8552796e7fb1bfd153d23dceb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 177f8a61487130e718e3e6cfb779b17a3ed8ed69
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Создание кластеров MATLAB Distributed Computing Server на виртуальных машинах Azure
 Используя виртуальные машины Microsoft Azure, вы можете создать один или несколько кластеров MATLAB Distributed Computing Server, в которых можно запускать параллельные рабочие нагрузки MATLAB для ресурсоемких вычислений. Установите программное обеспечение MATLAB Distributed Computing Server на виртуальную машину для использования в качестве базового образа. Затем примените шаблон быстрого запуска Azure или сценарий Azure PowerShell (доступный на [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) для развертывания кластера и управления им. После развертывания подключитесь к кластеру, чтобы запустить рабочие нагрузки.
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 * **Клиентский компьютер** — необходим клиентский компьютер на базе Windows для обмена данными с Azure и кластером MATLAB Distributed Computing Server после развертывания.
 * **Azure PowerShell** — ознакомьтесь с разделом [Установка и настройка Azure PowerShell](/powershell/azure/overview) , чтобы установить этот компонент на клиентском компьютере.
 * **Подписка Azure** — если ее нет, можно за пару минут создать [бесплатную учетную запись](https://azure.microsoft.com/free/) . Для больших кластеров можно использовать подписку с оплатой по мере использования или другие варианты приобретения.
-* **Квота ядер** — может потребоваться увеличить квоту на ядра для развертывания большого кластера или нескольких кластеров MATLAB Distributed Computing Server. Чтобы увеличить квоту, бесплатно [отправьте запрос в службу поддержки](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) .
+* **Квота на виртуальные ЦП** — чтобы развернуть большой кластер или несколько кластеров MATLAB Distributed Computing Server, вам, возможно, потребуется увеличить квоту на виртуальные ЦП. Чтобы увеличить квоту, бесплатно [отправьте запрос в службу поддержки](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) .
 * **Лицензии MATLAB, Parallel Computing Toolbox и MATLAB Distributed Computing Server** — скрипты предполагают использование [MathWorks Hosted License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) для всех лицензий.  
 * **Программное обеспечение MATLAB Distributed Computing Server** — будет установлено на виртуальную машину, используемую в качестве базового образа виртуальной машины для виртуальных машин кластера.
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 * Чтобы использовать кластер, подключитесь к узлу клиента с помощью удаленного рабочего стола. На узле клиента выполняется клиент MATLAB.
 * Узел клиента содержит общую папку, доступную для всех рабочих узлов.
 * Для проверки лицензий на все программное обеспечение MATLAB используется диспетчер лицензий MathWorks Hosted License Manager.
-* По умолчанию на рабочих виртуальных машинах создается по одному рабочему узлу MATLAB Distributed Computing Server на ядро, но можно указать любое число.
+* По умолчанию на виртуальных машинах рабочей роли создается по одному рабочему узлу MATLAB Distributed Computing Server на виртуальный ЦП, но это количество можно изменить.
 
 ## <a name="use-an-azure-based-cluster"></a>Использование кластера на базе Azure
 Как и в других типах кластеров MATLAB Distributed Computing Server, в клиенте MATLAB (на клиентской виртуальной машине) необходимо использовать диспетчер профилей кластеров (Cluster Profile Manager), чтобы создать профиль кластера планировщика заданий MATLAB.

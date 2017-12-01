@@ -1,11 +1,11 @@
 ---
-title: "Настройка частных IP-адресов для виртуальных машин (Azure CLI 2.0) | Документация Майкрософт"
-description: "Узнайте, как настроить частные IP-адреса для виртуальных машин с помощью интерфейса командной строки Azure (CLI) версии 2.0."
+title: "Настройка частных IP-адресов для виртуальных машин (Azure CLI) | Документация Майкрософт"
+description: "Узнайте, как настроить частные IP-адреса для виртуальных машин с помощью интерфейса командной строки (CLI) Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: 
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
@@ -16,23 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 071156367c1f819a00d31f1d0335e301391fda81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-20"></a>Настройка частных IP-адресов для виртуальной машины с помощью Azure CLI 2.0
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Настройка частных IP-адресов для виртуальной машины с помощью Azure CLI
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи 
-
-Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки. 
-
-- [Azure CLI 1.0](virtual-networks-static-private-ip-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager. 
-- [Azure CLI 2.0](#specify-a-static-private-ip-address-when-creating-a-vm) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager (описывается в этой статье).
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
@@ -43,11 +35,11 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> Для выполнения приведенных ниже примеров команд Azure CLI 2.0 требуется созданная простая среда. Чтобы выполнять команды в соответствии с указаниями, представленными в этом документе, сначала постройте тестовую среду, как описано в статье [Создание виртуальной сети](virtual-networks-create-vnet-arm-cli.md).
+> Для работы приведенных в этом руководстве команд Azure CLI требуется наличие готовой среды. Чтобы выполнять команды в соответствии с указаниями, представленными в этом документе, сначала постройте тестовую среду, как описано в статье [Создание виртуальной сети](virtual-networks-create-vnet-arm-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Указание статического частного IP-адреса при создании виртуальной машины
 
-Чтобы создать виртуальную машину с именем *DNS01* в подсети *FrontEnd* виртуальной сети *TestVNet* со статическим частным IP-адресом *192.168.1.101*, выполните следующие действия.
+Чтобы создать виртуальную машину с именем *DNS01* в подсети *FrontEnd* виртуальной сети *TestVNet* со статическим частным IP-адресом *192.168.1.101*, сделайте следующее:
 
 1. Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) (если вы еще этого не сделали), а затем войдите с использованием учетной записи Azure, выполнив команду [az login](/cli/azure/#login). 
 
@@ -131,10 +123,10 @@ ms.lasthandoff: 10/11/2017
     Параметры
 
     * `--private-ip-address`: статический частный IP-адрес для сетевой карты.
-    * `--vnet-name`: имя виртуальной сети для создания сетевой карты.
+    * `--vnet-name`: имя виртуальной сети, в которой будет создана сетевая карта.
     * `--subnet`: имя подсети для создания сетевой карты.
 
-4. Выполните команду [azure vm create](/cli/azure/vm/nic#create) , чтобы создать виртуальную машину с использованием общедоступного IP-адреса и сетевой карты, созданных ранее. В списке, который откроется после выполнения команды, будут указаны используемые параметры.
+4. Выполните команду [azure vm create](/cli/azure/vm/nic#create), чтобы создать виртуальную машину с созданными ранее общедоступным IP-адресом и сетевой картой. В списке, который откроется после выполнения команды, будут указаны используемые параметры.
    
     ```azurecli
     az vm create \
@@ -169,7 +161,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Получение сведений о статическом частном IP-адресе виртуальной машины
 
-Чтобы просмотреть сведения о созданном статическом частном IP-адресе, выполните следующую команду Azure CLI. Обратите внимание на значения *метода выделения частных IP-адресов* и *частного IP-адреса*:
+Чтобы просмотреть значения параметров *Private IP alloc-method* и *Private IP address*, выполните следующую команду Azure CLI:
 
 ```azurecli
 az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'
@@ -204,13 +196,13 @@ rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
 
 ## <a name="remove-a-static-private-ip-address-from-a-vm"></a>Удаление статического частного IP-адреса виртуальной машины
 
-Статический частный IP-адрес нельзя удалить из сетевой карты с использованием Azure CLI для развертываний Resource Manager. Необходимо следующее:
+Для развертываний Azure Resource Manager статический частный IP-адрес нельзя удалить из сетевой карты с помощью Azure CLI. Необходимо следующее:
 - Создайте сетевую карту, использующую динамический IP-адрес.
 - Настройте созданную сетевую карту на виртуальной машине. 
 
-Чтобы изменить сетевую карту для виртуальной машины, которая использовалась в приведенных выше командах, сделайте следующее.
+Чтобы изменить сетевую карту виртуальной машины, используемой в предыдущих командах, сделайте следующее:
 
-1. Выполните команду **azure network nic create**, чтобы создать сетевую карту с новым IP-адресом путем выделения динамических IP-адресов. Обратите внимание, что так как IP-адрес не указан, используется **динамический** способ выделения.
+1. Выполните команду **azure network nic create**, чтобы создать сетевую карту с новым IP-адресом путем выделения динамических IP-адресов. Так как IP-адрес не указан, используется **динамический** способ выделения адреса.
 
     ```azurecli
     az network nic create     \
@@ -255,7 +247,7 @@ rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
     }
     ```
 
-2. Выполните команду **azure vm set** , чтобы изменить сетевую карту, используемую виртуальной машиной.
+2. Выполните команду **azure vm set**, чтобы изменить сетевую карту, используемую виртуальной машиной.
    
     ```azurecli
     azure vm set -g TestRG -n DNS01 -N TestNIC2
@@ -277,7 +269,7 @@ rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
     > Если размер виртуальной машины позволяет подключить несколько сетевых карт, выполните команду **azure network nic delete**, чтобы удалить старую сетевую карту.
    
 ## <a name="next-steps"></a>Дальнейшие действия
-* Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md) .
-* Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md) .
+* Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md).
+* Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md).
 * Ознакомьтесь с информацией о [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 

@@ -10,21 +10,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2017
-ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/16/2017
+ms.openlocfilehash: 8eafb16abeb939a16b1ddb024853300c453bcd9a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Устранение неполадок при развертывании службы и настройке среды
 Следующие сведения помогут вам определить причину возникновения ошибок при настройке среды управления моделями.
 
 ## <a name="model-management-environment"></a>Среда управления моделями
-### <a name="owner-permission-required"></a>Требуется разрешение владельца
-Для регистрации службы вычислений Машинного обучения Azure необходимо разрешение владельца подписки Azure.
-
-Также разрешение владельца требуется для настройки кластера для развертывания веб-служб.
+### <a name="contributor-permission-required"></a>Разрешения уровня участника
+Чтобы настроить кластер для развертывания веб-служб, вам нужен доступ к подписке или группе ресурсов уровня участника.
 
 ### <a name="resource-availability"></a>Доступность ресурсов
 Чтобы подготовить ресурсы среды, в подписке должно быть достаточное количество ресурсов.
@@ -89,6 +87,7 @@ az ml service create realtime -m <modelfile>.pkl -f score.py -n <service name> -
 ```
 
 ## <a name="other-common-problems"></a>Другие распространенные проблемы
+- Если на компьютере с ОС Windows pip-установка azure-cli-ml завершается с ошибкой `cannot find the path specified`, необходимо включить поддержку длинного формата пути. См. https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
 - Если происходит сбой команды `env setup` с сообщением `LocationNotAvailableForResourceType`, возможно, используется неверное расположение (регион) для ресурсов машинного обучения. Убедитесь, что с параметром `-l` задано расположение `eastus2`, `westcentralus` или `australiaeast`.
 - Если происходит сбой команды `env setup` с сообщением `Resource quota limit exceeded`, убедитесь, что в подписке достаточное количество ядер и что ресурсы не используются в других процессах.
 - Если происходит сбой команды `env setup` с сообщением `Invalid environment name. Name must only contain lowercase alphanumeric characters`, убедитесь, что имя службы не содержит заглавных букв, знаков или символа подчеркивания (_) (как в *my_environment*).

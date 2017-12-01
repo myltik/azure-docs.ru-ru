@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c8e598159d2139397952a5c11eac54dc38939f47
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-a-java-application"></a>Создание приложения Java
 Azure Service Fabric — это платформа распределенных систем для развертывания микрослужб и контейнеров и управления ими. 
@@ -83,7 +83,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 Кластеры сообщества — это бесплатные временные кластеры Service Fabric, размещенные в Azure. Их запускает команда Service Fabric. Любой пользователь может развертывать приложения в этих кластерах и изучать платформу. Чтобы получить доступ к кластеру сообщества, следуйте инструкциям в [этом разделе](http://aka.ms/tryservicefabric). 
 
-Сведения о создании собственного кластера см. в разделе [Создание первого кластера Service Fabric в Azure](service-fabric-get-started-azure-cluster.md).
+См. дополнительные сведения о [создании кластера Service Fabric в Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
 > Служба веб-интерфейса прослушивает порт 8080 для входящего трафика. Убедитесь, что порт открыт в кластере. При использовании кластера сообщества этот порт открыт.
@@ -147,5 +147,5 @@ Service Fabric Explorer выполняется во всех кластерах 
 > * Масштабирование приложения на несколько узлов
 
 * См. дополнительные сведения об [отладке служб в приложении Java с использованием Eclipse](service-fabric-debugging-your-application-java.md).
-* См. дополнительные сведения о [настройке непрерывной интеграции и развертывания с использованием Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
+* См. дополнительные сведения о [настройке непрерывной интеграции и развертывания с использованием Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 * Просмотрите другие [примеры Java](https://github.com/Azure-Samples/service-fabric-java-getting-started).

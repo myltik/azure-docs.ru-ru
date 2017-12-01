@@ -1,5 +1,5 @@
 ---
-title: "Использование Azure Database Migration Service для миграции SQL Server в базу данных SQL Azure | Документация Майкрософт"
+title: "Использование Azure Database Migration Service для переноса SQL Server в базу данных SQL Azure | Документация Майкрософт"
 description: "Узнайте, как выполнять миграцию из локального экземпляра SQL Server в SQL Azure с помощью Azure Database Migration Service."
 services: dms
 author: HJToland3
@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/09/2017
-ms.openlocfilehash: 70127b09e64ea4f19de437297498bdf78d415b99
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.openlocfilehash: 3938af29caec99f076452529cbc5d93cf2c8802b
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Миграция с SQL Server в базу данных SQL Azure
 Azure Database Migration Service можно использовать для переноса баз данных из локального экземпляра SQL Server в базу данных Azure. В этом руководстве выполняется миграция базы данных **Adventureworks2012**, восстановленной на локальном экземпляре SQL Server 2016 (или более поздней версии), в базу данных SQL Azure с помощью Azure Database Migration Service.
@@ -25,28 +25,29 @@ Azure Database Migration Service можно использовать для пе
 > * получение доступа к локальной базе данных с помощью помощника по миграции данных;
 > * перенос примера схемы с помощью помощника по миграции данных;
 > * создание экземпляра Azure Database Migration Service;
-> * создание проекта миграции Azure Database Migration Service;
-> * выполнение миграции;
+> * создание проекта миграции с помощью Azure Database Migration Service;
+> * выполнение миграции.
 > * мониторинг миграции.
 
 ## <a name="prerequisites"></a>Предварительные требования
-Для работы с этим руководством необходимы указанные ниже компоненты.
+Для работы с этим руководством вам потребуется следующее:
 
-- [SQL Server 2016 или более поздней версии](https://www.microsoft.com/sql-server/sql-server-downloads) (любой выпуск).
-- При установке SQL Server Express протокол TCP/IP отключен по умолчанию. Включите его, выполнив инструкции в [этой статье](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- [Настройте брандмауэр Windows для доступа к ядру СУБД](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Экземпляр базы данных SQL Azure. Экземпляр базы данных SQL Azure можно создать, ознакомившись со сведениями в статье [Создание базы данных SQL Azure на портале Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
-- [Помощник по миграции данных](https://www.microsoft.com/download/details.aspx?id=53595) 3.3 или более поздней версии.
-- Для Azure Database Migration Service требуется виртуальная сеть, созданная с помощью модели развертывания Azure Resource Manager, которая предоставляет возможность подключения "сеть — сеть" к локальным исходным серверам с помощью [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) или [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Учетные данные, используемые для подключения к исходному экземпляру SQL Server, должны иметь разрешения [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
-- Учетные данные, используемые для подключения к целевому экземпляру базы данных SQL Azure, должны иметь разрешение CONTROL DATABASE в целевой базе данных SQL Azure.
-- Чтобы предоставить Azure Database Migration Service доступ к исходному SQL Server, брандмауэр Windows должен быть открыт.
+- Скачайте и установите [SQL Server 2016 или более поздней версии](https://www.microsoft.com/sql-server/sql-server-downloads) (любой выпуск).
+- При установке SQL Server Express протокол TCP/IP отключен по умолчанию. Включите его, выполнив инструкции в статье [Включение или отключение сетевого протокола сервера](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+- Настройте [брандмауэр Windows для доступа к ядру СУБД](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+- Создайте экземпляр базы данных SQL Azure, следуя инструкциям в статье [Создание базы данных SQL Azure на портале Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+- Скачайте и установите [Помощник по миграции данных](https://www.microsoft.com/download/details.aspx?id=53595) версии 3.3 или более поздней.
+- Создайте виртуальную сеть для Azure Database Migration Service с помощью модели развертывания Azure Resource Manager, которая обеспечивает подключение "сеть — сеть" к локальным исходным серверам с помощью [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) или [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Убедитесь, что учетные данные, используемые для подключения к исходному экземпляру SQL Server, имеют разрешения [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
+- Убедитесь, что учетные данные, используемые для подключения к целевому экземпляру базы данных SQL Azure, имеют разрешения CONTROL DATABASE в целевых базах данных SQL Azure.
+- Откройте брандмауэр Windows, чтобы предоставить Azure Database Migration Service доступ к исходному серверу SQL Server.
 
 ## <a name="assess-your-on-premises-database"></a>Оценка локальной базы данных
-Перед переносом данных из локального экземпляра SQL Server в базу данных SQL Azure необходимо оценить базу данных SQL Server на наличие любых проблем, связанных с блокировкой, которые могут помешать миграции. После скачивания и установки помощника по миграции данных версии 3.3 выполните действия, описанные в статье [Perform a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) (Выполнение оценки миграции SQL Server), чтобы завершить оценку локальной базы данных. Ниже приведена сводка необходимых действий:
+Перед переносом данных из локального экземпляра SQL Server в базу данных SQL Azure необходимо оценить базу данных SQL Server на наличие любых проблем, связанных с блокировкой, которые могут помешать миграции. В Помощнике по миграции данных версии 3.3 или выше выполните инструкции по [оценке миграции SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem), чтобы завершить оценку локальной базы данных. Ниже приведена сводка необходимых действий:
 1.  В помощнике по миграции данных выберите значок "Создать" (+), а затем выберите тип проекта **Оценка**.
 2.  Укажите имя проекта в текстовом поле **Source server type** (Тип исходного сервера), выберите **SQL Server**, а затем в текстовом поле **Target server type** (Тип целевого сервера) выберите **База данных SQL Azure**.
 3.  Выберите **Создать**, чтобы создать проект.
+
     При оценке исходной базы данных SQL Server, переносимой в базу данных SQL Azure, можно выбрать один или несколько следующих типов отчетов об оценке:
     - проверка совместимости базы данных;
     - проверка четности компонентов.
@@ -54,7 +55,7 @@ Azure Database Migration Service можно использовать для пе
     По умолчанию выбраны оба типа отчетов.
 4.  В помощнике по миграции данных на экране **Параметры** выберите **Далее**.
 5.  На экране **Выберите источники** в диалоговом окне **Соединение с сервером** предоставьте сведения о подключении к SQL Server, а затем выберите **Подключить**.
-6.  Выберите **AdventureWorks2012**, а затем щелкните **Добавить** и выберите **Start Assessment** (Начать оценку).
+6.  В диалоговом окне **Add sources** (Добавление источников) выберите **AdventureWorks2012**, а затем щелкните **Add** (Добавить) и выберите **Start Assessment** (Начать оценку).
 
     После завершения оценки результаты будут показаны, как на следующем рисунке:
 
@@ -63,20 +64,19 @@ Azure Database Migration Service можно использовать для пе
     В базе данных SQL Azure внутренняя оценка идентифицирует проблемы, блокирующие миграцию, и проблемы с четностью компонентов.
 
 7.  Просмотрите результаты оценки проблем, блокирующих миграцию, и проблем с четностью компонентов, выбрав конкретные параметры.
-    - Категория четности компонентов SQL Server предоставляет полный набор рекомендаций, альтернативные подходы, доступные в Azure, и меры по устранению, которые помогут вам спланировать трудозатраты в ваших проектах миграции.
-    - Категория проблем совместимости предоставляет частичные или неподдерживаемые возможности, отражающие проблемы совместимости, которые могут блокировать миграцию локальной базы данных SQL Server в базу данных SQL Azure. Также предлагаются рекомендации, которые помогут вам решить эти проблемы.
+    - Для категории **четности компонентов SQL Server** доступны разные рекомендации, а также описание альтернативных механизмы, используемых в Azure, и мер по устранению, которые помогут вам рассчитать трудозатраты для выполнения миграции.
+    - Категория **проблем совместимости** определяет частично поддерживаемые или неподдерживаемые возможности, связанные с проблемами совместимости, которые могут блокировать миграцию локальных баз данных SQL Server в базу данных SQL Azure. Также предлагаются рекомендации, которые помогут вам решить эти проблемы.
 
 
 ## <a name="migrate-the-sample-schema"></a>Перенос примера схемы
-Когда вас удовлетворит оценка и вы убедитесь, что выбранная база данных подходит для миграции в базу данных SQL Azure, воспользуйтесь помощником для миграции данных для переноса схемы в базу данных SQL Azure.
+Если результаты оценки вас устраивают, и выбранная база данных подходит для миграции в базу данных SQL Azure, воспользуйтесь Data Migration Assistant для переноса схемы в базу данных SQL Azure.
 
 > [!NOTE]
-> Перед созданием проекта миграции в помощнике по миграции данных убедитесь, что база данных SQL Azure уже подготовлена, как упоминалось в предварительных требованиях. В рамках данного руководства подразумевается, что имя базы данных SQL Azure будет **AdventureWorks2012**, однако при необходимости ее можно назвать иначе.
+> Прежде чем создавать проект миграции в Data Migration Assistant, убедитесь, что база данных SQL Azure уже подготовлена, как описано выше. В рамках этого руководства для базы данных SQL Azure используется имя **AdventureWorks2012**, но вы можете назвать ее иначе.
 
 Чтобы перенести схему **AdventureWorks2012** в базу данных SQL Azure, выполните следующие действия:
 
-1.  Запустите помощник по миграции данных.
-2.  Выберите значок "Создать" (+) и в разделе **Тип проекта** выберите **Миграция**.
+1.  В Помощнике по миграции данных щелкните значок New (+) (Создать (+)), а затем в разделе **Project type** (Тип проекта) выберите **Migration** (Миграция).
 3.  Укажите имя проекта в текстовом поле **Source server type** (Тип исходного сервера), выберите **SQL Server**, а затем в текстовом поле **Target server type** (Тип целевого сервера) выберите **База данных SQL Azure**.
 4.  В разделе **Migration Scope** (Область переноса) выберите **Schema only** (Только схема).
 
@@ -88,7 +88,7 @@ Azure Database Migration Service можно использовать для пе
 6.  В помощнике по миграции данных задайте сведения о подключении к источнику SQL Server, щелкните **Подключение**, а затем выберите базу данных **AdventureWorks2012**.
 
     ![Сведения о подключении к источнику в помощнике по миграции данных](media\tutorial-sql-server-to-azure-sql\dma-source-connect.png)
-7.  В разделе **Connect to target server** (Подключение к целевому серверу) нажмите кнопку **Далее**, укажите сведения о подключении к целевому объекту для базы данных SQL Azure, щелкните **Подключение**, а затем выберите базу данных **AdventureWorks2012**, предварительно подготовленную в базе данных SQL Azure.
+7.  В разделе **Connect to target server** (Подключение к целевому серверу) нажмите кнопку **Next** (Далее), укажите сведения о подключении к целевому объекту для базы данных SQL Azure, щелкните **Connect** (Подключение), а затем выберите базу данных **AdventureWorksAzure**, предварительно подготовленную в базе данных SQL Azure.
 
     ![Сведения о подключении к целевому объекту в помощнике по миграции данных](media\tutorial-sql-server-to-azure-sql\dma-target-connect.png)
 8.  Выберите **Далее**, чтобы перейти на экран **Выбор объектов**, на котором можно указать объекты схемы в базе данных **AdventureWorks2012**, которую нужно развернуть в базе данных SQL Azure.
@@ -103,8 +103,21 @@ Azure Database Migration Service можно использовать для пе
 
     ![Развертывание схемы](media\tutorial-sql-server-to-azure-sql\dma-schema-deploy.png)
 
+## <a name="register-the-microsoftdatamigration-resource-provider"></a>Регистрация поставщика ресурсов Microsoft.DataMigration
+1. Войдите на портал Azure, щелкните **Все службы** и выберите **Подписки**.
+ 
+   ![Отображение подписок на портале](media\tutorial-sql-server-to-azure-sql\portal-select-subscription.png)
+       
+2. Выберите подписку, в которой нужно создать экземпляр Azure Database Migration Service, а затем щелкните **Поставщики ресурсов**.
+ 
+    ![Отображение поставщиков ресурсов](media\tutorial-sql-server-to-azure-sql\portal-select-resource-provider.png)    
+3.  В поле поиска введите migration, а затем справа от **Microsoft.DataMigration** щелкните **Зарегистрировать**.
+ 
+    ![Регистрация поставщика ресурсов](media\tutorial-sql-server-to-azure-sql\portal-register-resource-provider.png)    
+
+
 ## <a name="create-an-instance"></a>Создание экземпляра
-1.  Войдите на портал Azure, выберите **+ Создать ресурс**, выполните поиск по запросу "Azure Database Migration Service", а затем в раскрывающемся списке выберите **Azure Database Migration Service** .
+1.  На портале Azure выберите **+Создать ресурс**, введите в поле поиска Azure Database Migration Service, а затем в раскрывающемся списке выберите **Azure Database Migration Service**.
 
     ![Azure Marketplace](media\tutorial-sql-server-to-azure-sql\portal-marketplace.png)
 2.  На экране **Azure Database Migration Service (preview)** (Azure Database Migration Service (предварительная версия)) выберите **Создать**.
@@ -113,7 +126,7 @@ Azure Database Migration Service можно использовать для пе
   
 3.  На экране **Database Migration Service** задайте имя службы, подписки, виртуальной сети и ценовой категории.
 
-    Дополнительные сведения о ценовых категория и затратах см. на странице цен.
+    Дополнительные сведения о ценовых категориях и затратах см. на [странице с описанием цен](https://aka.ms/dms-pricing).
 
      ![Настройка параметров экземпляра Database Migration Service](media\tutorial-sql-server-to-azure-sql\dms-settings.png)
 

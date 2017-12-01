@@ -7,14 +7,14 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: be2a80645d23e709d6c5cfb3978498bbe85eca34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b6c8e77b16d784373e392d0ac97094050677cb84
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Установка среды выполнения Azure IoT Edge в ОС Windows IoT Базовая (предварительная версия)
 
@@ -25,8 +25,22 @@ ms.lasthandoff: 11/15/2017
 1. Установите [панель мониторинга Windows 10 IoT Базовая][lnk-core] на хост-системе.
 1. Выполните [инструкции][lnk-board] по настройке образа MinnowBoard Turbot/MAX (сборка 16299) на плате. 
 1. Включите устройство и [войдите на него удаленно через PowerShell][lnk-powershell].
-1. В консоли PowerShell [установите двоичные файлы Docker][lnk-docker-install].
-1. В консоли PowerShell установите среду выполнения IoT Edge и проверьте свою конфигурацию, выполнив следующую команду:
+1. В консоли PowerShell установите среду выполнения контейнеров. 
+
+   ```powershell
+   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-17.06.0-dev.zip -o temp.zip
+   Expand-Archive .\temp.zip $env:ProgramFiles -f
+   Remove-Item .\temp.zip
+   $env:Path += ";$env:programfiles\docker"
+   SETX /M PATH "$env:Path"
+   dockerd --register-service
+   start-service docker
+   ```
+
+   >[!NOTE]
+   >Эта среда выполнения контейнеров взята из сервера сборки проекта Moby и предназначена только для ознакомительных целей. Команда Docker не тестировала эту среду, не рекомендует ее и не поддерживает.
+
+1. Установите среду выполнения IoT Edge и проверьте свою конфигурацию.
 
    ```powershell
    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)

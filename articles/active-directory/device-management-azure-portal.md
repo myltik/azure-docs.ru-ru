@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 83a1ba0b97c0617884b1645ad54e259f04052f49
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Управление устройствами с помощью портала Azure
 
@@ -32,7 +32,30 @@ ms.lasthandoff: 11/14/2017
 
 - приводятся сведения об управлении устройствами с помощью портала Azure.
 
+## <a name="manage-devices"></a>Управление устройствами 
 
+На портале Azure вы можете централизованно управлять своими устройствами. Сюда можно перейти по [прямой ссылке](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) или с помощью следующих действий:
+
+1. Войдите на [портал Azure](https://portal.azure.com) с учетной записью администратора.
+
+2. На панели навигации слева щелкните **Active Directory**.
+
+    ![Настройка параметров устройства](./media/device-management-azure-portal/01.png)
+
+3. В разделе **Управление** щелкните **Устройства**.
+
+    ![Настройка параметров устройства](./media/device-management-azure-portal/11.png)
+ 
+На странице **Устройства** можно:
+
+- настраивать параметры управления устройствами;
+
+- определять местонахождение устройств;
+
+- выполнять задачи по управлению устройствами;
+
+- просматривать журналы аудита, связанные с управлением устройствами.  
+  
 
 ## <a name="configure-device-settings"></a>Настройка параметров устройства
 
@@ -139,7 +162,7 @@ ms.lasthandoff: 11/14/2017
 
 - Для удаления устройства необходимы права глобального администратора в Azure AD.  
 
-- Если вы удалите устройство:
+- Удаление устройства:
  
     - оно больше не сможет обращаться к вашим ресурсам Azure AD; 
 

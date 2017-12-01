@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: ff5da6a07512c323cd281832d1ca8a4c0ec5a816
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Подписка Azure, границы, квоты и ограничения службы
 В этом документе указаны некоторые из наиболее распространенных ограничений Microsoft Azure, которые иногда называются квотами. Этот документ на текущий момент охватывает не все службы Azure. Со временем список будет расширен и обновлен, чтобы охватить больше платформ.
@@ -64,6 +64,7 @@ ms.lasthandoff: 11/11/2017
 * [Фабрика данных](#data-factory-limits)
 * [Аналитика озера данных](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
+* [Database Migration Service](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Концентраторы событий](#event-hubs-limits)
 * [Центр Интернета вещей](#iot-hub-limits)
@@ -262,6 +263,9 @@ Azure Cosmos DB — это глобальная база данных, проп�
 
 ### <a name="data-lake-store-limits"></a>Ограничения Data Lake Store
 [!INCLUDE [azure-data-lake-store-limits](../includes/azure-data-lake-store-limits.md)]
+
+### <a name="database-migration-service-limits"></a>Ограничения Database Migration Service
+[!INCLUDE [database-migration-service-limits](../includes/database-migration-service-limits.md)]
 
 ### <a name="stream-analytics-limits"></a>Ограничения Stream Analytics
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]

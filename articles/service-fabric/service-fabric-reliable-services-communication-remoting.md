@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 655bc3dd3735a35fbe7437e8dda92b2adf15f7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Удаленное взаимодействие службы с Reliable Services
 Для служб, которые не привязаны к определенному протоколу обмена данными или стеку, например веб-API, Windows Communication Foundation (WCF) или др., платформа Reliable Services предоставляет механизм удаленного взаимодействия для быстрой и простой настройки удаленного вызова процедур.
@@ -82,12 +82,12 @@ string message = await helloWorldClient.HelloWorldAsync();
 Платформа удаленного взаимодействия распространяет исключения, созданные в службе, на клиент. Поэтому логика обработки исключений на стороне клиента с использованием `ServiceProxy` может напрямую обрабатывать порождаемые службой исключения.
 
 ## <a name="service-proxy-lifetime"></a>Время существования ServiceProxy
-Создание ServiceProxy — упрощенная операция, поэтому пользователь может создать столько таких элементов, сколько нужно. ServiceProxy можно использовать повторно, если он нужен пользователю. Если удаленный API порождает исключение, пользователи могут повторно использовать прежний прокси-сервер. Каждый ServiceProxy содержит клиент обмена данными, используемый для отправки сообщений по сети. При вызове API выполняется внутренняя проверка допустимости клиента обмена данными. В зависимости от ее результата можно будет повторно создать клиент обмена данными. Поэтому пользователю не требуется заново создавать ServiceProxy при возникновении исключения.
+Создание ServiceProxy не требует больших ресурсов, поэтому такие объекты можно создавать без каких-либо ограничений. Экземпляры ServiceProxy можно использовать повторно. Если удаленный вызов процедуры создает исключение, пользователи по-прежнему могут использовать тот же экземпляр прокси-сервера. Каждый объект ServiceProxy содержит клиент обмена данными, используемый для отправки сообщений по сети. При запуске удаленных вызовов мы проверяем работоспособность этого клиента и в случае необходимости создаем его повторно. Поэтому при возникновении исключения пользователю не нужно повторно создавать ServiceProxy.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Время существования ServiceProxyFactory
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) — это фабрика, которая создает прокси-сервер для различных интерфейсов удаленного взаимодействия. Если вы используете API ServiceProxy.Create для создания прокси-сервера, то платформа создает одноэлементный объект ServiceProxyFactory.
+[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) — это фабрика, которая создает экземпляры прокси-сервера для различных интерфейсов удаленного взаимодействия. Если для создания прокси-сервера вы используете API `ServiceProxy.Create`, платформа создает одноэлементный ServiceProxy.
 При необходимости переопределить свойства [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) имеет смысл создать фабрику вручную.
-Создание фабрики — ресурсоемкая операция. ServiceProxyFactory хранит кэш клиента обмена данными.
+Создание фабрики — ресурсоемкая операция. ServiceProxyFactory хранит внутренний кэш клиента обмена данными.
 Рекомендуется кэшировать ServiceProxyFactory на как можно больший период времени.
 
 ## <a name="remoting-exception-handling"></a>Обработка исключений удаленного взаимодействия

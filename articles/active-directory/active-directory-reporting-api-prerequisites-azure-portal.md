@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Предварительные требования для доступа к API отчетов Azure AD
 
@@ -55,7 +55,7 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 
 **Вот как можно зарегистрировать приложение Azure Active Directory.**
 
-1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните **Active Directory**.
+1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните **Azure Active Directory**.
    
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -129,11 +129,11 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 
 **Вот как можно получить доменное имя.**
 
-1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните **Active Directory**.
+1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните **Azure Active Directory**.
    
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. В колонке **Azure Active Directory** щелкните **Доменные имена**.
+2. В колонке **Azure Active Directory** щелкните **Имена пользовательских доменов**.
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -144,7 +144,7 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 
 **Вот как можно получить идентификатор клиента приложения.**
 
-1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните **Active Directory**.
+1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните **Azure Active Directory**.
    
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -161,7 +161,7 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 
 **Вот как можно получить секрет клиента приложения.**
 
-1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните **Active Directory**.
+1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните **Azure Active Directory**.
    
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 

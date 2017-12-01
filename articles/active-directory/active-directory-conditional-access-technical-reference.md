@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/11/2017
+ms.date: 11/19/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0bb79929a431a81c1618e09ee76fcb8415480655
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: c9e44a696010541ab153597bb1ab5d556c2e7b65
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Техническая информация об условном доступе в Azure Active Directory
 
@@ -177,25 +177,20 @@ ms.lasthandoff: 11/13/2017
 
 Ниже приведены клиентские приложения, которые могут использоваться в качестве обязательных утвержденных клиентских приложений:
 
+
+- Microsoft Azure Information Protection
 - Microsoft Excel
-
-- Microsoft OneDrive;
-
-- Microsoft Outlook;
-
-- Microsoft OneNote;
-
+- Microsoft OneDrive
+- Microsoft OneNote
+- Microsoft Outlook
+- Планировщик (Майкрософт)
 - Microsoft PowerPoint
-
 - Microsoft SharePoint
-
-- Microsoft Skype для бизнеса;
-
+- Microsoft Skype для бизнеса
 - Microsoft Teams
-
-- Microsoft Visio;
-
+- Microsoft Visio
 - Microsoft Word
+
 
 
 **Примечания**

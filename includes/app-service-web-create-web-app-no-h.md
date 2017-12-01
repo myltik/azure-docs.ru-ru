@@ -1,8 +1,6 @@
 В Cloud Shell создайте [веб-приложение](../articles/app-service/app-service-web-overview.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). 
 
-Веб-приложение предусматривает пространство для размещения кода, а также предоставляет URL-адрес для просмотра развернутого приложения.
-
-В следующей команде замените *\<имя_приложения>* уникальным именем (допустимые символы: `a-z`, `0-9` и `-`). Если `<app_name>` не является уникальным, отобразится следующее сообщение об ошибке: "Веб-сайт с указанным именем <имя_приложения> уже существует". URL-адрес приложения по умолчанию: `https://<app_name>.azurewebsites.net`. 
+В следующем примере замените *\<app_name>* глобальным уникальным именем приложения (допустимые символы: `a-z`, `0-9` и `-`). 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -32,7 +30,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 > URL-адрес удаленного репозитория Git отображается в свойстве `deploymentLocalGitUrl` в формате `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Сохраните этот URL-адрес для дальнейшего использования.
 >
 
-Перейдите на сайт, чтобы просмотреть только что созданное веб-приложение.
+Перейдите к только что созданному веб-приложению.
 
 ```bash
 http://<app_name>.azurewebsites.net

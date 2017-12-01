@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
+ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f03c91b7b27a4fb39b996599efd11242a785b2b2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Наборы данных и связанные службы в фабрике данных Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Версия 1 — общедоступная](v1/data-factory-create-datasets.md)
@@ -185,7 +183,7 @@ culture | Язык и региональные параметры на осно�
 Ознакомьтесь со статьей [Сопоставление схем в действии копирования]( copy-activity-schema-and-type-mapping.md), чтобы узнать больше о том, как фабрика данных сопоставляет исходные данные с приемником и когда необходимо указывать сведения о структуре.
 
 ## <a name="create-datasets"></a>Создание наборов данных
-Наборы данных можно создать с помощью одного из следующих средств или пакетов SDK: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell]((quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), шаблон Azure Resource Manager и портал Azure.
+Наборы данных можно создавать с помощью таких инструментов и пакетов SDK: [API .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), шаблон Azure Resource Manager, портал Azure.
 
 ## <a name="v1-vs-v2-datasets"></a>Наборы данных версии 1 и 2
 
@@ -202,4 +200,3 @@ culture | Язык и региональные параметры на осно�
 - [Создание фабрики данных и конвейера с помощью пакета PowerShell](quickstart-create-data-factory-powershell.md)
 - [Создание фабрики данных Azure и конвейера с помощью REST API](quickstart-create-data-factory-rest-api.md)
 - Краткое руководство по созданию фабрики данных с помощью портала Azure
-

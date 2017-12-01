@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 021c695a91ff46274b2a5174918711d04bcff239
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Развертывание приложения .NET в контейнере Windows в Azure Service Fabric
 
@@ -39,11 +39,14 @@ ms.lasthandoff: 10/11/2017
 4. Установите [Azure PowerShell][link-azure-powershell-install].
 5. Установите [расширение инструментов непрерывной поставки для Visual Studio 2017][link-visualstudio-cd-extension].
 6. Создайте [подписку Azure][link-azure-subscription] и [учетную запись Visual Studio Team Services][link-vsts-account]. 
-7. [Создайте кластер в Azure](service-fabric-tutorial-create-cluster-azure-ps.md).
+7. [Создайте кластер в Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+
+## <a name="create-a-cluster-on-azure"></a>Создание кластера в Azure
+Приложения Service Fabric работают в кластере, наборе виртуальных или физических машин, подключенных к сети. Перед созданием и развертыванием приложения [создайте в облаке Azure кластер Service Fabric](service-fabric-tutorial-create-vnet-and-windows-cluster.md). Создавая кластер, выбирайте SKU с поддержкой контейнеров (например, Windows Server Datacenter 2016 с контейнерами).
 
 ## <a name="containerize-the-application"></a>Помещение приложения в контейнер
 
-Теперь, когда у вас есть [кластер Service Fabric, работающий в Azure](service-fabric-tutorial-create-cluster-azure-ps.md), можно создать и развернуть контейнерное приложение. Для запуска приложения в контейнере необходимо добавить **поддержку Docker** в проекте Visual Studio. При добавлении в приложение **поддержки Docker** происходят две вещи. Сначала в проект добавляется _Dockerfile_. Этот новый файл описывает способ создания образа контейнера. Затем в решение будет добавлен новый проект _docker-compose_. Новый проект содержит несколько файлов docker-compose. Файлы docker-compose можно использовать для описания порядка выполнения контейнера.
+Теперь, когда у вас есть работающий в Azure кластер Service Fabric, создайте и разверните контейнерное приложение. Для запуска приложения в контейнере необходимо добавить **поддержку Docker** в проекте Visual Studio. При добавлении в приложение **поддержки Docker** происходят две вещи. Сначала в проект добавляется _Dockerfile_. Этот новый файл описывает способ создания образа контейнера. Затем в решение будет добавлен новый проект _docker-compose_. Новый проект содержит несколько файлов docker-compose. Файлы docker-compose можно использовать для описания порядка выполнения контейнера.
 
 См. дополнительные сведения о работе с [инструментами для контейнера Visual Studio][link-visualstudio-container-tools].
 

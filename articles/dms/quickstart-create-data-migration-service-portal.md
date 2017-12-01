@@ -10,20 +10,31 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/08/2017
-ms.openlocfilehash: 4213a0ae73c38dcad403140e3d45e28f2d338020
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.openlocfilehash: 9faac0716334d627cdde4c0ef16262670333b5d4
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-database-migration-service-instance-using-the-azure-portal"></a>Создание экземпляра службы Database Migration Service с помощью портала Azure
+# <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Создание экземпляра службы Azure Database Migration Service с помощью портала Azure
 В этом кратком руководстве вы воспользуетесь порталом Azure, чтобы создать экземпляр службы Azure Database Migration Service.  После создания службы вы сможете использовать ее для переноса данных с локального сервера SQL Server в базу данных SQL Azure.
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
-## <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
+## <a name="log-in-to-the-azure-portal"></a>Вход на портал Azure
 Откройте свой веб-браузер и перейдите на [портал Microsoft Azure](https://portal.azure.com/). Введите свои учетные данные для входа на портал. Панель мониторинга службы является представлением по умолчанию.
+
+## <a name="register-the-resource-provider"></a>Регистрация поставщика ресурсов
+Прежде чем вы создадите свою первую службу Database Migration Service, вам нужно зарегистрировать поставщик ресурсов Microsoft.DataMigration.
+
+1. На портале Azure щелкните **Все службы** и выберите **Подписки**.
+
+1. Выберите подписку, в которой нужно создать экземпляр Azure Database Migration Service, а затем щелкните **Поставщики ресурсов**.
+
+1. В поле поиска введите migration, а затем справа от Microsoft.DataMigration щелкните **Зарегистрировать**.
+
+![Регистрация поставщика ресурсов](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-azure-database-migration-service"></a>Создание службы Azure Database Migration Service
 1. Щелкните **+**, чтобы создать новую службу.  Пока что доступна только предварительная версия службы Database Migration Service.  

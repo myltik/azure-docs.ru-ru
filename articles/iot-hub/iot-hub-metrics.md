@@ -1,6 +1,6 @@
 ---
 title: "Использование метрик для мониторинга Центра Интернета вещей Azure | Документация Майкрософт"
-description: "Использование метрик Центра Интернета вещей Azure для оценки и отслеживания общей работоспособности Центров Интернета вещей."
+description: "Использование метрик Центра Интернета вещей Azure для оценки и отслеживания общей работоспособности центров Интернета вещей."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e850370faf2d271b4adad1af48c1ead7b316fa67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cafe5009b8e96b147b5bbed1957024f6d96feb58
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="understand-iot-hub-metrics"></a>Общие сведения о метриках Центра Интернета вещей
 Метрики Центра Интернета вещей предоставляют более качественные данные о состоянии ресурсов Интернета вещей Azure в вашей подписке Azure. Метрики Центра Интернета вещей позволяют оценивать общую работоспособность службы Центра Интернета вещей и подключенных к ней устройств. Доступные пользователям статистические данные имеют важное значение, поскольку благодаря им вы знаете, что происходит с центром IoT, и можете устранять основные проблемы без обращения в службу поддержки Azure.
@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
 * [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
-* [Отправка сообщений с устройства в облако с помощью имитации устройства (Linux) с использованием Edge Интернета вещей Azure][lnk-iotedge]
+* [Развертывание Azure IoT Edge на имитированном устройстве в Linux (предварительная версия)][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
@@ -114,4 +114,4 @@ ms.lasthandoff: 10/11/2017
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

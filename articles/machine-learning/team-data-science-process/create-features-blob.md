@@ -1,10 +1,10 @@
 ---
 title: "Создание признаков для данных хранилища BLOB-объектов Azure с помощью Panda | Документация Майкрософт"
-description: "Описание создания характеристик для данных, которые хранятся в контейнере больших двоичных объектов Azure, с помощью пакета Python Pandas."
+description: "Описание создания признаков для данных, которые хранятся в контейнере больших двоичных объектов Azure, с помощью пакета Python Pandas."
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
@@ -12,28 +12,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: ea6712fcedcc61c9f88e9daa8d576ac3d202da51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Создание характеристик для данных хранилища больших двоичных объектов Azure с помощью Panda
-В этом документе демонстрируется создание характеристик для данных, которые хранятся в контейнере больших двоичных объектов Azure, с помощью пакета Python [Pandas](http://pandas.pydata.org/) . После описания загрузки данных в кадр данных Panda в нем показано создание категориальных характеристик с использованием сценариев Pyrhon со значениями индикатора и характеристиками группирования.
+# <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Создание признаков для данных хранилища больших двоичных объектов Azure с помощью Panda
+В этом документе демонстрируется создание признаков для данных, которые хранятся в контейнере больших двоичных объектов Azure, с помощью пакета Python [Pandas](http://pandas.pydata.org/). После описания загрузки данных во фрейм данных Pandas в нем показано создание категориальных признаков с использованием сценариев Python со значениями индикатора и признаков группирования.
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
-Это **меню** содержит ссылки на статьи, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Это **меню** содержит ссылки на статьи, описывающие создание признаков для данных в различных средах. Эта задача является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="prerequisites"></a>Предварительные требования
 В этой статье предполагается, что вы уже создали учетную запись хранилища BLOB-объектов Azure и сохранили в ней свои данные. Инструкции по настройке учетной записи в Azure см. в разделе [Создание учетной записи хранения](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Загрузка данных во фрейм данных Pandas
-Для просмотра набора данных и управления им набор необходимо скачать из источника больших двоичных объектов в локальный файл, который в последствии можно загрузить во фрейм данных Pandas. Ниже приведен порядок выполнения данной процедуры.
+Чтобы просматривать набор данных и управлять им, скачайте его из исходного BLOB-объекта в локальный файл. Затем загрузите его во фрейм данных Pandas. Ниже приведен порядок выполнения данной процедуры.
 
-1. Скачайте данные из большого двоичного объекта Azure с помощью службы BLOB-объектов. Для этого воспользуйтесь приведенным ниже примером кода Python. Замените переменные этого кода своими значениями.
+1. Скачайте данные из большого двоичного объекта Azure с помощью службы BLOB-объектов. Для этого воспользуйтесь приведенным ниже примером кода Python. Замените переменные в этом коде своими значениями.
    
         from azure.storage.blob import BlobService
         import tables
@@ -50,18 +50,18 @@ ms.lasthandoff: 10/11/2017
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-2. Прочитайте данные, которые содержит скачанный файл, в блоке данных Pandas.
+2. Прочитайте данные, которые содержит скачанный файл, во фрейм данных Pandas.
    
         #LOCALFILE is the file path
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-Теперь вы готовы просматривать эти данные и создавать функции на основе этого набора данных.
+Теперь вы готовы просматривать эти данные и создавать признаки на основе этого набора данных.
 
-## <a name="blob-featuregen"></a>Создание функций
-В двух следующих разделах показано, как создать категориальные характеристики со значениями индикатора и характеристики группирования с помощью сценариев Python.
+## <a name="blob-featuregen"></a>Создание признаков
+В двух следующих разделах показано, как создать категориальные признаки со значениями индикатора и признаки группирования с помощью сценариев Python.
 
-### <a name="blob-countfeature"></a>Создание функций на основе значений индикатора
-Вот как можно создавать категориальные функции:
+### <a name="blob-countfeature"></a>Создание признаков со значениями индикатора
+Вот как можно создавать категориальные признаки:
 
 1. Проверьте распределение категориального столбца.
    
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
    
         #generate the indicator column
         dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
-3. Объедините столбец индикатора с исходным блоком данных.
+3. Объедините столбец индикатора с исходным фреймом данных.
    
             #Join the dummy variables back to the original data frame
             dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
@@ -79,8 +79,8 @@ ms.lasthandoff: 10/11/2017
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="blob-binningfeature"></a>Создание характеристик путем группирования данных
-Вот как можно создавать функции группирования:
+### <a name="blob-binningfeature"></a>Создание признаков путем группирования данных
+Вот как можно создать сгруппированные признаки:
 
 1. Добавьте последовательность столбцов, чтобы создать числовой столбец.
    
@@ -89,14 +89,14 @@ ms.lasthandoff: 10/11/2017
 2. Преобразуйте группирование в последовательность логических переменных.
    
         dataframe_blobdata_bin_bool = pd.get_dummies(dataframe_blobdata_bin_id, prefix='<numeric_column>')
-3. Наконец, объедините фиктивные переменные с исходным блоком данных.
+3. Наконец, объедините фиктивные переменные с исходным фреймом данных.
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="sql-featuregen"></a>Запись данных обратно в большой двоичный объект Azure и их использование в Студии машинного обучения Azure
-После просмотра данных и создания необходимых вам признаков вы можете отправить данные (в выборке или в признаке) в большой двоичный объект Azure и использовать их в Студии машинного обучения Azure. Вы можете это сделать описанным ниже способом. Обратите внимание на то, что дополнительные характеристики можно создавать и в Студии машинного обучения Microsoft Azure.
+## <a name="sql-featuregen"></a>Запись данных обратно в BLOB-объект Azure и их использование в службе "Машинное обучение Azure"
+Если вы изучили данные, сделали из них выборку или создали для них признаки и теперь хотите использовать эти данные в службе "Машинное обучение Azure", передайте эти данные в BLOB-объект Azure. Дополнительные признаки можно создать также в Студии машинного обучения Azure. Чтобы передать данные в облако, сделайте следующее:
 
-1. Запишите блок данных в локальный файл.
+1. Запишите фрейм данных в локальный файл.
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 2. Отправьте данные в большой двоичный объект Azure так, как указано ниже.
@@ -120,7 +120,7 @@ ms.lasthandoff: 10/11/2017
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Теперь данные можно считывать из большого двоичного объекта с помощью модуля [Импорт данных](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) машинного обучения Azure (см. рисунок ниже).
+3. Теперь данные можно считывать из BLOB-объекта с помощью модуля [Импорт данных](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) службы "Машинное обучение Azure" (см. рисунок ниже).
 
 ![большой двоичный объект считывателя](./media/data-blob/reader_blob.png)
 

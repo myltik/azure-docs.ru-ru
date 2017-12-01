@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 2acf45187894aa3bfcaa4df639becf18605d50a5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Типы модулей Runbook в службе автоматизации Azure
 Служба автоматизации Azure поддерживает несколько типов модулей Runbook, кратко описанных в приведенной ниже таблице.  Следующие разделы содержат дополнительную информацию о каждом типе, включая рекомендацию по использованию.
@@ -30,7 +30,6 @@ ms.lasthandoff: 10/27/2017
 | [PowerShell](#powershell-runbooks) |Текстовый модуль Runbook, основанный на сценарии Windows PowerShell. |
 | [Рабочий процесс PowerShell](#powershell-workflow-runbooks) |Текстовый модуль Runbook, основанный на рабочем процессе Windows PowerShell. |
 | [Python](#python-runbooks) |Текстовый модуль Runbook, основанный на Python. |
-| [Bash](#bash-runbooks) |Текстовый модуль Runbook, основанный на Bash. |
 
 ## <a name="graphical-runbooks"></a>Графические модули Runbook
 [Графические](automation-runbook-types.md#graphical-runbooks) модули Runbook и графические модули Runbook рабочего процесса PowerShell создаются и редактируются в графическом редакторе на портале Azure.  Их можно экспортировать в файл и затем импортировать в другую учетную запись автоматизации, но создавать и редактировать их в других инструментах нельзя.  Графические модули Runbook генерируют код PowerShell, но просматривать и изменять код напрямую нельзя. Графические модули Runbook нельзя конвертировать ни в один из [текстовых форматов](automation-runbook-types.md), а текстовые нельзя превратить в графические. Во время импорта графические модули Runbook можно преобразовывать в графические модули Runbook рабочего процесса PowerShell и наоборот.
@@ -39,7 +38,7 @@ ms.lasthandoff: 10/27/2017
 * Визуальная модель создания insert-link-configure.  
 * Фокусировка на том, как происходит поток данных.  
 * Визуальное представление процессов управления.  
-* Включение других модулей Runbook в качестве дочерних Runbook для создания рабочих процессов высокого уровня.  
+* Включение других модулей Runbook в качестве дочерних для создания высокоуровневых рабочих процессов.  
 * Способствует модульному программированию.  
 
 
@@ -64,7 +63,7 @@ ms.lasthandoff: 10/27/2017
 ### <a name="known-issues"></a>Известные проблемы
 Ниже перечислены проблемы с модулями Runbook PowerShell, известные на данный момент.
 
-* Runbook PowerShell не могут извлекать незашифрованный [переменный ресурс-контейнер](automation-variables.md) с пустым значением.
+* Модули Runbook PowerShell не могут извлечь незашифрованный [переменный ресурс](automation-variables.md) со значением NULL.
 * Runbook PowerShell не имеют возможности извлекать [переменный ресурс-контейнер](automation-variables.md) , в имени которого есть символ *~* .
 * Модуль Get-Process в цикле в модуле Runbook PowerShell может аварийно завершить работу после примерно 80 итераций. 
 * Модуль Runbook PowerShell может завершиться ошибкой, если попытается записать слишком большой объем данных в поток вывода за один раз.   Обычно эту проблему можно обойти, выводя при работе с большими объектами только необходимые данные.  Например, вместо использования метода *Get-Process* можно вывести только требуемые поля, указав *Get-Process | Select ProcessName, CPU*.
@@ -76,7 +75,7 @@ Runbook рабочих процессов PowerShell представляют с
 * Реализация сложной логики с помощью кода рабочего процесса PowerShell.
 * Использование [контрольных точек](automation-powershell-workflow.md#checkpoints) для возобновления модулей Runbook в случае ошибки.
 * Использование [параллельной обработки](automation-powershell-workflow.md#parallel-processing) для одновременного выполнения нескольких действий.
-* Графические Runbook могут включать другие графические Runbook и Runbook рабочего процесса PowerShell в качестве дочерних Runbook для создания рабочих процессов высокого уровня.
+* Возможность использования других графических модулей Runbook и модулей Runbook рабочих процессов PowerShell в качестве дочерних для создания высокоуровневых рабочих процессов.
 
 ### <a name="limitations"></a>Ограничения
 * Автор должен знать рабочий процесс PowerShell.
@@ -97,7 +96,7 @@ Runbook рабочих процессов PowerShell представляют с
 ### <a name="known-issues"></a>Известные проблемы
 Ниже перечислены известные проблемы с модулями Runbook Python.
 
-* Чтобы использовать библиотеки сторонних производителей, модуль Runbook должен выполняться в [гибридной рабочей роли Runbook для Windows](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) или [гибридной рабочей ролью Runbook для Linux](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) с библиотеками, которые уже установлены на компьютере перед запуском модуля.
+* Чтобы использовать библиотеки сторонних производителей, модуль Runbook должен выполняться в гибридной рабочей роли Runbook для [Windows](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) или [Linux](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) с библиотеками, которые уже установлены на компьютере перед запуском модуля.
 
 ## <a name="considerations"></a>Рекомендации
 Выбирая тип модуля Runbook, принимайте во внимание следующие факторы:

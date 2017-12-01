@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: f0be85d661807f36890fc79090c3f820ae8c376d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acc599c1fbe13b2739fc5480d6204f90e59b0242
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Передача файлов с устройства в облако с помощью Центра Интернета вещей и .NET
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-В этом учебнике используется код учебника [Отправка сообщений из облака на устройства с помощью Центра Интернета вещей](iot-hub-csharp-csharp-c2d.md) , чтобы показать, как использовать возможности передачи файлов в Центре Интернета вещей. В нем показано следующее:
+В этом учебнике используется код учебника [Отправка сообщений из облака на устройства с помощью Центра Интернета вещей](iot-hub-csharp-csharp-c2d.md), чтобы показать, как использовать возможности передачи файлов Центра Интернета вещей. В нем показано следующее:
 
 - как безопасно предоставить устройству универсальный код ресурса (URI) большого двоичного объекта Azure для передачи файла;
 - как использовать уведомления о передаче файлов Центра Интернета вещей для активации обработки файла в серверной части приложения.
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 * **ReadFileUploadNotification**— приложение, которое получает уведомления о передаче файлов от Центра Интернета вещей.
 
 > [!NOTE]
-> Существуют пакеты SDK для устройств Интернета вещей Azure, обеспечивающие поддержку многих платформ устройств и языков (включая C, Java и JavaScript) в Центре Интернета вещей. Пошаговые инструкции по подключению устройства к Центру Интернета вещей Azure см. в [Центре разработчика Центра Интернета вещей Azure].
+> Существуют пакеты SDK для устройств Azure IoT, обеспечивающие поддержку многих платформ устройств и языков (включая C, Java и JavaScript) в Центре Интернета вещей. Пошаговые инструкции по подключению устройства к Центру Интернета вещей Azure см. в [Центре разработчика для Центра Интернета вещей Azure].
 
 Для работы с этим учебником требуется:
 
@@ -180,7 +180,7 @@ ms.lasthandoff: 10/11/2017
 
 Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
-* [Simulating a device with IoT Edge][lnk-iotedge] (Моделирование устройства с помощью Edge Интернета вещей)
+* [Развертывание Azure IoT Edge на имитированном устройстве в Linux (предварительная версия)][lnk-iotedge]
 
 <!-- Images. -->
 
@@ -192,7 +192,7 @@ ms.lasthandoff: 10/11/2017
 
 [портала Azure]: https://portal.azure.com/
 
-[Центре разработчика Центра Интернета вещей Azure]: http://www.azure.com/develop/iot
+[Центре разработчика для Центра Интернета вещей Azure]: http://www.azure.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [пакет SDK NuGet для служб Azure IoT]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
@@ -202,4 +202,4 @@ ms.lasthandoff: 10/11/2017
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-windows-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

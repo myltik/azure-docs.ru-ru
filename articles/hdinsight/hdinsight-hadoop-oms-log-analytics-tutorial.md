@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: 73c472140861a0d0d270021ab268e8c1113c23b5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6677b0b3ed047ce011bfbb72c25e45195859830a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Использование Azure Log Analytics для мониторинга кластеров HDInsight
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/15/2017
 
 * **Подписка Azure**. Прежде чем приступать к изучению этого руководства, необходимо оформить подписку Azure. Ознакомьтесь со страницей [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/free).
 
-* **Кластер Azure HDInsight**. Сейчас вы можете использовать Azure OMS со следующими типами кластеров HDInsight:
+* **Кластер Azure HDInsight**. Сейчас Azure Operations Management Suite можно использовать со следующими типами кластеров HDInsight:
 
     * Hadoop
     * HBase
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/15/2017
 
     Параметр сохраняется в течение нескольких секунд.  Затем вы увидите кнопку **Открыть панель мониторинга OMS** в верхней части страницы. 
 
-    ![Открытие панели мониторинга OMS](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "Открытие панели мониторинга OMS")
+    ![Открытие панели мониторинга Operations Management Suite](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "Open OMS dashboard")
 
 5. Нажмите кнопку **Открыть панель мониторинга OMS**.
 6. При появлении запроса введите свои учетные данные Azure.

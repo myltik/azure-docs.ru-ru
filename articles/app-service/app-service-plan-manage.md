@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Управлением планом службы приложений в Azure
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/14/2017
 
 Щелкнув **Изменить план служб приложений**, вы откроете средство выбора **План службы приложений**. Выберите существующий план, в который вы будете перемещать приложение. 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Страница **выбора плана службы приложений** фильтрует список по следующим критериям: 
 > - находится в той же группе ресурсов; 
 > - находится в том же географическом регионе; 
@@ -82,7 +82,7 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="scale-an-app-service-plan"></a>Масштабирование плана службы приложений
 
-Чтобы установить для плана службы приложений более высокую ценовую категорию, см. статью [Увеличение масштаба приложения в Azure](web-sites-scale.md).
+Сведения о том, как установить для плана службы приложений более высокую ценовую категорию, см. в статье [Увеличение масштаба приложения в Azure](web-sites-scale.md).
 
 Сведения о развертывании числа экземпляров приложения вы найдете в статье [Масштабирование числа экземпляров вручную или автоматически](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
