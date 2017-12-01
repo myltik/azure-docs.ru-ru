@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: rclaus
 ms.custom: 
-ms.openlocfilehash: 1bfc95977634a41a23fc8bcfee22c44849a9cf04
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 865fa54c908481b3f4c211f12293538c617b6129
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Сертификаты и конфигурации SAP на платформе Microsoft Azure
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/14/2017
 Платформа Microsoft Azure сертифицирована для следующих продуктов SAP при полной поддержке Майкрософт и SAP.
 Справочные материалы:
 
-- Список всех приложений на основе SAP NetWeaver, включая SAP TREX, SAP LiveCache и сервер содержимого SAP, см. в [примечании SAP № 1928533 о поддерживаемых продуктах и типах виртуальных машин Azure.](https://launchpad.support.sap.com/#/notes/1928533) Здесь также содержится список всех баз данных, кроме SAP HANA.
+- Список всех приложений на основе SAP NetWeaver, включая SAP TREX, SAP LiveCache и сервер содержимого SAP, см. в [примечании SAP № 1928533 о поддерживаемых продуктах и типах виртуальных машин Azure](https://launchpad.support.sap.com/#/notes/1928533). Здесь также содержится список всех баз данных, кроме SAP HANA.
 
 
 | Продукт SAP | Гостевая ОС | Реляционная СУБД | Типы виртуальных машин |
@@ -64,3 +64,4 @@ ms.lasthandoff: 10/14/2017
 | SAP BPC 10.01 MS SP08 | Windows | | Все типы виртуальных машин, сертифицированные NetWeaver<br /> Примечание к SAP № 2451795 |
 | Платформа SAP BusinessObjects BI | Windows | | Примечание к SAP № 2145537 |
 | SAP Data Services 4.2 | | | Примечание к SAP № 2288344 |
+| SAP Hybris Commerce Platform 5.x и 6.x | Windows | SQL Server, Oracle | Все типы виртуальных машин, сертифицированные NetWeaver<br /> [Вики-сайт Hybris](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |

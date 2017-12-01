@@ -13,67 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2017
+ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 11457e6556e6400d8f58f71c71ab1e790bcef8f1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: bae60e7f78934deacac173767ca3013ce93cf9ad
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Использование службы файлов Azure с Kubernetes
 
-Контейнерные приложения часто требуются для доступа к данным и их хранению во внешнем томе данных. В качестве этого внешнего хранилища данных можно использовать службу файлов Azure. В этой статье описывается, как использовать службу файлов Azure в качестве тома Kubernetes в службе контейнеров Azure.
+Контейнерные приложения часто требуются для обращения к данным и их хранения во внешнем томе данных. В качестве этого внешнего хранилища данных можно использовать службу файлов Azure. В этой статье описывается, как использовать службу файлов Azure в качестве тома Kubernetes в службе контейнеров Azure.
 
 Дополнительные сведения о томах Kubernetes см. в разделе [Volumes][kubernetes-volumes] (Тома).
 
-## <a name="creating-a-file-share"></a>создание файлового ресурса;
+## <a name="create-an-azure-file-share"></a>Создание файлового ресурса Azure
 
-Существующий общий ресурс службы файлов Azure можно использовать со службой контейнеров Azure. Если необходимо создать такой файловый ресурс, используйте следующий набор команд.
-
-Создайте группу ресурсов для общего ресурса службы файлов Azure с помощью команды [az group create][az-group-create]. Группа ресурсов, учетная запись хранения и кластер Kubernetes должны находиться в одном регионе.
+Перед использованием файлового ресурса Azure в качестве тома Kubernetes необходимо создать учетную запись хранения Azure и файловый ресурс. Для выполнения этих задач можно использовать приведенный ниже сценарий. Запишите или измените значения параметров. Некоторые из них понадобятся при создании тома Kubernetes.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
-```
+# Change these four parameters
+AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
+AKS_PERS_RESOURCE_GROUP=myAKSShare
+AKS_PERS_LOCATION=eastus
+AKS_PERS_SHARE_NAME=aksshare
 
-С помощью команды [az storage account create][az-storage-create] создайте учетную запись хранения Azure. Имя этой учетной записи хранения должно быть уникальным. Измените значение аргумента `--name`, указав уникальное значение.
+# Create the Resource Group
+az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 
-```azurecli-interactive
-az storage account create --name mystorageaccount --resource-group myResourceGroup --sku Standard_LRS
-```
+# Create the storage account
+az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
-Получите ключ к хранилищу данных с помощью команды [az storage account keys list][az-storage-key-list]. Измените значение аргумента `--account-name`, указав уникальное имя учетной записи хранения.
+# Export the connection string as an environment variable, this is used when creating the Azure file share
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
 
-Запишите одно из значений ключа, оно будет использовано в последующих шагах.
+# Create the file share
+az storage share create -n $AKS_PERS_SHARE_NAME
 
-```azurecli-interactive
-az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup --output table
-```
-
-Создайте общий ресурс службы файлов Azure, выполнив команду [az storage share create][az-storage-share-create]. Измените значение `--account-key`, указав значение, полученное на предыдущем шаге.
-
-```azurecli-interactive
-az storage share create --name myfileshare --account-name mystorageaccount --account-key <key>
+# Get storage account key
+STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
 ```
 
 ## <a name="create-kubernetes-secret"></a>Создание секрета Kubernetes
 
-Kubernetes требуются учетные данные для доступа к файловому ресурсу. Вместо того, чтобы сохранять имя и ключ учетной записи хранения Azure с каждым pod, они сохраняются один раз в [секрете Kubernetes][kubernetes-secret], на который ссылается каждый том службы файлов Azure. 
+Kubernetes требуются учетные данные для доступа к файловому ресурсу. Эти учетные данные хранятся в [секрете Kubernetes][kubernetes-secret], который указывается при создании pod Kubernetes.
 
-Значения в манифесте секрета Kubernetes должны быть указаны в кодировке base64. Используйте приведенные ниже команды для возвращения закодированных значений.
+При создании секрета Kubernetes его значения должны быть закодированы в формате base64.
 
-Сначала закодируйте имя учетной записи хранения. Замените `storage-account` именем своей учетной записи хранения Azure.
+Сначала закодируйте имя учетной записи хранения. При необходимости замените `$AKS_PERS_STORAGE_ACCOUNT_NAME` именем своей учетной записи хранения Azure.
 
 ```azurecli-interactive
-echo -n <storage-account> | base64
+echo -n $AKS_PERS_STORAGE_ACCOUNT_NAME | base64
 ```
 
-Затем нужно указать ключ доступа к учетной записи хранения. Выполните приведенную ниже команду, чтобы получить закодированный ключ. Замените `storage-key` ключом, полученным на предыдущем шаге.
+Затем закодируйте ключ учетной записи хранения. При необходимости замените `$STORAGE_KEY` именем ключа учетной записи хранения Azure.
 
 ```azurecli-interactive
-echo -n <storage-key> | base64
+echo -n $STORAGE_KEY | base64
 ```
 
 Создайте файл `azure-secret.yml` и скопируйте в него следующий код YAML. Измените значения `azurestorageaccountname` и `azurestorageaccountkey`, указав значения в кодировке base64, полученные на предыдущем шаге.
@@ -89,15 +86,15 @@ data:
   azurestorageaccountkey: <base64_encoded_storage_account_key>
 ```
 
-Выполните команду [kubectl apply][kubectl-apply], чтобы создать секрет.
+Выполните команду [kubectl create][kubectl-create], чтобы создать секрет.
 
 ```azurecli-interactive
-kubectl apply -f azure-secret.yml
+kubectl create -f azure-secret.yml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Подключение файлового ресурса в качестве тома
 
-Можно подключить общий ресурс службы файлов Azure к pod, настроив том в его спецификации. Создайте файл `azure-files-pod.yml` со следующим содержимым. Измените `share-name`, указав имя, присвоенное общему ресурсу службы файлов Azure.
+Можно подключить общий ресурс службы файлов Azure к pod, настроив том в его спецификации. Создайте файл `azure-files-pod.yml` со следующим содержимым. Измените `aksshare`, указав имя, присвоенное общему ресурсу службы файлов Azure.
 
 ```yaml
 apiVersion: v1
@@ -115,7 +112,7 @@ spec:
   - name: azure
     azureFile:
       secretName: azure-secret
-      shareName: <share-name>
+      shareName: aksshare
       readOnly: false
 ```
 
@@ -139,6 +136,6 @@ kubectl apply -f azure-files-pod.yml
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[kubectl-apply]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#apply
+[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [az-group-create]: /cli/azure/group#az_group_create

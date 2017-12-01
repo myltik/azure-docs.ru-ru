@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Интеграция схемы услуги с System Center Operations Manager
   > [!NOTE]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 С помощью этой интеграции схемы услуги и System Center Operations Manager можно автоматически создавать схемы распределенных приложений в Operations Manager, которые основаны на динамических сопоставлениях зависимостей в схеме услуги.
 
 ## <a name="prerequisites"></a>Предварительные требования
-* Группа управления Operations Manager, управляющая набором серверов.
+* Группа управления Operations Manager 2012 R2 или более поздней версии, управляющая набором серверов.
 * Рабочая область Operations Management Suite с включенным решением схемы услуги.
 * Набор серверов (по крайней мере один), которые находятся под управлением Operations Manager и отправляют данные в схему услуги. Поддерживаются серверы Windows и Linux.
 * Субъект-служба с доступом к подписке Azure, связанной с рабочей областью Operations Management Suite. Дополнительные сведения см. в руководстве по [созданию субъекта-службы](#creating-a-service-principal).

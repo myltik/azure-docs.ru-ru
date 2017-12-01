@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2017
+ms.date: 11/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 06368cb5084dd49e24c1c25aa8100a7680aacefb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ae2466bdd3b21984b141c9178ea46bd25bb6357b
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Выполнение задачи-контейнера в службе "Экземпляры контейнеров Azure"
 
@@ -147,7 +147,7 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 
 Например, в контейнер из нашего примера вы можете передать другой текст для анализа, а не пьесу *Гамлет*, указав новую командную строку. Скрипт Python *wordcount.py*, который выполняется в этом контейнере, принимает в качестве аргумента URL-адрес текста, который нужно обработать вместо стандартного.
 
-Например, так вы можете найти три самые употребимые слова из пяти букв в тексте пьесы *Ромео и Джульетта*:
+Например, так вы можете найти 3 самых употребляемых слова из пяти букв в тексте пьесы *Ромео и Джульетта*.
 
 ```azurecli-interactive
 az container create \
@@ -172,6 +172,8 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
+### <a name="persist-task-output"></a>Сохранение выходных данных задачи
 
 Дополнительные сведения о том, как сохранить выходные данные контейнеров, которые выполняются до завершения, вы найдете в статье [Подключение файлового ресурса Azure с помощью Экземпляров контейнеров Azure](container-instances-mounting-azure-files-volume.md).
 

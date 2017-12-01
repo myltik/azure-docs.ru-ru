@@ -1,6 +1,6 @@
 ---
 title: "Поддерживаемые подключения с использованием соединителя управления ИТ-службами в Azure Log Analytics | Документы Майкрософт"
-description: "Подключите продукты и службы ITSM с помощью соединителя управления ИТ-службами в Azure Log Analytics, чтобы централизованно отслеживать рабочие элементы ITSM и управлять ими."
+description: "В этой статье описывается, как подключить продукты и службы ITSM с помощью соединителя управления ИТ-службами (ITSM) в OMS Log Analytics, чтобы централизованно отслеживать рабочие элементы ITSM и управлять ими."
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: e801d484ffb40a0d4aed517a741c45dc76b62b37
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Подключение продуктов и служб ITSM с помощью соединителя управления ИТ-службами (предварительная версия)
-В этой статье приведены сведения о подключении продуктов и служб ITSM к соединителю управления ИТ-службами (ITSMC) в OMS для централизованного управления рабочими элементами. Дополнительные сведения об ITSMC см. в [этой статье](log-analytics-itsmc-overview.md).
+В этой статье приведены сведения о подключении продуктов и служб ITSM к соединителю управления ИТ-службами (ITSMC) в OMS для централизованного управления рабочими элементами. Дополнительные сведения об ITSMC см. в [этом обзоре](log-analytics-itsmc-overview.md).
 
-Поддерживаются следующие службы и продукты:
+Поддерживаются следующие службы и продукты ITSM. Выберите продукт, чтобы просмотреть подробные сведения о том, как его подключить к ITSMC.
 
 - [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-oms);
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/15/2017
 
 > После создания гибридного подключения проверьте его. Для этого перейдите в развернутое веб-приложение Service Manager. Убедитесь, что подключение выполнено успешно, прежде чем подключиться к ITSMC в OMS.
 
-На изображении ниже показаны подробные сведения успешного подключения.
+На рисунке ниже показаны сведения об успешном подключении.
 
 ![Проверка гибридного подключения](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 

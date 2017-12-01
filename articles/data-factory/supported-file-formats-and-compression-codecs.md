@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/21/2017
 ms.author: jingwang
-ms.openlocfilehash: f2675a0af82640925b837ae80e751fcab5972321
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Поддерживаемые форматы файлов и кодеки сжатия в фабрике данных Azure
 
@@ -29,6 +29,9 @@ ms.lasthandoff: 11/04/2017
 
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, ознакомьтесь с [поддерживаемыми форматами файлов и сжатия в фабрике данных версии 1](v1//data-factory-supported-file-and-compression-formats.md).
+
+> [!TIP]
+> Узнайте, как действие копирования сопоставляет данные источника с приемником, из раздела [Сопоставление схем в действии копирования](copy-activity-schema-and-type-mapping.md), а также изучите определение метаданных по заданным параметрам формата файла и советы о том, когда следует указывать раздел [dataset`structure`](concepts-datasets-linked-services.md#dataset-structure).
 
 ## <a name="text-format"></a>Текстовый формат
 

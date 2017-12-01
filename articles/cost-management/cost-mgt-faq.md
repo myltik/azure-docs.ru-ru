@@ -5,19 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2017
+ms.date: 11/21/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: a01d8d1ed0f5234f4950d448b54087767353c8ef
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Часто задаваемые вопросы о службе "Управление затратами Azure"
-
 
 В этой статье рассматриваются некоторые распространенные вопросы о службе "Управление затратами Azure" (также известной как Cloudyn). Если у вас есть вопросы о службе "Управление затратами", их можно задать на странице [часто задаваемых вопросов о службе "Управление затратами Azure" от Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
@@ -125,3 +124,15 @@ Cloudyn имеет следующие временные шкалы обновл
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>Как поставщик облачных служб может напрямую настроить доступ Cloudyn для непрямых клиентов или партнеров CSP?
 
 Инструкции см. в разделе [Настройка непрямого доступа CSP в Cloudyn](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn).
+
+## <a name="what-causes-the-optimizer-menu-item-to-appear"></a>В каком случае отображается пункт меню "Optimizer" (Оптимизатор)?
+
+После добавления доступа Azure Resource Manager и сбора данных должен отобразиться параметр **Optimizer** (Оптимизатор). Чтобы активировать доступ Azure Resource Manager, изучите раздел [Как активировать неактивные учетные записи с помощью учетных данных Azure?](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
+
+## <a name="is-cost-managementcloudyn-agent-based"></a>Используется ли агент для службы "Управление затратами" или Cloudyn?
+
+Нет. Агенты не используются. Данные метрик виртуальных машин Azure для виртуальных машин собираются с помощью API Microsoft Insights. Если необходим сбор данных метрик из виртуальных машин Azure, на них нужно включить параметры диагностики.
+
+## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>В отчетах Cloudyn представлено больше одного клиента AD на отчет?
+
+Да. Вы можете [создать соответствующую сущность облачной учетной записи](tutorial-user-access.md#create-entities) для каждого используемого клиента AD. Затем вы сможете просматривать все данные клиентов Azure AD и других поставщиков облачных платформ, включая Amazon Web Services и Google Cloud Platform.

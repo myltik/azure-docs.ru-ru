@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Руководство по самостоятельному сбросу пароля в Azure AD
 
@@ -207,7 +207,18 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="on-premises-integration"></a>Интеграция с локальной средой
 
-Установив, настроив и включив Azure AD Connect, вы получите приведенные ниже дополнительные параметры интеграции с локальной средой. Они будут недоступны, если обратная запись настроена неправильно. Дополнительные сведения см. в разделе [Настройка компонента обратной записи паролей](active-directory-passwords-writeback.md#configuring-password-writeback).
+Установив, настроив и включив Azure AD Connect, вы получите приведенные ниже дополнительные параметры интеграции с локальной средой. Они будут недоступны, если обратная запись настроена неправильно. Дополнительные сведения см. в разделе [Настройка компонента обратной записи паролей](active-directory-passwords-writeback.md#configure-password-writeback).
+
+![Обратная запись][Writeback]
+
+На этой странице приводится краткая информация о состоянии локального клиента обратной записи. На ней отображается одно из приведенных ниже сообщений, в зависимости от текущей конфигурации.
+
+* "Локальный клиент обратной записи запущен и работает".
+* "Служба Azure AD Connect работает и подключена к локальному клиенту обратной записи. Похоже, однако, что установленная версия Azure AD Connect устарела. [Обновите Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md), чтобы использовать новые функции подключения и получить важные исправления ошибок".
+* "Не удается проверить состояние локального клиента обратной записи, так как установленная версия Azure AD Connect устарела. [Обновите Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md), чтобы проверить состояние подключения".
+* "Сейчас не удается подключиться к локальному клиенту обратной записи. [Устраните неполадки с Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity), чтобы восстановить подключение".
+* "Не удается подключиться к локальному клиенту обратной записи, так как обратная запись пароля не настроена. [Настройте обратную запись пароля](active-directory-passwords-writeback.md#configure-password-writeback), чтобы восстановить подключение".
+* "Сейчас не удается подключиться к локальному клиенту обратной записи. Возможно, дело во временных проблемах с нашей стороны. Если ошибка сохраняется, [устраните неполадки с Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity), чтобы восстановить подключение".
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>"Включить обратную запись паролей в локальный каталог"
 
@@ -253,3 +264,4 @@ ms.lasthandoff: 11/15/2017
 * [Вопросы, не вошедшие в другие статьи](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Доступные методы проверки подлинности Azure AD и требуемое число методов"
+[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "Настройка локальной интеграции компонента обратной записи паролей и сведения об устранении неполадок"

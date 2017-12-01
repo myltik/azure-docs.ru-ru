@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Использование баз данных MySQL в Microsoft Azure Stack
 
@@ -40,9 +40,10 @@ ms.lasthandoff: 11/11/2017
 - создать сервер MySQL;
 - скачать и развернуть MySQL Server из Microsoft Azure Marketplace.
 
-![ПРИМЕЧАНИЕ] Любые серверы размещения, установленные в многоузловой инфраструктуре Azure Stack, необходимо создавать на основе подписки клиента. Их нельзя создать из подписки поставщика по умолчанию. Другими словами, серверы необходимо создавать на портале клиента или во время сеанса PowerShell, используя соответствующее имя для входа. Все серверы размещения — это оплачиваемые виртуальные машины, у которых должны быть соответствующие лицензии. Администратор служб может быть владельцем такой подписки.
+> [!NOTE]
+> Любые серверы размещения, установленные в многоузловой инфраструктуре Azure Stack, необходимо создавать на основе подписки клиента. Их нельзя создать из подписки поставщика по умолчанию. Другими словами, серверы необходимо создавать на портале клиента или во время сеанса PowerShell, используя соответствующее имя для входа. Все серверы размещения — это оплачиваемые виртуальные машины, у которых должны быть соответствующие лицензии. Администратор служб может быть владельцем такой подписки.
 
-### <a name="required-privileges"></a>Необходимые разрешения
+### <a name="required-privileges"></a>Необходимые привилегии
 У системной учетной записи должны быть такие разрешения:
 
 1.  база данных — создание, удаление;
@@ -60,6 +61,9 @@ ms.lasthandoff: 11/11/2017
     b. Если в системе несколько узлов, нужно использовать тот, который предоставляет доступ к привилегированной конечной точке.
 
 3. [Скачайте двоичный файл поставщика ресурсов MySQL](https://aka.ms/azurestackmysqlrp) и запустите самоизвлечение содержимого во временный каталог.
+
+    > [!NOTE]
+    > В случае использования сборки 20170928.3 Azure Stack или более ранней сборки [скачайте эту версию](https://aka.ms/azurestackmysqlrp1709).
 
 4.  Корневой сертификат Azure Stack можно получить из привилегированной конечной точки. Для ASDK в рамках этого процесса создается самозаверяющий сертификат. Для системы с несколькими узлами вам нужно предоставить подходящий сертификат.
 
@@ -87,7 +91,7 @@ ms.lasthandoff: 11/11/2017
 
 Вы можете:
 - Указать по крайней мере обязательные параметры в командной строке.
-- Если вы не указали параметры, введите их при появлении запроса.
+- Или, если вы не указали параметры, ввести их при появлении запроса.
 
 Ниже приведен пример, который можно запустить из командной строки PowerShell (не забудьте указать правильные данные учетной записи и пароль).
 
@@ -98,8 +102,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = 'AzureStack'
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\MYSQLRP'
 
@@ -122,17 +130,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 # Run the installation script from the folder where you extracted the installation files
 # Find the ERCS01 IP address first and make sure the certificate
 # file is in the specified directory
-.$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+. $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint '10.10.10.10' `
-  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
   -AcceptLicense
 
  ```
 
-### <a name="deploymysqlproviderps1-parameters"></a>Параметры DeployMySqlProvider.ps1
 
+### <a name="deploysqlproviderps1-parameters"></a>Параметры DeploySqlProvider.ps1
 Эти параметры можно указать в командной строке. Если вы не зададите нужные параметры или их значения не пройдут проверку, вам будет предложено указать необходимые данные.
 
 | Имя параметра | Описание | Комментарий или значение по умолчанию |
@@ -153,7 +162,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 Установка может занять всего 20 минут или длиться несколько часов, в зависимости от производительности системы и скорости скачивания. Если колонка MySQLAdapter недоступна, обновите портал администрирования.
 
 > [!NOTE]
-> Если установка занимает более 90 минут, может произойти сбой. На экране и в файле журнала отобразится сообщение об ошибке. Развертывание возобновится с этапа, на котором произошел сбой. Если система не соответствует рекомендуемым характеристикам для памяти и виртуальных ЦП, в ней невозможно развернуть поставщик ресурсов MySQL.
+> Если установка занимает более 90 минут, может произойти сбой. На экране и в файле журнала отобразится сообщение об ошибке. Развертывание возобновится с этапа, на котором произошел сбой. Если система не соответствует рекомендуемым характеристикам для памяти и основных компонентов, в ней невозможно развернуть поставщик ресурсов MySQL.
 
 
 
@@ -188,15 +197,16 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   Например, у вас может быть корпоративный экземпляр, обеспечивающий:
     - емкость базы данных;
     - автоматическое резервное копирование;
-    - резервирование высокопроизводительных серверов для отдельных подразделений
-    - и другие возможности.
-    Название SKU должно отражать свойства, чтобы клиенты могли размещать свои базы данных соответствующим образом. У всех серверов размещения под одним номером SKU должны быть одинаковые возможности.
+    - резервирование высокопроизводительных серверов для отдельных подразделений.
+ 
 
-    ![Создание SKU MySQL](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+Название SKU должно отражать свойства, чтобы клиенты могли размещать свои базы данных соответствующим образом. У всех серверов размещения под одним номером SKU должны быть одинаковые возможности.
+
+![Создание SKU MySQL](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
 >[!NOTE]
-Отображение номеров SKU на портале может занять до часа. Вы не сможете создать базу данных, пока не будет создан номер SKU.
+> Отображение номеров SKU на портале может занять до часа. Вы не сможете создать базу данных, пока не будет создан номер SKU.
 
 
 ## <a name="to-test-your-deployment-create-your-first-mysql-database"></a>Чтобы протестировать развертывание, создайте первую базу данных MySQL.
@@ -231,17 +241,17 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 Увеличьте емкость, подключив новые серверы MySQL на портале Azure Stack. Дополнительные серверы можно добавить к новому или существующему SKU. Убедитесь, что у серверов одинаковые характеристики.
 
 
-## <a name="making-mysql-databases-available-to-tenants"></a>Предоставление клиентам доступа к базам данных MySQL
+## <a name="make-mysql-databases-available-to-tenants"></a>Предоставление клиентам доступа к базам данных MySQL
 Создавайте планы и предложения, чтобы сделать базы данных MySQL доступными для клиентов. Для этого добавьте службу Microsoft.MySqlAdapter, квоту и т. д.
 
 ![Создание планов и предложений для включения в них баз данных](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
-## <a name="updating-the-administrative-password"></a>Обновление пароля администратора
+## <a name="update-the-administrative-password"></a>Обновление пароля администратора
 Пароль можно изменить, но сначала это нужно сделать в экземпляре сервера MySQL. Щелкните **ADMINISTRATIVE RESOURCES (Административные ресурсы)** &gt; **MySQL Hosting Servers (Серверы размещения MySQL)** &gt;, а затем сервер размещения. На панели "Параметры" щелкните "Пароль".
 
 ![Обновление пароля администратора](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="removing-the-mysql-adapter-resource-provider"></a>Удаление поставщика ресурсов адаптера MySQL
+## <a name="remove-the-mysql-resource-provider-adapter"></a>Удаление адаптера поставщика ресурсов MySQL
 
 Чтобы удалить поставщик ресурсов, сначала нужно удалить все его зависимости.
 
@@ -263,6 +273,5 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
 
 Изучите другие [услуги PaaS](azure-stack-tools-paas-services.md), такие как [поставщик ресурсов SQL Server](azure-stack-sql-resource-provider-deploy.md) или [поставщик ресурсов службы приложений](azure-stack-app-service-overview.md).

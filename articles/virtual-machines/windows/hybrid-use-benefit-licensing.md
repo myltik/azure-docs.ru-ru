@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
+ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Преимущество гибридного использования Azure для Windows Server
 Благодаря преимуществам гибридного использования Azure для Windows Server, клиенты, участвующие в программе Software Assurance, могут использовать локальные лицензии Windows Server для запуска виртуальных машин Windows в Azure с меньшими затратами. Вы можете воспользоваться преимуществами гибридного использования Azure для Windows Server, чтобы развернуть новые виртуальные машины из любой поддерживаемой платформы Azure образа Windows Server или пользовательских образов Windows. В этой статье описывается, как выполнить развертывание новых виртуальных машин с помощью преимуществ гибридного использования Azure для Windows Server, а также как обновить существующие запущенные виртуальные машины. Дополнительные сведения о лицензировании преимуществ гибридного использования Azure для Windows Server и экономии денежных средств см. [на этой странице](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/15/2017
 >
 
 > [!NOTE]
-> Сейчас мы работаем над внедрением программы "Преимущество гибридного использования Azure" для Windows Server с виртуальными машинами, плата за которые включает использование такого дополнительного программного обеспечения, как SQL Server или другие образы сторонних производителей, доступные в Marketplace. Появление ошибки 409, информирующей о запрете изменения свойства LicenseType, означает, что вы пытаетесь преобразовать или развернуть новую виртуальную машину Windows Server, за которую взимается дополнительная плата программное обеспечение, а это может не поддерживаться в вашем регионе.
+> Сейчас мы работаем над внедрением программы "Преимущество гибридного использования Azure" для Windows Server с виртуальными машинами, плата за которые включает использование такого дополнительного программного обеспечения, как SQL Server или другие образы сторонних производителей, доступные в Marketplace. Появление ошибки 409, информирующей о запрете изменения свойства LicenseType, означает, что вы пытаетесь преобразовать или развернуть новую виртуальную машину Windows Server, за которую взимается дополнительная плата программное обеспечение, а это может не поддерживаться в вашем регионе. Аналогично, при попытке найти параметр на портале для преобразования вы не видите его для этой виртуальной машины.
 >
 
 
@@ -82,6 +82,10 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 
 ### <a name="portal"></a>Microsoft Azure
 В колонке виртуальной машины на портале можно обновить виртуальную машину для использования с программой "Преимущество гибридного использования Azure", выбрав параметр "Конфигурация" и переключив параметр "Преимущество гибридного использования Azure".
+
+> [!NOTE]
+> Если вы не видите параметр для переключения "Преимущество гибридного развертывания Azure" в разделе "Конфигурация", причина этого заключается в том, что преобразование выбранного типа виртуальной машины еще не поддерживается. Например, это может быть виртуальная машина, созданная из пользовательского образа или образа с дополнительным платным программным обеспечением, например SQL Sever или программным обеспечением сторонних разработчиков для Azure Marketplace.
+>
 
 ## <a name="upload-a-windows-server-vhd"></a>Отправка виртуального жесткого диска Windows Server
 Чтобы развернуть виртуальную машину Windows Server в Azure, сначала необходимо создать виртуальный жесткий диск, в котором содержится базовая сборка Windows. Перед отправкой виртуального жесткого диска в Azure его необходимо соответствующим образом подготовить с помощью программы Sysprep. Вы можете [узнать больше о требованиях к VHD и использованию Sysprep](upload-generalized-managed.md) и ознакомиться с разделом [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep). Перед выполнением программы Sysprep выполните архивацию виртуальной машины. 
@@ -182,10 +186,12 @@ foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Wind
 ## <a name="next-steps"></a>Дальнейшие действия
 Прочитайте больше о том, [как экономить при использовании программы "Преимущество гибридного использования Azure"](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
-См. дополнительные сведения о [программе "Преимущество гибридного использования Azure" для Windows Server](http://go.microsoft.com/fwlink/?LinkId=859786).
+См. дополнительные сведения о [программе "Преимущество гибридного использования Azure" для Windows Server](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit).
 
 Узнайте больше об [использовании шаблонов Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
-Узнайте больше о том, как [программа преимуществ гибридного использования Azure для Windows Server и Azure Site Recovery делает перенос приложений в Azure еще более экономичным](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
+Узнайте больше о том, как [программа "Преимущество гибридного использования Azure" для Windows Server и Azure Site Recovery делает перенос приложений в Azure еще более экономичным](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
+
+Узнайте больше о том, как [развернуть Windows 10 в Azure с правами на мультитенантное размещение](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment).
 
 Ознакомьтесь с [часто задаваемыми вопросами](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/).

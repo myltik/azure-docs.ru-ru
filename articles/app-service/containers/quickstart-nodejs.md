@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a40dc540884454fed9c374ba1365fdf7b85e4531
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Создание веб-приложения Node.js в службе приложений Azure в Linux
 
@@ -33,8 +33,8 @@ ms.lasthandoff: 10/27/2017
 
 Для работы с этим кратким руководством сделайте следующее:
 
-* [установите Git](https://git-scm.com/);
-* [установите Node.j и NPM](https://nodejs.org/).
+* <a href="https://git-scm.com/" target="_blank">установите Git</a>;
+* <a href="https://nodejs.org/" target="_blank">установите Node.j и NPM</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -78,11 +78,11 @@ npm start
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Создание веб-приложения со встроенным образом
+## <a name="create-a-web-app"></a>Создание веб-приложения
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Перейдите к только что созданному веб-приложению. Замените _&lt;app name>_ уникальным именем приложения.
+Перейдите к только что созданному веб-приложению. Замените _&lt;имя_приложения>_ уникальным именем веб-приложения.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -142,7 +142,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="update-and-redeploy-the-code"></a>Обновление и повторное развертывание кода
 
-В текстовом редакторе в приложении Node.js откройте файл `index.js` и измените текст в вызове `response.end`:
+В локальном каталоге откройте файл `index.js` в приложении Node.js и немного измените текст в вызове `response.end`.
 
 ```nodejs
 response.end("Hello Azure!");

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 87807a203d71b3abfe3e93132eb7d0b82b14b4ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca5a61369c1653d8d3e04d191adfe4b54a11248
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Обновление SSL-сертификата для фермы служб федерации Active Directory (AD FS)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="prerequisites"></a>Предварительные требования
 
 * **Ферма AD FS.** Убедитесь, что ферма AD FS работает под управлением Windows Server 2012 R2 или более поздней версии.
-* **Azure AD Connect.** Инструмент Azure AD Connect должен иметь версию 1.1.443.0 или более позднюю. Вы используете задачу **Обновление SSL-сертификата AD FS**.
+* **Azure AD Connect.** Убедитесь, что используется Azure AD Connect версии 1.1.553.0 или более поздней версии. Вы используете задачу **Обновление SSL-сертификата AD FS**.
 
 ![Задача обновления SSL](./media/active-directory-aadconnectfed-ssl-update/updatessltask.png)
 

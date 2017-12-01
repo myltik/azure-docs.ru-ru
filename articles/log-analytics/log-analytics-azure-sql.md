@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Мониторинг базы данных SQL Azure с помощью служб анализа SQL Azure (предварительная версия) в Log Analytics
 
@@ -29,6 +29,11 @@ ms.lasthandoff: 11/07/2017
 Сейчас эта предварительная версия решения поддерживает 150 000 баз данных SQL Azure и 5 000 эластичных пулов SQL на каждую рабочую область.
 
 Решение "Аналитика SQL Azure", как и другие решения, доступные для Log Analytics, помогает отслеживать и получать уведомления о работоспособности ресурсов Azure — в данном случае о базах данных SQL Azure. База данных SQL Microsoft Azure представляет собой масштабируемую службу реляционных баз данных, предоставляющую возможности, аналогичные возможностям SQL Server, в приложениях, запущенных в облаке Azure. Log Analytics помогает собирать, коррелировать и визуализировать структурированные и неструктурированные данные.
+
+Практические сведения об использовании решения "Аналитика SQL Azure" и типичные сценарии его применения приведены в видео:
+          
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
 
 ## <a name="connected-sources"></a>Подключенные источники
 
@@ -115,7 +120,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ### <a name="intelligent-insights-report"></a>Отчет Intelligent Insights
 
-Все собранные данные Intelligent Insights можно визуализировать в перспективе Intelligent Insights, а также получить к ним доступ. 
+[Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) для базы данных SQL Azure позволяет узнать, что происходит с производительностью базы данных. Все собранные данные Intelligent Insights можно визуализировать в перспективе Intelligent Insights, а также получить к ним доступ.
 
 ![Аналитические сведения службы "Аналитика SQL Azure"](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 

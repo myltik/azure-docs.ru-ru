@@ -1,5 +1,5 @@
 ---
-title: "Как добавить источник событий концентратора событий в среду Azure Time Series Insights | Документация Майкрософт"
+title: "Как добавить источник событий центра событий в службу \"Аналитика временных рядов Azure\" | Документация Майкрософт"
 description: "В этой статье описывается, как добавить источник события, подключенный к концентратору событий и к среде \"Аналитика временных рядов\"."
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: f3a9a1c7e57383925877f674a2e02f931e5c1e3c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: c07c847784eb13c62e350e9c655e027e7df696a3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Как добавить источник событий концентратора событий в среду "Аналитика временных рядов Azure"
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/15/2017
 ## <a name="add-a-new-event-source"></a>Добавление нового источника событий
 1. Выполните вход на [портал Azure](https://portal.azure.com).
 
-2. Найдите существующую среду "Аналитика временных рядов". Щелкните **Все ресурсы** в меню слева на портале Azure. Выберите среду Time Series Insights.
+2. Найдите существующую среду "Аналитика временных рядов". На портале Azure щелкните **All resources** (Все ресурсы) в меню слева. Выберите среду Time Series Insights.
 
 3. В разделе **Топология окружения** щелкните **Источники событий**.
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/15/2017
 
 8. Если выбран параметр **Использовать концентратор событий из доступных подписок**, см. описание каждого из обязательных свойств в следующей таблице:
 
-   ![Сведения о подписке и концентраторе событий](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
+   ![Сведения о подписке и Центре Интернета вещей](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
 
    | Свойство | Описание |
    | --- | --- |
@@ -103,6 +103,6 @@ ms.lasthandoff: 11/15/2017
 5. Выберите **Создать** для создания группы потребителей.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- [Определите политики доступа к данным](time-series-insights-data-access.md) для защиты данных.
+- [Определите политики доступа к данным](time-series-insights-data-access.md), чтобы защитить ваши данные.
 - [Отправьте события](time-series-insights-send-events.md) в источник событий.
 - Получите доступ к своей среде в [обозревателе службы "Аналитика временных рядов"](https://insights.timeseries.azure.com).

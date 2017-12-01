@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2d4d009dfc4d43ccc3c69bb3da15ca2c478b9efe
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Создание и регистрация соединителей SOAP в Azure Logic Apps
 
@@ -149,6 +149,12 @@ ms.lasthandoff: 10/31/2017
 Чтобы предоставить общий доступ к соединителю для внешних пользователей, находящихся за этими пределами, например для всех пользователей Logic Apps, [отправьте соединитель на сертификацию Майкрософт](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="faq"></a>Часто задаваемые вопросы
+
+**Вопрос**. Выпущена ли общедоступная версия соединителя SOAP? </br>
+**Ответ**. Соединитель SOAP находится на этапе **предварительной версии**, и общедоступна версия этой службы еще не выпущена.
+
+**Вопрос**. Существуют ли какие-либо ограничения и известные проблемы соединителя SOAP? </br>
+**Ответ**. Да, изучите раздел [Ограничения и известные проблемы при импорте API](../api-management/api-management-api-import-restrictions.md#wsdl).
 
 **В.** Есть ли ограничения для настраиваемых соединителей? </br>
 **О.** Да, [ограничения для настраиваемых соединителей см. здесь](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).

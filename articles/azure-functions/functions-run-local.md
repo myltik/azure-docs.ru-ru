@@ -14,17 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Как программировать и тестировать Функции Azure в локальной среде
 
 Хотя на [портале Azure] имеется полный набор средств для разработки и тестирования Функций Azure, многие разработчики предпочитают локальную среду разработки. Функции Azure позволяют легко использовать любой редактор кода и локальные средства разработки для разработки и тестирования функций на локальном компьютере. Функции могут вызывать события в Azure, а вы можете отлаживать функции C# и JavaScript на локальном компьютере. 
 
 Если вы используете Visual Studio C# для разработки, Функции Azure также [интегрируются с Visual Studio 2017](functions-develop-vs.md).
+
+>[!IMPORTANT]  
+> Не следует смешивать локальную разработку и разработку с помощью портала разработки в одном приложении-функции. При создании и публикации функций из локального проекта не следует пытаться хранить или изменять код проекта на портале.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Установка основных инструментов Функций Azure
 
@@ -83,7 +86,7 @@ func init MyFunctionProj
 
 ## <a name="create-a-local-functions-project"></a>Создание локального проекта службы "Функции"
 
-В локальном режиме работы проект службы "Функции" является каталогом, в котором находятся файлы [host.json](functions-host-json.md) и [local.settings.json](#local-settings). Этот каталог является эквивалентом приложения-функции в Azure. Дополнительные сведения о структуре папок службы "Функции Azure" см. в [этом разделе](functions-reference.md#folder-structure).
+В локальном режиме работы проект службы "Функции" является каталогом, в котором находятся файлы [host.json](functions-host-json.md) и [local.settings.json](#local-settings-file). Этот каталог является эквивалентом приложения-функции в Azure. Дополнительные сведения о структуре папок службы "Функции Azure" см. в [этом разделе](functions-reference.md#folder-structure).
 
 В окне терминала или из командной строки выполните следующую команду, чтобы создать проект и локальный репозиторий Git:
 
@@ -102,8 +105,6 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Чтобы создать проект без локального репозитория Git, используйте параметр `--no-source-control [-n]`.
-
-<a name="local-settings"></a>
 
 ## <a name="local-settings-file"></a>Файл с локальными параметрами
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3bf9e4673ffb756a8d159ed5733d3ddca70010c7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Часто задаваемые вопросы о настройке и управлении для функции "Веб-приложения" в Azure
 
@@ -147,7 +147,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### <a name="resolution"></a>Способы устранения:
 
-Мы работаем над обновлением диспетчера гибридного подключения, чтобы устранить эту проблему. Способы решения см. в записи блога [Hybrid Connections error with SQL Server: System.OverflowException: Arithmetic operation resulted in an overflow](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/) (Ошибка гибридных подключений к SQL Server — System.OverflowException: переполнение в результате арифметической операции).
+Исключение было порождено из-за проблемы с диспетчером гибридных подключений, которая затем была исправлена. Не забудьте [обновить диспетчер гибридных подключений](https://go.microsoft.com/fwlink/?LinkID=841308), чтобы устранить эту проблему.
 
 ## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>Как добавить или изменить правило переопределения URL-адреса?
 
@@ -319,4 +319,4 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Как мигрировать из локальной среды в службу приложений?
 
-Чтобы перенести сайты с веб-серверов Windows и Linux в службу приложений, можно воспользоваться средством Migration Assistant службы приложений Azure. Средство миграции в соответствии с требованиями создает веб-приложения и базы данных в Azure и публикует содержимое. Дополнительные сведения см. на странице [Azure App Service Migration Assistant](https://www.movemetothecloud.net/) (Средство Migration Assistant службы приложений Azure).
+Чтобы перенести сайты с веб-серверов Windows и Linux в службу приложений, можно воспользоваться средством Migration Assistant службы приложений Azure. Средство миграции в соответствии с требованиями создает веб-приложения и базы данных в Azure и публикует содержимое. Дополнительные сведения см. на странице [Azure App Service Migration Assistant](https://www.migratetoazure.net/) (Средство Migration Assistant службы приложений Azure).

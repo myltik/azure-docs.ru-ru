@@ -1,11 +1,11 @@
 ---
-title: "Создание групп безопасности сети (Azure CLI 2.0) | Документация Майкрософт"
-description: "Узнайте, как создавать и развертывать группы безопасности сети с помощью Azure CLI 2.0."
+title: "Создание групп безопасности сети с помощью Azure CLI | Документация Майкрософт"
+description: "Узнайте, как создавать и развертывать группы безопасности сети с помощью Azure CLI 1.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: 
 tags: azure-resource-manager
 ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
@@ -16,28 +16,21 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8efb3ab66d07875b51f723fed5594bcb477ed025
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-network-security-groups-using-the-azure-cli-20"></a>Создание групп безопасности сети с помощью Azure CLI 2.0
+# <a name="create-network-security-groups-using-the-azure-cli"></a>Создание групп безопасности сети с помощью Azure CLI 1.0
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи 
-
-Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки. 
-
-- [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager. 
-- [Azure CLI 2.0](#Create-the-nsg-for-the-front-end-subnet) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager (описывается в этой статье).
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-Для приведенных ниже примеров команд Azure CLI 2.0 требуется простая среда, созданная по приведенному выше сценарию. 
+Для работы приведенных в этом руководстве команд Azure CLI требуется наличие простой среды на основе предыдущего сценария. 
 
 ## <a name="create-the-nsg-for-the-frontend-subnet"></a>Создание группы безопасности сети для подсети `FrontEnd`
 

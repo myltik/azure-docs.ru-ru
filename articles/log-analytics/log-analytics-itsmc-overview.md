@@ -1,6 +1,6 @@
 ---
 title: "Соединитель управления ИТ-службами в Azure Log Analytics | Документация Майкрософт"
-description: "Использование соединителя управления ИТ-службами для централизованного отслеживания и администрирования рабочих элементов ITSM в Azure Log Analytics, а также для быстрого решения возникающих проблем."
+description: "В этой статье представлен обзор соединителя управления ИТ-услугами (ITSMC) и сведения о том, как использовать это решение для централизованного мониторинга рабочих элементов ITSM и управления ими в OMS Log Analytics, а также для быстрого устранения каких-либо проблем."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Централизованное управление рабочими элементами ITSM с помощью соединителя управления ИТ-службами (предварительная версия)
 
 ![Символ соединителя управления ИТ-службами](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-Соединитель управления ИТ-службами (ITSMC) обеспечивает двунаправленную интеграцию между поддерживающими соединитель управления ИТ-службами (ITSM) продуктами или службами и Log Analytics.  Через это подключение можно создавать инциденты, оповещения или события в продукте ITSM на основе оповещений Log Analytics или записей в журнале. Соединитель также импортирует данные (например, инциденты и запросы на изменения) из продуктов ITSM в OMS Log Analytics.
+Соединитель управления ИТ-службами (ITSMC) обеспечивает двунаправленную интеграцию между поддерживающими соединитель управления ИТ-службами (ITSM) продуктами или службами и Log Analytics.  Через это подключение можно создавать инциденты, оповещения или события в продукте ITSM на основе оповещений Log Analytics, записей в журнале или оповещений Azure. Соединитель также импортирует данные (например, инциденты и запросы на изменения) из продуктов ITSM в OMS Log Analytics.
 
 С помощью ITSMC можно:
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/15/2017
  ![Обновление ITSMC](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
-## <a name="configuring-the-connection-with-your-itsm-software"></a>Настройка подключения с программным обеспечением ITSM
+## <a name="configuring-the-itsmc-connection-with-your-itsm-productsservices"></a>Настройка подключения ITSMC с использованием продуктов и служб ITSM
 
 ITSMC поддерживает подключения к **System Center Service Manager**, **ServiceNow**, **Provance** и **Cherwell**.
 
@@ -258,6 +258,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 4. Предоставьте соответствующие значения в текстовых полях **Тип контакта**, **Воздействие**, **Срочность**, **Категория** и **Подкатегория**, а затем нажмите кнопку **Создать**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Создание рабочих элементов ITSM из оповещений Azure
+
 Решение ITSMC интегрировано с группами действий.
 
 [Группы действий](../monitoring-and-diagnostics/monitoring-action-groups.md) предоставляют модульный и многократно используемый способ активации действий для оповещений Azure. Используя действие ITSM в группах действий, можно создавать рабочие элементы в продукте ITSM, у которого уже имеется подключение к решению соединителя ITSM.
@@ -286,7 +287,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 >[!NOTE]
 
-> Сейчас только оповещения журнала действий поддерживают действие ITSM. Действие ITSM не поддерживается для других оповещений Azure.
+> В настоящее время только оповещения журнала действий поддерживают действие ITSM, другие оповещения Azure предупреждения не поддерживают такую возможность.
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Устранение неполадок с подключением ITSM в OMS
