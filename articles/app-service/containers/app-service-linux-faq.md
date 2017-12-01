@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 38e771b8d7211e8f4f408a43b1ab2e293370ab9c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 265538a7e31d58a7d58c9e30870510eb66954f44
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Служба приложений Azure на платформе Linux: вопросы и ответы
 
@@ -66,6 +66,15 @@ ms.lasthandoff: 10/25/2017
 Да. Для параметра `WEBSITE_WEBDEPLOY_USE_SCM` приложения необходимо задать значение *false*.
 
 ## <a name="language-support"></a>Поддержка языков
+
+**Я хочу использовать WebSocket в своем приложении Node.js. Нужно ли для этого выбрать какие-либо специальные параметры или настройки?**
+
+Да. На сервере в коде Node.js нужно отключить `perMessageDeflate`. Например, если вы используете socket.io, сделайте вот что:
+```
+var io = require('socket.io')(server,{
+  perMessageDeflate :false
+});
+```
 
 **Поддерживаются ли некомпилированные приложения .NET Core?**
 

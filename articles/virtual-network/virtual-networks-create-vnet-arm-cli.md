@@ -1,10 +1,10 @@
 ---
-title: "Создание виртуальной сети (Azure CLI 2.0) | Документация Майкрософт"
-description: "Узнайте, как создать виртуальную сеть с помощью Azure CLI 2.0."
+title: "Создание виртуальной сети (Azure CLI) | Документация Майкрософт"
+description: "Узнайте, как создать виртуальную сеть с помощью Azure CLI."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
@@ -16,25 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7d7b3543f488aedff1ea2c68a2b497e0ca744af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli-20"></a>Создание виртуальной сети с помощью Azure CLI 2.0
+# <a name="create-a-virtual-network-using-the-azure-cli"></a>Создание виртуальной сети с помощью интерфейса командной строки Azure
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure предоставляет две модели развертывания: с помощью Azure Resource Manager и классическую. Для создания ресурсов корпорация Майкрософт рекомендует использовать модель развертывания с помощью Resource Manager. Дополнительные сведения о различиях между двумя моделями см. в статье [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md) (Azure Resource Manager и классическое развертывание. Общие сведения о моделях развертывания и состоянии ресурсов).
 
-## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
-Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
-
-- [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0](#create-a-virtual-network) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager (описывается в этой статье).
- 
-    Виртуальную сеть также можно создать с помощью Resource Manager, используя другие инструменты, либо с помощью классической модели развертывания, выбрав другой вариант из следующего списка:
+Кроме того, виртуальную сеть можно создать с помощью Resource Manager, используя другие инструменты. Ее также можно создать с помощью классической модели развертывания, выбрав в раскрывающемся списке ниже нужный вариант.
 
 > [!div class="op_single_selector"]
 > * [Портал](virtual-networks-create-vnet-arm-pportal.md)
@@ -47,10 +41,9 @@ Azure предоставляет две модели развертывания:
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-
 ## <a name="create-a-virtual-network"></a>Создать виртуальную сеть
 
-Чтобы создать виртуальную сеть с помощью Azure CLI 2.0, сделайте следующее.
+Чтобы создать виртуальную сеть с помощью интерфейса командной строки Azure, сделайте следующее:
 
 1. Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2), а затем войдите в учетную запись Azure, выполнив команду [az login](/cli/azure/#login).
 

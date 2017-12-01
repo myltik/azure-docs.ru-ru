@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb93efcf00cb7b165c497d7ef38685f80bce84c0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Краткое руководство. Развертывание первого модуля IoT Edge на устройстве Linux с помощью портала Azure (предварительная версия)
 
@@ -30,20 +30,20 @@ Azure IoT Edge переносит мощь облака на ваши устро
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>Создание Центра Интернета вещей с помощью Azure CLI
 
-Создайте в своей подписке Azure Центр Интернета вещей. Для целей этого руководства можно использовать бесплатный уровень. Если вы уже использовали бесплатный Центр Интернета вещей и он у вас сохранился, можете пропустить этот раздел и перейти сразу к разделу [Регистрация устройства IoT Edge][anchor-register]. В подписке может быть только один бесплатный Центр Интернета вещей. 
+Создайте в своей подписке Azure Центр Интернета вещей. Для целей этого руководства можно использовать бесплатный уровень. Если вы уже использовали бесплатный Центр Интернета вещей и он у вас сохранился, можете пропустить этот раздел и сразу переходите к [регистрации устройства IoT Edge][anchor-register]. В подписке может быть только один бесплатный Центр Интернета вещей. 
 
 1. Войдите на [портал Azure][lnk-portal]. 
 1. Нажмите кнопку **Cloud Shell**. 
 
    ![Кнопка Cloud Shell][1]
 
-1. Создайте группу ресурсов. Следующий пример кода создает группу ресурсов с именем **IoTEdge** в регионе **Западная часть США**.
+1. Создайте группу ресурсов. В следующем примере кода создается группа ресурсов с именем **IoTEdge** в регионе **Западная часть США**:
 
    ```azurecli
    az group create --name IoTEdge --location westus
    ```
 
-1. Создайте в новой группе ресурсов Центр Интернета вещей. Следующий код создает бесплатный центр **F1** с именем **MyIotHub** в группе ресурсов **IoTEdge**.
+1. Создайте в новой группе ресурсов Центр Интернета вещей. При помощи следующего кода создается бесплатный центр **F1** с именем **MyIotHub** в группе ресурсов **IoTEdge**:
 
    ```azurecli
    az iot hub create --resource-group IoTEdge --name MyIotHub --sku F1 
@@ -66,24 +66,26 @@ Azure IoT Edge переносит мощь облака на ваши устро
 Среда выполнения IoT Edge развертывается на всех устройствах IoT Edge. Она состоит из двух модулей. Первый из них, агент IoT Edge, упрощает развертывание и мониторинг модулей на устройстве IoT Edge. Второй, центр IoT Edge, управляет взаимодействием между модулями на устройстве IoT Edge и между устройством и Центром Интернета вещей. 
 
 На компьютере, на котором вы планируете запустить устройство IoT Edge, скачайте скрипт управления IoT Edge.
-```python
+```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Для среды выполнения укажите строку подключения устройства IoT Edge, о которой шла речь в предыдущем разделе.
-```python
+```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Запустите среду выполнения.
-```python
+```cmd
 sudo iotedgectl start
 ```
 
 В Docker убедитесь, что агент IoT Edge работает как модуль.
-```python
+```cmd
 sudo docker ps
 ```
+
+![Просмотр информации об агенте IoT Edge в Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Развертывание модуля
 
@@ -93,17 +95,27 @@ sudo docker ps
 
 В этом руководстве мы создали новое устройство IoT Edge и установили на нем среду выполнения IoT Edge. Затем с помощью портала Azure мы отправили на устройство и запустили модуль IoT Edge, не изменяя на устройстве никаких настроек. В этом примере отправленный модуль создает данные среды, которые можно использовать для работы с руководствами. 
 
-Убедитесь, что сообщения отправляются из модуля tempSensor.
+Еще раз откройте командную строку на компьютере, на котором работает имитированное устройство. Убедитесь, что развернутый из облака модуль работает на вашем устройстве IoT Edge.
 
-```cmd/sh
+```cmd
+sudo docker ps
+```
+
+![Просмотр трех модулей на устройстве](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+Убедитесь, что сообщения отправляются из модуля tempSensor в облако.
+
+```cmd
 sudo docker logs -f tempSensor
 ```
 
+![Просмотр получаемых с модуля данных](./media/tutorial-simulate-device-linux/docker-logs.png)
+
 Вы также можете просмотреть данные телеметрии, которые передает устройство, используя [обозреватель Центра Интернета вещей][lnk-iothub-explorer]. 
 
-## <a name="clean-up-resources"></a>Удаление ресурсов
+## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Если созданный Центр Интернета вещей вам больше не нужен, удалите этот ресурс и все связанные с ним устройства с помощью команды [az iot hub delete][lnk-delete].
+Если созданный Центр Интернета вещей вам больше не нужен, используйте команду [az iot hub delete][lnk-delete], чтобы удалить этот ресурс и связанные с ним устройства.
 
 ```azurecli
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}

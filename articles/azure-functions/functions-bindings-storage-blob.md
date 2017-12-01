@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: e0c608fe3a80c9d704774e592a1eba383bbdffe8
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 31a2fa3d3c87c16109514b130c95e731f401f8bd
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Привязки хранилища BLOB-объектов для Функций Azure
 
@@ -177,7 +177,7 @@ module.exports = function(context) {
 
 Используемая учетная запись хранения определяется в следующем порядке:
 
-* Свойство `Connection` атрибута `BlobTrigger`.
+* Свойство `BlobTrigger` атрибута `Connection`.
 * Атрибут `StorageAccount`, примененный к тому же параметру, что и `BlobTrigger`.
 * Атрибут `StorageAccount`, примененный к функции.
 * Атрибут `StorageAccount`, примененный к классу.
@@ -303,13 +303,13 @@ module.exports = function(context) {
 
 Языковой пример см. в разделах:
 
-* [Предкомпилированный код C#](#input--output---c-example).
+* [Предкомпилированный код C#](#input--output---c-example)
 * [Сценарий C#](#input--output---c-script-example)
 * [JavaScript](#input--output---javascript-example)
 
 ### <a name="input--output---c-example"></a>Пример входных и выходных данных C#
 
-Ниже приведен пример функции [предкомпилированного кода C#](functions-dotnet-class-library.md), которая использует одну входную и две выходных привязки больших двоичных объектов. Эта функция активируется путем создания большого двоичного объекта образа в контейнере *sample-images*. Она создает небольшие и средние копии большого двоичного объекта образа. 
+Ниже приведен пример функции [на базе предкомпилированного кода C#](functions-dotnet-class-library.md), которая использует триггер BLOB-объекта и две выходных привязки BLOB-объектов. Эта функция активируется путем создания большого двоичного объекта образа в контейнере *sample-images*. Она создает небольшие и средние копии большого двоичного объекта образа. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -342,7 +342,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>Пример входных и выходных данных скрипта C#
 
-В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и коде [скрипта C#](functions-reference-csharp.md), который использует привязку. Эта функция копирует большой двоичный объект. Она активируется сообщением очереди, содержащим имя копируемого большого двоичного объекта. Новый большой двоичный объект получает имя *{originalblobname}-Copy*.
+В примере ниже показаны входная и выходная привязки BLOB-объектов в файле *function.json* и код [скрипта C#](functions-reference-csharp.md), который использует эти привязки. Функция копирует большой двоичный объект. Она активируется сообщением очереди, содержащим имя копируемого большого двоичного объекта. Новый большой двоичный объект получает имя *{originalblobname}-Copy*.
 
 В файле *function.json* свойство метаданных `queueTrigger` используется для указания имени большого двоичного объекта в свойствах `path`:
 
@@ -380,7 +380,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 Ниже приведен код скрипта C#.
 
 ```cs
-public static void Run(string myQueueItem, Stream myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
@@ -389,7 +389,7 @@ public static void Run(string myQueueItem, Stream myInputBlob, out string myOutp
 
 ### <a name="input--output---javascript-example"></a>Пример входных и выходных данных JavaScript
 
-В следующем примере показана привязка триггера большого двоичного объекта в файле *function.json* и [коде JavaScript] (functions-reference-node.md), который использует привязку. Эта функция копирует большой двоичный объект. Она активируется сообщением очереди, содержащим имя копируемого большого двоичного объекта. Новый большой двоичный объект получает имя *{originalblobname}-Copy*.
+В следующем примере показаны входная и выходная привязки BLOB-объекта в файле *function.json* и [код JavaScript] (functions-reference-node.md), который использует эти привязки. Эта функция копирует большой двоичный объект. Она активируется сообщением очереди, содержащим имя копируемого большого двоичного объекта. Новый большой двоичный объект получает имя *{originalblobname}-Copy*.
 
 В файле *function.json* свойство метаданных `queueTrigger` используется для указания имени большого двоичного объекта в свойствах `path`:
 
@@ -467,7 +467,7 @@ public static void Run(
 |**type** | Недоступно | Нужно задать значение `blob`. |
 |**direction** | Недоступно | Входной привязке должно быть присвоено значение `in`, а выходной — out. Исключения приведены в этом [разделе](#input--output---usage). |
 |**name** | Недоступно | Имя переменной, представляющей большой двоичный объект в коде функции.  Задайте значение `$return`, ссылающееся на возвращаемое значение функции.|
-|**path** |**BlobPath** | Путь к большому двоичному объекту. | 
+|**path** |**BlobPath** | Путь к BLOB-объекту. | 
 |**подключение** |**Connection**| Имя параметра приложения, содержащего строку подключения к службе хранилища, используемой для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyStorage, среда выполнения службы "Функции" будет искать параметр приложения с именем AzureWebJobsMyStorage. Если оставить строку `connection` пустой, среда выполнения службы "Функции" будет использовать строку подключения к службе хранилища по умолчанию для параметра приложения с именем `AzureWebJobsStorage`.<br><br>Строка подключения необходима для учетной записи хранения общего назначения, а не [учетной записи хранения только для больших двоичных объектов](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
 |Недоступно | **Access** | Указывает, какая операция будет выполняться (запись или чтение). |
 

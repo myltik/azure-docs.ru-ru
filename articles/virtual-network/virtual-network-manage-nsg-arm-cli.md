@@ -1,10 +1,10 @@
 ---
-title: "Управление группами безопасности сети (Azure CLI 2.0) | Документация Майкрософт"
-description: "Узнайте, как управлять группами безопасности сети с помощью интерфейса командной строки Azure (CLI) версии 2.0."
+title: "Управление группами безопасности сети (Azure CLI) | Документация Майкрософт"
+description: "Узнайте, как управлять группами безопасности сети с помощью интерфейса командной строки Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed17d314-07e6-4c7f-bcf1-a8a2535d7c14
@@ -16,23 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11ec0d3d9e33c06d4c0a164f7fba5dd5cca73872
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="manage-network-security-groups-using-the-azure-cli-20"></a>Управление группами безопасности сети с помощью Azure CLI 2.0
+# <a name="manage-network-security-groups-using-the-azure-cli"></a>Управление группами безопасности сети с помощью Azure CLI
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи 
-
-Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки. 
-
-- [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager. 
-- [Azure CLI 2.0](#View-existing-NSGs) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager (описывается в этой статье).
-
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -44,7 +36,6 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisite"></a>Предварительные требования
 Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) (если вы еще этого не сделали), а затем войдите с использованием учетной записи Azure, выполнив команду [az login](/cli/azure/#login). 
-
 
 ## <a name="view-existing-nsgs"></a>Просмотр существующих групп безопасности сети
 Чтобы просмотреть список групп безопасности сети в определенной группе ресурсов, выполните команду [az network nsg list](/cli/azure/network/nsg#list) с форматом выходных данных `-o table`:
@@ -84,18 +75,18 @@ az network nsg list -g RG-NSG -o table
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> Кроме того, можно выполнить команду [az network nsg rule list](/cli/azure/network/nsg/rule#list), чтобы вывести список только пользовательских правил из группы безопасности сети.
+> С помощью команды [az network nsg rule list](/cli/azure/network/nsg/rule#list) можно вывести список только пользовательских правил для группы безопасности сети.
 >
 
 ## <a name="view-nsg-associations"></a>Просмотр связей для группы безопасности сети
 
-Чтобы просмотреть, с какими ресурсами связана группа безопасности сети **NSG-FrontEnd`az network nsg show`, выполните команду** , как показано ниже. 
+Чтобы просмотреть, с какими ресурсами связана группа **NSG-FrontEnd**, выполните команду `az network nsg show`. 
 
 ```azurecli
 az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterfaces]'
 ```
 
-Найдите свойства **networkInterfaces** и **subnets**, как показано ниже.
+Найдите в выходных данных свойства **networkInterfaces** и **subnets**.
 
 ```json
 [
@@ -117,7 +108,7 @@ az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterface
 ]
 ```
 
-В приведенном выше примере группа безопасности сети не связана с сетевыми адаптерами, но связана с подсетью **FrontEnd**.
+В примере выше группа безопасности сети не связана ни с одним сетевым интерфейсом, но связана с подсетью **FrontEnd**.
 
 ## <a name="add-a-rule"></a>Добавление правила
 Чтобы добавить правило, разрешающее **входящий** трафик через порт **443** с любого компьютера в группу безопасности сети **NSG-FrontEnd**, выполните следующую команду:
@@ -160,7 +151,7 @@ az network nsg rule create  \
 ```
 
 ## <a name="change-a-rule"></a>Изменение правила
-Чтобы изменить ранее созданное правило, разрешающее входящий трафик только из **Интернета**, выполните команду [az network nsg rule update](/cli/azure/network/nsg/rule#update):
+Чтобы изменить ранее созданное правило, разрешающее входящий трафик только из **Интернета**, выполните команду [az network nsg rule update](/cli/azure/network/nsg/rule#update).
 
 ```azurecli
 az network nsg rule update \
@@ -339,7 +330,7 @@ az network vnet subnet update \
   ```
 
 ## <a name="delete-an-nsg"></a>Удаление группы NSG
-Группу безопасности сети можно удалить только в том случае, если она не связана с ресурсами. Чтобы удалить группу безопасности сети, выполните следующие действия.
+Группу безопасности сети можно удалить только в том случае, если она не связана с ресурсами. Чтобы удалить группу безопасности сети, выполните следующие действия:
 
 1. Чтобы проверить ресурсы, связанные с группой, выполните команду `azure network nsg show` , как показано в разделе [Просмотр связей для группы безопасности сети](#View-NSGs-associations).
 2. Если группа связана с сетевыми адаптерами, выполните `azure network nic set` , как показано в разделе [Отмена связи с сетевым адаптером для группы безопасности сети](#Dissociate-an-NSG-from-a-NIC) , для каждого сетевого адаптера. 

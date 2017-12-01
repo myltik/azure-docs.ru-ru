@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 104c2f087a38b3fe006ede4c4d6d283336c3511c
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8982cc0153bb4554c84e2cac504c23fb7e65ec15
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Обновление Windows Azure Active Directory Sync и Azure Active Directory Sync
 Azure AD Connect — это лучший способ для подключения локального каталога к Azure AD и Office 365. Если вы пользуетесь Windows Azure Active Directory Sync (DirSync) или Azure AD Sync, настало время перейти на Azure AD Connect, поскольку эти продукты являются нерекомендуемыми и не поддерживаются с 13 апреля 2017 года.
@@ -36,7 +36,7 @@ Azure AD Connect является преемником DirSync и Azure AD Sync.
 | --- | --- |
 | 13 апреля 2016 г. |Windows Azure Active Directory Sync (DirSync) и Microsoft Azure Active Directory Sync (Azure AD Sync) объявлены устаревшими. |
 | 13 апреля 2017 г. |Прекращение поддержки. Пользователи не смогут обратиться в службу поддержки, пока не перейдут на Azure AD Connect. |
-|31 декабря 2017 г.|Azure AD больше не будет принимать подключения от Windows Azure Active Directory Sync (DirSync) и Microsoft Azure Active Directory Sync (Azure AD Sync).
+|31 декабря 2017 г.|Azure AD больше не будет принимать подключения из Windows Azure Active Directory Sync (DirSync) и Microsoft Azure Active Directory Sync (Azure AD Sync).
 
 ## <a name="how-to-transition-to-azure-ad-connect"></a>Переход на Azure AD Connect
 Если вы используете DirSync, то переход можно выполнить одним из двух способов: это может быть обновление на месте и параллельное развертывание. Обновление на месте рекомендуется для большинства клиентов при наличии последней версии операционной системы и менее чем 50 000 объектов. В других случаях рекомендуется выполнять параллельное развертывание, при котором конфигурация DirSync переносится на новый сервер под управлением Azure AD Connect.
@@ -59,10 +59,10 @@ Azure AD Connect является преемником DirSync и Azure AD Sync.
 Уведомление было также отправлено клиентам, использующим Azure AD Connect с номером сборки 1.0.\*.0 (версии, предшествующие выпуску 1.1). Корпорация Майкрософт рекомендует пользователям обновлять Azure AD Connect до последних выпусков. Функция [автоматического обновления](active-directory-aadconnect-feature-automatic-upgrade.md), представленная в версии 1.1, существенно упрощает эту задачу: благодаря ей у вас всегда будет установлена последняя версия Azure AD Connect.
 
 **Вопрос. Перестанет ли DirSync или Azure AD Sync работать 13 апреля 2017 года?**  
-Служба DirSync (Azure AD Sync) продолжит работу после 13 апреля 2017 г.  Но служба Azure AD больше не будет принимать подключения из DirSync (Azure AD Sync), начиная с 31 декабря 2017 г.
+Служба DirSync (Azure AD Sync) продолжит работать после 13 апреля 2017 г.  Но после 31 декабря 2017 г. Azure AD больше не будет принимать подключения из DirSync и Azure AD Sync.
 
 **Вопрос. Какие версии DirSync можно обновить?**  
-Поддерживается обновление любой версии DirSync, которая используется в настоящее время.
+Поддерживается обновление любой версии DirSync, которая используется в настоящее время. После 31 декабря 2017 г. обновление на месте с DirSync до Azure AD Connect не будет поддерживаться. Если вы решите обновить DirSync до Azure AD Connect после этой даты, вам придется установить Azure AD Connect с нуля.
 
 **Вопрос. Как насчет соединителя Azure AD для FIM/MIM?**  
 Соединитель Azure AD для FIM или MIM устаревшим **не** объявлен. Проект **заморожен**, т. е. новые функции не добавляются, а ошибки не исправляются. Корпорация Майкрософт рекомендует использующим его клиентам перейти на Azure AD Connect. Настоятельно рекомендуем не запускать с его помощью никакие новые развертывания. В будущем соединитель будет объявлен устаревшим.

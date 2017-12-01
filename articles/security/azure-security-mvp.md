@@ -4,7 +4,7 @@ description: "В статье представлен обзор сведений
 services: security
 documentationcenter: na
 author: TomShinder
-manager: StevenPo
+manager: Mbaldwin
 editor: TomSh
 ms.assetid: 34f4bdf0-7332-4c4a-b186-05263da700cf
 ms.service: security
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 9a9f4341aaca5bb6049c6d85993c92ea6dd1c8dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db42e80a93f2d0db737b63cab1a55af4f6dd05e4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-security-mvp-program"></a>Программа специалистов MVP по вопросам обеспечения безопасности в Azure
-Microsoft Most Valuable Professionals (MVPs) — это самые активные участники технических сообществ, продемонстрировавшие исключительную готовность помогать другим эффективно использовать технологии Майкрософт. Они делятся своей увлеченностью, знаниями и опытом с техническим сообществом и командой Майкрософт.
+Microsoft Most Valuable Professionals (MVP) — это самые активные участники технических сообществ, продемонстрировавшие исключительную готовность помогать другим эффективно использовать технологии Майкрософт. Они делятся своей увлеченностью, знаниями и опытом с техническим сообществом и командой Майкрософт.
 
-Мы рады сообщить, что теперь представители технического сообщества могут получать специальный статус в сфере безопасности Microsoft Azure. Самые ценные специалисты Microsoft MVP получают статус MVP по Microsoft Azure за свой вклад в усовершенствование решений Azure.
+Теперь представители технического сообщества могут получить специальный статус в сфере безопасности Microsoft Azure. Самые ценные специалисты Microsoft MVP получают статус MVP по Microsoft Azure за свой вклад в усовершенствование решений Azure.
 
 ![Microsoft MVP](./media/azure-security-mvp/azure-security-mvp-fig1.png)
 

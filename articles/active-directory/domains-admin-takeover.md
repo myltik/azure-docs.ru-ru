@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 457857f44ad3081087b5843f156860c901562468
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ee100fa86d78840a3b6a6bbf9453954c054931c2
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Смена неуправляемого каталога от имени администратора в Azure Active Directory
 В этой статье описывается два способа смены доменного имени DNS в неуправляемом каталоге в Azure Active Directory (Azure AD). Когда пользователь самостоятельно регистрируется в облачной службе, использующей Azure AD, он добавляется в неуправляемый каталог Azure AD на основе домена электронной почты. Дополнительные сведения о самостоятельной (или "вирусной") регистрации в службе см. в разделе [What is self-service signup for Azure Active Directory?]() (Что такое самостоятельная регистрация для Azure Active Directory?).
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/04/2017
   
 6. Войдите в [Центр администрирования Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) с помощью учетной записи, которая является глобальным администратором для клиента Azure AD.
   
-7. Выберите **Доменные имена**, а затем добавьте доменное имя. Вам потребуется ввести записи типа TXT для DNS, чтобы проверить принадлежность доменного имени. 
+7. Выберите **Имена пользовательских доменов** и добавьте доменное имя. Вам потребуется ввести записи типа TXT для DNS, чтобы проверить принадлежность доменного имени. 
   
   ![Добавление домена в Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   

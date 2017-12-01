@@ -2,19 +2,19 @@
 title: "Роуминг и совместная работа в Azure Machine Learning Workbench | Документация Майкрософт"
 description: "Список известных проблем и руководство по устранению неполадок"
 services: machine-learning
-author: svankam
-ms.author: svankam
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/05/2017
-ms.openlocfilehash: 156dd1b7f928df22b3feb9e7a13396d3b53a91d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Роуминг и совместная работа в Azure Machine Learning Workbench
 В этом документе вы узнаете, как Azure Machine Learning Workbench может помочь перемещать проекты на разных компьютерах, а также обеспечить совместную работу с коллегами. 
@@ -28,10 +28,14 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-new-azure-machine-learning-project"></a>Создание проекта в службе "Машинное обучение Azure"
 Запустите Azure Machine Learning Workbench и создайте проект (например, _iris_). Введите в текстовое поле **Visualstudio.com GIT Repository URL** (URL-адрес репозитория GIT для VisualStudio.com) допустимый URL-адрес репозитория Git для VSTS. 
->[!IMPORTANT]
->Создание проекта завершится ошибкой, если у вас нет доступа к чтению и записи в репозитории Git и если репозиторий уже имеет главную ветвь.
+
+> [!IMPORTANT]
+> Если при выборе пустого шаблона проекта в выбранном репозитории Git уже есть _главная_ ветвь, это нормально. Служба "Машинное обучение Azure" просто клонирует _главную_ ветвь локально и добавляет папку `aml_config` и другие файлы метаданных проекта в локальную папку проекта. Но при выборе любого другого шаблона проекта репозиторий Git не должен содержать готовую _главную_ ветвь, иначе появится сообщение об ошибке. В качестве альтернативы можно с помощью средства командной строки `az ml project create` создать проект и указать параметр `--force`. После этого файлы в исходной главной ветви удаляются и заменяются новыми файлами в выбранном шаблоне.
 
 После создания проекта отправьте несколько потоковых выполнений на любой скрипт в рамках проекта. Это действие фиксирует состояние проекта в удаленной ветви журнала выполнений репозитория Git. 
+
+> [!NOTE] 
+> Только запуски скрипта активируют фиксации в ветвь журнала выполнения. Выполнение подготовки данных или запуски Notebook не активируют создание моментальных снимков проекта в ветви журнала выполнения.
 
 После настройки проверки подлинности Git можно также создать ветвь или работать в главной ветви. 
 
@@ -71,7 +75,8 @@ $ git push origin master
 
 В следующем выпуске мы планируем расширить функциональность, чтобы можно было выбрать папку назначения. 
 
->Обратите внимание, что если в каталоге Azure ML есть папка, имя которой совпадает с именем проекта, скачивание завершится сбоем. Чтобы решить эту проблему, необходимо переименовать имеющеюся папку.
+> [!NOTE]
+> Если в каталоге Azure ML есть папка, имя которой совпадает с именем проекта, скачивание завершится сбоем. Чтобы решить эту проблему, необходимо переименовать имеющеюся папку.
 
 
 ### <a name="work-on-the-downloaded-project"></a>Работа со скачанным проектом 
@@ -90,23 +95,16 @@ $ git push origin master
 # Find ARM ID of the experimnetation account
 az ml account experimentation show --query "id"
 
-# Add Bob to the Experimentation Account as a Reader.
-# Bob now has read access to all workspaces and projects under the Account by inheritance.
-az role assignment create --assignee bob@contoso.com --role Reader --scope <experimentation account ARM ID>
+# Add Bob to the Experimentation Account as a Contributor.
+# Bob now has read/write access to all workspaces and projects under the Account by inheritance.
+az role assignment create --assignee bob@contoso.com --role Contributor --scope <experimentation account ARM ID>
 
 # Find ARM ID of the workspace
 az ml workspace show --query "id"
 
-# Add Bob to the workspace as a Contributor.
-# Bob now has read/write access to all projects under the Workspace by inheritance.
-az role assignment create --assignee bob@contoso.com --role Contributor --scope <workspace ARM ID>
-
-# find ARM ID of the project 
-az ml project show --query "id"
-
-# Add Bob to the Project as an Owner.
-# Bob now has read/write access to the Project, and can add others too.
-az role assignment create --assignee bob@contoso.com --role Owner --scope <project ARM ID>
+# Add Bob to the workspace as an Owner.
+# Bob now has read/write access to all projects under the Workspace by inheritance. And he can invite or remove others.
+az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace ARM ID>
 ```
 
 После назначения роли напрямую или путем наследования в списке проектов рабочей среды для Боба отобразится этот проект. Чтобы проект отобразился в списке, возможно, приложение потребуется перезагрузить. Затем Боб может загрузить проект, как описано в разделе [Роуминг](#roaming), и работать совместно с Алисой. 
@@ -124,3 +122,81 @@ az role assignment create --assignee bob@contoso.com --role Owner --scope <proje
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
+## <a name="sample-collaboration-workflow"></a>Пример рабочего процесса совместной работы
+Рассмотрим пример, демонстрирующий процесс совместной работы. Сотрудники Contoso Элис и Боб хотят совместно работать над проектом обработки и анализа данных, используя Azure ML Workbench. Их удостоверения принадлежат одному и тому же клиенту Contoso Azure AD.
+
+1. Сначала Элис создает пустой репозиторий Git в проекте VSTS. Этот проект VSTS должен находиться в подписке Azure, созданной в клиенте Contoso AAD. 
+
+2. Затем Элис создает на своем компьютере учетную запись экспериментирования службы "Машинное обучение Azure", рабочую область и проект Azure ML Workbench. При создании проекта она указывает URL-адрес репозитория Git.
+
+3. Элис начинает работать над проектом. Она создает несколько скриптов и выполняет несколько запусков. Во время каждого запуска в ветвь журнала выполнения репозитория Git в проекте VSTS, созданного Workbench, автоматически помещается моментальный снимок всей папки проекта репозитория для фиксации изменений.
+
+4. Элис довольна ходом работы. Она хочет зафиксировать изменение в локальной _главной_ ветви и передает его в _главную ветвь_ репозитория Git проекта VSTS. Для этого она открывает проект, запускает окно командной строки из приложения Azure ML Workbench и выполняет следующие команды:
+    
+    ```sh
+    # verify the Git remote is pointing to the VSTS Git repo
+    $ git remote -v
+
+    # verify that the current branch is master
+    $ git branch
+
+    # stage all changes
+    $ git add -A
+
+    # commit changes with a comment
+    $ git commit -m "this is a good milestone"
+
+    # push the commit to the master branch of the remote Git repo in VSTS
+    $ git push
+    ```
+
+5. Затем Элис добавляет в рабочую область Боба в качестве участника. Она может сделать это на портале Azure или с помощью команды `az role assignment`, как показано выше. Она также предоставляет Бобу доступ на чтение и запись в репозитории Git проекта VSTS.
+
+6. Боб входит в приложение Azure ML Workbench на своем компьютере. Он видит, что Элис предоставила ему доступ к своей рабочей области, и видит проект в этой рабочей области. 
+
+7. Боб щелкает имя проекта, и проект загружается на его компьютер.
+    
+    а. Загруженные файлы проекта представляют собой клоны моментального снимка последнего запуска, записанного в журнал выполнения. Они не являются последней фиксацией в главную ветвь.
+    
+    b. Локальная папка проекта задается в _главной_ ветви с неиндексированными изменениями.
+
+8. Теперь Боб может просматривать запуски, выполненные Элис, и восстанавливать моментальные снимки всех предыдущих запусков.
+
+9. Боб хочет получить последние изменения, переданные Элис, и начать работу в другой ветви. Поэтому он открывает окно командной строки из Azure ML Workbench и выполняет следующие команды:
+
+    ```sh
+    # verify the Git remote is pointing to the VSTS Git repo
+    $ git remote -v
+
+    # verify that the current branch is master
+    $ git branch
+
+    # get the latest commit in VSTS Git master branch and overwrite current files
+    $ git pull --force
+
+    # create a new local branch named "bob" so Bob's work is done on the "bob" branch
+    $ git checkout -b bob
+    ```
+
+10. Боб вносит изменения в проект и отправляет новые запуски. Изменения вносятся в ветвь _bob_. Теперь Элис тоже видит запуски Боба.
+
+11. Теперь Боб может отправлять свои изменения в удаленный репозиторий Git. Чтобы избежать конфликта с _главной_ ветвью, в которой работает Элис, он решает отправлять свою работу в новую удаленную ветвь, которая также называется _bob_.
+
+    ```sh
+    # verify that the current branch is "bob" and it has unstaged changes
+    $ git status
+    
+    # stage all changes
+    $ git add -A
+
+    # commit them with a comment
+    $ git commit -m "I found a cool new trick."
+
+    # create a new branch on the remote VSTS Git repo, and push changes
+    $ git push origin bob
+    ```
+
+12. Боб может сообщить Элис о новом фокусе в своем коде. Он создает запрос на вытягивание в удаленном репозитории Git из ветви _bob_ в _главную_ ветвь. Затем Элис может присоединить запрос на вытягивание к _главной_ ветви.
+
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения об использовании репозитория Git с Azure ML Workbench см. в статье [Использование репозитория Git в проекте Azure Machine Learning Workbench](using-git-ml-project.md)

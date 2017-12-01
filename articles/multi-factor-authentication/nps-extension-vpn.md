@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: bf83952b29759ff601685513ace31828404c7b1a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c058f1e747849cde0f15a039779665c8718da947
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Интеграция инфраструктуры VPN с Azure MFA с помощью расширения сервера политики сети для Azure
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 11/15/2017
 
 ### <a name="azure-mfa-license"></a>лицензия Azure MFA;
 
-Для Azure MFA требуется лицензия, которая предоставляется подписке Azure AD Premium, Enterprise Mobility + Security или MFA. Лицензии на основе потребления Azure MFA, такие как лицензии на пользователя или лицензии на аутентификацию, несовместимы с расширением NPS. Дополнительные сведения см. в разделе [Как получить службу Многофакторной идентификации Azure](multi-factor-authentication-versions-plans.md). Для тестирования можно использовать пробную подписку.
+Для работы с Azure MFA требуется лицензия. Ее можно получить, приобретя отдельную лицензию на решение Azure AD Premium, Enterprise Mobility + Security или "Многофакторная идентификация". Лицензии на основе потребления Azure MFA, такие как лицензии на пользователя или лицензии на аутентификацию, несовместимы с расширением NPS. Дополнительные сведения см. в разделе [Как получить службу Многофакторной идентификации Azure](multi-factor-authentication-versions-plans.md). Для тестирования можно использовать пробную подписку.
 
 ### <a name="windows-server-software"></a>программное обеспечение Windows Server;
 

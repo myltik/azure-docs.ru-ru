@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: dc715a9bf4e5366e1719de7c649feb06b0c4bee7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37eaafdbcee87e6f6a6164dffcabaa7e9efa65ca
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Вычисление результатов теста производительности для виртуальных машин Windows
 Ниже приведены результаты теста производительности SPECInt линейки высокопроизводительных виртуальных машин Azure под управлением Windows Server. Вы можете также ознакомиться с результатами теста производительности для [виртуальных машин Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 | Standard_H16mr |16 |2 |Intel Xeon E5-2667 вер. 3 с тактовой частотой 3,2 ГГц |7 |569,6 |2.8 |
 
 ## <a name="about-specint"></a>О SPECint
-Полученные результаты для Windows были вычислены посредством запуска [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) в Windows Server. Для запуска SPECint был использован режим базовой производительности (SPECint_rate2006) с одной копией на ядро. SPECint содержит 12 отдельных тестов, каждый из которых выполняется трижды, после чего срединное значение каждого теста взвешивается для получения составного показателя. Эти тесты были выполнены на нескольких виртуальных машинах для получения приведенных средних показателей.
+Полученные результаты для Windows были вычислены посредством запуска [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) в Windows Server. Для запуска SPECint был использован режим базовой производительности (SPECint_rate2006) с одной копией на виртуальный ЦП. SPECint содержит 12 отдельных тестов, каждый из которых выполняется трижды, после чего срединное значение каждого теста взвешивается для получения составного показателя. Эти тесты были выполнены на нескольких виртуальных машинах для получения приведенных средних показателей.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о емкости хранилища, подробности о дисках и дополнительные рекомендации по выбору размера виртуальной машины см. в статье [Размеры виртуальных машин в Azure](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

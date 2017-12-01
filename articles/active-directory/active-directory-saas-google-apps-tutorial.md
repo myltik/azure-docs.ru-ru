@@ -1,23 +1,24 @@
 ---
-title: "Руководство по интеграции Azure Active Directory c Google Apps в Azure | Документация Майкрософт"
+title: "Руководство по интеграции Azure Active Directory c Google Apps | Документация Майкрософт"
 description: "Узнайте, как настроить единый вход Azure Active Directory в Google Apps."
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 065841d6b4fe50e953f01bba4d3f23de82b82726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d92e673a948dd139ff2d4a24f2e602180be43c5
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>Руководство по интеграции Azure Active Directory с Google Apps
 
@@ -25,11 +26,11 @@ ms.lasthandoff: 10/11/2017
 
 Интеграция Azure AD с приложением Google Apps обеспечивает следующие преимущества:
 
-- С помощью Azure AD вы можете контролировать доступ к Google Apps.
-- Вы можете включить автоматический вход пользователей в Google Apps (единый вход) с использованием учетной записи Azure AD.
-- Вы можете управлять учетными записями централизованно — через портал Azure.
+- С помощью Azure AD вы можете управлять доступом к Google Apps.
+- Вы можете включить автоматический вход пользователей в Google Apps (единый вход) с использованием учетных записей Azure AD.
+- Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не используйте рабочую среду без необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="video-tutorial"></a>Видеоруководство
 Как включить единый вход в Google Apps за 2 минуты.
@@ -81,40 +82,37 @@ ms.lasthandoff: 10/11/2017
 
 1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Кнопка "Azure Active Directory"][1]
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![Колонка "Корпоративные приложения"][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![Приложения][3]
+    ![Кнопка "Новое приложение"][3]
 
-4. В поле поиска введите **Google Apps**.
+4. В поле поиска введите **Google Apps**, выберите **Google Apps** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_search.png)
+    ![Google Apps в списке результатов](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_addfromgallery.png)
 
-5. На панели результатов выберите **Google Apps** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 В этом разделе описана настройка и проверка единого входа Azure AD в Google Apps с использованием тестового пользователя Britta Simon.
 
 Чтобы единый вход работал, Azure AD необходима информация о том, какой пользователь в Google Apps соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Google Apps.
 
-Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Google Apps.
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Google Apps.
 
 Чтобы настроить и проверить единый вход Azure AD в Google Apps, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Google Apps](#creating-a-google-apps-test-user)** требуется для того, чтобы в Google Apps существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Google Apps](#create-a-google-apps-test-user)** требуется для того, чтобы в Google Apps существовал пользователь Britta Simon, связанный с соответствующим пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 
 В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Google Apps.
 
@@ -122,32 +120,41 @@ ms.lasthandoff: 10/11/2017
 
 1. На портале Azure на странице интеграции с приложением **Google Apps** щелкните **Единый вход**.
 
-    ![Настройка единого входа][4]
+    ![Ссылка "Настройка единого входа"][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
  
-    ![Настройка единого входа](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_samlbase.png)
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_samlbase.png)
 
 3. В разделе **Домены и URL-адреса приложения Google Apps** сделайте следующее.
 
-    ![Настройка единого входа](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_url.png)
+    ![Сведения о домене и URL-адресах единого входа для приложения Google Apps](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_url.png)
 
-    В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://mail.google.com/a/<yourdomain>`
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://mail.google.com/a/<yourdomain.com>`
+
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:
+
+    | |
+    |--|
+    | `http://google.com/a/<yourdomain.com>`|
+    | `http://google.com`|    
+    | `google.com/<yourdomain.com>`|
+    | `google.com`|
 
     > [!NOTE] 
-    > Это значение приведено для справки. Вместо него необходимо указать фактический URL-адрес входа. Обратитесь к [группе поддержки Google](https://www.google.com/contact/).
- 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Google Apps](https://www.google.com/contact/). 
+
 4. В разделе **Сертификат подписи SAML** щелкните **Сертификат**, а затем сохраните файл сертификата на компьютере.
 
-    ![Настройка единого входа](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_certificate.png) 
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_certificate.png) 
 
 5. Нажмите кнопку **Сохранить** .
 
-    ![Настройка единого входа](./media/active-directory-saas-google-apps-tutorial/tutorial_general_400.png)
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-googleapps-tutorial/tutorial_general_400.png)
 
 6. В разделе **Настройка Google Apps** щелкните **Настроить Google Apps**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, URL-адрес службы единого входа SAML и URL-адрес изменения пароля** из раздела **Краткий справочник**.
 
-    ![Настройка единого входа](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_configure.png) 
+    ![Настройка Google Apps](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_configure.png) 
 
 7. Откройте в браузере новую вкладку и войдите в [консоль администратора Google Apps](http://admin.google.com/) с использованием учетной записи администратора.
 
@@ -165,11 +172,11 @@ ms.lasthandoff: 10/11/2017
    
     а. Выберите **Setup SSO with third party identity provider**(Настройка единого входа с помощью стороннего поставщика удостоверений).
 
-    b. В текстовое поле **Sign-in page URL** (URL-адрес страницы входа) в Google Apps вставьте значение **URL-адрес службы единого входа SAML**, скопированное на портале Azure.
+    b. В поле **Sign-in page URL** (URL-адрес страницы входа) в Google Apps вставьте значение поля **URL-адрес службы единого входа SAML**, скопированное на портале Azure.
 
-    c. В текстовое поле **Sign-out page URL** (URL-адрес страницы выхода) в Google Apps вставьте значение **URL-адрес выхода**, скопированное на портале Azure. 
+    c. В поле **Sign-out page URL** (URL-адрес страницы выхода) в Google Apps вставьте значение поля **URL-адрес выхода**, скопированное на портале Azure. 
 
-    г) В текстовое поле **Change password URL** (URL-адрес изменения пароля) в Google Apps вставьте значение поля **Изменить URL-адрес пароля**, скопированное на портале Azure. 
+    d. В поле **Change password URL** (URL-адрес изменения пароля) в Google Apps вставьте значение поля **Изменить URL-адрес пароля**, скопированное на портале Azure. 
 
     д. В Google Apps в поле **Verification certificate** (Сертификат проверки) передайте сертификат, скачанный с портала Azure.
 
@@ -177,50 +184,52 @@ ms.lasthandoff: 10/11/2017
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
- 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-![Создание пользователя Azure AD][100]
+   ![Создание тестового пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+1. На портале Azure в области слева нажмите кнопку **Azure Active Directory**.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-google-apps-tutorial/create_aaduser_01.png) 
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-googleapps-tutorial/create_aaduser_01.png)
 
-2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
-    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-google-apps-tutorial/create_aaduser_02.png) 
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
 
-3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-googleapps-tutorial/create_aaduser_02.png)
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
+
+    ![Кнопка "Добавить"](./media/active-directory-saas-googleapps-tutorial/create_aaduser_03.png)
+
+4. В диалоговом окне **Пользователь** сделайте следующее.
+
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-googleapps-tutorial/create_aaduser_04.png)
+
+    а. В поле **Имя** введите **BrittaSimon**.
+
+    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+
+    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
+
+    г) Щелкните **Создать**.
  
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-google-apps-tutorial/create_aaduser_03.png) 
-
-4. На странице диалогового окна **Пользователь** выполните следующие действия.
- 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-google-apps-tutorial/create_aaduser_04.png) 
-
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
-
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
-
-    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
-
-    d. Щелкните **Создать**.
- 
-### <a name="creating-a-google-apps-test-user"></a>Создание тестового пользователя Google Apps
+### <a name="create-a-google-apps-test-user"></a>Создание тестового пользователя Google Apps
 
 Цель этого раздела — создать пользователя с именем Britta Simon в Google Apps. Google Apps поддерживает JIT-подготовку. Эта функция включена по умолчанию. В этом разделе никакие действия с вашей стороны не требуются. Если пользователь в Google Apps еще не существует, он создается при попытке доступа к Google Apps.
 
 >[!NOTE] 
 >Чтобы создать пользователя вручную, обратитесь к [группе поддержки Google](https://www.google.com/contact/).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
 В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к Google Apps.
 
-![Назначение пользователя][200] 
+![Назначение роли пользователя][200] 
 
 **Чтобы назначить пользователя Britta Simon в Google Apps, сделайте следующее.**
 
@@ -230,15 +239,15 @@ ms.lasthandoff: 10/11/2017
 
 2. Из списка приложений выберите **Google Apps**.
 
-    ![Настройка единого входа](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_app.png) 
+    ![Ссылка на Google Apps в списке приложений](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_app.png)  
 
 3. В меню слева выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][202] 
+    ![Ссылка "Пользователи и группы"][202]
 
 4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][203]
+    ![Область "Добавление назначения"][203]
 
 5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
 
@@ -246,55 +255,32 @@ ms.lasthandoff: 10/11/2017
 
 7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
     
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 
-В этом разделе, чтобы проверить параметры единого входа, откройте панель доступа по адресу [https://myapps.microsoft.com](active-directory-saas-access-panel-introduction.md), войдите с тестовой учетной записью и щелкните элемент **Google Apps** на панели доступа.
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув элемент Google Apps на панели доступа, вы автоматически войдете в приложение Google Apps.
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Руководство по настройке Google Apps для автоматической подготовки пользователей](active-directory-saas-google-apps-provisioning-tutorial.md)
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_203.png
+[10]: ./media/active-directory-saas-googleapps-tutorial/gapps-security.png
+[11]: ./media/active-directory-saas-googleapps-tutorial/security-gapps.png
+[12]: ./media/active-directory-saas-googleapps-tutorial/gapps-sso-config.png
 
-[0]: ./media/active-directory-saas-google-apps-tutorial/azure-active-directory.png
-
-[5]: ./media/active-directory-saas-google-apps-tutorial/gapps-added.png
-[6]: ./media/active-directory-saas-google-apps-tutorial/config-sso.png
-[7]: ./media/active-directory-saas-google-apps-tutorial/sso-gapps.png
-[8]: ./media/active-directory-saas-google-apps-tutorial/sso-url.png
-[9]: ./media/active-directory-saas-google-apps-tutorial/download-cert.png
-[10]: ./media/active-directory-saas-google-apps-tutorial/gapps-security.png
-[11]: ./media/active-directory-saas-google-apps-tutorial/security-gapps.png
-[12]: ./media/active-directory-saas-google-apps-tutorial/gapps-sso-config.png
-[13]: ./media/active-directory-saas-google-apps-tutorial/gapps-sso-confirm.png
-[14]: ./media/active-directory-saas-google-apps-tutorial/gapps-sso-email.png
-[15]: ./media/active-directory-saas-google-apps-tutorial/gapps-api.png
-[16]: ./media/active-directory-saas-google-apps-tutorial/gapps-api-enabled.png
-[17]: ./media/active-directory-saas-google-apps-tutorial/add-custom-domain.png
-[18]: ./media/active-directory-saas-google-apps-tutorial/specify-domain.png
-[19]: ./media/active-directory-saas-google-apps-tutorial/verify-domain.png
-[20]: ./media/active-directory-saas-google-apps-tutorial/gapps-domains.png
-[21]: ./media/active-directory-saas-google-apps-tutorial/gapps-add-domain.png
-[22]: ./media/active-directory-saas-google-apps-tutorial/gapps-add-another.png
-[23]: ./media/active-directory-saas-google-apps-tutorial/apps-gapps.png
-[24]: ./media/active-directory-saas-google-apps-tutorial/gapps-provisioning.png
-[25]: ./media/active-directory-saas-google-apps-tutorial/gapps-provisioning-auth.png
-[26]: ./media/active-directory-saas-google-apps-tutorial/gapps-admin.png
-[27]: ./media/active-directory-saas-google-apps-tutorial/gapps-admin-privileges.png
-[28]: ./media/active-directory-saas-google-apps-tutorial/gapps-auth.png
-[29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
-[30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1d2a5e5d639e2aa0023e99b73f87a68e19afc239
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Вопросы и ответы об Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Основные сведения об Azure Cosmos DB
@@ -431,7 +431,7 @@ Azure Cosmos DB устанавливает пропускную способно
 Концепция пропускной способности подробно описана в статье [Единицы запросов в базе данных Azure Cosmos DB](request-units.md). Пропускная способность для таблицы равномерно распределяется между базовыми физическими секциями.  
 
 ### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>Что представляет собой показатель "единицы запросов в секунду" по умолчанию при создании таблицы с помощью CQL? Что делать, если требуется ее изменить?
-Azure Cosmos DB использует единицы запросов в секунду (ЕЗ) в качестве валюты для обеспечения пропускной способности. Таблицы, созданные с помощью CQL, содержат 400 ЕЗ. ЕЗ можно увеличить на портале до 10 000. Если вам требуется более 10 000 ЕЗ в закрытой предварительной версии, вы можете сначала создать ее на портале. Если вам нужна эта возможность для CQL, свяжитесь с нами по адресу [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com). 
+Azure Cosmos DB использует единицы запросов в секунду (ЕЗ) в качестве валюты для обеспечения пропускной способности. Таблицы, созданные с помощью CQL, содержат 400 ЕЗ. Количество ЕЗ можно изменить на портале. 
 
 CQL
 ```
