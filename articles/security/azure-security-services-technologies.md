@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ea707d3d149734dad2d5c76d853ddd667cbf73b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Службы и технологии безопасности Azure
 Существующие и будущие пользователи Azure часто спрашивают нас о списке доступных в Azure служб и технологий, связанных с обеспечением безопасности.
 
-Мы понимаем, что при оценке технических возможностей поставщика облачных услуг полезно иметь такой список для ознакомления, когда возникнет такая необходимость.
+При оценке поставщиков облачных служб полезно иметь следующие сведения.
 
 Ниже приведен результат нашей первой попытки составить такой список. Со временем этот список будет дополнен — также, как и линейка предложений Azure. Перечень категорий также будет расширен. Просматривайте эту страницу время от времени, чтобы быть в курсе последних новостей о наших услугах и технологиях, связанных с безопасностью.
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
 * [Доменные службы Azure Active Directory](../active-directory-domain-services/active-directory-ds-overview.md)
-* [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* [Многофакторная идентификация Azure](../multi-factor-authentication/multi-factor-authentication.md)
 
 ## <a name="backup-and-disaster-recovery"></a>Резервное копирование и аварийное восстановление
 * [Служба архивации Azure](https://azure.microsoft.com/documentation/services/backup/)

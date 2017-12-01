@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ab0aa377f9803d74d8a7a94bdb4c7b780e3ae41d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure
 В этой статье сравниваются следующие службы Microsoft Cloud, используемые для настройки интеграции и автоматизации бизнес-процессов:
@@ -81,12 +81,12 @@ ms.lasthandoff: 10/21/2017
 | Масштабирование |Масштабирование без настройки |Масштабирование в рамках плана службы приложений |
 | Цены |Оплата за использование или в рамках плана службы приложений |В рамках плана службы приложений |
 | Тип запуска |Активация, по расписанию (с помощью триггера таймера) |Активация, непрерывная работа, по расписанию |
-| События триггера |[Таймер](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [HTTP или Webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [мобильные приложения службы приложений Azure](functions-bindings-mobile-apps.md), [центры уведомлений Azure](functions-bindings-notification-hubs.md), [служебная шина Azure](functions-bindings-service-bus.md), [служба хранилища Azure](functions-bindings-storage-blob.md) |[Служба хранилища Azure](functions-bindings-storage-blob.md), [служебная шина Azure](functions-bindings-service-bus.md) |
+| События триггера |[Таймер](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [HTTP и веб-перехватчик (GitHub, Slack)](functions-bindings-http-webhook.md), [мобильные приложения службы приложений Azure](functions-bindings-mobile-apps.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [очереди и большие двоичные объекты службы хранилища Azure](functions-bindings-storage-blob.md), [очереди и разделы служебной шины Azure](functions-bindings-service-bus.md) |[Очереди и большие двоичные объекты службы хранилища Azure](functions-bindings-storage-blob.md), [очереди и разделы служебной шины Azure](functions-bindings-service-bus.md) |
 | Разработка в браузере |Поддерживаются |Не поддерживается |
 | C# |Поддерживаются |Поддерживаются |
 | F# |Поддерживаются |Не поддерживается |
 | JavaScript |Поддерживаются |Поддерживаются |
-| Java |Поддерживаются | Не поддерживается |
+| Java |Предварительный просмотр | Не поддерживается |
 | Bash |Экспериментальная возможность |Поддерживаются |
 | Написание скриптов Windows (.cmd, .bat) |Экспериментальная возможность |Поддерживаются |
 | PowerShell |Экспериментальная возможность |Поддерживаются |

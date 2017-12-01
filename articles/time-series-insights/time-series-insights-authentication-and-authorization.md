@@ -1,5 +1,5 @@
 ---
-title: "Как настроить аутентификацию и авторизацию для пользовательского приложения, которое вызывает API Аналитика временных рядов Azure | Документация Майкрософт"
+title: "Как настроить интерфейсы API аутентификации и авторизации в службе \"Аналитика временных рядов Azure\""
 description: "В этой статье описывается настройка аутентификации и авторизации для пользовательского приложения, которое вызывает API \"Аналитика временных рядов Azure\"."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Проверка подлинности и авторизация для API Azure Time Series Insights
 
@@ -24,9 +24,9 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="service-principal"></a>Субъект-служба
 
-В этом разделе описывается настройка приложения для доступа к API Time Series Insights от имени приложения. Приложение может запрашивать данные или публиковать эталонные данные в среде Time Series Insights с учетными данными приложения, а не учетными данными пользователя.
+В этом разделе описывается настройка приложения для доступа к API Time Series Insights от имени приложения. Приложение может запрашивать данные или публиковать эталонные данные в среде службы "Аналитика временных рядов" с учетными данными приложения, а не учетными данными пользователя.
 
-При наличии приложения, для которого нужен доступ к Time Series Insights, необходимо установить приложение Azure Active Directory и назначить политики доступа к данным в среде Time Series Insights. Этот подход предпочтительнее запуска приложения с вашими учетными данными по следующим причинам:
+При наличии приложения, для которого нужен доступ к службе "Аналитика временных рядов", необходимо установить приложение Azure Active Directory и назначить политики доступа к данным в среде службы "Аналитика временных рядов". Этот подход предпочтительнее запуска приложения с вашими учетными данными по следующим причинам:
 
 * Для удостоверения приложения можно назначить разрешения, которые отличаются от ваших разрешений. Как правило, приложение получает именно те разрешения, которые требуются для его работы. Например, можно разрешить приложению только читать данные в определенной среде Time Series Insights.
 * Не требуется изменять учетные данные приложения в случае изменения ваших обязанностей.
@@ -103,5 +103,7 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - Пример кода, который вызывает API Time Series Insights, см. в статье [Запрос данных из среды Azure Time Series Insights с помощью C##](time-series-insights-query-data-csharp.md).
-- Справочные сведения об API см. в статье об [API запросов к службе "Аналитика временных рядов Azure"](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
-- [Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- Справочные сведения об API см. в статье об [API запросов к службе "Аналитика временных рядов Azure"](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+
+> [!div class="nextstepaction"]
+> [Создание субъекта-службы](../azure-resource-manager/resource-group-create-service-principal-portal.md)

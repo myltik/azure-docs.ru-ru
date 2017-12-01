@@ -1,5 +1,5 @@
 ---
-title: "Триггеры и привязки служебной шины в Функциях Azure | Документация Майкрософт"
+title: "Триггеры и привязки служебной шины в службе \"Функции Azure\""
 description: "Узнайте, как использовать триггеры и привязки служебной шины Azure в функциях Azure."
 services: functions
 documentationcenter: na
@@ -16,88 +16,51 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: 71149aaacc940a62e085cf1ce103a0214d05bd1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ef558f19bb88d208b0d224e30137ac237ab64bc
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Привязки служебной шины в Функциях Azure
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-В этой статье рассматривается настройка привязок служебной шины Azure в Функциях Azure, а также работа с ними. 
-
-Функции Azure поддерживают привязки триггера и выходные привязки для очередей и разделов служебной шины.
+В этой статье описывается использование привязок служебной шины Azure в службе "Функции Azure". Функции Azure поддерживают привязки триггера и выходные привязки для очередей и разделов служебной шины.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a name="trigger"></a>
-
 ## <a name="service-bus-trigger"></a>Триггер служебной шины
+
 Используйте триггер служебной шины для ответа на сообщения из очереди или раздела служебной шины. 
 
-Триггеры очередей и разделов служебной шины определяются с помощью следующих объектов JSON в массиве `bindings` function.json:
+## <a name="trigger---example"></a>Пример триггера
 
-* Триггер *очереди*:
+Языковой пример см. в разделах:
 
-    ```json
-    {
-        "name" : "<Name of input parameter in function signature>",
-        "queueName" : "<Name of the queue>",
-        "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>",
-        "type" : "serviceBusTrigger",
-        "direction" : "in"
-    }
-    ```
+* [Предкомпилированный код C#](#trigger---c-example)
+* [Сценарий C#](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
 
-* Триггер *раздела*:
+### <a name="trigger---c-example"></a>Пример C# в триггере
 
-    ```json
-    {
-        "name" : "<Name of input parameter in function signature>",
-        "topicName" : "<Name of the topic>",
-        "subscriptionName" : "<Name of the subscription>",
-        "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>",
-        "type" : "serviceBusTrigger",
-        "direction" : "in"
-    }
-    ```
+В следующем примере показана [предкомпилированная функция C#](functions-dotnet-class-library.md), которая заносит в журнал сообщение очереди служебной шины.
 
-Обратите внимание на следующее.
+```cs
+[FunctionName("ServiceBusQueueTriggerCSharp")]                    
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
+    string myQueueItem, 
+    TraceWriter log)
+{
+    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+}
+```
 
-* Для `connection` [создайте в приложении-функции параметр приложения](functions-how-to-use-azure-function-app-settings.md), содержащий строку подключения к пространству имен служебной шины, а затем укажите имя этого параметра в свойстве `connection` для триггера. Чтобы получить строку подключения, следуйте инструкциям, указанным в разделе [Получение учетных данных управления](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
-  Строка подключения указывается для пространства имен служебной шины, и она не должна ограничиваться определенной очередью или разделом.
-  Если оставить свойство `connection` пустым, триггер предполагает, что в параметре приложения `AzureWebJobsServiceBus` указывается строка подключения служебной шины по умолчанию.
-* Для свойства `accessRights` возможны такие значения, как `manage` и `listen`. Значение по умолчанию — `manage`. Это означает, что у свойства `connection` есть разрешение на **управление**. При использовании строки подключения без разрешения на **управление**, задайте для свойства `accessRights` значение `listen`. В противном случае выполнение операций, для которых требуются права на управление, в среде выполнения Функций Azure может завершиться ошибкой.
+### <a name="trigger---c-script-example"></a>Пример скрипта C# в триггере
 
-## <a name="trigger-behavior"></a>Поведение триггера
-* **Однопоточная обработка**. По умолчанию в среде выполнения Функций одновременно обрабатываются несколько сообщений очереди. Чтобы среда выполнения обрабатывала в любой момент времени только одно сообщение очереди или раздела, для свойства `serviceBus.maxConcurrentCalls` в файле *host.json* нужно задать значение 1. 
-  Сведения о файле *host.json* см. в разделе [Структура папок](functions-reference.md#folder-structure) и статье [host.json](https://github .com/Azure/azure-webjobs-sdk-script/wiki/host.json).
-* **Обработка подозрительных сообщений.** В служебной шине выполняется собственная обработка подозрительных сообщений, которую нельзя контролировать или настраивать с помощью конфигурации или кода Функций Azure. 
-* **Поведение PeekLock.** Среда выполнения Функций получает сообщение в [режиме `PeekLock`](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) и вызывает для сообщения метод `Complete`, если функция выполнена успешно, или метод `Abandon` в случае сбоя. 
-  Если функция выполняется дольше времени ожидания `PeekLock` , блокировка возобновляется автоматически.
+В следующем примере показаны привязка триггера служебной шины в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. Эта функция заносит в журнал сообщение очереди служебной шины.
 
-<a name="triggerusage"></a>
-
-## <a name="trigger-usage"></a>Использование триггера
-В этом разделе показано, как использовать триггер служебной шины в коде функции. 
-
-В языке C# и F# сообщение триггера служебной шины можно десериализировать в один из следующих входных типов:
-
-* `string` используется для строковых сообщений.
-* `byte[]` используется для двоичных данных.
-* Любой [объект](https://msdn.microsoft.com/library/system.object.aspx) используется для сериализованных данных JSON.
-  Если объявить пользовательский тип входных данных (например, `CustomType`), Функции Azure попытаются десериализировать данные JSON в указанный тип.
-* `BrokeredMessage` предоставляет десериализированное сообщение с методом [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx).
-
-В Node.js сообщение триггера служебной шины передается в функцию в качестве строки или объекта JSON.
-
-<a name="triggersample"></a>
-
-## <a name="trigger-sample"></a>Пример триггера
-Предположим, что у вас есть следующий файл function.json:
+Данные привязки в файле *function.json*:
 
 ```json
 {
@@ -114,15 +77,7 @@ ms.lasthandoff: 10/11/2017
 }
 ```
 
-Ознакомьтесь с примером для конкретного языка, обрабатывающим сообщение очереди служебной шины.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Пример триггера на языке C# #
+Ниже приведен код скрипта C#.
 
 ```cs
 public static void Run(string myQueueItem, TraceWriter log)
@@ -131,18 +86,56 @@ public static void Run(string myQueueItem, TraceWriter log)
 }
 ```
 
-<a name="triggerfsharp"></a>
+### <a name="trigger---f-example"></a>Пример F# в триггере
 
-### <a name="trigger-sample-in-f"></a>Пример триггера на языке F# #
+В следующем примере показаны привязка триггера служебной шины в файле *function.json* и [функция F#](functions-reference-fsharp.md), которая использует эту привязку. Эта функция заносит в журнал сообщение очереди служебной шины. 
+
+Данные привязки в файле *function.json*:
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "testqueue",
+    "connection": "MyServiceBusConnection",
+    "name": "myQueueItem",
+    "type": "serviceBusTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+Ниже приведен код сценария F#.
 
 ```fsharp
 let Run(myQueueItem: string, log: TraceWriter) =
     log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
-<a name="triggernodejs"></a>
+### <a name="trigger---javascript-example"></a>Пример JavaScript в триггере
 
-### <a name="trigger-sample-in-nodejs"></a>Пример триггера для Node.js
+В следующем примере показаны привязка триггера служебной шины в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует эту привязку. Эта функция заносит в журнал сообщение очереди служебной шины. 
+
+Данные привязки в файле *function.json*:
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "testqueue",
+    "connection": "MyServiceBusConnection",
+    "name": "myQueueItem",
+    "type": "serviceBusTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+Ниже показан код сценария JavaScript.
 
 ```javascript
 module.exports = function(context, myQueueItem) {
@@ -151,63 +144,123 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-<a name="output"></a>
+## <a name="trigger---attributes-for-precompiled-c"></a>Атрибуты триггера для предкомпилированного кода C#
+
+В [предкомпилированных функциях C#](functions-dotnet-class-library.md) используйте следующие атрибуты для настройки триггера служебной шины:
+
+* [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+
+  Конструктор этого атрибута принимает имя очереди или раздела и подписки. Можно также указать права доступа для подключения. Если права доступа не указаны, то используется значение по умолчанию, `Manage`. Выбор параметра прав доступа описан в разделе [Привязки служебной шины в Функциях Azure](#trigger---configuration). Ниже приведен пример, в котором показано, как атрибут используется со строковым параметром.
+
+  ```csharp
+  [FunctionName("ServiceBusQueueTriggerCSharp")]                    
+  public static void Run(
+      [ServiceBusTrigger("myqueue")] string myQueueItem, TraceWriter log)
+  ```
+
+  Чтобы указать учетную запись служебной шины, которую нужно использовать, можно задать свойство `Connection`, как показано в следующем примере.
+
+  ```csharp
+  [FunctionName("ServiceBusQueueTriggerCSharp")]                    
+  public static void Run(
+      [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
+      string myQueueItem, TraceWriter log)
+  ```
+
+* [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+
+  Предоставляет еще один способ указать используемую учетную запись служебной шины. Конструктор принимает имя параметра приложения, содержащего строку подключения к служебной шине. Атрибут может применяться на уровне класса, метода или параметра. Ниже показан пример уровня класса и метода.
+
+  ```csharp
+  [ServiceBusAccount("ClassLevelServiceBusAppSetting")]
+  public static class AzureFunctions
+  {
+      [ServiceBusAccount("MethodLevelServiceBusAppSetting")]
+      [FunctionName("ServiceBusQueueTriggerCSharp")]
+      public static void Run(
+          [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
+          string myQueueItem, TraceWriter log)
+  ```
+
+Используемая учетная запись служебной шины определяется в следующем порядке:
+
+* Свойство `ServiceBusTrigger` атрибута `Connection`.
+* Атрибут `ServiceBusAccount`, примененный к тому же параметру, что и `ServiceBusTrigger`.
+* Атрибут `ServiceBusAccount`, примененный к функции.
+* Атрибут `ServiceBusAccount`, примененный к классу.
+* Параметр приложения AzureWebJobsServiceBus.
+
+## <a name="trigger---configuration"></a>Конфигурация триггера
+
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `ServiceBusTrigger`.
+
+|свойство function.json | Свойство атрибута |Описание|
+|---------|---------|----------------------|
+|**type** | Недоступно | Для этого свойства нужно задать значение "serviceBusTrigger". Это свойство задается автоматически при создании триггера на портале Azure.|
+|**direction** | Недоступно | Для этого свойства необходимо задать значение "in". Это свойство задается автоматически при создании триггера на портале Azure. |
+|**name** | Недоступно | Имя переменной, представляющей сообщение очереди или раздела в коде функции. Задайте значение "$return", ссылающееся на возвращаемое значение функции. | 
+|**queueName**|**QueueName**|Имя очереди для отслеживания.  Задается только в том случае, если отслеживается очередь, но не раздел.
+|**topicName**|**TopicName**|Имя отслеживаемого раздела. Задается только в том случае, если отслеживается раздел, но не очередь.|
+|**subscriptionName**|**Параметр SubscriptionName**|Имя отслеживаемой подписки. Задается только в том случае, если отслеживается раздел, но не очередь.|
+|**подключение**|**Connection**|Имя параметра приложения, содержащего строку подключения к служебной шине, используемую для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyServiceBus, то среда выполнения службы "Функции" будет искать параметр приложения AzureWebJobsMyServiceBus. Если оставить строку `connection` пустой, то среда выполнения службы "Функции" будет использовать строку подключения к служебной шине по умолчанию для параметра приложения AzureWebJobsServiceBus.<br><br>Чтобы получить строку подключения, следуйте инструкциям, указанным в разделе [Получение учетных данных управления](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Строка подключения указывается для пространства имен служебной шины, и она не должна ограничиваться определенной очередью или разделом. <br/>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+|**accessRights**|**Access**|Права доступа для строки подключения. Доступные значения: `manage` и `listen`. Значение по умолчанию — `manage`. Это означает, что у свойства `connection` есть разрешение на **управление**. При использовании строки подключения без разрешения на **управление** задайте для свойства `accessRights` значение "listen". В противном случае выполнение операций, для которых требуются права на управление, в среде выполнения Функций Azure может завершиться ошибкой.|
+
+## <a name="trigger---usage"></a>Использование триггера
+
+В коде C# и сценарии C# для доступа к сообщению очереди или раздела используйте параметр метода, например `string paramName`. В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. Также вместо `string` можно использовать любой из следующих типов:
+
+* `byte[]`. Используется для двоичных данных.
+* Пользовательский тип. Если сообщение содержит JSON, то служба "Функции Azure" пытается выполнить десериализацию данных JSON.
+* `BrokeredMessage`. Предоставляет десериализированное сообщение с использованием метода [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx).
+
+В JavaScript доступ к сообщению очереди или раздела осуществляется с помощью `context.bindings.<name>`. `<name>` — это значение, заданное в свойстве `name` файла *function.json*. Сообщение служебной шины передается в функцию в качестве строки или объекта JSON.
+
+## <a name="trigger---poison-messages"></a>Триггеры сообщений о сбое
+
+В службе "Функции Azure" невозможно управление обработкой сообщений о сбое или настройка этой обработки. Служебная шина сама обрабатывает сообщения о сбое.
+
+## <a name="trigger---peeklock-behavior"></a>Поведение PeekLock в триггере
+
+Среда выполнения службы "Функции" получает сообщение в [режиме PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Она вызывает `Complete` для сообщения, если функция выполнена успешно, или `Abandon` в случае сбоя. Если функция выполняется дольше времени ожидания `PeekLock` , блокировка возобновляется автоматически.
+
+## <a name="trigger---hostjson-properties"></a>Свойства host.json в триггере
+
+В файле [host.json](functions-host-json.md#servicebus) содержатся параметры, управляющие поведением очереди триггера служебной шины.
+
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-service-bus.md)]
 
 ## <a name="service-bus-output-binding"></a>Выходная привязка служебной шины
-Выходные данные очереди и раздела служебной шины для функции используют следующие объекты JSON в массиве `bindings` файла function.json:
 
-* Выходные данные *очереди*:
+Используйте выходную привязку служебной шины Azure для отправки сообщений очереди или раздела.
 
-    ```json
-    {
-        "name" : "<Name of output parameter in function signature>",
-        "queueName" : "<Name of the queue>",
-        "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>",
-        "type" : "serviceBus",
-        "direction" : "out"
-    }
-    ```
-* Выходные данные *раздела*:
+## <a name="output---example"></a>Пример выходных данных
 
-    ```json
-    {
-        "name" : "<Name of output parameter in function signature>",
-        "topicName" : "<Name of the topic>",
-        "subscriptionName" : "<Name of the subscription>",
-        "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>",
-        "type" : "serviceBus",
-        "direction" : "out"
-    }
-    ```
+Языковой пример см. в разделах:
 
-Обратите внимание на следующее.
+* [Предкомпилированный код C#](#output---c-example)
+* [Сценарий C#](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
 
-* Для `connection` [создайте в приложении-функции параметр приложения](functions-how-to-use-azure-function-app-settings.md), содержащий строку подключения к пространству имен служебной шины, а затем укажите имя этого параметра в свойстве `connection` для выходной привязки. Чтобы получить строку подключения, следуйте инструкциям, указанным в разделе [Получение учетных данных управления](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
-  Строка подключения указывается для пространства имен служебной шины, и она не должна ограничиваться определенной очередью или разделом.
-  Если оставить параметр `connection` пустым, выходная привязка предполагает, что в параметре приложения `AzureWebJobsServiceBus` указывается строка подключения служебной шины по умолчанию.
-* Для свойства `accessRights` возможны такие значения, как `manage` и `listen`. Значение по умолчанию — `manage`. Это означает, что у свойства `connection` есть разрешение на **управление**. При использовании строки подключения без разрешения на **управление**, задайте для свойства `accessRights` значение `listen`. В противном случае выполнение операций, для которых требуются права на управление, в среде выполнения Функций Azure может завершиться ошибкой.
+### <a name="output---c-example"></a>Пример выходных данных C#
 
-<a name="outputusage"></a>
+В следующем примере показана [предкомпилированная функция C#](functions-dotnet-class-library.md), которая отправляет сообщение очереди служебной шины.
 
-## <a name="output-usage"></a>Использование выходной привязки
-В языке C# и F# Функции Azure могут создать сообщение очереди служебной шины из следующих типов:
+```cs
+[FunctionName("ServiceBusOutput")]
+[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
+public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
+{
+    log.Info($"C# function processed: {input.Text}");
+    return input.Text;
+}
+```
 
-* Любой [объект](https://msdn.microsoft.com/library/system.object.aspx). Определение параметра выглядит так: `out T paramName` (C#).
-  Функции десериализируют объект в сообщение JSON. Если при выходе из функции выходное значение равно null, Функции создают сообщение с пустым объектом.
-* `string`. Определение параметра выглядит так: `out string paraName` (C#). Если при выходе из функции значение параметра не равно null, Функции создают сообщение.
-* `byte[]`. Определение параметра выглядит так: `out byte[] paraName` (C#). Если при выходе из функции значение параметра не равно null, Функции создают сообщение.
-* `BrokeredMessage`. Определение параметра выглядит так: `out BrokeredMessage paraName` (C#). Если при выходе из функции значение параметра не равно null, Функции создают сообщение.
+### <a name="output---c-script-example"></a>Пример выходных данных скрипта C#
 
-Чтобы создать несколько сообщений в функции C#, можно использовать `ICollector<T>` или `IAsyncCollector<T>`. Сообщение создается при вызове метода `Add` .
+В следующем примере показаны выходная привязка служебной шины в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. Функция использует триггер таймера для отправки сообщения очереди каждые 15 секунд.
 
-В Node.js для `context.binding.<paramName>` можно назначить строку, массив байтов или объект Javascript (десериализируется в JSON).
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>Пример выходной привязки
-Предположим, что у вас есть следующий файл function.json, определяющий выходные данные очереди служебной шины:
+Данные привязки в файле *function.json*:
 
 ```json
 {
@@ -231,15 +284,7 @@ module.exports = function(context, myQueueItem) {
 }
 ```
 
-Ознакомьтесь с примером для конкретного языка, отправляющим сообщение в очередь служебной шины.
-
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [Node.js](#outnodejs)
-
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>Пример выходной привязки для языка C# #
+Ниже приведен код сценария C#, который создает одно сообщение.
 
 ```cs
 public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
@@ -250,21 +295,47 @@ public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQu
 }
 ```
 
-Создание нескольких сообщений:
+Ниже приведен код сценария C#, который создает несколько сообщений.
 
 ```cs
 public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
 {
-    string message = $"Service Bus queue message created at: {DateTime.Now}";
+    string message = $"Service Bus queue messages created at: {DateTime.Now}";
     log.Info(message); 
     outputSbQueue.Add("1 " + message);
     outputSbQueue.Add("2 " + message);
 }
 ```
 
-<a name="outfsharp"></a>
+### <a name="output---f-example"></a>Пример выходных данных F#
 
-### <a name="output-sample-in-f"></a>Пример выходной привязки для языка F# #
+В следующем примере показаны выходная привязка служебной шины в файле *function.json* и [функция сценария F#](functions-reference-fsharp.md), которая использует эту привязку. Функция использует триггер таймера для отправки сообщения очереди каждые 15 секунд.
+
+Данные привязки в файле *function.json*:
+
+```json
+{
+    "bindings": [
+        {
+            "schedule": "0/15 * * * * *",
+            "name": "myTimer",
+            "runsOnStartup": true,
+            "type": "timerTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "outputSbQueue",
+            "type": "serviceBus",
+            "queueName": "testqueue",
+            "connection": "MyServiceBusConnection",
+            "direction": "out"
+        }
+    ],
+    "disabled": false
+}
+```
+
+Ниже приведен код сценария F#, который создает одно сообщение.
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
@@ -273,9 +344,35 @@ let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
     outputSbQueue = message
 ```
 
-<a name="outnodejs"></a>
+### <a name="output---javascript-example"></a>Пример выходных данных JavaScript
 
-### <a name="output-sample-in-nodejs"></a>Пример выходной привязки для Node.js
+В следующем примере показаны выходная привязка служебной шины в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует эту привязку. Функция использует триггер таймера для отправки сообщения очереди каждые 15 секунд.
+
+Данные привязки в файле *function.json*:
+
+```json
+{
+    "bindings": [
+        {
+            "schedule": "0/15 * * * * *",
+            "name": "myTimer",
+            "runsOnStartup": true,
+            "type": "timerTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "outputSbQueue",
+            "type": "serviceBus",
+            "queueName": "testqueue",
+            "connection": "MyServiceBusConnection",
+            "direction": "out"
+        }
+    ],
+    "disabled": false
+}
+```
+
+Ниже приведен код сценария JavaScript, который создает одно сообщение.
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -286,7 +383,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-Создание нескольких сообщений:
+Ниже приведен код сценария JavaScript, который создает несколько сообщений.
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -299,6 +396,57 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+## <a name="output---attributes-for-precompiled-c"></a>Выходные данные атрибутов для предкомпилированного кода C#
 
+Для [предкомпилированных функций C#](functions-dotnet-class-library.md) используйте атрибут [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+
+  Конструктор этого атрибута принимает имя очереди или раздела и подписки. Можно также указать права доступа для подключения. Выбор параметра прав доступа описан в разделе [Привязки служебной шины в Функциях Azure](#output---configuration). Ниже приведен пример, в котором этот атрибут применяется к возвращаемому значению функции.
+
+  ```csharp
+  [FunctionName("ServiceBusOutput")]
+  [return: ServiceBus("myqueue")]
+  public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+  ```
+
+  Чтобы указать учетную запись служебной шины, которую нужно использовать, можно задать свойство `Connection`, как показано в следующем примере.
+
+  ```csharp
+  [FunctionName("ServiceBusOutput")]
+  [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
+  public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+  ```
+
+Чтобы указать учетную запись служебной шины для использования на уровне класса, метода или параметра, можно применить атрибут `ServiceBusAccount`.  Дополнительные сведения см. в разделе [Атрибуты триггера для предкомпилированного кода C#](#trigger---attributes-for-precompiled-c).
+
+## <a name="output---configuration"></a>Выходная конфигурация
+
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `ServiceBus`.
+
+|свойство function.json | Свойство атрибута |Описание|
+|---------|---------|----------------------|
+|**type** | Недоступно | Для этого свойства нужно задать значение "serviceBus". Это свойство задается автоматически при создании триггера на портале Azure.|
+|**direction** | Недоступно | Для этого свойства необходимо задать значение "out". Это свойство задается автоматически при создании триггера на портале Azure. |
+|**name** | Недоступно | Имя переменной, представляющей очередь или раздел в коде функции. Задайте значение "$return", ссылающееся на возвращаемое значение функции. | 
+|**queueName**|**QueueName**|Имя очереди.  Задается только в случае отправки сообщений очереди, а не раздела.
+|**topicName**|**TopicName**|Имя отслеживаемого раздела. Задается только в случае отправки сообщений раздела, а не очереди.|
+|**subscriptionName**|**Параметр SubscriptionName**|Имя отслеживаемой подписки. Задается только в случае отправки сообщений раздела, а не очереди.|
+|**подключение**|**Connection**|Имя параметра приложения, содержащего строку подключения к служебной шине, используемую для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyServiceBus, то среда выполнения службы "Функции" будет искать параметр приложения AzureWebJobsMyServiceBus. Если оставить строку `connection` пустой, то среда выполнения службы "Функции" будет использовать строку подключения к служебной шине по умолчанию для параметра приложения AzureWebJobsServiceBus.<br><br>Чтобы получить строку подключения, следуйте инструкциям, указанным в разделе [Получение учетных данных управления](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Строка подключения указывается для пространства имен служебной шины, и она не должна ограничиваться определенной очередью или разделом. <br/>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+|**accessRights**|**Access** |Права доступа для строки подключения. Доступные значения: "manage" и "listen". Значение по умолчанию — "manage". Оно означает, что у подключения есть разрешение на **управление**. При использовании строки подключения без разрешения на **управление** задайте для свойства `accessRights` значение "listen". В противном случае выполнение операций, для которых требуются права на управление, в среде выполнения Функций Azure может завершиться ошибкой.|
+
+## <a name="output---usage"></a>Использование выходной привязки
+
+В коде C# и сценарии C# для доступа к очереди или разделу используйте параметр метода, например `out string paramName`. В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. Можно также использовать любой из следующих типов параметров:
+
+* `out T paramName` - `T` может быть любым сериализуемым в JSON типом. Если при выходе из функции параметр имеет значение NULL, то служба "Функции" создает сообщение с пустым объектом.
+* `out string`. Если при выходе из функции параметр имеет значение NULL, то служба "Функции" не создает сообщение.
+* `out byte[]`. Если при выходе из функции параметр имеет значение NULL, то служба "Функции" не создает сообщение.
+* `out BrokeredMessage`. Если при выходе из функции параметр имеет значение NULL, то служба "Функции" не создает сообщение.
+
+Чтобы создать несколько сообщений в коде C# или функции сценария C#, можно использовать `ICollector<T>` или `IAsyncCollector<T>`. Сообщение создается при вызове метода `Add` .
+
+В JavaScript доступ к очереди или разделу осуществляется с помощью `context.bindings.<name>`. `<name>` — это значение, заданное в свойстве `name` файла *function.json*. `context.binding.<name>` можно назначить строку, массив байтов или объект Javascript (десериализируется в JSON).
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+> [!div class="nextstepaction"]
+> [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

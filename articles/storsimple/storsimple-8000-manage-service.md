@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Развертывание службы диспетчера устройств StorSimple для устройств StorSimple серии 8000
 
@@ -113,6 +113,7 @@ ms.lasthandoff: 10/27/2017
 
 После завершения переноса вы сможете управлять устройствами через службу диспетчера устройств StorSimple на портале Azure. Если вы не видите предложение перейти на портал Azure, но вы хотите перейти, вы можете [отправить запрос](https://aka.ms/ss8000-cx-signup).
 
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Поддерживаемые операции на устройствах под управлением версий, предшествующих обновлению 3.0
 На портале Azure поддерживаются только устройства StorSimple с обновлениями 3.0 и более поздних версий. Устройства под управлением более старых версий имеют ограниченную поддержку. В следующей таблице приведены операции, которые будут поддерживаться на устройствах с обновлением ниже версии 3.0 после переноса на портал Azure.
 
 | Операция                                                                                                                       | Поддерживаются      |

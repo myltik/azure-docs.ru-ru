@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 34ed5083b952c42d4ed119b6986db965eb9eb67a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Развертывание Функции Azure в виде модуля IoT Edge — предварительный просмотр
 Вы можете использовать Функции Azure для развертывания кода, который реализует нужную бизнес-логику, непосредственно на устройствах IoT Edge. В этом руководстве описывается создание и развертывание Функции Azure, которая фильтрует данные датчиков на виртуальном устройстве IoT Edge, созданном по инструкциям в руководствах по развертыванию Azure IoT Edge на виртуальном устройстве в [Windows][lnk-tutorial1-win] или [Linux][lnk-tutorial1-lin]. Из этого руководства вы узнаете, как выполнять такие задачи:     
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/15/2017
             filteredMessage.Properties.Add("MessageType", "Alert");
             // Send the message        
             await output.AddAsync(filteredMessage);
-            log.Info("Received and transfered a message with temperature above the threshold");
+            log.Info("Received and transferred a message with temperature above the threshold");
         }
     }
     ```
@@ -141,7 +141,7 @@ ms.lasthandoff: 11/15/2017
 1. Выполните сборку образа Docker.
     1. В проводнике VS Code откройте папку **Docker**. Выберите папку для платформы своего контейнера: **linux-x64** или **windows-nano**. 
     2. Щелкните правой кнопкой мыши файл **Dockerfile** и выберите **Build IoT Edge module Docker image** (Создать образ Docker модуля IoT Edge). 
-    3. В поле **Выбор папки** перейдите к папке **Docker/linux-x64** и щелкните **Select Folder as EXE_DIR** (Выбрать папку как EXE_DIR). 
+    3. В поле **Выбор папки** перейдите к папке проекта **FilterFunction** и щелкните **Select Folder as EXE_DIR** (Выбрать папку как EXE_DIR). 
     4. В верхней части окна VS Code введите имя образа в текстовом поле всплывающего окна. Например, `<docker registry address>/filterfunction:latest`, где *docker registry address* — это идентификатор Docker, если вы используете центр Docker, или адрес `<your registry name>.azurecr.io`, если вы используете реестр контейнеров Azure.
  
 4. Войдите в Docker. Во встроенном терминале введите следующую команду: 
@@ -225,7 +225,7 @@ ms.lasthandoff: 11/15/2017
 В этом руководстве вы создали модуль IoT Edge, который содержит код для фильтрации необработанных данных, созданных вашим устройством IoT Edge. Чтобы продолжить изучение функций Azure IoT Edge, перейдите к статье об использовании устройства IoT Edge в качестве шлюза. 
 
 > [!div class="nextstepaction"]
-> [Create an IoT Edge gateway device](how-to-create-gateway-device.md) (Создание устройства шлюза IoT Edge для обработки данных с других устройств Интернета вещей (предварительная версия))
+> [Create an IoT Edge gateway device](how-to-create-transparent-gateway.md) (Создание устройства шлюза IoT Edge для обработки данных с других устройств Интернета вещей (предварительная версия))
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

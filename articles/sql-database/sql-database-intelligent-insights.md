@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 86011610885ff913bfd70aa46389e4e39989d0a3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 823855d88396a14ff7e5428a12d71384cdfe95a1
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
@@ -49,8 +49,6 @@ Intelligent Insights анализирует производительность
 
 Метрики, используемые для измерения и обнаружения проблем с производительностью базы данных, основаны на длительности запроса, запросов с истекшим временем ожидания, повышенном времени ожидания и запросах с ошибками. Дополнительные сведения о метриках см. в разделе [Метрики обнаружения](sql-database-intelligent-insights.md#detection-metrics) этого документа.
 
-## <a name="degradations-detected"></a>Обнаружение снижения производительности
-
 Выявленные проблемы снижения производительности базы данных SQL записываются в журнал диагностики. Эти аналитические записи состоят из следующих свойств:
 
 | Свойство             | Сведения              |
@@ -64,36 +62,49 @@ Intelligent Insights анализирует производительность
 | Анализ первопричин | Анализ первопричин обнаруженной проблемы в понятном для понимания формате. Некоторые аналитические данные могут содержать рекомендации по улучшению производительности, если это возможно. |
 |||
 
-## <a name="issues-state-lifecycle-active-verifying-and-complete"></a>Жизненный цикл состояний проблемы: "Active" (Активная), "Verifying" (Проверка) и "Completed" (Завершено)
-
 Проблемы с производительностью, записываемые в журнал диагностики, описываются одним из трех состояний: "Active" (Активная), "Verifying" (Проверка) и "Completed" (Завершено). После обнаружения проблемы с производительностью, пока встроенный аналитический механизм базы данных SQL считает, что она не устранена, проблема помечена как "Active" (Активная). После предполагаемого устранения проблемы будет выполнена проверка и состояние проблемы изменится на "Verifying" (Проверка). После того как встроенный аналитический механизм базы данных SQL посчитает, что проблема действительно устранена, ее состояние изменится на "Complete" (Завершено).
 
 ## <a name="use-intelligent-insights"></a>Использование Intelligent Insights
 
-Журнал диагностики Intelligent Insights можно отправить в Azure Log Analytics, концентраторы событий Azure и службу хранилища Azure. Дополнительные сведения см. статье [Метрики и журналы диагностики базы данных SQL Azure](sql-database-metrics-diag-logging.md). После отправки журнала в одно из этих решений его можно использовать для разработки настраиваемых оповещений и мониторинга с помощью инструментов корпорации Майкрософт или сторонних производителей. 
+Intelligent Insights представляет собой интеллектуальный журнал диагностики производительности. Его можно интегрировать и использовать с другими продуктами и специальными приложениями, например Azure Log Analytics, концентраторами событий Azure, службой хранилища Azure или сторонними продуктами. 
 
-Дополнительные сведения об устранении проблем с производительностью базы данных SQL с помощью Intelligent Insights см. в статье [Устранение проблем с производительностью базы данных SQL Azure с помощью Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+Как правило, Intelligent Insights и Log Analytics используются для просмотра информации через веб-браузер. Возможно, это самый простой способ приступить к работе с данным продуктом. Intelligent Insights с концентраторами событий Azure обычно используется для настройки пользовательского мониторинга и оповещений. Intelligent Insights со службой хранилища Azure обычно используется для разработки пользовательских приложений, предназначенных, например, для создания пользовательских отчетов или, быть может, для архивации и извлечения данных.
 
-## <a name="built-in-intelligent-insights-analytics-with-log-analytics"></a>Использование встроенного аналитического механизма Intelligent Insights с Log Analytics 
+Чтобы интегрировать Intelligent Insights с другими продуктами (Azure Log Analytics, концентраторами событий Azure, службой хранилища Azure или сторонними продуктами) для передачи в них данных, нужно сначала включить ведение журнала Intelligent Insights (SQLInsights log), а затем настроить потоковую передачу данных журнала Intelligent Insights в один из этих продуктов. Дополнительные сведения о том, как включить ведение журнала Intelligent Insights и настроить потоковую передачу данных журнала в использующий их продукт, см. в разделе [Метрики и журналы диагностики базы данных SQL Azure](sql-database-metrics-diag-logging.md). 
 
-Решение Log Analytics предоставляет возможности создания отчетов и оповещений на основе данных журнала диагностики Intelligent Insights. Ниже приведен пример отчета Intelligent Insights в службе "Аналитика SQL Azure":
+Практические сведения об использовании Intelligent Insights с Azure Log Analytics и типичные сценарии подобного применения приведены в видео:
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
+
+Intelligent Insights является непревзойденным решением для обнаружения и устранения проблем производительности базы данных SQL. Чтобы устранить проблемы производительности базы данных SQL с помощью Intelligent Insights, ознакомьтесь с разделом [Устранение проблем с производительностью базы данных SQL Azure с помощью Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+
+## <a name="set-up-intelligent-insights-with-log-analytics"></a>Интеграция Intelligent Insights с Log Analytics 
+
+Решение Log Analytics предоставляет возможности создания отчетов и оповещений на основе данных журнала диагностики Intelligent Insights.
+
+Чтобы использовать Intelligent Insights с Log Analytics, настройте потоковую передачу данных журнала Intelligent Insights в Log Analytics, как описано в разделе [Метрики и журналы диагностики базы данных SQL Azure](sql-database-metrics-diag-logging.md). 
+
+Ниже приведен пример отчета Intelligent Insights в службе "Аналитика SQL Azure":
 
 ![Отчет Intelligent Insights](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
 После того как для журнала диагностики Intelligent Insights настроена потоковая передача в службу "Аналитика SQL", можно выполнять [мониторинг базы данных SQL с помощью этой службы](../log-analytics/log-analytics-azure-sql.md).
 
-## <a name="custom-integrations-of-intelligent-insights-log"></a>Настраиваемая интеграция журнала Intelligent Insights
-
-Дополнительные сведения о разработке настраиваемых оповещений и мониторинга с помощью инструментов корпорации Майкрософт и сторонних производителей см. в статье [Использование журнала диагностики производительности Intelligent Insights для базы данных SQL Azure](sql-database-intelligent-insights-use-diagnostics-log.md).
-
 ## <a name="set-up-intelligent-insights-with-event-hubs"></a>Настройка Intelligent Insights с концентраторами событий
 
-- Чтобы настроить Intelligent Insights для потоковой передачи событий журнала в концентраторы событий, ознакомьтесь со статьей [Потоковая передача журналов диагностики Azure в пространство имен концентраторов событий](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
-- Сведения об использовании концентратора событий Azure для настраиваемого мониторинга и оповещений см. в разделе [Метрики и журналы диагностики базы данных SQL Azure](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
+Чтобы использовать Intelligent Insights с концентраторами событий, настройте потоковую передачу данных журнала Intelligent Insights в концентраторы событий, как описано в разделе [Потоковая передача журналов диагностики Azure в пространство имен концентраторов событий](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+
+Сведения об использовании концентраторов событий для настраиваемого мониторинга и оповещений см. в разделе [Метрики и журналы диагностики базы данных SQL Azure](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
 
 ## <a name="set-up-intelligent-insights-with-storage"></a>Настройка Intelligent Insights с хранилищем
 
-- Сведения о настройке сохранения данных Intelligent Insights в службе хранилища Azure см. в разделе [Потоковая передача в службу хранилища Azure](sql-database-metrics-diag-logging.md#stream-into-storage).
+Чтобы использовать Intelligent Insights со службой хранилища, настройте потоковую передачу данных журнала Intelligent Insights в службу хранилища, как описано в разделе [Потоковая передача в хранилище](sql-database-metrics-diag-logging.md#stream-into-storage).
+
+## <a name="custom-integrations-of-intelligent-insights-log"></a>Настраиваемая интеграция журнала Intelligent Insights
+
+Чтобы использовать Intelligent Insights с инструментами сторонних производителей или для разработки настраиваемых оповещений и мониторинга, ознакомьтесь с разделом [Использование журнала диагностики производительности Intelligent Insights для базы данных SQL Azure](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## <a name="detection-metrics"></a>Метрики обнаружения
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Использование баз данных SQL в Microsoft Azure Stack
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/11/2017
 
 Поставщик ресурсов поддерживает не все возможности [базы данных SQL Azure](https://azure.microsoft.com/services/sql-database/) по управлению базами данных. Например, недоступны пулы эластичных баз данных и возможность автоматически повышать и понижать производительность базы данных. Но поставщик ресурсов поддерживает аналогичные операции создания, чтения, обновления и удаления (CRUD). API-интерфейс несовместим с базой данных SQL.
 
-## <a name="sql-server-resource-provider-adapter-architecture"></a>Архитектура адаптера поставщика ресурсов SQL Server
+## <a name="sql-resource-provider-adapter-architecture"></a>Архитектура адаптера поставщика ресурсов SQL
 Поставщик ресурсов состоит из трех компонентов:
 
 - **Виртуальная машина для адаптера поставщика ресурсов SQL**, на которой выполняется служба поставщика.
@@ -50,6 +50,9 @@ ms.lasthandoff: 11/11/2017
     b. Если в системе несколько узлов, нужно использовать тот, который предоставляет доступ к привилегированной конечной точке.
 
 3. [Скачайте двоичный файл поставщика ресурсов SQL](https://aka.ms/azurestacksqlrp) и запустите самоизвлечение содержимого во временный каталог.
+
+    > [!NOTE]
+    > В случае использования сборки 20170928.3 Azure Stack или более ранней сборки [скачайте эту версию](https://aka.ms/azurestacksqlrp1709).
 
 4. Корневой сертификат Azure Stack можно получить из привилегированной конечной точки. Для ASDK в рамках этого процесса создается самозаверяющий сертификат. Для системы с несколькими узлами вам нужно предоставить подходящий сертификат.
 
@@ -85,8 +88,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
 $domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\SQLRP'
 
@@ -108,7 +115,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### <a name="deploysqlproviderps1-parameters"></a>Параметры DeploySqlProvider.ps1
@@ -141,27 +153,25 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
       ![Проверка развертывания SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-
-
-
-## <a name="removing-the-sql-adapter-resource-provider"></a>Удаление адаптера поставщика ресурсов SQL
+## <a name="remove-the-sql-resource-provider-adapter"></a>Удаление адаптера поставщика ресурсов SQL
 
 Чтобы удалить поставщик ресурсов, сначала нужно удалить все зависимости.
 
-1. Найдите исходный пакет развертывания, который вы ранее скачали для вашей версии поставщика ресурсов.
+1. Найдите исходный пакет развертывания, который вы скачали ранее для этой версии адаптера поставщика ресурсов SQL.
 
 2. Из поставщика ресурсов следует удалить все пользовательские базы данных (сами данные при этом не удаляются). Эти действия должны выполнить пользователи.
 
-3. Администратор должен удалить серверы размещения из адаптера SQL.
+3. Администратору необходимо удалить серверы размещения из адаптера поставщика ресурсов SQL.
 
-4. Администратор должен удалить все планы, которые ссылаются на этот адаптер SQL.
+4. Администратору необходимо удалить все планы, которые ссылаются на этот адаптер поставщик ресурсов SQL.
 
-5. Администратор должен удалить все номера SKU и квоты, связанные с этим адаптером SQL.
+5. Администратору необходимо удалить все номера SKU и квоты, связанные с этим адаптером поставщика ресурсов SQL.
 
 6. Снова запустите скрипт развертывания с параметром -Uninstall и укажите конечные точки Azure Resource Manager, DirectoryTenantID и учетные данные учетной записи администратора служб.
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
+[Добавьте серверы размещения](azure-stack-sql-resource-provider-hosting-servers.md) и [создайте базы данных](azure-stack-sql-resource-provider-databases.md).
 
 Изучите другие [службы PaaS](azure-stack-tools-paas-services.md), такие как [поставщик ресурсов MySQL Server](azure-stack-mysql-resource-provider-deploy.md) или [поставщик ресурсов службы приложений](azure-stack-app-service-overview.md).

@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Создание правил на основе атрибутов для динамического членства в группах в Azure Active Directory
 В Azure Active Directory (Azure AD) можно создать дополнительные правила для включения сложного, основанного на атрибутах динамического членства в группах. В этой статье подробно описываются атрибуты и синтаксис для создания правил динамического членства пользователей или устройств.
@@ -72,7 +72,7 @@ ms.lasthandoff: 11/14/2017
 Общая длина текста расширенного правила не должна превышать 2048 символов.
 
 > [!NOTE]
-> В операциях со строками и регулярными выражениями не учитывается регистр знаков. Можно также выполнить проверку наличия значений Null, используя $null как константу, например: user.department - eq $null.
+> В операциях со строками и регулярными выражениями не учитывается регистр знаков. Можно также выполнить проверку наличия значений NULL, используя *null* как константу, например: user.department -eq *null*.
 > Строки, содержащие кавычки ("), следует экранировать с помощью знака '. Например: user.department -eq \`"Sales".
 
 ## <a name="supported-expression-rule-operators"></a>Поддерживаемые операторы выражений правил
@@ -158,31 +158,31 @@ ms.lasthandoff: 11/14/2017
 
 | Свойства | Допустимые значения | Использование |
 | --- | --- | --- |
-| city |Любое строковое значение или $null |(user.city -eq "value") |
-| country |Любое строковое значение или $null |(user.country -eq "value") |
-| companyName | Любое строковое значение или $null | (user.companyName -eq "value") |
-| department |Любое строковое значение или $null |(user.department -eq "value") |
+| city |Любое строковое значение или *null*. |(user.city -eq "value") |
+| country |Любое строковое значение или *null*. |(user.country -eq "value") |
+| companyName | Любое строковое значение или *null*. | (user.companyName -eq "value") |
+| department |Любое строковое значение или *null*. |(user.department -eq "value") |
 | displayName |Любое строковое значение. |(user.displayName -eq "value") |
-| facsimileTelephoneNumber |Любое строковое значение или $null |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |Любое строковое значение или $null |(user.givenName -eq "value") |
-| jobTitle |Любое строковое значение или $null |(user.jobTitle -eq "value") |
-| mail |Любое строковое значение или $null (SMTP-адрес пользователя) |(user.mail -eq "value") |
+| facsimileTelephoneNumber |Любое строковое значение или *null*. |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |Любое строковое значение или *null*. |(user.givenName -eq "value") |
+| jobTitle |Любое строковое значение или *null*. |(user.jobTitle -eq "value") |
+| mail |Любое строковое значение или *null* (SMTP-адрес пользователя). |(user.mail -eq "value") |
 | mailNickName |Любое строковое значение (псевдоним электронной почты пользователя) |(user.mailNickName -eq "value") |
-| mobile |Любое строковое значение или $null |(user.mobile -eq "value") |
+| mobile |Любое строковое значение или *null*. |(user.mobile -eq "value") |
 | objectId |GUID объекта пользователя. |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier; | Локальный идентификатор безопасности (SID) для пользователей, которые были синхронизированы из локальной среды в облако. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None, DisableStrongPassword, DisablePasswordExpiration, DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Любое строковое значение или $null |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |Любое строковое значение или $null |(user.postalCode -eq "value") |
+| physicalDeliveryOfficeName |Любое строковое значение или *null*. |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |Любое строковое значение или *null*. |(user.postalCode -eq "value") |
 | preferredLanguage |Код ISO 639-1. |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Любое строковое значение или $null |(user.sipProxyAddress -eq "value") |
-| state |Любое строковое значение или $null |(user.state -eq "value") |
-| streetAddress |Любое строковое значение или $null |(user.streetAddress -eq "value") |
-| surname |Любое строковое значение или $null |(user.surname -eq "value") |
-| TelephoneNumber |Любое строковое значение или $null |(user.telephoneNumber -eq "value") |
+| sipProxyAddress |Любое строковое значение или *null*. |(user.sipProxyAddress -eq "value") |
+| state |Любое строковое значение или *null*. |(user.state -eq "value") |
+| streetAddress |Любое строковое значение или *null*. |(user.streetAddress -eq "value") |
+| surname |Любое строковое значение или *null*. |(user.surname -eq "value") |
+| TelephoneNumber |Любое строковое значение или *null*. |(user.telephoneNumber -eq "value") |
 | usageLocation |Двухбуквенный код страны. |(user.usageLocation -eq "US") |
 | userPrincipalName |Любое строковое значение. |(user.userPrincipalName -eq "alias@domain") |
-| userType |member, guest, $null |(user.userType -eq "Member") |
+| userType |member, guest, *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Свойства типа коллекции строк
 Допустимые операторы
@@ -225,14 +225,10 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## <a name="use-of-null-values"></a>Использование значений Null
 
-Чтобы указать значение Null в правиле, можно использовать null или $null. Пример:
+Чтобы указать значение NULL в правиле, можно использовать значение *null*. Не следует брать в кавычки слово *null*, иначе оно будет интерпретироваться как значение строкового литерала. Ниже показано, как правильно указывать значение NULL.
 ```
    user.mail –ne null
 ```
-эквивалентно правилу
-```
-   user.mail –ne $null
-   ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Атрибуты расширения и настраиваемые атрибуты
 Атрибуты расширения и настраиваемые атрибуты поддерживаются в правилах динамического членства.

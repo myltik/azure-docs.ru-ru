@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Таблица поддержки Azure Site Recovery для репликации из одного региона Azure в другой
 
@@ -164,9 +164,10 @@ GRS | Поддерживаются |
 RA-GRS | Поддерживаются |
 ZRS | Не поддерживается |  
 "Холодное" и "горячее" хранилище | Не поддерживается | Диски виртуальных машин не поддерживаются "холодными" и "горячими" хранилищами
+Конечные точки службы виртуальной сети (брандмауэры службы хранилища Azure и виртуальные сети)  | Нет | Разрешение доступа к определенным виртуальным сетям Azure для учетных записей хранения кэша, используемых для хранения реплицируемых данных, не поддерживается. 
 
 >[!IMPORTANT]
-> Во избежание проблем с производительностью следуйте [рекомендациям по выбору хранилища](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) для исходных виртуальных машин Azure. Если использовать параметры по умолчанию, Site Recovery создает необходимые учетные записи хранения на основе исходной конфигурации. Если вы настроили собственные параметры и выбрали их, убедитесь, что вы используете целевые показатели масштабируемости для дисков исходных виртуальных машин (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
+> Обязательно определите целевые показатели масштабируемости и производительности дисков виртуальных машин [Linux](../virtual-machines/linux/disk-scalability-targets.md) или [Windows](../virtual-machines/windows/disk-scalability-targets.md), чтобы избежать проблем с производительностью. Если использовать параметры по умолчанию, Site Recovery будет создавать необходимые диски и учетные записи хранения на основе исходной конфигурации. Если вы настраиваете и выбираете собственные параметры, учитывайте целевые показатели масштабирования и производительности дисков исходных виртуальных машин.
 
 ## <a name="support-for-network-configuration"></a>Поддержка конфигурации сети
 **Конфигурация** | **Поддержка** | **Примечания**

@@ -12,19 +12,19 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Как масштабировать среду Azure Time Series Insights
 
-В этой статье описывается, как изменять емкость среды Time Series Insights с помощью портала Azure. Емкость — множитель, применяемый к скорости входящих данных, емкости хранилища и затратам, связанным с выбранным SKU. 
+В этой статье описывается, как изменять емкость среды Time Series Insights с помощью портала Azure. Емкость — множитель, применяемый к скорости входящих данных, емкости хранилища и затратам, связанным с выбранным номером SKU. 
 
 Портал Azure можно использовать для увеличения или уменьшения емкости в пределах ценовой категории SKU. 
 
-Однако изменение ценовой категории SKU запрещено. Например, среду со SKU S1 нельзя преобразовать в среду S2 или наоборот. 
+Однако изменение ценовой категории SKU запрещено. Например, среду с ценовой категорией SKU S1 нельзя преобразовать в среду S2 или наоборот. 
 
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>Скорость приема и емкость номера SKU S1
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="change-the-capacity-of-your-environment"></a>Изменение емкости среды
 1. Найдите и выберите среду Time Series Insights на портале Azure. 
 
-2. В разделе **Параметры** выберите **Свойства**.
+2. В меню среды службы "Аналитика временных рядов" выберите **Настроить**.
 
    ![configure.png](media/scale-your-environment/configure.png)
 

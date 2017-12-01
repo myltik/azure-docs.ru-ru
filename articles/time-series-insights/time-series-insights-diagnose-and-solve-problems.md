@@ -1,6 +1,8 @@
 ---
 title: "Диагностика и устранение неполадок в среде службы \"Аналитика временных рядов\" | Документация Майкрософт"
 description: "В этой статье описываются способы диагностики, устранения неполадок и решения распространенных проблем, с которыми вы можете столкнуться в среде службы \"Аналитика временных рядов Azure\"."
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
@@ -9,11 +11,11 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 4216b245fd480003cfa4a34452f87efade964f8d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Диагностика и устранение неполадок в среде Time Series Insights
 
@@ -43,7 +45,7 @@ ms.lasthandoff: 11/15/2017
 Если данные отображаются частично и с задержкой, возможны несколько причин.
 
 ### <a name="possible-cause-a-your-environment-is-getting-throttled"></a>Возможная причина А: выполняется регулирование среды
-Ограничение регулирования применяется на основе типа номера SKU и емкости среды. Все источники событий в среде совместно используют емкость. Если источник событий Центра Интернета вещей или концентратора событий превышает ограничение по объему передаваемых данных, наблюдается регулирование и задержка.
+Ограничение регулирования применяется на основе типа номера SKU и емкости среды. Все источники событий в среде совместно используют емкость. Если источник событий Центра Интернета вещей или концентратора событий превышает ограничение объема передаваемых данных, наблюдается регулирование и задержка.
 
 На снимке экрана ниже показана среда Time Series Insights с номером SKU S1 и емкостью 3. Она может принимать 3 миллиона событий в день.
 

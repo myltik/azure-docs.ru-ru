@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: ebf6f1256a280fdff18c0c9060614acf0d4a642b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Обзор Azure Cloud Shell
 Azure Cloud Shell — это интерактивная доступная браузеру оболочка для управления ресурсами Azure.
@@ -36,7 +36,7 @@ Azure Cloud Shell — это интерактивная доступная бр
 ![PowerShell в Cloud Shell (предварительная версия)](media/overview/overview-ps-pic.png)
 
 ## <a name="features"></a>Функции
-### <a name="browser-based-shell-experience"></a>Работа в браузере
+### <a name="browser-based-shell-experience"></a>Оболочка на основе браузера
 Cloud Shell предоставляет доступ к браузерному интерфейсу командной строки, созданному с учетом задач управления Azure.
 Используйте Cloud Shell для работы из локального компьютера с неограниченными возможностями, которые может обеспечить только облако.
 
@@ -82,12 +82,12 @@ Azure Cloud Shell предоставляет гибкие возможности
 [Дополнительные сведения о хранилище Cloud Shell, обновлении файловых ресурсов, а также о передаче и скачивании файлов](persisting-shell-storage.md).
 
 ## <a name="concepts"></a>Основные понятия
-* Cloud Shell работает на временной машине, предоставляемой для каждого сеанса и для каждого пользователя отдельно.
+* Cloud Shell работает на временном узле, предоставляемом для каждого сеанса и для каждого пользователя отдельно.
 * Время ожидания Cloud Shell истекает через 20 минут при отсутствии интерактивных действий.
-* Доступ к Cloud Shell можно получить только при наличии присоединенной общей папки.
+* Для Cloud Shell требуется подключение файлового ресурса.
 * Cloud Shell использует один и тот же файловый ресурс для Bash и PowerShell.
 * Cloud Shell назначается один компьютер на учетную запись пользователя.
-* Разрешения задаются как для обычного пользователя Linux (Bash).
+* Разрешения задаются как для обычного пользователя Linux в Bash.
 
 Узнайте больше о возможностях [Bash в Cloud Shell](features.md) и [PowerShell в Cloud Shell (предварительная версия)](features-powershell.md).
 
@@ -102,5 +102,5 @@ Azure Cloud Shell предоставляет гибкие возможности
 За использование компьютера, на котором размещена среда Cloud Shell, плата не взимается. На этом компьютере должен быть подключен файловый ресурс Azure. Применяются расходы на обычное хранение.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Краткое руководство по Bash в Azure Cloud Shell](quickstart.md)
-[PowerShell in Cloud Shell (Preview) quickstart](quickstart-powershell.md)
+[Краткое руководство по использованию Bash в Azure Cloud Shell](quickstart.md) <br>
+[Краткое руководство по использованию PowerShell в Cloud Shell (предварительная версия)](quickstart-powershell.md)

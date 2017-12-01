@@ -1,207 +1,191 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Teamwork | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и Teamwork."
+title: "Руководство по интеграции Azure Active Directory с Teamwork.com | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в приложении Teamwork.com."
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-ms.assetid: 03760032-3d76-4b47-ab84-241f72fbd561
+ms.reviewer: joflore
+ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: edd2f9446515531f1147a8abf99295b618b89b25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamwork"></a>Руководство по интеграции Azure Active Directory с Teamwork
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Руководство по интеграции Azure Active Directory с Teamwork.com
 
-В этом руководстве описано, как интегрировать Teamwork с Azure Active Directory (Azure AD).
+В этом руководстве описано, как интегрировать Teamwork.com с Azure Active Directory (Azure AD).
 
-Интеграция Azure AD с приложением Teamwork обеспечивает следующие преимущества.
+Интеграция Azure AD с Teamwork.com обеспечивает следующие преимущества.
 
-- С помощью Azure AD вы можете контролировать доступ к Teamwork.
-- Вы можете включить автоматический вход пользователей в Teamwork (единый вход) с использованием учетной записи Azure AD.
-- Вы можете управлять учетными записями централизованно — через портал управления Azure.
+- C помощью Azure AD вы можете контролировать доступ к Teamwork.com.
+- Вы можете включить автоматический вход пользователей в Teamwork.com (единый вход) с использованием учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Чтобы настроить интеграцию Azure AD с Teamwork, вам потребуется следующее:
+Чтобы настроить интеграцию Azure AD с Teamwork.com, вам потребуется следующее:
 
 - подписка Azure AD;
-- подписка на Teamwork с поддержкой единого входа.
-
+- подписка Teamwork.com с поддержкой единого входа.
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
-
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
-
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. Добавление Teamwork из коллекции.
+1. Добавление Teamwork.com из коллекции.
 2. Настройка и проверка единого входа в Azure AD
 
+## <a name="adding-teamworkcom-from-the-gallery"></a>Добавление Teamwork.com из коллекции
+Чтобы настроить интеграцию Teamwork.com с Azure AD, необходимо добавить Teamwork.com из коллекции в список управляемых приложений SaaS.
 
-## <a name="adding-teamwork-from-the-gallery"></a>Добавление Teamwork из коллекции
-Чтобы настроить интеграцию Teamwork в Azure AD, вам необходимо добавить Teamwork из коллекции в список управляемых приложений SaaS.
+**Чтобы добавить Teamwork.com из коллекции, выполните следующие действия.**
 
-**Чтобы добавить Teamwork из коллекции, сделайте следующее:**
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-1. На **[портале управления Azure](https://portal.azure.com)** в левой области навигации нажмите значок **Azure Active Directory**. 
-
-    ![Active Directory][1]
+    ![Кнопка "Azure Active Directory"][1]
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![Колонка "Корпоративные приложения"][2]
     
-3. Нажмите кнопку **Добавить** в верхней части диалогового окна.
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![Приложения][3]
+    ![Кнопка "Новое приложение"][3]
 
-4. Введите в поле поиска **Teamwork**.
+4. В поле поиска введите **Teamwork.com**, на панели результатов выберите **Teamwork.com** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_001.png)
+    ![Teamwork.com в списке результатов](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_addfromgallery.png)
 
-5. На панели результатов выберите **Teamwork** и нажмите кнопку **Добавить**, чтобы добавить приложение.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_0001.png)
+В этом разделе описана настройка и проверка единого входа Azure AD в Teamwork.com с использованием тестового пользователя Britta Simon.
 
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Teamwork.com соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Teamwork.com.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-В этом разделе описана настройка и проверка единого входа Azure AD в Teamwork с использованием тестового пользователя Britta Simon.
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Teamwork.com.
 
-Чтобы единый вход работал, Azure AD необходимо знать, какой пользователь в Teamwork соответствует пользователю в Azure AD. Другими словами — необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Teamwork.
+Чтобы настроить и проверить единый вход Azure AD в Teamwork.com, вам потребуется выполнить действия в следующих стандартных блоках.
 
-Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD, которое будет соответствовать **имени пользователя** в Teamwork.
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Teamwork.com](#create-a-teamworkcom-test-user)** требуется для того, чтобы в Teamwork.com существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-Чтобы настроить и проверить единый вход Azure AD в Teamwork, вам потребуется выполнить действия в следующих стандартных блоках:
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Teamwork](#creating-a-teamwork-test-user)** требуется для создания в Teamwork пользователя Britta Simon, связанного с соответствующим представлением в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Teamwork.com.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+**Чтобы настроить единый вход Azure AD в Teamwork.com, выполните следующие действия.**
 
-В данном разделе описано, как включить единый вход Azure AD на портале управления Azure, а также как его настроить в приложении Teamwork.
+1. На портале Azure на странице интеграции с приложением **Teamwork.com** щелкните **Единый вход**.
 
-**Чтобы настроить единый вход Azure AD в Teamwork, сделайте следующее:**
-
-1. На портале управления Azure на странице интеграции с приложением **Teamwork** щелкните **Единый вход**.
-
-    ![Настройка единого входа][4]
+    ![Ссылка "Настройка единого входа"][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
  
-    ![Настройка единого входа](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_01.png)
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_samlbase.png)
 
-3. В текстовом поле **URL-адрес для входа** раздела **Домены и URL-адреса приложения Teamwork** введите URL-адрес в следующем формате: `https://<company name>.teamwork.com`
+3. В разделе **Домены и URL-адреса приложения Teamwork.com** сделайте следующее.
 
-    ![Настройка единого входа](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_02.png)
+    ![Сведения о домене и URL-адресах единого входа для приложения Teamwork.com](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_url.png)
+
+    В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<company name>.teamwork.com`
 
     > [!NOTE] 
-    > Обратите внимание, что это значение используется только в качестве примера. Вместо него необходимо указать фактический URL-адрес для входа. Чтобы получить это значение, обратитесь в [службу поддержки Teamwork](mailto:support@teamwork.com). 
+    > Это значение приведено для справки. Вместо него необходимо указать фактический URL-адрес входа. Чтобы получить это значение, обратитесь к [группе поддержки Teamwork.com](mailto:support@teamwork.com). 
 
-4. В разделе **Сертификат подписи SAML** щелкните **Создание нового сертификата**.
+4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
-    ![Настройка единого входа](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_03.png)   
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_certificate.png) 
 
-5. В диалоговом окне **Создание нового сертификата** щелкните значок календаря и выберите **дату окончания срока действия**. Затем нажмите кнопку **Сохранить**.
+5. Нажмите кнопку **Сохранить** .
 
-    ![Настройка единого входа](./media/active-directory-saas-teamwork-tutorial/tutorial_general_300.png)
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
 
-6. В разделе **Сертификат подписи SAML** выберите **Make new certificate active** (Сделать новый сертификат активным) и нажмите кнопку **Сохранить**.
+6. Чтобы настроить единый вход на стороне **Teamwork.com**, отправьте [группе поддержки Teamwork.com](mailto:support@teamwork.com) скачанный **XML-файл метаданных**. Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
-    ![Настройка единого входа](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_04.png)
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
 
-7. Во всплывающем окне **Rollover certificate** (Сертификат восстановления) нажмите кнопку **ОК**.
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
-    ![Настройка единого входа](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-8. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
-
-    ![Настройка единого входа](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_05.png) 
-
-9. Чтобы настроить единый вход для своего приложения, обратитесь в [службу поддержки Teamwork](mailto:support@teamwork.com) и предоставьте скачанный **файл метаданных**.
-  
-
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на портале управления Azure тестового пользователя с именем Britta Simon.
-
-![Создание пользователя Azure AD][100]
+   ![Создание тестового пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **портале управления Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+1. На портале Azure в области слева нажмите кнопку **Azure Active Directory**.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_01.png) 
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-teamwork-tutorial/create_aaduser_01.png)
 
-2. Перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**, чтобы отобразить список пользователей.
-    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_02.png) 
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
 
-3. В верхней части диалогового окна щелкните **Добавить**, чтобы открыть диалоговое окно **Пользователь**.
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-teamwork-tutorial/create_aaduser_02.png)
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
+
+    ![Кнопка "Добавить"](./media/active-directory-saas-teamwork-tutorial/create_aaduser_03.png)
+
+4. В диалоговом окне **Пользователь** сделайте следующее.
+
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png)
+
+    а. В поле **Имя** введите **BrittaSimon**.
+
+    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+
+    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
+
+    г) Щелкните **Создать**.
  
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_03.png) 
+### <a name="create-a-teamworkcom-test-user"></a>Создание тестового пользователя Teamwork.com
 
-4. На странице диалогового окна **Пользователь** выполните следующие действия.
- 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png) 
+В этом разделе описано, как создать пользователя Britta Simon в Teamwork.com. Обратитесь к [группе поддержки Teamwork.com](mailto:support@teamwork.com), чтобы добавить пользователей на платформу Teamwork.com. Перед использованием единого входа необходимо создать и активировать пользователей.
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к Teamwork.com.
 
-    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+![Назначение роли пользователя][200] 
 
-    d. Щелкните **Создать**. 
+**Чтобы назначить пользователя Britta Simon в Teamwork.com, сделайте следующее.**
 
-
-
-### <a name="creating-a-teamwork-test-user"></a>Создание тестового пользователя Teamwork
-
-В этом разделе описано, как создать пользователя Britta Simon в Teamwork. Обратитесь в [службу поддержки Teamwork](mailto:support@teamwork.com), чтобы добавить пользователей на платформу Teamwork.
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-
-В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к Teamwork.
-
-![Назначение пользователя][200] 
-
-**Чтобы назначить пользователя Britta Simon в Teamwork, сделайте следующее:**
-
-1. На портале управления Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
     ![Назначение пользователя][201] 
 
-2. В списке приложений выберите **Teamwork**.
+2. Из списка приложений выберите **Teamwork.com**.
 
-    ![Настройка единого входа](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_50.png) 
+    ![Ссылка на Teamwork.com в списке приложений](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_app.png)  
 
 3. В меню слева выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][202] 
+    ![Ссылка "Пользователи и группы"][202]
 
 4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][203]
+    ![Область "Добавление назначения"][203]
 
 5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
 
@@ -209,14 +193,12 @@ ms.lasthandoff: 10/11/2017
 
 7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
     
-
-
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
-Щелкнув плитку Teamwork на панели доступа, вы автоматически войдете в приложение Teamwork.
-
+Щелкнув элемент "Teamwork.com" на панели доступа, вы автоматически войдете в приложение Teamwork.com.
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
@@ -238,3 +220,4 @@ ms.lasthandoff: 10/11/2017
 [201]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_203.png
+

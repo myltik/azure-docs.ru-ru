@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Часто задаваемые вопросы по Azure Active Directory Connect
 
@@ -43,8 +43,14 @@ ms.lasthandoff: 10/11/2017
 **Вопрос. Поддерживаются ли одноуровневые домены (SLD)?**  
 Нет. Azure AD Connect не поддерживает локальные леса и домены, использующие SLD.
 
+**Вопрос. Поддерживаются ли леса с несвязанными доменами AD?**  
+Нет. Azure AD Connect не поддерживает локальные леса, содержащие несвязанные пространства имен.
+
 **Вопрос. Поддерживаются ли имена NetBIOS "с точками"?**  
 Нет. Azure AD Connect не поддерживает локальные леса и домены, имя NetBIOS которых содержит точку (".").
+
+**Вопрос. Поддерживается ли среда исключительно на основе протокола IPv6?**  
+Нет, Azure AD Connect не поддерживает среды исключительно на основе протокола IPv6.
 
 ## <a name="federation"></a>Федерация
 **Вопрос. Что делать, если мне на электронную почту пришло сообщение с требованием продлить срок действия сертификата Office 365?**  

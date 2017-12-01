@@ -1,6 +1,6 @@
 ---
-title: "Сведения о дисках и виртуальных жестких дисках для виртуальных машин Microsoft Azure под управлением Windows | Документация Майкрософт"
-description: "Информация об основах использования дисков и виртуальных жестких дисков для виртуальных машин Windows в Azure."
+title: "Основные сведения о неуправляемых (страничные BLOB-объекты) и управляемых дисковых хранилищах для виртуальных машин Microsoft Azure под управлением Windows | Документация Майкрософт"
+description: "Основные сведения о неуправляемых (страничные BLOB-объекты) и управляемых дисковых хранилищах для виртуальных машин Windows в Azure."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: b1beecf2e4268e358285c1101edcb13f6d592948
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1a8dc028e2e872820a209bcdde5cca57853dd419
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-windows-vms"></a>Сведения о дисках и VHD для виртуальных машин Azure под управлением Windows
+# <a name="about-disks-storage-for-azure-windows-vms"></a>Основные сведения о дисковых хранилищах для виртуальных машин Windows в Azure
 Как и любой другой компьютер, виртуальные машины в Azure используют диски как место хранения операционной системы, приложений и данных. Все виртуальные машины Azure имеют как минимум два диска — диск операционной системы Windows и временный диск. Диск операционной системы создается из образа, при этом и диск операционной системы, и образ являются виртуальными жесткими дисками (VHD), расположенными в учетной записи хранения Azure. Кроме того, виртуальные машины могут иметь один или несколько дисков данных, которые также хранятся на виртуальных жестких дисках. 
 
 В этой статье рассматриваются различные варианты применения дисков и сведения о том, как создать и использовать различные типы дисков. Также доступна версия этой статьи для [виртуальных машин Linux](../linux/about-disks-and-vhds.md).
@@ -79,6 +79,8 @@ fsutil behavior set DisableDeleteNotify 0
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Подключите диск](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , чтобы увеличить емкость хранилища для виртуальной машины.
-* [Измените букву временного диска Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) , чтобы приложение могло использовать диск D для данных.
+* [Подключите диск](attach-disk-portal.md) , чтобы увеличить емкость хранилища для виртуальной машины.
+* [Создайте моментальный снимок](snapshot-copy-managed-disk.md).
+* [Преобразуйте виртуальную машину для использования управляемых дисков](convert-unmanaged-to-managed-disks.md).
+
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-advanced-policies"></a>Расширенные политики в службе управления API
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -268,26 +268,26 @@ ms.lasthandoff: 10/11/2017
 -   **Области политики:** все области.  
   
 ##  <a name="LimitConcurrency"></a> Ограничение параллелизма  
- Политика `limit-concurrency` не позволяет, чтобы заключенные политики одновременно выполнялись запросами, количество которых выше указанного. Если превышено пороговое значение, новые запросы добавляются в очередь, пока не будет достигнута максимальная ее длина. Когда очередь заполнится, новые запросы немедленно завершатся ошибкой.
+ Политика `limit-concurrency` не позволяет, чтобы заключенные политики одновременно выполнялись запросами, количество которых выше указанного. После превышения этого числа новые запросы будут завершаться сбоем с кодом состояния "429 Too Many Requests" (429 — слишком много запросов).
   
 ###  <a name="LimitConcurrencyStatement"></a> Правило политики  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### <a name="examples"></a>Примеры  
   
-####  <a name="ChooseExample"></a> Пример  
+#### <a name="example"></a>Пример  
  Ниже приведен пример, как ограничить число запросов, пересылаемых в серверную часть, на основе значения переменной контекста.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -307,10 +307,8 @@ ms.lasthandoff: 10/11/2017
 |---------------|-----------------|--------------|--------------|  
 |key|Строка. Допустимое выражение. Задает область параллелизма. Используется несколькими политиками.|Да|Недоступно|  
 |max-count|Целое число. Указывает максимальное количество запросов для ввода политики.|Да|Недоступно|  
-|timeout|Целое число. Допустимое выражение. Указывает число секунд, которые запрос ожидает для входа в область, прежде чем произойдет ошибка "429 — слишком много запросов".|Нет|Infinity|  
-|max-queue-length|Целое число. Допустимое выражение. Указывает максимальную длину очереди. При попытке получить доступ к этой политике входящие запросы немедленно завершаются ошибкой "429 — слишком много запросов" сразу после заполнения очереди.|Нет|Infinity|  
   
-###  <a name="ChooseUsage"></a> Использование  
+### <a name="usage"></a>Использование  
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Разделы политики:** inbound, outbound, backend, on-error.  

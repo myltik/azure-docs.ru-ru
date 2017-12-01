@@ -1,6 +1,6 @@
 ---
-title: "Подготовка инфраструктуры Azure для SAP высокого уровня доступности с использованием отказоустойчивого кластера Windows и файлового ресурса для экземпляра SAP (A)SCS | Документация Майкрософт"
-description: "Подготовка инфраструктуры Azure для SAP высокого уровня доступности с использованием отказоустойчивого кластера Windows и файлового ресурса для экземпляра SAP (A)SCS"
+title: "Подготовка высокодоступной инфраструктуры Azure для SAP с использованием отказоустойчивого кластера Windows и файлового ресурса для экземпляров SAP ASCS/SCS | Документация Майкрософт"
+description: "Подготовка высокодоступной инфраструктуры Azure для SAP с использованием отказоустойчивого кластера Windows и файлового ресурса для экземпляров SAP ASCS/SCS"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2468b5d0996fee5e0106d0d314c16654558e9f4
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 3f9e2108a7714dcbfd4f2db583cb6ee4b803f65a
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="azure-infrastructure-preparation-for-sap-ha-using-windows-failover-cluster-and-file-share-for-sap-ascs-instance"></a>Подготовка инфраструктуры Azure для SAP высокого уровня доступности с использованием отказоустойчивого кластера Windows и файлового ресурса для экземпляра SAP (A)SCS
+# <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Подготовка высокодоступной инфраструктуры Azure для SAP с помощью отказоустойчивого кластера Windows и файлового ресурса для экземпляров SAP ASCS/SCS
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -206,86 +206,89 @@ ms.lasthandoff: 10/25/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-В этом документе описываются шаги подготовки инфраструктуры Azure, необходимые для установки и настройки высокодоступной системы SAP в **отказоустойчивом кластере Windows (WSFC)** с использованием **файлового ресурса кластера с возможностью масштабирования** в качестве варианта для кластеризации экземпляра SAP (A)SCS.
+В этой статье документе описываются шаги по подготовке инфраструктуры Azure, необходимые для установки и настройки высокодоступных систем SAP в отказоустойчивом кластере Windows (WSFC) с использованием масштабируемого файлового ресурса для кластеризации экземпляров SAP ASCS/SCS.
 
 ## <a name="prerequisite"></a>Предварительные требования
 
-Ознакомьтесь с руководствами ниже, а затем приступите к установке.
+Прежде чем начать установку, ознакомьтесь со следующей статьей:
 
-* [Clustering SAP (A)SCS Instance on **Windows Failover Cluster Using Cluster** **Shared Disk on Azure**][sap-high-availability-guide-wsfc-shared-disk] (Кластеризация экземпляра SAP (A)SCS в отказоустойчивом кластере Windows с помощью общего диска кластера в Azure)
+* [Кластеризация экземпляра SAP ASCS/SCS в отказоустойчивом кластере Windows с помощью файлового ресурса в Azure][sap-high-availability-guide-wsfc-shared-disk]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Имена узлов и IP-адреса
 
-| Роль имени виртуального узла | Имя виртуального узла | Статический IP-адрес | Группа доступности |
+| Роль имени виртуального узла | Имя виртуального узла | Статический IP-адрес | группа доступности; |
 | --- | --- | --- | --- |
-| Кластер (A) SCS первого узла кластера | ascs-1 | 10.0.6.4 | ascs-as |
-| Кластер (A) SCS второго узла кластера | ascs-2 | 10.0.6.5 | ascs-as |
-| Сетевое имя кластера |ascs-cl | 10.0.6.6 | нет |
-| Сетевое имя кластера SAP ASCS PR1 |pr1-ascs | 10.0.6.7 | нет |
+| Кластер ASCS/SCS первого узла | ascs-1 | 10.0.6.4 | ascs-as |
+| Кластер ASCS/SCS второго узла | ascs-2 | 10.0.6.5 | ascs-as |
+| Имя сети кластера |ascs-cl | 10.0.6.6 | Недоступно |
+| Имя сети кластера SAP ASCS PR1 |pr1-ascs | 10.0.6.7 | Недоступно |
 
 
-**Таблица 1.** Кластер (A)SCS
+**Таблица 1**. Кластер ASCS/SCS
 
-| &lt;ИД безопасности&gt; SAP | Номер экземпляра SAP (A)SCS |
+| \<SID> SAP | Количество экземпляров SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
-**Таблица 2.** Сведения об экземпляре SAP (A)SCS
+**Таблица 2**. Сведения об экземпляре SAP ASCS/SCS
 
 
-| Роль имени виртуального узла | Имя виртуального узла | Статический IP-адрес | Группа доступности |
+| Роль имени виртуального узла | Имя виртуального узла | Статический IP-адрес | группа доступности; |
 | --- | --- | --- | --- |
 | Первый узел кластера | sofs-1 | 10.0.6.10 | sofs-as |
 | Второй узел кластера | sofs-2 | 10.0.6.11 | sofs-as |
 | Третий узел кластера | sofs-3 | 10.0.6.12 | sofs-as |
-| Сетевое имя кластера | sofs-cl | 10.0.6.13 | нет |
-| Имя глобального узла SAP | sapglobal | Используйте IP-адреса всех узлов кластера | нет |
+| Имя сети кластера | sofs-cl | 10.0.6.13 | Недоступно |
+| Имя глобального узла SAP | sapglobal | Используйте IP-адреса всех узлов кластера | Недоступно |
 
-**Таблица 3.** Кластер SOFS
-
-
-## <a name="deploy-vms-for-sap-ascs-cluster-dbms-cluster-and-sap-application-servers"></a>Развертывание виртуальных машин для кластеров SAP (A)SCS, кластеров СУБД и серверов приложений SAP
-
-Чтобы подготовить инфраструктуру Azure, выполните действия из следующих разделов:
-* [Подготовка инфраструктуры для шаблона 1, 2 и 3 архитектуры][sap-high-availability-infrastructure-wsfc-shared-disk].
-
-* [Виртуальная сеть Azure][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network].
-
-* [IP-адреса DNS][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip].
-
-* [Настройка статических IP-адресов для виртуальных машин SAP][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
-
-* [Настройка статического IP-адреса для внутреннего балансировщика нагрузки Azure][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
-
-* [Правила балансировки нагрузки ASCS/SCS по умолчанию для внутреннего балансировщика нагрузки Azure][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
-
-* [Изменение правил балансировки нагрузки ASCS/SCS по умолчанию для внутреннего балансировщика нагрузки Azure][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
-
-*  [Добавление виртуальных машин Windows к домену. Добавление записей реестра для обоих узлов кластера экземпляра SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
-
-* При использовании Windows Server 2016 рекомендуется настроить [облако-свидетель Azure][deploy-cloud-witness]
+**Таблица 3**. Кластер масштабируемых файловых серверов
 
 
-## <a name="deploy-scale-out-file-server-manually"></a>Развертывание масштабируемого файлового сервера вручную 
+## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Развертывание виртуальных машин для кластера SAP ASCS/SCS, кластера системы управления базами данных (СУБД) и экземпляров сервера приложений SAP
 
-Кластер масштабируемого файлового сервера (SOFS) можно развернуть вручную, как описано в записи блога о [Локальных дисковых пространствах в Azure][ms-blog-s2d-in-azure].  
+Чтобы подготовить инфраструктуру Azure, выполните следующие действия.
+
+* [Подготовьте инфраструктуру для шаблонов архитектуры 1, 2 и 3][sap-high-availability-infrastructure-wsfc-shared-disk].
+
+* [Создайте виртуальную сеть Azure][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network].
+
+* [Задайте необходимые IP-адреса DNS][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip].
+
+* [Настройте статические IP-адреса для виртуальных машин SAP][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
+
+* [Настройте статические IP-адреса для внутренней подсистемы балансировки нагрузки Azure][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
+
+* [Задайте правила балансировки нагрузки ASCS/SCS по умолчанию для внутренней подсистемы балансировки нагрузки Azure][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
+
+* [Измените правила балансировки нагрузки ASCS/SCS по умолчанию для внутренней подсистемы балансировки нагрузки Azure][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
+
+* [Присоедините виртуальные машины Windows к домену][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+
+* [Добавьте записи реестра для обоих узлов кластера экземпляра SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+
+* При использовании Windows Server 2016 рекомендуется настроить [облако-свидетель Azure][deploy-cloud-witness].
+
+
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Развертывание кластера масштабируемых файловых серверов вручную 
+
+Можно развернуть кластер масштабируемых файловых серверов вручную, как описано в блоге [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure], выполнив следующий код.  
 
 
 ```PowerShell
-# Set on Execution Policy  ALL cluster nodes!
+# Set an execution policy - all cluster nodes
 Set-ExecutionPolicy Unrestricted
 
-# Defines SOFS cluster nodes
+# Define Scale-Out File Server cluster nodes
 $nodes = ("sofs-1", "sofs-2", "sofs-3")
 
-# Add cluster and SOFS features
+# Add cluster and Scale-Out File Server features
 Invoke-Command $nodes {Install-WindowsFeature Failover-Clustering, FS-FileServer -IncludeAllSubFeature -IncludeManagementTools -Verbose}
 
 # Test cluster
 Test-Cluster -node $nodes -Verbose
 
-#Install cluster
+# Install cluster
 $ClusterNetworkName = "sofs-cl"
 $ClusterIP = "10.0.6.13"
 New-Cluster -Name $ClusterNetworkName -Node $nodes –NoStorage –StaticAddress $ClusterIP -Verbose
@@ -293,10 +296,10 @@ New-Cluster -Name $ClusterNetworkName -Node $nodes –NoStorage –StaticAddress
 # Set Azure Quorum
 Set-ClusterQuorum –CloudWitness –AccountName gorcloudwitness -AccessKey <YourAzureStorageAccessKey>
 
-# Enable Storage Spaces Direct S2D
+# Enable Storage Spaces Direct
 Enable-ClusterS2D
 
-# Create SOFS with SAP Global Host Name
+# Create Scale-Out File Server with an SAP global host name
 # SAPGlobalHostName
 $SAPGlobalHostName = "sapglobal"
 Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
@@ -304,36 +307,40 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 ## <a name="deploy-scale-out-file-server-automatically"></a>Автоматическое развертывание масштабируемого файлового сервера
 
-Кроме того, можно **автоматизировать** развертывание SOFS с помощью шаблонов Azure Resource Manager в имеющейся среде виртуальной сети и Active Directory:
+Кроме того, можно автоматизировать развертывание масштабируемого файлового сервера с помощью шаблонов Azure Resource Manager в имеющейся среде виртуальной сети и Active Directory.
 
 > [!IMPORTANT]
->Рекомендуется 3 узла кластера (или более) для SOFS с тройным зеркальным отображением.
+> Мы рекомендуем настраивать три (или более) узла кластера для масштабируемого файлового сервера с трехсторонним зеркальным отображением.
 >
->Таким образом в пользовательском интерфейсе шаблона диспетчера ресурсов SOFS необходимо задать значение в поле "Число виртуальных машин".
+> В пользовательском интерфейсе шаблона Resource Manager для масштабируемого файлового сервера необходимо задать число виртуальных машин.
 >
 
-### <a name="using-managed-disks"></a>Использование управляемых дисков
+### <a name="use-managed-disks"></a>Использование управляемых дисков
 
-Шаблон Azure Resource Manager для развертывания масштабируемого файлового сервера (SOFS) с помощью Локальных дисковых пространств (S2D) и управляемых дисков Azure можно найти в [GitHub][arm-sofs-s2d-managed-disks].
+Шаблон Azure Resource Manager для развертывания масштабируемого файлового сервера с помощью служб "Локальные дисковые пространства" и "Управляемые диски Azure" можно найти на сайте [GitHub][arm-sofs-s2d-managed-disks].
 
-Рекомендуется использовать управляемые диски.
+Рекомендуется использовать службу "Управляемые диски".
 
-![Рисунок 1. Экран пользовательского интерфейса для шаблона Resource Manager SOFS с управляемыми дисками][sap-ha-guide-figure-8010]
+![Рисунок 1. Экран пользовательского интерфейса для шаблона Resource Manager для масштабируемого файлового сервера с управляемыми дисками][sap-ha-guide-figure-8010]
 
-_**Рисунок 1.** Экран пользовательского интерфейса для шаблона Resource Manager SOFS с управляемыми дисками_
+_**Рисунок 1**. Экран пользовательского интерфейса для шаблона Resource Manager для масштабируемого файлового сервера с управляемыми дисками_
 
-Минимальное число виртуальных машин — 2, минимальное число дисков — 2 + 1, число запасных дисков — 3, сетевое имя глобального узла SAP — **sapglobalhost**, а файлового ресурса — **sapmnt**.
+В шаблоне выполните следующее.
+1. В поле **Vm Count** (Число виртуальных машин) введите минимальное число, равное **2**.
+2. В поле **Vm Disk Count** (Число дисков виртуальной машины) введите минимальное число дисков, равное **3** (2 диска + 1 запасной диск = 3 диска).
+3. В поле **Sofs Name** (Имя масштабируемого файлового сервера) введите сетевое имя глобального узла SAP, **sapglobalhost**.
+4. В поле **Share Name** (Имя файлового ресурса) введите имя файлового ресурса, **sapmnt**.
 
-### <a name="using-non-managed-disks"></a>Использование неуправляемых дисков
+### <a name="use-unmanaged-disks"></a>Использование неуправляемых дисков
 
-Шаблон Azure Resource Manager для развертывания масштабируемого файлового сервера (SOFS) с помощью Локальных дисковых пространств (S2D) и неуправляемых дисков Azure можно найти на [GitHub][arm-sofs-s2d-non-managed-disks].
+Шаблон Azure Resource Manager для развертывания масштабируемого файлового сервера с помощью службы "Локальные дисковые пространства" и неуправляемых дисков Azure" можно найти на сайте [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Рисунок 2. Экран пользовательского интерфейса для шаблона Azure Resource Manager SOFS без управляемых дисков][sap-ha-guide-figure-8011]
+![Рисунок 2. Экран пользовательского интерфейса для шаблона Resource Manager для масштабируемого файлового сервера без управляемых дисков][sap-ha-guide-figure-8011]
 
-_**Рисунок 2.** Экран пользовательского интерфейса для шаблона Azure Resource Manager SOFS без управляемых дисков_
+_**Рисунок 2**. Экран пользовательского интерфейса для шаблона Resource Manager для масштабируемого файлового сервера без управляемых дисков_
 
-Убедитесь, что для типа учетной записи хранения выбрано **хранилище класса Premium**. Другие параметры совпадают с параметрами управляемых дисков.
+В поле **Тип учетной записи хранения** выберите **Хранилище класса "Премиум"**. Все прочие параметры совпадают с параметрами управляемых дисков.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Установка SAP NetWeaver высокого уровня доступности с использованием отказоустойчивого кластера Windows и общей папки для экземпляра SAP (A)SCS][sap-high-availability-installation-wsfc-file-share]
+* [Установка высокодоступной системы SAP NetWeaver в отказоустойчивом кластере Windows с файловым ресурсом для экземпляров SAP ASCS/SCS][sap-high-availability-installation-wsfc-file-share]
