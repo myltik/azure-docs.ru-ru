@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
    sudo apt-get install -y nodejs npm
    ```
 
-2. Выполните следующие команды, чтобы создать папку проекта `mysqlnodejs` и установить в эту папку пакет MySQL2.
+2. Выполните следующие команды, чтобы создать папку проекта `mysqlnodejs` и установить в эту папку пакет mysql2.
 
    ```bash
    mkdir nodejsmysql

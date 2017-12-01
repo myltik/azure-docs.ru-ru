@@ -105,7 +105,7 @@ Sample finished running. When you hit <ENTER> key, the temporary files will be d
 
 ## <a name="understand-the-sample-code"></a>Разбор примера кода
 
-Давайте разберем пример кода, чтобы понять, как он работает.
+Разберем пример кода, чтобы понять, как он работает.
 
 ### <a name="get-references-to-the-storage-objects"></a>Получение ссылок на объекты хранилища
 
