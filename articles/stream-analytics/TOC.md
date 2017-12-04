@@ -35,7 +35,7 @@
 
 ## Использование инструментов Visual Studio
 ### [Установка](stream-analytics-tools-for-visual-studio-install.md)
-### [Начало работы](stream-analytics-tools-for-visual-studio.md)
+### [Приступите к работе](stream-analytics-tools-for-visual-studio.md)
 ### [Настройка конвейеров CI/CD](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Мониторинг и оптимизация
@@ -57,7 +57,6 @@
 ### [Колонка работоспособности ресурсов](stream-analytics-resource-health.md)
 ### [Схемы и метрики заданий](stream-analytics-job-diagram-with-metrics.md)
 ### [Отладка SELECT INTO](stream-analytics-select-into.md)
-### [Обработка порядка событий](stream-analytics-out-of-order-and-late-events.md)
 ### [Рекомендации по упорядочиванию событий](stream-analytics-out-of-order-and-late-events.md)
 ### [Ограничения на чтение в концентраторе событий](stream-analytics-event-hub-consumer-groups.md)
 ### [Журналы диагностики](stream-analytics-job-diagnostic-logs.md)

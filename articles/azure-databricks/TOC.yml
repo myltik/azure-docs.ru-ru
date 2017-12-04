@@ -11,6 +11,10 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: Ресурсы
   items:
+    - name: Часто задаваемые вопросы
+      href: frequently-asked-questions-databricks.md
+    - name: Заметки о выпуске
+      href: 'https://docs.azuredatabricks.net/release-notes/index.html'
     - name: Документация по Databricks
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Стратегия развития Azure
