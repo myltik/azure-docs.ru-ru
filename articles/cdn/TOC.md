@@ -21,8 +21,8 @@
 ## Управление
 ### [Управление с помощью Azure PowerShell](cdn-manage-powershell.md)
 ### Настройка срока жизни
-#### [Содержимое веб-приложений, облачных служб, ASP.NET или IIS](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Содержимое службы BLOB-объектов в службе хранилища](cdn-manage-expiration-of-blob-content.md)
+#### [Веб-содержимое Azure](cdn-manage-expiration-of-cloud-service-content.md)
+#### [хранилище BLOB-объектов Azure](cdn-manage-expiration-of-blob-content.md)
 ### [Ограничение доступа в зависимости от страны](cdn-restrict-access-by-country.md)
 ### [Повышение производительности за счет сжатия файлов](cdn-improve-performance.md)
 ### Кэширование содержимого по строке запроса
