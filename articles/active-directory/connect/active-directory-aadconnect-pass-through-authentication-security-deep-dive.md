@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5d2c581b25d34ea1b83f54292b5b65b2286e5a9d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 4428f3da5dd9423aa60daa697e4ea15c99f92188
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Руководство по безопасности сквозной аутентификации Azure Active Directory
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/20/2017
 - Для исходящего трафика агентов аутентификации, передаваемого в Azure AD, используются только стандартные порты (80 и 443). Не требуется открывать входящие порты в брандмауэре. 
   - Для всего прошедшего аутентификацию исходящего трафика используется порт 443.
   - Порт 80 используется только для скачивания списков отзыва сертификатов (CRL). Это позволяет гарантировать, что ни один из сертификатов, используемых функцией, не окажется отозванным.
-  - Полный список требований к сети см. в [кратком руководстве по сквозной проверке подлинности Azure Active Directory](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+  - Полный список требований к сети см. в [кратком руководстве по сквозной проверке подлинности Azure Active Directory](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Пароли, введенные пользователем во время входа, шифруются в облаке перед приемом локальными агентами аутентификации для проверки в Active Directory.
 - Канал HTTPS между Azure AD и локальным агентом аутентификации защищен взаимной аутентификацией.
 - Она тесно интегрирована с возможностями защиты облака Azure AD, такими как политики условного доступа (включая Многофакторную идентификацию Azure), защита удостоверений и смарт-блокировка.
