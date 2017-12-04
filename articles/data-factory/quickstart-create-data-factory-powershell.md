@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 254dcb6642afc19f434df837c9073d2dd7314313
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: cb58fe167fe8b369f51e234badd8e419ebd284e4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>Создание фабрики данных Azure с помощью PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,122 +31,37 @@ ms.lasthandoff: 11/20/2017
 >
 > Эта статья не содержит подробный обзор службы фабрики данных. Общие сведения о службе фабрики данных Azure см. в статье [Введение в фабрику данных Azure](introduction.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
-### <a name="azure-subscription"></a>Подписка Azure.
-Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
-
-### <a name="azure-roles"></a>Роли Azure
-Чтобы создать экземпляры фабрики данных, нужно назначить учетной записи пользователя, используемой для входа в Azure, роль **участника**, **владельца** либо **администратора** подписки Azure. На портале Azure щелкните **имя пользователя** в правом верхнем углу и выберите **Разрешения**, чтобы просмотреть существующие разрешения в подписке. Если у вас есть доступ к нескольким подпискам, выберите соответствующую подписку. Примеры инструкций по назначению пользователю роли см. в статье [о добавлении ролей](../billing/billing-add-change-azure-subscription-administrator.md).
-
-### <a name="azure-storage-account"></a>Учетная запись хранения Azure
-В этом кратком руководстве в качестве **исходного** и **целевого** хранилища данных используется учетная запись хранения Azure общего назначения (в частности, хранилища BLOB-объектов). Если у вас нет учетной записи хранения Azure общего назначения, см. инструкции по [созданию учетной записи хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-
-#### <a name="get-storage-account-name-and-account-key"></a>Получение имени и ключа учетной записи хранения
-В этом кратком руководстве вы будете использовать имя и ключ своей учетной записи хранения Azure. Далее описана процедура получения имени и ключа учетной записи хранения. 
-
-1. Откройте браузер и перейдите на [портал Azure](https://portal.azure.com). Войдите, используя имя пользователя и пароль Azure. 
-2. Щелкните **Больше служб >** в меню слева, отфильтруйте содержимое по ключевому слову **хранение**, затем выберите пункт **Учетные записи хранения**.
-
-    ![Поиск учетной записи хранения](media/quickstart-create-data-factory-powershell/search-storage-account.png)
-3. В списке учетных записей хранения найдите с помощью фильтра свою учетную запись хранения (при необходимости), а затем выберите **эту учетную запись**. 
-4. На странице **учетной записи хранения** выберите в меню параметр **Ключи доступа**.
-
-    ![Получение имени и ключа учетной записи хранения](media/quickstart-create-data-factory-powershell/storage-account-name-key.png)
-5. Скопируйте значения полей **Имя учетной записи хранения** и **key1** в буфер обмена. Вставьте их в Блокнот или другой редактор и сохраните файл.  
-
-#### <a name="create-input-folder-and-files"></a>Создание входной папки и файлов
-В этом разделе вы создадите контейнер больших двоичных объектов с именем **adftutorial** в хранилище BLOB-объектов Azure. Затем вы создадите папку с именем **input** в контейнере и отправите в нее пример файла. 
-
-1. На странице **Учетная запись хранения** перейдите на вкладку **Обзор** и щелкните **BLOB-объекты**. 
-
-    ![Выбор параметра "BLOB-объекты"](media/quickstart-create-data-factory-powershell/select-blobs.png)
-2. На странице **Служба BLOB-объектов** щелкните **+ Контейнер** на панели инструментов. 
-
-    ![Кнопка добавления контейнера](media/quickstart-create-data-factory-powershell/add-container-button.png)    
-3. В диалоговом окне **Создание контейнера** введите **adftutorial** в поле имени и нажмите кнопку **ОК**. 
-
-    ![Ввод имени контейнера](media/quickstart-create-data-factory-powershell/new-container-dialog.png)
-4. Щелкните **adftutorial** в списке контейнеров. 
-
-    ![Выбор контейнера](media/quickstart-create-data-factory-powershell/seelct-adftutorial-container.png)
-1. На странице **Контейнер** щелкните **Отправить** на панели инструментов.  
-
-    ![Кнопка "Отправить"](media/quickstart-create-data-factory-powershell/upload-toolbar-button.png)
-6. На странице **Отправить BLOB-объект** щелкните **Дополнительно**.
-
-    ![Переход по ссылке "Дополнительно"](media/quickstart-create-data-factory-powershell/upload-blob-advanced.png)
-7. Откройте **Блокнот** и создайте файл **emp.txt** с содержимым, приведенным ниже. Сохраните файл в папке **c:\ADFv2QuickStartPSH**. Если папка **ADFv2QuickStartPSH** отсутствует, создайте ее.
-    
-    ```
-    John, Doe
-    Jane, Doe
-    ```    
-8. На странице **Отправить BLOB-объект** на портале Azure найдите и выберите файл **emp.txt** в поле **Файлы**. 
-9. Введите в поле **Отправить в папку** значение **input**. 
-
-    ![Параметры отправки больших двоичных объектов](media/quickstart-create-data-factory-powershell/upload-blob-settings.png)    
-10. Убедитесь, что указана папка **input** и файл **emp.txt**, а затем щелкните **Отправить**.
-11. В списке должен отобразиться файл **emp.txt** с состоянием отправки. 
-12. Закройте страницу **Отправить BLOB-объект**, нажав значок **X** в углу. 
-
-    ![Закрытие страницы отправки BLOB-объекта](media/quickstart-create-data-factory-powershell/close-upload-blob.png)
-1. Не закрывайте страницу **контейнера**. Она понадобится для проверки выходных данных в конце этого руководства. 
-
-### <a name="azure-powershell"></a>Azure PowerShell
-
-#### <a name="install-azure-powershell"></a>Установка Azure PowerShell
-Установите последнюю версию среды Azure PowerShell, если ее нет на компьютере. 
-
-1. В веб-браузере перейдите на страницу [скачивания пакетов Azure SDK](https://azure.microsoft.com/downloads/). 
-2. Нажмите кнопку **Установка Windows** в разделе **Программы командной строки** -> **PowerShell**. 
-3. Чтобы установить Azure PowerShell, запустите файл **MSI**. 
-
-Подробные инструкции см. в статье [Установка и настройка служб Azure PowerShell](/powershell/azure/install-azurerm-ps). 
-
-#### <a name="log-in-to-azure-powershell"></a>Вход в Azure PowerShell
-
-1. Запустите **PowerShell** на компьютере. Не закрывайте Azure PowerShell, пока выполняются описанные в этом кратком руководстве инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
-
-    ![Запуск PowerShell](media/quickstart-create-data-factory-powershell/search-powershell.png)
-1. Выполните следующую команду и введите те же имя пользователя Azure и пароль, которые используются для входа на портал Azure:
-       
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-2. Если у вас несколько подписок, выполните следующую команду, чтобы просмотреть все подписки для этой учетной записи:
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-3. Выполните следующую команду, чтобы выбрать подписку, с которой вы собираетесь работать. Замените значение **SubscriptionId** на идентификатор подписки Azure:
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
-    ```
+[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
 
 ## <a name="create-a-data-factory"></a>Создать фабрику данных
-1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) в двойных кавычках, а затем выполните команду. Например, `"adfrg"`.
+1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) в двойных кавычках, а затем выполните команду. Например, `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>";
+    $resourceGroupName = "ADFQuickStartRG";
     ```
-2. Определите переменную для имени фабрики данных. 
+
+    Если группа ресурсов уже существует, вы можете не перезаписывать ее. Назначьте переменной `$resourceGroupName` другое значение и еще раз выполните команду.
+2. Чтобы создать группу ресурсов Azure, выполните следующую команду: 
 
     ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>";
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    Если группа ресурсов уже существует, вы можете не перезаписывать ее. Назначьте переменной `$resourceGroupName` другое значение и еще раз выполните команду. 
+3. Определите переменную для имени фабрики данных. 
+
+    > [!IMPORTANT]
+    >  Измените имя фабрики данных, чтобы оно было глобально уникальным. Например, укажите ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFQuickStartFactory";
     ```
 1. Определите переменную для расположения фабрики данных: 
 
     ```powershell
     $location = "East US"
     ```
-4. Чтобы создать группу ресурсов Azure, выполните следующую команду: 
-
-    ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
-    ``` 
-    Если группа ресурсов уже существует, вы можете не перезаписывать ее. Назначьте переменной `$resourceGroupName` другое значение и еще раз выполните команду. 
 5. Чтобы создать фабрику данных, выполните командлет **Set-AzureRmDataFactoryV2**. 
     
     ```powershell       
@@ -186,8 +101,8 @@ ms.lasthandoff: 11/20/2017
         }
     }
     ```
-
-2. В **Azure PowerShell** перейдите в папку **ADFv2QuickStartPSH**.
+    Если вы используете Блокнот, в диалоговом окне **Сохранить как** в поле **Тип файла** выберите пункт **Все файлы**. Иначе к файлу может добавиться расширение `.txt`. Например, `AzureStorageLinkedService.json.txt`. Если вы создали файл в проводнике до того, как открыли его в Блокноте, расширение `.txt` может не отображаться, так как по умолчанию установлен параметр **Скрывать расширения для зарегистрированных типов файлов**. Удалите расширение `.txt`, прежде чем перейти к следующему шагу.
+2. В **PowerShell** перейдите в папку **ADFv2QuickStartPSH**.
 
 3. Выполните командлет **Set-AzureRmDataFactoryV2LinkedService**, чтобы создать связанную службу: **AzureStorageLinkedService**. 
 
@@ -437,30 +352,7 @@ ms.lasthandoff: 11/20/2017
     "billedDuration": 14
     ```
 
-## <a name="verify-the-output"></a>Проверка выходных данных
-Конвейер автоматически создает выходную папку в контейнере больших двоичных объектов adftutorial. Затем он копирует файл emp.txt из входной папки в выходную. 
-
-1. На странице контейнера **adftutorial** на портале Azure нажмите кнопку **Обновить**, чтобы появилась папка output. 
-    
-    ![Обновить](media/quickstart-create-data-factory-powershell/output-refresh.png)
-2. Щелкните **output** в списке папок. 
-2. Убедитесь, что файл **emp.txt** скопирован в папку output. 
-
-    ![Обновить](media/quickstart-create-data-factory-powershell/output-file.png)
-
-## <a name="clean-up-resources"></a>Очистка ресурсов
-Вы можете удалить ресурсы, созданные в ходе работы с этим руководством, двумя способами. Вы можете удалить [группу ресурсов Azure](../azure-resource-manager/resource-group-overview.md), которая содержит все связанные ресурсы. Если же вы хотите сохранить другие ресурсы, удалите только фабрику данных, созданную в этом руководстве.
-
-При удалении группы ресурсов будут удалены все входящие в нее ресурсы, включая фабрики данных. Выполните следующую команду, чтобы удалить всю группу ресурсов: 
-```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
-```
-
-Если вам нужно удалить только фабрику данных, а не всю группу ресурсов, выполните следующую команду: 
-
-```powershell
-Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
-```
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 В этом примере конвейер копирует данные из одного расположения в другое в хранилище BLOB-объектов Azure. Перейдите к [руководствам](tutorial-copy-data-dot-net.md), чтобы узнать об использовании фабрики данных в различных сценариях. 

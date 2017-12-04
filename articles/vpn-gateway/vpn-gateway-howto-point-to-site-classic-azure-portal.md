@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Настройка подключения типа "точка — сеть" к виртуальной сети с помощью проверки подлинности на основе сертификата (классическая модель), используя портал Azure
 
@@ -35,8 +35,10 @@ ms.lasthandoff: 10/20/2017
 
 VPN-шлюз типа "точка — сеть" (P2S) позволяет создать безопасное подключение к виртуальной сети с отдельного клиентского компьютера. VPN-подключения типа "точка — сеть" (P2S) эффективны для подключения к виртуальной сети из удаленного расположения, например, если вы дома или на конференции. Такая конфигурация также эффективна для использования вместо VPN-подключения типа "сеть — сеть" при наличии небольшого количества клиентов, которым требуется подключение к виртуальной сети. VPN-подключение типа P2S сначала устанавливается с клиентского компьютера.
 
-Классическая модель развертывания поддерживает только клиенты VPN в Windows и использует Socket Tunneling Protocol (SSTP), протокол VPN на основе SSL. Чтобы обеспечить поддержку клиентов VPN не в Windows, виртуальную сеть следует создавать с использованием модели развертывания с помощью Resource Manager. Кроме SSTP эта модель развертывания поддерживает VPN IKEv2. Дополнительные сведения см. в статье [Сведения о VPN-подключениях типа "точка — сеть"](point-to-site-about.md).
-
+> [!IMPORTANT]
+> Классическая модель развертывания поддерживает только клиенты VPN в Windows и использует Socket Tunneling Protocol (SSTP), протокол VPN на основе SSL. Чтобы обеспечить поддержку клиентов VPN не в Windows, виртуальную сеть следует создавать с использованием модели развертывания с помощью Resource Manager. Помимо SSTP, эта модель развертывания поддерживает VPN IKEv2. Дополнительные сведения см. в статье [Сведения о VPN-подключениях типа "точка — сеть"](point-to-site-about.md).
+>
+>
 
 ![Схема подключения типа "точка — сеть"](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 

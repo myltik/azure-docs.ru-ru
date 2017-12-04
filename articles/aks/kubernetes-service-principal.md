@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: af27d01108cbfb3bd71023ffbce85f348abb0cfe
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 359887a8527d5432e705d9739e30f0eb2363e34f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Субъекты-службы со Службой контейнеров Azure (AKS)
 
@@ -40,20 +40,18 @@ ms.lasthandoff: 11/23/2017
 
 При развертывании кластера AKS с помощью команды `az aks create` вы можете автоматически создать субъект-службу.
 
-В следующем примере создается кластер AKS, и так как не указан имеющийся субъект-служба, для кластера создается новый. Чтобы завершить эту операцию, учетной записи требуются необходимые права для создания субъекта-службы.
+В следующем примере создается кластер AKS и новый субъект-служба для кластера, так как существующий субъект-служба не указан. Чтобы завершить эту операцию, учетной записи требуются необходимые права для создания субъекта-службы.
 
 ```azurecli
-az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
+az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>Использование имеющегося субъекта-службы
 
-Вы можете использовать с кластером AKS имеющийся субъект-службу Azure AD или заранее создать для него новый. Это полезно при развертывании кластера с портала Azure, где необходимо указать сведения о субъекте-службе.
+Вы можете использовать с кластером AKS имеющийся субъект-службу Azure AD или заранее создать для него новый. Это полезно при развертывании кластера с портала Azure, когда требуется указать сведения о субъекте-службе.
 
 При использовании имеющегося субъекта-службы он должен соответствовать следующим требованиям:
 
-- Область — подписка, используемая для развертывания кластера.
-- Роль — "Участник".
 - Секрет клиента — должен быть паролем.
 
 ## <a name="pre-create-a-new-sp"></a>Предварительное создание субъекта-службы
@@ -61,8 +59,7 @@ az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 Чтобы создать субъект-службу с помощью Azure CLI, используйте команду [az ad sp create-for-rbac]().
 
 ```azurecli
-id=$(az account show --query id --output tsv)
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
+az ad sp create-for-rbac --skip-assignment
 ```
 
 Результат аналогичен приведенному ниже. Запишите значения `appId` и `password`. Эти значения нужны для создания кластера AKS.
@@ -82,7 +79,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
 При использовании предварительно созданного субъекта-службы укажите `appId` и `password` как значения аргументов в команде `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> ----client-secret <password>
+az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
 ```
 
 Если кластер AKS развертывается на портале Azure, введите их в форме конфигурации кластера AKS.
@@ -99,6 +96,7 @@ az aks create --resource-group myResourceGroup --name myK8SCluster --service-pri
 * На главной виртуальной машине и виртуальной машине узла в кластере Kubernetes учетные данные субъекта-службы хранятся в файле /etc/kubernetes/azure.json.
 * Если вы используете команду `az aks create`, чтобы автоматически создать субъект-службу, его учетные данные записываются в файл ~/.azure/acsServicePrincipal.json на компьютере, с которого выполняется команда.
 * При автоматическом создании субъекта-службы с использованием команды `az aks create` субъект-служба также позволяет проверять подлинность с помощью [реестра контейнеров Azure](../container-registry/container-registry-intro.md), созданного в той же подписке.
+* При удалении кластера AKS, который был создан с помощью команды `az aks create`, созданный автоматически субъект-служба не удаляется. Его можно удалить с помощью команды `az ad sp delete --id $clientID`.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
