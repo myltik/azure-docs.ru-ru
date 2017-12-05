@@ -70,9 +70,10 @@
 ### [Использование пакета SDK для устройств Azure IoT для C](iot-hub-device-sdk-c-intro.md)
 #### [Использование IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [Использование сериализатора](iot-hub-device-sdk-c-serializer.md)
-### Обработка сообщений с устройства в облако
+### Маршрутизация сообщений
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
+#### [Node.js](iot-hub-node-node-process-d2c.md)
 ### Отправка сообщений из облака на устройство
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)

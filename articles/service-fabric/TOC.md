@@ -6,7 +6,9 @@
 ## [Создание приложения .NET](service-fabric-quickstart-dotnet.md)
 ## [Развертывание приложения-контейнера Linux](service-fabric-quickstart-containers-linux.md)
 ## [Развертывание приложения-контейнера Windows](service-fabric-quickstart-containers.md)
-## [Развертывание приложения Java](service-fabric-quickstart-java.md)
+## Краткие руководства по использованию Java
+### [Развертывание приложения Spring Boot](service-fabric-quickstart-java-spring-boot.md)
+### [Развертывание приложения Reliable Services](service-fabric-quickstart-java-reliable-services.md)
 
 # Учебники
 ## Развертывание приложения .NET
@@ -29,7 +31,9 @@
 #### [1А. Создание кластера Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1Б. Создание кластера Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2. Масштабирование кластера](service-fabric-tutorial-scale-cluster.md)
-### [3. Развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [3. Обновление среды выполнения кластера](service-fabric-tutorial-upgrade-cluster.md)
+### [4. Развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # Примеры

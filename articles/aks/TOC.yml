@@ -7,8 +7,10 @@
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Создание кластера AKS
+    - name: Создание кластера AKS с помощью CLI
       href: kubernetes-walkthrough.md
+    - name: Создание кластера AKS с помощью портала
+      href: kubernetes-walkthrough-portal.md
 - name: Учебники
   items:
     - name: 1. Подготовка приложения для AKS

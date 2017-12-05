@@ -46,7 +46,7 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
 ### [Портал Azure](resource-group-portal.md)
-### [ИНТЕРФЕЙС REST API](resource-manager-rest-api.md)
+### [REST API](resource-manager-rest-api.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
 ### [Упорядочение подписок с помощью групп управления](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -67,26 +67,20 @@
 
 ## Устранение неполадок
 ### [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md)
-### [Сведения об ошибках развертывания](resource-manager-troubleshoot-tips.md)
-### Устранение ошибок
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md);
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md);
+#### [Проблемы с развертыванием в Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md);
 #### [NotFound](resource-manager-not-found-errors.md);
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [Проблемы подготовки и распределения в Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+#### [Проблемы подготовки и распределения в Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md);
 #### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md).
-### Ошибки развертывания виртуальной машины
-#### Linux
-##### [Проблемы с развертыванием](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-##### [Проблемы подготовки и распределения](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-##### [Распространенные сообщения об ошибках](../virtual-machines/linux/error-messages.md)
-#### Windows
-##### [Проблемы с развертыванием](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-##### [Проблемы подготовки и распределения](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-##### [Распространенные сообщения об ошибках](../virtual-machines/windows/error-messages.md)
+#### [Проблемы с развертыванием в Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+### [Сведения об ошибках развертывания](resource-manager-troubleshoot-tips.md)
 
 # Справочные материалы
 ## [Формат шаблона](/azure/templates/)

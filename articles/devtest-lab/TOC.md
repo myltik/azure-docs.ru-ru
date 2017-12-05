@@ -31,6 +31,7 @@
 ### [Настройка образов Marketplace](devtest-lab-configure-marketplace-images.md)
 ### [Активация лицензированных образов](devtest-lab-enable-licensed-images.md)
 ### [Добавление тегов к лаборатории](devtest-lab-add-tag.md)
+### [Публикация объявлений в лаборатории](devtest-lab-announcements.md)
 
 ## [Выбор пользовательского образа или формулы](devtest-lab-comparing-vm-base-image-types.md)
 

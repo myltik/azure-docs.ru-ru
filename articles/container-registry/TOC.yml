@@ -59,6 +59,8 @@
       href: /powershell/module/azurerm.containerregistry
     - name: Шаблон Resource Manager
       href: /azure/templates/microsoft.containerregistry/registries
+    - name: Схема веб-перехватчика
+      href: container-registry-webhook-reference.md
 - name: Ресурсы
   items:
     - name: Регионы доступности

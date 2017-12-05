@@ -31,6 +31,8 @@
 ### [Когнитивные возможности U-SQL](data-lake-analytics-u-sql-cognitive.md)
 ### [Анализ журналов веб-сайтов](data-lake-analytics-analyze-weblogs.md)
 ### [Пользовательский код U-SQL для Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+### [U-SQL для Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [Экспорт базы данных U-SQL](data-lake-analytics-data-lake-tools-export-database.md)
 
 ## Отладка программ U-SQL
 ### [Мониторинг заданий и устранение неполадок в них](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

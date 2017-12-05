@@ -127,6 +127,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: Использование удостоверения управляемой службы
           href: app-service-managed-service-identity.md
+        - name: Использование SSL-сертификата в коде приложения
+          href: app-service-web-ssl-cert-load.md
         - name: Настройка взаимной проверки подлинности TLS
           href: app-service-web-configure-tls-mutual-auth.md
     - name: Масштабирование приложения

@@ -104,6 +104,8 @@
           href: apache-spark-streaming-overview.md
         - name: Обработка событий потоковой передачи
           href: apache-spark-eventhub-streaming.md
+        - name: Структурированная потоковая передача с помощью концентраторов событий
+          href: apache-spark-eventhub-structured-streaming.md
         - name: Структурированная потоковая передача с помощью Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true

@@ -40,8 +40,6 @@
 - name: Удостоверение управляемой службы
   href: msi-overview.md
   items:
-    - name: Как войти в систему или получить токен
-      href: msi-how-to-get-access-token-using-msi.md
     - name: Настройка MSI для виртуальной машины Azure
       items:
         - name: Использование портала Azure
@@ -62,6 +60,14 @@
           href: msi-howto-assign-access-powershell.md
         - name: Использование Azure CLI
           href: msi-howto-assign-access-cli.md
+    - name: Использование удостоверения управляемой службы для виртуальной машины
+      items:
+        - name: Получение маркера доступа
+          href: msi-how-to-use-vm-msi-token.md
+        - name: Вход в PowerShell и Azure CLI
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: Использование с пакетами Azure SDK
+          href: msi-how-to-use-vm-msi-sdk.md
     - name: Использование MSI виртуальной машины для доступа к Azure Data Lake Store
       items:
         - name: С помощью виртуальной машины Windows

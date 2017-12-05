@@ -213,6 +213,10 @@
           items:
             - name: Подключение с помощью виртуальной частной сети
               href: azure-stack-connect-vpn.md
+            - name: Сведения о VPN-шлюзах
+              href: azure-stack-vpn-gateway-about-vpn-gateways.md
+            - name: Параметры VPN-шлюза
+              href: azure-stack-vpn-gateway-settings.md
             - name: Подключение с помощью ExpressRoute
               href: azure-stack-connect-expressroute.md
     - name: Устранение неполадок
