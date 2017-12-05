@@ -44,6 +44,7 @@ sections:
         items:
           - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Отслеживание изменений в виртуальных машинах с помощью приложений логики</a>
           - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Изменение размера переданных изображений</a>
+          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Интеграция службы автоматизации Azure со службой "Сетка событий Azure"</a>.
   - title: Справочные материалы
     items:
       - type: list

@@ -58,6 +58,7 @@
 
 ## Устранение неполадок
 ### [Проверка подключения ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
+### [Сброс канала после сбоя](reset-circuit.md)
 ### [Получение таблиц ARP](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Получение таблиц ARP (классическая модель)](expressroute-troubleshooting-arp-classic.md)
 

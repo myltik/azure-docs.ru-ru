@@ -29,14 +29,18 @@
       href: project-ic-tasks.md
 - name: Структура проекта
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Планирование и выполнение проекта
+- name: Планирование проекта
+  href: team-data-science-process-project-templates.md
+- name: Выполнение проекта
   items:
-    - name: Планирование проекта
-      href: team-data-science-process-project-templates.md
-    - name: Выполнение проекта
-      items:
-        - name: Проекты по обработке и анализу данных
-          href: project-execution.md
+    - name: Гибкая разработка
+      href: agile-development.md
+    - name: Совместное кодирование с помощью Git
+      href: collaborative-coding-with-git.md
+    - name: Выполнение задач обработки и анализа данных
+      href: execute-data-science-tasks.md
+    - name: Отслеживание хода выполнения
+      href: track-progress.md
 - name: Примеры
   href: walkthroughs.md
   items:
@@ -52,12 +56,12 @@
     - name: Spark с PySpark и Scala;
       href: walkthroughs-spark.md
       items:
-        - name: Изучение данных
+        - name: Изучение и моделирование данных
           href: spark-data-exploration-modeling.md
+        - name: Расширенное исследование и моделирование данных
+          href: spark-advanced-data-exploration-modeling.md
         - name: Оценка моделей
           href: spark-model-consumption.md
-        - name: Расширенное изучение данных
-          href: spark-advanced-data-exploration-modeling.md
     - name: Hive с HDInsight Hadoop
       href: walkthroughs-hdinsight-hadoop.md
     - name: U-SQL с Azure Data Lake
@@ -136,7 +140,8 @@
             - name: Использование AzCopy
               href: move-data-to-azure-blob-using-azcopy.md
             - name: Использование Python
-              href: move-data-to-azure-blob-using-python.md
+              href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+              maintainContext: true
             - name: Использование SSIS
               href: move-data-to-azure-blob-using-ssis.md
             - name: Перемещение в виртуальную машину
@@ -211,14 +216,8 @@
             - name: Памятка по алгоритмам
               href: ../studio/algorithm-cheat-sheet.md
               maintainContext: true
-    - name: Развертывание моделей
-      items:
-        - name: Использование веб-службы
-          href: ../studio/publish-a-machine-learning-web-service.md
-          maintainContext: true
-        - name: Использование веб-службы
-          href: ../studio/consume-web-services.md
-          maintainContext: true
+    - name: Развертывание моделей в рабочей среде
+      href: deploy-models-in-production.md
 - name: Сопутствующие материалы
   items:
     - name: Набор средств Microsoft Cognitive Toolkit (CNTK)

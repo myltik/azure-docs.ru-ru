@@ -247,6 +247,8 @@
       items:
         - name: Отсутствие данных для .NET
           href: app-insights-asp-net-troubleshoot-no-data.md
+        - name: Отладчик моментальных снимков
+          href: app-insights-troubleshoot-snapshot-debugger.md
         - name: Аналитика
           href: app-insights-analytics-troubleshooting.md
         - name: Java

@@ -4,6 +4,8 @@
   items:
     - name: Основные сведения о фабрике данных
       href: introduction.md
+    - name: Сравнение версий 1 и 2
+      href: compare-versions.md
 - name: Быстрое начало работы
   expanded: true
   items:
@@ -19,6 +21,8 @@
           href: quickstart-create-data-factory-rest-api.md
         - name: Microsoft Azure
           href: quickstart-create-data-factory-portal.md
+        - name: Шаблон Resource Manager
+          href: quickstart-create-data-factory-resource-manager-template.md
 - name: Учебники
   items:
     - name: 1. Развертывание пакетов служб SSIS в Azure

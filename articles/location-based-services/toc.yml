@@ -29,6 +29,8 @@
       href: how-to-manage-account-keys.md
     - name: Использование Map Control
       href: how-to-use-map-control.md
+    - name: Поиск адреса
+      href: how-to-search-for-address.md
 - name: Справочные материалы
   items:
     - name: Центр разработчика IoT Azure

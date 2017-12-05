@@ -133,6 +133,7 @@
 ## [Консультация по кибербезопасности](azure-security-cyber-services.md)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Рекомендации по обеспечению безопасности для образов Azure Marketplace](security-recommendations-azure-marketplace-images.md)
+## [Регистрация запроса о событии безопасности в службу поддержки](azure-security-event-support-ticket.md)
 ## Сценарии
 ### [Управление персональными данными в Azure](manage-personal-data-azure.md)
 ### [Обнаружение, определение и классифицирование персональных данных в Azure](how-to-discover-classify-personal-data-azure.md)

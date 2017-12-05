@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по Site Recovery. Аварийное восстановление из Azure в Azure
+metadata:
+  title: Документация по Azure Site Recovery. Руководства и справочник по API | Документация Майкрософт
+  meta.description: Learn how to set up disaster recovery for Azure VMs
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: 'Azure Site Recovery организует и контролирует аварийное восстановление виртуальных машин Azure. Из наших руководств вы узнаете, как выполнить репликацию в дополнительный регион, а также отработку отказа и восстановление размещения.'
+sections:
+  - title: 5-минутные руководства по началу работы
+    items:
+      - type: paragraph
+        text: Быстрая настройка аварийного восстановления для виртуальной машины Azure
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/site-recovery/azure-to-azure/media/index/portal.svg
+            text: Портал Azure
+            href: /azure/site-recovery/azure-to-azure-quickstart
+  - title: Пошаговые руководства
+    items:
+      - type: paragraph
+        text: 'Сведения о настройке аварийного восстановления, отработке отказа и восстановлении размещения для виртуальных машин Azure.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="azure-to-azure-tutorial-enable-replication">Настройка аварийного восстановления</a>
+          - html: <a href="azure-to-azure-tutorial-dr-drill">Выполнение отработки аварийного восстановления</a>
+          - html: <a href="azure-to-azure-tutorial-failover-failback">Выполнение отработки отказа и восстановления размещения</a>
+  - title: Справочные материалы
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Командная строка
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">справочник по API REST</a></p>

@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по Azure Site Recovery
+metadata:
+  title: Документация по Azure Site Recovery. Руководства и справочник по API | Документация Майкрософт
+  meta.description: Learn how to migrate to Azure with Azure Site Recovery
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: 'Помимо оркестрации аварийного восстановления виртуальных машин Azure и локальных компьютеров, Azure Site Recovery организует и контролирует перенос локальных компьютеров в Azure, а также перенос виртуальных машин Azure между регионами Azure. Узнайте, как настроить миграцию, ознакомившись с нашими руководствами.'
+sections:
+  - title: Пошаговые руководства
+    items:
+      - type: paragraph
+        text: Сведения о переносе локальных виртуальных машин.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Подготовка Azure</a>.
+          - html: <a href="tutorial-migrate-on-premises-to-azure">Миграция локальных компьютеров в Azure</a>
+          - html: <a href="tutorial-migrate-aws-to-azure">Перенос виртуальных машин из Amazon Web Services (AWS) в Azure с помощью Azure Site Recovery</a>
+  - title: Справочные материалы
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Командная строка
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">справочник по API REST</a></p>

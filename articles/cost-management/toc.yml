@@ -27,6 +27,10 @@
   items:
     - name: Интерпретация отчетов о затратах
       href: understading-cost-reports.md
+- name: Практические руководства
+  items:
+    - name: Использование отчетов службы "Управление затратами"
+      href: use-reports.md
 - name: Ресурсы
   items:
     - name: Видео по управлению затратами

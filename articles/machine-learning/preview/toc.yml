@@ -39,12 +39,14 @@
           href: how-to-use-tdsp-in-azure-ml.md
         - name: Роуминг и совместная работа
           href: roaming-and-collaboration.md
-    - name: Расширения IDE
+    - name: Использование расширений IDE
       items:
         - name: Использование инструментов Visual Studio для ИИ
           href: quickstart-visual-studio-tools.md
         - name: Использование средств Visual Studio Code для искусственного интеллекта
           href: quickstart-visual-studio-code-tools.md
+    - name: Использование набора средств для работы с ИИ для Azure IoT Edge
+      href: use-azure-iot-edge-ai-toolkit.md
     - name: Настройка вычислительной среды
       items:
         - name: Настройка экспериментирования
@@ -92,6 +94,8 @@
           href: how-to-scale-clusters.md
         - name: Развертывание веб-службы
           href: model-management-service-deploy.md
+        - name: Развертывание на устройстве IoT Edge
+          href: deploy-to-iot-edge-device.md
         - name: Использование веб-службы
           href: model-management-consumption.md
         - name: Сбор данных модели
