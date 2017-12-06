@@ -109,7 +109,7 @@
 # Справочные материалы
 ## [Язык определения рабочего процесса](logic-apps-workflow-definition-language.md)
 ## [Действия и триггеры рабочего процесса](logic-apps-workflow-actions-triggers.md)
-## [ИНТЕРФЕЙС REST API](/rest/api/logic/)
+## [REST API](/rest/api/logic/)
 ## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Соединители: подробные сведения
 ### [AS2](logic-apps-enterprise-integration-as2.md)
@@ -139,7 +139,7 @@
 ### [Расписание](../connectors/connectors-native-recurrence.md)
 ### [Служебная шина](../connectors/connectors-create-api-servicebus.md)
 ### [SharePoint Online](../connectors/connectors-create-api-sharepointonline.md)
-### [SharePoint Server](../connectors/connectors-create-api-sharepointonline.md)
+### [SharePoint Server](../connectors/connectors-create-api-sharepointserver.md)
 ### [SQL Server](../connectors/connectors-create-api-sqlazure.md)
 ### [Преобразование XML](logic-apps-enterprise-integration-transform.md)
 ### [Twitter](../connectors/connectors-create-api-twitter.md)
