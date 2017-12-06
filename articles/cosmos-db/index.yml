@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/15/2017
+  ms.date: 11/29/2017
   ms.author: carolz
 abstract:
   description: "Azure Cosmos DB\_— это многомодельная глобально распределенная служба баз данных. Используйте эти руководства и примеры для разработки баз данных, содержащих документы или пары \"ключ — значение\", баз данных Wide Column Store и баз данных графов, используя популярные API-интерфейсы и модели программирования. Затем научитесь реплицировать данные в любом количестве регионов Azure и масштабировать пропускную способность независимо от хранилища, используя при этом все преимущества полных соглашений об уровне обслуживания."
@@ -63,7 +63,7 @@ sections:
               - href: /azure/cosmos-db/create-graph-java
               - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-nodejs
-              - href: null
+              - href: /azure/cosmos-db/create-graph-python
               - href: /azure/cosmos-db/create-graph-gremlin-console
           - title: API таблицы
             values:
