@@ -4,11 +4,11 @@ hide_bc: True
 title: "Документация по Microsoft Azure"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
 featureFlags: clicktale
-ms.openlocfilehash: 3ba89d9e704eaacf78c5c6a18c9ed5de01f9785b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a29b9dcc1c31cb577306fb544013a89b2d958fee
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -359,7 +359,7 @@ ms.lasthandoff: 11/28/2017
                                         <li>
                                             <a href="/azure/sql-server-stretch-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>База данных SQL Server Stretch</p>
+                                                <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
                                         <li>
@@ -449,7 +449,7 @@ ms.lasthandoff: 11/28/2017
                                         <li>
                                             <a href="/azure/sql-server-stretch-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>База данных SQL Server Stretch</p>
+                                                <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
                                         <li>
@@ -975,9 +975,21 @@ ms.lasthandoff: 11/28/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-edge/">
+                                                <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                <p>IoT Edge</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
                                                 <p>Набор Azure IoT Suite</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                <p>Azure Location Based Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1027,7 +1039,7 @@ ms.lasthandoff: 11/28/2017
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -2220,7 +2232,7 @@ ms.lasthandoff: 11/28/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>База данных SQL Server Stretch</h3>
+                                                    <h3>SQL Server Stretch Database</h3>
                                                     <p>Динамический перенос локальных баз данных SQL Server в облако Azure</p>
                                                 </div>
                                             </div>
@@ -2803,6 +2815,25 @@ ms.lasthandoff: 11/28/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Edge</h3>
+                                                    <p>Расширение возможностей облачного интеллекта на пограничные устройства</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2821,6 +2852,25 @@ ms.lasthandoff: 11/28/2017
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Location Based Services</h3>
+                                                    <p>Карты, направления, поиск и другие надежные геопространственные службы</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                            
                             <li>
                                 <a href="/en-us/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2972,7 +3022,7 @@ ms.lasthandoff: 11/28/2017
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
@@ -3065,7 +3115,7 @@ ms.lasthandoff: 11/28/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>База данных SQL Server Stretch</h3>
+                                                    <h3>SQL Server Stretch Database</h3>
                                                     <p>Динамический перенос локальных баз данных SQL Server в облако Azure</p>
                                                 </div>
                                             </div>

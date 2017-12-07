@@ -34,7 +34,14 @@
     - name: 4. Копирование данных в пакетном режиме
       href: tutorial-bulk-copy.md
     - name: 5. Добавочное копирование данных
-      href: tutorial-incremental-copy-powershell.md
+      href: tutorial-incremental-copy-overview.md
+      items:
+        - name: 5.1. Копирование из одной таблицы
+          href: tutorial-incremental-copy-powershell.md
+        - name: 5.2. Копирование из нескольких таблиц
+          href: tutorial-incremental-copy-multiple-tables-powershell.md
+        - name: 5.3. Использование функции отслеживания изменений
+          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6. Преобразование данных в облаке
       href: tutorial-transform-data-spark-powershell.md
     - name: 7. Преобразование данных в виртуальной сети
@@ -228,6 +235,16 @@
           href: create-azure-ssis-integration-runtime.md
         - name: Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети
           href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: Запуск пакетов служб SSIS в Azure
+      items:
+        - name: Создание среды выполнения для интеграции Azure SSIS
+          href: create-azure-ssis-integration-runtime.md
+        - name: Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Управление средой выполнения интеграции Azure SSIS
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Настройка производительности для среды выполнения интеграции Azure SSIS
+          href: configure-azure-ssis-integration-runtime-performance.md
 - name: Справочные материалы
   items:
     - name: .NET

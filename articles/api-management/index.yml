@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по службе "Управление API"
+metadata:
+  title: Документация по службе "Управление API". Руководства и справочник по API | Документация Майкрософт
+  description: 'Узнайте, как использовать управление API для публикации API-интерфейсов для внешних, партнерских и корпоративных разработчиков безопасно и в нужном масштабе. Руководства, справочники по API и другая документация, из которой вы узнаете, как создавать и администрировать современные шлюзы API для существующих серверных служб независимо от их размещения.'
+  services: api-management
+  author: czeumault
+  manager: carolz
+  ms.service: api-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/15/2017
+  ms.author: carolz
+abstract:
+  description: 'Узнайте, как использовать управление API для публикации API-интерфейсов для внешних, партнерских и корпоративных разработчиков безопасно и в нужном масштабе. Руководства, справочники по API и другая документация, из которой вы узнаете, как создавать и администрировать современные шлюзы API для существующих серверных служб независимо от их размещения.'
+sections:
+  - title: 5-минутные руководства по началу работы
+    items:
+      - type: paragraph
+        text: Создание экземпляра службы "Управление API"
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
+            text: Создание экземпляра (портал)
+            href: /azure/api-management/get-started-create-service-instance
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg'
+            text: Создание экземпляра (PowerShell)
+            href: /azure/api-management/powershell-create-service-instance
+  - title: Пошаговые руководства
+    items:
+      - type: paragraph
+        text: 'Узнайте, как управлять службой "Управление API".'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/api-management/import-and-publish">Импорт и публикация первого API</a>
+          - html: <a href="/azure/api-management/api-management-howto-add-products">Создание и публикация продукта</a>
+          - html: <a href="/azure/api-management/mock-api-responses">Макетирование ответов API</a>
+          - html: <a href="/azure/api-management/transform-api">Преобразование и защита API</a>
+          - html: <a href="/azure/api-management/api-management-howto-use-azure-monitor">Мониторинг опубликованных интерфейсов API</a>
+          - html: <a href="/azure/api-management/api-management-howto-api-inspector">Отладка интерфейсов API с помощью трассировки запросов</a>
+          - html: <a href="/azure/api-management/api-management-get-started-revise-api">Безопасное внесение некритических изменений с помощью редакций</a>
+          - html: <a href="/azure/api-management/api-management-get-started-publish-versions">Публикация нескольких версий API</a>
+          - html: <a href="/azure/api-management/api-management-customize-styles">Настройка стиля страниц для портала разработчика</a>
+  - title: Примеры
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/api-management/policy-samples">Политика</a>
+          - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>

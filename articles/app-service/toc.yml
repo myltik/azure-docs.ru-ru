@@ -13,8 +13,10 @@
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Создание приложения .NET
+    - name: Создание приложения .NET Core
       href: app-service-web-get-started-dotnet.md
+    - name: Создание приложения .NET Framework
+      href: app-service-web-get-started-dotnet-framework.md
     - name: Создание приложения Node.js
       href: app-service-web-get-started-nodejs.md
     - name: Создание приложения PHP

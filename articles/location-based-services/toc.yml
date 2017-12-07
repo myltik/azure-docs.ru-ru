@@ -33,6 +33,14 @@
       href: how-to-search-for-address.md
 - name: Справочные материалы
   items:
+    - name: "API функций\_— REST"
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
+    - name: "API управления\_— REST"
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
+    - name: "API элементов управления картой\_— Javascript"
+      href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
+- name: Ресурсы
+  items:
     - name: Центр разработчика IoT Azure
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Стратегия развития Azure

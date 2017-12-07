@@ -37,8 +37,8 @@
 ### Портал Azure
 #### [Развертывание ресурсов](resource-group-template-deploy-portal.md)
 #### [Экспорт шаблона](resource-manager-export-template.md)
-### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
-### [Развертывание в нескольких группах ресурсов](resource-manager-cross-resource-group-deployment.md)
+### [REST API](resource-group-template-deploy-rest.md)
+### [Несколько подписок или групп ресурсов](resource-manager-cross-resource-group-deployment.md)
 ### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)
 
@@ -46,7 +46,7 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
 ### [Портал Azure](resource-group-portal.md)
-### [REST API](resource-manager-rest-api.md)
+### [ИНТЕРФЕЙС REST API](resource-manager-rest-api.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
 ### [Упорядочение подписок с помощью групп управления](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

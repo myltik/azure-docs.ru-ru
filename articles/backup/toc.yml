@@ -51,7 +51,7 @@
       href: backup-azure-backup-cloud-as-tape.md
 - name: Практическое руководство
   items:
-    - name: Сервер службы архивации Azure
+    - name: Azure Backup Server
       items:
         - name: Таблица защиты посредством Azure Backup Server
           href: backup-mabs-protection-matrix.md
@@ -207,8 +207,10 @@
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Медленное резервное копирование файлов и папок в Azure Backup
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Устранение неполадок на сервере резервного копирования Azure
+        - name: Устранение неполадок Azure Backup Server
           href: backup-azure-mabs-troubleshoot.md
+        - name: Устранение неполадок агента Azure Backup
+          href: backup-azure-mars-troubleshoot.md
 - name: Справочные материалы
   items:
     - name: Azure PowerShell
