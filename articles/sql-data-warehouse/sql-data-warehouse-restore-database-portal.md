@@ -3,8 +3,8 @@ title: "Восстановление хранилища данных SQL Azure (
 description: "Задачи портала Azure для восстановления хранилища данных SQL Azure."
 services: sql-data-warehouse
 documentationcenter: NA
-author: Lakshmi1812
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: b0aef539-7657-4b0e-9899-74098f5c21bc
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-ms.date: 09/21/2016
-ms.author: lakshmir;barbkess
-ms.openlocfilehash: f6bc8671410dc7015a8d2a4bea1ba11f9ae526c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 7f13208a55d19930aed99017221386a4498307d1
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>Восстановление хранилища данных SQL Azure (портал)
 > [!div class="op_single_selector"]

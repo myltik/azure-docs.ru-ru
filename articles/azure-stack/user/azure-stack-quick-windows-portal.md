@@ -5,15 +5,15 @@ services: azure-stack
 author: ErikjeMS
 manager: byronr
 ms.service: azure-stack
-ms.topic: azure-stack
+ms.topic: quickstart
 ms.date: 09/15/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: abca538f28bbc0a8f3f00311ca1a69d196f10272
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64a623b3f5cb443e0676e7d89d7040837be95737
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>Создание виртуальной машины Windows с помощью портала Azure Stack
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 Войдите на портал Azure Stack. Адрес портала Azure Stack зависит от того, к какому продукту Azure Stack вы подключаетесь:
 
 * При работе с пакетом SDK для Azure Stack (ASDK), перейдите по адресу https://portal.local.azurestack.external.
-* При работе с интегрированной системой Azure Stack перейдите по URL-адресу, предоставленному оператором Azure Stack.
+* При работе с интегрированной системой Azure Stack используйте URL-адрес, предоставленный оператором Azure Stack.
 
 ## <a name="create-a-virtual-machine"></a>Создание виртуальной машины
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
     ![](media/azure-stack-quick-windows-portal/image04.png)
 5. В колонке **Сводка** нажмите кнопку **ОК**, чтобы создать виртуальную машину. 
     ![](media/azure-stack-quick-windows-portal/image05.png)
-6. Чтобы просмотреть новую виртуальную машину, щелкните **Все ресурсы**, а затем найдите виртуальную машину и щелкните ее имя.
+6. Чтобы просмотреть новую виртуальную машину, щелкните **All resources** (Все ресурсы), а затем найдите виртуальную машину и щелкните ее имя.
     ![](media/azure-stack-quick-windows-portal/image06.png)
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов

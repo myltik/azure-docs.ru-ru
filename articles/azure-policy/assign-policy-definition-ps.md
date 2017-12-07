@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 5c00d50817e40de0a43d05eb85662b494247d8fa
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6a9b7cff1341bd898b76a226ca413b8135eec408
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>Создание назначения политики для идентификации ресурсов, которые не соответствуют требованиям, в среде Azure с помощью PowerShell
 
@@ -30,19 +30,6 @@ PowerShell используется для создания ресурсов Azu
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
-## <a name="opt-in-to-azure-policy"></a>Регистрация в службе "Политика Azure"
-
-Сейчас служба "Политика Azure"находится на этапе общедоступной предварительной версии, поэтому вам необходимо зарегистрироваться, чтобы запросить доступ к ней.
-
-1. Перейдите к службе "Политика Azure" по адресу https://aka.ms/getpolicy, а затем выберите **Зарегистрироваться** в области слева.
-
-   ![Поиск политики](media/assign-policy-definition/sign-up.png)
-
-2. Зарегистрируйтесь для использования службы "Политика Azure", выбрав подписки, с которыми хотите работать, в списке **Подписка**. Затем щелкните **Регистрация**.
-
-   ![Регистрация для использования службы "Политика Azure"](media/assign-policy-definition/preview-opt-in.png)
-
-   Ваш запрос будет автоматически утвержден для использования предварительной версии. Подождите до 30 минут, пока система обработает вашу регистрацию.
 
 ## <a name="create-a-policy-assignment"></a>Создание назначения политики
 

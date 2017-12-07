@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8df9fd46fe3ce8d87e7ad5377a21a0bc7a458d2b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="custom-reports-from-verizon"></a>Пользовательские отчеты из Verizon
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/21/2017
 ## <a name="accessing-verizon-custom-reports"></a>Доступ к пользовательским отчетам Verizon
 1. В колонке профиля сети CDN нажмите кнопку **Управление** .
    
-    ![Кнопка управления в колонке профиля CDN](./media/cdn-reports/cdn-manage-btn.png)
+    ![Кнопка "Управление" для профиля CDN](./media/cdn-reports/cdn-manage-btn.png)
    
     Откроется портал управления CDN.
 2. Наведите указатель на вкладку **Аналитика**, а затем — на всплывающий элемент **Пользовательские отчеты**. Щелкните **Edge CNAMEs** (Пограничные записи CNAME).

@@ -11,16 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/29/2017
 ms.author: bwren
-ms.openlocfilehash: 783223a37c2a13c9affbf382209ca2aa4f1ba4c7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 017a1da233827f19489a99b234ee9009fd9f6fe3
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="whats-changed-in-azure-log-analytics"></a>Изменения в службе Azure Log Analytics
 Помимо нового языка запросов, есть несколько улучшений и изменений, которые нужно учесть при [обновлении языка запросов для рабочей области Log Analytics](log-analytics-log-search-new.md).  В этой статье кратко описаны различия между прежней и обновленной версиями рабочей области и по каждому из них предоставлены ссылки на подробное описание. 
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Whats-changed-in-Azure-Log-Analytics/player]
 
 В статье [Вопросы и ответы по новым возможностям поиска по журналам Log Analytics и известные проблемы](log-analytics-log-search-faq.md) вы найдете описание всех известных проблем с этим обновлением и ответы на часто задаваемые вопросы.  
 

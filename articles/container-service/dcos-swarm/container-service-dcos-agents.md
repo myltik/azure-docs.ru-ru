@@ -1,26 +1,19 @@
 ---
-title: "Пулы агентов DC/OS для службы контейнеров Azure | Документация Майкрософт"
+title: "Пулы агентов DC/OS для службы контейнеров Azure"
 description: "Как пулы общедоступных и частных агентов работают с кластером DC/OS службы контейнеров Azure"
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, контейнеры, микрослужбы, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: da4a196b1a73c78dfff7d8310edcc349b8d10665
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e82a6c1ee2d45cd07f4e87c43ad4fb1149ef555c
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Пулы агентов DC/OS для службы контейнеров Azure
 Кластеры DC/OS службы контейнеров Azure содержат узлы агентов в двух пулах —общедоступном и частном. Приложение может быть развернуто в любом пуле, что повлияет на доступность между компьютерами в службе контейнеров. Компьютеры можно подключить к Интернету (общедоступный пул) или только к внутренней сети (частный пул). В этой статье приводятся общие сведения о причинах использования общедоступных и частных пулов.

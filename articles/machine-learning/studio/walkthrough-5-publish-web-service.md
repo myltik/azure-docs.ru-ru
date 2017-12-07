@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 1bbc8ce31fc8e5ffb048a1fb9553a82975680a3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Шаг 5. Развертывание веб-службы машинного обучения Azure
 Это пятый этап пошагового руководства [Разработка решения для прогнозной аналитики в машинном обучении Azure](walkthrough-develop-predictive-solution.md)
@@ -190,26 +190,6 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="manage-the-web-service"></a>Управление веб-службой
-
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Управление классической веб-службой на классическом портале Azure
-
-После развертывания классической веб-службой можно управлять с помощью [классического портала Azure](https://manage.windowsazure.com).
-
-1. Войдите на [классический портал Azure](https://manage.windowsazure.com).
-2. На панели служб Microsoft Azure выберите **Машинное обучение**.
-3. Щелкните рабочую область.
-4. Щелкните вкладку **Веб-службы**.
-5. Щелкните созданную веб-службу.
-6. Щелкните конечную точку по умолчанию.
-
-Здесь можно отслеживать работу веб-службы и корректировать ее производительность, изменяя число одновременных обрабатываемых вызовов.
-
-Дополнительные сведения см. в статье
-
-* [Создание конечных точек](create-endpoint.md)
-* [Масштабирование веб-службы](scaling-webservice.md)
-
-### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Управление классической или новой веб-службой на портале веб-служб машинного обучения Azure
 
 Развернутой веб-службой (классической или новой) можно управлять с помощью портала [веб-служб Машинного обучения Microsoft Azure](https://services.azureml.net/quickstart).
 

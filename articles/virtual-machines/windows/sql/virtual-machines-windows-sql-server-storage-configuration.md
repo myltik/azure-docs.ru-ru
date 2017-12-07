@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c0bd1aa2236eb44a41142f9cfc20c220ca49e99
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Настройка хранилища для виртуальных машин SQL Server
 При настройке образа виртуальной машины SQL Server на портале Azure некоторые процессы конфигурации хранилища выполняются автоматически. К этим процессам относится подключение хранилища к виртуальной машине, предоставление SQL Server доступа к нему и настройка параметров, которые позволяют оптимизировать производительность хранилища.
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/02/2017
 ## <a name="prerequisites"></a>Предварительные требования
 Для поддержки параметров автоматической настройки хранилища виртуальная машина должна:
 
-* быть подготовлена с помощью [коллекции образов SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing);
+* быть подготовлена с помощью [коллекции образов SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo);
 * использовать [модель развертывания с помощью Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md);
 * использовать [хранилище класса Premium](../premium-storage.md).
 

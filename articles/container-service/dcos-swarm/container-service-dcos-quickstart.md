@@ -1,27 +1,19 @@
 ---
-title: "Краткое руководство по службе контейнеров Azure. Развертывание кластера DC/OS | Документы Майкрософт"
+title: "Краткое руководство по службе контейнеров Azure. Развертывание кластера DC/OS"
 description: "Краткое руководство по службе контейнеров Azure. Развертывание кластера DC/OS"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, контейнеры, микрослужбы, Kubernetes, DC/OS, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/04/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8070d224fe6281e61f67483d4f1dd905a2ab99eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69f8f415ce851a5d8034d8196ab541e8491dc417
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-a-dcos-cluster"></a>Развертывание кластера DC/OS
 

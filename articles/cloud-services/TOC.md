@@ -41,7 +41,6 @@
 ### [Создание и развертывание облачной службы на портале](cloud-services-how-to-create-deploy-portal.md)
 ### [Создание пустого контейнера облачной службы в PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### [Настройка пользовательского имени домена](cloud-services-custom-domain-name-portal.md)
-### [Развертывание облачной службы (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Подключение к пользовательскому контроллеру домена](cloud-services-connect-to-custom-domain.md)
 
 ## Управление службой

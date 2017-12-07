@@ -3,8 +3,8 @@ title: "Элементы Azure Marketplace, доступные для Azure Stac
 description: "Эти элементы Azure Marketplace можно использовать в Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: JeffGoldner
+manager: bradleyb
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: erikje
-ms.openlocfilehash: d04a96e061c4f25e10b1582736012a3ada6f6a6b
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.date: 11/29/2017
+ms.author: JeffGoldner
+ms.openlocfilehash: 1a6dbe2f4a66a44222e0b34b34a283c101b055de
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Элементы Azure Marketplace, доступные для Azure Stack
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/21/2017
 
 Microsoft Azure Stack поддерживает следующие элементы Azure Marketplace.
 
-|  | Имя элемента | Описание | Издатель |
+|  | Имя элемента. | Описание | Издатель |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Расширение Docker для виртуальных машин Linux. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 для Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft Machine Learning Server 9.2.1 для Windows Server 2016. | Microsoft |

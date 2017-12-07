@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 6678f429d5d1242f1193933ec147fc910d53f925
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a1e56a6d31568d1d36e713b9a1000d84c6446bac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-media-services-overview"></a>Общие сведения о службах мультимедиа Azure 
 
@@ -63,10 +63,9 @@ ms.lasthandoff: 11/07/2017
 
 Найдите несколько примеров кода в коллекции **образцов кода Azure**: [Примеры кода Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
-## <a name="concepts-and-overview"></a>Основные сведения и понятия
-Основные понятия служб мультимедиа Azure см. в статье [Основные понятия служб мультимедиа Azure](media-services-concepts.md).
+## <a name="concepts"></a>Основные понятия
 
-Инструкции по работе с основными компонентами служб мультимедиа Azure см. в соответствующих [пошаговых руководствах](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). В них не только приводятся основные сведения о концепциях, но и с помощью инструмента AMSE демонстрируется выполнение задач AMS. Средство AMSE разработано для Windows. Оно поддерживает большинство задач, которые можно решать программным путем, используя [пакет SDK AMS для .NET](https://github.com/Azure/azure-sdk-for-media-services), [пакет SDK Azure для Java](https://github.com/Azure/azure-sdk-for-java) или [пакет SDK Azure для PHP](https://github.com/Azure/azure-sdk-for-php).
+Основные понятия служб мультимедиа Azure см. в статье [Основные понятия служб мультимедиа Azure](media-services-concepts.md).
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>Поддерживаемые сценарии и доступность служб мультимедиа в центрах обработки данных
 

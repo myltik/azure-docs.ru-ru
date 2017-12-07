@@ -2,26 +2,18 @@
 title: "Устранение неполадок в службе \"Экземпляры контейнеров Azure\""
 description: "Подробные сведения об устранении неполадок в службе \"Экземпляры контейнеров Azure\""
 services: container-instances
-documentationcenter: 
 author: seanmck
 manager: timlt
-editor: mmacy
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/18/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 78bd45f7f71fd25e351d4e9b922a6a3f171437fd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6d8fbddc2f26fe739dd725f417961d7b3d7f77e6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Устранение неполадок развертывания с помощью службы "Экземпляры контейнеров Azure"
 

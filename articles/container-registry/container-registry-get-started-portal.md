@@ -2,26 +2,18 @@
 title: "Краткое руководство. Создание частного реестра Docker в Azure с помощью портала Azure"
 description: "Быстрый способ изучить создание частного реестра контейнеров Docker с помощью портала Azure."
 services: container-registry
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: tysonn
-tags: 
-keywords: 
-ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
 ms.service: container-registry
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/31/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: 514fa3490e480647f0923c99bd9606a3726d4d30
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.custom: mvc
+ms.openlocfilehash: e6338ca03bcb0daa040a62b06cfa3ad7ba66a1b2
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Создание реестра контейнеров на портале Azure
 
