@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 822abf5cd09a0cd0d66441acfe4ae114c6ba73eb
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Участие пользователя в устойчивых функциях. Пример проверки номера телефона
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/13/2017
 
 Для отправки SMS-сообщений на мобильный телефон в этом примере используется служба [Twilio](https://www.twilio.com/). В Функциях Azure уже реализована поддержка Twilio через [привязку Twilio](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio). В этом образце используется эта функция.
 
-Первое, что вам нужно — это учетная запись Twilio. Вы можете создать ее бесплатно на странице https://www.twilio.com/try-twilio. Получив учетную запись, добавьте следующие три **параметра приложения** в проект.
+Первое, что вам нужно — это учетная запись Twilio. Вы можете создать ее бесплатно на странице https://www.twilio.com/try-twilio. Получив учетную запись, добавьте следующие три **параметра приложения** в приложение-функцию.
 
 | Имя параметра приложения | Описание значения |
 | - | - |

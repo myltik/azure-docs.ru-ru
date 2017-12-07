@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: damaerte
-ms.openlocfilehash: e45d66eff4be4918ffd6e7940bbfb5adb4c88c00
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9c2eeef9c20f25d2af97e6c754f005b698222385
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Функции и инструменты для PowerShell в Azure Cloud Shell (предварительная версия)
 
@@ -37,7 +37,7 @@ PowerShell в Cloud Shell (предварительная версия) безо
 
 ### <a name="files-persistence-across-sessions"></a>Сохранение файлов между сеансами
 
-Чтобы сохранять файлы между сеансами, при первом запуске Cloud Shell предлагается присоединить общую папку Azure.
+Чтобы сохранять файлы между сеансами, при первом запуске Cloud Shell предлагается подключить файловый ресурс Microsoft Azure.
 По завершении настройки Cloud Shell будет автоматически подключать хранилище (подключенное как `$home\clouddrive`) для всех будущих сеансов.
 Так как каждому запросу к Cloud Shell выделяется временный компьютер, файлы за пределами каталога `$home\clouddrive` и сведения о состоянии компьютера не сохраняются между сеансами.
 

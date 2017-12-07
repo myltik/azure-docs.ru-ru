@@ -15,39 +15,31 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/26/2017
+ms.date: 11/28/2017
 ms.author: carlrab
-ms.openlocfilehash: f67ba82c3aaf312662096964b7b7942efa108607
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6ed77d5c106f72a06e410410321c39b3d7059ae9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Подключайтесь к базе данных Azure SQL и создавайте запросы к ней с помощью SQL Server Management Studio
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) — это интегрированная среда для управления любой инфраструктурой SQL, от SQL Server до базы данных SQL для Microsoft Windows. В этом кратком руководстве показано, как использовать SSMS для подключения к базе данных Azure SQL, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных. 
+[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) — это интегрированная среда для управления любой инфраструктурой SQL, от SQL Server до базы данных SQL для Microsoft Windows. В этом кратком руководстве показано, как использовать SSMS для подключения к базе данных Azure SQL, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных. 
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 Начальной точкой в руководстве являются ресурсы, созданные в одном из этих кратких руководств:
 
-- [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
-- [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
-- [Создание базы данных с помощью PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-Перед началом работы установите последнюю версию [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
+#### <a name="install-the-latest-ssms"></a>Установка последней версии SSMS
+
+Перед началом работы установите последнюю версию [SSMS][ssms-install-latest-84g]. 
 
 ## <a name="sql-server-connection-information"></a>Сведения о подключении SQL Server
 
-Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
-
-1. Войдите на [портал Azure](https://portal.azure.com/).
-2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
-3. На странице **Обзор** базы данных просмотрите полное имя сервера, как показано на рисунке ниже. Вы можете навести указатель мыши на имя сервера, чтобы отобразился пункт **Щелкните, чтобы скопировать**.
-
-   ![Сведения о подключении](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Если вы забыли данные для входа на сервер базы данных SQL Azure, перейдите к соответствующей странице, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль. 
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="connect-to-your-database"></a>Подключение к базе данных
 
@@ -61,13 +53,14 @@ ms.lasthandoff: 10/31/2017
 
 2. В диалоговом окне **Подключение к серверу** введите следующие значения.
 
-   | Настройка       | Рекомендуемое значение | Описание | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Настройка      | Рекомендуемое значение    | Описание | 
+   | ------------ | ------------------ | ----------- | 
    | **Тип сервера** | Ядро СУБД | Это обязательное значение. |
    | **Server name** (Имя сервера) | Полное имя сервера | Имя должно быть примерно таким: **mynewserver20170313.database.windows.net**. |
    | **Аутентификация** | проверка подлинности SQL Server | В рамках работы с этим руководством мы настроили только один тип проверки подлинности — проверку подлинности SQL. |
    | **Имя входа** | Учетная запись администратора сервера | Это учетная запись, указанная при создании сервера. |
    | **Пароль** | Пароль учетной записи администратора сервера | Это пароль, указанный при создании сервера. |
+   ||||
 
    ![Подключение к серверу](./media/sql-database-connect-query-ssms/connect.png)  
 
@@ -172,3 +165,9 @@ ms.lasthandoff: 10/31/2017
 - См. дополнительные сведения о [подключении и создании запросов с помощью Java](sql-database-connect-query-java.md).
 - См. дополнительные сведения о [подключении и создании запросов с помощью Python](sql-database-connect-query-python.md).
 - См. дополнительные сведения о [подключении и создании запросов с помощью Ruby](sql-database-connect-query-ruby.md).
+
+
+<!-- Article link references. -->
+
+[ssms-install-latest-84g]: https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms
+

@@ -1,9 +1,9 @@
 ---
-title: "Привязки хранилища таблиц для службы \"Функции Azure\""
+title: "Привязки хранилища таблиц Azure для службы \"Функции Azure\""
 description: "Узнайте, как использовать привязки службы хранилища таблиц Azure в службе \"Функции Azure\"."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -14,20 +14,20 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: chrande
-ms.openlocfilehash: 2f54df931d03318a50e9397211e3c50d0898556d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: tdykstra
+ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-table-storage-bindings"></a>Привязки хранилища таблиц для службы "Функции Azure"
+# <a name="azure-table-storage-bindings-for-azure-functions"></a>Привязки хранилища таблиц Azure для службы "Функции Azure"
 
 В этой статье рассматривается работа с привязками хранилища таблиц Azure в Функциях Azure. Функции Azure поддерживают входные и выходные привязки для хранилища таблиц Azure.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="table-storage-input-binding"></a>Входная привязка хранилища таблиц
+## <a name="input"></a>Входные данные
 
 Используйте входную привязку хранилища таблиц Azure для чтения таблицы в учетной записи хранения Azure.
 
@@ -284,7 +284,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="input---attributes-for-precompiled-c"></a>Входные данные атрибутов для предкомпилированного кода C#
+## <a name="input---attributes"></a>Входные атрибуты
  
 Для функций [предкомпилированного кода C#](functions-dotnet-class-library.md) используйте следующие атрибуты, позволяющие настроить входную привязку таблицы:
 
@@ -298,6 +298,9 @@ module.exports = function (context, myQueueItem) {
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   Чтобы указать учетную запись хранения, которую нужно использовать, можно задать свойство `Connection`, как показано в следующем примере.
@@ -308,7 +311,12 @@ module.exports = function (context, myQueueItem) {
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
+
+  Полный пример см. в разделе [Пример входных данных C#](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -321,6 +329,9 @@ module.exports = function (context, myQueueItem) {
       [FunctionName("TableInput")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 Используемая учетная запись хранения определяется в следующем порядке:
@@ -345,7 +356,9 @@ module.exports = function (context, myQueueItem) {
 |**rowKey** |**RowKey** | необязательный параметр. Ключ строки сущности таблицы, которую нужно считать. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#input---usage).| 
 |**take** |**take** | необязательный параметр. Максимальное количество считываемых сущностей в JavaScript. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#input---usage).| 
 |**filter** |**Filter** | необязательный параметр. Выражение фильтра OData для входных данных таблицы в JavaScript. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#input---usage).| 
-|**подключение** |**Connection** | Имя параметра приложения, содержащего строку подключения к службе хранилища, используемой для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyStorage, среда выполнения службы "Функции" будет искать параметр приложения с именем AzureWebJobsMyStorage. Если оставить строку `connection` пустой, среда выполнения службы "Функции" будет использовать строку подключения к службе хранилища по умолчанию для параметра приложения с именем `AzureWebJobsStorage`.<br/>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+|**подключение** |**Connection** | Имя параметра приложения, содержащего строку подключения к службе хранилища, используемой для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyStorage, среда выполнения службы "Функции" будет искать параметр приложения с именем AzureWebJobsMyStorage. Если оставить строку `connection` пустой, среда выполнения службы "Функции" будет использовать строку подключения к службе хранилища по умолчанию для параметра приложения с именем `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>Использование входной привязки
 
@@ -368,7 +381,7 @@ module.exports = function (context, myQueueItem) {
 
   Укажите свойства `filter` и `take`. Не определяйте свойства `partitionKey` и `rowKey`. Получите доступ к сущности (или сущностям) входной таблицы, используя `context.bindings.<name>`. Десериализированный объект имеет свойства `RowKey` и `PartitionKey`.
 
-## <a name="table-storage-output-binding"></a>Выходная привязка хранилища таблиц
+## <a name="output"></a>Выходные данные
 
 Используйте выходную привязку хранилища таблиц Azure для записи сущностей в таблицу в учетной записи хранения Azure.
 
@@ -554,9 +567,9 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Выходные данные атрибутов для предкомпилированного кода C#
+## <a name="output---attributes"></a>Выходные атрибуты
 
- Для функций [предкомпилированного кода C#](functions-dotnet-class-library.md) используйте атрибут [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+Для функций [предкомпилированного кода C#](functions-dotnet-class-library.md) используйте атрибут [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Конструктор атрибута использует имя таблицы. Его можно использовать с параметром `out` или возвращаемым значением функции, как показано в следующем примере.
 
@@ -566,6 +579,9 @@ module.exports = function (context) {
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
 Чтобы указать учетную запись хранения, которую нужно использовать, можно задать свойство `Connection`, как показано в следующем примере.
@@ -576,9 +592,14 @@ public static MyPoco TableOutput(
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
-Чтобы указать учетную запись хранения на уровне класса, метода или параметра, можно использовать атрибут `StorageAccount`. Дополнительные сведения см. в разделе [Входные данные атрибутов для предкомпилированного кода C#](#input---attributes-for-precompiled-c).
+Полный пример см. в разделе [Пример выходных данных C#](#output---c-example).
+
+Чтобы указать учетную запись хранения на уровне класса, метода или параметра, можно использовать атрибут `StorageAccount`. Дополнительные сведения см. в разделе [Входные атрибуты](#input---attributes-for-precompiled-c).
 
 ## <a name="output---configuration"></a>Выходная конфигурация
 
@@ -592,7 +613,9 @@ public static MyPoco TableOutput(
 |**tableName** |**TableName** | Это имя таблицы.| 
 |**partitionKey** |**PartitionKey** | Ключ раздела сущности таблицы, которую нужно записать. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#output---usage).| 
 |**rowKey** |**RowKey** | Ключ строки сущности таблицы, которую нужно записать. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#output---usage).| 
-|**подключение** |**Connection** | Имя параметра приложения, содержащего строку подключения к службе хранилища, используемой для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyStorage, среда выполнения службы "Функции" будет искать параметр приложения с именем AzureWebJobsMyStorage. Если оставить строку `connection` пустой, среда выполнения службы "Функции" будет использовать строку подключения к службе хранилища по умолчанию для параметра приложения с именем `AzureWebJobsStorage`.<br/>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+|**подключение** |**Connection** | Имя параметра приложения, содержащего строку подключения к службе хранилища, используемой для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyStorage, среда выполнения службы "Функции" будет искать параметр приложения с именем AzureWebJobsMyStorage. Если оставить строку `connection` пустой, среда выполнения службы "Функции" будет использовать строку подключения к службе хранилища по умолчанию для параметра приложения с именем `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Использование выходной привязки
 

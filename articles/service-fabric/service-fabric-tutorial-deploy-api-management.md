@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: 97bcf312621ec0fed28e26179d4c4aa101a8a92d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b3bf91a7ae5ed70456352ecdba9c0324f20f3555
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>развертывание службы управления API с помощью Service Fabric.
 Это руководство представляет собой первую часть цикла.  Расширенный сценарий развертывания для службы управления API Azure в Service Fabric.  Управление API позволяет публиковать API-интерфейсы с широким набором правил маршрутизации для служб серверной части Service Fabric. Обычно, облачным приложениям требуется интерфейсный шлюз, который предоставляет единую точку передачи входящего трафика пользователей, устройств или других приложений. В Service Fabric шлюзом может быть любая служба без отслеживания состояния, предназначенная для обработки входящего трафика, например приложение APP.NET Core, служба "Концентраторы событий", Центр Интернета вещей или служба управления API Azure. 
@@ -326,7 +326,7 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="conclusion"></a>Заключение
+## <a name="next-steps"></a>Дальнейшие действия
 Из этого руководства вы узнали, как выполнять такие задачи:
 
 > [!div class="checklist"]
@@ -335,6 +335,10 @@ az group delete --name $ResourceGroupName
 > * Создание операции API
 > * Настройка внутренней политики
 > * Добавление API в продукт
+
+Теперь перейдите к следующему руководству, чтобы узнать, как обновить среду выполнения кластера.
+> [!div class="nextstepaction"]
+> [Обновление среды выполнения кластера Azure Service Fabric](service-fabric-tutorial-upgrade-cluster.md)
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

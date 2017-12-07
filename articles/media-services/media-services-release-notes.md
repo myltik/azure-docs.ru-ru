@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 3000acf91a66af3ec512af52362f7f1e2ba0019b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 310306e22a9f3c4c770e326d3284d02da7f06039
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Заметки о выпуске служб мультимедиа Azure
 В этих заметках описаны изменения по сравнению с предыдущими выпусками, а также известные проблемы.
@@ -411,7 +411,7 @@ API REST служб мультимедиа обновлены до версии 
 
 Последним выпуском пакета SDK для служб мультимедиа в данный момент является 3.0.0.0. Последнюю версию пакета можно скачать из Nuget или получить код из [GitHub].
 
-Приступив к работе с пакетом SDK версии 3.0.0.0 для служб мультимедиа, вы можете повторно использовать токены [службы контроля доступа Azure Active Directory (ACS)]. Дополнительные сведения см. в разделе о повторном использовании маркеров службы управления доступом статьи [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD].
+Приступив к работе с пакетом SDK версии 3.0.0.0 для служб мультимедиа, вы можете повторно использовать маркеры службы контроля доступа Azure Active Directory (ACS). 
 
 ### <a name="dec_13_donnet_ext_changes"></a>Расширения версии 2.0.0.0 пакета SDK служб мультимедиа Azure для .NET
 Расширения пакета SDK служб мультимедиа Azure для .NET — это набор методов расширения и вспомогательных функций, которые упростят код и облегчат разработку приложений с помощью служб мультимедиа Azure. Новые фрагменты кода можно получить на странице [Расширения пакета SDK служб мультимедиа Azure для .NET].
@@ -580,8 +580,8 @@ API REST служб мультимедиа обновлены до версии 
 [Создание наложений]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [Стыковка сегментов видео]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [Выпуски 3.0.0.1 и 3.0.0.2 пакета SDK служб мультимедиа Azure для .NET]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[службы контроля доступа Azure Active Directory (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
-[Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
+[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Расширения пакета SDK служб мультимедиа Azure для .NET]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9970452b62b31f28f8277580dd1075c306767d8b
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Как использовать управление API Azure с виртуальными сетями
 Виртуальные сети Azure позволяют размещать любые ресурсы Azure в сети, недоступной из Интернета, доступом к которой управляете вы сами. Эти сети можно подключать к локальным сетям с помощью различных технологий VPN. Начать изучение виртуальных сетей Azure лучше всего со статьи [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md).
@@ -44,8 +44,8 @@ ms.lasthandoff: 10/13/2017
 
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Активация возможности подключения к виртуальной сети с помощью портала Azure
 
-1. Перейдите к своему экземпляру APIM на [портале Azure](https://portal.azure.com/).
-2. Выберите **Пользовательские домены и SSL**.
+1. Перейдите к экземпляру APIM на [портале Azure](https://portal.azure.com/).
+2. Щелкните **Виртуальная сеть**.
 3. Настройте развертывание экземпляра управления API внутри виртуальной сети.
 
     ![Меню "Виртуальная сеть" для управления API][api-management-using-vnet-menu]
@@ -116,6 +116,7 @@ ms.lasthandoff: 10/13/2017
 | * / 14000 - 14999 |Исходящие |TCP |VIRTUAL_NETWORK — INTERNET|**Доступ к Azure SQL V12** |Внешний и внутренний |
 | * / 5671 |Исходящие |AMQP |VIRTUAL_NETWORK — INTERNET|Зависимость для политики ведения журнала концентратора событий и агента мониторинга |Внешний и внутренний |
 | * / 445 |Исходящие |TCP |VIRTUAL_NETWORK — INTERNET|Зависимость для общей папки Azure для GIT |Внешний и внутренний |
+| * / 25028 |Исходящие |TCP |VIRTUAL_NETWORK — INTERNET|Подключение SMTP-ретранслятору для отправки сообщений электронной почты |Внешний и внутренний |
 | * / 6381 - 6383 |Входящий и исходящий |TCP |VIRTUAL_NETWORK — VIRTUAL_NETWORK|Доступ к экземплярам кэша Redis между экземплярами RoleInstance |Внешний и внутренний |
 | * / * | Входящий трафик |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Подсистема балансировки нагрузки инфраструктуры Azure |Внешний и внутренний |
 

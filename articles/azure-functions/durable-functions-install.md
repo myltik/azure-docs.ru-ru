@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: debadde78d937bcd4ec1df665aacfd1887fbcd02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03326304e438f3b716c43d268f07d8e22cd15ea3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Установка расширения устойчивых функций и примеров (Функции Azure)
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="prerequisites"></a>Предварительные требования
 
-* Установите [последнюю версию Visual Studio](https://www.visualstudio.com/downloads/) (15.3 или выше). Включите средства Azure в параметрах установки.
+* Установите [последнюю версию Visual Studio](https://www.visualstudio.com/downloads/) (15.3 или выше). Включите рабочую нагрузку **разработки Azure** в параметрах установки.
 
 ### <a name="start-with-sample-functions"></a>Начало работы с примерами функций
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 
 1. Создайте приложение-функцию на сайте [functions.azure.com](https://functions.azure.com/signin).
 2. Настройте в приложении-функции [использование среды выполнения версии 2.0](functions-versions.md).
-3. Создайте функцию и выберите шаблон **Durable Functions Orchestrator - C#** (Оркестратор устойчивых функций — C#).
+3. Создайте функцию, установив для языка значение C#, а для сценария — "Все". Затем выберите шаблон **Durable Functions Orchestrator — C#** (Оркестратор устойчивых функций — C#).
 4. В разделе **Расширения не установлены**, нажмите кнопку **Установить**, чтобы скачать расширение с сайта NuGet.org.
 
 ### <a name="copy-sample-code-to-the-function-app"></a>Копирование примера кода в приложение-функцию

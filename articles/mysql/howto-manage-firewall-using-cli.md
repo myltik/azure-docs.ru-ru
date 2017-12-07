@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 66d192287eeaaaa82c0f61f8aa13b8bf7bf8cd47
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.date: 11/28/2017
+ms.openlocfilehash: 0adcf8fd21049ee75972352b2e7d3c56300e0f87
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Создание правил брандмауэра базы данных Azure для MySQL и управление ими с помощью Azure CLI
 Правила брандмауэра уровня сервера позволяют администраторам управлять доступом к серверу базы данных Azure для MySQL с помощью определенного IP-адреса или диапазона IP-адресов. С помощью удобных команд Azure CLI можно создавать, обновлять, удалять, выводить список и отображать правила брандмауэра для управления сервером. Обзор брандмауэров базы данных Azure для MySQL приведен в разделе [Правила брандмауэра сервера базы данных Azure для MySQL](./concepts-firewall-rules.md).
@@ -48,25 +48,25 @@ az login
 
 3. Когда появится окно для входа, войдите с использованием учетных данных Azure.
 
-4. После авторизации имени для входа в консоли отобразится список подписок. Скопируйте идентификатор необходимой подписки, чтобы выбрать текущую подписку для использования.
+4. После авторизации имени для входа в консоли отобразится список подписок. Скопируйте идентификатор необходимой подписки, чтобы выбрать текущую подписку для использования. Введите команду [az account set](/cli/azure/account#az_account_set).
    ```azurecli-interactive
    az account set --subscription {your subscription id}
    ```
 
-5. Выведите список серверов базы данных Azure для MySQL для своей подписки и группы ресурсов, если вы не уверены, что знаете нужные имена.
+5. Выведите список серверов базы данных Azure для MySQL для своей подписки и группы ресурсов, если вы не уверены, что знаете нужные имена. Введите команду [az mysql server list](/cli/azure/mysql/server#az_mysql_server_list).
 
    ```azurecli-interactive
    az mysql server list --resource-group myResourceGroup
    ```
 
-   Обратите внимание на атрибут name (имя) в списке, который потребуется для указания сервера MySQL для дальнейшей работы. При необходимости подтвердите данные этого сервера с помощью атрибута name, чтобы гарантировать, что имя указано правильно:
+   Обратите внимание на атрибут name (имя) в списке, который потребуется для указания сервера MySQL для дальнейшей работы. При необходимости подтвердите данные этого сервера с помощью атрибута name, чтобы гарантировать, что имя указано правильно. Введите команду [az mysql server show](/cli/azure/mysql/server#az_mysql_server_show).
 
    ```azurecli-interactive
    az mysql server show --resource-group myResourceGroup --name mysqlserver4demo
    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Вывод списка правил брандмауэра для сервера базы данных Azure для MySQL 
-Используя имя сервера и имя группы ресурсов, выведите список существующих правил брандмауэра на сервере. Обратите внимание, что атрибут имени сервера указан в параметре **--server**, а не в параметре **--name**.
+Используя имя сервера и имя группы ресурсов, выведите список существующих правил брандмауэра на сервере. Введите команду [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_list).  Обратите внимание, что атрибут имени сервера указан в параметре **--server**, а не в параметре **--name**. 
 ```azurecli-interactive
 az mysql server firewall-rule list --resource-group myResourceGroup --server mysqlserver4demo
 ```
@@ -75,7 +75,7 @@ az mysql server firewall-rule list --resource-group myResourceGroup --server mys
 az mysql server firewall-rule list --resource-group myResourceGroup --server mysqlserver4demo --output table
 ```
 ## <a name="create-a-firewall-rule-on-azure-database-for-mysql-server"></a>Создание правила брандмауэра для сервера базы данных Azure для MySQL
-Используя имя сервера Azure MySQL и имя группы ресурсов, создайте правило брандмауэра на сервере. Введите имя правила, а также начальный IP-адрес и конечный IP-адрес (чтобы предоставить доступ к диапазону IP-адресов) для правила.
+Используя имя сервера Azure MySQL и имя группы ресурсов, создайте правило брандмауэра на сервере. Введите команду [az mysql server firewall create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). Введите имя правила, а также начальный IP-адрес и конечный IP-адрес (чтобы предоставить доступ к диапазону IP-адресов) для правила.
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup  --server mysqlserver4demo --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
@@ -87,7 +87,7 @@ az mysql server firewall-rule create --resource-group myResourceGroup
 При успешном выполнении команды ее выходные данные будут содержать сведения о созданном правиле брандмауэра в формате JSON (по умолчанию). Если возникнет сбой, выходные данные будут содержать вместо этого текст сообщения об ошибке.
 
 ## <a name="update-a-firewall-rule-on-azure-database-for-mysql-server"></a>Обновление правила брандмауэра для сервера базы данных Azure для MySQL 
-Используя имя сервера Azure MySQL и имя группы ресурсов, измените правило брандмауэра на сервере. В качестве входных данных укажите имя существующего правила брандмауэра, а также атрибуты начального и конечного IP-адресов, которые нужно обновить.
+Используя имя сервера Azure MySQL и имя группы ресурсов, измените правило брандмауэра на сервере. Введите команду [az mysql server firewall update](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_update). В качестве входных данных укажите имя существующего правила брандмауэра, а также атрибуты начального и конечного IP-адресов, которые нужно обновить.
 ```azurecli-interactive
 az mysql server firewall-rule update --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
@@ -97,14 +97,14 @@ az mysql server firewall-rule update --resource-group myResourceGroup --server m
 > Если правило брандмауэра не существует, оно будет создано командой update.
 
 ## <a name="show-firewall-rule-details-on-azure-database-for-mysql-server"></a>Отображение сведений о правиле брандмауэра для сервера базы данных Azure для MySQL
-Используя имя сервера Azure MySQL и имя группы ресурсов, отобразите сведения о правиле брандмауэра на сервере. Укажите имя существующего правила брандмауэра в качестве входных данных.
+Используя имя сервера Azure MySQL и имя группы ресурсов, отобразите сведения о правиле брандмауэра на сервере. Введите команду [az mysql server firewall show](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_show). Укажите имя существующего правила брандмауэра в качестве входных данных.
 ```azurecli-interactive
 az mysql server firewall-rule show --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1"
 ```
 При успешном выполнении команды ее выходные данные будут содержать сведения об указанном правиле брандмауэра в формате JSON (по умолчанию). Если возникнет сбой, выходные данные будут содержать вместо этого текст сообщения об ошибке.
 
 ## <a name="delete-a-firewall-rule-on-azure-database-for-mysql-server"></a>Удаление правила брандмауэра для сервера базы данных Azure для MySQL
-Используя имя сервера Azure MySQL и имя группы ресурсов, удалите правило брандмауэра с сервера. Укажите имя существующего правила брандмауэра.
+Используя имя сервера Azure MySQL и имя группы ресурсов, удалите правило брандмауэра с сервера. Введите команду [az mysql server firewall delete](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_delete). Укажите имя существующего правила брандмауэра.
 ```azurecli-interactive
 az mysql server firewall-rule delete --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1"
 ```

@@ -1,5 +1,5 @@
 ---
-title: "Привязки концентраторов событий функций Azure"
+title: "Привязки концентраторов событий Azure для службы \"Функции Azure\""
 description: "Узнайте, как использовать привязки концентраторов событий Azure в функциях Azure."
 services: functions
 documentationcenter: na
@@ -16,19 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: c2660a3ca8ee7569d49a6998d0dfd5a98a97d294
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-event-hubs-bindings"></a>Привязки концентраторов событий функций Azure
+# <a name="azure-event-hubs-bindings-for-azure-functions"></a>Привязки концентраторов событий Azure для службы "Функции Azure"
 
 Здесь объясняется, как работать с привязками [концентраторов событий Azure](../event-hubs/event-hubs-what-is-event-hubs.md) для службы "Функции Azure". Функции Azure поддерживают привязки триггера и выходные привязки для концентраторов событий Azure.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="event-hubs-trigger"></a>Триггер концентратора событий
+## <a name="trigger"></a>Триггер
 
 Используйте триггер концентраторов событий Azure для ответа на событие, отправленное в поток событий концентратора событий. Чтобы настроить триггер, необходимо иметь доступ для чтения к концентратору событий.
 
@@ -176,7 +176,7 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Атрибуты триггера для предкомпилированного кода C#
+## <a name="trigger---attributes"></a>Атрибуты триггера
 
 Для [предкомпилированных функций C#](functions-dotnet-class-library.md) используйте атрибут [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -185,7 +185,12 @@ module.exports = function (context, myEventHubMessage) {
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
 public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+{
+    ...
+}
 ```
+
+Полный пример см. в разделе [Пример C# в триггере](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Конфигурация триггера
 
@@ -198,7 +203,9 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |**name** | Недоступно | Имя переменной, представляющей элемент события в коде функции. | 
 |**path** |**EventHubName** | Имя концентратора событий. | 
 |**consumerGroup** |**ConsumerGroup** | Необязательное свойство, которое используется для задания [группы потребителей](../event-hubs/event-hubs-features.md#event-consumers), используемой для подписки на события в концентраторе. Если аргумент опущен, используется группа потребителей `$Default`. | 
-|**подключение** |**Connection** | Имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий. Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Для активации триггера эта строка подключения должна обладать, по крайней мере, правами на чтение.<br/>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+|**подключение** |**Connection** | Имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий. Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Для активации триггера эта строка подключения должна обладать, по крайней мере, правами на чтение.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---hostjson-properties"></a>Свойства host.json в триггере
 
@@ -206,7 +213,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="event-hubs-output-binding"></a>Выходная привязка концентраторов событий
+## <a name="output"></a>Выходные данные
 
 Используйте выходную привязку концентраторов событий для записи событий в поток событий. Чтобы записывать события в концентратор событий, необходимо иметь разрешение на оправку в него событий.
 
@@ -341,7 +348,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Выходные данные атрибутов для предкомпилированного кода C#
+## <a name="output---attributes"></a>Выходные атрибуты
 
 Для [предкомпилированных функций C#](functions-dotnet-class-library.md) используйте атрибут [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -351,7 +358,12 @@ module.exports = function(context) {
 [FunctionName("EventHubOutput")]
 [return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
+{
+    ...
+}
 ```
+
+Полный пример см. в разделе [Пример выходных данных C#](#output---c-example).
 
 ## <a name="output---configuration"></a>Выходная конфигурация
 
@@ -363,7 +375,9 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 |**direction** | Недоступно | Для этого свойства необходимо задать значение "out". Этот параметр задается автоматически при создании привязки на портале Azure. |
 |**name** | Недоступно | Имя переменной, используемое в коде функции, которая представляет событие. | 
 |**path** |**EventHubName** | Имя концентратора событий. | 
-|**подключение** |**Connection** | Имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий. Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Чтобы отправлять сообщения в поток событий, эта строка подключения должна иметь разрешения на отправку.<br/>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+|**подключение** |**Connection** | Имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий. Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Чтобы отправлять сообщения в поток событий, эта строка подключения должна иметь разрешения на отправку.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Использование выходной привязки
 

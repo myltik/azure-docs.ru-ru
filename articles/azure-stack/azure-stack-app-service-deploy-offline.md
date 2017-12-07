@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/23/2017
 ms.author: anwestg
-ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Добавление поставщика ресурсов службы приложений в автономную среду Azure Stack, защищенную с помощью службы федерации Active Directory (AD FS)
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 11/11/2017
         - Если вы используете службы федерации Active Directory (AD FS), предоставьте соответствующую учетную запись администратора. Например, cloudadmin@azurestack.local. Введите пароль и нажмите кнопку **Войти**.
     2. В поле **Azure Stack Subscriptions** (Подписки Azure Stack) выберите подписку.
     3. В поле **Azure Stack Locations** (Расположения Azure Stack) выберите расположение, соответствующее региону, в который выполняется развертывание. Например, **локальный** регион при развертывании в пакете SDK для Azure Stack.
-    4. Введите **имя группы ресурсов** для развертывания службы приложений. По умолчанию присваивается имя **APPSERVICE\<MOBILE\>**.
+    4. Введите **имя группы ресурсов** для развертывания службы приложений. По умолчанию присваивается имя **APPSERVICE-LOCAL**.
     5. Введите **имя учетной записи хранения**, которую служба приложений должна создать в процессе установки. По умолчанию присваивается имя **appsvclocalstor**.
     6. Щелкните **Далее**.
 

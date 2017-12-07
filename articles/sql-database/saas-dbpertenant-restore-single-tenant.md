@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.openlocfilehash: 866b5eec6e9c7e8bf98547143c0393bfb6f97b14
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee2bc6d8b75b92243c0550db0044895e41c9474b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Восстановление базы данных SQL Azure с одним клиентом в приложении SaaS с несколькими клиентами
 
-Приложение SaaS Wingtip создано на основе модели, предусматривающей использование одной базы данных для каждого клиента. Одно из преимуществ этой модели заключается в простоте восстановления данных отдельного изолированного клиента, не влияя на другие клиенты.
+Приложение SaaS Wingtip Tickets создано на основе модели, предусматривающей использование одной базы данных для каждого клиента. Одно из преимуществ этой модели заключается в простоте восстановления данных отдельного изолированного клиента, не влияя на другие клиенты.
 
 В этом руководстве рассматривается два шаблона восстановления данных:
 
@@ -53,9 +53,9 @@ ms.lasthandoff: 11/16/2017
 
 Во втором шаблоне, в котором предполагается потеря или повреждение данных, рабочая база данных клиента восстанавливается до предыдущей точки во времени. В шаблоне восстановления "на месте" клиент переводится в автономный режим до восстановления базы данных, а затем его работа возобновляется. В этом случае исходная база данных удаляется, но ее по-прежнему можно восстановить, чтобы вернуться до более ранней точки во времени. Этот шаблон позволяет изменить имя базы данных, а не удалять ее. Но изменение имени не позволит улучшить безопасность данных.
 
-## <a name="get-the-wingtip-application-scripts"></a>Получение сценариев приложения Wingtip
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Получение скриптов для SaaS-приложения Wingtip Tickets c однотенантной БД
 
-Скрипты и исходный код приложения SaaS Wingtip доступны в репозитории GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Указания по скачиванию скриптов SaaS Wingtip см. [здесь](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Сценарии для приложения SaaS Wingtip Tickets c мультитенантной базой данных и исходный код этого приложения вы найдете в репозитории GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Инструкции по скачиванию и разблокированию сценариев приложения SaaS Wingtip Tickets см. в статье [Общие рекомендации по работе с примерами приложений SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md).
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Моделирование случайного удаления данных клиента
 
@@ -146,6 +146,6 @@ ms.lasthandoff: 11/16/2017
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-* [Руководства по SaaS WTP базы данных SQL](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Дополнительные руководства по работе с приложением SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Обзор обеспечения непрерывности бизнес-процессов с помощью базы данных SQL Azure](sql-database-business-continuity.md)
 * [Подробнее о резервном копировании базы данных SQL](sql-database-automated-backups.md)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: mimig
-ms.openlocfilehash: fd0454252080679fa880eecb677d609ea0734f09
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 1c53be736ad65a53767626033be27f0891de06ba
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Импорт данных для использования с помощью API таблицы Azure Cosmos DB
 
@@ -32,11 +32,11 @@ ms.lasthandoff: 11/16/2017
 
 ## <a name="data-migration-tool"></a>Средство переноса данных
 
-Импортировать имеющиеся данные хранилища таблиц Azure в учетную запись API таблицы (общедоступная версия) или перенести данные из учетной записи API таблицы (предварительная версия) в учетную запись API таблицы (общедоступная версия) можно с помощью средства переноса данных Azure Cosmos DB командной строки (dt.exe). Другие источники в настоящее время не поддерживаются.
+Импортировать имеющиеся данные хранилища таблиц Azure в учетную запись API таблицы (общедоступная версия) или перенести данные из учетной записи API таблицы (предварительная версия) в учетную запись API таблицы (общедоступная версия) можно с помощью средства переноса данных Azure Cosmos DB командной строки (dt.exe). Другие источники в настоящее время не поддерживаются. Средство переноса данных на основе пользовательского интерфейса (dtui.exe) в настоящее время не поддерживается для учетных записей API таблиц. 
 
 Чтобы выполнить миграцию данных таблицы, сделайте следующее:
 
-1. Скачайте средство переноса данных из [Центра загрузки Майкрософт](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) или [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
+1. Скачайте средство миграции с сайта [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
 2. Запустите `dt.exe` с помощью аргументов командной строки для своего сценария.
 
 dt.exe принимает команду в следующем формате:
@@ -92,7 +92,7 @@ dt.exe принимает команду в следующем формате:
 Ниже приведен пример команды для импорта данных из хранилища таблиц Azure в API таблицы:
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey==<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
 ### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Пример команды: источник — API таблицы Azure Cosmos DB (предварительная версия)

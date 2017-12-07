@@ -14,21 +14,25 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/28/2017
 ms.author: larryfr
-ms.openlocfilehash: 652719a80133434ecb31c00738dcda261cfa0683
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a780a7d954486dbce402e4bf45be55af8ad36ab9
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Пример потоковой передачи Apache Spark (DStream) с использованием Kafka в HDInsight
 
 Узнайте об использовании Apache Spark для двунаправленного потокового обмена данными с Apache Kafka в HDInsight с помощью DStreams. В этом примере используется записная книжка Jupyter, которая выполняется на кластере Spark.
+
 > [!NOTE]
 > Вы узнаете, как создать группу ресурсов Azure, которая содержит кластеры Spark и Kafka в HDInsight. Оба этих кластера находятся в виртуальной сети Azure, что позволяет кластеру Spark напрямую обмениваться данными с кластером Kafka.
 >
 > Выполнив инструкции, не забудьте удалить кластеры, чтобы избежать ненужных расходов.
+
+> [!IMPORTANT]
+> В этом примере используется DStreams (старая технология потоковой передачи Spark). Пример, использующий новые функции потоковой передачи Spark, см. в статье [Использование структурированной потоковой передачи Spark с Kafka в HDInsight](hdinsight-apache-kafka-spark-structured-streaming.md).
 
 ## <a name="create-the-clusters"></a>Создание кластеров
 

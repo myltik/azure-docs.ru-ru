@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: d93667f16f2d72995e4a42e79e9125b8e3f6b07c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 598387b6066612c6c4a4c92cba5ba03e03a55203
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Руководство. Интеграция Azure Active Directory с Trello
 
@@ -96,6 +96,10 @@ ms.lasthandoff: 10/11/2017
 
 В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Trello.
 
+>[!NOTE]
+    >Необходимо получить поле динамических данных **\<enterprise\>** из Trello. При отсутствии значения поля динамических данных обратитесь к [группе поддержки Trello](mailto:support@trello.com), чтобы получить его для своего предприятия.
+    > 
+
 **Чтобы настроить единый вход Azure AD в Trello, сделайте следующее:**
 
 1. На портале Azure на странице интеграции с приложением **Trello** щелкните **Единый вход**.
@@ -112,17 +116,15 @@ ms.lasthandoff: 10/11/2017
 
     В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://trello.com/auth/saml/consume/<enterprise>`.
 
-4. Если вы хотите настроить приложение в **режиме, инициируемом поставщиком услуг**, то в разделе **Домены и URL-адреса приложения Trello** сделайте следующее.
-    
-    ![Настройка единого входа](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+4. Если вы хотите настроить приложение в **режиме, инициируемом поставщиком услуг**, выполните следующие действия.
+
+  ![Настройка единого входа](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
     а. Установите флажок **Показать дополнительные параметры URL-адресов**.
 
-    b. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://trello.com/auth/saml/consume/<enterprise>`.
+    b. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://trello.com/auth/saml/login/<enterprise>`.
 
-    >[!NOTE]
-    >Необходимо получить поле динамических данных **\<enterprise\>** из Trello. При отсутствии значения поля динамических данных обратитесь к [группе поддержки Trello](mailto:support@trello.com), чтобы получить его для своего предприятия.
-    > 
+  c. В текстовом поле **Идентификатор** введите URL-адрес `https://trello.com/auth/saml/metadata`.
 
 5. Приложение Trello ожидает, что утверждения SAML должны содержать определенные атрибуты. Настройте приведенные ниже атрибуты для этого приложения. Управлять значениями этих атрибутов можно на вкладке **Атрибуты пользователя** приложения. На следующем снимке экрана приведен пример.
 

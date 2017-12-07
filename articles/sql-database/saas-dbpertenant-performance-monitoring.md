@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 450a5fc578948db044d9e0bb9db09508b2512aca
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Мониторинг производительности баз данных и пулов SQL Azure в мультитенантном приложении SaaS и управление ею
 
@@ -62,9 +62,9 @@ SaaS-приложение Wingtip Tickets c однотенантной базо�
 
 При работе с большим количеством ресурсов можно использовать [Log Analytics (OMS)](saas-dbpertenant-log-analytics.md). Это отдельная служба Azure, которая предоставляет аналитические сведения на основе журналов диагностики и данных телеметрии, собранных в рабочей области Log Analytics. Служба Log Analytics может собирать данные телеметрии из многих служб и использоваться для выполнения запросов и настройки оповещений.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-source-code-and-scripts"></a>Получение скриптов и исходного кода для SaaS-приложения Wingtip Tickets c однотенантной базой данных
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Получение скриптов для SaaS-приложения Wingtip Tickets c однотенантной БД
 
-Скрипты и исходный код SaaS-приложения Wingtip Tickets c однотенантной базой данных доступны в репозитории [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) на сайте Github. См. [инструкцию по скачиванию скриптов для SaaS-приложения Wingtip Tickets c однотенантной базой данных](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Сценарии для приложения SaaS Wingtip Tickets c мультитенантной базой данных и исходный код этого приложения вы найдете в репозитории GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Инструкции по скачиванию и разблокированию сценариев приложения SaaS Wingtip Tickets см. в статье [Общие рекомендации по работе с примерами приложений SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md).
 
 ## <a name="provision-additional-tenants"></a>Подготовка дополнительных клиентов
 

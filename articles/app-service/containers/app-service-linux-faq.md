@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 265538a7e31d58a7d58c9e30870510eb66954f44
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Служба приложений Azure на платформе Linux: вопросы и ответы
 
@@ -64,6 +64,20 @@ ms.lasthandoff: 11/17/2017
 **Можно ли развернуть веб-приложение с помощью *веб-развертывания*?**
 
 Да. Для параметра `WEBSITE_WEBDEPLOY_USE_SCM` приложения необходимо задать значение *false*.
+
+**При использовании веб-приложения Linux произошел сбой развертывания Git моего приложения. Как можно обойти эту проблему?**
+
+В случае сбоя развертывания Git для веб-приложения Linux можно выбрать следующие альтернативные варианты развертывание кода приложения.
+
+- Используйте функцию непрерывной доставки (предварительная версия). Чтобы использовать непрерывную доставку Azure, исходный код приложения можно хранить в репозитории Git для Team Services или в репозитории GitHub. Дополнительные сведения см. в разделе [Use Azure portal to setup Continuous Delivery for Web App On Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Настройка непрерывной доставки для веб-приложения на платформе Linux с помощью портала Azure).
+
+- Используйте [API развертывания ZIP-файлов](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). Чтобы использовать этот API, [установите SSH-подключение к веб-приложению](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) и перейдите в папку, в которую требуется развернуть код. Выполните следующую команду:
+
+   ```
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+   ```
+
+   Если происходит ошибка и отображается сообщение о том, что команда `curl` не найдена, убедитесь, что вы установили curl с помощью команды `apt-get install curl`, прежде чем выполнили предыдущую команду `curl`.
 
 ## <a name="language-support"></a>Поддержка языков
 

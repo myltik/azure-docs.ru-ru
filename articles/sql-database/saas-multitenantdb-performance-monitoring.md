@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3e97f0635a856256dd08c29d33d8058be9c8d8b4
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Мониторинг производительности сегментированной мультитенантной базы данных SQL Azure в мультитенантном приложении SaaS и управление ею
 
@@ -35,7 +35,7 @@ SaaS-приложение Wingtip Tickets c мультитенантной БД 
 > * моделирование использования ресурсов в сегментированных мультитенантных базах данных с запуском предоставленного генератора нагрузки;
 > * мониторинг базы данных с учетом увеличения нагрузки;
 > * увеличение масштаба базы данных из-за роста нагрузки на нее;
-> * подготовка клиента в однотенантной базе данных.
+> * подготавливать клиента в однотенантной базе данных;
 
 Для работы с этим руководством выполните следующие предварительные требования:
 
@@ -59,7 +59,7 @@ SaaS-приложение Wingtip Tickets c мультитенантной БД 
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Получение скриптов и исходного кода для SaaS-приложения Wingtip Tickets c мультитенантной БД
 
-Скрипты для SaaS-приложения Wingtip Tickets c мультитенантной БД и исходный код этого приложения вы найдете в репозитории github [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB). <!--Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts(saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+Сценарии для приложения SaaS Wingtip Tickets c мультитенантной базой данных и исходный код этого приложения вы найдете в репозитории GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB). Инструкции по скачиванию и разблокированию сценариев приложения SaaS Wingtip Tickets см. в статье [Общие рекомендации по работе с примерами приложений SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md).
 
 ## <a name="provision-additional-tenants"></a>Подготовка дополнительных клиентов
 
@@ -195,7 +195,7 @@ SaaS-приложение Wingtip Tickets c мультитенантной БД 
 > * моделирование использования ресурсов в сегментированных мультитенантных базах данных с запуском предоставленного генератора нагрузки;
 > * мониторинг базы данных с учетом увеличения нагрузки;
 > * увеличение масштаба базы данных из-за роста нагрузки на нее;
-> * подготовка клиента в однотенантной базе данных.
+> * подготавливать клиента в однотенантной базе данных;
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 

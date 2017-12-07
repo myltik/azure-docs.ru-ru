@@ -1,69 +1,67 @@
 ---
-title: "Привязки Azure Cosmos DB для службы \"Функции\" | Документация Майкрософт"
+title: "Привязки Azure Cosmos DB для службы \"Функции\""
 description: "Узнайте, как использовать триггеры и привязки Azure Cosmos DB в службе \"Функции Azure\"."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
 keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"
-ms.assetid: 3d8497f0-21f3-437d-ba24-5ece8c90ac85
 ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d05c0342e771e229a7175570ad227c4359980990
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: a725d6e08721107ddd83999dac85dddb88896ebf
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="azure-cosmos-db-bindings-for-functions"></a>Привязки Azure Cosmos DB для службы "Функции"
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+# <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Привязки Azure Cosmos DB для службы "Функции Azure"
 
-В этой статье объясняется, как настроить и запрограммировать привязки Azure Cosmos DB в Функциях Azure. Служба "Функции" поддерживает привязки триггера, а также входные и выходные привязки для Azure Cosmos DB.
+В этой статье описывается использование привязок [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) в службе "Функции Azure". Служба "Функции Azure" поддерживает привязки триггера, а также входные и выходные привязки для Azure Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Дополнительные сведения о бессерверных вычислениях с помощью Azure Cosmos DB см. в разделе [Azure Cosmos DB: обработка данных бессерверных баз данных с помощью службы "Функции Azure"](..\cosmos-db\serverless-computing-database.md).
-
-<a id="trigger"></a>
-<a id="cosmosdbtrigger"></a>
-
-## <a name="azure-cosmos-db-trigger"></a>Триггер Azure Cosmos DB
+## <a name="trigger"></a>Триггер
 
 Триггер Azure Cosmos DB использует [канал изменений Azure Cosmos DB](../cosmos-db/change-feed.md) для ожидания передачи данных изменений между разделами. Триггеру требуется вторая коллекция, которая используется для хранения _аренды_ в разделах.
 
 Отслеживаемая коллекция и та, в которой содержатся аренды, должны быть доступны для успешной работы триггера.
 
-Триггер Azure Cosmos DB поддерживает следующие свойства:
+## <a name="trigger---example"></a>Пример триггера
 
-|Свойство  |Описание  |
-|---------|---------|
-|**type** | Нужно задать значение `cosmosDBTrigger`. |
-|**name** | Имя переменной, используемое в коде функции, представляющей список документов с изменениями. | 
-|**direction** | Нужно задать значение `in`. Этот параметр задается автоматически при создании триггера на портале Azure. |
-|**connectionStringSetting** | Имя параметра приложения, содержащего строку подключения, используемую для подключения к отслеживаемой учетной записи Azure Cosmos DB. |
-|**databaseName** | Имя базы данных Azure Cosmos DB с отслеживаемой коллекцией. |
-|**collectionName** | Имя отслеживаемой коллекции. |
-| **leaseConnectionStringSetting** | (Необязательно.) Имя параметра приложения, содержащее строку подключения для службы, содержащей коллекцию аренды. Если значение не задано, используется значение `connectionStringSetting`. Этот параметр задается автоматически при создании привязки на портале. |
-| **leaseDatabaseName** | (Необязательно.) Имя базы данных, в которой содержится коллекция, используемая для хранения аренд. Если значение не задано, используется значение параметра `databaseName`. Этот параметр задается автоматически при создании привязки на портале. |
-| **leaseCollectionName** | (Необязательно.) Имя коллекции, используемой для хранения аренд. Если значение не задано, используется значение `leases`. |
-| **createLeaseCollectionIfNotExists** | (Необязательно.) Если задано значение `true`, коллекция аренд создается автоматически, если она не создана. По умолчанию используется значение `false`. |
-| **leaseCollectionThroughput** | (Необязательно.) Определяет количество единиц запросов для назначения при создании коллекции аренд. Этот параметр используется, только если для `createLeaseCollectionIfNotExists` задано значение `true`. Этот параметр задается автоматически при создании привязки с помощью портала.
+Языковой пример см. в разделах:
 
->[!NOTE] 
->Строка подключения, используемая для подключения к коллекции аренд, должна иметь разрешения на запись.
+* [Предкомпилированный код C#](#trigger---c-example)
+* [Сценарий C#](#trigger---c-script-example)
+* [JavaScript](#trigger---javascript-example)
 
-Эти свойства можно задать на вкладке "Интеграция" для функции на портале Azure или путем изменения файла проекта `function.json`.
+### <a name="trigger---c-example"></a>Пример C# в триггере
 
-## <a name="using-an-azure-cosmos-db-trigger"></a>Использование триггера Azure Cosmos DB
+В следующем примере показана [предкомпилированная функция C#](functions-dotnet-class-library.md), которая запускается из заданной базы данных и коллекции.
 
-В этом разделе содержатся примеры использования триггера Azure Cosmos DB. В этих примерах требуются примерно такие метаданные триггера:
+```cs
+[FunctionName("DocumentUpdates")]
+public static void Run(
+    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+IReadOnlyList<Document> documents,
+    TraceWriter log)
+{
+        log.Info("Documents modified " + documents.Count);
+        log.Info("First document Id " + documents[0].Id);
+}
+```
+
+### <a name="trigger---c-script"></a>Сценарий C# в триггере
+
+В следующем примере показаны привязка триггера Cosmos DB в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. При изменении записей в Cosmos DB функция записывает сообщения в журнале.
+
+Данные привязки в файле *function.json*:
 
 ```json
 {
@@ -77,10 +75,9 @@ ms.lasthandoff: 10/18/2017
   "createLeaseCollectionIfNotExists": true
 }
 ```
- 
-Пример того, как создать триггер Azure Cosmos DB из приложения-функции на портале, см. в статье [Создание функции, активируемой с помощью Azure Cosmos DB](functions-create-cosmos-db-triggered-function.md). 
 
-### <a name="trigger-sample-in-c"></a>Пример триггера на языке C# #
+Ниже приведен код скрипта C#.
+ 
 ```cs 
     #r "Microsoft.Azure.Documents.Client"
     using Microsoft.Azure.Documents;
@@ -93,8 +90,27 @@ ms.lasthandoff: 10/18/2017
     }
 ```
 
+### <a name="trigger---javascript"></a>JavaScript в триггере
 
-### <a name="trigger-sample-in-javascript"></a>Пример триггера для JavaScript
+В следующем примере показаны привязка триггера Cosmos DB в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует эту привязку. При изменении записей в Cosmos DB функция записывает сообщения в журнале.
+
+Данные привязки в файле *function.json*:
+
+```json
+{
+  "type": "cosmosDBTrigger",
+  "name": "documents",
+  "direction": "in",
+  "leaseCollectionName": "leases",
+  "connectionStringSetting": "<connection-app-setting>",
+  "databaseName": "Tasks",
+  "collectionName": "Items",
+  "createLeaseCollectionIfNotExists": true
+}
+```
+
+Ниже показан код JavaScript.
+
 ```javascript
     module.exports = function (context, documents) {
         context.log('First document Id modified : ', documents[0].id);
@@ -103,35 +119,97 @@ ms.lasthandoff: 10/18/2017
     }
 ```
 
-<a id="docdbinput"></a>
+## <a name="trigger---attributes"></a>Атрибуты триггера
 
-## <a name="documentdb-api-input-binding"></a>Входная привязка API DocumentDB
-Входная привязка API DocumentDB получает документ Azure Cosmos DB и передает его именованному входному параметру функции. Идентификатор документа можно определить по триггеру, который вызывает функцию. 
+Для [предкомпилированной функции C#](functions-dotnet-class-library.md) используйте атрибут [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
-Входная привязка API DocumentDB имеет следующие свойства в *function.json*:
+Конструктор атрибута принимает имя базы данных и имя коллекции. Дополнительные сведения о параметрах и других свойствах, которые можно настроить, см. в разделе [Конфигурация триггера](#trigger---configuration). Ниже приведен пример атрибута `CosmosDBTrigger` в сигнатуре метода:
 
-|Свойство  |Описание  |
-|---------|---------|
-|**name**     | Имя параметра привязки, представляющего документ в функции.  |
-|**type**     | Нужно задать значение `documentdb`.        |
-|**databaseName** | База данных, содержащая документ.        |
-|**collectionName**  | Имя коллекции, содержащей документ. |
-|**id**     | Идентификатор документа, который нужно получить. Это свойство поддерживает параметры привязок. Дополнительные сведения см. в разделе [Привязка к пользовательским входным свойствам в выражении привязки](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). |
-|**sqlQuery**     | SQL-запрос к Azure Cosmos DB, используемый для извлечения нескольких документов. Запрос поддерживает привязки времени выполнения, например `SELECT * FROM c where c.departmentId = {departmentId}`.        |
-|**подключение**     |Имя параметра приложения, содержащего строку подключения к Azure Cosmos DB.        |
-|**direction**     | Нужно задать значение `in`.         |
+```csharp
+[FunctionName("DocumentUpdates")]
+public static void Run(
+    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+IReadOnlyList<Document> documents,
+    TraceWriter log)
+{
+    ...
+}
+```
 
-Невозможно задать одновременно свойства **id** и **sqlQuery**. Если ни одно свойство не задано, извлекается вся коллекция.
+Полный пример см. в разделе [Пример C# в триггере](#trigger---c-example).
 
-## <a name="using-a-documentdb-api-input-binding"></a>Использование входной привязки API DocumentDB
+## <a name="trigger---configuration"></a>Конфигурация триггера
 
-* В функциях C# и F# любые изменения, внесенные во входной документ посредством именованных входных параметров, сохраняются автоматически после успешного выхода из функции. 
-* В функциях JavaScript изменения не обрабатываются автоматически при выходе из функции. Для внесения изменений используйте `context.bindings.<documentName>In` и `context.bindings.<documentName>Out`. См. [пример JavaScript](#injavascript).
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `CosmosDBTrigger`.
 
-<a name="inputsample"></a>
+|свойство function.json | Свойство атрибута |Описание|
+|---------|---------|----------------------|
+|**type** || Нужно задать значение `cosmosDBTrigger`. |
+|**direction** || Нужно задать значение `in`. Этот параметр задается автоматически при создании триггера на портале Azure. |
+|**name** || Имя переменной, используемое в коде функции, представляющей список документов с изменениями. | 
+|**connectionStringSetting**|**ConnectionStringSetting** | Имя параметра приложения, содержащего строку подключения, используемую для подключения к отслеживаемой учетной записи Azure Cosmos DB. |
+|**databaseName**|**DatabaseName**  | Имя базы данных Azure Cosmos DB с отслеживаемой коллекцией. |
+|**collectionName** |**CollectionName** | Имя отслеживаемой коллекции. |
+| **leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Необязательно.) Имя параметра приложения, содержащее строку подключения для службы, содержащей коллекцию аренды. Если значение не задано, используется значение `connectionStringSetting`. Этот параметр задается автоматически при создании привязки на портале. |
+| **leaseDatabaseName** |**LeaseDatabaseName** | (Необязательно.) Имя базы данных, в которой содержится коллекция, используемая для хранения аренд. Если значение не задано, используется значение параметра `databaseName`. Этот параметр задается автоматически при создании привязки на портале. |
+| **leaseCollectionName** | **LeaseCollectionName** | (Необязательно.) Имя коллекции, используемой для хранения аренд. Если значение не задано, используется значение `leases`. |
+| **createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Необязательно.) Если задано значение `true`, коллекция аренд создается автоматически, если она не создана. По умолчанию используется значение `false`. |
+| **leaseCollectionThroughput**| | (Необязательно.) Определяет количество единиц запросов для назначения при создании коллекции аренд. Этот параметр используется, только если для `createLeaseCollectionIfNotExists` задано значение `true`. Этот параметр задается автоматически при создании привязки с помощью портала.
+| |**LeaseOptions** | Настройте параметры аренды, задав свойства в экземпляре класса [ChangeFeedHostOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions).
 
-## <a name="input-sample-for-single-document"></a>Пример входной привязки для отдельного документа
-Предположим, что у вас есть следующая входная привязка API DocumentDB в массиве `bindings` файла function.json:
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+>[!NOTE] 
+>Строка подключения для коллекции аренд должна иметь разрешения на запись.
+
+## <a name="input"></a>Входные данные
+
+Входная привязка API Cosmos DB извлекает один или несколько документов из Azure Cosmos DB и передает их входному параметру функции. Идентификатор документа или параметры запроса можно определить по триггеру, который вызывает функцию. 
+
+## <a name="input---example-1"></a>Пример входных данных 1
+
+Ознакомьтесь с примером конкретного языка, считывающим один документ:
+
+* [Сценарий C#](#input---c-script-example)
+* [F#](#input---f-example)
+* [JavaScript](#input---javascript-example)
+
+### <a name="input---c-script-example"></a>Пример входных данных сценария C#
+
+В следующем примере показаны входная привязка Cosmos DB в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. Функция считывает один документ и обновляет текстовое значение в документе.
+
+Данные привязки в файле *function.json*:
+
+```json
+{
+  "name": "inputDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "id" : "{queueTrigger}",
+  "connection": "MyAccount_COSMOSDB",     
+  "direction": "in"
+}
+```
+В разделе [Конфигурация](#input---configuration) описываются эти свойства.
+
+Ниже приведен код скрипта C#.
+
+```cs
+// Change input document contents using DocumentDB API input binding 
+public static void Run(string myQueueItem, dynamic inputDocument)
+{   
+  inputDocument.text = "This has changed.";
+}
+```
+
+<a name="infsharp"></a>
+
+### <a name="input---f-example"></a>Пример входных данных F#
+
+В следующем примере показаны привязка Cosmos DB в файле *function.json* и [функция F#](functions-reference-fsharp.md), которая использует эту привязку. Функция считывает один документ и обновляет текстовое значение в документе.
+
+Данные привязки в файле *function.json*:
 
 ```json
 {
@@ -145,25 +223,9 @@ ms.lasthandoff: 10/18/2017
 }
 ```
 
-Чтобы обновить текстовое значение документа, см. пример для конкретного языка, использующий эту входную привязку.
+В разделе [Конфигурация](#input---configuration) описываются эти свойства.
 
-* [C#](#incsharp)
-* [F#](#infsharp)
-* [JavaScript](#injavascript)
-
-<a name="incsharp"></a>
-### <a name="input-sample-in-c"></a>Пример входной привязки для языка C# #
-
-```cs
-// Change input document contents using DocumentDB API input binding 
-public static void Run(string myQueueItem, dynamic inputDocument)
-{   
-  inputDocument.text = "This has changed.";
-}
-```
-<a name="infsharp"></a>
-
-### <a name="input-sample-in-f"></a>Пример входной привязки для языка F# #
+Ниже показан код F#.
 
 ```fsharp
 (* Change input document contents using DocumentDB API input binding *)
@@ -172,7 +234,7 @@ let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
 ```
 
-В этом примере нужен файл `project.json`, указывающий зависимости NuGet `FSharp.Interop.Dynamic` и `Dynamitey`:
+Для этого примера нужен файл `project.json`, указывающий зависимости NuGet `FSharp.Interop.Dynamic` и `Dynamitey`:
 
 ```json
 {
@@ -189,9 +251,26 @@ let Run(myQueueItem: string, inputDocument: obj) =
 
 Чтобы добавить файл `project.json`, см. раздел [об управлении пакетом F#](functions-reference-fsharp.md#package).
 
-<a name="injavascript"></a>
+### <a name="input---javascript-example"></a>Пример входных данных JavaScript
 
-### <a name="input-sample-in-javascript"></a>Пример входной привязки для JavaScript
+В следующем примере показана входная привязка Cosmos DB в файле *function.json* и функция [JavaScript](functions-reference-node.md), которая использует привязку. Функция считывает один документ и обновляет текстовое значение в документе.
+
+Данные привязки в файле *function.json*:
+
+```json
+{
+  "name": "inputDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "id" : "{queueTrigger}",
+  "connection": "MyAccount_COSMOSDB",     
+  "direction": "in"
+}
+```
+В разделе [Конфигурация](#input---configuration) описываются эти свойства.
+
+Ниже показан код JavaScript.
 
 ```javascript
 // Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
@@ -202,11 +281,35 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="input-sample-with-multiple-documents"></a>Пример входной привязки с несколькими документами
+## <a name="input---example-2"></a>Пример входных данных 2
 
-Предположим, что нужно извлечь несколько документов, указанных SQL-запросом, используя триггер очереди для настройки параметров запроса. 
+Ознакомьтесь с примером конкретного языка, считывающим несколько документов:
 
-В этом примере триггер очереди предоставляет параметр `departmentId`. Сообщение очереди `{ "departmentId" : "Finance" }` возвращает все записи для финансового отдела. Используйте в *function.json* следующий код:
+* [Предкомпилированный код C#](#input---c-example-2)
+* [Сценарий C#](#input---c-script-example-2)
+* [JavaScript](#input---javascript-example-2)
+
+### <a name="input---c-example-2"></a>Пример 2 входных данных C#
+
+В следующем примере показано, как с помощью [предкомпилированной функции C#](functions-dotnet-class-library.md) выполнить SQL-запрос.
+
+```csharp
+[FunctionName("CosmosDBSample")]
+public static HttpResponseMessage Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestMessage req,
+    [DocumentDB("test", "test", ConnectionStringSetting = "CosmosDB", sqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
+{
+    return req.CreateResponse(HttpStatusCode.OK, documents);
+}
+```
+
+### <a name="input---c-script-example-2"></a>Пример 2 входных данных скрипта C#
+
+В следующем примере показаны входная привязка API Cosmos DB в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. Функция извлекает несколько документов, указанных SQL-запросом, используя триггер очереди для настройки параметров запроса.
+
+Триггер очереди предоставляет параметр `departmentId`. Сообщение из очереди `{ "departmentId" : "Finance" }` возвратит все записи для финансового отдела. 
+
+Данные привязки в файле *function.json*:
 
 ```
 {
@@ -215,12 +318,14 @@ module.exports = function (context) {
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
     "connection": "CosmosDBConnection"
 }
 ```
 
-### <a name="input-sample-with-multiple-documents-in-c"></a>Пример входной привязки с несколькими документами для языка C#
+В разделе [Конфигурация](#input---configuration) описываются эти свойства.
+
+Ниже приведен код скрипта C#.
 
 ```csharp
 public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
@@ -237,7 +342,29 @@ public class QueuePayload
 }
 ```
 
-### <a name="input-sample-with-multiple-documents-in-javascript"></a>Пример входной привязки с несколькими документами для JavaScript
+### <a name="input---javascript-example-2"></a>Пример входных данных JavaScript 2
+
+В следующем примере показана входная привязка Cosmos DB в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует привязку. Функция извлекает несколько документов, указанных SQL-запросом, используя триггер очереди для настройки параметров запроса.
+
+Триггер очереди предоставляет параметр `departmentId`. Сообщение из очереди `{ "departmentId" : "Finance" }` возвратит все записи для финансового отдела. 
+
+Данные привязки в файле *function.json*:
+
+```
+{
+    "name": "documents",
+    "type": "documentdb",
+    "direction": "in",
+    "databaseName": "MyDb",
+    "collectionName": "MyCollection",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "connection": "CosmosDBConnection"
+}
+```
+
+В разделе [Конфигурация](#input---configuration) описываются эти свойства.
+
+Ниже показан код JavaScript.
 
 ```javascript
 module.exports = function (context, input) {    
@@ -250,33 +377,87 @@ module.exports = function (context, input) {
 };
 ```
 
-## <a id="docdboutput"></a>Выходная привязка API DocumentDB
-Выходная привязка API DocumentDB позволяет записать новый документ в Azure Cosmos DB. Он содержит следующие свойства в *function.json*:
+## <a name="input---attributes"></a>Входные атрибуты
 
-|Свойство  |Описание  |
-|---------|---------|
-|**name**     | Имя параметра привязки, представляющего документ в функции.  |
-|**type**     | Нужно задать значение `documentdb`.        |
-|**databaseName** | База данных, содержащая коллекцию, в которой создается документ.     |
-|**collectionName**  | Имя коллекции, в которой создается документ. |
-|**createIfNotExists**     | Логическое значение, указывающее, будет ли создана коллекция при ее отсутствии. Значение по умолчанию — *false*. Это вызвано тем, что коллекции создаются с использованием зарезервированной пропускной способности, с которой связаны ценовые требования. Дополнительные сведения см. на [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).  |
-|**подключение**     |Имя параметра приложения, содержащего строку подключения к Azure Cosmos DB.        |
-|**direction**     | Нужно задать значение `out`.         |
+Для [предкомпилированной функции C#](functions-dotnet-class-library.md) используйте атрибут [Cosmos DB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
-## <a name="using-a-documentdb-api-output-binding"></a>Использование выходной привязки API DocumentDB
-В этом разделе показано, как использовать выходную привязку API DocumentDB в коде функции.
+Конструктор атрибута принимает имя базы данных и имя коллекции. Дополнительные сведения о параметрах и других свойствах, которые можно настроить, см. в следующем разделе о [настройке](#input---configuration). 
 
-При записи в параметре вывода функции в базе данных по умолчанию создается документ, для которого автоматически создается GUID в качестве идентификатора документа. Идентификатор выходного документа можно определить, указав свойство `id` в объекте JSON, передаваемом в параметр вывода. 
+## <a name="input---configuration"></a>Входная конфигурация
 
->[!Note]  
->Если указать идентификатор существующего документа, он перезаписывается новым выходным документом. 
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `DocumentDB`.
 
-Для вывода в несколько документов можно также выполнить привязку к `ICollector<T>` или `IAsyncCollector<T>`, где `T` — любой из поддерживаемых типов.
+|свойство function.json | Свойство атрибута |Описание|
+|---------|---------|----------------------|
+|**type**     || Нужно задать значение `documentdb`.        |
+|**direction**     || Нужно задать значение `in`.         |
+|**name**     || Имя параметра привязки, представляющего документ в функции.  |
+|**databaseName** |**DatabaseName** |База данных, содержащая документ.        |
+|**collectionName** |**CollectionName** | Имя коллекции, содержащей документ. |
+|**id**    | **Id** | Идентификатор документа, который нужно получить. Это свойство поддерживает параметры привязок. Дополнительные сведения см. в разделе [Привязка к пользовательским входным свойствам в выражении привязки](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). Не задавайте свойства **id** или **sqlQuery** одновременно. Если не задать ни одного из них, извлекается вся коллекция. |
+|**sqlQuery**  |**SqlQuery**  | SQL-запрос к Azure Cosmos DB, используемый для извлечения нескольких документов. Свойство поддерживает привязки времени выполнения, как показано в примере: `SELECT * FROM c where c.departmentId = {departmentId}`. Не задавайте свойства **id** или **sqlQuery** одновременно. Если не задать ни одного из них, извлекается вся коллекция.|
+|**подключение**     |**ConnectionStringSetting**|Имя параметра приложения, содержащего строку подключения к Azure Cosmos DB.        |
+||**PartitionKey**|Задает значение ключа секции для поиска. Может включать параметры привязки.|
 
-<a name="outputsample"></a>
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="documentdb-api-output-binding-sample"></a>Пример выходной привязки API DocumentDB
-Предположим, что у вас есть следующая выходная привязка API DocumentDB в массиве `bindings` файла function.json:
+## <a name="input---usage"></a>Использование входной привязки
+
+В функциях C# и F# любые изменения, внесенные во входной документ посредством именованных входных параметров, сохраняются автоматически после успешного выхода из функции. 
+
+В функциях JavaScript изменения не обрабатываются автоматически при выходе из функции. Для внесения изменений используйте `context.bindings.<documentName>In` и `context.bindings.<documentName>Out`. Ознакомьтесь с [примером на языке JavaScript](#input---javascript-example).
+
+## <a name="output"></a>Выходные данные
+
+Выходная привязка API DocumentDB позволяет записать новый документ в Azure Cosmos DB. 
+
+## <a name="output---example"></a>Пример выходных данных
+
+Языковой пример см. в разделах:
+
+* [Предкомпилированный код C#](#trigger---c-example)
+* [Сценарий C#](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="output---c-example"></a>Пример выходных данных C#
+
+В следующем примере показана [предкомпилированная функция C#](functions-dotnet-class-library.md), которая добавляет документ в базу данных, используя данные, полученные из сообщения хранилища очередей.
+
+```cs
+[FunctionName("QueueToDocDB")]        
+public static void Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+{
+    document = new { Text = myQueueItem, id = Guid.NewGuid() };
+}
+```
+
+### <a name="output---c-script-example"></a>Пример выходных данных скрипта C#
+
+В следующем примере показаны выходная привязка Cosmos DB в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. Функция использует входную привязку очереди для очереди, которую получает JSON в следующем формате:
+
+```json
+{
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
+
+Функция создает документы Azure Cosmos DB для каждой записи в следующем формате:
+
+```json
+{
+  "id": "John Henry-123456",
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
+
+Данные привязки в файле *function.json*:
 
 ```json
 {
@@ -290,36 +471,9 @@ module.exports = function (context, input) {
 }
 ```
 
-Кроме того, у вас есть входная привязка очереди для очереди, которая получает JSON в следующем формате:
+В разделе [Конфигурация](#output---configuration) описываются эти свойства.
 
-```json
-{
-  "name": "John Henry",
-  "employeeId": "123456",
-  "address": "A town nearby"
-}
-```
-
-При этом вам нужно создать документы Azure Cosmos DB в следующем формате для каждой записи:
-
-```json
-{
-  "id": "John Henry-123456",
-  "name": "John Henry",
-  "employeeId": "123456",
-  "address": "A town nearby"
-}
-```
-
-Чтобы добавить документы в базу данных, см. пример для конкретного языка, использующий эту выходную привязку.
-
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [JavaScript](#outjavascript)
-
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>Пример выходной привязки для языка C# #
+Ниже приведен код скрипта C#.
 
 ```cs
 #r "Newtonsoft.Json"
@@ -343,9 +497,47 @@ public static void Run(string myQueueItem, out object employeeDocument, TraceWri
 }
 ```
 
-<a name="outfsharp"></a>
+Для создания нескольких документов можно выполнить привязку к `ICollector<T>` или к `IAsyncCollector<T>`, где `T` — любой из поддерживаемых типов.
 
-### <a name="output-sample-in-f"></a>Пример выходной привязки для языка F# #
+### <a name="output---f-example"></a>Пример выходных данных F#
+
+В следующем примере показаны выходная привязка Cosmos DB в файле *function.json* и [функция F#](functions-reference-fsharp.md), которая использует эту привязку. Функция использует входную привязку очереди для очереди, которую получает JSON в следующем формате:
+
+```json
+{
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
+
+Функция создает документы Azure Cosmos DB для каждой записи в следующем формате:
+
+```json
+{
+  "id": "John Henry-123456",
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
+
+Данные привязки в файле *function.json*:
+
+```json
+{
+  "name": "employeeDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "createIfNotExists": true,
+  "connection": "MyAccount_COSMOSDB",     
+  "direction": "out"
+}
+```
+В разделе [Конфигурация](#output---configuration) описываются эти свойства.
+
+Ниже показан код F#.
 
 ```fsharp
 open FSharp.Interop.Dynamic
@@ -368,7 +560,7 @@ let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
       address = employee?address }
 ```
 
-В этом примере нужен файл `project.json`, указывающий зависимости NuGet `FSharp.Interop.Dynamic` и `Dynamitey`:
+Для этого примера нужен файл `project.json`, указывающий зависимости NuGet `FSharp.Interop.Dynamic` и `Dynamitey`:
 
 ```json
 {
@@ -385,9 +577,46 @@ let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
 
 Чтобы добавить файл `project.json`, см. раздел [об управлении пакетом F#](functions-reference-fsharp.md#package).
 
-<a name="outjavascript"></a>
+### <a name="output---javascript-example"></a>Пример выходных данных JavaScript
 
-### <a name="output-sample-in-javascript"></a>Пример выходной привязки для JavaScript
+В следующем примере показана выходная привязка Cosmos DB в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует привязку. Функция использует входную привязку очереди для очереди, которую получает JSON в следующем формате:
+
+```json
+{
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
+
+Функция создает документы Azure Cosmos DB для каждой записи в следующем формате:
+
+```json
+{
+  "id": "John Henry-123456",
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
+
+Данные привязки в файле *function.json*:
+
+```json
+{
+  "name": "employeeDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "createIfNotExists": true,
+  "connection": "MyAccount_COSMOSDB",     
+  "direction": "out"
+}
+```
+
+В разделе [Конфигурация](#output---configuration) описываются эти свойства.
+
+Ниже показан код JavaScript.
 
 ```javascript
 module.exports = function (context) {
@@ -402,3 +631,57 @@ module.exports = function (context) {
   context.done();
 };
 ```
+
+## <a name="output---attributes"></a>Выходные атрибуты
+
+Для [предкомпилированной функции C#](functions-dotnet-class-library.md) используйте атрибут [Cosmos DB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+
+Конструктор атрибута принимает имя базы данных и имя коллекции. Дополнительные сведения о параметрах и других свойствах, которые можно настроить, см. в разделе [Выходная конфигурация](#output---configuration). Ниже приведен пример атрибута `DocumentDB` в сигнатуре метода:
+
+```csharp
+[FunctionName("QueueToDocDB")]        
+public static void Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+{
+    ...
+}
+```
+
+Полный пример см. в разделе [Пример выходных данных C#](#output---c-example).
+
+## <a name="output---configuration"></a>Выходная конфигурация
+
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `DocumentDB`.
+
+|свойство function.json | Свойство атрибута |Описание|
+|---------|---------|----------------------|
+|**type**     || Нужно задать значение `documentdb`.        |
+|**direction**     || Нужно задать значение `out`.         |
+|**name**     || Имя параметра привязки, представляющего документ в функции.  |
+|**databaseName** | **DatabaseName**|База данных, содержащая коллекцию, в которой создается документ.     |
+|**collectionName** |**CollectionName**  | Имя коллекции, в которой создается документ. |
+|**createIfNotExists**  |**CreateIfNotExists**    | Логическое значение, указывающее, будет ли создана коллекция при ее отсутствии. Значение по умолчанию — *false*, так как коллекции создаются с использованием зарезервированной пропускной способности, с которой связаны ценовые требования. Дополнительные сведения см. на [странице с расценками](https://azure.microsoft.com/pricing/details/documentdb/).  |
+||**PartitionKey** |Если для `CreateIfNotExists` задано значение true, определяется путь к ключу раздела для созданной коллекции.|
+||**CollectionThroughput**| Если для `CreateIfNotExists` задано значение true, определяется [пропускная способность](../cosmos-db/set-throughput.md) созданной коллекции.|
+|**подключение**    |**ConnectionStringSetting** |Имя параметра приложения, содержащего строку подключения к Azure Cosmos DB.        |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="output---usage"></a>Использование выходной привязки
+
+При записи в параметре вывода функции в базе данных по умолчанию создается документ, для которого автоматически создается GUID в качестве идентификатора документа. Идентификатор выходного документа можно определить, указав свойство `id` в объекте JSON, передаваемом в параметр вывода. 
+
+> [!Note]  
+> Если указать идентификатор существующего документа, он перезаписывается новым выходным документом. 
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+> [!div class="nextstepaction"]
+> [Создание функции, активируемой с помощью Azure Cosmos DB](functions-create-cosmos-db-triggered-function.md)
+
+> [!div class="nextstepaction"]
+> [Azure Cosmos DB: обработка данных бессерверных баз данных с помощью службы "Функции Azure"](..\cosmos-db\serverless-computing-database.md)
+
+> [!div class="nextstepaction"]
+> [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: ec93bbb477a047a028328964d3e152c1ab4bb58f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Межклиентская аналитика с помощью извлеченных данных
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 11/21/2017
 Для работы с этим руководством выполните следующие предварительные требования:
 
 - Разверните приложение SaaS-приложение Wingtip Tickets c мультитенантной БД. Вы можете развернуть его менее чем за пять минут, используя инструкцию из статьи [Deploy and explore a sharded multi-tenant application that uses Azure SQL Database](saas-multitenantdb-get-started-deploy.md) (Развертывание и изучение сегментированного мультитенантного приложения, использующего Базу данных SQL Azure).
-- [Исходный код](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) и сценарии приложения SaaS Wingtip Tickets можно скачать с сайта GitHub. *Разблокируйте ZIP-файл*, а затем извлеките его содержимое.
+- [Исходный код](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) и сценарии приложения SaaS Wingtip Tickets можно скачать с сайта GitHub. *Разблокируйте ZIP-файл*, а затем извлеките его содержимое. Инструкции по скачиванию и разблокированию сценариев приложения SaaS Wingtip Tickets см. в статье [Общие рекомендации по работе с примерами приложений SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md).
 - Установите Power BI Desktop. [Загрузить Power BI Desktop.](https://powerbi.microsoft.com/downloads/)
 - Подготовьте пакет дополнительных клиентов, используя рекомендации в руководстве по [**подготовке новых клиентов**](saas-multitenantdb-provision-and-catalog.md).
 - Создайте учетную запись задания и базу данных в ней. Соответствующие шаги см. в [**этом разделе**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).

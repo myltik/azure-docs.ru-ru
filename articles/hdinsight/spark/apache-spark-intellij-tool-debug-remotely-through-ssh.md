@@ -17,11 +17,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: 6f9259ae5e8f382c6714d468004624c2cbcbbc33
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 87cda776195dc93a35c6e978b18e823bf54c9ffb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Удаленная или локальная отладка приложений Spark в кластере HDInsight с помощью набора средств Azure для IntelliJ через SSH
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 11/17/2017
    
    ![Кнопка удаленного запуска](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
 
-7. Если вам не нужно, чтобы журнал выполнения отображался на панели справа, нажмите кнопку **отключения**. Но журнал по-прежнему будет записываться в фоновом режиме, а результат будет отображаться на панели слева.
+7. Нажмите кнопку **Отключить**, чтобы журналы отправки не отображались на левой панели. Тем не менее она все еще выполняется в серверной части.
 
    ![Кнопка удаленного запуска](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 

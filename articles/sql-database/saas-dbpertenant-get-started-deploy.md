@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: sstein
-ms.openlocfilehash: 9b1ae219eb1278b818e3e1d4237d04fe54c980ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f91ddff81e51e7cc3d1561dc799013764530924b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Развертывание и изучение мультитенантного приложения SaaS на основе базы данных SQL Azure, в котором используется отдельная база данных для каждого клиента
 
@@ -173,7 +173,7 @@ ms.lasthandoff: 11/15/2017
 
 Если генератор нагрузки выполнялся несколько минут, тогда доступен достаточный объем данных, чтобы рассмотреть некоторые функции мониторинга, встроенные в пулы и базы данных.
 
-1. Перейдите к серверу **tenants1-dpt-&lt;пользователь&gt;**и щелкните **Pool1**, чтобы просмотреть сведения об использовании ресурсов пула (графики ниже созданы по результатам работы генератора нагрузки в течение часа).
+Перейдите к серверу **tenants1-dpt-&lt;пользователь&gt;**и щелкните **Pool1**, чтобы просмотреть сведения об использовании ресурсов пула (графики ниже созданы по результатам работы генератора нагрузки в течение часа).
 
    ![Отслеживание пула](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

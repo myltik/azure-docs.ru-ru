@@ -12,117 +12,131 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 11/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8b58a83ffd473500dd3f76c09e251f9208527d4f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a86d4d8705c7093e3900a9738ddbd364db8bd3b8
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="using-linked-templates-when-deploying-azure-resources"></a>Использование связанных шаблонов в при развертывании ресурсов Azure
-Один шаблон Azure Resource Manager можно связать с другим шаблоном, что позволяет разбивать развертывания на несколько целевых шаблонов с определенным назначением. Как и при разбивке приложения на несколько классов, декомпозиция развертывания гораздо удобнее в контексте тестирования, повторного использования и удобства чтения.  
 
-Можно передавать параметры из основного шаблона в связанный шаблон. Кроме того, эти параметры можно напрямую сопоставить с параметрами или переменными, предоставляемыми вызывающим шаблоном. Связанный шаблон может также передать выходную переменную в исходный шаблон, что позволяет активировать двусторонний обмен данными между шаблонами.
+Для развертывания решения можно использовать отдельный шаблон или основной шаблон с несколькими связанными шаблонами. Для небольших и средних решений отдельный шаблон проще в понимании и обслуживании. Все ресурсы и значения можно увидеть в отдельном файле. Для более сложных сценариев связанные шаблоны позволяют разбить решение на целевые компоненты и повторно использовать шаблоны.
 
-## <a name="linking-to-a-template"></a>Создание связи с шаблоном
-Чтобы создать связь между двумя шаблонами, добавьте ресурс развертывания в основном шаблоне, который указывает на связанный шаблон. Задайте для свойства **templateLink** URI связанного шаблона. Значения параметров для связанного шаблона можно указать непосредственно в шаблоне или в файле параметров. В следующем примере используется свойство **parameters** для непосредственного указания значения параметра.
+При использовании связанного шаблона вы создаете основной шаблон, который получает значения параметра во время развертывания. Основной шаблон содержит все связанные шаблоны и при необходимости передает значения в эти шаблоны.
 
-```json
-"resources": [ 
-  { 
-      "apiVersion": "2017-05-10", 
-      "name": "linkedTemplate", 
-      "type": "Microsoft.Resources/deployments", 
-      "properties": { 
-        "mode": "incremental", 
-        "templateLink": {
-          "uri": "https://www.contoso.com/AzureTemplates/newStorageAccount.json",
-          "contentVersion": "1.0.0.0"
-        }, 
-        "parameters": { 
-          "StorageAccountName":{"value": "[parameters('StorageAccountName')]"} 
-        } 
-      } 
-  } 
-] 
-```
+![Связанные шаблоны](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-Как и для прочих типов ресурсов, вы можете задать зависимости между связанным шаблоном и другими ресурсами. Следовательно, если другим ресурсам требуется выходное значение из связанного шаблона, то вы можете обеспечить развертывание данного шаблона прежде этих ресурсов. Или, если связанный шаблон зависит от других ресурсов, то вы можете обеспечить их развертывание перед развертыванием связанного шаблона. Извлечь значение из связанного шаблона можно с помощью приведенного ниже синтаксиса.
+## <a name="link-to-a-template"></a>Создание связи с шаблоном
+
+Чтобы создать связь между двумя шаблонами, добавьте ресурс **развертывания** в основной шаблон.
 
 ```json
-"[reference('linkedTemplate').outputs.exampleProperty.value]"
-```
-
-Служба Resource Manager должна иметь доступ к связанному шаблону. В качестве связанного шаблона нельзя указать локальный файл или файл, доступный только в локальной сети. Можно предоставить только универсальный код ресурса (URI), который включает в себя **http** или **https**. Один из вариантов — разместить связанный шаблон в учетной записи хранения и использовать универсальный код ресурса (URI) этого элемента, как показано в примере ниже.
-
-```json
-"templateLink": {
-    "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
-    "contentVersion": "1.0.0.0",
-}
-```
-
-Хотя связанный шаблон должны быть доступен извне, он не должен быть общедоступным. Шаблон можно добавить к личной учетной записи хранения, доступ к которой есть только у владельца учетной записи хранения. Затем создайте маркер подписанного URL-адреса для использования при развертывании. Этот маркер SAS добавляется в универсальный код ресурса (URI) связанного шаблона. Действия по настройке шаблона в учетной записи хранения и созданию маркера SAS описаны в разделах [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](resource-group-template-deploy.md) и [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure CLI](resource-group-template-deploy-cli.md). 
-
-В следующем примере показан родительский шаблон, связанный с другим шаблоном. Для доступа к связанному шаблону используется маркер SAS, который передается в качестве параметра.
-
-```json
-"parameters": {
-    "sasToken": { "type": "securestring" }
-},
 "resources": [
-    {
-        "apiVersion": "2017-05-10",
-        "name": "linkedTemplate",
-        "type": "Microsoft.Resources/deployments",
-        "properties": {
-          "mode": "incremental",
-          "templateLink": {
-            "uri": "[concat('https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json', parameters('sasToken'))]",
-            "contentVersion": "1.0.0.0"
-          }
-        }
-    }
-],
+  {
+      "apiVersion": "2017-05-10",
+      "name": "linkedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          <inline-template-or-external-template>
+      }
+  }
+]
 ```
 
-Несмотря на то, что маркер передается в защищенной строке, универсальный код ресурса (URI) связанного шаблона, включающий в себя маркер SAS, добавляется в журнал операций развертывания. Чтобы снизить риск раскрытия, задайте срок действия маркера.
+Свойства, указанные для ресурса развертывания, зависят от того, создаете ли вы связь с внешним шаблоном или внедряете встроенный шаблон в основной.
 
-Resource Manager обрабатывает каждый связанный шаблон как отдельное развертывание. В журнале развертывания группы ресурсов отображаются отдельные операции развертывания для родительских и вложенных шаблонов.
+### <a name="inline-template"></a>Встроенный шаблон
 
-![журнал развертываний](./media/resource-group-linked-templates/linked-deployment-history.png)
-
-## <a name="linking-to-a-parameter-file"></a>Создание связи с файлом параметров
-В следующем примере используется свойство **parametersLink** привязки к файлу параметров.
+Чтобы внедрить связанный шаблон, задайте свойство **template** и добавьте шаблон.
 
 ```json
-"resources": [ 
-  { 
-     "apiVersion": "2017-05-10", 
-     "name": "linkedTemplate", 
-     "type": "Microsoft.Resources/deployments", 
-     "properties": { 
-       "mode": "incremental", 
-       "templateLink": {
-          "uri":"https://www.contoso.com/AzureTemplates/newStorageAccount.json",
-          "contentVersion":"1.0.0.0"
-       }, 
-       "parametersLink": { 
-          "uri":"https://www.contoso.com/AzureTemplates/parameters.json",
-          "contentVersion":"1.0.0.0"
-       } 
-     } 
-  } 
-] 
+"resources": [
+  {
+    "apiVersion": "2017-05-10",
+    "name": "nestedTemplate",
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+      "mode": "Incremental",
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {},
+        "variables": {},
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageName')]",
+            "apiVersion": "2015-06-15",
+            "location": "West US",
+            "properties": {
+              "accountType": "Standard_LRS"
+            }
+          }
+        ]
+      },
+      "parameters": {}
+    }
+  }
+]
 ```
 
-Значением универсального кода ресурса (URI) для связанного файла параметров не может быть локальный файл, оно должно содержать **http** или **https**. Доступ к файлу параметров также можно ограничить с помощью маркера SAS.
+### <a name="external-template-and-external-parameters"></a>Внешний шаблон и внешние параметры
+
+Связать внешний шаблон и файл параметров можно с помощью свойств **templateLink** и **parametersLink**. При создании связи с шаблоном служба Resource Manager должна иметь к нему доступ. Вы не можете указать локальный файл или файл, доступный только в локальной сети. Можно предоставить только универсальный код ресурса (URI), который включает в себя **http** или **https**. Один из вариантов — разместить связанный шаблон в учетной записи хранения и использовать универсальный код ресурса (URI) этого элемента.
+
+```json
+"resources": [
+  {
+     "apiVersion": "2017-05-10",
+     "name": "linkedTemplate",
+     "type": "Microsoft.Resources/deployments",
+     "properties": {
+       "mode": "incremental",
+       "templateLink": {
+          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+          "contentVersion":"1.0.0.0"
+       },
+       "parametersLink": {
+          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+          "contentVersion":"1.0.0.0"
+       }
+     }
+  }
+]
+```
+
+### <a name="external-template-and-inline-parameters"></a>Внешний шаблон и встроенные параметры
+
+Вы также можете указать встроенный параметр. Передать значение из основного шаблона в связанный можно с помощью свойства **parameters**.
+
+```json
+"resources": [
+  {
+     "apiVersion": "2017-05-10",
+     "name": "linkedTemplate",
+     "type": "Microsoft.Resources/deployments",
+     "properties": {
+       "mode": "incremental",
+       "templateLink": {
+          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+          "contentVersion":"1.0.0.0"
+       },
+       "parameters": {
+          "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
+        }
+     }
+  }
+]
+```
 
 ## <a name="using-variables-to-link-templates"></a>Использование переменных для связывания шаблонов
+
 В предыдущих примерах были показаны жестко запрограммированные значения URL-адреса для ссылок на шаблоны. Этот подход может подойти для простого шаблона, но он не действует при работе с большим набором модульных шаблонов. Вместо этого можно создать статическую переменную, которая содержит базовый URL-адрес для основного шаблона, а затем динамически создавать URL-адреса для связанных шаблонов на основе этого адреса. Преимущество этого подхода заключается в том, что можно легко переместить или разветвить шаблон, так как для этого необходимо лишь изменить статическую переменную в основном шаблоне. Основной шаблон передает правильные URI через разделенный шаблон.
 
-В следующем примере показано, как использовать базовый URL-адрес для создания двух URL-адресов для связанных шаблонов (**sharedTemplateUrl** и **vmTemplate**). 
+В следующем примере показано, как использовать базовый URL-адрес для создания двух URL-адресов для связанных шаблонов (**sharedTemplateUrl** и **vmTemplate**).
 
 ```json
 "variables": {
@@ -132,7 +146,7 @@ Resource Manager обрабатывает каждый связанный шаб
 }
 ```
 
-Вы также можете получить базовый URL-адрес текущего шаблона с помощью функции [deployment()](resource-group-template-functions-deployment.md#deployment) , а затем использовать его для получения URL-адресов других шаблонов в том же расположении. Это полезно, если расположение шаблонов меняется (например, при выходе новой версии) или если вы не хотите указывать URL-адреса непосредственно в файле шаблона. 
+Вы также можете получить базовый URL-адрес текущего шаблона с помощью функции [deployment()](resource-group-template-functions-deployment.md#deployment) , а затем использовать его для получения URL-адресов других шаблонов в том же расположении. Это полезно, если расположение шаблонов меняется (например, при выходе новой версии) или если вы не хотите указывать URL-адреса непосредственно в файле шаблона.
 
 ```json
 "variables": {
@@ -140,10 +154,269 @@ Resource Manager обрабатывает каждый связанный шаб
 }
 ```
 
-## <a name="complete-example"></a>Полный пример
-В следующих примерах шаблонов показано упрощенное размещение связанных шаблонов, чтобы проиллюстрировать некоторые основные понятия, используемые в этой статье. Предполагается, что шаблоны были добавлены в один контейнер в учетной записи хранения, для которой отключен общий доступ. Связанный шаблон передает значение обратно в основной шаблон в разделе **outputs** .
+## <a name="get-values-from-linked-template"></a>Получение значений из связанного шаблона
 
-Содержимое файла **Parent.json** :
+Чтобы получить выходные значения из связанного шаблона, извлеките значение свойства с синтаксисом, например: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+
+В следующих примерах показано, как ссылаться на связанный шаблон и извлекать выходные значения. Связанный шаблон возвращает простое сообщение.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "greetingMessage": {
+            "value": "Hello World",
+            "type" : "string"
+        }
+    }
+}
+```
+
+Родительский шаблон развертывает связанный шаблон и возвращает значение. Обратите внимание, что он ссылается на ресурс развертывания по имени и использует имя свойства, возвращенное связанным шаблоном.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "incremental",
+                "templateLink": {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'helloworld.json')]",
+                    "contentVersion": "1.0.0.0"
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "messageFromLinkedTemplate": {
+            "type": "string",
+            "value": "[reference('linkedTemplate').outputs.greetingMessage.value]"
+        }
+    }
+}
+```
+
+Как и для прочих типов ресурсов, вы можете задать зависимости между связанным шаблоном и другими ресурсами. Следовательно, если другим ресурсам требуется выходное значение из связанного шаблона, то вы можете обеспечить развертывание данного шаблона прежде этих ресурсов. Или, если связанный шаблон зависит от других ресурсов, то вы можете обеспечить их развертывание перед развертыванием связанного шаблона.
+
+Ниже приведен пример шаблона, который развертывает общедоступный IP-адрес и возвращает идентификатор ресурса.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "publicIPAddresses_name": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "eastus",
+            "properties": {
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4
+            },
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+        "resourceID": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+        }
+    }
+}
+```
+
+Чтобы использовать общедоступный IP-адрес из предыдущего шаблона при развертывании подсистемы балансировки нагрузки, создайте связь с шаблоном и добавьте зависимость для ресурса развертывания. Для общедоступного IP-адреса в подсистеме балансировки нагрузки задается выходное значение из связанного шаблона.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "loadBalancers_name": {
+            "defaultValue": "mylb",
+            "type": "string"
+        },
+        "publicIPAddresses_name": {
+            "defaultValue": "myip",
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/loadBalancers",
+            "name": "[parameters('loadBalancers_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "eastus",
+            "properties": {
+                "frontendIPConfigurations": [
+                    {
+                        "name": "LoadBalancerFrontEnd",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[reference('linkedTemplate').outputs.resourceID.value]"
+                            }
+                        }
+                    }
+                ],
+                "backendAddressPools": [],
+                "loadBalancingRules": [],
+                "probes": [],
+                "inboundNatRules": [],
+                "outboundNatRules": [],
+                "inboundNatPools": []
+            },
+            "dependsOn": [
+                "linkedTemplate"
+            ]
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'publicip.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters":{
+                    "publicIPAddresses_name":{"value": "[parameters('publicIPAddresses_name')]"}
+                }
+            }
+        }
+    ]
+}
+```
+
+## <a name="linked-templates-in-deployment-history"></a>Связанные шаблоны в журнале развертывания
+
+Resource Manager обрабатывает каждый связанный шаблон как отдельное развертывание в журнале развертывания. Таким образом родительский шаблон с тремя связанными шаблонами отображается в журнале развертывания следующим образом.
+
+![Журнал развертывания](./media/resource-group-linked-templates/deployment-history.png)
+
+С помощью этих отдельных записей в журнале можно извлечь выходные значения после развертывания. Следующий шаблон создает общедоступный IP-адрес и выводит IP-адрес:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "publicIPAddresses_name": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "southcentralus",
+            "properties": {
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Static",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "[concat(parameters('publicIPAddresses_name'), uniqueString(resourceGroup().id))]"
+                }
+            },
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+        "returnedIPAddress": {
+            "type": "string",
+            "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]"
+        }
+    }
+}
+```
+
+Указанный ниже шаблон ссылается на предыдущий шаблон. Он создает три общедоступных IP-адреса.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
+    "variables": {},
+    "resources": [
+        {
+            "apiVersion": "2017-05-10",
+            "name": "[concat('linkedTemplate', copyIndex())]",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+              "mode": "Incremental",
+              "templateLink": {
+                "uri": "[uri(deployment().properties.templateLink.uri, 'static-public-ip.json')]",
+                "contentVersion": "1.0.0.0"
+              },
+              "parameters":{
+                  "publicIPAddresses_name":{"value": "[concat('myip-', copyIndex())]"}
+              }
+            },
+            "copy": {
+                "count": 3,
+                "name": "ip-loop"
+            }
+        }
+    ]
+}
+```
+
+После развертывания можно извлечь выходные значения, выполнив следующий сценарий PowerShell.
+
+```powershell
+$loopCount = 3
+for ($i = 0; $i -lt $loopCount; $i++)
+{
+    $name = 'linkedTemplate' + $i;
+    $deployment = Get-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
+    Write-Output "deployment $($deployment.DeploymentName) returned $($deployment.Outputs.returnedIPAddress.value)"
+}
+```
+
+Кроме того, можно выполнить сценарий Azure CLI.
+
+```azurecli
+for i in 0 1 2;
+do
+    name="linkedTemplate$i";
+    deployment=$(az group deployment show -g examplegroup -n $name);
+    ip=$(echo $deployment | jq .properties.outputs.returnedIPAddress.value);
+    echo "deployment $name returned $ip";
+done
+```
+
+## <a name="securing-an-external-template"></a>Защита внешнего шаблона
+
+Хотя связанный шаблон должны быть доступен извне, он не должен быть общедоступным. Шаблон можно добавить к личной учетной записи хранения, доступ к которой есть только у владельца учетной записи хранения. Затем создайте маркер подписанного URL-адреса для использования при развертывании. Этот маркер SAS добавляется в универсальный код ресурса (URI) связанного шаблона. Несмотря на то, что маркер передается в защищенной строке, универсальный код ресурса (URI) связанного шаблона, включающий в себя маркер SAS, добавляется в журнал операций развертывания. Чтобы снизить риск раскрытия, задайте срок действия маркера.
+
+Доступ к файлу параметров также можно ограничить с помощью маркера SAS.
+
+В следующем примере показано, как передать маркер SAS при создании связи с шаблоном.
 
 ```json
 {
@@ -167,28 +440,6 @@ Resource Manager обрабатывает каждый связанный шаб
     }
   ],
   "outputs": {
-    "result": {
-      "type": "string",
-      "value": "[reference('linkedTemplate').outputs.result.value]"
-    }
-  }
-}
-```
-
-Содержимое файла **helloworld.json** :
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "result": {
-        "value": "Hello World",
-        "type" : "string"
-    }
   }
 }
 ```
@@ -202,7 +453,7 @@ $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-В Azure CLI 2.0 осуществляется получение маркера для контейнера и развертывание шаблонов с помощью следующего кода.
+В Azure CLI происходит получение маркера для контейнера и развертывание шаблонов с помощью следующего кода.
 
 ```azurecli
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -225,7 +476,64 @@ parameter='{"containerSasToken":{"value":"?'$token'"}}'
 az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
-* Сведения о том, как определить порядок развертывания ресурсов, см. в статье [Определение зависимостей в шаблонах Azure Resource Manager](resource-group-define-dependencies.md).
-* Сведения о том, как определить один ресурс и создать несколько экземпляров, см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md).
+## <a name="example-templates"></a>Образцы шаблонов
 
+### <a name="hello-world-from-linked-template"></a>Hello World из связанного шаблона
+
+С помощью PowerShell можно развернуть [родительский](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) и [связанный шаблон](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json).
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/helloworldparent.json
+```
+
+Или с помощью Azure CLI.
+
+```azurecli-interactive
+az group deployment create \
+  -g examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/helloworldparent.json
+```
+
+### <a name="load-balancer-with-public-ip-address-in-linked-template"></a>Подсистема балансировки нагрузки с общедоступным IP-адресом в связанном шаблоне
+
+С помощью PowerShell можно развернуть [родительский](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) и [связанный шаблон](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json).
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json
+```
+
+Или с помощью Azure CLI.
+
+```azurecli-interactive
+az group deployment create \
+  -g examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json
+```
+
+### <a name="multiple-public-ip-addresses-in-linked-template"></a>Несколько общедоступных IP-адресов в связанном шаблоне
+
+С помощью PowerShell можно развернуть [родительский](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) и [связанный шаблон](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json).
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json
+```
+
+Или с помощью Azure CLI.
+
+```azurecli-interactive
+az group deployment create \
+  -g examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json
+```
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+* Сведения о том, как определить порядок развертывания ресурсов, см. в статье [Определение порядка развертывания ресурсов в шаблонах Azure Resource Manager](resource-group-define-dependencies.md).
+* Сведения о том, как определить один ресурс и создать несколько экземпляров, см. в статье [Развертывание нескольких экземпляров ресурса или свойства в шаблонах Azure Resource Manager](resource-group-create-multiple.md).
+* Действия по настройке шаблона в учетной записи хранения и созданию маркера SAS описаны в разделах [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](resource-group-template-deploy.md) и [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure CLI](resource-group-template-deploy-cli.md).

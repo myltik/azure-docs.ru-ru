@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench: руководство по устранению неполадок и описание известных проблем 
 С помощью сведений в этой статье можно найти и исправить ошибки или сбои, обнаруженные при использовании приложения Azure Machine Learning Workbench. 
@@ -39,6 +39,17 @@ ms.lasthandoff: 11/16/2017
 /tmp/amlinstaller/logs/*
 ```
 Можно заархивировать содержимое этих папок и отправить нам для диагностики.
+
+### <a name="app-update"></a>Обновление приложения 
+#### <a name="no-update-notification-on-windows-desktop"></a>Уведомление об обновлении отсутствует на рабочем столе Windows 
+Эта проблема будет устранена в следующем обновлении. Пока что эту проблему можно обойти, не запуская приложение с помощью ярлыка, закрепленного на панели задач. Вместо этого для запуска приложения используйте меню "Пуск", панель поиска "Пуск" или ярлык на рабочем столе (при наличии). 
+
+#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Отсутствует уведомление об обновлениях на виртуальной машине для обработки и анализа данных Ubuntu (DSVM)
+Для скачивания последнего приложения выполните следующие действия:   
+   - удалите папку \Users\AppData\Local\amlworkbench;
+   - удалите скрипт `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`;
+   - удалите с рабочего стола ярлык, который запускает указанный выше скрипт;
+   - выполните "чистую" установку с помощью [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi).
 
 ### <a name="workbench-desktop-app"></a>Классическое приложение Workbench
 Если возникли проблемы с входом или в случае аварийного завершения Workbench, файлы журнала можно найти здесь:

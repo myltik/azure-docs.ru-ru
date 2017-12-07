@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: 87d60ae51aaa33b709d272605419fd85eeb5d93d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77cd0148a7e3e7b99e90e29bc1499dae8f95028
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Установка веб-сервера LEMP на виртуальной машине Azure
 Эта статья содержит указания по развертыванию веб-сервера NGINX, MySQL и PHP (стека LEMP) на виртуальной машине Ubuntu в Azure. Стек LEMP является альтернативой известному [стеку LAMP](tutorial-lamp-stack.md), который также можно установить в Azure. Чтобы оценить работу сервера LEMP в действии, вы можете установить и настроить сайт WordPress. Из этого руководства вы узнаете, как выполнить следующие задачи:
@@ -31,6 +31,8 @@ ms.lasthandoff: 10/11/2017
 > * Проверка установки и настройки.
 > * Установка WordPress на сервере LEMP.
 
+
+Эта настройка выполняется для быстрых тестов или подтверждения концепции.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -73,7 +75,7 @@ nginx -v
 mysql -V
 ```
 
-Чтобы обеспечить безопасную установку MySQL, мы рекомендуем выполнить следующий скрипт:
+Чтобы защитить установку MySQL, выполните сценарий `mysql_secure_installation`. Если вы настраиваете только временный сервер, этот шаг можно пропустить. 
 
 ```bash
 mysql_secure_installation
@@ -81,7 +83,8 @@ mysql_secure_installation
 
 Введите пароль привилегированного пользователя MySQL и настройте параметры безопасности для своей среды.
 
-Чтобы создать базу данных MySQL, добавить пользователей или изменить параметры конфигурации, войдите в MySQL.
+Чтобы опробовать функции MySQL (создать базу данных MySQL, добавить пользователей или изменить параметры конфигурации), войдите в MySQL. Этот шаг не требуется для изучения данного руководства. 
+
 
 ```bash
 mysql -u root -p

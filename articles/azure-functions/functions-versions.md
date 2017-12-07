@@ -1,6 +1,6 @@
 ---
 title: "Выбор целевых версий среды выполнения Функций Azure"
-description: "Решение \"Функции Azure\" поддерживает разные версии среды выполнения. В этой статье описано, как указать версию среды выполнения приложения-функции, размещенного в Azure."
+description: "Решение \"Функции Azure\" поддерживает разные версии среды выполнения. Узнайте, как указать версию среды выполнения приложения-функции, размещенного в Azure."
 services: functions
 documentationcenter: 
 author: ggailey777
@@ -10,13 +10,13 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 063232e40b30d03b0ee8b087a602fed0fee3be0a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Выбор целевых версий среды выполнения Функций Azure
 
@@ -44,9 +44,11 @@ ms.lasthandoff: 11/17/2017
 
 ### <a name="bindings"></a>Привязки 
 
-Экспериментальные привязки, которые поддерживает среда выполнения 1.x, недоступны в среде 2.x. Сведения о поддержке привязок и функциональных пробелах в среде 2.x см. в списке [известных проблем среды выполнения версии 2.0](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
-
 Среда выполнения версии 2.x позволяет создавать пользовательские [расширения привязок](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). Встроенные привязки, для которых используется эта модель расширяемости, доступны только в версии 2.x. Среди самых известных — [привязки Microsoft Graph](functions-bindings-microsoft-graph.md).
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+Дополнительные сведения о поддержке привязок и функциональных пробелах в версии 2.x см. в списке [известных проблем среды выполнения версии 2.0](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
 ### <a name="cross-platform-development"></a>Кроссплатформенная разработка
 

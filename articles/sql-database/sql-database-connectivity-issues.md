@@ -14,13 +14,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1db0dee597ffe60c587e7bacd00640a308d04e99
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Устранение, диагностика и предотвращение ошибок подключения SQL и временных ошибок для базы данных SQL
 Эта статья содержит информацию о предотвращении, диагностике и устранении ошибок подключения и временных ошибок, которые происходят в клиентском приложении во время взаимодействия с базой данных SQL Azure. Узнайте, как настроить логику повторных попыток, создать строку подключения и настроить другие параметры подключения.
@@ -40,16 +40,17 @@ ms.lasthandoff: 11/04/2017
 * **Временная ошибка возникает при попытке подключения**: попытку нужно повторить через несколько секунд.
 * **Временная ошибка возникает, когда выполняется команда SQL-запроса**: выполнение команды не нужно повторять сразу. Лучше заново установить подключение после некоторой задержки. Затем выполнение команды можно повторить.
 
+
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-### <a name="retry-logic-for-transient-errors"></a>Повтор логики для временных ошибок
+## <a name="retry-logic-for-transient-errors"></a>Повтор логики для временных ошибок
 Клиентские программы, в которых иногда происходят временные ошибки, являются более надежными, если используют логику повторных попыток.
 
 Если программа взаимодействует с базой данных SQL Azure через стороннее ПО промежуточного слоя, спросите поставщика, содержит ли это стороннее ПО логику повторных попыток на случай временных ошибок.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-#### <a name="principles-for-retry"></a>Принципы повторных попыток
+### <a name="principles-for-retry"></a>Принципы повторных попыток
 * Повторите попытку открыть подключение, если ошибка является временной.
 * Выполнение инструкции SQL SELECT, которая закончилась временным сбоем, не нужно повторять непосредственно.
   
@@ -58,30 +59,31 @@ ms.lasthandoff: 11/04/2017
   
   * Логика повторных попыток обеспечивает полноценное выполнение транзакции базы данных или откат всей транзакции.
 
-#### <a name="other-considerations-for-retry"></a>Другие соображения по поводу повторных попыток
+### <a name="other-considerations-for-retry"></a>Другие соображения по поводу повторных попыток
 * Пакетная программа, которая автоматически запускается после окончания рабочего дня и завершает свою работу до наступления утра, может выполнять повторные попытки с продолжительными интервалами.
 * Программа, использующая пользовательский интерфейс, должна учитывать, что человек не любит ждать очень долго.
   
   * Это не значит, что нужно повторять попытку каждые несколько секунд, так как подобная политика может затопить систему запросами.
 
-#### <a name="interval-increase-between-retries"></a>Увеличение интервала между повторными попытками
+### <a name="interval-increase-between-retries"></a>Увеличение интервала между повторными попытками
 Рекомендуется подождать 5 секунд, прежде чем выполнять первую повторную попытку. Повторная попытка после ожидания менее 5 секунд может привести к перегрузке облачной службы. Для каждой последующей повторной попытки ожидание должно увеличиваться экспоненциально, но не более чем до 60 секунд.
 
 Обсуждение *периода блокировки* для клиентов, которые используют ADO.NET, см. в статье [Организация пулов соединений SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 Кроме того, вы можете задать максимальное количество повторных попыток, которые программа должна выполнить перед автоматическим завершением работы.
 
-#### <a name="code-samples-with-retry-logic"></a>Образцы кода с логикой повторных попыток
-В этой статье доступны образцы кода с логикой повторных попыток на разных языках программирования:
+### <a name="code-samples-with-retry-logic"></a>Образцы кода с логикой повторных попыток
+Образцы кода с логикой повторных попыток доступны по ссылкам:
 
-* [Библиотеки подключений для Базы данных SQL и SQL Server](sql-database-libraries.md)
+- [Step 4: Connect resiliently to SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n] (Шаг 4. Выполнение устойчивого подключения к SQL с помощью ADO.NET)
+- [Step 4: Connect resiliently to SQL with PHP][step-4-connect-resiliently-to-sql-with-php-p42h] (Шаг 4. Выполнение устойчивого подключения к SQL с помощью PHP)
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-#### <a name="test-your-retry-logic"></a>Тестирование логики повторных попыток
+### <a name="test-your-retry-logic"></a>Тестирование логики повторных попыток
 Чтобы протестировать логику повторных попыток, нужно имитировать или вызвать ошибку, которую можно исправить во время работы программы.
 
-##### <a name="test-by-disconnecting-from-the-network"></a>Тестирование с отключением от сети
+#### <a name="test-by-disconnecting-from-the-network"></a>Тестирование с отключением от сети
 Один из способов протестировать логику повторных попыток — это отключить клиентский компьютер от сети во время работы программы. Появится такая ошибка:
 
 * **SqlException.Number** = 11001
@@ -98,7 +100,7 @@ ms.lasthandoff: 11/04/2017
    * Программа приостанавливает дальнейшее выполнение с помощью метода **Console.ReadLine** или диалогового окна с кнопкой "ОК". Клавишу ВВОД пользователю нужно нажимать после подключения компьютера к сети.
 5. Попытайтесь подключиться еще раз. В этот раз попытка должна завершиться успехом
 
-##### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Выполните проверку, сделав опечатку в имени базы данных при подключении.
+#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Выполните проверку, сделав опечатку в имени базы данных при подключении.
 Программа может намеренно сделать опечатку в имени пользователя перед первой попыткой подключения. Появится такая ошибка:
 
 * **SqlException.Number** = 18456
@@ -114,15 +116,15 @@ ms.lasthandoff: 11/04/2017
 4. Удалить WRONG_ из имени пользователя.
 5. Попытаться подключиться еще раз. В этот раз попытка должна завершиться успехом.
 
+
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-### <a name="net-sqlconnection-parameters-for-connection-retry"></a>Параметры .NET SqlConnection для повторной попытки подключения
+## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Параметры .NET SqlConnection для повторной попытки подключения
 Если клиентская программа подключается к Базе данных SQL Azure с помощью класса .NET Framework **System.Data.SqlClient.SqlConnection**, то вам следует использовать .NET 4.6.1 или более позднюю версию этой платформы (или .NET Core). В этих версиях реализована поддержка повторных попыток подключения. Дополнительные сведения об этой функции см. [здесь](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
-
 
 При создании [строки подключения](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) для объекта **SqlConnection** нужно правильно настроить значения следующих параметров.
 
@@ -138,7 +140,7 @@ ms.lasthandoff: 11/04/2017
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### <a name="connection-versus-command"></a>Подключения и команды
+## <a name="connection-versus-command"></a>Подключения и команды
 Параметры **ConnectRetryCount** и **ConnectRetryInterval** позволяют объекту **SqlConnection** повторять операцию подключения, не извещая об этом программу и не вынуждая ее управлять этим процессом. Повторные попытки будут выполняться в следующих ситуациях:
 
 * при вызове метода mySqlConnection.Open;
@@ -146,8 +148,9 @@ ms.lasthandoff: 11/04/2017
 
 Есть один важный нюанс. Если во время выполнения *запроса* возникает временная ошибка, объект **SqlConnection** не пытается подключиться еще раз. Как следствие, запрос повторно не выполняется. Но перед отправкой запроса для выполнения объект **SqlConnection** очень быстро проверит наличие соединения. Если эта быстрая проверка обнаружит проблемы с подключением, **SqlConnection** повторит операцию подключения. Если повторная попытка подключения завершится успешно, запрос отправится на выполнение.
 
-#### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Нужно ли сочетать ConnectRetryCount с логикой повторных попыток в приложении?
+### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Нужно ли сочетать ConnectRetryCount с логикой повторных попыток в приложении?
 Предположим, что в вашем приложении реализована надежная настраиваемая логика повторных попыток. Допустим, приложение 4 раза повторяет операцию подключения. Если вы добавите в строку подключения значения **ConnectRetryInterval** и **ConnectRetryCount** = 3, общее количество повторных попыток составит 4 * 3 = 12. Вряд ли вам действительно нужно такое количество повторных попыток.
+
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -373,9 +376,7 @@ Enterprise Library 6 (EntLib60) — это платформа классов .
 ### <a name="entlib60-istransient-method-source-code"></a>Исходный код метода EntLib60 IsTransient
 Ниже приведен исходный код (на языке C#) метода **IsTransient** из класса **SqlDatabaseTransientErrorDetectionStrategy**. Исходный код поясняет, какие ошибки считаются временными и приемлемыми для повторной попытки (версия за апрель 2013 г.).
 
-Для удобочитаемости из этой копии удалены многочисленные строки комментариев ( **//comment** ).
-
-```
+```csharp
 public bool IsTransient(Exception ex)
 {
   if (ex != null)
@@ -444,6 +445,14 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения об устранении других распространенных неполадок, возникающих при подключении к базе данных SQL Azure, см. в статье [Устранение неполадок подключения к базе данных SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
-* [Пул подключений SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
+* [Библиотеки подключений для Базы данных SQL и SQL Server](sql-database-libraries.md)
+* [Пул подключений SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 * [*Retrying* — это лицензированная общая библиотека Apache 2.0 для повторных попыток, написанная на языке **Python**, которая позволяет легко добавить режим повтора куда угодно.](https://pypi.python.org/pypi/retrying)
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
 

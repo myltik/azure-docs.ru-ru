@@ -1,9 +1,9 @@
 ---
-title: "Триггеры и привязки служебной шины в службе \"Функции Azure\""
+title: "Привязки служебной шины Azure для службы \"Функции Azure\""
 description: "Узнайте, как использовать триггеры и привязки служебной шины Azure в функциях Azure."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -15,20 +15,20 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
-ms.author: glenga
-ms.openlocfilehash: 5ef558f19bb88d208b0d224e30137ac237ab64bc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: tdykstra
+ms.openlocfilehash: 6d59b26fa4ab17c17827a8e3450e808e40e5c2dd
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-service-bus-bindings"></a>Привязки служебной шины в Функциях Azure
+# <a name="azure-service-bus-bindings-for-azure-functions"></a>Привязки служебной шины Azure для службы "Функции Azure"
 
 В этой статье описывается использование привязок служебной шины Azure в службе "Функции Azure". Функции Azure поддерживают привязки триггера и выходные привязки для очередей и разделов служебной шины.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="service-bus-trigger"></a>Триггер служебной шины
+## <a name="trigger"></a>Триггер
 
 Используйте триггер служебной шины для ответа на сообщения из очереди или раздела служебной шины. 
 
@@ -144,7 +144,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Атрибуты триггера для предкомпилированного кода C#
+## <a name="trigger---attributes"></a>Атрибуты триггера
 
 В [предкомпилированных функциях C#](functions-dotnet-class-library.md) используйте следующие атрибуты для настройки триггера служебной шины:
 
@@ -156,6 +156,9 @@ module.exports = function(context, myQueueItem) {
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
       [ServiceBusTrigger("myqueue")] string myQueueItem, TraceWriter log)
+  {
+      ...
+  }
   ```
 
   Чтобы указать учетную запись служебной шины, которую нужно использовать, можно задать свойство `Connection`, как показано в следующем примере.
@@ -165,7 +168,12 @@ module.exports = function(context, myQueueItem) {
   public static void Run(
       [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
       string myQueueItem, TraceWriter log)
+  {
+      ...
+  }
   ```
+
+  Полный пример см. в разделе [Пример C# в триггере](#trigger---c-example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -180,6 +188,9 @@ module.exports = function(context, myQueueItem) {
       public static void Run(
           [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
           string myQueueItem, TraceWriter log)
+  {
+      ...
+  }
   ```
 
 Используемая учетная запись служебной шины определяется в следующем порядке:
@@ -202,8 +213,10 @@ module.exports = function(context, myQueueItem) {
 |**queueName**|**QueueName**|Имя очереди для отслеживания.  Задается только в том случае, если отслеживается очередь, но не раздел.
 |**topicName**|**TopicName**|Имя отслеживаемого раздела. Задается только в том случае, если отслеживается раздел, но не очередь.|
 |**subscriptionName**|**Параметр SubscriptionName**|Имя отслеживаемой подписки. Задается только в том случае, если отслеживается раздел, но не очередь.|
-|**подключение**|**Connection**|Имя параметра приложения, содержащего строку подключения к служебной шине, используемую для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyServiceBus, то среда выполнения службы "Функции" будет искать параметр приложения AzureWebJobsMyServiceBus. Если оставить строку `connection` пустой, то среда выполнения службы "Функции" будет использовать строку подключения к служебной шине по умолчанию для параметра приложения AzureWebJobsServiceBus.<br><br>Чтобы получить строку подключения, следуйте инструкциям, указанным в разделе [Получение учетных данных управления](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Строка подключения указывается для пространства имен служебной шины, и она не должна ограничиваться определенной очередью или разделом. <br/>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+|**подключение**|**Connection**|Имя параметра приложения, содержащего строку подключения к служебной шине, используемую для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyServiceBus, то среда выполнения службы "Функции" будет искать параметр приложения AzureWebJobsMyServiceBus. Если оставить строку `connection` пустой, то среда выполнения службы "Функции" будет использовать строку подключения к служебной шине по умолчанию для параметра приложения AzureWebJobsServiceBus.<br><br>Чтобы получить строку подключения, следуйте инструкциям, указанным в разделе [Получение учетных данных управления](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Строка подключения указывается для пространства имен служебной шины, и она не должна ограничиваться определенной очередью или разделом. |
 |**accessRights**|**Access**|Права доступа для строки подключения. Доступные значения: `manage` и `listen`. Значение по умолчанию — `manage`. Это означает, что у свойства `connection` есть разрешение на **управление**. При использовании строки подключения без разрешения на **управление** задайте для свойства `accessRights` значение "listen". В противном случае выполнение операций, для которых требуются права на управление, в среде выполнения Функций Azure может завершиться ошибкой.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Использование триггера
 
@@ -229,7 +242,7 @@ module.exports = function(context, myQueueItem) {
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-service-bus.md)]
 
-## <a name="service-bus-output-binding"></a>Выходная привязка служебной шины
+## <a name="output"></a>Выходные данные
 
 Используйте выходную привязку служебной шины Azure для отправки сообщений очереди или раздела.
 
@@ -396,25 +409,33 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Выходные данные атрибутов для предкомпилированного кода C#
+## <a name="output---attributes"></a>Выходные атрибуты
 
 Для [предкомпилированных функций C#](functions-dotnet-class-library.md) используйте атрибут [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
-  Конструктор этого атрибута принимает имя очереди или раздела и подписки. Можно также указать права доступа для подключения. Выбор параметра прав доступа описан в разделе [Привязки служебной шины в Функциях Azure](#output---configuration). Ниже приведен пример, в котором этот атрибут применяется к возвращаемому значению функции.
+Конструктор этого атрибута принимает имя очереди или раздела и подписки. Можно также указать права доступа для подключения. Выбор параметра прав доступа описан в разделе [Привязки служебной шины в Функциях Azure](#output---configuration). Ниже приведен пример, в котором этот атрибут применяется к возвращаемому значению функции.
 
-  ```csharp
-  [FunctionName("ServiceBusOutput")]
-  [return: ServiceBus("myqueue")]
-  public static string Run([HttpTrigger] dynamic input, TraceWriter log)
-  ```
+```csharp
+[FunctionName("ServiceBusOutput")]
+[return: ServiceBus("myqueue")]
+public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+{
+    ...
+}
+```
 
-  Чтобы указать учетную запись служебной шины, которую нужно использовать, можно задать свойство `Connection`, как показано в следующем примере.
+Чтобы указать учетную запись служебной шины, которую нужно использовать, можно задать свойство `Connection`, как показано в следующем примере.
 
-  ```csharp
-  [FunctionName("ServiceBusOutput")]
-  [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-  public static string Run([HttpTrigger] dynamic input, TraceWriter log)
-  ```
+```csharp
+[FunctionName("ServiceBusOutput")]
+[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
+public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+{
+    ...
+}
+```
+
+Полный пример см. в разделе [Пример выходных данных C#](#output---c-example).
 
 Чтобы указать учетную запись служебной шины для использования на уровне класса, метода или параметра, можно применить атрибут `ServiceBusAccount`.  Дополнительные сведения см. в разделе [Атрибуты триггера для предкомпилированного кода C#](#trigger---attributes-for-precompiled-c).
 
@@ -430,8 +451,10 @@ module.exports = function (context, myTimer) {
 |**queueName**|**QueueName**|Имя очереди.  Задается только в случае отправки сообщений очереди, а не раздела.
 |**topicName**|**TopicName**|Имя отслеживаемого раздела. Задается только в случае отправки сообщений раздела, а не очереди.|
 |**subscriptionName**|**Параметр SubscriptionName**|Имя отслеживаемой подписки. Задается только в случае отправки сообщений раздела, а не очереди.|
-|**подключение**|**Connection**|Имя параметра приложения, содержащего строку подключения к служебной шине, используемую для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyServiceBus, то среда выполнения службы "Функции" будет искать параметр приложения AzureWebJobsMyServiceBus. Если оставить строку `connection` пустой, то среда выполнения службы "Функции" будет использовать строку подключения к служебной шине по умолчанию для параметра приложения AzureWebJobsServiceBus.<br><br>Чтобы получить строку подключения, следуйте инструкциям, указанным в разделе [Получение учетных данных управления](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Строка подключения указывается для пространства имен служебной шины, и она не должна ограничиваться определенной очередью или разделом. <br/>При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+|**подключение**|**Connection**|Имя параметра приложения, содержащего строку подключения к служебной шине, используемую для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyServiceBus, то среда выполнения службы "Функции" будет искать параметр приложения AzureWebJobsMyServiceBus. Если оставить строку `connection` пустой, то среда выполнения службы "Функции" будет использовать строку подключения к служебной шине по умолчанию для параметра приложения AzureWebJobsServiceBus.<br><br>Чтобы получить строку подключения, следуйте инструкциям, указанным в разделе [Получение учетных данных управления](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Строка подключения указывается для пространства имен служебной шины, и она не должна ограничиваться определенной очередью или разделом.|
 |**accessRights**|**Access** |Права доступа для строки подключения. Доступные значения: "manage" и "listen". Значение по умолчанию — "manage". Оно означает, что у подключения есть разрешение на **управление**. При использовании строки подключения без разрешения на **управление** задайте для свойства `accessRights` значение "listen". В противном случае выполнение операций, для которых требуются права на управление, в среде выполнения Функций Azure может завершиться ошибкой.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Использование выходной привязки
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Настройка высокодоступных портов для внутреннего балансировщика нагрузки
 
@@ -41,13 +41,10 @@ ms.lasthandoff: 11/04/2017
 
 ## <a name="preview-sign-up"></a>Регистрация в предварительной версии
 
-Чтобы зарегистрироваться в предварительной версии компонента "Порты с высоким уровнем доступности" в Load Balancer уровня "Стандартный", зарегистрируйте свою подписку, чтобы получить доступ, используя Azure CLI 2.0 или PowerShell.  Зарегистрируйте подписку для:
-
-1. [Предварительной версии Load Balancer уровня "Стандартный"](https://aka.ms/lbpreview#preview-sign-up). 
-2. [Предварительной версии высокодоступных портов](https://aka.ms/haports#preview-sign-up).
+Чтобы зарегистрироваться в предварительной версии компонента "Порты с высоким уровнем доступности" в Load Balancer уровня "Стандартный", зарегистрируйте свою подписку, чтобы получить доступ, используя Azure CLI 2.0 или PowerShell. Зарегистрируйте подписку для [предварительной версии Load Balancer уровня "Стандартный"](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->Чтобы использовать эту функцию, помимо регистрации для использования компонента "Порты с высоким уровнем доступности" необходимо также зарегистрироваться для получения [предварительной версии](https://aka.ms/lbpreview#preview-sign-up) Load Balancer уровня "Стандартный". На регистрацию для получения предварительных версий компонента "Порты с высоким уровнем доступности" и Load Balancer уровня "Стандартный" может уйти до часа.
+>На регистрацию предварительных версий Load Balancer уровня "Стандартный" может уйти до часа.
 
 ## <a name="configuring-ha-ports"></a>Настройка высокодоступных портов
 

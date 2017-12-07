@@ -3,7 +3,7 @@ title: "Обратная зона DNS для служб Azure | Документ
 description: "Узнайте, как настроить обратный просмотр DNS для размещенных в Azure служб."
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Настройка обратного просмотра DNS для размещенных в Azure служб
 
@@ -28,9 +28,8 @@ ms.lasthandoff: 10/11/2017
 
 Перед прочтением этой статьи ознакомьтесь со статьей [Основные сведения об обратной зоне DNS и ее поддержке в Azure](dns-reverse-dns-overview.md).
 
-В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md).
-* В модели развертывания Resource Manager вычислительные ресурсы (например, виртуальные машины, масштабируемые наборы виртуальных машин или кластеры Service Fabric) предоставляются с помощью ресурса PublicIpAddress. Обратный просмотр DNS настраивается с помощью свойства ReverseFqdn ресурса PublicIpAddress.
-* В классической модели развертывания вычислительные ресурсы предоставляются с помощью облачных служб. Обратный просмотр DNS настраивается с помощью свойства ReverseDnsFqdn облачной службы.
+В Azure DNS вычислительные ресурсы (например, виртуальные машины, масштабируемые наборы виртуальных машин или кластеры Service Fabric) предоставляются с помощью ресурса PublicIpAddress. Обратный просмотр DNS настраивается с помощью свойства ReverseFqdn ресурса PublicIpAddress.
+
 
 Служба приложений Azure пока не поддерживает обратную зону DNS.
 

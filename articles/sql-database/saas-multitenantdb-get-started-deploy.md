@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 1ef4355f7234bc6a534d21a57fa52b480983b99b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Развертывание и изучение сегментированного мультитенантного приложения, использующего базу данных SQL Azure
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/23/2017
 
 Приложение развертывается с данными для трех примеров клиентов. Клиенты будут храниться вместе в одной мультитенантной базе данных.
 
-Вы можете скачать исходный код C# и PowerShell для Wingtip Tickets из [нашего репозитория на GitHub][link-github-wingtip-multitenantdb-55g].
+Вы можете скачать исходный код C# и PowerShell для Wingtip Tickets из [нашего репозитория на сайте GitHub][link-github-wingtip-multitenantdb-55g].
 
 #### <a name="learn-in-this-tutorial"></a>В этом руководстве рассматривается:
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 11/23/2017
 > [!IMPORTANT]
 > Исполняемое содержимое (скрипты, библиотеки DLL) может быть заблокировано Windows, в то время как ZIP-файлы можно загрузить с внешнего источника, а затем извлечь их содержимое. Перед извлечением скриптов из ZIP-файла выполните указанные ниже действия, чтобы разблокировать ZIP-файл. Разблокировав ZIP-файл, вы подтверждаете, что скрипты могут выполняться.
 
-1. Перейдите к [репозиторию GitHub WingtipTicketsSaaS MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
+1. Перейдите к [репозиторию GitHub WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Выберите **Clone or download** (Клонировать или скачать).
 3. Выберите **Download ZIP** (Загрузить ZIP) и сохраните файл.
 4. Щелкните правой кнопкой мыши файл **WingtipTicketsSaaS-MultiTenantDb-master.zip** и выберите **Свойства**.
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 Центральный **концентратор событий** содержит список клиентов в конкретном развертывании со ссылками.
 
 1. Откройте *концентратор событий* в браузере:
-    - http://events.wingtip-mt.&lt;ПОЛЬЗОВАТЕЛЬ&gt;.trafficmanager.net &nbsp; *(Укажите имя пользователя своего развертывания.)*
+    - http://events.wingtip.&lt;ПОЛЬЗОВАТЕЛЬ&gt;.trafficmanager.net &nbsp; *(Замените значением пользователя для своего развертывания.)*
 
     ![Концентратор событий](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ ms.lasthandoff: 11/23/2017
 
 Чтобы управлять распределением входящего трафика, приложение использует [диспетчер трафика Azure](../traffic-manager/traffic-manager-overview.md). Страницы мероприятий, которые зависят от конкретного клиента, содержат имя клиента в URL-адресе. URL-адрес также содержит значение конкретного пользователя и соответствует такому формату:
 
-- http://events.wingtip-mt.&lt;ПОЛЬЗОВАТЕЛЬ&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;ПОЛЬЗОВАТЕЛЬ&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 Приложение мероприятий анализирует имя клиента из URL-адреса и кэширует его, чтобы создать ключ для доступа к каталогу при помощи [управления размещением сегментов](sql-database-elastic-scale-shard-map-management.md). Каталог сопоставляет ключ с расположением базы данных клиента. В **концентраторе событий** перечислены все клиенты, зарегистрированные в каталоге. **Концентратор событий** использует расширенные метаданные в каталоге, чтобы получить имя клиента, связанное с каждым сопоставлением, для создания URL-адресов.
 
@@ -156,7 +156,7 @@ ms.lasthandoff: 11/23/2017
 
 Первоначальное развертывание включает в себя три примера клиентов в базе данных *Tenants1*. Давайте создадим другой клиент, чтобы увидеть, как это влияет на развернутое приложение. На этом шаге вы сможете быстро создать клиент.
 
-1. В *интегрированной среде сценариев PowerShell* откройте скрипт …\\Learning Modules\ProvisionTenants\\*Demo-ProvisionTenants.ps1*.
+1. В *интегрированной среде сценариев PowerShell* откройте файл \\Learning Modules\Provision and Catalog\\*Demo-ProvisionTenants.ps1*.
 2. Нажмите клавишу **F5** для запуска скрипта (оставьте значения по умолчанию).
 
    > [!NOTE]
@@ -174,7 +174,7 @@ ms.lasthandoff: 11/23/2017
 
 Теперь подготовим другой клиент, в этот раз — в собственной базе данных.
 
-1. В файле ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* задайте для *$TenantName* значение **Salix Salsa**, для *$VenueType* — значение **dance**, а для *$Scenario* — **2**.
+1. В файле \\Learning Modules\\Provision and Catalog\*Demo-ProvisionTenants.ps1* измените *$TenantName* на **Salix Salsa**, *$VenueType* на **dance**, а *$Scenario* на **2**.
 
 2. Нажмите клавишу **F5** для повторного запуска скрипта.
     - Нажатие клавиши F5 подготавливает новый клиент в отдельной базе данных. Базы данных и клиент регистрируются в каталоге. Затем браузер открывает страницу мероприятий клиента.
@@ -239,7 +239,7 @@ ms.lasthandoff: 11/23/2017
 > - Как просмотреть историю использования пула для отслеживания работы клиента.
 > - Как удалить примеры ресурсов, чтобы прекратить связанное выставление счетов.
 
-Теперь перейдите к [руководству по подготовке клиентов и их регистрации в каталоге](sql-database-saas-tutorial-provision-and-catalog.md).
+А теперь рекомендуем ознакомиться со статьей [Provision new tenants and register them in the catalog](sql-database-saas-tutorial-provision-and-catalog.md) (Подготовка новых клиентов и их регистрация в каталоге).
 
 
 

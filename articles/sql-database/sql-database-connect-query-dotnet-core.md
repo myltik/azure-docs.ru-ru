@@ -13,46 +13,37 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 07/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 6eb026b5f478769f680e3899a7c743546c2c9d88
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1d2a22500c322a63b134e29e5f7509df271eafb9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Использование .NET Core (C#) для создания запросов к базе данных SQL Azure
 
-В этом кратком руководстве показано, как использовать [.NET Core](https://www.microsoft.com/net/) в Windows, Linux и Mac OS для создания программы C#, которая подключается к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос к данным.
+В этом кратком руководстве показано, как использовать [.NET Core](https://www.microsoft.com/net/) в Windows, Linux и Mac OS для создания программы C#, которая подключается к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос данных.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 Ниже указаны требования для работы с этим кратким руководством.
 
-- База данных SQL Azure. В этом кратком руководстве используются ресурсы, созданные в одном из этих кратких руководств: 
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-   - [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
-   - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
-   - [Создание базы данных с помощью PowerShell](sql-database-get-started-powershell.md)
+- [Правило брандмауэра уровня сервера](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) для общедоступного IP-адреса компьютера, на котором выполняются действия из этого краткого руководства.
 
-- [Правило брандмауэра на уровне сервера](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) для общедоступного IP-адреса компьютера, на котором выполняются действия из этого краткого руководства.
 - Убедитесь, что установлен [.NET Core для вашей операционной системы](https://www.microsoft.com/net/core). 
 
 ## <a name="sql-server-connection-information"></a>Сведения о подключении SQL Server
 
-Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-1. Войдите на [портал Azure](https://portal.azure.com/).
-2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
-3. На странице **Обзор** базы данных просмотрите полное имя сервера, как показано на следующем рисунке. Вы можете навести указатель мыши на имя сервера, чтобы отобразился пункт **Щелкните, чтобы скопировать**. 
+#### <a name="for-adonet"></a>Для ADO.NET
 
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+1. Щелкните **Показать строки подключения к базам данных**.
 
-4. Если вы забыли данные для входа на сервер базы данных SQL Azure, перейдите на соответствующую страницу, чтобы просмотреть имя администратора сервера. При необходимости вы можете сбросить пароль.
-
-5. Щелкните **Показать строки подключения к базам данных**.
-
-6. Просмотрите полную строку подключения **ADO.NET**.
+2. Просмотрите полную строку подключения **ADO.NET**.
 
     ![Строка подключения по протоколу ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 

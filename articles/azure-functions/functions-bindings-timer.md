@@ -1,9 +1,9 @@
 ---
-title: "Триггеры с таймерами в функциях Azure"
+title: "Триггеры таймера для службы \"Функции Azure\""
 description: "Узнайте, как использовать триггеры с таймерами в функциях Azure."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -15,15 +15,15 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: glenga
+ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-timer-trigger"></a>Триггеры с таймерами в функциях Azure
+# <a name="timer-trigger-for-azure-functions"></a>Триггеры таймера для службы "Функции Azure" 
 
 В этой статье описывается, как работать с триггерами таймера в службе "Функции Azure". Триггер таймера позволяет выполнять функцию по расписанию. 
 
@@ -118,7 +118,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter ) =
 }
 ```
 
-Ниже приведен код сценария F#.
+Ниже показан код сценария JavaScript.
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -134,7 +134,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="attributes-for-precompiled-c"></a>Атрибуты для предкомпилированного кода C#
+## <a name="attributes"></a>Атрибуты
 
 Для [предкомпилированных функций C#](functions-dotnet-class-library.md) используйте атрибут [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
@@ -143,9 +143,14 @@ module.exports = function (context, myTimer) {
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+   ...
+}
  ```
 
 Можно указать `TimeSpan` вместо выражения CRON, если ваше приложение-функция запускается в рамках плана службы приложений (а не плана потребления).
+
+Полный пример см. в разделе [Пример C#](#c-example).
 
 ## <a name="configuration"></a>Конфигурация
 
@@ -156,7 +161,9 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 |**type** | Недоступно | Этому свойству необходимо присвоить значение "timerTrigger". Это свойство задается автоматически при создании триггера на портале Azure.|
 |**direction** | Недоступно | Для этого свойства необходимо задать значение "in". Это свойство задается автоматически при создании триггера на портале Azure. |
 |**name** | Недоступно | Имя переменной, представляющей объект таймера в коде функции. | 
-|**schedule**|**ScheduleExpression**|В плане потребления можно определить расписания с помощью выражений CRON. Если используется план службы приложений, вы также можете использовать строку `TimeSpan`. В следующих разделах описано, как использовать выражения CRON. Можно поместить выражение расписания в параметр приложения и присвоить этому свойству значение, заключенное в знаки **%**, например: "%NameOfAppSettingWithCRONExpression%". При локальной разработке параметры приложения перейдут к значениям файла [local.settings.json](functions-run-local.md#local-settings-file).|
+|**schedule**|**ScheduleExpression**|В плане потребления можно определить расписания с помощью выражений CRON. Если используется план службы приложений, вы также можете использовать строку `TimeSpan`. В следующих разделах описано, как использовать выражения CRON. Можно поместить выражение расписания в параметр приложения и присвоить этому свойству значение, заключенное в знаки **%**, например: "%NameOfAppSettingWithCRONExpression%". |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ### <a name="cron-format"></a>Формат CRON 
 

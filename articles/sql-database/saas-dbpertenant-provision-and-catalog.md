@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 17eb9b3ff059912e4fe3fafda0b9c435e3983888
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b82623f63681daff502f1e23d052da7480dda942
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Сведения о подготовке новых клиентов и их регистрации в каталоге
 
@@ -68,9 +68,9 @@ ms.lasthandoff: 11/16/2017
 Рассматриваемое SaaS-приложение Wingtip Tickets c однотенантной БД предоставляет для каждого клиента отдельную копию базы данных, шаблон которой развернут на сервере каталога с именем _basetenantdb_.  Подготовку можно интегрировать в приложение как часть процесса регистрации, и (или) поддерживать в автономном режиме с помощью скриптов. В этом руководстве описана подготовка с помощью PowerShell. При помощи скриптов подготовки копируется база данных basetenantdb и для клиента создается новая база данных в эластичном пуле. Затем в нее вносятся начальные сведения о клиенте и новая база данных регистрируется в карте сегментов каталога.  В нашем примере SaaS-приложения Wingtip Tickets c однотенантной БД все имена баз данных создаются на основе имени клиента. Но такое именование использовать не обязательно. Каталог позволяет присвоить базе данных клиента любое имя.+ 
 
 
-## <a name="get-the-wingtip-application-scripts"></a>Получение сценариев приложения Wingtip
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Получение скриптов для SaaS-приложения Wingtip Tickets c однотенантной БД
 
-Исходный код и скрипты SaaS-приложения Wingtip Tickets c однотенантной БД доступны в репозитории GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Указания по скачиванию скриптов SaaS Wingtip Tickets см. [здесь](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Сценарии для приложения SaaS Wingtip Tickets c мультитенантной базой данных и исходный код этого приложения вы найдете в репозитории GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Инструкции по скачиванию и разблокированию сценариев приложения SaaS Wingtip Tickets см. в статье [Общие рекомендации по работе с примерами приложений SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md).
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Подробное пошаговое руководство по подготовке и каталогизации

@@ -1,25 +1,29 @@
-| Тип | служба | Триггер | Входные данные | Выходные данные |  
-| --- | --- | --- | --- | --- |  
-| [Расписание](../articles/azure-functions/functions-bindings-timer.md)  |Функции Azure |✔ | | |  
-| [HTTP (REST или webhook)](../articles/azure-functions/functions-bindings-http-webhook.md) |Функции Azure |✔ |  |✔\** |  
-| [Хранилище BLOB-объектов](../articles/azure-functions/functions-bindings-storage-blob.md) |Хранилище Azure |✔ |✔ |✔ |  
-| [События](../articles/azure-functions/functions-bindings-event-hubs.md) |Концентраторы событий Azure |✔ | |✔ |  
-| [Очереди](../articles/azure-functions/functions-bindings-storage-queue.md) |Хранилище Azure |✔ | |✔ |  
-| [Очереди и разделы](../articles/azure-functions/functions-bindings-service-bus.md) |Azure Service Bus |✔ | |✔ |  
-| [Таблицы хранилища](../articles/azure-functions/functions-bindings-storage-table.md) |Хранилище Azure | |✔ |✔ |  
-| [Таблицы SQL](../articles/azure-functions/functions-bindings-mobile-apps.md) |Мобильные приложения Azure | |✔ |✔ |  
-| [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB |✔ |✔ |✔ |  
-| [Push-уведомления](../articles/azure-functions/functions-bindings-notification-hubs.md) |Концентраторы уведомлений Azure | | |✔ |  
-| [Текстовое сообщение Twilio](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
-| [Электронная почта SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |
-| [Таблицы Excel](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
-| [Файлы OneDrive](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
-| [Электронная почта Outlook](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | | |✔ |
-| [События Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph |✔ |✔ |✔ |
-| [Токены аутентификации](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ | |
+В следующей таблице показаны привязки, которые поддерживаются в двух основных версиях среды выполнения службы "Функции Azure".
 
-(\* Все триггеры содержат связанные входные данные.)
+| Тип | 1.x | 2.x | Триггер | Входные данные | Выходные данные |  
+| ---- | :-: | :-: | :------: | :---: | :----: |
+| [Хранилище BLOB-объектов](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|  
+| [База данных Cosmos](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔<sup>1</sup>|✔|✔|✔|  
+| [Концентраторы событий](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|  
+| [Внешний файл](../articles/azure-functions/functions-bindings-external-file.md)<sup>2</sup>    |✔|| |✔|✔|  
+| [Внешняя таблица](../articles/azure-functions/functions-bindings-external-table.md)<sup>2</sup>  |✔|| |✔|✔|  
+| [HTTP](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
+| [Таблицы Excel<br/>Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔<sup>1</sup>| |✔|✔|
+| [Файлы OneDrive<br/>Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔<sup>1</sup>| |✔|✔|
+| [Электронная почта Outlook<br/>Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔<sup>1</sup>| | |✔|
+| [События<br/>Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔<sup>1</sup>|✔|✔|✔|
+| [Маркеры безопасности<br/>Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔<sup>1</sup>| |✔| |
+| [Мобильные приложения](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔|✔<sup>1</sup>| |✔|✔|  
+| [Центры уведомлений](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
+| [Хранилище очередей](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|  
+| [SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md)                   |✔|✔<sup>1</sup>| | |✔|
+| [Служебная шина](../articles/azure-functions/functions-bindings-service-bus.md)             |✔|✔<sup>1</sup>|✔| |✔|  
+| [Хранилище таблиц](../articles/azure-functions/functions-bindings-storage-table.md)         |✔|✔| |✔|✔|  
+| [Таймер](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
+| [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔<sup>1</sup>| | |✔|
+| [Объекты Webhook](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔||✔| |✔|
+  
+<sup>1</sup> Требуется регистрация в качестве расширения привязки в версии 2.x. Ознакомьтесь с [известными проблемами в версии 2.x](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
-(\** Для привязки выходных HTTP-данных требуется триггер HTTP.)
-
+<sup>2</sup> Экспериментальная функция &mdash; не поддерживается и может быть удалена в будущем.
 

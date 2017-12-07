@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/02/2017
+ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d972def582ff8fee74c2eae59f4756eb1dcd0a70
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Разработка топологий для Apache Storm на C# с помощью средств Data Lake для Visual Studio
 
@@ -42,6 +42,9 @@ ms.lasthandoff: 11/03/2017
 
 > [!IMPORTANT]
 > Для топологии C# на кластерах под управлением Linux используется .NET 4.5. В кластере HDInsight они запускаются с помощью Mono. Чтобы определить потенциальные проблемы с совместимостью, просмотрите документ о [совместимости Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
+
+> [!WARNING]
+> При возникновении проблем с созданием проектов, использующих SCP.NET версии 1.0.0.x, обратитесь в службу поддержки корпорации Майкрософт.
 
 ## <a name="install-visual-studio"></a>Установка Visual Studio
 

@@ -13,31 +13,27 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 08/08/2017
+ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: ae8cf7b847442883f03078a8c34d0921f8992b02
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b45acf8a7abdee070c6db2c5d7f4c108a073b1bb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Использование PHP для создания запросов к базе данных SQL Azure
 
-В этом кратком руководстве показано, как использовать [PHP](http://php.net/manual/en/intro-whatis.php) для создания программы, которая подключается к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос к данным.
+В этом кратком руководстве показано, как использовать [PHP](http://php.net/manual/en/intro-whatis.php) для создания программы, которая подключается к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос данных.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 Ниже указаны требования для работы с этим кратким руководством.
 
-- База данных SQL Azure. В этом кратком руководстве используются ресурсы, созданные в одном из этих кратких руководств: 
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-   - [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
-   - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
-   - [Создание базы данных с помощью PowerShell](sql-database-get-started-powershell.md)
+- [Правило брандмауэра уровня сервера](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) для общедоступного IP-адреса компьютера, на котором выполняются действия из этого краткого руководства.
 
-- [Правило брандмауэра на уровне сервера](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) для общедоступного IP-адреса компьютера, на котором выполняются действия из этого краткого руководства.
-
-- Убедитесь, что установлен PHP и связанное программное обеспечение для вашей операционной системы.
+- Убедитесь, что установлен компонент PHP и связанное программное обеспечение для вашей операционной системы.
 
     - **Mac OS.** Установите Homebrew, PHP, драйвер ODBC и SQLCMD, а затем драйвер PHP для SQL Server. См. [шаги 1.2, 1.3 и 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
     - **Ubuntu.** Установите PHP и другие необходимые пакеты, а затем установите драйвер PHP для SQL Server. См. [шаги 1.2 и 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
@@ -45,15 +41,7 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="sql-server-connection-information"></a>Сведения о подключении SQL Server
 
-Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
-
-1. Войдите на [портал Azure](https://portal.azure.com/).
-2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
-3. На странице **Обзор** базы данных просмотрите полное имя сервера, как показано на следующем рисунке. Вы можете навести указатель мыши на имя сервера, чтобы отобразился пункт **Щелкните, чтобы скопировать**.  
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Если вы забыли данные для входа на сервер, перейдите на соответствующую страницу, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль.     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
     
 ## <a name="insert-code-to-query-sql-database"></a>Вставка кода для отправки запроса к базе данных SQL
 
@@ -100,3 +88,10 @@ ms.lasthandoff: 10/31/2017
 - [Проектирование первой базы данных SQL Azure](sql-database-design-first-database.md)
 - [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/) (Драйверы Microsoft PHP для SQL Server)
 - [Сообщите о проблемах или задайте вопросы](https://github.com/Microsoft/msphpsql/issues)
+- [Пример логики повтора: отказоустойчивое подключение к SQL с помощью PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+
