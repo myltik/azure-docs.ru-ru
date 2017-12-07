@@ -44,7 +44,7 @@
 
 Можно добавлять или удалять виртуальные машины, изменяя емкость масштабируемого набора. На портале Azure можно уменьшить или увеличить число виртуальных машин (показано как **число экземпляров**) в масштабируемом наборе, передвигая ползунок в строке состояния переопределения на экране масштабирования влево или вправо.
 
-Если вы используете Azure PowerShell, необходимо получить объект масштабируемого набора с помощью [Get AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Затем установите свойство **sku.capacity** для нужного числа виртуальных машин и обновите масштабируемый набор, добавив [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). С помощью Azure CLI замените значение производительности параметром **--new-capacity** для команды [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale).
+Если вы используете Azure PowerShell, необходимо получить объект масштабируемого набора с помощью [Get AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Затем установите свойство **sku.capacity** для нужного числа виртуальных машин и обновите масштабируемый набор, добавив [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). С помощью Azure CLI замените значение производительности параметром **--new-capacity** для команды [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale).
 
 ### <a name="vertical"></a>Vertical
 

@@ -1,4 +1,4 @@
-Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create).
+Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create).
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 

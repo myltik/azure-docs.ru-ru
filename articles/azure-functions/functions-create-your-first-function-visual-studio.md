@@ -14,18 +14,20 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 12/1/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 14ab60a5bb6059794d730151193aad36bc2a969e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 7f71ecb2b58728f466371c7aa6d2aac965177863
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Создание первой функции с помощью Visual Studio
 
 Решение "Функции Azure" позволяет выполнять код в [бессерверной](https://azure.microsoft.com/overview/serverless-computing/) среде без необходимости создавать виртуальную машину или публиковать веб-приложение.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
 
 Изучив эту статью, вы научитесь использовать инструменты Visual Studio 2017 для Функций Azure и локально тестировать функцию hello world. Затем вы опубликуете код функции в Azure. Эти средства доступны как часть рабочей нагрузки Azure для разработки в Visual Studio 2017 версии 15.3 или более поздней.
 

@@ -1,6 +1,6 @@
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Создайте группу ресурсов Azure с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов — это логический контейнер, в котором происходит развертывание ресурсов Azure и управление ими.
+Создайте группу ресурсов Azure с помощью команды [az group create](/cli/azure/group#az_group_create). Группа ресурсов — это логический контейнер, в котором происходит развертывание ресурсов Azure и управление ими.
 
 ```azurecli-interactive
 az group create \

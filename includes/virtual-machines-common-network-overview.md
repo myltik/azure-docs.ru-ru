@@ -19,7 +19,7 @@
 
 [Сетевой интерфейс (NIC)](../articles/virtual-network/virtual-network-network-interface.md) обеспечивает взаимодействие между виртуальной машиной и виртуальной сетью. Виртуальная машина должна иметь по крайней мере один сетевой интерфейс, но в зависимости от ее размера количество сетевых интерфейсов можно увеличить. Узнайте, сколько сетевых адаптеров поддерживает каждый из размеров виртуальной машины для [Windows](../articles/virtual-machines/windows/sizes.md) или [Linux](../articles/virtual-machines/linux/sizes.md).
 
-Вы можете создать виртуальную машину с несколькими сетевыми интерфейсами и добавлять или удалять их на протяжении жизненного цикла виртуальной машины. При наличии нескольких сетевых адаптеров виртуальная машина может подключаться к разным подсетям и отправлять или получать трафик через наиболее подходящий интерфейс. Узнайте, как использовать несколько сетевых адаптеров с виртуальными машинами [Windows](../articles/virtual-machines/windows/multiple-nics.md) или [Linux](../articles/virtual-machines/linux/multiple-nics.md).
+Вы можете создать виртуальную машину с несколькими сетевыми интерфейсами и добавлять или удалять их на протяжении жизненного цикла виртуальной машины. При наличии нескольких сетевых адаптеров виртуальная машина может подключаться к разным подсетям и отправлять или получать трафик через наиболее подходящий интерфейс.
 
 Если виртуальная машина входит в состав группы доступности, то у всех виртуальных машин в этой группе доступности должен быть либо один, либо несколько сетевых интерфейсов. Виртуальные машины с несколькими сетевыми интерфейсами могут иметь разное их количество, но все они должны иметь по крайней мере два сетевых интерфейса.
 
@@ -30,8 +30,8 @@
 | Метод | Описание |
 | ------ | ----------- |
 | Портал Azure | При создании виртуальной машины на портале Azure сетевой интерфейс создается автоматически (нельзя использовать сетевой интерфейс, созданный отдельно). На портале виртуальные машины создаются только с одним сетевым интерфейсом. Чтобы создать виртуальную машину с несколькими сетевыми интерфейсами, используйте другой метод. |
-| [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) | Воспользуйтесь командлетом [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) с параметром **-PublicIpAddressId**, чтобы указать идентификатор созданного ранее общедоступного IP-адреса. |
-| [Интерфейс командной строки Azure](../articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md) | Чтобы указать идентификатор созданного ранее общедоступного IP-адреса, выполните команду [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) с параметром **--public-ip-address**. |
+| [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Воспользуйтесь командлетом [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) с параметром **-PublicIpAddressId**, чтобы указать идентификатор созданного ранее общедоступного IP-адреса. |
+| [Интерфейс командной строки Azure](../articles/virtual-machines/linux/multiple-nics.md) | Чтобы указать идентификатор созданного ранее общедоступного IP-адреса, выполните команду [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) с параметром **--public-ip-address**. |
 | [Шаблон](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | Используйте шаблон [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) (Сетевой интерфейс в виртуальной сети с общедоступным IP-адресом) в качестве руководства по развертыванию сетевого интерфейса с помощью шаблона. |
 
 ## <a name="ip-addresses"></a>IP-адреса; 
