@@ -1,6 +1,6 @@
 # <a name="azure-managed-disks-overview"></a>Обзор компонента "Управляемые диски" Azure
 
-Компонент "Управляемые диски" Azure упрощает управление дисками виртуальных машин Azure IaaS. Он управляет [учетными записями хранения](../articles/storage/common/storage-introduction.md), связанными с этими дисками. Вам нужно лишь выбрать класс ([Premium](../articles/storage/common/storage-premium-storage.md) или [Standard](../articles/storage/common/storage-standard-storage.md)) и размер диска, а Azure самостоятельно создаст диск и будет управлять им.
+Компонент "Управляемые диски" Azure упрощает управление дисками виртуальных машин Azure IaaS. Он управляет [учетными записями хранения](../articles/storage/common/storage-introduction.md), связанными с этими дисками. Вам нужно лишь выбрать класс ([Premium](../articles/virtual-machines/windows/premium-storage.md) или [Standard](../articles/virtual-machines/windows/standard-storage.md)) и размер диска, а Azure самостоятельно создаст диск и будет управлять им.
 
 ## <a name="benefits-of-managed-disks"></a>Преимущества управляемых дисков
 
@@ -44,7 +44,7 @@
 
 Рассмотрим это подробнее.
 
-**Тип хранилища.** Для компонента "Управляемые диски" доступны два уровня производительности: класс [Premium](../articles/storage/common/storage-premium-storage.md) (на базе SSD) и класс [Standard](../articles/storage/common/storage-standard-storage.md) (на базе жестких дисков). Плата, взимаемая за использование управляемых дисков, зависит от того, какой тип хранилища выбран для диска.
+**Тип хранилища.** Для компонента "Управляемые диски" доступны два уровня производительности: класс [Premium](../articles/virtual-machines/windows/premium-storage.md) (на базе SSD) и класс [Standard](../articles/virtual-machines/windows/standard-storage.md) (на базе жестких дисков). Плата, взимаемая за использование управляемых дисков, зависит от того, какой тип хранилища выбран для диска.
 
 
 **Размер диска.** Выставление счета за использование управляемых дисков зависит от размера подготовленного диска. Служба Azure сопоставляет размер подготовленного диска (округленный) с ближайшим вариантом управляемого диска, как указано в таблице ниже. Каждый диск сопоставляется с одним из поддерживаемых подготовленных размеров, и за него выставляются соответствующие счета. Например, если создать управляемый диск класса Standard и указать подготавливаемый размер 200 ГБ, будет выставлен счет согласно цене диска типа S20.
@@ -131,9 +131,9 @@
 
 ### <a name="compare-managed-disks-storage-options"></a>Сравнение вариантов хранилищ компонента "Управляемые диски"
 
-* [Высокопроизводительное хранилище класса Premium, а также неуправляемые и управляемые диски виртуальной машины Azure](../articles/storage/common/storage-premium-storage.md)
+* [Высокопроизводительное хранилище класса Premium, а также неуправляемые и управляемые диски виртуальной машины Azure](../articles/virtual-machines/windows/premium-storage.md)
 
-* [Экономичное хранилище класса Standard, а также управляемые и неуправляемые диски виртуальной машины Azure](../articles/storage/common/storage-standard-storage.md)
+* [Экономичное хранилище класса Standard, а также управляемые и неуправляемые диски виртуальной машины Azure](../articles/virtual-machines/windows/standard-storage.md)
 
 ### <a name="operational-guidance"></a>Операционное руководство
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 8946166c04ce778d751ad79f7a010c9a5e71a05c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b41cebcc8592468fcabb157b1aee830dfe954229
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Присоединение виртуальной машины Ubuntu к управляемому домену в Azure
 Из этой статьи вы узнаете, как присоединить виртуальную машину Ubuntu Linux к управляемому домену доменных служб Azure AD.
@@ -120,18 +120,18 @@ sudo systemctl start ntp
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE] 
-      > **Устранение неполадок.** Если команда *realm discover* не может найти управляемый домен, сделайте следующее:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-      >
+   > [!NOTE] 
+   > **Устранение неполадок.** Если команда *realm discover* не может найти управляемый домен, сделайте следующее:
+     * Проверьте подключение между доменом и виртуальной машиной (с помощью команды ping).
+     * Убедитесь, что виртуальная машина развернута в одной виртуальной сети с управляемым доменом.
+     * Проверьте, обновлены ли параметры DNS-сервера для виртуальной сети — должны быть указаны контроллеры управляемого домена.
+   >
 
 2. Инициализируйте Kerberos. В окне терминала SSH введите следующую команду: 
 
     > [!TIP] 
     > * Обязательно укажите пользователя, который принадлежит к группе "Администраторы AAD AD". 
-    > * Доменное имя нужно вводить заглавными буквами, иначе kinit завершится ошибкой.
+    > * Введите доменное имя заглавными буквами, иначе операция с использованием kinit завершится ошибкой.
     >
 
     ```

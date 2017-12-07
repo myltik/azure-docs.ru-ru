@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Вопросы о службе архивации Azure
 В этой статье содержатся ответы на часто задаваемые вопросы, которые помогут вам быстро ознакомиться с компонентами службы Azure Backup. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Вы можете задать вопросы о службе архивации Azure, щелкнув **Комментарии** (справа). Комментарии отображаются в конце статьи. Чтобы оставлять комментарии, нужна учетная запись Livefyre. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -65,11 +65,11 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Можно ли выполнять резервное копирование серверов VMware vCenter в облако Azure?
 
-Да. Для резервного копирования VMware vCenter и ESXi в облако Azure можно использовать Azure Backup Server. Сведения о поддерживаемых версиях VMware см. в статье [Таблица защиты посредством Azure Backup Server](backup-mabs-protection-matrix.md). Пошаговые инструкции см. в статье [Резервное копирование сервера VMware в Azure](backup-azure-backup-server-vmware.md).
+Да. Для резервного копирования VMware vCenter и ESXi в облако Azure можно использовать Azure Backup Server. Сведения о поддерживаемых версиях VMware см. в статье [Таблица защиты посредством Azure Backup Server](backup-mabs-protection-matrix.md). Пошаговые инструкции см. в статье [Резервное копирование сервера VMware с помощью Azure Backup Server](backup-azure-backup-server-vmware.md).
 
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Azure Backup Server и System Center Data Protection Manager
-### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Можно ли использовать сервер службы архивации Azure, чтобы создать резервную копию для восстановления исходного состояния физического сервера? <br/>
+### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Можно ли использовать Azure Backup Server, чтобы создать резервную копию для восстановления исходного состояния физического сервера? <br/>
 Да.
 
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>Можно ли зарегистрировать сервер DPM в нескольких хранилищах? <br/>
@@ -92,11 +92,11 @@ ms.lasthandoff: 10/11/2017
 Да. При использовании Windows Server или рабочих станций Windows можно выполнять до трех заданий резервного копирования в день. С помощью System Center DPM можно выполнять не больше двух заданий резервного копирования в день. Для виртуальных машин IaaS резервное копирование можно выполнять один раз в день. С помощью политики планирования для Windows Server или рабочей станции Windows можно настроить ежедневное или еженедельное расписание. При использовании System Center DPM можно настроить ежедневное, еженедельное, ежемесячное и ежегодное расписание.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Почему размер данных, переданных в хранилище служб восстановления, меньше размера резервной копии данных?<br/>
- Все данные, для которых создается резервная копия из агента службы архивации Azure, а также из SCDPM или с сервера службы архивации Azure, сжимаются и шифруются перед передачей. После сжатия и шифрования данные, которые попадают в резервное хранилище, становятся на 30–40 % меньше.
+ Все данные, для которых создается резервная копия из агента службы Azure Backup, а также из SCDPM или Azure Backup Server, сжимаются и шифруются перед передачей. После сжатия и шифрования данные, которые попадают в резервное хранилище, становятся на 30–40 % меньше.
 
 ## <a name="what-can-i-back-up"></a>Ограничения, связанные с резервным копированием
 ### <a name="which-operating-systems-do-azure-backup-support-br"></a>Какие операционные системы поддерживает служба архивации Azure? <br/>
-Служба архивации Azure поддерживает следующие операционные системы для резервного копирования файлов, папок и рабочих приложений с помощью сервера резервного копирования Azure и System Center Data Protection Manager (DPM).
+Служба Azure Backup поддерживает следующие операционные системы для резервного копирования файлов, папок и рабочих приложений с помощью Azure Backup Server и System Center Data Protection Manager (DPM).
 
 | Операционная система | платформа | SKU |
 |:--- | --- |:--- |
@@ -112,7 +112,6 @@ ms.lasthandoff: 10/11/2017
 | Windows Storage Server 2012 и последние пакеты обновления |64-разрядная |Standard, Workgroup |
 | Windows Server 2012 R2 и последние пакеты обновления |64-разрядная |Essential |
 | Windows Server 2008 R2 с пакетом обновления 1 |64-разрядная |Standard, Enterprise, Datacenter, Foundation |
-| Windows Server 2008 с пакетом обновления 2 (SP2) |64-разрядная |Standard, Enterprise, Datacenter, Foundation |
 
 **Резервное копирование виртуальных машин Azure:**
 
