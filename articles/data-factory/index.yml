@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Документация по фабрике данных Azure V2 (предварительная версия)
+title: "Документация по фабрике данных Azure V2 (предварительная версия)"
 metadata:
-  title: Документация по фабрике данных Azure. Руководства и справочник по API | Документация Майкрософт
-  description: 'Узнайте, как использовать фабрику данных для настройки автоматизированных конвейеров данных, выполняющих двунаправленное перемещение данных между локальными и облачными источниками для последующих обработки и анализа.'
+  title: "Документация по фабрике данных Azure. Руководства и справочник по API | Документация Майкрософт"
+  description: "Узнайте, как использовать фабрику данных для настройки автоматизированных конвейеров данных, выполняющих двунаправленное перемещение данных между локальными и облачными источниками для последующих обработки и анализа."
   services: data-factory
   author: spelluru
   manager: jhubbard
@@ -13,73 +13,78 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/08/2017
   ms.author: spelluru
+  ms.openlocfilehash: 293cfbc2cc9030a8315fa48e835a1446ff10d469
+  ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 12/01/2017
 abstract:
-  description: 'Узнайте, как использовать фабрику данных, облачную службу интеграции данных, для объединения служб хранения, перемещения и обработки данных в автоматизированные конвейеры данных. Руководства и другая документация, в которой показано, как настраивать и администрировать конвейеры данных, а также перемещать и преобразовывать данные для анализа. <p>В настоящее время версия V2 фабрики данных находится на этапе предварительной версии. Версия V1 является общедоступной. Если вы используете версию V1 службы фабрики данных, см. <a href=/azure/data-factory/v1/data-factory-introduction>документацию по этой версии.</a></p>'
+  description: "Узнайте, как использовать фабрику данных, облачную службу интеграции данных, для объединения служб хранения, перемещения и обработки данных в автоматизированные конвейеры данных. Руководства и другая документация, в которой показано, как настраивать и администрировать конвейеры данных, а также перемещать и преобразовывать данные для анализа. <p>В настоящее время версия V2 фабрики данных находится на этапе предварительной версии. Версия V1 является общедоступной. Если вы используете версию V1 службы фабрики данных, см. <a href=/azure/data-factory/v1/data-factory-introduction>документацию по этой версии.</a></p>"
 sections:
-  - title: 5-минутные руководства по началу работы
+- title: "5-минутные руководства по началу работы"
+  items:
+  - type: paragraph
+    text: "Сведения о создании фабрики данных с помощью:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Сведения о создании фабрики данных с помощью:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/data-factory/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/data-factory/quickstart-create-data-factory-powershell
-          - image:
-              src: /azure/data-factory/media/index/logo_net.svg
-            text: .NET
-            href: /azure/data-factory/quickstart-create-data-factory-dot-net
-          - image:
-              src: /azure/data-factory/media/index/logo_python.svg
-            text: Python
-            href: /azure/data-factory/quickstart-create-data-factory-python
-          - image:
-              src: /azure/data-factory/media/index/logo_rest.svg
-            text: REST
-            href: /azure/data-factory/quickstart-create-data-factory-rest-api
-          - image:
-              src: /azure/data-factory/media/index/portal.svg
-            text: Портал Azure
-            href: /azure/data-factory/quickstart-create-data-factory-portal
-          - image:
-              src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
-            text: Шаблон Resource Manager
-            href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
-  - title: Пошаговые руководства
+    - image:
+        src: /azure/data-factory/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/data-factory/quickstart-create-data-factory-powershell
+    - image:
+        src: /azure/data-factory/media/index/logo_net.svg
+      text: .NET
+      href: /azure/data-factory/quickstart-create-data-factory-dot-net
+    - image:
+        src: /azure/data-factory/media/index/logo_python.svg
+      text: Python
+      href: /azure/data-factory/quickstart-create-data-factory-python
+    - image:
+        src: /azure/data-factory/media/index/logo_rest.svg
+      text: REST
+      href: /azure/data-factory/quickstart-create-data-factory-rest-api
+    - image:
+        src: /azure/data-factory/media/index/portal.svg
+      text: "Портал Azure"
+      href: /azure/data-factory/quickstart-create-data-factory-portal
+    - image:
+        src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
+      text: "Шаблон Resource Manager"
+      href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
+- title: "Пошаговые руководства"
+  items:
+  - type: paragraph
+    text: "Узнайте, как создать и отслеживать фабрику данных:"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Узнайте, как создать и отслеживать фабрику данных:'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Развертывание пакетов служб SSIS в Azure</a>
-          - html: <a href="/azure/data-factory/tutorial-copy-data-dot-net">Копирование данных в облако</a>
-          - html: <a href="../data-factory/tutorial-hybrid-copy-powershell">Копирование локальных данных в облако</a>
-          - html: <a href="../data-factory/tutorial-bulk-copy">Копирование данных в пакетном режиме</a>
-          - html: <a href="../data-factory/tutorial-incremental-copy-powershell">Добавочное копирование данных</a>
-          - html: <a href="../data-factory/tutorial-transform-data-spark-powershell">Преобразование данных в облаке</a>
-          - html: <a href="../data-factory/tutorial-transform-data-hive-virtual-network">Преобразование данных в виртуальной сети</a>
-          - html: <a href="../data-factory/tutorial-control-flow">Управление потоками</a>
-  - title: Примеры
+    - html: "<a href=\"/azure/data-factory/tutorial-deploy-ssis-packages-azure\">Развертывание пакетов служб SSIS в Azure</a>"
+    - html: "<a href=\"/azure/data-factory/tutorial-copy-data-dot-net\">Копирование данных в облако</a>"
+    - html: "<a href=\"../data-factory/tutorial-hybrid-copy-powershell\">Копирование локальных данных в облако</a>"
+    - html: "<a href=\"../data-factory/tutorial-bulk-copy\">Копирование данных в пакетном режиме</a>"
+    - html: "<a href=\"../data-factory/tutorial-incremental-copy-powershell\">Добавочное копирование данных</a>"
+    - html: "<a href=\"../data-factory/tutorial-transform-data-spark-powershell\">Преобразование данных в облаке</a>"
+    - html: "<a href=\"../data-factory/tutorial-transform-data-hive-virtual-network\">Преобразование данных в виртуальной сети</a>"
+    - html: "<a href=\"../data-factory/tutorial-control-flow\">Управление потоками</a>"
+- title: "Примеры"
+  items:
+  - type: paragraph
+    text: "Используйте приведенные ниже примеры для работы с фабрикой данных"
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Используйте приведенные ниже примеры для работы с фабрикой данных
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/data-factory/samples-powershell">PowerShell</a>
-  - title: Справочные материалы
+    - html: <a href="/azure/data-factory/samples-powershell">PowerShell</a>
+- title: "Справочные материалы"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Командная строка
-            html: <p><a href="/powershell/module/azurerm.datafactoryv2/">Azure PowerShell</a></p>
-          - title: Языки
-            html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/datafactory">ИНТЕРФЕЙС REST API</a></p>
+    - title: "Командная строка"
+      html: <p><a href="/powershell/module/azurerm.datafactoryv2/">Azure PowerShell</a></p>
+    - title: "Языки"
+      html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/datafactory\">ИНТЕРФЕЙС REST API</a></p>"

@@ -3,7 +3,7 @@
 ## [Что такое Центр Интернета вещей в Azure?](iot-hub-what-is-iot-hub.md)
 ## [Обзор управления устройствами](iot-hub-device-management-overview.md)
 
-# [Начало работы](iot-hub-get-started.md)
+# [Приступая к работе](iot-hub-get-started.md)
 
 ## Настройка устройства
 ### [Моделирование устройства на ПК](iot-hub-get-started-simulated.md)
@@ -150,8 +150,8 @@
 ## [.NET (устройства)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (служба)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (устройства)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Node.js (устройства)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
-## [Node.js (служба)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
+## [Node.js (устройства)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
+## [Node.js (служба)](https://docs.microsoft.com/javascript/api/azure-iothub)
 ## [Пакет SDK для устройства C](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Edge Интернета вещей Azure](http://azure.github.io/iot-edge/)
 ## [REST (поставщик ресурсов)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

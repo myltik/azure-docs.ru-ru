@@ -24,7 +24,7 @@
 
 # Справочные материалы
 ## Интерфейсы API
-### [REST API управления ресурсами Azure](/rest/api/powerbiembedded/)
+### [REST API управления ресурсами Azure](https://docs.microsoft.com/rest/api/power-bi-embedded/)
 ### [Интерфейсы REST API](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 ## Пакеты SDK
 ### [Скачивание пакета SDK для .NET](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)

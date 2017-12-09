@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Документация по службе подготовки устройств для Центра Интернета вещей Azure
+title: "Документация по службе подготовки устройств для Центра Интернета вещей Azure"
 metadata:
-  title: Документация по службе подготовки устройств для Центра Интернета вещей. Руководства и справочники по API
+  title: "Документация по службе подготовки устройств для Центра Интернета вещей. Руководства и справочники по API"
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
   services: iot-dps
   author: nberdy
@@ -13,40 +13,45 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: nberdy
+  ms.openlocfilehash: 4e7b5563b64be95c9453990af928713ef04284c0
+  ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 12/05/2017
 abstract:
-  description: "Служба подготовки устройств для Центра Интернета вещей\_— это вспомогательная служба, которая обеспечивает полностью автоматическую JIT-подготовку для нужного Центра Интернета вещей. Она позволяет подготавливать миллионы устройств и обеспечивает высокий уровень безопасности и масштабируемости без каких-либо действий со стороны пользователя. Узнайте, как подготавливать устройства для центров Интернета вещей, воспользовавшись нашими краткими руководствами, инструкциями и примерами."
+  description: "Служба подготовки устройств для Центра Интернета вещей — это вспомогательная служба, которая обеспечивает полностью автоматическую JIT-подготовку для нужного Центра Интернета вещей. Она позволяет подготавливать миллионы устройств и обеспечивает высокий уровень безопасности и масштабируемости без каких-либо действий со стороны пользователя. Узнайте, как подготавливать устройства для центров Интернета вещей, воспользовавшись нашими краткими руководствами, инструкциями и примерами."
 sections:
-  - title: 5-минутные руководства по началу работы
+- title: "5-минутные руководства по началу работы"
+  items:
+  - type: paragraph
+    text: "Узнайте, как настроить первый экземпляр службы подготовки устройств и подготовить виртуальное устройство для Центра Интернета вещей."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Узнайте, как настроить первый экземпляр службы подготовки устройств и подготовить виртуальное устройство для Центра Интернета вещей.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/sql-database/media/index/portal.svg
-            text: Настройка автоматической подготовки
-            href: /azure/iot-dps/quick-setup-auto-provision
-          - image:
-              src: /azure/sql-database/media/index/portal.svg
-            text: Создание виртуального устройства
-            href: /azure/iot-dps/quick-create-simulated-device
-  - title: Пошаговые руководства
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: "Настройка автоматической подготовки"
+      href: /azure/iot-dps/quick-setup-auto-provision
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: "Создание виртуального устройства"
+      href: /azure/iot-dps/quick-create-simulated-device
+- title: "Пошаговые руководства"
+  items:
+  - type: paragraph
+    text: "Узнайте, как с помощью службы подготовки устройств для Центра Интернета вещей автоматически подготовить защищенные устройства для одного или нескольких центров Интернета вещей."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Узнайте, как с помощью службы подготовки устройств для Центра Интернета вещей автоматически подготовить защищенные устройства для одного или нескольких центров Интернета вещей.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Настройка облачных ресурсов</a>
-          - html: <a href="/azure/iot-dps/tutorial-set-up-device">Настройка устройства для подключения к Azure</a>
-          - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Подготовка устройств для одного центра Интернета вещей</a>
-          - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Подготовка устройств для нескольких центров Интернета вещей с балансировкой нагрузки</a>
-  - title: Справочные материалы
+    - html: "<a href=\"/azure/iot-dps/tutorial-set-up-cloud\">Настройка облачных ресурсов</a>"
+    - html: "<a href=\"/azure/iot-dps/tutorial-set-up-device\">Настройка устройства для подключения к Azure</a>"
+    - html: "<a href=\"/azure/iot-dps/tutorial-provision-device-to-hub\">Подготовка устройств для одного центра Интернета вещей</a>"
+    - html: "<a href=\"/azure/iot-dps/tutorial-provision-multiple-hubs\">Подготовка устройств для нескольких центров Интернета вещей с балансировкой нагрузки</a>"
+- title: "Справочные материалы"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: <p><a href="/rest/api/iot-dps">ИНТЕРФЕЙС REST API</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/iot-dps\">ИНТЕРФЕЙС REST API</a></p>"

@@ -101,7 +101,6 @@
 
 ## Управление приложениями
 ### [Обзор](service-fabric-application-lifecycle.md)
-### [Параметр ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Обновление приложения
 #### [Обзор](service-fabric-application-upgrade.md)
 #### [Конфигурация](service-fabric-visualstudio-configure-upgrade.md)
@@ -109,6 +108,7 @@
 #### [Сериализация данных при обновлении приложения](service-fabric-application-upgrade-data-serialization.md)
 #### [Обновление приложения: более сложные темы](service-fabric-application-upgrade-advanced.md)
 ### [Обзор анализа ошибок](service-fabric-testability-overview.md)
+### [Параметр ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
 ## Создание кластеров и управление ими
 ### [Обзор](service-fabric-deploy-anywhere.md)
@@ -136,8 +136,6 @@
 #### [Регулирование](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Перемещение служб](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## [Интеграция со службой управления API](service-fabric-api-management-overview.md)
-
 ## Мониторинг и диагностика
 ### [Приложения мониторинга и диагностики](service-fabric-diagnostics-overview.md)
 ### Создание событий
@@ -164,13 +162,14 @@
 #### [Анализ событий с помощью OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Устранение неполадок локального кластера](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [Интеграция со службой управления API](service-fabric-api-management-overview.md)
+
 # Практические руководства
 ## Настройка среды разработки
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Настройка интерфейса командной строки Service Fabric](service-fabric-cli.md)
+### [Настройка интерфейса командной строки Service Fabric](service-fabric-cli.md)
 
 ## Создание приложения
 ### [Создание первого приложения C# в Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

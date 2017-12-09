@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Документация по Azure Site Recovery
+title: "Документация по Azure Site Recovery"
 metadata:
-  title: Документация по Azure Site Recovery. Руководства и справочник по API | Документация Майкрософт
+  title: "Документация по Azure Site Recovery. Руководства и справочник по API | Документация Майкрософт"
   meta.description: Learn how to migrate to Azure with Azure Site Recovery
   services: site-recovery
   author: rayne-wiselman
@@ -13,26 +13,31 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/26/2017
   ms.author: raynew
+  ms.openlocfilehash: 3742ef09cbe8d9bb07930ce61c41be25212528a2
+  ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 11/29/2017
 abstract:
-  description: 'Помимо оркестрации аварийного восстановления виртуальных машин Azure и локальных компьютеров, Azure Site Recovery организует и контролирует перенос локальных компьютеров в Azure, а также перенос виртуальных машин Azure между регионами Azure. Узнайте, как настроить миграцию, ознакомившись с нашими руководствами.'
+  description: "Помимо оркестрации аварийного восстановления виртуальных машин Azure и локальных компьютеров, Azure Site Recovery организует и контролирует перенос локальных компьютеров в Azure, а также перенос виртуальных машин Azure между регионами Azure. Узнайте, как настроить миграцию, ознакомившись с нашими руководствами."
 sections:
-  - title: Пошаговые руководства
+- title: "Пошаговые руководства"
+  items:
+  - type: paragraph
+    text: "Сведения о переносе локальных виртуальных машин."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Сведения о переносе локальных виртуальных машин.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-azure">Подготовка Azure</a>.
-          - html: <a href="tutorial-migrate-on-premises-to-azure">Миграция локальных компьютеров в Azure</a>
-          - html: <a href="tutorial-migrate-aws-to-azure">Перенос виртуальных машин из Amazon Web Services (AWS) в Azure с помощью Azure Site Recovery</a>
-  - title: Справочные материалы
+    - html: "<a href=\"tutorial-prepare-azure\">Подготовка Azure</a>."
+    - html: "<a href=\"tutorial-migrate-on-premises-to-azure\">Миграция локальных компьютеров в Azure</a>"
+    - html: "<a href=\"tutorial-migrate-aws-to-azure\">Перенос виртуальных машин из Amazon Web Services (AWS) в Azure с помощью Azure Site Recovery</a>"
+- title: "Справочные материалы"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Командная строка
-            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/site-recovery/">справочник по API REST</a></p>
+    - title: "Командная строка"
+      html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/site-recovery/\">справочник по API REST</a></p>"

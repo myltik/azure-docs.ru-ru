@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Документация по реестру контейнеров Azure
+title: "Документация по реестру контейнеров Azure"
 metadata:
-  title: Документация по реестру контейнеров Azure. Руководства | Документация Майкрософт
-  description: 'Реестр контейнеров позволяет хранить образы для всех типов развертываний контейнеров и управлять этими образами. Узнайте, как использовать реестр контейнеров Azure с помощью наших кратких руководств, руководств и примеров.'
+  title: "Документация по реестру контейнеров Azure. Руководства | Документация Майкрософт"
+  description: "Реестр контейнеров позволяет хранить образы для всех типов развертываний контейнеров и управлять этими образами. Узнайте, как использовать реестр контейнеров Azure с помощью наших кратких руководств, руководств и примеров."
   services: container-registry
   author: czeumault
   manager: carolz
@@ -13,49 +13,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
+  ms.openlocfilehash: cdd33e3aed48cc94f91962b78f17628a6e29657d
+  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 12/07/2017
 abstract:
-  description: 'Реестр контейнеров позволяет хранить образы для всех типов развертываний контейнеров и управлять этими образами. Узнайте, как использовать реестр контейнеров Azure с помощью наших кратких руководств, руководств и примеров.'
+  description: "Реестр контейнеров позволяет хранить образы для всех типов развертываний контейнеров и управлять этими образами. Узнайте, как использовать реестр контейнеров Azure с помощью наших кратких руководств, руководств и примеров."
 sections:
-  - title: 5-минутные руководства по началу работы
+- title: "5-минутные руководства по началу работы"
+  items:
+  - type: paragraph
+    text: "Узнайте, как развернуть реестр контейнеров Azure."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Узнайте, как развернуть реестр контейнеров Azure.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: Инфраструктура CLI Azure
-            href: /azure/container-registry/container-registry-get-started-azure-cli
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Портал Azure
-            href: /azure/container-registry/container-registry-get-started-portal
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/container-registry/container-registry-get-started-powershell
-  - title: Пошаговые руководства
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+      text: "Инфраструктура CLI Azure"
+      href: /azure/container-registry/container-registry-get-started-azure-cli
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
+      text: "Портал Azure"
+      href: /azure/container-registry/container-registry-get-started-portal
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/container-registry/container-registry-get-started-powershell
+- title: "Пошаговые руководства"
+  items:
+  - type: paragraph
+    text: "Узнайте из этих руководств, как использовать реестр контейнеров Azure."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: 'Узнайте из этих руководств, как использовать реестр контейнеров Azure.'
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Георепликация реестра контейнеров Azure (предварительная версия)</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Использование реестра контейнеров со службой "Экземпляры контейнеров Azure"</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Использование реестра контейнеров со Службой контейнеров Azure (AKS)</a>
-          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Реестр контейнеров с Service Fabric</a>
-  - title: Справочные материалы
+    - html: "<a href=\"/azure/container-registry/container-registry-tutorial-prepare-registry\">Георепликация реестра контейнеров Azure (предварительная версия)</a>"
+    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-prepare-app\">Использование реестра контейнеров со службой \"Экземпляры контейнеров Azure\"</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-prepare-app\">Использование реестра контейнеров со Службой контейнеров Azure (AKS)</a>"
+    - html: "<a href=\"/azure/service-fabric/service-fabric-tutorial-create-container-images\">Реестр контейнеров с Service Fabric</a>"
+- title: "Справочные материалы"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Командная строка
-            html: <p><a href="/cli/azure/acr">Интерфейс командной строки Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
-          - title: Языки
-            html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/containerregistry">справочник по API REST</a></p><p><a href="/azure/templates/microsoft.containerregistry/registries">Шаблон Resource Manager</a></p><p><a href="/azure/container-registry/container-registry-webhook-reference">Схема веб-перехватчика</a></p>
+    - title: "Командная строка"
+      html: "<p><a href=\"/cli/azure/acr\">Интерфейс командной строки Azure</a></p><p><a href=\"/powershell/module/azurerm.containerregistry\">PowerShell</a></p>"
+    - title: "Языки"
+      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/containerregistry\">справочник по API REST</a></p><p><a href=\"/azure/templates/microsoft.containerregistry/registries\">Шаблон Resource Manager</a></p><p><a href=\"/azure/container-registry/container-registry-webhook-reference\">Схема веб-перехватчика</a></p>"

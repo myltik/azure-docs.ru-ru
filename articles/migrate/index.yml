@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Документация по службе "Миграция Azure"
+title: "Документация по службе \"Миграция Azure\""
 metadata:
-  title: Документация по службе "Миграция Azure". Руководства и справочник по API | Документация Майкрософт
-  description: 'Узнайте, как оценить готовность локальных компьютеров к миграции в Azure'
+  title: "Документация по службе \"Миграция Azure\". Руководства и справочник по API | Документация Майкрософт"
+  description: "Узнайте, как оценить готовность локальных компьютеров к миграции в Azure"
   services: migration-planner
   author: rayne-wiselman
   manager: carmonm
@@ -13,14 +13,19 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: raynew
+  ms.openlocfilehash: 64e5293473dd9b5d4b55088e447a5ec3a289372d
+  ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 11/27/2017
 abstract:
-  description: 'Служба "Миграция Azure" помогает определить и оценить пригодность локальных компьютеров к переносу в Azure, а также позволяет рассчитать размер и стоимость работающих виртуальных машин Azure.'
+  description: "Служба \"Миграция Azure\" помогает определить и оценить пригодность локальных компьютеров к переносу в Azure, а также позволяет рассчитать размер и стоимость работающих виртуальных машин Azure."
 sections:
-  - title: Пошаговые руководства
+- title: "Пошаговые руководства"
+  items:
+  - type: paragraph
+    text: "Узнайте, как оценить готовность виртуальных машин VMware к миграции в Azure"
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: 'Узнайте, как оценить готовность виртуальных машин VMware к миграции в Azure'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorial-assessment-vmware">Обнаружение и оценка локальных виртуальных машин VMware</a>
+    - html: "<a href=\"tutorial-assessment-vmware\">Обнаружение и оценка локальных виртуальных машин VMware</a>"
