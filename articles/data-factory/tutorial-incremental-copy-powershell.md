@@ -1,5 +1,5 @@
 ---
-title: "Пошаговое копирование данных с помощью фабрики данных Azure | Документация Майкрософт"
+title: "Добавочное копирование таблицы с помощью фабрики данных Azure | Документация Майкрософт"
 description: "В этом руководстве вы создадите конвейер фабрики данных Azure, который пошагово копирует данные из базы данных SQL Azure в хранилище BLOB-объектов Azure."
 services: data-factory
 documentationcenter: 
@@ -13,24 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: f352f46f2d4c23124f4ee7e886cae9bdd8d5d2c9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0b05971b5ab8ec3fd14dd4ce14d07df478e1dcc9
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Пошаговая загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure
+В этом руководстве вы создадите фабрику данных Azure с конвейером, который копирует разностные данные из таблицы в базе данных SQL Azure в хранилище BLOB-объектов Azure. 
 
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>В этом руководстве рассматривается:
 
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, ознакомьтесь с [документацией по фабрике данных версии 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Во время процесса интеграции данных одним из широко используемых сценариев является пошаговая загрузка данных для обновления результатов обновленного анализа после начальной загрузки данных и их анализа. В этом руководстве мы рассмотрим загрузку лишь новых или обновленных записей из источников данных в приемники. Такая загрузка работает более эффективно по сравнению с полной загрузкой, особенно для больших наборов данных.    
-
-Фабрику данных можно использовать для создания решений верхнего предела, чтобы получить пошаговую загрузку данных с помощью действий поиска, копирования и хранимой процедуры в конвейере.  
 
 В этом руководстве вы выполните следующие шаги:
 
@@ -46,7 +41,7 @@ ms.lasthandoff: 11/04/2017
 ## <a name="overview"></a>Обзор
 Ниже приведена общая схема решения: 
 
-![Пошаговая загрузка данных](media\tutorial-Incrementally-load-data-from-azure-sql-to-blob\incrementally-load.png)
+![Пошаговая загрузка данных](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
 
 Ниже приведены важные действия для создания этого решения. 
 
@@ -71,7 +66,7 @@ ms.lasthandoff: 11/04/2017
 * **Azure PowerShell**. Следуйте инструкциям по [установке и настройке Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Создание таблицы источника данных в базе данных SQL Azure
-1. Откройте **SQL Server Management Studio** в **обозревателе серверов**, щелкните правой кнопкой мыши базу данных и выберите **Создать запрос**.
+1. Откройте **SQL Server Management Studio**. В **обозревателе сервера** щелкните правой кнопкой мыши базу данных и выберите **Создать запрос**.
 2. Выполните указанную ниже команду SQL для базы данных SQL Azure, чтобы создать таблицу с именем `data_source_table` в качестве хранилища источника данных.  
     
     ```sql
@@ -151,40 +146,47 @@ END
 ```
 
 ## <a name="create-a-data-factory"></a>Создать фабрику данных
-
-1. Запустите **PowerShell**. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
-
-    Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.
-        
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-    Чтобы просмотреть все подписки для этой учетной записи, выполните следующую команду:
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-    Выполните следующую команду, чтобы выбрать подписку, с которой вы собираетесь работать. Замените значение **SubscriptionId** на идентификатор подписки Azure:
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
-    ```
-2. Выполните командлет **Set-AzureRmDataFactoryV2**, чтобы создать фабрику данных. Перед выполнением команды замените заполнители собственными значениями.
-
-    ```powershell
-    Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
+1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) в двойных кавычках, а затем выполните команду. Например, `"adfrg"`. 
+   
+     ```powershell
+    $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
-    Обратите внимание на следующие моменты.
+    Если группа ресурсов уже существует, вы можете не перезаписывать ее. Назначьте переменной `$resourceGroupName` другое значение и еще раз выполните команду.
+2. Определите переменную для расположения фабрики данных: 
 
-    * Имя фабрики данных Azure должно быть глобально уникальным. Если появляется следующая ошибка, измените имя и повторите попытку.
+    ```powershell
+    $location = "East US"
+    ```
+3. Чтобы создать группу ресурсов Azure, выполните следующую команду: 
 
-        ```
-        The specified Data Factory name '<data factory name>' is already in use. Data Factory names must be globally unique.
-        ```
+    ```powershell
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    Если группа ресурсов уже существует, вы можете не перезаписывать ее. Назначьте переменной `$resourceGroupName` другое значение и еще раз выполните команду. 
+3. Определите переменную для имени фабрики данных. 
 
-    * Чтобы создавать экземпляры фабрики данных, вы должны быть участником или администратором подписки Azure.
-    * Сейчас фабрика данных версии 2 позволяет создавать фабрики данных только в восточной части США, восточной части США 2 и Западной Европе. Хранилища данных (служба хранилища Azure, база данных SQL Azure и т. д.) и вычисления (HDInsight и т. д.), используемые фабрикой данных, могут располагаться в других регионах.
+    > [!IMPORTANT]
+    >  Измените имя фабрики данных, чтобы оно было глобально уникальным. Например, укажите ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFIncCopyTutorialFactory";
+    ```
+5. Чтобы создать фабрику данных, выполните командлет **Set-AzureRmDataFactoryV2**. 
+    
+    ```powershell       
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    ```
+
+Обратите внимание на следующие моменты.
+
+* Имя фабрики данных Azure должно быть глобально уникальным. Если появляется следующая ошибка, измените имя и повторите попытку.
+
+    ```
+    The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
+    ```
+* Чтобы создать экземпляры фабрики данных, нужно назначить учетной записи пользователя, используемой для входа в Azure, роль **участника**, **владельца** либо **администратора** подписки Azure.
+* Сейчас фабрика данных версии 2 позволяет создавать фабрики данных только в восточной части США, восточной части США 2 и Западной Европе. Хранилища данных (служба хранилища Azure, база данных SQL Azure и т. д.) и вычисления (HDInsight и т. д.), используемые фабрикой данных, могут располагаться в других регионах.
 
 
 ## <a name="create-linked-services"></a>Создание связанных служб
@@ -224,7 +226,7 @@ END
     ```
 
 ### <a name="create-azure-sql-database-linked-service"></a>Создание связанной службы базы данных SQL Azure
-1. Создайте JSON-файл с именем **AzureSQLDatabaseLinkedService.json** в папке **C:\ADF** и добавьте в него приведенное ниже содержимое. Если папка ADF отсутствует, создайте ее. Замените значения **&lt;server&gt;, &lt;user id&gt; и &lt;password&gt;** значениями сервера, идентификатора пользователя и пароля базы данных SQL Azure, прежде чем сохранить файл. 
+1. Создайте JSON-файл с именем **AzureSQLDatabaseLinkedService.json** в папке **C:\ADF** и добавьте в него приведенное ниже содержимое. Если папка ADF отсутствует, создайте ее. Вместо значений **&lt;server&gt;, &lt;database&gt;, &lt;user id&gt; и &lt;password&gt;** укажите имя сервера, имя базы данных, идентификатор пользователя и пароль SQL Azure, прежде чем сохранить файл. 
 
     ```json
     {
@@ -233,15 +235,15 @@ END
             "type": "AzureSqlDatabase",
             "typeProperties": {
                 "connectionString": {
-                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
+                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
                     "type": "SecureString"
                 }
             }
         }
     }
     ```
-2. В **Azure PowerShell** перейдите в папку **ADF**.
-3. Выполните командлет **Set-AzureRmDataFactoryV2LinkedService**, чтобы создать связанную службу **AzureSQLDatabaseLinkedService**. 
+1. В **Azure PowerShell** перейдите в папку **ADF**.
+2. Выполните командлет **Set-AzureRmDataFactoryV2LinkedService**, чтобы создать связанную службу **AzureSQLDatabaseLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -379,7 +381,7 @@ END
 В этом руководстве вы создадите конвейер с двумя действиями поиска, одним действием копирования и одним действием хранимой процедуры, связанными в одном конвейере. 
 
 
-1. Создайте файл JSON IncrementalCopyPipeline.json в той же папке со следующим содержимым. 
+1. Создайте JSON-файл IncrementalCopyPipeline.json в той же папке со следующим содержимым: 
 
     ```json
     {
@@ -512,9 +514,9 @@ END
 1. Запустите конвейер **IncrementalCopyPipeline**, выполнив командлет **Invoke-AzureRmDataFactoryV2Pipeline**. Замените заполнители собственными именами группы ресурсов и фабрики данных.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. Проверьте состояние конвейера, выполняя командлет Get-AzureRmDataFactoryV2ActivityRun, пока вы не увидите, что все действия выполняются успешно. Замените заполнители нужными значениями времени для параметров RunStartedAfter и RunStartedBefore.  В этом руководстве мы используем -RunStartedAfter "2017/09/14" и -RunStartedBefore "2017/09/15".
+2. Проверьте состояние конвейера, выполняя командлет Get-AzureRmDataFactoryV2ActivityRun, пока вы не увидите, что все действия выполняются успешно. Замените заполнители нужными значениями времени для параметров RunStartedAfter и RunStartedBefore.  В этом руководстве вы используете -RunStartedAfter "2017/09/14" и -RunStartedBefore "2017/09/15".
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -632,9 +634,9 @@ END
 2. Повторно запустите конвейер **IncrementalCopyPipeline**, выполнив командлет **Invoke-AzureRmDataFactoryV2Pipeline**. Замените заполнители собственными именами группы ресурсов и фабрики данных.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. Проверьте состояние конвейера, выполняя командлет **Get-AzureRmDataFactoryV2ActivityRun**, пока вы не увидите, что все действия выполняются успешно. Замените заполнители нужными значениями времени для параметров RunStartedAfter и RunStartedBefore.  В этом руководстве мы используем -RunStartedAfter "2017/09/14" и -RunStartedBefore "2017/09/15".
+3. Проверьте состояние конвейера, выполняя командлет **Get-AzureRmDataFactoryV2ActivityRun**, пока вы не увидите, что все действия выполняются успешно. Замените заполнители нужными значениями времени для параметров RunStartedAfter и RunStartedBefore.  В этом руководстве вы используете -RunStartedAfter "2017/09/14" и -RunStartedBefore "2017/09/15".
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -700,7 +702,7 @@ END
     Error             : {errorCode, message, failureType, target}
 
     ```
-4.  В хранилище BLOB-объектов Azure вы увидите, что в нем был создан другой файл. В этом руководстве новый файл имеет имя `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Открыв файл, вы увидите записи 2 строк:
+4.  В хранилище BLOB-объектов Azure вы увидите, что в нем был создан другой файл. В этом руководстве новый файл имеет имя `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Открыв файл, вы увидите записи двух строк.
 5.  Проверив последнее значение из `watermarktable`, вы увидите, что значение предела снова обновлено.
 
     ```sql
@@ -723,12 +725,12 @@ END
 > * Создали наборы данных приемника и источника.
 > * Создали конвейер.
 > * Запустили конвейер.
-> * Выполнили мониторинг выполнения конвейера. 
+> * Выполнение мониторинга выполнения конвейера. 
 
-Перейдите к следующему руководству, чтобы узнать о преобразовании данных с помощью кластера Spark в Azure:
+В этом руководстве с помощью конвейера мы скопировали данные из **одной таблицы** в базе данных Azure SQL в хранилище BLOB-объектов Azure. Перейдите к следующему руководству, чтобы узнать о копировании данных из **нескольких таблиц** в локальной базе данных SQL Server в базу данных Azure SQL. 
 
 > [!div class="nextstepaction"]
->[Transform data in the cloud by using Spark activity in Azure Data Factory](tutorial-transform-data-spark-powershell.md) (Преобразование данных в облаке с помощью действий Spark в фабрике данных Azure)
+>[Добавочная загрузка данных из нескольких таблиц в SQL Server в базу данных SQL Azure](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 
 

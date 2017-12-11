@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59acc48870adf15f59391de1cba9596744a747a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-preview-with-the-azure-portal"></a>Настройка службы подготовки устройств для Центра Интернета вещей Azure на портале Azure (предварительная версия)
+# <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Настройка службы подготовки устройств для Центра Интернета вещей на портале Azure
 
 В этих инструкциях показано, как настроить облачные ресурсы Azure на портале для подготовки устройств. Эта настройка включает создание Центра Интернета вещей, создание новой службы подготовки устройств для Центра Интернета вещей и связывание двух служб. 
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 1. Щелкните **Создать** в верхнем левом углу портала Azure.
 
-2. *Выполните в Marketplace поиск* по запросу **Device provisioning service**. Выберите **IoT Device Provisioning Service (preview)** и нажмите кнопку **Создать**. 
+2. *Выполните в Marketplace поиск* по запросу **Device provisioning service**. Выберите **IoT Device Provisioning Service** и нажмите кнопку **Создать**. 
 
 3. **Присвойте имя** экземпляру службы подготовки устройств. Выберите подписку, которая будет использоваться для этого экземпляра, и присвойте имя новой или существующей группе ресурсов. Выберите расположение. Затем нажмите кнопку **Создать**.
 

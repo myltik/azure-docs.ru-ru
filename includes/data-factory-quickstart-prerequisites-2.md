@@ -1,13 +1,13 @@
-### <a name="windows-powershell"></a>Windows PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 #### <a name="install-powershell"></a>Установка PowerShell
 Установите последнюю версию PowerShell, если ее нет на компьютере. 
 
-1. В веб-браузере перейдите на страницу [скачивания пакетов Azure SDK](https://azure.microsoft.com/downloads/). 
+1. В веб-браузере перейдите на страницу [загрузок Azure](https://azure.microsoft.com/downloads/). 
 2. Нажмите кнопку **Установка Windows** в разделе **Программы командной строки** -> **PowerShell**. 
 3. Чтобы установить PowerShell, запустите **MSI**-файл. 
 
-Подробные инструкции см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Подробные инструкции см. в статье [Установка и настройка служб Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 #### <a name="log-in-to-powershell"></a>Вход в PowerShell
 
@@ -19,12 +19,12 @@
     ```powershell
     Login-AzureRmAccount
     ```        
-2. Если у вас несколько подписок, выполните следующую команду, чтобы просмотреть все подписки для этой учетной записи:
+2. Чтобы просмотреть все подписки для этой учетной записи, выполните следующую команду:
 
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Выполните следующую команду, чтобы выбрать подписку, с которой вы собираетесь работать. Замените значение **SubscriptionId** на идентификатор подписки Azure:
+3. Если с вашей учетной записью связаны несколько подписок, выполните следующую команду, чтобы выбрать нужную подписку. Замените значение **SubscriptionId** на идентификатор подписки Azure:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
