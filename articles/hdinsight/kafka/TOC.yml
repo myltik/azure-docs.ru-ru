@@ -11,6 +11,9 @@
   items:
     - name: Создание кластера Kafka
       href: apache-kafka-get-started.md
+    - name: Установка приложений HDInsight
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: Планирование загрузки
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -50,20 +53,11 @@
         - name: Настройка кластеров с помощью действия скрипта
           href: ../hdinsight-hadoop-customize-cluster-linux.md
           maintainContext: true
-        - name: Подключение HDInsight к локальной сети
-          href: ../connect-on-premises-network.md
-          maintainContext: true
         - name: Разработка действий сценария
           href: ../hdinsight-hadoop-script-actions-linux.md
           maintainContext: true
-        - name: Использование виртуальной сети
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Сборка приложений HDInsight
           items:
-            - name: Установка приложений HDInsight
-              href: ../hdinsight-apps-install-applications.md
-              maintainContext: true
             - name: Установка пользовательских приложений
               href: ../hdinsight-apps-install-custom-applications.md
               maintainContext: true
@@ -145,20 +139,6 @@
         - name: Обновление ОС путем частичной замены для кластера HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: Монитор
-      items:
-        - name: Использование Azure Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Панели мониторинга для кластеров
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-          maintainContext: true
-        - name: Использование запросов в Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Мониторинг производительности кластера
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
     - name: Устранение неполадок
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -183,6 +163,33 @@
             - name: Включение дампов кучи для служб Hadoop
               href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
               maintainContext: true
+- name: Готовность к работе в масштабах предприятия
+  items:
+    - name: Защита данных
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: Доступ к сети
+      items:
+        - name: HDInsight в виртуальной сети Azure
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: Подключение HDInsight к локальной сети
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+    - name: Мониторинг с помощью OMS
+      items:
+        - name: Использование Azure Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: Панели мониторинга для кластеров
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: Использование запросов в Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: Мониторинг производительности кластера
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: Справочные материалы
   items:
     - name: Примеры кода

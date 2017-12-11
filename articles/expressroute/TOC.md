@@ -28,10 +28,11 @@
 ### [Портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Интерфейс командной строки Azure](howto-linkvnet-cli.md)
+## [Настройка VPN-подключения "сеть — сеть" через пиринг Майкрософт](site-to-site-vpn-over-microsoft-peering.md)
 ## Настройка шлюза виртуальной сети для ExpressRoute
 ### [Портал Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-## [Настройка параллельных подключений ExpressRoute и "сеть — сеть"](expressroute-howto-coexist-resource-manager.md)
+## [Настройка параллельных подключений ExpressRoute и "сеть — сеть"](expressroute-howto-coexist-resource-manager.md)
 ## Настройка фильтров маршрутов для пиринга Майкрософт
 ### [Портал Azure](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)

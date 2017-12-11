@@ -164,6 +164,8 @@
       items:
         - name: Предоплата за использование виртуальных машин. Зарезервированные экземпляры
           href: prepay-reserved-vm-instances.md
+        - name: Использование виртуальных машин
+          href: vm-usage.md
         - name: Общие задачи в CLI
           href: cli-manage.md
         - name: Перемещение виртуальной машины

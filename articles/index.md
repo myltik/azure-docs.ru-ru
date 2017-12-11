@@ -4,11 +4,11 @@ hide_bc: True
 title: "Документация по Microsoft Azure"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
 featureFlags: clicktale
-ms.openlocfilehash: a29b9dcc1c31cb577306fb544013a89b2d958fee
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ef6d74496520b61392503bf5a1b9bc3c611b0352
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -229,11 +229,15 @@ ms.lasthandoff: 12/07/2017
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_vs-team-services.svg" alt=""> Развертывание в Azure </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt=""> Развертывание в Azure </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt=""> Jenkins на виртуальных машинах Azure </a>
+                                                        <a class="barLink" href="/azure/jenkins">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt=""> Jenkins </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/terraform">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_terraform.svg" alt=""> Terraform </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -987,7 +991,7 @@ ms.lasthandoff: 12/07/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+                                            <a href="https://docs.microsoft.com/azure/location-based-services/">
                                                 <img src="media/index/azure-lbs-icon.svg" alt="" />
                                                 <p>Azure Location Based Services</p>
                                             </a>
@@ -2853,7 +2857,7 @@ ms.lasthandoff: 12/07/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+                                <a href="https://docs.microsoft.com/azure/location-based-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
