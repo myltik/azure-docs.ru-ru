@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Устранение неполадок](active-directory-application-proxy-troubleshoot.md)
-#### С помощью классического портала
-##### [Скачивание соединителей](application-proxy-enable-classic-portal.md)
-##### [Публикация приложений](active-directory-application-proxy-publish.md)
-##### [Использование соединителей](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Условный доступ](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Управление корпоративными приложениями
 #### [Назначение пользователей](active-directory-coreapps-assign-user-azure-portal.md)
@@ -286,7 +281,7 @@
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
 #### [Элементы управления](active-directory-conditional-access-controls.md)
-#### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Приступите к работе](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
 #### Задачи

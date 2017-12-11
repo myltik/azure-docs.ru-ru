@@ -31,8 +31,6 @@
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Практические руководства
   items:
-    - name: Интеграция с Azure с помощью OSBA
-      href: integrate-azure.md
     - name: Масштабирование кластера AKS
       href: scale-cluster.md
     - name: Обновление кластера AKS
@@ -43,6 +41,8 @@
       href: kubernetes-draft.md
     - name: Сохранение данных в службе файлов Azure
       href: azure-files.md
+    - name: Интеграция с Azure с помощью OSBA
+      href: integrate-azure.md
     - name: Использование панели мониторинга Kubernetes
       href: kubernetes-dashboard.md
     - name: Создание субъекта-службы
