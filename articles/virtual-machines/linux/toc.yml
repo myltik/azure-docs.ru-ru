@@ -124,6 +124,8 @@
       items:
         - name: Рекомендации по инфраструктуре
           href: infrastructure-example.md
+        - name: Квоты на виртуальные ЦП
+          href: quotas.md
 - name: Практические руководства
   items:
     - name: Создание виртуальных машин
