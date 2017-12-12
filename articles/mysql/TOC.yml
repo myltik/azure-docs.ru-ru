@@ -83,12 +83,6 @@
           href: concepts-compatibility.md
         - name: Разработка приложений
           href: concepts-database-application-development.md
-    - name: Миграция базы данных
-      items:
-        - name: Дамп и восстановление
-          href: concepts-migrate-dump-restore.md
-        - name: Импорт и экспорт
-          href: concepts-migrate-import-export.md
 - name: Практические руководства
   items:
     - name: Управление сервером
@@ -107,6 +101,12 @@
           href: howto-restore-server-portal.md
         - name: Инфраструктура CLI Azure
           href: howto-restore-server-cli.md
+    - name: Перенос базы данных
+      items:
+        - name: Дамп и восстановление
+          href: concepts-migrate-dump-restore.md
+        - name: Импорт и экспорт
+          href: concepts-migrate-import-export.md
     - name: Подключение приложений
       items:
         - name: Создание пользователей

@@ -89,7 +89,7 @@
           href: howto-restore-server-portal.md
         - name: Инфраструктура CLI Azure
           href: howto-restore-server-cli.md
-    - name: Миграция базы данных
+    - name: Перенос базы данных
       items:
         - name: Дамп и восстановление
           href: howto-migrate-using-dump-and-restore.md

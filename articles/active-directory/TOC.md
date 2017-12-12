@@ -219,7 +219,6 @@
 ### [Настройка автоматического ускорения входа с помощью политики обнаружения домашней области](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Управление доступом к приложениям](active-directory-managing-access-to-apps.md)
-#### [Самостоятельный доступ к приложениям](active-directory-self-service-application-access.md)
 #### [Доступ с единым входом](active-directory-appssoaccess-whatis.md)
 #### [Сертификаты для единого входа](active-directory-sso-certs.md)
 #### [Ограничения клиента](active-directory-tenant-restrictions.md)
@@ -281,7 +280,7 @@
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
 #### [Элементы управления](active-directory-conditional-access-controls.md)
-#### [Приступите к работе](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Приступая к работе](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
 #### Задачи
