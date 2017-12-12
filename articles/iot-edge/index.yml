@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Edge Интернета вещей Azure
+title: "Edge Интернета вещей Azure"
 metadata:
-  document_id: null
-  title: 'Azure IoT Edge: руководства и справочник по API'
+  document_id: 
+  title: "Azure IoT Edge: руководства и справочник по API"
   meta.description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge.
   services: iot-edge
   author: kgremban
@@ -12,35 +12,41 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/08/2017
+  ms.date: 12/08/2017
   ms.author: kgremban
+  ms.openlocfilehash: d49e1647db25023cefd59d667f87396827b7ca27
+  ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 12/11/2017
 abstract:
-  description: 'Azure IoT Edge — это служба Интернета вещей на основе Центра Интернета вещей. Эта служба предназначена для клиентов, которым необходимо анализировать данные на так называемых пограничных устройствах, а не в облаке. В результате перемещения части рабочей нагрузки в пограничную область устройства тратят меньше времени на отправку сообщений в облако и быстрее реагируют на изменения в состоянии.'
+  description: "Azure IoT Edge — это служба Интернета вещей на основе Центра Интернета вещей. Эта служба предназначена для клиентов, которым необходимо анализировать данные на так называемых пограничных устройствах, а не в облаке. В результате перемещения части рабочей нагрузки в пограничную область устройства тратят меньше времени на отправку сообщений в облако и быстрее реагируют на изменения в состоянии."
 sections:
-  - title: 5-минутные руководства по началу работы
+- title: "5-минутные руководства по началу работы"
+  items:
+  - type: paragraph
+    text: "Развертывание первого модуля IoT Edge и обработка данных на имитированном устройстве:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Развертывание первого модуля IoT Edge и обработка данных на имитированном устройстве:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/virtual-machines/linux/media/index/portal.svg
-            text: Windows
-            href: /azure/iot-edge/quickstart
-          - image:
-              src: /azure/virtual-machines/linux/media/index/portal.svg
-            text: Linux
-            href: /azure/iot-edge/quickstart-linux
-  - title: Пошаговые руководства
+    - image:
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Windows
+      href: /azure/iot-edge/quickstart
+    - image:
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Linux
+      href: /azure/iot-edge/quickstart-linux
+- title: "Пошаговые руководства"
+  items:
+  - type: paragraph
+    text: "Узнайте, как установить и настроить IoT Edge, развернуть модули и использовать службы Azure, например Stream Analytics, в пограничной зоне."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Узнайте, как установить и настроить IoT Edge, развернуть модули и использовать службы Azure, например Stream Analytics, в пограничной зоне.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">Имитация устройства IoT Edge в Windows</a>
-          - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Имитация устройства IoT Edge в Linux</a>
-          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">Разработка и развертывание модуля C#</a>'
-          - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Развертывание Azure Stream Analytics как модуля</a>
-          - html: <a href="/azure/iot-edge/tutorial-deploy-function">Развертывание решения "Функции Azure" как модуля</a>
+    - html: "<a href=\"/azure/iot-edge/tutorial-simulate-device-windows\">Имитация устройства IoT Edge в Windows</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-simulate-device-Linux\">Имитация устройства IoT Edge в Linux</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-csharp-module\">Разработка и развертывание модуля C#</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-deploy-stream-analytics\">Разверните Azure Stream Analytics в качестве модуля</a>."
+    - html: "<a href=\"/azure/iot-edge/tutorial-deploy-machine-learning\">Развертывание службы \"Машинное обучение Microsoft Azure\" в качестве модуля</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-deploy-function\">Развертывание решения \"Функции Azure\" как модуля</a>"

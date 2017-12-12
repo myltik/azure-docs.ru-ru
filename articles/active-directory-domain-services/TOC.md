@@ -16,6 +16,7 @@
 ## [Задача 5. Включение синхронизации паролей](active-directory-ds-getting-started-password-sync.md)
 
 # Практическое руководство
+## [Использование доменных служб Azure AD в подписках Azure CSP](active-directory-ds-csp.md)
 ## [Включение доменных служб Azure AD с помощью PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Присоединение к управляемому домену
 ### [Присоединение виртуальной машины Windows Server к управляемому домену с помощью портала](active-directory-ds-admin-guide-join-windows-vm-portal.md)

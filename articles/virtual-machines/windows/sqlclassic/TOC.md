@@ -12,7 +12,7 @@
 # Практическое руководство
 ## Настройка высокой доступности
 ### [Варианты высокой доступности](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [Настройка группы доступности AlwaysOn на классическом портале](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+### [Настройка группы доступности Always On на портале](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [Настройка группы доступности AlwaysOn с помощью PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Настройка внутреннего прослушивателя для группы доступности](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Настройка внешнего прослушивателя для группы доступности](virtual-machines-windows-classic-ps-sql-ext-listener.md)

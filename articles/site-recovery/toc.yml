@@ -139,24 +139,24 @@
           items:
             - name: Обзор и предварительные требования
               href: site-recovery-deployment-planner.md
-            - name: Запуск планировщика ресурсов
+            - name: Запуск средства "Планировщик развертывания"
               href: site-recovery-vmware-deployment-planner-run.md
             - name: Анализ созданного отчета
               href: site-recovery-vmware-deployment-planner-analyze-report.md
-            - name: Анализ отчета об оценке стоимости аварийного восстановления
+            - name: Анализ отчета об оценке стоимости
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Масштабирование серверов обработки для репликации VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
-        - name: Планирование развертывания и средство репликации Hyper-V в Azure
+        - name: Средство "Планировщик развертывания" для репликации Hyper-V в Azure
           href: null
           items:
             - name: Обзор и предварительные требования
               href: site-recovery-hyper-v-deployment-planner.md
-            - name: Запуск планировщика ресурсов
+            - name: Запуск средства "Планировщик развертывания"
               href: site-recovery-hyper-v-deployment-planner-run.md
             - name: Анализ созданного отчета
               href: site-recovery-hyper-v-deployment-planner-analyze-report.md
-            - name: Анализ отчета об оценке стоимости аварийного восстановления
+            - name: Анализ отчета об оценке стоимости
               href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Тесты по шкале производительности для репликации Hyper-V между локальными сайтами
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md

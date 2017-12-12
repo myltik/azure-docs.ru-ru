@@ -38,6 +38,7 @@
 
 ## Интеграция
 ### [Обзор](sql-data-warehouse-overview-integrate.md)
+### [Эластичные запросы в базе данных SQL](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
 ## Мониторинг и настройка
@@ -100,9 +101,8 @@
 
 
 ## Интеграция
-###  [Настройка эластичных запросов из базы данных SQL](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Настройка эластичных запросов в базе данных SQL](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ### [Добавление задания Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
-### [Настройка эластичного запроса](how-to-use-elastic-query-with-sql-data-warehouse.md)
 ### [Использование машинного обучения](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Визуализация с помощью Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 
