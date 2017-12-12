@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Документация по Site Recovery
+title: "Документация по Site Recovery"
 metadata:
-  title: Документация по Azure Site Recovery. Руководства и справочник по API | Документация Майкрософт
+  title: "Документация по Azure Site Recovery. Руководства и справочник по API | Документация Майкрософт"
   meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
   services: site-recovery
   author: czeumault
@@ -13,56 +13,61 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2017
   ms.author: carolz
+  ms.openlocfilehash: e65162e1badfb7a965f96a3207552063075c2834
+  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 10/11/2017
 abstract:
-  description: 'Azure Site Recovery организует и контролирует аварийное восстановление виртуальных машин Azure, а также локальных виртуальных машин и физических серверов. Узнайте больше о репликации, отработке отказа и восстановлении размещения с помощью наших кратких руководств и руководств.'
+  description: "Azure Site Recovery организует и контролирует аварийное восстановление виртуальных машин Azure, а также локальных виртуальных машин и физических серверов. Узнайте больше о репликации, отработке отказа и восстановлении размещения с помощью наших кратких руководств и руководств."
 sections:
-  - title: 5-минутные руководства по началу работы
+- title: "5-минутные руководства по началу работы"
+  items:
+  - type: paragraph
+    text: "Быстрая настройка аварийного восстановления для виртуальной машины Azure"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Быстрая настройка аварийного восстановления для виртуальной машины Azure
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/site-recovery/media/index/portal.svg
-            text: Портал Azure
-            href: /azure/site-recovery/azure-to-azure-quickstart
-  - title: Пошаговые руководства
+    - image:
+        src: /azure/site-recovery/media/index/portal.svg
+      text: "Портал Azure"
+      href: /azure/site-recovery/azure-to-azure-quickstart
+- title: "Пошаговые руководства"
+  items:
+  - type: paragraph
+    text: "Узнайте, как настроить аварийное восстановления для виртуальных машин и физических серверов."
+  - type: text
+    html: "<h3>Из Azure в Azure</h3>"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Узнайте, как настроить аварийное восстановления для виртуальных машин и физических серверов.'
-      - type: text
-        html: "<h3>Из Azure\_в Azure</h3>"
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="azure-to-azure-tutorial-enable-replication">Настройка аварийного восстановления</a>
-          - html: <a href="azure-to-azure-tutorial-dr-drill">Выполнение отработки аварийного восстановления</a>
-          - html: <a href="azure-to-azure-tutorial-failover-failback">Выполнение отработки отказа и восстановления размещения</a>
-      - type: text
-        html: <h3>VMware</h3>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-azure">Подготовка Azure</a>.
-          - html: <a href="tutorial-prepare-on-premises-vmware">Подготовка локальной среды VMware</a>
-          - html: <a href="tutorial-vmware-to-azure">Настройка аварийного восстановления</a>
-          - html: <a href="tutorial-dr-drill-azure">Выполнение отработки аварийного восстановления</a>
-          - html: <a href="tutorial-vmware-to-azure-failover-failback">Выполнение отработки отказа и восстановления размещения</a>
-      - type: text
-        html: <h3>Миграция в Azure</h3>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-azure">Подготовка Azure</a>
-          - html: <a href="tutorial-migrate-on-premises-to-azure">Миграция локальных компьютеров</a> или <a href="tutorial-migrate-aws-to-azure">экземпляров AWS в Azure</a>
-  - title: Справочные материалы
+    - html: "<a href=\"azure-to-azure-tutorial-enable-replication\">Настройка аварийного восстановления</a>"
+    - html: "<a href=\"azure-to-azure-tutorial-dr-drill\">Выполнение отработки аварийного восстановления</a>"
+    - html: "<a href=\"azure-to-azure-tutorial-failover-failback\">Выполнение отработки отказа и восстановления размещения</a>"
+  - type: text
+    html: <h3>VMware</h3>
+  - type: list
+    style: ordered
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Командная строка
-            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/site-recovery/">справочник по API REST</a></p>
+    - html: "<a href=\"tutorial-prepare-azure\">Подготовка Azure</a>."
+    - html: "<a href=\"tutorial-prepare-on-premises-vmware\">Подготовка локальной среды VMware</a>"
+    - html: "<a href=\"tutorial-vmware-to-azure\">Настройка аварийного восстановления</a>"
+    - html: "<a href=\"tutorial-dr-drill-azure\">Выполнение отработки аварийного восстановления</a>"
+    - html: "<a href=\"tutorial-vmware-to-azure-failover-failback\">Выполнение отработки отказа и восстановления размещения</a>"
+  - type: text
+    html: "<h3>Миграция в Azure</h3>"
+  - type: list
+    style: ordered
+    items:
+    - html: "<a href=\"tutorial-prepare-azure\">Подготовка Azure</a>"
+    - html: "<a href=\"tutorial-migrate-on-premises-to-azure\">Миграция локальных компьютеров</a> или <a href=\"tutorial-migrate-aws-to-azure\">экземпляров AWS в Azure</a>"
+- title: "Справочные материалы"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: "Командная строка"
+      html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/site-recovery/\">справочник по API REST</a></p>"
