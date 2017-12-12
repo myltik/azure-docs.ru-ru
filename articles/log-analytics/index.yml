@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Документация по Log Analytics
+title: "Документация по Log Analytics"
 metadata:
-  title: Документация по управлению Azure Log Analytics. Руководства и справочник по API | Документация Майкрософт
-  description: 'Log Analytics является частью общего решения мониторинга Microsoft Azure.  Log Analytics отслеживает облачные и локальные среды, чтобы поддерживать уровень их доступности и производительности. Наблюдайте за рабочими нагрузками и системами для обеспечения доступности и производительности. Ознакомьтесь с нашими шаблонами быстрого запуска, примерами и руководствами, чтобы узнать, как собирать, анализировать и обрабатывать данные.'
+  title: "Документация по управлению Azure Log Analytics. Руководства и справочник по API | Документация Майкрософт"
+  description: "Log Analytics является частью общего решения мониторинга Microsoft Azure.  Log Analytics отслеживает облачные и локальные среды, чтобы поддерживать уровень их доступности и производительности. Наблюдайте за рабочими нагрузками и системами для обеспечения доступности и производительности. Ознакомьтесь с нашими шаблонами быстрого запуска, примерами и руководствами, чтобы узнать, как собирать, анализировать и обрабатывать данные."
   services: log-analytics
   author: czeumault
   manager: carolz
@@ -13,65 +13,70 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/41/2017
   ms.author: carolz
+  ms.openlocfilehash: 54c154aed61e78c60ee1cb353e46baecd6befb09
+  ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 10/19/2017
 abstract:
-  description: 'Log Analytics является частью общего решения мониторинга Microsoft Azure. Log Analytics отслеживает облачные и локальные среды, чтобы поддерживать уровень их доступности и производительности. Наблюдайте за рабочими нагрузками и системами для обеспечения доступности и производительности. Ознакомьтесь с нашими шаблонами быстрого запуска, примерами и руководствами, чтобы узнать, как собирать, анализировать и обрабатывать данные.'
+  description: "Log Analytics является частью общего решения мониторинга Microsoft Azure. Log Analytics отслеживает облачные и локальные среды, чтобы поддерживать уровень их доступности и производительности. Наблюдайте за рабочими нагрузками и системами для обеспечения доступности и производительности. Ознакомьтесь с нашими шаблонами быстрого запуска, примерами и руководствами, чтобы узнать, как собирать, анализировать и обрабатывать данные."
 sections:
-  - title: 5-минутные руководства по началу работы
+- title: "5-минутные руководства по началу работы"
+  items:
+  - type: paragraph
+    text: "Узнайте, как развернуть Log Analytics и настроить сбор данных в Azure, в локальных ресурсах и ресурсах других поставщиков облачных служб."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Узнайте, как развернуть Log Analytics и настроить сбор данных в Azure, в локальных ресурсах и ресурсах других поставщиков облачных служб.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg'
-            text: Виртуальные машины Azure
-            href: /azure/log-analytics/log-analytics-quick-collect-azurevm
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-            text: Компьютер Linux
-            href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
-            text: Компьютер Windows
-            href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
-  - title: Пошаговые руководства
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg
+      text: "Виртуальные машины Azure"
+      href: /azure/log-analytics/log-analytics-quick-collect-azurevm
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+      text: "Компьютер Linux"
+      href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
+      text: "Компьютер Windows"
+      href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
+- title: "Пошаговые руководства"
+  items:
+  - type: paragraph
+    text: "Узнайте, как анализировать, визуализировать и обрабатывать собранные данные."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Узнайте, как анализировать, визуализировать и обрабатывать собранные данные.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">View or analyze data collected with Log Analytics log search</a> (Просмотр или анализ собранных данных с помощью поиска по журналам Log Analytics)
-          - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">Create and share dashboards of Log Analytics data</a> (Создание панелей мониторинга данных Log Analytics и предоставление общего доступа к ним)
-          - html: <a href="/azure/log-analytics/log-analytics-tutorial-response">Respond to events with Log Analytics Alerts</a> (Реакция на события с помощью оповещений Log Analytics)
-  - title: Бесплатные видеоуроки PluralSight
+    - html: "<a href=\"/azure/log-analytics/log-analytics-tutorial-viewdata\">View or analyze data collected with Log Analytics log search</a> (Просмотр или анализ собранных данных с помощью поиска по журналам Log Analytics)"
+    - html: "<a href=\"/azure/log-analytics/log-analytics-tutorial-dashboards\">Create and share dashboards of Log Analytics data</a> (Создание панелей мониторинга данных Log Analytics и предоставление общего доступа к ним)"
+    - html: "<a href=\"/azure/log-analytics/log-analytics-tutorial-response\">Respond to events with Log Analytics Alerts</a> (Реакция на события с помощью оповещений Log Analytics)"
+- title: "Бесплатные видеоуроки PluralSight"
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Приступая к работе с мониторингом IaaS
-            href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
-  - title: Примеры
+    - title: "Приступая к работе с мониторингом IaaS"
+      href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+- title: "Примеры"
+  items:
+  - type: paragraph
+    text: "Используйте приведенные ниже примеры для настройки Log Analytics и управления этой службой."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Используйте приведенные ниже примеры для настройки Log Analytics и управления этой службой.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
-  - title: Справочные материалы
+    - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
+- title: "Справочные материалы"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Командная строка
-            html: <p><a href="/powershell/module/azurerm.operationalinsights">Azure PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/loganalytics">справочник по API REST</a></p>
+    - title: "Командная строка"
+      html: <p><a href="/powershell/module/azurerm.operationalinsights">Azure PowerShell</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/loganalytics\">справочник по API REST</a></p>"
