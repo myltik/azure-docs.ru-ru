@@ -280,11 +280,12 @@
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
 #### [Элементы управления](active-directory-conditional-access-controls.md)
-#### [Приступая к работе](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
+#### [Миграция классических политик](active-directory-conditional-access-migration.md)
 #### Задачи
-##### [Миграция классических политик](active-directory-conditional-access-migration.md)
+##### [Перенос классической политики MFA](active-directory-conditional-access-migration-mfa.md)
 ##### [Настройка условного доступа на основе устройств](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Настройка условного доступа на основе приложений](active-directory-conditional-access-mam.md)
 ##### [Условия использования для пользователей и приложений](active-directory-tou.md)

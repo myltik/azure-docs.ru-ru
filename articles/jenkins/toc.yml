@@ -26,6 +26,9 @@
     - name: Масштабирование с помощью агентов виртуальных машин Azure
       href: /azure/jenkins/jenkins-azure-vm-agents
       maintainContext: true
+    - name: Сборка с использованием службы "Экземпляры контейнеров Azure"
+      href: /azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent
+      maintainContext: true
 - name: Инструкции
   items:
     - name: Безопасность Jenkins в Azure

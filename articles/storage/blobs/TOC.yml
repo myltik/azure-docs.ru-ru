@@ -24,6 +24,8 @@
       href: storage-quickstart-blobs-python.md
     - name: Работа с большими двоичными объектами с помощью Node.js
       href: storage-quickstart-blobs-nodejs.md
+    - name: Работа с большими двоичными объектами с помощью обозревателя хранилища
+      href: storage-quickstart-blobs-storage-explorer.md
 - name: Учебники
   items:
     - name: Передача и обработка изображения
