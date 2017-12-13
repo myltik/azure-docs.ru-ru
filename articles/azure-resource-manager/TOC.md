@@ -12,6 +12,8 @@
 # Практическое руководство
 ## Создание шаблонов
 ### [Разделы шаблона](resource-group-authoring-templates.md)
+#### [Параметры](resource-manager-templates-parameters.md)
+#### [Переменные](resource-manager-templates-variables.md)
 ### [Рекомендации по работе с шаблонами](resource-manager-template-best-practices.md)
 ### [Использование ссылок на другие шаблоны](resource-group-linked-templates.md)
 ### [Определение зависимости между ресурсами](resource-group-define-dependencies.md)
@@ -46,7 +48,7 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
 ### [Портал Azure](resource-group-portal.md)
-### [ИНТЕРФЕЙС REST API](resource-manager-rest-api.md)
+### [REST API](resource-manager-rest-api.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
 ### [Упорядочение подписок с помощью групп управления](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

@@ -11,7 +11,6 @@
 ## Создание зоны и записи DNS
 ### [Портал Azure](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Интерфейс командной строки Azure](dns-getstarted-cli.md)
 
 ## Создание частной зоны и записи DNS
@@ -24,13 +23,11 @@
 ## Управление зонами DNS
 ### [Портал Azure](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
-### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 ### [Интерфейс командной строки Azure](dns-operations-dnszones-cli.md)
 
 ## Управление зонами DNS
 ### [Портал Azure](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 ### [Интерфейс командной строки Azure](dns-operations-recordsets-cli.md)
 
 ## Управление обратным поиском DNS
