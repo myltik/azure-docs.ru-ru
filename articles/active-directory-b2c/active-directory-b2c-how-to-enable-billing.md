@@ -3,75 +3,96 @@ title: "Как связать подписку Azure с клиентом Azure A
 description: "Пошаговое руководство по настройке выставления счетов для клиента Azure AD B2C в подписке Azure."
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: rojasja
-manager: mbaldwin
+author: parakhj
+manager: krassk
 ms.service: active-directory-b2c
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
-ms.author: joroja
-ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/05/2017
+ms.author: parja
+ms.openlocfilehash: 35fab74abf2c2ba27a8bf99eb93eb53f39b26227
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Связывание подписки Azure с клиентом Azure B2C для оплаты за использование
-
-Счета за текущее использование Azure Active Directory B2C (или Azure AD B2C) выставляются в подписке Azure. Администратор клиента должен явным образом связать созданный клиент Azure AD B2C с подпиской Azure.  Для этого нужно создать ресурс Azure AD "Клиент B2C" в целевой подписке Azure. К одной подписке Azure можно привязать несколько клиентов B2C вместе с другими ресурсами Azure (например, виртуальные машины, хранилища данных, приложения логики).
-
+# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Связывание подписки Azure с клиентом Azure B2C
 
 > [!IMPORTANT]
-> Последние сведения о выставлении счетов за использование и ценах на B2C см. на [этой странице](
-https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> Последние сведения о выставлении счетов за использование, а также о ценах на Azure AD B2C см. на [этой странице](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
-## <a name="step-1---create-an-azure-ad-b2c-tenant"></a>Шаг 1. Создание клиента Azure AD B2C
-Сначала нужно создать клиент B2C. Пропустите этот шаг, если вы уже создали целевого клиента B2C. [Начало работы с Azure AD B2C](active-directory-b2c-get-started.md)
+Счета за использование Azure AD B2C выставляются для подписки Azure. Администратор созданного клиента Azure AD B2C должен явным образом связать созданный клиент Azure AD B2C с подпиской Azure. В этой статье показано, как это сделать.
 
-## <a name="step-2---open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Шаг 2. Открытие портала Azure со страницей подписки Azure в клиенте Azure AD
-Перейдите на [портал Azure](https://portal.azure.com). Переключитесь в клиент Azure AD, в котором содержится подписка Azure, которую нужно использовать. Этот клиент Azure AD отличается от клиента B2C. На портале Azure щелкните имя учетной записи в правом верхнем углу панели мониторинга, чтобы выбрать клиента Azure AD. Чтобы продолжить, требуется подписка Azure. [Оформление подписки Azure](https://account.windowsazure.com/signup?showCatalog=True)
+> [!NOTE]
+> Подписку, связанную с клиентом Azure AD B2C, можно использовать только для выставления счетов за использование Azure AD B2C. Она не позволяет добавлять другие службы Azure или лицензии Office 365 *в клиенте Azure AD B2C*.
 
-![Переход к своему клиенту Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
+ Чтобы реализовать такую связь, следует создать ресурс Azure AD B2C в целевой подписке Azure. В одной подписке Azure можно создать несколько клиентов B2C наряду с другими ресурсами Azure (такими как виртуальные машины, хранилища данных, приложения логики). Чтобы увидеть все ресурсы, размещенные в подписке, перейдите к клиенту Azure AD, с которым связана эта подписка.
 
-## <a name="step-3---create-a-b2c-tenant-resource-in-azure-marketplace"></a>Шаг 3. Создание ресурса "Клиент B2C" в Azure Marketplace
-Откройте Marketplace, щелкнув соответствующий значок или выбрав зеленый знак плюса в левом верхнем углу панели мониторинга.  Найдите и выберите Azure Active Directory B2C. Нажмите кнопку Создать.
+Для работы с руководством требуется действующая подписка Azure.
 
-![Выбор плитки Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
+## <a name="create-an-azure-ad-b2c-tenant"></a>Создание клиента Azure AD B2C
 
-![Поиск AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
+Прежде всего [создайте клиент Azure AD B2C](active-directory-b2c-get-started.md), который вы намерены связать с подпиской. Пропустите этот шаг, если у вас уже есть клиент Azure AD B2C.
 
-В диалоговом окне создания ресурса Azure AD B2C содержатся следующие параметры.
+## <a name="open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Открытие портала Azure для клиента Azure AD с отображаемой подпиской Azure
 
-1. Azure AD B2C Tenant (Клиент Azure AD B2C). Выберите клиент Azure AD B2C из раскрывающегося списка.  Отображаются только допустимые клиенты Azure AD B2C.  Допустимыми являются клиенты B2C, в которых вы являетесь глобальным администратором клиента B2C и которые в настоящее время не связаны с подпиской Azure.
+Перейдите к клиенту Azure AD, в котором отображается нужная подписка Azure Откройте [Портал Azure](https://portal.azure.com) и перейдите к клиенту Azure AD, в котором отображается подписка Azure, которую вы намерены использовать.
 
-2. Azure AD B2C Resource name (Имя ресурса Azure AD B2C). Для имени автоматически устанавливается значение, соответствующее имени домена клиента B2C.
+![Переход к нужному клиенту Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
-3. "Подписка". Активная подписка Azure, в которой вы являетесь администратором или соадминистратором.  В одну подписку Azure можно добавить несколько клиентов Azure AD B2C.
+## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Поиск Azure AD B2C в Azure Marketplace
 
-4. "Группа ресурсов" и "Расположение группы ресурсов". Эти параметры позволяют создать несколько ресурсов Azure.  Этот выбор не оказывает влияния на расположение, производительность или выставление счетов за клиент B2C.
+Нажмите кнопку **Создать**. В поле **Поиск по Marketplace** введите `B2C`.
 
-5. Параметр "Закрепить на панели мониторинга" позволяет быстро перейти к сведениям о выставлении счетов за клиента B2C и параметрам клиента B2C. ![Создание ресурса B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![Выделенная кнопка добавления и поле поиска по Marketplace с текстом Azure Active Directory B2C](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
-## <a name="step-4---manage-your-b2c-tenant-resources-optional"></a>Шаг 4. Управление ресурсами клиента B2C (необязательно)
-После завершения развертывания в целевой группе ресурсов и подписке Azure будет создан ресурс "Клиент B2C".  В списке ресурсов Azure отобразится новый ресурс типа "Клиент B2C".
+В списке результатов выберите **Azure AD B2C**.
 
-![Создание ресурса B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcedashboard.png)
+![Служба Azure AD B2C, выбранная в списке результатов](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 
-Щелкнув ресурс "Клиент B2C", вы можете сделать следующее.
-- Щелкнуть имя подписки, чтобы просмотреть сведения о выставлении счетов. См. раздел "Выставление счетов и использование".
-- Щелкнуть Azure AD B2C Settings (Параметры Azure AD B2C), чтобы открыть новую вкладку браузера непосредственно в колонке параметров клиента B2C.
-- Отправить запрос на техническую поддержку.
-- Переместить ресурс "Клиент B2C" в другую подписку Azure или в другую группу ресурсов.  Плата за использование будет начисляться в подписке Azure, куда перемещен ресурс.
+Отобразятся сведения об Azure AD B2C. Нажмите кнопку **Создать**, чтобы начать настройку нового клиента Azure Active Directory B2C.
+
+В окне создания ресурса выберите **Связывание существующего B2C-клиента Azure AD с вашей подпиской Azure**.
+
+## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>Создание ресурса Azure AD B2C в подписке Azure
+
+В диалоговом окне создания ресурса выберите в раскрывающемся списке клиент Azure AD B2C. Вы увидите полный список клиентов, для которых вы являетесь глобальным администратором и которые еще не связаны с подпиской.
+
+Имя ресурса Azure AD B2C устанавливается автоматически и совпадает с доменным именем клиента Azure AD B2C.
+
+В поле "Подписка" выберите активную подписку Azure, для которой вы являетесь администратором.
+
+Выберите группу ресурсов и расположение группы ресурсов. Этот выбор не оказывает влияния на расположение, производительность и статус оплаты для этого клиента B2C.
+
+![Создание ресурса B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+
+## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Управление ресурсами клиента Azure AD B2C
+
+Когда создание ресурса Azure AD в подписке Azure успешно завершится, вы увидите новый ресурс типа "Клиент B2C" рядом с другими ресурсами Azure.
+
+Этот ресурс можно использовать в следующих целях:
+
+- для перехода к подписке, где можно просмотреть сведения о выставлении счетов;
+- для перехода к клиенту Azure AD B2C;
+- для отправки запроса на техническую поддержку;
+- для перемещения ресурса "Клиент B2C" в другую подписку Azure или в другую группу ресурсов.
 
 ![Параметры ресурсов B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>Известные проблемы
-- Удаление клиента B2C. Если клиент B2C был создан, удален, а затем создан повторно с тем же доменным именем, то необходимо также удалить и повторно создать ресурс "Привязка" с тем же доменным именем.  Ресурс "Привязка" находится в разделе "Все ресурсы" в клиенте подписки на портале Azure.
-- Самоназначенные ограничения на региональное расположение ресурсов.  В редких случаях пользователь может установить региональное ограничение на создания ресурсов Azure.  Это ограничение может препятствовать созданию связи между подпиской Azure и клиентом B2C. Для устранения проблемы снимите это ограничение.
+
+### <a name="csp-subscriptions"></a>Подписки CSP
+
+Сейчас клиент Azure AD B2C **нельзя** связать с подпиской CSP.
+
+### <a name="self-imposed-restrictions"></a>Самоназначенные ограничения
+
+Пользователь может установить региональное ограничение на создание ресурсов Azure. Такие ограничения могут помешать созданию ресурса Azure AD B2C. Для устранения проблемы снимите это ограничение.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-После того как вы выполните эти шаги для каждого клиента B2C, счета за подписку Azure будут выставляться в соответствии с вашим соглашением Azure Direct или Enterprise.
-- Просмотр сведений об использовании и выставлении счетов в выбранной подписке Azure
-- Просмотр подробных отчетов о ежедневном использовании с помощью [API отчетов об использовании](active-directory-b2c-reference-usage-reporting-api.md)
+
+Когда вы выполните эти шаги для каждого клиента Azure AD B2C, в выбранной подписке Azure начнется выставление счетов в соответствии с используемым соглашением Azure Direct или Enterprise.
+
+Сведения об использовании и выставлении счетов вы можете просмотреть в выбранной подписке Azure. Также можно просмотреть подробные ежедневные отчеты об использовании с помощью [API отчетов об использовании](active-directory-b2c-reference-usage-reporting-api.md).

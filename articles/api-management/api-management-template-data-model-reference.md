@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92a52910ef8b9f078a8ea6ac409f89719f889b24
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Справочник по модели данных шаблона в службе управления API Azure
 В этой статье описываются представления сущностей и типов для распространенных элементов, используемых в моделях данных для шаблонов портала разработчика в службе управления API Azure.  
@@ -332,7 +332,7 @@ ms.lasthandoff: 10/11/2017
 |DelegationEnabled|Логическое|Указывает, включен ли делегированный вход.|  
 |DelegationUrl|строка|URL-адрес делегированного входа, если он включен.|  
 |SsoSignUpUrl|строка|Единый URL-адрес входа для пользователя, если он имеется.|  
-|AuxServiceUrl|строка|Если текущий пользователь является администратором, это ссылка на экземпляр службы на классическом портале Azure.|  
+|AuxServiceUrl|string|Если текущий пользователь является администратором, это ссылка на экземпляр службы на портале Azure.|  
 |Поставщики|коллекция сущностей [Поставщик](#Provider)|Поставщики проверки подлинности для этого пользователя.|  
 |UserRegistrationTerms|строка|Условия, которые пользователь должен принять перед входом.|  
 |UserRegistrationTermsEnabled|Логическое|Указывает, включены ли условия использования.|  

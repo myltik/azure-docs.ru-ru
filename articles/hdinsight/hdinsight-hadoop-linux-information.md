@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
-ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Сведения об использовании HDInsight в Linux
 
@@ -91,6 +91,8 @@ ms.lasthandoff: 11/03/2017
     > [!NOTE]
     > Доступ к головным узлам кластера можно получить только по протоколу SSH с клиентского компьютера. После подключения с головного узла можно получить доступ к рабочим узлам по протоколу SSH.
 
+Дополнительные сведения см. в документе о [портах, используемых службами Hadoop в HDInsight](hdinsight-hadoop-port-settings-for-services.md).
+
 ## <a name="file-locations"></a>Местоположения файлов
 
 Связанные с Hadoop файлы можно найти на узлах кластера в папке `/usr/hdp`. Этот каталог содержит следующие подкаталоги:
@@ -108,9 +110,6 @@ ms.lasthandoff: 11/03/2017
 
 * недорогое долговременное хранение;
 * доступность из внешних служб, например веб-сайтов, служебных программ для отправки или скачивания файлов, пакетов SDK для различных языков и веб-браузеров.
-
-> [!WARNING]
-> HDInsight поддерживает только учетные записи хранения Azure __общего назначения__. Учетные записи __хранилища BLOB-объектов__ сейчас не поддерживаются.
 
 Учетная запись хранения Azure может содержать до 4,75 ТБ, хотя размер отдельных больших двоичных объектов (то есть файлов с точки зрения HDInsight) не должен превышать 195 ГБ. Хранилище Azure Data Lake Store может динамически увеличиваться и вмещать несколько триллионов файлов, размер любого из которых может быть более петабайта. Подробные сведения см. в [статье о больших двоичных объектах](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) и в описании [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
@@ -234,6 +233,8 @@ ms.lasthandoff: 11/03/2017
 
         1. Откройте в веб-браузере страницу с адресом **https://CLUSTERNAME.azurehdinsight.net/stormui**, где CLUSTERNAME — имя вашего кластера Storm. При появлении запроса введите имя администратора кластера HDInsight (admin) и пароль, указанный при создании кластера.
         2. Выберите топологию, для которой нужно выполнить повторную балансировку, и нажмите кнопку **Перераспределить**. Введите задержку перед выполнением операции перебалансировки.
+
+* **Kafka.** Выполните повторную балансировку реплик разделов после масштабирования. Дополнительные сведения см. в документе о [высоком уровне доступности данных с использованием Kafka в HDInsight](./kafka/apache-kafka-high-availability.md).
 
 Подробные сведения о масштабировании кластера HDInsight см. в следующих статьях.
 

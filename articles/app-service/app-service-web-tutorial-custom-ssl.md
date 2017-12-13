@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f69bc731b2858c338d7f7b4d347e7107a0f4eeed
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Привязывание существующего настраиваемого SSL-сертификата к веб-приложениям Azure
 
@@ -214,61 +214,17 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ## <a name="enforce-https"></a>Принудительное использование HTTPS
 
-Служба приложений *не* принуждает использовать протокол HTTPS, чтобы кто угодно мог обратиться к веб-приложению с помощью протокола HTTP. Чтобы принудительно использовать HTTPS для веб-приложения, определите для него правило перезаписи в файле _web.config_. Служба приложений использует этот файл независимо от используемой языковой платформы веб-приложения.
+По умолчанию любой пользователь по-прежнему может получить доступ к вашему веб-приложению с помощью HTTP. Вы можете перенаправить все HTTP-запросы на HTTPS-порт.
 
-> [!NOTE]
-> Для каждого языка используется определенное перенаправление запросов. ASP.NET MVC может использовать фильтр [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) вместо правила перезаписи в файле _web.config_.
+На странице веб-приложения в области слева выберите **Личные домены**. Затем в окне **Только HTTPS**выберите **ВКЛ**.
 
-Если вы разработчик для .NET, то этот файл должен быть вам в общем и целом знаком. Он находится в корневом каталоге решения.
+![Принудительное использование HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-Кроме того, если вы программируете на PHP, Node.js, Python или Java, существует вероятность того, что этот файл создан от вашего имени в службе приложений.
+По завершении операции перейдите по любому из URL-адресов HTTP, которые указывают на ваше приложение. Например:
 
-Подключитесь к конечной точке FTP веб-приложения, следуя указаниям в разделе [Развертывание приложения в службе приложений Azure с помощью FTP или FTPS](app-service-deploy-ftp.md).
-
-Этот файл должен находиться в каталоге _/home/site/wwwroot_. Если это не так, создайте в этой папке файл _web.config_ со следующим кодом XML:
-
-```xml   
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <!-- BEGIN rule ELEMENT FOR HTTPS REDIRECT -->
-        <rule name="Force HTTPS" enabled="true">
-          <match url="(.*)" ignoreCase="false" />
-          <conditions>
-            <add input="{HTTPS}" pattern="off" />
-          </conditions>
-          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-        </rule>
-        <!-- END rule ELEMENT FOR HTTPS REDIRECT -->
-      </rules>
-    </rewrite>
-  </system.webServer>
-</configuration>
-```
-
-Для имеющегося файла _web.config_ скопируйте весь элемент `<rule>` в элемент `configuration/system.webServer/rewrite/rules` в файле _web.config_. При наличии уже других элементов `<rule>` в файле _web.config_ поместите скопированный элемент `<rule>` перед другими элементами `<rule>`.
-
-Это правило возвращает ответ "HTTP 301" (постоянное перенаправление) для протокола HTTPS всякий раз, когда пользователь отправляет HTTP-запрос к вашему веб-приложению. Например, оно перенаправляет `http://contoso.com` в `https://contoso.com`.
-
-Дополнительные сведения о модуле переопределения URL-адресов IIS см. в документации по [модулю переопределения URL-адресов](http://www.iis.net/downloads/microsoft/url-rewrite).
-
-## <a name="enforce-https-for-web-apps-on-linux"></a>Принудительное использование HTTPS для веб-приложений на платформе Linux
-
-Служба приложений на платформе Linux *не* принуждает использовать протокол HTTPS, чтобы кто угодно мог обратиться к веб-приложению с помощью протокола HTTP. Чтобы принудительно использовать HTTPS для веб-приложения, определите для него правило перезаписи в файле _.htaccess_. 
-
-Подключитесь к конечной точке FTP веб-приложения, следуя указаниям в разделе [Развертывание приложения в службе приложений Azure с помощью FTP или FTPS](app-service-deploy-ftp.md).
-
-В папке _/home/site/wwwroot_ создайте файл _.htaccess_ со следующим кодом:
-
-```
-RewriteEngine On
-RewriteCond %{HTTP:X-ARR-SSL} ^$
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-```
-
-Это правило возвращает ответ "HTTP 301" (постоянное перенаправление) для протокола HTTPS всякий раз, когда пользователь отправляет HTTP-запрос к вашему веб-приложению. Например, оно перенаправляет `http://contoso.com` в `https://contoso.com`.
+- `http://<app_name>.azurewebsites.net`
+- `http://contoso.com`
+- `http://www.contoso.com`
 
 ## <a name="automate-with-scripts"></a>Автоматизация с помощью сценариев
 
@@ -312,7 +268,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Открытые сертификаты (необязательно)
-Вы можете передать [открытые сертификаты](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) в свое веб-приложение. Открытые сертификаты можно использовать для веб-приложений в службе приложений или среде службы приложений (ASE). Если необходимо хранить сертификат в хранилище сертификатов LocalMachine, нужно использовать веб-приложение в среде службы приложения. Дополнительные сведения см. в разделе [App Service Certificates now supports public certificates (.cer)](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Служба приложений теперь поддерживает открытые сертификаты (CER-файлы)).
+Вы можете передать [открытые сертификаты](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) в свое веб-приложение. Кроме того, можно использовать открытые сертификаты для приложений в среде службы приложений. Чтобы хранить сертификат в хранилище сертификатов LocalMachine, нужно использовать веб-приложение в среде службы приложений. Дополнительные сведения см. в статье о [настройке открытых сертификатов в веб-приложении](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Передача открытого сертификата](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
@@ -330,3 +286,5 @@ New-AzureRmWebAppSSLBinding `
 
 > [!div class="nextstepaction"]
 > [Добавление сети доставки содержимого (CDN) в службу приложений Azure](app-service-web-tutorial-content-delivery-network.md)
+
+Дополнительные сведения см. в статье об [использовании SSL-сертификата в коде для приложения службы приложений Azure](app-service-web-ssl-cert-load.md).

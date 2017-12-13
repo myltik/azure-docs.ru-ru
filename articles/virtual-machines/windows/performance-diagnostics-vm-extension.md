@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 85d4764534c77ea0e4d999e249abe456d0234d75
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Расширение виртуальной машины для диагностики производительности Azure для Windows
 
@@ -46,7 +46,6 @@ ms.lasthandoff: 10/18/2017
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -72,13 +71,11 @@ ms.lasthandoff: 10/18/2017
 |typeHandlerVersion|1.0|Версия обработчика расширения
 |performanceScenario|basic|Сценарии производительности для сбора данных. Допустимые значения: **basic**, **vmslow**, **azurefiles** и **custom**.
 |traceDurationInSeconds|300|Длительность трассировки, если выбран любой из параметров трассировки.
-|DiagnosticsTrace|d|Параметр, позволяющий включить трассировку диагностики. Допустимые значения: **d** или пустое значение. Если вы не хотите записывать данные трассировки, просто оставьте значение пустым.
 |perfCounterTrace|p|Параметр, позволяющий включить трассировку счетчиков производительности. Допустимые значения: **p** или пустое значение. Если вы не хотите записывать данные трассировки, просто оставьте значение пустым.
 |networkTrace|n|Параметр, позволяющий включить трассировку Netmon. Допустимые значения: **n** или пустое значение. Если вы не хотите записывать данные трассировки, просто оставьте значение пустым.
 |xperfTrace|x|Параметр, позволяющий включить трассировку XPerf. Допустимые значения: **x** или пустое значение. Если вы не хотите записывать данные трассировки, просто оставьте значение пустым.
 |storPortTrace|s|Параметр, позволяющий включить трассировку StorPort. Допустимые значения: s или пустое значение. Если вы не хотите записывать данные трассировки, просто оставьте значение пустым.
 |srNumber|123452016365929|Номер запроса в службу поддержки (если доступно). Если его нет, оставьте это поле пустым.
-|requestTimeUtc|9/2/2017 11:06:00 PM|Текущая дата и время в формате UTC. Если вы устанавливали расширение с помощью портала, это значение можно не указывать.
 |storageAccountName|mystorageaccount|Имя учетной записи хранения для хранения журналов диагностики и результатов.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Ключ для учетной записи хранения.
 
@@ -99,12 +96,12 @@ ms.lasthandoff: 10/18/2017
 5. Укажите значения параметров для установки и нажмите кнопку **ОК**, чтобы установить расширение. Дополнительные сведения о поддерживаемых сценариях устранения неполадок см. [здесь](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
 
     ![Установка расширения](media/performance-diagnostics-vm-extension/install-the-extension.png)
-6. После успешной установки отобразится сообщение, указывающее, что подготовка прошла успешно.
+6. При успешной установке отображается сообщение, указывающее, что подготовка прошла успешно.
 
     ![Сообщение об успешной подготовке](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
 
     > [!NOTE]
-    > Выполнение расширения начнется, когда подготовка будет успешно завершена. Потребуется несколько минут, чтобы выполнить базовый сценарий. Для других сценариев он будет выполняться по времени, указанному во время установки.
+    > После этого начинается выполнение расширения. Для базового сценария оно занимает несколько минут. Для других сценариев расширение выполняется в течение периода, указанного во время установки.
 
 ## <a name="remove-the-extension"></a>Удаление расширения
 Чтобы удалить расширение с виртуальной машины, сделайте следующее:
@@ -153,10 +150,6 @@ ms.lasthandoff: 10/18/2017
       "type": "int",
     "defaultValue": 300
     },
-    "diagnosticsTrace": {
-      "type": "string",
-      "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -192,7 +185,6 @@ ms.lasthandoff: 10/18/2017
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -216,8 +208,8 @@ ms.lasthandoff: 10/18/2017
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario" = "basic"; "traceDurationInSeconds" = 300; "diagnosticsTrace" = "d"; "perfCounterTrace" = "p"; "networkTrace" = ""; "xperfTrace" = ""; "storPortTrace" = ""; "srNumber" = ""; "requestTimeUtc" = "2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName" = "mystorageaccount" ; "storageAccountKey" = "mystoragekey"}
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -237,7 +229,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 
 По умолчанию выходные данные расширения хранятся в папке log_collection на временном диске (обычно D:\log_collection). В этой папке вы увидите ZIP-файлы, содержащие журналы диагностики и отчет с выводами и рекомендациями.
 
-Созданный ZIP-файл также передается в учетную запись хранения, указанную во время установки. Его можно совместно использовать на протяжении 30 дней с помощью [подписанного URL-адреса (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Текстовый файл с именем *zipfilename*_saslink.tx также создается в папке log_collection. Этот файл содержит ссылку SAS, созданную для скачивания ZIP-файла. Любой пользователь, у которого есть эта ссылка, сможет скачать ZIP-файл.
+Созданный ZIP-файл также передается в учетную запись хранения, указанную во время установки. Его можно совместно использовать на протяжении 30 дней с помощью [подписанного URL-адреса (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Текстовый файл с именем *zipfilename*_saslink.tx также создается в папке log_collection. Этот файл содержит ссылку SAS, созданную для скачивания ZIP-файла. Любой пользователь, у которого есть эта ссылка, может скачать ZIP-файл.
 
 Корпорация Майкрософт может использовать ссылку SAS, чтобы скачать данные диагностики для дальнейшего изучения сотрудником службы поддержки, работающим над вашим запросом на поддержку.
 

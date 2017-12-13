@@ -1,5 +1,5 @@
 ---
-title: "Создание веб-приложения ASP.NET в Azure | Документация Майкрософт"
+title: "Создание веб-приложения ASP.NET Core в Azure | Документация Майкрософт"
 description: "Узнайте, как запустить веб-приложение в службе приложений Azure, развернув веб-приложение ASP.NET по умолчанию."
 services: app-service\web
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a6a785b739697a94fcbd7cc8e3163f142887e1b9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 47f8fd97ad3be833e4f86f4bda57b140ce73c5de
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="create-an-aspnet-web-app-in-azure"></a>Создание веб-приложения ASP.NET в Azure
+# <a name="create-an-aspnet-core-web-app-in-azure"></a>Создание веб-приложения ASP.NET Core в Azure
 
-[Веб-приложения Azure](app-service-web-overview.md) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости.  В этом кратком руководстве рассматривается развертывание первого веб-приложения ASP.NET в службе веб-приложений Azure. В результате будет создана группа ресурсов, состоящая из плана службы приложений и развернутого веб-приложения Azure.
+[Веб-приложения Azure](app-service-web-overview.md) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости.  В этом кратком руководстве рассматривается развертывание первого веб-приложения ASP.NET Core при помощи функции Azure "Веб-приложения". В результате будет создана группа ресурсов, состоящая из плана службы приложений и развернутого веб-приложения Azure.
 
-Просмотрите видео, чтобы увидеть выполнение краткого руководства, а затем самостоятельно выполните шаги, чтобы опубликовать свое первое приложение .NET в Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
+> [!NOTE]
+> Если вам нужно собрать и развернуть веб-приложение ASP.NET Framework, ознакомьтесь с [этой статьей](app-service-web-get-started-dotnet-framework.md). 
+>
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -41,37 +41,41 @@ ms.lasthandoff: 11/22/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-an-aspnet-web-app"></a>Создание веб-приложения ASP.NET
+## <a name="create-an-aspnet-core-web-app"></a>Создание веб-приложения ASP.NET Core
 
 Создайте проект в Visual Studio, последовательно выбрав пункты **Файл > Создать > Проект**. 
 
-В диалоговом окне **Новый проект** последовательно выберите пункты **Visual C# > Интернет > Веб-приложение ASP.NET (.NET Framework)**.
+В диалоговом окне **Новый проект** последовательно выберите пункты **Visual C# > Веб > Веб-приложение ASP.NET Core**.
 
 Присвойте приложению имя _myFirstAzureWebApp_ и нажмите кнопку **ОК**.
    
 ![Диалоговое окно "Новый проект"](./media/app-service-web-get-started-dotnet/new-project.png)
 
-Вы можете развернуть любой тип веб-приложения ASP.NET в Azure. Для примера в этом руководстве выберите шаблон **MVC** и задайте для аутентификации значение **Без аутентификации**.
+Вы можете развернуть в Azure веб-приложения ASP.NET Core любого типа. Для примера в этом руководстве выберите шаблон **Веб-приложение** и задайте для аутентификации значение **Без аутентификации**.
       
 Нажмите кнопку **ОК**.
 
-![Диалоговое окно "Новый проект ASP.NET"](./media/app-service-web-get-started-dotnet/select-mvc-template.png)
+![Диалоговое окно "Новый проект ASP.NET"](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
+
+После создания проекта ASP.NET Core отобразится страница приветствия ASP.NET Core с множеством ссылок на ресурсы, которые помогут вам приступить к работе. 
+
+![Страница приветствия](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 В меню последовательно выберите пункты **Отладка > Запуск без отладки**, чтобы запустить веб-приложение локально.
 
-![Локальный запуск приложения](./media/app-service-web-get-started-dotnet/local-web-app.png)
+![Локальный запуск приложения](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
 ## <a name="publish-to-azure"></a>Публикация в Azure
 
 Щелкните правой кнопкой мыши проект **myFirstAzureWebApp** в **обозревателе решений** и выберите **Опубликовать**.
 
-![Публикация в обозревателе решений](./media/app-service-web-get-started-dotnet/solution-explorer-publish.png)
+![Публикация в обозревателе решений](./media/app-service-web-get-started-dotnet/right-click-publish.png)
 
 Выберите **Служба приложений Microsoft Azure** и нажмите кнопку **Опубликовать**.
 
 ![Публикация с помощью страницы обзора проекта](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-Откроется диалоговое окно **Создать службу приложений**, с помощью которого вы можете создать все ресурсы Azure, необходимые для запуска веб-приложения ASP.NET в Azure.
+Откроется диалоговое окно **Создать службу приложений**, с помощью которого вы можете создать все ресурсы Azure, необходимые для запуска веб-приложения ASP.NET Core в Azure.
 
 ## <a name="sign-in-to-azure"></a>Вход в Azure
 
@@ -118,19 +122,19 @@ ms.lasthandoff: 11/22/2017
 
 ![Настройка имени веб-приложения](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
-По завершении работы мастера веб-приложение ASP.NET будет опубликовано в Azure и запущено в браузере по умолчанию.
+Когда мастер завершит работу, веб-приложение ASP.NET Core будет опубликовано в Azure и запущено в браузере по умолчанию.
 
-![Опубликованное веб-приложение ASP.NET в Azure](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
+![Опубликованное веб-приложение ASP.NET в Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
 Имя веб-приложения, указанное [на этапе создания и публикации](#create-and-publish-the-web-app), используется как префикс URL-адреса в формате `http://<app_name>.azurewebsites.net`.
 
-Поздравляем, ваше веб-приложение ASP.NET работает в службе приложений Azure в режиме реального времени.
+Поздравляем, ваше веб-приложение ASP.NET Core работает в службе приложений Azure в режиме реального времени.
 
 ## <a name="update-the-app-and-redeploy"></a>Обновление и повторное развертывание приложения
 
-В **обозревателе решений** откройте _Views\Home\Index.cshtml_.
+В **обозревателе решений** откройте _Pages/Index.cshtml_.
 
-Найдите тег HTML `<div class="jumbotron">` в верхней области и замените его следующим кодом:
+Найдите тег HTML `<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">` в верхней области и замените его следующим кодом:
 
 ```HTML
 <div class="jumbotron">
@@ -145,7 +149,7 @@ ms.lasthandoff: 11/22/2017
 
 По завершении публикации Visual Studio открывает в браузере страницу с URL-адресом веб-приложения.
 
-![Обновленное веб-приложение ASP.NET в Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
+![Обновленное веб-приложение ASP.NET в Azure](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
 ## <a name="manage-the-azure-web-app"></a>Управление веб-приложением Azure
 

@@ -1,28 +1,22 @@
 ---
-title: "Управление кластером DC/OS Azure с помощью пользовательского интерфейса Marathon | Документация Майкрософт"
+title: "Управление кластером DC/OS Azure с помощью пользовательского интерфейса Marathon"
 description: "Развертывание контейнеров в кластере службы контейнеров Azure с помощью веб-интерфейса Marathon."
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, контейнеры, микрослужбы, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b00088bb005519dc5d533433308c0e3e33c7f433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c5fc223105b1dae0ce07f242a6b42b34fd2ab3
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Управление контейнером DC/OS службы контейнеров Azure с помощью веб-интерфейса Marathon
+
 DC/OS — это среда для развертывания и масштабирования кластерных рабочих нагрузок, в которой используемое оборудование рассматривается абстрактно. На базе DC/OS работает платформа, которая управляет планированием и выполнением вычислительных рабочих нагрузок.
 
 Хотя доступны платформы для многих популярных рабочих нагрузок, в этом документе описывается, как приступить к развертыванию контейнеров с помощью Marathon. 

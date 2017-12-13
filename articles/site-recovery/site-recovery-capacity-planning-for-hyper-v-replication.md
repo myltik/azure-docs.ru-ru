@@ -12,14 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: db790f9dc56605b5b752e7ab797903e32b2fc675
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: e2a69f240068d3155c2fdd52c118dc037ccbcdcb
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+Теперь доступна новая улучшенная версия [планировщика развертывания Azure Site Recovery (развертывание виртуальных машин Hyper-V в Azure)](site-recovery-hyper-v-deployment-planner.md). Она используется вместо старого средства. Используйте для планирования развертывания новое средство. Это средство обеспечивает следующие возможности: 
+* Оценка совместимости виртуальной машины в зависимости от количества дисков, их размера, числа операций ввода-вывода в секунду, активности обработки данных и некоторых характеристик виртуальной машины.
+* оценка пропускной способности сети и RPO;
+* соответствие требованиям к инфраструктуре Azure;
+* соответствие требованиям к локальной инфраструктуре;
+* рекомендации по пакетной обработке для начальной репликации;
+* оценочные затраты на аварийное восстановление в Azure.
+
+
 # <a name="hyper-v-capacity-planner-tool-for-site-recovery"></a>Планировщик ресурсов Hyper-V для Site Recovery
 
 Во время развертывания Azure Site Recovery вам нужно будет определить свои требования к репликации и пропускной способности. Планировщик ресурсов Hyper-V для Site Recovery поможет вам сделать это для репликации виртуальных машин Hyper-V.

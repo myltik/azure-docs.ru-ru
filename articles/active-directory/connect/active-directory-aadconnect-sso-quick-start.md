@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: b85afe54832319fae2ea3a2501ec268bc63fc7c1
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1bc76062b05938992b71eedaa71b3c7dfedd7ef4
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Простой единый вход Azure Active Directory — быстрый запуск
 
@@ -127,7 +127,7 @@ ms.lasthandoff: 11/28/2017
 
 ### <a name="browser-considerations"></a>Рекомендации для браузера
 
-#### <a name="mozilla-firefox"></a>Mozilla Firefox
+#### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (все платформы)
 
 Mozilla Firefox не выполняет аутентификацию Kerberos автоматически. Каждый пользователь должен вручную добавить URL-адреса Azure AD в параметры Firefox, выполнив следующие действия.
 1. Запустите Firefox и введите `about:config` в адресной строке. Проигнорируйте все отображаемые уведомления.
@@ -136,11 +136,15 @@ Mozilla Firefox не выполняет аутентификацию Kerberos а
 4. Введите в поле "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net".
 5. Нажмите кнопку **ОК** и вновь откройте браузер.
 
-#### <a name="safari-on-mac-os"></a>Safari в Mac OS
+#### <a name="safari-mac-os"></a>Safari (Mac OS)
 
 Убедитесь, что компьютер под управлением Mac OS присоединен к Azure AD. Инструкции по присоединению к Azure AD см. в документе [Best Practices for Integrating OS X with Active Directory](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf) (Рекомендации по интеграции OS X с Active Directory).
 
-#### <a name="google-chrome-on-mac-os"></a>Google Chrome в Mac OS
+#### <a name="google-chrome-all-platforms"></a>Google Chrome (все платформы)
+
+Если вы переопределили параметры политики [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) или [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) в своей среде, убедитесь, что к ним добавлены URL-адреса Azure AD (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net).
+
+#### <a name="google-chrome-mac-os-only"></a>Google Chrome (только Mac OS)
 
 Процедура добавления в список разрешений URL-адресов Azure AD для интегрированной аутентификации для Google Chrome на Mac OS и платформах, отличных от Windows, приведена в [этом списке политик проекта Chromium Project](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist).
 
@@ -149,9 +153,6 @@ Mozilla Firefox не выполняет аутентификацию Kerberos а
 #### <a name="known-browser-limitations"></a>Известные ограничения браузеров
 
 Простой единый вход не работает в конфиденциальном режиме просмотра в браузерах Firefox и Edge, а также в Internet Explorer, если браузер работает в режиме повышенной защиты.
-
->[!IMPORTANT]
->Мы недавно выполнили откат поддержки Edge, чтобы найти причину проблем, о которых сообщили клиенты.
 
 ## <a name="step-4-test-the-feature"></a>Шаг 4. Тестирование компонента
 

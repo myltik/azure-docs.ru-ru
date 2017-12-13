@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/26/2017
+ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Использование службы диспетчера устройств StorSimple на портале Azure для клонирования тома
 
@@ -69,12 +69,7 @@ ms.lasthandoff: 10/11/2017
    
     ![Список резервных наборов данных](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. Разверните резервный набор данных для просмотра связанных томов. Перед восстановлением эти тома необходимо отключить на узле и устройстве. Откройте колонку **Тома** со списком томов устройства, а затем следуйте указаниям, описанным в разделе [Отключение тома](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline), чтобы отключить том.
-   
-   > [!IMPORTANT]
-   > Прежде чем отключать том на устройстве, сначала отключите его на узле. Если тома на узле не переведены в автономный режим, это может привести к повреждению данных.
-   
-4. Вернитесь к **каталогу резервного копирования** и выберите том в резервном наборе данных. Щелкните правой кнопкой мыши, а затем в контекстном меню выберите **Клонировать**.
+3. Разверните резервный набор данных, чтобы просмотреть связанные тома, и выберите том в резервном наборе данных. Щелкните правой кнопкой мыши, а затем в контекстном меню выберите **Клонировать**.
 
    ![Список резервных наборов данных](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 

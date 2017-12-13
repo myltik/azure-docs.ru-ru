@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench: руководство по устранению неполадок и описание известных проблем 
 С помощью сведений в этой статье можно найти и исправить ошибки или сбои, обнаруженные при использовании приложения Azure Machine Learning Workbench. 
@@ -112,6 +112,19 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
    - удалите скрипт `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`;
    - удалите с рабочего стола ярлык, который запускает указанный выше скрипт;
    - скачайте установщик https://aka.ms/azureml-wb-msi и переустановите приложение.
+
+## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>После входа постоянно отображается экран с надписью о проверке учетной записи службы экспериментирования
+После входа в приложение Workbench могут возникнуть затруднения. Отображается пустой экран с сообщением "Checking experimentation account" (Проверка учетной записи службы экспериментирования) и крутящееся колесико. Чтобы устранить эту проблему, выполните описанные ниже действия.
+1. Завершите работу приложения.
+2. Удалите следующий файл:
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. Перезапустите приложение.
 
 ## <a name="cant-delete-experimentation-account"></a>Не удается удалить учетную запись службы "Экспериментирование"
 С помощью интерфейса командной строки можно удалить учетную запись службы "Экспериментирование". Но сначала необходимо удалить дочерние рабочие области и дочерние проекты в этих рабочих областях. В противном случае возникнет ошибка.

@@ -12,22 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2f2a943657dd328fc5657b775ba0273f99718f39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 540e9804d2ee84c050531f5287d4c4b8922ae999
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="azure-api-management-developer-portal-templates"></a>Шаблоны портала разработчика в службе управления API Azure
+# <a name="developer-portal-templates"></a>Шаблоны портала разработчика
+
 Служба управления API Azure позволяет настраивать содержимое страниц портала разработчика с помощью набора шаблонов. С помощью синтаксиса [DotLiquid](http://dotliquidmarkup.org/), выбранного редактора, например [DotLiquid для разработчиков](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), и указанного набора локализованных [строковых ресурсов](api-management-template-resources.md#strings), [ресурсов глифов](api-management-template-resources.md#glyphs), а также [элементов управления на странице](api-management-page-controls.md) можно гибко настраивать содержимое страниц по своему усмотрению с использованием этих шаблонов.  
   
- Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md).  
+Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md).  
 
-
-
-  
 ##  <a name="DeveloperPortalTemplates"></a>Шаблоны портала разработчика  
   
 -   [Интерфейсы API](api-management-api-templates.md)  
@@ -60,9 +58,9 @@ ms.lasthandoff: 10/11/2017
     -   [Регистрация](api-management-page-templates.md#SignUp)  
     -   [Страница не найдена](api-management-page-templates.md#PageNotFound)
 
-
 ## <a name="next-steps"></a>Дальнейшие действия  
--   [Справочник по шаблонам](api-management-developer-portal-templates-reference.md)  
--   [Справочник по моделям данных](api-management-template-data-model-reference.md)  
--   [Элементы управления страницы](api-management-page-controls.md)  
--   [Ресурсы шаблонов](api-management-template-resources.md)
+
++ [Справочник по шаблонам](api-management-developer-portal-templates-reference.md)  
++ [Справочник по моделям данных](api-management-template-data-model-reference.md)  
++ [Элементы управления страницы](api-management-page-controls.md)  
++ [Ресурсы шаблонов](api-management-template-resources.md)

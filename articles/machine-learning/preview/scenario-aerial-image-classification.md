@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="aerial-image-classification"></a>Классификация изображений аэрофотосъемки
 
@@ -59,9 +59,14 @@ ms.lasthandoff: 11/15/2017
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md).
     - Чтобы установить эту программу и создать учетные записи Экспериментирования и Управления моделями, выполните инструкции из [краткого руководства по установке и созданию](quickstart-installation.md).
 - Пакет SDK Python и Azure CLI 2.0 для [искусственного интеллекта пакетной службы](https://github.com/Azure/BatchAI)
-    - Установите пакет SDK для искусственного интеллекта пакетной службы и Azure CLI 2.0, следуя инструкциям в разделе [предварительных требований](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - На момент написания этой статьи Azure Machine Learning Workbench использует отдельную вилку Azure CLI 2.0. Для ясности мы называем версию интерфейса командной строки для Workbench как "интерфейс командной строки, запускаемый из Azure Machine Learning Workbench", а общедоступную версию (которая включает искусственный интеллект пакетной службы) — Azure CLI 2.0.
-    - Создайте приложение Azure Active Directory и субъект-службу, выполнив [эти инструкции](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Запишите идентификаторы клиента и секрет.
+    - Необходимо выполнить действия, описанные в следующих разделах [файла сведений с инструкциями по работе с Batch AI](https://github.com/Azure/BatchAI/tree/master/recipes):
+        - Необходимые компоненты
+        - Создание и получение приложения Azure Active Directory (AAD)
+        - Регистрация поставщиков ресурсов Batch AI (раздел, посвященный выполнению инструкций с помощью Azure CLI 2.0)
+        - Установка клиента управления Batch AI Azure
+        - Установка пакета Azure SDK для Python
+    - Запишите идентификатор клиента, секрет и идентификатор арендатора создаваемого приложения Azure Active Directory. Вы будете использовать эти учетные данные далее в этом руководстве.
+    - На момент написания этой статьи для Azure Machine Learning Workbench и Azure Batch AI используются отдельные вилки Azure CLI 2.0. Для ясности мы называем версию интерфейса командной строки для Workbench как "интерфейс командной строки, запускаемый из Azure Machine Learning Workbench", а общедоступную версию (которая включает искусственный интеллект пакетной службы) — Azure CLI 2.0.
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy) — это бесплатная служебная программа, координирующая передачу файлов между учетными записями хранения Azure.
     - Убедитесь, что папка, содержащая исполняемый файл AzCopy, находится в переменной среды PATH системы. (Инструкции по изменению переменных среды доступны [здесь](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp))
 - Мы рекомендуем такой клиент SSH — [PuTTY](http://www.putty.org/).
@@ -215,7 +220,7 @@ set PATH_TO_PROJECT=[The filepath of your project's root directory]
 1. Выполните следующую команду для создания сетевого файлового сервера:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Проверьте состояние подготовки сетевого файлового сервера с помощью следующей команды:
@@ -292,9 +297,9 @@ set PATH_TO_PROJECT=[The filepath of your project's root directory]
 
 ### <a name="prepare-the-azure-machine-learning-workbench-execution-environment"></a>Подготовка среды выполнения Azure Machine Learning Workbench
 
-#### <a name="register-the-hdinsight-cluster-as-an-azure-machine-learning-workbench-compute-target"></a>Регистрация кластера HDInsight в качестве целевой среды вычислений Azure Machine Learning Workbench
+#### <a name="register-the-hdinsight-cluster-as-an-azure-machine-learning-workbench-compute-target"></a>Регистрация кластера HDInsight в качестве целевого объекта вычисления Azure Machine Learning Workbench
 
-Создав кластер HDInsight, зарегистрируйте его в качестве целевой среды вычислений для вашего проекта следующим образом:
+Создав кластер HDInsight, зарегистрируйте его в качестве целевого объекта вычисления для вашего проекта следующим образом:
 
 1.  Выполните следующую команду в интерфейсе командной строки Машинного обучения Azure:
 
@@ -411,7 +416,7 @@ az ml experiment submit -c myhdi Code\03_Deployment\batch_score_spark.py --confi
 
 ## <a name="conclusions"></a>Заключение
 
-Azure Machine Learning Workbench помогает специалистам по обработке и анализу данных легко развертывать свой код в удаленных целевых средах вычислений. В этом примере локальный код обучения MMLSpark был развернут для удаленного выполнения в кластере HDInsight, а локальный сценарий запустил задание обучения в кластере GPU искусственного интеллекта пакетной службы Azure. Журнал выполнения Azure Machine Learning Workbench отслеживает эффективность нескольких моделей и помогает определить наиболее точную модель. Функция записной книжки Jupyter Workbench помогает визуализировать прогнозы моделей в интерактивной графической среде.
+Azure Machine Learning Workbench помогает специалистам по обработке и анализу данных легко развертывать свой код на удаленных целевых объектах вычислений. В этом примере локальный код обучения MMLSpark был развернут для удаленного выполнения в кластере HDInsight, а локальный сценарий запустил задание обучения в кластере GPU искусственного интеллекта пакетной службы Azure. Журнал выполнения Azure Machine Learning Workbench отслеживает эффективность нескольких моделей и помогает определить наиболее точную модель. Функция записной книжки Jupyter Workbench помогает визуализировать прогнозы моделей в интерактивной графической среде.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы глубже изучить этот пример, сделайте следующее:

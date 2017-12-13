@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 1f0d50331aa3986e80542902fd528f98e1c91bc2
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Инструменты Функций Azure для Visual Studio  
 
@@ -32,6 +32,9 @@ ms.lasthandoff: 11/07/2017
 * Программирование функций в C#, сохраняя при этом все преимущества разработки в Visual Studio. 
 
 В этом разделе показано, как использовать инструменты Функций Azure для Visual Studio 2017 для разработки функций в C#. Вы также узнаете, как опубликовать проект в Azure в виде сборки .NET.
+
+> [!IMPORTANT]
+> Не объединяйте локальную разработку и разработку с помощью портала разработки в одном приложении-функции. При публикации из локального проекта в приложение-функцию любые функции, разработанные на портале, будут перезаписаны в процессе развертывания.
 
 ## <a name="prerequisites"></a>Предварительные требования
 

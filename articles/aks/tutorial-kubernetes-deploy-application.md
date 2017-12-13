@@ -1,27 +1,19 @@
 ---
-title: "Руководство по Kubernertes в Azure. Развертывание приложения | Документация Майкрософт"
+title: "Руководство по Kubernetes в Azure. Развертывание приложения"
 description: "Руководство по AKS.Развертывание приложения"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Docker, контейнеры, микрослужбы, Kubernetes, DC/OS, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 73b943709fb3846058d4b1c09bc76b09460855ed
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 3a6a75a324987b82a08219217407ad7ad14db9f8
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Запуск приложения в Службе контейнеров Azure (AKS)
 

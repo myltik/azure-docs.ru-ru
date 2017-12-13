@@ -24,7 +24,7 @@
 
 ## <a name="policies"></a>Политики
 
-С помощью [политик Azure Resource Manager](../articles/azure-resource-manager/resource-manager-policy.md) можно определить требуемое поведение [виртуальных машин Windows](../articles/virtual-machines/windows/policy.md) и [Linux](../articles/virtual-machines/linux/policy.md) вашей организации. С помощью политик организация может обеспечить выполнение различных норм и правил во всей организации. Обязательные для выполнения стандарты поведения помогают снизить риск, что способствует успешной деятельности организации.
+С помощью [политик Azure](../articles/azure-policy/azure-policy-introduction.md) можно определить требуемое поведение [виртуальных машин Windows](../articles/virtual-machines/windows/policy.md) и [Linux](../articles/virtual-machines/linux/policy.md) вашей организации. С помощью политик организация может обеспечить выполнение различных норм и правил во всей организации. Обязательные для выполнения стандарты поведения помогают снизить риск, что способствует успешной деятельности организации.
 
 ## <a name="role-based-access-control"></a>Контроль доступа на основе ролей
 

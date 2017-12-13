@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Одноэлементные экземпляры с отслеживанием состояния в устойчивых функциях — пример функции счетчика
 
@@ -45,13 +45,31 @@ ms.lasthandoff: 10/13/2017
 
 В этой статье рассматривается функция **E3_Counter** из примера приложения.
 
-В следующих разделах мы опишем код, который используется при разработке в Visual Studio. Код для разработки на портале Azure выглядит почти так же.
+
 
 ## <a name="the-counter-orchestration"></a>Оркестрация счетчика
+
+В следующих разделах мы опишем код, который используется при разработке в Visual Studio Code и на портале Azure.
+
+### <a name="c-script"></a>Скрипт C#
+
+Файл function.json:
+
+[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+
+Файл run.csx:
+
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+
+### <a name="precompiled-c"></a>Предкомпилированный код C# 
+
+В следующих разделах мы опишем код, который используется при разработке в Visual Studio.
 
 Ниже приведен код, реализующий функцию оркестратора.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+
+### <a name="explanation-of-the-code"></a>Объяснение кода
 
 Эта функция оркестратора выполняет следующие задачи:
 

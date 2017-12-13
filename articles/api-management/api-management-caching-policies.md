@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>Политики кэширования в службе управления API
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -28,15 +28,12 @@ ms.lasthandoff: 10/11/2017
 -   Политики кэширования ответов  
   
     -   [Получение из кэша](api-management-caching-policies.md#GetFromCache) — выполнение поиска в кэше и возврат допустимых кэшированных ответов при их наличии.  
-  
     -   [Сохранение в кэше](api-management-caching-policies.md#StoreToCache) — помещение ответа в кэш в соответствии с заданной конфигурацией управления кэшем.  
   
 -   Политики кэширования значений  
-  
-    -   [Получение значения из кэша](#GetFromCacheByKey) — получение кэшированного элемента по ключу.  
-  
-    -   [Сохранение значения в кэше](#StoreToCacheByKey) — сохранение элемента в кэше по ключу.  
-  
+
+    -   [Получение значения из кэша](#GetFromCacheByKey) — получение кэшированного элемента по ключу. 
+    -   [Сохранение значения в кэше](#StoreToCacheByKey) — сохранение элемента в кэше по ключу. 
     -   [Удалить значение из кэша](#RemoveCacheByKey) — удаление элемента в кэше по ключу.  
   
 ##  <a name="GetFromCache"></a> Получение из кэша  
@@ -54,7 +51,7 @@ ms.lasthandoff: 10/11/2017
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -119,14 +116,13 @@ ms.lasthandoff: 10/11/2017
 |allow-private-response-caching|Если задано значение `true`, разрешается кэширование запросов, содержащих заголовок авторизации.|Нет|нет|  
 |downstream-caching-type|Для этого атрибута следует указать одно из таких значений:<br /><br /> - none — нисходящее кэширование не разрешено;<br />- private — разрешено нисходящее частное кэширование;<br />- public — разрешено частное и совместно используемое нисходящее кэширование.|Нет|Нет|  
 |must-revalidate|Если включено нисходящее кэширование, этот атрибут включает или отключает директиву управления кэшем `must-revalidate` в ответах шлюза.|Нет|Да|  
-|vary-by-developer|Установите значение `true`, если нужно кэшировать ответы в зависимости от ключа разработчика.|Нет|нет|  
-|vary-by-developer-groups|Установите значение `true`, если нужно кэшировать ответы в зависимости от роли пользователя.|Нет|нет|  
+|vary-by-developer|Установите значение `true`, если нужно кэшировать ответы в зависимости от ключа разработчика.|Да||  
+|vary-by-developer-groups|Установите значение `true`, если нужно кэшировать ответы в зависимости от роли пользователя.|Да||  
   
 ### <a name="usage"></a>Использование  
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Разделы политики:** inbound.  
-  
 -   **Области политики:** API, operation, product.  
   
 ##  <a name="StoreToCache"></a> Сохранение в кэше  
@@ -198,8 +194,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="usage"></a>Использование  
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Разделы политики:** outbound.  
-  
+-   **Разделы политики:** outbound.    
 -   **Области политики:** API, operation, product.  
   
 ##  <a name="GetFromCacheByKey"></a> Получение значения из кэша  
@@ -244,7 +239,6 @@ ms.lasthandoff: 10/11/2017
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Разделы политики:** inbound, outbound, backend, on-error.  
-  
 -   **Области политики:** global, API, operation, product.  
   
 ##  <a name="StoreToCacheByKey"></a> Сохранение значения в кэш  
@@ -287,11 +281,10 @@ ms.lasthandoff: 10/11/2017
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Разделы политики:** inbound, outbound, backend, on-error.  
-  
 -   **Области политики:** global, API, operation, product.  
   
 ###  <a name="RemoveCacheByKey"></a> Удаление значения из кэша  
- Политика `cache-remove-value` удаляет кэшированный элемент, определяемый по соответствующему ключу. Ключ может содержать произвольное строковое значение и обычно указывается с помощью выражения политики.  
+Политика `cache-remove-value` удаляет кэшированный элемент, определяемый по соответствующему ключу. Ключ может содержать произвольное строковое значение и обычно указывается с помощью выражения политики.  
   
 #### <a name="policy-statement"></a>Правило политики  
   
@@ -325,9 +318,13 @@ ms.lasthandoff: 10/11/2017
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) политики.  
   
 -   **Разделы политики:** inbound, outbound, backend, on-error.  
-  
 -   **Области политики:** global, API, operation, product.  
-  
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о работе с политиками см. в статье со справочными материалами по [политикам в службе управления API](api-management-howto-policies.md).  
+
+Дополнительные сведения о работе с политиками см. в следующих статьях:
+
++ [Политики в управлении API](api-management-howto-policies.md)
++ [Преобразование API-интерфейсов](transform-api.md).
++ Полный перечень операторов политик и их параметров см. в [справочнике по политикам](api-management-policy-reference.md).
++ [Примеры политик](policy-samples.md).   

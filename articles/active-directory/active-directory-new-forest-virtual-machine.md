@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Установка нового леса Active Directory в виртуальной сети Azure
-В этом разделе показано, как создать новую среду Windows Server Active Directory на виртуальной машине (ВМ) в [виртуальной сети Azure](../virtual-network/virtual-networks-overview.md). В данном случае виртуальная сеть Azure не соединена с локальной сетью.
+В этой статье показано, как создать новую среду Windows Server Active Directory на виртуальной машине (VM) в [виртуальной сети Azure](../virtual-network/virtual-networks-overview.md). В данном случае виртуальная сеть Azure не соединена с локальной сетью.
 
-Вас также могут заинтересовать следующие связанные разделы:
+Вас также могут заинтересовать следующие связанные статьи:
 
 * Видео, в котором показаны эти шаги, см. в разделе [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network) (Как установить новый лес Active Directory в виртуальной сети Azure).
 * Можно также [настроить подключение VPN типа "сеть — сеть"](../vpn-gateway/vpn-gateway-site-to-site-create.md), а затем либо установить новый лес, либо расширить существующий локальный лес на виртуальную сеть Azure. Инструкции по выполнению этих действий см. в разделе [Установка реплики контроллера домена Active Directory в виртуальной сети Azure](active-directory-install-replica-active-directory-domain-controller.md).
@@ -87,7 +87,7 @@ ms.lasthandoff: 10/11/2017
    3. На вкладке **Серверы пересылки** выберите IP-адрес сервера пересылки и нажмите кнопку **Изменить**.  Выберите IP-адрес и нажмите кнопку **Удалить**.
    4. Щелкните **OК** для закрытия редактора и еще раз нажмите **OК**, чтобы закрыть диалоговое окно свойств DNS-сервера.
 2. Обновите параметры DNS-сервера для виртуальной сети.
-   1. Щелкните **Виртуальные сети** > дважды щелкните созданную вами виртуальную сеть > выберите **Настройка** > **DNS-серверы**, введите имя и DIP-адрес одной из виртуальных машин, которые выполняют роль контроллера домена или DNS-сервера, и нажмите кнопку **Сохранить**.
+   1. Щелкните **Виртуальные сети** > дважды щелкните созданную вами виртуальную сеть > выберите **Настройка** > **DNS-серверы**, введите имя и IP-адрес одной из виртуальных машин, которые выполняют роль контроллера домена или DNS-сервера, и нажмите кнопку **Сохранить**.
    2. Выберите виртуальную машину и щелкните **Перезагрузить** , чтобы запустить виртуальную машину для настройки параметров сопоставителя DNS с использованием IP-адреса нового DNS-сервера.
 
 ## <a name="create-vms-for-domain-members"></a>Создание виртуальных машин для членов домена

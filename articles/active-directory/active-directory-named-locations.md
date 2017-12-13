@@ -1,6 +1,6 @@
 ---
 title: "Именованные расположения в Azure Active Directory | Документация Майкрософт"
-description: "Настроив именованные расположения, вы предотвратите ситуацию, когда IP-адреса вашей организации вызывают ложное срабатывание для типа события риска \"Невозможно переместиться в нетипичные расположения\"."
+description: "Узнайте, что такое именованные расположения и как их настраивать."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,22 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Именованные расположения в Azure Active Directory
 
-Функция "Именованные расположения" в Azure Active Directory позволяет пометить диапазоны доверенных IP-адресов в вашей организации. В своей среде именованные расположения можно использовать в контексте обнаружения [событий риска](active-directory-reporting-risk-events.md). Эта функция позволяет сократить количество сообщаемых ложных срабатываний для типа событий риска *Невозможно переместиться в нетипичные расположения*. 
+С помощью именованных расположений можно пометить доверенные диапазоны IP-адресов в вашей организации. Именованные расположения в Azure Active Directory используются в следующих контекстах:
 
-## <a name="configuration"></a>Конфигурация
+- обнаружение [событий риска](active-directory-reporting-risk-events.md) для уменьшения количества ложных положительные результатов;  
 
-Чтобы настроить именованное расположение, сделайте следующее.
+- [условный доступ на основе расположения](active-directory-conditional-access-azure-portal.md#locations).
+
+
+В этой статье объясняется, как настроить именованные расположения в конкретной среде.
+
+
+## <a name="entry-points"></a>Точки входа
+
+Чтобы открыть страницу настройки именованных расположений в разделе **Безопасность** на странице Azure Active Directory, щелкните следующие элементы:
+
+![Точки входа](./media/active-directory-named-locations/34.png)
+
+- **Условный доступ:**
+
+    - В разделе **Управление** щелкните **Именованные расположения**.
+    
+        ![Команда "Именованные расположения"](./media/active-directory-named-locations/06.png)
+
+- **Рискованные входы в систему:**
+
+    - На панели инструментов в верхней части страницы щелкните **Добавить известные диапазоны IP-адресов**.
+
+       ![Команда "Именованные расположения"](./media/active-directory-named-locations/35.png)
+
+
+
+## <a name="configuration-example"></a>Пример конфигурации
+
+**Чтобы настроить именованное расположение:**
 
 1. Войдите на [портал Azure](https://portal.azure.com) как глобальный администратор.
 
@@ -34,22 +62,22 @@ ms.lasthandoff: 10/11/2017
 
     ![Ссылка на Azure Active Directory на левой панели](./media/active-directory-named-locations/01.png)
 
-3. В колонке **Azure Active Directory** в разделе **Безопасность** щелкните **Условный доступ**.
+3. На странице **Azure Active Directory** в разделе **Безопасность** щелкните **Условный доступ**.
 
     ![Команда "Условный доступ"](./media/active-directory-named-locations/05.png)
 
 
-4. В колонке **Условный доступ** в разделе **Управление** щелкните **Именованные расположения**.
+4. На странице **Условный доступ** в разделе **Управление** щелкните **Именованные расположения**.
 
     ![Команда "Именованные расположения"](./media/active-directory-named-locations/06.png)
 
 
-5. В колонке **Именованные расположения** щелкните **Создать расположение**.
+5. На странице **Именованные расположения** щелкните **Новое расположение**.
 
     ![Команда "Создать расположение"](./media/active-directory-named-locations/07.png)
 
 
-6. В колонке **Создать** сделайте следующее:
+6. На странице **Создать** сделайте следующее:
 
     ![Колонка "Создать"](./media/active-directory-named-locations/56.png)
 
@@ -73,5 +101,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Дополнительные сведения о событиях риска см. в статье [События риска Azure Active Directory](active-directory-reporting-risk-events.md).
+Дополнительная информация:
 
+- Список **событий риска** см. в статье о [События риска Azure Active Directory](active-directory-reporting-risk-events.md).
+
+- Сведения об **условном доступе** см. в статье [Условный доступ в Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+- **Отчеты о событиях входа, представляющих риск**, см. [на портале Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  

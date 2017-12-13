@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-ms.openlocfilehash: 15acfbce3bde585ed2b39762b08733901133a3dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5057a741a60bf9632f15dbc47236791e06f5bf6b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Обновление среды выполнения кластера Service Fabric
 
-Это руководство является четвертой частью цикла. В нем показано, как обновить среду выполнения Service Fabric в кластере Azure Service Fabric. Данная часть руководства предназначена для кластеров Service Fabric, работающих в Azure, и не относится к локальным кластерам Service Fabric.
+Это руководство является третьей частью цикла. В нем показано, как обновить среду выполнения Service Fabric в кластере Azure Service Fabric. Эта часть руководства предназначена для кластеров Service Fabric, работающих в Azure, и не относится к изолированным кластерам Service Fabric.
 
 > [!WARNING]
 > Для изучения этой части руководства требуется PowerShell. Обновление среды выполнения кластера еще не поддерживается инструментами Azure CLI. Кроме того, кластер можно обновить на портале. Дополнительные сведения см. в статье [Обновление кластера Azure Service Fabric](service-fabric-cluster-upgrade.md).
@@ -34,6 +34,13 @@ ms.lasthandoff: 11/29/2017
 > [!div class="checklist"]
 > * Чтение версии кластера.
 > * Настройка версии кластера.
+
+Из этого цикла руководств вы узнаете, как выполнять такие задачи:
+> [!div class="checklist"]
+> * создание защищенного [кластера Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) или [кластера Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) в Azure;
+> * [свертывание и развертывание кластера](service-fabric-tutorial-scale-cluster.md);
+> * обновление среды выполнения кластера;
+> * [развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим руководством выполните следующие действия:
@@ -190,3 +197,7 @@ sfctl cluster upgrade-status
 > * Получение версии среды выполнения кластера.
 > * Обновление среды выполнения кластера.
 > * Отслеживание обновления.
+
+Теперь перейдите к следующему руководству, из которого вы узнаете, как развернуть службу управления API с кластером Service Fabric.
+> [!div class="nextstepaction"]
+> [развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md).

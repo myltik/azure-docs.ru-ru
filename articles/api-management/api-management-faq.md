@@ -12,20 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: a9740cf527e4a9811b510ad5c96e5ab769efc2d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-faqs"></a>Часто задаваемые вопросы о службе управления API Azure
 Ознакомьтесь с ответами на часто задаваемые вопросы, шаблонами и рекомендациями относительно службы управления API Azure.
 
 ## <a name="contact-us"></a>Свяжитесь с нами
 * [Как задать вопрос рабочей группе службы управления API Microsoft Azure?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
-
 
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 * [Что означает, если функция пребывает в предварительной версии?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -62,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Как защитить подключение шлюза управления API к внутренним службам?
 Существует несколько способов защитить такое подключение. Вы можете:
 
-* Использование обычной проверки подлинности HTTP. Дополнительные сведения см. в разделе [Настройка параметров API](api-management-howto-create-apis.md#configure-api-settings).
+* Использование обычной проверки подлинности HTTP. Дополнительные сведения см. в статье об [импорте и публикации первого API](import-and-publish.md).
 * использовать взаимную проверку подлинности SSL, как описано в статье [Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management](api-management-howto-mutual-certificates.md).
 * использовать разрешенный список IP-адресов во внутренних службах. Если у вас есть экземпляр службы управления API уровня "Стандартный" или "Премиум", IP-адрес шлюза остается неизменным. Можно задать список разрешений и включить в него этот IP-адрес. IP-адрес экземпляра службы управления API можно узнать на панели мониторинга на портале Azure.
 * подключить экземпляр службы управления API к виртуальной сети Azure.
@@ -102,7 +101,7 @@ ms.lasthandoff: 10/11/2017
 Управление версиями в службе управлении API предполагает несколько способов:
 
 * В службе управления API вы можете настроить отдельные API, представляющие разные версии. Например, может понадобиться настроить два разных API, MyAPIv1 и MyAPIv2. Разработчик может выбрать версию, которую необходимо использовать.
-* Вы также можете настроить для API URL-адрес службы без учета версии, например https://my.api. Затем необходимо настроить сегмент версии для шаблона [перезаписи URL-адреса](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) каждой операции. Например, есть операция, в которой используется [шаблон URL-адреса](api-management-howto-add-operations.md#url-template) /resource и [перезаписи URL-адреса](api-management-howto-add-operations.md#rewrite-url-template) /v1/Resource. Вы можете изменить значение сегмента версии для каждой операции по отдельности.
+* Вы также можете настроить для API URL-адрес службы без учета версии, например https://my.api. Затем необходимо настроить сегмент версии для шаблона [перезаписи URL-адреса](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) каждой операции. 
 * Если вы хотите оставить в URL-адресе службы API сегмент версии по умолчанию, задайте для выбранных операций политику, использующую политику [задания внутренней службы](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService), изменяющую путь запроса к внутренней службе.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Как настроить несколько сред в одном API?

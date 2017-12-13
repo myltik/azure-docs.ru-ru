@@ -2,46 +2,36 @@
 title: "Веб-перехватчики реестра контейнеров Azure"
 description: "Узнайте, как использовать веб-перехватчики для активации событий при выполнении определенных действий в репозиториях реестров."
 services: container-registry
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acr, azure-container-registry
-keywords: "Docker, контейнеры, ACR"
-ms.assetid: 
 ms.service: container-registry
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/08/2017
+ms.date: 12/02/2017
 ms.author: nepeters
-ms.openlocfilehash: 5a9dab91aafb92f944b473f05144242143e36477
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 133e36179a500dc65c3a543266a7afcf9988b87d
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Использование веб-перехватчиков реестра контейнеров Azure
 
 В реестре контейнеров Azure хранятся частные образы контейнеров Docker, а также осуществляется управление ими (подобно тому, как в Docker Hub хранятся общедоступные образы Docker). Веб-перехватчики используются для активации событий при выполнении определенных действий в одном из репозиториев реестров. Веб-перехватчики могут реагировать на события на уровне реестра. Также их можно ориентировать на определенный тег репозитория.
 
-Общие сведения и основные понятия см. в статье о [реестре контейнеров Azure](./container-registry-intro.md).
+Дополнительные сведения о запросах веб-перехватчика см. в [справочнике по схеме веб-перехватчика реестра контейнеров Azure](container-registry-webhook-reference.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-- Управляемый реестр контейнеров Azure. Создайте управляемый реестр контейнеров в своей подписке Azure. Это можно сделать на [портале Azure](container-registry-get-started-portal.md) или с помощью [Azure CLI](container-registry-get-started-azure-cli.md).
-- Интерфейс командной строки Docker (Docker CLI). Установите [подсистему Docker](https://docs.docker.com/engine/installation/), чтобы настроить локальный компьютер в качестве узла Docker и получить доступ к командам Docker CLI.
+* Реестр контейнеров Azure. Создайте реестр контейнеров в своей подписке Azure. Это можно сделать на [портале Azure](container-registry-get-started-portal.md) или с помощью [Azure CLI](container-registry-get-started-azure-cli.md).
+* Интерфейс командной строки Docker (Docker CLI). Установите [подсистему Docker](https://docs.docker.com/engine/installation/), чтобы настроить локальный компьютер в качестве узла Docker и получить доступ к командам Docker CLI.
 
 ## <a name="create-webhook-azure-portal"></a>Создание веб-перехватчика на портале Azure
 
-1. Войдите на [портал Azure](https://portal.azure.com) и перейдите к реестру, в котором нужно создать веб-перехватчики.
-
-2. В колонке контейнера выберите **Веб-перехватчики** в разделе **Службы**.
-
-3. Щелкните **Добавить** на панели инструментов колонки веб-перехватчика.
-
-4. Заполните форму *Создать веб-перехватчик* следующими данными:
+1. Войдите на [портал Azure](https://portal.azure.com)
+1. Перейдите в реестр контейнеров, в котором нужно создать веб-перехватчик.
+1. В разделе **Службы** выберите **Веб-перехватчики**.
+1. Щелкните **Добавить** на панели инструментов веб-перехватчика.
+1. Заполните форму *Создать веб-перехватчик* следующими данными:
 
 | Значение | Описание |
 |---|---|
@@ -68,7 +58,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-portal"></a>Портал Azure
 
-Прежде чем использовать веб-перехватчик для действий отправки или удаления образа контейнера, его можно проверить с помощью кнопки **Проверка связи**. После нажатия этой кнопки к указанной конечной точке отправляется общий запрос POST и ответ записывается в журнал. Это позволяет проверить, правильно ли настроен веб-перехватчик.
+Прежде чем использовать веб-перехватчик для действий отправки или удаления образа контейнера, его можно проверить с помощью кнопки **Проверка связи**. После нажатия этой кнопки к указанной конечной точке отправляется общий запрос POST и ответ записывается в журнал. Используя функцию проверки связи, мы сможем проверить, правильно ли настроен веб-перехватчик.
 
 1. Выберите веб-перехватчик, который требуется проверить.
 2. В верхней части панели инструментов выберите **Проверка связи**.
@@ -101,3 +91,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 ```azurecli-interactive
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 ```
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+[Azure Container Registry webhook schema reference](container-registry-webhook-reference.md) (Справочник по схеме реестра контейнеров Azure)

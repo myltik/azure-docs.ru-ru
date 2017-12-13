@@ -14,102 +14,92 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
+ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: db8f0056fa3813e95c2c5bea583d7b66ac64260f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 78ab44a7afa6523e1e9e4082b3f45b1a28affe77
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Выполнение интерактивных запросов в кластере HDInsight Spark
+# <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Выполнение интерактивных запросов в кластерах Spark в HDInsight
 
-В этой статье описано, как с помощью записной книжки Jupyter выполнять интерактивные запросы Spark SQL к кластеру Spark. Записная книжка Jupyter представляет собой браузерное приложение, которое позволяет использовать интерактивный интерфейс на базе консоли в Интернете. Дополнительные сведения см. в [документации по записным книжкам Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html).
+В этой статье описано, как с помощью записной книжки Jupyter выполнять интерактивные запросы Spark SQL к кластеру Spark. 
 
-В ходе работы с этим руководством вы выполните интерактивный SQL-запрос к Spark с помощью ядра **PySpark** в записной книжке Jupyter. Записные книжки Jupyter в кластерах HDInsight поддерживают еще две версии ядер — **PySpark3** и **Spark**. Дополнительные сведения об этих ядрах и о преимуществах **PySpark** см. в статье [Ядра для записной книжки Jupyter в кластерах Spark в Azure HDInsight](apache-spark-jupyter-notebook-kernels.md).
+[Записная книжка Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) — это браузерное приложение, которое позволяет использовать интерактивный интерфейс на базе консоли в Интернете. Spark в HDInsight также содержит [записную книжку Zeppelin](apache-spark-zeppelin-notebook.md). В этом руководстве используется записная книжка Jupyter.
+
+Записные книжки Jupyter в кластерах HDInsight поддерживают три версии ядер: **PySpark**, **PySpark3** и **Spark**. В этом руководстве используется ядро **PySpark**. Дополнительные сведения об этих ядрах и о преимуществах **PySpark** см. в статье [Ядра для записной книжки Jupyter в кластерах Spark в Azure HDInsight](apache-spark-jupyter-notebook-kernels.md). См. дополнительные сведения об [использовании записных книжек Zeppelin с кластером Apache Spark в Azure HDInsight](./apache-spark-zeppelin-notebook.md).
+
+Из этого руководства вы узнаете как обращаться к данным в CSV-файле. Сначала в Spark необходимо загрузить данные в виде кадра данных. Затем к кадру данных можно выполнять запросы с помощью записной книжки Jupyter. 
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 * **Кластер Azure HDInsight Spark**. Инструкции см. в статье [Создание кластера Apache Spark в Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* **Работа с записной книжкой Jupyter при использовании ядра PySpark**. Инструкции см. в разделе по [созданию записной книжки Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-## <a name="create-a-jupyter-notebook-to-run-interactive-queries"></a>Создание записной книжки Jupyter для выполнения интерактивных запросов
+## <a name="create-a-dataframe-from-a-csv-file"></a>Создание кадра данных из CSV-файла
 
-Чтобы выполнять запросы, мы воспользуемся тестовым набором данных, который по умолчанию всегда доступен в хранилище, связанном с кластером. Но эти данные нужно сначала загрузить в Spark в виде кадра данных. Когда кадр данных будет готов, вы сможете отправлять запросы к нему с помощью записной книжки Jupyter. В этой статье вы научитесь выполнять такие задания:
+С помощью класса SQLContext приложения могут создавать кадры данных из существующего набора данных RDD, а также из таблицы Hive или других источников данных. 
 
-* регистрация тестового набора данных в качестве кадра данных Spark;
-* выполнение запросов к кадру данных.
+**Чтобы создать кадр данных из CSV-файла:**
 
-Давайте приступим.
+1. Если у вас нет записной книжки Jupyter, создайте ее с помощью PySpark. Инструкции см. в разделе по [созданию записной книжки Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-1. Откройте [портал Azure](https://portal.azure.com/). Если закрепили кластер на панели мониторинга, щелкните элемент кластера на панели мониторинга, чтобы открыть колонку кластера.
+2. Вставьте следующий код в пустую ячейку приложения и нажмите **SHIFT+ВВОД** для выполнения кода. Код импортирует типы, необходимые для этого сценария:
 
-    Если вы не закрепили кластер на панели мониторинга, в области слева щелкните **Кластеры HDInsight**, а затем выберите созданный кластер.
+    ```PySpark
+    from pyspark.sql import *
+    from pyspark.sql.types import *
+    ```
+    Если приложение создается с использованием ядра PySpark, при выполнении первой ячейки кода контексты Spark и Hive будут созданы автоматически. Вам не нужно явно создавать контексты.
 
-3. В разделе **Быстрые ссылки** щелкните **Панели мониторинга кластера**, а затем — **Записная книжка Jupyter**. При появлении запроса введите учетные данные администратора для кластера.
-
-   ![Открытие записной книжки Jupyter для выполнения интерактивного запроса Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-start-jupyter-interactive-spark-sql-query.png "Открытие записной книжки Jupyter для выполнения интерактивного запроса Spark SQL")
-
-   > [!NOTE]
-   > Также можно открыть записную книжку Jupyter для своего кластера, открыв следующий URL-адрес в браузере. Замените **CLUSTERNAME** именем кластера:
-   >
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-3. Создайте записную книжку. Щелкните **Создать**, а затем выберите **PySpark**.
-
-   ![Создание записной книжки Jupyter для выполнения интерактивного запроса Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Создание записной книжки Jupyter для выполнения интерактивного запроса Spark SQL")
-
-   Будет создана и открыта записная книжка с именем Untitled (Untitled.pynb).
-
-4. Щелкните имя записной книжки вверху и по желанию введите понятное имя.
-
-    ![Указание имени записной книжки Jupter, из которой будет выполняться интерактивный запрос Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-jupyter-notebook-name.png "Указание имени записной книжки Jupter, из которой будет выполняться интерактивный запрос Spark")
-
-5. Вставьте указанный ниже код в пустую ячейку и нажмите сочетание клавиш **SHIFT + ВВОД**, чтобы выполнить код. Код импортирует типы, необходимые для этого сценария:
-
-        from pyspark.sql import *
-        from pyspark.sql.types import *
-
-    Так как записная книжка была создана с помощью ядра PySpark, задавать контексты явно необязательно. Контексты Spark и Hive будут созданы автоматически при выполнении первой ячейки кода.
+    При запуске интерактивного запроса в Jupyter в заголовке окна веб-браузера или вкладки будет отображаться состояние **(Busy)** (Занято), а также название приложения. Кроме того, рядом с надписью **PySpark** в верхнем правом углу окна будет показан закрашенный кружок. После завершения задания он изменится на кружок без заливки.
 
     ![Состояние интерактивного запроса Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Состояние интерактивного запроса Spark SQL")
 
-    При каждом запуске интерактивного запроса в Jupyter в заголовке окна веб-браузера будет отображаться состояние **(Занято)**, а также название записной книжки. Кроме того, рядом с надписью **PySpark** в верхнем правом углу окна будет показан закрашенный кружок. После завершения задания он изменится на кружок без заливки.
+3. Выполните следующий код, чтобы создать кадр данных и временную таблицу (**hvac**). Код извлекает не все колонки, доступные в CSV-файле. 
 
-6. Прежде чем загружать данные в кластер Spark, давайте немного изучим их. Тестовые данные, используемые в этом руководстве, доступны на всех кластерах HDInsight Spark в виде CSV-файла по адресу **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Эти данные демонстрируют колебания температуры в здании. Ниже вы видите несколько первых строк из этого набора данных.
+    ```PySpark
+    # Create an RDD from sample data
+    hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    
+    # Create a schema for our data
+    Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+    
+    # Parse the data and create a schema
+    hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
+    hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
+    
+    # Infer the schema and create a table       
+    hvacTable = sqlContext.createDataFrame(hvac)
+    hvacTable.registerTempTable('hvactemptable')
+    dfw = DataFrameWriter(hvacTable)
+    dfw.saveAsTable('hvac')
+    ```
+    На снимке экрана показан моментальный снимок файла hvac.csv. CSV-файл содержит все кластеры HDInsigt Spark. Эти данные демонстрируют колебания температуры в здании.
 
     ![Моментальный снимок данных для интерактивных запросов Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot of data for interactive Spark SQL query")
 
-6. Создайте кадр данных и временную таблицу **hvac**, выполнив следующий код: В этом руководстве мы не создаем все столбцы, доступные в CSV-файле. 
+## <a name="run-queries-on-the-dataframe"></a>Выполнение запросов к кадру данных
 
-        # Create an RDD from sample data
-        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+Когда таблица будет готова, выполните интерактивный запрос к данным.
 
-        # Create a schema for our data
-        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+**Чтобы выполнить запрос:**
 
-        # Parse the data and create a schema
-        hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
-        hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
-        
-        # Infer the schema and create a table       
-        hvacTable = sqlContext.createDataFrame(hvac)
-        hvacTable.registerTempTable('hvactemptable')
-        dfw = DataFrameWriter(hvacTable)
-        dfw.saveAsTable('hvac')
+1. В пустой ячейке приложения выполните следующий код:
 
-7. Когда таблица будет готова, выполните интерактивный запрос к данным с помощью следующего кода.
+    ```PySpark
+    %%sql
+    SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+    ```
 
-        %%sql
-        SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
-
-   Так как вы используете ядро PySpark, вы можете отправить интерактивный SQL-запрос непосредственно к временной таблице **hvac**, которую вы создали с помощью волшебной команды `%%sql`. Дополнительные сведения о магической команде `%%sql`, а также других магических командах, доступных в ядре PySpark, приведены в статье [Ядра для записных книжек Jupyter с кластерами Apache Spark в HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Так как для работы приложения используется ядро PySpark, вы можете отправить интерактивный SQL-запрос непосредственно к временной таблице **hvac**, которую вы создали с помощью волшебной команды `%%sql`. Дополнительные сведения о магической команде `%%sql`, а также других магических командах, доступных в ядре PySpark, приведены в статье [Ядра для записных книжек Jupyter с кластерами Apache Spark в HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
    По умолчанию выводятся следующие табличные данные.
 
      ![Таблица результатов интерактивного запроса Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Таблица результатов интерактивного запроса Spark")
 
-9. Результаты также можно просмотреть и в других визуализациях. Чтобы увидеть результат в виде диаграммы с областями, выберите **Область** и укажите другие значения, как показано ниже.
+3. Результаты также можно просмотреть и в других визуализациях. Чтобы увидеть результат в виде диаграммы с областями, выберите **Область** и укажите другие значения, как показано ниже.
 
     ![Диаграмма с областями результата интерактивного запроса Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Диаграмма с областями результата интерактивного запроса Spark")
 

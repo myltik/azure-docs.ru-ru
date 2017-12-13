@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0674aba66b48b26b70b3ab32d9283de5c63a267a
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Создание масштабируемых облачных баз данных
 Масштабирование баз данных можно легко выполнить с помощью средств и функций масштабирования для базы данных SQL Azure. В частности, для создания и управления масштабируемыми базами данных можно использовать **клиентскую библиотеку эластичных баз данных** . Она позволяет легко разрабатывать сегментированные приложения с сотнями — или даже тысячами — баз данных SQL Azure. [задания обработки эластичных БД](sql-database-elastic-jobs-powershell.md) , чтобы упростить управление этими базами данных.
 
 Скачать библиотеку можно из двух расположений:
-* версия для .NET доступна [здесь](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/);
-* версия для Java доступна [здесь](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
+* версия для Java доступна в репозитории [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools);
+* версия для .NET доступна [здесь](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## <a name="documentation"></a>Документация
 1. [Приступая к работе с инструментами эластичных баз данных](sql-database-elastic-scale-get-started.md)
@@ -60,11 +60,11 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- **Скачайте** клиентскую библиотеку эластичной базы данных для [.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) или [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22).
+- **Скачайте** клиентскую библиотеку эластичной базы данных ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)).
 
 - См. статью [Приступая к работе с инструментами эластичных баз данных](sql-database-elastic-scale-get-started.md), чтобы изучить **пример приложения**, который демонстрирует функции клиента.
 
-- Предложите свои идеи для кода [.NET](https://github.com/Azure/elastic-db-tools) или [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md) на сайте GitHub.
+- Предложите свои идеи для кода [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md) или [.NET](https://github.com/Azure/elastic-db-tools) на сайте GitHub.
 - См. сведения в [обзоре эластичных запросов к базе данных SQL Azure](sql-database-elastic-query-overview.md).
 
 - Инструкции по использованию **средства разбиения и слияния** см. в статье [Перемещение данных между масштабируемыми облачными базами данных](sql-database-elastic-scale-overview-split-and-merge.md).

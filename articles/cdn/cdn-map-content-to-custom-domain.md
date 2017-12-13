@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: fd36b94c64ad31064dbb2e0badceaee5e5bc400f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>Добавление личного домена к конечной точке CDN
 После создания профиля вы обычно создаете одну или несколько [конечных точек](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) CDN (поддомен `azureedge.net`) для передачи содержимого с использованием протоколов HTTP и HTTPS. По умолчанию эта конечная точка включена во всех URL-адресах (например, `https://contoso.azureedge.net/photo.png`). Для удобства Azure CDN предоставляет возможность связать личный домен (например, `www.contoso.com`) с конечной точкой. Таким образом вы можете использовать для доставки содержимого личный домен вместо конечной точки. Эта возможность полезна, например, если вы хотите, чтобы ваше собственное доменное имя могли видеть ваши клиенты (для целей популяризации бренда).
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/27/2017
  
   | ИМЯ             | ТИП  | Значение                  |
   |------------------|-------|------------------------|
-  | www\.consoto.com | CNAME | consoto\.azureedge.net |
+  | www\.contoso.com | CNAME | contoso\.azureedge.net |
 
 
 - Вариант 2. Сопоставление с поддоменом **cdnverify**. Если рабочий трафик, который не может быть прерван, проходит в личном домене, вы можете создать временное сопоставление CNAME с конечной точкой CDN. Этот вариант позволяет использовать поддомен Azure **cdnverify**, чтобы обеспечить промежуточный этап регистрации. Так пользователи могут получать доступ к вашему домену без прерывания во время сопоставления DNS.
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/27/2017
 
    | ИМЯ                       | ТИП  | Значение                            |
    |----------------------------|-------|----------------------------------|
-   | cdnverify.www\.consoto.com | CNAME | cdnverify.consoto\.azureedge.net | 
+   | cdnverify.www\.contoso.com | CNAME | cdnverify.contoso\.azureedge.net | 
 
 
 ## <a name="step-3-enable-the-cname-record-mapping-in-azure"></a>Шаг 3. Включение сопоставления записи CNAME в Azure
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/27/2017
  
    | ИМЯ             | ТИП  | Значение                  |
    |------------------|-------|------------------------|
-   | www\.consoto.com | CNAME | consoto\.azureedge.net |
+   | www\.contoso.com | CNAME | contoso\.azureedge.net |
 2. Удалите запись CNAME поддомена **cdnverify**, созданную ранее.
 
 ## <a name="see-also"></a>См. также

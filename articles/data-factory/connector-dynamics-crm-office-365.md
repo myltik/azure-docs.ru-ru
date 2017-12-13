@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Копирование данных из Dynamics CRM или Dynamics 365 и обратно с помощью фабрики данных Azure
 
@@ -30,14 +30,20 @@ ms.lasthandoff: 11/10/2017
 
 Данные можно скопировать из Dynamics 365 или Dynamics CRM в любое поддерживаемое хранилище данных, используемое в качестве приемника, а также из любого поддерживаемого исходного хранилища данных в Dynamics 365 или Dynamics CRM. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, см. в таблице [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
 
-В частности, этот соединитель Dynamics поддерживает следующие версии Dynamics и типы проверки подлинности:
+Этот соединитель Dynamics поддерживает следующие версии Dynamics и типы аутентификации (*IFD — это сокращение от Internet Facing Deployment (развертывание с выходом в Интернет)*):
 
 | Версии Dynamics | Типы проверки подлинности | Примеры связанной службы |
 |:--- |:--- |:--- |
 | Dynamics 365 Online <br> Dynamics CRM Online | Оffice 365 | [Проверка подлинности Dynamics Online и Office 365](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 (локальная версия) с IFD <br> Dynamics CRM 2016 (локальная версия) с IFD <br> Dynamics CRM 2015 (локальная версия) с IFD | IFD | [Dynamics (локальная версия) с IFD и проверка подлинности IFD](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-*IFD — сокращение от термина "развертывание с выходом в Интернет".*
+В частности, для Dynamics 365 поддерживаются следующие типы приложений:
+
+- Dynamics 365 for Sales;
+- Dynamics 365 for Customer Service;
+- Dynamics 365 for Field Service;
+- Dynamics 365 for Project Service Automation;
+- Dynamics 365 for Marketing.
 
 > [!NOTE]
 > Чтобы использовать соединитель Dynamics, сохраните пароль в Azure Key Vault и позвольте действию копирования ADF совершать запросы при выполнении копирования данных. Дополнительные сведения о копировании см. в разделе [Свойства связанной службы](#linked-service-properties).
