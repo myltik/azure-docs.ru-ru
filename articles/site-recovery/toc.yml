@@ -176,8 +176,10 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: Настройка параметров репликации из VMware в Azure
           href: site-recovery-setup-replication-settings-vmware.md
-        - name: Исключение дисков из репликации
+        - name: Исключение дисков из репликации VMware — Azure
           href: site-recovery-exclude-disk.md
+        - name: Исключение дисков из репликации Hyper-V — Azure
+          href: site-recovery-hyper-v-exclude-disk.md
         - name: Развертывание службы Mobility Service для репликации VMware
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:
