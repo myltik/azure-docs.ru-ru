@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>Решение для мониторинга работоспособности агентов в OMS
 Решение для мониторинга работоспособности агентов в OMS помогает выявлять среди всех агентов, отправляющих отчеты непосредственно в OMS или подключенную к OMS группу управления System Center Operations Manager, агенты, которые не отвечают на запросы и которые отправляют оперативные данные.  Вы также можете отслеживать число развернутых агентов и их географическое распределение, а также выполнять другие запросы, чтобы знать о распределении агентов, развернутых в Azure, других облачных средах или в локальной среде.    
 
 ## <a name="prerequisites"></a>Предварительные требования
-Перед развертыванием этого решения убедитесь, что у вас есть поддерживаемые [агенты Windows](../log-analytics/log-analytics-windows-agents.md), которые отправляют отчеты в рабочую область OMS или [группу управления Operations Manager](../log-analytics/log-analytics-om-agents.md), интегрированную с вашей рабочей областью OMS.    
+Перед развертыванием этого решения убедитесь, что у вас есть поддерживаемые [агенты Windows](../log-analytics/log-analytics-windows-agent.md), которые отправляют отчеты в рабочую область OMS или [группу управления Operations Manager](../log-analytics/log-analytics-om-agents.md), интегрированную с вашей рабочей областью OMS.    
 
 ## <a name="solution-components"></a>Компоненты решения
 Это решение состоит из следующих ресурсов, добавленных в вашу рабочую область, и подключенных напрямую агентов или подключенной группы управления Operations Manager.

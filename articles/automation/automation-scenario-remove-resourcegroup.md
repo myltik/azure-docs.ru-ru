@@ -3,7 +3,7 @@ title: "Автоматизация удаления групп ресурсов 
 description: "Сценарий службы автоматизации Azure с использованием рабочего процесса PowerShell предусматривает удаление всех групп ресурсов в подписке с помощью модулей Runbook."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: 8b23e55a597f293b17183e80eea6c2763aabe9ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7b27ca64d9aacabf96fdff8e7dca16f13000d19
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Сценарий службы автоматизации Azure: автоматизация удаления групп ресурсов
 Многие клиенты создают несколько групп ресурсов. Одни можно использовать для управления рабочими приложениями, а другие — в качестве промежуточных сред или сред разработки и тестирования. Но автоматизация развертывания этих ресурсов и возможность удалить группу ресурсов с помощью нажатия кнопки — это две разных задачи. С помощью службы автоматизации Azure можно упростить эту распространенную задачу управления. Это будет полезно, если вы работаете с подпиской Azure, для которой настроена предельная сумма расходов, например в рамках предложения для участников MSDN или программы Microsoft Partner Network Cloud Essentials.

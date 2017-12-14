@@ -15,17 +15,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2017
+ms.date: 12/13/2017
 ms.author: nitinme
-ms.openlocfilehash: 5ab6adb1cc3afb5733307cfb52029f9358904859
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: b52f896c0d2a023a0a371668c4f6ce55060c2cfd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Общие сведения о Spark в HDInsight
 
 В этой статье предоставляются общие сведения о Spark в HDInsight. <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> — это платформа параллельной обработки с открытым исходным кодом, которая поддерживает обработку в памяти, чтобы повысить производительность приложений для анализа данных большого размера. Кластер Spark в HDInsight совместим со службой хранилища Azure (WASB) и с Azure Data Lake Store. Таким образом, хранящиеся в Azure данные можно без труда обработать при помощи кластера Spark.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 При создании кластера Spark в HDInsight создание вычислительных ресурсов Azure следует выполнять после установки и настройки Spark. Создание кластера Spark в HDInsight займет не более 10 минут. Данные для обработки находятся в службе хранилища Azure или Azure Data Lake Store. Дополнительные сведения см. в статье [Использование HDFS-совместимой службы хранилища с Hadoop в HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 

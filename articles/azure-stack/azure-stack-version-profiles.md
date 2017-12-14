@@ -3,28 +3,28 @@ title: "Использование профилей версий API в Azure St
 description: "Сведения о профилях версии API в Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: EBAEA4D2-098B-4B5A-A197-2CEA631A1882
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: sngun
-ms.openlocfilehash: b9a010409dc7f49333ab188b89280f3ad54816c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 68f4250c2a2a6bed1a1e21dc444e93cc87b6f59b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Управление профилями версий API в Azure Stack
 
 *Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
 
-Профили версий API позволяют управлять различиями между версиями Azure и Azure Stack. Профиль версии API — это набор модулей AzureRM PowerShell с определенными версиями API. Каждая облачная платформа имеет набор поддерживаемых профилей версий API. Например, Azure Stack поддерживает версию профиля определенной даты, например **2017-03-09-profile**, а Azure поддерживает профиль API **последней** версии. При установке профиля также устанавливаются модули AzureRM PowerShell, которые соответствуют выбранному профилю.
+Профили версий API позволяют управлять различиями между версиями Azure и Azure Stack. Профиль версии API — это набор модулей AzureRM PowerShell с определенными версиями API. Каждая облачная платформа имеет набор поддерживаемых профилей версий API. Например, Azure Stack поддерживает версию профиля определенной даты, например **2017-03-09-profile**, а Azure поддерживает профиль API **последней** версии. При установке профиля устанавливается набор модулей AzureRM PowerShell, которые соответствуют выбранному профилю.
 
 ## <a name="install-the-powershell-module-required-to-use-api-version-profiles"></a>Установка модуля PowerShell, необходимого для использования профилей версий API
 
@@ -48,9 +48,9 @@ Install-AzureRMProfile -Profile 2017-03-09-profile
 ```
 ## <a name="install-and-import-modules-in-a-profile"></a>Установка и импорт модулей в профиль
 
-Используйте командлет **Use-AzureRmProfile**, чтобы установить и импортировать модули, связанные с профилем версии API. Для сеанса PowerShell можно импортировать только один профиль версии API. Чтобы импортировать другой профиль версии API, необходимо открыть новый сеанс PowerShell. Командлет Use-AzureRMProfile выполняет следующие задачи:  
+Используйте командлет **Use-AzureRmProfile**, чтобы установить и импортировать модули, связанные с профилем версии API. Для сеанса PowerShell можно импортировать только один профиль версии API. Чтобы импортировать другой профиль версии API, необходимо открыть новый сеанс PowerShell. Командлет Use-AzureRMProfile выполняет следующие задачи.  
 1. Проверяет в текущей области наличие модулей PowerShell, связанных с определенным профилем версии API.  
-2. Скачивает и устанавливает модули, если они еще не установлены.   
+2. Скачивает и устанавливает модули, которые еще не установлены.   
 3. Импортирует модули для текущего сеанса PowerShell. 
 
 ```PowerShell
@@ -61,7 +61,7 @@ Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser
 Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser -Force
 ```
 
-Чтобы установить и импортировать выбранные модули AzureRM из профиля версии API, выполните командлет Use-AzureRMProfile с заданным параметром **Module**:
+Чтобы установить и импортировать выбранные модули AzureRM из профиля версии API, выполните командлет Use-AzureRMProfile с параметром **Module**:
 
 ```PowerShell
 # Installs and imports the compute, Storage and Network modules from the specified API version profile into your current PowerShell session.
@@ -81,7 +81,7 @@ Get-AzureRmProfile
 ```
 ## <a name="update-profiles"></a>Обновление профилей
 
-Используйте командлет **Update-AzureRmProfile** для обновления модулей в профиле версии API до последней версии, доступной в PSGallery. Всегда запускайте командлет **Update-AzureRmProfile** в новом сеансе PowerShell, чтобы избежать конфликтов при импорте модулей. Командлет Update-AzureRmProfile выполняет следующие задачи:
+Используйте командлет **Update-AzureRmProfile** для обновления модулей в профиле версии API до последней версии, доступной в PSGallery. Всегда запускайте командлет **Update-AzureRmProfile** в новом сеансе PowerShell, чтобы избежать конфликтов при импорте модулей. Командлет Update-AzureRmProfile выполняет следующие задачи.
 
 1. Проверяет в текущей области, установлены ли последние версии модулей в определенном профиле версии API.  
 2. Предлагает установить их, если они еще не установлены.  
@@ -91,13 +91,13 @@ Get-AzureRmProfile
 Update-AzureRmProfile -Profile 2017-03-09-profile
 ```
 
-Чтобы удалить ранее установленные версии модулей, прежде чем выполнить обновление до последней версии, используйте командлет Update-AzureRmProfile с заданным параметром **-RemovePreviousVersions**.
+Чтобы удалить ранее установленные версии модулей перед обновлением до последней версии, при запуске командлета Update-AzureRmProfile укажите параметр **-RemovePreviousVersions**.
 
 ```PowerShell 
 Update-AzureRmProfile -Profile 2017-03-09-profile -RemovePreviousVersions
 ```
 
-Этот командлет выполняет следующие задачи:  
+Этот командлет выполняет следующие задачи.  
 
 1. Проверяет в текущей области, установлены ли последние версии модулей в определенном профиле версии API.  
 2. Удаляет устаревшие версии модулей из текущего профиля версии API и текущего сеанса PowerShell.  
@@ -114,4 +114,4 @@ Uninstall-AzureRmProfile -Profile 2017-03-09-profile
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) (Установка PowerShell для Azure Stack)
-* [Настройка пользовательской среды PowerShell в Azure Stack](user/azure-stack-powershell-configure-user.md)  
+* [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md) (Настройка пользовательской среды PowerShell в Azure Stack)  

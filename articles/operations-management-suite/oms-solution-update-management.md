@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Решение для управления обновлениями в OMS
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 12/02/2017
     > Это решение не поддерживает агент OMS для Linux, настроенный для отправки отчетов в несколько рабочих областей OMS.  
     >
 
-Дополнительные сведения по установке агента OMS для Linux и скачиванию последней версии см. [здесь](https://github.com/microsoft/oms-agent-for-linux).  Дополнительные сведения по установке агента OMS для Windows см. в статье [Подключение компьютеров Windows к службе Log Analytics в Azure](../log-analytics/log-analytics-windows-agents.md).  
+Дополнительные сведения по установке агента OMS для Linux и скачиванию последней версии см. [здесь](https://github.com/microsoft/oms-agent-for-linux).  Дополнительные сведения по установке агента OMS для Windows см. в статье [Подключение компьютеров Windows к службе Log Analytics в Azure](../log-analytics/log-analytics-windows-agent.md).  
 
 ### <a name="permissions"></a>Разрешения
 Для создания развертываний обновления вам должна быть назначена роль участника в учетной записи службы автоматизации и рабочей области Log Analytics.  
@@ -126,7 +126,7 @@ ms.lasthandoff: 12/02/2017
 1.  Откройте Microsoft Monitoring Agent на панели управления. На вкладке **Azure Log Analytics (OMS)** агент отобразит сообщение **Microsoft Monitoring Agent успешно подключен к службе Microsoft Operations Management Suite**.   
 2.  Откройте журнал событий Windows, перейдите к **журналам приложения и служб или Operations Manager** и выполните поиск идентификатора события 3000 или 5002 в исходном соединителе службы.  Эти события указывают, что компьютер был зарегистрирован для рабочей области OMS и получает конфигурации.  
 
-Если агент не взаимодействует со службой OMS и настроен на взаимодействие с Интернетом через брандмауэр или прокси-сервер, вам необходимо проверить, правильно ли настроен брандмауэр или прокси-сервер. Для этого ознакомьтесь с разделом о [настройке сети для агента Windows](../log-analytics/log-analytics-windows-agents.md#network) или [агента Linux](../log-analytics/log-analytics-agent-linux.md#network).
+Если агент не взаимодействует со службой OMS и настроен на взаимодействие с Интернетом через брандмауэр или прокси-сервер, вам необходимо проверить, правильно ли настроен брандмауэр или прокси-сервер. Для этого ознакомьтесь с разделом о [настройке сети для агента Windows](../log-analytics/log-analytics-windows-agent.md) или [агента Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Если при подключении этого решения системы Linux настроены для взаимодействия с прокси-сервером или шлюзом OMS, обновите разрешения *proxy.conf*, чтобы предоставить группе omiuser разрешение на чтение файла. Для этого выполните следующие команды:  

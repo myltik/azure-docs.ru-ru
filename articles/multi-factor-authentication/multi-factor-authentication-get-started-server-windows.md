@@ -4,7 +4,7 @@ description: "Это страница Многофакторной иденти�
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/06/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 508b97afa0e7844d6fd2e6c9da3e77073d62ae9f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ae4503425d139c31d810f4bcf940b03357ed933a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Проверка подлинности Windows и сервер Многофакторной идентификации Azure
 Раздел проверки подлинности Windows сервера Многофакторной идентификации Azure позволяет включить и настроить проверку подлинности Windows для приложений. Перед тем как настроить проверку подлинности Windows, обратите внимание на следующий список.

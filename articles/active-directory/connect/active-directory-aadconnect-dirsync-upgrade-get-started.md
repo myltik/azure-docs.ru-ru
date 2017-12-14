@@ -4,7 +4,7 @@ description: "Узнайте, как обновить DirSync до Azure AD Conn
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: baf52da7-76a8-44c9-8e72-33245790001c
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7049af4567947d3d799a38c5a3940ba25a2c0f18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c691bc2725f92578a22dff352ee39b66de08c870
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: обновление DirSync
 Azure AD Connect является преемником Microsoft Azure Active Directory Sync Tool (DirSync). В этой статье описано, как можно обновить DirSync. Следующие действия не подходят для обновления другого выпуска Azure AD Connect или Azure AD Sync.
 
-Перед установкой Azure AD Connect, [скачайте Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) и выполните предварительные шаги, перечисленные в статье [Необходимые условия для Azure AD Connect](active-directory-aadconnect-prerequisites.md). В частности, ознакомьтесь со сведениями об указанных ниже областях, отличных от DirSync.
+Перед установкой Azure AD Connect, [скачайте Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) и выполните предварительные шаги, перечисленные в статье [Необходимые условия для Azure AD Connect](active-directory-aadconnect-prerequisites.md). В частности, ознакомьтесь со сведениями об указанных ниже областях, отличных от DirSync:
 
 * Требуемая версия .NET и PowerShell. На сервере должны быть установлены более новые версии, чем требуется для DirSync.
 * Конфигурация прокси-сервера. Если для доступа в Интернет используется прокси-сервер, перед обновлением этот параметр необходимо настроить. В DirSync всегда используется прокси-сервер, настроенный для пользователя, выполняющего установку, но в Azure AD Connect вместо этого используются параметры компьютера.

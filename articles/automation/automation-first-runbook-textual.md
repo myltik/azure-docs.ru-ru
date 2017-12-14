@@ -3,7 +3,7 @@ title: "Первый Runbook рабочего процесса PowerShell в с�
 description: "Учебник, в котором рассказывается, как создать, протестировать и опубликовать простой текстовый Runbook с помощью рабочего процесса PowerShell."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "рабочий процесс PowerShell, примеры рабочего процесса powershell, рабочие процессы powershell"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 71fba79804e4361fd731ec5627526beafa01fa3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 214163dd0f63bb8e08afdf94dcbfcc93d0279ad1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Первый Runbook рабочего процесса PowerShell
 

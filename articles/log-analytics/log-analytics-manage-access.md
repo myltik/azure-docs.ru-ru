@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: d9f86ac19044fd13e77d35d6c3dd9964c3852001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-workspaces"></a>Управление рабочими областями
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 * Вы являетесь поставщиком управляемой службы, и вам необходимо хранить данные службы Log Analytics по каждому клиенту отдельно от данных других клиентов.
 * Вы управляете несколькими клиентами и хотите, чтобы каждый клиент, отдел или бизнес-группа видели только свои данные.
 
-При использовании агентов для сбора данных [каждый агент можно настроить таким образом, чтобы он отправлял отчеты в одну или несколько рабочих областей](log-analytics-windows-agents.md).
+При использовании агентов для сбора данных [каждый агент можно настроить таким образом, чтобы он отправлял отчеты в одну или несколько рабочих областей](log-analytics-windows-agent.md).
 
 При использовании System Center Operations Manager, каждую группу управления Operations Manager можно подключить только к одной рабочей области. Но агент Microsoft Monitoring Agent, установленный на компьютере, можно настроить для отправки отчетов и в Operations Manager, и в другую рабочую область Log Analytics.  
 

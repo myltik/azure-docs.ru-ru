@@ -3,8 +3,8 @@ title: "Подключение к Azure Stack при помощи интерфе
 description: "Узнайте, как использовать межплатформенный интерфейс командной строки (CLI) для развертывания ресурсов и управления ими в Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
-ms.author: sngun
-ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.author: mabrigg
+ms.openlocfilehash: 5d15815e9b1d20ab03b5716de45ad0fa77a11057
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Установка и настройка интерфейса командной строки для работы с Azure Stack
 
@@ -145,7 +145,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
      --profile 2017-03-09-profile
    ```
 
-4. Войдите в среду Azure Stack с помощью команды `az login`. Вы можете войти в среду Azure Stack от имени пользователя или [субъекта-службы](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Войдите в среду Azure Stack с помощью команды `az login`. Вы можете войти в среду Azure Stack от имени пользователя или [субъекта-службы](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Для входа от имени *пользователя* можно указать имя пользователя и пароль непосредственно в команде `az login` или выполнить аутентификацию в браузере. Если для вашей учетной записи включена многофакторная аутентификация, возможным будет только второй вариант.
 
@@ -195,4 +195,3 @@ az group create \
 [Развертывание шаблонов с помощью интерфейса командной строки Azure](azure-stack-deploy-template-command-line.md)
 
 [Управление разрешениями пользователей](azure-stack-manage-permissions.md)
-

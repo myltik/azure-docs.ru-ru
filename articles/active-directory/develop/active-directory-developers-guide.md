@@ -3,7 +3,7 @@ title: "Azure Active Directory для разработчиков | Докуме�
 description: "В этой статье представлены общие сведения о входе в рабочие и учебные учетные записи Майкрософт с использованием Azure Active Directory."
 services: active-directory
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1614e37693adad268965e586f919a842c8f42e6a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: c7375b91790cc7a089560bd823e99850e3b34fec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory для разработчиков
 Azure Active Directory (Azure AD) — это облачная служба идентификации, с помощью которой разработчики обеспечивают безопасный вход пользователей с рабочей или учебной учетной записью Майкрософт. В этой документации показано, как с помощью стандартных отраслевых протоколов OAuth и OpenID Connect добавить поддержку Azure AD в ваше приложение.

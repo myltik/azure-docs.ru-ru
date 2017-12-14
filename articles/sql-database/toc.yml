@@ -60,9 +60,8 @@
 - name: Основные понятия
   items:
     - name: Функции службы
+      href: sql-database-servers-databases.md
       items:
-        - name: Обзор
-          href: sql-database-servers-databases.md
         - name: Уровни службы
           href: sql-database-service-tiers.md
         - name: Ограничения ресурсов
@@ -106,9 +105,8 @@
         - name: Общие компоненты SQL Server
           href: sql-database-features.md
     - name: Безопасность
+      href: sql-database-security-overview.md
       items:
-        - name: Обзор
-          href: sql-database-security-overview.md
         - name: управление доступом;
           href: sql-database-control-access.md
         - name: Azure AD
@@ -121,10 +119,11 @@
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Маскирование данных
           href: sql-database-dynamic-data-masking-get-started.md
+    - name: высокую доступность;
+      href: sql-database-high-availability.md
     - name: Непрерывность бизнес-процессов
+      href: sql-database-business-continuity.md
       items:
-        - name: Обзор
-          href: sql-database-business-continuity.md
         - name: Восстановление базы данных
           href: sql-database-recovery-using-backups.md
         - name: Настройка безопасности
@@ -140,9 +139,8 @@
         - name: Выполнение детализации восстановления
           href: sql-database-disaster-recovery-drills.md
     - name: Переход на базу данных SQL
+      href: sql-database-cloud-migrate.md
       items:
-        - name: Миграция базы данных SQL Server
-          href: sql-database-cloud-migrate.md
         - name: Изменения в T-SQL
           href: sql-database-transact-sql-information.md
         - name: Управление базой данных после миграции
@@ -158,9 +156,8 @@
         - name: Синхронизация данных
           href: sql-database-sync-data.md
     - name: Мониторинг и настройка
+      href: sql-database-troubleshoot-performance.md
       items:
-        - name: Обзор
-          href: sql-database-troubleshoot-performance.md
         - name: Мониторинг производительности
           href: sql-database-single-database-monitor.md
         - name: Рекомендации по повышению производительности
@@ -180,9 +177,8 @@
         - name: Мониторинг в памяти
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Масштабирование
+      href: sql-database-elastic-scale-introduction.md
       items:
-        - name: Обзор
-          href: sql-database-elastic-scale-introduction.md
         - name: Карты сегментов
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Маршрутизация запросов
@@ -220,9 +216,8 @@
         - name: Настройка выполняющейся в памяти OLTP
           href: sql-database-in-memory-oltp-migration.md
     - name: Разработка приложений
+      href: sql-database-develop-overview.md
       items:
-        - name: Обзор
-          href: sql-database-develop-overview.md
         - name: Соединение
           href: sql-database-libraries.md
         - name: Аутентификация приложения
