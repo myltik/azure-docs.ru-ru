@@ -150,7 +150,7 @@
         - name: API распознавания лиц
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/
-        - name: Служба Language Understanding Intelligent Service (LUIS)
+        - name: Language Understanding Intelligent Service (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
         - name: Текстовая аналитика
