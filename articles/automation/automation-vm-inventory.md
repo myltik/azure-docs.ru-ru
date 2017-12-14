@@ -8,11 +8,11 @@ ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: hero-article
 manager: carmonm
-ms.openlocfilehash: bfdd67ac1018f242e415da1a66d93f22bea8d054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275e4e9103808710e2a71168a05b3440bb288c6a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Управление виртуальной машиной Azure с помощью сбора данных инвентаризации
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись](https://azure.microsoft.com/free/).
-[Создайте виртуальную машину](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal), если вы еще не сделали этого.
+[Создайте виртуальную машину](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal), если вы еще не сделали этого.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Выполните вход на портал Azure.
 Выполните вход на [портал Azure](https://portal.azure.com/).

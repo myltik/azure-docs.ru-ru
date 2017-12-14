@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
-ms.openlocfilehash: 5bd5952a72b3511eecf3d336e7740578338ba18b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 832a859e70e382eb2eeb41560d1b880f7b87de53
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Начало работы с Azure Data Lake Analytics с помощью Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/18/2017
 
 Перед началом работы с этим руководством необходимо иметь следующую информацию:
 
-* **Учетная запись Azure Data Lake Analytics**. См. раздел [Начало работы с Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
+* **Учетная запись Azure Data Lake Analytics**. См. раздел [Начало работы с Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
 * **Рабочая станция с Azure PowerShell**. См. статью [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 
-Для работы с руководством необходим опыт работы с Azure PowerShell. В частности вам нужно знать, как выполнить вход в Azure. Если вам нужна помощь, см. раздел [Начало работы с Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps).
+Для работы с руководством необходим опыт работы с Azure PowerShell. В частности вам нужно знать, как выполнить вход в Azure. Если вам нужна помощь, см. раздел [Начало работы с Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 Вход в систему с использованием имени подписки:
 

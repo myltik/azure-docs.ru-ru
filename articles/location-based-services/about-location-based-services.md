@@ -6,17 +6,17 @@ keywords:
 author: dsk-2015
 ms.author: dkshir
 ms.date: 11/28/2017
-ms.topic: article
+ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c8ebce06a72bcaf769a11ec954702463d7489aa0
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Введение в Azure Location Based Services (предварительная версия)
 Azure Location Based Services — это набор геопространственных служб, который включает API для карт, поиска, маршрутов, трафика и часовых поясов. Набор служб, совместимых с Azure OneAPI, позволяет использовать знакомые средства разработки, чтобы быстро разрабатывать и масштабировать решения, которые интегрируют сведения о расположении в решения Azure. Службы Azure Location Based Services предоставляют разработчикам из всех отраслей мощные геопространственные функции, дополненные актуальными картографическими данными, обязательными для предоставления географического контекста для веб-приложений и мобильных устройств. Azure Location Based Services — совместимый с Azure One API набор интерфейсов REST API в сочетании с веб-элементами управления на основе JavaScript. Это обеспечивает простоту и гибкость разработки, а также возможность переноса на разные носители. 

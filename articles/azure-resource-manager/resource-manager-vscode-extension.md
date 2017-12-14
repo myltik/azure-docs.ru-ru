@@ -13,11 +13,11 @@ ms.devlang: na
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 71544726b4ec8701ef558bf50d15bddfabd830cc
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 0dd48146624052fbd00093066d79067b75e33c92
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Создание шаблона Azure Resource Manager c помощью расширения Visual Studio Code
 В этой статье описаны преимущества установки и использования расширения "Средства Azure Resource Manager" в Visual Studio Code. Шаблоны Resource Manager в VS Code можно создавать и без расширения. Но расширение предоставляет варианты автозаполнения, которые упрощают разработку шаблона. Расширение предлагает функции шаблона, параметры и переменные, доступные в шаблоне.
@@ -179,8 +179,8 @@ ms.lasthandoff: 11/22/2017
          "value": "[resourceGroup().location]"
        },
        "storageUri": {
-         "type": "object",
-         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName')))]"
+         "type": "string",
+         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
        }
    }
    ```
@@ -247,8 +247,8 @@ ms.lasthandoff: 11/22/2017
       "value": "[resourceGroup().location]"
     },
     "storageUri": {
-      "type": "object",
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName')))]"
+      "type": "string",
+      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
     }
   }
 }

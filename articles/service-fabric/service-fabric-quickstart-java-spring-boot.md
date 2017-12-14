@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 002841ff59e7b151ee2288ee4045de5c423df573
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: d34862d96744e038d7c1890f703ead79c416ddfa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-a-spring-boot-application"></a>Развертывание приложения Spring Boot
 Azure Service Fabric — это платформа распределенных систем для развертывания микрослужб и контейнеров и управления ими. 
@@ -35,14 +35,14 @@ Azure Service Fabric — это платформа распределенных 
 > * Развертывание приложения в локальном кластере. 
 > * Развертывание приложения в кластере Azure
 > * Масштабирование приложения на несколько узлов
-> * Отработка отказа службы без ущерба для ее доступности
+> * отработка отказа службы без ущерба для ее доступности.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Для работы с этим кратким руководством сделайте следующее:
-1. [Установите пакет SDK и интерфейс командной строки Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods).
+1. [Установите пакет SDK и интерфейс командной строки Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods).
 2. [установите Git](https://git-scm.com/);
-3. [установите Yeoman](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables);
-4. [настройте среду Java](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development).
+3. [установите Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables);
+4. [настройте среду Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development).
 
 ## <a name="download-the-sample"></a>Скачивание примера приложения
 В окне терминала выполните следующую команду, чтобы клонировать пример приложения "Начало работы" для Spring Boot на локальный компьютер.

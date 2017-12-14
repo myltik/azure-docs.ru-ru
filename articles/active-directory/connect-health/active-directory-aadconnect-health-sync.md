@@ -4,7 +4,7 @@ description: "На этой странице Azure AD Connect Health описы�
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: femila
+manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Мониторинг синхронизации Azure AD Connect с помощью Azure AD Connect Health
 Приведенная ниже документация относится к мониторингу синхронизации Azure AD Connect с помощью Azure AD Connect Health.  Сведения о мониторинге AD FS с помощью Azure AD Connect Health см. в [этой статье](active-directory-aadconnect-health-adfs.md). Кроме того, сведения о мониторинге доменных служб Active Directory с помощью Azure AD Connect Health можно найти [здесь](active-directory-aadconnect-health-adds.md).

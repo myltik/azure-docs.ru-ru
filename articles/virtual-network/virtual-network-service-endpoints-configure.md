@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 9c953e697d5d1c6e53df8eaf72c4e4fbd83ca286
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Настройка конечных точек служб виртуальной сети
 
@@ -385,7 +385,7 @@ az network vnet subnet update -g myRG -n mySubnet --vnet-name myVNet --service-e
 
 Для защиты ресурсов служб Azure в виртуальной сети пользователь должен иметь разрешение Microsoft.Network/JoinServicetoaSubnet для добавляемых подсетей. Это разрешение по умолчанию включено во встроенные роли администраторов служб и может быть изменено при создании настраиваемых ролей.
 
-Узнайте больше о [встроенных ролях](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) и назначении разрешений, определенных для [настраиваемых ролей](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles).
+Узнайте больше о [встроенных ролях](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) и назначении разрешений, определенных для [настраиваемых ролей](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
 Виртуальные сети и ресурсы служб Azure могут находиться в одной или разных подписках. Если они находятся в разных подписках, на момент действия этой предварительной версии ресурсы должны быть размещены в одном клиенте Active Directory (AD).
 

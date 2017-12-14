@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 3c56719d99a5a3cc3e650b72ecd2e92438533448
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Запуск мониторинга веб-приложения Java
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 - Установите бесплатную [интегрированную среду разработки Eclipse для разработчиков Java EE](http://www.eclipse.org/downloads/). В этом кратком руководстве используется Eclipse Oxygen (4.7).
 - Подписка Azure и веб-проект Java Dynamic.
  
-Если нет веб-проекта Java Dynamic, можно создать его с помощью руководства [Создание первого веб-приложения Java в Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java).
+Если нет веб-проекта Java Dynamic, можно создать его с помощью руководства [Создание первого веб-приложения Java в Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
@@ -138,4 +138,4 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
-> [Аналитика в Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Аналитика в Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: aec4db684a9067e1dee424f2c0e05e3674f84d1a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-java-application"></a>Создание приложения Java
 Azure Service Fabric — это платформа распределенных систем для развертывания микрослужб и контейнеров и управления ими. 
@@ -38,10 +38,10 @@ Azure Service Fabric — это платформа распределенных 
 
 ## <a name="prerequisites"></a>Предварительные требования
 Для работы с этим кратким руководством сделайте следующее:
-1. [Установите пакет SDK и интерфейс командной строки Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods).
+1. [Установите пакет SDK и интерфейс командной строки Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods).
 2. [установите Git](https://git-scm.com/);
 3. [Установите Eclipse](https://www.eclipse.org/downloads/).
-4. [Настройте среду Java](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), следуя дополнительным шагам по установке подключаемого модуля Eclipse. 
+4. [Настройте среду Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), следуя дополнительным шагам по установке подключаемого модуля Eclipse. 
 
 ## <a name="download-the-sample"></a>Скачивание примера приложения
 В окне терминала выполните следующую команду, чтобы клонировать репозиторий с примером приложения на локальный компьютер.

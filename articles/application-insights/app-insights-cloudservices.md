@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9e27ffe72986406031ba6cf9b1153090f6ff1113
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 44044939f044b573d19270830ab140e8332b6825
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights для облачных служб Azure
-С помощью [Application Insights][start] можно отслеживать [приложения облачной службы Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) на предмет доступности, производительности, сбоев и использования, объединяя данные из пакета SDK Application Insights с данными [диагностики Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) из облачных служб. Благодаря получаемым данным о производительности и эффективности работы приложения на практике вы можете принимать осознанные решения о направлении разработки в каждом жизненном цикле.
+С помощью [Application Insights][start] можно отслеживать [приложения облачной службы Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) на предмет доступности, производительности, сбоев и использования, объединяя данные из пакета SDK Application Insights с данными [диагностики Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) из облачных служб. Благодаря получаемым данным о производительности и эффективности работы приложения на практике вы можете принимать осознанные решения о направлении разработки в каждом жизненном цикле.
 
 ![Пример](./media/app-insights-cloudservices/sample.png)
 
@@ -142,7 +142,7 @@ ms.lasthandoff: 11/01/2017
 * Ознакомьтесь с разделом [Устранение неполадок][qna].
 
 ## <a name="view-azure-diagnostic-events"></a>Просмотр событий диагностики Azure
-Источники данных [диагностики Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) в Application Insights:
+Источники данных [диагностики Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) в Application Insights:
 
 * Счетчики производительности отображаются в виде настраиваемых метрик. 
 * Журналы событий Windows отображаются в виде трассировок и настраиваемых событий.

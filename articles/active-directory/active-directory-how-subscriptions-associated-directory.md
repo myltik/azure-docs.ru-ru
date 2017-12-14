@@ -4,7 +4,7 @@ description: "Как добавить имеющуюся подписку в к�
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 10/17/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 67df6d893c0770b9210fc73e96865d5c6396796c
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: e14d1c54a084a66bd33904b8c90e2973c0f7d6fb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-add-an-azure-subscription-to-azure-active-directory"></a>Как добавить подписку Azure в Azure Active Directory
 Из этой статьи вы узнаете о связи между подпиской Azure и службой Azure Active Directory (Azure AD) и о том, как добавить существующую подписку в каталог Azure AD. Подписка Azure связана с Azure AD отношением доверия. Это означает, что подписка доверяет каталогу проверку подлинности пользователей, служб и устройств. Несколько подписок могут доверять одному и тому же каталогу, но одна конкретная подписка доверяет только одному каталогу. 

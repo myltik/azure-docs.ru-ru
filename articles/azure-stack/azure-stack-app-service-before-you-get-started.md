@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 17967131853d4334ae2c0ba3c0aa01089b7f3b61
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d6962bf2ffbf731a4aa301e663c7c7d3428080d4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Подготовка к работе со службой приложений в Azure Stack
 
@@ -250,7 +250,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 Для комплекта разработки Azure Stack можно использовать SQL Express 2014 с пакетом обновления 2 (SP2) или более поздней версии.
 
-Для рабочих сред и с целью обеспечения высокого уровня доступности следует использовать полную версию SQL 2014 с пакетом обновления 2 (SP2) или более поздней версии, включить аутентификацию в смешанном режиме и выполнить развертывание в [конфигурации, обеспечивающей высокий уровень доступности](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
+Для рабочих сред и с целью обеспечения высокого уровня доступности следует использовать полную версию SQL 2014 с пакетом обновления 2 (SP2) или более поздней версии, включить аутентификацию в смешанном режиме и выполнить развертывание в [конфигурации, обеспечивающей высокий уровень доступности](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
 Служба приложений Azure на SQL Server Azure Stack должна быть доступна из всех ролей службы приложений. SQL Server можно развернуть в стандартной подписке поставщика в Azure Stack. Либо можно использовать существующую инфраструктуру в организации (при наличии подключения к Azure Stack). Если вы используете образ Azure Marketplace, не забудьте соответствующим образом настроить брандмауэр. 
 

@@ -10,11 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 11/27/2017
-ms.openlocfilehash: d462bb19b7a662f7d65529b5a2ec9f65be19d131
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.custom: mvc
+ms.openlocfilehash: a2036174b32f6b910b6934d05fd7439f60427947
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Создание базы данных Azure для PostgreSQL с помощью Azure CLI
 База данных Azure для PostgreSQL — это управляемая служба, которая позволяет вам запускать, администрировать и масштабировать высокодоступные базы данных PostgreSQL в облаке. Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью скриптов. В этом кратком руководстве описывается создание базы данных Azure для сервера PostgreSQL в [группе ресурсов Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) с помощью Azure CLI.

@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 558c3c65a811a228f9d8ecae7ce41798ac8178c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065638c1d724865f45b0c1e2691041848f90ad00
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Запуск мониторинга веб-приложения ASP.NET Core
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 - [Установите пакет SDK для .NET Core 2.0.](https://www.microsoft.com/net/core)
 - Потребуется подписка Azure и веб-приложение .NET Core.
 
-Если у вас еще нет веб-приложения ASP.NET, его можно создать, следуя руководству [Публикация веб-приложения ASP.NET Core в службе приложений Azure с помощью Visual Studio](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+Если у вас еще нет веб-приложения ASP.NET, его можно создать, следуя руководству [Публикация веб-приложения ASP.NET Core в службе приложений Azure с помощью Visual Studio](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
@@ -126,4 +126,4 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
-> [Поиск и диагностика исключений во время выполнения](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [Поиск и диагностика исключений во время выполнения](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)
