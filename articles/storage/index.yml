@@ -1,82 +1,125 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Документация по службе хранилища Azure
+title: "Документация по службе хранилища Azure"
 metadata:
-  title: Документация по службе хранилища Azure. Руководства и справочник по API | Документация Майкрософт
-  description: 'Служба хранилища Microsoft Azure является облачной службой под управлением корпорации Майкрософт, которая предоставляет хранилище с высоким уровнем доступности, безопасности, надежности, масштабируемости и избыточности. Служба хранилища Azure состоит из хранилища BLOB-объектов, хранилища файлов и хранилища очередей.'
+  title: "Документация по службе хранилища Azure. Руководства и справочник по API | Документация Майкрософт"
+  description: "Служба хранилища Azure является облачной службой под управлением корпорации Майкрософт, которая предоставляет хранилище с высоким уровнем доступности, безопасности, надежности, масштабируемости и избыточности. Служба хранилища Azure состоит из хранилища BLOB-объектов, хранилища файлов и хранилища очередей."
   services: storage
-  author: czeumault
-  manager: carolz
+  author: tamram
+  manager: jeconnoc
   ms.service: storage
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/20/2017
-  ms.author: carolz
+  ms.date: 12/08/2017
+  ms.author: tamram
+  ms.openlocfilehash: 04198a4f256be34dc0b79413c792f2e979b918ed
+  ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 12/13/2017
 abstract:
-  description: 'Служба хранилища Microsoft Azure является облачной службой под управлением корпорации Майкрософт, которая предоставляет хранилище с высоким уровнем доступности, безопасности, надежности, масштабируемости и избыточности. Служба хранилища Azure состоит из хранилища BLOB-объектов, хранилища файлов и хранилища очередей.  Ознакомьтесь с нашими руководствами, чтобы узнать, как использовать службу хранилища Azure в приложениях.'
+  description: "Служба хранилища Microsoft Azure является облачной службой под управлением корпорации Майкрософт, которая предоставляет хранилище с высоким уровнем доступности, безопасности, надежности, масштабируемости и избыточности. Служба хранилища Azure состоит из хранилища BLOB-объектов, хранилища файлов и хранилища очередей.  Ознакомьтесь с нашими руководствами, чтобы узнать, как использовать службу хранилища Azure в приложениях."
 sections:
-  - title: 5-минутные руководства по началу работы
+- title: "5-минутные руководства по началу работы"
+  items:
+  - type: paragraph
+    text: "Эти краткие руководства помогут в работе со службой хранилища Azure."
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_powershell.svg
+        text: PowerShell
+    - image:
+        src: media/index/cli.svg
+        text: "Инфраструктура CLI Azure"
+    - image:
+        src: media/index/logo_net.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    rows:
+    - title: "Создать учетную запись хранения"
+      values:
+      - href: /azure/storage/common/storage-quickstart-create-storage-account-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - href: /azure/storage/common/storage-quickstart-create-storage-account-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: "Краткие руководства по работе с большими двоичными объектами"
+      values:
+      - href: /azure/storage/blobs/storage-quickstart-blobs-powershell
+      - href: /azure/storage/blobs/storage-quickstart-blobs-cli
+      - href: /azure/storage/blobs/storage-quickstart-blobs-dotnet
+      - href: /azure/storage/blobs/storage-quickstart-blobs-java
+      - href: /azure/storage/blobs/storage-quickstart-blobs-python
+      - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
+- title: "Пошаговые руководства"
+  items:
+  - type: paragraph
+    text: "Узнайте, как для передавать и обрабатывать данных изображений в облаке."
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: Создайте уникальное пространство имен для хранения объектов данных в службе хранилища Azure и доступа к ним.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/powershell.svg'
-            text: Azure PowerShell
-            href: /azure/storage/common/storage-quickstart-create-storage-account-powershell
-          - image:
-              src: /azure/virtual-machines/linux/media/index/cli.svg
-            text: Инфраструктура CLI Azure
-            href: /azure/storage/common/storage-quickstart-create-storage-account-cli
-  - title: Пошаговые руководства
+    - html: "<a href=\"/azure/storage/blobs/storage-upload-process-images\">Отправка и получение данных изображений в облаке</a>"
+    - html: "<a href=\"/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json\">Активация функций Azure для обработки больших двоичных объектов</a>"
+    - html: "<a href=\"/azure/storage/blobs/storage-secure-access-application\">Защита данных приложения</a>"
+    - html: "<a href=\"/azure/storage/blobs/storage-monitor-troubleshoot-storage-application\">Мониторинг и устранение неполадок хранилища</a>"
+  - type: paragraph
+    text: "Узнайте, как разработать приложение с высоким уровнем доступности в службе хранилища Azure."
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: 'Узнайте, как для передавать и обрабатывать данных изображений в облаке.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/storage/blobs/storage-upload-process-images">Отправка и получение данных изображений в облаке</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Активация функций Azure для обработки больших двоичных объектов</a>
-          - html: <a href="/azure/storage/blobs/storage-secure-access-application">Защита данных приложения</a>
-          - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Мониторинг и устранение неполадок хранилища</a>
-  - title: Примеры
+    - html: "<a href=\"/azure/storage/blobs/storage-create-geo-redundant-storage\">Обеспечение высокого уровня доступности для данных приложения</a>"
+    - html: "<a href=\"/azure/storage/blobs/storage-simulate-failure-ragrs-account-app\">Имитация сбоя при обращении к избыточному хранилищу с доступом на чтение</a>"
+  - type: paragraph
+    text: "Узнайте, как выполнять поиск неструктурированных данных в службе хранилища Azure."
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: 'Скрипты для выполнения стандартных задач управления:'
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
-          - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Интерфейс командной строки Azure</a>
-  - title: Бесплатные видеоуроки PluralSight
+    - html: "<a href=\"/azure/storage/blobs/storage-unstructured-search\">Поиск неструктурированных данных в облачном хранилище</a>"
+- title: "Примеры"
+  items:
+  - type: paragraph
+    text: "Скрипты для выполнения стандартных задач управления:"
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Разработка с помощью .NET в Azure
-            href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
-          - title: Разработка с помощью Node.js в Azure
-            href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
-  - title: Справочные материалы
+    - html: ".NET &#58; <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet\">Большие двоичные объекты</a> | <a     href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet\">Файлы</a> | <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet\">Очереди</a>"
+    - html: "Java &#58; <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java\">Большие двоичные объекты</a> | <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java\">Файлы</a> | <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java\">Очереди</a>"
+    - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
+    - html: "<a href=\"/azure/storage/blobs/storage-samples-blobs-cli\">Интерфейс командной строки Azure</a>"
+- title: "Бесплатные видеоуроки PluralSight"
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Командная строка
-            html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Интерфейс командной строки Azure</a></p>
-          - title: Языки
-            html: '<p><a href="/java/api/">Java</a></p><p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>'
-          - title: REST
-            html: '<p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">BLOB-объекты, очереди, таблицы и файлы</a></p><p><a href="/rest/api/storagerp">Поставщик ресурсов</a></p><p><a href="/rest/api/storageimportexport">Импорт и экспорт</a></p><p><a href="/rest/api/storageservices">Azure Storage Services REST API Reference</a> (Справочник по REST API службы хранилища Azure)</p>'
+    - title: "Разработка с помощью .NET в Azure"
+      href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
+    - title: "Разработка с помощью Node.js в Azure"
+      href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
+- title: "Справочные материалы"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: "Командная строка"
+      html: "<p><a href=\"/powershell/storage\">PowerShell</a></p><p><a href=\"/cli/azure/storage\">Интерфейс командной строки Azure</a></p>"
+    - title: "Языки"
+      html: <p><a href="/java/api/">Java</a></p><p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/storageservices\">BLOB-объекты, очереди, таблицы и файлы</a></p><p><a href=\"/rest/api/storagerp\">Поставщик ресурсов</a></p><p><a href=\"/rest/api/storageimportexport\">Импорт и экспорт</a></p>"

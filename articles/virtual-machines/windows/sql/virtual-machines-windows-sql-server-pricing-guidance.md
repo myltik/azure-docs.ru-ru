@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: 391f30e0c81aeaf313d58f1f4af877b5be9ed919
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Руководство по выбору ценовой категории для виртуальных машин SQL Server в Azure
 
@@ -102,8 +102,11 @@ ms.lasthandoff: 10/19/2017
 - [Виртуальная машина SQL Server 2016 Enterprise в Azure](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)
 - [Виртуальная машина SQL Server 2016 Standard в Azure](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Сообщите нам в течение 10 дней количество лицензий на SQL Server, которые вы будете использовать в Azure. По ссылкам на предыдущие образы доступны инструкции о том, как это сделать.
+
+> [!NOTE]
+> Невозможно изменить модель лицензирования с поминутной оплатой для виртуальной машины SQL Server для использования собственной лицензии. В этом случае необходимо создать виртуальную машину BYOL и перенести в нее базы данных. 
 
 ## <a name="avoid-unnecessary-costs"></a>Устранение лишних затрат
 

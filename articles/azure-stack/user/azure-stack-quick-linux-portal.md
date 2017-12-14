@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5f815bafdcc7c05ec7f4149fb7c9df178f0f80e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Создание виртуальной машины Linux с помощью портала Azure Stack
 
@@ -26,11 +26,11 @@ ms.lasthandoff: 10/11/2017
 
 * **Образ Linux в Azure Stack Marketplace**.
 
-   По умолчанию Azure Stack Marketplace не содержит образ Linux. Поэтому перед созданием виртуальной машины Linux оператор Azure Stack должен скачать образ **Ubuntu Server 16.04 LT** в соответствии с инструкциями в статье [Скачивание элементов Marketplace из Azure в Azure Stack](../azure-stack-download-azure-marketplace-item.md).
+   По умолчанию Azure Stack Marketplace не содержит образ Linux. Поэтому перед созданием виртуальной машины Linux оператор Azure Stack должен скачать образ **Ubuntu Server 16.04 LTS** в соответствии с инструкциями в статье [Скачивание элементов Marketplace из Azure в Azure Stack](../azure-stack-download-azure-marketplace-item.md).
 
 * **Доступ к клиенту SSH**.
 
-   Если вы используете пакет SDK для Azure Stack, клиент SSH в вашей среде может быть недоступен. В такой ситуации вам нужно выбрать один из пакетов, в которые включен клиент SSH. Например, можно установить программу PuTTY, в состав которой входит клиент SSH и генератор ключа SSH (puttygen.exe). Дополнительные сведения о возможных вариантах см. в статье об [использовании ключей SSH с Windows в Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
+   Если вы используете пакет SDK для Azure Stack, клиент SSH в вашей среде может быть недоступен. В такой ситуации вам нужно выбрать один из пакетов, в которые включен клиент SSH. Например, можно установить программу PuTTY, в состав которой входит клиент SSH и генератор ключа SSH (puttygen.exe). Дополнительные сведения о возможных вариантах см. в статье об [использовании ключей SSH с Windows в Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
    В этом кратком руководстве PuTTY используется для создания ключей SSH и подключения к виртуальной машине Linux. Чтобы загрузить и установить PuTTY, откройте страницу [http://www.putty.org/](http://www.putty.org).
 

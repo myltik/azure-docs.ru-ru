@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
-ms.openlocfilehash: eb076c30eda63c37a8b555d40d5903cbbf0d426a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Приступая к работе с Reliable Actors
 > [!div class="op_single_selector"]
@@ -101,7 +101,7 @@ internal class HelloWorld : Actor, IHelloWorld
     ![Диалоговое окно "Добавление проекта"][6]    
     
     > [!NOTE]
-    > Как правило, консольное приложение не используется в качестве клиента в Service Fabric, но оно является удобным примером для отладки и тестирования с помощью локального эмулятора Service Fabric.
+    > Как правило, консольное приложение не используется в качестве клиента в Service Fabric, но оно является удобным примером для отладки и тестирования с помощью локального кластера Service Fabric.
 
 3. Консольное приложение должно быть 64-разрядным, чтобы обеспечить совместимость с проектом интерфейса и другими зависимостями.  В обозревателе решений щелкните правой кнопкой мыши проект **ActorClient** и выберите **Свойства**.  На вкладке **Сборка** для параметра **Целевая платформа** выберите значение **x64**.
     

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/04/2017
 ms.author: johnkem
-ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Поддерживаемые службы, схемы и категории для журналов диагностики Azure
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 11/10/2017
 
 | служба | Схемы и документы |
 | --- | --- |
+| службы Analysis Services | Схема недоступна. |
 | Управление API | [Журналы диагностики управления API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Шлюзы приложений |[Ведение журнала диагностики для шлюза приложений](../application-gateway/application-gateway-diagnostics.md) |
 | Служба автоматизации Azure |[Log Analytics для службы автоматизации Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -45,7 +46,7 @@ ms.lasthandoff: 11/10/2017
 | Приложения логики |[Настраиваемая схема отслеживания сообщений B2B для приложений логики](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | группы сетевой безопасности; |[Аналитика журналов для групп безопасности сети](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Защита от атак DDoS | Схема недоступна. |
-| Службы восстановления | Схема недоступна.|
+| Службы восстановления | [Модель данных для Azure Backup](../backup/backup-azure-reports-data-model.md)|
 | Поиск |[Включение и использование аналитики поискового трафика](../search/search-traffic-analytics.md) |
 | Управление сервером | Схема недоступна. |
 | Служебная шина |[Журналы диагностики служебной шины Azure](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -56,6 +57,7 @@ ms.lasthandoff: 11/10/2017
 ## <a name="supported-log-categories-per-resource-type"></a>Поддерживаемые категории журнала для каждого типа ресурса
 |Тип ресурса|Категория|Отображаемое имя категории|
 |---|---|---|
+|microsoft.aadiam/tenants|Signin|Signin|
 |Microsoft.AnalysisServices/servers|Двигатель|Двигатель|
 |Microsoft.AnalysisServices/servers|служба|служба|
 |Microsoft.ApiManagement/service|GatewayLogs|Журналы, относящихся к шлюзу ApiManagement.|
@@ -63,6 +65,7 @@ ms.lasthandoff: 11/10/2017
 |Microsoft.Automation/automationAccounts|JobStreams|Потоки заданий|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Состояние узла DSC.|
 |Microsoft.Batch/batchAccounts|ServiceLog|Журналы служб|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Возвращает метрики конечной точки, например пропускную способность, исходящий трафик и т. д.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories;|ActivityRuns|Журнал выполнения действий конвейера|
 |Microsoft.DataFactory/factories;|PipelineRuns|Журнал запусков конвейера|
@@ -77,7 +80,7 @@ ms.lasthandoff: 11/10/2017
 |Microsoft.Devices/IotHubs|DeviceIdentityOperations|Операции с удостоверениями устройства|
 |Microsoft.Devices/IotHubs|FileUploadOperations|Операции отправки файлов|
 |Microsoft.Devices/IotHubs|Маршруты|Маршруты|
-|Microsoft.Devices/IotHubs|D2CTwinOperations|Операции переноса с двойника устройства в облако|
+|Microsoft.Devices/IotHubs|Операции переноса с двойника устройства в облако|Операции переноса с двойника устройства в облако|
 |Microsoft.Devices/IotHubs|C2DTwinOperations|Операции переноса из облака на двойник устройства|
 |Microsoft.Devices/IotHubs|TwinQueries|Запросы к двойникам|
 |Microsoft.Devices/IotHubs|JobsOperations|Операции заданий|

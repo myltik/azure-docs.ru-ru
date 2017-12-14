@@ -89,7 +89,7 @@
           href: howto-restore-server-portal.md
         - name: Инфраструктура CLI Azure
           href: howto-restore-server-cli.md
-    - name: Миграция базы данных
+    - name: Перенос базы данных
       items:
         - name: Дамп и восстановление
           href: howto-migrate-using-dump-and-restore.md
@@ -139,3 +139,5 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: Истории клиентов
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'
+    - name: Руководство по переносу баз данных
+      href: 'https://datamigration.microsoft.com/'

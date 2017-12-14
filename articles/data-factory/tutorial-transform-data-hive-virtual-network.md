@@ -13,22 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shengc
-ms.openlocfilehash: b8c30a2fd68178ddd2bfb3ff079c47ba00928855
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c15d723efdcf273c86f54ddce04904ce1a274631
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Преобразование данных в виртуальной сети Azure с помощью действия Hive в фабрике данных Azure
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>В этом руководстве рассматривается:
-
-> [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, ознакомьтесь с [документацией по фабрике данных версии 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
-В этом руководстве вы используете Azure PowerShell для создания конвейера фабрики данных, который преобразовывает данные с помощью действия Hive в кластере HDInsight, находящемся в виртуальной сети Azure. В этом руководстве вы выполните следующие шаги:
+В этом руководстве с помощью Azure PowerShell вы создадите конвейер фабрики данных, который преобразует данные, используя действие Hive в кластере HDInsight, находящемся в виртуальной сети Azure (VNet). В этом руководстве вы выполните следующие шаги:
 
 > [!div class="checklist"]
 > * Создадите фабрику данных. 
@@ -39,6 +31,8 @@ ms.lasthandoff: 11/04/2017
 > * Выполнили мониторинг конвейера. 
 > * Проверили выходные данные. 
 
+> [!NOTE]
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, ознакомьтесь с [документацией по фабрике данных версии 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
@@ -71,22 +65,32 @@ ms.lasthandoff: 11/04/2017
    FROM hivesampletable
    ```
 2. В хранилище BLOB-объектов Azure создайте контейнер с именем **adftutorial**, если он не существует.
-3. Создайте папку с именем `hivescripts`.
-4. Отправьте файл `hivescript.hql` во вложенную папку `hivescripts`.
+3. Создайте папку с именем **hivescripts**.
+4. Отправьте файл **hivescript.hql** во вложенную папку **hivescripts**.
 
  
 
 ## <a name="create-a-data-factory"></a>Создать фабрику данных
 
 
-1. По очереди задайте переменные.
+1. Укажите имя группы ресурсов. В этом руководстве вы создадите группу ресурсов. Но при необходимости можно использовать существующую группу ресурсов. 
 
     ```powershell
-    $subscriptionID = "<subscription ID>" # Your Azure subscription ID
-    $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
-    $dataFactoryName = "MyDataFactory09142017" # Globally unique name of the data factory
-    $pipelineName = "MyHivePipeline" # Name of the pipeline
-    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" # make it a unique name. 
+    $resourceGroupName = "ADFTutorialResourceGroup" 
+    ```
+2. Укажите имя фабрики данных. Оно должно быть глобально уникальным.
+
+    ```powershell
+    $dataFactoryName = "MyDataFactory09142017"
+    ```
+3. Укажите имя конвейера. 
+
+    ```powershell
+    $pipelineName = "MyHivePipeline" # 
+    ```
+4. Укажите имя для локальной среды выполнения интеграции. Локальная среда выполнения интеграции будет необходима, когда фабрике данных потребуется доступ к ресурсам (например, к базе данных SQL Azure) в VNet. 
+    ```powershell
+    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
 2. Запустите **PowerShell**. Не закрывайте Azure PowerShell, пока выполняются описанные в этом кратком руководстве инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды. Сейчас фабрика данных версии 2 позволяет создавать фабрики данных только в восточной части США, восточной части США 2 и Западной Европе. Хранилища данных (служба хранилища Azure, база данных SQL Azure и т. д.) и вычисления (HDInsight и т. д.), используемые фабрикой данных, могут располагаться в других регионах.
 
@@ -226,17 +230,23 @@ ms.lasthandoff: 11/04/2017
   
         `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
-Перейдите в папку, где были созданы файлы JSON, и выполните следующую команду, чтобы развернуть связанные службы: 
+## <a name="create-linked-services"></a>Создание связанных служб
+В PowerShell перейдите в папку, где были созданы JSON-файлы, и выполните следующую команду, чтобы развернуть связанные службы. 
 
+1. В PowerShell перейдите в папку, где были созданы JSON-файлы.
+2. Чтобы создать связанную службу хранилища Azure, выполните следующую команду. 
 
-```powershell
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```
+3. Чтобы создать связанную службу Azure HDInsight, выполните следующую команду. 
 
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDILinkedService" -File "MyHDILinkedService.json"
-```
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
+    ```
 
 ## <a name="author-a-pipeline"></a>Создание конвейера
-На этом этапе создайте конвейер с действием Hive. Это действие выполняет скрипт Hive для получения данных из примера таблицы и сохранения их по пути, который вы определили. Создайте файл JSON в предпочитаемом редакторе, скопируйте следующее определение JSON определения конвейера и сохраните его как **MyHiveOnDemandPipeline.json**.
+На этом этапе создайте конвейер с действием Hive. Это действие выполняет скрипт Hive для получения данных из примера таблицы и сохранения их по пути, который вы определили. Создайте JSON-файл в любом редакторе, скопируйте следующее определение JSON определения конвейера и сохраните его как **MyHivePipeline.json**.
 
 
 ```json

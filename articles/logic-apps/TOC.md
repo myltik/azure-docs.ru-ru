@@ -50,6 +50,7 @@
 ### [Проверка XML](logic-apps-enterprise-integration-xml-validation.md)
 ### [Добавление схем для проверки XML](logic-apps-enterprise-integration-schemas.md)
 ### [Преобразование XML](logic-apps-enterprise-integration-transform.md)
+### [Преобразование JSON](logic-apps-enterprise-integration-liquid-transform.md)
 ### [Добавление карт для преобразования XML](logic-apps-enterprise-integration-maps.md)
 ### [Добавление сертификатов для безопасности B2B](logic-apps-enterprise-integration-certificates.md)
 ### [Хранение метаданных для артефактов](logic-apps-enterprise-integration-metadata.md)
@@ -109,7 +110,7 @@
 # Справочные материалы
 ## [Язык определения рабочего процесса](logic-apps-workflow-definition-language.md)
 ## [Действия и триггеры рабочего процесса](logic-apps-workflow-actions-triggers.md)
-## [REST API](/rest/api/logic/)
+## [ИНТЕРФЕЙС REST API](/rest/api/logic/)
 ## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Соединители: подробные сведения
 ### [AS2](logic-apps-enterprise-integration-as2.md)

@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Устранение неполадок](active-directory-application-proxy-troubleshoot.md)
-#### С помощью классического портала
-##### [Скачивание соединителей](application-proxy-enable-classic-portal.md)
-##### [Публикация приложений](active-directory-application-proxy-publish.md)
-##### [Использование соединителей](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Условный доступ](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Управление корпоративными приложениями
 #### [Назначение пользователей](active-directory-coreapps-assign-user-azure-portal.md)
@@ -224,7 +219,6 @@
 ### [Настройка автоматического ускорения входа с помощью политики обнаружения домашней области](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Управление доступом к приложениям](active-directory-managing-access-to-apps.md)
-#### [Самостоятельный доступ к приложениям](active-directory-self-service-application-access.md)
 #### [Доступ с единым входом](active-directory-appssoaccess-whatis.md)
 #### [Сертификаты для единого входа](active-directory-sso-certs.md)
 #### [Ограничения клиента](active-directory-tenant-restrictions.md)
@@ -289,8 +283,9 @@
 #### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
+#### [Миграция классических политик](active-directory-conditional-access-migration.md)
 #### Задачи
-##### [Миграция классических политик](active-directory-conditional-access-migration.md)
+##### [Перенос классической политики MFA](active-directory-conditional-access-migration-mfa.md)
 ##### [Настройка условного доступа на основе устройств](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Настройка условного доступа на основе приложений](active-directory-conditional-access-mam.md)
 ##### [Условия использования для пользователей и приложений](active-directory-tou.md)

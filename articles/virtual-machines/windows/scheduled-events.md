@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 76179b6a8eb7066c90828d33729b557f5e37c17a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 75e811f77bade3701cce2d9945cf35d6e14e376f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Служба метаданных Azure. Запланированные события (предварительная версия) для виртуальных машин Windows
 
@@ -27,47 +27,66 @@ ms.lasthandoff: 11/03/2017
 > Предварительные версии предоставляются при условии, что вы соглашаетесь с условиями использования. Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-"Запланированные события" — одна из вспомогательных служб службы метаданных Azure. Она предоставляет сведения о предстоящих событиях (например, перезагрузках), что позволяет приложениям подготовиться к ним и уменьшить влияние на работу. Эти сведения доступны для всех типов виртуальных машин Azure, включая PaaS и IaaS. Благодаря запланированным событиям виртуальная машина получает возможность выполнить упреждающие действия, чтобы свести влияние события к минимуму. 
+Запланированные события — это служба метаданных Azure, которая дает время вашему приложению для подготовки к обслуживанию виртуальной машины. Эта служба предоставляет сведения о предстоящем событии обслуживания (например, о перезагрузке), чтобы приложение могло подготовиться к ним и ограничить перебои в работе. Она доступна для всех типов виртуальных машин Azure, включая PaaS и IaaS (как для Windows, так и для Linux). 
 
-Запланированные события доступны для виртуальных машин Windows и Linux. Сведения о запланированных событиях в Linux см. в статье [Служба метаданных Azure. Запланированные события (предварительная версия) для виртуальных машин Linux](../linux/scheduled-events.md).
+Сведения о запланированных событиях в Linux см. в статье [Служба метаданных Azure. Запланированные события (предварительная версия) для виртуальных машин Linux](../linux/scheduled-events.md).
 
 ## <a name="why-scheduled-events"></a>Зачем нужны запланированные события
 
-Благодаря запланированным событиям вы можете принять меры по ограничению воздействия на службу обслуживания, инициируемого платформой, и действий, инициируемых пользователем. 
+Во многих приложениях время на подготовку к обслуживанию виртуальной машины может положительно повлиять на их работу. Его можно использовать для выполнения конкретных задач по повышению доступности, надежности и удобства обслуживания: 
 
-Рабочие нагрузки с несколькими экземплярами, которые используют методы репликации для поддержания состояния, чувствительны к простоям на нескольких экземплярах. Такие простои могут потребовать дорогостоящих действий (например, перестроения индексов) или привести к потере реплики. 
+- создание контрольных точек и восстановление;
+- фильтрация подключений;
+- отработка отказа первичной реплики; 
+- удаление из пула подсистемы балансировки нагрузки;
+- ведение журнала событий.
+- Корректное завершение работы 
 
-Во многих других случаях общая доступность службы может быть повышена, например путем выполнения последовательности нормального завершения работы, такой как завершение (или отмена) незавершенных транзакций, переназначение задач другим виртуальным машинам в кластере (отработка отказа вручную) или удаление виртуальной машины из пула подсистемы балансировки сетевой нагрузки. 
+Используя запланированные события, приложение может учесть время, когда будет выполняться техническое обслуживание, и запустить задачи для ограничения его влияния.  
 
-Иногда простое уведомление администратора о предстоящих событиях или занесение такого события в журнал позволяет повысить удобство обслуживания приложений, размещенных в облаке.
-
-Служба метаданных Azure сообщает о запланированных событиях в следующих случаях.
--   Инициируемое платформой обслуживание (например, развертывание ОС узла).
--   Инициируемые пользователем вызовы (например, пользователь перезапускает или повторно развертывает виртуальную машину).
-
+Запланированные события предусматривают события в следующих случаях:
+- обслуживание, инициированное платформой (например, обновление ОС узла);
+- обслуживание, инициированное пользователем (например, пользователь перезагружает или переразвертывает виртуальную машину).
 
 ## <a name="the-basics"></a>Основные сведения  
 
 Служба метаданных Azure предоставляет сведения о работающих виртуальных машинах через конечную точку REST, доступную из виртуальной машины. Эта информация предоставляется через немаршрутизируемый IP-адрес, то есть она недоступна вне виртуальной машины.
 
 ### <a name="scope"></a>Область
-Запланированные события отображаются на всех виртуальных машинах в облачной службе или на всех виртуальных машинах в группе доступности. Поэтому важно проверять поле `Resources` в событии, чтобы определить, на какие виртуальные машины повлияет конкретное событие. 
+Запланированные события доставляются:
+- всем виртуальным машинам в облачной службе;
+- всем виртуальным машинам в группе доступности;
+- всем виртуальным машинам в группе размещения масштабируемого набора. 
 
-### <a name="discovering-the-endpoint"></a>Обнаружение конечной точки
+Поэтому важно проверять поле `Resources` в событии, чтобы определить, на какие виртуальные машины повлияет конкретное событие. 
+
+## <a name="discovering-the-endpoint"></a>Обнаружение конечной точки
+Для виртуальных машин с поддержкой виртуальной сети полная конечная точка для последней версии запланированных событий выглядит так: 
+
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+
 Если виртуальная машина создана в виртуальной сети, служба метаданных доступна по статическому немаршрутизируемому IP-адресу `169.254.169.254`.
-Если виртуальная машина не создается в виртуальной сети, что является стандартным сценарием для облачных служб и классических виртуальных машин, для обнаружения используемой конечной точки требуется дополнительная логика. Просмотрите этот пример, чтобы узнать как выполнить [обнаружение конечной точки узла](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+Если виртуальная машина не создается в виртуальной сети, что является стандартным сценарием для облачных служб и классических виртуальных машин, для обнаружения используемого IP-адреса требуется дополнительная логика. Просмотрите этот пример, чтобы узнать как выполнить [обнаружение конечной точки узла](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="versioning"></a>Управление версиями 
-Для службы метаданных экземпляров включено управление версиями. Версии являются обязательными. На данный момент используется версия от `2017-03-01`.
+Служба запланированных событий имеет версии. Версии являются обязательными. На данный момент используется версия от `2017-08-01`.
+
+| Version (версия) | Заметки о выпуске | 
+| - | - | 
+| 2017-08-01 | <li> Удалено подчеркивание перед именами ресурсов для виртуальных машин Iaas.<br><li>Требование заголовка метаданных принудительно применяется для всех запросов. | 
+| 2017-03-01 | <li>Общедоступная предварительная версия.
 
 > [!NOTE] 
 > В предыдущих выпусках предварительной версии в качестве api-version поддерживалось значение {latest}. Этот формат больше не поддерживается и в дальнейшем будет считаться устаревшим.
 
 ### <a name="using-headers"></a>Использование заголовков
-При запросе службы метаданных необходимо указать заголовок `Metadata: true`, чтобы избежать случайного перенаправления запроса.
+При запросе службы метаданных необходимо указать заголовок `Metadata:true`, чтобы избежать случайного перенаправления запроса. Заголовок `Metadata:true` является обязательным для всех запросов запланированных событий. Если не удалось включить заголовок в запрос, служба метаданных выдаст ответ "Ошибка запроса".
 
 ### <a name="enabling-scheduled-events"></a>Включение запланированных событий
 При первом создании запроса запланированных событий Azure неявно включает эту функцию на виртуальной машине. Это означает, что при первом вызове возможна задержка с ответом длительностью до двух минут.
+
+> [!NOTE]
+> Запланированные события автоматически отключаются для службы, которая не вызывает конечную точку в течение 1 дня. Если для службы отключены запланированные события, для обслуживания, инициированного пользователем, не будут создаваться события.
 
 ### <a name="user-initiated-maintenance"></a>Обслуживание, инициированное пользователем
 Обслуживание виртуальных машин, инициированное пользователем на портале Azure, в API, Azure CLI или PowerShell, приведет к созданию запланированных событий. Это позволяет протестировать логику подготовки обслуживания в вашем приложении, а также позволит ему подготовиться к обслуживанию, инициированном пользователем.
@@ -75,7 +94,7 @@ ms.lasthandoff: 11/03/2017
 При перезапуске виртуальной машины планируется событие с типом `Reboot`. При развертывании виртуальной машины планируется событие с типом `Redeploy`.
 
 > [!NOTE] 
-> Сейчас можно одновременно запланировать более десяти операций обслуживания, инициированных пользователем. Это ограничение будет снято еще до выпуска общедоступной версии запланированных событий.
+> Сейчас можно одновременно запланировать более ста операций обслуживания, инициированных пользователем.
 
 > [!NOTE] 
 > Сейчас обслуживание, инициированное пользователем, которое влияет на запланированные события, не настраивается. Возможность настройки запланирована к следующему выпуску.
@@ -85,8 +104,9 @@ ms.lasthandoff: 11/03/2017
 ### <a name="query-for-events"></a>Запрос сведений о событиях
 Чтобы получить сведения о запланированных событиях, достаточно отправить следующий запрос:
 
+#### <a name="powershell"></a>PowerShell
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @{"Metadata"="true"}
 ```
 
 Ответ содержит массив запланированных событий. Если это будет пустой массив, значит сейчас запланированных событий нет.
@@ -130,8 +150,20 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 Когда вы узнаете о предстоящем событии и выполняете все действия для корректного завершения работы, вы можете утвердить ожидающее событие, выполнив вызов `POST` к службе метаданных Azure с помощью `EventId`. Это указывает службе Azure, что она может сократить минимальное время уведомления (если возможно). 
 
+Ниже приводится ожидаемый код json в тексте запроса `POST`. Запрос должен содержать список `StartRequests`. Каждый `StartRequest` содержит `EventId` для события, которое нужно ускорить:
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+{
+    "StartRequests" : [
+        {
+            "EventId": {EventId}
+        }
+    ]
+}
+```
+
+#### <a name="powershell"></a>PowerShell
+```
+curl -H @{"Metadata"="true"} -Method POST -Body '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
@@ -144,7 +176,7 @@ curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [
 
 ```PowerShell
 # How to get scheduled events 
-function GetScheduledEvents($uri)
+function Get-ScheduledEvents($uri)
 {
     $scheduledEvents = Invoke-RestMethod -Headers @{"Metadata"="true"} -URI $uri -Method get
     $json = ConvertTo-Json $scheduledEvents
@@ -153,7 +185,7 @@ function GetScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
+function Approve-ScheduledEvent($eventId, $docIncarnation, $uri)
 {    
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
@@ -168,7 +200,7 @@ function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
     Invoke-RestMethod -Uri $uri -Headers @{"Metadata"="true"} -Method POST -Body $approvalString
 }
 
-function HandleScheduledEvents($scheduledEvents)
+function Handle-ScheduledEvents($scheduledEvents)
 {
     # Add logic for handling events here
 }
@@ -180,10 +212,10 @@ $localHostIP = "169.254.169.254"
 $scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
 
 # Get events
-$scheduledEvents = GetScheduledEvents $scheduledEventURI
+$scheduledEvents = Get-ScheduledEvents $scheduledEventURI
 
 # Handle events however is best for your service
-HandleScheduledEvents $scheduledEvents
+Handle-ScheduledEvents $scheduledEvents
 
 # Approve events when ready (optional)
 foreach($event in $scheduledEvents.Events)
@@ -192,190 +224,13 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-        ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
+        Approve-ScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
     }
 }
 ``` 
 
-
-## <a name="c-sample"></a>Пример на языке C\# 
-
-Ниже приведен пример простого клиента, который взаимодействует со службой метаданных.
-
-```csharp
-public class ScheduledEventsClient
-{
-    private readonly string scheduledEventsEndpoint;
-    private readonly string defaultIpAddress = "169.254.169.254"; 
-
-    // Set up the scheduled events URI for a VNET-enabled VM
-    public ScheduledEventsClient()
-    {
-        scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
-    }
-
-    // Get events
-    public string GetScheduledEvents()
-    {
-        Uri cloudControlUri = new Uri(scheduledEventsEndpoint);
-        using (var webClient = new WebClient())
-        {
-            webClient.Headers.Add("Metadata", "true");
-            return webClient.DownloadString(cloudControlUri);
-        }   
-    }
-
-    // Approve events
-    public void ApproveScheduledEvents(string jsonPost)
-    {
-        using (var webClient = new WebClient())
-        {
-            webClient.Headers.Add("Content-Type", "application/json");
-            webClient.UploadString(scheduledEventsEndpoint, jsonPost);
-        }
-    }
-}
-```
-
-Запланированные события можно представить с помощью следующих структур данных.
-
-```csharp
-public class ScheduledEventsDocument
-{
-    public string DocumentIncarnation;
-    public List<CloudControlEvent> Events { get; set; }
-}
-
-public class CloudControlEvent
-{
-    public string EventId { get; set; }
-    public string EventStatus { get; set; }
-    public string EventType { get; set; }
-    public string ResourceType { get; set; }
-    public List<string> Resources { get; set; }
-    public DateTime? NotBefore { get; set; }
-}
-
-public class ScheduledEventsApproval
-{
-    public string DocumentIncarnation;
-    public List<StartRequest> StartRequests = new List<StartRequest>();
-}
-
-public class StartRequest
-{
-    [JsonProperty("EventId")]
-    private string eventId;
-
-    public StartRequest(string eventId)
-    {
-        this.eventId = eventId;
-    }
-}
-```
-
-В следующем примере выполняется запрос запланированных событий в службе метаданных, а затем утверждение каждого ожидающего события.
-
-```csharp
-public class Program
-{
-    static ScheduledEventsClient client;
-
-    static void Main(string[] args)
-    {
-        client = new ScheduledEventsClient();
-
-        while (true)
-        {
-            string json = client.GetDocument();
-            ScheduledEventsDocument scheduledEventsDocument = JsonConvert.DeserializeObject<ScheduledEventsDocument>(json);
-
-            HandleEvents(scheduledEventsDocument.Events);
-
-            // Wait for user response
-            Console.WriteLine("Press Enter to approve executing events\n");
-            Console.ReadLine();
-
-            // Approve events
-            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
-            {
-                DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
-            };
-        
-            foreach (CloudControlEvent event in scheduledEventsDocument.Events)
-            {
-                scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(event.EventId));
-            }
-
-            if (scheduledEventsApprovalDocument.StartRequests.Count > 0)
-            {
-                // Serialize using Newtonsoft.Json
-                string approveEventsJsonDocument =
-                    JsonConvert.SerializeObject(scheduledEventsApprovalDocument);
-
-                Console.WriteLine($"Approving events with json: {approveEventsJsonDocument}\n");
-                client.ApproveScheduledEvents(approveEventsJsonDocument);
-            }
-
-            Console.WriteLine("Complete. Press enter to repeat\n\n");
-            Console.ReadLine();
-            Console.Clear();
-        }
-    }
-
-    private static void HandleEvents(List<CloudControlEvent> events)
-    {
-        // Add logic for handling events here
-    }
-}
-```
-
-## <a name="python-sample"></a>Пример на языке Python 
-
-В следующем примере выполняется запрос запланированных событий в службе метаданных, а затем утверждение каждого ожидающего события.
-
-```python
-#!/usr/bin/python
-
-import json
-import urllib2
-import socket
-import sys
-
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
-headers = "{Metadata:true}"
-this_host = socket.gethostname()
-
-def get_scheduled_events():
-   req = urllib2.Request(metadata_url)
-   req.add_header('Metadata', 'true')
-   resp = urllib2.urlopen(req)
-   data = json.loads(resp.read())
-   return data
-
-def handle_scheduled_events(data):
-    for evt in data['Events']:
-        eventid = evt['EventId']
-        status = evt['EventStatus']
-        resources = evt['Resources']
-        eventtype = evt['EventType']
-        resourcetype = evt['ResourceType']
-        notbefore = evt['NotBefore'].replace(" ","_")
-        if this_host in resources:
-            print "+ Scheduled Event. This host is scheduled for " + eventype + " not before " + notbefore
-            # Add logic for handling events here
-
-def main():
-   data = get_scheduled_events()
-   handle_scheduled_events(data)
-   
-if __name__ == '__main__':
-  main()
-  sys.exit(0)
-```
-
 ## <a name="next-steps"></a>Дальнейшие действия 
 
+- Просмотрите примеры кода запланированных событий в статье [Azure Metadata Service: Scheduled Events Samples](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm) (Служба метаданных Azure: примеры запланированных событий).
 - Дополнительные сведения об API, доступных в [службе метаданных экземпляра](instance-metadata-service.md).
 - Подробнее о [плановом обслуживании виртуальных машин Windows в Azure](planned-maintenance.md).
-

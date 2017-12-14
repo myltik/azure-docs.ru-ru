@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fd09c748786f0bfe070c3f41201eddc3d272116
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Устранение неполадок службы файлов Azure в Linux
 
@@ -154,6 +154,21 @@ ms.lasthandoff: 10/11/2017
 ### <a name="solution"></a>Решение
 
 Чтобы устранить проблему, используйте [инструмент устранения неполадок подключения в службе файлов Azure для Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Этот инструмент помогает проверить среду выполнения клиента и обнаружить несовместимую конфигурацию клиента, которая вызывает сбой доступа к службе файлов Azure, а также предоставляет рекомендации по самостоятельному устранению проблем и собирает трассировки диагностики.
+
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: не удается получить доступ к "&lt;path&gt;": ошибка ввода-вывода
+
+Если вы попытаетесь перечислить файлы в общем файловом ресурсе Azure с помощью команды ls, команда зависнет и возникнет следующая ошибка:
+
+**ls: не удается получить доступ к "&lt;path&gt;": ошибка ввода-вывода**
+
+
+### <a name="solution"></a>Решение
+Обновите ядро Linux до следующих версий, которые решают этой проблему:
+
+- 4.4.87+;
+- 4.9.48+;
+- 4.12.11+;
+- версия 4.13 или выше.
 
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 

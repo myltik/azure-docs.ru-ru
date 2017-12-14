@@ -1,41 +1,33 @@
 ---
-title: "Служба \"Экземпляры контейнеров Azure\". Многоконтейнерная группа | Документация Azure"
-description: "Служба \"Экземпляры контейнеров Azure\". Многоконтейнерная группа"
+title: "Развертывание многоконтейнерных групп в службе \"Экземпляры контейнеров Azure\""
+description: "Узнайте, как развернуть группу с несколькими контейнерами в службе \"Экземпляры контейнеров Azure\"."
 services: container-instances
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-a-container-group"></a>Развертывание группы контейнеров
 
-Служба "Экземпляры контейнеров Azure" поддерживает развертывание нескольких контейнеров на одном узле с использованием *группы контейнеров*. Это полезно при создании сопроводительного приложения для ведения журнала, мониторинга или любой другой конфигурации, когда службе требуется еще один прикрепленный процесс. 
+Служба "Экземпляры контейнеров Azure" поддерживает развертывание нескольких контейнеров на одном узле с использованием *группы контейнеров*. Это полезно при создании сопроводительного приложения для ведения журнала, мониторинга или любой другой конфигурации, когда службе требуется еще один прикрепленный процесс.
 
 В этом документе рассматривается запуск простой конфигурации многоконтейнерного сопроводительного приложения с использованием шаблона Azure Resource Manager.
 
 ## <a name="configure-the-template"></a>Настройка шаблона
 
-Создайте файл с именем `azuredeploy.json` и скопируйте в него следующий код JSON. 
+Создайте файл с именем `azuredeploy.json` и скопируйте в него следующий код JSON.
 
-В этом примере определяется группа контейнеров с двумя контейнерами и общедоступным IP-адресом. Первый контейнер группы запускает приложение с выходом в Интернет. Второй контейнер (сопроводительный) осуществляет HTTP-запрос к основному веб-приложению через локальную сеть группы. 
+В этом примере определяется группа контейнеров с двумя контейнерами и общедоступным IP-адресом. Первый контейнер группы запускает приложение с выходом в Интернет. Второй контейнер (сопроводительный) осуществляет HTTP-запрос к основному веб-приложению через локальную сеть группы.
 
-Пример сопроводительного приложения можно расширить, реализовав активацию оповещения при получении кода ответа HTTP, отличающегося от 200 OK. 
+Пример сопроводительного приложения можно расширить, реализовав активацию оповещения при получении кода ответа HTTP, отличающегося от 200 OK.
 
 ```json
 {
@@ -46,7 +38,7 @@ ms.lasthandoff: 10/11/2017
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
@@ -135,7 +127,7 @@ az group create --name myResourceGroup --location westus
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-В течение нескольких секунд вы получите исходный ответ Azure. 
+В течение нескольких секунд вы получите исходный ответ Azure.
 
 ## <a name="view-deployment-state"></a>Просмотр состояния развертывания
 
@@ -153,9 +145,9 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## <a name="view-logs"></a>Просмотр журналов   
+## <a name="view-logs"></a>Просмотр журналов
 
-Просмотрите выходные данные журнала контейнера с помощью команды `az container logs`. Аргумент `--container-name` определяет контейнер, из которого извлекаются журналы. В этом примере указывается первый контейнер. 
+Просмотрите выходные данные журнала контейнера с помощью команды `az container logs`. Аргумент `--container-name` определяет контейнер, из которого извлекаются журналы. В этом примере указывается первый контейнер.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup

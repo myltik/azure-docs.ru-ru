@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2017
 ms.author: ramical
-ms.openlocfilehash: 38c240ed1608b2e99bde78f3633e722f8e2fa30b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4900e47084256ad6c85886f7ba363399678da9aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Получение данных, используя API отчетов Azure AD с сертификатами
 В статье описывается использование API отчетов Azure AD с учетными данными сертификатов для получения данных из каталогов без вмешательства пользователя. 
@@ -89,7 +89,7 @@ ms.lasthandoff: 10/11/2017
 Теперь можно выполнить экспорт в CSV-файл и сохранить его в системе SIEM. Также можно перенести скрипт в запланированную задачу, чтобы периодически получать данные Azure AD из клиента без необходимости сохранять ключи приложений в исходном коде. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Основы управления удостоверениями Azure](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
+[Основы управления удостоверениями Azure](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)<br>
 
 
 

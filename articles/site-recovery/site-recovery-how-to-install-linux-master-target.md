@@ -3,7 +3,7 @@ title: "Как установить главный целевой сервер L
 description: "Для повторного включения защиты виртуальной машины Linux необходим главный целевой сервер Linux. Узнайте, как его установить."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 08/11/2017
-ms.author: ruturajd
-ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>Установка главного целевого сервера Linux
 После отработки отказа виртуальных машин для них можно восстановить размещение на локальном сайте. Для восстановления размещения из Azure на локальном сайте необходимо повторно включить защиту виртуальной машины. Для этого понадобится локальный главный целевой сервер, который будет получать трафик. 
@@ -369,7 +369,7 @@ wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-   Дождитесь завершения скрипта. Если регистрация главного целевого сервера пройдет успешно, вы увидите его на портале, на странице **Site Recovery Infrastructure** (Инфраструктура Site Recovery).
+   Дождитесь завершения скрипта. Если регистрация главного целевого сервера пройдет успешно, вы увидите его на портале на странице **Site Recovery Infrastructure** (Инфраструктура Site Recovery).
 
 
 ### <a name="upgrade-the-master-target"></a>Обновление главного целевого сервера
@@ -387,7 +387,7 @@ wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 На главном целевом сервере нужно установить инструменты VMware, чтобы он мог обнаруживать хранилища данных. Если они не установлены, то на экране повторного включения защиты не будут отображены хранилища данных. После установки инструментов VMware необходимо выполнить перезагрузку.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-После установки и регистрации главного целевого сервера он появится в разделе **Главный целевой сервер** на странице **Site Recovery Infrastructure** (Инфраструктура Site Recovery) — там же, где представлены сведения о сервере конфигурации.
+После установки и регистрации главного целевого сервера он появится в разделе **Главный целевой сервер** на странице **Site Recovery Infrastructure** (Инфраструктура Site Recovery) — там же, где представлены сведения о сервере конфигурации.
 
 Теперь можно настроить [повторную защиту](site-recovery-how-to-reprotect.md) и выполнить восстановление размещения.
 

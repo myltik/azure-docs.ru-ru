@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: baed3e290ed29d1459455441e7cac7c5b1b1ebd9
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Масштабирование кластера Service Fabric
 
@@ -30,6 +30,13 @@ ms.lasthandoff: 11/10/2017
 > * получать количество узлов кластера;
 > * добавлять узлы кластера (развертывание);
 > * удалять узлы кластера (свертывание).
+
+Из этого цикла руководств вы узнаете, как выполнять такие задачи:
+> [!div class="checklist"]
+> * создание защищенного [кластера Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) или [кластера Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) в Azure;
+> * увеличение или уменьшение масштаба кластера;
+> * [обновление среды выполнения кластера;](service-fabric-tutorial-upgrade-cluster.md)
+> * [развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим руководством выполните следующие действия:
@@ -250,8 +257,8 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 > * удалять узлы кластера (свертывание).
 
 
-Теперь перейдите к следующему руководству, из которого вы узнаете, как развернуть приложение и использовать управление API.
+Теперь перейдите к следующему руководству, чтобы узнать, как обновить среду выполнения кластера.
 > [!div class="nextstepaction"]
-> [Развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> [обновление среды выполнения кластера;](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

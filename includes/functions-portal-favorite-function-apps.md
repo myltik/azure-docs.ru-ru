@@ -12,6 +12,6 @@
 
 3. Закройте меню, а затем прокрутите вниз, чтобы увидеть значок функции. Щелкните этот значок, чтобы просмотреть список всех приложений-функций. Щелкните приложение-функцию для работы с функциями в этом приложении. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Приложения-функции в разделе "Избранное"](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      

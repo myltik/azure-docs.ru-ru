@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04742a587284cf72632360a9575a63a576da36e8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-development-kit-deployment-quickstart"></a>Краткое руководство по развертыванию пакета средств разработки Azure Stack
 
@@ -31,9 +31,9 @@ ms.lasthandoff: 10/11/2017
 
 2. [**Скачайте пакет развертывания и извлеките его содержимое**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). Пакет развертывания можно скачать на узел пакета средств разработки или на другой компьютер. Извлекаемые файлы развертывания занимают 60 ГБ дискового пространства, поэтому использование другого компьютера помогает снизить требования к оборудованию для узла пакета средств разработки.
 
-3. [**Подготовьте узел пакета средств разработки**](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) с помощью программы установки. После этого шага на узле пакета средств разработки загрузится Cloudbuilder.vhdx (виртуальный жесткий диск, содержащий загружаемую операционную систему и файлы установки Azure Stack).
+3. [**Подготовьте узел пакета средств разработки**](azure-stack-run-powershell-script.md) с помощью программы установки. После этого шага на узле пакета средств разработки загрузится Cloudbuilder.vhdx (виртуальный жесткий диск, содержащий загружаемую операционную систему и файлы установки Azure Stack).
 
-4. [**Разверните пакет средств разработки**](azure-stack-run-powershell-script.md#deploy-the-development-kit) на соответствующем узле.
+4. [**Разверните пакет средств разработки**](azure-stack-run-powershell-script.md) на соответствующем узле.
 
 5. Если в развертываемой системе Azure Stack используется Azure Active Directory, необходимо [зарегистрировать Azure Stack в Azure](azure-stack-register.md), чтобы можно было [скачивать элементы Azure Marketplace](azure-stack-download-azure-marketplace-item.md) в Azure Stack.
 

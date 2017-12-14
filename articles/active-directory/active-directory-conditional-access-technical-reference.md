@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/19/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: c9e44a696010541ab153597bb1ab5d556c2e7b65
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Техническая информация об условном доступе в Azure Active Directory
 
-Благодаря [условному доступу Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) можно точно настроить доступ авторизованных пользователей к своим ресурсам.  
+Благодаря [условному доступу Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) можно точно настроить доступ авторизованных пользователей к своим ресурсам.   
 
-Этот раздел содержит информацию о поддержке следующих параметров конфигурации для политики условного доступа: 
+Эта статья содержит информацию о поддержке следующих параметров конфигурации для политики условного доступа: 
 
 - назначения облачных приложений;
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/20/2017
 
 ## <a name="cloud-apps-assignments"></a>Назначения облачных приложений
 
-При настройке политики условного доступа необходимо [выбрать облачные приложения, к которым она применяется](active-directory-conditional-access-azure-portal.md#who). 
+С помощью политик условного доступа можно управлять доступом пользователей к [облачным приложениям](active-directory-conditional-access-azure-portal.md#who). При настройке политики условного доступа необходимо выбрать как минимум одно облачное приложение, к которому она применяется. 
 
 ![Выбор облачных приложений для политики](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -48,6 +48,7 @@ ms.lasthandoff: 11/20/2017
 Политики условного доступа можно назначить для следующих облачных приложений от корпорации Майкрософт:
 
 - Azure Information Protection — [узнайте больше](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -103,7 +104,7 @@ ms.lasthandoff: 11/20/2017
 
 ## <a name="client-apps-condition"></a>Условие клиентских приложений 
 
-При настройке политики условного доступа можно [выбрать клиентские приложения](active-directory-conditional-access-azure-portal.md#client-apps) для условия клиентских приложений. Условие клиентских приложений можно задать, чтобы предоставить или заблокировать доступ, если была предпринята попытка доступа из приведенных ниже типов клиентских приложений:
+В политике условного доступа можно настроить условие [Клиентские приложения](active-directory-conditional-access-azure-portal.md#client-apps), чтобы привязать ее к клиентскому приложению, которое инициировало попытку доступа. Условие клиентских приложений можно задать, чтобы предоставить или заблокировать доступ, если была предпринята попытка доступа из приведенных ниже типов клиентских приложений:
 
 - "Обзор"
 - мобильные и классические приложения.
@@ -112,11 +113,11 @@ ms.lasthandoff: 11/20/2017
 
 ### <a name="supported-browsers"></a>Поддерживаемые браузеры 
 
-Управлять доступом браузера можно с помощью параметра **Браузера** в политике условного доступа. Доступ предоставляется только при попытке доступа с помощью поддерживаемого браузера. При попытке доступа с помощью неподдерживаемого браузера доступ блокируется.
+В политике условного доступа можно выбрать параметр **Браузеры**, чтобы в качестве клиентского приложения указать браузеры.
 
 ![Управление доступом поддерживаемых браузеров](./media/active-directory-conditional-access-technical-reference/05.png)
 
-В политике условного доступа поддерживаются следующие браузеры: 
+Этот параметр работает со всеми браузерами. Но чтобы выполнить условия политики устройств, например требование соответствия, поддерживаются следующие операционные системы и браузеры:
 
 
 | ОС                     | Браузеры                            | Поддержка     |
@@ -138,57 +139,61 @@ ms.lasthandoff: 11/20/2017
 > Для поддержки Chrome нужно использовать Windows 10 Creators Update (версия 1703) или более позднюю версию.<br>
 > Можно установить [это расширение](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
+Эти браузеры поддерживают аутентификацию устройств, позволяя идентифицировать устройство и проверить, соответствует ли оно политике. Если браузер работает в частном режиме, проверка устройства завершается ошибкой. 
+
+
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Поддерживаемые мобильные приложения и классические клиенты
 
-Для управления доступом приложений и клиентов используется параметр **Мобильные приложения и настольные клиенты** в политике условного доступа. Доступ предоставляется только при попытке доступа с помощью поддерживаемого мобильного приложения или классического клиента. При попытке доступа с помощью неподдерживаемого приложения или клиента доступ блокируется.
+В политике условного доступа можно выбрать параметр **Мобильные приложения и настольные клиенты**, чтобы в качестве клиентского приложения указать мобильные приложения и классические клиенты.
+
 
 ![Управление доступом поддерживаемых мобильных приложений или классических клиентов](./media/active-directory-conditional-access-technical-reference/06.png)
 
-Следующие мобильные приложения и настольные клиенты поддерживают условный доступ к Office 365 и другим служебным приложениям, подключенным к Azure AD:
+
+Этот параметр влияет на попытки доступа, предпринимаемые из следующих мобильных приложений и классических клиентов. 
 
 
-| Клиентские приложения| Целевая служба| Платформа |
-| --- | --- | --- |
-| Azure RemoteApp| Удаленная служба приложений Azure| Windows 10, Windows 8.1, Windows 7, iOS, Android и Mac OS X|
-| Приложение Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS и Android|
-| Приложения Почта, Календарь и Люди, Outlook 2016, Outlook 2013 (с современной аутентификацией)| Office 365 Exchange Online| Windows 10|
-| MFA и политика расположения для приложений Политики на основе устройств не поддерживаются.| Все службы приложения "Мои приложения"| Android и iOS|
-| Microsoft Teams Services — контролируют все службы, которые поддерживают Microsoft Teams, и все их клиентские приложения: для Windows Desktop, iOS, Android, WP, а также веб-клиент.| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android и macOS|
-| Приложения Office 2016, Office 2013 (с современной проверкой подлинности), клиент синхронизации OneDrive (см. [заметки](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
-| Приложения Office 2016, универсальные приложения Office, Office 2013 (с современной проверкой подлинности), клиент синхронизации OneDrive (см. [заметки](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)); поддержка групп Office и SharePoint ожидается в будущем| Office 365 SharePoint Online| Windows 10|
-| Office 2016 для macOS (только Word, Excel, PowerPoint, OneNote). Поддержку OneDrive для бизнеса планируется реализовать в будущем.| Office 365 SharePoint Online| Mac OS X|
-| Мобильные приложения Office| Office 365 SharePoint Online| iOS, Android|
-| Приложение Office Yammer| Office 365 Yammer| Windows 10, iOS, Android|
-| Outlook 2016 (Office для macOS)| Office 365 Exchange Online| Mac OS X|
-| Outlook 2016, Outlook 2013 (с современной проверкой подлинности), Skype для бизнеса (с современной проверкой подлинности)| Office 365 Exchange Online| Windows 8.1, Windows 7|
-| Приложение Outlook Mobile| Office 365 Exchange Online| iOS|
-| Приложение PowerBI. Приложение Power BI для Android в настоящее время не поддерживает условный доступ на основе устройств.| Служба PowerBI| Windows 10, Windows 8.1, Windows 7 и iOS.|
-| Skype для бизнеса| Office 365 Exchange Online| Android, iOS|
-| Приложение Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS и Android|
-
+|Клиентские приложения|Целевая служба|Платформа|
+|---|---|---|
+|Azure RemoteApp|Удаленная служба приложений Azure|Windows 10, Windows 8.1, Windows 7, iOS, Android и Mac OS X|
+|Приложение Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS и Android|
+|Приложения Почта, Календарь и Люди, Outlook 2016, Outlook 2013 (с современной аутентификацией)|Office 365 Exchange Online|Windows 10|
+|MFA и политика расположения для приложений Политики на основе устройств не поддерживаются. |Все службы приложения "Мои приложения"|Android и iOS|
+|Microsoft Teams Services — контролируют все службы, которые поддерживают Microsoft Teams, и все их клиентские приложения: для Windows Desktop, iOS, Android, WP, а также веб-клиент.|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android и macOS |
+|Приложения Office 2016, Office 2013 (с современной проверкой подлинности), клиент синхронизации OneDrive (см. [заметки](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Приложения Office 2016, универсальные приложения Office, Office 2013 (с современной проверкой подлинности), клиент синхронизации OneDrive (см. [заметки](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)); поддержка групп Office и SharePoint ожидается в будущем|Office 365 SharePoint Online|Windows 10|
+|Office 2016 для macOS (только Word, Excel, PowerPoint, OneNote). Поддержку OneDrive для бизнеса планируется реализовать в будущем.|Office 365 SharePoint Online|Mac OS X|
+|Мобильные приложения Office|Office 365 SharePoint Online|Android, iOS|
+|Приложение Office Yammer|Office 365 Yammer|Windows 10, iOS, Android|
+|Outlook 2016 (Office для macOS)|Office 365 Exchange Online|Mac OS X|
+|Outlook 2016, Outlook 2013 (с современной проверкой подлинности), Skype для бизнеса (с современной проверкой подлинности)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Приложение Outlook Mobile|Office 365 Exchange Online|Android, iOS|
+|Приложение PowerBI. Приложение Power BI для Android в настоящее время не поддерживает условный доступ на основе устройств.|Служба PowerBI|Windows 10, Windows 8.1, Windows 7 и iOS.|
+|Skype для бизнеса|Office 365 Exchange Online|Android, iOS |
+|Приложение Visual Studio Team Services|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS и Android|
 
 
 
 ## <a name="approved-client-app-requirement"></a>Требование утвержденного клиентского приложения 
 
-Для управления подключениями клиентов используется параметр **Требовать утвержденное клиентское приложение** в политике условного доступа. Доступ предоставляется только в том случае, если производится попытка подключения с помощью утвержденного клиентского приложения.
+В политике условного доступа можно указать, что попытка доступа к выбранным облачным приложениям должна предприниматься из утвержденного клиентского приложения. 
 
 ![Управление доступом утвержденных клиентских приложений](./media/active-directory-conditional-access-technical-reference/21.png)
 
-Ниже приведены клиентские приложения, которые могут использоваться в качестве обязательных утвержденных клиентских приложений:
+Этот параметр применяется к следующим клиентским приложениям.
 
 
-- Microsoft Azure Information Protection
+- Microsoft Azure Information Protection.
 - Microsoft Excel
 - Microsoft OneDrive
-- Microsoft OneNote
+- Microsoft OneNote;
 - Microsoft Outlook
-- Планировщик (Майкрософт)
+- Планировщик (Майкрософт);
 - Microsoft PowerPoint
 - Microsoft SharePoint
-- Microsoft Skype для бизнеса
+- Microsoft Skype для бизнеса;
 - Microsoft Teams
-- Microsoft Visio
+- Microsoft Visio;
 - Microsoft Word
 
 

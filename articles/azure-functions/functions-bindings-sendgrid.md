@@ -1,56 +1,76 @@
 ---
-title: "Привязки SendGrid для Функций Azure | Документация Майкрософт"
-description: "Справочник по привязкам SendGrid для Функций Azure."
+title: "Привязки SendGrid для Функций Azure"
+description: "Справочник по привязкам SendGrid для службы \"Функции Azure\"."
 services: functions
 documentationcenter: na
-author: rachelappel
+author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/26/2017
-ms.author: rachelap
-ms.openlocfilehash: 4cdafbe05e29d8b483c6b0e1daf41a36583d7b5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: tdykstra
+ms.openlocfilehash: f24c2aecf44dd44fec05dc9a4d156ff408b0c953
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Привязки SendGrid для Функций Azure
 
-В этой статье объясняется, как настроить и использовать привязки SendGrid в Функциях Azure. С помощью SendGrid можно использовать Функции Azure для программной отправки настраиваемой электронной почты.
+В этой статье объясняется, как отправить электронное сообщение с помощью привязок [SendGrid](https://sendgrid.com/docs/User_Guide/index.html) в службе "Функции Azure". Служба "Функции Azure" поддерживают выходную привязку для SendGrid.
 
-Эта статья содержит справочные сведения для разработчиков Функций Azure. Если вы новичок в функциях Azure, начните со следующих ресурсов:
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-[Создание первой функции Azure](functions-create-first-azure-function.md). 
-Справочники разработчика по [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) или [Node](functions-reference-node.md).
+## <a name="example"></a>Пример
 
-## <a name="functionjson-for-sendgrid-bindings"></a>Файл function.json для привязок SendGrid
+Языковой пример см. в разделах:
 
-Функции Azure предоставляют привязку для вывода для SendGrid. Привязка для вывода SendGrid дает возможность программно создавать и отправлять электронные сообщения. 
+* [Предкомпилированный код C#](#c-example)
+* [Сценарий C#](#c-script-example)
+* [JavaScript](#javascript-example)
 
-Привязка SendGrid поддерживает перечисленные ниже свойства.
+### <a name="c-example"></a>Пример C#
 
-|Свойство  |Описание  |
-|---------|---------|
-|**name**| Обязательное. Имя переменной, из которой в коде функции можно получить запрос или текст запроса. Это значение равно ```$return``` при наличии только одного возвращаемого значения. |
-|**type**| Обязательное. Необходимо задать значение `sendGrid`.|
-|**direction**| Обязательное. Необходимо задать значение `out`.|
-|**apiKey**| Обязательное. Необходимо задать имя ключа API, сохраненного в параметрах приложения-функции. |
-|**to**| Электронный адрес получателя. |
-|**from**| Электронный адрес отправителя. |
-|**subject**| Тема электронного сообщения. |
-|**text**| Содержимое электронного сообщения. |
+В следующем примере показана [предкомпилированная функция C#](functions-dotnet-class-library.md), которая использует триггер очереди служебной шины и выходную привязку SendGrid.
 
-Ниже приведен пример файла **function.json**.
+```cs
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
+{
+    message = new SendGridMessage();
+    message.AddTo(email.To);
+    message.AddContent("text/html", email.Body);
+    message.SetFrom(new EmailAddress(email.From));
+    message.SetSubject(email.Subject);
+}
+
+public class OutgoingEmail
+{
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
+}
+```
+
+Вы можете не задавать свойство атрибута `ApiKey` при наличии ключа API в настройка приложения с именем AzureWebJobsSendGridApiKey.
+
+### <a name="c-script-example"></a>Пример сценария C#
+
+В следующем примере показаны выходная привязка SendGrid в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку.
+
+Данные привязки в файле *function.json*:
 
 ```json 
 {
     "bindings": [
         {
-            "name": "$return",
+            "name": "message",
             "type": "sendGrid",
             "direction": "out",
             "apiKey" : "MySendGridKey",
@@ -62,19 +82,16 @@ ms.lasthandoff: 10/11/2017
 }
 ```
 
-> [!NOTE]
-> Функции Azure хранят сведения о подключении и ключи API в качестве параметров приложения, чтобы они не возвращались в репозиторий системы управления версиями. Это обеспечивает защиту конфиденциальной информации.
->
->
+В разделе [Конфигурация](#configuration) описываются эти свойства.
 
-## <a name="c-example-of-the-sendgrid-output-binding"></a>Пример привязки для вывода SendGrid на C#
+Ниже приведен код скрипта C#.
 
 ```csharp
 #r "SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
 
-public static Mail Run(TraceWriter log, string input, out Mail message)
+public static void Run(TraceWriter log, string input, out Mail message)
 {
      message = new Mail
     {        
@@ -94,7 +111,31 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 }
 ```
 
-## <a name="node-example-of-the-sendgrid-output-binding"></a>Пример привязки для вывода SendGrid на Node
+### <a name="javascript-example"></a>Пример JavaScript
+
+В следующем примере показаны выходная привязка SendGrid в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует эту привязку.
+
+Данные привязки в файле *function.json*:
+
+```json 
+{
+    "bindings": [
+        {
+            "name": "$return",
+            "type": "sendGrid",
+            "direction": "out",
+            "apiKey" : "MySendGridKey",
+            "to": "{ToEmail}",
+            "from": "{FromEmail}",
+            "subject": "SendGrid output bindings"
+        }
+    ]
+}
+```
+
+В разделе [Конфигурация](#configuration) описываются эти свойства.
+
+Ниже показан код JavaScript.
 
 ```javascript
 module.exports = function (context, input) {    
@@ -110,13 +151,44 @@ module.exports = function (context, input) {
 
     context.done(null, message);
 };
-
 ```
 
+## <a name="attributes"></a>Атрибуты
+
+Для [предкомпилированной функции C#](functions-dotnet-class-library.md) используйте атрибут [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+
+Дополнительные сведения о настройке свойств атрибутов см. в разделе [Конфигурация](#configuration). Ниже приведен пример атрибута `SendGrid` в сигнатуре метода:
+
+```csharp
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
+{
+    ...
+}
+```
+
+Полный пример см. в разделе [Пример C#](#c-example).
+
+## <a name="configuration"></a>Конфигурация
+
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `SendGrid`.
+
+|свойство function.json | Свойство атрибута |Описание|
+|---------|---------|----------------------|
+|**type**|| Обязательное. Необходимо задать значение `sendGrid`.|
+|**direction**|| Обязательное. Необходимо задать значение `out`.|
+|**name**|| Обязательное. Имя переменной, из которой в коде функции можно получить запрос или текст запроса. Это значение равно ```$return``` при наличии только одного возвращаемого значения. |
+|**apiKey**|**apiKey**| Имя параметра приложения, в котором содержится ваш ключ API. Если значение не задано, имя параметра приложения по умолчанию AzureWebJobsSendGridApiKey.|
+|**to**|**To**| Электронный адрес получателя. |
+|**from**|**from**| Электронный адрес отправителя. |
+|**subject**|**Тема**| Тема электронного сообщения. |
+|**text**|**текст**| Содержимое электронного сообщения. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
 ## <a name="next-steps"></a>Дальнейшие действия
-Сведения о других привязках и триггерах для Функций Azure доступны в следующих разделах: 
-- [Справочник разработчика по триггерам и привязкам в Функциях Azure](functions-triggers-bindings.md)
 
-- [Рекомендации по Функциям Azure](functions-best-practices.md). Некоторые рекомендации по созданию функций Azure.
-
-- [Руководство для разработчиков по Функциям Azure](functions-reference.md). Справочник программиста по созданию функций, а также определению триггеров и привязок.
+> [!div class="nextstepaction"]
+> [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

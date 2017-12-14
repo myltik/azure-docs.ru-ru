@@ -1,26 +1,19 @@
 ---
-title: "Субъект-служба для кластера Azure Kubernetes | Документация Microsoft"
+title: "Субъект-служба для кластера Azure Kubernetes"
 description: "Сведения о настройке субъекта-службы Azure Active Directory для кластера Kubernetes и управлении им в Службе контейнеров Azure."
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Настройка субъекта-службы Azure AD для кластера Kubernetes в Службе контейнеров
 
@@ -36,11 +29,11 @@ ms.lasthandoff: 11/29/2017
 
 Вы можете использовать имеющийся субъект-службу Azure AD, который соответствует требованиям ниже, или создать другой.
 
-* **Область** — группа ресурсов, используемая для развертывания кластера.
+* **Область** — группа ресурсов.
 
-* **Роль** — **Участник**.
+* **Роль** — участник.
 
-* **Секрет клиента** — должен быть паролем. Сейчас субъект-службу нельзя использовать для проверки подлинности сертификата.
+* **Секрет клиента** — должен быть паролем. Сейчас субъект-службу нельзя использовать для проверки подлинности сертификата.
 
 > [!IMPORTANT]
 > Чтобы создать субъект-службу, вы должны иметь права на регистрацию приложения в клиенте Azure AD и назначение приложению роли в подписке Azure. Наличие этих разрешений можно [проверить на портале](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
@@ -59,7 +52,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 Выходные данные должны быть следующего содержания (здесь показана исправленная версия):
@@ -126,11 +119,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Указывая **идентификатор клиента** субъекта-службы, вы можете использовать значение `appId` (как показано в этой статье) или соответствующее имя (`name`) субъекта-службы, например `https://www.contoso.org/example`.
 
-* На главной виртуальной машине и виртуальной машине агента в кластере Kubernetes учетные данные субъекта-службы хранятся в файле /etc/kubernetes/azure.json.
+* На главной виртуальной машине и виртуальной машине агента в кластере Kubernetes учетные данные субъекта-службы хранятся в файле `/etc/kubernetes/azure.json`.
 
-* Если вы используете команду `az acs create`, чтобы автоматически создать субъект-службу, его учетные данные записываются в файл ~/.azure/acsServicePrincipal.json на компьютере, с которого выполняется команда.
+* Если вы используете команду `az acs create`, чтобы автоматически создать субъект-службу, его учетные данные записываются в файл `~/.azure/acsServicePrincipal.json` на компьютере, с которого выполняется команда.
 
 * При автоматическом создании субъекта-службы с использованием команды `az acs create` субъект-служба также позволяет проверять подлинность с помощью [реестра контейнеров Azure](../../container-registry/container-registry-intro.md), созданного в той же подписке.
+
+* Срок действия учетных данных субъекта-службы может истечь, в результате чего узлы кластера перейдут в состояние **NotReady**. Сведения об устранении рисков см. в разделе [Истечение срока действия учетных данных](#credential-expiration).
+
+## <a name="credential-expiration"></a>Истечение срока действия учетных данных
+
+Учетные данные действительны на протяжении года с момента создания субъекта-службы, если только вы не указали срок действия с помощью параметра `--years` при создании субъекта-службы. По истечении срока действия учетных данных узлы кластера могут перейти в состояние **NotReady**.
+
+Чтобы проверить срок действия субъекта-службы, выполните команду [az ad app show](/cli/azure/ad/app#az_ad_app_show) с параметром `--debug` и найдите значение `endDate` для `passwordCredentials` в нижней части окна выходных данных:
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+Выходные данные (показаны в сокращенном виде):
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+Если срок действия учетных данных субъекта-службы истек, используйте команду [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials), чтобы обновить их.
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+Выходные данные:
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+Затем обновите учетные данные в файле `/etc/kubernetes/azure.json` на всех узлах кластера и перезапустите узлы.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

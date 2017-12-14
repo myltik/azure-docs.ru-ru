@@ -68,8 +68,9 @@
 
 ### <a name="ai-and-deep-learning"></a>Искусственный интеллект и глубокое обучение
 
+* Обучение по службе [Batch AI](../articles/batch-ai/overview.md) для моделей глубокого обучения
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
-* [Набор средств глубокого обучения для виртуальной машины обработки и анализа данных](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
+* [Виртуальная машина для глубокого обучения](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Инструкции Batch Shipyard для глубокого обучения](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
 
@@ -104,7 +105,7 @@ Azure предлагает различные размеры для виртуа
 
 * [Сведения о начале разработки с помощью пакетной службы](../articles/batch/batch-dotnet-get-started.md)
 * [Примеры использования кода пакетной службы](https://github.com/Azure/azure-batch-samples)
-* [Сведения об использовании низкоприоритетных виртуальных машин в пакетной службе (предварительная версия)](../articles/batch/batch-low-pri-vms.md)
+* [Использование низкоприоритетных виртуальных машин в пакетной службе](../articles/batch/batch-low-pri-vms.md)
 * [Сведения о запуске контейнерных рабочих нагрузок HPC с помощью Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Сведения об использовании языка R с пакетной службой](https://github.com/Azure/doAzureParallel)
 
@@ -138,7 +139,7 @@ Azure предлагает различные размеры для виртуа
 * [Хранилище файлов](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Данные и аналитика
-* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) для кластеров Hadoop в Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) для кластеров Hadoop в Azure
 * [Фабрика данных](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Машинное обучение](../articles/machine-learning/machine-learning-what-is-machine-learning.md)

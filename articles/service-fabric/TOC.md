@@ -50,14 +50,11 @@
 ## [Терминология](service-fabric-technical-overview.md)
 
 ## Создание приложений и служб
-### Поддерживаемые модели программирования
-#### [Обзор](service-fabric-choose-framework.md)
-#### Контейнеры
-##### [Обзор](service-fabric-containers-overview.md)
+### [Поддерживаемые модели программирования](service-fabric-choose-framework.md)
+#### [Контейнеры](service-fabric-containers-overview.md)
 ##### [Docker Compose (предварительная версия)](service-fabric-docker-compose.md)
 ##### [Управление ресурсами](service-fabric-resource-governance.md)
-#### Надежные службы
-##### [Обзор](service-fabric-reliable-services-introduction.md)
+#### [Надежные службы](service-fabric-reliable-services-introduction.md)
 ##### [Жизненный цикл Reliable Services (C#)](service-fabric-reliable-services-lifecycle.md)
 ##### [Жизненный цикл Reliable Services (Java)](service-fabric-reliable-services-lifecycle-java.md)
 ##### [Надежные коллекции](service-fabric-reliable-services-reliable-collections.md)
@@ -69,8 +66,7 @@
 ##### [Внутренние компоненты Reliable State Manager и Reliable Collections](service-fabric-reliable-services-reliable-collections-internals.md)
 ##### [Расширенное использование](service-fabric-reliable-services-advanced-usage.md)
 
-#### Надежные субъекты
-##### [Обзор](service-fabric-reliable-actors-introduction.md)
+#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 ##### [Архитектура](service-fabric-reliable-actors-platform.md)
 ##### [Жизненный цикл и сборка мусора](service-fabric-reliable-actors-lifecycle.md)
 ##### [Управление данными о состоянии](service-fabric-reliable-actors-state-management.md)
@@ -79,6 +75,7 @@
 ##### [Сериализация типа](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 ### [Модель приложения](service-fabric-application-model.md)
+### [Манифесты приложений и служб](service-fabric-application-and-service-manifests.md)
 ### [Модель размещения](service-fabric-hosting-model.md)
 
 ### Службы
@@ -86,10 +83,9 @@
 #### [Состояние службы](service-fabric-concepts-state.md)
 #### [Секционирование службы](service-fabric-concepts-partitioning.md)
 #### [Доступность служб](service-fabric-availability-services.md)
-#### [Реплики и экземпляры](service-fabric-concepts-replica-lifecycle.md)
+#### [Жизненный цикл реплики и экземпляра](service-fabric-concepts-replica-lifecycle.md)
 #### [Перенастройка](service-fabric-concepts-reconfiguration.md)
-#### Взаимодействие служб
-##### [Обзор](service-fabric-connect-and-communicate-with-services.md)
+#### [Взаимодействие служб](service-fabric-connect-and-communicate-with-services.md)
 ##### [Служба DNS](service-fabric-dnsservice.md)
 ##### [Обратный прокси-сервер](service-fabric-reverseproxy.md)
 ##### [Настройка обратного прокси-сервера для безопасного подключения](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -99,19 +95,16 @@
 
 ### [Планирование емкости приложения](service-fabric-capacity-planning.md)
 
-## Управление приложениями
-### [Обзор](service-fabric-application-lifecycle.md)
-### [Параметр ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
-### Обновление приложения
-#### [Обзор](service-fabric-application-upgrade.md)
+## [Управление приложениями](service-fabric-application-lifecycle.md)
+### [Обновление приложения](service-fabric-application-upgrade.md)
 #### [Конфигурация](service-fabric-visualstudio-configure-upgrade.md)
 #### [Параметры обновления приложений](service-fabric-application-upgrade-parameters.md)
 #### [Сериализация данных при обновлении приложения](service-fabric-application-upgrade-data-serialization.md)
 #### [Обновление приложения: более сложные темы](service-fabric-application-upgrade-advanced.md)
 ### [Обзор анализа ошибок](service-fabric-testability-overview.md)
+### [Параметр ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
-## Создание кластеров и управление ими
-### [Обзор](service-fabric-deploy-anywhere.md)
+## [Создание кластеров и управление ими](service-fabric-deploy-anywhere.md)
 ### Планирование и подготовка
 #### [Планирование ресурсов](service-fabric-cluster-capacity.md)
 #### [Аварийное восстановление](service-fabric-disaster-recovery.md)
@@ -121,8 +114,7 @@
 ### Кластеры в Azure
 #### [Виды узлов и масштабируемые наборы ВМ](service-fabric-cluster-nodetypes.md)
 #### [Шаблоны сети кластера](service-fabric-patterns-networking.md)
-### Диспетчер кластерных ресурсов
-#### [Обзор](service-fabric-cluster-resource-manager-introduction.md)
+### [Диспетчер кластерных ресурсов](service-fabric-cluster-resource-manager-introduction.md)
 #### [Архитектура](service-fabric-cluster-resource-manager-architecture.md)
 #### [Описание кластера](service-fabric-cluster-resource-manager-cluster-description.md)
 #### [Обзор групп приложений](service-fabric-cluster-resource-manager-application-groups.md)
@@ -135,8 +127,6 @@
 #### [Балансировка кластера](service-fabric-cluster-resource-manager-balancing.md)
 #### [Регулирование](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Перемещение служб](service-fabric-cluster-resource-manager-movement-cost.md)
-
-## [Интеграция со службой управления API](service-fabric-api-management-overview.md)
 
 ## Мониторинг и диагностика
 ### [Приложения мониторинга и диагностики](service-fabric-diagnostics-overview.md)
@@ -164,13 +154,14 @@
 #### [Анализ событий с помощью OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Устранение неполадок локального кластера](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [Интеграция со службой управления API](service-fabric-api-management-overview.md)
+
 # Практические руководства
 ## Настройка среды разработки
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Настройка интерфейса командной строки Service Fabric](service-fabric-cli.md)
+### [Настройка интерфейса командной строки Service Fabric](service-fabric-cli.md)
 
 ## Создание приложения
 ### [Создание первого приложения C# в Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -231,7 +222,7 @@
 #### [Управление секретами приложений](service-fabric-application-secret-management.md)  
 #### [Настройка политик безопасности для приложения](service-fabric-application-runas-security.md)
 
-## Работа в среде разработки Windows
+## Работа в среде разработки Windows или Visual Studio
 ### [Управление приложениями в Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Настройка безопасных соединений в Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 ### [Настройка приложения для нескольких сред](service-fabric-manage-multiple-environment-app-configuration.md)
@@ -240,7 +231,7 @@
 ### [Локальный мониторинг и диагностика](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ### [Настройка кластера Linux в Windows](service-fabric-local-linux-cluster-windows.md)
 
-## Работа в среде разработки Linux
+## Работа в среде разработки Linux или Eclipse
 ### [Начало работы с подключаемым модулем Eclipse для разработки приложений Java](service-fabric-get-started-eclipse.md)
 ### [Отладка службы на Java в Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Локальный мониторинг и диагностика](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)

@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ded0809fa90e98b2e845d328fbeec6d21507c46b
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 55fac34a5eae169a3a4fd8c64c90c552fdb5df5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Использование управляемого удостоверения службы Azure в службе управления API Azure
 
@@ -111,11 +111,29 @@ ms.lasthandoff: 11/16/2017
 
 ## <a name="obtain-a-certificate-from-azure-key-vault"></a>Получение сертификата из Azure Key Vault
 
-В примере ниже показано, как получить сертификат из службы Azure Key Vault. Пример состоит из следующих шагов:
+В примере ниже показано, как получить сертификат из службы Azure Key Vault. Он содержит следующие шаги:
 
 1. Создание экземпляра службы управления API с удостоверением.
 2. Обновление политик доступа экземпляра Azure Key Vault и разрешение экземпляру службы управления API получать секреты из экземпляра Azure Key Vault.
 3. Настройка имени личного домена для экземпляра службы управления API с помощью сертификата из экземпляра Key Vault.
+
+### <a name="prerequisites"></a>Предварительные требования
+1. Решение Key Vault с PFX-сертификатом должно относиться к той же подписке Azure и той же группе ресурсов, что и служба управления API. Это требование для шаблона Azure Resource Manager. 
+2. Тип содержимого секрета должен быть *application/x-pkcs12*. Вы можете использовать следующий скрипт для отправки сертификата:
+
+```powershell
+$pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
+$pwd = "PFX_CERTIFICATE_PASSWORD" # Change this password 
+$flag = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable 
+$collection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection 
+$collection.Import($pfxFilePath, $pwd, $flag) 
+$pkcs12ContentType = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12 
+$clearBytes = $collection.Export($pkcs12ContentType) 
+$fileContentEncoded = [System.Convert]::ToBase64String($clearBytes) 
+$secret = ConvertTo-SecureString -String $fileContentEncoded -AsPlainText –Force 
+$secretContentType = 'application/x-pkcs12' 
+Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -SecretValue $Secret -ContentType $secretContentType
+```
 
 > [!Important]
 > Если версия объекта сертификата не указана, служба управления API автоматически получит более новую версию сертификата после ее передачи в Key Vault. 

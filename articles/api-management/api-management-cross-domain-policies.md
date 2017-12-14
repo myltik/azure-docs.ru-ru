@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 590831454e8a18678e357b4824eb35a717d1fee0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management cross domain policies (Междоменные политики службы управления API).
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,9 +26,7 @@ ms.lasthandoff: 10/11/2017
 ##  <a name="CrossDomainPolicies"></a> Политики междоменного доступа  
   
 -   [Разрешение кросс-доменных вызовов](api-management-cross-domain-policies.md#AllowCrossDomainCalls) – делает API доступным из клиентов на основе браузеров Adobe Flash и Microsoft Silverlight.  
-  
 -   [CORS](api-management-cross-domain-policies.md#CORS) – добавляет поддержку общего доступа к ресурсам независимо от источника (CORS) для операции или API, чтобы разрешить кросс-доменные вызовы от клиентов на основе браузера.  
-  
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) – добавляет поддержку JSON с заполнением (JSONP) для операции или API, чтобы разрешить кросс-доменные вызовы из браузерных клиентов JavaScript.  
   
 ##  <a name="AllowCrossDomainCalls"></a> Разрешение междоменных вызовов  
@@ -63,7 +61,6 @@ ms.lasthandoff: 10/11/2017
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Разделы политики:** inbound.  
-  
 -   **Области политики:** global.  
   
 ##  <a name="CORS"></a> CORS  
@@ -147,7 +144,6 @@ ms.lasthandoff: 10/11/2017
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Разделы политики:** inbound.  
-  
 -   **Области политики:** API, operation.  
   
 ##  <a name="JSONP"></a> JSONP  
@@ -185,8 +181,13 @@ ms.lasthandoff: 10/11/2017
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Разделы политики:** outbound.  
-  
 -   **Области политики:** global, product, API, operation.  
   
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о работе с политиками см. в статье со справочными материалами по [политикам в службе управления API](api-management-howto-policies.md).  
+
+Дополнительные сведения о работе с политиками см. в следующих статьях:
+
++ [Политики в управлении API](api-management-howto-policies.md)
++ [Преобразование API-интерфейсов](transform-api.md).
++ Полный перечень операторов политик и их параметров см. в [справочнике по политикам](api-management-policy-reference.md).
++ [Примеры политик](policy-samples.md).   

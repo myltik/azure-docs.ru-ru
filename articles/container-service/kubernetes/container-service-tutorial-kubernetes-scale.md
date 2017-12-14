@@ -1,27 +1,19 @@
 ---
-title: "Руководство по Службе контейнеров Azure: масштабирование приложения | Документация Майкрософт"
+title: "Руководство по Службе контейнеров Azure: масштабирование приложения"
 description: "Руководство по Службе контейнеров Azure: масштабирование приложения"
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, контейнеры, микрослужбы, Kubernetes, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 25d7e56c7d7755e44fdb16e3b5585a112e495e77
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: a748e15abbc01f260349fba2678c03a40c4d7713
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Масштабирование pod и инфраструктуры Kubernetes
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 8c15d198e92b1478b84b2140df416df3909ba141
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 694d0c27b26c1ed9f6a1a54f766d024d882b5b64
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Управление сроком действия хранилища BLOB-объектов Azure в сети доставки содержимого Azure
 > [!div class="op_single_selector"]
@@ -29,8 +29,10 @@ ms.lasthandoff: 11/23/2017
 
 [Служба хранилища BLOB-объектов](../storage/common/storage-introduction.md#blob-storage) в службе хранилища Azure — это один из нескольких источников в облаке Azure, интегрированных с сетью доставки содержимого (CDN) Azure. Любое общедоступное содержимое BLOB-объекта может кэшироваться в Azure CDN до истечения его срока жизни (TTL). Срок жизни определяется заголовком `Cache-Control`, указанным в HTTP-ответе исходного сервера. В этой статье описано несколько способов определения заголовка `Cache-Control` для большого двоичного объекта в службе хранилища Azure.
 
+Можно также управлять параметрами кэша на портале Azure, определив [правила кэширования CDN](cdn-caching-rules.md). Если определить одно или несколько правил кэширования и настроить их на **переопределение** или **отключение кэша**, предоставляемые системой параметры, описываемые в этой статье, будут игнорироваться. См. дополнительные сведения о [функции кэширования](cdn-how-caching-works.md).
+
 > [!TIP]
-> Срок жизни для BLOB-объекта можно не указывать. Тогда Azure CDN по умолчанию применит срок жизни длительностью семь дней. Этот срок жизни по умолчанию применяется только к оптимизациям общей веб-доставки. Для оптимизаций больших файлов срок жизни по умолчанию составляет один день, а для оптимизаций потоковой передачи срок жизни по умолчанию составляет один год.
+> Срок жизни для BLOB-объекта можно не указывать. В этом случае Azure CDN автоматически применяет стандартное значение TTL (семь дней), если только вы не настроили правила кэширования на портале Azure. Этот срок жизни по умолчанию применяется только к оптимизациям общей веб-доставки. Для оптимизаций больших файлов срок жизни по умолчанию составляет один день, а для оптимизаций потоковой передачи срок жизни по умолчанию составляет один год.
 > 
 > Дополнительные сведения о том, как Azure CDN ускоряет доступ к BLOB-объектам и другим файлам, см. в статье [Общие сведения о сети доставки содержимого (CDN) Azure](cdn-overview.md).
 > 
@@ -50,7 +52,7 @@ $context = New-AzureStorageContext -StorageAccountName "<storage account name>" 
 $blob = Get-AzureStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
 
 # Set the CacheControl property to expire in 1 hour (3600 seconds)
-$blob.ICloudBlob.Properties.CacheControl = "public, max-age=3600"
+$blob.ICloudBlob.Properties.CacheControl = "max-age=3600"
 
 # Send the update to the cloud
 $blob.ICloudBlob.SetProperties()
@@ -85,7 +87,7 @@ class Program
         CloudBlob blob = container.GetBlobReference("<blob name>");
 
         // Set the CacheControl property to expire in 1 hour (3600 seconds)
-        blob.Properties.CacheControl = "public, max-age=3600";
+        blob.Properties.CacheControl = "max-age=3600";
 
         // Update the blob's properties in the cloud
         blob.SetProperties();
@@ -102,12 +104,20 @@ class Program
 ### <a name="azure-storage-explorer"></a>обозреватель хранилищ Azure
 С помощью [обозревателя службы хранилища Azure](https://azure.microsoft.com/en-us/features/storage-explorer/) можно просматривать и изменять ресурсы хранилища BLOB-объектов, включая такие свойства, как *CacheControl*. 
 
+Чтобы обновить свойство *CacheControl* большого двоичного объекта с помощью обозревателя хранилищ Azure, сделайте следующее.
+   1. Выберите большой двоичный объект, а затем выберите **Свойства** в контекстном меню. 
+   2. Прокрутите меню вниз до свойства *CacheControl*.
+   3. Введите значение, а затем нажмите кнопку **Сохранить**.
+
+
+![Свойства в обозревателе службы хранилища Azure](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
+
 ### <a name="azure-command-line-interface"></a>Интерфейс командной строки Azure
-При передаче большого двоичного объекта можно определить свойство *cacheControl* с помощью параметра `-p` в [интерфейсе командной строки Azure](../cli-install-nodejs.md). В следующем примере показано, как задать срок жизни, равный 1 часу (3600 секунд).
+С помощью [интерфейса командной строки Azure](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) (CLI) можно управлять ресурсами BLOB-объектов Azure из командной строки. Чтобы определить заголовок Cache-Control при передаче большого двоичного объекта с помощью Azure CLI, определите свойство *cacheControl* с помощью параметра `-p`. В следующем примере показано, как задать срок жизни, равный 1 часу (3600 секунд).
   
-    ```text
-    azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
-    ```
+```azurecli
+azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
+```
 
 ### <a name="azure-storage-services-rest-api"></a>REST API служб хранилища Azure
 Можно использовать [REST API служб хранилища Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx), чтобы явно задать свойство *x-ms-blob-cache-control* с помощью следующих операций в запросе:
@@ -121,4 +131,5 @@ class Program
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Узнайте, как управлять сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure](cdn-manage-expiration-of-cloud-service-content.md).
+* [Дополнительные сведения о кэшировании](cdn-how-caching-works.md)
 

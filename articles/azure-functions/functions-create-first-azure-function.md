@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 638c3bfb5a312c196d09216f3f7bf95bbc983c10
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 16680aaf2f49ae8ece440d0e44b49d6cd1f8fad7
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Создание первой функции на портале Azure
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/18/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-azure"></a>Вход в Azure
+## <a name="sign-in-to-azure"></a>Вход в Azure
 
-Войдите на [портал Azure](https://portal.azure.com/).
+Перейдите на портал Azure. Для этого войдите на [портал Azure](https://portal.azure.com/) с помощью своей учетной записи Azure.
 
 ## <a name="create-a-function-app"></a>Создание приложения-функции
 

@@ -135,6 +135,8 @@
       items:
         - name: Непрерывное развертывание
           href: functions-continuous-deployment.md
+        - name: Развертывание из ZIP-файла при помощи push-запросов
+          href: deployment-zip-push.md
         - name: Автоматическое развертывание ресурсов
           href: functions-infrastructure-as-code.md
         - name: Функции в локальной среде

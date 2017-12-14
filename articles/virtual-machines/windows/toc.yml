@@ -66,6 +66,9 @@
         - name: Оптимизированные для вычислений
           href: sizes-compute.md
         - name: Оптимизированные для памяти
+          items:
+            - name: Ограниченное число виртуальных ЦП
+              href: constrained-vcpu.md
           href: sizes-memory.md
         - name: Оптимизированные для хранилища
           href: sizes-storage.md
@@ -113,6 +116,8 @@
       items:
         - name: Рекомендации по инфраструктуре
           href: infrastructure-example.md
+        - name: Квоты на виртуальные ЦП
+          href: quotas.md
 - name: Практические руководства
   items:
     - name: Создание виртуальных машин
@@ -164,6 +169,8 @@
       items:
         - name: Предоплата за использование виртуальных машин. Зарезервированные экземпляры
           href: prepay-reserved-vm-instances.md
+        - name: Использование виртуальных машин
+          href: vm-usage.md
         - name: Общие задачи в PowerShell
           href: ps-common-ref.md
         - name: Перемещение виртуальной машины

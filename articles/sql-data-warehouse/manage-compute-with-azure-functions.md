@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 11/06/2017
 ms.author: elbutter
-ms.openlocfilehash: e2138f26a78338406b466bdd2aa6e756e602726d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 8947da9d34261be46ad9aea961b6020141484172
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-functions-to-automate-sql-dw-compute-levels"></a>Использование службы "Функции Azure" для автоматизации управления уровнями вычислений в хранилище данных SQL
 
 В этом руководстве объясняется, как с помощью службы "Функции Azure" управлять уровнями вычислений в хранилище данных SQL Azure. Эти архитектуры рекомендуется использовать с уровнем производительности хранилища данных SQL, [оптимизированным для эластичности][Performance Tiers].
 
-Чтобы использовать приложение-функцию Azure с хранилищем данных SQL, необходимо создать [учетную запись субъекта-службы](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) с правами участника в той же подписке, в которой создан экземпляр хранилища данных. 
+Чтобы использовать приложение-функцию Azure с хранилищем данных SQL, необходимо создать [учетную запись субъекта-службы](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) с правами участника в той же подписке, в которой создан экземпляр хранилища данных. 
 
 ## <a name="deploy-timer-based-scaler-with-an-azure-resource-manager-template"></a>Развертывание средства масштабирования на основе таймера с помощью шаблона Azure Resource Manager
 

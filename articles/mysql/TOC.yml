@@ -83,12 +83,6 @@
           href: concepts-compatibility.md
         - name: Разработка приложений
           href: concepts-database-application-development.md
-    - name: Миграция базы данных
-      items:
-        - name: Дамп и восстановление
-          href: concepts-migrate-dump-restore.md
-        - name: Импорт и экспорт
-          href: concepts-migrate-import-export.md
 - name: Практические руководства
   items:
     - name: Управление сервером
@@ -107,6 +101,12 @@
           href: howto-restore-server-portal.md
         - name: Инфраструктура CLI Azure
           href: howto-restore-server-cli.md
+    - name: Перенос базы данных
+      items:
+        - name: Дамп и восстановление
+          href: concepts-migrate-dump-restore.md
+        - name: Импорт и экспорт
+          href: concepts-migrate-import-export.md
     - name: Подключение приложений
       items:
         - name: Создание пользователей
@@ -161,3 +161,5 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: Истории клиентов
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'
+    - name: Руководство по переносу баз данных
+      href: 'https://datamigration.microsoft.com/'

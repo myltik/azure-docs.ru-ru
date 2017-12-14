@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 2ee7ec91700c66d5bedd917d0203a726b5c5e300
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9026090addde35dc702a80f302abd7e3eb9c690
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Прогнозирование оттока клиентов с помощью Машинного обучения Azure
 
@@ -90,15 +90,15 @@ __docs__: содержит все практические занятия.
 Порядок выполнения практических заданий решения выглядит так:
 1. Подготовка данных. Основной файл, относящийся к подготовке данных, находится в папке data и называется `CATelcoCustomerChurnTrainingSample.csv`.
 2. Моделирование и оценка. Основной файл, относящийся к моделированию и вычислениям, находится в корневой папке и называется `CATelcoCustomerChurnModeling.py`.
-3. Моделирование и оценка в Docker. Основной файл для выполнения этой задачи находится в корневой папке и называется `CATelcoCustomerChurnModelingDocker.py`.
+3. Моделирование и оценка без файла DPREP. Основной файл для выполнения этой задачи находится в корневой папке и называется `CATelcoCustomerChurnModelingWithoutDprep.py`.
 4. Ввод в эксплуатацию. Основные файлы для развертывания — это файлы модели (`model.pkl`) и `churn_schema_gen.py`.
 
 | Порядок| Имя файла | Связанные файлы |
 |--|-----------|------|
 | 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | data/CATelcoCustomerChurnTrainingSample.csv |
 | 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | CATelcoCustomerChurnModeling.py |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationDocker.md) | CATelcoCustomerChurnModelingDocker.py |
-| 4. | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | model.pkl<br>churn_schema_gen.py |
+| 3 | [`CATelcoCustomerChurnModelingWithoutDprep.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/CATelcoCustomerChurnModelingWithoutDprep.md) | CATelcoCustomerChurnModelingWithoutDprep.py |
+| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | model.pkl<br>churn_schema_gen.py |
 
 Выполняйте практические задания в последовательном режиме, описанном выше.
 

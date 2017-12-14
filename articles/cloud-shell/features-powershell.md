@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 12/6/2017
 ms.author: damaerte
-ms.openlocfilehash: e45d66eff4be4918ffd6e7940bbfb5adb4c88c00
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 6ec1d8dac4e07b28b92c2aee5d1e9d47fa62b7a1
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Функции и инструменты для PowerShell в Azure Cloud Shell (предварительная версия)
 
@@ -37,7 +37,7 @@ PowerShell в Cloud Shell (предварительная версия) безо
 
 ### <a name="files-persistence-across-sessions"></a>Сохранение файлов между сеансами
 
-Чтобы сохранять файлы между сеансами, при первом запуске Cloud Shell предлагается присоединить общую папку Azure.
+Чтобы сохранять файлы между сеансами, при первом запуске Cloud Shell предлагается подключить файловый ресурс Microsoft Azure.
 По завершении настройки Cloud Shell будет автоматически подключать хранилище (подключенное как `$home\clouddrive`) для всех будущих сеансов.
 Так как каждому запросу к Cloud Shell выделяется временный компьютер, файлы за пределами каталога `$home\clouddrive` и сведения о состоянии компьютера не сохраняются между сеансами.
 
@@ -91,7 +91,7 @@ PowerShell в Cloud Shell (предварительная версия) запу
 
 |**Категория**    |**Имя**                                 |
 |----------------|-----------------------------------------|
-|Инструменты Azure     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.21)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Инструменты Azure     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/en-us/cli/azure/overview)|
 |Текстовые редакторы    |vim<br> nano                             |
 |Диспетчер пакетов |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Система управления версиями  |git                                      |

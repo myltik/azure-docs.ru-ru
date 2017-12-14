@@ -1,6 +1,6 @@
 ---
-title: "Рабочие нагрузки контейнера Docker в пакетной службе Azure | Документация Майкрософт"
-description: "Узнайте, как выполнять приложения из образов контейнеров Docker в пакетной службе Azure."
+title: "Рабочие нагрузки контейнера в пакетной службе Azure | Документация Майкрософт"
+description: "Выполнение приложения из образов контейнеров в пакетной службе Azure."
 services: batch
 author: v-dotren
 manager: timlt
@@ -8,15 +8,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 12/01/2017
 ms.author: v-dotren
-ms.openlocfilehash: fc15b2db051b5ebbf39665b803b22d3a5e4885f9
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="run-docker-container-applications-on-azure-batch"></a>Выполнение контейнерных приложений Docker в пакетной службе Azure
+# <a name="run-container-applications-on-azure-batch"></a>Выполнение контейнерных приложений в пакетной службе Azure
 
 Пакетная служба Azure позволяет выполнять и масштабировать большие количества заданий в пакетной обработке данных в Azure. До этого момента такие задачи выполнялись напрямую на виртуальных машинах в пуле пакетной службы, однако теперь пул пакетной службы можно настроить для выполнения задач в контейнерах Docker.
 
@@ -112,12 +112,11 @@ ms.lasthandoff: 11/15/2017
 
 ### <a name="pool-without-prefetched-container-images"></a>Пул без предварительно полученных образов контейнеров
 
-Для настройки пула без предварительно полученных контейнерных образов используйте `ContainerConfiguration`, как показано в следующем примере. В этом и следующих примерах подразумевается, что используется пользовательский образ Ubuntu 16.04 LTS с установленной подсистемой Docker.
+Для настройки пула без предварительно полученных контейнерных образов определите объекты `ContainerConfiguration` и `VirtualMachineConfiguration`, как показано в следующем примере. В этом и следующих примерах подразумевается, что используется пользовательский образ Ubuntu 16.04 LTS с установленной подсистемой Docker.
 
 ```csharp
 // Specify container configuration
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker");
+ContainerConfiguration containerConfig = new ContainerConfiguration();
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
@@ -136,14 +135,14 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
+
 ### <a name="prefetch-images-for-container-configuration"></a>Предварительное получение образов для конфигурации контейнера
 
-Для предварительного получения образов контейнеров в пуле добавьте список образов контейнеров (`containerImageNames`) в конфигурацию контейнера и присвойте этому списку имя. В следующем примере предполагается, что используется пользовательский образ Ubuntu 16.04 LTS, предварительно полученный образ TensorFlow из [центра Docker](https://hub.docker.com), а TensorFlow запускается в задаче запуска.
+Для предварительной выборки образов контейнеров в пуле добавьте список образов контейнеров (`containerImageNames`) в `ContainerConfiguration` и присвойте этому списку имя. В следующем примере предполагается, что используется пользовательский образ Ubuntu 16.04 LTS, предварительно полученный образ TensorFlow из [центра Docker](https://hub.docker.com), а TensorFlow запускается в задаче запуска.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
 
 // VM configuration
@@ -176,7 +175,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Предварительно полученные образы из закрытого реестра контейнеров
 
-Можно также выполнять предварительное получение образов контейнеров путем проверки подлинности на сервере закрытого реестра контейнеров. В следующем примере предполагается, что используется пользовательский образ Ubuntu 16.04 LTS и выполняется предварительное получение закрытого образа TensorFlow из закрытого реестра контейнеров Azure.
+Можно также выполнять предварительное получение образов контейнеров путем проверки подлинности на сервере закрытого реестра контейнеров. В следующем примере объекты `ContainerConfiguration` и `VirtualMachineConfiguration` используют пользовательский образ Ubuntu 16.04 LTS и выполняют предварительную выборку закрытого образа TensorFlow из закрытого реестра контейнеров Azure.
 
 ```csharp
 // Specify a container registry
@@ -187,7 +186,6 @@ ContainerRegistry containerRegistry = new ContainerRegistry (
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> {
         "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
     containerRegistries: new List<ContainerRegistry> { containerRegistry } );

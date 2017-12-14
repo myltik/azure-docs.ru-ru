@@ -12,18 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/15/2017
-ms.author: markgal;arunak
-ms.openlocfilehash: a3d50d0066f1d0fe38bd7c5474386f54df81bec5
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: markgal;arunak;sogup
+ms.openlocfilehash: ad685744595ab86def8d226d7c2fb5455af98da4
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="recovery-services-vaults-overview"></a>Обзор хранилищ служб восстановления
 
-В этой статье описываются возможности хранилища служб восстановления. Хранилище службы восстановления — это сущность хранилища в Azure, содержащая данные. Этими данными обычно являются копии данных или сведений о конфигурации для виртуальных машин, рабочих нагрузок, серверов или рабочих станций. Хранилища служб восстановления можно использовать для хранения архивных данных для различных служб Azure, в том числе виртуальных машин IaaS (Windows или Linux) и баз данных SQL Azure. Хранилища служб восстановления поддерживают работу с System Center DPM, Windows Server, сервером резервного копирования Azure и многими другими решениями. Хранилища служб восстановления упрощают организацию данных архивации и одновременно снижают затраты на управление. 
+В этой статье описываются возможности хранилища служб восстановления. Хранилище службы восстановления — это сущность хранилища в Azure, содержащая данные. Этими данными обычно являются копии данных или сведений о конфигурации для виртуальных машин, рабочих нагрузок, серверов или рабочих станций. Хранилища служб восстановления можно использовать для хранения архивных данных для различных служб Azure, в том числе виртуальных машин IaaS (Windows или Linux) и баз данных SQL Azure. Хранилища служб восстановления поддерживают работу с System Center DPM, Windows Server, Azure Backup Server и многими другими решениями. Хранилища служб восстановления упрощают организацию данных архивации и одновременно снижают затраты на управление. 
 
-В рамках одной подписки Azure можно создать до 25 хранилищ служб восстановления.
+В рамках одной подписки Azure можно создать до 25 хранилищ служб восстановления для каждого региона.
 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Сравнение хранилищ служб восстановления и резервных хранилищ
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/19/2017
 - [Архивация виртуальной машины Azure](backup-azure-vms-first-look-arm.md)
 - [Архивация Windows Server или рабочей станции Windows](backup-try-azure-backup-in-10-mins.md)
 - [Архивация рабочих нагрузок DPM в Azure](backup-azure-dpm-introduction.md)
-- [Подготовка к архивации рабочих нагрузок с помощью сервера резервного копирования Azure](backup-azure-microsoft-azure-backup.md)
+- [Подготовка к резервному копированию рабочих нагрузок с помощью Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 
 ### <a name="manage-recovery-points"></a>Управление точками восстановления
 - [Управление архивацией виртуальных машин Azure](backup-azure-manage-vms.md)
@@ -71,6 +71,6 @@ ms.lasthandoff: 10/19/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Ознакомьтесь со следующими статьями:</br>
-[Архивация виртуальной машины IaaS](backup-azure-arm-vms-prepare.md)</br>
-[Архивация сервера резервного копирования Azure](backup-azure-microsoft-azure-backup.md)</br>
-[Архивация Windows Server](backup-configure-vault.md)
+[Подготовка среды к архивации виртуальных машин, развернутых с помощью Resource Manager](backup-azure-arm-vms-prepare.md)</br>
+[Подготовка к резервному копированию рабочих нагрузок с использованием сервера службы архивации Azure](backup-azure-microsoft-azure-backup.md)</br>
+[Архивация сервера Windows Server или клиента Windows в Azure с использованием модели развертывания с помощью Resource Manager](backup-configure-vault.md)

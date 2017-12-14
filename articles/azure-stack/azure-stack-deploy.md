@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Необходимые компоненты для развертывания Azure Stack
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 11/15/2017
 
 1. Создайте учетную запись Azure AD с правами администратора каталога по крайней мере для одного клиента Azure AD. Если у вас уже есть такая учетная запись, вы можете использовать ее. Или же создайте ее бесплатно, перейдя по ссылке [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (ссылка для пользователей из Китая: <http://go.microsoft.com/fwlink/?LinkID=717821>). Если вы планируете позже [зарегистрировать Azure Stack в Azure](azure-stack-register.md), вам также потребуется указать подписку в созданной учетной записи.
    
-    Сохраните эти учетные данные, чтобы использовать их на шаге 6 процедуры [развертывания комплекта разработки](azure-stack-run-powershell-script.md#deploy-the-development-kit). Используя эту учетную запись *администратора служб*, можно настраивать облака ресурсов, учетные записи пользователей, планы клиента, квоты и расценки, а также управлять ими. На портале они могут создавать облака веб-сайтов, частные облака виртуальных машин и планы, а также управлять подписками пользователей.
+    Сохраните эти учетные данные, чтобы использовать их на шаге 6 процедуры [развертывания комплекта разработки](azure-stack-run-powershell-script.md). Используя эту учетную запись *администратора служб*, можно настраивать облака ресурсов, учетные записи пользователей, планы клиента, квоты и расценки, а также управлять ими. На портале они могут создавать облака веб-сайтов, частные облака виртуальных машин и планы, а также управлять подписками пользователей.
 2. [Создайте](azure-stack-add-new-user-aad.md) по крайней мере одну учетную запись, чтобы вы могли войти в комплект разработки в качестве клиента.
    
    | **Учетная запись Azure Active Directory** | **Поддерживается?** |
@@ -121,62 +121,6 @@ ms.lasthandoff: 11/15/2017
 
 ### <a name="internet-access"></a>Доступ к Интернету
 Для Azure Stack требуется непосредственное подключение к Интернету или через прозрачный прокси-сервер. Azure Stack не поддерживает конфигурацию веб-прокси для включения доступа к Интернету. У IP-адреса узла и нового IP-адреса, назначенного MAS-BGPNAT01 (это может быть назначенный с помощью DHCP или статический IP-адрес), должен быть доступ к Интернету. В доменах graph.windows.net и login.microsoftonline.com используются порты 80 и 443.
-
-## <a name="telemetry"></a>Телеметрия
-
-Данные телеметрии помогают разрабатывать последующие версии Azure Stack. Кроме того, они позволяют быстро реагировать на отзывы, предоставлять пользователям новые функции и улучшить качество. В состав Microsoft Azure Stack входит Windows Server 2016 и SQL Server 2014. Параметры по умолчанию этих продуктов не изменены. Они также включены в заявление о конфиденциальности Microsoft Enterprise. Azure Stack также содержит программное обеспечение с открытым исходным кодом, которое не отправляет данные телеметрии в Майкрософт. Примеры данных телеметрии Azure Stack:
-
-- сведения о регистрации развертывания;
-- сведения об открытии и закрытии оповещения;
-- количество сетевых ресурсов.
-
-Чтобы обеспечить поддержку потока данных телеметрии, в сети необходимо открыть порт 443 (HTTPS). Конечная точка клиента — https://vortex-win.data.microsoft.com.
-
-Если вы не хотите предоставлять данные телеметрии Azure Stack, эту функцию можно отключить на узле комплекта разработки и виртуальных машинах инфраструктуры, как описано ниже.
-
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Отключение функции передачи данных телеметрии на узле комплекта разработки (необязательно)
-
->[!NOTE]
-Если вы хотите отключить функцию передачи данных телеметрии на узле комплекта разработки, это нужно сделать перед выполнением сценария развертывания.
-
-Прежде чем [выполнять сценарий asdk-installer.ps1]() для развертывания узла комплекта разработки, выполните загрузку в файл Cloudbuilder.vhdx и запустите следующий сценарий в окне PowerShell с повышенными привилегиями:
-```powershell
-### Get current AllowTelmetry value on DVM Host
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name "AllowTelemetry" -Value '0'  
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-```
-
-Если для параметра **AllowTelemetry** задать значение 0, вы отключите функцию передачи данных телеметрии в Windows и развертывание Azure Stack. Отправляются только критические события из операционной системы. Этот параметр управляет передачей данных телеметрии Windows на всех узлах и виртуальных машинах инфраструктуры. Он повторно применяется к новым узлам и виртуальным машинам после масштабирования.
-
-
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Отключение функции передачи данных телеметрии на виртуальных машинах инфраструктуры (необязательно)
-
-После развертывания на узле комплекта разработки выполните следующий сценарий в окне PowerShell с повышенными привилегиями (как пользователь AzureStack или AzureStackAdmin):
-
-```powershell
-$AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
-### Show current AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-### Set & Get updated AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {Set-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Value '0'}
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-```
-
-Сведения о настройке данных телеметрии SQL Server см. в разделе [Настройка SQL Server 2016 для отправки отчетов в корпорацию Майкрософт](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
-
-### <a name="usage-reporting"></a>Отчеты об использовании
-
-При регистрации в Azure Stack также можно настроить передачу сведений об использовании в Azure. Эта возможность не настраивается отдельно от передачи данных телеметрии. Создание отчетов об использовании можно отключить при [регистрации](azure-stack-register.md) с помощью сценария в GitHub. В этом случае нужно просто задать параметру **$reportUsage** значение **$false**.
-
-Сведения о форматировании данных об использовании см. в статье [Report Azure Stack usage data to Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting) (Передача данных об использовании Azure Stack в Azure). Плата за использование комплекта разработки Azure Stack не взимается. Эта функция входит в комплект разработки, поэтому вы можете проверить, как работает создание отчетов об использовании. 
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

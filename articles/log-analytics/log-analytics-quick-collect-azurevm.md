@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/20/2017
+ms.date: 11/28/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 2dec744b512a86a30cec1f334e265572fa7acc3e
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 60e90fbce525f4328671ecded9ad96583c4c3c9e
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Сбор данных о виртуальных машинах Azure
 [Azure Log Analytics](log-analytics-overview.md) может собирать данные напрямую c виртуальных машин Azure и других ресурсов в среде в один репозиторий для подробного анализа и корреляции.  В этом кратком руководстве показано, как настроить и собирать данные c виртуальных машин под управлением Linux или Windows с помощью нескольких простых действий.  
@@ -46,6 +46,9 @@ ms.lasthandoff: 10/24/2017
 
 ## <a name="enable-the-log-analytics-vm-extension"></a>Включение расширения виртуальной машины Log Analytics
 На виртуальные машины Windows и Linux, развернутые в Azure, устанавливается агент Log Analytics с расширением виртуальной машины Log Analytics.  Использование расширения упрощает процесс установки и автоматически настраивает агент на отправку данных в указанную вами рабочую область службы Log Analytics. Кроме того, агент обновляется автоматически, обеспечивая наличие новейших компонентов и исправлений.
+
+>[!NOTE]
+>Агент OMS для Linux невозможно настроить для отправки отчетов в несколько рабочих областей Log Analytics. 
 
 В верхней части страницы ресурса Log Analytics на портале вы можете заметить баннер с предложением выполнить обновление.  При работе с этим руководством это обновление не требуется.<br>
 

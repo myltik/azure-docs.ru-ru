@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
+ms.date: 11/30/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: aea0b93e658a0c5dd14deedbd2c5c92bb1fbf652
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Управление обновлениями для нескольких виртуальных машин
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/28/2017
 
 ### <a name="windows"></a>Windows
 
-* Windows Server 2008 и более поздние версии и развертывания обновлений в Windows Server 2008 R2 с пакетом обновления 1 (SP1) и более поздних версий. Параметры установки Server Core и Nano Server не поддерживаются.
+* Windows Server 2008 и более поздние версии и развертывания обновлений в Windows Server 2008 R2 с пакетом обновления 1 (SP1) и более поздних версий. Nano Server не поддерживается.
 
   Для поддержки развертывания обновлений в Windows Server 2008 R2 с пакетом обновления 1 (SP1) требуется .NET Framework 4.5 и Windows Management Framework 5.0 или более поздней версии.
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Включение управления обновлениями для виртуальных машин Azure и компьютеров
 
-Инструкции по включению управления обновлениями для компьютеров и виртуальных машин Windows, не относящихся к Azure, см. в статье [Подключение компьютеров Windows к службе Log Analytics в Azure](../log-analytics/log-analytics-windows-agents.md).
+Инструкции по включению управления обновлениями для компьютеров и виртуальных машин Windows, не относящихся к Azure, см. в статье [Подключение компьютеров Windows к службе Log Analytics в Azure](../log-analytics/log-analytics-windows-agent.md).
 
 Инструкции по включению управления обновлениями для компьютеров и виртуальных машин Linux, не относящихся к Azure, см. в статье [Подключение компьютеров Linux к Log Analytics](../log-analytics/log-analytics-agent-linux.md).
 

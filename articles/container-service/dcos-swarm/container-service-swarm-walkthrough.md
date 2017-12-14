@@ -1,27 +1,19 @@
 ---
-title: "Краткое руководство: сеть кластера Azure Docker Swarm для Linux | Документация Майкрософт"
+title: "Краткое руководство. Кластер Azure Docker Swarm для Linux"
 description: "Узнайте , как быстро создать кластер Docker Swarm для контейнеров Linux в Службе контейнеров Azure при помощи Azure CLI."
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, Docker, Swarm
-keywords: 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: quickstart
 ms.date: 08/14/2017
 ms.author: nepeters
-ms.custom: 
-ms.openlocfilehash: 876135d62d548e155f4ebefd8bbd9d9cca8b87d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 180a476445760930ab4f3505e0e6e9474e404445
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="deploy-docker-swarm-cluster"></a>Развертывание кластера Docker Swarm
 

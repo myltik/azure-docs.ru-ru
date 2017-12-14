@@ -1,27 +1,19 @@
 ---
-title: "Знакомство со службой контейнеров Azure для Kubernetes | Документация Майкрософт"
+title: "Знакомство со службой контейнеров Azure для Kubernetes"
 description: "Служба контейнеров Azure для Kubernetes упрощает развертывание и администрирование контейнерных приложений в Azure."
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Kubernetes, Docker, контейнеры, микрослужбы, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 65658985e3d09215578d50e39bbc1146d1bd81f9
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 1a877204e91098191c218bf1c991cc5d8e53ee7a
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="introduction-to-azure-container-service-for-kubernetes"></a>Знакомство со службой контейнеров Azure для Kubernetes
 

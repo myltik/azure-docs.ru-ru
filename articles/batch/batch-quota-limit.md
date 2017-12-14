@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bb5470918aa3ad15cb9081f5c02b40984d83f51
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="batch-service-quotas-and-limits"></a>Квоты и ограничения пакетной службы
 
@@ -51,10 +51,11 @@ ms.lasthandoff: 10/11/2017
 | Пакеты приложения на приложение |40 |
 | Размер пакета приложения (каждый) |Примерно 195 ГБ<sup>1</sup> |
 | Максимальный размер задачи запуска | 32 768 символов<sup>2</sup> |
+| Максимальное время существования задачи | 7 дней<sup>3</sup> |
 
 <sup>1</sup> Ограничение службы хранилища Azure для максимального размера блочного BLOB-объекта.<br />
-<sup>2</sup> Включая файлы ресурсов и переменные среды
-
+<sup>2</sup> Включая файлы ресурсов и переменные среды.<br />
+<sup>3</sup> Максимальное время существования задачи от ее добавления к заданию до завершения составляет 7 дней. Завершенные задачи сохраняются в течение неограниченного времени; данные для задач, которые не были завершены в течение максимального времени существования, недоступны.
 
 
 ## <a name="view-batch-quotas"></a>Просмотр квот пакетной службы

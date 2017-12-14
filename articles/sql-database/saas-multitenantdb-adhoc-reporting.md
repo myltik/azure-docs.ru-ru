@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c85dec1023e4d4f0a14dfbc249850b6dc6e78edf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Выполнение запросов автоматизированной системы отчетности к нескольким базам данных SQL Azure
 
@@ -52,12 +52,11 @@ ms.lasthandoff: 11/15/2017
 
 Благодаря распределению запросов между базами данных клиента эластичный запрос позволяет мгновенно получить представление о текущих производственных данных. Тем не менее, так как потенциально эластичный запрос извлекает данные из множества баз данных, задержка при выполнении запроса иногда может быть выше, чем для аналогичных запросов, отправляемых к отдельной мультитенантной базе данных. Чтобы сократить объем возвращаемых данных следует применить проектирование запросов. Как правило, эластичный запрос лучше всего подходит для получения небольших объемов данных в реальном времени, в отличие от часто используемых или сложных аналитических запросов или отчетов. Если запросы работают плохо, изучите [план выполнения](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) и узнайте, какая часть запроса передается на удаленную базу данных. Также вы можете оценить, сколько данных получено от базы данных. Чтобы хорошо выполнялись запросы, требующие сложной аналитической обработки, иногда будет полезным извлечь часть клиентских данных в выделенную базу данных и оптимизировать ее для аналитических запросов. Эта промежуточную базу данных аналитики можно разместить в Базе данных SQL или в хранилище данных SQL.
 
-<!-- ?? This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
--->
+Эта аналитическая схема описана в [руководстве по аналитическим запросам с использованием клиентов](saas-multitenantdb-tenant-analytics.md).
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Получение скриптов для приложения SaaS мультитенантной базы данных Wingtip Tickets
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Получение скриптов и исходного кода для SaaS-приложения Wingtip Tickets c мультитенантной БД
 
-Скрипты для SaaS-приложения Wingtip Tickets c мультитенантной БД и исходный код этого приложения вы найдете в [репозитории github WingtipTicketsSaaS-MultitenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). Не забудьте выполнить процесс разблокировки, как описано в файле readme.
+Сценарии для приложения SaaS Wingtip Tickets c мультитенантной базой данных и исходный код этого приложения вы найдете в репозитории GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB). Инструкции по скачиванию и разблокированию сценариев приложения SaaS Wingtip Tickets см. в статье [Общие рекомендации по работе с примерами приложений SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md).
 
 ## <a name="create-ticket-sales-data"></a>Создание данных о продажах билетов
 
@@ -96,7 +95,7 @@ ms.lasthandoff: 11/15/2017
 
     ![Создание учетных данных](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   Внешний источник данных, для которого определено использование карты сегментов клиента в базе данных каталога. При использовании этого внешнего источника данных запросы распределяются по всем базам данных, зарегистрированным в каталоге, при выполнении. Так как имена серверов для каждого развертывания отличаются, этот сценарий инициализации получает расположение каталога базы данных, извлекая имя текущего сервера (@@servername), на котором выполняется сценарий.
+   При использовании каталога базы данных в качестве внешнего источника данных запросы распределяются по всем базам данных, зарегистрированным в каталоге, при выполнении. Так как имена серверов для каждого развертывания отличаются, этот сценарий инициализации получает расположение каталога базы данных, извлекая имя текущего сервера (@@servername), на котором выполняется сценарий.
 
     ![Создание внешнего источника данных](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -120,7 +119,7 @@ ms.lasthandoff: 11/15/2017
 
 При проверке плана выполнения наведите указатель мыши на значки плана, чтобы получить дополнительные сведения. 
 
-1. В SSMS откройте файл \\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql*.
+1. В *SSMS* откройте \\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql*.
 2. Убедитесь в наличии подключения к базе данных **adhocreporting**.
 3. В меню **Запрос** выберите **Включить действительный план выполнения**.
 4. Выделите запрос *Which venues are currently registered?* и нажмите клавишу **F5**.
@@ -155,9 +154,7 @@ ms.lasthandoff: 11/15/2017
 > * как выполнить распределенные запросы по всем клиентским базам данных.
 > * как развернуть базу данных автоматизированной системы отчетности и добавить в нее схему для выполнения распределенных запросов.
 
-<!-- ??
-Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
--->
+Теперь ознакомьтесь с руководством [Межклиентская аналитика с помощью извлеченных данных](saas-multitenantdb-tenant-analytics.md), чтобы изучить извлечение данных в отдельную базу данных аналитики для более сложной аналитической обработки.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 

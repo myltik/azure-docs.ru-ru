@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/13/2017
+ms.date: 11/28/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: d22fe6456c3bd886f8f8863d362c0084fbe03da3
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 66748adc49ef921ab8adb5306b2a483234b076ae
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>Сбор данных с компьютеров Linux, размещенных в вашей среде
 [Azure Log Analytics](log-analytics-overview.md) может собирать данные напрямую c физических компьютеров или виртуальных машин Linux и других ресурсов в вашей среде в один репозиторий для подробного анализа и корреляции.  В этом кратком руководстве показано, как настроить и собирать данные c компьютера Linux с помощью нескольких простых действий.  Сведения о виртуальных машинах Linux в Azure приведены далее в разделе [Сбор данных о виртуальных машинах Azure](log-analytics-quick-collect-azurevm.md).  
- 
+
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 ## <a name="log-in-to-azure-portal"></a>Вход на портал Azure
@@ -55,6 +55,9 @@ ms.lasthandoff: 10/24/2017
 
 ## <a name="install-the-agent-for-linux"></a>Установка агента для Linux
 Ниже приведены инструкции по настройке установки агента для Log Analytics в Azure и облаке Azure для государственных организаций.  
+
+>[!NOTE]
+>Агент OMS для Linux невозможно настроить для отправки отчетов в несколько рабочих областей Log Analytics.  
 
 1. Чтобы настроить компьютер Linux для подключения к Log Analytics, выполните следующую команду, указав идентификатор рабочей области и первичный ключ, скопированные ранее.  Эта команда скачивает агент, проверяет его контрольную сумму и устанавливает его. 
     

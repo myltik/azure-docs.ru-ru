@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Миграция платформы центра безопасности Azure
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="agent"></a>Агент
 
-В рамках перехода Microsoft Monitoring Agent (для [Windows](../log-analytics/log-analytics-windows-agents.md) или [Linux](../log-analytics/log-analytics-linux-agents.md)) устанавливается на всех виртуальных машинах Azure, на которых выполняется сбор данных.  Если на виртуальной машине уже установлен Microsoft Monitoring Agent, центр обеспечения безопасности Azure будет использовать текущий установленный агент.
+В рамках перехода Microsoft Monitoring Agent (для [Windows](../log-analytics/log-analytics-windows-agent.md) или [Linux](../log-analytics/log-analytics-linux-agents.md)) устанавливается на всех виртуальных машинах Azure, на которых выполняется сбор данных.  Если на виртуальной машине уже установлен Microsoft Monitoring Agent, центр обеспечения безопасности Azure будет использовать текущий установленный агент.
 
 В течение заданного времени (обычно несколько дней) оба агента будут параллельно функционировать, чтобы обеспечить плавность перехода без каких-либо потерь данных. Это позволит Майкрософт проверить работоспособность нового конвейера данных, прежде чем прерывать использование текущего. После проверки агент мониторинга Azure будет удален из виртуальных машин. С вашей стороны не требуются какие-либо действия. Когда все клиенты будут перемещены, вы получите уведомление по почте.
  

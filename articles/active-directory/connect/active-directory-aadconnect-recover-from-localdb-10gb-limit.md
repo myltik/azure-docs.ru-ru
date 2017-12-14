@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08e682c51b12d4506019d2f6b68e1eae0798b990
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab2aed2b9e86dc9b3111dc1fdf9deea2e2930c7c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: восстановление из LocalDB с ограничением в 10 ГБ
 Azure AD Connect требуется база данных SQL Server для хранения учетных данных. Можно использовать выпуск SQL Server 2012 Express LocalDB по умолчанию, установленный с помощью Azure AD Connect, или полную версию SQL Server. SQL Server Express налагает ограничение в размере 10 ГБ. Если при использовании LocalDB достигнут этот предел, служба синхронизации Azure AD Connect больше не сможет запускаться или выполнять синхронизацию должным образом. Эта статья содержит рекомендации по восстановлению.
@@ -63,11 +63,11 @@ Azure AD Connect требуется база данных SQL Server для хр
 * учетная запись службы синхронизации, используемая для работы службы синхронизации Azure AD Connect;
 * локальная группа ADSyncAdmins, которая была создана во время установки.
 
-1. Выполните резервное копирование базы данных в безопасное расположение, скопировав файлы **ADSync.mdf** и **ADSync_log.ldf**, расположенные в `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data`.
+1. Выполните резервное копирование базы данных в безопасное расположение, скопировав файлы **ADSync.mdf** и **ADSync_log.ldf**, расположенные в `%ProgramFiles%\Microsoft Azure AD Sync\Data`.
 
 2. Запустите сеанс PowerShell.
 
-3. Перейдите в папку `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
+3. Перейдите в папку `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
 4. Запустите служебную программу **sqlcmd** с помощью команды `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, используя учетные данные системного администратора или владельца базы данных.
 

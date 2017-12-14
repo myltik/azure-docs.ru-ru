@@ -3,22 +3,22 @@ title: "Краткое руководство. Установка и настр�
 description: "Сведения об установке и настройке PowerShell для Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: sngun
-ms.openlocfilehash: 039806e164be29b80e604bbcf0f2997e635664e5
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: mabrigg
+ms.openlocfilehash: 0a85fc78d31c58ee83721d7dccbcdf46f98b3ddd
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Начало работы с PowerShell в Azure Stack
 
@@ -50,7 +50,6 @@ Set-ExecutionPolicy RemoteSigned `
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following command:
 Get-Module -ListAvailable | `
-  where-Object {$_.Name -like “Azure*”} | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.
@@ -86,7 +85,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
 
 # Register an AzureRM environment that targets your Azure Stack instance
@@ -96,7 +95,7 @@ $KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
 
 # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
-    -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+    -AADTenantName $TenantName `
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
@@ -105,9 +104,9 @@ $KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
     -TenantId $TenantID 
 ```
 
-## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Настройка PowerShell для развертываний на основе AD FS 
+## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Настройка PowerShell для развертываний на основе AD FS
 
-Войдите в пакет SDK для Azure Stack или внешний клиент на основе Windows (при подключении через VPN). Откройте сеанс интегрированной среды сценариев PowerShell с повышенными правами и выполните приведенный ниже скрипт. Обязательно обновите переменные **ArmEndpoint** и **GraphAudience** в соответствии с конфигурацией вашей среды:
+Вы можете использовать приведенный ниже скрипт, если работаете с Azure Stack с подключением к Интернету. Если же вы работаете с Azure Stack без подключения к Интернету, используйте [способ установки PowerShell без подключения](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity). Командлеты для настройки PowerShell будут теми же, что и в этом скрипте. Войдите в пакет SDK для Azure Stack или внешний клиент на основе Windows (при подключении через VPN). Откройте сеанс интегрированной среды сценариев PowerShell с повышенными правами и выполните приведенный ниже скрипт. Обязательно обновите переменные **ArmEndpoint** и **GraphAudience** в соответствии с конфигурацией вашей среды:
 
 ```powershell
 
@@ -120,8 +119,7 @@ Set-ExecutionPolicy RemoteSigned `
   -force
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions and run the following command:
-Get-Module -ListAvailable | `
-  where-Object {$_.Name -like “Azure*”} | `
+Get-Module -ListAvailable -Name Azure* | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.
@@ -156,7 +154,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
 # Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `

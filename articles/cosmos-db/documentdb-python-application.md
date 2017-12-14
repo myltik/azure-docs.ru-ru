@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0629b0aa7e7981cf04330b407604e4612a58b168
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: ef01271fd4885f9bdac80194bbf72e2a10df0d27
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Создание веб-приложения Python Flask с использованием Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/18/2017
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Visual Studio 2017]((https://www.visualstudio.com/downloads/)) с включенными компонентами **Разработка для Azure** и **Разработка на Python**. Можно проверить, установлены ли необходимые компоненты, и установить их, открыв **установщик Visual Studio** локально.   
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) с включенными компонентами **Разработка для Azure** и **Разработка на Python**. Можно проверить, установлены ли необходимые компоненты, и установить их, открыв **установщик Visual Studio** локально.   
 * [Пакет Microsoft Azure SDK для Python 2.7](https://azure.microsoft.com/downloads/) 
 * [Python 2.7](https://www.python.org/downloads/windows/) Можно использовать 32-разрядную или 64-разрядную установку.
 

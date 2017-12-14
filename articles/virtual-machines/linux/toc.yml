@@ -73,6 +73,9 @@
           href: sizes-compute.md
         - name: Оптимизированные для памяти
           href: sizes-memory.md
+          items:
+            - name: Ограниченное число виртуальных ЦП
+              href: constrained-vcpu.md
         - name: Оптимизированные для хранилища
           href: sizes-storage.md
         - name: Оптимизированные для GPU
@@ -121,6 +124,8 @@
       items:
         - name: Рекомендации по инфраструктуре
           href: infrastructure-example.md
+        - name: Квоты на виртуальные ЦП
+          href: quotas.md
 - name: Практические руководства
   items:
     - name: Создание виртуальных машин
@@ -164,6 +169,8 @@
       items:
         - name: Предоплата за использование виртуальных машин. Зарезервированные экземпляры
           href: prepay-reserved-vm-instances.md
+        - name: Использование виртуальных машин
+          href: vm-usage.md
         - name: Общие задачи в CLI
           href: cli-manage.md
         - name: Перемещение виртуальной машины
@@ -172,8 +179,6 @@
           href: change-vm-size.md
         - name: Добавление тега для виртуальной машины
           href: tag.md
-        - name: Использование cloud-init
-          href: using-cloud-init.md
         - name: Выполнение скриптов на виртуальной машине
           href: extensions-customscript.md
         - name: Использование удаленного рабочего стола
@@ -252,6 +257,22 @@
               href: terraform-install-configure.md
             - name: Создание полной виртуальной машины
               href: terraform-create-complete-vm.md
+        - name: Cloud-init
+          items:
+            - name: Обзор cloud-Init
+              href: using-cloud-init.md
+            - name: Настройка имени узла для виртуальной машины
+              href: cloudinit-update-vm-hostname.md
+            - name: Пакеты обновления на виртуальной машине
+              href: cloudinit-update-vm.md
+            - name: Добавление пользователя виртуальной машины
+              href: cloudinit-add-user.md
+            - name: Настройка файла подкачки
+              href: cloudinit-configure-swapfile.md
+            - name: Запуск существующего bash-скрипта
+              href: cloudinit-bash-script.md
+            - name: Подготовка существующей виртуальной машины для cloud-init
+              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: ../../jenkins/overview.md
           items:

@@ -12,26 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/14/2017
+ms.date: 11/30/2017
 ms.author: jroth
-ms.openlocfilehash: 67ba43f9456bbeffbf602067586143c4c68af672
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80af63d2f2abd65da6ded4e48e5bd0bc9a7837a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)
-> [!div class="op_single_selector"]
-> * [Диспетчер ресурсов](virtual-machines-windows-sql-connect.md)
-> * [Классический](../classic/sql-connect.md)
-> 
-> 
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Подключение к виртуальной машине SQL Server в Azure
 
 ## <a name="overview"></a>Обзор
 
-В этом разделе показано, как подключиться к экземпляру SQL Server, выполняемому на виртуальной машине Azure. Сначала рассматриваются некоторые [общие сценарии подключения](#connection-scenarios), а затем предоставляются [подробные инструкции по настройке подключений SQL Server на виртуальной машине Azure](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
-
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+В этом разделе показано, как подключиться к экземпляру SQL Server, выполняемому на виртуальной машине Azure. Здесь рассмотрены некоторые [общие сценарии подключения](#connection-scenarios), а также описаны [действия на портале по изменению параметров подключения](#change). Если необходимо устранить неполадки или настроить подключение за пределами портала, см. инструкции по [настройке вручную](#manual) ниже. 
 
 Если вы предпочитаете полное пошаговое руководство по подготовке и подключению, то см. статью [Подготовка виртуальной машины SQL Server на портале Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -132,6 +125,23 @@ Server=mysqlvm;Integrated Security=true
 Ниже показано, как создать необязательную метку DNS для виртуальной машины Azure и подключиться с помощью SQL Server Management Studio (SSMS).
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+
+## <a id="manual"></a> Настройка вручную и устранение неполадок
+
+Хотя портал предоставляет возможности для автоматической настройки подключения, полезно знать, как настроить подключение вручную. Знакомство с требованиями также будет полезным при устранении неполадок.
+
+В следующей таблице перечислены требования для подключения к серверу SQL Server, запущенному на виртуальной машине Azure.
+
+| Требование | Описание |
+|---|---|
+| [Включите режим аутентификации SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | Для удаленного подключения к виртуальной машине требуется аутентификация SQL Server, если только не настроена служба Active Directory в виртуальной сети. |
+| [Создайте имя входа SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | При использовании аутентификации SQL требуется имя входа SQL с именем пользователя и паролем, у которого также имеются разрешения для целевой базы данных. |
+| [Включите протокол TCP/IP](#manualTCP) | SQL Server должен разрешать подключения по протоколу TCP. |
+| [Включите правило брандмауэра для порта SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Брандмауэр на виртуальной машине должен разрешать входящий трафик на порту SQL Server (по умолчанию 1433). |
+| [Создайте правило группы безопасности сети для TCP 1433](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | Необходимо разрешить виртуальной машине получать трафик через порт SQL Server (по умолчанию 1433), если нужно выполнить подключение через Интернет. Для локальных подключений и подключений к виртуальным сетям это не требуется. Это единственный шаг, выполняемый на портале Azure. |
+
+> [!TIP]
+> Действия, описанные в таблице выше, уже выполнены при настройке подключения на портале. Эти действия следует использовать только для проверки конфигурации или настройки подключения к SQL Server вручную.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/21/2017
 ms.author: erikje
-ms.openlocfilehash: 977630741b8424c4c6bd5f5d492e33b9981b9cb5
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 6ce8f86592ece59e338578be86c2cb673c35dbc1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Регистрация Azure Stack в подписке Azure
 
@@ -42,22 +42,6 @@ ms.lasthandoff: 11/20/2017
 Если у вас нет подписки Azure, соответствующей всем этим требованиям, [создайте бесплатную учетную запись](https://azure.microsoft.com/en-us/free/?b=17.06). За регистрацию Azure Stack в подписке Azure дополнительная плата не взимается.
 
 
-
-## <a name="register-azure-stack-resource-provider-in-azure"></a>Регистрация в Azure поставщика ресурсов для Azure Stack
-> [!NOTE] 
-> Этот шаг для каждой среды Azure Stack выполняется однократно.
->
-
-1. Запустите сеанс PowerShell от имени администратора.
-2. Войдите, с помощью учетной записи владельца подписки Azure. (Для входа можно использовать командлет Login-AzureRmAccount. При этом задайте для параметра -EnvironmentName значение AzureCloud).
-3. Зарегистрируйте поставщика ресурсов Azure Microsoft.AzureStack.
-
-**Пример** 
-```Powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
-```
-
 ## <a name="register-azure-stack-with-azure"></a>Регистрация Azure Stack в Azure
 
 > [!NOTE]
@@ -66,7 +50,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
 1. Откройте консоль PowerShell от имени администратора и [установите PowerShell для Azure Stack](azure-stack-powershell-install.md).  
 
-2. Добавьте учетную запись Azure, которая будет использоваться для регистрации Azure Stack. Для этого выполните командлет `Add-AzureRmAccount` без параметров. Вам будет предложено ввести учетные данные учетной записи Azure. Также может потребоваться выполнить двухфакторную аутентификацию в зависимости от конфигурации вашей учетной записи.  
+2. Добавьте учетную запись Azure, которая будет использоваться для регистрации Azure Stack. Для этого выполните командлет `Add-AzureRmAccount`, задав для параметра EnvironmentName значение AzureCloud. Вам будет предложено ввести учетные данные учетной записи Azure. Также может потребоваться выполнить двухфакторную аутентификацию в зависимости от конфигурации вашей учетной записи. 
+
+   ```Powershell
+   Add-AzureRmAccount -EnvironmentName "AzureCloud"
+   ```
 
 3. Если у вас несколько подписок Azure, выполните следующую команду, чтобы выбрать нужную подписку:  
 
@@ -74,22 +62,28 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
       Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-4. Удалите все существующие версии модулей PowerShell, связанных с регистрацией, и [скачайте последнюю версию с сайта GitHub](azure-stack-powershell-download.md).  
+4. Зарегистрируйте поставщик ресурсов Azure Stack в своей подписке Azure. Для этого выполните следующую команду:
 
-5. В каталоге AzureStack-Tools-master, созданном на предыдущем шаге, перейдите в папку Registration и импортируйте модуль .\RegisterWithAzure.psm1.  
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. Удалите все существующие версии модулей PowerShell, связанных с регистрацией, и [скачайте последнюю версию с сайта GitHub](azure-stack-powershell-download.md).  
+
+6. В каталоге AzureStack-Tools-master, созданном на предыдущем шаге, перейдите в папку Registration и импортируйте модуль .\RegisterWithAzure.psm1.  
 
    ```powershell 
    Import-Module .\RegisterWithAzure.psm1 
    ```
 
-6. В этом же сеансе PowerShell запустите следующий скрипт. Когда появится запрос на ввод учетных данных, в качестве имени пользователя укажите `azurestack\cloudadmin` и введите пароль для локального администратора, который использовался при развертывании.  
+7. В этом же сеансе PowerShell запустите следующий скрипт. Когда появится запрос на ввод учетных данных, в качестве имени пользователя укажите `azurestack\cloudadmin` и введите пароль для локального администратора, который использовался при развертывании.  
 
    ```powershell
    $AzureContext = Get-AzureRmContext
    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
    Add-AzsRegistration `
        -CloudAdminCredential $CloudAdminCred `
-       -AzureSubscriptionId $AzureContext.Subscription.Id `
+       -AzureSubscriptionId $AzureContext.Subscription.SubscriptionId `
        -AzureDirectoryTenantName $AzureContext.Tenant.TenantId `
        -PrivilegedEndpoint AzS-ERCS01 `
        -BillingModel Development 
@@ -103,7 +97,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    | PrivilegedEndpoint | Предварительно настроенная удаленная консоль PowerShell, которая позволяет собирать журналы и выполнять другие задачи после развертывания. Для пакета средств разработки привилегированная конечная точка размещается на виртуальной машине AzS-ERCS01. Если вы используете интегрированную систему, обратитесь к оператору Azure Stack, чтобы получить это значение. Дополнительные сведения см. в руководстве по [использованию привилегированной конечной точки](azure-stack-privileged-endpoint.md).|
    | BillingModel | Модель выставления счетов, которая используется в подписке. Для этого параметра допустимы такие значения: Capacity, PayAsYouUse и Development. Для пакета средств разработки используется значение Development. Если вы используете интегрированную систему, обратитесь к оператору Azure Stack, чтобы получить это значение. |
 
-7. По завершении скрипта появится такое сообщение: Activating Azure Stack (this step may take up to 10 minutes to complete) (Активация Azure Stack (эта операция может занять до 10 минут)). 
+8. По завершении скрипта появится такое сообщение: Activating Azure Stack (this step may take up to 10 minutes to complete) (Активация Azure Stack (эта операция может занять до 10 минут)). 
 
 ## <a name="verify-the-registration"></a>Проверка регистрации
 

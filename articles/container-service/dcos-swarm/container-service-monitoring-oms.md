@@ -1,26 +1,19 @@
 ---
-title: "Мониторинг кластера DC/OS Azure с помощью Operations Management | Документация Майкрософт"
+title: "Мониторинг кластера DC/OS Azure с помощью Operations Management"
 description: "Мониторинг кластера DC/OS в Службе контейнеров Azure с помощью Microsoft Operations Management Suite."
 services: container-service
-documentationcenter: 
 author: keikhara
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 9b8f96b34b53982c469273a3df9751ceb7930d60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a675f0b57ed9e5d515cfa79a3a841e0f133fff6f
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Мониторинг кластера DC/OS в Службе контейнеров Azure с помощью Operations Management Suite
 

@@ -9,7 +9,7 @@
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: DocumentDB
+    - name: SQL
       items:
         - name: .NET
           href: create-documentdb-dotnet.md
@@ -71,7 +71,7 @@
   items:
     - name: "1.\_Создание"
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-develop-documentdb-dotnet.md
         - name: MongoDB c .NET
           href: tutorial-develop-mongodb.md
@@ -87,7 +87,7 @@
           href: tutorial-develop-cassandra-java.md
     - name: "2.\_Импорт"
       items:
-        - name: DocumentDB
+        - name: SQL
           href: import-data.md
         - name: MongoDB
           href: mongodb-migrate.md
@@ -97,7 +97,7 @@
           href: cassandra-import-data.md
     - name: "3.\_Запрос"
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-query-documentdb.md
         - name: MongoDB
           href: tutorial-query-mongodb.md
@@ -107,7 +107,7 @@
           href: tutorial-query-graph.md
     - name: "4.\_Глобальное распространение"
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-global-distribution-documentdb.md
         - name: MongoDB
           href: tutorial-global-distribution-mongodb.md
@@ -147,7 +147,7 @@
       href: request-units.md
     - name: Многомодельные API-интерфейсы
       items:
-        - name: DocumentDB
+        - name: SQL
           href: documentdb-introduction.md
         - name: MongoDB
           href: mongodb-introduction.md
@@ -170,7 +170,7 @@
   items:
     - name: Разработка
       items:
-        - name: API DocumentDB
+        - name: API-интерфейс SQL
           href: documentdb-index.md
           items:
             - name: Ресурсы
@@ -239,8 +239,6 @@
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Обновления службы
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
-                - name: Портал сообщества
-                  href: community.md
                 - name: Документ по индексированию без схемы
                   href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
                 - name: 'Снятие с учета S1, S2, S3'
@@ -378,13 +376,13 @@
           href: powerbi-visualize.md
         - name: Визуализация данных с помощью драйвера ODBC
           href: odbc-driver.md
-        - name: Использование начального приложения Spring Boot с интерфейсами API DocumentDB
+        - name: Использование начального приложения Spring Boot с API-интерфейсами SQL
           href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Справочные материалы
   items:
     - name: Примеры кода
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
-    - name: API-интерфейсы DocumentDB
+    - name: API-интерфейсы SQL
       items:
         - name: Java
           href: documentdb-sdk-java.md

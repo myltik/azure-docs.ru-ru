@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: c2bd67afc0c289de94019497e57b57f97a759f3a
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 1a30b42e6e84edf9a7cef861aaf6a60e87c473d0
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>Включение удаленной отладки при использовании непрерывной доставки для публикации на Azure
 Когда для публикации в Azure используется [непрерывная доставка](cloud-services-dotnet-continuous-delivery.md), в службе Azure можно включить удаленную отладку для облачных служб или виртуальных машин. Для этого следует выполнить рассмотренную ниже процедуру.
@@ -27,25 +27,28 @@ ms.lasthandoff: 10/27/2017
 1. В агенте сборки настройте начальную среду для Azure, как описано в разделе [Сборка с помощью командной строки для Azure](http://msdn.microsoft.com/library/hh535755.aspx).
 2. Так как для пакета требуется среда выполнения удаленной отладки (msvsmon.exe), установите **инструменты удаленной отладки для Visual Studio 2013**.
 
-    * [Инструменты удаленной отладки для Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
-    * [Инструменты удаленной отладки для Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
-    * [Инструменты удаленной отладки для Visual Studio 2013 с обновлением 5](https://www.microsoft.com/download/details.aspx?id=48156)
+   * [Инструменты удаленной отладки для Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
+   * [Инструменты удаленной отладки для Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
+   * [Инструменты удаленной отладки для Visual Studio 2013 с обновлением 5](https://www.microsoft.com/download/details.aspx?id=48156)
     
-    В качестве альтернативы можно скопировать двоичные файлы удаленной отладки из системы, где установлена Visual Studio.
+   В качестве альтернативы можно скопировать двоичные файлы удаленной отладки из системы, где установлена Visual Studio.
 
 3. Создайте сертификат, как описано в разделе [Общие сведения о сертификатах для облачных служб Azure](cloud-services-certs-create.md). Оставьте .pfx и отпечаток сертификата RDP, и загрузите сертификат в целевую облачную службу.
 4. Для сборки и упаковки с включенной функцией удаленной отладки используйте следующие параметры в командной строке MSBuild. (Подставьте фактические пути к системным и проектным файлам для элементов, заключенных в угловые скобки).
    
-        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+   ```cmd
+   msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+   ```
    
-    `VSX64RemoteDebuggerPath` — путь к папке, содержащей msvsmon.exe и инструменты удаленной отладки для Visual Studio.
-    `RemoteDebuggerConnectorVersion` — это версия пакета Azure SDK в облачной службе. Она должна соответствовать версии, установленной с Visual Studio.
+   `VSX64RemoteDebuggerPath` — путь к папке, содержащей msvsmon.exe и инструменты удаленной отладки для Visual Studio.
+   `RemoteDebuggerConnectorVersion` — это версия пакета Azure SDK в облачной службе. Она должна соответствовать версии, установленной с Visual Studio.
+
 5. Опубликуйте в целевой облачной службе с помощью пакета и файла .cscfg, созданного на предыдущем шаге.
 6. Импортируйте сертификат (файл .pfx) на машину, на которой имеется Visual Studio с установленным пакетом Azure SDK для .NET. Импортировать в хранилище сертификатов `CurrentUser\My` обязательно, иначе вы не сможете присоединить отладчик в Visual Studio.
 
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>Включение удаленной отладки для виртуальных машин
 1. Создайте виртуальную машину Azure. См. статью [Создание первой виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) или [Создание виртуальных машин Windows и управление ими в Visual Studio](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-2. На [странице классического портала Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851)откройте панель мониторинга виртуальной машины и найдите **ОТПЕЧАТОК СЕРТИФИКАТА RDP**виртуальной машины. Он используется для `ServerThumbprint` значения в конфигурации расширения.
+2. На портале Azure (http://go.microsoft.com/fwlink/p/?LinkID=269851) перейдите к виртуальной машине и найдите **отпечаток сертификата RDP** виртуальной машины. Он используется для `ServerThumbprint` значения в конфигурации расширения.
 3. Создайте сертификат клиента, как описано в разделе [Общие сведения о сертификатах для облачных служб Azure](cloud-services-certs-create.md) (оставьте PFX-файл и отпечаток сертификата RDP).
 4. Установите Azure Powershell (0.7.4 или более поздней версии), как описано в разделе [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 5. Выполните следующий скрипт, чтобы включить расширение RemoteDebug. Замените пути и персональные данные своими собственными (например, укажите имя своей подписки, имя службы и отпечаток).

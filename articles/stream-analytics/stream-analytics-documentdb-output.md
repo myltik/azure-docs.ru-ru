@@ -4,7 +4,7 @@ description: "Сведения о том, каким образом Stream Analy
 keywords: "Выходные данные JSON"
 documentationcenter: 
 services: stream-analytics,documentdb
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
@@ -14,19 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: cc80b0080c806541362a1ef2d71b95862bd51ca2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Направление Azure Cosmos DB из Stream Analytics в формат JSON
 Stream Analytics позволяет направлять данные из [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) в формат JSON, позволяя архивировать данные и уменьшать задержки запросов в отношении неструктурированных данных JSON. В этом документе представлены некоторые рекомендации по реализации данной конфигурации.
 
 Тем, кто не знаком с Cosmos DB, мы рекомендуем просмотреть [схему обучения работе с Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/). 
 
-Примечание. Коллекции Cosmos DB, использующие API-интерфейсы Mongo DB, пока не поддерживаются. 
+> [!Note]
+> В настоящее время Azure Stream Analytics поддерживает соединение только с CosmosDB при помощи **API CosmosDB (SQL)**.
+> Другие API Azure Cosmos DB в данный момент не поддерживаются. Если указать модулю Azure Stream Analytics учетные записи Azure Cosmos DB, созданные при помощи других API, это может привести к неправильному сохранению данных. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Основные сведения о Cosmos DB как объекте вывода данных
 Использование выходных данных Azure Cosmos DB в Stream Analytics позволяет записывать результаты обработки потока данных в коллекцию Cosmos DB в формате JSON. Stream Analytics не создает коллекции в базе данных. Их требуется создавать заранее. Благодаря этому выставление счетов за использование коллекций Cosmos DB является прозрачным для вас. Кроме того, вы можете регулировать производительность, согласованность и емкость своих коллекций напрямую с помощью [API-интерфейсов Cosmos DB](https://msdn.microsoft.com/library/azure/dn781481.aspx). Мы рекомендуем использовать одну базу данных Cosmos DB для одного потокового задания, чтобы обеспечить логическое разделение ваших коллекций для потокового задания.

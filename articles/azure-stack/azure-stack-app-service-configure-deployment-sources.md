@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 82b6002557431f87de8fd206b4d7f4a07dec08b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-deployment-sources"></a>Настройка источников развертывания
 
@@ -152,4 +152,4 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Теперь пользователи могут использовать источники развертывания для таких операций, как [непрерывное развертывание](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-continuous-deployment), [локальное развертывание Git](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-deploy-local-git) и [синхронизация облачных папок](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-deploy-content-sync).
+Теперь пользователи могут использовать источники развертывания для таких операций, как [непрерывное развертывание](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [локальное развертывание Git](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git) и [синхронизация облачных папок](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

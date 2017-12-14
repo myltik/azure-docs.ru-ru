@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 47e023e7240cfae3553b220ebc44c95ec96d62a7
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bf4b0f67a4c3667fb0c0cb826a822d6090c36375
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Развертывание кластера Service Fabric на платформе Linux в виртуальной сети Azure
 Это руководство представляет первую часть цикла. Вы узнаете, как развернуть кластер Service Fabric на платформе Linux в подсети существующей виртуальной сети с помощью Azure CLI. После окончания этого учебника у вас будет кластер в облаке, в который можно разворачивать приложения. Создание кластера Windows с помощью PowerShell описывается в разделе [Развертывание безопасного кластера Service Fabric на платформе Windows в виртуальной сети Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -35,7 +35,8 @@ ms.lasthandoff: 11/18/2017
 Из этого цикла руководств вы узнаете, как выполнять такие задачи:
 > [!div class="checklist"]
 > * создание защищенного кластера в Azure;
-> * [свертывание и развертывание кластера](/service-fabric-tutorial-scale-cluster.md);
+> * [свертывание и развертывание кластера](service-fabric-tutorial-scale-cluster.md);
+> * [обновление среды выполнения кластера;](service-fabric-tutorial-upgrade-cluster.md)
 > * [развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
 ## <a name="prerequisites"></a>Предварительные требования

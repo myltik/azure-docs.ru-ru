@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Документация по Службе контейнеров Azure с DC/OS и Swarm
+title: "Документация по Службе контейнеров Azure с DC/OS и Swarm"
 metadata:
-  document_id: null
-  title: Документация по Службе контейнеров Azure с DC/OS и Swarm. Руководства и справочник по API | Документация Майкрософт
-  meta.description: 'Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
+  document_id: 
+  title: "Документация по Службе контейнеров Azure с DC/OS и Swarm. Руководства и справочник по API | Документация Майкрософт"
+  meta.description: Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
   manager: carolz
@@ -14,49 +14,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
+  ms.openlocfilehash: d1d65d02059f312b116cfb33b13fb98471b3b2f6
+  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 10/11/2017
 abstract:
-  description: 'Служба контейнеров Azure позволяет быстро развертывать готовые к работе кластеры DC/OS или Docker Swarm. Узнайте, как использовать службы контейнеров Azure с помощью наших шаблонов быстрого запуска, руководств и примеров.'
+  description: "Служба контейнеров Azure позволяет быстро развертывать готовые к работе кластеры DC/OS или Docker Swarm. Узнайте, как использовать службы контейнеров Azure с помощью наших шаблонов быстрого запуска, руководств и примеров."
 sections:
-  - title: 5-минутные руководства по началу работы
+- title: "5-минутные руководства по началу работы"
+  items:
+  - type: paragraph
+    text: "Дополнительные сведения о развертывании кластеров DC/OS с помощью службы контейнеров Azure:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Дополнительные сведения о развертывании кластеров DC/OS с помощью службы контейнеров Azure:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-            text: Создание кластера DC/OS
-            href: /azure/container-service/container-service-dcos-quickstart
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
-            text: Создание кластера Docker Swarm
-            href: /azure/container-service/dcos-swarm/container-service-swarm-walkthrough
-  - title: Пошаговые руководства
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+      text: "Создание кластера DC/OS"
+      href: /azure/container-service/container-service-dcos-quickstart
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_docker.svg
+      text: "Создание кластера Docker Swarm"
+      href: /azure/container-service/dcos-swarm/container-service-swarm-walkthrough
+- title: "Пошаговые руководства"
+  items:
+  - type: paragraph
+    text: "Узнайте, как развертывать и обновлять приложения, а также управлять ими в кластере Kubernetes Службы контейнеров Azure."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Узнайте, как развертывать и обновлять приложения, а также управлять ими в кластере Kubernetes Службы контейнеров Azure.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/container-service/container-service-dcos-manage-tutorial">Создание кластера DC/OS Службы контейнеров Azure и управление им</a>
-          - html: <a href="/azure/container-service/container-service-load-balancing">Распределение нагрузки контейнеров в кластере DC/OS в Службе контейнеров Azure</a>
-          - html: <a href="/azure/container-service/container-service-dcos-fileshare">Создание и подключение файлового ресурса к кластеру DC/OS</a>
-          - html: <a href="/azure/container-service/container-service-dcos-acr">Использование реестра контейнеров Azure с кластером DC/OS для развертывания приложения</a>
-  - title: Примеры
+    - html: "<a href=\"/azure/container-service/container-service-dcos-manage-tutorial\">Создание кластера DC/OS Службы контейнеров Azure и управление им</a>"
+    - html: "<a href=\"/azure/container-service/container-service-load-balancing\">Распределение нагрузки контейнеров в кластере DC/OS в Службе контейнеров Azure</a>"
+    - html: "<a href=\"/azure/container-service/container-service-dcos-fileshare\">Создание и подключение файлового ресурса к кластеру DC/OS</a>"
+    - html: "<a href=\"/azure/container-service/container-service-dcos-acr\">Использование реестра контейнеров Azure с кластером DC/OS для развертывания приложения</a>"
+- title: "Примеры"
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/container-service/cli-samples">Интерфейс командной строки Azure</a>
-  - title: Справочные материалы
+    - html: "<a href=\"/azure/container-service/cli-samples\">Интерфейс командной строки Azure</a>"
+- title: "Справочные материалы"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Командная строка
-            html: <p><a href="/cli/azure/acs">Интерфейс командной строки Azure</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/container-service">ИНТЕРФЕЙС REST API</a></p>
+    - title: "Командная строка"
+      html: "<p><a href=\"/cli/azure/acs\">Интерфейс командной строки Azure</a></p>"
+    - title: REST
+      html: "<p><a href=\"/rest/api/container-service\">ИНТЕРФЕЙС REST API</a></p>"

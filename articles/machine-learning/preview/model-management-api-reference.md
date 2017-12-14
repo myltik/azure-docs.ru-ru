@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 1939a18fbaf0aed0f62ac9e7641b9901ec4762ea
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 03e51ab298a08386f0094d6d0290aa1ec85d337f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Справочная информация по API-интерфейсу службы Azure "Управление моделями Машинного обучения"
 
-Сведения о настройке среды развертывания см. в статье [Установка службы управления моделями](model-management-configuration.md).
+Сведения о настройке среды развертывания см. в статье [Установка службы управления моделями](deployment-setup-configuration.md).
 
 API-интерфейс учетной записи службы Azure "Управление моделями Машинного обучения" реализует следующие операции:
 

@@ -1,6 +1,7 @@
 ---
 title: "Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure | Документация Майкрософт"
 description: "Узнайте, как добавить имеющееся DNS-имя личного домена (именного домена) для веб-приложения, серверной части мобильного приложения или приложения API в службе приложений Azure."
+keywords: "служба приложений, служба приложений Azure, сопоставление доменов, доменное имя, существующий домен, имя узла"
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d7c99b1b02a0450cae406e2bc70a7e5563e2ac2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure
 
@@ -269,6 +270,27 @@ ms.lasthandoff: 11/03/2017
 Перейдите к DNS-именам, настроенным ранее (например, `contoso.com`, `www.contoso.com`, `sub1.contoso.com` и `sub2.contoso.com`).
 
 ![Переход к приложению Azure на портале](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
+## <a name="resolve-404-error-web-site-not-found"></a>Устраните ошибки 404 "Не удалось найти веб-сайт"
+
+Если появляется ошибка HTTP 404 (не найдено) при переходе по URL-адресу вашего личного домена, убедитесь, что этот домен обеспечивает разрешение IP-адреса приложения, с помощью <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Если это не так, ошибка может быть вызвана одной из следующих причин.
+
+- На настроенном личном домене отсутствует запись A и (или) запись CNAME.
+- В кэше клиента браузера сохранен старый IP-адрес вашего домена. Выполните очистку кэша и еще раз проверьте разрешение имен DNS На компьютере Windows кэш можно очистить с помощью команды `ipconfig /flushdns`.
+
+<a name="virtualdir"></a>
+
+## <a name="direct-default-url-to-a-custom-directory"></a>Прямой URL-адрес по умолчанию для пользовательского каталога
+
+По умолчанию служба приложений направляет веб-запросы в корневой каталог кода приложения. Однако некоторые веб-платформы не запускаются в корневом каталоге. Например, [Laravel](https://laravel.com/) запускается в подкаталоге `public`. Чтобы продолжить пример DNS `contoso.com`, такое приложение будет доступно по адресу `http://contoso.com/public`, но вместо этого вам потребуется направлять `http://contoso.com` в каталог `public`. Этот шаг включает в себя не разрешение имен DNS, а настройку виртуального каталога.
+
+Для этого выберите **Параметры приложения** в левой области навигации на странице веб-приложения. 
+
+В нижней части страницы корневой виртуальный каталог `/` указывает на `site\wwwroot` по умолчанию. Это корневой каталог кода вашего приложения. Измените его, например, указав `site\wwwroot\public`, и сохраните изменения. 
+
+![Настройка виртуального каталога](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
+
+После завершения операции приложение должно вернуть соответствующую страницу в корневом каталоге (например, http://contoso.com).
 
 ## <a name="automate-with-scripts"></a>Автоматизация с помощью сценариев
 

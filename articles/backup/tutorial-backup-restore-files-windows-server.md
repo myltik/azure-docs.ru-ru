@@ -12,15 +12,15 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/20/2017
 ms.author: saurabhsensharma;markgal;
-ms.custom: 
-ms.openlocfilehash: 28e0bc1414b0fea614f217dc3adf1484c1374018
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: b5f77ec04ef6d267583a6dc6a4476f118a4d0f74
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Восстановление файлов из Azure в Windows Server
 
@@ -37,7 +37,7 @@ Azure Backup обеспечивает восстановление отдель�
 
 Мастер создания интерфейса пользователя Microsoft Azure Backup устанавливается вместе с агентом служб восстановления Microsoft Azure (MARS). Мастер Microsoft Azure Backup работает с агентом служб восстановления Microsoft Azure (MARS) для получения данных резервной копии из точек восстановления, сохраненных в Azure. Мастер Microsoft Azure Backup позволяет определить файлы или папки, которые требуется восстановить на Windows Server. 
 
-1. Откройте оснастку **Microsoft Azure Backup**. Его можно найти, выполнив поиск строки **служба архивации Microsoft Azure**на компьютере.
+1. Откройте оснастку **Microsoft Azure Backup**. Его можно найти, выполнив поиск строки **Microsoft Azure Backup** на компьютере.
 
     ![Статус "В ожидании резервного копирования"](./media/tutorial-backup-restore-files-windows-server/mars.png)
 

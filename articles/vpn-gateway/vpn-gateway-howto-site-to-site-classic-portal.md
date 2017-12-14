@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/010/2017
+ms.date: 12/05/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0be8dd6d90edb7b32b6777c76c9778cda0dcd5ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb8fe1ea6d4de066744a6277c1aec96073c1703c
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Создание подключения типа "сеть — сеть" с помощью классического портала Azure
 
@@ -96,8 +96,6 @@ ms.lasthandoff: 10/11/2017
 9. После того как вы нажмете кнопку "Создать", на панели мониторинга появится плитка, отражающая ход создания виртуальной сети. Когда виртуальная сеть будет создана, плитка изменится.
 
   ![Плитка создания виртуальной сети](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Создание виртуальной сети")
-
-Когда виртуальная сеть будет создана, на классическом портале Azure на странице сетей в столбце **Состояние** отобразится значение **Создано**.
 
 ## <a name="additionaladdress"></a>2. Добавление дополнительного адресного пространства
 

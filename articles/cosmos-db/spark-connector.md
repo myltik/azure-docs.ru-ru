@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: 1efdda867703613e4f85e6994004df32e70ccb3d
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 122a2f8e506b3f567e73a816cbbeac569339c924
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Ускорение аналитики больших данных в реальном времени с помощью соединителя Spark для Cosmos DB
 
@@ -172,7 +172,7 @@ df = spark.createDataFrame(elements)
 ```
 mvn clean package
 ```
-Вы также можете скачать последние версии JAR-файла из папки *releases*.
+Вы также можете скачать последние версии JAR-файла из [папки *releases*](https://github.com/Azure/azure-cosmosdb-spark/releases).
 
 ### <a name="include-the-azure-cosmos-db-spark-jar"></a>Включение JAR-файла Azure Cosmos DB Spark
 Перед выполнением любого кода необходимо добавить JAR-файл Azure Cosmos DB Spark.  Если вы используете **spark-shell**, JAR-файл можно включить с помощью параметра **--jars**.  

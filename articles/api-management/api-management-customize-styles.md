@@ -1,89 +1,87 @@
 ---
-title: "Настройка стилей на портале разработчика в службе управления API Azure | Документация Майкрософт"
-description: "Узнайте, как изменить стили, используемые для любой страницы портала разработчика в службе управления API Azure."
+title: "Настройка стиля страницы на портале разработчика в службе управления API Azure | Документация Майкрософт"
+description: "Следуйте инструкциям из этого руководства, чтобы настроить стиль элементов на портале разработчика в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: vlvinogr
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/09/2017
-ms.author: antonba
-ms.openlocfilehash: 89baf60d0204a1701e93309f09b90bc94c4ca57b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 11/19/2017
+ms.author: apimpm
+ms.openlocfilehash: f427663ba1c437785c8c521925d9f733c45cb40d
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>Настройка стилей портала разработчика в службе управления API Azure
-Существуют три основных способа настройки портала разработчика в службе управления Azure API.
+# <a name="customize-the-style-of-the-developer-portal-pages"></a>Настройка стиля страниц для портала разработчика
 
-* [Изменение содержимого статических страниц и элементов макета страницы.][modify-content-layout]
-* [Обновление стилей, которые используются для элементов страницы на портале разработчика][customize-styles] (как описано в этом руководстве).
-* [Изменение шаблонов, используемых для страниц, созданных порталом][portal-templates] (например, документы API, продукты, аутентификация пользователей и т. д.).
+Существуют три наиболее распространенных способа настройки портала разработчика в службе управления API Azure:
+ 
+* [Изменение содержимого статических страниц и элементов макета страницы.](api-management-modify-content-layout.md)
+* Обновление стилей, которые используются для элементов страницы на портале разработчика (как описано в этом руководстве).
+* [Изменение шаблонов, используемых для страниц, созданных порталом](api-management-developer-portal-templates.md) (например, документы по API, продукты, аутентификация пользователей и т. д.).
 
-## <a name="change-headers-styling"> </a>Изменение стиля элементов страницы
+Из этого руководства вы узнаете, как выполнять такие задачи:
 
-Цвета, шрифты, размеры, отступы и другие элементы стиля страниц портала задаются правилами стиля. 
+> [!div class="checklist"]
+> * настройка стиля элементов на страницах **портала разработчика**;
+> * просмотр изменений.
 
-Чтобы изменить правила стилей, войдите на **портал разработчика** в качестве администратора. Чтобы открыть его, войдите на портал Azure и щелкните **Портал издателя** на панели инструментов для вашего экземпляра службы управления API.
+![Настройка стиля](./media/modify-developer-portal-style/developer_portal.png)
 
-![Портал издателя][api-management-management-console]
+## <a name="prerequisites"></a>Предварительные требования
 
-Затем щелкните **Портал разработчика** в правом верхнем углу. 
++ Выполните задачи из краткого руководства по [созданию экземпляра службы управления API Azure](get-started-create-service-instance.md).
++ Кроме того, выполните задачи из руководства по [импорту и публикации API](import-and-publish.md).
 
-![Ссылка на портал разработчика на портале издателя][api-management-pp-dp-link]
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-Чтобы открыть панель инструментов настройки, наведите указатель мыши на значок настройки (или выберите его) и щелкните "Стили" на панели инструментов.
+## <a name="customize-the-developer-portal"></a>Настройка портала разработчика
 
-![Кнопка на панели инструментов настройки][api-management-customization-toolbar-button]
+1. Щелкните **Обзор**.
+2. Нажмите кнопку **Портал разработчика** в верхней части окна **Обзор**. Вы также можете щелкнуть ссылку **URL-адрес портала разработчика**.
+3. В левом верхнем углу экрана вы увидите значок, которых состоит из двух кистей. Наведите на него указатель, чтобы открыть меню настройки портала.
 
-Существует два основных способа редактирования правил стилей: просмотрите список всех используемых правил стиля, который отображается по умолчанию, и при необходимости измените стиль или щелкните **Select an element on the page** (Выбрать элемент на странице), а затем щелкните в любом месте страницы, чтобы просмотреть стили только для этого элемента.
+    ![Настройка стиля](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+4. В меню выберите **Стили**, чтобы открыть панель настройки стилей.
 
-![Панель инструментов настройки][api-management-customization-toolbar]
+    На странице отобразятся все элементы, которые можно настроить на панели **Стили**.
+5. В поле **Change variable values to customize developer portal appearance** (Изменить значения переменных, чтобы настроить вид портала разработчика) введите "headings-color".
 
-Для данного примера щелкните параметр **Select an element on the page** (Выбрать элемент на странице).  Теперь элементы будут выделяться при наведении на них указателя мыши. Это позволяет понять, стиль какого элемента вы будете редактировать, если щелкнете мышью. Наведите указатель мыши на текст в заголовке (обычно это название компании) и щелкните его. В редакторе стилей появится именованный и упорядоченный по категориям набор правил стилей. Каждое правило представляет свойство стиля выбранного элемента. Например, для текста выбранного выше заголовка размер текста содержится в @font-size-h1, а имя шрифта с вариантами содержится в @headings-font-family.
+    На странице появится элемент **@headings-color**. Эта переменная определяет цвет текста.
 
-> Если вы знакомы с [Bootstrap][bootstrap], эти правила на самом деле подобны [переменным LESS][LESS variables] в теме начальной загрузки, используемой порталом разработчика.
-> 
-> 
+    ![Настройка стиля](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
+    
+6. Щелкните поле для переменной **@headings-color**. 
+    
+    Откроется раскрывающееся меню палитры.
+7. В этом меню выберите новый цвет.
 
-Попробуем изменить цвет текста заголовка. Выберите запись в поле **@headings-color** и введите **#000000**. Это шестнадцатеричный код черного цвета. После этого в конце текстового блока появится квадратный цветовой индикатор. Щелкнув его, вы сможете выбрать цвет.
+    > [!TIP]
+    > Предварительный просмотр в реальном времени доступен для всех изменений. Индикатор хода выполнения отображается в верхней части панели настройки. Через несколько секунд цвет текста заголовка изменится на только что выбранный.
 
-![Выбор цвета][api-management-customization-toolbar-color-picker]
+8. В меню панели настройки нажмите кнопку **Опубликовать** в нижнем левом углу.
+9. Нажмите кнопку **Опубликовать настройки**, чтобы изменения стали доступны для всех.
 
-Вносимые изменения можно видеть в режиме реального времени, но они будут видны только администраторам. Чтобы сделать изменения видимыми для всех, нажмите кнопку **Опубликовать** в редакторе стилей и подтвердите внесение изменений.
+## <a name="view-your-change"></a>Просмотр изменений
 
-![Меню публикации][api-management-customization-toolbar-publish-form]
+1. Перейдите на портал разработчика.
+2. Вы увидите внесенные изменения.
 
-> Чтобы изменить правила стиля, которые применяются к любому другому элементу на странице, выполните ту же процедуру, что и для заголовка. Щелкните **Select an element on the page** (Выбрать элемент на странице) в редакторе стилей, выберите интересующий вас элемент и измените значения для правил стилей, отображаемых на экране.
-> 
-> 
+## <a name="next-steps"></a>Дальнейшие действия
 
+Из этого руководства вы узнали, как выполнять такие задачи:
 
-## <a name="next-steps"> </a>Дальнейшие действия
-* Узнайте, как настроить содержимое страницы портала разработчика с помощью [шаблонов портала разработчиков](api-management-developer-portal-templates.md).
+> [!div class="checklist"]
+> * настройка стиля элементов на страницах **портала разработчика**;
+> * просмотр изменений.
 
-[Change the styling of the headers]: #change-headers-styling
-[Next steps]: #next-steps
-
-[Azure Classic Portal]: https://manage.windowsazure.com/
-
-[api-management-management-console]: ./media/api-management-customize-styles/api-management-management-console.png
-[api-management-pp-dp-link]: ./media/api-management-customize-styles/api-management-pp-dp-link.png
-[api-management-customization-toolbar-button]: ./media/api-management-customize-styles/api-management-customization-toolbar-button.png
-[api-management-customization-toolbar]: ./media/api-management-customize-styles/api-management-customization-toolbar.png
-[api-management-customization-toolbar-color-picker]: ./media/api-management-customize-styles/api-management-customization-toolbar-color-picker.png
-[api-management-customization-toolbar-publish-form]: ./media/api-management-customize-styles/api-management-customization-toolbar-publish-form.png
-
-[modify-content-layout]: api-management-modify-content-layout.md
-[customize-styles]: api-management-customize-styles.md
-[portal-templates]: api-management-developer-portal-templates.md
-
-[bootstrap]: http://getbootstrap.com/
-[LESS variables]: http://getbootstrap.com/css/
+> [!div class="nextstepaction"]
+> [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md)

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Создание шлюза приложений с помощью шаблона диспетчера ресурсов Azure
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 Шлюз приложений — это балансировщик нагрузки уровня 7. Он отвечает за отработку отказов и эффективную маршрутизацию HTTP-запросов между разными серверами (облачными и локальными). Шлюз приложений выполняет многие функции контроллера доставки приложений (ADC), включая балансировку нагрузки HTTP, определение сходства сеансов на основе файлов cookie, разгрузку SSL, выполнение пользовательской проверки работоспособности, поддержку нескольких сайтов и т. д. Полный список поддерживаемых функций представлен в [обзоре шлюза приложений](application-gateway-introduction.md).
 
-В этой статье вы узнаете, как скачать и изменить существующий шаблон Azure Resource Manager из GitHub, а также развернуть шаблон из GitHub, PowerShell и интерфейса командной строки Azure (Azure CLI).
+В этой статье вы узнаете, как скачать и изменить существующий [шаблон Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) из GitHub, а также развернуть шаблон из GitHub, PowerShell и интерфейса командной строки Azure (Azure CLI).
 
-Если вы развертываете шаблон ARM непосредственно из GitHub без изменений, перейдите к соответствующему разделу.
+Если вы разворачиваете шаблон непосредственно из GitHub без внесения каких-либо изменений, перейдите к развертыванию шаблона из GitHub.
 
 ## <a name="scenario"></a>Сценарий
 
@@ -75,9 +75,6 @@ ms.lasthandoff: 10/11/2017
    * **type**. Тип ресурса, созданного на основе шаблона. В этом случае используется тип `Microsoft.Network/applicationGateways`, представляющий шлюз приложений.
    * **name**. Имя ресурса. Обратите внимание на применение `[parameters('applicationGatewayName')]`. Эта строка кода означает, что имя предоставляется пользователем или извлекается из файла параметров при развертывании.
    * **properties**. Список свойств для ресурса. Во время создания шлюза приложений этот шаблон использует виртуальную сеть и общедоступный IP-адрес.
-
-   > [!NOTE]
-   > Дополнительные сведения о шаблонах Resource Manager см. [здесь](/templates/).
 
 1. Вернитесь на страницу [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Щелкните **azuredeploy-parameters.json** и нажмите кнопку **RAW**.

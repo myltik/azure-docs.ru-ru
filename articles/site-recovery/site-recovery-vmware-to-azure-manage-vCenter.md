@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/04/2017
 ms.author: anoopkv
-ms.openlocfilehash: 1b7a2d99cfa9f7d54d5303c21202fc34cf6d15ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2dcca54c9e1e9330bf7c2a37dc08f67817b6af47
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Управление сервером VMware vCenter Server в Azure Site Recovery
 В этой статье рассматриваются различные операции Site Recovery, которые могут выполняться на сервере VMware vCenter Server.
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/27/2017
 
 **Поддержка сервера VMware vCenter Server и узла VMware vSphere ESX** | **Дополнительные сведения** |
 |--- | --- |
-|**Локальные серверы VMware** | Один или несколько серверов VMware vSphere (версии 6.0, 5.5 или 5.1 с последними обновлениями). Серверы должны находиться в той же сети, где расположен сервер конфигурации (или отдельный сервер обработки).<br/><br/> Желательно использовать сервер vCenter для управления узлами (версии 6.0 или 5.5 с последними обновлениями). При развертывании версии 6.0 поддерживаются только функции, доступные в версии 5.5.|
+|**Локальные серверы VMware** | Один или несколько серверов VMware vSphere (версии 6.5, 6.0, 5.5 с последними обновлениями). Серверы должны находиться в той же сети, где расположен сервер конфигурации (или отдельный сервер обработки).<br/><br/> Желательно использовать сервер vCenter для управления узлами (версии 6.5, 6.0 или 5.5 с последними обновлениями). При развертывании версии 6.0 поддерживаются только функции, доступные в версии 5.5.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Подготовка учетной записи для автоматического обнаружения
 Службе Site Recovery нужен доступ к учетным записям VMware для отработки отказа и восстановления размещения, а также для автоматического обнаружения виртуальных машин на сервере обработки.

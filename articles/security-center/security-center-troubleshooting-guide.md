@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: yurid
-ms.openlocfilehash: 0e0a0ce5c0795cec0e47cd5f729099f4762381a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d61bf2af5eb7ca5d1da1aac406f4b8fe55c7f75b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Руководство по устранению неполадок в центре безопасности Azure
 Это руководство предназначено для ИТ-специалистов, аналитиков в сфере информационной безопасности и администраторов облака, организации которых используют центр безопасности Azure и которым нужно устранять связанные с ним неполадки.
@@ -66,7 +66,7 @@ Microsoft Monitoring Agent используется в центре безопа
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Устранение неполадок, связанных с требованиями к сети для агента мониторинга
 Для подключения агентов к центру безопасности и регистрации в нем требуется доступ к сетевым ресурсам, включая номера портов и URL-адреса доменов.
 
-- Для прокси-серверов необходимо убедиться, что в параметрах агента настроены соответствующие ресурсы прокси-сервера. Дополнительные сведения о том, как изменить параметры прокси-сервера, см. в [этой статье](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
+- Для прокси-серверов необходимо убедиться, что в параметрах агента настроены соответствующие ресурсы прокси-сервера. Дополнительные сведения о том, как изменить параметры прокси-сервера, см. в [этой статье](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
 - Брандмауэры, которые ограничивают доступ к Интернету, необходимо настроить таким образом, чтобы разрешить доступ к OMS. Настройка параметров агента не требуется.
 
 В следующей таблице показаны ресурсы, необходимые для обмена данными.

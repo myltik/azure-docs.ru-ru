@@ -3,8 +3,8 @@ title: "Подключение к Azure Stack при помощи интерфе
 description: "Узнайте, как использовать межплатформенный интерфейс командной строки (CLI) для развертывания ресурсов и управления ими в Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
@@ -12,40 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: sngun
-ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.date: 12/04/2017
+ms.author: mabrigg
+ms.openlocfilehash: 5d15815e9b1d20ab03b5716de45ad0fa77a11057
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Установка и настройка интерфейса командной строки для работы с Azure Stack
 
 В этой статье мы расскажем об использовании интерфейса командной строки (CLI) Azure для управления ресурсами пакета SDK для Azure Stack на клиентских платформах Linux и Mac. 
-
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Экспорт корневого сертификата ЦС Azure Stack
-
-Если вы используете CLI на виртуальной машине, выполняемой в среде пакета SDK для Azure Stack, значит, корневой сертификат Azure Stack уже установлен на ней, и вы можете получить его напрямую. Если же CLI выполняется на рабочей станции за пределами пакета SDK, необходимо экспортировать корневой сертификат ЦС Azure Stack из пакета SDK и добавить его в хранилище сертификатов Python на рабочей станции разработки (внешний компьютер на платформе Mac или Linux). 
-
-Чтобы экспортировать корневой сертификат Azure Stack в PEM-формате, войдите в пакет разработки и выполните следующий скрипт:
-
-```powershell
-   $label = "AzureStackSelfSignedRootCert"
-   Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-   $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-   if (-not $root)
-   {
-       Log-Error "Certificate with subject CN=$label not found"
-       return
-   }
-
-   Write-Host "Exporting certificate"
-   Export-Certificate -Type CERT -FilePath root.cer -Cert $root
-
-   Write-Host "Converting certificate to PEM format"
-   certutil -encode root.cer root.pem
-```
 
 ## <a name="install-cli"></a>Установка CLI
 
@@ -59,7 +36,7 @@ az --version
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Доверие для корневого сертификата ЦС Azure Stack
 
-Чтобы настроить доверие для корневого сертификата ЦС Azure Stack, добавьте его после существующего сертификата Python. Если вы используете CLI на компьютере Linux, который создан в среде Azure Stack, выполните следующую команду bash:
+Получите корневой сертификат ЦС Azure Stack от оператора Azure Stack и установите доверие к нему. Чтобы настроить доверие для корневого сертификата ЦС Azure Stack, добавьте его после существующего сертификата Python. Если вы используете CLI на компьютере Linux, который создан в среде Azure Stack, выполните следующую команду bash:
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
@@ -110,11 +87,10 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Настройка конечной точки псевдонимов для виртуальных машин
+## <a name="get-the-virtual-machine-aliases-endpoint"></a>Получение конечной точки псевдонимов для виртуальных машин
 
-Чтобы пользователи могли создавать виртуальные машины с помощью CLI, администратору облака следует настроить общедоступную конечную точку для хранения псевдонимов образов виртуальных машин и зарегистрировать эту конечную точку в облаке. Для этого используется параметр `endpoint-vm-image-alias-doc` в команде `az cloud register`. Прежде чем добавлять образ на конечной точке псевдонимов образов, администратор облака должен передать его в Azure Stack Marketplace.
+Чтобы создавать виртуальные машины с помощью CLI, обратитесь к оператору Azure Stack и получите URI конечной точки псевдонимов для виртуальных машин. Например, Azure использует следующий адрес URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Администратор облака создает аналогичную конечную точку для Azure Stack с информацией об образах, которые доступны в Azure Stack Marketplace. Передайте URI конечной точки в параметр `endpoint-vm-image-alias-doc` команды `az cloud register`, как показано в следующем разделе. 
    
-Например, Azure использует следующий адрес URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Администратор облака создает аналогичную конечную точку для Azure Stack с информацией об образах, которые доступны в Azure Stack Marketplace.
 
 ## <a name="connect-to-azure-stack"></a>Подключение к Azure Stack
 
@@ -169,7 +145,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
      --profile 2017-03-09-profile
    ```
 
-4. Войдите в среду Azure Stack с помощью команды `az login`. Вы можете войти в среду Azure Stack от имени пользователя или [субъекта-службы](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Войдите в среду Azure Stack с помощью команды `az login`. Вы можете войти в среду Azure Stack от имени пользователя или [субъекта-службы](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Для входа от имени *пользователя* можно указать имя пользователя и пароль непосредственно в команде `az login` или выполнить аутентификацию в браузере. Если для вашей учетной записи включена многофакторная аутентификация, возможным будет только второй вариант.
 
@@ -219,4 +195,3 @@ az group create \
 [Развертывание шаблонов с помощью интерфейса командной строки Azure](azure-stack-deploy-template-command-line.md)
 
 [Управление разрешениями пользователей](azure-stack-manage-permissions.md)
-

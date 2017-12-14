@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bd5de92a418ae5caa23ae4b081b688707cedcf06
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Копирование данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -269,7 +269,7 @@ PolyBase для хранилища данных SQL напрямую подде�
 Если требования не выполняются, фабрика данных Azure проверяет параметры и автоматически возвращается к механизму перемещения данных BULKINSERT.
 
 1. Тип **связанной службы источника** — **AzureStorage** или **AzureDataLakeStore**.
-2. Тип **входного набора данных** — **AzureBlob** или **AzureDataLakeStoreFile**, тип формата в свойствах `type` — **OrcFormat** или **TextFormat** со следующими конфигурациями:
+2. Тип **входного набора данных** — **AzureBlob** или **AzureDataLakeStoreFile**, тип формата в свойствах `type` — **OrcFormat**, **ParquetFormat** или **TextFormat** со следующими конфигурациями.
 
    1. Параметр `rowDelimiter` должен содержать значение **\n**.
    2. Параметр `nullValue` должен быть **пустой строке** (""), или параметру `treatEmptyAsNull` присваивается значение **true**.

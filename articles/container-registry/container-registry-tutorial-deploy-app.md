@@ -2,25 +2,18 @@
 title: "Руководство по реестру контейнеров Azure. Развертывание веб-приложения из реестра контейнеров Azure"
 description: "Развертывание веб-приложения на основе Linux с помощью образа контейнера из геореплицируемого реестра контейнеров Azure. Вторая часть руководства из трех частей."
 services: container-registry
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: neilpeterson
-tags: acr, azure-container-registry, geo-replication
-keywords: "Docker, контейнеры, реестр, Azure"
 ms.service: container-registry
-ms.devlang: 
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: 90d4b51dfaad409298f72887480dfaf827aef9f0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.custom: mvc
+ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-web-app-from-azure-container-registry"></a>Развертывание веб-приложения из реестра контейнеров Azure
 

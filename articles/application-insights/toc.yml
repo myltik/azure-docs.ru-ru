@@ -142,6 +142,16 @@
               href: app-insights-proactive-failure-diagnostics.md
             - name: Аномалии производительности
               href: app-insights-proactive-performance-diagnostics.md
+            - name: Снижение уровня серьезности трассировки
+              href: app-insights-proactive-trace-severity.md
+            - name: Объем исключений
+              href: app-insights-proactive-exception-volume.md
+            - name: Утечки памяти
+              href: app-insights-proactive-potential-memory-leak.md
+            - name: Использование ресурсов
+              href: app-insights-proactive-low-utilization-cloud-resources.md
+            - name: Обнаружение системой безопасности
+              href: app-insights-proactive-application-security-detection-pack.md
         - name: Создание ресурса
           href: app-insights-create-new-resource.md
     - name: Анализ

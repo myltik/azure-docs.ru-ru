@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Обзор службы приложений в Azure Stack
 
@@ -37,8 +37,8 @@ ms.lasthandoff: 10/12/2017
 
 Служба приложений предоставляет несколько типов приложений, которые предназначены для размещения конкретных рабочих нагрузок.
 
-- [Веб-приложения](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) — для размещения веб-сайтов и веб-приложений.
-- [Приложения API](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) — для размещения API RESTful.
+- [Веб-приложения](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) — для размещения веб-сайтов и веб-приложений.
+- [Приложения API](https://docs.microsoft.com/azure/app-service-api/app-service-api-apps-why-best-platform) — для размещения API RESTful.
 - Функции Azure — для размещения управляемых событиями бессерверных рабочих нагрузок.
 
 Термин "приложение" обозначает здесь ресурсы размещения, выделенные для выполнения рабочей нагрузки. Большинство пользователей думают, что для функционирования веб-приложения в браузере требуются вычислительные ресурсы и код приложения. Но в службе приложений веб-приложением называются вычислительные ресурсы, которые Azure Stack предоставляет для размещения кода приложения.

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: billgib
-ms.openlocfilehash: ec753027c8ce8040cbc574279a44eb24590fcb05
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: e7de7bb545e0ce04dc1b3dd398cc920213d09bae
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-sql-database"></a>Подготовка новых клиентов и их каталогизация в приложении SaaS с помощью сегментированной мультитенантной базы данных SQL
 
@@ -78,19 +78,18 @@ ms.lasthandoff: 11/22/2017
 * Разверните приложение SaaS-приложение Wingtip Tickets c мультитенантной БД. Вы можете развернуть его менее чем за пять минут, используя инструкцию из статьи [Deploy and explore a sharded multi-tenant application that uses Azure SQL Database](saas-multitenantdb-get-started-deploy.md) (Развертывание и изучение сегментированного мультитенантного приложения, использующего Базу данных SQL Azure).
 * Установите Azure PowerShell. Дополнительные сведения см. в статье [Начало работы с Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-## <a name="get-the-wingtip-tickets-management-scripts"></a>Получение скриптов управления для приложения Wingtip Tickets
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Получение скриптов и исходного кода для SaaS-приложения Wingtip Tickets c мультитенантной БД
 
-Скрипты управления и исходный код приложения доступны в репозитории GitHub [WingtipTicketsSaaS-MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). <!--See [Steps to download the Wingtip SaaS scripts](saas-tenancy-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).-->
-
+Сценарии для приложения SaaS Wingtip Tickets c мультитенантной базой данных и исходный код этого приложения вы найдете в репозитории GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB). Инструкции по скачиванию и разблокированию сценариев приложения SaaS Wingtip Tickets см. в статье [Общие рекомендации по работе с примерами приложений SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md). 
 
 ## <a name="provision-a-tenant-in-a-shared-database-with-other-tenants"></a>Подготовка клиента в базе данных, используемой совместно с другими клиентами
 
 Чтобы понять, как приложение Wingtip Tickets подготавливает новый клиент в общей базе данных, добавьте точку останова и перейдите к выполнению рабочего процесса:
 
-1. В _интегрированной среде сценариев PowerShell_ откройте файл …\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ и задайте следующие параметры:
-   * **$TenantName** = **Bushwillow Blues** — имя нового мероприятия.
-   * **$VenueType** = **blues** — один из предопределенных типов мероприятия: *blues*, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (в нижнем реестре без пробелов).
-   * Для параметра **$Scenario** =  установите значение **1**, чтобы *подготовить клиента в базе данных, используемой совместно с другими клиентами*.
+1. В _интегрированной среде сценариев PowerShell_ откройте файл …\\Learning Modules\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_ и задайте следующие параметры.
+   * **$TenantName** = **Bushwillow Blues** — имя нового места проведения.
+   * **$VenueType** = **blues** — один из предопределенных типов мест проведения: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (строчными буквами, без пробелов).
+   * Задайте **$DemoScenario** = **1**, чтобы *подготовить клиент в базе данных, используемой совместно с другими клиентами*.
 
 1. Добавьте точку останова, поместив курсор в любом месте строки 38, содержащей *New-Tenant `*, и нажмите клавишу **F9**.
 
@@ -121,10 +120,10 @@ ms.lasthandoff: 11/22/2017
 
 Теперь рассмотрите процесс создания клиента в собственной базе данных.
 
-1. В файле …\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ задайте следующие параметры.
-   * **$TenantName** = **Sequoia Soccer** — имя нового мероприятия.
-   * **$VenueType** = **soccer** — один из предопределенных типов мероприятия: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, *soccer* (в нижнем реестре без пробелов).
-   * Для параметра **$Scenario** =  установите значение **2**, чтобы *подготовить клиента в базе данных, используемой совместно с другими клиентами*.
+1. В файле …\\Learning Modules\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_ задайте следующие параметры.
+   * **$TenantName** = **Sequoia Soccer** — имя нового места проведения.
+   * **$VenueType** = **soccer** — один из предопределенных типов мест проведения: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (строчными буквами, без пробелов).
+   * Задайте **$DemoScenario** = **2**, чтобы *подготовить клиент в собственной базе данных*.
 
 1. Добавьте новую точку останова, поместив курсор в любом месте строки 57, содержащей *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `*, и нажмите клавишу **F9**.
 
@@ -152,30 +151,31 @@ ms.lasthandoff: 11/22/2017
 
 В этом упражнении подготавливается пакет из 17 клиентов. Рекомендуется подготовить этот пакет клиентов перед выполнением задач других руководств по Wingtip Tickets, чтобы вы могли работать с большим количеством баз данных.
 
-1. В *интегрированной среде сценариев PowerShell* откройте файл …\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1* и измените значение параметра *$Scenario* на 3.
-   * Для параметра **$Scenario** =  установите значение **3**, чтобы *подготовить пакет клиентов в общей базе данных*.
+
+1. В *интегрированной среде сценариев PowerShell* откройте файл …\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* и измените значение параметра *$DemoScenario* на 4.
+   * Задайте **$DemoScenario** = **4**, чтобы *подготовить пакет клиентов в общей базе данных*.
 1. Нажмите клавишу **F5** для запуска скрипта.
 
 
 ### <a name="verify-the-deployed-set-of-tenants"></a>Проверка развернутого набора клиентов 
-На этом этапе у вас есть клиенты, развернутые в общей базе данных, и клиенты, развернутые в собственных базах данных. С помощью портала Azure можно просмотреть созданные базы данных.  
-
-* На [портале Azure](https://portal.azure.com) откройте сервер **tenants1-mt-\<Пользователь\>**, перейдя к списку серверов SQL.  Список **баз данных SQL** должен включать общую базу данных **tenants1** и базы данных для клиентов, которые расположены в собственных базах данных.
+На этом этапе у вас есть клиенты, развернутые в общей базе данных, и клиенты, развернутые в собственных базах данных. С помощью портала Azure можно просмотреть созданные базы данных. На [портале Azure](https://portal.azure.com) откройте сервер **tenants1-mt-\<Пользователь\>**, перейдя к списку серверов SQL.  Список **баз данных SQL** должен включать общую базу данных **tenants1** и базы данных для клиентов, которые расположены в собственных базах данных.
 
    ![список баз данных](media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
 Хотя на портале Azure отображаются базы данных клиентов, вы не можете просмотреть клиенты *внутри* общих баз данных. Полный список клиентов можно просмотреть на странице концентратора событий Wingtip Tickets или с помощью каталога.   
 
-1. Откройте страницу концентратора событий в браузере (http:events.wingtip-mt.\<Пользователь\>.trafficmanager.net).  
+**Использование страницы концентратора событий Wingtip Tickets** <br>
+Откройте страницу концентратора событий в браузере (http:events.wingtip-mt.\<Пользователь\>.trafficmanager.net).  
 
-   Полный список клиентов и их соответствующие базы данных можно просмотреть в каталоге. Представление SQL содержится в базе данных tenantcatalog, где имя клиента, хранящееся в таблице клиентов, объединяется с именем базы данных в таблице управления сегментами. В этом представлении хорошо показано ценность расширения метаданных, хранящихся в каталоге.
+**Использование базы данных каталога** <br>
+Полный список клиентов и их соответствующие базы данных можно просмотреть в каталоге. Представление SQL содержится в базе данных tenantcatalog, где имя клиента, хранящееся в таблице клиентов, объединяется с именем базы данных в таблице управления сегментами. В этом представлении хорошо показано ценность расширения метаданных, хранящихся в каталоге.
 
-2. В *SQL Server Management Studio (SSMS)* подключитесь к серверу клиентов в **tenants1-mt.\<Пользователь\>.database.windows.net**, указав в качестве имени для входа **developer**, а в качестве пароля **P@ssword1**.
+1. В *SQL Server Management Studio (SSMS)* подключитесь к серверу клиентов по адресу **catalog-mt.\<Пользователь\>.database.windows.net**, указав в качестве имени для входа **developer**, а в качестве пароля — **P@ssword1**.
 
     ![Диалоговое окно подключения SSMS](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. В *обозревателе объектов* перейдите к представлениям в базе данных *tenantcatalog*.
-2. Щелкните правой кнопкой мыши представление *TenantsExtended* и выберите **Select Top 1000 Rows** (Выбрать первые 1000 строк). Обратите внимание на сопоставление имени клиента и базы данных для разных клиентов.
+1. В *обозревателе объектов* перейдите к представлениям в базе данных *tenantcatalog*.
+1. Щелкните правой кнопкой мыши представление *TenantsExtended* и выберите **Select Top 1000 Rows** (Выбрать первые 1000 строк). Обратите внимание на сопоставление имени клиента и базы данных для разных клиентов.
 
     ![Представление ExtendedTenants в SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
       

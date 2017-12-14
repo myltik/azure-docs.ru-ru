@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: owend
-ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Службы Azure Analysis Services
 ![Службы Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -124,7 +124,7 @@ ms.lasthandoff: 11/07/2017
 ## <a name="get-help"></a>Получение справки
 
 #### <a name="documentation"></a>Документация
-Службы Azure Analysis Services просты в настройке и управлении. Здесь представлены все необходимые сведения о создании и администрировании служб сервера. Процедуры создания модели данных для развертывания на удаленном и локальном сервере практические ничем не отличаются. В разделе [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services) доступна обширная библиотека статей с общими и справочными сведениями, инструкциями и руководствами.
+Службы Azure Analysis Services просты в настройке и управлении. Здесь представлены все необходимые сведения о создании и администрировании служб сервера. Процедуры создания модели данных для развертывания на удаленном и локальном сервере практические ничем не отличаются. В [справке по SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services) есть обширная библиотека статей с общими сведениями и инструкциями, а также руководств и справочных статей.
 
 #### <a name="videos"></a>Видеоролики
 [На сайте Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services) доступны полезные видео об Azure Analysis Services.

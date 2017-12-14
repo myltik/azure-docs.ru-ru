@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Диспетчер трафика Azure: вопросы и ответы
 
@@ -277,7 +277,7 @@ ms.lasthandoff: 10/31/2017
 
 На портале управления Azure отображается текущее состояние мониторинга для каждой конечной точки, а также всего профиля. Эти сведения также можно получить с помощью [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx) отслеживания трафика, [командлетов PowerShell](https://msdn.microsoft.com/library/mt125941.aspx) и [кроссплатформенного интерфейса командной строки Azure](../cli-install-nodejs.md).
 
-Azure не предоставляет информации о работоспособности конечной точки в прошлом и не позволяет выдавать предупреждения об изменении состояния конечной точки.
+Azure Monitor может использоваться для отслеживания работоспособности конечных точек и просмотра их визуального представления. Дополнительные сведения об использовании Azure Monitor см. в статье [Обзор метрик в Microsoft Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Можно ли отслеживать конечные точки HTTPS?
 
@@ -288,6 +288,10 @@ Azure не предоставляет информации о работоспо
 * сертификаты на стороне сервера не проверяются;
 * сертификаты SNI на стороне сервера не поддерживаются;
 * клиентские сертификаты не поддерживаются.
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Работа облачной службы Azure и конечной точки в веб-приложениях в профиле диспетчера трафика была остановлена, но трафик все равно не приходит даже после перезапуска. Как это исправить?
+
+После остановки облачной службы Azure и конечной точки в веб-приложениях диспетчер трафика прекращает проверку их состояния и перезапускает данную проверку только после перезапуска конечной точки. Во избежание этой задержки отключите и повторно включите эту конечную точку в профиле диспетчера трафика после перезагрузки.   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Могу ли я использовать диспетчер трафика, даже если приложение не поддерживает протоколы HTTP и HTTPS?
 

@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>Обработка ошибок в политиках управления API
 Управление API Azure позволяет издателям реагировать на ошибки, которые могут возникать во время обработки запросов к прокси-серверу, предоставляя объект `ProxyError`. Доступ к объекту `ProxyError` осуществляется через свойство [context.LastError](api-management-policy-expressions.md#ContextVariables), и его могут использовать политики в разделе `on-error`. Эта статья содержит справочную информацию о возможностях обработки ошибок, которые предоставляет служба управления API Azure.  
@@ -56,27 +56,16 @@ ms.lasthandoff: 10/11/2017
  В разделе `on-error` можно использовать следующие политики.  
   
 -   [choose](api-management-advanced-policies.md#choose)  
-  
 -   [set-variable](api-management-advanced-policies.md#set-variable)  
-  
 -   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)  
-  
 -   [return-response](api-management-advanced-policies.md#ReturnResponse)  
-  
 -   [set-header](api-management-transformation-policies.md#SetHTTPheader)  
-  
 -   [set-method](api-management-advanced-policies.md#SetRequestMethod)  
-  
 -   [set-status](api-management-advanced-policies.md#SetStatus)  
-  
 -   [send-request](api-management-advanced-policies.md#SendRequest)  
-  
 -   [send-one-way-request](api-management-advanced-policies.md#SendOneWayRequest)  
-  
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)  
-  
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
-  
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>LastError  
@@ -128,4 +117,10 @@ ms.lasthandoff: 10/11/2017
 |validate-jwt|Прочие сбои при проверке данных|JwtInvalid|<сообщение из библиотеки jwt\>|
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о работе с политиками см. в статье со справочными материалами по [политикам в службе управления API](api-management-howto-policies.md).  
+
+Дополнительные сведения о работе с политиками см. в следующих статьях:
+
++ [Политики в управлении API](api-management-howto-policies.md)
++ [Преобразование API-интерфейсов](transform-api.md).
++ Полный перечень операторов политик и их параметров см. в [справочнике по политикам](api-management-policy-reference.md).
++ [Примеры политик](policy-samples.md).   

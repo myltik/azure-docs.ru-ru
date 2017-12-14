@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5e4fe189a3fa7269a271b422116dc6838e7ef3cb
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Настройка кластеров HDInsight под управлением Linux с помощью действий сценариев
 
@@ -76,9 +76,6 @@ ms.lasthandoff: 11/06/2017
         > HDInsight поддерживает только учетные записи хранения Azure __общего назначения__. Учетные записи __хранилища BLOB-объектов__ сейчас не поддерживаются.
 
 * Действия скрипта могут быть ограничены **запуском только на узлах определенного типа**, например головных или рабочих.
-
-  > [!NOTE]
-  > При использовании HDInsight уровня "Премиум" можно указать использование сценария на граничном узле.
 
 * Действия скрипта могут быть **сохраняемыми** или **специализированными**.
 

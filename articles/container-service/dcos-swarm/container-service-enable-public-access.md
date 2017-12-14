@@ -1,28 +1,22 @@
 ---
-title: "Включение доступа к приложению-контейнеру DC/OS Azure | Документация Майкрософт"
+title: "Включение доступа к приложению-контейнеру DC/OS Azure"
 description: "Как предоставить общий доступ к контейнерам DC/OS в Службе контейнеров Azure."
 services: container-service
-documentationcenter: 
 author: sauryadas
 manager: madhana
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, контейнеры, микрослужбы, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: c9ef5913859cf3a55a2de2107a9304f1d28a4829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aedc97335a0b9ad00cf653477b62bf530b556900
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Предоставление общего доступа к приложению Службы контейнеров Azure
+
 К любому контейнеру контроллера домена или ОС в [пуле общедоступных агентов](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) ACS можно автоматически получить доступ из Интернета. По умолчанию порты **80**, **443**, **8080** открыты, поэтому можно получить доступ к любым контейнерам (частным), выполняющим прослушивание на этих портах. В этой статье показано, как открыть дополнительные порты для приложений в Службе контейнеров Azure.
 
 ## <a name="open-a-port-portal"></a>Открытие порта (портал)

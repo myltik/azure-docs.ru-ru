@@ -34,7 +34,7 @@
       href: how-to-install-iot-core.md
 - name: Основные понятия
   items:
-    - name: Модули IoT Edge
+    - name: Модули Edge Интернета вещей
       href: iot-edge-modules.md
       items:
         - name: Разработка
@@ -49,6 +49,8 @@
       href: iot-edge-as-gateway.md
     - name: Безопасность
       href: security.md
+    - name: Глоссарий IoT Edge
+      href: iot-edge-glossary.md
 - name: Ресурсы
   items:
     - name: 'Каталог устройств, сертифицированных по программе Microsoft Azure Certified for IoT'

@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/03/2017
-ms.openlocfilehash: 17f045f516792e50f7349805ec9f7a01e3f9d5b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/27/2017
+ms.openlocfilehash: d3de3fdf28997b63321bf23443472db43ebb5c52
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Основные понятия работы с сервером в базе данных Azure для MySQL
 В этой статье приведены рекомендации и указания по работе с серверами базы данных Azure для MySQL.
@@ -38,15 +38,13 @@ ms.lasthandoff: 10/11/2017
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Как подключиться к серверу базы данных Azure для MySQL и выполнить аутентификацию?
 
 Ниже перечислены элементы, которые помогают обеспечить безопасный доступ к базе данных.
-
 |||
 | :-- | :-- |
 | **Аутентификация и авторизация** | Сервер базы данных Azure для MySQL поддерживает собственную аутентификацию MySQL. Подключиться к серверу и выполнить аутентификацию можно с помощью учетных данных администратора сервера. |
 | **Протокол** | Служба поддерживает протокол на основе сообщений, используемый MySQL. |
 | **TCP/IP** | Протокол работает через TCP/IP, а также через сокеты домена Unix. |
-| **Брандмауэр** | Для защиты данных правило брандмауэра запрещает любой доступ к серверу базы данных или базам данных, пока не будут указаны компьютеры, которые имеют разрешение. Ознакомьтесь со статьей [Правила брандмауэра сервера базы данных Azure для MySQL](./concepts-firewall-rules.md). |
+| **Брандмауэр** | Для защиты данных правило брандмауэра запрещает любой доступ к серверу базы данных, пока не будут указаны компьютеры, которые имеют разрешение. Ознакомьтесь со статьей [Правила брандмауэра сервера базы данных Azure для MySQL](./concepts-firewall-rules.md). |
 | **SSL** | Служба поддерживает применение SSL-соединений между приложениями и сервером базы данных.  Ознакомьтесь со статьей [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (Настройка SSL-соединений в приложении для безопасного подключения к базе данных Azure для MySQL). |
-|||
 
 ## <a name="how-do-i-manage-a-server"></a>Как управлять сервером?
 Управлять серверами базы данных Azure для MySQL можно с помощью портала Azure или Azure CLI.

@@ -1,29 +1,53 @@
 - name: Документация по Azure HDInsight
   href: /azure/hdinsight
-- name: Безопасность корпоративного уровня в HDInsight
+- name: Корпоративная безопасность
   items:
     - name: Обзор
       href: apache-domain-joined-introduction.md
-    - name: Планирование присоединения к домену кластера HDInsight
+    - name: Планирование для присоединенных к домену кластеров
       href: apache-domain-joined-architecture.md
-    - name: Управление версиями компонентов
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-- name: Начало работы
-  items:
-    - name: Настройка присоединенного к домену кластера HDInsight
+    - name: Настройка среды с присоединенной к домену песочницей
       href: apache-domain-joined-configure.md
-    - name: Настройка присоединенных к домену кластеров HDInsight с помощью AD DS
+    - name: Настройка присоединенных к домену кластеров с помощью Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Настройка политик Hive
       href: apache-domain-joined-run-hive.md
     - name: Планирование загрузки
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-- name: Практическое руководство
-  items:
-    - name: Управление кластерами
+    - name: Управление присоединенными к домену кластерами
       href: apache-domain-joined-manage.md
+- name: Защита данных
+  href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+  maintainContext: true
+- name: Доступ к сети
+  items:
+    - name: HDInsight в виртуальной сети Azure
+      href: ../hdinsight-extend-hadoop-virtual-network.md
+      maintainContext: true
+    - name: Подключение HDInsight к локальной сети
+      href: ../connect-on-premises-network.md
+      maintainContext: true
+    - name: Создание кластера HBase в виртуальной сети Azure
+      href: ../hbase/apache-hbase-provision-vnet.md
+      maintainContext: true
+    - name: Репликация кластера HBase в виртуальной сети Azure
+      href: ../hbase/apache-hbase-replication.md
+      maintainContext: true
+- name: Мониторинг с помощью OMS
+  items:
+    - name: Использование Azure Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      maintainContext: true
+    - name: Панели мониторинга для кластеров
+      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+      maintainContext: true
+    - name: Использование запросов в Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      maintainContext: true
+    - name: Мониторинг производительности кластера
+      href: ../hdinsight-key-scenarios-to-monitor.md
+      maintainContext: true
 - name: Справочные материалы
   items:
     - name: Примеры кода

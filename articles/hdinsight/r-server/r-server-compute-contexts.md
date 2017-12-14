@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Варианты контекста вычислений для R Server в HDInsight
 
@@ -33,8 +33,8 @@ Microsoft R Server в Azure HDInsight управляет выполнением 
 ## <a name="compute-contexts-for-an-edge-node"></a>Контексты вычислений для граничного узла
 Как правило, сценарий R, выполняемый на R Server на граничном узле, выполняется в интерпретаторе R на этом узле. Исключением являются те действия, которые вызывают функцию ScaleR. Вызовы ScaleR будут осуществляться в среде вычислений с учетом настройки контекста вычислений ScaleR.  При выполнении скрипта R из граничного узла возможны следующие значения контекста вычислений:
 
-- локальный последовательный (*‘local’*);
-- локальный параллельный (*‘localpar’*);
+- локальный последовательный (*local*);
+- локальный параллельный (*localpar*);
 - Map Reduce
 - Spark
 
@@ -44,8 +44,8 @@ Microsoft R Server в Azure HDInsight управляет выполнением 
 
 | Контекст вычислений  | Метод настройки                      | Контекст выполнения                        |
 | ---------------- | ------------------------------- | ---------------------------------------- |
-| Локальный последовательный | rxSetComputeContext(‘local’)    | Распараллеленное выполнение во всех ядрах сервера граничного узла, за исключением вызовов rxExec, которые выполняются последовательно. |
-| Локальный параллельный   | rxSetComputeContext(‘localpar’) | Распараллеленное выполнение во всех ядрах сервера граничного узла. |
+| Локальный последовательный | rxSetComputeContext('local')    | Распараллеленное выполнение во всех ядрах сервера граничного узла, за исключением вызовов rxExec, которые выполняются последовательно. |
+| Локальный параллельный   | rxSetComputeContext('localpar') | Распараллеленное выполнение во всех ядрах сервера граничного узла. |
 | Spark            | RxSpark()                       | Распараллеленное распределенное выполнение с использованием Spark во всех узлах кластера HDI |
 | Map Reduce       | RxHadoopMR()                    | Распараллеленное распределенное выполнение с использованием Map Reduce во всех узлах кластера HDI |
 
@@ -76,7 +76,7 @@ Microsoft R Server в Azure HDInsight управляет выполнением 
 
     > ?rxSetComputeContext
 
-Можно также просмотреть [руководство по распределенным вычислениям ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing), доступное в библиотеке [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server в библиотеке MSDN").
+Можно также просмотреть [руководство по распределенным вычислениям ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing), доступное в библиотеке [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы ознакомились с параметрами, которые доступны для указания необходимости и способа выполнения параллелизации между ядрами граничного узла или кластера HDInsight. Дополнительные сведения об использовании R Server для работы с кластерами HDInsight см. в следующих статьях:

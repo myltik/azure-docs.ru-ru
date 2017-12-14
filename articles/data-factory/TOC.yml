@@ -34,7 +34,14 @@
     - name: 4. Копирование данных в пакетном режиме
       href: tutorial-bulk-copy.md
     - name: 5. Добавочное копирование данных
-      href: tutorial-incremental-copy-powershell.md
+      href: tutorial-incremental-copy-overview.md
+      items:
+        - name: 5.1. Копирование из одной таблицы
+          href: tutorial-incremental-copy-powershell.md
+        - name: 5.2. Копирование из нескольких таблиц
+          href: tutorial-incremental-copy-multiple-tables-powershell.md
+        - name: 5.3. Использование функции отслеживания изменений
+          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6. Преобразование данных в облаке
       href: tutorial-transform-data-spark-powershell.md
     - name: 7. Преобразование данных в виртуальной сети
@@ -67,6 +74,8 @@
           href: how-to-read-write-partitioned-data.md
         - name: Соединители
           items:
+            - name: Веб-служба Amazon Marketplace
+              href: connector-amazon-marketplace-web-service.md
             - name: Amazon Redshift
               href: connector-amazon-redshift.md
             - name: Amazon S3
@@ -79,6 +88,8 @@
               href: connector-azure-data-lake-store.md
             - name: База данных Azure для MySQL
               href: connector-azure-database-for-mysql.md
+            - name: База данных Azure для PostgreSQL
+              href: connector-azure-database-for-postgresql.md
             - name: Хранилище файлов Azure
               href: connector-azure-file-storage.md
             - name: поиск Azure;
@@ -91,8 +102,14 @@
               href: connector-azure-table-storage.md
             - name: Cassandra
               href: connector-cassandra.md
+            - name: Concur
+              href: connector-concur.md
+            - name: Couchbase
+              href: connector-couchbase.md
             - name: DB2
               href: connector-db2.md
+            - name: Drill
+              href: connector-drill.md
             - name: "Dynamics\_365"
               href: connector-dynamics-crm-office-365.md
             - name: Dynamics CRM
@@ -103,12 +120,30 @@
               href: connector-ftp.md
             - name: GE Historian
               href: 'connector-odbc.md#ge-historian-source'
+            - name: Google BigQuery
+              href: connector-google-bigquery.md
+            - name: Greenplum
+              href: connector-greenplum.md
+            - name: HBase
+              href: connector-hbase.md
             - name: HDFS
               href: connector-hdfs.md
+            - name: Hive
+              href: connector-hive.md
             - name: HTTP
               href: connector-http.md
+            - name: HubSpot
+              href: connector-hubspot.md
+            - name: Impala
+              href: connector-impala.md
             - name: Informix
               href: 'connector-odbc.md#ibm-informix-source'
+            - name: Jira
+              href: connector-jira.md
+            - name: Magento
+              href: connector-magento.md
+            - name: MariaDB
+              href: connector-mariadb.md
             - name: Microsoft Access
               href: 'connector-odbc.md#microsoft-access-source'
             - name: MongoDB
@@ -121,26 +156,50 @@
               href: connector-odbc.md
             - name: Oracle
               href: connector-oracle.md
+            - name: Oracle Eloqua
+              href: connector-oracle-eloqua.md
+            - name: Paypal
+              href: connector-paypal.md
+            - name: Phoenix
+              href: connector-phoenix.md
             - name: PostgreSQL
               href: connector-postgresql.md
+            - name: Presto
+              href: connector-presto.md
+            - name: QuickBooks
+              href: connector-quickbooks.md
             - name: Salesforce
               href: connector-salesforce.md
             - name: Облачная служба Salesforce
               href: connector-salesforce.md
             - name: SAP Business Warehouse
               href: connector-sap-business-warehouse.md
+            - name: SAP Cloud for Customer
+              href: connector-sap-cloud-for-customer.md
             - name: SAP HANA
               href: connector-sap-hana.md
+            - name: ServiceNow
+              href: connector-servicenow.md
             - name: SFTP
               href: connector-sftp.md
+            - name: Shopify
+              href: connector-shopify.md
+            - name: Spark
+              href: connector-spark.md
             - name: SQL Server
               href: connector-sql-server.md
+            - name: Маркер
+              href: connector-square.md
             - name: Sybase
               href: connector-sybase.md
             - name: Teradata
               href: connector-teradata.md
             - name: Веб-таблица
               href: connector-web-table.md
+            - name: Xero
+              href: connector-xero.md
+            - name: Zoho
+              href: connector-zoho.md
         - name: Поддержка сжатия и форматирования
           href: supported-file-formats-and-compression-codecs.md
         - name: Сопоставление типа и схемы
@@ -226,8 +285,22 @@
           href: create-self-hosted-integration-runtime.md
         - name: Среда выполнения интеграции Azure SSIS
           href: create-azure-ssis-integration-runtime.md
+    - name: Запуск пакетов служб SSIS в Azure
+      items:
+        - name: Создание среды выполнения для интеграции Azure SSIS
+          href: create-azure-ssis-integration-runtime.md
         - name: Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети
           href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Управление средой выполнения интеграции Azure SSIS
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Настройка параметров производительности для среды выполнения интеграции Azure Integration Services
+          href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Вызов пакетов Integration Services при помощи хранимой процедуры
+          href: how-to-invoke-ssis-package-stored-procedure-activity.md
+    - name: Создание триггеров
+      items:
+        - name: Создание триггера расписания
+          href: how-to-create-schedule-trigger.md
 - name: Справочные материалы
   items:
     - name: .NET

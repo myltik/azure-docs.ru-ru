@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/31/2017
+ms.date: 11/23/2017
 ms.author: bsiva
-ms.openlocfilehash: c84a775564769ddc796aa9d75add019ef1003175
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98e0a7cd77e8e6e9ce124845aad49bd03a2bf1d8
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Подготовка цели (репликация виртуальных машин VMware в Azure)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-В данной статье предполагается, что выполнены следующие условия.
+В этой статье предполагается:
 - Вы создали хранилище служб восстановления для защиты виртуальных машин VMware. Хранилище служб восстановления можно создать на [портале Azure](http://portal.azure.com "Портал Azure").
 - Вы [настроили локальную среду](./site-recovery-set-up-vmware-to-azure.md) для репликации виртуальных машин VMware в Azure.
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 После успешного завершения проверки нажмите кнопку "OK", чтобы перейти к следующему шагу.
 
-Если совместимая учетная запись хранилища Resource Manager или виртуальная сеть отсутствует, либо вы хотите их добавить, вы можете это сделать, нажав кнопку **+ Storage Account** (+ Учетная запись хранения) или **+ Network** (+ Сеть) в верхней части колонки.
+Если у вас нет совместимых учетных записей хранения диспетчера ресурсов или виртуальной сети, их можно создать, нажав кнопку**+ Storage Account** (+ Учетная запись хранения) или кнопку **+ Network** (+ Сеть) в верхней части страницы.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Настройка параметров репликации](./site-recovery-setup-replication-settings-vmware.md).

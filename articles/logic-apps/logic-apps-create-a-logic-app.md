@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 10/20/2017
 ms.author: LADocs; estfan
 ms.openlocfilehash: 5906605192f9b03f612e6ca3a445434a23713d7f
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="automate-your-first-workflow-to-process-data-with-a-logic-app"></a>Автоматизация первого рабочего процесса для обработки данных с помощью приложения логики
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/21/2017
 
    ![Портал Azure, "Создать", "Интеграция с предприятием", "Приложение логики"](./media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
-3. Создайте логику приложения с параметрами в таблице под этим изображением:
+3. Создайте приложение логики с параметрами в таблице под этим рисунком.
 
    ![Ввод данных приложения логики](./media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
@@ -242,7 +242,7 @@ ms.lasthandoff: 10/21/2017
    > [!TIP]
    > Если меню приложения логики не отображается, попробуйте вернуться к панели мониторинга Azure и повторно откройте приложение логики.
 
-2. Подтвердите удаление приложения логики, а затем выберите **Удалить**.
+2. Подтвердите удаление приложения логики и выберите **Удалить**.
 
 ## <a name="get-support"></a>Получение поддержки
 

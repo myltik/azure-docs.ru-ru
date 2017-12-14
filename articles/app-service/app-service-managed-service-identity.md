@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Как использовать управляемое удостоверение службы Azure (общедоступная предварительная версия) в службе приложений и Функциях Azure
 
@@ -45,6 +45,35 @@ ms.lasthandoff: 11/15/2017
 4. Установите для параметра **Register with Azure Active Directory** (Регистрация с помощью Azure Active Directory) значение **Вкл.** Щелкните **Сохранить**.
 
 ![Управляемое удостоверение службы в службе приложений](media/app-service-managed-service-identity/msi-blade.png)
+
+### <a name="using-the-azure-cli"></a>Использование Azure CLI
+
+Чтобы настроить управляемое удостоверение службы с помощью Azure CLI, используйте команду `az webapp assign-identity` для существующего приложения. Примеры из этого раздела можно выполнять тремя способами:
+
+- использовать [Azure Cloud Shell](../cloud-shell/overview.md) с портала Azure;
+- использовать внедренный компонент Azure Cloud Shell с помощью кнопки "Попробовать", расположенной в правом верхнем углу каждого блока кода ниже.
+- [установить последнюю версию интерфейса командной строки (CLI) 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 или более позднюю версию), если вы предпочитаете использовать локальную консоль CLI. 
+
+Ниже описаны действия по созданию веб-приложения и присвоению удостоверения ему с помощью CLI:
+
+1. Если вы используете Azure CLI в локальной консоли, сначала выполните вход в Azure с помощью команды [az login](/cli/azure/#login). Используйте учетную запись, связанную с подпиской Azure, с помощью которой нужно развернуть приложение.
+
+    ```azurecli-interactive
+    az login
+    ```
+2. Создайте веб-приложение с помощью CLI. Дополнительные примеры использования CLI со службой приложений см. в статье [Примеры Azure CLI](../app-service/app-service-cli-samples.md).
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location westus
+    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
+    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    ```
+
+3. Выполните команду `assign-identity`, чтобы создать удостоверение для этого приложения.
+
+    ```azurecli-interactive
+    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Использование шаблона Azure Resource Manager
 

@@ -11,7 +11,8 @@
 ## [Приступая к работе с Azure Advisor](advisor-get-started.md)
 
 # Справочные материалы
-## [REST](https://docs.microsoft.com/rest/api/advisor)
+## [REST API](https://docs.microsoft.com/rest/api/advisor)
+## [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](https://docs.microsoft.com/cli/azure/advisor)
 
 # Сопутствующие материалы
 ## [Центр безопасности](https://azure.microsoft.com/services/security-center/)

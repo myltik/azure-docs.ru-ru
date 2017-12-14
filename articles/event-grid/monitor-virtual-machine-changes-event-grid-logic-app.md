@@ -9,13 +9,13 @@ ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Отслеживание изменений виртуальной машины с помощью Azure Logic Apps и службы "Сетка событий Azure"
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/21/2017
    ![Вход с помощью учетных данных Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Если вы вошли с помощью личной учетной записи Майкрософт, например @outlook.com или @hotmail.com, триггер службы "Сетка событий" может отображаться неправильно. Чтобы избежать этого, выберите [подключение с помощью субъекта-службы](/azure-resource-manager/resource-group-create-service-principal-portal.md) или выполните аутентификацию в качестве участника Azure Active Directory, связанного с подпиской Azure, например *имя_пользователя*@emailoutlook.onmicrosoft.com.
+   > Если вы вошли с помощью личной учетной записи Майкрософт, например @outlook.com или @hotmail.com, триггер службы "Сетка событий" может отображаться неправильно. Чтобы избежать этого, выберите [подключение с помощью субъекта-службы](../azure-resource-manager/resource-group-create-service-principal-portal.md) или выполните аутентификацию в качестве участника Azure Active Directory, связанного с подпиской Azure, например *имя_пользователя*@emailoutlook.onmicrosoft.com.
 
 8. Теперь подпишите приложение логики на события издателя. Укажите сведения о подписке на события, как указано в следующей таблице:
 

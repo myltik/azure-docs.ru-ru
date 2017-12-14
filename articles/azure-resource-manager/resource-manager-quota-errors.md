@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a8024a12c4a79e92e37df0a56b6e6bd0cb6a8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Устранение ошибок квот ресурсов
 
@@ -93,9 +93,29 @@ Virtual Machines                             0 10000 Count
 
 ### <a name="solution-3"></a>Решение 3
 
-Если необходимо повысить квоту, перейдите на портал и зарегистрируйте проблему в службе поддержки, чтобы поднять свою квоту для региона, в котором требуется осуществить развертывание.
+Если необходимо увеличить квоту, перейдите на портал и отправьте запрос в службу поддержки. В службе поддержки запросите увеличение квоты для региона, в котором требуется осуществить развертывание.
 
 > [!NOTE]
 > Следует помнить, что для групп ресурсов квоты устанавливаются для каждого отдельного региона, а не для всей подписки. Если необходимо развернуть 30 ядер в западной части США, необходимо запросить 30 ядер управления ресурсами в этом регионе. Если необходимо развернуть 30 ядер в любом из регионов, к которым у вас есть доступ, следует запросить 30 ядер Resource Manager во всех регионах.
 >
 >
+
+1. Выберите **Подписки**.
+
+   ![Подписки](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. Выберите подписку, которая требует увеличенную квоту.
+
+   ![Выберите подписку.](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. Выберите **Использование и квоты**.
+
+   ![Использование и квоты](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. В правом верхнем углу выберите **Запросить увеличение**.
+
+   ![Запросить увеличение](./media/resource-manager-quota-errors/request-increase.png)
+
+5. Заполните формы для типа квоты, которую необходимо увеличить.
+
+   ![Заполнение формы](./media/resource-manager-quota-errors/forms.png)

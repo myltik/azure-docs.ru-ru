@@ -1,5 +1,5 @@
 ---
-title: "Привязки мобильных приложений в Функциях Azure | Документация Майкрософт"
+title: "Привязки мобильных приложений для службы \"Функции Azure\""
 description: "Узнайте, как использовать привязки мобильных приложений Azure в функциях Azure."
 services: functions
 documentationcenter: na
@@ -8,75 +8,44 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"
-ms.assetid: faad1263-0fa5-41a9-964f-aecbc0be706a
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d2c0e4e233761584bad2df05a8e702e4fc77e84f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="azure-functions-mobile-apps-bindings"></a>Привязки мобильных приложений в функциях Azure
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+# <a name="mobile-apps-bindings-for-azure-functions"></a>Привязки мобильных приложений для службы "Функции Azure" 
 
-Эта статья объясняет, как настроить и запрограммировать привязки [мобильных приложений Azure](../app-service-mobile/app-service-mobile-value-prop.md) в Функциях Azure. Функции Azure поддерживают входные и выходные привязки для мобильных приложений.
+В этой статье описывается использование привязок [мобильных приложений Azure](../app-service-mobile/app-service-mobile-value-prop.md) в "Функциях Azure". Функции Azure поддерживают входные и выходные привязки для мобильных приложений.
 
-Входные и выходные привязки мобильных приложений позволяют выполнять [чтение и запись в таблицах данных](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) в вашем мобильном приложении.
+Привязки мобильных приложений позволяют вам считывать и обновлять данные таблиц в мобильных приложениях.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a name="input"></a>
+## <a name="input"></a>Входные данные
 
-## <a name="mobile-apps-input-binding"></a>Входная привязка мобильных приложений
 Входная привязка мобильных приложений загружает запись из конечной точки мобильной таблицы и передает ее в функцию. В функциях C# и F# любые изменения, внесенные в запись, автоматически отправляются обратно в таблицу после успешного выхода из функции.
 
-Входные данные мобильных приложений для функции используют следующий объект JSON в массиве `bindings` файла function.json:
+## <a name="input---example"></a>Пример входных данных
 
-```json
-{
-    "name": "<Name of input parameter in function signature>",
-    "type": "mobileTable",
-    "tableName": "<Name of your mobile app's data table>",
-    "id" : "<Id of the record to retrieve - see below>",
-    "connection": "<Name of app setting that has your mobile app's URL - see below>",
-    "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
-    "direction": "in"
-}
-```
+Языковой пример см. в разделах:
 
-Обратите внимание на следующее.
+<!-- * [Precompiled C#](#input---c-example)-->
+* [Сценарий C#](#input---c-script-example)
+* [JavaScript](#input---javascript-example)
 
-* Параметр `id` может быть статическим или определяться по триггеру, который вызывает функцию. Например, если вы используете [триггер очереди]() для функции, то `"id": "{queueTrigger}"` использует строковое значение сообщения очереди в качестве идентификатора записи, который нужно получить.
-* Параметр `connection` должен содержать имя параметра приложения в приложении-функции, которое, в свою очередь, содержит URL-адрес мобильного приложения. Функция использует этот URL-адрес для создания необходимых операций REST с мобильным приложением. [Создайте параметр приложения в приложении-функции](), содержащем URL-адрес мобильного приложения (который выглядит следующим образом: `http://<appname>.azurewebsites.net`), а затем укажите имя параметра приложения в свойстве `connection` во входной привязке. 
-* При [внедрении ключа API в серверной части мобильного приложения Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) или [.NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key) необходимо указать `apiKey`. Для этого [создайте параметр приложения в приложении-функции](), содержащем ключ API, а затем добавьте свойство `apiKey` в свою входную привязку с именем параметра приложения. 
-  
-  > [!IMPORTANT]
-  > Этот ключ API не должен использоваться совместно с клиентами мобильного приложения. Его нужно безопасно распространять среди клиентов на стороне службы, таких как Функции Azure. 
-  > 
-  > [!NOTE]
-  > Функции Azure хранят сведения о подключении и ключи API в качестве параметров приложения, чтобы они не возвращались в репозиторий системы управления версиями. Таким образом обеспечивается защита конфиденциальной информации.
-  > 
-  > 
+### <a name="input---c-script-example"></a>Пример входных данных сценария C#
 
-<a name="inputusage"></a>
+В следующем примере показаны входная привязка мобильных приложений в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. Функция активируется сообщением из очереди с идентификатором записи. Функция считывает указанную запись и изменяет ее свойство `Text`.
 
-## <a name="input-usage"></a>Использование входной привязки
-В этом разделе показано, как использовать входную привязку мобильных приложений в коде функции. 
-
-Когда будет найдена запись с указанной таблицей и идентификатором записи, она передается в именованный параметр [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) (в Node.js она передается в объект `context.bindings.<name>`). Если запись не найдена, параметр имеет значение `null`. 
-
-В функциях C# и F# любые изменения, внесенные во входную запись (входной параметр), будут автоматически отправляться обратно в таблицу мобильных приложений после успешного выхода из функции. Для доступа к входной записи в функциях Node.js используйте `context.bindings.<name>`. Изменить запись в Node.js невозможно.
-
-<a name="inputsample"></a>
-
-## <a name="input-sample"></a>Пример входной привязки
-Предположим, что у вас есть следующий файл function.json, извлекающий запись таблицы мобильного приложения с идентификатором сообщения триггера очереди:
+Данные привязки в файле *function.json*:
 
 ```json
 {
@@ -101,15 +70,9 @@ ms.lasthandoff: 10/11/2017
 "disabled": false
 }
 ```
+В разделе [Конфигурация](#input---configuration) описываются эти свойства.
 
-Ознакомьтесь с примером для конкретного языка, использующим входную запись из привязки. Примеры C# и F # также изменяют свойство записи `text`.
-
-* [C#](#inputcsharp)
-* [Node.js](#inputnodejs)
-
-<a name="inputcsharp"></a>
-
-### <a name="input-sample-in-c"></a>Пример входной привязки для языка C# #
+Ниже приведен код скрипта C#.
 
 ```cs
 #r "Newtonsoft.Json"    
@@ -124,21 +87,38 @@ public static void Run(string myQueueItem, JObject record)
 }
 ```
 
-<!--
-<a name="inputfsharp"></a>
-### Input sample in F# ## 
+### <a name="input---javascript"></a>Входные данные JavaScript
 
-```fsharp
-#r "Newtonsoft.Json"    
-open Newtonsoft.Json.Linq
-let Run(myQueueItem: string, record: JObject) =
-  inputDocument?text <- "This has changed."
+В следующем примере показаны входная привязка мобильных приложений в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует эту привязку. Функция активируется сообщением из очереди с идентификатором записи. Функция считывает указанную запись и изменяет ее свойство `Text`.
+
+Данные привязки в файле *function.json*:
+
+```json
+{
+"bindings": [
+    {
+    "name": "myQueueItem",
+    "queueName": "myqueue-items",
+    "connection":"",
+    "type": "queueTrigger",
+    "direction": "in"
+    },
+    {
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "id" : "{queueTrigger}",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
+        "direction": "in"
+    }
+],
+"disabled": false
+}
 ```
--->
+В разделе [Конфигурация](#input---configuration) описываются эти свойства.
 
-<a name="inputnodejs"></a>
-
-### <a name="input-sample-in-nodejs"></a>Пример входной привязки для Node.js
+Ниже показан код JavaScript.
 
 ```javascript
 module.exports = function (context, myQueueItem) {    
@@ -147,48 +127,71 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-<a name="output"></a>
+## <a name="input---attributes"></a>Входные атрибуты
 
-## <a name="mobile-apps-output-binding"></a>Выходная привязка мобильных приложений
-Используйте выходную привязку мобильных приложений, чтобы сделать новую запись в конечную точку таблицы мобильных приложений.  
+Для [предкомпилированных функций C#](functions-dotnet-class-library.md) используйте атрибут [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
-Выходные данные мобильных приложений для функции используют следующий объект JSON в массиве `bindings` файла function.json:
+Дополнительные сведения о настройке свойств атрибутов см. в следующем разделе о [настройке](#input---configuration).
 
-```json
+## <a name="input---configuration"></a>Входная конфигурация
+
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `MobileTable`.
+
+|свойство function.json | Свойство атрибута |Описание|
+|---------|---------|----------------------|
+| **type**|| Для этого свойства необходимо задать значение mobileTable.|
+| **direction**||Для этого свойства необходимо задать значение in|
+| **name**|| Имя входного параметра в сигнатуре функции.|
+|**tableName** |**TableName**|Имя таблицы данных мобильного приложения|
+| **id**| **Id** | Идентификатор извлекаемой записи. Может быть статическим или определяться по триггеру, который вызывает функцию. Например, если вы используете триггер очереди для функции, то `"id": "{queueTrigger}"` использует строковое значение сообщения очереди в качестве идентификатора записи, который нужно получить.|
+|**подключение**|**Connection**|Имя параметра приложения, в котором содержится URL-адрес мобильного приложения. Функция использует этот URL-адрес для создания необходимых операций REST с мобильным приложением. Создайте параметр приложения в приложении-функции, содержащем URL-адрес мобильного приложения, а затем укажите имя параметра приложения в свойстве `connection` во входной привязке. URL-адрес выглядит следующим образом: `http://<appname>.azurewebsites.net`.
+|**apiKey**|**apiKey**|Имя параметра приложения, в котором содержится ваш ключ API для мобильных приложений. При ](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)внедрении ключа API в мобильное приложение Node.js[ или ](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).NET[ предоставьте ключ API. Для этого создайте параметр приложения в приложении-функции, содержащем ключ API, а затем добавьте свойство `apiKey` в свою входную привязку с именем параметра приложения. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!IMPORTANT]
+> Не используйте ключ API совместно с клиентами мобильных приложений. Его нужно безопасно распространять среди клиентов на стороне службы, таких как Функции Azure. Функции Azure хранят сведения о подключении и ключи API в качестве параметров приложения, чтобы они не возвращались в репозиторий системы управления версиями. Таким образом обеспечивается защита конфиденциальной информации.
+
+## <a name="input---usage"></a>Использование входной привязки
+
+В функциях C#, когда найденная запись з указанным идентификатором передается именованному параметру [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm). Если запись не найдена, параметр имеет значение `null`. 
+
+В функциях JavaScript запись передается объекту `context.bindings.<name>`. Если запись не найдена, параметр имеет значение `null`. 
+
+В функциях C# и F# любые изменения, внесенные во входную запись (входной параметр), после успешного выхода из функции автоматически отправятся обратно в таблицу. Изменить запись в JavaScript невозможно.
+
+## <a name="output"></a>Выходные данные
+
+Используйте выходную привязку мобильных приложений, чтобы сделать новую запись в таблице мобильных приложений.  
+
+## <a name="output---example"></a>Пример выходных данных
+
+Языковой пример см. в разделах:
+
+* [Предкомпилированный код C#](#output---c-example)
+* [Сценарий C#](#output---c-script-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>Пример выходных данных C#
+
+В следующем примере показана [предкомпилированная функция C#](functions-dotnet-class-library.md), которая активируется сообщением из очереди и создает запись в таблице мобильного приложения.
+
+```csharp
+[FunctionName("MobileAppsOutput")]        
+[return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
+public static object Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+    TraceWriter log)
 {
-    "name": "<Name of output parameter in function signature>",
-    "type": "mobileTable",
-    "tableName": "<Name of your mobile app's data table>",
-    "connection": "<Name of app setting that has your mobile app's URL - see below>",
-    "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
-    "direction": "out"
+    return new { Text = $"I'm running in a C# function! {myQueueItem}" };
 }
 ```
 
-Обратите внимание на следующее.
+### <a name="output---c-script-example"></a>Пример выходных данных скрипта C#
 
-* Параметр `connection` должен содержать имя параметра приложения в приложении-функции, которое, в свою очередь, содержит URL-адрес мобильного приложения. Функция использует этот URL-адрес для создания необходимых операций REST с мобильным приложением. [Создайте параметр приложения в приложении-функции](), содержащем URL-адрес мобильного приложения (который выглядит следующим образом: `http://<appname>.azurewebsites.net`), а затем укажите имя параметра приложения в свойстве `connection` во входной привязке. 
-* При [внедрении ключа API в серверной части мобильного приложения Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) или [.NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key) необходимо указать `apiKey`. Для этого [создайте параметр приложения в приложении-функции](), содержащем ключ API, а затем добавьте свойство `apiKey` в свою входную привязку с именем параметра приложения. 
-  
-  > [!IMPORTANT]
-  > Этот ключ API не должен использоваться совместно с клиентами мобильного приложения. Его нужно безопасно распространять среди клиентов на стороне службы, таких как Функции Azure. 
-  > 
-  > [!NOTE]
-  > Функции Azure хранят сведения о подключении и ключи API в качестве параметров приложения, чтобы они не возвращались в репозиторий системы управления версиями. Таким образом обеспечивается защита конфиденциальной информации.
-  > 
-  > 
+В следующем примере показаны выходная привязка мобильных приложений в файле *function.json* и [функция сценария C#](functions-reference-csharp.md), которая использует эту привязку. Функция активируется сообщением из очереди и создает запись с жестко заданным значением для свойства `Text`.
 
-<a name="outputusage"></a>
-
-## <a name="output-usage"></a>Использование выходной привязки
-В этом разделе показано, как использовать выходную привязку мобильных приложений в коде функции. 
-
-Для доступа к выходной записи в функциях C# используйте именованный выходной параметр типа `out object`. Для доступа к выходной записи в функциях Node.js используйте `context.bindings.<name>`.
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>Пример выходной привязки
-Предположим, что у вас есть следующий файл function.json, определяющий триггер очереди и выходные данные мобильных приложений:
+Данные привязки в файле *function.json*:
 
 ```json
 {
@@ -213,14 +216,9 @@ module.exports = function (context, myQueueItem) {
 }
 ```
 
-Ознакомьтесь с примером для конкретного языка, который создает запись в таблице конечной точки мобильных приложений с содержимым сообщения очереди.
+В разделе [Конфигурация](#output---configuration) описываются эти свойства.
 
-* [C#](#outcsharp)
-* [Node.js](#outnodejs)
-
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>Пример выходной привязки для языка C# #
+Ниже приведен код скрипта C#.
 
 ```cs
 public static void Run(string myQueueItem, out object record)
@@ -231,16 +229,38 @@ public static void Run(string myQueueItem, out object record)
 }
 ```
 
-<!--
-<a name="outfsharp"></a>
-### Output sample in F# ## 
-```fsharp
+### <a name="output---javascript-example"></a>Пример выходных данных JavaScript
 
+В следующем примере показаны выходная привязка мобильного приложения в файле *function.json* и [функция JavaScript](functions-reference-node.md), которая использует эту привязку. Функция активируется сообщением из очереди и создает запись с жестко заданным значением для свойства `Text`.
+
+Данные привязки в файле *function.json*:
+
+```json
+{
+"bindings": [
+    {
+    "name": "myQueueItem",
+    "queueName": "myqueue-items",
+    "connection":"",
+    "type": "queueTrigger",
+    "direction": "in"
+    },
+    {
+    "name": "record",
+    "type": "mobileTable",
+    "tableName": "MyTable",
+    "connection": "My_MobileApp_Url",
+    "apiKey": "My_MobileApp_Key",
+    "direction": "out"
+    }
+],
+"disabled": false
+}
 ```
--->
-<a name="outnodejs"></a>
 
-### <a name="output-sample-in-nodejs"></a>Пример выходной привязки для Node.js
+В разделе [Конфигурация](#output---configuration) описываются эти свойства.
+
+Ниже показан код JavaScript.
 
 ```javascript
 module.exports = function (context, myQueueItem) {
@@ -253,6 +273,54 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+## <a name="output---attributes"></a>Выходные атрибуты
 
+Для [предкомпилированных функций C#](functions-dotnet-class-library.md) используйте атрибут [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+
+Дополнительные сведения о настройке свойств атрибутов см. в разделе [Выходная конфигурация](#output---configuration). Ниже приведен пример атрибута `MobileTable` в сигнатуре метода:
+
+```csharp
+[FunctionName("MobileAppsOutput")]        
+[return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
+public static object Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+    TraceWriter log)
+{
+    ...
+}
+```
+
+Полный пример см. в разделе [Пример выходных данных C#](#output---c-example).
+
+## <a name="output---configuration"></a>Выходная конфигурация
+
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `MobileTable`.
+
+|свойство function.json | Свойство атрибута |Описание|
+|---------|---------|----------------------|
+| **type**|| Для этого свойства необходимо задать значение mobileTable.|
+| **direction**||Для этого свойства необходимо задать значение out.|
+| **name**|| Имя выходного параметра в сигнатуре функции.|
+|**tableName** |**TableName**|Имя таблицы данных мобильного приложения|
+|**подключение**|**MobileAppUriSetting**|Имя параметра приложения, в котором содержится URL-адрес мобильного приложения. Функция использует этот URL-адрес для создания необходимых операций REST с мобильным приложением. Создайте параметр приложения в приложении-функции, содержащем URL-адрес мобильного приложения, а затем укажите имя параметра приложения в свойстве `connection` во входной привязке. URL-адрес выглядит следующим образом: `http://<appname>.azurewebsites.net`.
+|**apiKey**|**ApiKeySetting**|Имя параметра приложения, в котором содержится ваш ключ API для мобильных приложений. При ](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)внедрении ключа API в серверную часть мобильного приложения Node.js[ или ](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).NET[ предоставьте ключ API. Для этого создайте параметр приложения в приложении-функции, содержащем ключ API, а затем добавьте свойство `apiKey` в свою входную привязку с именем параметра приложения. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!IMPORTANT]
+> Не используйте ключ API совместно с клиентами мобильных приложений. Его нужно безопасно распространять среди клиентов на стороне службы, таких как Функции Azure. Функции Azure хранят сведения о подключении и ключи API в качестве параметров приложения, чтобы они не возвращались в репозиторий системы управления версиями. Таким образом обеспечивается защита конфиденциальной информации.
+
+## <a name="output---usage"></a>Использование выходной привязки
+
+Используйте именованный выходной параметр типа `out object` для доступа к выходной записи в функциях сценария C#. В предкомпилированных функциях C# атрибут `MobileTable` можно использовать в любом из следующих типов:
+
+* `ICollector<T>` или `IAsyncCollector<T>`, где `T` имеет значение `JObject` или является типом со свойством `public string Id`.
+* `out JObject`
+* `out T` или `out T[]`, где `T` является любим типом со свойством `public string Id`.
+
+Для доступа к выходной записи в функциях Node.js используйте `context.bindings.<name>`.
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+> [!div class="nextstepaction"]
+> [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94dedebe48060441cd3167fea87f6b721eb14517
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Что такое Operations Management Suite (OMS)?
 Эта статья содержит обзорные сведения об Operations Management Suite (OMS) включая краткий обзор преимуществ этой службы для бизнеса, описание содержащихся в ней служб и решений по управлению, а также предложений, которые объединяют различные службы и решения.  Здесь приведены ссылки на подробную документацию по развертыванию и использованию каждой службы и решения.
@@ -64,7 +64,7 @@ Operations Management Suite (также известный как OMS) — эт
 #### <a name="collecting-data"></a>Сбор данных
 Существует множество способов, которыми можно поместить данные в репозиторий для их анализа службой Log Analytics.
 
-- **Компьютеры и виртуальные машины Windows или Linux.**  Установите Microsoft Monitoring Agent на компьютеры или виртуальные машины [Windows](../log-analytics/log-analytics-windows-agents.md) и [Linux](../log-analytics/log-analytics-linux-agents.md), из которых нужно собирать данные.  Агент автоматически скачивает конфигурацию службы Log Analytics, определяющую события и данные производительности, которые необходимо собрать.  Агент можно легко установить на виртуальных машинах, работающих в Azure, с помощью портала Azure.  При наличии существующей среды Operations Manager можно подключить группу управления к Log Analytics и автоматически запускать сбор данных из всех существующих агентов.
+- **Компьютеры и виртуальные машины Windows или Linux.**  Установите Microsoft Monitoring Agent на компьютеры или виртуальные машины [Windows](../log-analytics/log-analytics-windows-agent.md) и [Linux](../log-analytics/log-analytics-linux-agents.md), из которых нужно собирать данные.  Агент автоматически скачивает конфигурацию службы Log Analytics, определяющую события и данные производительности, которые необходимо собрать.  Агент можно легко установить на виртуальных машинах, работающих в Azure, с помощью портала Azure.  При наличии существующей среды Operations Manager можно подключить группу управления к Log Analytics и автоматически запускать сбор данных из всех существующих агентов.
 - **Службы Azure.**  Служба Log Analytics собирает данные телеметрии из систем [диагностики и мониторинга Azure](../log-analytics/log-analytics-azure-storage.md) в репозиторий, предоставляя возможность отслеживания ресурсов Azure.
 - **API сборщика данных.**  Служба Log Analytics имеет [REST API для заполнения данных из любого клиента](../log-analytics/log-analytics-data-collector-api.md).  Это дает возможность собирать данные из сторонних приложений или реализовывать настраиваемые сценарии управления.  Распространенным способом является использование модуля Runbook в службе автоматизации Azure для сбора данных и последующего использования API сборщика данных для их записи в репозиторий.
 
@@ -129,7 +129,7 @@ Operations Management Suite (также известный как OMS) — эт
 Служба архивации Azure предполагает три основные сценария.
 
 - **Компьютер Windows с агентом службы архивации Azure.** Этот сценарий позволяет выполнять архивацию файлов и папок из любой серверной или клиентской системы Windows непосредственно в хранилище архивации Azure.<br><br>![Компьютер Windows с агентом службы архивации Azure](media/operations-management-suite-overview/overview-backup-01.png)
-- **System Center Data Protection Manager (DPM) или сервер резервного копирования Microsoft Azure.** Этот сценарий позволяет использовать DPM или сервер службы архивации Microsoft Azure для архивации файлов и папок в дополнение к рабочим нагрузкам приложений, таких как SQL и SharePoint, в локальном хранилище с последующей репликацией в хранилище архивации Azure. Поддерживает виртуальные машины Windows и Linux в Hyper-V или VMware.<br><br>![System Center Data Protection Manager (DPM) или сервер резервного копирования Microsoft Azure](media/operations-management-suite-overview/overview-backup-02.png)
+- **System Center Data Protection Manager (DPM) или Microsoft Azure Backup Server.** Этот сценарий позволяет использовать DPM или Microsoft Azure Backup Server для резервного копирования файлов и папок в дополнение к рабочим нагрузкам приложений, таких как SQL и SharePoint, в локальном хранилище с последующей репликацией в хранилище резервных копий Azure. Поддерживает виртуальные машины Windows и Linux в Hyper-V или VMware.<br><br>![System Center Data Protection Manager (DPM) или Microsoft Azure Backup Server](media/operations-management-suite-overview/overview-backup-02.png)
 - **Расширения виртуальной машины Azure.** Этот сценарий позволяет выполнять архивацию виртуальных машин Azure (Windows или Linux) в хранилище архивации Azure.<br><br>![Расширения виртуальной машины Azure](media/operations-management-suite-overview/overview-backup-03.png)
 
 

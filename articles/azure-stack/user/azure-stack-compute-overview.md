@@ -7,11 +7,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Общие сведения о виртуальных машинах Azure Stack
 
@@ -121,13 +121,13 @@ Azure Stack предоставляет образы Marketplace различны
 |Метод|Описание|
 |---------|---------|
 |Портал Azure Stack|В меню концентратора щелкните "Виртуальные машины" и выберите виртуальную машину из списка. На странице виртуальной машины доступны общие сведения, значения параметров и метрики мониторинга.|
-|Azure PowerShell|Управление виртуальными машинами в Azure и Azure Stack аналогично. Дополнительные сведения об использовании PowerShell см. в следующем разделе статьи Azure:<br>[Описание размеров виртуальных машин](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes).|
-|Клиентские пакеты SDK|Управление виртуальными машинами в Azure и Azure Stack с помощью C# аналогично. Дополнительные сведения см. в следующей статье Azure:<br>[Развертывание виртуальной машины Azure с помощью C#](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp).|
+|Azure PowerShell|Управление виртуальными машинами в Azure и Azure Stack аналогично. Дополнительные сведения об использовании PowerShell см. в следующем разделе статьи Azure:<br>[Описание размеров виртуальных машин](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes).|
+|Клиентские пакеты SDK|Управление виртуальными машинами в Azure и Azure Stack с помощью C# аналогично. Дополнительные сведения см. в следующей статье Azure:<br>[Развертывание виртуальной машины Azure с помощью C#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp).|
 
 ### <a name="connect-to-the-vm"></a>Подключение к виртуальной машине
 
 Чтобы подключиться к своей виртуальной машине, нажмите кнопку **Подключение** на портале Azure Stack.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md) (Рекомендации по работе с виртуальными машинами в Azure Stack)
+* [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md) (Рекомендации по работе с виртуальными машинами в Azure Stack).
 

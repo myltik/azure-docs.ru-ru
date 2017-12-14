@@ -179,6 +179,8 @@
           href: data-factory-troubleshoot.md
         - name: Устранение неполадок в работе шлюза управления данными
           href: data-factory-troubleshoot-gateway-issues.md
+    - name: Вызов пакетов Integration Services при помощи хранимой процедуры
+      href: how-to-invoke-ssis-package-stored-procedure-activity.md
 - name: Справочные материалы
   items:
     - name: Примеры кода

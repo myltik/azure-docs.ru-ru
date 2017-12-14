@@ -12,8 +12,6 @@
   items:
     - name: Создание приложения из каталога служб
       href: publish-service-catalog-app.md
-    - name: Создание приложения для Marketplace
-      href: publish-marketplace-app.md
 - name: Примеры
   items:
     - name: Инфраструктура CLI Azure

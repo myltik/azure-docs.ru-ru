@@ -11,22 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Переход на новый язык запросов Azure Log Analytics
 В Log Analytics недавно реализован новый язык запросов.  Эта статья содержит информацию, которая поможет перейти на новый язык запросов Log Analytics тем, кто уже знаком с языком прежних версий.
+
+## <a name="resources"></a>Ресурсы
+
 
 ## <a name="language-converter"></a>Преобразователь языка
 
 Если вы знакомы с прежней версией языка запросов Log Analytics, для создания уже привычных запросов на новом языке вам проще всего будет воспользоваться преобразователем языка, который устанавливается на портале поиска по журналам при преобразовании рабочей области.  Использовать преобразователь очень легко: просто введите запрос на старом языке в текстовое поле вверху и нажмите **Преобразовать**.  После этого вы можете щелкнуть кнопку поиска, чтобы сразу выполнить запрос, или скопировать его в буфер обмена, чтобы вставить в другом месте, где вы будете его использовать.
 
 ![Преобразователь языка](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## <a name="resources"></a>Ресурсы
+На [сайте документации по языку запросов Log Analytics](https://docs.loganalytics.io) есть все ресурсы, необходимые для ускорения работы на новом языке:  учебники, примеры и полный справочник по языку.
 
 
 ## <a name="cheat-sheet"></a>Краткий справочник

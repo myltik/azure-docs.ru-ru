@@ -20,16 +20,19 @@
  
 ## Управление
 ### [Управление с помощью Azure PowerShell](cdn-manage-powershell.md)
+### [Ограничение доступа в зависимости от страны](cdn-restrict-access-by-country.md)
+### [Повышение производительности за счет сжатия файлов](cdn-improve-performance.md)
+### Управление поведением кэширования
+#### [Как выполняется кэширование](cdn-how-caching-works.md)
+#### [Управление поведением кэширования с помощью правил](cdn-caching-rules.md)
+#### Кэширование содержимого по строкам запросов
+##### [Уровень Standard](cdn-query-string.md)
+##### [Уровень Premium](cdn-query-string-premium.md)
+#### [Удаление кэшированных ресурсов](cdn-purge-endpoint.md)
+#### [Предварительная загрузка кэшированных ресурсов](cdn-preload-endpoint.md)
 ### Настройка срока жизни
 #### [Веб-содержимое Azure](cdn-manage-expiration-of-cloud-service-content.md)
 #### [хранилище BLOB-объектов Azure](cdn-manage-expiration-of-blob-content.md)
-### [Ограничение доступа в зависимости от страны](cdn-restrict-access-by-country.md)
-### [Повышение производительности за счет сжатия файлов](cdn-improve-performance.md)
-### Кэширование содержимого по строке запроса
-#### [Уровень Standard](cdn-query-string.md)
-#### [Уровень Premium](cdn-query-string-premium.md)
-### [Удаление кэшированных ресурсов](cdn-purge-endpoint.md)
-### [Предварительная загрузка кэшированных ресурсов](cdn-preload-endpoint.md)
 ### [Проверка подлинности по маркерам](cdn-token-auth.md)
 ### [Мониторинг ресурсов](cdn-resource-health.md)
 ### [Переопределение поведения с помощью правил](cdn-rules-engine.md)
@@ -38,13 +41,14 @@
 
 ## Анализ
 ### [Анализ вариантов использования CDN Azure](cdn-log-analysis.md)
-#### [Основные отчеты из Verizon](cdn-analyze-usage-patterns.md)
-#### [Настраиваемые отчеты из Verizon](cdn-verizon-custom-reports.md)
 #### [Журналы диагностики Azure](cdn-azure-diagnostic-logs.md)
-### Средства аналитики для Azure CDN от Verizon
-#### [Создание расширенных отчетов HTTP](cdn-advanced-http-reports.md)
-#### [Просмотр статистики в реальном времени](cdn-real-time-stats.md)
-#### [Анализ производительности граничного узла](cdn-edge-performance.md)
+#### Средства аналитики для Azure CDN от Verizon
+##### [Основные отчеты из Verizon](cdn-analyze-usage-patterns.md)
+##### [Настраиваемые отчеты из Verizon](cdn-verizon-custom-reports.md)
+#### Средства аналитики для Azure CDN уровня "Премиум" от Verizon
+##### [Создание расширенных отчетов HTTP](cdn-advanced-http-reports.md)
+##### [Просмотр статистики в реальном времени](cdn-real-time-stats.md)
+##### [Анализ производительности граничного узла](cdn-edge-performance.md)
 
 ## Разработка
 ### [.NET](cdn-app-dev-net.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Настройка пользовательского доменного имени для облачной службы Azure
 При создании облачной службы Azure ей назначается поддомен **cloudapp.net**. Например, если облачная служба имеет имя contoso, пользователи будут иметь доступ к приложению по URL-адресу вида http://contoso.cloudapp.net. Azure также назначает виртуальный IP-адрес.
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/16/2017
 Вы уже знаете, что такое записи CNAME и A? [Пропустите это объяснение](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> Процедуры в этом задании применяются для облачных служб Azure. Для получения сведений о службах приложений см. [эту статью](../app-service/app-service-web-tutorial-custom-domain.md). Для получения сведений об учетных записях хранения см. [эту статью](../storage/blobs/storage-custom-domain-name.md).
+> Процедуры в этом задании применяются для облачных служб Azure. Дополнительные сведения о службе приложений см. в статье [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](../app-service/app-service-web-tutorial-custom-domain.md). Дополнительные сведения о учетных записях хранения см. в статье [Настройка пользовательского доменного имени для конечной точки хранилища BLOB-объектов](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
-title: "Средство Docker Compose для Azure Service Fabric (предварительная версия) | Документация Майкрософт"
-description: "Платформа Azure Service Fabric принимает формат Docker Compose для упрощения управления существующими контейнерами с помощью Service Fabric. Сейчас эта возможность доступна в предварительной версии."
+title: "Средство Docker Compose для Azure Service Fabric (предварительная версия) | Документация Майкрософт"
+description: "Azure Service Fabric принимает формат Docker Compose, упрощая управление существующими контейнерами с помощью платформы Service Fabric. Средство Docker Compose сейчас доступно в режиме предварительной версии."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,22 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 955f84e5656bbf568234cbaf69faa4dd0a741206
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="using-volume-plugins-and-logging-drivers-in-your-container"></a>Использование подключаемых модулей томов и драйверов ведения журналов в контейнере
-Service Fabric поддерживает указание [подключаемых модулей томов Docker](https://docs.docker.com/engine/extend/plugins_volume/) и [драйверов ведения журналов Docker](https://docs.docker.com/engine/admin/logging/overview/) для службы контейнеров.  Это позволяет хранить данные в службе [Файлы Azure](https://azure.microsoft.com/en-us/services/storage/files/) даже в том случае, если ваш контейнер перемещен на другой узел или перезапущен на нем.
+# <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Использование подключаемых модулей томов и драйверов ведения журналов Docker в контейнере
+Azure Service Fabric позволяет указывать [подключаемые модули томов Docker](https://docs.docker.com/engine/extend/plugins_volume/) и [драйверы ведения журналов Docker](https://docs.docker.com/engine/admin/logging/overview/) для службы контейнеров. Так вы можете хранить данные в [службе "Файлы Azure"](https://azure.microsoft.com/services/storage/files/), даже если ваш контейнер перемещен на другой узел или перезапущен на нем.
 
-Пока существуют только драйверы томов для контейнеров Linux.  Если вы работаете с контейнерами Windows, вы можете подключить том к [общему ресурсу SMB3](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/) в службе "Файлы Azure" без драйвера тома, используя Windows Server версии 1709. Для этого потребуется обновить виртуальные машины в кластере до Windows Server версии 1709.
+Сейчас поддерживаются только драйверы тома для контейнеров Linux. Если вы используете контейнеры Windows, можно подключить том к [общему ресурсу SMB3](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/) в службе "Файлы Azure" без драйвера тома. Для этого необходимо обновить виртуальные машины в кластере до последней версии Windows Server 1709.
 
 
-## <a name="install-volumelogging-driver"></a>Установка драйвера тома или ведения журнала
+## <a name="install-the-docker-volumelogging-driver"></a>Установка драйвера тома или ведения журналов Docker
 
-Если драйвер Docker для тома или ведения журналов не установлен на виртуальной машине, его можно установить вручную, подключившись к ВМ по протоколу RDP или SSH, либо с помощью сценария [создания масштабируемого набора виртуальных машин](https://azure.microsoft.com/en-us/resources/templates/201-vmss-custom-script-windows/) или [SetupEntryPoint](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service). Выбрав один из предложенных способов, можно написать сценарий установки [драйвера тома Docker для Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/).
+Если на компьютере не установлен драйвер тома или ведения журналов Docker, его можно установить вручную с помощью протоколов RDP/SSH. Используя эти протоколы, можно выполнить установку с помощью [скрипта запуска масштабируемого набора виртуальных машин](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) или [скрипта SetupEntryPoint](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
+Пример скрипта установки [драйвера тома Docker для Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/):
 
 ```bash
 docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
@@ -39,8 +40,8 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     DEBUG=1
 ```
 
-## <a name="specify-the-plugin-or-driver-in-the-manifest"></a>Укажите в манифесте имя подключаемого модуля или драйвера
-Подключаемые модули указываются в манифесте приложения, как показано в следующем примере:
+## <a name="specify-the-plug-in-or-driver-in-the-manifest"></a>Указание имени подключаемого модуля или драйвера в манифесте
+Подключаемые модули указываются в манифесте приложения следующим образом:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -75,19 +76,16 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 </ApplicationManifest>
 ```
 
-В приведенном выше примере тег `Source` для `Volume` указывает на исходную папку. Исходной папкой может быть папка в виртуальной машине, в которой размещаются контейнеры, или постоянное удаленное хранилище. Тег `Destination` — это расположение, с которым сопоставляется `Source` в работающем контейнере.  Таким образом конечной папкой не может быть существующее расположение в контейнере.
+Тег **Source** для элемента **Volume** указывает на исходную папку. Исходной папкой может быть папка в виртуальной машине, в которой размещаются контейнеры, или постоянное удаленное хранилище. Тег **Destination** указывает на расположение, к которому подключается исходная папка (**Source**) в работающем контейнере. Таким образом, конечной папкой не может быть существующее в контейнере расположение.
 
-При указании подключаемого модуля тома Service Fabric автоматически создает том, используя заданные параметры. Тег `Source` — это имя тома, а тег `Driver` указывает подключаемый модуль драйвера тома. Параметры можно указать с помощью тега `DriverOption`, как показано в следующем фрагменте:
+При указании подключаемого модуля тома Service Fabric автоматически создает том, используя заданные параметры. Тег **Source** указывает на имя тома, а тег **Driver** — на подключаемый модуль драйвера тома. Параметры можно указать с помощью тега **DriverOption** следующим образом:
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
 </Volume>
 ```
-Если задан драйвер ведения журналов Docker, необходимо развернуть агенты (или контейнеры) для обработки журналов в кластере.  Тег `DriverOption` также может использоваться для указания параметров драйвера ведения журналов.
+Если задан драйвер ведения журналов Docker, необходимо развернуть агенты (или контейнеры) для обработки журналов в кластере. Чтобы указать параметры драйвера ведения журналов можно использовать тег **DriverOption**.
 
-Сведения о развертывании контейнеров в кластере Service Fabric см. в следующих статьях:
-
-
-[Развертывание контейнера в Service Fabric](service-fabric-deploy-container.md)
-
+## <a name="next-steps"></a>Дальнейшие действия
+См. дополнительные сведения о [развертывании контейнеров в Service Fabric](service-fabric-deploy-container.md).

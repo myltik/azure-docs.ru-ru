@@ -128,6 +128,8 @@
           href: scenario-tdsp-classifying-us-incomes.md
         - name: Классификация изображений с помощью CNTK
           href: scenario-image-classification-using-cntk.md
+        - name: Глубокое обучение по прогнозному обслуживанию
+          href: scenario-deep-learning-for-predictive-maintenance.md
 - name: Справочные материалы
   items:
     - name: Подготовка данных
@@ -176,6 +178,8 @@
           href: release-notes-sprint-0.md
         - name: Спринт 1 — ноябрь 2017 г.
           href: release-notes-sprint-1.md
+        - name: "Спринт\_2 — декабрь 2017\_г."
+          href: release-notes-sprint-2.md
 - name: Ресурсы
   items:
     - name: Часто задаваемые вопросы

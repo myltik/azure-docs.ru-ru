@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 1aadd604e676659475f00760af3b0bdfb13a4792
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Компилирование конфигураций в Azure Automation DSC
 
@@ -128,6 +128,50 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```
 
 Сведения о передаче учетных данных PSCredentials в качестве параметров см. в разделе <a href="#credential-assets">**Активы учетных данных**</a> ниже.
+
+## <a name="composite-resources"></a>Составные ресурсы
+
+**Составные ресурсы** позволяют использовать конфигурации DSC в качестве вложенных ресурсов в рамках конфигурации.  Благодаря этому можно применить несколько конфигураций к одному ресурсу.  См. статью [Составные ресурсы: использование DSC как ресурса](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) для получения дополнительных сведений о **составных ресурсах**
+
+> [!NOTE]
+> Для правильной компиляции **составных ресурсов** необходимо убедиться, что все ресурсы DSC, на которые полагается составной ресурс, установлены в репозитории модулей учетной записи службы автоматизации Azure. Иначе импорт не будет выполнен должным образом.
+
+Чтобы добавить **составной ресурс** DSC, необходимо добавить модуль ресурса в архив (*.zip). Перейдите в репозиторий модулей в вашей учетной записи службы автоматизации Azure.  Затем нажмите кнопку "Добавить модуль".
+
+![Добавление модуля](./media/automation-dsc-compile/add_module.png)
+
+Перейдите в каталог с архивом.  Выберите файл архива и нажмите кнопку "ОК".
+
+![Выбор модуля](./media/automation-dsc-compile/select_dscresource.png)
+
+Вы вернетесь к каталогу модулей, где можно отслеживать состояние **составного ресурса** по мере его распаковки и регистрации в службе автоматизации Azure.
+
+![Импорт составного ресурса](./media/automation-dsc-compile/register_composite_resource.png)
+
+Зарегистрированный модуль можно щелкнуть и проверить, что **составные ресурсы** теперь доступны для использования в конфигурации.
+
+![Проверка составного ресурса](./media/automation-dsc-compile/validate_composite_resource.png)
+
+Затем вы сможете вызвать **составной ресурс** в своей конфигурации следующим образом:
+
+```powershell
+
+    Node ($AllNodes.Where{$_.Role -eq "WebServer"}).NodeName
+    {
+            
+            JoinDomain DomainJoin
+            {
+                DomainName = $DomainName
+                Admincreds = $Admincreds
+            }
+
+            PSWAWebServer InstallPSWAWebServer
+            {
+                DependsOn = "[JoinDomain]DomainJoin"
+            }        
+    }
+
+```
 
 ## <a name="configurationdata"></a>ConfigurationData
 Параметр **ConfigurationData** позволяет при использовании PowerShell DSC отделить конфигурацию структуры от любой конфигурации среды. Дополнительные сведения о **ConfigurationData** см. в публикации блога [Separating "What" from "Where" in PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) (Разница между "что" и "где" в DSC PowerShell).

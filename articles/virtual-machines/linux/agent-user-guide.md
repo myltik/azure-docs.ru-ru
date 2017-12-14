@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Что такое агент Linux для Azure и как его использовать
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ ms.lasthandoff: 10/11/2017
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ ms.lasthandoff: 10/11/2017
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 Ниже подробно описаны различные параметры конфигурации. Параметры конфигурации относятся к одному из трех типов: логическое значение, строка или целое число. Логические параметры конфигурации могут принимать значение "y" или "n". Для некоторых записей конфигурации типа "строка", описанных ниже, может использоваться специальное ключевое слово "None".
 
@@ -209,9 +211,13 @@ ms.lasthandoff: 10/11/2017
 
 Если установлен, waagent выполнит пользовательские данные CustomData после подготовки.
 
+**Provisioning.AllowResetSysUser** Тип: логическое значение; значение по умолчанию: n
+
+Позволяет сбросить пароль пользователя системы; по умолчанию параметр отключен.
+
 **Provisioning.PasswordCryptId**  
 Тип: строка  
-По умолчанию: 6
+Значение по умолчанию — 6
 
 Алгоритм, используемый crypt при создании хеша пароля.  
  1 — MD5  
@@ -221,7 +227,7 @@ ms.lasthandoff: 10/11/2017
 
 **Provisioning.PasswordCryptSaltLength**  
 Тип: строка  
-По умолчанию: 10
+Значение по умолчанию: 10.
 
 Длина случайной соли, используемой при создании хеша пароля.
 
@@ -290,6 +296,12 @@ ms.lasthandoff: 10/11/2017
 По умолчанию: нет
 
 Если установлен, агент будет использовать этот прокси-сервер для доступа в Интернет. 
+
+**AutoUpdate.Enabled** Тип: логическое значение; значение по умолчанию: y
+
+Позволяет включить или отключить автоматическое обновление для обработки целевого состояния; по умолчанию параметр включен.
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Образы облаков Ubuntu
 Обратите внимание, что в образах облаков Ubuntu пакет [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) используется для выполнения ряда задач настройки, которыми в противном случае управлял бы агент Linux для Azure.  Обратите внимание на следующие отличия.

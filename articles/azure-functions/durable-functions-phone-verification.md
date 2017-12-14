@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Участие пользователя в устойчивых функциях. Пример проверки номера телефона
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/13/2017
 
 Для отправки SMS-сообщений на мобильный телефон в этом примере используется служба [Twilio](https://www.twilio.com/). В Функциях Azure уже реализована поддержка Twilio через [привязку Twilio](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio). В этом образце используется эта функция.
 
-Первое, что вам нужно — это учетная запись Twilio. Вы можете создать ее бесплатно на странице https://www.twilio.com/try-twilio. Получив учетную запись, добавьте следующие три **параметра приложения** в проект.
+Первое, что вам нужно — это учетная запись Twilio. Вы можете создать ее бесплатно на странице https://www.twilio.com/try-twilio. Получив учетную запись, добавьте следующие три **параметра приложения** в приложение-функцию.
 
 | Имя параметра приложения | Описание значения |
 | - | - |
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/13/2017
 
 В следующих разделах рассматривается конфигурация и код, которые используются при разработке с помощью портала Azure. Код для разработки с помощью Visual Studio представлен в конце этой статьи.
  
-## <a name="the-sms-verification-orchestration"></a>Оркестрация проверки с помощью SMS
+## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Оркестрация проверки с помощью SMS (пример кода Visual Studio Code и портала Azure) 
 
 Функция **E4_SmsPhoneVerification** использует стандартный файл *function.json* для функций оркестратора.
 

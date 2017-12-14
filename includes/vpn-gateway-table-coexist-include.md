@@ -1,1 +1,4 @@
-|**Модель и метод развертывания** | **Портал Azure** | **PowerShell** | |---|---|---| | Resource Manager | **Не поддерживается** | [Статья](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)| | Классическая модель | **Не поддерживается** | [Статья](../articles/expressroute/expressroute-howto-coexist-classic.md) |
+| **Модель и метод развертывания** | **портале Azure** | **PowerShell** | 
+| --- | --- | --- |
+| Диспетчер ресурсов | **Не поддерживается** | [Статья](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)|
+| Классический | **Не поддерживается** | [Статья](../articles/expressroute/expressroute-howto-coexist-classic.md) |

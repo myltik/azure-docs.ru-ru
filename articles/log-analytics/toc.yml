@@ -41,6 +41,8 @@
       href: log-analytics-usage.md
     - name: Управление доступом
       href: log-analytics-manage-access.md
+    - name: Мониторинг гибридных сред
+      href: log-analytics-concept-hybrid.md
     - name: Функции для поставщиков услуг
       href: log-analytics-service-providers.md
     - name: Поиск по журналам
@@ -58,11 +60,7 @@
         - name: Подключенные источники
           items:
             - name: Агенты Windows
-              href: log-analytics-windows-agents.md
-            - name: Агенты Linux
-              href: log-analytics-agent-linux.md
-            - name: Виртуальные машины Azure
-              href: log-analytics-azure-vm-extension.md
+              href: log-analytics-agent-windows.md
             - name: Ресурсы Azure
               href: log-analytics-azure-storage.md
             - name: Ресурсы Azure PaaS
@@ -75,6 +73,8 @@
               href: log-analytics-sccm.md
             - name: Шлюз OMS
               href: log-analytics-oms-gateway.md
+            - name: Устранение неполадок агента Linux
+              href: log-analytics-agent-linux-support.md
         - name: Источники данных
           items:
             - name: Обзор источников данных
@@ -158,6 +158,8 @@
           href: log-analytics-solution-alert-management.md
     - name: Управление
       items:
+        - name: Управление агентами
+          href: log-analytics-agent-manage.md
         - name: Управление затратами на рабочую область
           href: log-analytics-manage-cost-storage.md
         - name: Удаление рабочей области

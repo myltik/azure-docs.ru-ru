@@ -6,19 +6,19 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 ms.reviewer: joflore
-ms.assetid: f39f0ddd-b504-4562-971f-77b88d1e75fb
+ms.assetid: 2263e583-3eb2-4a06-982d-33f5f54858f4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/27/2017
 ms.author: jeedes
-ms.openlocfilehash: ad03516f684acc59912ffc57f6e0712828bd03f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f1f16865a3adb55fc63c09c1dbdc9720b02f9c33
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Учебник. Интеграция Azure Active Directory с FileCloud
 
@@ -108,12 +108,12 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах единого входа приложения FileCloud](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.filecloudhosted.com`
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.filecloudonline.com`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.filecloudhosted.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.filecloudonline.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов FileCloud](mailto:support@codelathe.com).
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов FileCloud](mailto:support@codelathe.com). 
 
 4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
@@ -131,23 +131,23 @@ ms.lasthandoff: 10/11/2017
 
 8. В левой панели навигации щелкните **Settings**(Параметры). 
    
-    ![Раздел "Settings" (Параметры) на стороне приложения](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Настройка единого входа на стороне приложения](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
 
 9. Щелкните вкладку **SSO** (Единый вход) в разделе "Settings" (Параметры). 
    
-    ![Вкладка "Single Sign-On" (Единый вход) на стороне приложения](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Настройка единого входа на стороне приложения](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
 
 10. На панели **Single Sign On (SSO) Settings** (Параметры единого входа) для параметра **Default SSO Type** (Тип единого входа по умолчанию) выберите значение **SAML**.
    
-    ![Панель "Single Sign-On Settings" (Параметры единого входа) на стороне приложения](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Настройка единого входа на стороне приложения](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
 
-11. Вставьте значение **Идентификатор сущности SAML**, скопированное на портале Azure, в поле **IdP End Point URL** (URL-адрес конечной точки IdP).
+11. В текстовое поле **IdP End Point URL** (URL-адрес конечной точки IdP) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
 
-    ![Текстовое поле "IDP End Point URL" (URL-адрес конечной точки IDP)](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Настройка единого входа на стороне приложения](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
 
 12. Откройте скачанный файл метаданных в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте в текстовое поле **IdP Meta Data** (Метаданные IdP) на панели **SAML Settings** (Параметры SAML).
 
-    ![Раздел "IDP Meta Data" (Метаданные IDP) на стороне приложения](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+    ![Настройка единого входа на стороне приложения](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
 
 13. Нажмите кнопку **Сохранить** .
 
@@ -192,7 +192,7 @@ ms.lasthandoff: 10/11/2017
 Цель этого раздела — создать пользователя с именем Britta Simon в FileCloud. FileCloud поддерживает JIT-подготовку. Эта функция включена по умолчанию. В этом разделе никакие действия с вашей стороны не требуются. Пользователь создается при попытке получить доступ к приложению FileCloud (если он еще не существует).
 
 >[!NOTE]
->Если вам нужно вручную создать пользователя, обратитесь в [службу поддержки клиентов FileCloud](mailto:support@codelathe.com). 
+>Если вам нужно вручную создать пользователя, обратитесь в [службу поддержки клиентов FileCloud](mailto:support@codelathe.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
@@ -226,9 +226,10 @@ ms.lasthandoff: 10/11/2017
     
 ### <a name="test-single-sign-on"></a>Проверка единого входа
 
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент "FileCloud" на панели доступа, вы автоматически войдете в приложение FileCloud.
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 

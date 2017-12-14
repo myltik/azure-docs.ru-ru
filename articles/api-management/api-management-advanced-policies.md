@@ -6,53 +6,38 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-advanced-policies"></a>Расширенные политики в службе управления API
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AdvancedPolicies"></a> Расширенные политики  
   
 -   [Управление потоками](api-management-advanced-policies.md#choose) — условно применяет правила политики на основе результатов вычисления логических [выражений](api-management-policy-expressions.md).  
-  
 -   [Перенаправляющий запрос](#ForwardRequest) — перенаправляет запрос в серверную службу.
-
 -   [Ограничения параллелизма](#LimitConcurrency) не позволяет, чтобы заключенные политики одновременно выполнялись запросами, количество которых выше указанного.
-  
 -   [Регистрация в концентраторе событий](#log-to-eventhub) — отправляет сообщения в концентратор событий, который указан сущностью Logger. 
-
 -   [Макетирование ответа](#mock-response) — прекращает выполнение конвейера и возвращает макетированный ответ непосредственно вызывающему объекту.
-  
 -   [Повторить](#Retry) — повторяет выполнение инструкций встраиваемой политики, если не выполнено условие и до тех пор пока оно не будет выполнено. Выполнение будет повторяться через определенные промежутки времени и до указанного количества повторных попыток.  
-  
 -   [Возврат ответа](#ReturnResponse) — прекращает выполнение конвейера и возвращает указанный ответ непосредственно вызывающему объекту. 
-  
 -   [Отправка одностороннего запроса](#SendOneWayRequest) — отправляет запрос на указанный URL-адрес и не ожидает ответа.  
-  
 -   [Отправка запроса](#SendRequest) — отправляет запрос на указанный URL-адрес.  
-
 -   [Установка прокси-сервера HTTP](#SetHttpProxy) — позволяет маршрутизировать перенаправленные запросы через прокси-сервер HTTP.  
-
 -   [Установка метода запроса](#SetRequestMethod) — позволяет изменить метод HTTP для запроса.  
-  
 -   [Установка кода состояния](#SetStatus) — меняет код состояния HTTP на указанное значение.  
-  
 -   [Задание переменной](api-management-advanced-policies.md#set-variable) — сохраняет значение в именованной переменной [контекста](api-management-policy-expressions.md#ContextVariables) для последующего использования.  
-
 -   [Трассировка](#Trace) — добавляет строку в выходные данные [инспектора API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/).  
-  
 -   [Ожидание](#Wait) — ожидает завершения вложенных политик [отправки запроса](api-management-advanced-policies.md#SendRequest), [получения значения из кэша](api-management-caching-policies.md#GetFromCacheByKey) или [управления потоком](api-management-advanced-policies.md#choose) перед продолжением.  
   
 ##  <a name="choose"></a> Управление потоками  
@@ -264,7 +249,6 @@ ms.lasthandoff: 11/22/2017
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Разделы политики:** backend.  
-  
 -   **Области политики:** все области.  
   
 ##  <a name="LimitConcurrency"></a> Ограничение параллелизма  
@@ -807,7 +791,6 @@ status code and media type. If no example or schema found, the content is empty.
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Разделы политики:** outbound, backend, on-error.  
-  
 -   **Области политики:** все области.  
 
 ##  <a name="set-variable"></a> Задание переменной  
@@ -843,72 +826,41 @@ status code and media type. If no example or schema found, the content is empty.
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Разделы политики:** inbound, outbound, backend, on-error.  
-  
 -   **Области политики:** все области.  
   
 ###  <a name="set-variableAllowedTypes"></a> Допустимые типы  
  Выражения, используемые в политике `set-variable`, должны возвращать один из следующих основных типов.  
   
 -   System.Boolean  
-  
 -   System.SByte  
-  
 -   System.Byte  
-  
 -   System.UInt16  
-  
 -   System.UInt32  
-  
 -   System.UInt64  
-  
 -   System.Int16  
-  
 -   System.Int32  
-  
 -   System.Int64  
-  
 -   System.Decimal  
-  
 -   System.Single  
-  
 -   System.Double  
-  
 -   System.Guid  
-  
 -   System.String  
-  
 -   System.Char  
-  
 -   System.DateTime  
-  
 -   System.TimeSpan  
-  
 -   System.Byte?  
-  
 -   System.UInt16?  
-  
 -   System.UInt32?  
-  
 -   System.UInt64?  
-  
 -   System.Int16?  
-  
 -   System.Int32?  
-  
 -   System.Int64?  
-  
 -   System.Decimal?  
-  
 -   System.Single?  
-  
 -   System.Double?  
-  
 -   System.Guid?  
-  
 -   System.String?  
-  
 -   System.Char?  
-  
 -   System.DateTime?  
 
 ##  <a name="Trace"></a> Трассировка  
@@ -1004,13 +956,16 @@ status code and media type. If no example or schema found, the content is empty.
 |for|Определяет, ожидает ли политика `wait` завершения всех непосредственных дочерних политик или только одной. Допустимые значения:<br /><br /> —-    `all`: ожидание завершения всех непосредственных дочерних политик;<br />— any: ожидание завершения любой непосредственной дочерней политики. После завершения первой непосредственной дочерней политики политика `wait` завершается и прерывает выполнение других непосредственных дочерних политик.|Нет|все|  
   
 ### <a name="usage"></a>Использование  
- Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ 
+Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Разделы политики:** inbound, outbound, backend.  
-  
 -   **Области политики:** все области.  
   
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Дополнительные сведения о работе с политиками см. в следующих статьях:
--   [Политики в управлении API](api-management-howto-policies.md) 
--   [Выражения политики](api-management-policy-expressions.md)
++ [Политики в управлении API](api-management-howto-policies.md) 
++ [Выражения политики](api-management-policy-expressions.md)
++ Полный перечень операторов политик и их параметров см. в [справочнике по политикам](api-management-policy-reference.md).
++ [Примеры политик](policy-samples.md).   

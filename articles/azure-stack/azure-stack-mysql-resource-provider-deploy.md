@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/29/2017
 ms.author: JeffGo
-ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: e1752bfe40fb53568b79e2b7eec56ca9f3139d4c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Использование баз данных MySQL в Microsoft Azure Stack
 
@@ -60,10 +60,16 @@ ms.lasthandoff: 11/21/2017
 
     b. Если в системе несколько узлов, нужно использовать тот, который предоставляет доступ к привилегированной конечной точке.
 
-3. [Скачайте двоичный файл поставщика ресурсов MySQL](https://aka.ms/azurestackmysqlrp) и запустите самоизвлечение содержимого во временный каталог.
+3. Скачайте двоичный файл поставщика ресурсов MySQL и запустите самоизвлечение содержимого во временный каталог.
 
-    > [!NOTE]
-    > В случае использования сборки 20170928.3 Azure Stack или более ранней сборки [скачайте эту версию](https://aka.ms/azurestackmysqlrp1709).
+    >[!NOTE] 
+    > Сборка поставщика ресурсов соответствует сборкам Azure Stack. Необходимо скачать надлежащий двоичный файл для выполняемой версии Azure Stack.
+
+    | Сборка Azure Stack | Установщик MySQL RP |
+    | --- | --- |
+    | 1.0.171122.1 | [MySQL RP версии 1.1.10.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.171028.1 | [MySQL RP версии 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
+    | 1.0.170928.3 | [MySQL RP версии 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Корневой сертификат Azure Stack можно получить из привилегированной конечной точки. Для ASDK в рамках этого процесса создается самозаверяющий сертификат. Для системы с несколькими узлами вам нужно предоставить подходящий сертификат.
 
@@ -116,7 +122,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the Resource Provider VM
+# Set the credentials for the new Resource Provider VM
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 6ea08dc4a3082ead9e18fb6c0c30f2ed1df765d8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f533afebcb945a5ffe269ad8f21a095a81f54a18
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Руководство по планированию использования центра безопасности Azure и работе в нем
 Это руководство предназначено для ИТ-специалистов, ИТ-архитекторов, аналитиков в сфере информационной безопасности и администраторов облака, организации которых планируют использовать центр безопасности Azure.
@@ -125,7 +125,7 @@ ms.lasthandoff: 10/31/2017
 
 Политики центра безопасности содержат следующие компоненты:
 - [Сбор данных](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): настройки подготовки агента и сбора данных.
-- [Политика безопасности](https://docs.microsoft.com/azure/security-center/security-center-policies): [политика Azure](http://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction), которая определяет, какие элементы управления контролируются и рекомендуются центром безопасности, или использует политику Azure для создания определений, определения дополнительных политик и назначения политик в группах управления.
+- [Политика безопасности](https://docs.microsoft.com/azure/security-center/security-center-policies): [политика Azure](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction), которая определяет, какие элементы управления контролируются и рекомендуются центром безопасности, или использует политику Azure для создания определений, определения дополнительных политик и назначения политик в группах управления.
 - [Уведомления по электронной почте](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): контакты безопасности и параметры уведомлений.
 - [Ценовая категория](https://docs.microsoft.com/azure/security-center/security-center-pricing): выбор бесплатной или стандартной ценовой категории, который определяет, какие функции центра безопасности доступны для ресурсов в области (может быть указана для подписки, групп ресурсов и рабочих областей).
 

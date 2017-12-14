@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 5cad44dc7bf415002b3c9872fffdcf0d54bb6ad6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e59528df6a66979c3fc2f596e3e94c1f51f0111
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Командлеты Azure Active Directory версии 2 для управления группами
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 В этой статье приведены примеры управления группами в Azure Active Directory (Azure AD) с помощью PowerShell.  Кроме того, в ней содержатся сведения о том, как выполнить настройки модуля Azure AD PowerShell. Во-первых, необходимо [скачать модуль Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
-## <a name="installing-the-azure-ad-powershell-module"></a>Установка модуля Azure AD PowerShell
+## <a name="install-the-azure-ad-powershell-module"></a>Установка модуля Azure AD PowerShell
 Чтобы установить модуль Azure AD PowerShell, выполните следующие команды:
 
     PS C:\Windows\system32> install-module azuread
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 Теперь можно начать использование командлетов в модуле. Полное описание командлетов в модуле Azure AD см. в электронной справочной документации по [PowerShell версии 2 для Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-## <a name="connecting-to-the-directory"></a>Подключение к каталогу
+## <a name="connect-to-the-directory"></a>Подключение к каталогу
 Прежде чем приступить к управлению группами с помощью командлетов Azure AD PowerShell, необходимо подключить сеанс PowerShell к каталогу, которым вы хотите управлять. Используйте следующую команду:
 
     PS C:\Windows\system32> Connect-AzureAD
@@ -59,8 +59,10 @@ ms.lasthandoff: 10/11/2017
 
 Теперь можно начать использование командлетов Azure AD для управления группами в каталоге.
 
-## <a name="retrieving-groups"></a>Получение сведений о группах
-Для получения сведений о существующих группах из каталога можно воспользоваться командлетом Get-AzureADGroups. Чтобы получить сведения о всех группах в каталоге, используйте командлет без параметров:
+## <a name="retrieve-groups"></a>Получение сведений о группах
+Чтобы получить сведения о существующих группах из каталога, используйте командлет Get-AzureADGroups. 
+
+Чтобы получить сведения о всех группах в каталоге, используйте командлет без параметров:
 
     PS C:\Windows\system32> get-azureadgroup
 
@@ -108,14 +110,14 @@ ms.lasthandoff: 10/11/2017
     SecurityEnabled              : True
 
 > [!NOTE] 
-> Командлеты AzureAD PowerShell используют стандарт запросов OData. Дополнительные сведения см. в разделе **$filter** статьи [OData system query options using the OData endpoint](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter) (Параметры системных запросов OData с использованием конечной точки OData).
+> Командлеты Azure AD PowerShell используют стандарт запросов OData. Дополнительные сведения см. в разделе **$filter** статьи [OData system query options using the OData endpoint](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter) (Параметры системных запросов OData с использованием конечной точки OData).
 
-## <a name="creating-groups"></a>Создание групп
+## <a name="create-groups"></a>Создание групп
 Чтобы создать новую группу в каталоге, используйте командлет New-AzureADGroup. Этот командлет создает новую группу безопасности с именем Marketing:
 
     PS C:\Windows\system32> New-AzureADGroup -Description "Marketing" -DisplayName "Marketing" -MailEnabled $false -SecurityEnabled $true -MailNickName "Marketing"
 
-## <a name="updating-groups"></a>Обновление групп
+## <a name="update-groups"></a>Обновление групп
 Чтобы обновить существующую группу, используйте командлет Set-AzureADGroup. В этом примере изменяется свойство DisplayName группы Intune Administrators. Сначала с помощью командлета Get-AzureADGroup мы находим группу и фильтруем, используя атрибут DisplayName:
 
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -160,18 +162,20 @@ ms.lasthandoff: 10/11/2017
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-## <a name="deleting-groups"></a>Удаление групп
+## <a name="delete-groups"></a>Удаление групп
 Для удаления групп из каталога используйте командлет Remove-AzureADGroup, как показано ниже:
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## <a name="managing-members-of-groups"></a>Управление членами групп
-Для добавления в группу новых членов используйте командлет Add-AzureADGroupMember. Эта команда добавляет члена в группу Intune Administrators, которую мы использовали в предыдущем примере:
+## <a name="manage-group-membership"></a>Управление членством в группах 
+### <a name="add-members"></a>Добавление членов
+Чтобы добавить в группу новых членов, используйте командлет Add-AzureADGroupMember. Эта команда добавляет члена в группу Intune Administrators, которую мы использовали в предыдущем примере:
 
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
 Параметр -ObjectId — это идентификатор объекта группы, в которую требуется добавить члена, а -RefObjectId — это идентификатор объекта пользователя, которого требуется добавить в качестве члена группы.
 
+### <a name="get-members"></a>Получение сведений о членах
 Чтобы получить сведения о существующих членах группы, используйте командлет Get-AzureADGroupMember, как показано в этом примере:
 
     PS C:\Windows\system32> Get-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
@@ -181,10 +185,12 @@ ms.lasthandoff: 10/11/2017
                           72cd4bbd-2594-40a2-935c-016f3cfeeeea User
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 
+### <a name="remove-members"></a>Удаление членов
 Чтобы удалить члена, ранее добавленного в группу, используйте командлет Remove-AzureADGroupMember, как показано здесь:
 
     PS C:\Windows\system32> Remove-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -MemberId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
+### <a name="verify-members"></a>Проверка членства
 Чтобы проверить, является ли пользователь членом какой-либо группы, используйте командлет Select-AzureADGroupIdsUserIsMemberOf. В качестве параметров этот командлет принимает идентификатор объекта пользователя, для которого выполняется проверка членства в группах, и список групп, в которых проверяется членство. Список групп необходимо указать в форме сложной переменной типа Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck, поэтому сначала необходимо создать переменную с этим типом:
 
     PS C:\Windows\system32> $g = new-object Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck
@@ -204,7 +210,24 @@ ms.lasthandoff: 10/11/2017
 
 Возвращаемое значение — это список групп, членом которых является данный пользователь. Этот метод также можно применять для проверки членства в контактах, группах или субъектах-службах для определенного списка групп. Для этого используйте командлеты Select-AzureADGroupIdsContactIsMemberOf, Select-AzureADGroupIdsGroupIsMemberOf и Select-AzureADGroupIdsServicePrincipalIsMemberOf.
 
-## <a name="managing-owners-of-groups"></a>Управление владельцами групп
+## <a name="disable-group-creation-by-your-users"></a>Отключение создания групп пользователями
+Вы можете запретить пользователям без прав администратора создавать группы безопасности. По умолчанию в службе каталогов MS Online (MSODS) пользователям без прав администратора разрешается создавать группы, независимо от того, включено ли при этом самостоятельное управление группами (SSGM). Параметр SSGM позволяет управлять поведением только на панели доступа "Мои приложения". 
+
+Чтобы отключить создание групп для пользователей без прав администратора, сделайте следующее:
+
+1. Убедитесь, что пользователи без прав администратора могут создавать группы.
+   
+  ````
+  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+  ````
+  
+2. Если этот код вернет `UsersPermissionToCreateGroupsEnabled : True`, то пользователи без прав администратора могут создавать группы. Чтобы отключить эту функцию, используйте следующий код.
+  
+  ```` 
+  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+  ````
+  
+## <a name="manage-owners-of-groups"></a>Управление владельцами групп
 Чтобы добавить в группу новых владельцев, воспользуйтесь командлетом Add-AzureADGroupOwner:
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea

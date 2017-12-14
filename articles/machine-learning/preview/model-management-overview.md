@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 31b859d86e82c92839462280721c5f84f1d923cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0474e7ae77128a46fc6218de814913d07aa63d97
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-model-management"></a>Служба управления моделями Машинного обучения Azure
 
@@ -124,4 +124,4 @@ ms.lasthandoff: 10/11/2017
    Конечно. Вы можете запустить 100 экземпляров служб или конечных точек в одном кластере. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Сведения о том, как приступить к работе со службой управления моделями, см. в статье [Установка службы управления моделями](model-management-configuration.md).
+Сведения о том, как приступить к работе со службой управления моделями, см. в статье [Установка службы управления моделями](deployment-setup-configuration.md).
