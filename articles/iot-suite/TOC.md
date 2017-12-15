@@ -71,6 +71,7 @@
 ### [Развертывание шлюза для подключенного производства](iot-suite-connected-factory-gateway-deployment.md)
 ### [Настройка подключенной фабрики](iot-suite-connected-factory-customize.md)
 ### [Использование издателя OPC для подключенной фабрики](iot-suite-connected-factory-publisher.md)
+### [Конфигурирование подключенной фабрики](iot-suite-connected-factory-configure.md)
 ## [Разрешения для azureiotsuite.com](iot-suite-permissions.md)
 
 # Справочные материалы

@@ -75,6 +75,7 @@
 ## Настройка сторонних VPN-устройств
 ### [Общие сведения и конфигурация Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Пример: устройство Cisco ASA (IKEv2/без BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+## [Миграция из классической модели развертывания в модель Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 ## Устранение неполадок
 ### [Проверка пропускной способности VPN для виртуальной сети](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Предлагаемые сообществом параметры устройств VPN или брандмауэра](vpn-gateway-third-party-settings.md)
