@@ -241,6 +241,8 @@
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
         - name: Управление серверами vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: Управление мультитенантностью с помощью поставщиков облачных решений
+          href: site-recovery-manage-multi-tenancy-with-csp.md
         - name: Удаление серверов и отключение защиты
           href: site-recovery-manage-registration-and-protection.md
         - name: Удаление хранилища

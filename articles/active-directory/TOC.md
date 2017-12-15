@@ -265,6 +265,7 @@
 #### [Назначение ролей администратора](active-directory-users-assign-role-azure-portal.md)
 ### [Административные единицы](active-directory-administrative-units-management.md)
 ### [Настройка времени существования маркеров](active-directory-configurable-token-lifetimes.md)
+### [Управление учетными записями администратора для аварийного доступа](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Проверки доступа
 ### [Обзор проверки доступа](active-directory-azure-ad-controls-access-reviews-overview.md)

@@ -21,6 +21,7 @@
 ## [Получение клиентских библиотек](analysis-services-data-providers.md)
 ## [Резервное копирование и восстановление](analysis-services-backup.md)
 ## [Настройка горизонтального масштабирования](analysis-services-scale-out.md)
+## [Настройка псевдонима имени сервера](analysis-services-server-alias.md)
 ## [Подключение с помощью Excel](analysis-services-connect-excel.md)
 ## [Подключение с помощью Power BI](analysis-services-connect-pbi.md)
 ## [Создание ODC-файла](analysis-services-odc.md)

@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/13/2017
   ms.author: kfile
-  ms.openlocfilehash: 08532fdde75215d6f00456637615ec93af7c9d6d
-  ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+  ms.openlocfilehash: 3c181142dcdb4132964ba5da9582b9f2b1ad817e
+  ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 11/15/2017
+  ms.lasthandoff: 12/14/2017
 abstract:
   description: "Настройка среды службы \"Аналитика временных рядов\", а также просмотр и анализ данных временных рядов для решений Интернета вещей или подключенных устройств. Документация включает описание требований, руководства, справочники по API и другие статьи, которые помогут вам быстро приступить к работе."
 sections:
@@ -39,4 +39,4 @@ sections:
     className: cardsD
     items:
     - title: "Интерфейсы API"
-      html: "<p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-queryapi\">API запроса</a></p><p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-query-syntax\">Синтаксис запросов</a></p>"
+      html: "<p><a href=\"/rest/api/time-series-insights-management\">API управления ресурсами</a></p>   <p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-queryapi\">API запроса</a></p><p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-query-syntax\">Синтаксис запросов</a></p>"

@@ -85,6 +85,7 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=expressroute)
 ## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla/)
 ## [Ограничения подписки и службы](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
+## [ExpressRoute для поставщиков облачных решений (CSP)](expressroute-for-cloud-solution-providers.md)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Подключение шлюза виртуальной сети к каналу](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Создание виртуальной сети для ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)

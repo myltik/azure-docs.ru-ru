@@ -107,6 +107,8 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Управление ресурсами хранилища
           href: azure-stack-manage-storage-accounts.md
+        - name: Управление емкостью хранилища
+          href: azure-stack-manage-storage-shares.md
         - name: Управление виртуальными машинами Windows Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
         - name: Замена оборудования
