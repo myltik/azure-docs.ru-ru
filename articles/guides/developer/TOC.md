@@ -64,8 +64,8 @@
 ## Хранение данных
 ### [BLOB-объекты](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [Файловые ресурсы](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
-### [Пары "ключ-значение"](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [Документы JSON](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [Пары "ключ-значение"](https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet)
+### [Документы JSON](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 ### [Реляционные таблицы](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [Очереди сообщений](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
