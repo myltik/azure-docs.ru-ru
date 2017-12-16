@@ -32,6 +32,8 @@
       href: how-to-deploy-monitor.md
     - name: Подготовка устройства с ОС "Windows 10 IoT Базовая"
       href: how-to-install-iot-core.md
+    - name: Устранение неполадок
+      href: troubleshoot.md
 - name: Основные понятия
   items:
     - name: Модули Edge Интернета вещей

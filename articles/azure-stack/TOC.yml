@@ -4,6 +4,16 @@
   items:
     - name: Что такое Azure Stack?
       href: azure-stack-poc.md
+    - name: Заметки о выпуске
+      items:
+        - name: Заметки к выпуску пакета SDK
+          href: azure-stack-asdk-release-notes.md
+        - name: Заметки к выпуску интегрированных систем
+          items:
+            - name: Обновление 1711
+              href: azure-stack-update-1711.md
+            - name: Обновление 1710
+              href: azure-stack-update-1710.md
 - name: Быстрое начало работы
   expanded: true
   items:
@@ -23,16 +33,6 @@
       href: azure-stack-planning-considerations.md
     - name: Политика обслуживания
       href: azure-stack-servicing-policy.md
-    - name: Заметки о выпуске
-      items:
-        - name: Заметки к выпуску пакета SDK
-          href: azure-stack-asdk-release-notes.md
-        - name: Заметки к выпуску интегрированных систем
-          items:
-            - name: Обновление 1711
-              href: azure-stack-update-1711.md
-            - name: Обновление 1710
-              href: azure-stack-update-1710.md
     - name: Основные возможности и концепции
       href: azure-stack-key-features.md
     - name: Архитектура пакета SDK
