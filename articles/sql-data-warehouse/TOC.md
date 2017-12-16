@@ -26,7 +26,6 @@
 
 ## Миграция в хранилище данных SQL.
 ### [Обзор](sql-data-warehouse-overview-migrate.md)
-### [Служебная программа переноса](sql-data-warehouse-migrate-migration-utility.md)
 ### [Перенос схемы](sql-data-warehouse-migrate-schema.md)
 ### [Перенос кода](sql-data-warehouse-migrate-code.md)
 ### [Перенос данных](sql-data-warehouse-migrate-data.md)
