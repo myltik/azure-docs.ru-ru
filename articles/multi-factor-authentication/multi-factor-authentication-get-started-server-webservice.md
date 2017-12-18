@@ -4,7 +4,7 @@ description: "Приложение Microsoft Authenticator предлагает 
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 3d1e8d62127a3c5c888804278fbcd9a4fe81e33f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 83b04e48dd528881097bcf16bc03e1a18ea20c43
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Включение аутентификации мобильных приложений с помощью сервера Многофакторной идентификации Azure
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/15/2017
 3. Завершите установку с использованием значений по умолчанию, если не нужно изменять их по какой-то причине.
 4. Привяжите SSL-сертификат к сайту в IIS.
 
-Если у вас есть вопросы о настройке SSL-сертификата на сервере IIS, ознакомьтесь со статьей [How to Set Up SSL on IIS 7](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Как настроить SSL-сертификат на сервере IIS 7).
+Если у вас есть вопросы о настройке SSL-сертификата на сервере IIS, ознакомьтесь со статьей [How to Set Up SSL on IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Как настроить SSL-сертификат на сервере IIS 7).
 
 Пакет SDK веб-службы должен быть защищен сертификатом SSL. Для этой цели подходит самозаверяющий сертификат. Импортируйте сертификат в хранилище "Доверенные корневые центры сертификации" учетной записи локального компьютера на веб-сервере пользовательского портала, чтобы этот сертификат был доверенным при подключении SSL.
 
@@ -88,6 +88,7 @@ ms.lasthandoff: 11/15/2017
 
 7. Если веб-сайт, на котором установлена веб-служба мобильного приложения, еще не привязан к публично подписанному сертификату, установите сертификат на сервере, затем откройте диспетчер IIS и привяжите сертификат к этому веб-сайту.
 8. Откройте веб-браузер на любом компьютере и перейдите по URL-адресу на страницу, с которой была установлена веб-служба мобильного приложения (например, https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Убедитесь, что не отображаются предупреждения или ошибки сертификата.
+9. Дополнительные сведения о методах, доступных в пакете SDK для веб-служб, см. в файле справки сервера MFA.
 
 ## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Настроить параметры мобильного приложения на сервере Многофакторной идентификации Azure.
 

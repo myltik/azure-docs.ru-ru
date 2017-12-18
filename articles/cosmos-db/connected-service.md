@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: de0c83e4c99894f98de18eb089ce11cdf5c70f2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: подключенная служба Visual Studio (предварительная версия)
 
@@ -119,8 +119,8 @@ ms.lasthandoff: 10/11/2017
 
 Теперь, когда подключенные службы работают в учетной записи Azure Cosmos DB, ознакомьтесь с одним из руководств, чтобы начать разработку решения:
 
-* [Azure Cosmos DB. Разработка с помощью API DocumentDB на .NET](tutorial-develop-documentdb-dotnet.md).
-* [Azure Cosmos DB. Приступая к работе с API DocumentDB](documentdb-get-started.md).
+* [Разработка с помощью API SQL на .NET](tutorial-develop-documentdb-dotnet.md).
+* [Azure Cosmos DB. Приступая к работе с API SQL](documentdb-get-started.md).
 * Хотите выполнять проверку масштабирования и производительности с помощью Azure Cosmos DB? См. инструкции по [проверке производительности и масштабирования с помощью Azure Cosmos DB](performance-testing.md).
 * Узнайте, как выполнять [мониторинг учетной записи Azure Cosmos DB](monitor-accounts.md).
 

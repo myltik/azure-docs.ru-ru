@@ -9,15 +9,15 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a217f4cc8ac18888de8dfa803b4b8667a566dc0b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 23d59d37e25775f67d01813bbf53d150f1973622
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Субъекты-службы со Службой контейнеров Azure (AKS)
 
-Для взаимодействия с API-интерфейсами Azure кластеру AKS требуется [субъект-служба Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Субъект-служба используется для динамического управления ресурсами, например [определяемыми пользователем маршрутами](../virtual-network/virtual-networks-udr-overview.md) и [Azure Load Balancer](../load-balancer/load-balancer-overview.md) уровня 4.
+Для взаимодействия с API-интерфейсами Azure кластеру Службы контейнеров Azure требуется [субъект-служба Azure Active Directory][aad-service-principal]. Субъект-служба используется для динамического управления ресурсами, например [определяемыми пользователем маршрутами][user-defined-routes] и [Azure Load Balancer уровня 4][azure-load-balancer-overview].
 
 В этой статье показано, как настроить субъект-службу для кластера Kubernetes в AKS.
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/06/2017
 
 Чтобы создать субъект-службу в Azure AD, вы должны иметь права на регистрацию приложения в клиенте Azure AD и назначение приложению роли в подписке Azure. Если у вас нет необходимых разрешений, вам может потребоваться попросить администратора Azure AD или администратора подписки предоставить их или предварительно создать субъект-службу для кластера Kubernetes.
 
-Кроме того, нужно установить и настроить Azure CLI версии 2.0.21 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli).
+Кроме того, нужно установить и настроить Azure CLI версии 2.0.21 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0][install-azure-cli].
 
 ## <a name="create-sp-with-aks-cluster"></a>Создание субъекта-службы с кластером AKS
 
@@ -44,7 +44,7 @@ az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ss
 
 ## <a name="pre-create-a-new-sp"></a>Предварительное создание субъекта-службы
 
-Чтобы создать субъект-службу с помощью Azure CLI, используйте команду [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac).
+Чтобы создать субъект-службу с помощью Azure CLI, используйте команду [az ad sp create-for-rbac][az-ad-sp-create].
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -83,12 +83,21 @@ az aks create --resource-group myResourceGroup --name myK8SCluster --service-pri
 * Указывая **идентификатор клиента** субъекта-службы, вы можете использовать значение `appId` (как показано в этой статье) или соответствующее имя (`name`) субъекта-службы, например `https://www.contoso.org/example`.
 * На главной виртуальной машине и виртуальной машине узла в кластере Kubernetes учетные данные субъекта-службы хранятся в файле `/etc/kubernetes/azure.json`.
 * Если вы используете команду `az aks create`, чтобы автоматически создать субъект-службу, учетные данные субъекта-службы записываются в файл `~/.azure/acsServicePrincipal.json` на компьютере, с которого выполняется команда.
-* При автоматическом создании субъекта-службы с использованием команды `az aks create` субъект-служба также позволяет проверять подлинность с помощью [реестра контейнеров Azure](../container-registry/container-registry-intro.md), созданного в той же подписке.
-* При удалении кластера AKS, который был создан с помощью команды `az aks create`, созданный автоматически субъект-служба не удаляется. Его можно удалить с помощью команды `az ad sp delete --id $clientID`.
+* При автоматическом создании субъекта-службы с использованием команды `az aks create` субъект-служба также позволяет выполнять аутентификацию при помощи [реестра контейнеров Azure][acr-into], созданного в той же подписке.
+* При удалении кластера Службы контейнеров Azure, который был создан с помощью команды `az aks create`, автоматически созданный субъект-служба не удаляется. Его можно удалить с помощью команды `az ad sp delete --id $clientID`.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о субъектах-службах Azure Active Directory см. в документации по приложениям Azure AD.
 
 > [!div class="nextstepaction"]
-> [Объекты приложения и субъекта-службы в Azure Active Directory (Azure AD)](../active-directory/develop/active-directory-application-objects.md)
+> [Объекты приложения и субъекта-службы в Azure Active Directory (Azure AD)][service-principal]
+
+<!-- LINKS - internal -->
+[aad-service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[acr-intro]: ../container-registry/container-registry-intro.md
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[user-defined-routes]: ../load-balancer/load-balancer-overview.md

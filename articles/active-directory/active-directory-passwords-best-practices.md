@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Как развернуть самостоятельный сброс пароля
 
@@ -37,6 +37,10 @@ ms.lasthandoff: 11/23/2017
 9. Определите, когда следует принудительно применять регистрацию. Вы можете принудительно применить регистрацию в любой момент. Вы также можете потребовать от пользователей подтвердить данные проверки подлинности через определенный промежуток времени.
 10. Примените функцию отчетности. С помощью [функции отчетности, предоставляемой в Azure AD](active-directory-passwords-reporting.md), вы сможете просмотреть данные о регистрации пользователей и использовании функции SSPR спустя некоторое время.
 11. Включите сброс пароля. Когда будете готовы включить сброс пароля для всех пользователей, установите для параметра **Разрешен самостоятельный сброс пароля** значение **Все**. 
+
+   > [!NOTE]
+   > Если изменить значение "Выбранная группа" этого параметра на значение "Все", данные аутентификации, которые зарегистрировал пользователь-участник тестовой группы, останутся действительными. Настройки пользователей, для которых зарегистрированы данные аутентификации, продолжат функционировать.
+
 12. [Включите для пользователей Windows 10 сброс пароля на экране входа](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ ms.lasthandoff: 11/23/2017
 
 Большинство клиентов предпочитают размещать веб-страницы и создавать корневые записи DNS, например https://passwords.contoso.com. Они заполняют эту страницу ссылками на следующие сведения:
 
-* [портал сброса паролей Azure AD](https://aka.ms/sspr);
-* [портал регистрации для сброса пароля Azure AD](http://aka.ms/ssprsetup);
-* [портал изменения пароля Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx);
+* [портал для сброса пароля Azure AD: https://aka.ms/sspr](https://aka.ms/sspr);
+* [портал регистрации для сброса пароля Azure AD: http://aka.ms/ssprsetup](http://aka.ms/ssprsetup);
+* [портал изменения пароля Azure AD: https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx);
 * другие сведения для конкретной организации.
 
 Вы можете включить во все сообщения электронной почты и листовки один запоминающийся URL-адрес, с помощью которого пользователи смогут начать работу со службой. Для вашего удобства мы создали [образец страницы сброса пароля](https://github.com/ajamess/password-reset-page), которую можно использовать и настраивать в зависимости от потребностей организации.

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/31/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: f0be787ba1ccee067fb1d7e6a6554be32f886089
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c66488ce4381a3c5f796aa9826810195b2738769
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Приступая к работе с доставкой содержимого по запросу с помощью пакета SDK для .NET
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -86,22 +86,26 @@ ms.lasthandoff: 10/11/2017
 
 Если вы используете службы мультимедиа с помощью .NET, то для большинства задач программирования этих служб следует использовать класс **CloudMediaContext**. Это могут быть такие задачи, как подключение к учетной записи служб мультимедиа, создание, обновление и удаление различных объектов и получение доступа к этим объектам: ресурсам-контейнерам, файлам ресурсов-контейнеров, заданиям, политикам доступа, указателям и т. д.
 
-Перезапишите класс "Program" с помощью следующего кода. В коде показано, как считывать значения подключения из файла App.config и как создать объект **CloudMediaContext** для подключения к службам мультимедиа. Дополнительные сведения см. в статье [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+Перезапишите класс Program по умолчанию приведенным ниже кодом. В коде показано, как считать значения подключения из файла App.config и как создать объект **CloudMediaContext** для подключения к службам мультимедиа. Дополнительные сведения см. в статье [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 Не забудьте обновить имя файла мультимедиа и путь к нему.
 
 Функция **Main** вызывает методы, которые будут определены далее в этом разделе.
 
 > [!NOTE]
-> Вы будете получать ошибки компиляции, пока не добавите определения для всех функций.
+> Пока вы не добавите определения для всех функций, будут поступать сообщения об ошибках компиляции. Инструкции по определению дисков см. далее в этой статье.
 
     class Program
     {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
@@ -109,7 +113,11 @@ ms.lasthandoff: 10/11/2017
         {
         try
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -137,7 +145,7 @@ ms.lasthandoff: 10/11/2017
             Console.ReadLine();
         }
         }
-    }
+    
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Создание нового актива и отправка видеофайла
 
@@ -145,7 +153,7 @@ ms.lasthandoff: 10/11/2017
 
 Метод **UploadFile**, определенный ниже, вызывает **CreateFromFile** (этот метод определен в расширениях пакета SDK для .NET). **CreateFromFile** создает новый ресурс-контейнер, в который отправляется указанный исходный файл.
 
-Метод **CreateFromFile** получает параметры **AssetCreationOptions**, которые позволяют указать один из таких параметров создания ресурса-контейнера.
+Метод **CreateFromFile** получает параметры **AssetCreationOptions, которые позволяют указать один из следующих параметров создания ресурса-контейнера:
 
 * **None** — шифрование не используется. Это значение по умолчанию. Обратите внимание, что при использовании этого параметра содержимое не защищено при передаче и хранении.
   Используйте этот параметр, если MP4-файл планируется доставить с помощью поэтапного скачивания.
@@ -228,7 +236,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="some-details-about-url-formats"></a>Некоторые сведения о форматах URL-адреса
 
-Создав указатели, вы можете создать URL-адреса, которые будут использоваться для потоковой передачи или скачивания файлов. Приведенный в нашем руководстве пример будет выводить URL-адреса, которые затем можно использовать в подходящих браузерах. В этом разделе представлены краткие примеры разных форматов.
+Создав указатели, вы можете создать URL-адреса, которые будут использоваться для потоковой передачи или скачивания файлов. При помощи приведенного в нашем руководстве примера выводятся URL-адреса, которые затем можно использовать в подходящих браузерах. В этом разделе представлены краткие примеры разных форматов.
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>URL-адрес потоковой передачи для MPEG DASH имеет следующий формат:
 

@@ -1,13 +1,16 @@
 
 ## <a name="launch-azure-cloud-shell"></a>Запуск Azure Cloud Shell
 
-Azure Cloud Shell — это бесплатная оболочка, которую можно запускать непосредственно на портале Azure. Она включает предварительно установленные общие инструменты Azure и настроена для использования с вашей учетной записью. Нажмите кнопку меню **Cloud Shell** в правом верхнем углу [портала Azure](https://portal.azure.com).
+Azure Cloud Shell — это бесплатная интерактивная оболочка, с помощью которой можно выполнять действия, описанные в этой статье. Она включает предварительно установленные общие инструменты Azure и настроена для использования с вашей учетной записью. Нажмите кнопку **Копировать**, чтобы скопировать код. Вставьте его в Cloud Shell и нажмите клавишу ВВОД, чтобы запустить код. Cloud Shell можно запустить двумя способами.
 
-[![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
+|  |   |
+|-----------------------------------------------|---|
+| Нажмите кнопку **Попробовать** в правом верхнем углу блока с кодом. | ![Cloud Shell в этой статье](./media/cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
+| Нажмите кнопку меню **Cloud Shell** в правом верхнем углу окна портала Azure. | [![Cloud Shell на портале](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com) |
+|  |  |
 
-Кнопка запускает интерактивную оболочку, с помощью которой можно выполнять действия, описанные в этом разделе:
 
-[![Снимок экрана с окном Azure Cloud Shell на портале](./media/cloud-shell-powershell/cloud-shell-powershell.png)](https://portal.azure.com)
+
 
 
 

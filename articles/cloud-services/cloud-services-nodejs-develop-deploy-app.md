@@ -1,5 +1,5 @@
 ---
-title: "Руководство по началу работы с Node.js | Документация Майкрософт"
+title: "Руководство по началу работы с Node.js"
 description: "Сведения о создании простого веб-приложения Node.js и его развертывании в облачной службе Azure."
 services: cloud-services
 documentationcenter: nodejs
@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 02aa75824bab4e33f1cd73ab1053d64a20956a0a
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: d498fc09112c0df7b6ecb81a492b180765fdf883
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Построение и развертывание приложения Node.js в облачной службе Azure
 
