@@ -58,6 +58,7 @@
 #### [Добавление B2B-пользователя к роли](active-directory-b2b-add-guest-to-role.md)
 #### [Динамические группы и B2B-пользователи](active-directory-b2b-dynamic-groups.md)
 #### [Аудит и отчеты](active-directory-b2b-auditing-and-reporting.md)
+#### [B2B для гибридных организаций](active-directory-b2b-hybrid-organizations.md)
 #### [Доступ внешних пользователей к B2B и Office 365](active-directory-b2b-o365-external-user.md)
 #### [Лицензирование B2B](active-directory-b2b-licensing.md)
 #### [Текущие ограничения](active-directory-b2b-current-limitations.md)

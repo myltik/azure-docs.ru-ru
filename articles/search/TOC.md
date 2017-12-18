@@ -28,11 +28,15 @@
 
 # Практическое руководство
 
-## планирование и разработка
+## Планирование и разработка
 ### [Выбор SKU](search-sku-tier.md)
 ### [Ограничения служб](search-limits-quotas-capacity.md)
 ### [Масштабируемость службы](search-capacity-planning.md)
 ### [Конструктивные шаблоны для мультитенантности](search-modeling-multitenant-saas-applications.md)
+## Безопасность
+### [Защита данных и операционная безопасность](search-security-overview.md)
+### [Защита с помощью фильтров идентификаторов](search-security-trimming-for-azure-search.md)
+### [Защита с помощью Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)
 ## Разработка
 ### [Версии API](search-api-versions.md)
 ### [Разработка в Node.js](search-get-started-nodejs.md)
@@ -42,13 +46,6 @@
 ### [Моделирование сложных типов данных](search-howto-complex-data-types.md)
 ### [Обработка одновременных обновлений](search-howto-concurrency.md)
 ### [Примеры кода](https://azure.microsoft.com/resources/samples/?service=search)
-## Управление
-### Администрирование Поиска Azure
-#### [Портал Azure](search-manage.md)
-#### [Azure PowerShell](search-manage-powershell.md)
-### [Мониторинг использования и статистики](search-monitor-usage.md)
-### [Поиск в аналитике трафика](search-traffic-analytics.md)
-### [Производительность и оптимизация](search-performance-optimization.md)
 ## Загрузка данных
 ### [Обзор индексатора](search-indexer-overview.md)
 ### [Индексатор хранилища BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md)
@@ -73,8 +70,6 @@
 #### [Обзор](search-filters.md)
 #### [Фильтры аспекта](search-filters-facets.md)
 #### [Фильтры языка](search-filters-language.md)
-#### [Фильтры системы безопасности (общие)](search-security-trimming-for-azure-search.md)
-#### [Фильтры системы безопасности (AAD)](search-security-trimming-for-azure-search-with-aad.md)
 #### [Справочник по синтаксису выражений](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Разбиение результатов по страницам](search-pagination-page-layout.md)
 ### [Профили повышения](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
@@ -82,6 +77,12 @@
 ### [Фасетная навигация](search-faceted-navigation.md)
 ### [Предварительный просмотр синонимов](search-synonyms.md)
 ### [moreLikeThis (предварительная версия)](search-more-like-this.md)
+## Администрирование и аналитика
+### [Управление с помощью портала Azure](search-manage.md)
+### [Управление с помощью PowerShell](search-manage-powershell.md)
+### [Мониторинг использования и статистики](search-monitor-usage.md)
+### [Поиск в аналитике трафика](search-traffic-analytics.md)
+### [Производительность и оптимизация](search-performance-optimization.md)
 
 # Справочные материалы
 
