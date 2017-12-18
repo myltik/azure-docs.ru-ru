@@ -3,7 +3,7 @@ title: "Вызов модуля Runbook службы автоматизации 
 description: "В статье приведены общие сведения о том, как вызывать модуль Runbook службы автоматизации из оповещения Microsoft OMS Log Analytics."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 10b445f8fcaa80182119e47f37ffb11240a46869
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0c0b15f33a177afc70a3662c5bd008eb236ed0d6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>Вызов модуля Runbook службы автоматизации Azure из оповещения OMS Log Analytics
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="characteristics-of-a-runbook-for-both-options"></a>Характеристики модуля Runbook (для обоих способов)
 
-Оба метода вызова модуля Runbook из оповещения Log Analytics обладают характеристиками, которые необходимо изучить, прежде чем настраивать правила оповещения.
+Оба метода вызова модуля Runbook из оповещения Log Analytics обладают характеристиками, которые необходимо изучить, прежде чем настраивать правила оповещения. Данные оповещения передаются в формате json в одиночное свойство с именем **SearchResult**. Этот формат используется для действий, которые runbook и веб-перехватчик выполняют со стандартными полезными данными. Действию веб-перехватчика с пользовательскими полезными данными, в том числе **IncludeSearchResults:True** в **RequestBody**, соответствует свойство **SearchResults**.
 
 * Для модуля Runbook необходим входной параметр с именем **WebhookData** и типом **Object**. Этот параметр может быть обязательным или необязательным. С его помощью оповещение передает результаты поиска в модуль Runbook.
 
@@ -61,6 +61,7 @@ ms.lasthandoff: 12/06/2017
     ```
 
     Результаты поиска (*$SearchResult*) представляют собой массив объектов. Каждый объект содержит поля со значениями из одного результата поиска.
+
 
 ## <a name="example-walkthrough"></a>Пошаговое руководство по примеру
 
@@ -80,6 +81,9 @@ $SearchResult.SvcDisplayName_CF
 При остановке службы правило оповещения в Log Analytics обнаруживает совпадение, запускает модуль Runbook и отправляет в него контекст оповещения. Модуль Runbook проверяет, остановлена ли служба, и если это так, перезапустит службу, проверит корректность ее запуска и выведет результаты.     
 
 Если у вас нет учетной записи службы автоматизации, связанной с рабочей областью OMS, настройте правило оповещения так, чтобы объект Webhook запускал модуль Runbook. Кроме того, настройте для модуля Runbook преобразование строки в формате JSON и фильтрацию по \*.SearchResult\* согласно упомянутым выше инструкциям.    
+
+>[!NOTE]
+> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), полезные данные веб-перехватчика будут работать по-другому.  Подробные сведения о формате см. в документации [API REST Log Analytics Azure](https://aka.ms/loganalyticsapiresponse).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

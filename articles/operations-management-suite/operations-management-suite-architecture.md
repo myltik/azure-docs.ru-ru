@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb4e9150c1069d48399fb217f865b294ccd317dc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="oms-architecture"></a>Архитектура OMS
-[Operations Management Suite](https://azure.microsoft.com/documentation/services/operations-management-suite/) — это набор облачных служб для управления локальными и облачными средами.  В этой статье приводится описание различных локальных и облачных компонентов OMS, а также обобщенное описание архитектуры облачных вычислений.  Более подробные сведения см. в документации для каждой службы.
+[Operations Management Suite](https://azure.microsoft.com/documentation/services/operations-management-suite/) — это набор облачных служб для управления локальными и облачными средами.  В этой статье описаны различные локальные и облачные компоненты OMS, а также приведен обзор архитектуры облачных вычислений.  Более подробные сведения см. в документации для каждой службы.
 
 ## <a name="log-analytics"></a>Служба Log Analytics
-Все данные, собранные службой [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) , хранятся в репозитории OMS, размещаемом в среде Azure.  Подключенные источники создают данные, которые собираются и передаются в хранилище OMS.  На данный момент поддерживается три типа подключенных источников.
+Все данные, собранные службой [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), хранятся в репозитории OMS, который размещен в среде Azure.  Подключенные источники создают данные, которые собираются и передаются в хранилище OMS.  На данный момент поддерживается три типа подключенных источников.
 
-* Агент, установленный на компьютере с [Windows](../log-analytics/log-analytics-windows-agents.md) или [Linux](../log-analytics/log-analytics-linux-agents.md), подключенный напрямую к OMS.
-* Группа управления System Center Operations Manager (SCOM), [подключенная к Log Analytics](../log-analytics/log-analytics-om-agents.md) .  Агенты SCOM продолжают взаимодействовать с серверами управления, пересылающими события и данные производительности в службу Log Analytics.
+* Агент, установленный на компьютере с [Windows](../log-analytics/log-analytics-windows-agent.md) или [Linux](../log-analytics/log-analytics-linux-agents.md), подключенный напрямую к OMS.
+* Группа управления System Center Operations Manager (SCOM), [подключенная к Log Analytics](../log-analytics/log-analytics-om-agents.md) .  Агенты SCOM продолжают взаимодействовать с серверами управления, которые пересылают события и данные производительности в службу Log Analytics.
 * [Учетная запись хранения Azure](../log-analytics/log-analytics-azure-storage.md), выполняющая сбор данных [системы диагностики Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) из рабочей роли, веб-роли или с виртуальной машины в Azure.
 
 Источники данных определяют, какие данные Log Analytics будет собирать из подключенных источников, включая журналы событий и счетчики производительности.  Решения обеспечивают дополнительные функциональные возможности в OMS. Их можно добавить в рабочую область из [каталога решений OMS](../log-analytics/log-analytics-add-solutions.md).  Некоторые решения могут требовать наличия прямого подключения между службой Log Analytics и агентами SCOM, тогда как другие — установку дополнительного агента.
@@ -50,13 +50,13 @@ ms.lasthandoff: 10/11/2017
 
 Служба архивации Azure предполагает три основные сценария.
 
-* Компьютер Windows с агентом службы архивации Azure.  Этот сценарий позволяет выполнять архивацию файлов и папок из любой серверной или клиентской системы Windows непосредственно в хранилище архивации Azure.  
-* System Center Data Protection Manager (DPM) или сервер службы архивации Microsoft Azure. Этот сценарий позволяет использовать DPM или сервер службы архивации Microsoft Azure для архивации файлов и папок в дополнение к рабочим нагрузкам приложений, таких как SQL и SharePoint, в локальном хранилище с последующей репликацией в хранилище архивации Azure.
-* Расширения виртуальной машины Azure.  Этот сценарий позволяет выполнять архивацию виртуальных машин Azure в хранилище архивации Azure.
+* Компьютер Windows с агентом службы архивации Azure.  Этот сценарий позволяет создавать резервные копии файлов и папок из любой серверной или клиентской системы Windows непосредственно в хранилище резервных копий Azure.  
+* System Center Data Protection Manager (DPM) или Microsoft Azure Backup Server. Этот сценарий позволяет использовать DPM или Microsoft Azure Backup Server для резервного копирования файлов и папок в дополнение к рабочим нагрузкам приложений, таких как SQL и SharePoint, в локальном хранилище с последующей репликацией в хранилище резервных копий Azure.
+* Расширения виртуальной машины Azure.  Этот сценарий позволяет создавать резервные копии виртуальных машин Azure в хранилище резервных копий Azure.
 
 Служба архивации Azure включает решение OMS, которое выводит на экран статистические данные и ссылки для запуска портала Azure для всех операций.
 
-![Общая архитектура службы архивации Azure](media/operations-management-suite-architecture/backup.png)
+![Общая архитектура службы Azure Backup](media/operations-management-suite-architecture/backup.png)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) обеспечивает оркестрацию репликации, отработки отказа и восстановления виртуальных машин и физических серверов. Обмен данными репликации осуществляется между узлами Hyper-V, низкоуровневыми оболочками VMware и физическими серверами в основных и дополнительных центрах обработки данных, а также между центром обработки данных и хранилищем Azure.  Azure Site Recovery хранит метаданные в хранилищах, расположенных в определенном географическом регионе Azure. Эта служба не хранит реплицированные данные.

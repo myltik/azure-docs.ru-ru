@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 992c438ab2dac8dc20ba284bd095afbcd801a62f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 819af52bb10c9ffcb7e1133437f6d0afbe6105ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="hybrid-connections-overview"></a>Обзор гибридных подключений
 
@@ -90,12 +90,12 @@ ms.lasthandoff: 10/11/2017
 | 80, 443 |Эти порты используются для запросов данных в Azure. Если порты 9352 и 5671 недоступны, *то* в качестве резервных портов для обмена данными и управления используются порты 80 и 443.<br/><br/>Разрешите внешние подключения к этим портам. <br/><br/>**Примечание.** Не рекомендуется использовать эти резервные порты вместо других TCP-портов. HTTP/WebSocket используется в качестве протокола вместо собственного TCP-протокола для каналов данных. Это может привести к снижению производительности. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создание гибридных подключений и управление ими](integration-hybrid-connection-create-manage.md)<br/>
+[Создание гибридных подключений и управление ими](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>См. также
-[REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
-[Службы BizTalk: диаграмма выпусков](biztalk-editions-feature-chart.md)<br/>
-[Создание служб BizTalk с помощью портала Azure](biztalk-provision-services.md)<br/>
-[Просмотр вкладок "Панель мониторинга", "Монитор", "Масштаб", "Настройка" и "Гибридное подключение"](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[Службы BizTalk: диаграмма выпусков](biztalk-editions-feature-chart.md)  
+[Создание службы BizTalk](biztalk-provision-services.md)  
+[Службы BizTalk: вкладки «Панель мониторинга», «Монитор» и «Масштаб»](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

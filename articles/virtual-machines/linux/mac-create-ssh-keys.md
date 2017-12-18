@@ -4,7 +4,7 @@ description: "Сведения о создании и использовании
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 6fcdcc96c7762e2362aebf909ef25f4a5ab62f99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 806d297c40af6ae2834ad529aaa11c51d26826dd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Как создать и использовать пару из открытого и закрытого ключей SSH для виртуальных машин Linux в Azure
-С помощью пары ключей Secure Shell (SSH) в Azure можно создавать виртуальные машины, использующие ключи SSH для проверки подлинности, что позволяет обойтись без использования паролей для входа. В этой статье показано, как быстро создать и использовать пару файлов открытого и закрытого ключей в формате SSH-RSA для виртуальных машин Linux. Подробные инструкции и дополнительные примеры использования см. в [руководстве по созданию пары ключей SSH и сертификатов](create-ssh-keys-detailed.md).
+С помощью пары ключей Secure Shell (SSH) в Azure можно создавать виртуальные машины, использующие ключи SSH для проверки подлинности, что позволяет обойтись без использования паролей для входа. В этой статье показано, как быстро создать и использовать пару файлов открытого и закрытого ключей в формате SSH-RSA для виртуальных машин Linux. Эти шаги можно выполнить с помощью Azure Cloud Shell, узла macOS или Linux либо подсистемы Windows для Linux. Подробные инструкции и дополнительные примеры использования см. в [руководстве по созданию пары ключей SSH и сертификатов](create-ssh-keys-detailed.md).
 
 ## <a name="create-an-ssh-key-pair"></a>Создание пары ключей SSH
 Чтобы создать файлы открытого и закрытого ключей SSH, используйте команду `ssh-keygen`. По умолчанию они создаются в каталоге `~/.ssh`, но при появлении запроса вы можете указать другое расположение и дополнительную парольную фразу (пароль для доступа к файлу закрытого ключа). Выполните приведенную ниже команду, указав при появлении запросов собственные данные.

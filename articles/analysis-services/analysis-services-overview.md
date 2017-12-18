@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 12/08/2017
 ms.author: owend
-ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Службы Azure Analysis Services
 ![Службы Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -116,7 +116,7 @@ ms.lasthandoff: 12/06/2017
 ## <a name="supports-the-latest-client-tools"></a>Поддержка новых клиентских средств
 ![Визуализации данных](./media/analysis-services-overview/aas-overview-clients.png)
 
-Современные средства просмотра и визуализации данных, в том числе Power BI, Excel и сторонние инструменты, предоставляют пользователям интерактивные визуальные представления моделей данных для анализа.
+Поддерживаются все современные средства просмотра и визуализации данных, в том числе Power BI, Excel, SQL Server 2017 Reporting Services, а также инструменты сторонних производителей. Они предоставляют пользователям интерактивные визуальные представления моделей данных для анализа. 
 
 Для подключения к серверам Analysis Services клиенты используют такие [клиентские библиотеки](analysis-services-data-providers.md), как MSOLAP, AMO или ADOMD. Клиентские приложения Майкрософт, в частности Power BI Desktop и Excel, устанавливают все три клиентские библиотеки. Но помните, что в зависимости от версии или частоты обновлений, могут устанавливаться устаревшие, а не новые версии клиентских библиотек, необходимые для работы служб Azure Analysis Services. Это же касается и пользовательских приложений или других интерфейсов, таких как AsCmd, TOM, ADOMD.NET. Как правило, для этих приложений клиентские библиотеки нужно устанавливать вручную в составе пакета.
 

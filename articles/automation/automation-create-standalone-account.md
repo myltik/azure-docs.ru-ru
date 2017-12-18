@@ -3,7 +3,7 @@ title: "Создание автономной учетной записи слу
 description: "В этом руководстве приводятся пошаговые инструкции по созданию и тестированию, а также пример проверки подлинности с помощью субъекта безопасности в службе автоматизации Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Создание автономной учетной записи службы автоматизации Azure
 В этой статье вы узнаете, как создать учетную запись службы автоматизации на портале Azure, если для обеспечения расширенного мониторинга заданий Runbook требуется оценить и изучить службу автоматизации Azure, не включая дополнительные решения по управлению или интеграцию с OMS Log Analytics.  В дальнейшем эти решения по управлению можно добавить или интегрировать с Log Analytics.  С использованием учетной записи службы автоматизации можно проверять подлинность ресурсов управления модулями Runbook в Azure Resource Manager или в классическом развертывании Azure.
