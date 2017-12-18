@@ -27,17 +27,17 @@
 ### [Общие сведения об использовании зарезервированных экземпляров с соглашением о регистрации Azure Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Управление подписками
+### [Поиск подписок или групп управления](billing-enterprise-mgmt-grp-find.md)
 ### [Управление ролями администратора](billing-add-change-azure-subscription-administrator.md)
 ### [Передача прав владения подпиской](billing-subscription-transfer.md)
 ### [Повторная активация отключенной подписки](billing-subscription-become-disable.md)
 ### [Обновление бесплатной подписки](billing-upgrade-azure-subscription.md)
 ### [Переключение подписки на другое предложение](billing-how-to-switch-azure-offer.md)
+### [Привязка подписки Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [Отмена подписки](billing-how-to-cancel-azure-subscription.md)
-### [Поиск подписок или групп управления](billing-enterprise-mgmt-grp-find.md)
 ## Управление учетной записью
 ### [Изменение профиля](billing-how-to-change-azure-account-profile.md)
 ### [Обновление платежной информации](billing-how-to-change-credit-card.md)
-### [Привязывание клиента Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Оплата подписок по счету](billing-how-to-pay-by-invoice.md)
 ## [Управление зарезервированными экземплярами виртуальных машин](billing-manage-reserved-vm-instance.md)
 ## Устранение неполадок
