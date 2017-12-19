@@ -59,8 +59,6 @@
           items:
             - name: Подготовка рабочих нагрузок Azure Backup Server на портале Azure
               href: backup-azure-microsoft-azure-backup.md
-            - name: Подготовка рабочих нагрузок Azure Backup Server на классическом портале
-              href: backup-azure-microsoft-azure-backup-classic.md
             - name: Добавление хранилища для Azure Backup Server
               href: backup-mabs-add-storage.md
             - name: "Обновление Azure Backup Server до версии\_2"
@@ -89,8 +87,6 @@
               href: backup-azure-arm-vms-prepare.md
             - name: Согласованные с приложениями резервные копии виртуальных машин Linux
               href: backup-azure-linux-app-consistent.md
-            - name: Подготовка виртуальных машин Azure
-              href: backup-azure-vms-prepare.md
         - name: Планирование среды
           items:
             - name: Планирование инфраструктуры резервного копирования виртуальных машин
@@ -101,16 +97,12 @@
               href: backup-azure-arm-vms.md
             - name: Резервное копирование зашифрованных виртуальных машин
               href: backup-azure-vms-encryption.md
-            - name: Резервное копирование виртуальных машин Azure
-              href: backup-azure-vms.md
         - name: Контроль и мониторинг виртуальных машин
           items:
             - name: Управление резервным копированием виртуальных машин Azure на портале Azure
               href: backup-azure-manage-vms.md
             - name: Мониторинг оповещений о резервных копиях виртуальных машин Azure на портале Azure
               href: backup-azure-monitor-vms.md
-            - name: Управление резервным копированием виртуальных машин Azure и его мониторинг на классическом портале
-              href: backup-azure-manage-vms-classic.md
         - name: Восстановление данных с виртуальных машин
           items:
             - name: Восстановление файлов из резервных копий виртуальных машин Azure
@@ -119,8 +111,6 @@
               href: backup-azure-arm-restore-vms.md
             - name: Восстановление зашифрованных виртуальных машин
               href: backup-azure-vms-encryption.md
-            - name: Восстановление виртуальных машин в Azure
-              href: backup-azure-restore-vms.md
             - name: Восстановление ключа и секрета в Key Vault для зашифрованных виртуальных машин
               href: backup-azure-restore-key-secret.md
     - name: Настройка отчетов службы Azure Backup
@@ -135,8 +125,6 @@
       items:
         - name: Подготовка рабочих нагрузок DPM на портале Azure
           href: backup-azure-dpm-introduction.md
-        - name: Подготовка рабочих нагрузок DPM на классическом портале
-          href: backup-azure-dpm-introduction-classic.md
         - name: Резервное копирование Exchange Server с помощью System Center DPM
           href: backup-azure-backup-exchange-server.md
         - name: Восстановление данных на альтернативный сервер DPM
@@ -149,16 +137,10 @@
       items:
         - name: Виртуальные машины Azure на портале Azure
           href: backup-azure-vms-automation.md
-        - name: Виртуальные машины Azure на классическом портале
-          href: backup-azure-vms-classic-automation.md
         - name: DPM на портале Azure
           href: backup-dpm-automation.md
-        - name: DPM на классическом портале
-          href: backup-dpm-automation-classic.md
         - name: Windows Server на портале Azure
           href: backup-client-automation.md
-        - name: Windows Server на классическом портале
-          href: backup-client-automation-classic.md
     - name: База данных SQL Azure
       items:
         - name: Настройка долгосрочного хранения резервных копий
@@ -181,14 +163,6 @@
           href: backup-azure-restore-system-state.md
         - name: Управление хранилищами служб восстановления и их мониторинг
           href: backup-azure-manage-windows-server.md
-        - name: Резервное копирование и восстановление с помощью классического портала
-          items:
-            - name: 'Windows Server: использование классической модели развертывания'
-              href: backup-configure-vault-classic.md
-            - name: Управление хранилищами службы архивации с помощью классической модели развертывания
-              href: backup-azure-manage-windows-server-classic.md
-            - name: Восстановление файлов в Windows Server с использованием классической модели развертывания
-              href: backup-azure-restore-windows-server-classic.md
     - name: Хранилище служб восстановления
       items:
         - name: Обзор хранилищ служб восстановления
@@ -201,8 +175,6 @@
       items:
         - name: Неполадки резервного копирования виртуальных машин Azure на портале Azure
           href: backup-azure-vms-troubleshoot.md
-        - name: Неполадки резервного копирования виртуальных машин Azure на классическом портале
-          href: backup-azure-vms-troubleshoot-classic.md
         - name: 'Ошибка резервного копирования виртуальной машины Azure: "Не удалось запросить состояние моментального снимка в агенте ВМ. Истекло время ожидания для подзадачи моментального снимка ВМ"'
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Медленное резервное копирование файлов и папок в Azure Backup
