@@ -61,6 +61,9 @@
 
 ## [Масштабирование лаборатории](devtest-lab-scale-lab.md)
 
+## Интеграция с помощью непрерывной интеграции и доставки
+### [Интеграция лабораторий в конвейер VSTS или конвейер непрерывной интеграции и доставки](devtest-lab-integrate-ci-cd-vsts.md)
+
 # Справочные материалы
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)

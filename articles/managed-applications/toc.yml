@@ -6,11 +6,11 @@
       href: overview.md
 - name: Быстрое начало работы
   items:
-    - name: Создание управляемого приложения с помощью Azure CLI
+    - name: Создание управляемого приложения
       href: managed-apps-quickstart-cli.md
 - name: Учебники
   items:
-    - name: Создание приложения из каталога служб
+    - name: Создание файлов управляемого приложения
       href: publish-service-catalog-app.md
 - name: Примеры
   items:
@@ -26,7 +26,7 @@
       href: create-uidefinition-overview.md
     - name: Обновление управляемых ресурсов
       href: update-managed-resources.md
-    - name: Публикация приложения из каталога служб с помощью портала
+    - name: Публикация с помощью портала
       href: publish-portal.md
 - name: Справочные материалы
   items:

@@ -5,6 +5,7 @@
 ## [Конечные точки службы виртуальной сети](virtual-network-service-endpoints-overview.md)
 ## [Виртуальная сеть для служб Azure](virtual-network-for-azure-services.md)
 ## [Безопасность](security-overview.md)
+## [Работа с контейнерами в сети](container-networking.md)
 ## [Непрерывность бизнес-процессов](virtual-network-disaster-recovery-guidance.md)
 ## [Назначение IP-адресов](virtual-network-ip-addresses-overview-arm.md)
 ## [Защита от атак DDoS](ddos-protection-overview.md)

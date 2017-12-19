@@ -47,6 +47,8 @@
       href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
     - name: Аутентификация с помощью реестра
       href: container-registry-authentication.md
+    - name: Обновление классического реестра
+      href: container-registry-upgrade.md
     - name: Использование веб-перехватчиков ACR
       href: ./container-registry-webhook.md
 - name: Справочные материалы
