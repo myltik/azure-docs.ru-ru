@@ -24,6 +24,8 @@
   items:
     - name: планирование и разработка
       items:
+        - name: Параметры учетной записи хранения
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Планирование развертывания службы файлов Azure
           href: storage-files-planning.md
         - name: Как развернуть службу файлов Azure

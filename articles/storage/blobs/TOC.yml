@@ -72,10 +72,10 @@
   items:
     - name: планирование и разработка
       items:
+        - name: Параметры учетной записи хранения
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Репликация
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Параметры учетной записи хранения
-          href: storage-account-options.md
         - name: '"Горячий", "холодный" и архивный уровни данных'
           href: storage-blob-storage-tiers.md
         - name: Реагирование на события
