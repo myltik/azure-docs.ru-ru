@@ -33,6 +33,10 @@
           href: monitoring-overview-metrics.md
         - name: Оповещения
           href: monitoring-overview-alerts.md
+        - name: Оповещения (предварительная версия)
+          href: monitoring-overview-unified-alerts.md
+        - name: Оповещения журналов
+          href: monitor-alerts-unified-log.md
         - name: Autoscale
           href: monitoring-overview-autoscale.md
         - name: Журнал действий
@@ -74,6 +78,8 @@
           href: monitoring-near-real-time-metric-alerts.md
         - name: Настройка оповещений на портале Azure
           href: insights-alerts-portal.md
+        - name: Настройка метрик или оповещений журналов в службе оповещений (предварительная версия) на портале Azure
+          href: monitor-alerts-unified-usage.md
         - name: Настройка оповещений с помощью интерфейса командной строки
           href: insights-alerts-command-line-interface.md
         - name: Настройка оповещений с помощью Azure PowerShell

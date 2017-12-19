@@ -178,8 +178,10 @@
           href: release-notes-sprint-0.md
         - name: Спринт 1 — ноябрь 2017 г.
           href: release-notes-sprint-1.md
-        - name: "Спринт\_2 — декабрь 2017\_г."
+        - name: Спринт 2 — декабрь 2017 г.
           href: release-notes-sprint-2.md
+        - name: Исправление QFE для Sprint 2 — декабрь 2017 г.
+          href: release-notes-sprint-2.1.md
 - name: Ресурсы
   items:
     - name: Часто задаваемые вопросы
