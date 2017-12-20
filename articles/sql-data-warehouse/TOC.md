@@ -32,7 +32,7 @@
 
 ## Загрузка и перемещение данных
 ### [Обзор](design-elt-data-loading.md)
-### [Руководство](guidance-for-loading-data.md)
+### [Рекомендации по использованию хранилища данных SQL Azure](guidance-for-loading-data.md)
 
 
 ## Интеграция
