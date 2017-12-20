@@ -32,6 +32,7 @@
 ### [Активация лицензированных образов](devtest-lab-enable-licensed-images.md)
 ### [Добавление тегов к лаборатории](devtest-lab-add-tag.md)
 ### [Публикация объявлений в лаборатории](devtest-lab-announcements.md)
+### [Добавление сведений о поддержке в лабораторию](devtest-lab-internal-support-message.md)
 
 ## [Выбор пользовательского образа или формулы](devtest-lab-comparing-vm-base-image-types.md)
 
