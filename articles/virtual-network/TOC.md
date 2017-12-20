@@ -91,8 +91,7 @@
 #### Создание виртуальной машины с несколькими IP-адресами
 ##### [Портал Azure](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md)
-##### [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
+##### [Интерфейс командной строки Azure](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Шаблон](virtual-network-multiple-ip-addresses-template.md)
 
 #### [Создание виртуальной машины с ускоренной сетью](virtual-network-create-vm-accelerated-networking.md)

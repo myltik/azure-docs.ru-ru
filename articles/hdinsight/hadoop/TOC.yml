@@ -428,9 +428,6 @@
         - name: Доступ к журналам приложения YARN
           href: ../hdinsight-hadoop-access-yarn-app-logs.md
           maintainContext: true
-        - name: Использование Apache Phoenix и SQuirrel
-          href: ../hdinsight-hbase-phoenix-squirrel.md
-          maintainContext: true
         - name: Создание списка рекомендуемых к просмотру фильмов с использованием Mahout
           href: ../hdinsight-mahout.md
           maintainContext: true
