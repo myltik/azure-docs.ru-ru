@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/29/2017
 ms.author: cherylmc
 ms.openlocfilehash: 663e3cb35308b354c7221e34ac6fcfc8eda15f2a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Настройка подключения VPN-шлюза между виртуальными сетями с помощью Azure CLI
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/01/2017
 
 ### <a name="vnet-peering"></a>Пиринговая связь между виртуальными сетями
 
-Вы можете подключить виртуальные сети с помощью пиринга виртуальных сетей. При пиринге виртуальных сетей не используется VPN-шлюз и применяются другие ограничения. Кроме того, [цены на пиринг виртуальных сетей](https://azure.microsoft.com/pricing/details/virtual-network) рассчитываются не так, как [цены на VPN-шлюз для подключения "виртуальная сеть — виртуальная сеть"](https://azure.microsoft.com/pricing/details/vpn-gateway). Дополнительную информацию см. в статье [Пиринговая связь между виртуальными сетями](../virtual-network/virtual-network-peering-overview.md).
+Вы можете подключить виртуальные сети с помощью пиринга виртуальных сетей. При пиринге виртуальных сетей не используется VPN-шлюз и применяются другие ограничения. Кроме того, [цены на пиринг виртуальных сетей](https://azure.microsoft.com/pricing/details/virtual-network) рассчитываются не так, как [цены на VPN-шлюз "виртуальная сеть — виртуальная сеть"](https://azure.microsoft.com/pricing/details/vpn-gateway). Дополнительную информацию см. в статье [Пиринговая связь между виртуальными сетями](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why"></a>Зачем создавать подключение "виртуальная сеть — виртуальная сеть"
 
