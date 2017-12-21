@@ -25,7 +25,9 @@
 ## [Создание многоуровневого приложения служебной шины](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Практическое руководство
-## Планирование и проектирование
+## планирование и разработка
+### [Управляемые удостоверения службы (предварительная версия)](service-bus-managed-service-identity.md)
+### [Управление доступом на основе ролей (предварительная версия)](service-bus-role-based-access-control.md)
 ### [Обмен сообщениями: уровень "Премиум"](service-bus-premium-messaging.md)
 ### [Сравнение очередей Azure и очередей служебной шины](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Оптимизация производительности](service-bus-performance-improvements.md)

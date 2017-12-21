@@ -13,18 +13,21 @@
 ## [Создание модели на портале Azure (предварительная версия)](analysis-services-create-model-portal.md)
 
 # Инструкции 
-## [Управление сервером](analysis-services-manage.md)
-## [Управление пользователями баз данных](analysis-services-database-users.md)
-## [Управление администраторами сервера](analysis-services-server-admins.md)
-## [Отслеживание метрик службы](analysis-services-monitor.md)
 ## [Установка и настройка локального шлюза данных](analysis-services-gateway-install.md)
-## [Получение клиентских библиотек](analysis-services-data-providers.md)
 ## [Резервное копирование и восстановление](analysis-services-backup.md)
+## [Обновление с помощью REST API](analysis-services-async-refresh.md)
 ## [Настройка горизонтального масштабирования](analysis-services-scale-out.md)
-## [Настройка псевдонима имени сервера](analysis-services-server-alias.md)
-## [Подключение с помощью Excel](analysis-services-connect-excel.md)
-## [Подключение с помощью Power BI](analysis-services-connect-pbi.md)
-## [Создание ODC-файла](analysis-services-odc.md)
+## Управление сервером
+### [Настройка псевдонима имени сервера](analysis-services-server-alias.md)
+### [Управление сервером](analysis-services-manage.md)
+### [Управление пользователями баз данных](analysis-services-database-users.md)
+### [Управление администраторами сервера](analysis-services-server-admins.md)
+### [Отслеживание метрик службы](analysis-services-monitor.md)
+## Подключение
+### [Получение клиентских библиотек](analysis-services-data-providers.md)
+### [Подключение с помощью Excel](analysis-services-connect-excel.md)
+### [Подключение с помощью Power BI](analysis-services-connect-pbi.md)
+### [Создание ODC-файла](analysis-services-odc.md)
 ## Учебники
 ### [Руководство по Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 ### [Занятие 1. Создание нового проекта табличной модели](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)

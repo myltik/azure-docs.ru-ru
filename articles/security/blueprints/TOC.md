@@ -18,7 +18,8 @@
 ### [Управление в Azure](../governance-in-azure.md)
 ### [Шифрование неактивных данных](../azure-security-encryption-atrest.md)
 ### Проекты архитектуры
-#### [Соответствие стандарту PCI DSS](payment-processing-blueprint.md)
+#### Соответствие стандарту PCI DSS
+##### [Обработка платежей для PCI DSS-совместимых сред](payment-processing-blueprint.md)
 ##### [Обзор требований](pci-dss-requirements-overview.md)
 ##### [Требование 1. Брандмауэры](pci-dss-requirement-1-firewall.md)
 ##### [Требование 2. Пароли](pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Требование 10. Мониторинг](pci-dss-requirement-10-monitoring.md)
 ##### [Требование 11. Тестирование](pci-dss-requirement-11-testing.md)
 ##### [Требование 12. Политика безопасности](pci-dss-requirement-12-policy.md)
-#### [Соответствие требованиям FedRAMP](fedramp.md)
+#### Соответствие требованиям FedRAMP
+##### [Веб-приложения для FedRAMP](fedramp.md)
 ##### [Обзор средств управления безопасностью](fedramp-controls-overview.md)
 ##### [Контроль доступа](fedramp-access-controls.md)
 ##### [Аудит и система отчетности](fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [Защита системы и средств передачи данных](fedramp-system-communications-protection-controls.md)
 ##### [Защита целостности системы и данных](fedramp-system-information-integrity-controls.md)
 ##### [Приобретение информационных систем и служб](fedramp-system-services-acquisition-controls.md)
-#### [Соответствие требованиям для рабочих нагрузок, предназначенных для служебного пользования (Соединенное Королевство)](uk-official-three-tier-applications-overview.md)
+#### Соответствие требованиям к рабочим нагрузкам для служебного пользования (Соединенное Королевство)
+##### [Трехуровневые веб-приложения для служебного пользования (Соединенное Королевство)](uk-official-three-tier-applications-overview.md)
 ##### [Обзор](uk-official-three-tier-applications-overview.md)
 ##### [Обзор принципов безопасности](uk-official-three-tier-applications-principles-overview.md)
-#### [Соответствие — финансовые услуги](financial-services-regulated-workloads.md)
+#### Соответствие требованиям финансовых служб
 ##### [Финансовые услуги для контролируемых рабочих нагрузок](financial-services-regulated-workloads.md)
 
 # Начало работы

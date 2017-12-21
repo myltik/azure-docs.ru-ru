@@ -90,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: Использование автомасштабирования
       items:
+        - name: Основные сведения о параметрах автомасштабирования
+          href: monitoring-understanding-autoscale-settings.md
         - name: Рекомендации
           href: insights-autoscale-best-practices.md
         - name: Распространенные метрики

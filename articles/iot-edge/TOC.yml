@@ -38,6 +38,10 @@
           href: how-to-vscode-develop-csharp-module.md
         - name: 'Отладка модуля C#'
           href: how-to-vscode-debug-csharp-module.md
+        - name: Разработка и развертывание решения "Функции Azure"
+          href: how-to-vscode-develop-azure-function.md
+        - name: Отладка решения "Функции Azure"
+          href: how-to-vscode-debug-azure-function.md
     - name: Устранение неполадок
       href: troubleshoot.md
 - name: Основные понятия
