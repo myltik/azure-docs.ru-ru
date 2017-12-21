@@ -22,6 +22,8 @@
 
 # Практическое руководство
 ## планирование и разработка
+### [Управляемые удостоверения службы (предварительная версия)](event-hubs-managed-service-identity.md)
+### [Управление доступом на основе ролей (предварительная версия)](event-hubs-role-based-access-control.md)
 ### [Аварийное восстановление и георепликация](event-hubs-geo-dr.md)
 ### [Выделенные концентраторы событий](event-hubs-dedicated-overview.md)
 ### [Обзор модели аутентификации и безопасности](event-hubs-authentication-and-security-model-overview.md)

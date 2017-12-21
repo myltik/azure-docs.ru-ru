@@ -48,6 +48,10 @@
 ### [Общие сведения о решении подключенного производства](iot-suite-connected-factory-overview.md)
 ### [Инструкция по работе с решением для организации подключенного производства](iot-suite-connected-factory-sample-walkthrough.md)
 
+## Виртуальное устройство
+### [Развертывание имитации устройства](iot-suite-device-simulation-deploy.md)
+### [Просмотр имитации устройства](iot-suite-device-simulation-explore.md)
+
 # Практические руководства
 ## удаленный мониторинг;
 ### [Выполнение расширенного мониторинга](iot-suite-remote-monitoring-monitor.md)

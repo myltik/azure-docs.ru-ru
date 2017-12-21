@@ -17,6 +17,7 @@
 ### [Stream Analytics в IoT Edge (предварительная версия)](stream-analytics-edge.md)
 ### [Руководство по обнаружению аномалий в Azure (предварительная версия)](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Моделирование высокочастотного трейдинга с помощью Stream Analytics](stream-analytics-high-frequency-trading.md)
+### [Функции Azure с Azure Stream Analytics](stream-analytics-with-azure-functions.md)
 
 ## Создание заданий
 ### [Формирование входных данных](stream-analytics-define-inputs.md)
@@ -35,7 +36,7 @@
 
 ## Использование инструментов Visual Studio
 ### [Установка](stream-analytics-tools-for-visual-studio-install.md)
-### [Приступите к работе](stream-analytics-tools-for-visual-studio.md)
+### [Начало работы](stream-analytics-tools-for-visual-studio.md)
 ### [Настройка конвейеров CI/CD](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Мониторинг и оптимизация

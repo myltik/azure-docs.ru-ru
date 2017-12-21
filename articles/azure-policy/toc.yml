@@ -1,3 +1,5 @@
+- name: Документация по службе "Политика Azure"
+  href: index.yml
 - name: Обзор
   items:
     - name: Общие сведения о политике Azure

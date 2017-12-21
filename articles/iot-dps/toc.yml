@@ -36,7 +36,11 @@
 - name: Практические руководства
   items:
     - name: Управление регистрацией устройств
-      href: how-to-manage-enrollments.md
+      items:
+        - name: Управление регистрацией устройств с помощью портала Azure
+          href: how-to-manage-enrollments.md
+        - name: Управление регистрацией устройств с помощью пакетов SDK для служб
+          href: how-to-manage-enrollments-sdks.md
     - name: Использование HSM с пакетом SDK
       href: use-hsm-with-sdk.md
     - name: Управление доступом к службе подготовки

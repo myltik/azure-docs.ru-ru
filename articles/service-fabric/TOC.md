@@ -34,8 +34,6 @@
 ### [3. Обновление среды выполнения кластера](service-fabric-tutorial-upgrade-cluster.md)
 ### [4. Развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-
-
 # Примеры
 ## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=service-fabric)
 ## [Azure PowerShell](service-fabric-powershell-samples.md)
@@ -49,66 +47,61 @@
 ## [Архитектура](service-fabric-architecture.md)
 ## [Терминология](service-fabric-technical-overview.md)
 
-## Создание приложений и служб
-### [Поддерживаемые модели программирования](service-fabric-choose-framework.md)
-#### [Контейнеры](service-fabric-containers-overview.md)
-##### [Docker Compose (предварительная версия)](service-fabric-docker-compose.md)
-##### [Управление ресурсами](service-fabric-resource-governance.md)
-#### [Надежные службы](service-fabric-reliable-services-introduction.md)
-##### [Жизненный цикл Reliable Services (C#)](service-fabric-reliable-services-lifecycle.md)
-##### [Жизненный цикл Reliable Services (Java)](service-fabric-reliable-services-lifecycle-java.md)
-##### [Надежные коллекции](service-fabric-reliable-services-reliable-collections.md)
-##### [Reliable Collections: инструкции и рекомендации](service-fabric-reliable-services-reliable-collections-guidelines.md)
-##### [Работа с Reliable Collections](service-fabric-work-with-reliable-collections.md)
-##### [Транзакции и блокировки](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-##### [Надежная параллельная очередь](service-fabric-reliable-services-reliable-concurrent-queue.md)
-##### [Сериализация надежной коллекции](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Внутренние компоненты Reliable State Manager и Reliable Collections](service-fabric-reliable-services-reliable-collections-internals.md)
-##### [Расширенное использование](service-fabric-reliable-services-advanced-usage.md)
+## [Поддерживаемые модели программирования](service-fabric-choose-framework.md)
+### [Контейнеры](service-fabric-containers-overview.md)
+#### [Docker Compose (предварительная версия)](service-fabric-docker-compose.md)
+#### [Управление ресурсами](service-fabric-resource-governance.md)
+### [Надежные службы](service-fabric-reliable-services-introduction.md)
+#### [Жизненный цикл Reliable Services (C#)](service-fabric-reliable-services-lifecycle.md)
+#### [Жизненный цикл Reliable Services (Java)](service-fabric-reliable-services-lifecycle-java.md)
+#### [Надежные коллекции](service-fabric-reliable-services-reliable-collections.md)
+#### [Reliable Collections: инструкции и рекомендации](service-fabric-reliable-services-reliable-collections-guidelines.md)
+#### [Работа с Reliable Collections](service-fabric-work-with-reliable-collections.md)
+#### [Транзакции и блокировки](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+#### [Надежная параллельная очередь](service-fabric-reliable-services-reliable-concurrent-queue.md)
+#### [Сериализация надежной коллекции](service-fabric-reliable-services-reliable-collections-serialization.md)
+#### [Внутренние компоненты Reliable State Manager и Reliable Collections](service-fabric-reliable-services-reliable-collections-internals.md)
+#### [Расширенное использование](service-fabric-reliable-services-advanced-usage.md)
 
-#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-##### [Архитектура](service-fabric-reliable-actors-platform.md)
-##### [Жизненный цикл и сборка мусора](service-fabric-reliable-actors-lifecycle.md)
-##### [Управление данными о состоянии](service-fabric-reliable-actors-state-management.md)
-##### [Полиморфизм](service-fabric-reliable-actors-polymorphism.md)
-##### [Повторный вход](service-fabric-reliable-actors-reentrancy.md)
-##### [Сериализация типа](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+#### [Архитектура](service-fabric-reliable-actors-platform.md)
+#### [Жизненный цикл и сборка мусора](service-fabric-reliable-actors-lifecycle.md)
+#### [Управление данными о состоянии](service-fabric-reliable-actors-state-management.md)
+#### [Полиморфизм](service-fabric-reliable-actors-polymorphism.md)
+#### [Повторный вход](service-fabric-reliable-actors-reentrancy.md)
+#### [Сериализация типа](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
+## Приложения и службы
 ### [Модель приложения](service-fabric-application-model.md)
 ### [Манифесты приложений и служб](service-fabric-application-and-service-manifests.md)
 ### [Модель размещения](service-fabric-hosting-model.md)
 
-### Службы
-#### [Ресурсы службы](service-fabric-service-manifest-resources.md)
-#### [Состояние службы](service-fabric-concepts-state.md)
-#### [Секционирование службы](service-fabric-concepts-partitioning.md)
-#### [Доступность служб](service-fabric-availability-services.md)
-#### [Жизненный цикл реплики и экземпляра](service-fabric-concepts-replica-lifecycle.md)
-#### [Перенастройка](service-fabric-concepts-reconfiguration.md)
-#### [Взаимодействие служб](service-fabric-connect-and-communicate-with-services.md)
-##### [Служба DNS](service-fabric-dnsservice.md)
-##### [Обратный прокси-сервер](service-fabric-reverseproxy.md)
-##### [Настройка обратного прокси-сервера для безопасного подключения](service-fabric-reverseproxy-configure-secure-communication.md)
-##### [Диагностика обратного прокси-сервера](service-fabric-reverse-proxy-diagnostics.md)
+### [Состояние службы](service-fabric-concepts-state.md)
+### [Секционирование службы](service-fabric-concepts-partitioning.md)
 ### [Масштабируемость приложений](service-fabric-concepts-scalability.md)
-### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+### [Доступность служб](service-fabric-availability-services.md)
+### [Жизненный цикл реплики и экземпляра](service-fabric-concepts-replica-lifecycle.md)
+### [Перенастройка](service-fabric-concepts-reconfiguration.md)
 
-### [Планирование емкости приложения](service-fabric-capacity-planning.md)
+### [Взаимодействие служб](service-fabric-connect-and-communicate-with-services.md)
+#### [Служба DNS](service-fabric-dnsservice.md)
+#### [Обратный прокси-сервер](service-fabric-reverseproxy.md)
+#### [Настройка обратного прокси-сервера для безопасного подключения](service-fabric-reverseproxy-configure-secure-communication.md)
+#### [Диагностика обратного прокси-сервера](service-fabric-reverse-proxy-diagnostics.md)
+#### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-## [Управление приложениями](service-fabric-application-lifecycle.md)
-### [Обновление приложения](service-fabric-application-upgrade.md)
-#### [Конфигурация](service-fabric-visualstudio-configure-upgrade.md)
-#### [Параметры обновления приложений](service-fabric-application-upgrade-parameters.md)
-#### [Сериализация данных при обновлении приложения](service-fabric-application-upgrade-data-serialization.md)
-#### [Обновление приложения: более сложные темы](service-fabric-application-upgrade-advanced.md)
-### [Обзор анализа ошибок](service-fabric-testability-overview.md)
-### [Параметр ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
+### [Жизненный цикл приложения](service-fabric-application-lifecycle.md)
+#### [Обновление приложения](service-fabric-application-upgrade.md)
+##### [Конфигурация](service-fabric-visualstudio-configure-upgrade.md)
+##### [Параметры обновления приложений](service-fabric-application-upgrade-parameters.md)
+##### [Сериализация данных при обновлении приложения](service-fabric-application-upgrade-data-serialization.md)
+##### [Обновление приложения: более сложные темы](service-fabric-application-upgrade-advanced.md)
+#### [Тестирование приложений с помощью анализа сбоев](service-fabric-testability-overview.md)
+#### [Параметр ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
-## [Создание кластеров и управление ими](service-fabric-deploy-anywhere.md)
-### Планирование и подготовка
-#### [Планирование ресурсов](service-fabric-cluster-capacity.md)
-#### [Аварийное восстановление](service-fabric-disaster-recovery.md)
-### [Описание кластера](service-fabric-cluster-resource-manager-cluster-description.md)
+### [Ресурсы службы](service-fabric-service-manifest-resources.md)
+
+## [Кластеры](service-fabric-deploy-anywhere.md)
 ### [Безопасность кластера](service-fabric-cluster-security.md)
 ### [Различия между функциями Linux и Windows](service-fabric-linux-windows-differences.md)
 ### Кластеры в Azure
@@ -128,7 +121,7 @@
 #### [Регулирование](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Перемещение служб](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## Мониторинг и диагностика
+## Мониторинг и диагностика.
 ### [Приложения мониторинга и диагностики](service-fabric-diagnostics-overview.md)
 ### Создание событий
 #### [Создание событий на уровне платформы](service-fabric-diagnostics-event-generation-infra.md)
@@ -163,15 +156,30 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 ### [Настройка интерфейса командной строки Service Fabric](service-fabric-cli.md)
 
+## Планирование и подготовка
+### [Планирование емкости кластера](service-fabric-cluster-capacity.md)
+### [Планирование развертывания изолированного кластера](service-fabric-cluster-standalone-deployment-preparation.md)
+### [Подготовка к аварийному восстановлению](service-fabric-disaster-recovery.md)
+### [Планирование емкости приложения](service-fabric-capacity-planning.md)
+
+## Создайте первое...
+### [Приложение C# в Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+### [Приложение-контейнер Windows](service-fabric-get-started-containers.md)
+### [Приложение-контейнер Linux](service-fabric-get-started-containers-linux.md)
+### [C#-приложение Reliable Services в Windows](service-fabric-reliable-services-quick-start.md)
+### [Java-приложение Reliable Services в Linux](service-fabric-reliable-services-quick-start-java.md)
+### [C#-приложение Reliable Services в Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+### [C#-приложение Reliable Actors в Windows](service-fabric-reliable-actors-get-started.md)
+### [Java-приложение Reliable Actors в Linux](service-fabric-create-your-first-linux-application-with-java.md)
+### [Гостевое исполняемое приложение в Windows](quickstart-guest-app.md)
+### [Автономный кластер](service-fabric-get-started-standalone-cluster.md)
+
 ## Создание приложения
-### [Создание первого приложения C# в Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+
 ### Создание гостевой исполняемой службы
-#### [Размещение приложения Node.js в Windows](quickstart-guest-app.md)
 #### [Развертывание гостевого исполняемого файла](service-fabric-deploy-existing-app.md)
 #### [Развертывание нескольких пользовательских приложений](service-fabric-deploy-multiple-apps.md)
 ### Создание службы контейнеров
-#### [Создание приложения-контейнера Windows](service-fabric-get-started-containers.md)
-#### [Создание приложения-контейнера Linux](service-fabric-get-started-containers-linux.md)
 #### [Безопасность контейнеров](service-fabric-securing-containers.md)
 #### [Docker Compose (предварительная версия)](service-fabric-docker-compose.md)
 #### [Управление ресурсами для контейнеров и служб](service-fabric-resource-governance.md)
@@ -185,10 +193,6 @@
 ##### [Надежная параллельная очередь](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Сериализация надежной коллекции](service-fabric-reliable-services-reliable-collections-serialization.md)
 
-#### Начало работы
-##### [C# в Windows](service-fabric-reliable-services-quick-start.md)
-##### [Java в Linux](service-fabric-reliable-services-quick-start-java.md)
-##### [Создание приложения C# в Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 #### Обмен данными со службами
 ##### [Обмен данными с помощью Reliable Services](service-fabric-reliable-services-communication.md)
 
@@ -203,9 +207,6 @@
 #### [Резервное копирование и восстановление](service-fabric-reliable-services-backup-restore.md)
 
 ### Создание службы Reliable Actors
-#### Начало работы
-##### [C# в Windows](service-fabric-reliable-actors-get-started.md)
-##### [Субъект Java в Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Отправка уведомлений](service-fabric-reliable-actors-events.md)
 #### [Настройка таймеров и напоминаний](service-fabric-reliable-actors-timers-reminders.md)
 #### [Настройка KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
@@ -285,9 +286,7 @@
 #### [Удалить](service-fabric-cluster-delete.md)
 
 ### Изолированные кластеры
-#### [Планирование и подготовка развертывания](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Создание
-##### [Создание первого автономного кластера](service-fabric-get-started-standalone-cluster.md)
 ##### [Создание локальной среды](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Безопасное использование сертификатов](service-fabric-windows-cluster-x509-security.md)  
 ##### [Защита кластера с помощью системы безопасности Windows](service-fabric-windows-cluster-windows-security.md)
