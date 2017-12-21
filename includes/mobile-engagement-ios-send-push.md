@@ -3,7 +3,7 @@
 
 1. Перейдите на портал Служб мобильного взаимодействия. Убедитесь, что все правильно, и нажмите кнопку **Выполнить охват** внизу.
    
-    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 2. Щелкните станицу **Параметры** на портале Mobile Engagement. Выберите здесь раздел **Системное push-уведомление** , чтобы передать ваш сертификат P12:
    
     ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)

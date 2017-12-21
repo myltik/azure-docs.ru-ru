@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Интеграция политик безопасности центра безопасности со службой "Политика Azure"
 Используя сведения из этой статьи, можно настроить интеграцию политик безопасности центра безопасности Azure на базе службы "Политика Azure". 
@@ -39,14 +39,14 @@ ms.lasthandoff: 12/08/2017
 
 2. На панели мониторинга **Центр безопасности** в разделе **Общие** выберите **Security policy** (Политика безопасности).
 
-    ![Панель "Управление политикой"](./media/security-center-policies/security-center-policies-fig10.png)
+    ![Панель "Управление политикой"](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. Выберите подписку, для которой нужно включить политику безопасности.  
 
 4. В разделе **Компоненты политики** щелкните **Политика безопасности**.  
     Откроется окно **Основы**.
 
-    ![Компоненты политики](./media/security-center-policies/security-center-policies-fig12.png)
+    ![Компоненты политики](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. Чтобы удалить определение политики, в разделе **Policies and Parameters** (Политики и параметры) рядом с определением, которое нужно удалить, выберите **Удалить**.
 
@@ -57,12 +57,12 @@ ms.lasthandoff: 12/08/2017
 
     * Чтобы добавить определение политики, выберите знак плюс (+) рядом с определением.
 
-    ![Доступные определения политик](./media/security-center-policies/security-center-policies-fig11.png)
+    ![Доступные определения политик](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * Для получения подробной информации о политике выберите ее.  
     Откроется окно **предварительного просмотра** определения. В нем содержится описание определения и ссылка на код JSON, предоставляющий структуру [определения политики](../azure-policy/policy-definition.md).
 
-    ![Окно предварительного просмотра определения](./media/security-center-policies/security-center-policies-fig14.png)
+    ![Окно предварительного просмотра определения](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. После внесения изменений нажмите кнопку **Сохранить**.
 
