@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 10/02/2017
 ms.author: jroth
-ms.openlocfilehash: 787e696edd2a446bec280b763fe5ac591782c8ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Обзор SQL Server на виртуальных машинах Azure (Linux)
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 Выполнение SQL Server на виртуальной машине Azure — один из вариантов хранения реляционных данных в Azure. Вы также можете воспользоваться службой базы данных SQL Azure. Дополнительные сведения о выборе между SQL Server на виртуальных машинах или в базе данных SQL Azure см. в статье [Вы можете выбрать компонент SQL Server в облаке: база данных SQL Azure (PaaS) или SQL Server на виртуальных машинах Azure (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
-## <a name="create-a-new-sql-vm"></a>Создание виртуальной машины SQL
+## <a id="create"></a> Создание виртуальной машины SQL
 
 Пошаговое руководство по созданию виртуальной машины SQL см. в статье [Подготовка виртуальной машины SQL Server на базе Linux на портале Azure](provision-sql-server-linux-virtual-machine.md).
 

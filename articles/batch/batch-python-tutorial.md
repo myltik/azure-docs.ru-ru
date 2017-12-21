@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Приступая к работе с пакетом SDK пакетной службы для Python
 
@@ -148,7 +148,7 @@ if __name__ == '__main__':
 ```
 
 ## <a name="step-1-create-storage-containers"></a>Шаг 1. Создание контейнеров службы хранилища
-![Создание контейнеров в службе хранилища Azure][1]
+![Create containers in Azure Storage][1]
 <br/>
 
 Пакетная служба включает встроенную поддержку для взаимодействия со службой хранилища Azure. Контейнеры в учетной записи хранения предоставляют файлы, которые нужны для выполнения задач, запускаемых в вашей учетной записи пакетной службы. Контейнеры также предоставляют место для хранения выходных данных, создаваемых задачами. Сначала скрипт *python_tutorial_client.py* создает три контейнера в [хранилище BLOB-объектов Azure](../storage/common/storage-introduction.md#blob-storage):
@@ -186,7 +186,7 @@ blob_client.create_container(OUTPUT_CONTAINER_NAME, fail_on_exist=False)
 >
 
 ## <a name="step-2-upload-task-script-and-data-files"></a>Шаг 2. Отправка сценария задач и файлов данных
-![Отправка файлов приложения и входных данных в контейнеры][2]
+![Upload task application and input (data) files to containers][2]
 <br/>
 
 Во время отправки файлов скрипт *python_tutorial_client.py* сначала определяет коллекции путей к файлам **application** и **input** на локальном компьютере. Затем оно отправляет эти файлы в контейнеры, созданные в рамках предыдущего шага.
@@ -280,7 +280,7 @@ def upload_file_to_container(block_blob_client, container_name, path):
 >
 
 ## <a name="step-3-create-batch-pool"></a>Шаг 3. Создание пула пакетной службы
-![Создание пула пакетной службы][3]
+![Create a Batch pool][3]
 <br/>
 
 **Пул** пакетной службы — это коллекция вычислительных узлов (виртуальных машин), на которых пакетная служба выполняет задачи задания.
@@ -493,7 +493,7 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
 
 ## <a name="step-6-monitor-tasks"></a>Шаг 6. Мониторинг задач
 ![Мониторинг задач][6]<br/>
-*Скрипт (1) выполняет мониторинг задач и состояния их выполнения, а задачи (2) отправляют данные результатов в службу хранилища Azure*
+*Скрипт (1) выполняет мониторинг задач и состояние их выполнения, а задачи (2) отправляют данные результатов в службу хранилища Azure*
 
 Добавленные в задание задачи автоматически выстраиваются в очередь и планируются для выполнения на вычислительных узлах пула, связанного с заданием. Пакетная служба обрабатывает постановку задач в очередь, их планирование извлечение и другие задачи администрирования с учетом указанных вами параметров.
 
