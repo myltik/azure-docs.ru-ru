@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 09/04/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 639f008eea61b973b9d32dc734d42d5c4e93e924
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 954afd6d47f9bccdd2512ab92ba0d416231fb623
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Архивация виртуальных машин Azure в хранилище служб восстановления
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 
 Дополнительные сведения о защите виртуальных машин хранилища класса Premium см. в разделе [Использование службы архивации Azure для виртуальных машин хранилища класса "Премиум"](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Дополнительные сведения о поддержке для виртуальных машин, запущенных на управляемых дисках, см. в разделе [Использование службы архивации Azure для виртуальных машин, запущенных на управляемых дисках](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Дополнительные сведения о платформе для резервного копирования виртуальных машин Linux с помощью платформы для предварительного и последующего выполнения скриптов см. в статье о [согласованном с состоянием приложений резервном копировании виртуальных машин Azure Linux (предварительная версия)] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Дополнительные сведения об объектах резервного копирования см. [здесь](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+Дополнительные сведения об объектах резервного копирования см. [здесь](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 > [!NOTE]
 > В этом руководстве предполагается, что в вашей подписке Azure уже есть виртуальная машина. Кроме того, вам нужно предоставить службе архивации доступ к виртуальной машине.

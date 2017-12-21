@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 83f751c6b5e44705509804e6872bb16d7c2e1d18
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Приступая к созданию решений с помощью клиентской библиотеки пакетной службы для .NET
 
@@ -124,7 +124,7 @@ private const string StorageAccountKey  = "";
 Перейдите в начало метода `MainAsync` в файле `Program.cs` проекта *DotNetTutorial*, чтобы начать с шага 1. Каждый из шагов ниже в целом соответствует последовательности вызовов методов в `MainAsync`.
 
 ## <a name="step-1-create-storage-containers"></a>Шаг 1. Создание контейнеров службы хранилища
-![Создание контейнеров в службе хранилища Azure][1]
+![Create containers in Azure Storage][1]
 <br/>
 
 Пакетная служба включает встроенную поддержку для взаимодействия со службой хранилища Azure. Контейнеры в учетной записи хранения предоставляют файлы, которые нужны для выполнения задач, запускаемых в вашей учетной записи пакетной службы. Контейнеры также предоставляют место для хранения выходных данных, создаваемых задачами. Сначала клиентское приложение *DotNetTutorial* создает три контейнера в [хранилище BLOB-объектов Azure](../storage/common/storage-introduction.md).
@@ -192,7 +192,7 @@ private static async Task CreateContainerIfNotExistAsync(
 >
 
 ## <a name="step-2-upload-task-application-and-data-files"></a>Шаг 2. Отправка приложения задач и файлов данных
-![Отправка файлов приложения и входных данных в контейнеры][2]
+![Upload task application and input (data) files to containers][2]
 <br/>
 
 Во время отправки файлов приложение *DotNetTutorial* сначала определяет коллекции путей к файлам **application** и **input** на локальном компьютере. Затем оно отправляет эти файлы в контейнеры, созданные в рамках предыдущего шага.
@@ -290,7 +290,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 >
 
 ## <a name="step-3-create-batch-pool"></a>Шаг 3. Создание пула пакетной службы
-![Создание пула пакетной службы][3]
+![Create a Batch pool][3]
 <br/>
 
 **Пул** пакетной службы — это коллекция вычислительных узлов (виртуальных машин), на которых пакетная служба выполняет задачи задания.
