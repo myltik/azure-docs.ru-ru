@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: подключенная служба Visual Studio (предварительная версия)
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 Убедитесь, что у вас есть указанные ниже компоненты.
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
-* Учетная запись Azure Cosmos DB. Если у вас еще нет этой учетной записи, см. инструкции по [ созданию учетной записи Azure Cosmos DB с помощью портала Azure](create-documentdb-dotnet.md). Или см. инструкции по [созданию учетной записи Azure Cosmos DB в средстве подключенной службы](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
+* Учетная запись Azure Cosmos DB. Если у вас еще нет этой учетной записи, см. инструкции по [ созданию учетной записи Azure Cosmos DB с помощью портала Azure](create-sql-api-dotnet.md). Или см. инструкции по [созданию учетной записи Azure Cosmos DB в средстве подключенной службы](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
 * Если вы хотите использовать локальную среду для разработки, можно использовать [эмулятор Azure Cosmos DB](local-emulator.md). Среда эмулирует службу Azure Cosmos DB.
 * [Visual Studio](http://www.visualstudio.com/)
 * Последняя версия подключенной службы Azure Cosmos DB. Скачайте подключенную службу Azure Cosmos DB из Visual Studio Marketplace, как показано на следующем снимке экрана. Откройте **Visual Studio** на компьютере. В меню **Средства** выберите **Расширения и обновление...**, а затем — **В сети** / **Visual Studio Marketplace**. Для поиска службы введите запрос **cosmosdb**.
@@ -119,8 +119,8 @@ ms.lasthandoff: 12/11/2017
 
 Теперь, когда подключенные службы работают в учетной записи Azure Cosmos DB, ознакомьтесь с одним из руководств, чтобы начать разработку решения:
 
-* [Разработка с помощью API SQL на .NET](tutorial-develop-documentdb-dotnet.md).
-* [Azure Cosmos DB. Приступая к работе с API SQL](documentdb-get-started.md).
+* [Разработка с помощью API SQL на .NET](tutorial-develop-sql-api-dotnet.md).
+* [Azure Cosmos DB. Приступая к работе с API SQL](sql-api-get-started.md).
 * Хотите выполнять проверку масштабирования и производительности с помощью Azure Cosmos DB? См. инструкции по [проверке производительности и масштабирования с помощью Azure Cosmos DB](performance-testing.md).
 * Узнайте, как выполнять [мониторинг учетной записи Azure Cosmos DB](monitor-accounts.md).
 
