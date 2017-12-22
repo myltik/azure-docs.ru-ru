@@ -2,9 +2,12 @@
 ## [Что такое наборы масштабирования виртуальных машин?](virtual-machine-scale-sets-overview.md)
 
 # Начало работы
-## [Развертывание масштабируемого набора с помощью портала Azure](virtual-machine-scale-sets-portal-create.md)
-## [Развертывание масштабируемого набора с помощью PowerShell или Azure CLI](virtual-machine-scale-sets-create.md)
-## [Развертывание приложения автомасштабирования с помощью шаблона](virtual-machine-scale-sets-deploy-scaling-app-template.md)
+## [Создание с помощью портала Azure](virtual-machine-scale-sets-create-portal.md)
+## [Создание с помощью Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)
+## [Создание с помощью Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+## Создание с помощью шаблона
+### [Масштабируемый набор Linux](virtual-machine-scale-sets-create-template-linux.md)
+### [Масштабируемый набор Windows](virtual-machine-scale-sets-create-template-windows.md)
 
 # Практическое руководство
 ## Планирование и проектирование
@@ -17,9 +20,7 @@
 ### [Автоматическое масштабирование на основе метрик гостевой виртуальной машины с помощью шаблона масштабируемого набора Linux](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Развернуть
-### [Создание с помощью портала Azure](virtual-machine-scale-sets-portal-create.md)
 ### [Создание с помощью Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Создание с помощью Azure PowerShell или Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Масштабируемый набор с управляемыми дисками](virtual-machine-scale-sets-managed-disks.md)
 ### [Автоматическое масштабирование масштабируемого набора](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Использование портала Azure](virtual-machine-scale-sets-autoscale-portal.md)
