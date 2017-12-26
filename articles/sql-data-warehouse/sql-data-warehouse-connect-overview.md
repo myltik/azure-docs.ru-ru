@@ -13,23 +13,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: anvang;barbkess;kevin
+ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Подключение к хранилищу данных SQL Azure
 Эта статья поможет вам установить первое подключение к хранилищу данных SQL.
 
 ## <a name="find-your-server-name"></a>Поиск имени сервера
-Чтобы подключиться к хранилищу данных SQL, прежде всего нужно знать, как найти имя вашего сервера.  Например, имя сервера в следующем примере — sample.database.windows.net. Чтобы найти полное имя сервера, сделайте следующее.
+Чтобы подключиться к хранилищу данных SQL, прежде всего нужно знать, как найти имя вашего сервера.  Например, имя сервера в следующем примере — samplesvr.database.windows.net. Чтобы найти полное имя сервера, сделайте следующее.
 
 1. Перейдите на [портал Azure][Azure portal].
-2. Щелкните **Базы данных SQL** 
-3. Щелкните базу данных, к которой вы хотите подключиться.
+2. Щелкните **Хранилища данных SQL**.
+3. Щелкните хранилище данных, к которому вы хотите подключиться.
 4. Найдите полное имя сервера.
    
     ![Полное имя сервера][1]
@@ -93,6 +93,6 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 

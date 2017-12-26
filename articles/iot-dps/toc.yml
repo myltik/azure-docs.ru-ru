@@ -37,10 +37,14 @@
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
         - name: X.509
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
+            - name: Node.js
+              href: quick-enroll-device-x509-node.md
 - name: Учебники
   items:
     - name: 1. Настройка облачных ресурсов
@@ -67,6 +71,8 @@
           href: how-to-manage-enrollments.md
         - name: Управление регистрацией устройств с помощью пакетов SDK для служб
           href: how-to-manage-enrollments-sdks.md
+    - name: Отмена доступа к устройству
+      href: how-to-revoke-device-access-portal.md
     - name: Использование HSM с пакетом SDK
       href: use-hsm-with-sdk.md
     - name: Управление доступом к службе подготовки
