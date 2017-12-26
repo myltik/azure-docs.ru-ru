@@ -79,6 +79,8 @@
           href: concepts-on-premises-to-azure-networking.md
         - name: Настройка назначения IP-адресов для доступа на дополнительный сайт после отработки отказа
           href: concepts-on-premises-to-on-premises-networking.md
+        - name: Управление сетевым интерфейсом в локальной среде для сценариев Azure
+          href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Аварийное восстановление
       items:
         - name: Виртуальных машин Hyper-V в Azure

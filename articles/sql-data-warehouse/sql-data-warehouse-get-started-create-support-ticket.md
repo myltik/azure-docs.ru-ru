@@ -15,69 +15,52 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: 058ff1229acee5d03db7c0305c5565ae95a85758
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66aa12431e39ce295ce76411693bd20535a5c70c
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Создание запроса в службу поддержки для хранилища данных SQL
-Если у вас возникли проблемы с хранилищем данных SQL, создайте запрос в службу поддержки, чтобы получить помощь от нашей команды разработчиков.
-
-> [!NOTE] 
-> Начиная с 20.12.2016 результаты проверки работоспособности ресурса на портале Azure не точны. Мы активно работаем над устранением этой проблемы. 
-
+Если у вас возникли проблемы с хранилищем данных SQL, создайте запрос в службу поддержки, чтобы получить помощь от нашей службы поддержки разработчиков.
 
 ## <a name="create-a-support-ticket"></a>Создание запроса в службу поддержки
 1. Откройте [портал Azure][Azure portal].
-2. На начальном экране щелкните элемент **Справка + поддержка** .
+2. На начальном экране выберите вкладку **Справка и поддержка**.
    
-    ![Справка + поддержка](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
-3. В колонке «Справка + поддержка» щелкните **Создать запрос на техническую поддержку**.
+    ![Справка + поддержка](./media/sql-data-warehouse-get-started-create-support-ticket/MainPage.PNG)
+3. В колонке "Справка и поддержка" щелкните **Новый запрос на поддержку** и заполните колонку **Основные сведения**.
+
+   Выберите свой [план поддержки Azure][Azure support plan].
    
-    ![Новый запрос на техническую поддержку](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
-   
-    <a name="request-quota-change"></a> 
-4. Выберите **Тип запроса**.
-   
-    ![Тип запроса](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
-   
-   > [!NOTE]
-   > По умолчанию для каждого экземпляра SQL Server (например, myserver.database.windows.net) предусмотрена следующая **квота на DTU**: 45 000. Эта квота является просто ограничением для безопасности. Вы можете увеличить квоту, отправив запрос в службу поддержки и указав *Квота* в качестве типа запроса. Чтобы вычислить потребности в DTU, умножьте 7,5 на общее необходимое количество [DWU][DWU]. Например, вы хотите разместить две базы данных DW6000 на одном сервере SQL Server. Следует запросить квоту DTU 90 000.  Текущее потребление DTU можно просмотреть в колонке SQL Server на портале. В рамках квоты DTU учитываются как приостановленные базы данных, так и базы данных с отменой приостановки. 
-   > 
-   > 
-5. Выберите **подписку** , в которой размещена база данных с соответствующей проблемой.
-   
-    ![подписку](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
-6. Выберите **хранилище данных SQL** в качестве ресурса.
-   
-    ![Ресурс](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
-7. Выберите свой [план поддержки Azure][Azure support plan].
-   
-   * **вопросам, связанным с выставлением счетов, квотами и управлением подпиской** , доступна на всех уровнях.
-   * Поддержка по **замене или ремонту** обеспечивается на уровнях [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct] и [Premier][Premier]. Проблемы характера «замена или ремонт» — это возникающие при использовании Azure проблемы, относительно которых имеются обоснованные предположения, что их причиной стала корпорация Майкрософт.
+   * Поддержка по **вопросам, связанным с выставлением счетов, квотами и управлением подпиской**, доступна на всех уровнях.
+   * Поддержка по **замене или ремонту** обеспечивается на уровнях [Разработка][Developer], [Стандартный][Standard], [Professional Direct][Professional Direct] и [Premier][Premier]. Проблемы характера «замена или ремонт» — это возникающие при использовании Azure проблемы, относительно которых имеются обоснованные предположения, что их причиной стала корпорация Майкрософт.
    * Услуги **обучения** и **консультирования разработчиков** доступны на уровнях поддержки [Professional Direct][Professional Direct] и [Premier][Premier]. 
      
      При наличии плана поддержки Premier можно также создавать отчеты по проблемам с хранилищем данных SQL на [портале Microsoft Premier][Microsoft Premier online portal].  Дополнительные сведения о доступной поддержке, включая области действия, время ответа, цены и т. д., см. на странице [планов поддержки Azure][Azure support plan].  Часто задаваемые вопросы о поддержке Azure см. на [этой странице][Azure support FAQs].  
-     
-     ![План поддержки](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-8. Выберите **Тип проблемы** и **Категория**. В этом примере мы выбрали "Средства" в качестве типа проблемы и "Средства клиента" в качестве категории. 
+        
+    ![Колонка "Основные сведения"](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
+    ![колонка1 "Основные сведения"](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
+4. Заполните колонку **Проблема**.
+    ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
-    ![Категория типов проблем](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
-9. Опишите неполадку и выберите уровень влияния на бизнес.
+   > [!NOTE]
+   > По умолчанию для каждого экземпляра SQL Server (например, myserver.database.windows.net) предусмотрена следующая **квота на DTU**: 45 000. Эта квота является просто ограничением для безопасности. Вы можете увеличить квоту, отправив запрос в службу поддержки и указав *Квота* в качестве типа запроса. Чтобы вычислить потребности в DTU, умножьте 7,5 на общее необходимое количество [DWU][DWU]. Например, вы хотите разместить две базы данных DW6000 на одном сервере SQL Server. Следует запросить квоту DTU 90 000.  Текущее потребление DTU можно просмотреть в колонке SQL Server на портале. В рамках квоты DTU учитываются как приостановленные, так и активные базы данных. 
+   > 
+   > 
    
-    ![Описание проблемы](./media/sql-data-warehouse-get-started-create-support-ticket/problem-description.png)
-10. Ваши **контактные данные** для этого запроса в службу поддержки будут заполнены предварительно. При необходимости обновите их.
+5. Введите **контактные данные**.
+![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
+
     
-    ![Контактные данные](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
-11. Щелкните **Создать** , чтобы отправить запрос в службу поддержки.
+6. Щелкните **Создать** , чтобы отправить запрос в службу поддержки.
 
 ## <a name="monitor-a-support-ticket"></a>Мониторинг запроса в службу поддержки
-После отправки запроса с вами свяжется представитель службы поддержки Azure. Чтобы проверить состояние запроса и сведения о нем, щелкните **Управление запросами на поддержку** на панели мониторинга.
+После отправки запроса с вами свяжется представитель службы поддержки Azure. Чтобы проверить состояние запроса и сведения о нем, щелкните **Все запросы на поддержку** на панели мониторинга.
 
-![Проверка состояния](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
+![Проверка состояния](./media/sql-data-warehouse-get-started-create-support-ticket/Monitor_ticket.PNG)
 
-## <a name="other-resources"></a>Другие ресурсы
+## <a name="other-resources"></a>Другие ресурсы:
 Кроме того, вы можете присоединиться к сообществу пользователей хранилища данных SQL на странице [Stack Overflow][Stack Overflow] или обратиться на [форум MSDN, посвященный хранилищу данных SQL Azure][Azure SQL Data Warehouse MSDN forum].
 
 <!--Image references--> 

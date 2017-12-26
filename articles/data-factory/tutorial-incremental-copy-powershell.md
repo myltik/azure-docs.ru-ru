@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: 0b05971b5ab8ec3fd14dd4ce14d07df478e1dcc9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5317e2426111a813960db462ac6d6ab3980d0e00
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Пошаговая загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure
-В этом руководстве вы создадите фабрику данных Azure с конвейером, который копирует разностные данные из таблицы в базе данных SQL Azure в хранилище BLOB-объектов Azure. 
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Пошаговая загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure
+В этом руководстве вы создадите фабрику данных Azure с конвейером, который загружает разностные данные из таблицы в базе данных SQL Azure в хранилище BLOB-объектов Azure. 
 
 
 > [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, ознакомьтесь с [документацией по фабрике данных версии 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Эта статья относится к версии 2 фабрики данных Azure, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, ознакомьтесь с [документацией по фабрике данных версии 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 
 В этом руководстве вы выполните следующие шаги:
 
 > [!div class="checklist"]
-> * Подготовите хранилище данных для хранения значений предела.   
+> * Подготовите хранилище данных для хранения значений предела.
 > * Создадите фабрику данных.
 > * создание связанных служб. 
-> * Создадите наборы данных источника, приемника и предела.
-> * Создадите конвейер.
+> * Создание наборов данных источника, приемника и предела.
+> * Создали конвейер.
 > * Запустили конвейер.
 > * Выполнение мониторинга выполнения конвейера. 
 
 ## <a name="overview"></a>Обзор
-Ниже приведена общая схема решения: 
+Ниже приведена общая схема решения. 
 
 ![Пошаговая загрузка данных](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
 
@@ -47,27 +47,30 @@ ms.lasthandoff: 12/06/2017
 
 1. **Выберите столбец для предела.**
     Выберите один столбец в исходном хранилище данных, который можно использовать для создания среза новых или обновленных записей при каждом запуске. Как правило, данные в этом выбранном столбце (например, последнее_время_изменения или идентификатор) продолжают увеличиваться по мере создания или обновления строк. В качестве предела используется максимальное значение в этом столбце.
+
 2. **Подготовьте хранилище данных для хранения значений предела.**   
-    В этом руководстве сохраните значение предела в базе данных SQL Azure.
-3. **Создайте конвейер, используя следующий рабочий процесс:** 
+    В этом руководстве вы сохраните значение предела в базе данных SQL.
+    
+3. **Создайте конвейер, используя следующий рабочий процесс**: 
     
     Конвейер в этом решении содержит следующие действия:
   
-    1. Создание двух действий **поиска**. Используйте первое действие поиска для получения последнего значения предела, а второе для получения нового значения предела. Эти значения предела передаются в действие копирования. 
-    2. Создание **действия копирования**, копирующего строки из исходного хранилища данных со значениями столбцов предела, которые выше значений старого предела и меньше значений нового. Затем оно копирует разностные данные из исходного хранилища данных в хранилище BLOB-объектов в качестве нового файла. 
-    3. Создание **действия хранимой процедуры**, которое обновляет значения предела для конвейера при последующем выполнении. 
+    * Создайте два действия поиска. Используйте первое действие поиска для получения последнего значения предела, а второе для получения нового значения предела. Эти значения передаются в действие копирования. 
+    * Создайте действие копирования, копирующее строки из исходного хранилища данных со значениями столбцов предела, которые выше значений старого предела и меньше значений нового. Затем оно копирует разностные данные из исходного хранилища данных в хранилище BLOB-объектов в качестве нового файла. 
+    * Создайте действие хранимой процедуры, которое обновляет значение предела для конвейера при последующем выполнении. 
 
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
 ## <a name="prerequisites"></a>Предварительные требования
-* **База данных SQL Azure**. Используйте базу данных как **исходное** хранилище данных. Если у вас нет базы данных SQL Azure, вы можете создать ее, выполнив шаги из статьи [Создание базы данных SQL Azure на портале Azure](../sql-database/sql-database-get-started-portal.md).
-* **Учетная запись хранения Azure.** В этом руководстве в качестве **приемника** будет использоваться хранилище BLOB-объектов. Если у вас нет учетной записи хранения Azure, ознакомьтесь с разделом [Создание учетной записи хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account). Создайте контейнер с именем **adftutorial**. 
-* **Azure PowerShell**. Следуйте инструкциям по [установке и настройке Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* **База данных SQL Azure**. Используйте базу данных как исходное хранилище данных. Если у вас нет базы данных SQL, создайте ее, следуя указаниям в статье [Создание базы данных SQL Azure на портале Azure](../sql-database/sql-database-get-started-portal.md).
+* **Хранилище Azure.** В этом руководстве в качестве приемника будет использоваться хранилище BLOB-объектов. Если у вас нет учетной записи хранения, создайте ее, следуя действиям в разделе [Создание учетной записи хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account). Создайте контейнер с именем adftutorial. 
+* **Azure PowerShell**. Следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Создание таблицы источника данных в базе данных SQL Azure
-1. Откройте **SQL Server Management Studio**. В **обозревателе сервера** щелкните правой кнопкой мыши базу данных и выберите **Создать запрос**.
-2. Выполните указанную ниже команду SQL для базы данных SQL Azure, чтобы создать таблицу с именем `data_source_table` в качестве хранилища источника данных.  
+### <a name="create-a-data-source-table-in-your-sql-database"></a>Создание таблицы источника данных в базе данных SQL
+1. Откройте среду SQL Server Management Studio. В **обозревателе сервера** щелкните правой кнопкой мыши базу данных и выберите **Создать запрос**.
+
+2. Выполните указанную ниже команду SQL для базы данных SQL, чтобы создать таблицу с именем `data_source_table` в качестве хранилища источника данных. 
     
     ```sql
     create table data_source_table
@@ -86,7 +89,7 @@ ms.lasthandoff: 12/06/2017
     (4, 'dddd','9/4/2017 3:21:00 AM'),
     (5, 'eeee','9/5/2017 8:06:00 AM');
     ```
-    В этом руководстве в качестве столбца **предела** мы будем использовать **LastModifytime**.  В следующей таблице показаны данные в хранилище источника данных:
+    В этом руководстве в качестве столбца предела мы будем использовать LastModifytime. В следующей таблице показаны данные в хранилище источника данных.
 
     ```
     PersonID | Name | LastModifytime
@@ -98,8 +101,8 @@ ms.lasthandoff: 12/06/2017
     5 | eeee | 2017-09-05 08:06:00.000
     ```
 
-### <a name="create-another-table-in-sql-database-to-store-the-high-watermark-value"></a>Создание дополнительной таблицы в базе данных SQL для хранения значения верхнего предела
-1. Выполните указанную ниже команду SQL для базы данных SQL Azure, чтобы создать таблицу с именем `watermarktable` для хранения значения предела.  
+### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Создание дополнительной таблицы в базе данных SQL для хранения значения верхнего предела
+1. Выполните указанную ниже команду SQL для базы данных SQL, чтобы создать таблицу с именем `watermarktable` для хранения значения предела.  
     
     ```sql
     create table watermarktable
@@ -109,13 +112,13 @@ ms.lasthandoff: 12/06/2017
     WatermarkValue datetime,
     );
     ```
-3. Задайте **значение по умолчанию** верхнего предела, используя имя таблицы исходного хранилища данных.  (В этом руководстве используется таблица с именем **data_source_table**.)
+2. Задайте значение по умолчанию верхнего предела, используя имя таблицы исходного хранилища данных. В этом руководстве используется таблица с именем data_source_table.
 
     ```sql
     INSERT INTO watermarktable
     VALUES ('data_source_table','1/1/2010 12:00:00 AM')    
     ```
-4. Просмотрите данные в таблице `watermarktable`.
+3. Просмотрите данные в таблице `watermarktable`.
     
     ```sql
     Select * from watermarktable
@@ -128,9 +131,9 @@ ms.lasthandoff: 12/06/2017
     data_source_table | 2010-01-01 00:00:00.000
     ```
 
-### <a name="create-a-stored-procedure-in-azure-sql-database"></a>Создание хранимой процедуры в базе данных SQL Azure 
+### <a name="create-a-stored-procedure-in-your-sql-database"></a>Создание хранимой процедуры в базе данных SQL 
 
-Выполните указанную ниже команду, чтобы создать хранимую процедуру в базе данных SQL Azure.
+Выполните указанную ниже команду, чтобы создать хранимую процедуру в базе данных SQL.
 
 ```sql
 CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -152,8 +155,9 @@ END
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
-    Если группа ресурсов уже существует, вы можете не перезаписывать ее. Назначьте переменной `$resourceGroupName` другое значение и еще раз выполните команду.
-2. Определите переменную для расположения фабрики данных: 
+    Если группа ресурсов уже имеется, вы можете не перезаписывать ее. Назначьте переменной `$resourceGroupName` другое значение и еще раз выполните команду.
+
+2. Определите переменную для расположения фабрики данных. 
 
     ```powershell
     $location = "East US"
@@ -163,11 +167,12 @@ END
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
-    Если группа ресурсов уже существует, вы можете не перезаписывать ее. Назначьте переменной `$resourceGroupName` другое значение и еще раз выполните команду. 
-3. Определите переменную для имени фабрики данных. 
+    Если группа ресурсов уже имеется, вы можете не перезаписывать ее. Назначьте переменной `$resourceGroupName` другое значение и еще раз выполните команду.
+
+4. Определите переменную для имени фабрики данных. 
 
     > [!IMPORTANT]
-    >  Измените имя фабрики данных, чтобы оно было глобально уникальным. Например, укажите ADFTutorialFactorySP1127. 
+    >  Измените имя фабрики данных, чтобы сделать его глобально уникальным. Например, укажите ADFTutorialFactorySP1127. 
 
     ```powershell
     $dataFactoryName = "ADFIncCopyTutorialFactory";
@@ -180,20 +185,21 @@ END
 
 Обратите внимание на следующие моменты.
 
-* Имя фабрики данных Azure должно быть глобально уникальным. Если появляется следующая ошибка, измените имя и повторите попытку.
+* Имя фабрики данных должно быть глобально уникальным. Если появляется следующая ошибка, измените имя и повторите попытку.
 
     ```
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
-* Чтобы создать экземпляры фабрики данных, нужно назначить учетной записи пользователя, используемой для входа в Azure, роль **участника**, **владельца** либо **администратора** подписки Azure.
-* Сейчас фабрика данных версии 2 позволяет создавать фабрики данных только в восточной части США, восточной части США 2 и Западной Европе. Хранилища данных (служба хранилища Azure, база данных SQL Azure и т. д.) и вычисления (HDInsight и т. д.), используемые фабрикой данных, могут располагаться в других регионах.
+
+* Чтобы создать экземпляры фабрики данных, нужно назначить учетной записи пользователя, используемой для входа в Azure, роль участника, владельца либо администратора подписки Azure.
+* Сейчас фабрика данных версии 2 позволяет создавать фабрики данных только в восточной части США, восточной части США 2 и Западной Европе. Хранилища данных (служба хранилища, база данных SQL и т. д.) и вычисления (HDInsight и т. д.), используемые фабрикой данных, могут располагаться в других регионах.
 
 
 ## <a name="create-linked-services"></a>Создание связанных служб
-Связанная служба в фабрике данных связывает хранилища данных и службы вычислений с фабрикой данных. В этом разделе вы создадите связанные службы для учетной записи хранения Azure и базы данных SQL Azure. 
+Связанная служба в фабрике данных связывает хранилища данных и службы вычислений с фабрикой данных. В этом разделе вы создадите связанные службы для учетной записи хранения и базы данных SQL. 
 
-### <a name="create-azure-storage-linked-service"></a>Создание связанной службы хранилища Azure
-1. Создайте JSON-файл с именем **AzureStorageLinkedService.json** в папке **C:\ADF** и добавьте в него приведенное ниже содержимое. Если папка ADF отсутствует, создайте ее. Перед сохранением файла замените значения `<accountName>` и `<accountKey>` на имя вашей учетной записи хранения Azure и ее ключ.
+### <a name="create-a-storage-linked-service"></a>Создание связанной службы хранилища
+1. Создайте JSON-файл с именем AzureStorageLinkedService.json в папке C:\ADF со следующим содержимым. (Если папка ADF отсутствует, создайте ее.) Замените `<accountName>` и `<accountKey>` именем и ключом учетной записи хранения, прежде чем сохранять файл.
 
     ```json
     {
@@ -209,8 +215,9 @@ END
         }
     }
     ```
-2. В **Azure PowerShell** перейдите в папку **ADF**.
-3. Выполните командлет **Set-AzureRmDataFactoryV2LinkedService**, чтобы создать связанную службу: **AzureStorageLinkedService**. В указанном ниже примере вы передадите значения для параметров **ResourceGroupName** и **DataFactoryName**. 
+2. В PowerShell перейдите в папку ADF.
+
+3. Выполните командлет **Set-AzureRmDataFactoryV2LinkedService**, чтобы создать связанную службу AzureStorageLinkedService. В указанном ниже примере вы передадите значения для параметров *ResourceGroupName* и *DataFactoryName*. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -225,8 +232,8 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
 
-### <a name="create-azure-sql-database-linked-service"></a>Создание связанной службы базы данных SQL Azure
-1. Создайте JSON-файл с именем **AzureSQLDatabaseLinkedService.json** в папке **C:\ADF** и добавьте в него приведенное ниже содержимое. Если папка ADF отсутствует, создайте ее. Вместо значений **&lt;server&gt;, &lt;database&gt;, &lt;user id&gt; и &lt;password&gt;** укажите имя сервера, имя базы данных, идентификатор пользователя и пароль SQL Azure, прежде чем сохранить файл. 
+### <a name="create-a-sql-database-linked-service"></a>Создание связанной службы базы данных SQL
+1. Создайте в папке C:\ADF файл JSON с именем AzureSQLDatabaseLinkedService.json со следующим содержимым. (Если папка ADF отсутствует, создайте ее.) Вместо значений &lt;server&gt;, &lt;database&gt;, &lt;user id&gt; и &lt;password&gt; укажите имя сервера, имя базы данных, идентификатор пользователя и пароль, прежде чем сохранить файл. 
 
     ```json
     {
@@ -242,8 +249,9 @@ END
         }
     }
     ```
-1. В **Azure PowerShell** перейдите в папку **ADF**.
-2. Выполните командлет **Set-AzureRmDataFactoryV2LinkedService**, чтобы создать связанную службу **AzureSQLDatabaseLinkedService**. 
+2. В PowerShell перейдите в папку ADF.
+
+3. Выполните командлет **Set-AzureRmDataFactoryV2LinkedService**, чтобы создать связанную службу AzureSQLDatabaseLinkedService. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -282,8 +290,9 @@ END
     }
    
     ```
-    В этом руководстве используется таблица с именем **data_source_table**. Замените ее, если используется таблица с другим именем. 
-2.  Выполните командлет Set-AzureRmDataFactoryV2Dataset, чтобы создать набор данных SourceDataset.
+    В этом руководстве используется таблица с именем data_source_table. Замените ее, если используется таблица с другим именем.
+
+2. Выполните командлет **Set-AzureRmDataFactoryV2Dataset**, чтобы создать набор данных SourceDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -324,8 +333,9 @@ END
     ```
 
     > [!IMPORTANT]
-    > В этом фрагменте кода предполагается, что у вас есть контейнер больших двоичных объектов с именем **adftutorial** в хранилище BLOB-объектов Azure. Создайте контейнер (если его еще нет) или присвойте ему имя имеющегося контейнера. Выходная папка `incrementalcopy` создается автоматически, если она не существует в контейнере. В этом руководстве имя файла создается динамически с помощью выражения `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
-2.  Выполните командлет Set-AzureRmDataFactoryV2Dataset, чтобы создать набор данных SinkDataset.
+    > В этом фрагменте кода предполагается, что у вас есть контейнер BLOB-объектов с именем adftutorial в хранилище BLOB-объектов. Создайте контейнер (если его еще нет) или присвойте ему имя имеющегося контейнера. Выходная папка `incrementalcopy` создается автоматически, если она не существует в контейнере. В этом руководстве имя файла создается динамически с помощью выражения `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
+
+2. Выполните командлет **Set-AzureRmDataFactoryV2Dataset**, чтобы создать набор данных SinkDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -341,7 +351,7 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset    
     ```
 
-## <a name="create-a-dataset-for-watermark"></a>Создание набора данных для предела
+## <a name="create-a-dataset-for-a-watermark"></a>Создание набора данных для предела
 На этом шаге вы создадите набор данных для хранения значения верхнего предела. 
 
 1. Создайте файл JSON с именем WatermarkDataset.json в той же папке со следующим содержимым: 
@@ -361,7 +371,7 @@ END
         }
     }    
     ```
-2.  Выполните командлет Set-AzureRmDataFactoryV2Dataset, чтобы создать набор данных WatermarkDataset.
+2.  Выполните командлет **Set-AzureRmDataFactoryV2Dataset**, чтобы создать набор данных WatermarkDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -493,7 +503,7 @@ END
     ```
     
 
-2. Выполните командлет Set-AzureRmDataFactoryV2Pipeline для создания конвейера IncrementalCopyPipeline.
+2. Выполните командлет **Set-AzureRmDataFactoryV2Pipeline** для создания конвейера IncrementalCopyPipeline.
     
    ```powershell
    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -511,12 +521,12 @@ END
  
 ## <a name="run-the-pipeline"></a>Запуск конвейера
 
-1. Запустите конвейер **IncrementalCopyPipeline**, выполнив командлет **Invoke-AzureRmDataFactoryV2Pipeline**. Замените заполнители собственными именами группы ресурсов и фабрики данных.
+1. Запустите конвейер IncrementalCopyPipeline, выполнив командлет **Invoke-AzureRmDataFactoryV2Pipeline**. Замените заполнители собственными именами группы ресурсов и фабрики данных.
 
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. Проверьте состояние конвейера, выполняя командлет Get-AzureRmDataFactoryV2ActivityRun, пока вы не увидите, что все действия выполняются успешно. Замените заполнители нужными значениями времени для параметров RunStartedAfter и RunStartedBefore.  В этом руководстве вы используете -RunStartedAfter "2017/09/14" и -RunStartedBefore "2017/09/15".
+2. Проверьте состояние конвейера, выполняя командлет **Get-AzureRmDataFactoryV2ActivityRun**, пока вы не увидите, что все действия выполняются успешно. Замените заполнители нужными значениями времени для параметров *RunStartedAfter* и *RunStartedBefore*. В этом руководстве вы используете *-RunStartedAfter "2017/09/14"* и *-RunStartedBefore "2017/09/15"*.
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -585,7 +595,7 @@ END
 
 ## <a name="review-the-results"></a>Просмотр результатов
 
-1. В хранилище BLOB-объектов Azure (хранилище приемника) вы должны увидеть, что данные скопированы в файл, заданный в SinkDataset.  В этом руководстве в качестве имени файла используется `Incremental- d4bf3ce2-5d60-43f3-9318-923155f61037.txt`.  Открыв файл, вы увидите, что записи в файле идентичны данным в базе данных SQL Azure.
+1. В хранилище BLOB-объектов (хранилище приемника) вы должны увидеть, что данные скопированы в файл, заданный в SinkDataset. В этом руководстве в качестве имени файла используется `Incremental- d4bf3ce2-5d60-43f3-9318-923155f61037.txt`. Открыв файл, вы увидите, что записи в файле идентичны данным в базе данных SQL.
 
     ```
     1,aaaa,2017-09-01 00:56:00.0000000
@@ -594,7 +604,7 @@ END
     4,dddd,2017-09-04 03:21:00.0000000
     5,eeee,2017-09-05 08:06:00.0000000
     ``` 
-2. Проверив последнее значение из `watermarktable`, вы увидите, что значение предела обновлено.
+2. Проверьте последнее значение из `watermarktable`. Вы увидите, что значение предела было обновлено.
 
     ```sql
     Select * from watermarktable
@@ -606,9 +616,9 @@ END
     --------- | --------------
     data_source_table 2017-09-05 8:06:00.000
 
-### <a name="insert-data-into-data-source-store-to-verify-delta-data-loading"></a>Добавление данных в хранилище данных для проверки загрузки разностных данных
+### <a name="insert-data-into-the-data-source-store-to-verify-delta-data-loading"></a>Добавление данных в хранилище источника данных для проверки загрузки разностных данных
 
-1. Добавьте новые данные в базу данных SQL Azure (хранилище источника данных):
+1. Добавьте новые данные в базу данных SQL (хранилище источника данных).
 
     ```sql
     INSERT INTO data_source_table
@@ -618,7 +628,7 @@ END
     VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
     ``` 
 
-    Обновленные данные в базе данных SQL Azure выглядят следующим образом:
+    Обновленные данные в базе данных SQL выглядят следующим образом:
 
     ```
     PersonID | Name | LastModifytime
@@ -631,12 +641,12 @@ END
     6 | newdata | 2017-09-06 02:23:00.000
     7 | newdata | 2017-09-07 09:01:00.000
     ```
-2. Повторно запустите конвейер **IncrementalCopyPipeline**, выполнив командлет **Invoke-AzureRmDataFactoryV2Pipeline**. Замените заполнители собственными именами группы ресурсов и фабрики данных.
+2. Повторно запустите конвейер IncrementalCopyPipeline, выполнив командлет **Invoke-AzureRmDataFactoryV2Pipeline**. Замените заполнители собственными именами группы ресурсов и фабрики данных.
 
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. Проверьте состояние конвейера, выполняя командлет **Get-AzureRmDataFactoryV2ActivityRun**, пока вы не увидите, что все действия выполняются успешно. Замените заполнители нужными значениями времени для параметров RunStartedAfter и RunStartedBefore.  В этом руководстве вы используете -RunStartedAfter "2017/09/14" и -RunStartedBefore "2017/09/15".
+3. Проверьте состояние конвейера, выполняя командлет **Get-AzureRmDataFactoryV2ActivityRun**, пока вы не увидите, что все действия выполняются успешно. Замените заполнители нужными значениями времени для параметров *RunStartedAfter* и *RunStartedBefore*. В этом руководстве вы используете *-RunStartedAfter "2017/09/14"* и *-RunStartedBefore "2017/09/15"*.
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -702,8 +712,9 @@ END
     Error             : {errorCode, message, failureType, target}
 
     ```
-4.  В хранилище BLOB-объектов Azure вы увидите, что в нем был создан другой файл. В этом руководстве новый файл имеет имя `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Открыв файл, вы увидите записи двух строк.
-5.  Проверив последнее значение из `watermarktable`, вы увидите, что значение предела снова обновлено.
+4. В хранилище BLOB-объектов вы увидите, что был создан другой файл. В этом руководстве новый файл имеет имя `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`. Открыв этот файл, вы увидите записи двух строк.
+
+5. Проверьте последнее значение из `watermarktable`. Вы увидите, что значение предела было обновлено снова.
 
     ```sql
     Select * from watermarktable
@@ -719,15 +730,15 @@ END
 В этом руководстве вы выполнили следующие шаги: 
 
 > [!div class="checklist"]
-> * Определили столбец **предела** и сохранили его в базе данных SQL Azure.  
+> * Подготовите хранилище данных для хранения значений предела. 
 > * Создадите фабрику данных.
-> * Создали связанные службы для базы данных SQL и хранилища BLOB-объектов. 
-> * Создали наборы данных приемника и источника.
+> * создание связанных служб. 
+> * Создали наборы данных источника, приемника и предела.
 > * Создали конвейер.
 > * Запустили конвейер.
 > * Выполнение мониторинга выполнения конвейера. 
 
-В этом руководстве с помощью конвейера мы скопировали данные из **одной таблицы** в базе данных Azure SQL в хранилище BLOB-объектов Azure. Перейдите к следующему руководству, чтобы узнать о копировании данных из **нескольких таблиц** в локальной базе данных SQL Server в базу данных Azure SQL. 
+В этом руководстве с помощью конвейера мы скопировали данные из одной таблицы в базе данных SQL в хранилище BLOB-объектов. Перейдите к следующему руководству, чтобы узнать о копировании данных из нескольких таблиц в локальной базе данных SQL Server в базу данных SQL. 
 
 > [!div class="nextstepaction"]
 >[Добавочная загрузка данных из нескольких таблиц в SQL Server в базу данных SQL Azure](tutorial-incremental-copy-multiple-tables-powershell.md)

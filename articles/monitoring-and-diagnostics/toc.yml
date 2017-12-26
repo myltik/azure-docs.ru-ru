@@ -164,6 +164,8 @@
       href: monitoring-metric-charts.md
     - name: Отправка метрик в Grafana
       href: monitor-send-to-grafana.md
+    - name: Отправка данных мониторинга в концентратор событий
+      href: monitor-stream-monitoring-data-event-hubs.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

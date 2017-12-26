@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 23d59d37e25775f67d01813bbf53d150f1973622
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Субъекты-службы со Службой контейнеров Azure (AKS)
 
@@ -83,7 +83,7 @@ az aks create --resource-group myResourceGroup --name myK8SCluster --service-pri
 * Указывая **идентификатор клиента** субъекта-службы, вы можете использовать значение `appId` (как показано в этой статье) или соответствующее имя (`name`) субъекта-службы, например `https://www.contoso.org/example`.
 * На главной виртуальной машине и виртуальной машине узла в кластере Kubernetes учетные данные субъекта-службы хранятся в файле `/etc/kubernetes/azure.json`.
 * Если вы используете команду `az aks create`, чтобы автоматически создать субъект-службу, учетные данные субъекта-службы записываются в файл `~/.azure/acsServicePrincipal.json` на компьютере, с которого выполняется команда.
-* При автоматическом создании субъекта-службы с использованием команды `az aks create` субъект-служба также позволяет выполнять аутентификацию при помощи [реестра контейнеров Azure][acr-into], созданного в той же подписке.
+* При автоматическом создании субъекта-службы с использованием команды `az aks create` субъект-служба также позволяет проверять подлинность с помощью [реестра контейнеров Azure][acr-intro], созданного в той же подписке.
 * При удалении кластера Службы контейнеров Azure, который был создан с помощью команды `az aks create`, автоматически созданный субъект-служба не удаляется. Его можно удалить с помощью команды `az ad sp delete --id $clientID`.
 
 ## <a name="next-steps"></a>Дальнейшие действия

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 59acc48870adf15f59391de1cba9596744a747a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 00e0f169c7de2521b15b89c2d935967e51b38960
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Настройка службы подготовки устройств для Центра Интернета вещей на портале Azure
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 12/05/2017
 
     ![Связывание имени центра с экземпляром службы подготовки устройств в колонке портала](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
-3. Теперь вы выбранный центр будет отображается в колонке **Связанные Центры Интернета вещей**. 
+3. Теперь вы выбранный центр будет отображается в колонке **Связанные Центры Интернета вещей**. Может потребоваться щелкнуть **Обновить**, чтобы **связанные Центры Интернета вещей** отобразились.
 
 
 

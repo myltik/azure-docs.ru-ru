@@ -12,15 +12,15 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Создание пространства имен концентраторов событий с концентратором событий и включение записи с помощью шаблона Azure Resource Manager
+# <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Создание пространства имен с концентратором событий и включение записи с помощью шаблона
 
 Из этой статьи вы узнаете, как с помощью шаблона Azure Resource Manager создать пространство имен концентраторов событий с одним экземпляром концентратора событий и включить для него [функцию записи](event-hubs-capture-overview.md). Здесь вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 10/11/2017
     "minValue":60,
     "maxValue":900,
     "metadata":{
-         "description":"the time window in seconds for the capture"
+         "description":"The time window in seconds for the capture"
     }
 }
 ```
@@ -248,7 +248,7 @@ ms.lasthandoff: 10/11/2017
 "subscriptionId": {
     "type": "string",
     "metadata": {
-        "description": "Subscription Id of both Azure Data Lake Store and Event Hub namespace"
+        "description": "Subscription ID of both Azure Data Lake Store and Event Hubs namespace"
      }
  }
 ```
@@ -268,20 +268,20 @@ ms.lasthandoff: 10/11/2017
 
 ###<a name="datalakefolderpath"></a>dataLakeFolderPath
 
-Путь к конечной папке для записанных событий. Это папка, в Data Lake Store, в которую будут отправляться события при записи. Чтобы настроить разрешения для этой папки, см. инструкции по [использованию Azure Data Lake Store для сбора данных из концентраторов событий](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture).
+Путь к целевой папке для записываемых событий. Это папка в Data Lake Store, в которую будут отправляться события во время операции записи. Чтобы настроить разрешения для этой папки, ознакомьтесь со статьей [Запись данных из концентраторов событий с помощью Azure Data Lake Store](../data-lake-store/data-lake-store-archive-eventhub-capture.md).
 
 ```json
 "dataLakeFolderPath": {
     "type": "string",
     "metadata": {
-        "description": "Destination archive folder path"
+        "description": "Destination capture folder path"
     }
 }
 ```
 
 ## <a name="resources-to-deploy-for-azure-storage-as-destination-to-captured-events"></a>Развертываемые ресурсы для службы хранилища Azure как места назначения для записи событий
 
-Здесь создается пространство имен типа **EventHubs** с одним концентратором событий и включается запись в хранилище BLOB-объектов Azure.
+Здесь создается пространство имен типа **EventHub** с одним концентратором событий и включается запись в хранилище BLOB-объектов Azure.
 
 ```json
 "resources":[  
@@ -342,7 +342,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>Развертываемые ресурсы для Azure Data Lake Store как места назначения
 
-Здесь создается пространство имен типа **EventHubs** с одним концентратором событий и включается запись в Azure Data Lake Store.
+Здесь создается пространство имен типа **EventHub** с одним концентратором событий и включается запись в Azure Data Lake Store.
 
 ```json
  "resources": [
@@ -407,7 +407,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
 
-Выбор хранилища BLOB-объектов Azure в качестве места назначения:
+Хранилище BLOB-объектов Azure в качестве места назначения:
 
 ```azurecli
 azure config mode arm
@@ -415,7 +415,7 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
-Выбор Azure Data Lake Store в качестве места назначения:
+Azure Data Lake Store в качестве места назначения:
 
 ```azurecli
 azure config mode arm
