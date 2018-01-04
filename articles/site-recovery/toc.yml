@@ -1,5 +1,9 @@
 - name: Документация по Site Recovery
   href: index.yml
+- name: Перенос локальных компьютеров и виртуальных машин Azure
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Аварийное восстановление "Azure — Azure"
+  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Обзор
   items:
     - name: Что такое Site Recovery?
@@ -55,6 +59,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: "Матрица поддержки репликации из локальной среды\_в Azure"
       href: site-recovery-support-matrix-to-azure.md
+    - name: Матрица поддержки "Hyper-V — Azure"
+      href: support-matrix-hyper-v-to-azure.md
     - name: "Матрица поддержки репликации из локальной среды\_на дополнительный сайт"
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Аварийное восстановление для рабочих нагрузок
@@ -83,8 +89,12 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Аварийное восстановление
       items:
+        - name: Подготовка Hyper-V для репликации в Azure
+          href: tutorial-prepare-on-premises-hyper-v.md
         - name: Виртуальных машин Hyper-V в Azure
           href: tutorial-hyper-v-to-azure.md
+        - name: Репликация виртуальных машин Hyper-V из облачных сред VMM в Azure
+          href: tutorial-hyper-v-vmm-to-azure.md
         - name: Физические серверы в Azure
           href: tutorial-physical-to-azure.md
         - name: Виртуальных машин Hyper-V на дополнительный сайт
@@ -215,7 +225,7 @@
       items:
         - name: Active Directory и DNS
           href: site-recovery-active-directory.md
-        - name: SQL Server
+        - name: SQL Server;
           href: site-recovery-sql.md
         - name: SharePoint
           href: site-recovery-sharepoint.md
@@ -235,7 +245,7 @@
           href: site-recovery-citrix-xenapp-and-xendesktop.md
         - name: Другие рабочие нагрузки
           href: 'site-recovery-workload.md#workload-summary'
-    - name: Управление
+    - name: управление
       items:
         - name: Переход в хранилище служб восстановления
           href: upgrade-site-recovery-vaults.md

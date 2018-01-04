@@ -121,6 +121,9 @@
       items:
         - name: Анализ с помощью Power Query
           href: apache-hadoop-connect-excel-power-query.md
+        - name: "Подключение Power\_BI к Interactive Query"
+          href: ../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+          maintainContext: true
         - name: Подключение Power BI к Hadoop
           href: apache-hadoop-connect-hive-power-bi.md
         - name: Подключение Excel к Hadoop
@@ -201,7 +204,7 @@
         - name: Разрешение пользователям доступа к Ambari Views
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-    - name: Управление
+    - name: управление
       items:
         - name: Создание кластеров Linux
           href: ../hdinsight-hadoop-provision-linux-clusters.md

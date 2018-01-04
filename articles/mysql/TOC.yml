@@ -75,7 +75,7 @@
           href: concepts-firewall-rules.md
         - name: Настройка SSL
           href: concepts-ssl-connection-security.md
-    - name: Монитор
+    - name: Мониторинг
       href: concepts-monitoring.md
     - name: Разработка
       items:
@@ -107,6 +107,8 @@
           href: concepts-migrate-dump-restore.md
         - name: Импорт и экспорт
           href: concepts-migrate-import-export.md
+        - name: Миграция с минимальным временем простоя
+          href: howto-migrate-online.md
     - name: Подключение приложений
       items:
         - name: Создание пользователей
@@ -129,7 +131,7 @@
           href: howto-configure-server-logs-in-portal.md
         - name: Инфраструктура CLI Azure
           href: howto-configure-server-logs-in-cli.md
-    - name: Монитор
+    - name: Мониторинг
       items:
         - name: Создание оповещений на основе метрик
           href: howto-alert-on-metric.md
@@ -137,7 +139,7 @@
   items:
     - name: Инфраструктура CLI Azure
       href: /cli/azure/mysql
-    - name: Интерфейс REST API
+    - name: ИНТЕРФЕЙС REST API
       href: /rest/api/mysql
 - name: Ресурсы
   items:

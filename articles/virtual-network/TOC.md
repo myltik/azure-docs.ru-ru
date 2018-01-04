@@ -22,16 +22,16 @@
 ### [Виртуальные сети](virtual-network-vnet-plan-design-arm.md)
 ### [Группы безопасности сети](virtual-networks-nsg.md)
 
-## Развернуть
+## Развертывание
 ### [Виртуальные сети](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Интерфейс командной строки Azure](virtual-networks-create-vnet-arm-cli.md)
+#### [интерфейс командной строки Azure](virtual-networks-create-vnet-arm-cli.md)
 #### [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Группы безопасности сети
-#### [Портал Azure](virtual-networks-create-nsg-arm-pportal.md)
+#### [портал Azure](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Интерфейс командной строки Azure](virtual-networks-create-nsg-arm-cli.md)
+#### [интерфейс командной строки Azure](virtual-networks-create-nsg-arm-cli.md)
 #### [Шаблон](virtual-networks-create-nsg-arm-template.md)
 #### [Группы безопасности приложений](create-network-security-group-preview.md)
 #### Классический
@@ -39,13 +39,13 @@
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### Определяемые пользователем маршруты
-#### [Портал Azure](create-user-defined-route-portal.md)
+#### [портал Azure](create-user-defined-route-portal.md)
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Интерфейс командной строки Azure](virtual-network-create-udr-arm-cli.md)
+#### [интерфейс командной строки Azure](virtual-network-create-udr-arm-cli.md)
 #### [Шаблон](virtual-network-create-udr-arm-template.md)
 #### Классический
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
-##### [Интерфейс командной строки Azure](virtual-network-create-udr-classic-cli.md)
+##### [интерфейс командной строки Azure](virtual-network-create-udr-classic-cli.md)
 
 ### Пиринг между виртуальными сетями
 #### [Одна модель развертывания — одна подписка](virtual-network-create-peering.md)
@@ -56,45 +56,47 @@
 ### [Конечные точки службы виртуальной сети](virtual-network-service-endpoints-configure.md)
 
 ### Общедоступный IP-адрес — зона доступности
-#### [Портал Azure](create-public-ip-availability-zone-portal.md)
-#### [Интерфейс командной строки Azure](create-public-ip-availability-zone-cli.md)
+#### [портал Azure](create-public-ip-availability-zone-portal.md)
+#### [интерфейс командной строки Azure](create-public-ip-availability-zone-cli.md)
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Виртуальные машины
 #### [Пропускная способность сети на виртуальных машинах](virtual-machine-network-throughput.md)
 #### Создание виртуальной машины со статическим общедоступным IP-адресом
-##### [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
+##### [портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [Интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
+##### [интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
 ##### Классический
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
-#### Создание виртуальной машины со статическим частным IP-адресом
-##### [Портал Azure](virtual-networks-static-private-ip-arm-pportal.md)
+#### Создание виртуальной машины. Статический частный IP-адрес
+##### [портал Azure](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-##### [Интерфейс командной строки Azure](virtual-networks-static-private-ip-arm-cli.md)
+##### [интерфейс командной строки Azure](virtual-networks-static-private-ip-arm-cli.md)
 ##### Классический
-###### [Портал Azure](virtual-networks-static-private-ip-classic-pportal.md)
+###### [портал Azure](virtual-networks-static-private-ip-classic-pportal.md)
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
-###### [Интерфейс командной строки Azure](virtual-networks-static-private-ip-classic-cli.md)
+###### [интерфейс командной строки Azure](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Создание виртуальной машины с несколькими сетевыми интерфейсами
+#### Создание виртуальной машины. Несколько сетевых интерфейсов
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Интерфейс командной строки Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [интерфейс командной строки Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Шаблон](virtual-network-deploy-multinic-arm-template.md)
 
 ##### Классический
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
-###### [Интерфейс командной строки Azure](virtual-network-deploy-multinic-classic-cli.md)
+###### [интерфейс командной строки Azure](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Создание виртуальной машины с несколькими IP-адресами
-##### [Портал Azure](virtual-network-multiple-ip-addresses-portal.md)
+#### Создание виртуальной машины. Несколько IP-адресов
+##### [портал Azure](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Интерфейс командной строки Azure](virtual-network-multiple-ip-addresses-cli.md)
+##### [интерфейс командной строки Azure](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Шаблон](virtual-network-multiple-ip-addresses-template.md)
 
-#### [Создание виртуальной машины с ускоренной сетью](virtual-network-create-vm-accelerated-networking.md)
+#### Создание виртуальной машины. Ускоренная сеть
+##### [Azure PowerShell](create-vm-accelerated-networking-powershell.md)
+##### [интерфейс командной строки Azure](create-vm-accelerated-networking-cli.md)
 
 ### Сценарии подключения
 #### [Виртуальная сеть к виртуальной сети](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -116,9 +118,9 @@
 
 ### Классический
 #### [Виртуальная сеть](create-virtual-network-classic.md)
-##### [Портал Azure](virtual-networks-create-vnet-classic-pportal.md)
+##### [портал Azure](virtual-networks-create-vnet-classic-pportal.md)
 ##### [Azure PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [Интерфейс командной строки Azure](virtual-networks-create-vnet-classic-cli.md)
+##### [интерфейс командной строки Azure](virtual-networks-create-vnet-classic-cli.md)
 #### [Указание параметров DNS в файле конфигурации виртуальной сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 #### [Указание параметров DNS в файле конфигурации службы](virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md)
 
@@ -137,10 +139,10 @@
 
 ### Классический
 #### Доступ к спискам управления
-##### [Портал Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [портал Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
-## Управление
+## управление
 ### [Виртуальные сети](virtual-network-manage-network.md)
 #### [Подсети](virtual-network-manage-subnet.md)
 #### [Пиринг](virtual-network-manage-peering.md)
@@ -148,7 +150,7 @@
 ##### [Файл конфигурации сети](virtual-networks-using-network-configuration-file.md)
 ##### [Миграция из территориальной группы в регион](virtual-networks-migrate-to-regional-vnet.md)
 ### Группы безопасности сети
-#### [Портал Azure](virtual-network-manage-nsg-arm-portal.md)
+#### [портал Azure](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [Интерфейс командной строки Azure](virtual-network-manage-nsg-arm-cli.md)
 
@@ -160,15 +162,15 @@
 #### [Перемещение виртуальной машины в другую подсеть](virtual-networks-move-vm-role-to-subnet.md)
 ### [Типы IP-адресов и методы распределения в Azure](virtual-network-public-ip-address.md)
 ### Защита от атак DDoS
-#### [Портал Azure](ddos-protection-manage-portal.md)
+#### [портал Azure](ddos-protection-manage-portal.md)
 #### [Azure PowerShell](ddos-protection-manage-ps.md)
 
 ## Устранение неполадок
 ### Группы безопасности сети
-#### [Портал Azure](virtual-network-nsg-troubleshoot-portal.md)
+#### [портал Azure](virtual-network-nsg-troubleshoot-portal.md)
 #### [Azure PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 ### Маршруты
-#### [Портал Azure](virtual-network-routes-troubleshoot-portal.md)
+#### [портал Azure](virtual-network-routes-troubleshoot-portal.md)
 #### [Azure PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Тестирование пропускной способности](virtual-network-bandwidth-testing.md)
 ### [Не удается удалить виртуальные сети](virtual-network-troubleshoot-cannot-delete-vnet.md)
@@ -178,7 +180,7 @@
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (классическая модель)](/powershell/module/azure/)
-## [Интерфейс командной строки Azure](/cli/azure/network)
+## [интерфейс командной строки Azure](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/jj157182.aspx)

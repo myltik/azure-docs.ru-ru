@@ -6,7 +6,7 @@
 ## [Уровень совместимости](analysis-services-compat-level.md)
 ## [Высокая доступность](analysis-services-bcdr.md)
 
-# Приступая к работе
+# Начало работы
 ## [Создание сервера на портале Azure](analysis-services-create-server.md)
 ## [Создание сервера с помощью Azure PowerShell](analysis-services-create-powershell.md)
 ## [Развертывание модели из Visual Studio](analysis-services-deploy.md)
@@ -23,6 +23,7 @@
 ### [Управление пользователями баз данных](analysis-services-database-users.md)
 ### [Управление администраторами сервера](analysis-services-server-admins.md)
 ### [Отслеживание метрик службы](analysis-services-monitor.md)
+### [Настройка журнала ведения диагностики](analysis-services-logging.md)
 ## Подключение
 ### [Получение клиентских библиотек](analysis-services-data-providers.md)
 ### [Подключение с помощью Excel](analysis-services-connect-excel.md)
