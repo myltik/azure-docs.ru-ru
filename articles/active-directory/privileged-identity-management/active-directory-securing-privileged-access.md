@@ -4,7 +4,7 @@ description: "В этом разделе описаны подходы к защ
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: mwahl
 ms.assetid: 235a0ce9-1daf-4433-8f65-9c6afcd64d08
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Защита привилегированного доступа в Azure AD
 Защита привилегированного доступа — исключительно важный первый шаг для защиты корпоративных ресурсов в современных организациях. Привилегированные учетные записи — это учетные записи, которые администрируют ИТ-системы и управляют ими. Злоумышленники в Интернете обычно используют эти учетные записи для доступа к данным и системам организации. Чтобы защитить привилегированный доступ, необходимо исключить риск доступа пользователей-злоумышленников к учетным записям и системам.

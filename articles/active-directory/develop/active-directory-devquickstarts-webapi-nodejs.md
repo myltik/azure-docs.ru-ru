@@ -1,26 +1,26 @@
 ---
-title: "Начало работы с Node.js в Azure Active Directory | Документация Майкрософт"
+title: "Azure AD веб-API Node.js Приступая к работе | Документы Microsoft"
 description: "Практическое руководство по созданию на основе Node.js веб-интерфейса REST API, который интегрируется с Azure AD для аутентификации."
 services: active-directory
 documentationcenter: nodejs
 author: craigshoemaker
-manager: routlaw
+manager: mtillman
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: 6f67a2cf2baabfa10c6a8e81b085ca6991b981dd
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: HT
+ms.openlocfilehash: 411f646574af2f86621cbb3cd7175b6a9478972a
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Защита веб-API Node.js с помощью Azure Active Directory
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD веб-API Node.js Приступая к работе
 
 В этой статье показано, как защитить конечную точку API [Restify](http://restify.com/) с [Passport](http://passportjs.org/) с помощью модуля [passport azure ad](https://github.com/AzureAD/passport-azure-ad) для обработки взаимодействия с Azure Active Directory (AAD). 
 
@@ -65,7 +65,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 Ниже приведены [аргументы](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) для команды `create`.
 
-| Аргумент  | Описание |
+| Аргумент  | ОПИСАНИЕ |
 |---------|---------|
 |`display-name` | Понятное имя регистрации. |
 |`homepage` | URL-адрес, по которому пользователи могут войти и использовать приложение. |
@@ -73,7 +73,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 Чтобы подключиться к Azure Active Directory, необходимы следующие сведения:
 
-| Имя  | Описание | Имя переменной в файле конфигурации. |
+| ИМЯ  | ОПИСАНИЕ | Имя переменной в файле конфигурации. |
 | ------------- | ------------- | ------------- |
 | Имя клиента.  | [Имя клиента](active-directory-howto-tenant.md), которое нужно использовать для проверки подлинности. | `tenantName`  |
 | Идентификатор клиента  | Идентификатор клиента — это термин OAuth, используемый для _идентификатора приложения_ AAD. |  `clientID`  |

@@ -4,7 +4,7 @@ description: "Вы можете управлять личными доменам
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f254f4959c66aeb3eec522f31e0d8a6780358188
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 48e074f3f7bd60bc02e26c4bd634ec646b1ff401
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Работа с пользовательскими доменами в прокси приложения Azure AD
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="configure-a-custom-domain"></a>Настройка личного домена
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Технические условия
 
 Прежде чем настроить личный домен, убедитесь, что у вас есть следующие необходимые компоненты: 
 - [Проверенный домен, добавленный в Azure Active Directory](active-directory-domains-add-azure-portal.md).
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/14/2017
 
 При наличии этих трех компонентов выполните указанные ниже действия для настройки личного домена.
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. Перейдите в **Azure Active Directory** > **Корпоративные приложения** > **Все приложения** и выберите приложение, которым необходимо управлять.
 3. Выберите **Прокси приложения**. 
 4. Воспользуйтесь раскрывающимся списком в поле внешнего URL-адреса, чтобы выбрать личный домен. Если ваш домен не отображается в списке, значит он еще не проверен. 

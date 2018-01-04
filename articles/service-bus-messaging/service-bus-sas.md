@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cdbac0fd18ad440ece35881cbe165c3c7eff8914
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>Аутентификация служебной шины с помощью подписанных URL-адресов
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 
 * Отправка
 * Прослушивание
-* Управление
+* управление
 
 Вновь созданной политике назначается *первичный* и *вторичный ключ*. Это криптографически строгие ключи. Их нельзя потерять — они всегда будут доступны на [портал Azure][Azure portal]. Вы можете использовать любой из созданных ключей и создавать их повторно в любое время. Однако в случае повторного создания или изменения первичного ключа в политике любая созданная на его основе подпись общего доступа станет недействительной.
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 
 Основные параметры правила [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) .
 
-| Параметр | Описание |
+| Параметр | ОПИСАНИЕ |
 | --- | --- |
 | *KeyName* |Строка с описанием правила авторизации. |
 | *PrimaryKey* |256-битный первичный ключ в кодировке Base64 для подписи и проверки маркера SAS. |
@@ -128,7 +128,7 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-Чтобы создать объект [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) в пространстве имен служебной шины, выполните операцию POST в конечной точке с сериализацией информации о правиле в формат JSON или XML. Например:
+Чтобы создать объект [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) в пространстве имен служебной шины, выполните операцию POST в конечной точке с сериализацией информации о правиле в формат JSON или XML. Например: 
 
 ```csharp
 // Base address for accessing authorization rules on a namespace
@@ -326,7 +326,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 | Создание очереди |управление |Любой адрес пространства имен |
 | Удаление очереди |управление |Любой допустимый адрес очереди |
 | Перечисление очередей |управление |/$Resources/Queues |
-| Получение описания очереди |Управление |Любой допустимый адрес очереди |
+| Получение описания очереди |управление |Любой допустимый адрес очереди |
 | Настройка правила авторизации для очереди |управление |Любой допустимый адрес очереди |
 | Отправка в очередь |Отправка |Любой допустимый адрес очереди |
 | Получение сообщений из очереди |Прослушивание |Любой допустимый адрес очереди |
@@ -339,14 +339,14 @@ private bool PutCbsToken(Connection connection, string sasToken)
 | Создание раздела |управление |Любой адрес пространства имен |
 | Удаление раздела |управление |Любой допустимый адрес раздела |
 | Перечисление разделов |управление |/$Resources/Topics |
-| Получение описания раздела |Управление |Любой допустимый адрес раздела |
+| Получение описания раздела |управление |Любой допустимый адрес раздела |
 | Настройка правила авторизации для раздела |управление |Любой допустимый адрес раздела |
 | Отправка в раздел |Отправка |Любой допустимый адрес раздела |
 | **Подписка** | | |
 | Создание подписки |управление |Любой адрес пространства имен |
 | Удаление подписки |управление |../myTopic/Subscriptions/mySubscription |
 | Перечисление подписок |управление |../myTopic/Subscriptions |
-| Получение описания подписки |Управление |../myTopic/Subscriptions/mySubscription |
+| Получение описания подписки |управление |../myTopic/Subscriptions/mySubscription |
 | Прерывание или завершение обмена сообщениями после получения сообщения в режиме чтения с блокировкой |Прослушивание |../myTopic/Subscriptions/mySubscription |
 | Откладывание сообщения для последующего получения |Прослушивание |../myTopic/Subscriptions/mySubscription |
 | Назначение сообщению статуса недоставленного |Прослушивание |../myTopic/Subscriptions/mySubscription |

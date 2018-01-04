@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9fc11352a031ac1c1abcc6c6bd173bd9b0e8a222
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: HT
+ms.openlocfilehash: 7603625da3f5f54862b2a0ead0ebb68f4fb1cfa8
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Разработка веб-приложения на основе Node.js и MongoDB в Azure
+
+> [!NOTE]
+> В этой статье развертывает приложение службы приложений для Windows. Для развертывания на службы приложений на _Linux_, в разделе [построения Node.js и MongoDB веб-приложения в службе приложений Azure в Linux](./containers/tutorial-nodejs-mongodb-app.md).
+>
 
 Веб-приложения Azure — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. В этом руководстве показано, как создать веб-приложение Node.js в Azure и подключить его к базе данных MongoDB. После выполнения действий, описанных в этом руководстве, у вас появится приложение MEAN (MongoDB, Express, AngularJS и Node.js), выполняющееся в [службе приложений Azure](app-service-web-overview.md). Для простоты в примере приложения используется [веб-платформа MEAN.js](http://meanjs.org/).
 
@@ -37,12 +41,13 @@ ms.lasthandoff: 11/06/2017
 > * Потоковая передача журналов диагностики из Azure.
 > * Управление приложением на портале Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для работы с этим руководством:
 
 1. [установите Git](https://git-scm.com/);
 1. [установите Node.j и NPM](https://nodejs.org/).
+1. [Установка Bower](https://bower.io/) (за счет [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Gulp.js](http://gulpjs.com/) (требуется для [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started));
 1. [Установите и запустите MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). 
 
@@ -126,7 +131,7 @@ MEAN.JS version: 0.5.0
 
 ### <a name="create-a-cosmos-db-account"></a>Создание учетной записи Cosmos DB
 
-В Cloud Shell создайте учетную запись Cosmos DB при помощи команды [az cosmosdb create](/cli/azure/cosmosdb#create).
+В Cloud Shell создайте учетную запись Cosmos DB при помощи команды [az cosmosdb create](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create).
 
 В следующей команде замените заполнитель *\<cosmosdb_name>* уникальным именем базы данных Cosmos DB. Это имя используется как часть конечной точки Cosmos DB (`https://<cosmosdb_name>.documents.azure.com/`), поэтому оно должно быть уникальным для всех учетных записей Cosmos DB в Azure. В нем могут использоваться только строчные буквы, цифры и дефис (-). Его длина должна быть от 3 до 50 знаков.
 
@@ -160,7 +165,7 @@ az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kin
 
 ### <a name="retrieve-the-database-key"></a>Получение ключа базы данных
 
-Для подключения к базе данных Cosmos DB потребуется ключ базы данных. Чтобы получить первичный ключ, выполните в Cloud Shell команду [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys).
+Для подключения к базе данных Cosmos DB потребуется ключ базы данных. Чтобы получить первичный ключ, выполните в Cloud Shell команду [az cosmosdb list-keys](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys).
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -256,7 +261,7 @@ MEAN.JS version: 0.5.0
 
 По умолчанию _config/env/local-production.js_ хранится в проекте MEAN.js вне репозитория Git. Поэтому для веб-приложения Azure вам нужно использовать параметры приложения, чтобы определить строку подключения MongoDB.
 
-Чтобы задать параметры приложения, используйте команду [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) в Cloud Shell. 
+Чтобы задать параметры приложения, используйте [az webapp конфигурации appsettings набор](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) в оболочке облака. 
 
 В следующем примере настраивается параметр приложения `MONGODB_URI` в веб-приложении Azure. Замените заполнители *\<app_name>*, *\<cosmosdb_name>* и *\<primary_master_key>*.
 
@@ -460,7 +465,7 @@ git push azure master
 
 При запуске приложения Node.js в службе приложений Azure можно направить журналы консоли в свой терминал. Таким образом, вы будете получать те же диагностические сообщения, которые помогут устранить ошибки приложения.
 
-Чтобы настроить потоки для журналов, выполните команду [az webapp log tail](/cli/azure/webapp/log#tail) в Cloud Shell.
+Чтобы настроить потоки для журналов, выполните команду [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) в Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

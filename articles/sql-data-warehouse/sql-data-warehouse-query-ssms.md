@@ -16,10 +16,10 @@ ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
 ms.openlocfilehash: 207fb9fd861c66039fbde89681aed3df3a2f4021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Подключение к хранилищу данных SQL Azure с помощью SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 Подключайтесь к хранилищу данных SQL Azure и создавайте запросы к нему с помощью SQL Server Management Studio (SSMS). 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Для работы с этим руководством необходимы указанные ниже компоненты.
 
 * Существующее хранилище данных SQL. Сведения о его создании см. в статье [Создание хранилища данных SQL Azure][Create a SQL Data Warehouse].
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
    
     ![Обзор AdventureWorksDW][3]
 
-## <a name="2-run-a-sample-query"></a>2) Запуск пробного запроса
+## <a name="2-run-a-sample-query"></a>2. Запуск пробного запроса
 Теперь, когда мы подключились к базе данных, давайте напишем запрос.
 
 1. Щелкните правой кнопкой мыши базу данных в обозревателе объектов SQL Server.

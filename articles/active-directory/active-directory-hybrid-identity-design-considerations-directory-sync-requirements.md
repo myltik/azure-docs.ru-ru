@@ -4,7 +4,7 @@ description: "Определите, какие требования необхо
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5ef87e606f055359ca325befd6048353ce57ca2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 00e9ecf39c386b7c1295bfca9ebf45fa40ae7e82
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Определение требований к синхронизации каталога
 Синхронизация предназначена для предоставления пользователям идентификации в облаке на основе их локальной идентификации. Независимо от того, используют ли они синхронизированную учетную запись для проверки подлинности или федеративной проверки подлинности, пользователям по-прежнему будет нужно идентифицироваться в облаке.  Эту идентификацию будет необходимо поддерживать и периодически обновлять.  Обновления могут принимать различные формы от изменения заголовка до изменения пароля.  
@@ -71,6 +71,6 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 [Определение требований к многофакторной проверке подлинности](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
 

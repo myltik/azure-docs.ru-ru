@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 94658dfcf93e821e24cabb1f010f8dce0c014700
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e51d31035a8b05238ef0f8d13dd6b6c3f9ad02e8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Диагностика локальных подключений через VPN-шлюзы
 
@@ -32,7 +32,7 @@ VPN-шлюз Azure позволяет создать гибридное реше
 
 1. Шлюз виртуальной сети — VPN-шлюз в Azure.
 1. Шлюз локальной сети — представление [локального VPN-шлюза (FortiGate)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) в облаке Azure.
-1. Подключение типа "сеть — сеть" (на основе маршрута) — [подключение между VPN-шлюзом и локальным маршрутизатором](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection).
+1. Подключение типа "сеть — сеть" (на основе маршрута) — [подключение между VPN-шлюзом и локальным маршрутизатором](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection).
 1. [Configuring FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md) (Настройка FortiGate)
 
 Подробное пошаговое руководство по настройке конфигурации "сеть — сеть" можно найти в статье [Создание виртуальной сети с подключением типа "сеть — сеть" с помощью портала Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
@@ -79,34 +79,34 @@ Error: On-premises device rejected Quick Mode settings. Check values.
 
 | Тип ошибки | Причина | Журнал|
 |---|---|---|
-| NoFault | Ошибка не обнаружена. |Да|
-| GatewayNotFound | Не удается найти шлюз или шлюз не подготовлен. |Нет|
-| PlannedMaintenance |  Выполняется обслуживание экземпляра шлюза.  |Нет|
-| UserDrivenUpdate | Идет обновление, инициированное пользователем. Это может быть операция изменения размера. | Нет |
-| VipUnResponsive | Не удается связаться с первичным экземпляром шлюза. Это происходит при сбое пробы работоспособности. | Нет |
-| PlatformInActive | Существует проблема с платформой. | Нет|
-| ServiceNotRunning | Базовая служба не выполняется. | Нет|
-| NoConnectionsFoundForGateway | У шлюза нет подключений. Это всего лишь предупреждение.| Нет|
-| ConnectionsNotConnected | Ни одно из подключений не установлено. Это всего лишь предупреждение.| Да|
-| GatewayCPUUsageExceeded | Текущее использование ЦП шлюза превышает 95 %. | Да |
+| NoFault | Ошибка не обнаружена. |Yes|
+| GatewayNotFound | Не удается найти шлюз или шлюз не подготовлен. |Нет |
+| PlannedMaintenance |  Выполняется обслуживание экземпляра шлюза.  |Нет |
+| UserDrivenUpdate | Идет обновление, инициированное пользователем. Это может быть операция изменения размера. | Нет  |
+| VipUnResponsive | Не удается связаться с первичным экземпляром шлюза. Это происходит при сбое пробы работоспособности. | Нет  |
+| PlatformInActive | Существует проблема с платформой. | Нет |
+| ServiceNotRunning | Базовая служба не выполняется. | Нет |
+| NoConnectionsFoundForGateway | У шлюза нет подключений. Это всего лишь предупреждение.| Нет |
+| ConnectionsNotConnected | Ни одно из подключений не установлено. Это всего лишь предупреждение.| Yes|
+| GatewayCPUUsageExceeded | Текущее использование ЦП шлюза превышает 95 %. | Yes |
 
 ### <a name="connection"></a>Подключение
 
 | Тип ошибки | Причина | Журнал|
 |---|---|---|
-| NoFault | Ошибка не обнаружена. |Да|
-| GatewayNotFound | Не удается найти шлюз или шлюз не подготовлен. |Нет|
-| PlannedMaintenance | Выполняется обслуживание экземпляра шлюза.  |Нет|
-| UserDrivenUpdate | Идет обновление, инициированное пользователем. Это может быть операция изменения размера.  | Нет |
-| VipUnResponsive | Не удается связаться с первичным экземпляром шлюза. Это происходит при сбое пробы работоспособности. | Нет |
-| ConnectionEntityNotFound | Отсутствует конфигурация подключения. | Нет |
-| ConnectionIsMarkedDisconnected | Подключение отмечено как "разъединенное". |Нет|
-| ConnectionNotConfiguredOnGateway | Для базовой службы не настроено подключение. | Да |
-| ConnectionMarkedStandy | Базовая служба помечена как ждущая.| Да|
-| Аутентификация | Несоответствие предварительного ключа. | Да|
-| PeerReachability | Одноранговый шлюз недоступен. | Да|
-| IkePolicyMismatch | У однорангового шлюза имеются политики IKE, которые не поддерживаются в Azure. | Да|
-| WfpParse Error | Ошибка при анализе журнала WFP. |Да|
+| NoFault | Ошибка не обнаружена. |Yes|
+| GatewayNotFound | Не удается найти шлюз или шлюз не подготовлен. |Нет |
+| PlannedMaintenance | Выполняется обслуживание экземпляра шлюза.  |Нет |
+| UserDrivenUpdate | Идет обновление, инициированное пользователем. Это может быть операция изменения размера.  | Нет  |
+| VipUnResponsive | Не удается связаться с первичным экземпляром шлюза. Это происходит при сбое пробы работоспособности. | Нет  |
+| ConnectionEntityNotFound | Отсутствует конфигурация подключения. | Нет  |
+| ConnectionIsMarkedDisconnected | Подключение отмечено как "разъединенное". |Нет |
+| ConnectionNotConfiguredOnGateway | Для базовой службы не настроено подключение. | Yes |
+| ConnectionMarkedStandy | Базовая служба помечена как ждущая.| Yes|
+| Authentication | Несоответствие предварительного ключа. | Yes|
+| PeerReachability | Одноранговый шлюз недоступен. | Yes|
+| IkePolicyMismatch | У однорангового шлюза имеются политики IKE, которые не поддерживаются в Azure. | Yes|
+| WfpParse Error | Ошибка при анализе журнала WFP. |Yes|
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

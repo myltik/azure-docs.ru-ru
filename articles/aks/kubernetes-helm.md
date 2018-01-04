@@ -9,27 +9,27 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7065ceaf87f0cb5ebf46c53c71c6df4b069b2deb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 39c6de1ce2443cf027d7cde067281355ea0b7207
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-helm-with-azure-container-service-aks"></a>Использование Helm со Службой контейнеров Azure (AKS)
 
-[Helm](https://github.com/kubernetes/helm/) — это средство упаковки с открытым исходным кодом, которое помогает установить приложения Kubernetes и управлять их жизненным циклом. Аналогично диспетчерам пакетов Linux, таких как *APT* и *Yum*, Helm используется для управления чартами Kubernetes, представляющими собой пакеты предварительно настроенных ресурсов Kubernetes.
+[Helm] [ helm] — это средство упаковки с открытым исходным кодом, которое поможет вам установить и управление жизненным циклом приложений Kubernetes. Аналогично диспетчерам пакетов Linux, таких как *APT* и *Yum*, Helm используется для управления чартами Kubernetes, представляющими собой пакеты предварительно настроенных ресурсов Kubernetes.
 
 В этом документе представлены пошаговые инструкции по настройке и использованию Helm в кластере Kubernetes в AKS.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-В действиях, описанных в этом документе, предполагается, что кластер AKS создан и с ним установлено соединение kubectl. Если вам требуются эти компоненты, см. статью [Deploy an Azure Container Service (AKS) cluster](./kubernetes-walkthrough.md) (Развертывание кластера Службы контейнера Azure (AKS)).
+В действиях, описанных в этом документе, предполагается, что кластер AKS создан и с ним установлено соединение kubectl. При необходимости эти элементы в разделе, [краткое руководство AKS][aks-quickstart].
 
 ## <a name="install-helm-cli"></a>Установка интерфейса командной строки Helm
 
 Интерфейс командной строки Helm — это клиент, который выполняется в системе разработки и позволяет запускать и останавливать приложения с помощью чартов Helm, а также управлять ими.
 
-Если вы используете Azure CloudShell, то интерфейс командной строки Helm уже установлен. Чтобы установить интерфейс командной строки Helm на компьютере Mac, выполните команду `brew`. Дополнительные параметры установки см. в статье [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) (Установка Helm).
+Если вы используете Azure CloudShell, то интерфейс командной строки Helm уже установлен. Чтобы установить интерфейс командной строки Helm на компьютере Mac, выполните команду `brew`. Для установки дополнительных параметров см. в разделе [Установка Helm][helm-install-options].
 
 ```console
 brew install kubernetes-helm
@@ -50,23 +50,24 @@ Bash completion has been installed to:
 
 ## <a name="configure-helm"></a>Настройка Helm
 
-Команда [helm init](https://docs.helm.sh/helm/#helm-init) используется для установки компонентов Helm в кластере Kubernetes и выполнения настроек на стороне клиента. Среда Helm предварительно установлена в кластерах AKS, поэтому требуется только настройка на стороне клиента. Выполните следующую команду для настройки клиента Helm.
+[Helm init] [ helm-init] команда используется для установки компонентов Helm Kubernetes кластера и сделать настроек на стороне клиента. Выполните следующую команду для установки на кластере AKS Helm и настройки клиента Helm.
 
 ```azurecli-interactive
-helm init --client-only
+helm init
 ```
 
 Выходные данные:
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
-Not installing Tiller due to 'client-only' flag having been set
+$HELM_HOME has been configured at /home/user/.helm.
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
 Happy Helming!
 ```
 
 ## <a name="find-helm-charts"></a>Поиск чартов Helm
 
-Чарты Helm используются для развертывания приложений в кластере Kubernetes. Чтобы найти предварительно созданные чарты Helm, используйте команду [helm search](https://docs.helm.sh/helm/#helm-search).
+Чарты Helm используются для развертывания приложений в кластере Kubernetes. Чтобы найти предварительно созданные Helm диаграммы, используйте [поиска helm] [ helm-search] команды.
 
 ```azurecli-interactive
 helm search
@@ -94,7 +95,7 @@ stable/datadog                  0.8.0   DataDog Agent
 ...
 ```
 
-Чтобы обновить список чартов, используйте команду [helm repo update](https://docs.helm.sh/helm/#helm-repo-update).
+Чтобы обновить список диаграммы, используйте [обновление репозитория helm] [ helm-repo-update] команды.
 
 ```azurecli-interactive
 helm repo update
@@ -111,7 +112,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Выполнение чартов Helm
 
-Чтобы развернуть входящий контроллер NGINX, используйте команду [helm install](https://docs.helm.sh/helm/#helm-install).
+Чтобы развертывать контроллер NGINX входящих сообщений, используйте [установки helm] [ helm-install] команды.
 
 ```azurecli-interactive
 helm install stable/nginx-ingress
@@ -142,11 +143,11 @@ tufted-ocelot-nginx-ingress-default-backend  1        1        1           1    
 ...
 ```
 
-Дополнительные сведения об использовании входящего контроллера NGINX с Kubernetes см. в [этой статье](https://github.com/kubernetes/ingress/tree/master/controllers/nginx).
+Дополнительные сведения об использовании контроллер входящих NGINX с Kubernetes разделе [NGINX входящих контроллера][nginx-ingress].
 
 ## <a name="list-helm-charts"></a>Список чартов Helm
 
-Чтобы просмотреть список чартов, установленных в кластере, используйте команду [helm list](https://docs.helm.sh/helm/#helm-list).
+Чтобы просмотреть список диаграмм установлены в кластере, используйте [списка helm] [ helm-list] команды.
 
 ```azurecli-interactive
 helm list
@@ -164,4 +165,18 @@ bilging-ant     1           Thu Oct  5 00:11:11 2017    DEPLOYED    nginx-ingres
 Дополнительные сведения об управлении чартами Kubernetes см. в документации по Helm.
 
 > [!div class="nextstepaction"]
-> [Документация по Helm](https://github.com/kubernetes/helm/blob/master/docs/index.md)
+> [Helm документации][helm-documentation]
+
+<!-- LINKS - external -->
+[helm]: https://github.com/kubernetes/helm/
+[helm-documentation]: https://github.com/kubernetes/helm/blob/master/docs/index.md
+[helm-init]: https://docs.helm.sh/helm/#helm-init
+[helm-install]: https://docs.helm.sh/helm/#helm-install
+[helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
+[helm-search]: https://docs.helm.sh/helm/#helm-search
+[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 71ba93c64657725b48ad5915c6bb26dc32e5434d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Создание и отправка виртуального жесткого диска FreeBSD в Azure
 В этой статье описывается, как создать и передать виртуальный жесткий диск, содержащий операционную систему FreeBSD. После передачи его можно использовать как свой собственный образ для создания виртуальной машины в Azure.
 
 > [!IMPORTANT] 
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Дополнительные сведения о передаче виртуального жесткого диска с помощью модели Resource Manager см. [здесь](../upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Дополнительные сведения о передаче виртуального жесткого диска с помощью модели Resource Manager см. [здесь](../upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 В данной статье предполагается, что у вас есть следующие элементы:
 
 * **Подписка Azure**. Если у вас нет учетной записи, то ее можно создать, что займет всего лишь несколько минут. Если у вас есть подписка MSDN, см. страницу [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). В противном случае узнайте, как [создать бесплатную пробную учетную запись](https://azure.microsoft.com/pricing/free-trial/).  
@@ -133,7 +133,7 @@ azure login
 
 * **BlobStorageURL** — URL-адрес для учетной записи хранения, созданной на шаге 2.
 * **YourImagesFolder** — контейнер внутри хранилища BLOB-объектов, где будут храниться образы.
-* **VHDName** — это метка, которая отображается на классическом портале Azure для идентификации виртуального жесткого диска.
+* **VHDName** — метка, которая отображается на портале Azure для определения виртуального жесткого диска.
 * **PathToVHDFile** — это полный путь и имя файла .vhd.
 
 В окне Azure PowerShell, использованном при выполнении предыдущего шага, введите:

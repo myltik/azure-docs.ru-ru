@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: be880efdcf1276252c76f27c2f2fd99edd606caa
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Создание кластера Service Fabric в Azure с помощью портала Azure
 > [!div class="op_single_selector"]
-> * [Диспетчер ресурсов Azure](service-fabric-cluster-creation-via-arm.md)
+> * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 > * [Портал Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/18/2017
 
 Защищенный кластер — это кластер, который предотвращает несанкционированный доступ к операциям управления, включая развертывание, обновление и удаление приложений, служб и данных, которые они содержат. Незащищенный кластер — это кластер, к которому в любое время может подключиться любой пользователь и выполнять операции управления. Хотя можно создать незащищенный кластер, **настоятельно рекомендуется создать защищенный кластер**. Незащищенный кластер **невозможно будет защитить позднее** , для этого нужно будет создать новый кластер.
 
-Принципы создания безопасных кластеров в Linux или Windows аналогичны. Дополнительные сведения о создании безопасных кластеров Linux, а также вспомогательные скрипты см. в статье [Создание безопасных кластеров в Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Параметры, полученные с помощью вспомогательного скрипта, можно указать непосредственно на портале, как описано в разделе [Создание кластера на портале Azure](#create-cluster-portal).
+Принципы создания безопасных кластеров в Linux или Windows аналогичны. Дополнительные сведения и вспомогательных сценариев для создания защищенных кластеров Linux, см. в статье [создания защищенных кластеров](service-fabric-cluster-creation-via-arm.md). Параметры, полученные с помощью вспомогательного скрипта, можно указать непосредственно на портале, как описано в разделе [Создание кластера на портале Azure](#create-cluster-portal).
 
 ## <a name="configure-key-vault"></a>Настройка Key Vault 
 ### <a name="log-in-to-azure"></a>Вход в Azure
@@ -114,7 +114,15 @@ Set-AzureRmContext -SubscriptionId <guid>
     Tags                             :
 ```
 
-При наличии существующего хранилища ключей можно сделать его доступным для развертывания с помощью командной строки Azure (Azure CLI).
+Если у вас есть существующие хранилища ключей, его можно включить для развертывания с использованием одного из следующих способов:
+
+##### <a name="azure-powershell"></a>Azure PowerShell
+
+```powershell
+PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
+```
+
+##### <a name="azure-cli"></a>Azure CLI:
 
 ```cli
 > azure login
@@ -228,7 +236,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
    > 
 5. Выберите **регион** , в котором требуется создать кластер. Необходимо использовать тот же регион, в котором расположено ваше хранилище ключей.
 
-#### <a name="2-cluster-configuration"></a>2) Конфигурация кластера
+#### <a name="2-cluster-configuration"></a>2. Конфигурация кластера
 ![Создание типа узла][CreateNodeType]
 
 Настройте узлы кластера. Он определяет размер виртуальных машин, их количество и свойства. Кластер может содержать узлы нескольких типов, однако первичный узел (тот, который вы задали на портале) должен включать не менее пяти виртуальных машин, так как на узлах такого типа расположены системные службы Service Fabric. Не настраивайте параметры **Свойства размещения** , так как стандартное свойство размещения NodeTypeName добавляется автоматически.

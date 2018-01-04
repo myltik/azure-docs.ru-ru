@@ -3,7 +3,7 @@ title: "Изменение текстовых модулей Runbook в служ
 description: "В этой статье представлены различные процедуры для работы с модулями Runbook PowerShell и рабочих процессов PowerShell в службе автоматизации Azure с помощью текстового редактора."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 ms.assetid: 6f5b48fb-6f30-4e99-9e14-9061b5554b08
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: ae36342ab0f42c364dedd4107a59f5b0ffc20a0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e166700be0ec6b32d40f34bd47f92a7cff1cc7bf
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Изменение текстовых модулей Runbook в службе автоматизации Azure
 Текстовый редактор в службе автоматизации Azure можно использовать для изменения [модулей Runbook PowerShell](automation-runbook-types.md#powershell-runbooks) и [модулей Runbook рабочих процессов PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Он обладает стандартными функциями других редакторов кода, включая поддержку технологии IntelliSense и цветовую схему кодирования, а также включает ряд дополнительных функций для работы с ресурсами, свойственными модулям Runbook.  В этой статье подробно описано, как использовать этот редактор для выполнения разнообразных задач.
@@ -126,7 +126,7 @@ ms.lasthandoff: 10/11/2017
 * [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md)
 * [Изучение рабочего процесса PowerShell](automation-powershell-workflow.md)
 * [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md)
-* [Сертификаты](automation-certificates.md)
+* [Certificates](automation-certificates.md)
 * [Подключения](automation-connections.md)
 * [Учетные данные](automation-credentials.md)
 * [Расписания](automation-schedules.md)

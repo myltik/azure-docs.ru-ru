@@ -4,7 +4,7 @@ description: "В этой статье рассматриваются спосо
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: 675f5b31eb60a75e060a397f01777e427c068c64
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: a0e3b65c108f8d839b8107e98a5cd59df78e1ab0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Обновление сертификатов федерации для Office 365 и Azure AD
 ## <a name="overview"></a>Обзор
@@ -89,9 +89,9 @@ Azure AD пытается отслеживать метаданные федер
 
 | AutoCertificateRollover | Сертификаты синхронизированы с Azure AD | Метаданные федерации общедоступны | Срок действия | Действие |
 |:---:|:---:|:---:|:---:|:---:|
-| Да |Да |Да |- |Никаких действий не требуется. См. раздел [Автоматическое возобновление действия сертификата для подписи маркера](#autorenew). |
-| Да |Нет |- |Менее 15 дней |Обновите немедленно. См. раздел [Возобновление действия сертификата для подписи маркера вручную](#manualrenew). |
-| Нет |- |- |Менее 30 дней |Обновите немедленно. См. раздел [Возобновление действия сертификата для подписи маркера вручную](#manualrenew). |
+| Yes |Yes |Yes |- |Никаких действий не требуется. См. раздел [Автоматическое возобновление действия сертификата для подписи маркера](#autorenew). |
+| Yes |Нет  |- |Менее 15 дней |Обновите немедленно. См. раздел [Возобновление действия сертификата для подписи маркера вручную](#manualrenew). |
+| Нет  |- |- |Менее 30 дней |Обновите немедленно. См. раздел [Возобновление действия сертификата для подписи маркера вручную](#manualrenew). |
 
 \[-] — не имеет значения
 

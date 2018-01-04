@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Балансировка нагрузки в конфигурациях с несколькими IP-адресами с помощью портала Azure
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/25/2017
 - Azure Load Balancer используется, чтобы предоставить два интерфейсных IP-адреса, по одному для каждого веб-сайта. Интерфейсные IP-адреса позволяют направить трафик в соответствующую IP-конфигурацию для каждого веб-сайта.
 - Один и тот же номер порта используется для обоих внешних интерфейсов, как и для обоих IP-адресов внутренних пулов.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 В нашем примере сценария предполагается, что у вас есть группа ресурсов с именем **contosofabrikam** со следующей конфигурацией.
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Вызов функции из Microsoft Flow
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 > * создавать последовательность для отправки электронной почты, если ремонт экономически оправдан;
 > * запускать последовательности.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 + Активная [учетная запись Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) с такими же учетными данными, что и в учетной записи Azure. 
 + Сайт SharePoint, который используется в качестве источника данных для этой последовательности. Зарегистрируйтесь для использования [пробной версии Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1), если у вас нет SharePoint.
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-a-sharepoint-list"></a>Создание списка SharePoint
 Для начала вам нужно создать список, который будет использоваться в качестве источника данных для последовательности. Ниже перечислены столбцы этого списка.
 
-| Столбец списка     | Тип данных           | Примечания                                    |
+| Столбец списка     | Тип данных           | Заметки                                    |
 |-----------------|---------------------|------------------------------------------|
 | **Заголовок**           | Одна строка текста | Имя турбины                      |
 | **Дата_последнего_обслуживания** | Дата                |                                          |
@@ -232,7 +232,7 @@ ms.lasthandoff: 10/11/2017
     | **Заголовок**           | Турбина 60 |
     | **Дата_последнего_обслуживания** | 08/04/2017 |
     | **Максимальная_мощность**       | 2500 |
-    | **Требуется_обслуживание** | Да |
+    | **Требуется_обслуживание** | Yes |
     | **Ожидаемые_затраты** | 10 |
 
 3. Нажмите кнопку **Done**(Готово).

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 05b57a065f6d92c7c285ef5178b465dc8f419dbc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 9360d29eb30171651b0bcc688fe7884614b50cf4
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Что бы вы хотели узнать о Service Fabric?
 Azure Service Fabric — это платформа распределенных систем, которая дает возможность не только легко упаковывать и развертывать масштабируемые и надежные микрослужбы, но и управлять ими.  Service Fabric имеет большую контактную зону и вы можете многому научиться.  Здесь представлен краткий обзор Service Fabric и описаны основные понятия, модели программирования, жизненный цикл приложения, тестирование, кластеры и мониторинг работоспособности. Обзор и сведения о том, как создавать микрослужбы с помощью Service Fabric, см. в статьях [Общие сведения о Service Fabric](service-fabric-overview.md) и [Разработка приложений с использованием микрослужб](service-fabric-overview-microservices.md). Эта статья не содержит полный список связанной документации, но предоставляет ссылки на руководства по началу работы для каждой области Service Fabric. 
@@ -103,7 +103,7 @@ Service Fabric интегрируется с [ASP.NET Core](service-fabric-relia
 ## <a name="application-lifecycle"></a>Жизненный цикл приложения
 Как и в случае с другими платформами, приложение в Service Fabric обычно проходит следующие фазы: проектирование, разработка, тестирование, развертывание, обновление, техническое обслуживание и удаление. Service Fabric предоставляет первоклассную поддержку полного жизненного цикла приложений в облаке: от разработки, развертывания, ежедневного управления и технического обслуживания до вывода приложения из эксплуатации. Модель службы использует несколько различных ролей для независимого участия в жизненном цикле приложения. [Жизненный цикл приложения в Service Fabric](service-fabric-application-lifecycle.md) представляет обзор интерфейсов API, а также их использование различными ролями на протяжении всех фаз жизненного цикла приложения в Service Fabric. 
 
-Всем жизненным циклом приложения можно управлять с помощью [командлетов PowerShell](/powershell/module/ServiceFabric/), [интерфейсов API C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [интерфейсов API Java](/java/api/system.fabric._application_management_client) и [интерфейсов REST API](/rest/api/servicefabric/). Вы также можете настроить конвейеры непрерывной интеграции и разработки с помощью средств [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) или [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+Жизненный цикл всего приложения можно управлять при помощи [командлеты PowerShell](/powershell/module/ServiceFabric/), [команды CLI](service-fabric-sfctl.md), [C# API-интерфейсы](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [API-интерфейсы Java](/java/api/system.fabric._application_management_client), и [ API-интерфейс REST](/rest/api/servicefabric/). Вы также можете настроить конвейеры непрерывной интеграции и разработки с помощью средств [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) или [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 В следующем видео от Академии Microsoft Virtual Academy также описывается процесс управления жизненным циклом приложения: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
@@ -184,12 +184,31 @@ Service Fabric для Linux дает возможность создавать, 
 
 Service Fabric предоставляет несколько способов [просмотра отчетов о работоспособности](service-fabric-view-entities-aggregated-health.md), объединенных в хранилище данных о работоспособности.
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) или другие средства визуализации;
-* запросы о работоспособности (с помощью [PowerShell](/powershell/module/ServiceFabric/), [API-интерфейсов FabricClient C#](/dotnet/api/system.fabric.fabricclient.healthclient), [API-интерфейсов FabricClient Java](/java/api/system.fabric._health_client) или [интерфейсов REST API](/rest/api/servicefabric));
-* общие запросы, возвращающие перечень сущностей, среди свойств которых есть работоспособность (с помощью PowerShell, API или REST).
+* Запросов о работоспособности (через [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), [API-интерфейсы для C# FabricClient](/dotnet/api/system.fabric.fabricclient.healthclient) и [API-интерфейсы Java FabricClient](/java/api/system.fabric._health_client), или [REST API-интерфейсы](/rest/api/servicefabric)).
+* Общие запросы, возвращающее список сущностей, которые имеют работоспособности в качестве одного из свойств (с помощью PowerShell, CLI, API-интерфейсы или REST).
 
 В следующем видеоролике Microsoft Virtual Academy рассматривается модель работоспособности Service Fabric и принципы ее использования: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
+
+## <a name="monitoring-and-diagnostics"></a>Мониторинг и диагностика.
+[Мониторинг и диагностика](service-fabric-diagnostics-overview.md) крайне важны для разработки, тестирования и развертывания приложений и служб в любой среде. Оптимальная работа решений Service Fabric зависит от эффективного планирования и реализации мониторинга и диагностики, которые помогают обеспечить правильную работу приложений и служб в локальной среде разработки или в производственной среде.
+
+Основные цели мониторинга и диагностики:
+
+- обнаружение и диагностика проблем с оборудованием и инфраструктурой;
+- выявление проблем с программным обеспечением и приложениями, а также сокращение времени простоя служб;
+- анализ потребления ресурсов и помощь в принятии решений, связанных с выполнением операций;
+- оптимизация производительности приложений, служб и инфраструктуры;
+- создание бизнес-аналитики и определение областей для оптимизации.
+ 
+Общий рабочий процесс мониторинга и диагностики состоит из трех этапов.
+
+1. Генерирование событий: события (журналов, трассировок, пользовательские события) в нем инфраструктуры (кластер), платформы и уровень приложений / служба
+2. Статистическая обработка событий: созданные события должны быть собираются и статистически обрабатываются, прежде чем они могут быть показаны
+3. Анализ: события должны быть Визуализированный и доступен в некоторых формате, чтобы разрешить для анализа и при необходимости отображать
+
+Доступны разные продукты с поддержкой этих трех областей, и вы можете использовать разные инструменты для реализации каждого из этапов. Дополнительные сведения см. в статье [наблюдения и диагностики для Azure Service Fabric](service-fabric-diagnostics-overview.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как создать [кластер в Azure](service-fabric-cluster-creation-via-portal.md) или [автономный кластер в Windows](service-fabric-cluster-creation-for-windows-server.md).

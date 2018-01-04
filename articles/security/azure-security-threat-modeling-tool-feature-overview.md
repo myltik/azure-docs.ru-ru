@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Общие сведения о функциях средства моделирования угроз
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы открыть пустую страницу, выберите **Create A Model** (Создать модель).
 
-![Пустая страница](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Пустая страница](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 Чтобы просмотреть функции, доступные в средстве сейчас, используйте модель рисков, созданную нашей командой в примере в статье [Начало работы со средством моделирования угроз](./azure-security-threat-modeling-tool-getting-started.md).
 
-![Базовая модель рисков](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Базовая модель рисков](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 ## <a name="navigation"></a>Навигации
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 Интерфейс аналогичен интерфейсам других продуктов корпорации Майкрософт. Давайте рассмотрим пункты меню верхнего уровня.
 
-![Пункты меню](./media/azure-security-threat-modeling-tool/menuitems.png)
+![Пункты меню](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
 | Метка                               | Сведения      |
 | --------------------------------------- | ------------ |
@@ -75,11 +75,11 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="drop-the-stencil-on-the-canvas"></a>Перетаскивание набора элементов на холст
 
-![Перетаскивание на холст](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
+![Перетаскивание на холст](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
 
 #### <a name="select-the-stencil"></a>Выбор набора элементов
 
-![Свойства элемента](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
+![Свойства элемента](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop2.png)
 
 ### <a name="stencils"></a>Набор элементов
 
@@ -120,15 +120,15 @@ ms.lasthandoff: 10/11/2017
 
 При наведении курсора мыши на элемент **Open a Model** (Открыть модель) отображаются два параметра: **Open From this Computer** (Открыть с этого компьютера) и **Open from OneDrive** (Открыть из OneDrive). Первый параметр открывает экран **File Open** (Открытие файла). Второй параметр позволяет выполнить входа в OneDrive. После успешной аутентификации можно выбрать папки и файлы.
 
-![Открытие модели](./media/azure-security-threat-modeling-tool/openmodel.png)
+![Открытие модели](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
-![Открытие с компьютера или из OneDrive](./media/azure-security-threat-modeling-tool/openmodel2.png)
+![Открытие с компьютера или из OneDrive](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
 
 ### <a name="feedback-suggestions-and-issues"></a>Отзывы, предложения и проблемы
 
 Нажав кнопку **Feedback, suggestions and issues** (Отзывы, предложения и проблемы), вы перейдете на форум MSDN, посвященный инструментам SDL. Вы сможете узнать мнение других пользователей об этом средстве, включая способы устранения проблем и новые идеи.
 
-![Отзыв](./media/azure-security-threat-modeling-tool/feedback.png)
+![Отзыв](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Конструктор
 
@@ -148,25 +148,25 @@ ms.lasthandoff: 10/11/2017
 - **Перетаскивание.** Перетащите нужный поток данных на сетку и соедините оба конца с соответствующими элементами.
 - **Щелчок и клавиша SHIFT.** Щелкните первый элемент (отправляющий данные), нажмите и удерживайте клавишу SHIFT, а затем выберите второй элемент (получающий данные). Щелкните правой кнопкой мыши и выберите **Connect** (Соединить). При использовании двунаправленного потока данных порядок не столь важен.
 
-### <a name="properties"></a>Свойства
+### <a name="properties"></a>properties
 
  Чтобы просмотреть свойства набора элементов, которые могут быть изменены, выберите набор элементов, и отобразятся соответствующие сведения. В приведенном ниже примере показана схема до и после перетаскивания набора элементов **Database** не нее.
 
 #### <a name="before"></a>До
 
-![До](./media/azure-security-threat-modeling-tool/properties1.png)
+![До](./media/azure-security-threat-modeling-tool-feature-overview/properties1.png)
 
 #### <a name="after"></a>после
 
-![после](./media/azure-security-threat-modeling-tool/properties2.png)
+![после](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Сообщения
 
 Если вы создали модель рисков и забыли присоединить потоки данных к элементам, отобразится уведомление. Вы можете игнорировать это сообщение или выполнить инструкции по устранению проблемы. 
 
-![Сообщения](./media/azure-security-threat-modeling-tool/messages.png)
+![Сообщения](./media/azure-security-threat-modeling-tool-feature-overview/messages.png)
 
-### <a name="notes"></a>Примечания
+### <a name="notes"></a>Заметки
 
 Чтобы добавить заметки к схеме, перейдите с вкладки **Messages** (Сообщения) на вкладку **Notes** (Заметки).
 
@@ -174,7 +174,7 @@ ms.lasthandoff: 10/11/2017
 
 После создания схемы щелкните значок **Analysis** (Анализ) (увеличительное стекло) на панели ярлыков, чтобы переключиться на представление **Analysis** (Анализ).
 
-![Представление "Анализ"](./media/azure-security-threat-modeling-tool/analysisview.png)
+![Представление "Анализ"](./media/azure-security-threat-modeling-tool-feature-overview/analysisview.png)
 
 ### <a name="generated-threat-selection"></a>Выбор созданной угрозы
 
@@ -182,27 +182,27 @@ ms.lasthandoff: 10/11/2017
 
 | Функция                               | Информация      |
 | --------------------------------------- | ------------ |
-| **Индикатор прочитанного** | <p>Угроза помечается как прочитанная, что помогает следить за проверенными элементами.</p><p>![Индикатор прочитанного и непрочитанного](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
-| **Фокус на взаимодействии** | <p>Взаимодействие на схеме, которое относится к этой угрозе.</p><p>![Фокус на взаимодействии](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
-| **Свойства угрозы** | <p>В окне **Threat Properties** (Свойства угрозы) отображаются дополнительные сведения об угрозе.</p><p>![Свойства угрозы](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
+| **Индикатор прочитанного** | <p>Угроза помечается как прочитанная, что помогает следить за проверенными элементами.</p><p>![Индикатор прочитанного и непрочитанного](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **Фокус на взаимодействии** | <p>Взаимодействие на схеме, которое относится к этой угрозе.</p><p>![Фокус на взаимодействии](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **Свойства угрозы** | <p>В окне **Threat Properties** (Свойства угрозы) отображаются дополнительные сведения об угрозе.</p><p>![Свойства угрозы](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Изменение приоритета
 
 Можно изменить уровень приоритета каждой созданной угрозы. Разные цвета упрощают определение угроз с высоким, средним и низким приоритетом.
 
-![Изменение приоритета](./media/azure-security-threat-modeling-tool/prioritychange.png)
+![Изменение приоритета](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
 
 ### <a name="threat-properties-editable-fields"></a>Изменяемые поля свойств угроз.
 
 Как показано на предыдущем рисунке, можно изменить данные, созданные средством. Можно также добавить информацию в определенные поля, например обоснование. Эти поля создаются с помощью шаблона. Если требуются дополнительные сведения о каждой угрозе, то вы можете внести соответствующие изменения.
 
-![Свойства угрозы](./media/azure-security-threat-modeling-tool/threatproperties.png)
+![Свойства угрозы](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Отчеты
 
 Изменив приоритеты и обновив состояние каждой созданной угрозы, вы можете сохранить файл и (или) распечатать отчет. Выберите **Report** (Отчет) > **Create Full Report** (Создать полный отчет). Укажите имя отчета. Должен отобразиться результат как на рисунке ниже.
 
-![Отчет](./media/azure-security-threat-modeling-tool/report.png)
+![Отчет](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

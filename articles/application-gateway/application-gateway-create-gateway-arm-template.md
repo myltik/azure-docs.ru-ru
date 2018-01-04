@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
 ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Создание шлюза приложений с помощью шаблона диспетчера ресурсов Azure
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](application-gateway-create-gateway-portal.md)
+> * [портал Azure](application-gateway-create-gateway-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-gateway-arm.md)
 > * [Классическая модель — Azure PowerShell](application-gateway-create-gateway.md)
 > * [Шаблон диспетчера ресурсов Azure](application-gateway-create-gateway-arm-template.md)
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/30/2017
 1. Откройте только что сохраненный файл и просмотрите содержимое раздела **parameters** в строке
 1. В параметрах шаблона ARM есть заполнитель для значений, которые могут подставляться во время развертывания.
 
-  | Параметр | Описание |
+  | Параметр | ОПИСАНИЕ |
   | --- | --- |
   | **subnetPrefix** |Блок CIDR для подсети шлюза приложений. |
   | **applicationGatewaySize** | Размер шлюза приложений.  WAF позволяет только средний и крупный. |
@@ -140,7 +140,7 @@ ms.lasthandoff: 11/30/2017
 
     Вам будет предложено указать свои учетные данные для проверки подлинности.
 
-1. Выберите подписку Azure.
+1. Выберите, какие подписки Azure будут использоваться.
 
     ```powershell
     Select-AzureRmSubscription -Subscriptionid "GUID of subscription"

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: c7734b8e02b6a2f08f5fc6ebe4b2ec43e34b35c3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Руководство по устранению неполадок шифрования дисков Azure
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/22/2017
 - Диск операционной системы использует схему диспетчера логических томов. При этом доступна ограниченная поддержка диска данных диспетчера логических томов, но диск операционной системы диспетчера логических томов не поддерживается.
 - Минимальные требования к памяти не выполняются (для шифрования диска операционной системы рекомендуется 7 ГБ памяти).
 - Диски данных рекурсивно подключены в каталоге /mnt/ или любом другом (например, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Другие [предварительные требования](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) к шифрованию дисков Azure для ОС Linux не выполнены.
+- Другие [предварительные требования](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) к шифрованию дисков Azure для ОС Linux не выполнены.
 
 ## <a name="unable-to-encrypt"></a>Сбой шифрования
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/22/2017
 
 Последовательность шифрования диска операционной системы Linux временно отключает диск операционной системы. Затем выполняется блочное шифрование всего диска операционной системы перед его повторным подключением в зашифрованном состоянии. В отличие от шифрования дисков Azure в Windows во время шифрования диска в Linux нельзя параллельно использовать виртуальную машину. Характеристики производительности виртуальной машины могут существенно повлиять на время, необходимое для завершения шифрования. К таким характеристикам относится размер диска и класс учетной записи хранения ("Стандартный" или "Премиум" (SSD)).
 
-Чтобы проверить состояние, запросите поле **ProgressMessage**, возвращаемое из команды [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus). Во время шифрования диска ОС виртуальная машина входит в состояние обслуживания, а также отключается SSH, чтобы предотвратить нарушение текущего процесса. В процессе шифрования часто появляется сообщение **EncryptionInProgress**. Через несколько часов появляется сообщение **VMRestartPending**, в котором вам будет предложено перезагрузить виртуальную машину. Например:
+Чтобы проверить состояние, запросите поле **ProgressMessage**, возвращаемое из команды [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus). Во время шифрования диска ОС виртуальная машина входит в состояние обслуживания, а также отключается SSH, чтобы предотвратить нарушение текущего процесса. В процессе шифрования часто появляется сообщение **EncryptionInProgress**. Через несколько часов появляется сообщение **VMRestartPending**, в котором вам будет предложено перезагрузить виртуальную машину. Например: 
 
 
 ```
@@ -105,7 +105,7 @@ ProgressMessage            : OS disk successfully encrypted, please reboot the V
 
    4. Используйте DiskPart, чтобы проверить тома, а затем продолжайте.  
 
-Например:
+Например: 
 
 ```
 DISKPART> list vol

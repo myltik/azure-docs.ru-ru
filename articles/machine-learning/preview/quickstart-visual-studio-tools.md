@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: f066f0dd0dab0096279c18ded3c024a7cc0cbda0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bbcb2ea5a7ceeb976f590393608cc29c67d9a49e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="visual-studio-tools-for-ai"></a>Инструменты Visual Studio для ИИ
 Инструменты Visual Studio для ИИ — это расширение для разработки, тестирования и развертывания решений с использованием глубокого обучения и ИИ. Они обеспечивают простую интеграцию со службой "Машинного обучения Azure", в частности, просмотр журнала выполнения, в котором подробно описываются результаты предыдущего обучения и пользовательские метрики. Они предоставляют обозреватель примеров, позволяющий просматривать и загружать новые проекты с помощью [Microsoft Cognitive Toolkit (ранее — CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) и других платформ глубокого обучения. И, наконец они предоставляют обозреватель для целевых объектов вычислений, что дает возможность отправлять задания для обучения моделей в удаленных средах, например, на виртуальных машин Azure или серверах Linux с графическими процессорами. Кроме того, они предоставляют простой доступ к службе [Azure Batch AI (предварительная версия)](https://docs.microsoft.com/azure/batch-ai/).
@@ -76,6 +76,6 @@ ms.lasthandoff: 12/08/2017
 В открытом представлении обозревателя заданий щелкните первое выполнение в списке.
 Откроются панели "Сводка по заданию" и Logs and Outputs (Журналы и выходные данные).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 > [!div class="nextstepaction"]
 > [How to configure Azure Machine Learning Workbench to work with an IDE](./how-to-configure-your-IDE.md) (Как настроить Azure Machine Learning Workbench для работы с IDE)

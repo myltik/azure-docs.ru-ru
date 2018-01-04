@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 58e0533db1bb907b0c9a09cdeb7aabbf120d506f
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
-ms.translationtype: HT
+ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Создание веб-приложения Java в Azure с подключением к базе данных MySQL
+
+> [!NOTE]
+> В этой статье развертывает приложение службы приложений для Windows. Для развертывания на службы приложений на _Linux_, в разделе [развертывание контейнерного Spring загрузки приложения в Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+>
 
 В этом руководстве показано, как создать веб-приложение Java в Azure и подключить его к базе данных MySQL. Когда вы выполните инструкции руководства, у вас будет приложение [Spring Boot](https://projects.spring.io/spring-boot/), данные которого хранятся в [базе данных Azure для MySQL](https://docs.microsoft.com/azure/mysql/overview), которая работает в [веб-приложениях службы приложений Azure](app-service-web-overview.md).
 
@@ -38,7 +42,7 @@ ms.lasthandoff: 11/15/2017
 > * Мониторинг приложения на портале Azure
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 1. [Скачайте и установите Git](https://git-scm.com/)
 1. [Скачайте и установите Java 7 JDK или более поздней версии](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -277,7 +281,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_USERNAME=Javaapp_u
 ```
 
 ```azurecli-interactive
-az webapp config appsettings set --settings SPRING_DATASOURCE_URL=Javaapp_password --resource-group myResourceGroup --name <app_name>
+az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_password --resource-group myResourceGroup --name <app_name>
 ```
 
 ### <a name="get-ftp-deployment-credentials"></a>Получение учетных данных FTP для развертывания 

@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 31acf80f-1f4b-41f1-956f-a9fbae77ee69
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: ffc3d94416378f6469eaa574dc10880ef840e91f
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 924abe287b5e39bb77a418b56b5c33195095e07a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Руководство по интеграции Azure Active Directory с Pega Systems
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/18/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Pega Systems, вам потребуется:
 
@@ -48,12 +48,12 @@ ms.lasthandoff: 11/18/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Pega Systems из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-pega-systems-from-the-gallery"></a>Добавление Pega Systems из коллекции
+## <a name="adding-pega-systems-from-the-gallery"></a>Добавление Pega Systems из коллекции.
 Чтобы настроить интеграцию Pega Systems с Azure AD, необходимо добавить Pega Systems из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Pega Systems из коллекции, выполните следующие действия:**
@@ -108,9 +108,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Pega Systems](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_url.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/sp/<INSTANCEID>`
+    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/sp/<INSTANCEID>`
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`.
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`.
 
 4. Установите флажок **Показать дополнительные параметры URL-адресов**, и выполните следующее действие, если хотите настроить приложение для работы в режиме, инициируемом **поставщиком услуг**:
 
@@ -142,17 +142,17 @@ ms.lasthandoff: 11/18/2017
     > [!NOTE]
     > Эти значения зависят от конкретного клиента. Укажите свои собственные значения.
 
-    а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+    a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 
     ![Настройка единого входа](./media/active-directory-saas-pegasystems-tutorial/tutorial_attribute_04.png)
 
     ![Настройка единого входа](./media/active-directory-saas-pegasystems-tutorial/tutorial_attribute_05.png)
 
-    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+    Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
 
     c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
     
-    г) Нажмите кнопку **ОК**.
+    d. Нажмите кнопку **ОК**.
 
 7. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
@@ -171,9 +171,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 
-    а. В поле Type (Тип) укажите **SAML 2.0**.
+    a. В поле Type (Тип) укажите **SAML 2.0**.
 
-    b. В текстовом поле **Name** (Имя) введите любое имя, например Azure AD SSO.
+    Б. В текстовом поле **Name** (Имя) введите любое имя, например Azure AD SSO.
 
     c. В текстовом поле **Short Description** (Краткое описание) введите любое описание.  
 
@@ -191,9 +191,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin4.png)
 
-    а. Скопируйте значение **Entity Identification** (Идентификатор сущности) и вставьте его в текстовое поле **Идентификатор** на портале Azure.
+    a. Скопируйте значение **Entity Identification** (Идентификатор сущности) и вставьте его в текстовое поле **Идентификатор** на портале Azure.
 
-    b.  Скопируйте значение **Assertion Consumer Service (ACS) location** (Расположение службы обработчика утверждений (ACS)) и вставьте его в текстовое поле **URL-адрес ответа** на портале Azure.
+    Б.  Скопируйте значение **Assertion Consumer Service (ACS) location** (Расположение службы обработчика утверждений (ACS)) и вставьте его в текстовое поле **URL-адрес ответа** на портале Azure.
 
     c. Выберите **Disable request signing** (Отключить подписывание запросов).
 
@@ -226,13 +226,13 @@ ms.lasthandoff: 11/18/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-pegasystems-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-pega-systems-test-user"></a>Создание тестового пользователя Pega Systems
 

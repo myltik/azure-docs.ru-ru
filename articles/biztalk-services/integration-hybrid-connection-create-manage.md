@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 7b8b9072d0e2fd054ca07873c0a9ce772dc2941e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Создание гибридных подключений и управление ими
 
 > [!IMPORTANT]
 > Гибридные подключения BizTalk больше не используются. Они заменены гибридными подключениями службы приложений. Дополнительную информацию, включая сведения об управлении существующими гибридными подключениями BizTalk, см. в статье [Гибридные подключения к службе приложений Azure](../app-service/app-service-hybrid-connections.md).
 
+>[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="overview-of-the-steps"></a>Описание действий
-1. Создание гибридного подключения посредством ввода **имени узла** или **полного доменного имени** локального ресурса в частной сети.
+1. Создание гибридного подключения путем ввода **host name** или **FQDN** of the on-premises resource in your private netwилиk.
 2. Связывание веб-приложений Azure или мобильных приложений Azure с гибридным подключением.
 3. Установка диспетчера гибридных подключений на локальном ресурсе и соединение с конкретным гибридным подключением. Портал Azure предлагает простой интерфейс для установки и подключения.
 4. Управление гибридными подключениями и их ключами.
@@ -48,26 +49,9 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="CreateHybridConnection"></a>Создание гибридного подключения
-Гибридное подключение можно создать на портале Azure с помощью веб-приложений **или** служб BizTalk. 
+Гибридное подключение может быть создано в [гибридные подключения служб приложения Azure](../app-service/app-service-hybrid-connections.md) **или** с помощью [API REST служб BizTalk](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
-
-**Создание гибридных подключений в службах BizTalk**
-
-1. Перейдите на [классический портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. В левой панели навигации щелкните **Службы BizTalk** , а затем выберите нужную службу BizTalk. 
-   
-    Если служба BizTalk отсутствует, можно создать ее с помощью команды [Создать службу BizTalk](biztalk-provision-services.md).
-3. Откройте вкладку **Гибридные подключения**:  
-   ![вкладка "Гибридные подключения"][HybridConnectionTab]
-4. Щелкните **Создать гибридное подключение** или нажмите кнопку **ДОБАВИТЬ** в области задач. Заполните следующие поля:
-   
-   | Свойство | Описание |
-   | --- | --- |
-   | Имя |Имя гибридного подключения должно быть уникальным и не должно совпадать с именем службы BizTalk. Можно ввести любое имя, но рекомендуется использовать специальные имена, соответствующие назначению подключения. Примеры таких ошибок: <br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer* |
-   | Имя компьютера |Введите полное имя компьютера, только имя компьютера или IPv4-адрес локального ресурса. Примеры:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10<br/><br/>Если вы используете адрес IPv4, обратите внимание, что код клиента или приложения могут не разрешить IP-адрес. См. важное примечание в верхней части этого раздела. |
-   | Порт |Укажите номер порта локального ресурса. Например если вы используете веб-приложения, введите порт 80 или 443. Если вы используете SQL Server, введите порт 1433. |
-5. Установите флажок для завершения настройки. 
 
 #### <a name="additional"></a>Дополнительно
 * Можно создать несколько гибридных подключений. См. число разрешенных подключений в статье [Службы BizTalk: диаграмма выпусков](biztalk-editions-feature-chart.md). 
@@ -78,16 +62,11 @@ ms.lasthandoff: 10/11/2017
 <!-- See [Access on-premises resources using hybrid connections in Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md). -->
 
 ## <a name="InstallHCM"></a>Локальная установка диспетчера гибридных подключений
-После создания гибридного подключения необходимо установить диспетчер гибридных подключений на локальном ресурсе. Его можно скачать из веб-приложения Azure или из службы BizTalk. Действия, выполняемые в службе BizTalk: 
+После создания гибридного подключения необходимо установить диспетчер гибридных подключений на локальном ресурсе. Его можно скачать из веб-приложения Azure или из службы BizTalk. 
 
-1. Перейдите на [классический портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. В левой панели навигации щелкните **Службы BizTalk** , а затем выберите нужную службу BizTalk. 
-3. Откройте вкладку **Гибридные подключения**:  
-   ![вкладка "Гибридные подключения"][HybridConnectionTab]
-4. На панели задач нажмите кнопку **программу локальной установки**  
-   ![программу локальной установки][HCOnPremSetup]
-5. Щелкните **Установить и настроить** , чтобы запустить или загрузить диспетчер гибридных подключений в локальной системе. 
-6. Установите флажок для запуска процесса установки. 
+[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+ 
+[Гибридные подключения служб Azure приложение](../app-service/app-service-hybrid-connections.md) также является ценным ресурсом.
 
 <!--
 You can also download the Hybrid Connection Manager MSI file and copy the file to your on-premises resource. Specific steps:
@@ -113,25 +92,16 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 * Гибридные подключения можно масштабировать путем установки другого экземпляра диспетчера гибридных подключений на другом сервере. Настройте локальный прослушиватель для использования того же адреса в качестве первого локального прослушивателя. В этом случае трафик распределяется случайно (путем циклического перебора) между активными локальными прослушивателями. 
 
 ## <a name="ManageHybridConnection"></a>Управление гибридными подключениями
-Для управления гибридными подключениями можно выбрать следующие варианты:
 
-* Использование страницы службы BizTalk на портале Azure. 
-* Использование интерфейсов [REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx).
+[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
+
+[Гибридные подключения служб Azure приложение](../app-service/app-service-hybrid-connections.md) также является ценным ресурсом.
 
 #### <a name="copyregenerate-the-hybrid-connection-strings"></a>Копирование или повторное создание строк гибридных подключений
-1. Перейдите на [классический портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. В левой панели навигации щелкните **Службы BizTalk** , а затем выберите нужную службу BizTalk. 
-3. Откройте вкладку **Гибридные подключения**:  
-   ![вкладка "Гибридные подключения"][HybridConnectionTab]
-4. Выберите гибридное подключение. На панели задач нажмите кнопку **Управление подключением**  
-   ![Управление параметрами][HCManageConnection]
-   
-    **Управление подключением** содержится перечень строк подключения к приложению и локальных строк подключения. Вы можете скопировать сроки подключений или повторно создать ключ доступа, используемый в строке подключения. 
-   
-    **При повторном создании**общий ключ доступа, используемый в строке подключения, будет изменен. Выполните следующее:
-   
-   * На классическом портале Azure в приложении Azure щелкните **Синхронизировать ключи** .
-   * Повторно запустите **программу локальной установки**. Локальный ресурс автоматически настроится для использования обновленной основной строки подключения.
+
+[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
+
+[Гибридные подключения служб Azure приложение](../app-service/app-service-hybrid-connections.md) также является ценным ресурсом.
 
 #### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>Применение групповой политики для контроля локальных ресурсов, используемых гибридным подключением
 1. Скачайте [административные шаблоны диспетчера гибридных подключений](http://www.microsoft.com/download/details.aspx?id=42963).
@@ -149,7 +119,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 ## <a name="see-also"></a>См. также
 [REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [Службы BizTalk: диаграмма выпусков](biztalk-editions-feature-chart.md)  
-[Создание службы BizTalk с помощью классического портала Azure](biztalk-provision-services.md)  
+[Создание службы BizTalk](biztalk-provision-services.md)  
 [Службы BizTalk: вкладки «Панель мониторинга», «Монитор» и «Масштаб»](biztalk-dashboard-monitor-scale-tabs.md)
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png

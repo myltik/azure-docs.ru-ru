@@ -3,7 +3,7 @@ title: "Добавление виртуальной машины в лабора
 description: "Узнайте, как добавить виртуальную машину в лабораторию в Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
-ms.author: tarcher
-ms.openlocfilehash: 449bffb040dafc8edd0b8b0afd80dbea35cd28ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 5d9fb235eae381003d96895eae9eff86c711e372
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Добавление виртуальной машины в лабораторию в Azure DevTest Labs
 Если вы уже [создали свою первую виртуальную машину](devtest-lab-create-first-vm.md), скорее всего, вы использовали предварительно загруженный [образ Мarketplace](devtest-lab-configure-marketplace-images.md). Теперь, если вы хотите добавить в лабораторию больше виртуальных машин, вы также можно использовать *базовый образ* — [пользовательский образа](devtest-lab-create-template.md) или [формулу](devtest-lab-manage-formulas.md). В данном руководстве описывается добавление виртуальной машины в лабораторию в DevTest Labs с помощью портала Azure.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 В этой статье также описывается управление артефактами для виртуальной машины в лаборатории.
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Добавление виртуальной машины в лабораторию в Azure DevTest Labs
-1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Щелкните **Больше служб**, а затем выберите в списке **DevTest Labs**.
 1. Из списка лабораторий выберите ту, в которой необходимо создать виртуальную машину.  
 1. В колонке лаборатории **Обзор** выберите **+ Добавить**.  
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 
 Дополнительные сведения о создании артефактов см. в статье [Создание пользовательских артефактов для виртуальной машины DevTest Lab](devtest-lab-artifact-author.md).
 
-1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Щелкните **Больше служб**, а затем выберите в списке **DevTest Labs**.
 1. Из списка лабораторий выберите ту, где содержится виртуальная машина, с которой вы будете работать.  
 1. Выберите **My virtual machines** (Мои виртуальные машины).

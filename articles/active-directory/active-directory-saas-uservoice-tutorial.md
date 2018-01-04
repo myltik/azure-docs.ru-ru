@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 684a405b-8932-46f6-b43a-4d97a42b6b87
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: fcfda1c2ecb162fb93b70574a18bd745b72ee4db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8ec3fd40b04dc6590b80c643a4429f97f7b874d9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Руководство по интеграции Azure Active Directory с UserVoice
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с приложением UserVoice, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление UserVoice из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-uservoice-from-the-gallery"></a>Добавление UserVoice из коллекции
 Чтобы настроить интеграцию UserVoice с Azure AD, необходимо добавить UserVoice из коллекции в список управляемых приложений SaaS.
@@ -108,9 +108,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения UserVoice](./media/active-directory-saas-uservoice-tutorial/tutorial_uservoice_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<tenantname>.UserVoice.com`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<tenantname>.UserVoice.com`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<tenantname>.UserVoice.com`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<tenantname>.UserVoice.com`
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить их, обратитесь в [службу поддержки клиентов UserVoice](https://www.uservoice.com/).
@@ -141,9 +141,9 @@ ms.lasthandoff: 10/11/2017
    
     ![Изменение проверки подлинности пользователя](./media/active-directory-saas-uservoice-tutorial/ic777521.png "Изменение проверки подлинности пользователя")
    
-    а. Выберите **Единый вход (SSO)**.
+    a. Выберите **Единый вход (SSO)**.
  
-    b. Вставьте скопированное на портале Azure значение **URL-адрес службы единого входа SAML** в текстовое поле **SSO Remote Sign-In** (Удаленный единый вход).
+    Б. Вставьте скопированное на портале Azure значение **URL-адрес службы единого входа SAML** в текстовое поле **SSO Remote Sign-In** (Удаленный единый вход).
 
     c. Вставьте скопированное на портале Azure значение **URL-адрес выхода** в текстовое поле **SSO Remote Sign-Out** (Удаленный единый выход).
  
@@ -179,13 +179,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-uservoice-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-uservoice-test-user"></a>Создание тестового пользователя UserVoice
 
@@ -212,9 +212,9 @@ ms.lasthandoff: 10/11/2017
    
     ![Пригласить администраторов](./media/active-directory-saas-uservoice-tutorial/ic777814.png "Пригласить администраторов")
    
-    а. В текстовом поле Emails ("Адреса электронной почты") введите адрес электронной почты учетной записи, которую вы хотите подготовить, а затем нажмите кнопку **Добавить**.
+    a. В текстовом поле Emails ("Адреса электронной почты") введите адрес электронной почты учетной записи, которую вы хотите подготовить, а затем нажмите кнопку **Добавить**.
    
-    b. Нажмите кнопку **Пригласить**.
+    Б. Нажмите кнопку **Пригласить**.
 
 > [!NOTE]
 > Вы можете использовать любые другие средства создания учетной записи пользователя UserVoice или API-интерфейсы, предоставляемые UserVoice для подготовки учетных записей пользователя AAD.

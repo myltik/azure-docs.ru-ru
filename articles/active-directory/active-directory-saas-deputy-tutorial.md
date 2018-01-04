@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 51aed908208b7a40ea2ab710dffe84370b573991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 612a0d298eb1153bc8a64f0d7fbcb4dbd8752672
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Руководство. Интеграция Azure Active Directory с Deputy
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Deputy, вам потребуется:
 
@@ -47,10 +47,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Deputy из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-deputy-from-the-gallery"></a>Добавление Deputy из коллекции
 Чтобы настроить интеграцию Deputy с Azure AD, необходимо добавить Deputy из коллекции в список управляемых приложений SaaS.
@@ -63,11 +63,11 @@ ms.lasthandoff: 10/11/2017
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![ПРИЛОЖЕНИЯ][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![Приложения][3]
+    ![ПРИЛОЖЕНИЯ][3]
 
 4. В поле поиска введите **Deputy**.
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>настройка и проверка единого входа в Azure AD.
 В этом разделе описана настройка и проверка единого входа Azure AD в приложение Deputy с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в Deputy соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Deputy.
@@ -87,10 +87,10 @@ ms.lasthandoff: 10/11/2017
 Чтобы настроить и проверить единый вход Azure AD в Deputy, вам потребуется выполнить действия в следующих стандартных блоках:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа в Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя Deputy](#creating-a-deputy-test-user)** требуется для создания в Deputy пользователя Britta Simon, связанного с представлением этого же пользователя в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_url1.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:
+    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:
     |  |
     | ----|
     | `https://<subdomain>.<region>.au.deputy.com` |
@@ -129,7 +129,7 @@ ms.lasthandoff: 10/11/2017
     | `https://<subdomain>.<region>.ent-an.deputy.com` |
     | `https://<subdomain>.<region>.deputy.com` |
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате:
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате:
     | |
     |----|
     | `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs.` |
@@ -180,13 +180,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_005.png)
     
-    а. разрешите **вход с помощью учетных записей социальных сетей**;
+    a. разрешите **вход с помощью учетных записей социальных сетей**;
    
-    b. Откройте в блокноте сертификат в кодировке Base-64, скачанный с портала Azure, скопируйте его в буфер обмена и вставьте в текстовое поле **Сертификат OpenSSL**.
+    Б. Откройте в блокноте сертификат в кодировке Base-64, скачанный с портала Azure, скопируйте его в буфер обмена и вставьте в текстовое поле **Сертификат OpenSSL**.
    
     c. В текстовом поле SAML SSO URL (URL-адрес единого входа) введите `https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`.
     
-    г) в текстовом поле SAML SSO URL (URL-адрес единого входа) замените `<your subdomain>` на ваш поддомен;
+    d. в текстовом поле SAML SSO URL (URL-адрес единого входа) замените `<your subdomain>` на ваш поддомен;
    
     д. В текстовом поле SAML SSO URL (URL-адрес единого входа) замените `<saml sso url>` на **URL-адрес службы единого входа SAML**, скопированный c портала Azure.
    
@@ -219,13 +219,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="creating-a-deputy-test-user"></a>Создание тестового пользователя приложения Deputy
 
@@ -246,13 +246,13 @@ ms.lasthandoff: 10/11/2017
    
    ![Новый пользователь](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_003.png "Новый пользователь")
 
-   а. В текстовом поле **Имя** введите имя, например **BrittaSimon**.
+   a. В текстовом поле **Имя** введите имя, например **BrittaSimon**.
    
-   b. В текстовое поле **Email** (Электронная почта) введите адрес электронной почты той учетной записи Azure AD, которую нужно подготовить.
+   Б. В текстовое поле **Email** (Электронная почта) введите адрес электронной почты той учетной записи Azure AD, которую нужно подготовить.
    
    c. В текстовом поле **Work at** (Место работы) введите название компании.
    
-   г) Нажмите кнопку **Save & Invite** (Сохранить и пригласить).
+   d. Нажмите кнопку **Save & Invite** (Сохранить и пригласить).
 
 5. Владелец учетной записи AAD получит по электронной почте сообщение со ссылкой для активации учетной записи. Вы можете использовать любые другие средства создания учетной записи пользователя Deputy или API, предоставляемые Deputy для подготовки учетных записей пользователя AAD.
 

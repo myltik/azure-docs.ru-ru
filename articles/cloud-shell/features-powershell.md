@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/6/2017
+ms.date: 12/12/2017
 ms.author: damaerte
-ms.openlocfilehash: 6ec1d8dac4e07b28b92c2aee5d1e9d47fa62b7a1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 16c17bd5635a6f61077e52196fdb8efe901f8050
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Функции и инструменты для PowerShell в Azure Cloud Shell (предварительная версия)
 
@@ -47,7 +47,7 @@ PowerShell в Cloud Shell (предварительная версия) безо
 
 PowerShell в Cloud Shell (предварительная версия) запускается на диске Azure (`Azure:`).
 Диск Azure облегчает обнаружение ресурсов Azure и перемещение по ним, включая вычислительные ресурсы, сетевые ресурсы, ресурсы хранилища и т. д., предоставляя возможности навигации как у файловой системы.
-Для управления этими ресурсами можно использовать привычные [командлеты Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure).
+Для управления этими ресурсами можно использовать привычные [командлеты Azure PowerShell](https://docs.microsoft.com/powershell/azure).
 Любые изменения, внесенные в ресурсы Azure либо непосредственно на портале Azure, либо с помощью командлетов Azure PowerShell, сразу же отражаются на диске Azure.
 
 ![](media/features-powershell/azure-drive.png)
@@ -91,7 +91,7 @@ PowerShell в Cloud Shell (предварительная версия) запу
 
 |**Категория**    |**Имя**                                 |
 |----------------|-----------------------------------------|
-|Инструменты Azure     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Инструменты Azure     |[Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
 |Текстовые редакторы    |vim<br> nano                             |
 |Диспетчер пакетов |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Система управления версиями  |git                                      |

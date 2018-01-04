@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>Мониторинг Функций Azure
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/29/2017
 
    ![Добавление ключа инструментирования в настройках приложения](media/functions-monitoring/add-ai-key.png)
 
-1. Щелкните **Сохранить**.
+1. Выберите команду **Сохранить**.
 
 ## <a name="view-telemetry-data"></a>Просмотр данных телеметрии
 
@@ -151,7 +151,7 @@ traces
 |Отладка       | 1 |
 |Информация | 2 |
 |Предупреждение     | 3 |
-|Ошибка       | 4 |
+|Ошибка       | 4. |
 |критические ошибки.    | 5 |
 |None        | 6 |
 
@@ -486,7 +486,7 @@ module.exports = function (context, req) {
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Мониторинг файлов журнала для приложения-функции с помощью Azure CLI 1.0
 
-Чтобы начать работу, [установите Azure CLI 1.0](../cli-install-nodejs.md) и [войдите в Azure](../xplat-cli-connect.md).
+Чтобы начать работу, [установите Azure CLI 1.0](../cli-install-nodejs.md) и [войдите в Azure](/cli/azure/authenticate-azure-cli).
 
 Используйте следующие команды, чтобы включить классический режим управления службами, выбрать подписку и включить потоковую передачу файлов журнала:
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b65a4e49097828e7cd54a29e814befd2d2ac5d88
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 45cecbf1334d4d708f1578d1512627bc0ead3a04
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Требования к лицензированию самостоятельного сброса пароля в Azure AD
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/17/2017
 * [Сайт с ценами на Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 * [Функции и возможности Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security).
-* [Microsoft 365 корпоративный](https://www.microsoft.com/microsoft-365/enterprise)
+* [Microsoft 365 корпоративный](https://www.microsoft.com/microsoft-365/enterprise).
 
 ## <a name="enable-group-or-user-based-licensing"></a>Включение группового и пользовательского лицензирования
 
@@ -58,7 +58,7 @@ Azure AD теперь поддерживает групповое лицензи
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Как развернуть самостоятельный сброс пароля](active-directory-passwords-best-practices.md)
+* [Как развернуть самостоятельный сброс пароля?](active-directory-passwords-best-practices.md)
 * [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
 * [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
 * [Какие данные используются для SSPR и какие сведения нужно указывать для пользователей](active-directory-passwords-data.md)

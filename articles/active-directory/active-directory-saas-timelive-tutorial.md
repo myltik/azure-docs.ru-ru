@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 34123629-4ad5-465c-a4c1-8299f857e720
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 99c57f2191ea47bc1cf5cda79e9b399999594a18
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 945067f0f413790883d55ab6cc9b2721144e966a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timelive"></a>Руководство по интеграции Azure Active Directory с TimeLive
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/21/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с TimeLive, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/21/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление TimeLive из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+1. Добавление TimeLive из коллекции
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-timelive-from-the-gallery"></a>Добавление TimeLive из коллекции
 Чтобы настроить интеграцию TimeLive с Azure AD, необходимо добавить TimeLive из коллекции в список управляемых приложений SaaS.
@@ -108,9 +108,9 @@ ms.lasthandoff: 10/21/2017
 
     ![Сведения о домене и URL-адресах единого входа приложения TimeLive](./media/active-directory-saas-timelive-tutorial/tutorial_timelive_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://domainname.livetecs.com/`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://domainname.livetecs.com/`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://domainname.livetecs.com/`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://domainname.livetecs.com/`
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса единого входа. Чтобы получить их, обратитесь к [группе поддержки клиентов TimeLive](mailto:support@livetecs.com). 
@@ -137,9 +137,9 @@ ms.lasthandoff: 10/21/2017
     
     ![Конфигурация TimeLive](./media/active-directory-saas-timelive-tutorial/configure2.png)
 
-    а. Выберите вкладку **Security** (Безопасность).
+    a. Выберите вкладку **Security** (Безопасность).
 
-    b. Установите флажок **Enable Single Sign On (SSO)** (Разрешить единый вход).
+    Б. Установите флажок **Enable Single Sign On (SSO)** (Разрешить единый вход).
 
     c. Выберите **SAML** из раскрывающегося меню с заголовком **Sign in using Single Sign-On (SSO) with** (Вход с использованием единого входа на основе).
 
@@ -178,13 +178,13 @@ ms.lasthandoff: 10/21/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-timelive-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-timelive-test-user"></a>Создание тестового пользователя TimeLive
 

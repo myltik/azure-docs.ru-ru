@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: d6e4d893-1f14-4522-ac20-0c73b18c72a5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 61576d3a915d209e7355e04432e586dcf66e7c5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 35427941a084e6750d66ccd3e135d7eef1767c6c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Руководство по интеграции Azure Active Directory с Symantec Web Security Service (WSS)
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Symantec Web Security Service (WSS), вам потребуется:
 
@@ -51,10 +51,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="scenario-description"></a>Описание сценария
 Выполнив это руководство, вы настроите единый вход в Azure AD, что позволит выполнять вход в учетную запись WSS с учетными данными, указанными в Azure AD.
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление из коллекции приложения Symantec Web Security Service (WSS)
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-symantec-web-security-service-wss-from-the-gallery"></a>Добавление Symantec Web Security Service (WSS) из коллекции
 Чтобы настроить интеграцию Symantec Web Security Service (WSS) с Azure AD, вам потребуется добавить Symantec Web Security Service (WSS) из коллекции в список управляемых приложений SaaS.
@@ -111,9 +111,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Информация о домене и URL-адресах для единого входа в службе Symantec Web Security Service (WSS)](./media/active-directory-saas-symantec-tutorial/tutorial_symantecwebsecurityservicewss_url.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес `https://saml.threatpulse.net:8443/saml/saml_realm`.
+    a. В текстовом поле **Идентификатор** введите URL-адрес `https://saml.threatpulse.net:8443/saml/saml_realm`.
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`.
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`.
 
     > [!NOTE]
     > Если по какой-либо причине предложенные значения **идентификатора** и **URL-адреса ответа** не работают, обратитесь в [службу поддержки Symantec Web Security Service (WSS)](https://www.symantec.com/contact-us).
@@ -155,13 +155,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-symantec-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-symantec-web-security-service-wss-test-user"></a>Создание тестового пользователя Symantec Web Security Service (WSS)
 

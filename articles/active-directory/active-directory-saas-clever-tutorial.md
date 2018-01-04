@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 84082ff567e37d7fff80be9e089c67cfab911861
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1aad242ff1e9161ad5dfbecd01a44d8fb3c93cbb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Руководство. Интеграция Azure Active Directory с Clever
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Clever, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Clever из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-clever-from-the-gallery"></a>Добавление Clever из коллекции
 Чтобы настроить интеграцию Clever с Azure AD, необходимо добавить Clever из коллекции в список управляемых приложений SaaS.
@@ -108,9 +108,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Clever](./media/active-directory-saas-clever-tutorial/tutorial_clever_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://clever.com/in/<companyname>`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://clever.com/in/<companyname>`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://clever.com/<companyname>`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://clever.com/<companyname>`
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить их, обратитесь в [службу поддержки клиентов Clever](https://clever.com/about/contact/).
@@ -133,17 +133,17 @@ ms.lasthandoff: 10/11/2017
     | Firstname  | user.givenname |
     | Lastname  | user.surname |    
 
-    а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+    a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 
     ![Настройка единого входа](./media/active-directory-saas-clever-tutorial/tutorial_attribute_04.png)
     
     ![Настройка единого входа](./media/active-directory-saas-clever-tutorial/tutorial_attribute_05.png)
     
-    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+    Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
 
     c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
 
-    г) Оставьте пустым текстовое поле **Пространство имен**.
+    d. Оставьте пустым текстовое поле **Пространство имен**.
     
     d. Нажмите кнопку **ОК**.     
 
@@ -153,11 +153,11 @@ ms.lasthandoff: 10/11/2017
 
 8. Для создания URL-адреса **метаданных** выполните следующие действия.
 
-    а. Щелкните **Регистрация приложений**.
+    a. Щелкните **Регистрация приложений**.
     
     ![Настройка единого входа](./media/active-directory-saas-clever-tutorial/tutorial_clever_appregistrations.png)
    
-    b. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
+    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
     
     ![Настройка единого входа](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpointicon.png)
 
@@ -181,16 +181,16 @@ ms.lasthandoff: 10/11/2017
       
       ![Мгновенный вход](./media/active-directory-saas-clever-tutorial/ic798985.png "Мгновенный вход")
       
-      а. Введите **URL-адрес входа**.
+      a. Введите **URL-адрес входа**.
       
       >[!NOTE]
       >**URL-адрес входа** является настраиваемым значением. Чтобы получить это значение, обратитесь к [группе поддержки клиентов Clever](https://clever.com/about/contact/).
       
-      b. Для параметра **Identity System** (Система идентификации) выберите значение **ADFS**.
+      Б. Для параметра **Identity System** (Система идентификации) выберите значение **ADFS**.
 
       c. Введите **URL-адрес метаданных** в текстовое поле **Metadata URL** (URL-адрес метаданных).
       
-      d. Щелкните **Сохранить**.
+      d. Выберите команду **Сохранить**.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -220,13 +220,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-clever-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-clever-test-user"></a>Создание тестового пользователя Clever
 

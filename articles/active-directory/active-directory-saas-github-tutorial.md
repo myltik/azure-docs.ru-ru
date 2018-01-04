@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 4395bd95-05de-4deb-87a5-dc3bc8ac4d95
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 9dc12bc2e313bcb2000724d035156c5054d14e1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2a0e1df5244ef977bdcccc5bcfea615a05efa3bd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Руководство. Интеграция Azure Active Directory с GitHub
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с GitHub, вам потребуется:
 
@@ -51,10 +51,10 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление GitHub из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 
 ## <a name="adding-github-from-the-gallery"></a>Добавление GitHub из коллекции
@@ -68,11 +68,11 @@ ms.lasthandoff: 10/11/2017
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![ПРИЛОЖЕНИЯ][2]
     
 3. Нажмите кнопку **Добавить** в верхней части диалогового окна.
 
-    ![Приложения][3]
+    ![ПРИЛОЖЕНИЯ][3]
 
 4. В поле поиска введите **Github.com**.
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-github-tutorial/tutorial_github_search_result02.png)
 
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>настройка и проверка единого входа в Azure AD.
 В этом разделе описано, как настроить и проверить единый вход Azure AD в GitHub с использованием тестового пользователя Britta Simon.
 
 Для настройки единого входа в Azure AD необходимо знать, какой пользователь в GitHub соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в GitHub.
@@ -92,11 +92,11 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы настроить и проверить единый вход Azure AD в GitHub, потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа в Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя GitHub](#creating-a-GitHub-test-user)** требуется для создания в GitHub пользователя Britta Simon, связанного с соответствующим пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
@@ -116,9 +116,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-github-tutorial/tutorial_github_saml011.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите значение `https://github.com/orgs/<entity-id>/sso`.
+    a. В текстовом поле **URL-адрес для входа** введите значение `https://github.com/orgs/<entity-id>/sso`.
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://github.com/orgs/<entity-id>`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://github.com/orgs/<entity-id>`
 
     > [!NOTE] 
     > Обратите внимание, что значения, указанные выше, используются в качестве примера. Необходимо заменить эти значения фактическим URL-адресом для входа и идентификатором. Мы рекомендуем использовать уникальное значение строки идентификатора. Перейдите в раздел администрирования GitHub, чтобы получить эти значения. 
@@ -165,11 +165,11 @@ ms.lasthandoff: 10/11/2017
 
 14. Задайте значения в следующих полях:
 
-    а. **URL-адрес для входа.** Введите **URL-адрес службы единого входа в SAML** из раздела **Настройка GitHub** в Azure AD.
+    a. **URL-адрес для входа.** Введите **URL-адрес службы единого входа в SAML** из раздела **Настройка GitHub** в Azure AD.
 
-    b. **Издатель.** Введите **идентификатор сущности SAML** из раздела **Настройка GitHub** в Azure AD.
+    Б. **Издатель.** Введите **идентификатор сущности SAML** из раздела **Настройка GitHub** в Azure AD.
 
-    В. **Public Certificate** (Общий сертификат). Откройте скачанный сертификат из Azure AD в блокноте и скопируйте его содержимое, включая строки BEGIN CERTIFICATE и END CERTIFICATE.
+    c. **Public Certificate** (Общий сертификат). Откройте скачанный сертификат из Azure AD в блокноте и скопируйте его содержимое, включая строки BEGIN CERTIFICATE и END CERTIFICATE.
 
     ![Параметры](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_051.png)
 
@@ -202,13 +202,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-github-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**. 
+    d. Нажмите кнопку **Создать**. 
 
 
 ### <a name="creating-a-github-test-user"></a>Создание тестового пользователя GitHub
@@ -230,11 +230,11 @@ ms.lasthandoff: 10/11/2017
 
 4. На странице диалогового окна **Invite member** (Приглашение участников) сделайте следующее.
 
-    а. В текстовом поле **Электронная почта** введите адрес электронной почты учетной записи Britta Simon.
+    a. В текстовом поле **Электронная почта** введите адрес электронной почты учетной записи Britta Simon.
 
     ![Приглашение участников](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_10.png "приглашение участников")
     
-    b. Щелкните **Send Invitation** (Отправить приглашение).
+    Б. Щелкните **Send Invitation** (Отправить приглашение).
 
     ![Приглашение участников](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_11.png "приглашение участников")
 

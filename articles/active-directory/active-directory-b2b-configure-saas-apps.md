@@ -4,7 +4,7 @@ description: "Примеры кода и команд PowerShell для служ
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dc0bb3950f30b2ea676de406538e3a463ad21429
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Настройка приложений SaaS для службы совместной работы B2B
 
@@ -83,14 +83,14 @@ ms.lasthandoff: 10/11/2017
 
   ![Настройте единый вход в Box.](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
- а. Проверьте поле **URL-адрес для входа**, чтобы убедиться, что на портале Azure указан правильный URL-адрес для Box. Этот URL-адрес совпадает с URL-адресом вашего клиента Box.com. Он должен соответствовать условиям соглашения об именовании *https://.box.com*.  
+ a. Проверьте поле **URL-адрес для входа**, чтобы убедиться, что на портале Azure указан правильный URL-адрес для Box. Этот URL-адрес совпадает с URL-адресом вашего клиента Box.com. Он должен соответствовать условиям соглашения об именовании *https://.box.com*.  
  **Идентификатор** не применяется к этому приложению, но это поле по-прежнему отображается как обязательное.
 
- b. В поле **Идентификатор пользователя** введите **user.mail** (для единого входа для учетных записей гостей).
+ Б. В поле **Идентификатор пользователя** введите **user.mail** (для единого входа для учетных записей гостей).
 
  c. В разделе **Сертификат подписи SAML** щелкните **Создать сертификат**.
 
- г) Чтобы настроить клиент Box.com для использования в качестве поставщика удостоверений Azure AD, скачайте файл метаданных и сохраните его на локальный диск.
+ d. Чтобы настроить клиент Box.com для использования в качестве поставщика удостоверений Azure AD, скачайте файл метаданных и сохраните его на локальный диск.
 
  д. Перешлите файл метаданных группе поддержки Box, которая настраивает для вас единый вход.
 

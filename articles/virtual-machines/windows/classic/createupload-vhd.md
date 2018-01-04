@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: c2540120bcb1eca9f4ba62c7dbc0675343bf4f99
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: fa672fd7811e68368c311ef6a3f57eac4b240a4a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>Создание и передача виртуального жесткого диска Windows Server в Azure
 В этой статье показан процесс передачи собственного универсального образа виртуальной машины как виртуального жесткого диска (VHD-файла) и дальнейшего его использования для создания виртуальных машин. Дополнительные сведения о дисках и виртуальных жестких дисках в Microsoft Azure см. в статье [О дисках и виртуальных жестких дисках для виртуальных машин](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Вы также можете [отправить](../upload-generalized-managed.md) виртуальную машину, используя модель Resource Manager.
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Вы также можете [отправить](../upload-generalized-managed.md) виртуальную машину, используя модель Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 В этой статье предполагается, что у вас есть следующие компоненты.
 
 * **Подписка Azure.** Если подписка отсутствует, можно [создать учетную запись Azure бесплатно](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/08/2017
    ![Запуск Sysprep](./media/createupload-vhd/sysprepgeneral.png)
 4. В разделе **Программа подготовки системы** выберите **Enter System Out of Box Experience (OOBE)** (Переход в окно приветствия системы (OOBE)) и убедитесь, что установлен флажок **Подготовка к использованию**.
 5. В разделе **Параметры завершения работы** выберите **Завершение работы**.
-6. Нажмите кнопку **ОК**.
+6. Последовательно выберите **ОК**.
 
 ## <a name="step-2-create-a-storage-account-and-a-container"></a>Шаг 2. Создание учетной записи хранения и контейнера
 Вам потребуется учетная запись хранения Azure, в которую можно будет отправить VHD-файл. Здесь показано, как создать учетную запись или получить нужные сведения из существующей учетной записи. Замените значения в &lsaquo;скобках&rsaquo; собственными данными.
@@ -88,7 +88,7 @@ ms.lasthandoff: 11/08/2017
     ```
 
 ## <a name="step-3-upload-the-vhd-file"></a>Шаг 3. Передача VHD-файла
-Для передачи VHD-файла используйте командлет [Add-AzureVhd](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevhd) .
+Для передачи VHD-файла используйте командлет [Add-AzureVhd](https://docs.microsoft.com/powershell/module/azure/add-azurevhd) .
 
 В окне Azure PowerShell, использованном при выполнении предыдущего шага, введите следующую команду и замените переменные в &lsaquo;скобках&rsaquo; собственными данными.
 
@@ -97,7 +97,7 @@ Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<C
 ```
 
 ## <a name="step-4-add-the-image-to-your-list-of-custom-images"></a>Шаг 4. Добавление образа в список пользовательских образов
-Чтобы добавить образ в список пользовательских образов, используйте командлет [Add-AzureVMImage](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevmimage) .
+Чтобы добавить образ в список пользовательских образов, используйте командлет [Add-AzureVMImage](https://docs.microsoft.com/powershell/module/azure/add-azurevmimage) .
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"

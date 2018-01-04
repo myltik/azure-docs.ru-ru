@@ -3,7 +3,7 @@ title: "Переобучение классической веб-службы | 
 description: "Узнайте о том, как осуществить программное переобучение модели и обновить веб-службу так, чтобы она использовала переобученную модель при задействовании функций машинного обучения Azure."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondlaghaeian
 editor: 
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: ab3c0b5776f9a32ab2703f462d58071f7bfd52ff
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Переобучение классической веб-службы
 Развернутая прогнозная веб-служба является конечной точкой оценки по умолчанию. Конечные точки по умолчанию синхронизируются с исходными экспериментами по обучению и оценке, поэтому обученную модель конечной точки по умолчанию нельзя заменить. Чтобы переобучить веб-службу, необходимо добавить в нее новую конечную точку. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Вы уже настроили обучающий и прогнозный эксперименты, как показано в статье [Программное переобучение моделей машинного обучения](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/01/2017
 
 1. Скопируйте и вставьте этот URL-адрес в адресную строку браузера.
 2. Щелкните ссылку "Обновить ресурс".
-3. Скопируйте URL-адрес POST запроса PATCH. Например:
+3. Скопируйте URL-адрес POST запроса PATCH. Например: 
    
      URL-адрес запроса PATCH: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 

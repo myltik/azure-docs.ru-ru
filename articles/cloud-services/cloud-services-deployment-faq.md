@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Проблемы развертывания для облачных служб Azure. Вопросы и ответы (FAQ)
 
@@ -75,3 +75,8 @@ ms.lasthandoff: 10/11/2017
 
     Развертывание удастся выполнить с [портала Azure](https://portal.azure.com), так как вызов идет через прокси-сервер или оболочку совместимости, которые обеспечивают взаимодействие между классическими ресурсами и ресурсами Azure Resource Manager. 
  
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Почему портал Azure требуется предоставить учетной записи хранилища для развертывания? 
+
+В классическом портале пакет был загружен на уровне API-Интерфейс управления непосредственно, и уровень API будет временно поместите пакета в учетную запись внутреннего хранилища.  Этот процесс вызывает проблемы производительности и масштабируемости, поскольку уровень API не был разработан в качестве служба отправки файлов.  На портале Azure (модели развертывания диспетчера ресурсов) обходить промежуточный этап передачи на уровень API, приведет к более быстрый и надежный развертываний. 
+
+Как и для стоимости очень мал и можно повторно использовать одну и ту же учетную запись хранилища для всех развертываний. Можно использовать [калькулятор стоимости хранения](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) для определения стоимости для отправки пакета службы (CSPKG), загрузите CSPKG, а затем удалите CSPKG. 

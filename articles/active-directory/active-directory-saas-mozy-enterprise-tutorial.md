@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 489b5e62-85c2-45c9-8766-326632d48114
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: jeedes
-ms.openlocfilehash: ac73aadcb8205f24f9d2dbce5af76f53bbcb9753
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 026cec89e5c3d26037d59b0a4ec1195d245c9643
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Учебник. Интеграция Azure Active Directory с Mozy Enterprise
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Mozy Enterprise, вам потребуется:
 
@@ -47,10 +47,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Mozy Enterprise из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-mozy-enterprise-from-the-gallery"></a>Добавление Mozy Enterprise из коллекции
 Чтобы настроить интеграцию Mozy Enterprise в Azure AD, необходимо добавить Mozy Enterprise из коллекции в список управляемых приложений SaaS.
@@ -63,11 +63,11 @@ ms.lasthandoff: 10/11/2017
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![ПРИЛОЖЕНИЯ][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![Приложения][3]
+    ![ПРИЛОЖЕНИЯ][3]
 
 4. В поле поиска введите **Mozy Enterprise**.
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-mozy-enterprise-tutorial/tutorial_mozyenterprise_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>настройка и проверка единого входа в Azure AD.
 В этом разделе описаны настройка и проверка единого входа Azure AD в Mozy Enterprise с использованием тестового пользователя Britta Simon.
 
 Чтобы единый вход в Azure AD работал, необходимо указать, какой пользователь в Mozy Enterprise соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Mozy Enterprise.
@@ -86,11 +86,11 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы настроить и проверить единый вход Azure AD в Mozy Enterprise, вам потребуется выполнить действия в следующих стандартных блоках:
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа в Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя Mozy Enterprise](#creating-a-mozy-enterprise-test-user)** требуется для создания пользователя Britta Simon в Mozy Enterprise, связанного с соответствующим пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
@@ -137,13 +137,13 @@ ms.lasthandoff: 10/11/2017
    
    ![Политика аутентификации](./media/active-directory-saas-mozy-enterprise-tutorial/ic777315.png "Политика аутентификации")
    
-   а. Для параметра **Поставщик** выберите значение **Служба каталогов**.
+   a. Для параметра **Поставщик** выберите значение **Служба каталогов**.
    
-   b. Выберите **Использовать LDAP для отправки**.
+   Б. Выберите **Использовать LDAP для отправки**.
    
    c. Щелкните вкладку **Проверка подлинности SAML** .
    
-   г) В текстовое поле **URL-адрес входа** вставьте значение **URL-адрес службы единого входа SAML**, скопированное на портале Azure.
+   d. В текстовое поле **URL-адрес входа** вставьте значение **URL-адрес службы единого входа SAML**, скопированное на портале Azure.
    
    д. В текстовое поле **SAML Endpoint** (Конечная точка SAML) вставьте значение **SAML Endpoint** (Идентификатор сущности SAML), скопированное на портале Azure.
    
@@ -180,13 +180,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-mozy-enterprise-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="creating-a-mozy-enterprise-test-user"></a>Создание тестового пользователя Mozy Enterprise
 
@@ -210,13 +210,13 @@ ms.lasthandoff: 10/11/2017
    
    ![Добавление пользователей](./media/active-directory-saas-mozy-enterprise-tutorial/ic777318.png "добавление пользователей")
    
-   а. В списке **Выберите группу** выберите группу.
+   a. В списке **Выберите группу** выберите группу.
    
-   b. В списке **Тип пользователя** выберите тип.
+   Б. В списке **Тип пользователя** выберите тип.
    
    c. В текстовом поле **Имя пользователя** введите имя пользователя Azure AD.
    
-   г) В текстовом поле **Электронная почта** введите адрес электронной почты пользователя Azure AD.
+   d. В текстовом поле **Электронная почта** введите адрес электронной почты пользователя Azure AD.
    
    д. Выберите **Отправить пользователю электронное сообщение с указаниями**.
    

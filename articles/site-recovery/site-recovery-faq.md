@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 82cec6df5d5d6ecf1147cac29b8fc46966ea57de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: вопросы и ответы
 Данная статья содержит часто задаваемые вопросы об Azure Site Recovery. Если после прочтения статьи у вас возникли какие-либо вопросы, вы можете задать их на [форуме, посвященном службам восстановления Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="general"></a>Общие сведения
 ### <a name="what-does-site-recovery-do"></a>Какие функции выполняет служба Site Recovery?
-Служба Site Recovery помогает реализовать стратегии непрерывности бизнес-процессов и аварийного восстановления (BCDR), автоматизируя процессы репликации виртуальных машин Azure между регионами, локальных виртуальных машин и физических серверов в Azure, а также локальных виртуальных машин в дополнительный центр обработки данных и осуществляя управление ими. [Подробнее](site-recovery-overview.md).
+Служба Site Recovery помогает реализовать стратегии непрерывности бизнес-процессов и аварийного восстановления (BCDR), автоматизируя процессы репликации виртуальных машин Azure между регионами, локальных виртуальных машин и физических серверов в Azure, а также локальных виртуальных машин в дополнительный центр обработки данных и осуществляя управление ими. [Узнайте больше](site-recovery-overview.md).
 
 ### <a name="what-can-site-recovery-protect"></a>Что можно защитить с помощью службы Site Recovery?
 * **Виртуальные машины Azure**. Служба Site Recovery может реплицировать любую нагрузку, выполняющуюся на поддерживаемой виртуальной машине Azure.
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/14/2017
 
 
 ### <a name="can-i-replicate-azure-vms"></a>Можно ли выполнить репликацию виртуальных машин Azure?
-Да, поддерживаемые виртуальные машины Azure можно реплицировать между регионами Azure. [Подробнее](site-recovery-azure-to-azure.md).
+Да, поддерживаемые виртуальные машины Azure можно реплицировать между регионами Azure. [Узнайте больше](site-recovery-azure-to-azure.md).
 
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>Что нужно в Hyper-V для управления репликацией с помощью Site Recovery?
 Требования для сервера узла Hyper-V зависят от сценария развертывания. Ознакомьтесь с предварительными требованиями к Hyper-V:
@@ -88,7 +88,7 @@ Site Recovery имеет сертификаты ISO 27001:2013, 27018, HIPAA, DP
 Да. При создании хранилища Site Recovery в регионе мы обеспечиваем хранение всех метаданных, необходимых для управления репликацией и отработкой отказа, в пределах этого региона.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Выполняет ли служба Site Recovery шифрование репликации?
-При репликации виртуальных машин и физических серверов между локальными сайтами поддерживается шифрование в процессе передачи. При репликации виртуальных машин и физических серверов в Azure поддерживается как шифрование при передаче, так и [шифрование на месте (в Azure)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+При репликации виртуальных машин и физических серверов между локальными сайтами поддерживается шифрование в процессе передачи. При репликации виртуальных машин и физических серверов в Azure поддерживается как шифрование при передаче, так и [шифрование на месте (в Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption).
 
 ## <a name="replication"></a>Репликация
 
@@ -147,7 +147,7 @@ Azure Site Recovery реплицирует данные в учетную зап
 
 ## <a name="failover"></a>Отработка отказа
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Как получить доступ к виртуальным машинам Azure после отработки отказа в Azure?
-Доступ к виртуальным машинам Azure можно получить через безопасное подключение к Интернету, подключение VPN типа "сеть — сеть" или с помощью Azure ExpressRoute. Для подключения потребуется выполнить несколько подготовительных действий. [Дополнительные сведения](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Доступ к виртуальным машинам Azure можно получить через безопасное подключение к Интернету, подключение VPN типа "сеть — сеть" или с помощью Azure ExpressRoute. Для подключения потребуется выполнить несколько подготовительных действий. [Подробнее](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Каким образом среда Azure обеспечивает отказоустойчивость данных при отработке отказа?

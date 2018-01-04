@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/19/2017
 ms.author: larryfr
-ms.openlocfilehash: 87c2aece68c5de06d683abf971b6c7ccf7f67a54
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 8c8cda26f2b9b564dee330e4883ec12f39feb652
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>Анализ полученных с датчиков данных с использованием Apache Storm, концентратора событий и базы данных HBase в службе HDInsight (Hadoop)
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/03/2017
 > [!NOTE]
 > Для работы с этим документом требуется HDInsight версии 3.6.
 >
-> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="architecture"></a>Архитектура
 
@@ -361,7 +361,7 @@ dashboard.uri: http://localhost:3000
     > [!NOTE]
     > Замените your_HDInsight_cluster_name именем своего кластера HDInsight. При появлении запроса введите пароль администратора HDInsight.
     >
-    > Для этого примера требуется Azure PowerShell. См. дополнительные сведения об [установке Azure PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6).
+    > Для этого примера требуется Azure PowerShell. См. дополнительные сведения об [установке Azure PowerShell](https://docs.microsoft.com/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6).
 
     Возвращаемая информация выглядит приблизительно так:
 

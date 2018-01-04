@@ -5,22 +5,22 @@ services: active-directory
 keywords: "Управление паролями Active Directory, управление паролями, самостоятельный сброс пароля Azure AD"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: HT
+ms.openlocfilehash: 6dfc3246b210b382665eeef2d638945c91d5b62f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="password-writeback-overview"></a>Обзор обратной записи паролей
 
@@ -160,7 +160,6 @@ ms.lasthandoff: 11/28/2017
   * все самостоятельные добровольные операции изменения пароля администратора;
   * все самостоятельные принудительные операции изменения пароля администратора (например, из-за окончания срока действия пароля);
   * все самостоятельные операции сброса пароля администратора, выполняемые на [портале сброса пароля](https://passwordreset.microsoftonline.com);
-  * все операции сброса пароля конечного пользователя, инициируемые администратором на [классическом портале Azure](https://manage.windowsazure.com);
   * все операции сброса пароля конечного пользователя, инициируемые администратором на [портале Azure](https://portal.azure.com).
 
 ### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>Операции администрирования и операции пользователя, не поддерживаемые компонентом обратной записи паролей
@@ -220,7 +219,7 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Как развернуть самостоятельный сброс пароля](active-directory-passwords-best-practices.md)
+* [Как развернуть самостоятельный сброс пароля?](active-directory-passwords-best-practices.md)
 * [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
 * [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
 * [Требования к лицензированию самостоятельного сброса пароля в Azure AD](active-directory-passwords-licensing.md)

@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: b60c955e-8fa3-4872-a897-c4e81fd7beac
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: c81a6adb3abad58af149bbef6f5dff736c142f51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 76e91c1a4f52337fe7e24d2c7dc727d1fb0ebef2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Учебник. Интеграция Azure Active Directory с 10,000ft Plans
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с 10,000ft Plans, вам потребуется:
 
@@ -47,10 +47,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление 10,000ft Plans из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-10000ft-plans-from-the-gallery"></a>Добавление 10,000ft Plans из коллекции
 Чтобы настроить интеграцию 10,000ft Plans с Azure AD, необходимо добавить 10,000ft Plans из коллекции в список управляемых приложений SaaS.
@@ -63,11 +63,11 @@ ms.lasthandoff: 10/11/2017
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![ПРИЛОЖЕНИЯ][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![Приложения][3]
+    ![ПРИЛОЖЕНИЯ][3]
 
 4. В поле поиска введите **10,000ft Plans**.
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10,000ftplans_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>настройка и проверка единого входа в Azure AD.
 В этом разделе описана настройка и проверка единого входа Azure AD в 10,000ft Plans с помощью тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в 10,000ft Plans соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в 10,000ft Plans.
@@ -86,11 +86,11 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы настроить и проверить единый вход Azure AD в 10,000ft Plans, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа в Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя 10,000ft Plans](#creating-a-10000ft-plans-test-user)** требуется для создания пользователя Britta Simon в 10,000ft Plans, связанного с одноименным пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
@@ -110,14 +110,14 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10,000ftplans_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес: `https://app.10000ft.com`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес: `https://app.10000ft.com`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес: `https://app.10000ft.com/saml/metadata`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес `https://app.10000ft.com/saml/metadata`.
 
     > [!NOTE] 
     > Значение для **идентификатора** отличается, если у вас есть личный домен. Чтобы получить это значение, обратитесь в [службу поддержки 10,000ft Plans](https://www.10000ft.com/plans/support). 
  
-4. В разделе **Сертификат подписи SAML** щелкните **Сертификат (необработанный)**, а затем сохраните файл сертификата на компьютере.
+4. В разделе **Сертификат подписи SAML** щелкните **Сертификат (необработанный)**, а затем сохраните файл сертификата на компьютер.
 
     ![Настройка единого входа](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10,000ftplans_certificate.png) 
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_400.png)
 
-6. В разделе **Настройка 10,000ft Plans** щелкните **Настроить 10,000ft Plans**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+6. В разделе **Настройка 10,000ft Plans** щелкните **Настроить 10,000ft Plans**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
     ![Настройка единого входа](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10,000ftplans_configure.png) 
 
@@ -157,13 +157,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="creating-a-10000ft-plans-test-user"></a>Создание тестового пользователя 10,000ft Plans
 

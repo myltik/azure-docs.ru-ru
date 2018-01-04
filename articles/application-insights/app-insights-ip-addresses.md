@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 12/13/2017
 ms.author: mbullwin
-ms.openlocfilehash: 79ead157dc7509f035c491f9a4c4290eb4d70334
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 384f875702f2dee3bf0e806675a7df9f190d93bd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-адреса, используемые Application Insights и Log Analytics
 Служба [Azure Application Insights](app-insights-overview.md) использует несколько IP-адресов. Вам могут понадобиться эти адреса, если отслеживаемое приложение расположено за брандмауэром.
@@ -41,13 +41,13 @@ ms.lasthandoff: 11/01/2017
 
 | Назначение | URL-адрес | IP-адрес | порты; |
 | --- | --- | --- | --- |
-| Конфигурация |`management.core.windows.net` | |`443` |
-| Конфигурация |`management.azure.com` | |`443` |
-| Конфигурация |`login.windows.net` | |`443` |
-| Конфигурация |`login.microsoftonline.com` | |`443` |
-| Конфигурация |`secure.aadcdn.microsoftonline-p.com` | |`443` |
-| Конфигурация |`auth.gfx.ms` | |`443` |
-| Конфигурация |`login.live.com` | |`443` |
+| Параметр Configuration |`management.core.windows.net` | |`443` |
+| Параметр Configuration |`management.azure.com` | |`443` |
+| Параметр Configuration |`login.windows.net` | |`443` |
+| Параметр Configuration |`login.microsoftonline.com` | |`443` |
+| Параметр Configuration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
+| Параметр Configuration |`auth.gfx.ms` | |`443` |
+| Параметр Configuration |`login.live.com` | |`443` |
 | Установка |`packages.nuget.org` | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
@@ -76,6 +76,10 @@ CH : Zurich
 94.245.66.44
 94.245.66.45
 94.245.66.48
+52.136.140.221
+52.136.140.222
+52.136.140.223
+52.136.140.226
 FR : Paris
 94.245.72.44
 94.245.72.45
@@ -83,6 +87,10 @@ FR : Paris
 94.245.72.49
 94.245.72.52
 94.245.72.53
+52.143.140.242 
+52.143.140.246
+52.143.140.247
+52.143.140.249
 HK : Hong Kong
 13.75.121.122
 23.99.115.153

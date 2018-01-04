@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 574c6877bddac8be7d6d541bfabbdc10f6be3101
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2925f0a9f582d0dfeca9832ca032b0d847f23f6b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Руководство. Интеграция Azure Active Directory с Clarizen
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Чтобы настроить интеграцию Azure AD с Clarizen, вам потребуется:
 
 - подписка Azure AD;
@@ -96,9 +96,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Поля идентификатора и URL-адреса ответа](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_02.png)
 
-    а. В поле **Идентификатор** введите значение **Clarizen**.
+    a. В поле **Идентификатор** введите значение **Clarizen**.
 
-    b. В поле **URL-адрес ответа** введите URL-адрес, используя следующий шаблон: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
+    Б. В поле **URL-адрес ответа** введите URL-адрес, используя следующий шаблон: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
 
     > [!NOTE]
     > Значения, указанные выше, приведены в качестве примера. Используйте фактические значения идентификатора и URL-адреса ответа. Мы рекомендуем использовать уникальное значение строки идентификатора. Чтобы получить фактические значения, обратитесь в [техническую поддержку Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
@@ -143,9 +143,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Федеративная проверка подлинности"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_003.png "Федеративная проверка подлинности")
 
-    а. Выберите **Enable Federated Authentication** (Включить федеративную проверку подлинности).
+    a. Выберите **Enable Federated Authentication** (Включить федеративную проверку подлинности).
 
-    b. Чтобы отправить загруженный сертификат, нажмите кнопку **Отправить** .
+    Б. Чтобы отправить загруженный сертификат, нажмите кнопку **Отправить** .
 
     c. В текстовом поле **Sign-in URL** (URL-адрес входа) введите значение **URL-адреса службы единого входа SAML** из окна настройки приложения Azure AD.
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 10/11/2017
 
     д. Установите флаг **Использовать POST**.
 
-    Е. Щелкните **Сохранить**.
+    f. Выберите команду **Сохранить**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 На портале Azure создайте тестового пользователя с именем Britta Simon.
@@ -176,13 +176,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь" с заполненными полями "Имя", "Адрес электронной почты" и "Пароль"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты учетной записи Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты учетной записи Britta Simon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
 
 ### <a name="create-a-clarizen-test-user"></a>Создание тестового пользователя Clarizen
 Чтобы пользователи Azure AD могли входить в приложение Clarizen, необходимо подготовить учетные записи пользователей. В случае с Clarizen подготовка выполняется вручную.
@@ -201,9 +201,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно Invite People](./media/active-directory-saas-clarizen-tutorial/create_aaduser_003.png "Приглашение пользователей")
 
-    а. В текстовом поле **Email** (Электронная почта) введите адрес электронной почты учетной записи Britta Simon.
+    a. В текстовом поле **Email** (Электронная почта) введите адрес электронной почты учетной записи Britta Simon.
 
-    b. Нажмите кнопку **Пригласить**.
+    Б. Нажмите кнопку **Пригласить**.
 
     > [!NOTE]
     > Владелец учетной записи Azure Active Directory получит по электронной почте сообщение со ссылкой для активации учетной записи.

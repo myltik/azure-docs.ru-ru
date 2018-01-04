@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 ms.openlocfilehash: dae7b5f7456f4ec0daf60d55f9c38b780896ff83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-flat-files"></a>Загрузка данных из SQL Server в хранилище данных SQL Azure (неструктурированные файлы)
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="before-you-begin"></a>Перед началом работы
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Технические условия
 Для выполнения этих действий необходимо иметь следующее:
 
 * База данных хранилища данных SQL
@@ -78,7 +78,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## <a name="2-create-a-source-data-file"></a>2) Создание файла источника данных
+## <a name="2-create-a-source-data-file"></a>2. Создание файла источника данных
 Откройте блокнот и скопируйте следующие строки данных в новый текстовый файл, а затем сохраните этот файл в локальный временный каталог (C:\Temp\DimDate2.txt). Эти данные имеют формат ASCII.
 
 ```
@@ -124,15 +124,15 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 | 20150101 |1 |3 |
 | 20150201 |1 |3 |
 | 20150301 |1 |3 |
-| 20150401 |2 |4 |
-| 20150501 |2 |4 |
-| 20150601 |2 |4 |
+| 20150401 |2 |4. |
+| 20150501 |2 |4. |
+| 20150601 |2 |4. |
 | 20150701 |3 |1 |
 | 20150801 |3 |1 |
 | 20150801 |3 |1 |
-| 20151001 |4 |2 |
-| 20151101 |4 |2 |
-| 20151201 |4 |2 |
+| 20151001 |4. |2 |
+| 20151101 |4. |2 |
+| 20151201 |4. |2 |
 
 ## <a name="4-create-statistics"></a>4. Создание статистики
 Хранилище данных SQL пока не поддерживает автоматическое создание или автоматическое обновление статистики. Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных. Дополнительные сведения см. в статье об [управлении статистикой][Statistics]. 

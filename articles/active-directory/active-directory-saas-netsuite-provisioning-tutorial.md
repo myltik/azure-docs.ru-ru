@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 8a6d3994-ee33-4a6f-b0a2-9d0389467f16
 ms.service: active-directory
 ms.workload: identity
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 277c393536615fc8bfe8af0bc6d487115f04776c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 20a670a3843586ab57ce776f400bd382947d7861
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Руководство по настройке Netsuite для автоматической подготовки пользователей
 
 Цель этого руководства — показать, как в Netsuite и Azure AD настроить автоматическую подготовку и отзыв учетных записей пользователей из Azure AD в Netsuite.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -68,9 +68,9 @@ ms.lasthandoff: 10/11/2017
 
 5. В разделе **Учетные данные администратора** укажите следующие параметры конфигурации.
    
-    а. В текстовом поле **Имя пользователя администратора** введите имя учетной записи Netsuite, которой на сайте Netsuite.com назначен профиль **System Administrator** (Системный администратор).
+    a. В текстовом поле **Имя пользователя администратора** введите имя учетной записи Netsuite, которой на сайте Netsuite.com назначен профиль **System Administrator** (Системный администратор).
    
-    b. В текстовом поле **Пароль администратора** введите пароль для этой учетной записи.
+    Б. В текстовом поле **Пароль администратора** введите пароль для этой учетной записи.
       
 6. На портале Azure щелкните **Проверить подключение**, чтобы убедиться, что Azure AD может подключиться к приложению Netsuite.
 

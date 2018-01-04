@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 837e38fe-8f55-475c-87f4-6394dc1fee2b
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeedes
-ms.openlocfilehash: a2f0cecb93cc382bcfd710c44eb70f80ae67f9b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8058dcd397e5f81f4a8c8cd1845353fd789f604b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Руководство. Интеграция Azure Active Directory с Asana
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Asana, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Asana из коллекции.
-2. Настройка и проверка единого входа в Azure AD.
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-asana-from-the-gallery"></a>Добавление Asana из коллекции.
 Чтобы настроить интеграцию Asana с Azure AD, необходимо добавить Asana из коллекции в список управляемых приложений SaaS.
@@ -108,9 +108,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Asana](./media/active-directory-saas-asana-tutorial/tutorial_asana_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес `https://app.asana.com/`.
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес `https://app.asana.com/`.
 
-    b. В текстовом поле **Идентификатор** введите значение `https://app.asana.com/`.
+    Б. В текстовом поле **Идентификатор** введите значение `https://app.asana.com/`.
  
 4. В разделе **Сертификат подписи SAML** щелкните **Сертификат (Base64)**, а затем сохраните файл сертификата на компьютере.
 
@@ -132,11 +132,11 @@ ms.lasthandoff: 10/11/2017
    
     ![Настройка параметров единого входа организации](./media/active-directory-saas-asana-tutorial/tutorial_asana_10.png)  
 
-     а. Вставьте **URL-адрес службы единого входа SAML** в текстовое поле **Sign-in page URL** (URL-адрес страницы для входа).
+     a. Вставьте **URL-адрес службы единого входа SAML** в текстовое поле **Sign-in page URL** (URL-адрес страницы для входа).
 
-     b. Щелкните правой кнопкой мыши сертификат, скачанный с портала Azure, а затем откройте файл сертификата в Блокноте или в любом текстовом редакторе. Скопируйте содержимое между операторами begin и end заголовка сертификата в текстовое поле **X.509 Certificate** (Сертификат X.509).
+     Б. Щелкните правой кнопкой мыши сертификат, скачанный с портала Azure, а затем откройте файл сертификата в Блокноте или в любом текстовом редакторе. Скопируйте содержимое между операторами begin и end заголовка сертификата в текстовое поле **X.509 Certificate** (Сертификат X.509).
 
-9. Щелкните **Сохранить**. Если вам нужна дополнительная помощь, изучите [руководство по настройке единого входа в Asana](https://asana.com/guide/help/premium/authentication#gl-saml) .
+9. Выберите команду **Сохранить**. Если вам нужна дополнительная помощь, изучите [руководство по настройке единого входа в Asana](https://asana.com/guide/help/premium/authentication#gl-saml) .
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -165,13 +165,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Кнопка "Добавить"](./media/active-directory-saas-asana-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-an-asana-test-user"></a>Создание тестового пользователя Asana
 

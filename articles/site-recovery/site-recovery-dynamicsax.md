@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/11/2017
 ms.author: asgang
-ms.openlocfilehash: aa8a79cd152a532ef8989e61c2ec9609b826634b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Репликация многоуровневого приложения Dynamics AX с помощью Azure Site Recovery
 
@@ -31,10 +31,9 @@ ms.lasthandoff: 11/28/2017
 
 В этой статье рассматривается создание решения аварийного восстановления для приложения Dynamics AX с помощью [Azure Site Recovery](site-recovery-overview.md). Кроме того, рассматривается плановая, незапланированная и тестовая отработка отказа с помощью плана восстановления одним щелчком, поддерживаемых конфигураций и необходимых компонентов.
 
-Решение аварийного восстановления на основе Site Recovery полностью протестировано, сертифицировано и рекомендовано рабочей группой Dynamics AX.
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для реализации аварийного восстановления для приложения Dynamics AX с помощью Site Recovery необходимо выполнить следующие предварительные требования:
 
@@ -52,9 +51,9 @@ ms.lasthandoff: 11/28/2017
 
 **Сценарий** | **На дополнительный сайт** | **В Azure**
 --- | --- | ---
-**Hyper-V** | Да | Да
-**VMware** | Да | Да
-**Физический сервер** | Да | Да
+**Hyper-V** | Yes | Yes
+**VMware** | Yes | Yes
+**Физический сервер** | Yes | Yes
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Включение аварийного восстановления приложения Dynamics AX с помощью Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Защита приложения Dynamics AX
@@ -74,7 +73,7 @@ ms.lasthandoff: 11/28/2017
 
  Дополнительные сведения см. в статье [Защита Active Directory и DNS с Azure Site Recovery](site-recovery-active-directory.md). Далее в этом документе подразумевается, что контроллер домена доступен на сайте аварийного восстановления.
 
-### <a name="2-set-up-sql-server-replication"></a>2) Настройка репликации SQL Server
+### <a name="2-set-up-sql-server-replication"></a>2. Настройка репликации SQL Server
 Технические рекомендации по решению для защиты на уровне SQL см. в статье [Защита SQL Server с помощью аварийного восстановления SQL Server и Azure Site Recovery](site-recovery-sql.md).
 
 ### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Включение защиты для клиента Dynamics AX и виртуальных машин Application Object Server

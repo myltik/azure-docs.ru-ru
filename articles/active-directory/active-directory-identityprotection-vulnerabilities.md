@@ -5,7 +5,7 @@ services: active-directory
 keywords: "защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: dfb75c91d66d61a63e3f6c3e431a9a45465cbf5c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: ce3d50c4c111c2a47b2732cb3a39bf0dfc28853e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Уязвимости, обнаруживаемые защитой идентификации Azure Active Directory
 Уязвимости — это слабые стороны среды, которыми могут воспользоваться злоумышленники. Мы рекомендуем устранить эти уязвимости, чтобы улучшить систему безопасности своей организации и предотвратить использование уязвимостей злоумышленниками.
@@ -32,13 +32,13 @@ ms.lasthandoff: 10/18/2017
 В следующих разделах представлен обзор уязвимостей, о которых сообщает защита идентификации.
 
 ## <a name="multi-factor-authentication-registration-not-configured"></a>Регистрация с многофакторной проверкой подлинности не настроена
-Эта уязвимость позволяет контролировать развертывание Azure Multi-Factor Authentication в организации. 
+Эта уязвимость позволяет контролировать развертывание службы Многофакторной идентификации Azure в организации. 
 
 Azure Multi-Factor Authentication обеспечивает второй уровень безопасности для проверки подлинности пользователей. Она помогает защитить доступ к данным и приложениям, при этом не усложняя процесс входа пользователя в систему. Служба обеспечивает строгую проверку подлинности с помощью простых способов проверки — телефонного звонка, текстового сообщения, уведомления в мобильном приложении, кода подтверждения или OATH-токенов третьей стороны.
 
-Мы рекомендуем настроить обязательную проверку Azure Multi-Factor Authentication при входе пользователей. Multi-Factor Authentication играет основную роль в основанных на рисках политиках условного доступа в защите идентификации.
+Мы рекомендуем настроить обязательную проверку с помощью Многофакторной идентификации Azure при входе пользователей. Multi-Factor Authentication играет основную роль в основанных на рисках политиках условного доступа в защите идентификации.
 
-Дополнительные сведения см. в статье [Что такое Azure Multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+Дополнительные сведения см. в статье [Что такое Многофакторная идентификация Azure?](../multi-factor-authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Неуправляемые облачные приложения
 Благодаря этой уязвимости можно выявить неуправляемые облачные приложения в организации.
@@ -58,6 +58,6 @@ Azure Multi-Factor Authentication обеспечивает второй уров
 
 Дополнительные сведения см. в статье [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
 

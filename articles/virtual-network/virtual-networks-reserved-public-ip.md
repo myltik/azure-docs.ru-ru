@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="reserved-ip-addresses-classic"></a>Зарезервированные IP-адреса (классическая модель)
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
 

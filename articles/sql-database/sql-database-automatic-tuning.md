@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: 50d1548637ecc6862f680f73e333e8d7f8d20e39
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Автоматическая настройка в базе данных SQL Azure
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/09/2017
 
 ![Как работает автоматическая настройка](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Автоматическая настройка базы данных SQL Azure использует основную логику совместно с механизмом автоматической настройки SQL Server. Дополнительные технические сведения о встроенном механизме настройки см. в статье [Automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning) (Автоматическая настройка).
+Автоматическая настройка базы данных SQL Azure использует основную логику совместно с механизмом автоматической настройки SQL Server. Дополнительные технические сведения о встроенном механизме настройки см. в статье [Automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) (Автоматическая настройка).
 
 ## <a name="use-automatic-tuning"></a>Использование автоматической настройки
 
@@ -80,4 +80,4 @@ ms.lasthandoff: 11/09/2017
 - Дополнительные сведения о том, как включить автоматическую настройку в базе данных SQL Azure, чтобы управлять рабочей нагрузкой, см. в статье [Включение автоматической настройки](sql-database-automatic-tuning-enable.md).
 - Дополнительные сведения о том, как вручную проверить и применить рекомендации автоматической настройки, см. в статье [Поиск и применение рекомендаций по производительности](sql-database-advisor-portal.md).
 - Дополнительные сведения о встроенном механизме аналитики, используемом для автоматической настройки, см. в записи блога [Artificial Intelligence tunes Azure SQL Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/) (Механизм искусственного интеллекта настраивает базы данных SQL Azure).
-- Дополнительные сведения о том, как автоматическая настройка работает в базе данных SQL Azure и SQL Server 2017, см. в статье [Automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning) (Автоматическая настройка).
+- Дополнительные сведения о том, как автоматическая настройка работает в базе данных SQL Azure и SQL Server 2017, см. в статье [Automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) (Автоматическая настройка).

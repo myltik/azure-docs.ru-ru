@@ -4,7 +4,7 @@ description: "В этом разделе описывается, как в Azure
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: aa38ab92-a867-45d7-9dc1-7f1c628f7ed3
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: a8f298228f21ac498b69e59d553b5b885d28a95a
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: 6f1085a8b434aca18499e17ba1c1d086edfc302e
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Добавление или изменение данных профиля пользователя в Azure Active Directory
 В этой статье объясняется, как в Azure Active Directory (Azure AD) добавить данные профиля пользователя, в том числе изображение профиля или данные для аутентификации по телефону и электронной почте. Сведения о добавлении новых пользователей в организации см. в статье [Добавление пользователей из других каталогов или организаций-партнеров в предварительной версии Azure Active Directory](active-directory-users-create-azure-portal.md).
@@ -36,11 +36,10 @@ ms.lasthandoff: 10/11/2017
 2. Для выбранного пользователя щелкните **Профиль**.
 
     ![Открытие сведений о работе](./media/active-directory-users-profile-azure-portal/active-directory-create-users-profile.png)
-6. Добавьте или измените данные профиля. На панели команд щелкните **Сохранить**.
+6. Добавьте или измените данные профиля. На панели команд нажмите **Сохранить**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Добавление новых пользователей в Azure Active Directory](active-directory-users-create-azure-portal.md)
 * [Сброс пароля пользователя в Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
 * [Назначение пользователю ролей администратора в Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Добавление или изменение данных профиля пользователя в Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Удаление пользователя из каталога в Azure Active Directory](active-directory-users-delete-user-azure-portal.md)

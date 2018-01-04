@@ -4,7 +4,7 @@ description: "В этой статье подробно описываются �
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f8e71541562d397c3f2cc195bfb74cfd60cafdc0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 152cb9daa8338da6cc85ffda6feb3bd7b4f1bc92
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Топологии Azure AD Connect.
 В этой статье описываются различные локальные топологии и топологии Active Directory Azure (Azure AD), в которых служба синхронизации Azure AD Connect используется в качестве основного решения интеграции. Здесь описываются и поддерживаемые, и неподдерживаемые конфигурации.
 
 Ниже приведены условные обозначения для изображений в статье.
 
-| Описание | Знак |
+| ОПИСАНИЕ | Знак |
 | --- | --- |
 | Локальный лес Active Directory |![Локальный лес Active Directory](./media/active-directory-aadconnect-topologies/LegendAD1.png) |
 | Локальная служба Active Directory с фильтрацией импорта |![Active Directory с фильтрацией импорта](./media/active-directory-aadconnect-topologies/LegendAD2.png) |

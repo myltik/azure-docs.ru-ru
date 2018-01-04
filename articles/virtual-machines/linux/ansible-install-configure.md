@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: c5257ef5c635080f5eaca371e1882b13cc37e0fd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 13b043f3d6154852647f6bb738d3717be6802fa9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Установка и настройка Ansible для управления виртуальными машинами в Azure
-В этой статье описывается установка Ansible и необходимых модулей пакета SDK для Azure Python для некоторых из наиболее распространенных дистрибутивов Linux. Чтобы установить Ansible в других дистрибутивах, настройте установленные пакеты в соответствии с платформой. Вы также узнаете, как создавать и определять учетные данные, используемые Ansible для безопасного создания ресурсов Azure. 
+В этой статье подробно описывается установка Ansible и необходимые модули Azure Python SDK для некоторых типичных дистрибутивы Linux. Чтобы установить Ansible в других дистрибутивах, настройте установленные пакеты в соответствии с платформой. Вы также узнаете, как создавать и определять учетные данные, используемые Ansible для безопасного создания ресурсов Azure. 
 
 Сведения о дополнительных параметрах установки и инструкции для других платформ см. в [руководстве по установке Ansible](https://docs.ansible.com/ansible/intro_installation.html).
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/18/2017
 az group create --name myResourceGroupAnsible --location eastus
 ```
 
-Теперь создайте виртуальную машину и установите Ansible для одного из следующих дистрибутивов:
+Теперь создайте виртуальную Машину и установите Ansible для одного из следующих дистрибутивы по своему усмотрению.
 
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [CentOS 7.3](#centos-73)
@@ -43,7 +43,7 @@ az group create --name myResourceGroupAnsible --location eastus
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#create). В приведенном ниже примере создается виртуальная машина с именем *myVMAnsible*.
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -74,7 +74,7 @@ pip install ansible[azure]
 ### <a name="centos-73"></a>CentOS 7.3
 Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#create). В приведенном ниже примере создается виртуальная машина с именем *myVMAnsible*.
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -106,7 +106,7 @@ sudo pip install ansible[azure]
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
 Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#create). В приведенном ниже примере создается виртуальная машина с именем *myVMAnsible*.
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -125,11 +125,14 @@ ssh azureuser@<publicIpAddress>
 
 ```bash
 ## Install pre-requisite packages
-sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel \
-    libopenssl-devel libtool python-pip python-setuptools
+sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 make \
+    python-devel libopenssl-devel libtool python-pip python-setuptools
 
 ## Install Ansible and Azure SDKs via pip
 sudo pip install ansible[azure]
+
+# Remove conflicting Python cryptography package
+sudo pip uninstall -y cryptography
 ```
 
 Теперь перейдите к разделу [Создание учетных данных Azure](#create-azure-credentials).
@@ -138,26 +141,26 @@ sudo pip install ansible[azure]
 ## <a name="create-azure-credentials"></a>Создание учетных данных Azure
 Ansible взаимодействует с Azure, используя имя пользователя и пароль или субъект-службу. Субъект-служба Azure является удостоверением безопасности, которое можно использовать с приложениями, службами и средствами автоматизации, такими как Ansible. Вы можете управлять разрешениями на то, какие операции может выполнять субъект-служба в Azure, и определять их. Для обеспечения более высокого уровня безопасности, чем при предоставлении имени пользователя и пароля, в этом примере создается простейший субъект-служба.
 
-Создайте субъект-службу с помощью команды [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) и выведите учетные данные, необходимые для Ansible:
+Создание участника службы на главном компьютере с [az ad sp создать для rbac](/cli/azure/ad/sp#create-for-rbac) и учетные данные, необходимые для Ansible вывода:
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
 ```
 
 Ниже приведен пример выходных данных предыдущей команды.
 
 ```json
-[
-  "eec5624a-90f8-4386-8a87-02730b5410d5",
-  "531dcffa-3aff-4488-99bb-4816c395ea3f",
-  "72f988bf-86f1-41af-91ab-2d7cd011db47"
-]
+{
+  "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
+  "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
 ```
 
 Для проверки подлинности в Azure также необходимо получить идентификатор подписки Azure с помощью команды [az account show](/cli/azure/account#show):
 
 ```azurecli
-az account show --query [id] --output tsv
+az account show --query "{ subscription_id: id }"
 ```
 
 Выходные данные этих двух команд будут использоваться в следующем шаге.
@@ -173,7 +176,7 @@ mkdir ~/.azure
 vi ~/.azure/credentials
 ```
 
-В файле *учетных данных* объединяются идентификатор подписки и выходные данные, полученные в результате создания субъекта-службы. Выходные данные предыдущей команды [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) следуют в необходимом порядке: *client_id*, *secret* и *tenant*. В приведенном ниже примере файла *учетных данных* показаны значения, соответствующие выходным данным предыдущей команды. Введите свои значения следующим образом:
+В файле *учетных данных* объединяются идентификатор подписки и выходные данные, полученные в результате создания субъекта-службы. Выходные данные предыдущей [az ad sp создать для rbac](/cli/azure/ad/sp#create-for-rbac) команда такая же, как это требуется для *client_id*, *секрет*, и *клиента*. В приведенном ниже примере файла *учетных данных* показаны значения, соответствующие выходным данным предыдущей команды. Введите свои значения следующим образом:
 
 ```bash
 [default]

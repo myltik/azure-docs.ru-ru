@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Привязки хранилища таблиц Azure для службы "Функции Azure"
 
@@ -35,8 +35,8 @@ ms.lasthandoff: 11/29/2017
 
 Языковой пример см. в разделах:
 
-* [Чтение одной сущности в предкомпилированном коде C#](#input---c-example-1);
-* [Чтение нескольких сущностей в предкомпилированном коде C#](#input---c-example-2);
+* [Чтение одной сущности в C#](#input---c-example-1)
+* [Чтение нескольких сущностей в C#](#input---c-example-2)
 * [Скрипт C# — чтение одной сущности](#input---c-script-example-1);
 * [Скрипт C# — чтение нескольких сущностей](#input---c-script-example-2);
 * [F#](#input---f-example-2)
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/29/2017
 
 ### <a name="input---c-example-1"></a>Пример 1 входных данных C#
 
-В следующем примере показан [предкомпилированный код C#](functions-dotnet-class-library.md), который считывает одну строку таблицы. 
+В следующем примере показан [функции C#](functions-dotnet-class-library.md) , считывает одну строку. 
 
 Значение ключа строки {queueTrigger} указывает, что ключ строки получен из строки сообщения очереди.
 
@@ -71,7 +71,7 @@ public class TableStorage
 
 ### <a name="input---c-example-2"></a>Пример 2 входных данных C#
 
-В следующем примере показан [предкомпилированный код C#](functions-dotnet-class-library.md), который считывает несколько строк таблицы. Обратите внимание, что класс `MyPoco` является производным от `TableEntity`.
+В следующем примере показан [функции C#](functions-dotnet-class-library.md) , считывает несколько строк таблицы. Обратите внимание, что класс `MyPoco` является производным от `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -286,7 +286,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Входные атрибуты
  
-Для функций [предкомпилированного кода C#](functions-dotnet-class-library.md) используйте следующие атрибуты, позволяющие настроить входную привязку таблицы:
+В [библиотеки классов C#](functions-dotnet-class-library.md), используйте следующие атрибуты для настройки привязки входной таблицы:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -316,7 +316,7 @@ module.exports = function (context, myQueueItem) {
   }
   ```
 
-  Полный пример см. в разделе [Пример входных данных C#](#input---c-example).
+  Полный пример см. в разделе [входные данные - пример на C#](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -346,16 +346,16 @@ module.exports = function (context, myQueueItem) {
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `Table`.
 
-|свойство function.json | Свойство атрибута |Описание|
+|свойство function.json | Свойство атрибута |ОПИСАНИЕ|
 |---------|---------|----------------------|
 |**type** | Недоступно | Нужно задать значение `table`. Это свойство задается автоматически при создании привязки на портале Azure.|
 |**direction** | Недоступно | Нужно задать значение `in`. Это свойство задается автоматически при создании привязки на портале Azure. |
 |**name** | Недоступно | Имя переменной, представляющей таблицу или сущность в коде функции. | 
 |**tableName** | **TableName** | Это имя таблицы.| 
-|**partitionKey** | **PartitionKey** |необязательный параметр. Ключ раздела сущности таблицы, которую нужно считать. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#input---usage).| 
-|**rowKey** |**RowKey** | необязательный параметр. Ключ строки сущности таблицы, которую нужно считать. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#input---usage).| 
-|**take** |**take** | необязательный параметр. Максимальное количество считываемых сущностей в JavaScript. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#input---usage).| 
-|**filter** |**Filter** | необязательный параметр. Выражение фильтра OData для входных данных таблицы в JavaScript. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#input---usage).| 
+|**partitionKey** | **PartitionKey** |Необязательный элемент. Ключ раздела сущности таблицы, которую нужно считать. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#input---usage).| 
+|**rowKey** |**RowKey** | Необязательный элемент. Ключ строки сущности таблицы, которую нужно считать. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#input---usage).| 
+|**take** |**take** | Необязательный элемент. Максимальное количество считываемых сущностей в JavaScript. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#input---usage).| 
+|**filter** |**Filter** | Необязательный элемент. Выражение фильтра OData для входных данных таблицы в JavaScript. Дополнительные сведения о том, как использовать это свойство, см. в этом [разделе](#input---usage).| 
 |**подключение** |**Connection** | Имя параметра приложения, содержащего строку подключения к службе хранилища, используемой для этой привязки. Если имя параметра приложения начинается с AzureWebJobs, можно указать только остальную часть имени. Например, если задать для `connection` значение MyStorage, среда выполнения службы "Функции" будет искать параметр приложения с именем AzureWebJobsMyStorage. Если оставить строку `connection` пустой, среда выполнения службы "Функции" будет использовать строку подключения к службе хранилища по умолчанию для параметра приложения с именем `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -389,14 +389,14 @@ module.exports = function (context, myQueueItem) {
 
 Языковой пример см. в разделах:
 
-* [Предкомпилированный код C#](#output---c-example)
-* [Сценарий C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Скрипт C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Пример выходных данных C#
 
-В следующем примере показан [предкомпилированный код C#](functions-dotnet-class-library.md), который использует триггер HTTP для записи одной строки таблицы. 
+В следующем примере показан [функции C#](functions-dotnet-class-library.md) триггер HTTP, используемую при записи строки одной таблицы. 
 
 ```csharp
 public class TableStorage
@@ -569,7 +569,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Выходные атрибуты
 
-Для функций [предкомпилированного кода C#](functions-dotnet-class-library.md) используйте атрибут [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), которая определена в пакет NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Конструктор атрибута использует имя таблицы. Его можно использовать с параметром `out` или возвращаемым значением функции, как показано в следующем примере.
 
@@ -597,15 +597,15 @@ public static MyPoco TableOutput(
 }
 ```
 
-Полный пример см. в разделе [Пример выходных данных C#](#output---c-example).
+Полный пример см. в разделе [выходные данные - пример на C#](#output---c-example).
 
-Чтобы указать учетную запись хранения на уровне класса, метода или параметра, можно использовать атрибут `StorageAccount`. Дополнительные сведения см. в разделе [Входные атрибуты](#input---attributes-for-precompiled-c).
+Чтобы указать учетную запись хранения на уровне класса, метода или параметра, можно использовать атрибут `StorageAccount`. Дополнительные сведения см. в разделе [Входные атрибуты](#input---attributes).
 
 ## <a name="output---configuration"></a>Выходная конфигурация
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `Table`.
 
-|свойство function.json | Свойство атрибута |Описание|
+|свойство function.json | Свойство атрибута |ОПИСАНИЕ|
 |---------|---------|----------------------|
 |**type** | Недоступно | Нужно задать значение `table`. Это свойство задается автоматически при создании привязки на портале Azure.|
 |**direction** | Недоступно | Нужно задать значение `out`. Это свойство задается автоматически при создании привязки на портале Azure. |

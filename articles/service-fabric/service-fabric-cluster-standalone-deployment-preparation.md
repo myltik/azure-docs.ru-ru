@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
 ms.author: dekapur;maburlik;chackdan
-ms.openlocfilehash: 67d47739c27081c4e10bf11988ed121ff02d8bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 <a id="preparemachines"></a>
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="modify-cluster-configuration"></a>Изменение конфигурации кластера
 Чтобы создать изолированный кластер, для него необходимо создать файл конфигурации ClusterConfig.json, описывающий характеристики кластера. Можно создать этот файл на основе шаблонов, доступных по ссылке ниже. <br>
-[Конфигурации изолированного кластера](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+[Автономный кластерных конфигураций](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 Сведения о разделах в этом файле см. в статье [Параметры конфигурации для автономного кластера Windows](service-fabric-cluster-manifest.md).
 
@@ -161,7 +161,7 @@ Passed                     : True
 В настоящее время данный модуль тестирования конфигурации не проверяет конфигурацию безопасности, поэтому ее нужно проверить отдельно.  
 
 > [!NOTE]
-> Мы постоянно вносим улучшения для повышения надежности модуля. Поэтому, если вы обнаружили сбои в работе модуля TestConfiguration или полагаете, что в нем чего-то не хватает, сообщите нам через [поддерживаемые каналы](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).   
+> Мы постоянно вносим улучшения для повышения надежности модуля. Поэтому, если вы обнаружили сбои в работе модуля TestConfiguration или полагаете, что в нем чего-то не хватает, сообщите нам через [поддерживаемые каналы](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).   
 > 
 > 
 

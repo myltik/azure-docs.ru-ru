@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
 ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>Использование концентраторов уведомлений для вещания локализованных экстренных новостей на устройства iOS
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 * приложение iOS позволяет клиентским устройствам указывать язык и подписываться на различные категории экстренных новостей;
 * сервер рассылает уведомления, используя функции **tag** и **template** Центров уведомлений Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Вы должны предварительно выполнить учебник [Использование концентраторов уведомлений для передачи экстренных новостей] , чтобы у вас был нужный код, так как этот учебник построен непосредственно на этом коде.
 
 Наличие Visual Studio 2012 или более поздней версии не обязательно.
@@ -230,7 +230,7 @@ ms.lasthandoff: 10/11/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 Дополнительные сведения об использовании шаблонов см. по следующим ссылкам:
 
 * [Уведомление пользователей с помощью центров уведомлений: ASP.NET]

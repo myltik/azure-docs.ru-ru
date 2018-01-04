@@ -17,14 +17,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: f53234ddd8362e74c421c18c8d500308f5a232a7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Использование Interactive Query в HDInsight
-Interactive Query (также Hive LLAP, или [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) — это новый [тип кластера](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. Interactive Query поддерживает кэширование в памяти, благодаря чему запросы Hive становятся более быстрыми и интерактивными. 
+Interactive Query (также Hive LLAP, или [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) — это новый [тип кластера](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. Interactive Query поддерживает кэширование в памяти, благодаря чему запросы Hive становятся более быстрыми и интерактивными.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)] 
 
 Кластер Interactive Query отличается от кластера Hadoop. Он содержит только службу Hive. 
 
@@ -41,8 +43,8 @@ Interactive Query (также Hive LLAP, или [Live Long and Process](https://
 
 * С помощью Power BI
 
-    См. раздел [Визуализация больших данных с помощью Power BI в Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-
+    В разделе [визуализировать интерактивный Hive запрос данных с помощью Power BI в Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) . в разделе [визуализировать большие объемы данных с помощью Power BI в Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+ 
 * Использование Zeppelin
 
     См. раздел [Выполнение запросов Hive в Azure HDInsight с помощью Zeppelin](../hdinsight-connect-hive-zeppelin.md).

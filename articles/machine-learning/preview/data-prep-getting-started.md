@@ -1,17 +1,20 @@
 ---
 title: "Начало работы со службой подготовки данных в Машинном обучении Azure | Документация Майкрософт"
 description: "Это руководство по началу работы со службой подготовки данных в AML Workbench"
+services: machine-learning
 author: cforbe
 ms.author: cforbe
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: faf6e557914a33454229b5830419b9ef6f200a8c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8f90bcb83233b1a2f1a5d342ee444e4b02d4927d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-data-preparation"></a>Начало работы со службой подготовки данных
 

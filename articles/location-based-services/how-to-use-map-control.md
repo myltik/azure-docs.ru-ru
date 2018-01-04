@@ -6,19 +6,19 @@ keywords: "Не добавляйте и не изменяйте ключевые
 author: philmea
 ms.author: philmea
 ms.date: 11/22/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 9ddd11806accddb41c02c0c6681aac07bba25356
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 06743640aae5e06d0160105458d9a3cfa35d5040
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Использование Azure Location Based Services Map Control
 Клиентская библиотека Javascript службы Map Control позволяет отображать карты и встроенные функциональные возможности Azure Location Based Services в вашем мобильном или веб-приложении. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Вам потребуется ключ подписки и учетная запись Azure Location Based Services. Дополнительные сведения о создании учетной записи и получении ключа подписки см. в статье [Управление ключами и учетной записью Azure Location Based Services](how-to-manage-account-keys.md). 
 
 ## <a name="create-a-new-map-in-a-web-page-using-the-map-control-api"></a>Создание карты на веб-странице с помощью API Map Control

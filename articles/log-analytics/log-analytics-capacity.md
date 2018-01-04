@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Планирование ресурсов виртуальной машины Hyper-V с помощью решения "Емкость и производительность" (предварительная версия)
 
@@ -43,19 +43,19 @@ ms.lasthandoff: 10/11/2017
 
 В следующей таблице описаны подключенные источники, которые поддерживаются этим решением.
 
-| Подключенный источник | Поддержка | Описание |
+| Подключенный источник | Поддержка | ОПИСАНИЕ |
 |---|---|---|
-| [Агенты Windows](log-analytics-windows-agents.md) | Да | Решение собирает сведения о емкости и производительности из агентов Windows. |
-| [Агенты Linux](log-analytics-linux-agents.md) | Нет    | Решение не собирает сведения о емкости и производительности из прямых агентов Linux.|
-| [Группы управления SCOM](log-analytics-om-agents.md) | Да |Решение собирает сведения о емкости и производительности из агентов в подключенной группе управления SCOM. Прямое подключение агента SCOM к OMS не требуется. Данные пересылаются из группы управления в репозиторий OMS.|
-| [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет | Служба хранилища Azure не содержит сведения о емкости и производительности.|
+| [Агенты Windows](log-analytics-windows-agent.md) | Yes | Решение собирает сведения о емкости и производительности из агентов Windows. |
+| [Агенты Linux](log-analytics-linux-agents.md) | Нет     | Решение не собирает сведения о емкости и производительности из прямых агентов Linux.|
+| [Группы управления SCOM](log-analytics-om-agents.md) | Yes |Решение собирает сведения о емкости и производительности из агентов в подключенной группе управления SCOM. Прямое подключение агента SCOM к OMS не требуется. Данные пересылаются из группы управления в репозиторий OMS.|
+| [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет  | Служба хранилища Azure не содержит сведения о емкости и производительности.|
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 - Агенты Windows или Operations Manager должны быть установлены на узлах Hyper-V под управлением Windows Server 2012 (или более поздней версии), а не на виртуальных машинах.
 
 
-## <a name="configuration"></a>Конфигурация
+## <a name="configuration"></a>Параметр Configuration
 
 Чтобы добавить решение "Емкость и производительность" в рабочую область, сделайте следующее:
 
@@ -120,7 +120,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 В приведенной ниже таблице содержатся примеры поисков по журналу для получения сведений о емкости и производительности, собранных и рассчитанных этим решением.
 
-| Запрос | Описание |
+| Запрос | ОПИСАНИЕ |
 |---|---|
 | Конфигурация памяти всех узлов | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
 | Конфигурация памяти всех виртуальных машин | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
@@ -133,7 +133,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 >[!NOTE]
 > Если ваша рабочая область переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом.
 
-> | Запрос | Описание |
+> | Запрос | ОПИСАНИЕ |
 |:--- |:--- |
 | Конфигурация памяти всех узлов | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
 | Конфигурация памяти всех виртуальных машин | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
 ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Руководство разработчика Java по Функциям Azure
 > [!div class="op_single_selector"]
@@ -35,15 +35,15 @@ ms.lasthandoff: 12/06/2017
 
 Привязка | Заметка
 ---|---
-Cosmos DB | Недоступно
+Cosmos DB | Н/Д
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Мобильные приложения | Недоступно
-Центры уведомлений | Недоступно
+Мобильные приложения | Н/Д
+Центры уведомлений | Н/Д
 Большой двоичный объект хранилища | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Очередь службы хранилища | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Таблица службы хранилища | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Таймер | <ul><li>`TimerTrigger`</li></ul>
-Twilio | Недоступно
+Twilio | Н/Д
 
 Входные триггеры и выходные данные для вашего приложения можно также определять в файле [function.json](/azure/azure-functions/functions-reference#function-code).
 

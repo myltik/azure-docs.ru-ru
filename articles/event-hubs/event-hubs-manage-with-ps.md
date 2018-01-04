@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: de86b8241166d4e0bd03beb22550464457e3db5e
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Управление ресурсами концентраторов событий с помощью PowerShell
 
@@ -26,7 +26,7 @@ Microsoft Azure PowerShell — это среда сценариев, котор
 
 Вы также можете управлять ресурсами концентраторов событий с помощью шаблонов Azure Resource Manager. Дополнительные сведения см. в статье [Создание пространства имен концентраторов событий с концентратором событий и группой потребителей с помощью шаблона Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для этого потребуются следующие компоненты.
 
@@ -103,7 +103,7 @@ else
 
 ### <a name="create-a-consumer-group"></a>Создание группы потребителей
 
-Чтобы создать в концентраторе событий группу потребителей, проверьте пространство имен и концентратор событий с помощью сценариев, приведенных в предыдущем разделе. Затем создайте группу потребителей в концентраторе событий, используя командлет [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup). Например:
+Чтобы создать в концентраторе событий группу потребителей, проверьте пространство имен и концентратор событий с помощью сценариев, приведенных в предыдущем разделе. Затем создайте группу потребителей в концентраторе событий, используя командлет [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup). Например: 
 
 ```powershell
 # Check if consumer group already exists

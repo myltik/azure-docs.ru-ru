@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f76693dfcaf5076372e4c4d5f28678c05eff85ed
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Устранение проблем с маршрутами на портале Azure
 > [!div class="op_single_selector"]
-> * [Портал Azure](virtual-network-routes-troubleshoot-portal.md)
+> * [портале Azure](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 >
 >
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/31/2017
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Просмотр эффективных маршрутов виртуальной машины
 Чтобы просмотреть агрегированные маршруты, которые применяются к виртуальной машине, сделайте следующее:
 
-1. Откройте портал Azure по адресу https://portal.azure.com.
+1. Откройте портал Azure по адресу https://portal.azure.com. Необходимо назначить вашей учетной записи *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* операции для сетевого интерфейса. Дополнительные сведения о назначении операций для учетных записей, в разделе [Создание пользовательских ролей для контроля доступа](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Выберите **Другие службы**, а затем в появившемся списке выберите пункт **Виртуальные машины**.
 3. Откроется список, где необходимо выбрать виртуальную машину для устранения проблем, после чего отобразится колонка параметров виртуальной машины.
 4. Выберите **Диагностика и решение проблем**, а затем распространенную проблему. В этом примере — **Я не могу подключиться к виртуальной машине Windows** .

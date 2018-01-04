@@ -4,7 +4,7 @@ description: "Присоединение виртуальной машины Red
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: 20cecf0b3e38e8f2241f3589b9548c93730c7783
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: b48ba1a1a47bc27e1d394e6fa56826df1eb742dd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Присоединение виртуальной машины Red Hat Enterprise Linux 7 к управляемому домену
 Эта статья покажет, как присоединить виртуальную машину Red Hat Enterprise Linux (RHEL) 7 к управляемому домену доменных служб Azure AD.
@@ -34,8 +34,8 @@ ms.lasthandoff: 11/30/2017
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Подготовка виртуальной машины Red Hat Enterprise Linux
 Подготовьте виртуальную машину RHEL 7 в Azure любым из следующих способов:
-* [Портал Azure](../virtual-machines/linux/quick-create-portal.md)
-* [Интерфейс командной строки Azure](../virtual-machines/linux/quick-create-cli.md)
+* [портал Azure](../virtual-machines/linux/quick-create-portal.md)
+* [интерфейс командной строки Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]

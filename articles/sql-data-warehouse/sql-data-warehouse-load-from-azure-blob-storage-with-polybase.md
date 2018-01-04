@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 10/31/2016
 ms.author: barbkess
 ms.openlocfilehash: 4221bcd5a50fad680427a500e32837c1e75dd990
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (PolyBase)
 > [!div class="op_single_selector"]
@@ -101,7 +101,7 @@ WITH
 > 
 > 
 
-## <a name="2-configure-data-format"></a>2) Настройка формата данных
+## <a name="2-configure-data-format"></a>2. Настройка формата данных
 В хранилище BLOB-объектов Azure данные хранятся в текстовых файлах, где каждое поле отделяется разделителем. Выполните команду [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], чтобы указать формат данных в текстовых файлах. Для примера Contoso используются данные без сжатия с разделением вертикальной чертой.
 
 ```sql

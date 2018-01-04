@@ -4,7 +4,7 @@ description: "В статье описывается настройка прил
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
-ms.openlocfilehash: f72fac677aa7d461f174b2b06db69df235273375
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C. Добавление LinkedIn в качестве поставщика удостоверений с помощью пользовательских политик
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 В этой статье описывается выполнение входа для обладателей учетной записи LinkedIn с помощью [пользовательских политик](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Выполните шаги, описанные в статье [Azure Active Directory B2C: начало работы с настраиваемыми политиками](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>Шаг 1. Создание приложения учетной записи LinkedIn
@@ -37,9 +37,9 @@ ms.lasthandoff: 10/24/2017
 
 2. На странице **Create a New Application** (Создать приложение) выполните описанные ниже действия.
 
-    а. Введите значение в поле **Company Name** (Название компании), укажите описательные значения **Name** (Имя) для компании и **Description** (Описание) для нового приложения.
+    a. Введите значение в поле **Company Name** (Название компании), укажите описательные значения **Name** (Имя) для компании и **Description** (Описание) для нового приложения.
 
-    b. Отправьте файл в разделе **Application logo** (Логотип приложения).
+    Б. Отправьте файл в разделе **Application logo** (Логотип приложения).
 
     c. Выберите значение для **Application Use** (Использование приложения).
 
@@ -210,9 +210,9 @@ ms.lasthandoff: 10/24/2017
 1. Откройте **параметры Azure AD B2C** и выберите **Identity Experience Framework**.
 
     >[!NOTE]
-    >Для использования команды "Запустить сейчас" необходимо, чтобы в клиенте было предварительно зарегистрировано хотя бы одно приложение. Дополнительные сведения о регистрации приложений см. в статье [Azure AD B2C: начало работы](active-directory-b2c-get-started.md) или [Регистрация приложения](active-directory-b2c-app-registration.md).
+    >Для использования команды Run now (Запустить сейчас) необходимо, чтобы в клиенте было предварительно зарегистрировано хотя бы одно приложение. Дополнительные сведения о регистрации приложений см. в статье [Azure AD B2C: начало работы](active-directory-b2c-get-started.md) или [Регистрация приложения](active-directory-b2c-app-registration.md).
 
-2. Откройте **B2C_1A_signup_signin**, отправленную вами пользовательскую политику проверяющей стороны, а затем выберите **Запустить сейчас**.  
+2. Откройте **B2C_1A_signup_signin**, отправленную вами пользовательскую политику проверяющей стороны, а затем выберите **Run Now** (Запустить сейчас).  
     Теперь вы можете войти с помощью учетной записи LinkedIn.
 
 ## <a name="step-7-optional-register-the-linkedin-account-claims-provider-to-the-profile-edit-user-journey"></a>Шаг 7 (необязательно). Регистрация поставщика утверждений учетной записи LinkedIn в пути взаимодействия пользователя ProfileEdit

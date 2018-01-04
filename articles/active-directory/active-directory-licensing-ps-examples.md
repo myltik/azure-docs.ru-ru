@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Лицензирование Azure AD"
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: 6ee08bb48b8612b16a4609570c12363664788f63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Примеры PowerShell для группового лицензирования в Azure AD
 
@@ -141,7 +141,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Получение всех пользователей с ошибками лицензий в группе
 
-Зная группу, в которой есть ошибки, связанные с лицензиями, вы можете просмотреть список всех пользователей, у которых возникли эти ошибки. У пользователя также могут возникнуть ошибки из других групп. Но в этом примере результаты ограничены только ошибками, относящимися к данной группы. Для этого мы проверяем свойство **ReferencedObjectId** каждой записи **IndirectLicenseError** пользователя.
+Зная группу, в которой есть ошибки, связанные с лицензиями, вы можете просмотреть список всех пользователей, у которых возникли эти ошибки. У пользователя может быть слишком ошибки из других групп. Но в этом примере результаты ограничены только ошибками, относящимися к данной группы. Для этого мы проверяем свойство **ReferencedObjectId** каждой записи **IndirectLicenseError** пользователя.
 
 ```
 #a sample group with errors

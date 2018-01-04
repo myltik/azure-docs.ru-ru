@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Устранение неполадок в работе сквозной аутентификации Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 730dfcb8925a1a7edf8796ddaf86d2038fd9df44
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: d25f682d3c42f95752d09454f778c3975f551cca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Устранение неполадок в работе сквозной аутентификации Azure Active Directory
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/28/2017
 
 Если пользователи не могут выполнить вход с использованием сквозной аутентификации, для них могут отображаться следующие ошибки на экране входа в Azure AD: 
 
-|Ошибка|Description (Описание)|Способы устранения:
+|Ошибка|ОПИСАНИЕ|Способы устранения:
 | --- | --- | ---
 |AADSTS80001|Не удалось подключиться к Active Directory|Убедитесь, что серверы с агентами являются членами того же леса, что и пользователи, чьи пароли должны быть проверены, и могут подключиться к Active Directory.  
 |AADSTS8002|Истекло время ожидания подключения к Active Directory|Убедитесь, что служба Active Directory доступна и отвечает на запросы агентов.

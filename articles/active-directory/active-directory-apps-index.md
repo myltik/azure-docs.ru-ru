@@ -4,7 +4,7 @@ description: "Узнайте, как настроить срок действи�
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: d8ed395abb31a1cb41e35456ab5892a2e7c3a750
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 276997bb6800fda9cb432384ebaaaa717b8426ca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Указатель статей по управлению приложениями в Azure Active Directory
 В этой статье представлен полный список всех статей о различных функциях приложений в Azure Active Directory (Azure AD).
@@ -203,7 +203,7 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 
 Чтобы просмотреть, какие отчеты включены в различные выпуски Azure Active Directory, [щелкните здесь](active-directory-view-access-usage-reports.md).
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)

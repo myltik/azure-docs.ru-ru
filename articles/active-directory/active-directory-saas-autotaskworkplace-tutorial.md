@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: a9a7ff71-c389-4169-aafd-d7a505244797
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 45130162271b20860607497ff93c6a668c415233
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e8bd7a770f8544ed4845dd751e43ae5325c68e07
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Руководство по интеграции Azure Active Directory с Autotask Workplace
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Autotask Workplace, вам потребуется:
 
@@ -51,10 +51,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Autotask Workplace из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-autotask-workplace-from-the-gallery"></a>Добавление Autotask Workplace из коллекции
 Чтобы настроить интеграцию Autotask Workplace с Azure AD, необходимо добавить Autotask Workplace из коллекции в список управляемых приложений SaaS.
@@ -111,9 +111,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для IDP приложения Autotask Workplace](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
+    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`.
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`.
 
 4. Установите флажок **Показать дополнительные параметры URL-адресов**, если хотите настроить приложение для работы в режиме, инициируемом **поставщиком услуг**.
 
@@ -142,9 +142,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Конфигурация единого входа в Autotask](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
  
-    а. Выберите **XML Metadata File** (XML-файл метаданных), а затем отправьте **XML-файл метаданных**, скачанный с портала Azure.
+    a. Выберите **XML Metadata File** (XML-файл метаданных), а затем отправьте **XML-файл метаданных**, скачанный с портала Azure.
 
-    b. Нажмите кнопку **Enable SSO** (Включить единый вход).
+    Б. Нажмите кнопку **Enable SSO** (Включить единый вход).
     
     ![Подтверждение конфигурации единого входа в Autotask](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig2.png)
 
@@ -182,13 +182,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
 
 ### <a name="create-an-autotask-workplace-test-user"></a>Создание тестового пользователя Autotask Workplace
 

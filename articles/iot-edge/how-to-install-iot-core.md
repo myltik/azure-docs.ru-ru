@@ -7,18 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d3ff260b4ac238ce7aaa2a63538dede7bd21a19c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Установка среды выполнения Azure IoT Edge в ОС Windows IoT Базовая (предварительная версия)
 
-Среда выполнения Azure IoT Edge может работать даже на крошечных одноплатных устройствах (SBC), которые весьма распространены в отрасли Интернета вещей. В этой статье мы рассмотрим подготовку среды выполнения на плате разработки [MinnowBoard Turbot][lnk-minnow] под управлением Windows IoT Базовая.
+Azure IoT Edge и [Windows IoT базовая](https://docs.microsoft.com/windows/iot-core/) действуют совместно, чтобы включить edge вычислительные ресурсы даже небольшие устройства. Среда выполнения Azure IoT Edge может работать даже на крошечных одноплатных устройствах (SBC), которые весьма распространены в отрасли Интернета вещей. 
+
+В этой статье мы рассмотрим подготовку среды выполнения на плате разработки [MinnowBoard Turbot][lnk-minnow] под управлением Windows IoT Базовая. Windows IoT базовая поддерживает Azure IoT края только в x64-разрядных процессоров Intel. 
 
 ## <a name="install-the-runtime"></a>Установка среды выполнения
 

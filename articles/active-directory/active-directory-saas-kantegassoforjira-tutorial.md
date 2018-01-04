@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: e2af4891-e3c8-43b3-bdcb-0500c493e9b4
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 06a1d301818f025270137f7eaa9f40e5e4503112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dd3c97a753b67ab27033d32c3990c9b096287069
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Руководство по интеграции Azure Active Directory с Kantega SSO for JIRA
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Kantega SSO for JIRA, вам потребуется:
 
@@ -47,10 +47,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Kantega SSO for JIRA из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-kantega-sso-for-jira-from-the-gallery"></a>Добавление Kantega SSO for JIRA из коллекции
 Чтобы настроить интеграцию Kantega SSO for JIRA с Azure AD, необходимо добавить Kantega SSO for JIRA из коллекции в список управляемых приложений SaaS.
@@ -63,11 +63,11 @@ ms.lasthandoff: 10/11/2017
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![ПРИЛОЖЕНИЯ][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![Приложения][3]
+    ![ПРИЛОЖЕНИЯ][3]
 
 4. В поле поиска введите **Kantega SSO for JIRA**.
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>настройка и проверка единого входа в Azure AD.
 В этом разделе описана настройка и проверка единого входа Azure AD в Kantega SSO for JIRA с использованием тестового пользователя Britta Simon.
 
 Чтобы единый вход работал, Azure AD необходима информация о том, какой пользователь в Kantega SSO for JIRA соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Kantega SSO for JIRA.
@@ -86,11 +86,11 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы настроить и проверить единый вход Azure AD в Kantega SSO for JIRA, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа в Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя Kantega SSO for JIRA](#creating-a-kantega-sso-for-jira-test-user)** требуется для того, чтобы в Kantega SSO for JIRA существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
@@ -110,9 +110,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_url1.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`.
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`.
 
 4. Чтобы использовать режим, инициируемый **поставщиком услуг**, установите флажок **Показать дополнительные параметры URL-адресов**.
 
@@ -169,25 +169,25 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-kantegassoforjira-tutorial/addon6.png)
 
-    а. Скопируйте значение **App ID URI** (URI кода приложения) и используйте его как **идентификатор, URL-адрес ответа и URL-адрес входа** в разделе **Домены и URL-адреса приложения Kantega SSO for JIRA** на портале Azure.
+    a. Скопируйте значение **App ID URI** (URI кода приложения) и используйте его как **идентификатор, URL-адрес ответа и URL-адрес входа** в разделе **Домены и URL-адреса приложения Kantega SSO for JIRA** на портале Azure.
 
-    b. Щелкните **Далее**.
+    Б. Нажмите кнопку **Далее**.
 
 17. В разделе **Metadata import** (Импорт метаданных) выполните следующие действия. 
 
     ![Настройка единого входа](./media/active-directory-saas-kantegassoforjira-tutorial/addon7.png)
 
-    а. Щелкните **Metadata file on my computer** (Файл метаданных на моем компьютере) и передайте файл метаданных, который вы скачали с портала Azure.
+    a. Щелкните **Metadata file on my computer** (Файл метаданных на моем компьютере) и передайте файл метаданных, который вы скачали с портала Azure.
 
-    b. Щелкните **Далее**.
+    Б. Нажмите кнопку **Далее**.
 
 18. В разделе **Name and SSO location** (Имя и расположение единого входа) выполните следующее.
 
     ![Настройка единого входа](./media/active-directory-saas-kantegassoforjira-tutorial/addon8.png)
     
-    а. В текстовом поле **Provider Name** (Имя поставщика) введите имя поставщика (например, Azure AD).
+    a. В текстовом поле **Provider Name** (Имя поставщика) введите имя поставщика (например, Azure AD).
 
-    b. Щелкните **Далее**.
+    Б. Нажмите кнопку **Далее**.
 
 19. Проверьте сертификат для подписи и нажмите кнопку **Next** (Далее).
 
@@ -197,9 +197,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-kantegassoforjira-tutorial/addon10.png)
 
-    а. Щелкните переключатель **Create users in JIRA's internal Directory if needed** (При необходимости создать пользователей во внутреннем каталоге JIRA) и введите соответствующее имя группы пользователей (это может быть несколько групп, разделенных запятой).
+    a. Щелкните переключатель **Create users in JIRA's internal Directory if needed** (При необходимости создать пользователей во внутреннем каталоге JIRA) и введите соответствующее имя группы пользователей (это может быть несколько групп, разделенных запятой).
 
-    b. Щелкните **Далее**.
+    Б. Нажмите кнопку **Далее**.
 
 21. Нажмите кнопку **Готово**   
 
@@ -209,11 +209,11 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-kantegassoforjira-tutorial/addon12.png)
 
-    а. Щелкните **Known domains** (Известные домены) на левой панели страницы.
+    a. Щелкните **Known domains** (Известные домены) на левой панели страницы.
 
-    b. Введите имя домена в текстовое поле **Known domains** (Известные домены).
+    Б. Введите имя домена в текстовое поле **Known domains** (Известные домены).
 
-    c. Щелкните **Сохранить**. 
+    c. Выберите команду **Сохранить**. 
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -242,13 +242,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kantegassoforjira-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="creating-a-kantega-sso-for-jira-test-user"></a>Создание тестового пользователя Kantega SSO for JIRA
 
@@ -270,13 +270,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Добавление сотрудника](./media/active-directory-saas-kantegassoforjira-tutorial/user3.png) 
 
-    а. В текстовом поле **Email address** (Адрес электронной почты) введите адрес электронной почты пользователя, например Brittasimon@contoso.com.
+    a. В текстовом поле **Email address** (Адрес электронной почты) введите адрес электронной почты пользователя, например Brittasimon@contoso.com.
 
-    b. В текстовом поле **Full Name** (Полное имя) введите полное имя пользователя, например Britta Simon.
+    Б. В текстовом поле **Full Name** (Полное имя) введите полное имя пользователя, например Britta Simon.
 
     c. В текстовом поле **Username** (Имя пользователя) введите электронный адрес пользователя, например Brittasimon@contoso.com.
 
-    г) В текстовом поле **Password** (Пароль) введите пароль пользователя.
+    d. В текстовом поле **Password** (Пароль) введите пароль пользователя.
 
     д. Щелкните **Create user** (Создать пользователя).   
 

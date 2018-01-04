@@ -16,18 +16,13 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Архивация виртуальных машин Azure в хранилище служб восстановления
-> [!div class="op_single_selector"]
-> * [Резервное копирование виртуальных машин в хранилище служб восстановления](backup-azure-arm-vms.md)
-> * [Резервное копирование виртуальных машин в хранилище архивации](backup-azure-vms.md)
->
->
 
 В этой статье описывается архивация виртуальных машин Azure (развернутых с помощью классической модели и модели Resource Manager) в хранилище служб восстановления. Большая часть работы, которую следует выполнить для архивации виртуальных машин, заключается в подготовке. Прежде чем начинать резервное копирование или защиту виртуальной машины, необходимо выполнить [предварительные требования](backup-azure-arm-vms-prepare.md) , чтобы подготовить среду. После выполнения необходимых условий инициируйте операцию архивации для создания моментальных снимков виртуальной машины.
 

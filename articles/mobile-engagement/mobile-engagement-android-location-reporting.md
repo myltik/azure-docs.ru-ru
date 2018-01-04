@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 777d5719cce505b55dfb61c91dcac7e713b077a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="location-reporting-for-azure-mobile-engagement-android-sdk"></a>Создание отчетов о расположении для пакета SDK для Android в Службах мобильного взаимодействия
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 В этой статье описывается, как создавать отчеты о расположении для приложения Android.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="location-reporting"></a>Отчеты о расположении

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 0660e68f83b3fcfa55135e5bd5175a423ad246e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9a7ad0cd7865923ed7356599044dfd79ff9e58cb
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Загружаемая инфографика по основам машинного обучения с примерами алгоритмов
 Скачайте понятную инфографику по основам машинного обучения и ознакомьтесь с популярными алгоритмами, которые используются для ответа на распространенные вопросы о машинном обучении. Примеры алгоритмов помогут начинающему пользователю машинного обучения понять, какие алгоритмы используются и с какой целью.

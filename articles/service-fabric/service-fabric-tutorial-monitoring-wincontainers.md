@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69a59ea9fb93f6e9f3f3eea66b1a9e973b1b4eea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Мониторинг контейнера Windows в Service Fabric с помощью OMS
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/20/2017
 > * использование рабочей области OMS для просмотра и запроса журналов из контейнеров и узлов;
 > * настройка агента OMS для сбора метрик контейнеров и узлов.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Для работы с этим руководством вам потребуется:
 - использовать имеющийся кластер в Azure или [создать новый с помощью данного руководства](service-fabric-tutorial-create-vnet-and-windows-cluster.md);
 - [развернуть в нем контейнерное приложение](service-fabric-host-app-in-a-container.md).
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/20/2017
 
 В случае, если вы использовали [шаблон](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial), предоставленный в первой части этого руководства, он должен содержать указанные ниже дополнения к универсальному шаблону Azure Resource Manager для Service Fabric. В случае, если вы использовали собственный кластер, для которого необходимо настроить мониторинг контейнеров с помощью OMS, выполните следующее.
 * Внесите приведенные ниже изменения в шаблон Resource Manager.
-* [Разверните этот шаблон](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm) с помощью PowerShell, чтобы обновить кластер. Azure Resource Manager определит, что ресурс уже существует, поэтому обновит его.
+* [Разверните этот шаблон](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) с помощью PowerShell, чтобы обновить кластер. Azure Resource Manager определит, что ресурс уже существует, поэтому обновит его.
 
 ### <a name="adding-oms-to-your-cluster-template"></a>Добавление OMS в шаблон кластера
 
@@ -232,7 +232,7 @@ ms.lasthandoff: 11/20/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * настройка OMS для кластера Service Fabric;

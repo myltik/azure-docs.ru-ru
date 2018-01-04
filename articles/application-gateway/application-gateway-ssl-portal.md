@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
 ms.openlocfilehash: 2f7f5d4132e28c8c192d90d5f4bfb2a9034f8b8c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-azure-portal"></a>Настройка шлюза приложений для разгрузки SSL с помощью портала Azure
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](application-gateway-ssl-portal.md)
+> * [портал Azure](application-gateway-ssl-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-ssl-arm.md)
 > * [Классическая модель — Azure PowerShell](application-gateway-ssl.md)
 > * [Azure CLI 2.0](application-gateway-ssl-cli.md)

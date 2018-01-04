@@ -4,7 +4,7 @@ description: "Узнайте, как установить и настроить 
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/23/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: e19c09558285497f29eb78b4f4ae5b15d7f1a191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5a9797e1fe3d03840e3a20589a50c90968ea5de0
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Как установить и настроить MongoDB на виртуальной машине Linux
 [MongoDB](http://www.mongodb.org) — это популярная высокопроизводительная база данных NoSQL с открытым кодом. В этой статье показано, как установить и настроить MongoDB на виртуальной машине Linux с помощью Azure CLI 2.0. Эти действия можно также выполнить с помощью [Azure CLI 1.0](install-mongodb-nodejs.md). Изучив представленные примеры, вы узнаете, как:
@@ -57,18 +57,18 @@ ssh azureuser@<publicIpAddress>
 Чтобы добавить источники установки для MongoDB, создайте файл репозитория **yum**, как показано ниже:
 
 ```bash
-sudo touch /etc/yum.repos.d/mongodb-org-3.4.repo
+sudo touch /etc/yum.repos.d/mongodb-org-3.6.repo
 ```
 
-Откройте файл репозитория MongoDB для редактирования. Добавьте следующие строки.
+Откройте файл MongoDB репозитория для редактирования, такие как с `vi` или `nano`. Добавьте следующие строки.
 
 ```sh
-[mongodb-org-3.4]
+[mongodb-org-3.6]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
 ```
 
 Установите MongoDB, используя **yum**, как показано ниже:
@@ -125,26 +125,17 @@ sudo chkconfig mongod on
 az group create --name myResourceGroup --location eastus
 ```
 
-Затем разверните шаблон MongoDB с помощью команды [az group deployment create](/cli/azure/group/deployment#create). Определите необходимые имена и размеры ресурсов, например *newStorageAccountName*, *virtualNetworkName* и *vmSize*:
+Затем разверните шаблон MongoDB с помощью команды [az group deployment create](/cli/azure/group/deployment#create). При появлении запроса введите свои собственные уникальные значения для *newStorageAccountName*, *dnsNameForPublicIP*и имя и пароль администратора:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"},
-    "virtualNetworkName": {"value": "myVnet"},
-    "vmSize": {"value": "Standard_DS2_v2"},
-    "vmName": {"value": "myVM"},
-    "publicIPAddressName": {"value": "myPublicIP"},
-    "nicName": {"value": "myNic"}}' \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
 Войдите на виртуальную машину с помощью ее общедоступного DNS-адреса. Его можно просмотреть с помощью команды [az vm show](/cli/azure/vm#show).
 
 ```azurecli
-az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
+az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
 ```
 
 Подключитесь к виртуальной машине по протоколу SSH с помощью имени пользователя и общедоступного DNS-адреса.

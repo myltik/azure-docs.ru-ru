@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7b8732a06e54f7828418cba0c0d172e34f1f4ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Создание эскизов с помощью Media Encoder Standard c использованием .NET
 
-Media Encoder Standard можно использовать для создания одного или нескольких эскизов из входящего видео в форматах файлов изображений [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) или [BMP](https://en.wikipedia.org/wiki/BMP_file_format). Вы можете отправлять задачи, которые создают только изображения, или объединить создание эскизов с кодированием. В этой статье представлены несколько примеров предустановок эскизов XML и JSON для таких сценариев. В конце этого раздела приведен [пример кода](#code_sample), показывающий, как с помощью пакета SDK для .NET для служб мультимедиа выполнить задачу кодирования.
+Media Encoder Standard можно использовать для создания одного или нескольких эскизов из входящего видео в форматах файлов изображений [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) или [BMP](https://en.wikipedia.org/wiki/BMP_file_format). Вы можете отправлять задачи, которые создают только изображения, или объединить создание эскизов с кодированием. Эта статья содержит несколько образца XML и JSON эскиза предустановки для таких сценариев. В конце статьи — [пример кода](#code_sample) , показано, как с помощью пакета SDK .NET служб мультимедиа можно выполнять задачи кодирования.
 
 Дополнительные сведения об элементах, используемых в примерах предустановок см. в статье [Схема Media Encoder Standard](media-services-mes-schema.md).
 
@@ -30,7 +30,7 @@ Media Encoder Standard можно использовать для создани
     
 ## <a name="example-of-a-single-png-file-preset"></a>Пример предустановки "один файл PNG"
 
-Предустановки JSON и XML ниже можно использовать для создания одного выходного файла PNG на основе первых секунд входного видео, где кодировщик выполняет поиск "интересного" кадра. Обратите внимание, что для размера выходных изображений выбрано значение 100 %, то есть они будут совпадать с размером входного видео. При этом параметр Format в разделе Outputs должен соответствовать использованию PngLayers в разделе Codecs. 
+Предустановки JSON и XML ниже можно использовать для создания одного выходного файла PNG на основе первых секунд входного видео, где кодировщик выполняет поиск "интересного" кадра. Обратите внимание, что размеры изображения выходные данные были установлены до 100%, это означает, что они соответствуют размерам входное видео. При этом параметр Format в разделе Outputs должен соответствовать использованию PngLayers в разделе Codecs. 
 
 ### <a name="json-preset"></a>Предустановка JSON
 
@@ -138,7 +138,7 @@ Media Encoder Standard можно использовать для создани
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Пример предустановки "одно изображение на определенной метке времени"
 
-Следующую предустановку JSON и XML можно использовать для создания одного изображения JPEG на 30-секундной отметке времени входного видео. При использовании этой предустановки предполагается, что входное видео будет длиться более 30 секунд (иначе задание завершится ошибкой).
+Следующий набор параметров JSON и XML можно использовать для создания одного изображения JPEG на метке 30 секунд видео входных данных. Данная конфигурация ожидает ввода видео, чтобы быть более 30 секунд в поле длительности (в противном случае задание завершается ошибкой).
 
 ### <a name="json-preset"></a>Предустановка JSON
 
@@ -194,7 +194,7 @@ Media Encoder Standard можно использовать для создани
     
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Пример предустановки "эскизы с разными разрешениями"
 
-Эту предустановку можно использовать для создания эскизов с разными разрешениями в одной задаче. В примере в позициях входной временной шкалы 5 %, 15 %, …, 95 % кодировщик будет создавать два изображения — один с использованием 100 % входного разрешения видео, а другой с использованием 50 %.
+Эту предустановку можно использовать для создания эскизов с разными разрешениями в одной задаче. В примере, в позиции % 5 15%,..., 95% входной временной шкалы, кодировщик создает два образа — один 100% от входного разрешение экрана, а другой на 50%.
 
 Обратите внимание на использование макроса {Resolution} в FileName. Он указывает кодировщику использовать ширину и высоту, заданные в разделе Encoding предустановки при создании имени файла выходных изображений. Кроме того, он позволяет легко различать разные изображения.
 
@@ -267,7 +267,7 @@ Media Encoder Standard можно использовать для создани
 Во всех примерах выше рассматривались способы отправки задачи кодирования для создания изображений. Но также можно объединить кодирование видео и аудио с созданием эскизов. Предустановки JSON и XML ниже указывают **стандартному кодировщику служб мультимедиа** создавать эскиз во время кодирования.
 
 ### <a id="json"></a>Предустановка JSON
-Сведения о схеме см. [здесь](https://msdn.microsoft.com/library/mt269962.aspx).
+Сведения о схеме см. в разделе [это](https://msdn.microsoft.com/library/mt269962.aspx) статьи.
 
     {
       "Version": 1.0,
@@ -330,7 +330,7 @@ Media Encoder Standard можно использовать для создани
     }
 
 ### <a id="xml"></a>Предустановка XML
-Сведения о схеме см. [здесь](https://msdn.microsoft.com/library/mt269962.aspx).
+Сведения о схеме см. в разделе [это](https://msdn.microsoft.com/library/mt269962.aspx) статьи.
     
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -394,40 +394,49 @@ Media Encoder Standard можно использовать для создани
         string configuration = File.ReadAllText(fileName);  
 * Добавление одной задачи кодирования в задание. 
 * Указание входного ресурса-контейнера для кодирования.
-* Создание выходного ресурса-контейнера, который будет содержать закодированный ресурс-контейнер.
+* Создание выходного ресурса-контейнера с закодированным ресурсом.
 * Добавление обработчика событий для проверки хода выполнения задания.
 * Отправка задания.
 
-Дополнительные сведения о настройке среды разработки см. в статье [Разработка служб мультимедиа с помощью .NET](media-services-dotnet-how-to-use.md).
+В разделе [разработки служб мультимедиа с помощью .NET](media-services-dotnet-how-to-use.md) статьи для получения инструкций по настройке среды разработки.
 
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-        namespace EncodeAndGenerateThumbnails
-        {
-        class Program
-        {
-            // Read values from the App.config file.
-            private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
-            private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+namespace EncodeAndGenerateThumbnails
+{
+    class Program
+    {
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+        ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+        ConfigurationManager.AppSettings["AMSClientSecret"];
 
-            private static CloudMediaContext _context = null;
+        private static CloudMediaContext _context = null;
 
-            private static readonly string _mediaFiles =
-            Path.GetFullPath(@"../..\Media");
+        private static readonly string _mediaFiles =
+        Path.GetFullPath(@"../..\Media");
 
-            private static readonly string _singleMP4File =
+        private static readonly string _singleMP4File =
             Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
 
-            static void Main(string[] args)
-            {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+        static void Main(string[] args)
+        {
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -439,10 +448,10 @@ Media Encoder Standard можно использовать для создани
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
-            }
+        }
 
-            static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-            {
+        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+        {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Thumbnail Job");
             // Get a media processor reference, and pass to it the name of the 
@@ -454,9 +463,9 @@ Media Encoder Standard можно использовать для создани
 
             // Create a task
             ITask task = job.Tasks.AddNew("Media Encoder Standard Thumbnail task",
-                processor,
-                configuration,
-                TaskOptions.None);
+                    processor,
+                    configuration,
+                    TaskOptions.None);
 
             // Specify the input asset to be encoded.
             task.InputAssets.Add(asset);
@@ -464,47 +473,47 @@ Media Encoder Standard можно использовать для создани
             // This output is specified as AssetCreationOptions.None, which 
             // means the output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
-                AssetCreationOptions.None);
+                    AssetCreationOptions.None);
 
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
             job.Submit();
             job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
             return job.OutputMediaAssets[0];
-            }
+        }
 
-            private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-            {
+        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+        {
             Console.WriteLine("Job state changed event:");
             Console.WriteLine("  Previous state: " + e.PreviousState);
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
                 case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
                 case JobState.Canceling:
                 case JobState.Queued:
                 case JobState.Scheduled:
                 case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
+                    Console.WriteLine("Please wait...\n");
+                    break;
                 case JobState.Canceled:
                 case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
+                    // Display or log error details as needed.
+                    break;
                 default:
-                break;
+                    break;
             }
-            }
+        }
 
-            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
+        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
             var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
@@ -512,25 +521,26 @@ Media Encoder Standard можно использовать для создани
                 throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
-            }
         }
-
+    }
+}
+```
 
 ## <a name="considerations"></a>Рекомендации
 Действительны следующие условия.
 
 * Использование явных меток времени для элементов Start, Step или Range предполагает, что входные данные составляют не менее одной минуты.
-* Элементы Jpg, Png и BmpImage обладают атрибутами Start, Step и Range, которые можно интерпретировать следующим образом.
+* Элементы Jpg, Png и BmpImage обладают строковыми атрибутами Start, Step и Range, которые можно интерпретировать следующим образом:
   
-  * Номер кадра, если эти атрибуты выражены неотрицательными целыми числами, например, "Start": "120",
-  * Отношение к длительности источника, если атрибуты выражены как %-суффикс, например, "Start": "15%", ИЛИ
-  * Отметка времени, если атрибуты имеют формат ЧЧ:ММ:СС... Например, "Start" : "00:01:00"
+  * номер кадра, если эти атрибуты выражены неотрицательными целыми числами, например "Start": "120";
+  * значение относительно длительности источника, если атрибуты указаны с суффиксом "%", например "Start": "15%";
+  * Отметка времени, если атрибуты имеют формат ЧЧ:ММ:СС... Например «Пуск»: «00: 01:00»
     
     При желании условные обозначения можно комбинировать.
     
     Кроме того, атрибут Start поддерживает также специальный макрос {Best}, который пытается определить первый "интересный" кадр содержимого NOTE: (если атрибут Start имеет значение {Best}, атрибуты Step и Range игнорируются)
   * По умолчанию Start:{Best}
-* Для атрибута Image должен быть указан формат выходных данных: Jpg/Png/BmpFormat. MES, если он присутствует, соответствует JpgVideo для JpgFormat и т. д. OutputFormat представляет новый макрос, связанный с кодеком изображений: {Index}, который необходимо указывать для форматов вывода изображений (один и только один раз).
+* Для атрибута Image должен быть указан формат выходных данных: Jpg/Png/BmpFormat. Если он присутствует, Media Encoder Standard сопоставляет JpgVideo с JpgFormat и т. д. OutputFormat представляет новый макрос, связанный с кодеком изображений: {Index}, который необходимо указывать для форматов вывода изображений (один и только один раз).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

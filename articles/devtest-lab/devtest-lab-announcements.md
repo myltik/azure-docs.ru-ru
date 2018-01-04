@@ -3,7 +3,7 @@ title: "Публикация объявлений в лабораторию в A
 description: "Узнайте, как добавить объявление в лабораторию в Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 67a09946-4584-425e-a94c-abe57c9cbb82
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: tarcher
-ms.openlocfilehash: db92caa497b3db6b3e05e59e169111cedc3c71c6
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Публикация объявления в лабораторию в Azure DevTest Labs
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Процедура публикации объявления в существующей лаборатории
 
-1. Выполните вход на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. При необходимости щелкните **Все службы**, а затем выберите в списке **DevTest Labs**. Возможно, лаборатория уже отображается на панели мониторинга в разделе **Все ресурсы**.
 1. Из списка лабораторий выберите ту, в которой вы намерены опубликовать объявление.  
 1. В области лаборатории **Обзор** выберите **Configuration and policies** (Конфигурация и политики).  

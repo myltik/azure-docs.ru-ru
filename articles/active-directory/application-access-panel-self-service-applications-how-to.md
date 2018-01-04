@@ -4,7 +4,7 @@ description: "Включите самостоятельный доступ к п
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 08a05a70d976104d4e0a37b0a0dd15042b0212d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cdd8646557aa92ce0a294294ece44c6d02a977dd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-self-service-application-access"></a>Использование самостоятельного доступа к приложениям
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 
 3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
+4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 

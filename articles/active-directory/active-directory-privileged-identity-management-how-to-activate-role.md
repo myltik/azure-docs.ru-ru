@@ -4,7 +4,7 @@ description: "Сведения о том, как активировать рол
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 1ce9e2e7-452b-4f66-9588-0d9cd2539e45
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: a143fd78eae52fda0cbadb7e74fd8209f24629a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8bd8a72653699df4f4953053d61c16e30a2a101d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Как активировать и деактивировать роли в компоненте управления привилегированными пользователями Azure AD
 Компонент Azure Active Directory (AD) Privileged Identity Management упрощает управление привилегированным доступом пользователей к ресурсам в Azure AD и других веб-службах Майкрософт, включая Office 365 и Microsoft Intune.  
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="add-the-privileged-identity-management-application"></a>Добавление приложения для управления привилегированными пользователями
 Используйте приложение Azure AD Privileged Identity Management на [портале Azure](https://portal.azure.com/) , чтобы запросить активацию роли, даже если вы собираетесь работать на другом портале или в PowerShell. Если приложение Azure AD PIM еще не установлено на портале Azure, выполните следующие действия, чтобы приступить к работе.
 
-1. Выполните вход на [портал Azure](https://portal.azure.com/).
+1. Войдите на [портале Azure](https://portal.azure.com/).
 2. Щелкните свое имя пользователя в правом верхнем углу портала Azure и выберите каталог, с которым будете работать.
 3. Выберите **Другие службы** и в текстовое поле "Фильтр" введите **Azure AD Privileged Identity Management**.
 4. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Создать**. Откроется приложение Privileged Identity Management.
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 2. Выберите **Мои роли**. В верхней части страницы отобразится список соответствующих ролей, назначенных вам.
 3. Выберите роль, которую нужно активировать.
 4. Выберите **Активировать**. Отобразится колонка **Запросить активацию ролей** .
-5. Для активации некоторых ролей требуется использование Многофакторной Идентификации (MFA). Проверка подлинности выполняется один раз за сеанс.
+5. Для активации некоторых ролей требуется использование Многофакторной идентификации (MFA). Проверка подлинности выполняется один раз за сеанс.
    
     ![Проверка с помощью функции MFA перед активацией роли — снимок экрана][2]
 6. В текстовом поле введите основание для запроса активации.  Для некоторых ролей требуется предоставить номер запроса на устранение неисправности.

@@ -4,7 +4,7 @@ description: "Как использовать ограничение клиен�
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 editor: yossib
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: kgremban
-ms.openlocfilehash: 7288f8fa173f8018570cd17aa7274f56a4eead41
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 63e0fa54433a60fe7384d21cf7d215cc8283afca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Использование ограничения клиентов для управления доступом к облачным приложениям SaaS
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 
 Для применения ограничения клиентов с помощью инфраструктуры прокси-сервера требуется следующая конфигурация. Данное руководство является универсальным, поэтому за определенными инструкциями по реализации следует обратиться к документации поставщика вашего прокси-сервера.
 
-#### <a name="prerequisites"></a>Предварительные требования
+#### <a name="prerequisites"></a>Технические условия
 
 - Прокси-сервер должен поддерживать перехват SSL, вставку заголовка HTTP и фильтрацию назначения с использованием полных доменных имен или URL-адресов. 
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 
 - Эта функция включена в подписках Office 365, но если вы хотите использовать ограничение клиентов для управления доступом к другим приложениям SaaS, то потребуются лицензии Azure AD Premium 1.
 
-#### <a name="configuration"></a>Конфигурация
+#### <a name="configuration"></a>Параметр Configuration
 
 Для каждого входящего запроса к login.microsoftonline.com login.microsoft.com и login.windows.net следует вставлять два заголовка HTTP: *Restrict-Access-To-Tenants* и *Restrict-Access-Context*.
 
@@ -132,7 +132,7 @@ Fiddler — бесплатный прокси-сервер веб-отладки
   if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
   ```
 
-  Если необходимо разрешить несколько клиентов, используйте запятые для разделения их имен. Например:
+  Если необходимо разрешить несколько клиентов, используйте запятые для разделения их имен. Например: 
 
   ```
   oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";

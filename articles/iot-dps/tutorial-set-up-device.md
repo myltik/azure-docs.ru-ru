@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: 835a54f147b9ea543df21e7dfeb226ac42aceda3
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Настройка устройства для подготовки с помощью службы подготовки устройств для Центра Интернета вещей
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/07/2017
 > * извлечение артефактов безопасности;
 > * настройка конфигурации службы подготовки устройств на устройстве.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Прежде чем продолжить, создайте экземпляр службы подготовки устройств и Центр Интернета вещей с помощью инструкций, упомянутых в руководстве [Configure cloud resources for device provisioning with the IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md) (Настройка облачных ресурсов для подготовки устройств с помощью службы подготовки устройств для Центра Интернета вещей).
 
@@ -55,17 +55,17 @@ ms.lasthandoff: 11/07/2017
 1. Создайте пакет SDK для типа HSM, выбранного для устройства, с помощью одной из следующих команд в командной строке:
     - Для устройств с доверенным платформенным модулем:
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
     - Для симулятора доверенного платформенного модуля:
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm_simulator ..
+        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
     - Для устройств X.509 и симулятора:
         ```cmd/sh
-        cmake -Ddps_auth_type=x509 ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
 1. Пакет SDK по умолчанию поддерживает устройства под управлением Windows или Ubuntu для доверенных платформенных модулей и аппаратных модулей безопасности X.509. Для таких поддерживаемых аппаратных модулей безопасности перейдите к разделу [Извлечение артефактов безопасности](#extractsecurity) ниже. 
@@ -76,27 +76,25 @@ ms.lasthandoff: 11/07/2017
 
 ### <a name="develop-your-custom-repository"></a>Разработка пользовательского репозитория
 
-1. Разработайте репозиторий GitHub для доступа к аппаратному модулю безопасности. Для этого проекта необходимо создать статическую библиотеку пакета SDK для подготовки устройств.
-1. Библиотека должна реализовывать функции, определенные в следующем файле заголовка: a. Для пользовательских доверенных платформенных модулей реализуются функции, определенные в `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_tpm_impl.h`.
-    b. Для пользовательских устройств X.509 реализуются функции, определенные в `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_x509_impl.h`. 
-1. Репозиторий HSM также должен содержать файл `CMakeLists.txt` в корне репозитория, который должен быть создан.
+1. Разработки библиотеки для доступа к имеющемуся аппаратному модулю безопасности. Для этого проекта необходимо создать статическую библиотеку пакета SDK для подготовки устройств.
+1. Библиотека должна реализовывать функции, определенные в следующем файле заголовка: a. Для пользовательских TPM реализации функций, определенных в [документа пользовательских HSM](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
+    Б. Для пользовательских X.509 реализации функций, определенных в [документа пользовательских HSM](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
 
 ### <a name="integrate-with-the-device-provisioning-service-client"></a>Интеграция с клиентом службы подготовки устройств
 
-Как только библиотека будет автоматически успешно создана, можно перейти к клиентскому пакету SDK Центра Интернета вещей и использовать свой репозиторий:
+После библиотеки успешно выполняет построение на собственный, можно переместить в центром IOT C-SDK и связать библиотеки:
 
 1. Укажите пользовательский репозиторий GitHub HSM, путь к библиотеке и ее имя в следующей команде cmake:
     ```cmd/sh
-    cmake -Ddps_auth_type=<custom_hsm> -Ddps_hsm_custom_repo=<github_repo_name> -Ddps_hsm_custom_lib=<path_and_name_of library> <PATH_TO_AZURE_IOT_SDK>
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
     ```
-   Замените `<custom_hsm>` в этой команде значением `tpm` или `x509`. Эта команда создает маркер для пользовательского репозитория HSM внутри каталога `cmake`. Обратите внимание, что пользовательский аппаратный модуль безопасности должен основываться на механизме безопасности на основе доверенного платформенного модуля или X.509.
-
+   
 1. Откройте пакет SDK в Visual Studio и создайте его. 
 
-    - Процесс создания клонирует пользовательский репозиторий и создает библиотеку.
+    - Процесс построения будет компилироваться библиотека пакета SDK.
     - Пакет SDK попытается связать пользовательский HSM, определенный в команде cmake.
 
-1. Запустите пример `\azure-iot-sdk-c\dps_client\samples\dps_client_sample\dps_client_sample.c`, чтобы проверить правильность реализации HSM.
+1. Запустите пример `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c`, чтобы проверить правильность реализации HSM.
 
 <a id="extractsecurity"></a>
 ## <a name="extract-the-security-artifacts"></a>Извлечение артефактов безопасности
@@ -116,21 +114,30 @@ ms.lasthandoff: 11/07/2017
 Последний шаг в процессе производства устройства заключается в написании приложения, использующего клиентский пакет SDK службы подготовки устройств для регистрации устройства в службе. Этот пакет SDK предоставляет такие API для приложений:
 
 ```C
-typedef void(*DPS_REGISTER_DEVICE_CALLBACK)(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* user_context); // Callback to notify user of device registration results.
-DPS_CLIENT_LL_HANDLE DPS_Client_LL_Create (const char* dps_uri, const char* scope_id, DPS_TRANSPORT_PROVIDER_FUNCTION protocol, DPS_CLIENT_ON_ERROR_CALLBACK on_error_callback, void* user_ctx); // Creates the IOTHUB_DPS_LL_HANDLE to be used in subsequent calls.
-void DPS_Client_LL_Destroy(DPS_CLIENT_LL_HANDLE handle); // Frees any resources created by the IoTHub Device Provisioning Service module.
-DPS_RESULT DPS_LL_Register_Device(DPS_LL_HANDLE handle, DPS_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, DPS_CLIENT_REGISTER_STATUS_CALLBACK status_cb, void* status_ctx); // Registers a device that has been previously registered with Device Provisioning Service
-void DPS_Client_LL_DoWork(DPS_LL_HANDLE handle); // Processes the communications with the Device Provisioning Service and calls any user callbacks that are required.
+// Creates a Provisioning Client for communications with the Device Provisioning Client Service
+PROV_DEVICE_LL_HANDLE Prov_Device_LL_Create(const char* uri, const char* scope_id, PROV_DEVICE_TRANSPORT_PROVIDER_FUNCTION protocol)
+
+// Disposes of resources allocated by the provisioning Client.
+void Prov_Device_LL_Destroy(PROV_DEVICE_LL_HANDLE handle)
+
+// Asynchronous call initiates the registration of a device.
+PROV_DEVICE_RESULT Prov_Device_LL_Register_Device(PROV_DEVICE_LL_HANDLE handle, PROV_DEVICE_CLIENT_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, PROV_DEVICE_CLIENT_REGISTER_STATUS_CALLBACK reg_status_cb, void* status_user_ctext)
+
+// Api to be called by user when work (registering device) can be done
+void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
+
+// API sets a runtime option identified by parameter optionName to a value pointed to by value
+PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-Не забудьте инициализировать переменные `dps_uri` и `dps_scope_id`, как указано в разделе [Имитация последовательности первой загрузки для устройства](./quick-create-simulated-device.md#firstbootsequence) этого краткого руководства, перед их использованием. API регистрации клиента подготовки устройства `DPS_Client_LL_Create` подключается к глобальной службе подготовки устройств. *Область идентификаторов* создается службой и гарантирует уникальность. Она неизменяемая и используется для уникальной идентификации идентификаторов регистрации. `iothub_uri` позволяет API регистрации клиента подготовки устройства `IoTHubClient_LL_CreateFromDeviceAuth` подключаться к правильному Центру Интернета вещей. 
+Не забудьте инициализировать переменные `uri` и `id_scope`, как указано в разделе [Имитация последовательности первой загрузки для устройства](./quick-create-simulated-device.md#firstbootsequence) этого краткого руководства, перед их использованием. API регистрации клиента подготовки устройства `Prov_Device_LL_Create` подключается к глобальной службе подготовки устройств. *Область идентификаторов* создается службой и гарантирует уникальность. Она неизменяемая и используется для уникальной идентификации идентификаторов регистрации. `iothub_uri` позволяет API регистрации клиента подготовки устройства `IoTHubClient_LL_CreateFromDeviceAuth` подключаться к правильному Центру Интернета вещей. 
 
 
-Эти API помогают устройству подключаться и регистрироваться в службе подготовки устройств, когда она загружается, получать сведения о Центре Интернета вещей и подключаться к нему. В файле `dps_client/samples/dps_client_sample/dps_client_sample.c` показано, как использовать эти API. Как правило, необходимо создать такую платформу для регистрации клиента:
+Эти API помогают устройству подключаться и регистрироваться в службе подготовки устройств, когда она загружается, получать сведения о Центре Интернета вещей и подключаться к нему. В файле `provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c` показано, как использовать эти API. Как правило, необходимо создать такую платформу для регистрации клиента:
 
 ```C
-static const char* dps_uri = "global.azure-devices-provisioning.net";
-static const char* dps_scope_id = "[ID scope for your provisioning service]";
+static const char* global_uri = "global.azure-devices-provisioning.net";
+static const char* id_scope = "[ID scope for your provisioning service]";
 ...
 static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
 {
@@ -143,18 +150,23 @@ static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_co
 }
 int main()
 {
-    ...    
-    security_device_init(); // initialize your HSM 
+    ...
+    SECURE_DEVICE_TYPE hsm_type;
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
+    prov_dev_security_init(hsm_type); // initialize your HSM 
 
-    DPS_CLIENT_LL_HANDLE handle = DPS_Client_LL_Create(dps_uri, dps_scope_id, dps_transport, on_dps_error_callback, &user_info); // Create your DPS client
+    prov_transport = Prov_Device_HTTP_Protocol;
+    
+    PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
 
-    if (DPS_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
+    if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
         do {
-            // The dps_register_callback is called when registration is complete or fails
-            DPS_Client_LL_DoWork(handle);
+        // The register_callback is called when registration is complete or fails
+            Prov_Client_LL_DoWork(handle);
         } while (user_info.reg_complete == 0);
     }
-    DPS_Client_LL_Destroy(handle); // Clean up the DPS client
+    Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
     ...
     iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
     ...
@@ -172,7 +184,7 @@ int main()
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * выбор аппаратного модуля безопасности;

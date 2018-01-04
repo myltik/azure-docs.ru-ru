@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.openlocfilehash: 041982f251ddee7570619c0e7e61d07906aaed2f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: 73e546dea2c1c102736a2043e0b67f0f2c622b18
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Моделирование данных документов для базы данных NoSQL
 Хотя базы данных без схем, такие как Azure Cosmos DB, существенно упрощают внесение изменений в модель данных, вам все равно следует уделить время анализу ситуации с данными. 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/11/2017
 
 Прежде чем углубляться в подробности, давайте вернемся немного назад и рассмотрим, как можно смоделировать что-либо в реляционной базе данных, ведь многим из нас уже знакома эта тема. В следующем примере показано, как можно сохранить в реляционной базе данных человека. 
 
-![Модель реляционной базы данных](./media/documentdb-modeling-data/relational-data-model.png)
+![Модель реляционной базы данных](./media/sql-api-modeling-data/relational-data-model.png)
 
 При работе с реляционными базами данных мы в течение многих лет учимся одному — нормализовать, нормализовать, нормализовать.
 
@@ -290,7 +290,7 @@ ms.lasthandoff: 11/11/2017
 ### <a name="how-do-i-model-manymany-relationships"></a>Как моделировать связи "многие ко многим"
 В реляционной базе данных связи *многие ко многим* часто моделируются с помощью таблиц JOIN, которые просто соединяют вместе записи из других таблиц. 
 
-![Объединенные таблицы](./media/documentdb-modeling-data/join-table.png)
+![Объединенные таблицы](./media/sql-api-modeling-data/join-table.png)
 
 У вас может возникнуть желание реплицировать это с помощью документов и создать модель данных, аналогичную приведенной ниже.
 
@@ -395,4 +395,4 @@ ms.lasthandoff: 11/11/2017
 
 Дополнительные сведения об Azure Cosmos DB см. на странице [документации](https://azure.microsoft.com/documentation/services/cosmos-db/) по этой службе. 
 
-Чтобы понять, как сегментировать данные по нескольким разделам, ознакомьтесь со статьей [Секционирование, ключи секции и масштабирование в DocumentDB](documentdb-partition-data.md). 
+Чтобы понять, как сегментировать данные по нескольким разделам, ознакомьтесь со статьей [Секционирование, ключи секции и масштабирование в DocumentDB](sql-api-partition-data.md). 

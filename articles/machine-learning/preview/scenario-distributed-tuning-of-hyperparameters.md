@@ -4,15 +4,17 @@ description: "В этом сценарии показана распределе
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Распределенная настройка гиперпараметров с помощью Azure Machine Learning Workbench
 
@@ -23,33 +25,35 @@ ms.lasthandoff: 12/05/2017
 
 [https://github.com/Azure/MachineLearningSamples-DistributedHyperParameterTuning](https://github.com/Azure/MachineLearningSamples-DistributedHyperParameterTuning)
 
-## <a name="use-case-overview"></a>Обзор вариантов использования
+## <a name="use-case-overview"></a>Обзор варианта использования
 
 Многие алгоритмы машинного обучения включают один или несколько элементов управления, которые называются гиперпараметрами. Эти элементы управления позволяют настраивать алгоритмы для оптимизации работы с будущими данными, которые измеряются в соответствии с пользовательскими метриками (такими, как точность, площадь под кривой, среднеквадратическая погрешность). При создании модели на основе учебных данных специалист по анализу и обработке данных должен настроить значения гиперпараметров, не зная, с какими тестовыми данными эта модель будет работать в будущем. Как на основе известных учебных данных настроить значения гиперпараметров, чтобы модель эффективно обрабатывала неизвестные тестовые данные? 
-
+    
 Популярный метод настройки гиперпараметров — *поиск в сетке* в сочетании с *перекрестной проверкой*. Перекрестная проверка — это метод, с помощью которого можно оценить, насколько хорошо модель, обученная на учебном наборе, выполняет прогнозирование по тестовому набору. При использовании этого метода мы сначала разделили набор данных на K сверток, а затем обучили алгоритм K раз путем циклического перебора. В переборе участвуют все свертки, кроме одной, которая называется контрольной сверткой. Мы вычислили среднее значение метрик K моделей и K контрольных сверток. Это среднее значение, называемое *оценкой эффективности путем перекрестной проверки*, зависит от значений гиперпараметров, используемых при создании K моделей. При настройке гиперпараметров мы выполняем поиск в пространстве потенциальных значений гиперпараметров, чтобы найти те из них, которые оптимизируют оценку эффективности путем перекрестной проверки. Поиск в сетке — это стандартная методика поиска. При этом методе поиска пространство потенциальных значений нескольких гиперпараметров рассматривается как векторное произведение наборов возможных значений отдельных гиперпараметров. 
 
 Поиск в сетке с помощью перекрестной проверки может занимать много времени. Если в алгоритме используется пять гиперпараметров, для каждого из которых есть пять возможных значений, мы используем K = 5 сверток. Поиск в сетке выполняется путем обучения 5<sup>6</sup> = 15625 моделей. К счастью, поиск в сетке с помощью перекрестной проверки является процедурой с массовым параллелизмом, поэтому все модели можно обучить в параллельном режиме.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 * [Учетная запись Azure](https://azure.microsoft.com/free/) (доступны бесплатные пробные версии).
 * Установленная копия [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). Чтобы установить эту программу и создать учетные записи, выполните инструкции из [краткого руководства по установке и созданию](./quickstart-installation.md).
 * В этом сценарии предполагается, что Azure ML Workbench работает в Windows 10 или MacOS с подсистемой Docker, установленной на локальном компьютере. 
-* Чтобы выполнить сценарий в удаленном контейнере Docker, подготовьте виртуальную машину для обработки и анализа данных под управлением Ubuntu, следуя этим [инструкциям](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Рекомендуем использовать виртуальную машину с как минимум 8 ядрами и 28 ГБ памяти. Такими характеристиками обладают экземпляры виртуальных машин D4. 
-* Чтобы выполнить этот сценарий в кластере Spark, подготовьте кластер Azure HDInsight, следуя этим [инструкциям](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Мы рекомендуем выделить на головном узле и рабочих узлах кластера по меньшей мере: 
-- шесть рабочих узлов;
-- восемь ядер;
-- 28 ГБ памяти. Такими характеристиками обладают экземпляры виртуальных машин D4. Мы рекомендуем изменить следующие параметры, чтобы добиться максимальной производительности кластера:
-- spark.executor.instances;
-- spark.executor.cores;
-- spark.executor.memory. 
+* Чтобы выполнить сценарий в удаленном контейнере Docker, подготовьте виртуальную машину для обработки и анализа данных под управлением Ubuntu, следуя этим [инструкциям](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Рекомендуем использовать виртуальную машину с как минимум 8 ядрами и 28 ГБ памяти. Такими характеристиками обладают экземпляры виртуальных машин D4. 
+* Чтобы выполнить этот сценарий в кластере Spark, подготовьте кластер Azure HDInsight, следуя этим [инструкциям](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
+Мы советуем кластер с по крайней мере:
+    - шесть рабочих узлов;
+    - восемь ядер;
+    - 28 ГБ памяти. Такими характеристиками обладают экземпляры виртуальных машин D4.       
+    - Рекомендуется изменить следующие параметры, чтобы добиться максимальной производительности кластера:
+        - spark.executor.instances;
+        - spark.executor.cores;
+        - spark.executor.memory. 
 
-С помощью этих [инструкций](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) вы можете изменить определения в разделе custom spark defaults.
+С помощью этих [инструкций](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) вы можете изменить определения в разделе custom spark defaults.
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* Создайте учетную запись хранения Azure для хранения набора данных. Следуйте [инструкциям](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) по созданию учетной записи хранения.
+* Создайте учетную запись хранения Azure для хранения набора данных. Следуйте [инструкциям](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) по созданию учетной записи хранения.
 
 ## <a name="data-description"></a>Описание данных
 

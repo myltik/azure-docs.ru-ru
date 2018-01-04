@@ -4,7 +4,7 @@ description: "Протестируйте вход, регистрацию, из�
 services: active-directory-b2c
 documentationcenter: 
 author: saraford
-manager: krassk
+manager: mtillman
 editor: PatAltimore
 ms.assetid: 5a8a46af-28bb-4b70-a7f0-01a5240d0255
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: saraford
-ms.openlocfilehash: 22da1ae317ba685d32f93d3331cf794b568891ec
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: ba8ee4657309ab2a541f4c7b3fd4879542eee63c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="test-drive-a-single-page-application-configured-with-azure-ad-b2c"></a>Тестовый выпуск одностраничного приложения, настроенного с помощью Azure AD B2C
 
@@ -29,7 +29,7 @@ Azure Active Directory B2C обеспечивает управление иде�
 * Использование политики **Регистрация или вход** для создания учетной записи социальной сети или входа с помощью поставщика удостоверений в социальных сетях или локальной учетной записи, используя адрес электронной почты. 
 * **Вызов API** для извлечения отображаемого имени из защищенного ресурса Azure AD B2C.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 * Установите [Visual Studio 2017](https://www.visualstudio.com/downloads/) с указанными ниже рабочими нагрузками:
     - **ASP.NET и веб-разработка;**

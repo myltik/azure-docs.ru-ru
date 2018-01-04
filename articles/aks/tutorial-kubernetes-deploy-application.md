@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3a6a75a324987b82a08219217407ad7ad14db9f8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 4468424a96b4949161218d495dd21f24285430fd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Запуск приложения в Службе контейнеров Azure (AKS)
 
@@ -26,21 +26,21 @@ ms.lasthandoff: 12/06/2017
 
 В последующих руководствах мы сегментируем это приложение, обновим его, а также настроим Operations Management Suite для отслеживания кластера Kubernetes.
 
-Для работы с этим руководством требуется понимание основных концепций Kubernetes. Подробные сведения см. в [документации по Kubernetes](https://kubernetes.io/docs/home/).
+В этом учебнике предполагается базовое понимание понятий Kubernetes подробные сведения о Kubernetes см. в разделе [документации Kubernetes][kubernetes-documentation].
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
 В предыдущих руководствах приложение упаковывалось в образ контейнера, далее этот образ отправлялся в реестр контейнеров Azure, после чего создавался кластер Kubernetes. 
 
-Для работы с этим руководством необходимо предварительно создать файл манифеста Kubernetes `azure-vote-all-in-one-redis.yml`. Этот файл был скачан вместе с исходным кодом приложения в предыдущем руководстве. Проверьте, клонировали ли вы репозиторий и изменили ли каталоги на клонированный репозиторий.
+Для работы с этим руководством необходимо предварительно создать файл манифеста Kubernetes `azure-vote-all-in-one-redis.yaml`. Этот файл был скачан вместе с исходным кодом приложения в предыдущем руководстве. Проверьте, клонировали ли вы репозиторий и изменили ли каталоги на клонированный репозиторий.
 
-Если вы не выполнили эти действия, вы можете ознакомиться со статьей [Создание образов контейнеров для использования со службой контейнеров Azure](./tutorial-kubernetes-prepare-app.md). 
+Если вы не были выполнены следующие действия и при необходимости дальнейшей работы, вернуться к [учебник 1 – Создание образов контейнеров][aks-tutorial-prepare-app].
 
 ## <a name="update-manifest-file"></a>Обновление файла манифеста
 
 В этом руководстве для хранения образа контейнера использовался реестр контейнеров Azure (ACR). Перед запуском приложения необходимо обновить имя сервера входа ACR в файле манифеста Kubernetes.
 
-Получите имя сервера входа ACR, выполнив команду [az acr list](/cli/azure/acr#list).
+Получить имя ACR входа сервера с [списка контроля доступа az] [ az-acr-list] команды.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -49,7 +49,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Предварительно созданный файл манифеста содержит имя сервера входа `microsoft`. Откройте этот файл в любом текстовом редакторе. В этом примере файл открыт в `vi`.
 
 ```console
-vi azure-vote-all-in-one-redis.yml
+vi azure-vote-all-in-one-redis.yaml
 ```
 
 Замените `microsoft` именем сервера входа ACR. Это значение можно найти в строке **47** файла манифеста.
@@ -64,10 +64,10 @@ containers:
 
 ## <a name="deploy-application"></a>Развертывание приложения
 
-Используйте команду [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create), чтобы запустить приложение. Эта команда анализирует файл манифеста и создает заданные объекты Kubernetes.
+Используйте [создания kubectl] [ kubectl-create] команду, чтобы запустить приложение. Эта команда выполняет синтаксический анализ файла манифеста и создает определенные объекты Kubernetes.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yaml
 ```
 
 Выходные данные:
@@ -81,9 +81,9 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Тестирование приложения
 
-Создается [служба Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/), которая открывает доступ к приложению через Интернет. Это может занять несколько минут. 
+Объект [службы Kubernetes] [ kubernetes-service] создается в результате чего предоставляется приложения к Интернету. Это может занять несколько минут. 
 
-Чтобы отслеживать ход выполнения, используйте команду [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.7/#get) с аргументом `--watch`.
+Чтобы отслеживать ход выполнения, используйте [kubectl получить службу] [ kubectl-get] с `--watch` аргумент.
 
 ```azurecli
 kubectl get service azure-vote-front --watch
@@ -117,4 +117,15 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 Перейдите к следующему руководству, чтобы узнать о масштабировании приложения Kubernetes и базовой инфраструктуры Kubernetes. 
 
 > [!div class="nextstepaction"]
-> [Масштабирование pod и инфраструктуры Kubernetes](./tutorial-kubernetes-scale.md)
+> [Масштаб Kubernetes приложений и инфраструктуры][aks-tutorial-scale]
+
+<!-- LINKS - external -->
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
+[az-acr-list]: /cli/azure/acr#list

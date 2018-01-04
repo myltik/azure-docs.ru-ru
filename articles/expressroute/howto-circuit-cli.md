@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
 ms.openlocfilehash: cd4e31336fd0e90b13f1c3984de89f24e65b052b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Создание и изменение канала ExpressRoute с помощью CLI
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/21/2017
 > [!div class="op_single_selector"]
 > * [Портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [Интерфейс командной строки Azure](howto-circuit-cli.md)
+> * [интерфейс командной строки Azure](howto-circuit-cli.md)
 > * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (классическая модель)](expressroute-howto-circuit-classic.md)
 > 
@@ -61,7 +61,7 @@ az account list
 az account set --subscription "<subscription ID>"
 ```
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2) Получение списка поддерживаемых поставщиков, расположений и значений пропускной способности
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Получение списка поддерживаемых поставщиков, расположений и значений пропускной способности
 
 Перед созданием канала ExpressRoute потребуется список поддерживаемых поставщиков услуг подключения, расположений и вариантов пропускной способности. Команда CLI az network express-route list-service-providers возвращает сведения, которые вы будете использовать на следующих этапах:
 
@@ -124,7 +124,7 @@ az network express-route list-service-providers
 
 Проверьте, указан ли в ответе ваш поставщик услуг подключения. Запишите следующие сведения, которые потребуются при создании канала:
 
-* Имя
+* ИМЯ
 * PeeringLocations
 * BandwidthsOffered
 

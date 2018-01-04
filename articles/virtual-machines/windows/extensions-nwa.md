@@ -15,33 +15,34 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: b8d6a998bc86337b286a3434f44f762cca9b7e68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 68855e0070916dc672914fbc8ca3587a5d3c25f6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Расширение виртуальной машины агента Наблюдателя за сетями для Windows
 
 ## <a name="overview"></a>Обзор
 
-[Наблюдатель за сетями Azure](https://review.docs.microsoft.com/en-us/azure/network-watcher/) — это служба мониторинга производительности, диагностики и анализа сети, позволяющая наблюдать за сетями Azure. Расширение виртуальной машины агента Наблюдателя за сетями необходимо для некоторых функций Наблюдателя за сетями на виртуальных машинах Azure. Сюда входит запись сетевого трафика по запросу и другие дополнительные функциональные возможности.
+[Azure Наблюдатель сети](../../network-watcher/network-watcher-monitoring-overview.md) является сетевой производительности наблюдения, диагностики и аналитика службой, которая обеспечивает наблюдение за сетями Azure. Расширение виртуальной машины агента Наблюдатель сети является обязательным для записи сетевого трафика по требованию и другие дополнительные функциональные возможности на виртуальных машинах Azure.
+
 
 В этом документе подробно описаны поддерживаемые платформы и параметры развертывания для расширения виртуальной машины агента Наблюдателя за сетями для Windows.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
-### <a name="operating-system"></a>операционная система
+### <a name="operating-system"></a>Операционная система
 
-Расширение агента Наблюдателя за сетями для Windows может выполняться в выпусках Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 и Windows Server 2016. Обратите внимание, что Nano Server в данный момент не поддерживается.
+Расширение агента Наблюдателя за сетями для Windows может выполняться в выпусках Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 и Windows Server 2016. Nano Server не поддерживается.
 
 ### <a name="internet-connectivity"></a>Подключение к Интернету
 
-Для некоторых функциональных возможностей агента Наблюдателя за сетями требуется, чтобы целевая виртуальная машина была подключена к Интернету. Без возможности установить исходящие подключения некоторые возможности агента Наблюдателя за сетями могут работать неправильно или стать недоступными. Дополнительные сведения см. в [документации по Наблюдателю за сетями](../../network-watcher/network-watcher-monitoring-overview.md).
+Для некоторых функциональных возможностей агента Наблюдателя за сетями требуется, чтобы целевая виртуальная машина была подключена к Интернету. Не может устанавливать исходящие подключения сетевой агент наблюдатель не сможете загружать захват пакетов для вашей учетной записи хранилища. Дополнительные сведения см. в [документации по Наблюдателю за сетями](../../network-watcher/network-watcher-monitoring-overview.md).
 
 ## <a name="extension-schema"></a>Схема расширения
 
-В следующем коде JSON показана схема для расширения агента Наблюдателя за сетями. В настоящее время это расширение не требует вводить и не поддерживает какие-либо пользовательские параметры и зависит от конфигурации по умолчанию.
+В следующем коде JSON показана схема для расширения агента Наблюдателя за сетями. Расширения ни требуется, и не поддерживает все пользовательские параметры и зависит от конфигурации по умолчанию.
 
 ```json
 {
@@ -63,37 +64,38 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="property-values"></a>Значения свойств
 
-| Имя | Значение и пример |
+| ИМЯ | Значение и пример |
 | ---- | ---- |
 | версия_API | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| type | NetworkWatcherAgentWindows |
+| Тип | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
 
 
 ## <a name="template-deployment"></a>Развертывание шаблона
 
-Расширения виртуальной машины Azure можно развернуть с помощью шаблонов Azure Resource Manager. Для запуска расширения агента Наблюдателя за сетями во время развертывания шаблона Azure Resource Manager в нем можно использовать схему JSON, описанную в предыдущем разделе.
+Вы можете развернуть расширений ВМ Azure с помощью шаблонов диспетчера ресурсов Azure. Схема JSON, описанные в предыдущем разделе, в шаблоне диспетчера ресурсов Azure можно использовать для запуска агента Наблюдатель сети расширения во время развертывания шаблона диспетчера ресурсов Azure.
 
 ## <a name="powershell-deployment"></a>Развертывание с помощью PowerShell
 
-Команду `Set-AzureRmVMExtension` можно использовать для развертывания расширения виртуальной машины агента Наблюдателя за сетями на существующей виртуальной машине.
+Используйте `Set-AzureRmVMExtension` команду, чтобы развернуть расширение агента Наблюдатель сети виртуальной машины на существующей виртуальной машины:
 
 ```powershell
-Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup1" `
-                       -Location "WestUS" `
-                       -VMName "myVM1" `
-                       -Name "networkWatcherAgent" `
-                       -Publisher "Microsoft.Azure.NetworkWatcher" `
-                       -Type "NetworkWatcherAgentWindows" `
-                       -TypeHandlerVersion "1.4"
+Set-AzureRmVMExtension `
+  -ResourceGroupName "myResourceGroup1" `
+  -Location "WestUS" `
+  -VMName "myVM1" `
+  -Name "networkWatcherAgent" `
+  -Publisher "Microsoft.Azure.NetworkWatcher" `
+  -Type "NetworkWatcherAgentWindows" `
+  -TypeHandlerVersion "1.4"
 ```
 
 ## <a name="troubleshooting-and-support"></a>Устранение неполадок и поддержка
 
 ### <a name="troubleshooting"></a>Устранение неполадок
 
-Данные о состоянии развертывания расширения можно получить на портале Azure, а также с помощью модуля Azure PowerShell. Чтобы просмотреть состояние развертывания расширений для определенной виртуальной машины, выполните следующую команду в модуле Azure PowerShell.
+Данные о состоянии развертывания расширения можно получить на портале Azure и PowerShell. Чтобы просмотреть состояние развертывания расширений для данной виртуальной Машины, выполните следующую команду с помощью модуля Azure PowerShell:
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 1806b70ba0d34f49abfb954abebff8d29ae61291
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Обновление Azure Log Analytics до нового поиска по журналам
 
@@ -52,13 +52,13 @@ ms.lasthandoff: 10/16/2017
 При преобразовании в рабочую область вносятся следующие изменения.
 
 - Все сохраненные поисковые запросы, правила генерации оповещений и представления, созданные с помощью конструктора представлений, автоматически преобразуются в новый язык.  Поисковые запросы, включенные в решения, не преобразуются автоматически, но они преобразуются "на лету", когда вы их открываете.  
-- [Моя панель мониторинга](log-analytics-dashboards.md) заменяется [конструктором представлений](log-analytics-view-designer.md) и [панелями мониторинга Azure](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Плитки, которые вы ранее добавили в представление "Моя панель мониторинга", остаются доступными только для чтения.
+- [Моя панель мониторинга](log-analytics-dashboards.md) заменяется [конструктором представлений](log-analytics-view-designer.md) и [панелями мониторинга Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Плитки, которые вы ранее добавили в представление "Моя панель мониторинга", остаются доступными только для чтения.
 - [Интеграции Power BI](log-analytics-powerbi.md) заменяется новым процессом.  Отключаются все ранее созданные расписания Power BI, и вам придется создать их заново с помощью нового процесса.
 - Изменился формат ответов от [действий предупреждения](log-analytics-alerts-actions.md), использующих веб-перехватчики и модули Runbook и, возможно, вам нужно будет изменить правила генерации оповещений.
 - Распространенные вопросы об этом обновлении рассматриваются в статье [Вопросы и ответы по новым возможностям поиска по журналам Log Analytics и известные проблемы](log-analytics-log-search-faq.md).
 
 ## <a name="how-do-i-know-if-there-were-any-issues-from-the-upgrade"></a>Как я узнаю, что возникли проблемы с обновлением?
-Когда обновление завершится, в настройках рабочей области появится раздел **Сводка обновления**.  В этом разделе вы найдете сведения об обновлении.
+Когда обновление завершится, в настройках рабочей области появится раздел **Сводка обновления**.  Проверьте сведения об обновлении, а также для просмотра всех обнаруженных проблем.
 
  ![Сводка обновления](media/log-analytics-log-search-upgrade/upgrade-summary.png)
 

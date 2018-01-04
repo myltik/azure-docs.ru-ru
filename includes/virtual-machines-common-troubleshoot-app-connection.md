@@ -115,7 +115,7 @@
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Шаг 4. Проверка параметров доступа к приложению с помощью командлета проверки IP-потока 
 
-Дополнительные сведения см. в статье [Обзор мониторинга сети Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Дополнительные сведения см. в статье [Обзор мониторинга сети Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

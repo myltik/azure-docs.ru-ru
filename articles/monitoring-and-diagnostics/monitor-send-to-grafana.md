@@ -8,11 +8,11 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: article
 ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 709a98f8bcdb75962f8e41de348ca7a41c677610
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Мониторинг служб Azure в Grafana
 Теперь также можно отслеживать службы Azure и приложения из [Grafana](https://grafana.com/) с помощью [подключаемого модуля источника данных Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). Подключаемый модуль собирает данные производительности приложения, которые собраны пакетом SDK Application Insights, а также данные инфраструктуры, предоставленные Azure Monitor. Затем эти данные можно отобразить на панели мониторинга Grafana.
@@ -62,7 +62,7 @@ Grafana использует субъект-службу Azure Active Directory 
 
 1. Инструкции по созданию субъекта-службы см. в [этой статье](../azure-resource-manager/resource-group-create-service-principal-portal.md). Скопируйте и сохраните идентификатор арендатора, идентификатор клиента и секрет клиента.
 
-2. Дополнительные сведения о назначении роли читателя приложению Azure Active Directory см. в [этой статье](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role).   
+2. Дополнительные сведения о назначении роли читателя приложению Azure Active Directory см. в [этой статье](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role).     
 
 3. При использовании Application Insights можно также включить API Application Insights и идентификатор приложения для сбора метрик на основе Application Insights. Дополнительные сведения см. в статье [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID) (Получение ключа API и идентификатора приложения).
 

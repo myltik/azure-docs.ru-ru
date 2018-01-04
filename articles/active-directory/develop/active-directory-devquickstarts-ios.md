@@ -1,10 +1,10 @@
 ---
-title: "Интеграция Azure AD в приложение для iOS | Документы Майкрософт"
+title: "Azure AD операций ввода-вывода Приступая к работе | Документы Microsoft"
 description: "Практическое руководство по созданию приложения для iOS, которое интегрируется с Azure AD для входа в систему и вызывает программные интерфейсы приложения, защищенные Azure AD, по протоколу OAuth."
 services: active-directory
 documentationcenter: ios
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 57f465df99ac234466459b8031f61805d8334b59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="integrate-azure-ad-into-an-ios-app"></a>Интеграция Azure AD в приложение для iOS
+# <a name="azure-ad-ios-getting-started"></a>Azure AD операций ввода-вывода Приступая к работе
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Воспользуйтесь предварительной версией нашего нового [портала разработчиков](https://identity.microsoft.com/Docs/iOS), который поможет вам приступить к работе с Azure Active Directory через несколько минут.  Портал разработчиков поможет зарегистрировать приложение и интегрировать Azure AD в код.  Завершив работу, вы получите простое приложение, с помощью которого выполняется проверка подлинности пользователей в клиенте и на сервере, принимающем маркеры и проводящем проверку. 
-> 
-> 
 
 Клиентские приложения для iOS, которым необходим доступ к защищенным ресурсам, могут использовать библиотеку проверки подлинности Azure AD (ADAL), предоставляемую Azure Active Directory (Azure AD). ADAL упрощает процесс, который приложение использует для получения маркера доступа. Чтобы показать, насколько это просто, в этом руководстве описывается создание приложения "Список дел" на Objective, которое:
 
@@ -59,14 +54,14 @@ ms.lasthandoff: 10/11/2017
 ```
 
 * Схема **aap-scheme** регистрируется в проекте XCode и используется для вызова из других приложений. Данные сведения можно найти в файле Info.plist (URL Types -> URL Identifier). Если вы еще не создали или не настроили хотя бы одну схему, следует сделать это.
-* **bundle-id** — это идентификатор пакета, который можно найти в разделе "identity" параметров проекта XCode.
+* **Идентификатор пакета** — это идентификатор пакета, найти в разделе «удостоверение» в параметрах проекта XCode.
 
 Пример для рассматриваемого проекта QuickStart: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
-## <a name="2-register-the-directorysearcher-application"></a>2) Регистрация приложения DirectorySearcher
+## <a name="2-register-the-directorysearcher-application"></a>2. Регистрация приложения DirectorySearcher
 Чтобы настроить приложение для получения маркеров, сначала необходимо его зарегистрировать в клиенте Azure AD и предоставить ему разрешение на доступ к интерфейсу API Graph для Azure AD.
 
-1. Выполните вход на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. На верхней панели щелкните свою учетную запись. В списке **Каталог** выберите клиент Active Directory для регистрации приложения.
 3. В области навигации слева щелкните **Дополнительные службы**, а затем выберите **Azure Active Directory**.
 4. Щелкните **Регистрация приложений**, а затем выберите **Добавить**.

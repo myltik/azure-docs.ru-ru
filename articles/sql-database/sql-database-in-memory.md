@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Оптимизация производительности с помощью технологий обработки в оперативной памяти в базе данных SQL
 
@@ -77,9 +77,7 @@ ms.lasthandoff: 11/17/2017
 
 In-Memory OLTP включает оптимизированные для памяти таблицы, которые используются для хранения пользовательских данных. Эти таблицы должны умещаться в памяти. Так как вы управляете памятью непосредственно в службе базы данных SQL, мы применяем концепцию квоты на пользовательские данные, или *хранилище выполняющейся в памяти OLTP*.
 
-Каждая поддерживаемая ценовая категория отдельных баз данных и пулов эластичных баз данных включает некоторый объем хранилища выполняющейся в памяти OLTP. На момент написания статьи мы выделяли по 1 ГБ хранилища на каждые 125 единиц транзакций базы данных (DTU) или единиц передачи данных в эластичной базе данных (eDTU).
-
-В статье [Параметры базы данных SQL и производительность: возможности разных уровней служб](sql-database-service-tiers.md) содержится официальный список объемов хранилища выполняющейся в памяти OLTP, доступный для каждой поддерживаемой ценовой категории отдельных баз данных и пулов эластичных баз данных.
+Каждая поддерживаемая ценовая категория отдельных баз данных и пулов эластичных баз данных включает некоторый объем хранилища выполняющейся в памяти OLTP. На момент написания статьи мы выделяли по 1 ГБ хранилища на каждые 125 единиц транзакций базы данных (DTU) или единиц передачи данных в эластичной базе данных (eDTU). Дополнительные сведения см. в разделе [ограничения ресурсов](sql-database-resource-limits.md).
 
 При расчете емкости хранилища для выполняющейся в памяти OLTP используются следующие параметры.
 
@@ -166,7 +164,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 3. Скопируйте в буфер обмена [скрипт Transact-SQL для In-Memory OLTP](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) . Скрипт T-SQL создаст необходимые объекты обработки в оперативной памяти в образце базы данных AdventureWorksLT, созданной на этапе 1.
 
-4. Вставьте сценарий T-SQL в SSMS, а затем выполните его. `MEMORY_OPTIMIZED = ON`Инструкции CREATE TABLE являются ключевыми. Например:
+4. Вставьте сценарий T-SQL в SSMS, а затем выполните его. `MEMORY_OPTIMIZED = ON`Инструкции CREATE TABLE являются ключевыми. Например: 
 
 
 ```
@@ -377,7 +375,7 @@ EXECUTE Demo.usp_DemoReset;
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2) Установка образца In-Memory Analytics
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. Установка образца In-Memory Analytics
 
 
 В этом разделе вы сравните результаты ввода-вывода и статистические данные при использовании индекса columnstore и традиционного индекса сбалансированного дерева.
@@ -528,7 +526,7 @@ GO
 
 #### <a name="tools"></a>Средства
 
-- [Портал Azure](https://portal.azure.com/)
+- [портал Azure](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

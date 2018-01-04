@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 8d82ffa84c3d75ec3acd102a2de2bdce3718a995
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Анализ журналов потоков для групп безопасности сети и управление ими в Azure с помощью Наблюдателя за сетями и Graylog
 
@@ -152,8 +152,8 @@ Logstash позволяет преобразовать формат журнал
 
 Наконец, в разделе выходных данных каждое событие Logstash перенаправляется на сервер Graylog. Вы можете изменить файл конфигурации Logstash в соответствии со своими потребностями.
 
-    > [!NOTE]
-    > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
+   > [!NOTE]
+   > Предыдущий файл config предполагается, что Graylog сервер был настроен на локальном узле замыкания на себя IP-адрес 127.0.0.1. Если нет, измените параметр узлов в секции вывода правильный IP-адрес.
 
 Дополнительные инструкции по установке Logstash см. в [документации](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html) Logstash.
 

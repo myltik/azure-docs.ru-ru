@@ -4,7 +4,7 @@ description: "Руководство для разработчиков и сце
 services: active-directory
 keywords: 
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Руководство для разработчиков по условному доступу в Azure Active Directory
 
 Azure Active Directory (AD) предоставляет несколько способов обеспечения безопасности приложения и защиты службы.  Одним из этих уникальных способов является условный доступ.  Условный доступ позволяет разработчикам и корпоративным клиентам защищать службы множеством способов, включая:
 
-* Многофакторная проверка подлинности
+* Многофакторная Идентификация
 * разрешение доступа к определенным службам только устройствам, зарегистрированным в Intune;
 * ограничение расположения пользователей и диапазонов IP-адресов.
 
@@ -74,7 +74,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ## <a name="scenarios"></a>Сценарии
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Технические условия
 
 Условный доступ Azure AD — это функция, включенная в [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  Дополнительные сведения о требованиях к лицензиям см. в статье [Отчет о нелицензированном использовании](../active-directory-conditional-access-unlicensed-usage-report.md).  Разработчики могут присоединиться к сети разработчиков [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), которая включает бесплатную подписку на Enterprise Mobility Suite, содержащую Azure AD Premium.
 
@@ -110,7 +110,7 @@ www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/
 
 Заголовок ```WWW-Authenticate``` имеет уникальную структуру. Для него сложно выполнить синтаксический анализ для извлечения значений.  Вот краткий вспомогательный метод.
 
-    ```C#
+```C#
         /// <summary>
         /// This method extracts the claims value from the 403 error response from MS Graph. 
         /// </summary>
@@ -138,7 +138,7 @@ www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/
             }
             return null; 
         }
-    ```
+```
 
 Примеры кода, демонстрирующие способ обработки запросов утверждений для ADAL .NET, см. в [примерах кода On-Behalf-Of](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca).
 

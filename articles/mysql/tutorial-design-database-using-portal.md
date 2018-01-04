@@ -10,11 +10,11 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: a7f38484e000b05a57cad9bc95abb255414d0162
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: HT
+ms.openlocfilehash: 9e3b498aa28a1075c8ed65ea698df955824b9893
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Проектирование первой базы данных Azure для MySQL
 База данных Azure для MySQL — это управляемая служба, которая позволяет вам запускать, администрировать и масштабировать высокодоступные базы данных MySQL в облаке. С помощью портала Azure можно легко управлять сервером и проектировать базы данных.
@@ -33,8 +33,8 @@ ms.lasthandoff: 11/06/2017
 ## <a name="sign-in-to-the-azure-portal"></a>Выполните вход на портал Azure.
 Откройте предпочитаемый веб-браузер и перейдите на [портал Microsoft Azure](https://portal.azure.com/). Введите свои учетные данные для входа на портал. Панель мониторинга службы является представлением по умолчанию.
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Создание сервера базы данных Azure для MySQL
-Сервер базы данных Azure для MySQL создается с определенным набором [вычислительных ресурсов и ресурсов хранения](./concepts-compute-unit-and-storage.md). Он создается в [группе ресурсов Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+## <a name="create-an-azure-database-for-mysql-server"></a>Создайте сервер базы данных Azure для MySQL.
+Сервер базы данных Azure для MySQL создается с определенным набором [вычислительных ресурсов и ресурсов хранения](./concepts-compute-unit-and-storage.md). Он создается в [группе ресурсов Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1. Выберите **Базы данных** > **База данных Azure для MySQL**. Если сервер MySQL не отображается в категории **Базы данных**, щелкните **Показать все**, чтобы просмотреть все доступные службы баз данных. Для быстрого поиска службы вы можете также ввести в поле поиска **База данных Azure для MySQL**.
 ![2.1. Переход к службе MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/06/2017
 | *Имя для входа администратора сервера* | myadmin | Укажите имя учетной записи администратора. |
 | *Пароль* |  | Укажите надежный пароль для учетной записи администратора. |
 | *Подтверждение пароля.* |  | Подтвердите пароль учетной записи администратора. |
-| *Расположение* |  | Выберите доступный регион. |
+| *Местоположение.* |  | Выберите доступный регион. |
 | *Версия* | 5.7 | Выберите последнюю версию. |
 | *Настройка производительности* | "Базовый", 50 единиц вычислений, 50 ГБ  | Укажите значения для параметров **Ценовая категория**, **Единицы вычислений**, **Хранилище (ГБ)** и нажмите кнопку **ОК**. |
 | *Закрепить на панели мониторинга* | Проверка | Рекомендуем установить этот флажок, чтобы ускорить поиск сервера позже |

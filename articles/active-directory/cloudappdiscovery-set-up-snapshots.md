@@ -5,7 +5,7 @@ services: active-directory
 keywords: "cloud app discovery, управление приложениями"
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 09/22/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.custom: it-pro
-ms.openlocfilehash: dd4cf725689739ce4c8b86a4d8203ffc5aff016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 69a633b39e68596c536700dbb2c7c8d35f3b44bb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>Создание отчетов о снимках для Cloud App Discovery
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
   > Формат примера FTP поддерживается для моментальных снимков и автоматической отправки, а системный журнал — только для автоматической отправки. При скачивании примера журнала скачивается пример журнала FTP.
 6. **Выберите журналы трафика**, которые нужно отправить. Одновременно можно отправить до 20 файлов. Также поддерживаются сжатые и ZIP-файлы.
   
-7. Щелкните **Создать**. После отправки файлов журнала их анализ может занять некоторое время. После завершения обработки файлов журналов вы получите от Cloud App Discovery уведомление об этом по электронной почте.
+7. Нажмите кнопку **Создать**. После отправки файлов журнала их анализ может занять некоторое время. После завершения обработки файлов журналов вы получите от Cloud App Discovery уведомление об этом по электронной почте.
 
 8. Выберите **Управление отчетами о снимках** и выберите отчет о снимке.
   

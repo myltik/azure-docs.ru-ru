@@ -1,11 +1,11 @@
 ---
-title: "Включение службы Enterprise State Roaming в Azure Active Directory | Документация МайкрософтEnable Enterprise State Roaming in Azure Active Directory"
+title: "Включение службы Enterprise State Roaming в Azure Active Directory | Документация Майкрософт"
 description: "Часто задаваемые вопросы о параметрах Enterprise State Roaming для устройств Windows. Служба Enterprise State Roaming представляет собой единое решение для всех устройств Windows и сокращает процесс настройки нового устройства."
 services: active-directory
 keywords: "Enterprise State Roaming, облака Windows, включение службы Enterprise State Roaming"
 documentationcenter: 
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: markvi
-ms.openlocfilehash: 71212d11452d5f263b8621e1f0c13f9edd744618
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3a8714ddbda10d8e1b4a8de35711101f4c8a0106
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Включение службы Enterprise State Roaming в Azure Active Directory
 Enterprise State Roaming доступна для любой организации с лицензий Azure AD Premium или Enterprise Mobility + Security (EMS). Дополнительные сведения о том, как получить подписку Azure AD, см. на [странице продукта Azure Active Directory](https://azure.microsoft.com/services/active-directory).
@@ -77,7 +77,7 @@ Enterprise State Roaming доступна для любой организаци
 * **Удаление по запросу**. Чтобы вручную удалить данные определенного пользователя или его данные параметров, администратору Azure AD необходимо отправить запрос в [службу поддержки Azure](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Удаление устаревших данных
-Устаревшими считаются данные, доступ к которым не осуществлялся в течение года ("срок хранения"). Они могут быть удалены из Azure. Срок хранения может измениться, но не будет меньше, чем 90 дней. Такими данными могут выступать параметры Windows или приложений либо все параметры пользователя. Например:
+Устаревшими считаются данные, доступ к которым не осуществлялся в течение года ("срок хранения"). Они могут быть удалены из Azure. Срок хранения может измениться, но не будет меньше, чем 90 дней. Такими данными могут выступать параметры Windows или приложений либо все параметры пользователя. Например: 
 
 * Если к коллекции определенных параметров не осуществляется доступ (например, приложение удалено с устройства или группа параметров отключена на всех устройствах пользователя), по истечении периода хранения эта коллекция считается устаревшей и может быть удалена. 
 * Если пользователь отключил синхронизацию параметров на всех устройствах, доступ к ним не будет осуществляться. Таким образом, как только период хранения истечет, все данные параметров пользователя станут устаревшими и могут быть удалены. 

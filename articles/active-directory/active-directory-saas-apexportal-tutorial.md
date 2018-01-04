@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 69e918f3f8826d7e79f405320676f542e346af7c
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: 569151cc1ceaf7797c7de89f9093fad92a414d2e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Руководство. Интеграция Azure Active Directory с Apex Portal
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Apex Portal, вам потребуется:
 
@@ -48,12 +48,12 @@ ms.lasthandoff: 11/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Apex Portal из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-apex-portal-from-the-gallery"></a>Добавление Apex Portal из коллекции
+## <a name="adding-apex-portal-from-the-gallery"></a>Добавление Apex Portal из коллекции.
 Чтобы настроить интеграцию Apex Portal с Azure AD, необходимо добавить Apex Portal из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Apex Portal из коллекции, сделайте следующее.**
@@ -108,9 +108,9 @@ ms.lasthandoff: 11/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Apex Portal](./media/active-directory-saas-apexportal-tutorial/tutorial_apexonline_url.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<customer name>.apexanalytix.com/saml/sso.aspx`.
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<customer name>.apexanalytix.com/saml/sso.aspx`.
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь в [службу поддержки Apex Portal](mailto:support@apexanalytix.com).
@@ -127,17 +127,17 @@ ms.lasthandoff: 11/11/2017
     | LASTNAME | user.surname |
     | MAIL | user.mail |    
 
-    а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+    a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 
     ![Настройка единого входа](./media/active-directory-saas-apexportal-tutorial/tutorial_attribute_04.png)
 
     ![Настройка единого входа](./media/active-directory-saas-apexportal-tutorial/tutorial_attribute_05.png)
 
-    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+    Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
 
     c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
     
-    г) Нажмите кнопку **ОК**.
+    d. Нажмите кнопку **ОК**.
 
 6. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
@@ -176,13 +176,13 @@ ms.lasthandoff: 11/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-apexportal-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
   
 ### <a name="create-an-apex-portal-test-user"></a>Создание тестового пользователя Apex Portal
 

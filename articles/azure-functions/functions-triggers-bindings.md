@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: ab5550ee0c057c9abc4b706929d780a495aaff65
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Основные понятия триггеров и привязок в Функциях Azure
 Функции Azure позволяют писать код в ответ на события в Azure и других службах с помощью *триггеров* и *привязок*. В этой статье приведены общие сведения о триггерах и привязках для всех поддерживаемых языков программирования. Здесь описываются функции, которые являются общими для всех привязок.
@@ -409,6 +409,10 @@ module.exports = function (context, info) {
 ## <a name="configuring-binding-data-at-runtime"></a>Настройка данных привязки во время выполнения
 
 В C# и других языках .NET вы можете использовать императивный шаблон привязки в отличие от декларативных привязок в *function.json*. Императивную привязку удобно использовать, когда параметры привязки должны вычисляться не при проектировании, а во время выполнения. Дополнительные сведения см. в разделе справочника разработчика C# [Привязка в среде выполнения с помощью императивных привязок](functions-reference-csharp.md#imperative-bindings).
+
+## <a name="functionjson-file-schema"></a>схема файла Function.JSON
+
+*Function.json* файл схемы находится в [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о конкретной привязке см. в следующих статьях:

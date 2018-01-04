@@ -1,4 +1,4 @@
-#### <a name="prerequisites"></a>Предварительные требования
+#### <a name="prerequisites"></a>Технические условия
 * Учетная запись Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free).
 * Учетная запись [Microsoft Dynamics CRM Online](https://www.microsoft.com/en-us/dynamics/crm-free-trial-overview.aspx). 
 

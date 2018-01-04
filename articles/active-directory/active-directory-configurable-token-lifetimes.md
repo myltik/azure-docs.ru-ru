@@ -4,7 +4,7 @@ description: "Сведения о настройке времени жизни �
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 8f1c601f5de440346d35e25299f6f800f3e3c10d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Настройка времени жизни маркеров в Azure Active Directory (общедоступная предварительная версия)
 Вы можете указать время жизни маркера, выданного Azure Active Directory (Azure AD). Время жизни маркеров можно настроить для всех приложений в организации, для многопользовательского приложения (приложения для нескольких организаций) или для определенного субъекта-службы в организации.
@@ -194,7 +194,7 @@ ms.lasthandoff: 11/06/2017
 * как создать политику для собственного приложения, которое вызывает веб-API;
 * как управлять расширенной политикой.
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Технические условия
 В следующих примерах мы будем создавать, обновлять, связывать и удалять политики для приложений, субъектов-служб и организации в целом. Если вы еще не работали с Azure AD, прежде чем продолжить работу с этими примерами, советуем ознакомиться со статьей [Как получить клиент Azure Active Directory](active-directory-howto-tenant.md).  
 
 Чтобы начать работу, сделайте следующее:
@@ -363,7 +363,7 @@ ms.lasthandoff: 11/06/2017
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| Параметры | Описание | Пример |
+| Параметры | ОПИСАНИЕ | Пример |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |Переведенный в строку массив JSON, который содержит все правила политики. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |Строка c именем политики. |`-DisplayName "MyTokenPolicy"` |
@@ -380,7 +380,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 Get-AzureADPolicy
 ```
 
-| Параметры | Описание | Пример |
+| Параметры | ОПИСАНИЕ | Пример |
 | --- | --- | --- |
 | <code>&#8209;Id</code> (необязательный параметр) |**Идентификатор объекта (ИД)** для нужной политики. |`-Id <ObjectId of Policy>` |
 
@@ -393,7 +393,7 @@ Get-AzureADPolicy
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| Параметры | Описание | Пример |
+| Параметры | ОПИСАНИЕ | Пример |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для нужной политики. |`-Id <ObjectId of Policy>` |
 
@@ -406,7 +406,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| Параметры | Описание | Пример |
+| Параметры | ОПИСАНИЕ | Пример |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для нужной политики. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Строка c именем политики. |`-DisplayName "MyTokenPolicy"` |
@@ -424,7 +424,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| Параметры | Описание | Пример |
+| Параметры | ОПИСАНИЕ | Пример |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для нужной политики. | `-Id <ObjectId of Policy>` |
 
@@ -440,7 +440,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| Параметры | Описание | Пример |
+| Параметры | ОПИСАНИЕ | Пример |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**Идентификатор объекта** для политики. | `-RefObjectId <ObjectId of Policy>` |
@@ -454,7 +454,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
-| Параметры | Описание | Пример |
+| Параметры | ОПИСАНИЕ | Пример |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 
@@ -467,7 +467,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
-| Параметры | Описание | Пример |
+| Параметры | ОПИСАНИЕ | Пример |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**Идентификатор объекта** для политики. | `-PolicyId <ObjectId of Policy>` |
@@ -484,7 +484,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
-| Параметры | Описание | Пример |
+| Параметры | ОПИСАНИЕ | Пример |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**Идентификатор объекта** для политики. | `-RefObjectId <ObjectId of Policy>` |
@@ -498,7 +498,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| Параметры | Описание | Пример |
+| Параметры | ОПИСАНИЕ | Пример |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 
@@ -511,7 +511,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| Параметры | Описание | Пример |
+| Параметры | ОПИСАНИЕ | Пример |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**Идентификатор объекта** для политики. | `-PolicyId <ObjectId of Policy>` |

@@ -4,7 +4,7 @@ description: "Обеспечение регистрации и входа для
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 77c099bb-a005-4d75-87f9-f61e3de48725
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: dcc97e1b7f6287bd7692c52bf068950065a26572
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: df69b075717e6b4311e336f5bd2d385c5f0e1f52
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C: регистрация и вход пользователей с учетными записями Amazon
 ## <a name="create-an-amazon-application"></a>Создание приложения Amazon
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 5. В разделе **Веб-параметры** скопируйте значения **Идентификатор клиента** и **Секрет клиента**. Для отображения этих параметров необходимо нажать кнопку **Показать секрет**. Оба значения необходимы для настройки Amazon в качестве поставщика удостоверений для вашего клиента. Щелкните **Изменить** в нижней части раздела. **Секрет клиента** — это важные учетные данные безопасности.
    
     ![Предоставление идентификатора клиента и секрета клиента для нового приложения на сайте Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
-6. Введите `https://login.microsoftonline.com` в поле **Разрешенные источники JavaScript** и `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` — в поле **Разрешенные URL-адреса возврата**. Замените **{tenant}** именем своего клиента (например, contoso.onmicrosoft.com). Щелкните **Сохранить**. В значении **{клиент}** необходимо учитывать регистр.
+6. Введите `https://login.microsoftonline.com` в поле **Разрешенные источники JavaScript** и `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` — в поле **Разрешенные URL-адреса возврата**. Замените **{tenant}** именем своего клиента (например, contoso.onmicrosoft.com). Выберите команду **Сохранить**. В значении **{клиент}** необходимо учитывать регистр.
    
     ![Предоставление источников JavaScript и URL-адресов возврата для нового приложения на сайте Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 

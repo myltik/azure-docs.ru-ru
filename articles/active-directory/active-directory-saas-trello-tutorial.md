@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: cd5ae365-9ed6-43a6-920b-f7814b993949
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 8c1816fa272386a9839d93423a8ae81d2cdc8567
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 39ea5cc19e73cb6e9ea6da9757f5e8013d1a5ffe
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Руководство. Интеграция Azure Active Directory с Trello
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/06/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Trello, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 12/06/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Trello из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-trello-from-the-gallery"></a>Добавление Trello из коллекции
 Чтобы настроить интеграцию Trello с Azure AD, необходимо добавить Trello из коллекции в список управляемых приложений SaaS.
@@ -112,17 +112,17 @@ ms.lasthandoff: 12/06/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Trello](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
     
-    а. В текстовом поле **Идентификатор** введите URL-адрес `https://trello.com/auth/saml/metadata`.
+    a. В текстовом поле **Идентификатор** введите URL-адрес `https://trello.com/auth/saml/metadata`.
     
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://trello.com/auth/saml/consume/<enterprise>`.
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://trello.com/auth/saml/consume/<enterprise>`.
 
 4. Если вы хотите настроить приложение в **режиме, инициируемом поставщиком услуг**, выполните следующие действия.
 
     ![Сведения о домене и URL-адресах единого входа для приложения Trello](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
-    а. Установите флажок **Показать дополнительные параметры URL-адресов**,
+    a. Установите флажок **Показать дополнительные параметры URL-адресов**,
 
-    b. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://trello.com/auth/saml/login/<enterprise>` 
+    Б. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://trello.com/auth/saml/login/<enterprise>` 
 
 5. Приложение Trello ожидает, что утверждения SAML должны содержать определенные атрибуты. Настройте приведенные ниже атрибуты для этого приложения. Управлять значениями этих атрибутов можно на вкладке **Атрибуты пользователя** приложения. На следующем снимке экрана приведен пример.
 
@@ -136,17 +136,17 @@ ms.lasthandoff: 12/06/2017
     | User.FirstName | user.givenname |
     | User.LastName | user.surname |
 
-    а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+    a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 
     ![Настройка единого входа](./media/active-directory-saas-trello-tutorial/tutorial_officespace_04.png)
 
     ![Настройка единого входа](./media/active-directory-saas-trello-tutorial/tutorial_attribute_05.png)
 
-    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки. 
+    Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки. 
 
     c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
     
-    г) Нажмите кнопку **ОК**. 
+    d. Нажмите кнопку **ОК**. 
 
 7. В разделе **Сертификат подписи SAML** щелкните **Сертификат (Base64)** и сохраните файл метаданных на компьютере.
 
@@ -189,13 +189,13 @@ ms.lasthandoff: 12/06/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-trello-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-trello-test-user"></a>Создание тестового пользователя приложения Trello
 

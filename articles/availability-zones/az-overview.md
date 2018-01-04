@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 53c5c340dc4e91db29fbbb45893fabe6eec2bc5d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 9d21b112a1021cbefa42722404391220e6c018e5
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Общие сведения о зонах доступности в Azure (предварительная версия)
 
@@ -32,6 +32,7 @@ ms.lasthandoff: 11/17/2017
 
 - Восток США 2
 - Западная Европа
+- Центральная Франция
 
 ## <a name="services-that-support-availability-zones"></a>Службы с поддержкой зон доступности
 
@@ -42,17 +43,11 @@ ms.lasthandoff: 11/17/2017
 - Связанные с зонами масштабируемые наборы виртуальных машин
 - Управляемые диски
 - Подсистема балансировки нагрузки
-
-## <a name="supported-virtual-machine-size-families"></a>Поддерживаемые семейства размеров виртуальных машин
-
-- Av2
-- Dv2
-- DSv2
-
+- Общедоступный IP-адрес
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Начало работы с предварительной версией зон доступности
 
-Предварительная версия зон доступности используется в восточной части США 2 и Западной Европе для определенных служб Azure. 
+Предварительный просмотр зон доступности доступен в восточная часть США 2, Западной Европе и Франции центральном регионах для определенных служб Azure. 
 
 1. [Зарегистрируйтесь для использования предварительной версии зон доступности](http://aka.ms/azenroll). 
 2. Войдите в свою подписку Azure.

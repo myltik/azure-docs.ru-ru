@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dfa9bf1661e3a77ae4a2bf51285ab9a8da35e297
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Подключение Cosmos DB к службе поиска Azure с помощью индексаторов
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 Если вы выбрали портал, [мастер импорта данных](search-import-data-portal.md) поможет создать все эти ресурсы.
 
 > [!NOTE]
-> Cosmos DB — это база данных DocumentDB нового поколения. Несмотря на изменение имени продукта, синтаксис остается таким же, как и прежде. Указывайте базу данных `documentdb`, там где она используется в этой статье. 
+> Azure Cosmos DB — это следующее поколение DocumentDB. Несмотря на изменение имени продукта, синтаксис остается таким же, как и прежде. Указывайте базу данных `documentdb`, там где она используется в этой статье. 
 
 > [!TIP]
 > На панели мониторинга Cosmos DB можно запустить мастер **импорта данных**, чтобы упростить индексирование для источника данных. Чтобы приступить к работе, в области навигации слева выберите **Коллекции** > **Add Azure Search** (Добавить поиск Azure).
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 
 **Индексатор** описывает процесс передачи данных из источника данных в целевой индекс поиска. Индексатор может использоваться:
 
-* Для выполнения однократного копирования данных с целью заполнения индекса.
+* однократное копирование данных для заполнения индекса;
 * Для синхронизации индекса с изменениями в источнике данных по расписанию. Расписание является частью определения индексатора.
 * Вызов по требованию обновлений индекса.
 
@@ -158,7 +158,7 @@ ms.lasthandoff: 10/11/2017
 | Массивы типов-примитивов, например [a, b, c] |Collection(Edm.String) |
 | Строки, которые выглядят как даты |Edm.DateTimeOffset, Edm.String |
 | Геообъекты JSON, например { "тип": "Точка", "координаты": [ долгота, широта ] } |Edm.GeographyPoint |
-| Другие объекты JSON |Недоступно |
+| Другие объекты JSON |Н/Д |
 
 <a name="CreateIndexer"></a>
 ## <a name="step-3-create-an-indexer"></a>Шаг 3. Создание индексатора
@@ -295,5 +295,5 @@ ms.lasthandoff: 10/11/2017
 ## <a name="NextSteps"></a>Дальнейшие действия
 Поздравляем! Вы узнали, как интегрировать Azure Cosmos DB со службой поиска Azure с помощью индексатора для Cosmos DB.
 
-* Дополнительные сведения о базе данных Azure Cosmos DB см. на [странице службы Cosmos DB](https://azure.microsoft.com/services/documentdb/).
+* Дополнительные сведения о том, как Дополнительные сведения о базе данных Azure Cosmos см. в разделе [страница службы Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 * Дополнительные сведения о Поиске Azure см. на [странице документации по службе поиска](https://azure.microsoft.com/services/search/).

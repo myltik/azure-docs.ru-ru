@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rajanaki
 ms.openlocfilehash: cc832d06611c10901d4370dc7467f0b681d89cbd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Репликация виртуальных машин Hyper-V из облаков VMM в Azure с помощью PowerShell и Azure Resource Manager
 > [!div class="op_single_selector"]
-> * [Портал Azure](site-recovery-vmm-to-azure.md)
+> * [портале Azure](site-recovery-vmm-to-azure.md)
 > * [PowerShell — Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Классический портал](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell — классическая модель](site-recovery-deploy-with-powershell.md)
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/15/2017
 Если у вас возникают проблемы, опубликуйте свои вопросы на [форуме по Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 > [!NOTE]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье описывается использование модели развертывания на основе диспетчера ресурсов.
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье описывается использование модели развертывания на основе диспетчера ресурсов.
 >
 >
 

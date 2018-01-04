@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Отладка определяемого пользователем кода C# для заданий U-SQL, завершившихся сбоем
 
-U-SQL поддерживает для C# модель расширяемости. В скриптах U-SQL можно легко вызывать функции C# и выполнять аналитические функции, которые не поддерживаются в декларативных языках, близких к SQL. Дополнительные сведения о расширяемости U-SQL см. в [руководстве по программированию U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL поддерживает для C# модель расширяемости. В скриптах U-SQL можно легко вызывать функции C# и выполнять аналитические функции, которые не поддерживаются в декларативных языках, близких к SQL. Дополнительные сведения о расширяемости U-SQL см. в [руководстве по программированию U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
 Как подтверждает практика, отладка может потребоваться для любого кода. Эта задача усложняется, если вы используете распределенное задание, для которого в облаке размещен пользовательский код и доступно лишь ограниченное количество файлов журнала. [Средства Azure Data Lake для Visual Studio](http://aka.ms/adltoolsvs) поддерживают **отладку вершины с ошибками**, которая помогает отлаживать ошибки, возникающие в пользовательском коде. Когда происходит сбой задания U-SQL, служба сохраняет состояние сбоя и позволяет с помощью специального средства скачать облачную среду на момент сбоя, чтобы выполнить отладку на локальном компьютере. В пакете для скачивания содержится вся облачная среда, включая все входные данные и пользовательский код.
 

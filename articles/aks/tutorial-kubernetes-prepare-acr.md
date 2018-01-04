@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1283d3cff4edc0c99d22612c65fda48f9dddfbd3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Развертывание реестра контейнеров Azure и его использование
 
@@ -28,21 +28,21 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-В [предыдущей части руководства](./tutorial-kubernetes-prepare-app.md) мы создали образ контейнера для простого приложения Azure для голосования. Если вы еще не создали образ приложения Azure для голосования, выполните инструкции из статьи [Create container images to be used with Azure Container Service](./tutorial-kubernetes-prepare-app.md) (Создание образов контейнеров с помощью службы контейнеров Azure).
+В [с предыдущим учебником][aks-tutorial-prepare-app], образ контейнера был создан для простого приложения Azure с правом голоса. Если вы не создали образа приложения Azure с правом голоса, вернуться к [учебник 1 – Создание образов контейнеров][aks-tutorial-prepare-app].
 
-Для этого руководства требуется Azure CLI 2.0.21 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Для этого руководства требуется Azure CLI 2.0.21 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0][azure-cli-install].
 
 ## <a name="deploy-azure-container-registry"></a>Развертывание реестра контейнеров Azure
 
 При развертывании реестра контейнеров Azure сначала необходимо создать группу ресурсов. Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими.
 
-Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В этом примере создается группа ресурсов `myResourceGroup` в регионе `eastus`.
+Создайте группу ресурсов с помощью команды [az group create][az-group-create]. В этом примере создается группа ресурсов `myResourceGroup` в регионе `eastus`.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Создайте реестр контейнеров Azure с помощью команды[az acr create](/cli/azure/acr#create). Имя контейнера реестра **должно быть уникальным**.
+Создание контейнера Azure реестр с помощью [создать az acr] [ az-acr-create] команды. Имя контейнера реестра **должно быть уникальным**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -52,7 +52,7 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 
 ## <a name="container-registry-login"></a>Вход в реестр контейнеров
 
-Выполните команду [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login), чтобы войти в экземпляр ACR. Укажите уникальное имя реестра контейнеров, заданное для него при создании.
+Используйте [входа acr az] [ az-acr-login] команду, чтобы подключиться к экземпляру контроля доступа. Укажите уникальное имя реестра контейнеров, заданное для него при создании.
 
 ```azurecli
 az acr login --name <acrName>
@@ -62,7 +62,7 @@ az acr login --name <acrName>
 
 ## <a name="tag-container-images"></a>Присвоение тегов образам контейнеров
 
-Чтобы просмотреть список сохраненных образов, используйте команду [docker images](https://docs.docker.com/engine/reference/commandline/images/).
+Чтобы просмотреть список текущего изображения, используйте [образов docker] [ docker-images] команды.
 
 ```console
 docker images
@@ -91,7 +91,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Добавив все нужные теги, выполните команду [docker images] (https://docs.docker.com/engine/reference/commandline/images/), чтобы проверить правильность работы.
+Запустить после тегов, [образов docker] [ docker-images] Чтобы проверить работу.
 
 ```console
 docker images
@@ -121,7 +121,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v1
 
 ## <a name="list-images-in-registry"></a>Перечисление образов в реестре
 
-Чтобы получить список образов, отправленных в реестр контейнеров Azure, выполните команду [az acr repository list](/cli/azure/acr/repository#list). Укажите в команде имя нужного экземпляра ACR.
+Чтобы получить список образов, которые передаются в системный реестр контейнера Azure пользователя [списка репозитория acr az] [ az-acr-repository-list] команды. Укажите в команде имя нужного экземпляра ACR.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -135,7 +135,7 @@ Result
 azure-vote-front
 ```
 
-Чтобы увидеть теги для конкретного образа, используйте команду [az acr repository show-tags](/cli/azure/acr/repository#show-tags).
+И затем, чтобы увидеть теги для конкретных образа, использовать [acr репозитория az show теги] [ az-acr-repository-show-tags] команды.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -163,4 +163,17 @@ redis-v1
 Перейдите к следующему руководству, чтобы ознакомиться с развертыванием кластера Kubernetes в Azure.
 
 > [!div class="nextstepaction"]
-> [Развертывание кластера Kubernetes в службе контейнеров Azure](./tutorial-kubernetes-deploy-cluster.md)
+> [Развертывание кластера Kubernetes][aks-tutorial-deploy-cluster]
+
+<!-- LINKS - external -->
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+
+<!-- LINKS - internal -->
+[az-acr-create]: /cli/azure/acr#create
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-repository-list]: /cli/azure/acr/repository#list
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
+[az-group-create]: /cli/azure/group#az_group_create
+[azure-cli-install]: /cli/azure/install-azure-cli
+[aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

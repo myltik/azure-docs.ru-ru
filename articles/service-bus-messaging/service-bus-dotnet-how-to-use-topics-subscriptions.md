@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/6/2017
 ms.author: sethm
-ms.openlocfilehash: ca771648e9be9b8fd2b5d930c65610311820c7ba
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5391951c34498b3bd684cd2e223b8288d4040247
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>Начало работы с разделами служебной шины
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 4. Написание консольного приложения .NET Core для отправки набора сообщений в раздел.
 5. Написание консольного приложения .NET Core для получения этих сообщений из подписки.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 1. [Visual Studio 2017 с обновлением 3 (версия 15.3, 26730.01)](http://www.visualstudio.com/vs) или более новая версия.
 2. [Пакет SDK для .NET Core](https://www.microsoft.com/net/download/windows) версии 2.0 или более новой.
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/11/2017
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-topic-using-the-azure-portal"></a>2) Создание раздела с помощью портала Azure
+## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Создание раздела с помощью портала Azure
 
 1. Войдите на [портал Azure][azure-portal].
 2. В левой области навигации портала щелкните **Служебная шина**. Если элемент **Служебная шина** не отображается, щелкните **Больше служб** или **Все ресурсы**. Щелкните пространство имен, в котором хотите создать раздел. 
@@ -377,7 +377,7 @@ ms.lasthandoff: 12/11/2017
 
             static void RegisterOnMessageHandlerAndReceiveMessages()
             {
-                // Configure the message hnadler options in terms of exception handling, number of concurrent messages to deliver, etc.
+                // Configure the message handler options in terms of exception handling, number of concurrent messages to deliver, etc.
                 var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
                 {
                     // Maximum number of concurrent calls to the callback ProcessMessagesAsync(), set to 1 for simplicity.
@@ -426,7 +426,7 @@ ms.lasthandoff: 12/11/2017
 
 Поздравляем! С помощью библиотеки .NET Standard вы только что создали раздел и подписку, отправили 10 сообщений и получили их.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Ознакомьтесь с [примерами в репозитории GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples), демонстрирующими расширенные возможности обмена сообщениями служебной шины.
 

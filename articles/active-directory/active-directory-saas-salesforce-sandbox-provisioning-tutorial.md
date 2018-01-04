@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: bab73fda-6754-411d-9288-f73ecdaa486d
 ms.service: active-directory
 ms.workload: identity
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: c6c5d01a831a76c497f42fe4af3d90f8c5dc5903
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: d0efcae50b18dc2626af5510bd47ff36a27ba718
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>Руководство по настройке Salesforce Sandbox для автоматической подготовки пользователей
 
 Цель этого учебника — показать, как в песочнице Salesforce и Azure AD необходимо выполнять автоматическую подготовку и отмену подготовки учетных записей пользователей из Azure AD в песочницу Salesforce.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -69,9 +69,9 @@ ms.lasthandoff: 11/22/2017
 
 5. В разделе **Учетные данные администратора** укажите следующие параметры конфигурации.
    
-    а. В текстовом поле **Имя администратора** введите имя учетной записи Salesforce Sandbox с профилем **системного администратора** в Salesforce.com.
+    a. В текстовом поле **Имя администратора** введите имя учетной записи Salesforce Sandbox с профилем **системного администратора** в Salesforce.com.
    
-    b. В текстовом поле **Пароль администратора** введите пароль для этой учетной записи.
+    Б. В текстовом поле **Пароль администратора** введите пароль для этой учетной записи.
 
 6. Для получения маркера безопасности песочницы Salesforce откройте новую вкладку и выполните вход с этой учетной записью администратора песочницы Salesforce. В правом верхнем углу страницы щелкните свое имя и выберите **Параметры**.
 

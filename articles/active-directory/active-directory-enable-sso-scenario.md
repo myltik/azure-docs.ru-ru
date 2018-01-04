@@ -4,7 +4,7 @@ description: "В этой статье описаны преимущества �
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ff3e3284f34f8373a2cfd80438d94a7052bb7f5e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: dc69da316870f897fb126d8033e09a066bf89153
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Управление приложениями с помощью Azure Active Directory
 Помимо фактического рабочего процесса и содержимого, предприятия выдвигают два основных требования ко всем приложениям.
@@ -110,6 +110,6 @@ Azure AD содержит предварительно интегрирован�
 ## <a name="getting-started"></a>Приступая к работе
 Чтобы начать интеграцию приложений с Azure AD, см. статью [Руководство по интеграции Azure Active Directory с приложениями](active-directory-integrating-applications-getting-started.md).
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 

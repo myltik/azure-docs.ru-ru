@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: eca1ac9ed51e6c2243be451a074792fbec2840d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Устранение неполадок в представлении затрат на условиях соглашения Enterprise 
 
-В рамках регистрации на предприятии с помощью некоторых настроек можно ограничить возможность пользователей просматривать затраты.  Этими параметрами управляет администратор регистрации или партнер, если Соглашение о регистрации не приобретено непосредственно в Майкрософт.  В этой статье содержится обзор параметров, а также их взаимосвязи с регистрацией. Эти параметры не зависят от [ролей RBAC Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
+В рамках регистрации на предприятии с помощью некоторых настроек можно ограничить возможность пользователей просматривать затраты.  Этими параметрами управляет администратор регистрации или партнер, если Соглашение о регистрации не приобретено непосредственно в Майкрософт.  В этой статье содержится обзор параметров, а также их взаимосвязи с регистрацией. Эти параметры не зависят от [ролей RBAC Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
 > [!Note]
 > Эта функция сейчас доступна в виде закрытой предварительной версии. [Зарегистрируйтесь здесь](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u), чтобы получить возможность использовать предварительную версию.     
@@ -46,5 +46,5 @@ ms.lasthandoff: 10/11/2017
 ![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Свяжитесь с административной группой подписки или группой управления, чтобы получить доступ.  
-* Чтобы получить доступ к подпискам, ознакомьтесь со статьей [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure), чтобы узнать о необходимой роли.
+* Чтобы получить доступ к подпискам, ознакомьтесь со статьей [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure), чтобы узнать о необходимой роли.
 * Для групп управления доступ RBAC пока недоступен, но ожидается в скором времени. Свяжитесь с административной группой корпоративного портала, чтобы получить доступ.   

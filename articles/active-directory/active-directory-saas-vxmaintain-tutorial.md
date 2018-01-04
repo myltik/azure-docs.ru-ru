@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: ad87534af448356b8cc80d8ddd278bfb8a9165e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a987247d2c8a76161f9c8a5a027e34b3a8e25b30
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>Руководство по интеграции Azure Active Directory с vxMaintain
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы узнать больше об интеграции приложений SaaS с Azure AD, прочитайте статью [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с vxMaintain, вам потребуется:
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 Сценарий, описанный в этом руководстве, состоит из двух основных стандартных блоков:
 
 * Добавление vxMaintain из коллекции
-* Настройка и проверка единого входа в Azure AD
+* настройка и проверка единого входа в Azure AD.
 
 ## <a name="add-vxmaintain-from-the-gallery"></a>Добавление vxMaintain из коллекции
 Чтобы настроить интеграцию vxMaintain с Azure AD, необходимо добавить vxMaintain из коллекции в список управляемых приложений SaaS.
@@ -104,9 +104,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Раздел "Домены и URL-адреса приложения vxMaintain"](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
-    а. В поле **Идентификатор** введите URL-адрес, используя следующий синтаксис: `https://<company name>.verisae.com`.
+    a. В поле **Идентификатор** введите URL-адрес, используя следующий синтаксис: `https://<company name>.verisae.com`.
 
-    b. В поле **URL-адрес ответа** введите URL-адрес, используя следующий синтаксис: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`.
+    Б. В поле **URL-адрес ответа** введите URL-адрес, используя следующий синтаксис: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`.
 
     > [!NOTE] 
     > Приведенные выше значения используются только для примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь к [группе поддержки vxMaintain](http://www.verisae.com/contact-us).
@@ -149,9 +149,9 @@ ms.lasthandoff: 10/11/2017
  
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_04.png) 
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, созданное в поле **Пароль**.
 

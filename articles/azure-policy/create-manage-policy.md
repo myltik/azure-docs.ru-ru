@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 12/20/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 27056d5be99a6d2737e5583b0cda6f2e24895901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Создание политик и управление ими для обеспечения соответствия требованиям
 
@@ -73,12 +73,12 @@ ms.lasthandoff: 12/07/2017
    - Имя определения политики: *Require VM SKUs smaller than the G series* (Требовать номер SKU виртуальной машины меньше, чем серия G).
    - Описание того, для чего предназначено определение политики. Это определение политики гарантирует, что все виртуальные машины, созданные в этой области, будут иметь номера SKU меньше, чем серия G, что позволяет сэкономить затраты.
    - Подписка, в которой будет находиться определение политики. В этом случае определение политики будет находиться в подписке **Advisor Analytics Capacity Dev**. Ваш список подписок будет отличаться.
-   - Напишите код JSON, который будет содержать:
+   - Скопируйте следующий код json и обновите его с вашим потребностям:
       - параметры политики;
       - правила и условия политики — в данном случае номер SKU виртуальной машины, соответствующий серии G;
       - действие политики — в этом случае **Отменить**.
 
-    Код JSON должен выглядеть следующим образом:
+    Ниже показано, как должны выглядеть json. Измененный код можно вставьте в портале Azure.
 
     ```json
 {

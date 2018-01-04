@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 12/06/2017
 ms.author: richrund
-ms.openlocfilehash: 7f522a672d1691990bec3e63a41b2ed7e81058ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
-ms.translationtype: HT
+ms.openlocfilehash: 7fffaf3861feebc0cf3537ca096b1eebb252b7d6
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Управление Log Analytics с помощью шаблонов Azure Resource Manager
 [Шаблоны Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) можно использовать, чтобы создавать и настраивать рабочие области Log Analytics. Примеры задач, которые можно выполнять с помощью шаблонов.
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/17/2017
 | Ресурс | Тип ресурса | Устаревшая версия API | Обновленная версия API |
 |:---|:---|:---|:---|
 | Рабочая область   | workspaces    | 2015-11-01-preview | 2017-03-15-preview |
-| Поиск      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| поиска      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
 | Источник данных | datasources   | 2015-11-01-preview | 2015-11-01-preview |
 | Решение    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 10/17/2017
         "sku": {
           "Name": "[parameters('serviceTier')]"
         },
-    "retention": "[parameters('dataRetention')]"
+    "retentionInDays": "[parameters('dataRetention')]"
       },
       "resources": [
         {

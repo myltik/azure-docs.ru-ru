@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
-ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/6/2017
+ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="model-management-setup"></a>Установка службы управления моделями
 
@@ -25,8 +25,8 @@ ms.lasthandoff: 10/11/2017
 Выполнив инструкции в этом документе, вы сможете настроить среду управления моделями и подготовить ее к развертыванию моделей машинного обучения.
 
 ## <a name="what-you-need-to-get-started"></a>Что необходимо для начала работы
-Для получения оптимального результата вам понадобятся права владельца на доступ к подписке Azure, в которую вы сможете развернуть модели.
-Интерфейс командной строки поставляется предварительно установленным в Azure Machine Learning Workbench и на [виртуальных машинах Azure для обработки и анализа данных](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+Чтобы максимально эффективно использовать в этом руководстве, должны иметь участника доступ к подписки Azure или группу ресурсов, можно развернуть модели.
+Интерфейс командной строки поставляется предварительно установленным в Azure Machine Learning Workbench и на [виртуальных машинах Azure для обработки и анализа данных](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Использование интерфейса командной строки
 Чтобы использовать интерфейсы командной строки (CLI) на платформе Workbench, щелкните **Файл** -> **Открыть командную строку**. 
@@ -84,10 +84,12 @@ pip install azure-cli-ml
 - В процессе проверки подлинности вам будет предложена учетная запись, с помощью которой будет выполнена проверка подлинности. Важно! Выберите учетную запись с действительной подпиской Azure и необходимыми разрешениями для создания ресурсов. После входа вам предоставляются сведения о подписке и запрос на продолжение с выбранной учетной записью.
 
 ### <a name="environment-setup"></a>Настройка среды
-Чтобы начать процесс установки, необходимо зарегистрировать поставщика среды, введя следующую команду:
+Чтобы начать процесс установки, необходимо зарегистрировать несколько поставщиков среды, введя следующие команды:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Локальное развертывание
 Чтобы развернуть и протестировать веб-службу на локальном компьютере, настройте локальную среду, используя следующую команду. Имя группы ресурсов является необязательным.
@@ -128,7 +130,7 @@ az ml env setup --cluster -n [your environment name] -l [Azure region e.g. eastu
 - учетную запись Application Insights.
 
 >[!IMPORTANT]
-> Для успешного создания кластерной среды необходимо быть владельцем подписки Azure, а также иметь возможность создать субъект-службу. Чтобы проверить наличие необходимых прав, выполните указания в этой статье: [Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+> Для успешного создания кластерной среде, необходимо иметь доступ участника подписки Azure или группе ресурсов.
 
 Группа ресурсов, учетная запись хранения и запись контроля доступа создаются быстро. Развертывание ACS может занять до 20 минут. 
 

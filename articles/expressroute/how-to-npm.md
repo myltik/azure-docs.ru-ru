@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Настройка решения "Монитор производительности сети" для ExpressRoute (предварительная версия)
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/23/2017
 
 ### <a name="proxy"></a>2.3. Настройка параметров прокси-сервера (необязательно)
 
-Если вы используете веб-прокси для доступа к Интернету, выполните шаги ниже, чтобы настроить параметры прокси-сервера для Microsoft Monitoring Agent. Эти действия необходимо выполнить для каждого сервера. Если вам нужно настроить несколько серверов, возможно, проще использовать скрипт для автоматизации этого процесса. В таком случае мы рекомендуем ознакомиться с разделом [Как настроить параметры прокси-сервера для Microsoft Monitoring Agent с помощью скрипта](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Если вы используете веб-прокси для доступа к Интернету, выполните шаги ниже, чтобы настроить параметры прокси-сервера для Microsoft Monitoring Agent. Эти действия необходимо выполнить для каждого сервера. Если вам нужно настроить несколько серверов, возможно, проще использовать скрипт для автоматизации этого процесса. В таком случае мы рекомендуем ознакомиться с разделом [Как настроить параметры прокси-сервера для Microsoft Monitoring Agent с помощью скрипта](../log-analytics/log-analytics-windows-agent.md).
 
 Чтобы настроить параметры прокси-сервера для Microsoft Monitoring Agent с помощью панели управления, сделайте следующее:
 
@@ -214,7 +214,7 @@ ms.lasthandoff: 11/23/2017
 
 Страница NPM содержит страницу для ExpressRoute, на которой отображаются общие данные по работоспособности каналов ExpressRoute и пирингов.
 
-  ![Панель мониторинга](.\media\how-to-npm\dashboard.png)
+  ![панель мониторинга](.\media\how-to-npm\dashboard.png)
 
 ### <a name="circuits"></a>Список каналов
 

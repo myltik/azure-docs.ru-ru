@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf5828ecd6b6bd2e862c4d7709014ecac47c6be0
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: b68ceac2056f0a9a7a9c4df7984789858c77a626
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="offline-fairplay-streaming"></a>Потоковая передача FairPlay в автономном режиме
 Службы мультимедиа Microsoft Azure предоставляют набор хорошо спроектированных [служб системы защиты содержимого](https://azure.microsoft.com/services/media-services/content-protection/), которые охватывают:
@@ -189,7 +189,7 @@ func requestApplicationCertificate() throws -> Data {
 - **Что означает последний параметр в следующем API для автономного режима FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-Документацию по этому API можно найти на сайте [здесь](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Параметр представляет продолжительность автономной аренды с часом в качестве единицы измерения.
+Документацию по этому API можно найти на сайте [здесь](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Параметр представляет продолжительность автономной аренды с часом в качестве единицы измерения.
 - **Какова структура скачанного или автономного файла на устройствах iOS?** Структура скачанного файла на устройстве iOS выглядит как на снимке экрана ниже. В папке `_keys` хранятся скачанные лицензии FPS, один файл хранилища для каждого узла службы лицензий. В папке `.movpkg` хранится аудио- и видеосодержимое. Первая папка, имя которой заканчивается дефисом с числами, содержит видео. Числовое значение равно значению PeakBandwidth для представлений видео. Вторая папка с именем, заканчивающимся тире, за которым следует 0, содержит аудио. Третья папка с именем "Данные" содержит главный список воспроизведения содержимого FPS. В файле Boot.xml представлено полное описание содержимого папки `.movpkg` (см. пример файла boot.xml ниже).
 
 ![Структура файла примера приложения автономного FairPlay iOS](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

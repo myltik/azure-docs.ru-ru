@@ -4,7 +4,7 @@ description: "Использование уведомлений отчетов A
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fa8ca5940bb437c1e5c3939262db000544b04e36
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 7aacb31f708e8c3221a5b8cf4223c65160ccb019
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Уведомления отчетов Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Какие отчеты создают уведомления по электронной почте
@@ -47,5 +47,5 @@ ms.lasthandoff: 11/14/2017
 ## <a name="whats-next"></a>Что дальше?
 * Интересуют доступные отчеты о безопасности, аудиту и действиях? См. раздел [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md).
 * [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Добавление фирменной символики компании на страницах  входа и панели доступа](customize-branding.md)
+* [Добавление фирменной символики компании на страницах входа и панели доступа](customize-branding.md)
 

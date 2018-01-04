@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 462fa0a6e86237b8c9d9ba97aa377f8d112a8b8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e299ccfe587d37757cd67cb4367f019b21a09b4a
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>Обмен сообщениями через служебную шину: гибкая доставка данных в облаке
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 
 Как и в случае с инфраструктурой ретранслятора WCF, возможности обмена сообщениями через брокер предоставляются для программистов WCF и .NET Framework, а также для REST.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительную информацию об обмене сообщениями через служебную шину см. в следующих разделах.
 

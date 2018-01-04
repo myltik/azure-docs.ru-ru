@@ -3,7 +3,7 @@ title: "Управление записями DNS в Azure DNS с помощью
 description: "Управляйте наборами записей и записями DNS в службе Azure DNS при размещении вашего домена в Azure DNS. Все команды CLI 2.0 для операций с наборами записей и записями."
 services: dns
 documentationcenter: na
-author: subsarma
+author: KumudD
 manager: carmonm
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,33 +13,25 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
-ms.author: subsarma
-ms.openlocfilehash: 47be36aee053b81913286f0119edb6c8caa7c456
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Управление записями и наборами записей DNS в Azure DNS с помощью Azure CLI 2.0
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](dns-operations-recordsets-portal.md)
-> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+> * [портале Azure](dns-operations-recordsets-portal.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 В этой статье описано, как управлять записями DNS для зоны DNS с помощью кроссплатформенного интерфейса командной строки Azure (CLI) версии 2.0, доступного для Windows, Mac и Linux. Записями DNS также можно управлять с помощью [Azure PowerShell](dns-operations-recordsets.md) или [портала Azure](dns-operations-recordsets-portal.md).
 
-## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
-
-Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
-
-* [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md) — это интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-* [Azure CLI 2.0](dns-operations-recordsets-cli.md) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager.
-
 Для работы с этой статьей необходимо [установить Azure CLI 2.0, войти в учетную запись и создать зону DNS](dns-operations-dnszones-cli.md),
 
-## <a name="introduction"></a>Введение
+## <a name="introduction"></a>Общие сведения
 
 Чтобы создавать записи DNS в Azure DNS, нужно понимать, как Azure DNS организует записи DNS в соответствующие наборы записей.
 

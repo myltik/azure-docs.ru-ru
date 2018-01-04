@@ -14,23 +14,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 390342eb08ae970fa760b414674b1a6783404d80
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 8b4347fde274d0d7520ef3acbd081fdb83d7dc7d
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/04/2018
 ---
-# <a name="visualize-hive-data-with-microsoft-power-bi-in-azure-hdinsight"></a>Визуализация данных Hive с помощью Microsoft Power BI в Azure HDInsight
+# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Визуализация данных Hive с Microsoft Power BI с использованием ODBC в Azure HDInsight
 
-В этой статье приведены сведения о подключении Microsoft Power BI к Azure HDInsight и визуализации данных Hive. Сейчас Power BI поддерживает подключение к HDInsight только по протоколу ODBC. В рамках этого руководства вы загрузите данные из таблицы Hive с именем hivesampletable в Power BI. Эта таблица содержит некоторые данные об использовании мобильного телефона. Затем вы отобразите эти данные на карте мира:
+Сведения о подключении Microsoft Power BI в Azure HDInsight с помощью ODBC и визуализации данных Hive. В рамках этого руководства вы загрузите данные из таблицы Hive с именем hivesampletable в Power BI. Эта таблица содержит некоторые данные об использовании мобильного телефона. Затем вы отобразите эти данные на карте мира:
 
 ![Отчет карты HDInsight Power BI](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
-Эти сведения также относятся к новому типу кластера [интерактивных запросов](../interactive-query/apache-interactive-query-get-started.md).
+Эти сведения также относятся к новому типу кластера [интерактивных запросов](../interactive-query/apache-interactive-query-get-started.md). Способ подключения прямых запросов с помощью интерактивных запросов HDInsight см. в разделе [визуализировать интерактивный Hive запрос данных с помощью Microsoft Power BI с помощью прямых запросов в Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Чтобы выполнить действия, указанные в этой статье, вам потребуется:
 
 * **Кластер HDInsight.** Это может быть кластер HDInsight с Hive или новый кластер интерактивных запросов. Сведения о создании кластеров см. в [этом разделе](apache-hadoop-linux-tutorial-get-started.md#create-cluster).
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/03/2017
 4. В области **Из ODBC** выберите имя источника данных, который вы создали в предыдущем разделе, и нажмите кнопку **ОК**.
 5. В области **Навигатор** разверните **ODBC -> HIVE -> по умолчанию**, выберите **hivesampletable** и нажмите кнопку **Загрузить**.
 
-## <a name="visualize-date"></a>Визуализация данных
+## <a name="visualize-data"></a>Визуализируйте данные
 
 Продолжите из последней процедуры.
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 Из этой статьи вы узнали, как визуализировать данные HDInsight с помощью Power BI.  Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-* [Выполнение запросов Hive в Azure HDInsight с помощью Zeppelin](./../hdinsight-connect-hive-zeppelin.md).
+* [Выполнение запросов Hive в Azure HDInsight с помощью Zeppelin](./../hdinsight-connect-hive-zeppelin.md)
 * [Подключение Excel к Hadoop в Azure HDInsight с помощью Microsoft Hive ODBC Driver](./apache-hadoop-connect-excel-hive-odbc-driver.md)
 * [Подключение Excel к Hadoop с помощью Power Query](apache-hadoop-connect-excel-power-query.md)
 * [Подключение к Azure HDInsight и выполнение запросов Hive с помощью средств Data Lake для Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)

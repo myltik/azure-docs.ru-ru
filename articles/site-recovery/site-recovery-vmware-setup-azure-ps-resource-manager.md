@@ -15,14 +15,14 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: 035336efa6be0d00c41baba168eaffd80939cc82
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Управление сервером обработки, запущенным в Azure (модель Resource Manager)
 > [!div class="op_single_selector"]
-> * [Диспетчер ресурсов](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
+> * [Resource Manager](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
 > * [Классическая модель](./site-recovery-vmware-setup-azure-ps-classic.md)
 
 При наличии значительной задержки между виртуальной сетью Azure и локальной сетью при восстановлении размещения рекомендуется развертывать сервер обработки в Azure. В этой статье описывается, как выполнить установку, настройку и администрирование серверов обработки, работающих в Azure.
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/27/2017
 > [!NOTE]
 > В статье описано, как использовать **Resource Manager** как модель развертывания для виртуальных машин при отработке отказа. Если вы используете **классическую** модель развертывания, выполните действия по [установке и настройке сервера обработки для восстановления размещения (классическая модель)](./site-recovery-vmware-setup-azure-ps-classic.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/27/2017
 |**Имя поля**|**Значение**|
 |-|-|
 |Выберите расположение для развертывания сервера обработки.|Выберите вариант с **развертыванием сервера обработки для восстановления размещения в Azure**. |
-|Подписки|Выберите подписку Azure для отработки отказа виртуальных машин|
+|Подписка|Выберите подписку Azure для отработки отказа виртуальных машин|
 |Группа ресурсов|Вы можете создать группу ресурсов для развертывания этого сервера обработки или развернуть сервер обработки в существующую группу ресурсов.|
 |Расположение|Выберите центр обработки данных Azure для отработки отказа виртуальных машин.|
 |Сеть Azure|Выберите виртуальную сеть Azure (VNet) для отработки отказа виртуальных машин. Если отработка отказа виртуальных машин выполняется в несколько виртуальных сетей Azure, сервер обработки нужно развернуть в каждую из них.|

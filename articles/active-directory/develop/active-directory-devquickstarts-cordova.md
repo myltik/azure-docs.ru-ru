@@ -4,7 +4,7 @@ description: "Практическое руководство по создан�
 services: active-directory
 documentationcenter: 
 author: vibronet
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: d9f53148787729d29a0a89cce1b8b2b83ba228f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Интеграция Azure AD с приложением Apache Cordova
+# <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova, в начало работы
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 3. Добавить код, использующий маркер для запросов Graph API и отображения результатов.
 4. Создать проект развертывания Cordova на всех целевых платформах, добавить подключаемый модуль Cordova ADAL и протестировать решение в эмуляторах.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
 * Клиент Azure AD с учетной записью с правами на разработку приложений.
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 
 Azure AD выдает маркеры только для знакомых приложений. Прежде чем использовать службу Azure AD из приложения, вы должны создать для него запись в собственном клиенте. Чтобы зарегистрировать новое приложение в клиенте:
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. На верхней панели щелкните свою учетную запись. В списке **Каталог** выберите клиент Azure AD, в котором будет зарегистрировано приложение.
 3. В области слева щелкните **Больше служб** и выберите **Azure Active Directory**.
 4. Щелкните **Регистрация приложений**, а затем выберите **Добавить**.

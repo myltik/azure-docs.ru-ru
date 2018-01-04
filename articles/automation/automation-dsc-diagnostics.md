@@ -3,7 +3,7 @@ title: "Пересылка данных отчетов Azure Automation DSC в O
 description: "В этой статье показано, как отправлять данные отчетов Desired State Configuration (DSC) в Log Analytics (Microsoft Operations Management Suite) для получения дополнительных сведений и возможностей управления."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: eslesar
-ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: gwallace
+ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Пересылка данных отчетов Azure Automation DSC в OMS Log Analytics
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 * сопоставлять состояние соответствия в учетных записях службы автоматизации;
 * визуализировать журнал соответствия узла с течением времени.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы начать отправку отчетов Automation DSC в Log Analytics, необходимо следующее:
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы начать импорт данных из Azure Automation DSC в Log Analytics, выполните следующие действия:
 
-1. Войдите в свою учетную запись Azure в PowerShell. См. статью [Вход с помощью Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0).
+1. Войдите в свою учетную запись Azure в PowerShell. См. статью [Вход с помощью Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0).
 1. Получите идентификатор _ResourceId_ для учетной записи службы автоматизации, выполнив следующую команду PowerShell (при наличии нескольких учетных записей службы автоматизации выберите _ResourceID_ для учетной записи, которую требуется настроить):
 
   ```powershell
@@ -121,7 +121,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 | --- | --- |
 | TimeGenerated |Дата и время запуска проверки соответствия. |
 | OperationName |DscNodeStatusData |
@@ -152,7 +152,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 | --- | --- |
 | TimeGenerated |Дата и время запуска проверки соответствия. |
 | OperationName |DscResourceStatusData|

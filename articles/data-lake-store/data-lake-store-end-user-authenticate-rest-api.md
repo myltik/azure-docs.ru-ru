@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: bcddb66806cc58b3513c9c157512ac8b96a51ec1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-rest-api"></a>Аутентификация пользователей в Data Lake Store с помощью REST API
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 В этой статье описывается, как использовать REST API для аутентификации пользователей с помощью Azure Data Lake Store. См. дополнительные сведения об [аутентификации между службами с помощью Data Lake Store и REST API](data-lake-store-service-to-service-authenticate-rest-api.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
-* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Создание собственного приложения Active Directory** Вам нужно выполнить инструкции по [аутентификации пользователей в Data Lake Store с помощью Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 10/11/2017
 Дополнительные сведения об интерактивной проверке подлинности пользователей см. в статье [Авторизация доступа к веб-приложениям с помощью OAuth 2.0 и Azure Active Directory](https://msdn.microsoft.com/library/azure/dn645542.aspx).
    
 ## <a name="next-steps"></a>Дальнейшие действия
-В этой статье описывается, как использовать аутентификацию между службами, чтобы реализовать аутентификацию с помощью Azure Data Lake Store и REST API. Дополнительные сведения об использовании REST API для работы с Azure Data Lake Store см. в следующих статьях.
+В этой статье описывается, как использовать аутентификацию между службами, чтобы реализовать проверку подлинности с помощью Azure Data Lake Store и REST API. Дополнительные сведения об использовании REST API для работы с Azure Data Lake Store см. в следующих статьях.
 
 * [Начало работы с Azure Data Lake Store с использованием REST API](data-lake-store-get-started-rest-api.md).
 * [Операции с данными в Azure Data Lake Store с использованием REST API](data-lake-store-data-operations-rest-api.md).

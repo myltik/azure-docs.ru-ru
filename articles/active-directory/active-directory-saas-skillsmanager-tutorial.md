@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: dab8debd-3b7b-4656-9bf0-1963ad8fce05
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: a6c7bc08c7258ae463902999cc6c73198d54ac66
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 7cfa44ca070996d7ae85a23f3297b07b406881e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>Руководство. Интеграция Azure Active Directory со Skills Manager
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/24/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с приложением Skills Manager, вам потребуется следующее:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/24/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление Skills Manager из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+1. Добавление Skills Manager из коллекции
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-skills-manager-from-the-gallery"></a>Добавление Skills Manager из коллекции
 Чтобы настроить интеграцию Skills Manager с Azure AD, необходимо добавить Skills Manager из коллекции в список управляемых приложений SaaS.
@@ -108,9 +108,9 @@ ms.lasthandoff: 10/24/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Skills Manager](./media/active-directory-saas-skillsmanager-tutorial/tutorial_skillsmanager_url.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://subdomain.skills-manager.com/kennametal`
+    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://subdomain.skills-manager.com/kennametal`
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://subdomain.skills-manager.com/public/SamlLogin2.aspx`.
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://subdomain.skills-manager.com/public/SamlLogin2.aspx`.
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Для получения этих значений обратитесь в [службу поддержки Skills Manager](https://www.ibm.com/support/uk/?lnk=msu_uk).
@@ -156,13 +156,13 @@ ms.lasthandoff: 10/24/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-skillsmanager-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
   
 ### <a name="create-a-skills-manager-test-user"></a>Создание тестового пользователя Skills Manager
 

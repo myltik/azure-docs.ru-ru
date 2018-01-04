@@ -4,7 +4,7 @@ description: "Узнайте, как решить проблемы, связан
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 5f27bac7f2de0411dacd5b981a09a93c80084af9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Устранение ошибок, связанных с расширением NPS для Многофакторной идентификации Azure.
 
@@ -106,9 +106,10 @@ ms.lasthandoff: 11/15/2017
 
 Если вам требуется дополнительная помощь, обратитесь к службе поддержки, используя [поддержку сервера Многофакторной идентификации Azure](https://support.microsoft.com/oas/default.aspx?prid=14947). Вы можете облегчить нам задачу, если при обращении предоставите максимально полные сведения о проблеме. Вы можете сообщить нам, на какой странице возникла ошибка, а также точный код ошибки, идентификатор сеанса и идентификатор пользователя, получившего эту ошибку, и журналы отладки.
 
-Чтобы собрать журналы отладки для помощи в диагностике, сделайте следующее: 
+Чтобы собирать журналы отладки для поддержки диагностики, выполните следующие действия на сервере политики сети:
 
-1. Откройте командную строку администратора и выполните следующие команды:
+1. Откройте редактор реестра и перейдите к набору HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa **VERBOSE_LOG** для **значение TRUE**
+2. Откройте командную строку администратора и выполните следующие команды:
 
    ```
    Mkdir c:\NPS
@@ -118,9 +119,9 @@ ms.lasthandoff: 11/15/2017
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. Воспроизведите проблему.
+3. Воспроизведите проблему.
 
-3. Остановите трассировку с помощью следующих команд:
+4. Остановите трассировку с помощью следующих команд:
 
    ```
    logman stop "NPSExtension" -ets
@@ -131,6 +132,7 @@ ms.lasthandoff: 11/15/2017
    Start .
    ```
 
-4. Выполните архивацию содержимого папки C:\NPS и прикрепите ZIP-файл к запросу в службу поддержки.
+5. Откройте редактор реестра и перейдите к набору HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa **VERBOSE_LOG** для **FALSE**
+6. Выполните архивацию содержимого папки C:\NPS и прикрепите ZIP-файл к запросу в службу поддержки.
 
 

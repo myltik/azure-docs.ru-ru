@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 12/07/2017
 ms.author: ryanwi
-ms.openlocfilehash: e30482427b88eb3e58d39075c7f0734664b79aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d5f6fbb9d9c0bc0d9762f8d6b4b4eb3b02d29adc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="model-an-application-in-service-fabric"></a>Моделирование приложения в структуре службы
 В этой статье приведен обзор модели приложений Azure Service Fabric и описывается, как определить приложение и службу с помощью файлов манифеста.
@@ -30,13 +30,11 @@ ms.lasthandoff: 10/11/2017
 
 Тип приложения представляет собой отнесение приложения к определенной категории и состоит из пакета типов служб. Тип службы представляет собой отнесение службы к определенной категории, которая может обладать различными параметрами и конфигурациями, однако ее основная функция не изменяется. Экземпляры службы представляют собой различные вариации конфигурации служб, принадлежащих к одному типу.  
 
-Классы (или типы) приложений и служб описываются с помощью XML-файлов (манифесты приложений и служб).  Манифесты представляют собой шаблоны, по которым создаются экземпляры приложений из хранилища образов кластера. Определение схемы для файла ServiceManifest.xml и ApplicationManifest.xml устанавливается с пакетом SDK и средствами для Service Fabric по адресу *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Классы (или типы) приложений и служб описываются с помощью XML-файлов (манифесты приложений и служб).  Манифесты описания приложений и служб и шаблонов, по которым приложений может быть создан из хранилища образов кластера.  Манифесты подробно описаны в [службы манифестов приложения и](service-fabric-application-and-service-manifests.md). Определение схемы для файла ServiceManifest.xml и ApplicationManifest.xml устанавливается с пакетом SDK и средствами для Service Fabric по адресу *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. Схема XML описана в [ServiceFabricServiceModel.xsd документации по схеме](service-fabric-service-model-schema.md).
 
 Код для различных экземпляров приложений выполняется как отдельные процессы, даже если они размещены на одном узле структуры службы. Кроме того, возможно независимое управление жизненным циклом (например, обновление). На следующей диаграмме показано, что типы приложений состоят из типов служб, которые, в свою очередь, состоят из кода, конфигурации и пакетов данных. Чтобы упростить схему, показаны только пакеты кода, конфигурации или данных для `ServiceType4`, хотя каждый тип службы будет включать некоторые или все из этих типов пакетов.
 
 ![Типы служб и типы приложений Service Fabric][cluster-imagestore-apptypes]
-
-Два разных файла манифестов используются для описания приложения и служб: манифест служб и манифест приложений. Манифесты подробно рассматриваются в следующих разделах.
 
 В кластере может работать один или несколько экземпляров службы определенного типа. Например, в экземплярах служб с отслеживанием состояния или в репликах достигается высокий уровень доступности за счет репликации состояния между репликами, размещенными на разных узлах кластера. Репликация обеспечивает избыточность, необходимую для обеспечения доступности службы, даже когда на одном из узлов кластера происходит сбой. При использовании [разделенной службы](service-fabric-concepts-partitioning.md) выполняется дальнейшее разделение ее состояния (а также алгоритмов доступа к этому состоянию) на всех узлах кластера.
 
@@ -49,150 +47,16 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="describe-a-service"></a>Описание службы
-Манифест службы декларативно определяет тип и версию службы. Он задает метаданные службы, такие как тип службы, свойства работоспособности, метрики балансировки нагрузки, двоичные файлы службы и файлы конфигурации.  Другими словами, в нем описывается код, конфигурация и пакеты данных, из которых состоит пакет службы, для поддержки одного или нескольких типов служб. Ниже приведен простой пример манифеста служб.
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Description>An example service manifest</Description>
-  <ServiceTypes>
-    <StatelessServiceType ServiceTypeName="MyServiceType" />
-  </ServiceTypes>
-  <CodePackage Name="MyCode" Version="CodeVersion1">
-    <SetupEntryPoint>
-      <ExeHost>
-        <Program>MySetup.bat</Program>
-      </ExeHost>
-    </SetupEntryPoint>
-    <EntryPoint>
-      <ExeHost>
-        <Program>MyServiceHost.exe</Program>
-      </ExeHost>
-    </EntryPoint>
-    <EnvironmentVariables>
-      <EnvironmentVariable Name="MyEnvVariable" Value=""/>
-      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
-    </EnvironmentVariables>
-  </CodePackage>
-  <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
-  <DataPackage Name="MyData" Version="DataVersion1" />
-</ServiceManifest>
-```
-
-**Версия** представляют собой неструктурированные строки, которые не обрабатываются системой. Атрибуты версии используются в целях указания версии каждого компонента для последующего обновления.
-
-В атрибуте **ServiceTypes** указывается, какие типы служб поддерживаются пакетами **CodePackages** в этом манифесте. При создании экземпляра службы в соответствии с одним из этих типов службы все пакеты кода, объявленные в этом манифесте, активируются путем запуска соответствующих точек входа. Запущенные вследствие этого процессы должны зарегистрировать поддерживаемые типы служб во время выполнения. Типы служб декларируются на уровне манифеста, а не на уровне пакета кода. Поэтому при наличии нескольких пакетов кода они все активируются при поиске системой любого из задекларированных типов служб.
-
-**SetupEntryPoint** — это привилегированная точка входа, которая запускается с теми же учетными данными, что и структура службы (обычно это локальная учетная запись *LocalSystem* ), перед тем, как будут запущены любые другие точки входа. Исполняемый файл, указанный в точке входа **EntryPoint** , обычно является узлом службы, запускаемым на длительный срок. Наличие отдельной точки входа настройки позволяет избежать необходимости в выполнении узла службы с расширенными правами в течение длительного срока. Исполняемый файл, указанный в точке входа **EntryPoint**, запускается после успешного выхода из точки **SetupEntryPoint**. Даже если произошло непредвиденное завершение работы процесса или его сбой, возникающий вследствие этого, процесс отслеживается и перезапускается (снова начиная с точки входа **SetupEntryPoint**).  
-
-Типичные сценарии использования **SetupEntryPoint** относятся к ситуации, когда вы запускаете исполняемый файл перед запуском службы или выполняете операцию с повышенными привилегиями. Например:
-
-* Настройка и инициализация переменных среды, необходимых исполняемому файлу службы. Это касается не только исполняемых файлов, написанных с использованием моделей программирования Service Fabric. Например, npm.exe нужны определенные переменные среды, настроенные для развертывания приложения node.js.
-* Настройка контроля доступа посредством установки сертификатов безопасности.
-
-Дополнительные сведения о настройке **SetupEntryPoint** см. в разделе [Настройка политик безопасности для приложения](service-fabric-application-runas-security.md)
-
-**EnvironmentVariables** содержит список переменных среды, которые заданы для этого пакета кода. Переменные среды можно переопределить в `ApplicationManifest.xml`, что позволяет указывать разные значения для различных экземпляров службы. 
-
-Атрибут **DataPackage** объявляет папку с именем, указанным в атрибуте **Name**, содержащим произвольные статические данные, которые должны обрабатываться процессом во время выполнения.
-
-**ConfigPackage** объявляет папку с именем, указанным в атрибуте **Name**, которая содержит файл *Settings.xml*. Файл параметров содержит разделы заданных пользователем параметров пар "ключ — значение", которые считываются процессом во время выполнения. Во время обновления при изменении одного только атрибута **version** для **ConfigPackage** перезапуск процесса не выполняется. Вместо этого при помощи обратного вызова в процесс передается уведомление о том, что параметры конфигурации изменились, поэтому они были перезагружены в динамическом режиме. Ниже приведен пример файла *Settings.xml* .
-
-```xml
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-  <Section Name="MyConfigurationSection">
-    <Parameter Name="MySettingA" Value="Example1" />
-    <Parameter Name="MySettingB" Value="Example2" />
-  </Section>
-</Settings>
-```
-
-> [!NOTE]
-> Манифест служб может содержать множество пакетов кода, конфигураций и данных. Версия каждого из них устанавливается независимо.
-> 
-> 
-
-<!--
-For more information about other features supported by service manifests, refer to the following articles:
-
-*TODO: LoadMetrics, PlacementConstraints, ServicePlacementPolicies
-*TODO: Resources
-*TODO: Health properties
-*TODO: Trace filters
-*TODO: Configuration overrides
--->
-
-## <a name="describe-an-application"></a>Описание приложения
-Манифест приложения декларативно описывает тип приложения и его версию. Он также указывает метаданные композиции службы, такие как стабильные имена, схема секционирования, число экземпляров и коэффициент репликации, политика безопасности и изоляции, ограничения на размещение, переопределения конфигурации и типы входящих в состав служб. Также в нем описываются домены балансировки нагрузки, в которых размещается приложение.
-
-Таким образом, манифест приложения описывает элементы на уровне приложения и ссылается на один или несколько манифестов службы, которые составляют тип приложения. Ниже приведен простой пример манифеста приложения.
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<ApplicationManifest
-      ApplicationTypeName="MyApplicationType"
-      ApplicationTypeVersion="AppManifestVersion1"
-      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Description>An example application manifest</Description>
-  <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="MyServiceManifest" ServiceManifestVersion="SvcManifestVersion1"/>
-    <ConfigOverrides/>
-    <EnvironmentOverrides CodePackageRef="MyCode"/>
-  </ServiceManifestImport>
-  <DefaultServices>
-     <Service Name="MyService">
-         <StatelessService ServiceTypeName="MyServiceType" InstanceCount="1">
-             <SingletonPartition/>
-         </StatelessService>
-     </Service>
-  </DefaultServices>
-</ApplicationManifest>
-```
-
-Точно так же, как и в манифестах служб, атрибуты версии **Version** представляют собой неструктурированные строки, которые не анализируются системой. Атрибуты версии также используются в целях указания версии каждого компонента для последующего обновления.
-
-**ServiceManifestImport** содержит ссылки на манифесты служб, из которых состоит этот тип приложения. Импортированные манифесты служб определяют, какие типы служб допустимы для применения в приложении этого типа. В ServiceManifestImport можно переопределить значения конфигурации в файле Settings.xml и переменные среды в файле ServiceManifest.xml. 
-
-
-**DefaultServices** декларируются экземпляры служб, которые создаются автоматически при создании экземпляра приложения в соответствии с его типом. Службы по умолчанию используются только для удобства и после создания во всех отношениях действуют как и обычные службы. Они обновляются вместе с любыми другими службами в экземпляре приложения, а также могут быть удалены.
-
-> [!NOTE]
-> Манифест приложения может содержать несколько импортированных манифестов служб и служб по умолчанию. Каждый импортированный манифест служб может иметь свою версию.
-> 
-> 
-
-Сведения об использовании разных параметров приложений и служб для отдельных сред см. в статье [Управление параметрами приложения для нескольких сред](service-fabric-manage-multiple-environment-app-configuration.md).
-
-<!--
-For more information about other features supported by application manifests, refer to the following articles:
-
-*TODO: Application parameters
-*TODO: Security, Principals, RunAs, SecurityAccessPolicy
-*TODO: Service Templates
--->
-
-
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создайте пакет приложения](service-fabric-package-apps.md) и подготовьте его к развертыванию.
-
-В статье [Развертывание и удаление приложений с помощью PowerShell][10] вы узнаете, как управлять экземплярами приложений с помощью PowerShell.
-
-В статье [Управление параметрами приложения для нескольких сред][11] описано, как настроить параметры и переменные среды для различных экземпляров приложений.
-
-В статье [Настройка политик безопасности для приложения][12] содержатся данные о работе служб в соответствии с политиками безопасности, ограничивающими доступ.
-
-В статье [Модель размещения Service Fabric][13] рассматривается связь между репликами (или экземплярами) развернутой службы и процессом размещения службы.
+- Дополнительные сведения о [масштабируемость приложения](service-fabric-concepts-scalability.md).
+- Дополнительные сведения о службе [состояние](service-fabric-concepts-state.md), [секционирование](service-fabric-concepts-partitioning.md), и [доступности](service-fabric-availability-services.md).
+- Узнайте, как определение приложений и служб в [службы манифестов приложения и](service-fabric-application-and-service-manifests.md).
+- [Приложения, размещения моделей](service-fabric-hosting-model.md) описания связи между реплик (или экземпляры), развернутая служба и процесс размещения службы.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
 
-<!--Link references--In actual articles, you only need a single period before the slash-->
-[10]: service-fabric-deploy-remove-applications.md
-[11]: service-fabric-manage-multiple-environment-app-configuration.md
-[12]: service-fabric-application-runas-security.md
-[13]: service-fabric-hosting-model.md
+

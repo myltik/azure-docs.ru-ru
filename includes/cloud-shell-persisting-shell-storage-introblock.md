@@ -29,7 +29,7 @@ Azure Cloud Shell использует хранилище файлов Azure, ч
 ![Настройка группы ресурсов](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
 ### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Ограничение создания ресурсов с помощью политик ресурсов Azure
-Учетные записи хранения, создаваемые в Cloud Shell, помечаются тегом `ms-resource-usage:azure-cloud-shell`. Если вы хотите запретить пользователям создавать учетные записи хранения в Cloud Shell, создайте [политику ресурсов Azure на основе тегов](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) для этого конкретного тега.
+Учетные записи хранения, создаваемые в Cloud Shell, помечаются тегом `ms-resource-usage:azure-cloud-shell`. Если вы хотите запретить пользователям создавать учетные записи хранения в Cloud Shell, создайте [политику ресурсов Azure на основе тегов](../articles/azure-policy/json-samples.md) для этого конкретного тега.
 
 ## <a name="supported-storage-regions"></a>Поддерживаемые регионы хранилища
 Связанные учетные записи хранения Azure должны находиться в том же регионе, что и компьютер с Cloud Shell, к которому вы их подключаете.

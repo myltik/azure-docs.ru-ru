@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 5325f3cca00167e6b7b687509ce43435447ad2f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e4f7e4c9e960450f0024cd7ca35bd3808d31ee19
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Руководство. Интеграция Azure Active Directory с Velpic SAML
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Velpic SAML, вам потребуется:
 
@@ -47,10 +47,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Velpic SAML из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-velpic-saml-from-the-gallery"></a>Добавление Velpic SAML из коллекции
 Чтобы настроить интеграцию Velpic SAML с Azure AD, необходимо добавить Velpic SAML из коллекции в список управляемых приложений SaaS.
@@ -63,11 +63,11 @@ ms.lasthandoff: 10/11/2017
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![ПРИЛОЖЕНИЯ][2]
     
 3. Нажмите кнопку **Добавить** в верхней части диалогового окна.
 
-    ![Приложения][3]
+    ![ПРИЛОЖЕНИЯ][3]
 
 4. В поле поиска введите **Velpic SAML**.
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>настройка и проверка единого входа в Azure AD.
 В этом разделе описана настройка и проверка единого входа Azure AD в Velpic SAML с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа Azure AD необходимо знать, какой пользователь в Velpic SAML соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Velpic SAML.
@@ -86,11 +86,11 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы настроить и проверить единый вход Azure AD в Velpic SAML, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа в Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя Velpic SAML](#creating-a-velpic-saml-test-user)** требуется для создания в Velpic SAML пользователя Britta Simon, связанного с соответствующим представлением в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
@@ -110,9 +110,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите значение `https://<sub-domain>.velpicsaml.net`.
+    a. В текстовом поле **URL-адрес для входа** введите значение `https://<sub-domain>.velpicsaml.net`.
 
-    b. В текстовом поле **Идентификатор** вставьте значение параметра **URL-адрес единого входа**.`https://auth.velpic.com/saml/v2/<entity-id>/login`
+    Б. В текстовом поле **Идентификатор** вставьте значение параметра **URL-адрес единого входа**.`https://auth.velpic.com/saml/v2/<entity-id>/login`
     
     > [!NOTE]
     > Обратите внимание, что URL-адрес входа предоставляется командой поддержки Velpic SAML, а значение идентификатора станет доступно только после настройки подключаемого модуля единого входа на стороне Velpic SAML. Скопируйте это значение на странице приложения Velpic SAML и вставьте в это поле.
@@ -149,9 +149,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Подключаемый модуль](./media/active-directory-saas-velpicsaml-tutorial/velpic_5.png)
 
-    а. В текстовом поле **Name** (Имя) введите имя подключаемого модуля SAML.
+    a. В текстовом поле **Name** (Имя) введите имя подключаемого модуля SAML.
 
-    b. В текстовом поле **Issuer URL** (URL-адрес издателя), вставьте **идентификатор сущности SAML**, который вы скопировали в окне **Настройка входа** на портале Azure.
+    Б. В текстовом поле **Issuer URL** (URL-адрес издателя), вставьте **идентификатор сущности SAML**, который вы скопировали в окне **Настройка входа** на портале Azure.
 
     c. В поле **Provider Metadata Config** (Конфигурация поставщика метаданных) загрузите XML-файл метаданных, который вы скачали с портала Azure.
 
@@ -159,7 +159,7 @@ ms.lasthandoff: 10/11/2017
 
     д. Скопируйте значение из текстового поля **Single sign on URL** (URL-адрес единого входа) и вставьте его на портале Azure.
     
-    f. Щелкните **Сохранить**.
+    f. Выберите команду **Сохранить**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на портале управления Azure тестового пользователя с именем Britta Simon.
@@ -184,13 +184,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-velpicsaml-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="creating-a-velpic-saml-test-user"></a>Создание тестового пользователя Velpic SAML
 
@@ -206,9 +206,9 @@ ms.lasthandoff: 10/11/2017
 
     ![user](./media/active-directory-saas-velpicsaml-tutorial/velpic_8.png)
     
-    а. В текстовое поле **First Name** (Имя) введите имя пользователя Britta Simon.
+    a. В текстовое поле **First Name** (Имя) введите имя пользователя Britta Simon.
 
-    b. В текстовое поле **Last Name** (Фамилия) введите фамилию пользователя Britta Simon.
+    Б. В текстовое поле **Last Name** (Фамилия) введите фамилию пользователя Britta Simon.
 
     c. В текстовое поле **User Name** (Имя пользователя) введите имя пользователя для пользователя Britta Simon.
 

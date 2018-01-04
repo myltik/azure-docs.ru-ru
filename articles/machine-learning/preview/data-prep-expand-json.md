@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 57f461f9a39e8069654985d86bfe3ae23dd0855a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 614f4422aa987fc32dcce62826bb2477473fdc32
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="expand-json-transformation"></a>Преобразование Expand JSON (Развертывание текста JSON)
 Преобразование **Expand JSON** (Развертывание текста JSON) позволяет развернуть имеющий столбец, содержащий допустимый текст JSON в нескольких столбцах.
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 Чтобы выполнить это преобразование, выполните инструкции ниже.
 1. Выберите исходный столбец, содержащий текст JSON.
 2. В меню **Transforms** (Преобразования) выберите **Expand JSON** (Развертывание текста JSON). Или щелкните правой кнопкой мыши заголовок исходного столбца и в контекстном меню выберите **Expand JSON** (Развертывание текста JSON). 
-3. Нажмите кнопку **ОК**. 
+3. Последовательно выберите **ОК**. 
  
 Рядом с исходным столбцом добавляются новые столбцы. Они содержат свойства следующего уровня иерархии в тексте JSON. Ключ свойств (если имеется) создает имя соответствующего столбца. Вложенные свойства сохраняются как текст JSON, который пользователь при необходимости может последовательно развернуть или отменить.
 

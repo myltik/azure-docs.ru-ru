@@ -4,7 +4,7 @@ description: "Часто задаваемые вопросы о доменных
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory-ds
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
-ms.translationtype: HT
+ms.openlocfilehash: cfab51f985dd0b9db109f1ca8e4030bc9d0de1cc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Доменные службы Azure Active Directory: часто задаваемые вопросы
 На этой странице вы найдете ответы на часто задаваемые вопросы о доменных службах Azure Active Directory. Следите за обновлениями.
 
 ### <a name="troubleshooting-guide"></a>Руководство по устранению неполадок
-Обратитесь к нашему [Руководству по устранению неполадок](active-directory-ds-troubleshooting.md) для решения распространенных проблем при настройке или администрировании доменных служб Azure AD.
+Ссылаться на [руководство по устранению неполадок](active-directory-ds-troubleshooting.md) для решения распространенных проблем, возникающих при администрировании доменные службы Azure AD и настройке.
 
-### <a name="configuration"></a>Конфигурация
+### <a name="configuration"></a>Параметр Configuration
 #### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Можно ли создать несколько управляемых доменов для одного каталога Azure AD?
 Нет. Для одного каталога Azure AD можно создать только один управляемый домен, поддерживаемый доменными службами Azure AD.  
 
@@ -34,10 +34,10 @@ ms.lasthandoff: 10/19/2017
 Да. Доменные службы Azure AD можно включить в виртуальной сети Azure Resource Manager. Сейчас эта функциональность доступна в режиме предварительной версии.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Можно ли перенести мой существующий управляемый домен из классической виртуальной сети в виртуальную сеть Azure Resource Manager?
-В настоящее время нет. В будущем мы предоставим механизм переноса существующего управляемого домена из классической виртуальной сети в виртуальную сеть Azure Resource Manager.
+В настоящее время нет. Корпорация Майкрософт обеспечивает механизм для миграции существующего управляемого домена из классической виртуальной сети в диспетчер ресурсов виртуальной сети в будущем.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Можно ли включить доменные службы Azure AD в подписку Azure CSP (поставщик облачных решений)?
-Нет. Мы работаем над поддержкой этой функции в подписках CSP.
+Нет. Добавление поддержки для подписок CSP работает команда продукта.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Можно ли включить доменные службы Azure AD в федеративном каталоге Azure AD? Я использую AD FS при проверке подлинности пользователей для доступа к Office 365 и не выполняю синхронизацию хэшей паролей в Azure AD. Можно включить доменные службы Azure AD для этого каталога?
 Нет. Доменным службам Azure AD необходим доступ к хэшам паролей учетных записей пользователей для аутентификации пользователей с помощью NTLM или Kerberos. При использовании федеративного каталога хэши паролей не хранятся в каталоге Azure AD. Поэтому доменные службы Azure AD не работает с такими каталогами Azure AD.
@@ -46,13 +46,13 @@ ms.lasthandoff: 10/19/2017
 Сама служба напрямую не поддерживает этот сценарий. В определенный момент времени управляемый домен доступен только в одной виртуальной сети. Однако можно настроить подключение между несколькими виртуальными сетями, чтобы предоставить доступ к доменным службам Azure AD другим виртуальным сетям. См. дополнительные сведения о [подключении виртуальных сетей в Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Можно ли включить доменные службы Azure AD с помощью PowerShell?
-Автоматическое развертывание доменных служб AD Azure или развертывание с помощью PowerShell в настоящее время недоступны.
+Да. В разделе [о том, как включить домен Azure AD служб с помощью PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Доступны ли доменные службы Azure AD на новом портале Azure?
 Да. Доменные службы Azure AD можно настроить на [портале Azure](https://portal.azure.com). [Классический портал Azure](https://manage.windowsazure.com) больше не поддерживается.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Можно ли включить доменные службы Azure AD с помощью шаблона Resource Manager?
-Нет. Некоторые задачи должны быть выполнены во время включения доменных служб Azure AD. Эти задачи невозможно выполнить с помощью шаблона Resource Manager. Включите доменные службы для своего каталога на новом портале Azure.
+Да. В разделе [о том, как включить домен Azure AD служб с помощью PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Могу ли я добавить контроллеры домена в управляемый домен доменных служб Azure AD?
 Нет. Домен, предоставленный доменными службами Azure AD — это управляемый домен. Вам не нужно подготавливать, настраивать или иным образом обрабатывать контроллеры домена для этого домена. Корпорация Майкрософт предоставляет эти операции управления как услугу. Поэтому вы не можете добавить дополнительные контроллеры домена (ни контроллеры чтения и записи, ни контроллеры только для чтения) для управляемого домена.

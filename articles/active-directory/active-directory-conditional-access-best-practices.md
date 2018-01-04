@@ -5,7 +5,7 @@ services: active-directory
 keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 74b97ac263dcc45f7a8dd7461cbdb23d9fd5e6fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Рекомендации по работе с условным доступом в Azure Active Directory
 
@@ -100,86 +100,18 @@ Azure Active Directory применяет обе политики, и польз
 
 ## <a name="policy-migration"></a>Перенос политики
 
-Если на классическом портале Azure настроены политики, их необходимо перенести на портал Azure, так как:
+Рекомендуется использовать перенос политики, так как вы не создали на портале Azure.
+
+- Теперь можно исправить, сценарии, которые не удалось обработать до.
+
+- Можно уменьшить количество политик, которыми необходимо управлять, объединяя их.   
+
+- Можно управлять в одном централизованном месте все политики условного доступа.
+
+- Классический портал Azure будет прекращено.   
 
 
-- для пользователя с политикой классического портала и портала Azure требуется выполнение требований в обеих политиках; 
-
-- если имеющиеся политики не перенести, реализовать политики, предоставляющие доступ, будет невозможно.
-
-
-### <a name="migration-from-the-azure-classic-portal"></a>Перенос из классического портала Azure
-
-В этом сценарии: 
-
-- На [классическом портале Azure](https://manage.windowsazure.com) настроены:
-
-    - SharePoint Online
-
-    ![Условный доступ](./media/active-directory-conditional-access-best-practices/14.png)
-
-    - политика условного доступа на основе устройств.
-
-    ![Условный доступ](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Необходимо настроить политику условного доступа с управлением мобильными приложениями на портале Azure. 
- 
-
-#### <a name="configuration"></a>Конфигурация 
-
-- Просмотрите политики условного доступа на основе устройств.
-
-- Перенесите их на портал Azure. 
-
-- Добавьте политики условного доступа с управлением мобильными приложениями.
-
-
-### <a name="migrating-from-intune"></a>Перенос с Intune 
-
-В этом сценарии:
-
-- В [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ) настроена политика условного доступа с управлением мобильными приложениями для Exchange Online или SharePoint Online.
-
-    ![Условный доступ](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Чтобы использовать условный доступ с управлением мобильными приложениями на портале Azure, необходимо выполнить перенос.
-
-
-#### <a name="configuration"></a>Конфигурация 
- 
-- Просмотрите политики условного доступа на основе устройств.
-
-- Перенесите их на портал Azure. 
-
-- Просмотрите политики условного доступа с управлением мобильными приложениями, настроенные для Exchange Online или SharePoint Online, в Intune.
-
-- Добавьте элемент управления **Require approved applications** (Требовать утвержденные приложения) в дополнение к элементу управления на основе устройств. 
- 
-
-### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Перенос из классического портала Azure в Intune
-
-В этом сценарии:
-
-- Настроено следующее:
-
-    - **классический портал Azure** — условный доступ на основе устройств; 
-
-    - **Intune** — политики условного доступа с управлением мобильными приложениями. 
-    
-- Чтобы использовать политики условного доступа с управлением мобильными приложениями на портале Azure, необходимо выполнить перенос обеих политик.
-
-
-#### <a name="configuration"></a>Конфигурация
-
-- Просмотрите политики условного доступа на основе устройств.
-
-- Перенесите их на портал Azure. 
-
-- Просмотрите политику условного доступа с управлением мобильными приложениями, настроенную для Exchange Online или SharePoint Online, в Intune.
-
-- Добавьте элемент управления **Require approved applications** (Требовать утвержденные приложения) в дополнение к элементу управления на основе устройств. 
-
-
+Дополнительные сведения см. в разделе [миграции политик классического портала Azure](active-directory-conditional-access-migration.md).
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

@@ -4,7 +4,7 @@ description: "Устранение распространенных пробле
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 5638434270ee82d2b9737ea8eed8b5a8c62f7121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 880be5f27ca4198004511e01e63cdb3d72f107d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Проблемы при входе в приложение Майкрософт
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 
 Ниже приведены некоторые распространенные проблемы, с которыми сталкиваются специалисты, когда пользователям не удается войти в приложение Майкрософт.
 
--   Общие проблемы, которые следует проверить в первую очередь
+-   Общие проблемы для первоначальной проверки
 
   * Убедитесь, что пользователь выполняет вход с **правильным URL-адресом**, а не локальным URL-адресом приложения.
 
@@ -195,7 +195,7 @@ ms.lasthandoff: 10/11/2017
 
 6.  Нажмите кнопку **Многофакторная Идентификация** в верхней части колонки.
 
-7.  После загрузки **портала администрирования Многофакторной Идентификации** перейдите на вкладку **Пользователи**.
+7.  После загрузки **портала администрирования Многофакторной идентификации** перейдите на вкладку **Пользователи**.
 
 8.  Найдите пользователя в списке пользователей, выполнив поиск, фильтрацию или сортировку.
 

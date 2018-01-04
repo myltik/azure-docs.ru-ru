@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 68788efffd27edf2813cf455490b651c2c7106a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ce854a3dc41dec69c3f8de245a03d55a2354335f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Мониторинг и диагностика приложения ASP.NET Core в Service Fabric
 Это руководство представляет собой четвертую часть цикла. В нем описывается настройка мониторинга и диагностики приложения ASP.NET Core, запущенного в кластере Service Fabric, с помощью Application Insights. Мы будем собирать данные телеметрии из приложения, разработанного в первой части цикла, [Создание приложения .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 > * [Настройка непрерывной интеграции и непрерывного развертывания с помощью Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * Настройка мониторинга и диагностики приложения
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Перед началом работы с этим руководством выполните следующие действия:
 - Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Установите Visual Studio 2017](https://www.visualstudio.com/), а также рабочие нагрузки **разработка Azure** и **ASP.NET и веб-разработка**.
@@ -225,7 +225,7 @@ public async Task<IActionResult> Delete(string name)
 ![Пользовательские события](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 > [!div class="checklist"]
 > * настройка Application Insights для приложения;
 > * сбора данных телеметрии ответов для трассировки связи по протоколу HTTP между службами;
@@ -235,4 +235,4 @@ public async Task<IActionResult> Delete(string name)
 Теперь, когда вы настроили мониторинг и диагностику приложения ASP.NET, попробуйте выполнить следующее:
 - [Изучение данных мониторинга и диагностики в Service Fabric](service-fabric-diagnostics-overview.md)
 - [Анализ событий Service Fabric с помощью Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-- Чтобы узнать больше об Application Insights, ознакомьтесь с [документацией по Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/).
+- Чтобы узнать больше об Application Insights, ознакомьтесь с [документацией по Application Insights](https://docs.microsoft.com/azure/application-insights/).

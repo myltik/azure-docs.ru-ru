@@ -4,7 +4,7 @@ description: "Узнайте, как настроить автоматическ
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 6dbd50b5-589f-4132-b9eb-a53a318a64e5
 ms.service: active-directory
 ms.workload: identity
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 026eca7fc8f17602ba44ba38db138d645c9d7713
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.openlocfilehash: a77b5b1fff670ed7698d0ef48fa63f8a8f9be819
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Руководство по настройке Google Apps для автоматической подготовки пользователей
 
 Цель этого руководства — показать, как настроить автоматическую подготовку и отзыв учетных записей пользователей из Azure Active Directory (Azure AD) в Google Apps.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Сценарий, описанный в этом руководстве, предполагает, что у вас уже имеется:
 
@@ -71,9 +71,9 @@ ms.lasthandoff: 12/02/2017
       
 4. Если вы еще не добавили имя личного домена в Azure Active Directory, сделайте следующее:
   
-    а. На [портале Azure](https://portal.azure.com) в области навигации слева выберите **Active Directory**. Выберите свой каталог в списке каталогов. 
+    a. На [портале Azure](https://portal.azure.com) в области навигации слева выберите **Active Directory**. Выберите свой каталог в списке каталогов. 
 
-    b. Выберите **Доменное имя** в левой области навигации, а затем — **Добавить**.
+    Б. Выберите **Доменное имя** в левой области навигации, а затем — **Добавить**.
      
      ![Домен](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_1.png)
 
@@ -97,11 +97,11 @@ ms.lasthandoff: 12/02/2017
 
 5. После подтверждения всех доменов в Azure AD необходимо подтвердить их в Google Apps. Для каждого домена, который еще не зарегистрирован в Google Apps, сделайте следующее:
    
-    а. В [консоли администратора Google Apps](http://admin.google.com/) выберите **Domains** (Домены).
+    a. В [консоли администратора Google Apps](http://admin.google.com/) выберите **Domains** (Домены).
      
      ![Выбор доменов][20]
 
-    b. Выберите **Add a domain or a domain alias** (Добавить домен или псевдоним домена).
+    Б. Выберите **Add a domain or a domain alias** (Добавить домен или псевдоним домена).
      
      ![Добавление нового домена][21]
 

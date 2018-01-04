@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Защита файлового сервера с помощью Azure Site Recovery 
 
@@ -66,10 +66,10 @@ ms.lasthandoff: 11/28/2017
 Так как репликация Site Recovery не зависит от приложения, описанные здесь рекомендации подходят для сценариев, представленных ниже.
 | Источник    |На дополнительный сайт    |В Azure
 |---------|---------|---------|
-|Таблицы Azure| -|Да|
-|Hyper-V.|   Да |Да
-|VMware |Да|   Да
-|Физический сервер|   Да |Да
+|Таблицы Azure| -|Yes|
+|Hyper-V.|   Yes |Yes
+|VMware |Yes|   Yes
+|Физический сервер|   Yes |Yes
  
 
 > [!IMPORTANT]
@@ -145,7 +145,7 @@ ms.lasthandoff: 11/28/2017
 
 Указанные ниже действия описывают, как использовать службу синхронизации файлов Azure.
 
-1. [Создайте учетную запись хранения в Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Если вы выбрали геоизбыточное хранилище с доступом для чтения (RA-GRS) (рекомендуется) для учетных записей хранения, то у вас будет доступ только для чтения к своим данным из дополнительного региона в случае сбоя. Дополнительные сведения см. в статье [Что делать в случае простоя службы хранилища Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Создайте учетную запись хранения в Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Если вы выбрали геоизбыточное хранилище с доступом для чтения (RA-GRS) (рекомендуется) для учетных записей хранения, то у вас будет доступ только для чтения к своим данным из дополнительного региона в случае сбоя. Дополнительные сведения см. в статье [Что делать в случае простоя службы хранилища Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 2. [Создайте файловый ресурс](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Разверните службу синхронизации файлов Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) на локальном файловом сервере.
 4. Создайте группу синхронизации: конечные точки в группе синхронизации будут синхронизированы друг с другом. Группа синхронизации должна содержать по крайней мере одну облачную конечную точку, которая представляет общий файловый ресурс Azure, и одну серверную конечную точку, которая представляет собой путь на локальном Windows Server.

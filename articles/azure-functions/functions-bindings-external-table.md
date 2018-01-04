@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 1d983a6924a939a8eb89355fab0c90596dbf2ed3
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Привязка внешних таблиц в Функциях Azure (предварительная версия)
 В этой статье показано, как управлять табличными данными для поставщиков SaaS (например, Sharepoint, Dynamics) внутри функции со встроенными привязками. Функции Azure поддерживают входные и выходные привязки для внешних таблиц.
@@ -139,7 +139,7 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
     ContinuationToken continuationToken = null;
     do
     {   
-        //retreive table values
+        //retrieve table values
         var contactsSegment = await table.ListEntitiesAsync(
             continuationToken: continuationToken);
 
@@ -170,7 +170,7 @@ module.exports = function(context) {
 <a name="datasourcesettings"></a>
 ## Параметры источника данных
 
-### <a name="sql-server"></a>SQL Server
+### <a name="sql-server"></a>SQL Server;
 
 Скрипт для создания и заполнения таблицы Contact приведен ниже. Имя dataSetName — default.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Начало работы со средством моделирования угроз
 
@@ -29,13 +29,13 @@ ms.lasthandoff: 10/11/2017
 
 Короче говоря, подход подразумевает создание схемы, выявление угроз, их устранение и проверку каждого устранения угроз. Ниже приведена диаграмма, на которой показан этот процесс.
 
-![Процесс SDL](./media/azure-security-threat-modeling-tool/sdlapproach.png)
+![Процесс SDL](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
 ## <a name="starting-the-threat-modeling-process"></a>Запуск процесса моделирования угроз
 
 При запуске средства моделирования угроз вы увидите несколько вещей, как показано на рисунке:
 
-![Пустая начальная страница](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Пустая начальная страница](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### <a name="threat-model-section"></a>Раздел Threat model (Модель рисков)
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 > Кристина: "Конечно. Давай посмотрим".
 > Рикардо открывает средство и предоставляет общий доступ к нему Кристине.
 
-![Базовая модель рисков](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Базовая модель рисков](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Кристина: "Хорошо, все выглядит просто, но можешь помочь мне разобраться?
 > Рикардо: "Конечно! Вот какая здесь структура:
@@ -89,17 +89,17 @@ ms.lasthandoff: 10/11/2017
 
 Этот подход имеет сходство с охраной дома, при которой на окна и двери устанавливается механизм блокировки перед добавлением сигнализации или преследованием вора.
 
-![Основные угрозы](./media/azure-security-threat-modeling-tool/basicthreats.png)
+![Основные угрозы](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
 Рикардо начинает с выбора первого элемента в списке. Происходит следующее:
 
 Во-первых, улучшается взаимодействие между двумя наборами элементов.
 
-![Взаимодействие](./media/azure-security-threat-modeling-tool/interaction.png)
+![Взаимодействие](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
 Во-вторых, в окне свойств угроз появляются дополнительные сведения об угрозах.
 
-![Сведения о взаимодействии](./media/azure-security-threat-modeling-tool/interactioninfo.png)
+![Сведения о взаимодействии](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
 Созданная угроза помогает ему понять потенциальные изъяны проектирования. Классификация STRIDE дает ему представление о потенциальных векторах атаки, тогда как в дополнительном описании содержатся сведения о том, что именно идет не так, и возможные способы решения проблемы. Он может использовать изменяемые поля для записи примечаний в сведениях об обосновании или изменения порядка приоритета в зависимости от шкалы ошибок его организации.
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 10/11/2017
 
 Как только Рикардо проходит по списку с Кристиной и добавляет важные примечания, исправления и обоснования, изменения приоритета и состояния, он выбирает "Отчеты" -> Create Full Report (Создать полный отчет) -> "Сохранить отчет", чтобы распечатать отчет для себя и коллег и убедиться в реализации надлежащей защиты.
 
-![Сведения о взаимодействии](./media/azure-security-threat-modeling-tool/report.png)
+![Сведения о взаимодействии](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 Если вместо этого Рикардо хочет предоставить общий доступ к файлам, он сохраняет их в учетной записи OneDrive своей организации. После этого он может скопировать ссылку на документ и поделиться ею с коллегами. 
 
@@ -140,6 +140,6 @@ ms.lasthandoff: 10/11/2017
 
 Продемонстрированный в этой статье подход к моделированию угроз существенно проще, чем подход, который корпорация Майкрософт использовала в прошлом. Мы обнаружили, что подход к разработке программного обеспечения хорошо подходит для многих команд разработчиков. Мы надеемся, что это относится и к вам.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Отправляйте свои вопросы, комментарии и проблемы по адресу tmtextsupport@microsoft.com. **[Скачайте](https://aka.ms/tmtpreview)** средство моделирования угроз, чтобы начать работу.

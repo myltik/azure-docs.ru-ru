@@ -4,21 +4,21 @@ description: "В этом разделе представлен подробны
 services: active-directory
 keywords: "защита идентификации azure active directory, безопасность, риск, уровень риска, уязвимость, политика безопасности"
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>События риска Azure Active Directory
 
@@ -31,9 +31,13 @@ ms.lasthandoff: 12/06/2017
 - [Невозможно переместиться в нетипичные расположения](#impossible-travel-to-atypical-locations) 
 - [Входы в систему с зараженных устройств](#sign-ins-from-infected-devices) 
 - [Входы с IP-адресов с подозрительными действиями](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Входы из незнакомых расположений](#sign-in-from-unfamiliar-locations) (только для выпусков **Azure Active Directory Premium P2**)
+- [Входы в систему из необычного расположения](#sign-in-from-unfamiliar-locations) 
+
 
 ![События риска](./media/active-directory-reporting-risk-events/91.png)
+
+Подробные сведения для события риска для обнаруженных привязывается к подписке Azure AD. Если выпуск Azure AD Premium P1 (включен в предложение EMS E3), обнаружения, не охватываемые лицензию помечаются как **войти, используя дополнительный риск обнаружил**. Другими словами отображается события риска вход с дополнительный риск для обнаружения только для подписчиков Azure AD Identity Protection.
+
 
 В этой статье содержится подробный обзор событий риска и способов их использования для защиты идентификации Azure AD.
 
@@ -137,7 +141,7 @@ ms.lasthandoff: 12/06/2017
 Невозможность перемещения — достаточно достоверный показатель того, что в учетную запись выполнил вход злоумышленник. Однако могут возникать и ложные срабатывания, если пользователь во время поездки использовал новое устройство или сеть VPN, которой обычно не пользуются другие пользователи в организации. Другой источник ложных срабатываний — приложения, которые неправильно передают IP-адрес сервера в качестве клиентского IP-адреса, тогда вход может расцениваться как вход из центра обработки данных, где размещен сервер приложения (такие ситуации часто возникают с приложениями в центрах обработки данных Майкрософт, когда при входе адрес распознается как IP-адрес, принадлежащий корпорации Майкрософт). Из-за ложных срабатываний такие события риска относятся к уровню серьезности **Средний**.
 
 > [!TIP]
-> Чтобы уменьшить сообщаемое количество ложных срабатываний для этого типа событий риска, можно настроить [именованные расположения](active-directory-named-locations.md). 
+> Можно уменьшить объем обнаруженную ложных срабатываний для этого типа событий риска, настроив [расположения с именем](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Попытки входа из неизвестных расположений
 

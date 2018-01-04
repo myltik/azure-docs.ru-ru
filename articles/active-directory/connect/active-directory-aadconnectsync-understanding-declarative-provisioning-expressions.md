@@ -4,7 +4,7 @@ description: "Описание выражений декларативной п�
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e3a03a97b10e04fb85261620879b2102e1db8465
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 83fe949468a67318c766f0070498c35300af4deb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Служба синхронизации Azure AD Connect: общие сведения о выражениях декларативной подготовки
 Служба синхронизации Azure AD Connect основана на принципах декларативной подготовки, впервые представленной в Forefront Identity Manager 2010. Эта функция позволяет реализовать бизнес-логику интеграции идентификации без необходимости написания компилируемого кода.
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="multi-valued-attributes"></a>Многозначные атрибуты
 Функции могут работать с однозначными и многозначными атрибутами. Для многозначных атрибутов функция работает с каждым отдельным значением и применяет одну и ту же функцию к каждому отдельному значению.
 
-Например,   
+Например:   
 `Trim([proxyAddresses])` выполняет обрезку (Trim) для каждого значения атрибута proxyAddress.  
 `Word([proxyAddresses],1,"@") & "@contoso.com"` Для каждого значения со знаком @-sign замените домен @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Найдите SIP-адрес и удалите его из значений.

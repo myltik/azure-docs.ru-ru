@@ -3,7 +3,7 @@ title: "Ресурсы-контейнеры подключений в служб
 description: "Ресурсы-контейнеры подключений в службе автоматизации Azure содержат данные, необходимые для подключения к внешней службе или приложению из модуля Runbook либо конфигурации DSC. В статье подробно рассматриваются подключения и работа с ними как в текстовых, так и в графических модулях."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: f1746f4f6706835d43edc171b03d4ececfa3560c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ресурсы подключений в службе автоматизации Azure
 
@@ -27,13 +27,13 @@ ms.lasthandoff: 10/11/2017
 При создании подключения необходимо указать его *тип*. Тип подключения — это шаблон, определяющий набор его свойств. Подключение определяет значения для каждого свойства, определенного в его типе. Типы подключения в службе автоматизации Azure добавляются в модули интеграции или создаются с помощью [API службы автоматизации](http://msdn.microsoft.com/library/azure/mt163818.aspx), если модуль интеграции содержит тип подключения и импортируется в учетную запись службы автоматизации. В противном случае следует создать файл метаданных и указать в нем тип подключения для службы автоматизации.  Дополнительные сведения по этому вопросу см. в статье о [модулях интеграции](automation-integration-modules.md).  
 
 >[!NOTE] 
->Безопасные средства в службе автоматизации Azure включают учетные данные, сертификаты, подключения и зашифрованные переменные. Эти ресурсы шифруются и хранятся в службе автоматизации Azure с помощью уникального ключа, который создается для каждой учетной записи службы автоматизации. Ключ шифруется главным сертификатом и хранится в службе автоматизации Azure. Перед сохранением защищенного ресурса ключ учетной записи службы автоматизации дешифруется с помощью главного сертификата и используется для шифрования ресурса.
+>Безопасные средства в службе автоматизации Azure включают учетные данные, сертификаты, подключения и зашифрованные переменные. Эти ресурсы шифруются и хранятся в службе автоматизации Azure с помощью уникального ключа, который создается для каждой учетной записи службы автоматизации. Ключ шифруется главным сертификатом и хранится в службе автоматизации Azure. Прежде чем сохранять безопасное средство, ключ учетной записи в службе автоматизации дешифруется с помощью главного сертификата и используется для шифрования средства.
 
 ## <a name="windows-powershell-cmdlets"></a>Командлеты Windows PowerShell
 
 Командлеты, представленные в следующей таблице, используются для создания подключений и управления ими с помощью Windows PowerShell в службе автоматизации Azure. Они входят в состав [модуля Azure PowerShell](/powershell/azure/overview) , доступного в модулях Runbook и конфигурациях DSC службы автоматизации.
 
-|Командлет|Описание|
+|Командлет|ОПИСАНИЕ|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Извлекает подключение. Содержит хэш-таблицу со значениями полей подключения.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Создает новое подключение.|
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 Действия в следующей таблице используются для доступа к подключениям в модуле Runbook или конфигурации DSC.
 
-|Действия|Описание|
+|Действия|ОПИСАНИЕ|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Получает подключение для использования. Возвращает хэш-таблицу со свойствами подключения.|
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="python2-functions"></a>Функции Python2 
 Функция, приведенная в следующей таблице, используется для доступа к подключениям в модуле Runbook Python2. 
 
-| Функция | Описание | 
+| Функция | ОПИСАНИЕ | 
 |:---|:---| 
 | automationassets.get_automation_connection | Извлекает подключение. Возвращает словарь со свойствами подключения. | 
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/11/2017
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Использование подключения в модуле Runbook или конфигурации DSC
 
-Для получения подключения в модуле Runbook или конфигурации DSC используется командлет **Get-AutomationConnection** .  Вы не можете использовать действие [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn).  Это действие получает значения различных полей в подключении и возвращает их в виде [хэш-таблицы](http://go.microsoft.com/fwlink/?LinkID=324844) , которую затем можно использовать с помощью соответствующих команд в модуле Runbook или конфигурации DSC.
+Для получения подключения в модуле Runbook или конфигурации DSC используется командлет **Get-AutomationConnection** .  Вы не можете использовать действие [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn).  Это действие получает значения различных полей в подключении и возвращает их в виде [хэш-таблицы](http://go.microsoft.com/fwlink/?LinkID=324844), которую затем можно использовать с помощью соответствующих команд в модуле Runbook или конфигурации DSC.
 
 ### <a name="textual-runbook-sample"></a>Пример текстового Runbook
 

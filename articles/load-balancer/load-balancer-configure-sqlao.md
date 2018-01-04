@@ -1,6 +1,6 @@
 ---
-title: "Настройка балансировщика нагрузки для SQL AlwaysOn | Документация Майкрософт"
-description: "Информация о настройке подсистемы балансировки нагрузки для работы с AlwaysOn SQL и использовании Powershell для создания подсистемы балансировки нагрузки для реализации SQL"
+title: "Настройка балансировки нагрузки для SQL Server AlwaysOn | Документы Microsoft"
+description: "Настройка балансировки нагрузки для работы с SQL Server Always On и узнайте, как использовать PowerShell для создания балансировки нагрузки для реализации SQL Server"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,40 +13,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3ebbf1c4009d89b1f18b2ff8ff5dd243c456dff8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5e890f8314c8f191dbfa6c6818d810b91d0e829d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="configure-load-balancer-for-sql-always-on"></a>Настройка подсистемы балансировки нагрузки для AlwaysOn SQL
+# <a name="configure-a-load-balancer-for-sql-server-always-on"></a>Настройка балансировки нагрузки для SQL Server AlwaysOn
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Группы доступности AlwaysOn SQL Server теперь можно использовать совместно с внутренней подсистемой балансировки нагрузки. Группа доступности — это флагманское решение SQL Server, обеспечивающее высокий уровень доступности и аварийное восстановление. Прослушиватель групп доступности позволяет клиентским приложениям с легкостью подключаться к первичной реплике, независимо от числа реплик в конфигурации.
+Группы обеспечения доступности AlwaysOn в SQL Server теперь может работать с внутренней подсистемы балансировки нагрузки. Группа доступности — решение основной SQL Server для высокого уровня доступности и аварийного восстановления. Прослушиватель группы доступности позволяет клиентским приложениям без проблем подключаться к первичной реплике, независимо от числа реплик в конфигурации.
 
-Имя прослушивателя (DNS) сопоставляется с IP-адресом с балансировкой нагрузки, и балансировщик нагрузки Azure направляет входящий трафик только на сервер-источник в наборе реплик.
+Имя прослушивателя (DNS) сопоставляется с балансировкой нагрузки IP-адресом. Подсистема балансировки нагрузки Azure направляет входящий трафик только на основной сервер в наборе реплик.
 
-Поддержку внутренней подсистемы балансировки нагрузки можно использовать для конечных точек (прослушивателя) AlwaysOn SQL Server. Теперь вы можете контролировать доступность прослушивателя и выбирать IP-адрес с балансировкой нагрузки конкретной подсети в вашей виртуальной сети (VNet).
+Поддержка балансировщик внутренней нагрузки можно использовать для конечных точек SQL Server Always On (прослушиватель). Теперь вы можете контролировать доступность прослушивателя. IP-адрес с балансировкой нагрузки можно выбрать из определенной подсети в виртуальной сети.
 
-При использовании внутренней подсистемы балансировки нагрузки для прослушивателя к конечной точке сервера SQL Server (например, Server=tcp:ListenerName,1433;Database=DatabaseName) могут получать доступ только:
+С помощью внутреннего загрузить балансировки прослушивание конечной точки SQL Server (например, Server = tcp:ListenerName, 1433, базы данных = имя базы данных), доступен только для:
 
-* Службы и виртуальные машины в одной виртуальной сети
-* Службы и виртуальные машины из подключенной локальной сети
-* Службы и виртуальные машины из взаимосвязанных виртуальных сетей
+* Службы и виртуальные машины в той же виртуальной сети.
+* Службы и виртуальных машин из подключенных локальным сетям.
+* Службы и виртуальных машин из взаимосвязанных виртуальных сетей.
 
-![ILB_SQLAO_NewPic](./media/load-balancer-configure-sqlao/sqlao1.png)
+![Внутренняя Подсистема балансировки нагрузки SQL Server Always On](./media/load-balancer-configure-sqlao/sqlao1.png)
 
-Рис. 1. Группа SQL AlwaysOn, в которой настроена подсистема балансировки нагрузки с выходом в Интернет
+## <a name="add-an-internal-load-balancer-to-the-service"></a>Добавления внутренней подсистемы балансировки нагрузки для службы
 
-## <a name="add-internal-load-balancer-to-the-service"></a>Добавление внутренней подсистемы балансировки нагрузки в службу
-
-1. В следующем примере мы настроим виртуальную сеть, содержащую подсеть с именем Subnet-1.
+1. В следующем примере настройки виртуальной сети, которая содержит подсеть с именем «подсеть-1":
 
     ```powershell
     Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
     ```
-2. Добавление конечных точек с балансировкой нагрузки для внутренней подсистемы балансировки нагрузки на каждой виртуальной машине
+2. Добавление конечных точек с балансировкой нагрузки для внутренней подсистемы балансировки нагрузки на каждой виртуальной Машине.
 
     ```powershell
     Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -
@@ -55,15 +53,12 @@ ms.lasthandoff: 10/11/2017
     Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
     ```
 
-    В приведенном выше примере две виртуальные машины с именами sqlsvc1 и sqlsvc2 работают в облачной службе Sqlsvc. Создав внутренний балансировщик нагрузки с параметром `DirectServerReturn`, вы добавите в него конечные точки с балансировкой нагрузки, чтобы разрешить SQL настраивать прослушиватели для групп доступности.
+    В предыдущем примере имеется две виртуальные машины называется «sqlsvc1» и «sqlsvc2», работающих в облачной службе «Sqlsvc». После создания внутренний балансировщик нагрузки с `DirectServerReturn` переключения, добавьте конечные точки с балансировкой нагрузки для внутренней подсистемы балансировки нагрузки. Конечные точки с балансировкой нагрузки позволяют SQL Server для настройки прослушивателей группы доступности.
 
-Подробные указания см. в статье [Настройка внутреннего балансировщика нагрузки для группы доступности AlwaysOn в Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+Дополнительные сведения о SQL Server Always On см. в разделе [настроить внутренний балансировщик нагрузки для группы доступности Always On в Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 ## <a name="see-also"></a>См. также
-[Приступая к настройке подсистемы балансировки нагрузки, доступной в Интернете](load-balancer-get-started-internet-arm-ps.md)
-
-[Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
-
-[Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
-
-[Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
+* [Перед началом настройки внешняя Подсистема балансировки нагрузки](load-balancer-get-started-internet-arm-ps.md)
+* [Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
+* [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
+* [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)

@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: d2cafba2-3b4a-4471-ba34-80f6a96ff2b9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: e1262e276a87bc9a4b6d43de2bf6b3f7d8882213
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: 9df3932fe7e68fff422dc4eca370ac1354fb2db0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Руководство. Интеграция Azure Active Directory с OnTrack
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/27/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с OnTrack, вам потребуется следующее:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/27/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление OnTrack из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-ontrack-from-the-gallery"></a>Добавление OnTrack из коллекции
 Чтобы настроить интеграцию OnTrack с Azure AD, необходимо добавить OnTrack из коллекции в список управляемых приложений SaaS.
@@ -108,13 +108,13 @@ ms.lasthandoff: 10/27/2017
 
     ![Сведения о домене и URL-адресах единого входа приложения OnTrack](./media/active-directory-saas-ontrack-tutorial/tutorial_ontrack_url.png)
 
-    а. В текстовое поле **Идентификатор**:
+    a. В текстовое поле **Идентификатор**:
     
     Для тестовой среды введите URL-адрес: `https://staging.insigniagroup.com/sso`
 
     Для рабочей среды введите URL-адрес: `https://oeaccessories.com/sso`
 
-    b. В текстовое поле **URL-адрес ответа**:
+    Б. В текстовое поле **URL-адрес ответа**:
     
     Для тестовой среды введите URL-адрес: `https://indie.staging.insigniagroup.com/sso/autonation.aspx`
 
@@ -138,17 +138,17 @@ ms.lasthandoff: 10/27/2017
     > [!NOTE]
     > Атрибуты **User-Role** и **Hyperion-Code** сопоставляются с ролью пользователя Autonation и кодом продавца соответственно. Эти значения приводятся в качестве примера, используйте правильный код для своей интеграции. Чтобы получить эти значения, обратитесь в [службу поддержки Autonation](mailto:CustomerService@insigniagroup.com).
     
-    а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+    a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 
     ![Настройка единого входа](./media/active-directory-saas-ontrack-tutorial/tutorial_attribute_04.png)   
 
     ![Настройка единого входа](./media/active-directory-saas-ontrack-tutorial/tutorial_attribute_05.png)
 
-    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+    Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
 
     c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
     
-    г) Нажмите кнопку **ОК**.
+    d. Нажмите кнопку **ОК**.
 
 7. Нажмите кнопку **Сохранить** .
 
@@ -184,13 +184,13 @@ ms.lasthandoff: 10/27/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-ontrack-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-an-ontrack-test-user"></a>Создание тестового пользователя OnTrack
 

@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход д
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: fc947df1-f24e-43ae-9a34-518293583d69
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 853a0acd2c596f2dd26f1132d4ecff56cef5aa2e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 52c741c66a796e53698a690c415cc60c814f74e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Руководство по интеграции Azure Active Directory с SAML SSO for Bitbucket by resolution GmbH
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/06/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для настройки интеграции Azure AD с SAML SSO for Bitbucket by resolution GmbH требуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 12/06/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление SAML SSO for Bitbucket by resolution GmbH из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-saml-sso-for-bitbucket-by-resolution-gmbh-from-the-gallery"></a>Добавление SAML SSO for Bitbucket by resolution GmbH из коллекции
 Чтобы настроить интеграцию SAML SSO for Bitbucket by resolution GmbH в Azure AD, необходимо добавить SAML SSO for Bitbucket by resolution GmbH из коллекции в список управляемых приложений SaaS.
@@ -108,9 +108,9 @@ ms.lasthandoff: 12/06/2017
 
     ![Информация о едином входе доменов и URL-адресов приложения SAML SSO for Bitbucket by resolution GmbH](./media/active-directory-saas-bitbucket-tutorial/tutorial_bitbucket_url.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<server-base-url>/plugins/servlet/samlsso`
+    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<server-base-url>/plugins/servlet/samlsso`.
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<server-base-url>/plugins/servlet/samlsso`.
 
 4. Установите флажок **Показать дополнительные параметры URL-адресов**, и выполните следующее действие, если хотите настроить приложение для работы в режиме, инициируемом **поставщиком услуг**:
 
@@ -145,13 +145,13 @@ ms.lasthandoff: 12/06/2017
 
     ![Поставщик удостоверений](./media/active-directory-saas-bitbucket-tutorial/tutorial_bitbucket_identityprovider.png)
 
-    а. Выберите **Azure AD** в качестве **типа поставщика удостоверений**.
+    a. Выберите **Azure AD** в качестве **типа поставщика удостоверений**.
 
-    b. В текстовом поле **Имя** введите имя.
+    Б. В текстовом поле **Имя** введите имя.
 
     c. В текстовом поле **Описание** введите описание.
 
-    d. Щелкните **Далее**.
+    d. Нажмите кнопку **Далее**.
 
 12. На странице **Identity provider configuration page** (Настройка поставщика удостоверений) нажмите кнопку **Далее**.
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 12/06/2017
 
     ![idpmetadata](./media/active-directory-saas-bitbucket-tutorial/tutorial_bitbucket_idpmetadata.png)
     
-14. Щелкните **Далее**.
+14. Нажмите кнопку **Далее**.
 
 15. Нажмите кнопку **Сохранить параметры**.
 
@@ -194,13 +194,13 @@ ms.lasthandoff: 12/06/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-bitbucket-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-saml-sso-for-bitbucket-by-resolution-gmbh-test-user"></a>Создание тестового пользователя в SAML SSO for Bitbucket by resolution GmbH
 

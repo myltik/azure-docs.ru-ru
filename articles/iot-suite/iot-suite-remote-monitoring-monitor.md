@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3dfc5809344af920540a88e097ce399cce653363
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 2e6d965d9177a61f974b319a1bd2155c9132533f
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Расширенный мониторинг с помощью решения для удаленного мониторинга
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 > * Просмотр уведомлений устройств
 > * Просмотр ключевых показателей эффективности системы
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для работы с этим руководством нужен развернутый экземпляр решения для удаленного мониторинга в подписке Azure.
 
@@ -91,9 +91,6 @@ ms.lasthandoff: 11/10/2017
 
 ![Фильтрация оповещений по времени](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
 
-> [!NOTE]
-> Прокрутите окно вправо, чтобы просмотреть область фильтрации по времени.
-
 ## <a name="view-the-system-kpis"></a>Просмотр ключевых показателей эффективности системы
 
 На странице **Панель мониторинга** показаны ключевые показатели эффективности системы:
@@ -112,7 +109,7 @@ ms.lasthandoff: 11/10/2017
 > * просмотр телеметрии в реальном времени;
 > * просмотр сведений об устройстве;
 > * Просмотр уведомлений устройств
-> * просмотр ключевых показателей эффективности системы.
+> * Просмотр ключевых показателей эффективности системы
 
 Теперь, когда вы знаете, как выполнять мониторинг устройств, предлагаем перейти к дальнейшим действиям:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Использование Azure CLI 1.0 со службой хранилища Azure
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="manage-storage-accounts-with-the-azure-cli"></a>Управление учетными записями хранения с помощью интерфейса командной строки Azure
 ### <a name="connect-to-your-azure-subscription"></a>Подключение к подписке Azure
-Хотя большинство команд хранилища могут работать без подписки Azure, рекомендуем вам подключить свою подписку через интерфейс командной строки Azure (Azure CLI). Чтобы настроить Azure CLI для работы с подпиской, следуйте инструкциям в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../../xplat-cli-connect.md).
+Хотя большинство команд хранилища могут работать без подписки Azure, рекомендуем вам подключить свою подписку через интерфейс командной строки Azure (Azure CLI). Чтобы настроить Azure CLI для работы с подпиской, следуйте инструкциям в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](/cli/azure/authenticate-azure-cli).
 
 ### <a name="create-a-new-storage-account"></a>Создание новой учетной записи хранения
 Для использования службы хранилища Azure потребуется учетная запись хранения. После настройки компьютера для подключения к подписке можно создать новую учетную запись хранения Azure.
@@ -233,7 +233,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
     --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Справочник по командам Azure CLI 1.0 для работы с ресурсами службы хранилища можно найти здесь:
 

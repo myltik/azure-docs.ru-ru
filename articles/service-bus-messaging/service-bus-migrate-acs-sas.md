@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Переход от службы контроля доступа Azure Active Directory к авторизации подписанного URL-адреса
 
-В приложениях служебной шины исторически доступно две различные модели авторизации: модель токена [подписанного URL-адреса (SAS)](service-bus-sas.md), предоставляемая служебной шиной, и федеративная модель, где управление правилами выполняется внутри с помощью службы контроля доступа (ACS) [Azure Active Directory](/azure/active-directory/). Токены, полученные из службы ACS, передаются в служебную шину для авторизации доступа к необходимым компонентам.
+Приложения Service Bus ранее могли бы выбрать использование двух различных моделей: [подписи общего доступа (SAS)](service-bus-sas.md) моделью маркера, предоставленная напрямую Service Bus и федеративной модели где управление правила авторизации управляется внутри [Azure Active Directory](/azure/active-directory/) службы контроля доступа (ACS) и маркеры, полученные из службы ACS передаются в служебную шину для авторизации доступа к необходимых компонентов.
 
 Модель авторизации ACS долго заменяла [авторизация SAS](service-bus-authentication-and-authorization.md), и такая модель считалась предпочтительной. Сейчас во всей документации, руководствах и примерах используется исключительно SAS. Кроме того, больше невозможно создавать пространства имен служебной шины, связанные с ACS.
 

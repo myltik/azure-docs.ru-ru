@@ -15,21 +15,21 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Развертывание в службе приложений Azure с помощью подключаемого модуля Jenkins 
 
 Для развертывания веб-приложения Java в Azure можно использовать Azure CLI в [конвейере Jenkins](/azure/jenkins/execute-cli-jenkins-pipeline) или [подключаемый модуль Jenkins службы приложений Azure](https://plugins.jenkins.io/azure-app-service). Подключаемый модуль Jenkins версии 1.0 поддерживает непрерывное развертывание с помощью функции "Веб-приложения" службы приложений Azure, используя следующие инструменты:
-* Git и FTP.
+* Git или FTP.
 * Docker для веб-приложений в Linux.
 
 Из этого руководства вы узнаете, как выполнять такие задачи:
 > [!div class="checklist"]
-> * Настройка Jenkins для развертывания веб-приложений по протоколу FTP и через Git.
+> * Настройте Jenkins для развертывания веб-приложений через Git или FTP.
 > * Настройка Jenkins для развертывания веб-приложений для контейнеров.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Создание и настройка экземпляра Jenkins
@@ -64,7 +64,7 @@ sudo apt-get install -y maven
 3. Чтобы добавить субъект-службу Microsoft Azure, выберите **Add Credentials** (Добавить учетные данные). Укажите значения в полях **идентификатора подписки**, **идентификатора клиента**, **секрета клиента** и **конечной точки маркера OAuth 2.0**. Задайте **mySp** в качестве значения поля **идентификатора**. Мы будем использовать этот идентификатор в последующих шагах этой статьи.
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-through-git-and-ftp"></a>Настройка Jenkins для развертывания веб-приложения по протоколу FTP и через Git
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Настройка Jenkins для развертывания веб-приложений путем загрузки файлов
 
 Чтобы развернуть проект в веб-приложении, можно отправить артефакты сборки (например, WAR-файл на языке Java) с использованием Git или FTP.
 
@@ -104,7 +104,7 @@ sudo apt-get install -y maven
 8. Если вы хотите выполнить развертывание в слот, отличный от рабочего, можно также задать имя **слота**.
 9. Сохраните проект и создайте его. Веб-приложение развертывается в Azure после сборки.
 
-### <a name="deploy-web-apps-through-ftp-by-using-jenkins-pipeline"></a>Развертывание веб-приложения по протоколу FTP с помощью конвейера Jenkins
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Развертывание веб-приложений путем загрузки файлов с помощью конвейера Jenkins
 
 Подключаемый модуль Jenkins службы приложений Azure готов к использованию в конвейере. Следующий пример доступен в репозитории GitHub.
 

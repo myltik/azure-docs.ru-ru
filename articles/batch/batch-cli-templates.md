@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 10/17/2017
+ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 87ec0e1b6d01fc5d13e9b9f46987e416d8e1958f
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: c2d4a33cd6c4c9db608a76b24935b474b551b291
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Использование шаблонов интерфейса командной строки для пакетной службы Azure и передачи файлов (предварительная версия)
 
@@ -53,14 +53,14 @@ ms.lasthandoff: 10/18/2017
 После установки Azure CLI вы можете установить последнюю версию расширения пакетной службы с помощью следующей команды CLI:
 
 ```azurecli
-az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.1/azure_batch_cli_extensions-2.0.1-py2.py3-none-any.whl
 ```
 
 Дополнительные сведения о расширении пакетной службы см. в статье [Microsoft Azure Batch CLI Extensions for Windows, Mac and Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux) (Расширения командной строки для пакетной службы Microsoft Azure для Windows, Mac и Linux).
 
 ## <a name="templates"></a>Шаблоны
 
-Интерфейс командной строки для пакетной службы Azure позволяет создавать элементы, такие как пулы, задания и задачи, указав JSON-файл, в котором содержатся имена и значения свойств. Например:
+Интерфейс командной строки для пакетной службы Azure позволяет создавать элементы, такие как пулы, задания и задачи, указав JSON-файл, в котором содержатся имена и значения свойств. Например: 
 
 ```azurecli
 az batch pool create –-json-file AppPool.json

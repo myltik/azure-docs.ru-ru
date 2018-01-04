@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 8a3caaff-dd8d-4afd-badf-a0fd60db3d2c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: cab1ce3694372c137667e0179caf8d3523147f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6f8a7b7fd155a6ad0df7cb1f9026b4acca2401cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Руководство по интеграции Azure Active Directory с iQualify LMS
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с iQualify LMS, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление iQualify LMS из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-iqualify-lms-from-the-gallery"></a>Добавление iQualify LMS из коллекции
 Чтобы настроить интеграцию iQualify LMS с Azure AD, нужно добавить iQualify LMS из коллекции в список управляемых приложений SaaS.
@@ -108,13 +108,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения iQualify LMS](./media/active-directory-saas-iqualify-tutorial/tutorial_iqualify_url.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: 
+    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: 
     | |
     |--|--|
     | Рабочая среда: `https://<yourorg>.iqualify.com/`|
     | Тестовая среда: `https://<yourorg>.iqualify.io`|
     
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: 
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: 
     | |
     |--|--|
     | Рабочая среда: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
@@ -146,13 +146,13 @@ ms.lasthandoff: 10/11/2017
     | last_name | user.surname |
     | person_id | "ваш атрибут" | 
 
-    а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+    a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 
     ![Настройка единого входа](./media/active-directory-saas-iqualify-tutorial/atb2.png)
 
     ![Настройка единого входа](./media/active-directory-saas-iqualify-tutorial/atb3.png)
     
-    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+    Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
     
     c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
     
@@ -192,9 +192,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Параметры проверки подлинности SAML](./media/active-directory-saas-iqualify-tutorial/setting4.png)
 
-    а. В текстовом поле **SAML SINGLE SIGN-ON SERVICE URL** (URL-адрес службы единого входа SAML) введите значение **URL-адреса службы единого входа SAML** из окна настройки приложения Azure AD.
+    a. В текстовом поле **SAML SINGLE SIGN-ON SERVICE URL** (URL-адрес службы единого входа SAML) введите значение **URL-адреса службы единого входа SAML** из окна настройки приложения Azure AD.
     
-    b. В текстовом поле **SAML LOGOUT URL** (URL-адрес выхода SAML) введите значение **Sign-Out URL** (URL-адрес выхода) из окна настройки приложения Azure AD.
+    Б. В текстовом поле **SAML LOGOUT URL** (URL-адрес выхода SAML) введите значение **Sign-Out URL** (URL-адрес выхода) из окна настройки приложения Azure AD.
     
     c. Откройте загруженный сертификат в блокноте, скопируйте его содержимое и вставьте его в текстовое поле **PUBLIC CERTIFICATE** (Общий сертификат).
     
@@ -231,13 +231,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-iqualify-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-an-iqualify-lms-test-user"></a>Создание тестового пользователя iQualify LMS
 

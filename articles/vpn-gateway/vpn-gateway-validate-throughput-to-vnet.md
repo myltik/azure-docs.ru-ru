@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 3a1a6e2acd2ff40c2b35a6099f8a9fc7eb104bbc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Порядок проверки пропускной способности VPN для виртуальной сети
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 4.  Определите пропускную способность поставщика услуг Интернета (ISP).
 5.  Вычислите ожидаемую пропускную способность — наименьшая пропускная способность (виртуальной машины, шлюза, поставщика услуг Интернета) * 0,8.
 
-Если расчетная пропускная способность не удовлетворяет базовым потребностям приложения, нужно увеличить пропускную способность ресурса, определенного как узкое место. Чтобы изменить размер VPN-шлюза Azure, см. статью [Изменение SKU шлюза](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Чтобы изменить размер виртуальной машины, см. статью [Изменение размера виртуальной машины](../virtual-machines/virtual-machines-windows-resize-vm.md). Если ожидаемая пропускная способность Интернета не обеспечивается, рекомендуем обратиться к поставщику услуг Интернета.
+Если расчетная пропускная способность не удовлетворяет базовым потребностям приложения, нужно увеличить пропускную способность ресурса, определенного как узкое место. Чтобы изменить размер VPN-шлюза Azure, см. статью [Изменение SKU шлюза](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Чтобы изменить размер виртуальной машины, см. статью [Изменение размера виртуальной машины](../virtual-machines/virtual-machines-windows-resize-vm.md). Если ожидаемая пропускная способность Интернета не обеспечивается, рекомендуем обратиться к поставщику услуг Интернета.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Проверка пропускной способности сети с помощью средств повышения производительности
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 10/11/2017
 При использовании проводника или перетаскивании объектов во время сеанса RDP может наблюдаться снижение скорости копирования файлов. Обычно эта проблема вызвана одним или обоими следующими факторами:
 
 - Приложения для копирования файлов, такие как проводник и RDP, не используют несколько потоков при копировании. Для повышения производительности используйте многопоточное приложение, например [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx), которое копирует файлы с помощью 16 или 32 потоков. Чтобы изменить число используемых потоков в Richcopy, выберите **Action** (Действие) > **Copy options** (Параметры копирования) > **File copy** (Копирование файлов).<br><br>
-![Проблемы с низкой скоростью при копировании файлов](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
+![Проблемы копирования файла низкая](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - Недостаточная скорость чтения и записи виртуальной машины. Дополнительные сведения см. в статье [Устранение неполадок службы хранилища Azure](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Внешний интерфейс для локального устройства

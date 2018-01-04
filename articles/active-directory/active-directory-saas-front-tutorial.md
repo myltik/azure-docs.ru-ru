@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 88270b6d-2571-434a-b139-b6ccc3a2b19f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 944149746b05108040cd0cc340e882b39713f06e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 96a091af6d8a29b2c6257087889d0c19825467b3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Учебник. Интеграция Azure Active Directory с Front
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/18/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Front, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 11/18/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Front из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-front-from-the-gallery"></a>Добавление Front из коллекции
 Чтобы настроить интеграцию Front с Azure AD, необходимо добавить Front из коллекции в список управляемых приложений SaaS.
@@ -108,9 +108,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка единого входа](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<companyname>.frontapp.com`
+    a. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<companyname>.frontapp.com`
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<companyname>.frontapp.com/sso/saml/callback`.
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<companyname>.frontapp.com/sso/saml/callback`.
      
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Вместо этих значений укажите фактические идентификатор и URL-адрес ответа, к которым мы вернемся позже в этом руководстве, или обратитесь в [службу поддержки клиентов Front](mailto:support@frontapp.com), чтобы получить эти значения. 
@@ -123,7 +123,7 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка единого входа](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
     
-6. В разделе **Конфигурация Front** щелкните **Настроить Front**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+6. В разделе **Конфигурация Front** щелкните **Настроить Front**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
     ![Настройка единого входа](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
@@ -153,9 +153,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка единого входа на стороне приложения](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
 
-    а. Скопируйте значение **Entity ID** (Идентификатор сущности) и вставьте его в текстовое поле **Идентификатор** в разделе **Домены и URL-адреса приложения Front** на портале Azure.
+    a. Скопируйте значение **Entity ID** (Идентификатор сущности) и вставьте его в текстовое поле **Идентификатор** в разделе **Домены и URL-адреса приложения Front** на портале Azure.
 
-    b. Скопируйте значение **ACS URL** (URL-адрес ACS) и вставьте его в текстовое поле **URL-адрес ответа** в разделе **Домены и URL-адреса приложения Front** на портале Azure.
+    Б. Скопируйте значение **ACS URL** (URL-адрес ACS) и вставьте его в текстовое поле **URL-адрес ответа** в разделе **Домены и URL-адреса приложения Front** на портале Azure.
     
 14. Нажмите кнопку **Сохранить** .
 
@@ -187,13 +187,13 @@ ms.lasthandoff: 11/18/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-front-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-front-test-user"></a>Создание тестового пользователя Front
 

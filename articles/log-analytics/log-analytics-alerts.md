@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2017
 ms.author: bwren
-ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: a0897113660f764cb23239b066bc93c479a9a553
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Общие сведения об оповещениях в Log Analytics
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/16/2017
 - создание правил генерации оповещений с помощью [REST API](log-analytics-api-alerts.md).
 
 
-## <a name="alert-rules"></a>Правила оповещения
+## <a name="alert-rules"></a>правила оповещений.
 
 Оповещения создаются с помощью правил оповещения, которые автоматически выполняют поиск по журналам через регулярные интервалы.  Если результаты поиска по журналам соответствуют определенным условиям, создается запись оповещения.  После этого правило может автоматически запустить одно или несколько действий, чтобы заблаговременно уведомить вас об оповещении либо вызвать другой процесс.  В каждом типе правил генерации оповещений используется определенная логика выполнения этого анализа.
 
@@ -80,13 +80,13 @@ ms.lasthandoff: 10/16/2017
 
     
 
-Если бы вам было нужно получать оповещения, когда средняя нагрузка процессора превышает 90 % в определенном временном окне, то вы могли бы использовать запрос с [командой measure](log-analytics-search-reference.md#commands) и пороговым значением для правила генерации оповещений **Больше 0**. Ниже приведен пример такого запроса.
+Если нужно оповещать, когда процессор усредненный более 90% для окна определенный момент времени, используется запрос, подобный следующему с пороговым значением для правила оповещений **больше 0**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
 
     
 >[!NOTE]
-> Если ваша рабочая область еще не переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом: `Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> Если рабочей области не был обновлен для [языка запросов новый журнал аналитики](log-analytics-log-search-upgrade.md), то выше запросы изменится на следующее при последнем использовании [измерения команда](log-analytics-search-reference.md#commands):`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
 > `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
@@ -111,10 +111,10 @@ ms.lasthandoff: 10/16/2017
 Рассмотрим ситуацию, где оповещение должно создаваться, когда использование процессора на компьютере превышает 90 % три раза в течение 30 минут.  Вы должны создать правило генерации оповещений с приведенными ниже сведениями.  
 
 **Запрос:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
-**Временное окно:** 30 минут.<br>
-**Периодичность предупреждений:** 5 минут.<br>
-**Объединенное значение:** больше 90.<br>
-**Активировать оповещение на основе:** общее число нарушений превышает 5.<br>
+**Интервал времени:** 30 минут<br>
+**Частота предупреждений:** 5 минут<br>
+**Статистические значения:** больше 90<br>
+**На основе триггера предупреждение:** всего нарушений больше, чем 2<br>
 
 Запрос вернет среднее значение для каждого компьютера с интервалом в 5 минут.  Этот запрос выполняется каждые 5 минут для данных, собранных в течение предыдущих 30 минут.  Ниже приведен пример данных для трех компьютеров.
 
@@ -125,9 +125,9 @@ ms.lasthandoff: 10/16/2017
 ## <a name="alert-records"></a>Записи оповещений
 Записи оповещений, созданные правилами генерации оповещений в Log Analytics, имеют значение **Alert** для **Type** и значение **OMS** для **SourceSystem**.  У них есть свойства, приведенные в таблице ниже.
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 |:--- |:--- |
-| Тип |*Предупреждение* |
+| type |*Предупреждение* |
 | SourceSystem |*OMS* |
 | *Объект*  | Оповещения [Измерение метрик](#metric-measurement-alert-rules) будут содержать свойство поля группировки.  Например, если результаты поиска по журналам группируются по компьютерам, запись оповещения будет содержать поле Computer с именем компьютера в качестве значения.
 | AlertName |Имя оповещения. |

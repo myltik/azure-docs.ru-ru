@@ -4,7 +4,7 @@ description: "Узнайте, как использовать SCC LifeCycle с A
 services: active-directory
 author: jeevansd
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 9748bf38-ffc3-4d51-a1ae-207ce57104fa
 ms.service: active-directory
 ms.devlang: na
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 9a30bcca720ff135d0180d73f46e78403e9bca43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0716bc6697b8350ec3f6c890e5fb7a1eb743bdd2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Учебник. Интеграция Azure Active Directory с SCC LifeCycle
 Цель данного учебника — показать интеграцию Azure и SCC LifeCycle.  
 
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-* Действующая подписка на Azure
+* действующая подписка Azure;
 * Подписка SCC LifeCycle с поддержкой единого входа.
 
 После завершения этого руководства пользователи Azure AD, назначенные SCC LifeCycle, будут иметь возможность единого входа в приложение на веб-сайте компании SCC LifeCycle (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
@@ -103,8 +103,8 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="assign-users"></a>Назначить пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+## <a name="assign-users"></a>Назначение пользователей
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которым нужно разрешить работу с приложением, назначив их.
 
 **Чтобы назначить пользователей SCC LifeCycle, сделайте следующее:**
 

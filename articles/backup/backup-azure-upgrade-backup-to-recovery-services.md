@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Обновление резервного хранилища до хранилища служб восстановления
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/11/2017
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Изменение службы автоматизации и инструментов после обновления
 
 При подготовке инфраструктуры к обновлению хранилища необходимо обновить существующую службу автоматизации или инструменты, чтобы обеспечить их работу после обновления.
-Обратитесь к справочникам по командлетам PowerShell для [модели развертывания с помощью диспетчера служб](backup-client-automation-classic.md) и [модели развертывания с помощью Resource Manager](backup-client-automation.md).
+Можно найти в книгах командлеты PowerShell для [модели развертывания диспетчера ресурсов](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Подготовка к обновлению
@@ -60,10 +60,10 @@ ms.lasthandoff: 11/11/2017
 RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID.** Идентификатор подписки хранилища, которое обновляется.<br/>
-**VaultName.** Имя резервного хранилища, которое обновляется.<br/>
-**Location.** Расположение хранилища, которое обновляется.<br/>
-**ResourceType.** Укажите BackupVault.<br/>
-**TargetResourceGroupName.** Так как вы обновляете хранилище до развертывания на основе Resource Manager, укажите группу ресурсов. Вы можете выбрать существующую группу ресурсов или создать новую, указав ее имя. Если указать имя существующей группы ресурсов с ошибкой, можно создать новую группу ресурсов. Чтобы узнать больше о группах ресурсов, прочитайте этот [обзор групп ресурсов](../azure-resource-manager/resource-group-overview.md#resource-groups).
+**VaultName** -имя в хранилище службы архивации, которая обновляется.<br/>
+**Расположение** -расположение хранилища обновляется.<br/>
+**ResourceType** -использовать BackupVault.<br/>
+**TargetResourceGroupName** — так, как вы обновляете хранилища для развертывания на основе диспетчера ресурсов, укажите группу ресурсов. Вы можете выбрать существующую группу ресурсов или создать новую, указав ее имя. Если указать имя существующей группы ресурсов с ошибкой, можно создать новую группу ресурсов. Чтобы узнать больше о группах ресурсов, прочитайте этот [обзор групп ресурсов](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
 >[!NOTE]
 > Имена групп ресурсов имеют ограничения. Обязательно следуйте рекомендациям. Их несоблюдение может привести к сбою обновления хранилищ.
@@ -156,7 +156,6 @@ RecoveryServicesVaultUpgrade.ps1 -SubscriptionID 53a3c692-5283-4f0a-baf6-49412f5
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Ознакомьтесь со следующими темами, прочитав соответствующие статьи:</br>
-[Архивация виртуальной машины IaaS](backup-azure-arm-vms-prepare.md)</br>
-
-            [Резервное копирование Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
-[Архивация Windows Server](backup-configure-vault.md)
+[Подготовка среды к архивации виртуальных машин, развернутых с помощью Resource Manager](backup-azure-arm-vms-prepare.md)</br>
+[Подготовка к резервному копированию рабочих нагрузок с использованием сервера службы архивации Azure](backup-azure-microsoft-azure-backup.md)</br>
+[Резервное копирование Windows Server](backup-configure-vault.md).

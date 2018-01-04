@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 084c6bf3855bdc757c3f2926b35eaf7bba0ef389
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-azure-container-service-aks"></a>Мониторинг Службы контейнеров Azure (AKS)
 
 Мониторинг кластера Kubernetes и контейнеров крайне важен, особенно в том случае, если вы управляете рабочим кластером в нужном масштабе с несколькими приложениями.
 
-В этом руководстве описывается настройка мониторинга кластера AKS с помощью [решения "Контейнеры" для Log Analytics](../log-analytics/log-analytics-containers.md).
+В этом учебнике настроить наблюдение за кластера AKS с помощью [контейнеры решения для анализа журналов][log-analytics-containers].
 
 В этом руководстве (часть семь из восьми) рассматриваются следующие задачи:
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/06/2017
 
 В предыдущих руководствах приложение было упаковано в образы контейнеров, образы были отправлены в реестр контейнеров Azure и был создан кластер Kubernetes.
 
-Если вы не выполнили эти действия, вы можете ознакомиться со статьей [Создание образов контейнеров для использования со службой контейнеров Azure](./tutorial-kubernetes-prepare-app.md).
+Если вы не были выполнены следующие действия и при необходимости дальнейшей работы, вернуться к [учебник 1 – Создание образов контейнеров][aks-tutorial-prepare-app].
 
 ## <a name="configure-the-monitoring-solution"></a>Настройка решения для мониторинга
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="configure-monitoring-agents"></a>Настройка агентов мониторинга
 
-Следующий файл манифеста Kubernetes можно использовать для настройки агентов мониторинга контейнеров в кластере Kubernetes. Он создает [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) Kubernetes, который запускает отдельный pod на каждом узле кластера.
+Следующий файл манифеста Kubernetes можно использовать для настройки агентов мониторинга контейнеров в кластере Kubernetes. Он создает Kubernetes [DaemonSet][kubernetes-daemonset], один pod, запущенный на каждом узле кластера.
 
 Сохраните следующий текст в файл `oms-daemonset.yaml` и замените значения заполнителей `WSID` и `KEY` идентификатором и ключом рабочей области Log Analytics.
 
@@ -98,6 +98,8 @@ spec:
           name: container-hostname
         - mountPath: /var/log
           name: host-log
+        - mountPath: /var/lib/docker/containers/
+          name: container-log
        livenessProbe:
         exec:
          command:
@@ -124,6 +126,9 @@ spec:
     - name: host-log
       hostPath:
        path: /var/log
+    - name: container-log
+      hostPath:
+       path: /var/lib/docker/containers/
 ```
 
 Создайте DaemonSet с помощью следующей команды:
@@ -151,9 +156,9 @@ omsagent   3         3         3         3            3           beta.kubernete
 
 На портале Azure выберите рабочую область Log Analytics, закрепленную на панели мониторинга. Щелкните элемент **Решение мониторинга контейнеров**. Здесь можно найти сведения о кластере AKS и контейнерах в этом кластере.
 
-![Панель мониторинга](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
+![панель мониторинга](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Подробные сведения о создании запросов и анализе данных мониторинга см. в [документации по Log Analytics](../log-analytics/index.yml).
+В разделе [документации Azure Log Analytics] [ log-analytics-docs] подробное руководство по запросу и анализ данных наблюдения.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -167,4 +172,14 @@ omsagent   3         3         3         3            3           beta.kubernete
 Перейдите к следующему руководству, чтобы узнать об обновлении Kubernetes до новой версии.
 
 > [!div class="nextstepaction"]
-> [Обновление Kubernetes в Службе контейнеров Azure (AKS)](./tutorial-kubernetes-upgrade-cluster.md)
+> [Обновление Kubernetes][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

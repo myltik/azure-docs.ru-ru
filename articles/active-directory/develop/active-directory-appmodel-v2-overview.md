@@ -4,7 +4,7 @@ description: "Общие сведения о создании приложени
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: bd090450fad0be855240788c4cfa9dc58c1c4c6d
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 446e39f57448cbc0cd9a6f93a388159d7eca5863
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Настройка входа пользователей с помощью учетной записи Майкрософт и Azure Active Directory в одном приложении
 Раньше разработчикам приложений, чтобы реализовать поддержку как личных учетных записей Майкрософт, так и рабочих учетных записей Azure Active Directory, необходимо было обеспечивать интеграцию с двумя отдельными системами. Конечная точка Azure Active Directory (Azure AD) версии 2.0 предлагает новую версию API аутентификации, которая упрощает этот процесс. Конечная точка Azure AD 2.0 обеспечивает вход из обоих типов учетных записей с применением интеграции. Приложения, использующие конечную точку Azure AD 2.0, также могут использовать интерфейсы REST API из [API Microsoft Graph](https://graph.microsoft.io) с помощью учетной записи любого из этих типов.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f3d3d2b1ef0957417e09bb2c9b3913cd366aaa4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Настройка версий политики SSL и комплектов шифров на шлюзе приложений
 
@@ -110,6 +110,8 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Настройка пользовательской политики SSL
 
+При настройке пользовательской политики SSL, передается со следующими параметрами: PolicyType, MinProtocolVersion, CipherSuite и шлюза приложения. При попытке передачи других параметров, возникает сообщение об ошибке при создании или обновлении шлюз приложений. 
+
 Ниже представлен пример задания пользовательской политики SSL на шлюзе приложений. В качестве минимальной версии протокола она задает версию `TLSv1_1` и включает следующие комплекты шифров.
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -139,6 +141,8 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Создание шлюза приложений со стандартной политикой SSL
+
+При настройке политики предопределенные SSL, передается со следующими параметрами: PolicyType, PolicyName и шлюза приложения. При попытке передачи других параметров, возникает сообщение об ошибке при создании или обновлении шлюз приложений.
 
 В следующем примере создается шлюз приложений со стандартной политикой SSL.
 
@@ -177,6 +181,31 @@ $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyN
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Обновление шлюза приложения предварительно определена политика SSL
 
-Дополнительные сведения о перенаправлении трафика HTTP на конечную точку HTTPS см. в статье [Общие сведения о перенаправлении для шлюза приложений](application-gateway-redirect-overview.md).
+Чтобы задать пользовательскую политику SSL, передайте следующие параметры: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, и **шлюзаприложения**. Чтобы задать политику предопределенные SSL, передайте следующие параметры: **PolicyType**, **PolicyName**, и **шлюза приложения**. При попытке передачи других параметров, возникает сообщение об ошибке при создании или обновлении шлюз приложений.
+
+В следующем примере имеются образцы кода для настраиваемой политики и стандартных политик. Раскомментируйте политику, которую вы хотите использовать.
+
+```powershell
+# You have to change these parameters to match your environment.
+$AppGWname = "YourAppGwName"
+$RG = "YourResourceGroupName"
+
+$AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
+
+# SSL Custom Policy
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
+
+# SSL Predefined Policy
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
+
+# Update AppGW
+# The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
+$SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
+
+
+
+## Next steps
+
+Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn how to redirect HTTP traffic to a HTTPS endpoint.

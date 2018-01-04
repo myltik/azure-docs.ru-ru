@@ -1,6 +1,6 @@
 ---
-title: "Веб-приложение с Express (Node.js) | Документация Майкрософт"
-description: "Этот учебник основывается на учебнике по облачным службам и демонстрирует использование модуля Express."
+title: "Построение и развертывание приложений Node.js Express в облачных службах Azure"
+description: "Построение и развертывание приложения Express.js в Node.js для облачных служб Azure"
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -14,15 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: aa62438732db9e8df129440e6949858d9a61f65f
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: HT
+ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Создание веб-приложения Node.js с использованием модуля Express в облачной службе Azure
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Построение и развертывание веб-приложение Node.js с помощью экспресс-выпуск в облачных службах Azure
+
 Node.js включает минимальный набор функциональных возможностей в базовой среде выполнения.
-Разработчики часто используют сторонние модули для получения дополнительной функциональности при разработке приложения Node.js. В этом руководстве будет создано новое приложение с помощью модуля [Express][Express], который предоставляет платформу MVC для создания веб-приложений Node.js.
+Разработчики часто используют сторонние модули для получения дополнительной функциональности при разработке приложения Node.js. В этом учебнике вы создадите новые приложения с помощью [Express](https://github.com/expressjs/express) модуль, который предоставляет платформу MVC для создания веб-приложений Node.js.
 
 Снимок экрана завершенного приложения приведен ниже:
 

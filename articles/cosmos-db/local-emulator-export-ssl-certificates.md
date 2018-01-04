@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Экспорт сертификатов эмулятора Azure Cosmos DB для использования с Java, Python и Node.js
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Экспорт данных в локальном эмуляторе Azure Cosmos DB (шаг 3)](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
-4. Щелкните **Далее**.
+4. Нажмите кнопку **Далее**.
 
     ![Экспорт данных в локальном эмуляторе Azure Cosmos DB (шаг 4)](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png)
 
@@ -87,11 +87,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Как использовать сертификат в Python
 
-По умолчанию при подключении к локальному эмулятору [пакет SDK Python (версии 2.0.0 или выше)](documentdb-sdk-python.md) для API DocumentDB не использует SSL-сертификат. Однако если вы хотите реализовать проверку SSL, используйте примеры, приведенные в документации по [оболочкам сокетов Python](https://docs.python.org/2/library/ssl.html).
+По умолчанию [Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md) для API-Интерфейсы SQL будет попробуйте и не использовать SSL-сертификат при подключении к локальном эмуляторе. Однако если вы хотите реализовать проверку SSL, используйте примеры, приведенные в документации по [оболочкам сокетов Python](https://docs.python.org/2/library/ssl.html).
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Как использовать сертификат в Node.js
 
-По умолчанию при подключении к локальному эмулятору [пакет SDK Node.js (версии 1.10.1 или выше)](documentdb-sdk-node.md) для API DocumentDB не использует SSL-сертификат. Однако если вы хотите реализовать проверку SSL, используйте примеры, приведенные в [документации по Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+По умолчанию [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) для API-Интерфейсы SQL будет попробуйте и не использовать SSL-сертификат при подключении к локальном эмуляторе. Однако если вы хотите реализовать проверку SSL, используйте примеры, приведенные в [документации по Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

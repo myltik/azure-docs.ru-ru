@@ -4,7 +4,7 @@ description: "Из этого руководства вы узнаете, как
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: bryanla
-ms.openlocfilehash: e162134f52ceca9d77735893b847782d06e72cfe
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 582890820f2d7cfb2ff92be0858d3221fea04fa8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Доступ к службе хранилища Azure с помощью ключа доступа и управляемого удостоверения службы виртуальной машины Windows
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/23/2017
 > * предоставлять виртуальной машине доступ к ключам учетной записи хранения в Resource Manager; 
 > * получать маркер доступа с помощью удостоверения виртуальной машины и использовать его для извлечения ключей доступа к хранилищу из Resource Manager. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -78,7 +78,7 @@ MSI на виртуальной машине позволяет получить
 3. Введите имя учетной записи хранения, которая будет использоваться далее.  
 4. Для параметра **Модель развертывания** необходимо выбрать "Resource Manager", а для параметра **Account kind** (Тип учетной записи) — "Общее назначение". 
 5. Убедитесь, что значения **подписки** и **группы ресурсов** соответствуют указанным при создании виртуальной машины на предыдущем шаге.
-6. Щелкните **Создать**.
+6. Нажмите кнопку **Создать**.
 
     ![Создание учетной записи хранения](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 

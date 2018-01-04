@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 853d08c9-27b1-48d4-b8e7-3705140eb67f
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 77e2fcf9c306259286b15767f3a992510d6d79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fae6a376d4a53a23e22e585c63d97f22ca76c66d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Руководство. Интеграция Azure Active Directory с HR2day от Merces
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с HR2day от Merces, вам потребуется:
 
@@ -63,11 +63,11 @@ ms.lasthandoff: 10/11/2017
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![ПРИЛОЖЕНИЯ][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![Приложения][3]
+    ![ПРИЛОЖЕНИЯ][3]
 
 4. В поле поиска введите **HR2day от Merces**.
 
@@ -110,9 +110,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_url.png)
 
-    а. В поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<tenantname>.force.com/<instancename>`.
+    a. В поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<tenantname>.force.com/<instancename>`.
 
-    b. В поле **Идентификатор** введите URL-адрес в следующем формате: `https://hr2day.force.com/<companyname>`.
+    Б. В поле **Идентификатор** введите URL-адрес в следующем формате: `https://hr2day.force.com/<companyname>`.
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить их, обратитесь в [службу поддержки клиентов HR2day от Merces](mailto:servicedesk@merces.nl). 
@@ -138,23 +138,23 @@ ms.lasthandoff: 10/11/2017
     | ------------------- | -------------------- |    
     | ATTR_LOGINCLAIM | join([mail],"102938475Z","@" |
     
-      а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+      a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 
     ![Настройка единого входа](./media/active-directory-saas-hr2day-tutorial/tutorial_attribute_04.png)
 
     ![Настройка единого входа](./media/active-directory-saas-hr2day-tutorial/tutorial_attribute_05.png)
 
-    b. В поле **Имя** введите **ATTR_LOGINCLAIM**.
+    Б. В поле **Имя** введите **ATTR_LOGINCLAIM**.
 
     c. В списке **Значения** выберите **Join()**.
 
-    г) В списке **String1** выберите **user.mail**.
+    d. В списке **String1** выберите **user.mail**.
 
     д. Для поля **String2** введите уникальный идентификатор, предоставленный вашей службой поддержки HR2day.
 
     f. В поле **Разделитель** введите **@**.
     
-    g. Нажмите кнопку **ОК**.
+    ж. Нажмите кнопку **ОК**.
 
 7. Нажмите кнопку **Сохранить**.
 
@@ -196,9 +196,9 @@ ms.lasthandoff: 10/11/2017
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-hr2day-tutorial/create_aaduser_04.png) 
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль**, а затем запишите пароль.
 

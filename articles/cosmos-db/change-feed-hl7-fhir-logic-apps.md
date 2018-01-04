@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.openlocfilehash: d2b50c0b6864af41fb9cfa051721c432772b228d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7a041e2121a2762af4307d7044437032cce79f05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Уведомление пациентов об изменениях в медицинских картах HL7 FHIR с помощью Logic Apps и Azure Cosmos DB
 
@@ -54,12 +54,12 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="azure-services-used-in-the-solution"></a>Службы Azure, используемые в решении
 
-#### <a name="azure-cosmos-db-documentdb-api"></a>API DocumentDB в Azure Cosmos DB
+#### <a name="azure-cosmos-db-sql-api"></a>API-Интерфейсы SQL Azure Cosmos DB
 Azure Cosmos DB выполняет роль репозитория для ресурсов FHIR, как показано на следующем рисунке.
 
 ![Учетная запись Azure Cosmos DB, используемая в этом руководстве по HL7 FHIR](./media/change-feed-hl7-fhir-logic-apps/account.png)
 
-#### <a name="logic-apps"></a>Приложения логики
+#### <a name="logic-apps"></a>приложения логики;
 Приложения логики обрабатывают рабочий процесс. На следующих снимках экрана показаны приложения логики, созданные для этого решения. 
 
 
@@ -76,17 +76,17 @@ Azure Cosmos DB выполняет роль репозитория для рес
 
     ![Приложение логики, отправляющее пациенту сообщение электронной почты, текст которого содержит ресурсы HL7 FHIR](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
 
-#### <a name="service-bus"></a>Service Bus
+#### <a name="service-bus"></a>Служебная шина
 На следующем рисунке показана очередь пациентов. Значение свойства Tag используется для создания темы сообщения электронной почты.
 
 ![Очередь служебной шины, используемая в этом руководстве по HL7 FHIR](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-service-bus-queue.png)
 
 <a id="api-app"></a>
 
-#### <a name="api-app"></a>Приложение API
+#### <a name="api-app"></a>приложение API;
 Приложение API подключается к Azure Cosmos DB и запрашивает наличие новых или измененных документов FHIR по типу ресурса. Это приложение содержит один контроллер **FhirNotificationApi** с одной операцией **GetNewOrModifiedFhirDocuments** (см. раздел об [исходном коде для приложения API](#api-app-source)).
 
-Мы используем класс [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) из API-интерфейса .NET для DocumentDB в Azure Cosmos DB. Дополнительные сведения см. в статье [Работа с поддержкой веб-канала изменений в Azure DocumentDB](change-feed.md). 
+Мы используем [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) класс из API .NET для базы данных SQL Azure Cosmos. Дополнительные сведения см. в статье [Работа с поддержкой веб-канала изменений в Azure DocumentDB](change-feed.md). 
 
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>Операция GetNewOrModifiedFhirDocuments
 

@@ -10,26 +10,26 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 228ff59e2a495e8ca7c310214327bc846ecfb828
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 9ba2cbe1d6ce4b2010decb8bff4fa46faf0852b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Как использовать библиотеку службы "Машинное обучение Microsoft" для Apache Spark
 
-## <a name="introduction"></a>Введение
+## <a name="introduction"></a>Общие сведения
 
 [Библиотека службы "Машинное обучение Microsoft" для Apache Spark](https://github.com/Azure/mmlspark) (MMLSpark) предоставляет средства, позволяющие легко создавать масштабируемые модели машинного обучения для больших наборов данных. Она включает интеграцию конвейеров SparkML с [Microsoft Cognitive Toolkit ](https://github.com/Microsoft/CNTK) и [OpenCV](http://www.opencv.org/). Благодаря этому вы получаете следующие возможности: 
  * Получение и предварительная обработка данных изображения.
  * Создание признаков изображений и текста с помощью предварительно обученных моделей глубокого обучения.
  * Обучение и оценка моделей классификации и регрессии с помощью неявного создания признаков.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Прежде чем приступить к выполнению этого руководства, вам понадобится сделать следующее:
 - [Установить Azure Machine Learning Workbench](quickstart-installation.md).
-- [Настроить кластер Azure HDInsight Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
+- [Настроить кластер Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
 
 ## <a name="run-your-experiment-in-docker-container"></a>Запуск эксперимента в контейнере Docker
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="install-mmlspark-on-azure-hdinsight-spark-cluster"></a>Установите MMLSpark в кластере Azure HDInsight Spark.
 
-Чтобы завершить этот и следующий шаг, сначала необходимо [создать кластер Azure HDInsight Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
+Чтобы завершить этот и следующий шаг, сначала необходимо [создать кластер Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
 
 По умолчанию Azure Machine Learning Workbench устанавливает пакет MMLSpark в кластере при запуске эксперимента. Этот процесс можно контролировать и установить другие пакеты Spark, изменив файл _aml_config/spark_dependencies.yml_ в папке проекта.
 

@@ -3,16 +3,18 @@ title: "Классификация изображений аэрофотосъе
 description: "Содержит инструкции для реального сценария классификации изображений аэрофотосъемки."
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 10/27/2017
-ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.workload: data-services
+ms.date: 12/13/2017
+ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="aerial-image-classification"></a>Классификация изображений аэрофотосъемки
 
@@ -44,15 +46,15 @@ ms.lasthandoff: 12/05/2017
 
 ![Схема для реального сценария классификации изображений аэрофотосъемки](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-[Пошаговые инструкции](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) начинаются с руководства по созданию и подготовке учетной записи хранения Azure и кластера Spark, включая передачу данных и установку зависимостей. Затем описывается запуск заданий обучения и сравнение эффективности итоговых моделей. Наконец, рассматривается, как применить выбранную модель к крупному набору изображений в кластере Spark и анализировать результаты прогноза локально.
+Эти пошаговые инструкции begin дает подробные инструкции по созданию и подготовки учетной записи хранилища Azure и кластера Spark, включая установку зависимостей и передачи данных. Затем описывается запуск заданий обучения и сравнение эффективности итоговых моделей. Наконец, рассматривается, как применить выбранную модель к крупному набору изображений в кластере Spark и анализировать результаты прогноза локально.
 
 
 ## <a name="set-up-the-execution-environment"></a>Настройка среды выполнения
 
 Следующие инструкции описывают процесс настройки среды выполнения для этого примера.
 
-### <a name="prerequisites"></a>Предварительные требования
-- [Учетная запись Azure](https://azure.microsoft.com/en-us/free/) (доступны бесплатные пробные версии).
+### <a name="prerequisites"></a>Технические условия
+- [Учетная запись Azure](https://azure.microsoft.com/free/) (доступны бесплатные пробные версии).
     - Создается кластер HDInsight Spark с 40 рабочими узлами (всего 168 ядер). Убедитесь, что ваша учетная запись имеет достаточно доступных ядер, проверив вкладку "Использование и квоты" вашей подписки на портале Azure.
        - При отсутствии достаточного количества ядер можно изменить шаблон кластера HDInsight и уменьшить количество подготовленных рабочих узлов. Инструкции см. в разделе "Создание кластера HDInsight Spark".
     - В этом примере создается кластер обучения искусственного интеллекта по пакетной службе с двумя виртуальными машинами NC6 (1 GPU, 6 виртуальных процессоров). Убедитесь, что ваша учетная запись имеет достаточно доступных ядер в регионе "Восточная часть США", проверив вкладку "Использование и квоты" вашей подписки на портале Azure.
@@ -67,8 +69,8 @@ ms.lasthandoff: 12/05/2017
         - Установка пакета Azure SDK для Python
     - Запишите идентификатор клиента, секрет и идентификатор арендатора создаваемого приложения Azure Active Directory. Вы будете использовать эти учетные данные далее в этом руководстве.
     - На момент написания этой статьи для Azure Machine Learning Workbench и Azure Batch AI используются отдельные вилки Azure CLI 2.0. Для ясности мы называем версию интерфейса командной строки для Workbench как "интерфейс командной строки, запускаемый из Azure Machine Learning Workbench", а общедоступную версию (которая включает искусственный интеллект пакетной службы) — Azure CLI 2.0.
-- [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy) — это бесплатная служебная программа, координирующая передачу файлов между учетными записями хранения Azure.
-    - Убедитесь, что папка, содержащая исполняемый файл AzCopy, находится в переменной среды PATH системы. (Инструкции по изменению переменных среды доступны [здесь](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp))
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) — это бесплатная служебная программа, координирующая передачу файлов между учетными записями хранения Azure.
+    - Убедитесь, что папка, содержащая исполняемый файл AzCopy, находится в переменной среды PATH системы. (Инструкции по изменению переменных среды доступны [здесь](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp))
 - Мы рекомендуем такой клиент SSH — [PuTTY](http://www.putty.org/).
 
 Этот пример был протестирован на 10 компьютерах под управлением Windows. Его можно запустить с любого компьютера под управлением Windows, включая виртуальные машины обработки и анализа данных Azure. Azure CLI 2.0 был установлен из файла MSI, согласно [этим инструкциям](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Могут потребоваться небольшие изменения (например, изменения в путях к файлам) при выполнении этого примера на macOS.
@@ -84,7 +86,7 @@ ms.lasthandoff: 12/05/2017
 2.  На странице **Projects** (Проекты) щелкните знак **+** и выберите **New Project** (Создать проект).
 3.  В области **Create New Project** (Создание проекта) введите информацию о новом проекте.
 4.  В поле поиска **Search Project Templates** (Поиск шаблонов проектов) введите Aerial Image Classification (Классификация изображений аэрофотосъемки) и выберите шаблон.
-5.  Нажмите кнопку **Создать**
+5.  Нажмите кнопку **Создать**.
  
 #### <a name="create-the-resource-group"></a>Создание группы ресурсов
 
@@ -157,14 +159,14 @@ ms.lasthandoff: 12/05/2017
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Передача файлов займет до 20 минут. В это время можно перейти к следующему разделу. Вам может понадобиться открыть другой интерфейс командной строки в Workbench и переопределить там временные переменные.
+    Ожидается, что передача файлов от часа вступили в силу. Во время ожидания, можно перейти к следующий раздел: может потребоваться открыть другой интерфейс командной строки до рабочей среды и переопределять существует временные переменные.
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>Создание кластера HDInsight Spark
 
 Для создания кластера HDInsigh мы рекомендуем использовать шаблон Resource Manager кластера HDInsight Spark, который расположен во вложенной папке Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning этого проекта.
 
-1. Шаблон кластера HDInsight Spark — это файл template.json, расположенный во вложенной папке Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning этого проекта. По умолчанию шаблон создает кластер Spark с 40 рабочими узлами. Если требуется изменить это число, откройте шаблон в предпочитаемом текстовом редакторе и замените все экземпляры с числом 40 необходимым количеством рабочих узлов.
-    - Вы можете столкнуться с ошибками нехватки памяти, если выбрано небольшое количество рабочих узлов. Для решения этой проблемы можно запустить скрипты обучения и ввода в эксплуатацию с использованием подмножества доступных данных, как описано далее в этом документе.
+1. Шаблон кластера HDInsight Spark — это файл template.json, расположенный во вложенной папке Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning этого проекта. По умолчанию шаблон создает кластер Spark с 40 рабочими узлами. Если необходимо изменить это число, откройте шаблон в другом текстовом редакторе и замените все экземпляры «40» номер узла работника по своему усмотрению.
+    - Позже может возникать ошибки нехватки памяти, если число рабочих узлов, выбранных меньше. Для решения этой проблемы можно запустить скрипты обучения и ввода в эксплуатацию с использованием подмножества доступных данных, как описано далее в этом документе.
 2. Выберите уникальное имя и пароль для кластера HDInsight и запишите их, как показано в следующей команде. Затем создайте кластер, выполнив следующие команды:
 
     ```
@@ -248,12 +250,10 @@ set PATH_TO_PROJECT=[The filepath of your project's root directory]
 
 #### <a name="create-a-batch-ai-cluster"></a>Создание кластера искусственного интеллекта пакетной службы
 
-1. Создайте кластер, выполнив следующие команды:
+1. Создайте кластер, выполнив следующую команду:
 
     ```
-    set AZURE_BATCHAI_STORAGE_ACCOUNT=%STORAGE_ACCOUNT_NAME%
-    set AZURE_BATCHAI_STORAGE_KEY=%STORAGE_ACCOUNT_KEY%
-    az batchai cluster create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Чтобы проверить состояние подготовки кластера, используйте следующую команду:
@@ -304,7 +304,7 @@ set PATH_TO_PROJECT=[The filepath of your project's root directory]
 1.  Выполните следующую команду в интерфейсе командной строки Машинного обучения Azure:
 
     ```
-    az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
+    az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
     Эта команда добавляет два файла, `myhdi.runconfig` и `myhdi.compute`, в папку `aml_config` проекта.

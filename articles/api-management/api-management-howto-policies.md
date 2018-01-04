@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 315e4bd7372416800373f98ecb5d8b1eb440e134
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Политики в Azure API Management
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="examples"></a>Примеры
 
-### <a name="appliy-policies-specified-at-different-scopes"></a>Применение политик, заданных в разных областях
+### <a name="apply-policies-specified-at-different-scopes"></a>Применение политики, определенные в разных областях.
 
 Если у вас есть политика на глобальном уровне и политика, настроенная для API, то при каждом использовании этого API будут применяться обе политики. API Management позволяет детерминированным образом упорядочивать объединенные операторы политик через основной элемент. 
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 12/05/2017
 
 Дополнительные сведения о работе с политиками см. в следующих статьях:
 
-+ [Преобразование интерфейсов API](transform-api.md).
++ [Преобразование API-интерфейсов](transform-api.md).
 + Полный перечень операторов политик и их параметров см. в [справочнике по политикам](api-management-policy-reference.md).
 + [Примеры политик](policy-samples.md).   
 

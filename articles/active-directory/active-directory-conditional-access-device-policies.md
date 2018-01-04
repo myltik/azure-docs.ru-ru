@@ -4,7 +4,7 @@ description: "Узнайте, как создать политики услов�
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8664c0bb-bba1-4012-b321-e9c8363080a0
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: d33babd331570624ca6a0fc967c79dbc467a1b40
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 2b586aee9559b62d4cc8b21ab88ab193e61e7c14
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="active-directory-conditional-access-device-policies-for-office-365-services"></a>Политики условного доступа Active Directory к службам Office 365 с устройств
 

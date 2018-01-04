@@ -1,6 +1,6 @@
 ---
-title: "Сбор и анализ журналов событий Windows в OMS Log Analytics | Документация Майкрософт"
-description: "Журналы событий Windows — один из самых распространенных источников данных, используемых службой Log Analytics.  В этой статье описано, как настроить коллекцию журналов событий Windows и сведения о записях, созданных ими в репозитории OMS."
+title: "Сбор и анализ журналов событий Windows в службе анализа журналов Azure | Документы Microsoft"
+description: "Журналы событий Windows — один из самых распространенных источников данных, используемых службой Log Analytics.  В этой статье описываются способы настройки сбора журналов событий Windows и сведения о записи, которые они создают в рабочей области аналитики журналов."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/11/2017
 ms.author: bwren
-ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Источники данных для журнала событий Windows в Log Analytics
 Журналы событий Windows — это один из самых распространенных [источников данных](log-analytics-data-sources.md), используемый для сбора данных агентами Windows, так как он применяется большинством приложений для записи сведений.  События можно собирать из стандартных журналов, таких как журналы системы и приложений, а также указывать пользовательские журналы приложений, которые необходимо отслеживать.
@@ -44,7 +44,7 @@ Log Analytics собирает события только из журналов
 ## <a name="windows-event-records-properties"></a>Свойства записей о событиях Windows
 Записи о событиях Windows имеют тип **Событие** и свойства, описанные в приведенной ниже таблице.
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 |:--- |:--- |
 | Компьютер |Имя компьютера, с которого было получено событие. |
 | EventCategory |Категория события. |
@@ -64,7 +64,7 @@ Log Analytics собирает события только из журналов
 ## <a name="log-searches-with-windows-events"></a>Поиск журналов с помощью событий Windows
 Ниже приведены различные примеры запросов поиска по журналу, которые извлекают записи событий Windows.
 
-| Запрос | Описание |
+| Запрос | ОПИСАНИЕ |
 |:---|:---|
 | Событие |Все события Windows. |
 | Event &#124; where EventLevelName == "error" |Все события Windows с указанием серьезности ошибки. |

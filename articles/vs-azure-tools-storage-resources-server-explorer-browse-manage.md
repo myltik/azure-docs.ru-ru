@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.openlocfilehash: 9f3d564fd844d982838cc6f29af24399801a62bc
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Обзор ресурсов хранилища с помощью обозревателя сервера и управление ими
 
@@ -162,7 +162,7 @@ BLOB-объект откроется в редакторе по умолчани
 Дополнительные сведения об очередях служб хранилища см. в статье [Приступая к работе с хранилищем очередей Azure с помощью .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Сведения о веб-службе для очередей служб хранилища см. в статье [Queue Service Concepts](http://go.microsoft.com/fwlink/?LinkId=264788) (Основные понятия службы очередей). Сведения об отправке сообщения в очередь служб хранилища с помощью Visual Studio см. в статье об [отправке сообщений в очередь служб хранилища](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
 > [!NOTE]
-> Очереди служб хранилища отличаются от очередей служебной шины Azure. Дополнительные сведения об очередях служебной шины см. в статье [Очереди, разделы и подписки служебной шины](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
+> Очереди служб хранилища отличаются от очередей служебной шины Azure. Дополнительные сведения об очередях служебной шины см. в статье [Очереди, разделы и подписки служебной шины](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## <a name="work-with-table-resources"></a>Работа с ресурсами таблиц
 

@@ -4,7 +4,7 @@ description: "В этом разделе описывается встроенн
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 894e387b4b83ed859139b4aecb3d8bb5df9ab56f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 49fc908006f19135b4c4553eef97d2f396db33ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: автоматическое обновление
 Эта функция появилась в сборке 1.1.105.0 (выпущенной в феврале 2016 года).
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 
 Итоговый код содержит префикс и общие сведения о состоянии.
 
-| Префикс итогового кода | Description (Описание) |
+| Префикс итогового кода | ОПИСАНИЕ |
 | --- | --- |
 | Успешно |Установка успешно обновлена. |
 | UpgradeAborted |Временное состояние привело к остановке обновления. Будет выполнена повторная попытка установки, и ожидается, что она будет успешной. |
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 
 Ниже приведен список наиболее распространенных сообщений. В списке приведены не все сообщения, однако сообщение о результате должно явно указывать на проблему.
 
-| Сообщение о результате | Description (Описание) |
+| Сообщение о результате | ОПИСАНИЕ |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Не удалось сделать запись в реестре. |

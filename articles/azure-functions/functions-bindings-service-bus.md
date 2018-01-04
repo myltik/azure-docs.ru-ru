@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6d59b26fa4ab17c17827a8e3450e808e40e5c2dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Привязки служебной шины Azure для службы "Функции Azure"
 
@@ -36,14 +36,14 @@ ms.lasthandoff: 11/29/2017
 
 Языковой пример см. в разделах:
 
-* [Предкомпилированный код C#](#trigger---c-example)
-* [Сценарий C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Скрипт C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Пример C# в триггере
 
-В следующем примере показана [предкомпилированная функция C#](functions-dotnet-class-library.md), которая заносит в журнал сообщение очереди служебной шины.
+В следующем примере показан [функции C#](functions-dotnet-class-library.md) , заносит в журнал сообщение очереди Service Bus.
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -146,7 +146,7 @@ module.exports = function(context, myQueueItem) {
 
 ## <a name="trigger---attributes"></a>Атрибуты триггера
 
-В [предкомпилированных функциях C#](functions-dotnet-class-library.md) используйте следующие атрибуты для настройки триггера служебной шины:
+В [библиотеки классов C#](functions-dotnet-class-library.md), использовать для настройки Service Bus триггера следующие атрибуты:
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -173,7 +173,7 @@ module.exports = function(context, myQueueItem) {
   }
   ```
 
-  Полный пример см. в разделе [Пример C# в триггере](#trigger---c-example).
+  Полный пример см. в разделе [триггер - пример на C#](#trigger---c-example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -205,7 +205,7 @@ module.exports = function(context, myQueueItem) {
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `ServiceBusTrigger`.
 
-|свойство function.json | Свойство атрибута |Описание|
+|свойство function.json | Свойство атрибута |ОПИСАНИЕ|
 |---------|---------|----------------------|
 |**type** | Недоступно | Для этого свойства нужно задать значение "serviceBusTrigger". Это свойство задается автоматически при создании триггера на портале Azure.|
 |**direction** | Недоступно | Для этого свойства необходимо задать значение "in". Это свойство задается автоматически при создании триггера на портале Azure. |
@@ -250,14 +250,14 @@ module.exports = function(context, myQueueItem) {
 
 Языковой пример см. в разделах:
 
-* [Предкомпилированный код C#](#output---c-example)
-* [Сценарий C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Скрипт C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Пример выходных данных C#
 
-В следующем примере показана [предкомпилированная функция C#](functions-dotnet-class-library.md), которая отправляет сообщение очереди служебной шины.
+В следующем примере показан [функции C#](functions-dotnet-class-library.md) , отправляющий сообщение очереди служебной шины:
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -411,7 +411,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>Выходные атрибуты
 
-Для [предкомпилированных функций C#](functions-dotnet-class-library.md) используйте атрибут [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), которая определена в пакет NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Конструктор этого атрибута принимает имя очереди или раздела и подписки. Можно также указать права доступа для подключения. Выбор параметра прав доступа описан в разделе [Привязки служебной шины в Функциях Azure](#output---configuration). Ниже приведен пример, в котором этот атрибут применяется к возвращаемому значению функции.
 
@@ -435,18 +435,18 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 }
 ```
 
-Полный пример см. в разделе [Пример выходных данных C#](#output---c-example).
+Полный пример см. в разделе [выходные данные - пример на C#](#output---c-example).
 
-Чтобы указать учетную запись служебной шины для использования на уровне класса, метода или параметра, можно применить атрибут `ServiceBusAccount`.  Дополнительные сведения см. в разделе [Атрибуты триггера для предкомпилированного кода C#](#trigger---attributes-for-precompiled-c).
+Чтобы указать учетную запись служебной шины для использования на уровне класса, метода или параметра, можно применить атрибут `ServiceBusAccount`.  Дополнительные сведения см. в разделе [Атрибуты триггера для предкомпилированного кода C#](#trigger---attributes).
 
 ## <a name="output---configuration"></a>Выходная конфигурация
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `ServiceBus`.
 
-|свойство function.json | Свойство атрибута |Описание|
+|свойство function.json | Свойство атрибута |ОПИСАНИЕ|
 |---------|---------|----------------------|
 |**type** | Недоступно | Для этого свойства нужно задать значение "serviceBus". Это свойство задается автоматически при создании триггера на портале Azure.|
-|**direction** | Недоступно | Для этого свойства необходимо задать значение "out". Это свойство задается автоматически при создании триггера на портале Azure. |
+|**direction** | Недоступно | Для этого свойства необходимо задать значение out. Это свойство задается автоматически при создании триггера на портале Azure. |
 |**name** | Недоступно | Имя переменной, представляющей очередь или раздел в коде функции. Задайте значение "$return", ссылающееся на возвращаемое значение функции. | 
 |**queueName**|**QueueName**|Имя очереди.  Задается только в случае отправки сообщений очереди, а не раздела.
 |**topicName**|**TopicName**|Имя отслеживаемого раздела. Задается только в случае отправки сообщений раздела, а не очереди.|

@@ -4,7 +4,7 @@ description: "Статья, в которой показано, как наст�
 services: active-directory-b2c
 documentationcenter: 
 author: vigunase
-manager: ajalexander
+manager: mtillman
 ms.assetid: 926e9711-71c0-49e8-b658-146ffb7386c0
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
 ms.author: vigunase
-ms.openlocfilehash: d09e15c6f6765eac436f573f89c6703039cd8397
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a3d78945f862d1ae12cec05da0cf0ea7df511f43
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Azure Active Directory B2C: включение функции "Оставаться в системе"  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 ![Рисунок](images/kmsi.PNG)
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Клиент Azure AD B2C, настроенный для разрешения регистрации или входа с локальной учетной записью, как описано в [руководстве по началу работы](active-directory-b2c-get-started-custom.md).
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 10/11/2017
 
 1. В файле расширений (TrustFrameworkExtensions.xml) найдите элемент `<TechnicalProfile Id="login-NonInteractive">` и `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
 
-2. Замените все экземпляры `IdentityExperienceFrameworkAppId` идентификатором приложения Identity Experience Framework, как описано в [руководстве по началу работы](active-directory-b2c-get-started-custom.md). Пример:
+2. Замените все экземпляры `IdentityExperienceFrameworkAppId` идентификатором приложения Identity Experience Framework, как описано в [руководстве по началу работы](active-directory-b2c-get-started-custom.md). Вот пример: 
 
    ```
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>

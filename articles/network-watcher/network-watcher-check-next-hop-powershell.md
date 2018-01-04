@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: ef559fbbd3e8448d64167552cacee04790418343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>Определите тип следующего прыжка, используя возможность определения следующего прыжка Наблюдателя за сетями Azure с помощью PowerShell.
 
 > [!div class="op_single_selector"]
-> - [Портал Azure](network-watcher-check-next-hop-portal.md)
+> - [портал Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [Интерфейс командной строки 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 В этом сценарии для определения типа следующего прыжка и IP-адреса используется портал Azure.
 
-В этом сценарии предполагается, что вы создали Наблюдатель за сетями в соответствии с инструкциями в статье [Create an Azure Network Watcher instance](network-watcher-create.md) (Наблюдатель за сетями: создание экземпляра службы). Предполагается также, что у вас есть группа ресурсов с допустимой виртуальной машиной.
+В этом сценарии предполагается, что вы создали Наблюдатель за сетями в соответствии с инструкциями в статье [Create a Network Watcher](network-watcher-create.md) (Создание Наблюдателя за сетями). Предполагается также, что у вас имеется группа ресурсов с допустимой виртуальной машиной.
 
 ## <a name="scenario"></a>Сценарий
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="retrieve-network-watcher"></a>Извлечение Наблюдателя за сетями
 
-Сначала необходимо извлечь экземпляр Наблюдателя за сетями. Переменная `$networkWatcher` передается в командлет проверки следующего прыжка.
+Сначала необходимо получить экземпляр Наблюдателя за сетями. Переменная `$networkWatcher` передается в командлет проверки следующего прыжка.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
@@ -97,7 +97,7 @@ NextHopIpAddress NextHopType           RouteTableId
 * VnetLocal
 * HyperNetGateway
 * VnetPeering
-* None
+* Нет
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

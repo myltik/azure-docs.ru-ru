@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 18b2e380bf51262f7dd78f164a925603ff6ab94f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 006f79f2017a12cfc131013acfe66f2befa93a80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Размеры виртуальных машин, оптимизированных для вычислений
 
@@ -36,4 +36,4 @@ ms.lasthandoff: 11/17/2017
 - [Для высокопроизводительных вычислений](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](../windows/acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
+Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](acu.md) сравнить производительность вычислений для различных номеров SKU Azure.

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "azure active directory, сборник тренировочных заданий, подтверждение концепции, PoC"
 documentationcenter: 
 author: dstefanMSFT
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory: стандартные блоки
 
 ## <a name="catalog-of-roles"></a>Каталог ролей
 
-| Роль | Описание | Обязанности по подтверждению концепции |
+| Роль | ОПИСАНИЕ | Обязанности по подтверждению концепции |
 | --- | --- | --- |
 | **Группа по архитектуре удостоверений и разработке** | Обычно эта группа отвечает за проектирование решения, реализацию прототипов, проведение утверждений и передачу решения в работу. | Эти люди предоставляют среды и оценивают различные сценарии с точки зрения управляемости. |
 | **Группа по работе с локальными удостоверениями** | Управляет различными источниками удостоверений в локальной среде: лесами Active Directory, каталогами LDAP, системами подбора кадров и поставщиками удостоверений федерации. | Предоставляет доступ к локальным ресурсам, необходимым для сценариев подтверждения концепции.<br/>Этих сотрудников следует вовлекать в работу как можно меньше.|

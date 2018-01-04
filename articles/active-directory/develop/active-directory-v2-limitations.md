@@ -4,7 +4,7 @@ description: "Список ограничений для конечной точ
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a9d455203e50da47208ef1494d38a950161bee1
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: HT
+ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Следует ли мне использовать конечную точку версии 2.0?
 При создании приложений, которые интегрируются с Azure Active Directory, необходимо решить, соответствуют ли требованиям конечная точка версии 2.0 и протоколы проверки подлинности. Исходная конечная точка Azure Active Directory по-прежнему полностью поддерживается и в некоторых отношениях является более функциональной, чем версия 2.0. Однако конечная точка версии 2.0 [представляет значительные преимущества](active-directory-v2-compare.md) для разработчиков.
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/12/2017
 * Конечная точка версии 2.0 не поддерживает выдачу утверждений ролей или групп в маркерах идентификации.
 * Она не поддерживает [предоставление учетных данных владельца ресурса OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3).
 
-Кроме того, конечная точка версии 2.0 не поддерживает протоколы SAML или WS-Federation ни в какой форме.
+Кроме того конечная точка версии 2.0 не поддерживает протоколы SAML или WS-Federation в любой форме.
 
 Чтобы лучше понять область действия функций протоколов, поддерживаемых в конечной точке версии 2.0, ознакомьтесь со [справочником по протоколам OpenID Connect и OAuth 2.0](active-directory-v2-protocols.md).
 

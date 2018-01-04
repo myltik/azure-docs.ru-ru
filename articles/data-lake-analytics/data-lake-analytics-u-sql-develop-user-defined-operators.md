@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: fdee02fb60b633c26704fc1774dfc3a7825b5e0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5e534f96b908d2aa1f4d7c48655509ece8dcf43e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Разработка определяемых пользователем операторов U-SQLU (UDO)
 Узнайте, как разрабатывать определяемые пользователем операторы для обработки данных в задании U-SQL.
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 **Создание и отправка задания U-SQL**
 
 1. В Visual Studio выберите **Файл > Создать > Проект > Проект U-SQL**.
-2. Нажмите кнопку **ОК**. Visual Studio создаст решение с помощью файла Script.usql.
+2. Последовательно выберите **ОК**. Visual Studio создаст решение с помощью файла Script.usql.
 3. В **обозревателе решений** разверните узел Script.usql и дважды щелкните файл **Script.usql.cs**.
 4. Скопируйте приведенный ниже код и вставьте его в файл.
 
@@ -129,7 +129,6 @@ ms.lasthandoff: 10/11/2017
 1. В **обозревателе сервера** разверните узлы **Azure**, **Data Lake Analytics**, а также учетную запись Data Lake Analytics. Затем разверните узел **Учетные записи хранения**, щелкните хранилище по умолчанию правой кнопкой мыши и выберите **Обозреватель**.
 2. Разверните узлы «Примеры» и «Выходные данные», а затем дважды щелкните **Drivers.csv**.
 
-## <a name="see-also"></a>Дополнительные материалы
-* [Приступая к работе с аналитикой озера данных с помощью PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Приступая к работе с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
+## <a name="see-also"></a>См. также
+* [Расширение выражения U-SQL с помощью пользовательского кода](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
 * [Использование инструментов озера данных для Visual Studio для разработки приложений U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

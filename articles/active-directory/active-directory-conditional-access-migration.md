@@ -1,6 +1,6 @@
 ---
 title: "Перенос классических политик на портале Azure | Документация Майкрософт"
-description: "Перенос классических политик на портале Azure."
+description: "Прочитайте о том, для миграции политик классического портала Azure."
 services: active-directory
 keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
 documentationcenter: 
@@ -13,162 +13,156 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c584eddb5542c2c49d08d35bcaf8e7acb5c5b83a
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Перенос классических политик на портале Azure 
 
 
-С помощью [условного доступа](active-directory-conditional-access-azure-portal.md) Azure Active Directory (Azure AD) можно контролировать доступ авторизованных пользователей к облачным приложениям. Хотя назначение этой функции осталось без изменений, в новом выпуске портала Azure возможности условного доступа значительно расширены с помощью усовершенствований. Политики условного доступа, настроенные вне портала Azure, могут сосуществовать с новыми политиками, создаваемыми на портале Azure. При условии, что вы не отключили и не удалили их, эти политики по-прежнему применяются в вашей среде. Тем не менее, мы рекомендуем перенести классические политики в новые политики условного доступа Azure AD, так как:
+С помощью [условного доступа](active-directory-conditional-access-azure-portal.md) Azure Active Directory (Azure AD) можно контролировать доступ авторизованных пользователей к облачным приложениям. Хотя назначение остается неизменным, выпуск новый портал Azure внес значительные улучшения в принципах работы условного доступа.
 
-- Новые политики позволяют реализовать сценарии, невозможные при использовании классических политик.
+Рекомендуется использовать перенос политики, так как вы не создали на портале Azure.
+
+- Теперь можно исправить, сценарии, которые не удалось обработать до.
 
 - Можно уменьшить количество политик, которыми необходимо управлять, объединяя их.   
 
-Этот раздел поможет перенести существующие классические политики в новые политики условного доступа Azure AD.
+- Можно управлять в одном централизованном месте все политики условного доступа.
 
+- Классический портал Azure будет прекращено.   
 
+В этой статье объясняется, что необходимо перенести существующие политики условного доступа для новой платформы.
+ 
 ## <a name="classic-policies"></a>Классические политики
 
-Политики условного доступа для Azure AD и Intune, которые были созданы не на портале Azure, также называются **классическими политиками**. Чтобы перенести классические политики, не требуется доступ к классическому порталу Azure. На портале Azure доступно представление [**Classic policies (preview)** (Классические политики (предварительная версия))](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies), позволяющее просмотреть классические политики.
+В [портал Azure](https://portal.azure.com), [условного доступа — политики](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) страница является политики точку входа для вашего условного доступа. Тем не менее в вашей среде, может также потребоваться политики условного доступа, не созданных с помощью этой страницы. Эти политики называются *классический политики*. Классический являются политиками условного доступа, созданных в:
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+- Классический портал Azure
+- Классический портал Intune
+- Портал защиты приложений Intune
 
 
-### <a name="open-a-classic-policy"></a>Открытие классической политики
+На **условного доступа** страницы, классический политик можно открыть, щелкнув [ **политики классический (Предварительная версия)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) в **управление** раздел. 
 
-**Вот как можно открыть классическую политику.**
 
-1. На [портале Azure](https://portal.azure.com) на панели навигации слева щелкните **Azure Active Directory**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
 
-2. На странице **Azure Active Directory** в разделе **Управление** щелкните **Условный доступ**.
+**Политики классический** представление предоставляет возможность:
 
-    ![Условный доступ](./media/active-directory-conditional-access-migration/02.png)
+- Фильтрация классический политик.
  
-2. На странице **Условный доступ — политики** в разделе **Управление** щелкните **Classic policies (preview)** (Классические политики (предварительная версия)).
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/72.png)
 
-3. Из списка выберите классические политики, которые вас интересуют.   
+- Отключите классический политики.
 
-    ![Условный доступ](./media/active-directory-conditional-access-migration/34.png)
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/73.png)
+   
+- Проверьте параметры классический политик (и отключить его).
+
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/74.png)
+
+
+При отключении классический политики больше нельзя вернуть этот шаг. Таким образом, можно изменить список членов группы в классическом политики с помощью **сведения** представления. 
+
+![Azure Active Directory](./media/active-directory-conditional-access-migration/75.png)
+
+Либо изменив выбранные группы или исключить определенных групп можно протестировать влияние классический отключенную политику для нескольких тестовых пользователей перед отключением политики для всех включаемых пользователей и групп. 
 
 
 
 ## <a name="azure-ad-conditional-access-policies"></a>Политики условного доступа Azure AD
 
-Этот раздел содержит подробные инструкции про переносу классических политик. Для их выполнения не требуется ознакомление с политиками условного доступа Azure AD. Тем не менее знание основных понятий и терминов условного доступа Azure AD поможет при переносе.
+С помощью условного доступа на портале Azure вы можете управлять всех политик в одном централизованном месте. Поскольку реализации как условный доступ значительно изменился, следует ознакомиться с основными понятиями, перед переносом классический политик.
 
 См.:
 
-- [Условный доступ в Azure Active Directory](active-directory-conditional-access-azure-portal.md): получите дополнительные сведения об основных понятиях и терминология.
+- [Условный доступ в Azure Active Directory](active-directory-conditional-access-azure-portal.md) Дополнительные сведения об основных понятиях и терминах.
 
-- [Начало работы с условным доступом в Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md): ознакомьтесь с пользовательским интерфейсом на портале Azure.
+- [Советы и рекомендации для условного доступа в Azure Active Directory](active-directory-conditional-access-best-practices.md) получить некоторые рекомендации по развертыванию условного доступа в вашей организации.
+
+- [Начало работы с условным доступом в Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) для ознакомления с помощью пользовательского интерфейса на портале Azure.
 
 
  
+## <a name="migration-considerations"></a>Рекомендации по переносу
+
+В этой статье политики условного доступа Azure AD также называются *новые политики*.
+Классический политик по-прежнему работать параллельно с вашей новой политики, пока отключить или удалить их. 
+
+В контексте консолидации политики важны следующие аспекты:
+
+- Хотя классический политики привязаны к определенной облачного приложения, можно выбрать столько облачных приложений, необходимое для новой политики.
+
+- Элементы управления классический политики и политику для облачного приложения требуют все элементы управления (*AND*) отработки. 
+
+
+- В новой политики можно:
+ 
+    - Объединить несколько условий, если это требуется для вашего сценария. 
+
+    - Выберите несколько предоставить требований в виде доступа элемента управления и объединять их с логического *или* (требуется одна из выбранных элементов управления) или с помощью логического *AND* (требуются все выбранные элементы управления).
+
+        ![Azure Active Directory](./media/active-directory-conditional-access-migration/25.png)
 
 
 
 
+### <a name="office-365-exchange-online"></a>Office 365 Exchange online
 
-## <a name="multi-factor-authentication-policy"></a>Политика Многофакторной идентификации 
+Если вы хотите перенести классический политики для **Office 365 Exchange online** , которые включают **Exchange Active Sync** в качестве условия клиентских приложений, не можно объединить в одну новую политику. 
 
-В этом примере показано, как перенести классическую политику, которая требует применения Многофакторной идентификации** для облачного приложения. 
+Такое случается, например, если требуется поддержка всех типов клиентских приложений. В новую политику, которая имеет **Exchange Active Sync** в качестве условия клиентского приложения, невозможно выбрать другие клиентские приложения.
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/64.png)
 
+Объединение в одну новую политику можно также не Если классический политик содержат несколько условий. Новая политика, которая имеет **Exchange Active Sync** как клиентские приложения настроены условия не поддерживает другие условия:   
 
-**Вот как можно перенести классическую политику.**
+![Azure Active Directory](./media/active-directory-conditional-access-migration/08.png)
 
-1. [Откройте классическую политику](#open-a-classic-policy) для получения параметров конфигурации.
-2. Создайте политику условного доступа Azure AD, чтобы заменить классическую политику. 
+Если имеется новая политика, которая имеет **Exchange Active Sync** как клиентские приложения условие настроен, необходимо убедитесь в том, что не настроены другие условия. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/16.png)
+ 
 
-### <a name="create-a-new-conditional-access-policy"></a>Создание политики условного доступа
+[Приложение под управлением](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) классический политики для Office 365 Exchange Online, которые содержат **Exchange Active Sync** разрешать в клиентских приложениях условие **поддерживается** и **неподдерживается** [платформ устройств](active-directory-conditional-access-technical-reference.md#device-platform-condition). Пока вы не можете настроить отдельных платформах связанные новую политику, можно ограничить в службу поддержки для [поддерживаемых платформ устройств](active-directory-conditional-access-technical-reference.md#device-platform-condition) только. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/65.png)
 
-1. На [портале Azure](https://portal.azure.com) на панели навигации слева щелкните **Azure Active Directory**.
+Можно объединить несколько классический политики, которые содержат **Exchange Active Sync** в качестве условия приложений клиента, если они имеют:
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
+- Только **Exchange Active Sync** в качестве условия 
 
-2. На странице **Azure Active Directory** в разделе **Управление** щелкните **Условный доступ**.
+- Несколько требований для предоставления доступа настроены
 
-    ![Условный доступ](./media/active-directory-conditional-access-migration/02.png)
+Одним из типичных сценариев является объединением:
 
+- Устройства под управлением классический политику из классического портала Azure 
+- Приложение классический политики на основе Intune приложения на портале защиты 
+ 
+В этом случае классический политик можно объединить в одну новую политику, которая имеет оба требования.
 
-
-3. На странице **Условный доступ** на панели инструментов сверху нажмите кнопку **Добавить**, чтобы открыть страницу **Создать**.
-
-    ![Условный доступ](./media/active-directory-conditional-access-migration/03.png)
-
-4. На странице **Создать** в текстовом поле **Имя** введите имя политики.
-
-    ![Условный доступ](./media/active-directory-conditional-access-migration/29.png)
-
-5. В разделе **Назначения** щелкните **Пользователи и группы**.
-
-    ![Условный доступ](./media/active-directory-conditional-access-migration/05.png)
-
-    а. Если вы выбрали всех пользователей в классической политике, щелкните **Все пользователи**. 
-
-    ![Условный доступ](./media/active-directory-conditional-access-migration/35.png)
-
-    b. Если вы выбрали группы в классической политике, щелкните **Выбрать пользователей и группы**, а затем выберите необходимых пользователей и группы.
-
-    ![Условный доступ](./media/active-directory-conditional-access-migration/36.png)
-
-    c. Если вы исключили какие-либо группы, щелкните вкладку **Исключить** и выберите необходимых пользователей и группы. 
-
-    ![Условный доступ](./media/active-directory-conditional-access-migration/37.png)
-
-6. На странице **Создать** в разделе **Назначения** щелкните **Облачные приложения**, чтобы открыть страницу **Облачные приложения**.
-
-    ![Условный доступ](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
-
-8. На странице **Облачные приложения** выполните следующие действия.
-
-    ![Условный доступ](./media/active-directory-conditional-access-migration/08.png)
-
-    а. Щелкните **Выбрать приложения**.
-
-    b. Нажмите кнопку **Выбрать**.
-
-    c. На странице **Выбор** выберите облачное приложение и нажмите кнопку **Выбрать**.
-
-    d. На странице **Облачные приложения** нажмите кнопку **Готово**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/62.png)
 
 
 
-9. Если выбран параметр **Требовать многофакторную проверку подлинности**:
+### <a name="device-platforms"></a>Платформы устройств
 
-    ![Условный доступ](./media/active-directory-conditional-access-migration/26.png)
+Классический политик с [элементов управления на основе приложения](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) предварительно настроены с iOS и Android как [условие платформы устройства](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
-    а. В разделе **Элементы управления доступом** щелкните **Предоставить**.
+В новой политики, необходимо выбрать [платформ устройств](active-directory-conditional-access-technical-reference.md#device-platform-condition) необходима поддержка по отдельности.
 
-    ![Условный доступ](./media/active-directory-conditional-access-migration/27.png)
-
-    b. На странице **Предоставление** щелкните **Разрешить доступ**, а затем щелкните **Требовать многофакторную проверку подлинности**.
-
-    c. Нажмите кнопку **Выбрать**.
-
-
-10. Щелкните **Включить**, чтобы включить политику.
-
-    ![Условный доступ](./media/active-directory-conditional-access-migration/30.png)
-
-11. Отключите классическую политику. 
-
-    ![Условный доступ](./media/active-directory-conditional-access-migration/38.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/41.png)
 
 
 
+ 
  
 
 

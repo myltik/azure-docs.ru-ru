@@ -3,7 +3,7 @@ title: " Обработка оповещений виртуальной маши
 description: "В этой статье показано, как интегрировать оповещения виртуальной машины Azure с модулями Runbook службы автоматизации Azure и автоматически устранять проблемы"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1f7baa7f-7283-4a4f-9385-3f5cd1062c7f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: csand;magoedte
-ms.openlocfilehash: 18cccc88ab74235722e2f4886671fc483ab67da8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ef18a2de8ce62de945c49b91dc74aca7d7f408b0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---remediate-azure-vm-alerts"></a>Сценарий службы автоматизации Azure: обработка оповещений виртуальной машины Azure
 Для службы автоматизации Azure и виртуальных машин Azure доступна новая функция, которая позволяет настроить оповещения виртуальных машин для запуска модулей Runbook службы автоматизации. Эта новая возможность позволяет автоматически выполнять стандартное исправление в ответ на оповещения виртуальных машин, например перезапускать или останавливать виртуальную машину.
@@ -173,7 +173,7 @@ if ($WebhookData)
 ## <a name="summary"></a>Сводка
 При настройке оповещения на виртуальной машине Azure вы получаете возможность легко настраивать модуль Runbook службы автоматизации для автоматического выполнения действия исправления при инициализации оповещения. В этом выпуске можно выбрать модуль Runbook для перезапуска, остановки или удаления виртуальной машины в зависимости от вашего сценария оповещений. Это только начало использования сценариев, в которых вы управляете действиями (оповещение, устранение неполадок, исправление), автоматически предпринимаемыми при инициализации оповещения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 * Чтобы начать работу с графическими модулями Runbook, см. инструкции в статье [Первый графический Runbook](automation-first-runbook-graphical.md).
 * Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Мой первый модуль Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
 * Дополнительные сведения о типах модулей Runbook, их преимуществах и ограничениях см. в статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md).

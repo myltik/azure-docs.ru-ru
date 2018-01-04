@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Добавление, обновление или удаление кредитной или дебетовой карты, используемой для оплаты в Azure
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
 После того как подписка была отключена или отменена, она будет удалена только через 90 дней. На случай, если вы захотите снова активировать подписку, мы сохраняем ваш метод оплаты в файле на протяжении периода удержания. После этого подписка полностью удаляется.
 
-Если необходимо удалить кредитную или дебетовую карту до окончания периода удержания (90 дней), [обратитесь в службу поддержки Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Если необходимо удалить вашей кредитной или дебетовой карты до окончания периода хранения 90 дней, [повторно активировать подписку](billing-subscription-become-disable.md). Если не удается повторно активировать [обратитесь в службу поддержки Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Почему отображается ошибка "Срок действия сеанса истек. Щелкните здесь, чтобы войти обратно"?
 
@@ -96,6 +96,10 @@ ms.lasthandoff: 10/11/2017
 ### <a name="how-do-i-make-a-one-time-payment"></a>Как осуществить одноразовый платеж?
 
 К сожалению, сейчас в Azure не поддерживаются одноразовые платежи для кредитной или дебетовой карты. 
+
+### <a name="how-do-i-change-the-tax-id"></a>Как изменить код налогоплательщика?
+
+Чтобы добавить или обновить код налогоплательщика, посетите [ **профиль** в центре учетных записей Azure](https://account.azure.com/Profile), а затем выберите **налоговым записи**. Этот код налогоплательщика используется для расчета налога исключения и отображается на ваш счет.
 
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 

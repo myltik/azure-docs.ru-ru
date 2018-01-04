@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 83a83d07-ff9c-46c4-b5ba-25fe2b2cd003
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jeedes
-ms.openlocfilehash: d6f0570f7a98fc9f703c37eed4219990dac4d370
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 03a6eb581dae88e9789b73c04d5424c0ed14cf62
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Руководство по интеграции Azure Active Directory с Achieve3000
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/21/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Achieve3000, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/21/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление Achieve3000 из коллекции.
-2. Настройка и проверка единого входа в Azure AD.
+1. Добавление Achieve3000 из коллекции
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-achieve3000-from-the-gallery"></a>Добавление Achieve3000 из коллекции
 Чтобы настроить интеграцию Achieve3000 с Azure AD, необходимо добавить Achieve3000 из коллекции в список управляемых приложений SaaS.
@@ -108,9 +108,9 @@ ms.lasthandoff: 10/21/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Achieve3000](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://saml.achieve3000.com/district/<District Identifier>`.
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://saml.achieve3000.com/district/<District Identifier>`.
 
-    b. В текстовом поле **Идентификатор** введите значение `achieve3000-saml`.
+    Б. В текстовом поле **Идентификатор** введите значение `achieve3000-saml`.
 
     > [!NOTE] 
     > Значение URL-адреса входа приведено для примера. Вместо него необходимо указать фактический URL-адрес входа. Чтобы получить это значение, обратитесь к [группе поддержки клиентов Achieve3000](https://www.achieve3000.com/contact-us/). 
@@ -129,17 +129,17 @@ ms.lasthandoff: 10/21/2017
     | ------------------- | -------------------- |    
     | studentID               | user.mail |
 
-    а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+    a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 
     ![Добавление атрибута для настройки единого входа](./media/active-directory-saas-achieve3000-tutorial/tutorial_officespace_04.png)
 
     ![Добавление атрибута для настройки единого входа](./media/active-directory-saas-achieve3000-tutorial/tutorial_attribute_05.png)
 
-    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+    Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
 
     c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
     
-    г) Нажмите кнопку **ОК**.
+    d. Нажмите кнопку **ОК**.
 
 7. Нажмите кнопку **Сохранить** .
 
@@ -174,13 +174,13 @@ ms.lasthandoff: 10/21/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-achieve3000-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-an-achieve3000-test-user"></a>Создание тестового пользователя Achieve3000
 

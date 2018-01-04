@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
 ms.openlocfilehash: bb77c9b39e1aa89f6411de8ec3b1fca41e954bf2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Создание пользовательской пробы для шлюза приложений с помощью портала
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](application-gateway-create-probe-portal.md)
+> * [портал Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-probe-ps.md)
 > * [Классическая модель — Azure PowerShell](application-gateway-create-probe-classic-ps.md)
 

@@ -4,7 +4,7 @@ description: "В этом документе описываются выпуск
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
 ms.service: active-directory
@@ -14,14 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 6c990a184d44771c78330f54f518bb4c35a36a35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d89e51e61b52e7337b8faf28f42944ec29f1b94f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: история выпусков версий
 Команда Azure Active Directory регулярно добавляет в Azure AD Connect Health новые функции и возможности. В этой статье перечислены выпущенные версии и компоненты.
+
+## <a name="december-2017"></a>Декабрь 2017 г.
+**Обновление агента:**
+
+*   Агенту Azure AD Connect Health для AD DS (версия 3.0.145.0)
+  1. Повышение доступности агента 
+  2. Добавлены новые команды для устранения неполадок агента
+  3. Исправления ошибок и общие улучшения
+*   Агенту Azure AD Connect Health для AD FS (версия 3.0.145.0)
+  1. Добавлены новые команды для устранения неполадок агента
+  2. Повышение доступности агента 
+  3. Исправления ошибок и общие улучшения
+
+## <a name="july-2017"></a>Июля 2017 г.
+**Обновление агента:**
+
+*   Агенту Azure AD Connect Health для AD DS (версия 3.0.68.0)
+  1. Исправления ошибок и общие улучшения
+  2. Поддержка sovereign облака
+*   Агенту Azure AD Connect Health для AD FS (версия 3.0.68.0)
+  1. Исправления ошибок и общие улучшения
+  2. Поддержка sovereign облака
+
+## <a name="april-2017"></a>Апреле 2017 г.      
+**Обновление агента:**
+
+*   Агенту Azure AD Connect Health для AD FS (версия 3.0.12.0)
+  1. Исправления ошибок и общие улучшения
+*   Агенту Azure AD Connect Health для AD DS (версия 3.0.12.0)
+  1. Счетчики производительности отправить усовершенствования
+  2. Исправления ошибок и общие улучшения
 
 ## <a name="october-2016"></a>Октябрь 2016 г.
 **Обновление агента:**

@@ -4,7 +4,7 @@ description: "Инструкции по добавлению новых или �
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 11/07/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 0e46ff82c4177de6b33e5df8714318bff83fbb34
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 3b914bb72d9d0d6b6021c221c6019aea69a964a6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Краткое руководство по добавлению новых пользователей в Azure Active Directory
 В этой статье объясняется, как добавлять новых пользователей в вашей организации в Azure Active Directory (Azure AD) одновременно с помощью портала Azure или синхронизации данных учетной записи пользователя Windows Server AD в локальной среде. 

@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="resource-manager-rest-apis"></a>API-интерфейсы REST диспетчера ресурсов
 > [!div class="op_single_selector"]
 > * [Azure PowerShell](powershell-azure-resource-manager.md)
 > * [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
 > * [Портал](resource-group-portal.md) 
-> * [ИНТЕРФЕЙС REST API](resource-manager-rest-api.md)
+> * [REST API](resource-manager-rest-api.md)
 > 
 > 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 В этой статье не будет рассматриваться каждый API, существующий в Azure, а только некоторые операции в качестве примера. Ознакомившись с основами, переходите к [справочнику по REST API в Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/), который предоставит подробные сведения об использовании остальных API-интерфейсов.
 
-## <a name="authentication"></a>Аутентификация
+## <a name="authentication"></a>Authentication
 Проверка подлинности для Resource Manager осуществляется с помощью Azure Active Directory (AD). Чтобы подключиться к любому API-интерфейсу, сначала нужно пройти аутентификацию в Azure AD для получения маркера аутентификации, который можно передавать в каждый запрос. Мы рассматриваем прямой вызов непосредственно к интерфейсам REST API, и в этом контексте вы вряд ли хотите видеть запрос на ввод имени пользователя и пароля. Кроме того, мы предполагаем, что двухфакторная проверка подлинности не используется. Поэтому мы создадим то, что называется приложением Azure AD, и субъект-службу, которые будут использоваться для входа. Помните, что Azure AD поддерживает несколько процедур проверки подлинности и все они могут использоваться для получения маркера проверки подлинности, необходимого для последующих запросов API.
 Пошаговые инструкции см. в статье [Создание приложения Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](resource-group-create-service-principal-portal.md).
 

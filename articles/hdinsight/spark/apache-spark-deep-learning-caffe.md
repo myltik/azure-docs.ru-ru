@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: 7a051e0f35b2dd943f3569391d7ca0f206a9ef02
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 7565efd82945f21b83471ee66098cd476b7bb59f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Использование Caffe в кластере Azure HDInsight Spark для распределенного глубокого обучения
 
 
-## <a name="introduction"></a>Введение
+## <a name="introduction"></a>Общие сведения
 
 Глубокое обучение используется во всех отраслях, начиная от здравоохранения и заканчивая сферой транспортировки и производством. Компании используют глубокое обучение для решения сложных проблем, таких так [классификация образов](http://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [распознавание речи](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), распознавание объектов и машинный перевод. 
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/03/2017
 3. Развертывание необходимых библиотек на всех рабочих узлах.
 4. Разработка модели Caffe и ее распределенный запуск.
 
-HDInsight — это платформа PaaS, предоставляющая расширенные функции, которые упрощают выполнение некоторых заданий. Одна из функций, которую вы будете часто использовать при выполнении действий, описанных в этой записи блога, называется [Script Action](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) (Действие скрипта). Она позволяет выполнять команды оболочки, необходимые для настройки узлов кластера (головного, рабочего или граничного).
+HDInsight — это платформа PaaS, предоставляющая расширенные функции, которые упрощают выполнение некоторых заданий. Одна из функций, которую вы будете часто использовать при выполнении действий, описанных в этой записи блога, называется [Script Action](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) (Действие скрипта). Она позволяет выполнять команды оболочки, необходимые для настройки узлов кластера (головного, рабочего или граничного).
 
 ## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>Этап 1. Установка необходимых зависимостей на всех узлах
 
@@ -71,14 +71,14 @@ HDInsight — это платформа PaaS, предоставляющая р
 
 Второй этап — скачивание, компиляция и установка ProtoBuf 2.5.0 для Caffe во время выполнения. ProtoBuf 2.5.0 — это [обязательный](https://github.com/yahoo/CaffeOnSpark/issues/87) элемент, но эта версия недоступна в виде пакета для Ubuntu 16. Поэтому ее нужно скомпилировать из исходного кода. В Интернете можно также найти несколько ресурсов по компиляции этой версии. Дополнительные сведения см. [здесь](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
-Чтобы приступить к работе, вы можете выполнить это действие сценария в кластере для всех рабочих и головных узлов (для HDInsight 3.5). Можно выполнить действия сценария в существующем кластере или использовать их во время создания кластера. Дополнительные сведения о действиях сценария см. в [этой документации](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
+Чтобы приступить к работе, вы можете выполнить это действие сценария в кластере для всех рабочих и головных узлов (для HDInsight 3.5). Можно выполнить действия сценария в существующем кластере или использовать их во время создания кластера. Дополнительные сведения о действиях сценария см. в [этой документации](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
 
 ![Действия скриптов для установки зависимостей](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
 ## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>Этап 2. Создание CaffeOnSpark для HDInsight на головном узле
 
-Второй этап заключается в создании Caffe на головном узле и развертывании скомпилированных библиотек на всех рабочих узлах. На этом шаге необходимо [установить SSH-подключение к головному узлу](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). После этого необходимо следовать [процедуре сборки CaffeOnSpark](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Ниже приведен сценарий, который можно использовать для выполнения сборки CaffeOnSpark с несколькими дополнительными действиями. 
+Второй этап заключается в создании Caffe на головном узле и развертывании скомпилированных библиотек на всех рабочих узлах. На этом шаге необходимо [установить SSH-подключение к головному узлу](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). После этого необходимо следовать [процедуре сборки CaffeOnSpark](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Ниже приведен сценарий, который можно использовать для выполнения сборки CaffeOnSpark с несколькими дополнительными действиями. 
 
     #!/bin/bash
     git clone https://github.com/yahoo/CaffeOnSpark.git --recursive

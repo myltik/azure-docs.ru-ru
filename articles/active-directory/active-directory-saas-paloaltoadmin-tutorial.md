@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: a826eaec-15af-4c85-8855-8a3374d1efb9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e73739588f1422e1e5b724784eedd6f25d71bf9
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Руководство по интеграции Azure Active Directory с Palo Alto Networks (пользовательский интерфейс администратора)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/07/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Palo Alto Networks (пользовательский интерфейс администратора), вам потребуется:
 
@@ -48,12 +48,12 @@ ms.lasthandoff: 11/07/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Palo Alto Networks (пользовательский интерфейс администратора) из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-palo-alto-networks---admin-ui-from-the-gallery"></a>Добавление Palo Alto Networks (пользовательский интерфейс администратора) из коллекции
+## <a name="adding-palo-alto-networks---admin-ui-from-the-gallery"></a>Добавление Palo Alto Networks (пользовательский интерфейс администратора) из коллекции.
 Чтобы настроить интеграцию Palo Alto Networks (пользовательский интерфейс администратора) с Azure AD, необходимо добавить Palo Alto Networks (пользовательский интерфейс администратора) из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Palo Alto Networks (пользовательский интерфейс администратора) из коллекции, выполните следующие действия:**
@@ -108,9 +108,9 @@ ms.lasthandoff: 11/07/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Palo Alto Networks (пользовательский интерфейс администратора)](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<Customer Firewall URL>/php/login.php`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<Customer Firewall URL>/php/login.php`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<Customer Firewall URL>/SAML20/SP`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<Customer Firewall URL>/SAML20/SP`
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки Palo Alto Networks (пользовательский интерфейс администратора)](https://support.paloaltonetworks.com/support). 
@@ -126,13 +126,13 @@ ms.lasthandoff: 11/07/2017
     | Имя пользователя | user.userprincipalname |
     | adminrole | customadmin |
 
-    а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+    a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 
     ![Настройка единого входа](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_04.png)
 
     ![Настройка единого входа](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_05.png)
     
-    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+    Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
     
     c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
     
@@ -165,9 +165,9 @@ ms.lasthandoff: 11/07/2017
 
     ![Настройка единого входа в Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-    а. Укажите имя в текстовом поле **Profile Name** (Имя профиля), например "Пользовательский интерфейс администратора Azure AD".
+    a. Укажите имя в текстовом поле **Profile Name** (Имя профиля), например "Пользовательский интерфейс администратора Azure AD".
     
-    b. В разделе **Identity Provider Metadata** (Метаданные поставщика удостоверений) щелкните **Browse** (Обзор) и выберите файл metadata.xml, загруженный ранее с портала Azure.
+    Б. В разделе **Identity Provider Metadata** (Метаданные поставщика удостоверений) щелкните **Browse** (Обзор) и выберите файл metadata.xml, загруженный ранее с портала Azure.
     
     c. Щелкните **ОК**
 
@@ -199,13 +199,13 @@ ms.lasthandoff: 11/07/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-palo-alto-networks---admin-ui-test-user"></a>Создание тестового пользователя в Palo Alto Networks (пользовательский интерфейс администратора)
 

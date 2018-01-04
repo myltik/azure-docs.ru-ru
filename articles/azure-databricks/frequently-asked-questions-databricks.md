@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: d8257056fddda408b622d3da11c707ff39e180db
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Часто задаваемые вопросы об Azure Databricks
 
@@ -69,9 +69,9 @@ This subscription is not registered to use the namespace ‘Microsoft.Databricks
 
 * Эта ошибка также может возникнуть, если доменное имя из используемого адреса электронной почты назначено многим каталогам в Azure Active Directory. Чтобы обойти эту проблему, создайте нового пользователя в каталоге, который содержит подписку с рабочей областью Databricks.
 
-    а. На портале Azure перейдите к Azure AD. Выберите **Пользователи и группы**, а затем —  > **Добавить пользователя**.
+    a. На портале Azure перейдите к Azure AD. Выберите **Пользователи и группы**, а затем —  > **Добавить пользователя**.
 
-    b. Добавьте пользователя с адресом электронной почты в формате `@<tenant_name>.onmicrosoft.com` вместо `@<your_domain>`. Эти данные можно найти в списке **пользовательские домены** в разделе Azure AD на портале Azure.
+    Б. Добавьте пользователя с адресом электронной почты в формате `@<tenant_name>.onmicrosoft.com` вместо `@<your_domain>`. Эти данные можно найти в списке **пользовательские домены** в разделе Azure AD на портале Azure.
     
     c. Назначьте новому пользователю роль **участника** для ресурса рабочей области Databricks.
     
@@ -94,7 +94,7 @@ This subscription is not registered to use the namespace ‘Microsoft.Databricks
 
 #### <a name="solution"></a>Решение
 
-Кластер Databricks использует один общедоступный IP-адрес на каждый узел. Если для подписки уже использованы все общедоступные IP-адреса, отправьте нам [запрос на увеличение квоты](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Выберите значение **Квоты** для параметра **Тип проблемы** и значение **Сети: ARM** для параметра **Тип квоты**. В области **Сведения** сформулируйте просьбу увеличить квоту на общедоступные IP-адреса. Например, если установлен лимит 60, а вам нужно создать кластер на 100 узлов, попросите увеличить лимит до 160.
+Кластер Databricks использует один общедоступный IP-адрес на каждый узел. Если для подписки уже использованы все общедоступные IP-адреса, отправьте нам [запрос на увеличение квоты](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Выберите значение **Квоты** для параметра **Тип проблемы** и значение **Сети: ARM** для параметра **Тип квоты**. В области **Сведения** сформулируйте просьбу увеличить квоту на общедоступные IP-адреса. Например, если установлен лимит 60, а вам нужно создать кластер на 100 узлов, попросите увеличить лимит до 160.
 
 ### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Второй тип сбоя запуска поставщика облачных служб при настройке кластера
 

@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 06/20/2017
 ms.author: heidist
 ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Создание индекса службы поиска Azure с помощью портала Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 Используйте встроенный конструктор на портале Azure для создания [индекса поиска](search-what-is-an-index.md) и его выполнения в службе Поиска Azure. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 В этой статье предполагается наличие [подписки Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) и [службы поиска Azure](search-create-service-portal.md).  
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 
 Атрибуты поля определяют, как используется поле, например, используется ли полнотекстовый поиск, фасетная навигация, операции сортировки и т д. В следующей таблице описывается каждый атрибут.
 
-|Атрибут|Описание|  
+|Атрибут|ОПИСАНИЕ|  
 |---------------|-----------------|  
 |**Доступный для поиска**|Полнотекстовый поиск, подлежащий лексическому анализу, такому как разбиения на слова во время индексации. Если, например, задать для поля, поддерживающего поиск, значение sunny day (солнечный день), оно будет разделено на элементы sunny и day. Дополнительные сведения см. в статье [Как работает полнотекстовый поиск в службе поиска Azure](search-lucene-query-architecture.md).|  
 |**Фильтруемый**|Указывается в запросах **$filter**. Для фильтруемых полей типа `Edm.String` и `Collection(Edm.String)` не выполняется разбиение на слова, поэтому они могут попасть в результаты поиска только по точному совпадению. Например, если для такого поля задать значение sunny day, запрос `$filter=f eq 'sunny'` не вернет совпадений, а запрос — `$filter=f eq 'sunny day'` вернет. |  

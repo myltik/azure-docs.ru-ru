@@ -4,7 +4,7 @@ description: "В этой статье перечислены атрибуты, 
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08663916214cf2d34704ef2a355464bc6df9b138
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 1fb5772f58511b33d6927c3d0ff155980ed756ad
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Службы синхронизации Azure AD Connect: атрибуты, синхронизируемые с Azure Active Directory
 В этой статье перечислены атрибуты, которые синхронизируются при помощи служб синхронизации Azure AD Connect.  
@@ -248,7 +248,7 @@ ms.lasthandoff: 11/17/2017
 | thumbnailphoto |X |X | | |
 | title |X |X | | |
 | unauthOrig |X |X |X | |
-| url |X |X | | |
+| URL-адрес |X |X | | |
 | usageLocation |X | | |Механическое свойство. Страна пользователя. Используется для назначения лицензии. |
 | userPrincipalName |X | | |Имя участника-пользователя является именем для входа. Чаще всего соответствует значению [mail]. |
 | wWWHomePage |X |X | | |
@@ -465,7 +465,7 @@ ms.lasthandoff: 11/17/2017
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## <a name="notes"></a>Примечания
+## <a name="notes"></a>Заметки
 * Если используется альтернативный идентификатор, то локальный атрибут userPrincipalName синхронизируется с атрибутом Azure AD onPremisesUserPrincipalName. Атрибут "Альтернативный идентификатор", например почта, синхронизируется с атрибутом Azure AD userPrincipalName.
 * В списках выше тип объекта **User** также относится к типу объекта **iNetOrgPerson**.
 

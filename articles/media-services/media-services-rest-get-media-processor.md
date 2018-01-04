@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 4ad90ad979c5bd74fc55155098c88d5c13cb12e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4e673a92a9740b96eac20cdf5673395bacca8b77
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Как получить экземпляр обработчика мультимедиа
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Обзор
-В службах мультимедиа обработчик мультимедиа является компонентом, который работает со специфическими задачами обработки, такими как кодирование, преобразование формата, шифрование или расшифровка мультимедийного контента. Обработчик мультимедиа обычно создается при создании задачи для кодирования, шифрования или преобразования формата мультимедийного контента.
+Обработчики мультимедиа являются компонентом, который обрабатывает конкретных видео или аудио обработки задачи, например кодирования, преобразования формата, шифрования или расшифровки файлов мультимедиа. Все задачи, отправленные в службы мультимедиа требуют обработчик мультимедиа для кодирования, зашифровать или преобразовать содержимое видео и звука. 
 
 ## <a name="azure-media-processors"></a>Обработчики мультимедиа Azure 
 
@@ -44,8 +44,6 @@ ms.lasthandoff: 10/11/2017
 
 Сведения о подключении к API AMS см. в разделе [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI.
 
 ## <a name="get-a-media-processor"></a>Получение обработчика мультимедиа
 
@@ -60,7 +58,7 @@ ms.lasthandoff: 10/11/2017
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 Ответ:
@@ -88,6 +86,6 @@ ms.lasthandoff: 10/11/2017
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
-Теперь, когда вы знаете, как получить экземпляр обработчика мультимедиа, перейдите в раздел [Кодировка актива](media-services-rest-get-started.md) , в котором будет показано, как использовать Media Encoder Standard для кодирования ресурса-контейнера.
+## <a name="next-steps"></a>Следующие шаги
+Теперь, когда вы знаете, как получить экземпляр обработчика мультимедиа, перейдите к [как закодировать ресурс](media-services-rest-get-started.md) статьи, где показано, как использовать стандартные кодировщика мультимедиа для кодирования актива.
 

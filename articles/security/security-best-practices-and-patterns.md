@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 593cb6da3527a32906e8e9faa11dc13a3ef5440f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: c8a25d64f3925ec963d8d02c827bd2045994feac
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Рекомендации и шаблоны для обеспечения безопасности в Azure
 Сейчас доступны следующие статьи с рекомендациями и шаблонами для обеспечения безопасности в Azure. Регулярно просматривайте эту страницу с обновляемым списком материалов по обеспечению безопасности в Azure.  
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/22/2017
 * [Security best practices for IaaS workloads in Azure] (Рекомендации по безопасности рабочих нагрузок IaaS в Azure) (azure-security-iaas.md)
 * [Облачные службы Microsoft Cloud и сетевая безопасность](../best-practices-network-security.md)
 * [Implementing a secure hybrid network architecture in Azure (Реализация защищенной гибридной сетевой архитектуры в Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Рекомендации для PaaS Azure] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
+* [Azure PaaS рекомендациям] (https://docs.microsoft.com/azure/security/security-paas-deployments)
 
 Azure — это безопасная платформа для создания пользовательских решений. Кроме того, для защиты ваших решений в Azure мы дополнительно предоставляем разные службы и технологии. Так как доступно множество параметров, многие пользователи интересуются способами защиты, рекомендуемыми специалистами Майкрософт.
 

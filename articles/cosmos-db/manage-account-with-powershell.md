@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 25c543528119410dff0684845a713dcb0d6151d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Создание учетной записи Azure Cosmos DB с помощью PowerShell
 
-В этом руководстве содержатся команды Azure PowerShell, используемые для автоматизации управления учетными записями баз данных Azure Cosmos DB. Здесь также приведены команды для управления ключами учетных записей и изменения порядка при отработке отказа в [межрегиональных учетных записях баз данных][scaling-globally]. Вы можете изменить политики согласованности, а также добавить или удалить регионы в учетной записи базы данных. Чтобы управлять своей учетной записью базы данных Azure Cosmos DB между несколькими регионами, можно использовать [Azure CLI](cli-samples.md), [REST API поставщика ресурсов][rp-rest-api] или [портал Azure](create-documentdb-dotnet.md#create-account).
+В этом руководстве содержатся команды Azure PowerShell, используемые для автоматизации управления учетными записями баз данных Azure Cosmos DB. Здесь также приведены команды для управления ключами учетных записей и изменения порядка при отработке отказа в [межрегиональных учетных записях баз данных][scaling-globally]. Вы можете изменить политики согласованности, а также добавить или удалить регионы в учетной записи базы данных. Чтобы управлять своей учетной записью базы данных Azure Cosmos DB между несколькими регионами, можно использовать [Azure CLI](cli-samples.md), [REST API поставщика ресурсов][rp-rest-api] или [портал Azure](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Приступая к работе
 
 Следуйте инструкциям из статьи [Приступая к работе с командлетами Azure PowerShell][powershell-install-configure], чтобы установить PowerShell и подключиться к учетной записи Azure Resource Manager через PowerShell.
 
-### <a name="notes"></a>Примечания
+### <a name="notes"></a>Заметки
 
 * Чтобы выполнять следующие команды без запроса пользовательского подтверждения, добавьте в команду флаг `-Force`.
 * Все следующие команды синхронные.
@@ -62,11 +62,11 @@ ms.lasthandoff: 10/11/2017
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
 
-### <a name="notes"></a>Примечания
+### <a name="notes"></a>Заметки
 * В предыдущем примере создается учетная запись базы данных с двумя регионами. Кроме того, можно также создать учетную запись базы данных с одним регионом (регион для записи со значением приоритета отработки отказа 0) или с несколькими регионами (более двух). Дополнительные сведения см. в разделе [Масштабирование по всей планете][scaling-globally].
 * В качестве расположений используйте регионы, в которых база данных Azure Cosmos DB общедоступна. Текущий список регионов см. на [странице регионов Azure](https://azure.microsoft.com/regions/#services).
 
-## <a id="update-documentdb-account-powershell"></a> Обновление учетной записи базы данных DocumentDB
+## <a id="update-documentdb-account-powershell"></a> Обновление учетной записи базы данных Azure Cosmos DB
 
 Эта команда позволяет обновить свойства учетной записи базы данных Azure Cosmos DB. К ним относятся политика согласованности и расположения учетной записи базы данных.
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
 
-## <a id="delete-documentdb-account-powershell"></a> Удаление учетной записи базы данных DocumentDB
+## <a id="delete-documentdb-account-powershell"></a> Удаление учетной записи базы данных Azure Cosmos DB
 
 Эта команда позволяет удалить имеющуюся учетную запись базы данных Azure Cosmos DB.
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="get-documentdb-properties-powershell"></a> Получение свойств учетной записи базы данных DocumentDB
+## <a id="get-documentdb-properties-powershell"></a> Получение свойств учетной записи базы данных Azure Cosmos DB
 
 Эта команда позволяет получить свойства имеющейся учетной записи базы данных Azure Cosmos DB.
 
@@ -194,8 +194,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Дополнительные сведения см. в статье о [подключении и создании запросов с помощью .NET](create-documentdb-dotnet.md).
-* Дополнительные сведения см. в статье о [подключении и создании запросов с помощью .NET Core](create-documentdb-dotnet-core.md).
+* Дополнительные сведения см. в статье о [подключении и создании запросов с помощью .NET](create-sql-api-dotnet.md).
 * Дополнительные сведения см. в статье о [подключении и создании запросов с помощью Node.js и приложения MongoDB](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

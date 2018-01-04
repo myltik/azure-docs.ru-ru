@@ -6,13 +6,13 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 08/31/2017
+ms.date: 12/15/2017
 ms.author: marsma
-ms.openlocfilehash: ace4eb6b284f2c1b2caeb54c1d686e68cacb1725
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: ec7f469c47924f4ae22d6509996ca9cf498fc9ad
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="region-availability-for-azure-container-instances"></a>Доступность службы "Экземпляры контейнеров Azure" в регионах
 
@@ -20,8 +20,8 @@ ms.lasthandoff: 12/05/2017
 
 | Расположение | ОС | ЦП | Память (ГБ) |
 | -------- | -- | :---: | :-----------: |
-| Западная Европа, западная часть США, восточная часть США | Linux | 2 | 7 |
-| Западная Европа, западная часть США, восточная часть США | Windows | 2 | 3,5 |
+| Западная Европа, западная часть США, восточная часть США | Linux | 4. | 14 |
+| Западная Европа, западная часть США, восточная часть США | Windows | 4. | 14 |
 
 ## <a name="resource-availability"></a>Доступность ресурсов
 
@@ -29,6 +29,6 @@ ms.lasthandoff: 12/05/2017
 
 Чтобы избежать таких сбоев, попробуйте развернуть экземпляры с меньшим количеством ЦП и объемом памяти либо повторите попытку развертывания позже.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об устранении неполадок в развертывании экземпляра контейнера см. в статье [Устранение неполадок развертывания с помощью службы "Экземпляры контейнеров Azure"](container-instances-troubleshooting.md).

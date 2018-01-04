@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: a691288b-84c1-40fb-84bd-5b06878865f0
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 29c99fdf39d366df90abc070f7b836320935035c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9fc4666ad73a7e4850719f936873a6c5ce0716c0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Учебник. Интеграция Azure Active Directory с DocuSign
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с DocuSign, вам потребуется:
 
@@ -47,10 +47,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление DocuSign из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-docusign-from-the-gallery"></a>Добавление DocuSign из коллекции
 Чтобы настроить интеграцию DocuSign с Azure AD, необходимо добавить DocuSign из коллекции в список управляемых приложений SaaS.
@@ -63,11 +63,11 @@ ms.lasthandoff: 10/11/2017
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![ПРИЛОЖЕНИЯ][2]
     
 3. В верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![Приложения][3]
+    ![ПРИЛОЖЕНИЯ][3]
 
 4. В поле поиска введите **DocuSign**.
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>настройка и проверка единого входа в Azure AD.
 В этом разделе описана настройка и проверка единого входа Azure AD в приложение DocuSign с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в DocuSign соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в DocuSign.
@@ -86,11 +86,11 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы настроить и проверить единый вход Azure AD в DocuSign, вам потребуется выполнить действия в перечисленных ниже стандартных блоках.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа в Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя DocuSign](#creating-a-docusign-test-user)** требуется для создания в DocuSign пользователя Britta Simon, связанного с одноименным пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_certificate.png) 
 
-4. В разделе **Настройка DocuSign** на портале Azure щелкните **Настроить DocuSign**, чтобы открыть окно "Настройка единого входа". Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+4. В разделе **Настройка DocuSign** на портале Azure щелкните **Настроить DocuSign**, чтобы открыть окно "Настройка единого входа". Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
     
     ![Настройка единого входа](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_configure.png)
 
@@ -139,19 +139,19 @@ ms.lasthandoff: 10/11/2017
    
     ![Настройка единого входа][56]
 
-    а. В соответствующее текстовое поле введите уникальное **имя** конфигурации. Не используйте пробелы.
+    a. В соответствующее текстовое поле введите уникальное **имя** конфигурации. Не используйте пробелы.
 
-    b. Вставьте **идентификатор сущности SAML** в текстовом поле **Издатель поставщика удостоверений**.
+    Б. Вставьте **идентификатор сущности SAML** в текстовом поле **Издатель поставщика удостоверений**.
 
     c. Вставьте **URL-адрес службы единого входа SAML** в текстовое поле **URL-адрес для входа поставщика удостоверений**.
 
-    г) Вставьте **URL-адрес выхода** в текстовое поле **URL-адрес для выхода поставщика удостоверений**.
+    d. Вставьте **URL-адрес выхода** в текстовое поле **URL-адрес для выхода поставщика удостоверений**.
 
     д. Выберите **Sign AuthN Request**(Подпись запроса авторизации).
 
-    Е. Для параметра **Send AuthN request by** (Как отправлять запрос авторизации) выберите значение **POST**.
+    f. Для параметра **Send AuthN request by** (Как отправлять запрос авторизации) выберите значение **POST**.
 
-    g. Для параметра **Send logout request by** (Как отправлять запрос на выход) выберите значение **GET**.
+    ж. Для параметра **Send logout request by** (Как отправлять запрос на выход) выберите значение **GET**.
 
 12. В разделе **Custom Attribute Mapping** (Сопоставление настраиваемого атрибута) выберите поле, которое нужно сопоставить с утверждением Azure AD. Например, утверждение **emailaddress** сопоставляется со значением **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Это имя утверждения по умолчанию из Azure AD, которое используется для утверждения на электронную почту. 
    
@@ -164,7 +164,7 @@ ms.lasthandoff: 10/11/2017
    
     ![Настройка единого входа][58]
 
-14. Щелкните **Сохранить**.
+14. Выберите команду **Сохранить**.
 
 15. В разделе **Identity Providers** (Поставщики удостоверений) нажмите кнопку **Actions** (Действия), а затем выберите **Endpoints** (Конечные точки).   
    
@@ -174,9 +174,9 @@ ms.lasthandoff: 10/11/2017
    
     ![Настройка единого входа][60]
    
-    а. Скопируйте значение **Service Provider Issuer URL** (URL-адрес издателя поставщика услуг), а затем вставьте его в текстовое поле **Идентификатор** в разделе **Домены и URL-адреса приложения DocuSign** на портале Azure, используя следующий шаблон: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/login/sp/<uniqueID>`.
+    a. Скопируйте значение **Service Provider Issuer URL** (URL-адрес издателя поставщика услуг), а затем вставьте его в текстовое поле **Идентификатор** в разделе **Домены и URL-адреса приложения DocuSign** на портале Azure, используя следующий шаблон: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/login/sp/<uniqueID>`.
    
-    b. Скопируйте значение **Service Provider Login URL** (URL-адрес для входа поставщика услуг), а затем вставьте его в текстовое поле **URL-адрес для входа** в разделе **Домены и URL-адреса приложения DocuSign** на портале Azure, используя следующий шаблон: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/`.
+    Б. Скопируйте значение **Service Provider Login URL** (URL-адрес для входа поставщика услуг), а затем вставьте его в текстовое поле **URL-адрес для входа** в разделе **Домены и URL-адреса приложения DocuSign** на портале Azure, используя следующий шаблон: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/`.
 
     ![Настройка единого входа](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_url.png)
       
@@ -212,13 +212,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-docusign-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="creating-a-docusign-test-user"></a>Создание тестового пользователя DocuSign
 

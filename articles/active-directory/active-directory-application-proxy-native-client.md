@@ -4,7 +4,7 @@ description: "В этой статье описано, как включить �
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e1f992aede3af99fa7c2ffa661bccbcac9f52ba9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: de49a8343a3db6c8b890050e7791f77105a09a3a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Включение собственных клиентских приложений для взаимодействия с приложениями прокси
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="step-2-configure-your-application"></a>Шаг 2. Настройка приложения
 Настройте собственное приложение, следуя инструкциям ниже.
 
-1. Выполните вход на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. Выберите **Azure Active Directory** > **Регистрация приложений**.
 3. Выберите **Регистрация нового приложения**.
 4. Укажите имя приложения, выберите тип приложения **Машинный код** и укажите универсальный код ресурса (URI)универсальный код ресурса (URI) перенаправления для приложения. 

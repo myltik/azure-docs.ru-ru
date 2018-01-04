@@ -3,7 +3,7 @@ title: "Перезагрузка виртуальной машины в лабо
 description: "Узнайте, как перезагрузить виртуальную машину в Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 8460f09e-482f-48ba-a57a-c95fe8afa001
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: tarcher
-ms.openlocfilehash: 4e46a7b21c8c9900ba61e9cf41000b341645133c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: ffa669e2d07a93e9e5071ac8aab81ec14ea24eab
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Перезагрузка виртуальной машины в лаборатории в Azure DevTest Labs
 Перезапустить виртуальную машину в DevTest Labs можно быстро и легко с помощью действий, описанных в этой статье. Перед перезапуском виртуальной машины рассмотрите следующее:
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/25/2017
    >
 
 ## <a name="steps-to-restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Действия по перезагрузке виртуальной машины в лаборатории в Azure DevTest Labs
-1. Выполните вход на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Щелкните **Больше служб**, а затем выберите в списке **DevTest Labs**.
 1. Из списка лабораторий выберите ту, в которой находится виртуальная машина, которую необходимо перезагрузить.  
 1. На левой панели выберите **My virtual machines** (Мои виртуальные машины). 

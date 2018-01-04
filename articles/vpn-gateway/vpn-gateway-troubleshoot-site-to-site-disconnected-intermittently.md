@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 96202a4d7e91a221aa655f58f29f2c8e24b86e4e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 9bcf30fbf1febbd80aa8899253de8cb61f4ae6f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Устранение проблемы периодических разрывов подключений VPN типа "сеть — сеть" Azure
 
-У вас может возникнуть проблема, когда новое или имеющееся VPN-подключение типа "сеть — сеть" Microsoft Azure не стабильное или регулярно отключается. В этой статье приведены действия, которые помогут определить и устранить причину проблемы. 
+Могут возникнуть проблемы может быть нестабильным или отключает регулярно нового или существующего подключения VPN сайт-сайт Microsoft Azure. В этой статье приведены действия, которые помогут определить и устранить причину проблемы. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 

@@ -3,7 +3,7 @@ title: "Основные понятия DevTest Labs | Документация 
 description: "Изучите основные понятия DevTest Labs и узнайте, как DevTest Labs поможет упростить создание и отслеживание виртуальных машин Azure, а также управление ими."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 105919e8-3617-4ce3-a29f-a289fa608fb2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
-ms.openlocfilehash: 7028cdacf7d597c238bf29bd26bbd44705d66224
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 46271c1122df852b37d4117f9d4008fd74f43d95
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="devtest-labs-concepts"></a>Основные понятия DevTest Labs
 ## <a name="overview"></a>Обзор
@@ -81,7 +81,7 @@ DevTest Labs предусматривает два типа ролей для п
 
 Области имеют иерархическую структуру, поэтому когда пользователю назначаются разрешения на определенном уровне, они автоматически применяются к областям более низкого уровня. Например, если пользователю назначена роль владельца подписки, он имеет доступ ко всем ресурсам в подписке, в том числе ко всем виртуальным машинам, виртуальным сетям и лабораториям. Таким образом, владелец подписки автоматически наследует роль владельца лаборатории. Однако владелец лаборатории не может наследовать роль владельца подписки, так как он имеет доступ к лаборатории, которая находится ниже уровня подписки в рамках иерархии. Поэтому владелец лаборатории не сможет просматривать виртуальные машины, виртуальные сети и другие ресурсы, находящиеся вне лаборатории.
 
-## <a name="azure-resource-manager-templates"></a>Шаблоны диспетчера ресурсов Azure
+## <a name="azure-resource-manager-templates"></a>Шаблоны Azure Resource Manager
 Все рассмотренные в этой статье компоненты можно настроить с помощью шаблонов Azure Resource Manager, которые позволяют определить инфраструктуру и конфигурацию решения Azure и многократно развертывать его в согласованном состоянии.
 
 В статье [Описание структуры и синтаксиса шаблонов Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) рассматривается структура шаблона Azure Resource Manager и свойства, доступные в различных его разделах.

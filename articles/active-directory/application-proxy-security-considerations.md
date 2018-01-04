@@ -4,7 +4,7 @@ description: "В этой статье рассматриваются вопро
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 239f3830a5e50f80ace15ff3f080653a5f402136
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 5a2ab5c68345deee3a34173d38d529a911c7ff3e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Вопросы безопасности при удаленном доступе к приложениям через прокси приложения Azure AD
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 11/14/2017
 Если на любом из этапов предварительной проверки подлинности происходит сбой, запрос пользователя отклоняется с сообщением о причинах проблемы.
 
 
-#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2) Служба помещает запрос в очередь соединителя
+#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. Служба помещает запрос в очередь соединителя
 
 Соединители не закрывают исходящее подключение к службе прокси приложения. При поступлении запроса служба добавляет его в очередь в одном из открытых подключений, чтобы его получил соединитель.
 

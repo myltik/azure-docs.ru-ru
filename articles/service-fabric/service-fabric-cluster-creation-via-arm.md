@@ -12,18 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/22/2017
+ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 47152d05eb7e31e7fe1f35e33a10fe8e903e21e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 251f7fc99f1c8d79f31118df11b7522930903c25
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Создание кластера Service Fabric в Azure с помощью Azure Resource Manager
+# <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Создание кластера Service Fabric в Azure с помощью Azure Resource Manager 
 > [!div class="op_single_selector"]
-> * [Диспетчер ресурсов Azure](service-fabric-cluster-creation-via-arm.md)
-> * [Портал Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+> * [портал Azure](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -31,126 +31,36 @@ ms.lasthandoff: 10/11/2017
 
 В этом руководстве описываются следующие процедуры.
 
-* Настройка Azure Key Vault для отправки сертификатов для безопасности кластера и приложений
-* Создание защищенного кластера в Azure с помощью Azure Resource Manager
-* Аутентификация пользователей с помощью Azure Active Directory для управления кластером
+* Основные понятия, которые должны учитывать off перед развертыванием кластера service fabric.
+* С помощью модулей диспетчера ресурсов службы фабрики для создания кластера в Azure.
+* Настройка Azure Active Directory (Azure AD) для проверки подлинности пользователей при выполнении операций управления в кластере.
+* Разработка пользовательского шаблона Azure Resource Manager для кластера и его развертывания.
 
-Безопасный кластер — это кластер, в котором предотвращается несанкционированный доступ к операциям управления. Это предусматривает развертывание, обновление и удаление приложений, служб и данных, которые они содержат. Незащищенный кластер — это кластер, к которому в любое время может подключиться любой пользователь и выполнять операции управления. Хотя кластер можно создать небезопасным, настоятельно рекомендуется с самого начала создать безопасный кластер. Поскольку незащищенный кластер невозможно будет защитить позднее, нужно создать новый кластер.
+## <a name="key-concepts-to-be-aware-of"></a>Основные понятия, которые следует учитывать
+В Azure, которая требует Service fabric использовать x509 сертификат для защиты кластера и ее конечных точек. Сертификаты используются в Service Fabric, чтобы обеспечить функции аутентификации и шифрования для защиты различных аспектов кластера и его приложений. Для клиентского доступа и выполнения операций управления в кластере, включая развертывание, обновление и удаление приложений, служб и данных, содержащихся в них можно использовать сертификаты и учетные данные Azure Active Directory. Использование Azure Active Directory настоятельно рекомендуется, так как это единственный способ запретить совместное использование сертификатов на клиентах.  Дополнительные сведения о том, как сертификаты используются в Service Fabric, см. в статье [Сценарии защиты кластера Service Fabric][service-fabric-cluster-security].
 
-Концепция создания безопасного кластер в Linux или Windows ничем не отличается. Дополнительные сведения о создании безопасных кластеров Linux, а также вспомогательные скрипты см. в разделе [Создание безопасных кластеров в Linux](#secure-linux-clusters).
+Service Fabric использует сертификаты X.509 для защиты кластера и обеспечения функций безопасности приложений. Вы используете [хранилище ключей] [ key-vault-get-started] для управления сертификатами для кластеров Service Fabric в Azure. 
 
-## <a name="sign-in-to-your-azure-account"></a>Вход в учетную запись Azure
-В этом руководстве используется [Azure PowerShell][azure-powershell]. При запуске нового сеанса PowerShell войдите в свою учетную запись Azure и выберите подписку перед выполнением команд Azure.
-
-Вход в учетную запись Azure:
-
-```powershell
-Login-AzureRmAccount
-```
-
-Выберите свою подписку.
-
-```powershell
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
-```
-
-## <a name="set-up-a-key-vault"></a>Настройка хранилища ключей
-В этом разделе описывается, как создать хранилище ключей для кластера Service Fabric в Azure и приложений Service Fabric. Полное руководство по использованию Azure Key Vault см. в статье [Приступая к работе с хранилищем ключей Azure][key-vault-get-started].
-
-Service Fabric использует сертификаты X.509 для защиты кластера и обеспечения функций безопасности приложений. Key Vault используется для управления сертификатами кластеров Service Fabric в Azure. При развертывании кластера в Azure поставщик ресурсов Azure, ответственный за создание кластеров Service Fabric, извлекает сертификаты из Key Vault и устанавливает их на виртуальные машины кластера.
-
-На приведенной ниже схеме показана связь между Azure Key Vault, кластером Service Fabric и поставщиком ресурсов Azure, который использует сертификаты из Key Vault при создании кластера.
-
-![Схема установки сертификата][cluster-security-cert-installation]
-
-### <a name="create-a-resource-group"></a>Создание группы ресурсов
-Первый шаг — создание группы ресурсов специально для хранилища ключей. Рекомендуется поместить хранилище ключей в собственной группе ресурсов. Так вы сможете удалять группы ресурсов для вычислений и хранения, включая группу ресурсов, в которой размещен кластер Service Fabric, без потери ключей и секретов. Группа ресурсов с хранилищем ключей _должна находиться в том же регионе_, что и кластер, который ее использует.
-
-Если вы планируете развертывание кластеров в нескольких регионах, рекомендуется выбрать имя для группы ресурсов и хранилища ключей, чтобы обозначить область, к которой они относятся.  
-
-```powershell
-
-    New-AzureRmResourceGroup -Name westus-mykeyvault -Location 'West US'
-```
-Выходные данные должны выглядеть так:
-
-```powershell
-
-    WARNING: The output object type of this cmdlet is going to be modified in a future release.
-
-    ResourceGroupName : westus-mykeyvault
-    Location          : westus
-    ProvisioningState : Succeeded
-    Tags              :
-    ResourceId        : /subscriptions/<guid>/resourceGroups/westus-mykeyvault
-
-```
-<a id="new-key-vault"></a>
-
-### <a name="create-a-key-vault-in-the-new-resource-group"></a>Создание хранилища ключей в новой группе ресурсов.
-Хранилище ключей _должно быть доступно для развернутой службы_. Это позволит поставщику вычислительных ресурсов получить из него сертификаты и установить их на экземплярах виртуальных машин.
-
-```powershell
-
-    New-AzureRmKeyVault -VaultName 'mywestusvault' -ResourceGroupName 'westus-mykeyvault' -Location 'West US' -EnabledForDeployment
-
-```
-
-Выходные данные должны выглядеть так:
-
-```powershell
-
-    Vault Name                       : mywestusvault
-    Resource Group Name              : westus-mykeyvault
-    Location                         : West US
-    Resource ID                      : /subscriptions/<guid>/resourceGroups/westus-mykeyvault/providers/Microsoft.KeyVault/vaults/mywestusvault
-    Vault URI                        : https://mywestusvault.vault.azure.net
-    Tenant ID                        : <guid>
-    SKU                              : Standard
-    Enabled For Deployment?          : False
-    Enabled For Template Deployment? : False
-    Enabled For Disk Encryption?     : False
-    Access Policies                  :
-                                       Tenant ID                :    <guid>
-                                       Object ID                :    <guid>
-                                       Application ID           :
-                                       Display Name             :    
-                                       Permissions to Keys      :    get, create, delete, list, update, import, backup, restore
-                                       Permissions to Secrets   :    all
-
-
-    Tags                             :
-```
-<a id="existing-key-vault"></a>
-
-## <a name="use-an-existing-key-vault"></a>Использование существующего хранилища ключей
-
-Чтобы использовать существующее хранилище ключей, _необходимо включить его для развернутой службы_, благодаря чему поставщик вычислительных ресурсов сможет получить из него сертификаты и установить его на узлах кластера:
-
-```powershell
-
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
-
-```
-
-<a id="add-certificate-to-key-vault"></a>
-
-## <a name="add-certificates-to-your-key-vault"></a>Добавление сертификатов в хранилище ключей
-
-Сертификаты используются в Service Fabric, чтобы обеспечить функции аутентификации и шифрования для защиты различных аспектов кластера и его приложений. Дополнительные сведения о том, как сертификаты используются в Service Fabric, см. в статье [Сценарии защиты кластера Service Fabric][service-fabric-cluster-security].
 
 ### <a name="cluster-and-server-certificate-required"></a>Сертификат кластера и сервера (обязательно)
-Этот сертификат требуется для защиты кластера и предотвращения несанкционированного доступа к нему. Он обеспечивает безопасность кластера двумя способами.
+Эти сертификаты (одна первичная и при необходимости вторичная) необходимы для защиты кластера и предотвратить несанкционированный доступ к нему. Он обеспечивает безопасность кластера двумя способами.
 
-* Аутентификация в кластере позволяет аутентифицировать обмен данными между узлами для федерации кластера. Только узлы, которые могут подтвердить свою подлинность с помощью этого сертификата, могут присоединиться к кластеру.
-* Аутентификация сервера позволяет аутентифицировать конечные точки управления кластера в клиенте управления, чтобы он "знал", что обращается к настоящему кластеру. Этот сертификат также предоставляет SSL для API управления HTTPS и Service Fabric Explorer по протоколу HTTPS.
+* **Аутентификация в кластере** позволяет аутентифицировать обмен данными между узлами для федерации кластера. Только узлы, которые могут подтвердить свою подлинность с помощью этого сертификата, могут присоединиться к кластеру.
+* **Проверка подлинности сервера:** выполняет проверку подлинности конечные точки управления кластера клиент управления, чтобы клиент управления известно осуществляет обмен данными в реальном кластера, а не «злоумышленник в середине». Этот сертификат также предоставляет SSL для API управления HTTPS и Service Fabric Explorer по протоколу HTTPS.
 
 Для этого сертификат должен отвечать следующим требованиям:
 
-* Сертификат должен содержать закрытый ключ.
+* Сертификат должен содержать закрытый ключ. Эти сертификаты обычно имеют расширения PFX-файл или PEM  
 * Сертификат должен быть создан для обмена ключами, которые можно экспортировать в файл обмена личной информацией (PFX-файл).
-* Имя субъекта сертификата должно совпадать с доменным именем, которое используется для обращения к кластеру Service Fabric. Это необходимо, чтобы предоставить SSL-протокол конечным точкам управления HTTPS в кластере и Service Fabric Explorer. Не удается получить SSL-сертификат от центра сертификации (ЦС) в домене .cloudapp.azure.com. Необходимо получить имя личного домена для кластера. При запросе сертификата из ЦС имя субъекта сертификата должно совпадать с именем личного домена, используемого для кластера.
+* **Имя субъекта сертификата должен соответствовать домену, которая используется для доступа к кластеру Service Fabric**. Это сопоставление не требуется указывать SSL для конечной точки управления HTTPS и обозреватель Service Fabric кластера. Не удается получить SSL-сертификат из центра сертификации (ЦС) для *. cloudapp.azure.com домена. Необходимо получить имя личного домена для кластера. При запросе сертификата из ЦС имя субъекта сертификата должно совпадать с именем личного домена, используемого для кластера.
+
+### <a name="set-up-azure-active-directory-for-client-authentication-optional-but-recommended"></a>Настройка Azure Active Directory для проверки подлинности клиента (необязательно, но рекомендуется)
+
+Azure AD позволяет организациям (известным как клиенты) управлять доступом пользователей к приложениям. Приложения можно разделить на две группы: те, в которых есть пользовательский веб-интерфейс входа в систему, и те, в которых вход выполняется с помощью собственного клиентского приложения. В этой статье предполагается, что клиент уже создан. Если это не так, обратитесь к статье [Как получить клиент Azure Active Directory][active-directory-howto-tenant].
+
+Кластеры Service Fabric предлагают несколько точек входа для управления функциями кластеров, включая веб-интерфейс [Service Fabric Explorer][service-fabric-visualizing-your-cluster] и [Visual Studio][service-fabric-manage-application-in-visual-studio]. В итоге вы получаете два приложения Azure AD для управления доступом к кластеру: одно веб-приложение и одно собственное приложение.
+
+Дополнительные сведения о настройке позднее в этом документе.
 
 ### <a name="application-certificates-optional"></a>Сертификаты приложения (необязательно)
 В кластере можно установить любое количество дополнительных сертификатов для обеспечения безопасности приложений. Перед созданием кластера рассмотрите сценарии безопасности приложений, которые требуют установки сертификатов на узлах, в том числе:
@@ -158,135 +68,283 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployme
 * шифрование и расшифровка значений конфигурации приложений;
 * шифрование данных между узлами во время репликации.
 
-### <a name="formatting-certificates-for-azure-resource-provider-use"></a>форматирование сертификатов для использования поставщиком ресурсов Azure.
-Файлы закрытых ключей (PFX) можно добавить и использовать непосредственно в своем хранилище ключей. Однако для поставщика вычислительных ресурсов Azure необходимо хранить ключи в специальном формате нотации объектов JavaScript (JSON). В этом формате PFX-файл представлен в виде строки в кодировке Base64 и пароля закрытого ключа. Чтобы соблюсти эти требования, ключи должны быть помещены в строку JSON и сохранены как "секреты" в хранилище ключей.
+Концепция создания безопасного кластер в Linux или Windows ничем не отличается. 
 
-Для упрощения этого процесса [на сайте GitHub доступен соответствующий модуль PowerShell][service-fabric-rp-helpers]. Чтобы использовать этот модуль, выполните следующие действия.
+### <a name="client-authentication-certificates-optional"></a>Сертификаты проверки подлинности клиента (необязательно)
+Администратор или пользователь работе клиента можно указать любое количество дополнительных сертификатов. По умолчанию сертификат кластера имеет привилегии администратора клиента. Эти дополнительные клиентские сертификаты не должны устанавливаться в кластере, необходимо только указать как разрешенные в конфигурации кластера, тем не менее, они должны быть установлены на клиентских компьютерах для подключения к кластеру и выполнения любого управления операции.
 
-1. Скачайте все содержимое репозитория в локальный каталог.
-2. Перейдите в локальный каталог.
-2. Импортируйте модуль ServiceFabricRPHelpers в окне PowerShell.
+
+## <a name="prerequisites"></a>Технические условия 
+Концепция создания безопасного кластер в Linux или Windows ничем не отличается. В этом руководстве рассматривается использование azure powershell или azure CLI для создания новых кластеров. Либо находятся необходимые компоненты 
+
+-  [Azure PowerShell 4.1 и более поздних версий] [ azure-powershell] или [Azure CLI 2.0 и более поздних версий][azure-CLI].
+-  Подробные сведения можно найти на fabic модулей службы- [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric) и [модуль az SF CLI](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
+
+
+## <a name="use-service-fabric-rm-module-to-deploy-a-cluster"></a>Служба структуры RM модуль используется для развертывания кластера
+
+В этом документе используем powershell структуры RM службы и модуль CLI для развертывания кластера, powershell или команду CLI модуля позволяет для нескольких сценариев. Сообщите нам, проходят через каждый из них. Подбор сценарий, что вы считаете, что наиболее подходящие для потребностей. 
+
+- Создание нового кластера — с помощью системы создается самозаверяющий сертификат
+    - Использовать шаблон по умолчанию для кластера
+    - Использование шаблона, который уже имеется.
+- Создание нового кластера — с помощью сертификата, которым вы владеете
+    - Использовать шаблон по умолчанию для кластера
+    - Использование шаблона, который уже имеется.
+
+### <a name="create-new-cluster----using-a-system-generated-self-signed-certificate"></a>Создание нового кластера - с помощью системы создается самозаверяющий сертификат
+
+Используйте следующую команду для создания кластера, если у вас есть, чтобы система создать самозаверяющий сертификат и использовать его для защиты кластера. Эта команда устанавливает сертификат первичного кластера, который используется для обеспечения безопасности кластера и Настройка административного доступа для выполнения операций управления, с помощью этого сертификата.
+
+### <a name="login-in-to-azure"></a>вход в Azure.
+
+```Powershell
+
+Login-AzureRmAccount
+Set-AzureRmContext -SubscriptionId <guid>
+
+```
+
+```CLI
+
+azure login
+az account set --subscription $subscriptionId
+
+```
+#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module-to-set-up-the-cluster"></a>Используйте шаблон nodetype узла 1 по умолчанию равен 5, который поставляется в модуле настройки кластера
+
+Используйте следующую команду для создания кластера быстро, указывая минимальные параметры
+
+Шаблон, который используется на [образцы шаблона службы azure fabric: шаблон windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) и [Ubuntu шаблона](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+
+Команды ниже подходит для создания кластеров Windows и Linux, необходимо просто соответствующим образом указать операционной системы. Powershell или команды CLI также выдает сертификат сертификатов в указанный в theCertificateOutputFolder. Другие параметры, как Конфигурация виртуальной Машины также принимает команды.
+
+```Powershell
+
+$resourceGroupLocation="westus"
+$resourceGroupName="mycluster"
+$vaultName="myvault"
+$vaultResourceGroupName="myvaultrg"
+$CertSubjectName="mycluster.westus.cloudapp.azure.com"
+$certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
+$vmpassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force
+$vmuser="myadmin"
+$os="WindowsServer2016DatacenterwithContainers"
+$certOutputFolder="c:\certificates"
+
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
+
+```
+
+```CLI
+
+declare resourceGroupLocation="westus"
+declare resourceGroupName="mylinux"
+declare vaultResourceGroupName="myvaultrg"
+declare vaultName="myvault"
+declare CertSubjectName="mylinux.westus.cloudapp.azure.com"
+declare vmpassword="Password!1"
+declare certpassword="Password!1"
+declare vmuser="myadmin"
+declare vmOs="UbuntuServer1604"
+declare certOutputFolder="c:\certificates"
+
+
+
+az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
+    --certificate-output-folder $certOutputFolder --certificate-password $certpassword  \
+    --vault-name $vaultName --vault-resource-group $resourceGroupName  \
+    --template-file $templateFilePath --parameter-file $parametersFilePath --vm-os $vmOs  \
+    --vm-password $vmpassword --vm-user-name $vmuser
+
+```
+
+#### <a name="use-the-custom-template-that-you-already-have"></a>Использовать пользовательский шаблон, который уже имеется. 
+
+Если необходимо создать пользовательский шаблон, в соответствии с потребностями, настоятельно рекомендуется начать с одного из шаблонов, доступных на [образцы шаблона службы azure fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Выполните инструкции и пояснения к [настроить шаблон кластера] [ customize-your-cluster-template] разделе ниже.
+
+Если вы уже пользовательский шаблон, затем убедитесь, убедитесь, что значения и проверьте, что все три сертификата, касающиеся следующие имена параметров в шаблоне и файл параметров имеют значение null следующим образом.
+
+```Json
+   "certificateThumbprint": {
+      "value": ""
+    },
+    "sourceVaultValue": {
+      "value": ""
+    },
+    "certificateUrlValue": {
+      "value": ""
+    },
+```
+
+
+```Powershell
+
+
+$resourceGroupLocation="westus"
+$resourceGroupName="mycluster"
+$CertSubjectName="mycluster.westus.cloudapp.azure.com"
+$certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
+$certOutputFolder="c:\certificates"
+
+$parameterFilePath="c:\mytemplates\mytemplateparm.json"
+$templateFilePath="c:\mytemplates\mytemplate.json"
+
+
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
+
+```
+
+Вот эквивалентную команду CLI сделать то же самое. Измените значения в инструкции declare с соответствующими значениями. CLI поддерживает все параметры, которые поддерживает вышеуказанная команда powershell.
+
+```CLI
+
+declare certPassword=""
+declare resourceGroupLocation="westus"
+declare resourceGroupName="mylinux"
+declare certSubjectName="mylinuxsecure.westus.cloudapp.azure.com"
+declare parameterFilePath="c:\mytemplates\linuxtemplateparm.json"
+declare templateFilePath="c:\mytemplates\linuxtemplate.json"
+declare certOutputFolder="c:\certificates"
+
+
+az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
+    --certificate-output-folder $certOutputFolder --certificate-password $certPassword  \
+    --certificate-subject-name $certSubjectName \
+    --template-file $templateFilePath --parameter-file $parametersFilePath
+
+```
+
+
+### <a name="create-new-cluster---using-the-certificate-you-bought-from-a-ca-or-you-already-have"></a>Создание нового кластера - с помощью сертификата вы приобрели в центре сертификации или у вас уже есть.
+
+Используйте следующую команду для создания кластера, если у вас есть сертификат, который вы хотите использовать для защиты кластера с.
+
+Если это сертификата, подписанного ЦС, то приведет к использованию в других целях, а также затем рекомендуется предоставить группе различных ресурсов, специально для хранилища ключей. Рекомендуется поместить хранилище ключей в собственной группе ресурсов. Так вы сможете удалять группы ресурсов для вычислений и хранения, включая группу ресурсов, в которой размещен кластер Service Fabric, без потери ключей и секретов. **Имя группы ресурсов, содержащий ваше хранилище ключа _должен находиться в том же регионе_ в кластере, на котором он используется.**
+
+
+#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Используйте шаблон nodetype узла 1 по умолчанию равен 5, который поставляется в модуле
+Шаблон, который используется на [azure образцы: шаблон windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) и [Ubuntu шаблона](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+
+```Powershell
+$resourceGroupLocation="westus"
+$resourceGroupName="mylinux"
+$vaultName="myvault"
+$vaultResourceGroupName="myvaultrg"
+$certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
+$vmpassword=("Password!1" | ConvertTo-SecureString -AsPlainText -Force) 
+$vmuser="myadmin"
+$os="WindowsServer2016DatacenterwithContainers"
+
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile C:\MyCertificates\chackocertificate3.pfx -CertificatePassword $certPassword -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
+
+```
+
+```CLI
+
+declare vmPassword="Password!1"
+declare certPassword="Password!1"
+declare vmUser="myadmin"
+declare resourceGroupLocation="westus"
+declare resourceGroupName="mylinux"
+declare vaultResourceGroupName="myvaultrg"
+declare vaultName="myvault"
+declare certificate-file="c:\certificates\mycert.pem"
+declare vmOs="UbuntuServer1604"
+
+
+az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
+    --certificate-file $certificate-file --certificate-password $certPassword  \
+    --vault-name $vaultName --vault-resource-group $vaultResourceGroupName  \
+    --vm-os vmOs \
+    --vm-password $vmPassword --vm-user-name $vmUser
+
+```
+
+#### <a name="use-the-custom-template-that-you-have"></a>Использовать пользовательский шаблон, который у вас есть 
+Если необходимо создать пользовательский шаблон, в соответствии с потребностями, настоятельно рекомендуется начать с одного из шаблонов, доступных на [образцы шаблона службы azure fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Выполните инструкции и пояснения к [настроить шаблон кластера] [ customize-your-cluster-template] разделе ниже.
+
+Если вы уже пользовательский шаблон, затем убедитесь, убедитесь, что значения и проверьте, что все три сертификата, касающиеся следующие имена параметров в шаблоне и файл параметров имеют значение null следующим образом.
+
+```Json
+   "certificateThumbprint": {
+      "value": ""
+    },
+    "sourceVaultValue": {
+      "value": ""
+    },
+    "certificateUrlValue": {
+      "value": ""
+    },
+```
+
+
+```Powershell
+
+$resourceGroupLocation="westus"
+$resourceGroupName="mylinux"
+$vaultName="myvault"
+$vaultResourceGroupName="myvaultrg"
+$certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
+$os="WindowsServer2016DatacenterwithContainers"
+$parameterFilePath="c:\mytemplates\mytemplateparm.json"
+$templateFilePath="c:\mytemplates\mytemplate.json"
+$certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
+
+
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword #certPassword
+
+```
+
+Вот эквивалентную команду CLI сделать то же самое. Измените значения в инструкции declare с соответствующими значениями.
+
+```CLI
+
+declare certPassword="Password!1"
+declare resourceGroupLocation="westus"
+declare resourceGroupName="mylinux"
+declare vaultResourceGroupName="myvaultrg"
+declare vaultName="myvault"
+declare parameterFilePath="c:\mytemplates\linuxtemplateparm.json"
+declare templateFilePath="c:\mytemplates\linuxtemplate.json"
+
+az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
+    --certificate-file $certificate-file --certificate-password $password  \
+    --vault-name $vaultName --vault-resource-group $vaultResourceGroupName  \
+    --template-file $templateFilePath --parameter-file $parametersFilePath 
+```
+
+#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-keyvault"></a>Используйте указатель секрета, который вы уже отправили в keyvault
+
+Чтобы использовать существующее хранилище ключей, _необходимо включить его для развернутой службы_, благодаря чему поставщик вычислительных ресурсов сможет получить из него сертификаты и установить его на узлах кластера:
 
 ```powershell
 
- Import-Module "C:\..\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
+
+
+$parameterFilePath="c:\mytemplates\mytemplate.json"
+$templateFilePath="c:\mytemplates\mytemplateparm.json"
+$secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
+
+
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretID -TemplateFile $templateFile -ParameterFile $templateParmfile 
 
 ```
+Вот эквивалентную команду CLI сделать то же самое. Измените значения в инструкции declare с соответствующими значениями.
 
-Команда `Invoke-AddCertToKeyVault` в этом модуле PowerShell автоматически форматирует закрытый ключ сертификата в строку JSON и передает ее в хранилище ключей. Используйте эту команду для добавления сертификата кластера и всех дополнительных сертификатов приложения в хранилище ключей. Повторите этот шаг для всех дополнительных сертификатов, которые нужно установить в кластере.
+```cli
 
-#### <a name="uploading-an-existing-certificate"></a>Загрузка существующего сертификата
+declare $parameterFilePath="c:\mytemplates\mytemplate.json"
+declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
+declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
-```powershell
 
- Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName westus-mykeyvault -Location "West US" -VaultName mywestusvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
-
-```
-
-Если появляется сообщение об ошибке, такое как показано здесь, обычно это означает наличие конфликта URL-адресов ресурсов. Чтобы устранить конфликт, измените имя хранилища ключей.
-
-```
-Set-AzureKeyVaultSecret : The remote name could not be resolved: 'westuskv.vault.azure.net'
-At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
-+ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
-+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzureKeyVaultSecret], WebException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
+az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
+    --secret-identifieraz $secretID  \
+    --template-file $templateFilePath --parameter-file $parametersFilePath 
 
 ```
-
-После устранения конфликта результат должен выглядеть следующим образом:
-
-```
-
-    Switching context to SubscriptionId <guid>
-    Ensuring ResourceGroup westus-mykeyvault in West US
-    WARNING: The output object type of this cmdlet is going to be modified in a future release.
-    Using existing value mywestusvault in West US
-    Reading pfx file from C:\path\to\key.pfx
-    Writing secret to mywestusvault in vault mywestusvault
-
-
-Name  : CertificateThumbprint
-Value : E21DBC64B183B5BF355C34C46E03409FEEAEF58D
-
-Name  : SourceVault
-Value : /subscriptions/<guid>/resourceGroups/westus-mykeyvault/providers/Microsoft.KeyVault/vaults/mywestusvault
-
-Name  : CertificateURL
-Value : https://mywestusvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
-
-```
-
->[!NOTE]
->Чтобы настроить безопасность кластера Service Fabric и получить все сертификаты приложения, которые, возможно, будут использоваться для обеспечения безопасности приложения, необходимы три строки — CertificateThumbprint, SourceVault и CertificateURL. Если не сохранить эти строки, позднее могут возникнуть трудности с их получением путем запроса в хранилище ключей.
-
-<a id="add-self-signed-certificate-to-key-vault"></a>
-
-#### <a name="creating-a-self-signed-certificate-and-uploading-it-to-the-key-vault"></a>Создание самозаверяющего сертификата и передача его в хранилище ключей
-
-Если сертификат уже отправлен в хранилище ключей, пропустите этот шаг. На этом шаге создается новый самозаверяющий сертификат и выполняется его передача в хранилище ключей. После изменения параметров в следующем сценарии и его выполнения вам будет предложено ввести пароль сертификата.  
-
-```powershell
-
-$ResourceGroup = "chackowestuskv"
-$VName = "chackokv2"
-$SubID = "6c653126-e4ba-42cd-a1dd-f7bf96ae7a47"
-$locationRegion = "westus"
-$newCertName = "chackotestcertificate1"
-$dnsName = "www.mycluster.westus.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
-$localCertPath = "C:\MyCertificates" # location where you want the .PFX to be stored
-
- Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResourceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
-
-```
-
-Если появляется сообщение об ошибке, такое как показано здесь, обычно это означает наличие конфликта URL-адресов ресурсов. Чтобы устранить конфликт, измените имя хранилища ключей, имя группы ресурсов и т. д.
-
-```
-Set-AzureKeyVaultSecret : The remote name could not be resolved: 'westuskv.vault.azure.net'
-At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
-+ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
-+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzureKeyVaultSecret], WebException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
-
-```
-
-После устранения конфликта результат должен выглядеть следующим образом:
-
-```
-PS C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers> Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -Password $certPassword -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
-Switching context to SubscriptionId 6c343126-e4ba-52cd-a1dd-f8bf96ae7a47
-Ensuring ResourceGroup chackowestuskv in westus
-WARNING: The output object type of this cmdlet will be modified in a future release.
-Creating new vault westuskv1 in westus
-Creating new self signed certificate at C:\MyCertificates\chackonewcertificate1.pfx
-Reading pfx file from C:\MyCertificates\chackonewcertificate1.pfx
-Writing secret to chackonewcertificate1 in vault westuskv1
-
-
-Name  : CertificateThumbprint
-Value : 96BB3CC234F9D43C25D4B547sd8DE7B569F413EE
-
-Name  : SourceVault
-Value : /subscriptions/6c653126-e4ba-52cd-a1dd-f8bf96ae7a47/resourceGroups/chackowestuskv/providers/Microsoft.KeyVault/vaults/westuskv1
-
-Name  : CertificateURL
-Value : https://westuskv1.vault.azure.net:443/secrets/chackonewcertificate1/ee247291e45d405b8c8bbf81782d12bd
-
-```
-
->[!NOTE]
->Чтобы настроить безопасность кластера Service Fabric и получить все сертификаты приложения, которые, возможно, будут использоваться для обеспечения безопасности приложения, необходимы три строки — CertificateThumbprint, SourceVault и CertificateURL. Если не сохранить эти строки, позднее могут возникнуть трудности с их получением путем запроса в хранилище ключей.
-
- На этом этапе должны быть доступны следующие элементы:
-
-* группа ресурсов хранилища ключей;
-* хранилище ключей и его URL-адрес (вызываемое SourceVault в предыдущем выводе PowerShell);
-* сертификат аутентификации сервера кластера и его URL-адрес в хранилище ключей;
-* сертификаты приложений и их URL-адреса в хранилище ключей.
-
 
 <a id="add-AAD-for-client"></a>
 
@@ -304,26 +362,27 @@ Azure AD позволяет организациям (известным как 
 1. [Скачайте сценарии][sf-aad-ps-script-download] на компьютер.
 2. Щелкните правой кнопкой мыши ZIP-файл, выберите **Свойства**, установите флажок **Разблокировать** и нажмите кнопку **Применить**.
 3. Извлеките ZIP-файл.
-4. Запустите `SetupApplications.ps1` и укажите TenantId (идентификатор клиента), ClusterName (имя кластера) и WebApplicationReplyUrl (URL-адрес ответа веб-приложения) в качестве параметров. Например:
+4. Запустите `SetupApplications.ps1` и укажите TenantId (идентификатор клиента), ClusterName (имя кластера) и WebApplicationReplyUrl (URL-адрес ответа веб-приложения) в качестве параметров. Например: 
 
-    ```powershell
+```powershell
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
-    ```
 
-    Чтобы узнать TenantId, можно выполнить команду PowerShell `Get-AzureSubscription`. После выполнения этой команды для каждой подписки отображается TenantId.
+```
 
-    Значение ClusterName используется в качестве префикса для приложений Azure AD, создаваемых сценарием. Точное совпадение с именем реального кластера не требуется. Оно предназначено только для упрощения сопоставления артефактов Azure AD с кластером Service Fabric, с которым они используются.
+Чтобы узнать TenantId, можно выполнить команду PowerShell `Get-AzureSubscription`. После выполнения этой команды для каждой подписки отображается TenantId.
 
-    WebApplicationReplyUrl является конечной точкой по умолчанию, которую Azure AD возвращает пользователям после завершения ими входа. Эту конечную точку следует назначить конечной точкой Service Fabric Explorer для кластера, по умолчанию это:
+Значение ClusterName используется в качестве префикса для приложений Azure AD, создаваемых сценарием. Точное совпадение с именем реального кластера не требуется. Оно предназначено только для упрощения сопоставления артефактов Azure AD с кластером Service Fabric, с которым они используются.
 
-    https://&lt;cluster_domain&gt;:19080/Explorer
+WebApplicationReplyUrl является конечной точкой по умолчанию, которую Azure AD возвращает пользователям после завершения ими входа. Эту конечную точку следует назначить конечной точкой Service Fabric Explorer для кластера, по умолчанию это:
 
-    Вам будет предложено войти в учетную запись с правами администратора для клиента Azure AD. После входа сценарий начнет создавать веб-приложение и собственное приложение для представления кластера Service Fabric. Если посмотреть на список приложений клиента на [классическом портале Azure][azure-classic-portal], вы увидите два новых приложения:
+https://&lt;cluster_domain&gt;:19080/Explorer
+
+Вам будет предложено войти в учетную запись с правами администратора для клиента Azure AD. После входа сценарий начнет создавать веб-приложение и собственное приложение для представления кластера Service Fabric. При рассмотрении приложений клиента в [портал Azure][azure-portal], вы увидите два новых элемента:
 
    * *имя_кластера*\_Кластер
    * *имя_кластера*\_Клиент
 
-   Этот скрипт выводит код JSON для шаблона Azure Resource Manager, который вы будете использовать в следующем разделе для создания кластера. Рекомендуем не закрывать пока окно PowerShell.
+Этот скрипт выводит код JSON для шаблона Azure Resource Manager, который вы будете использовать в следующем разделе для создания кластера. Рекомендуем не закрывать пока окно PowerShell.
 
 ```json
 "azureActiveDirectory": {
@@ -333,23 +392,25 @@ Azure AD позволяет организациям (известным как 
 },
 ```
 
-## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Создание шаблона Resource Manager для кластера Service Fabric
-В этом разделе выходные данные предыдущей команды PowerShell переносятся в шаблон Resource Manager для кластера Service Fabric.
+<a id="customize-arm-template" ></a>
 
-Примеры шаблонов Resource Manager доступны в [коллекции шаблонов быстрого запуска Azure на сайте GitHub][azure-quickstart-templates]. Их можно использовать в качестве отправной точки для создания шаблона кластера.
+## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Создание шаблона Resource Manager для кластера Service Fabric
+Этот раздел предназначен для пользователей, желающих получить пользовательский создания шаблона диспетчера ресурсов кластера Service Fabric. При наличии шаблона, по-прежнему можно вернуться и использовать powershell или CLI модули для ее развертывания. 
+
+Пример диспетчера ресурсов шаблоны доступны в [Azure примерами на GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Их можно использовать в качестве отправной точки для создания шаблона кластера.
 
 ### <a name="create-the-resource-manager-template"></a>Создание шаблона Resource Manager
 В этом руководстве используется пример шаблона [защищенного кластера с 5 узлами][service-fabric-secure-cluster-5-node-1-nodetype] и его параметры. Скачайте файлы `azuredeploy.json` и `azuredeploy.parameters.json` на компьютер и откройте их в текстовом редакторе.
 
 ### <a name="add-certificates"></a>Добавление сертификатов
-Сертификаты добавляются в шаблон Resource Manager кластера с помощью ссылок на хранилище ключей, которое содержит ключи сертификата. Рекомендуется поместить значения хранилища ключей в файл параметров шаблона Resource Manager. Благодаря этому файл шаблона Resource Manager доступен для повторного использования и не зависит от значений, связанных с определенной развернутой службой.
+Сертификаты добавляются в шаблон Resource Manager кластера с помощью ссылок на хранилище ключей, которое содержит ключи сертификата. Добавление этих параметров хранилища ключей и значений в файл параметров шаблона диспетчера ресурсов (azuredeploy.parameters.json). 
 
 #### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Добавление всех сертификатов в osProfile набора масштабирования виртуальных машин
 Каждый сертификат, который устанавливается в кластере, должен быть настроен в разделе osProfile ресурса VMSS (Microsoft.Compute/virtualMachineScaleSets). Это указывает, что поставщик ресурсов должен установить сертификат на виртуальных машинах. Эта установка содержит сертификат кластера, а также все сертификаты безопасности приложений, которые планируется использовать для приложений.
 
 ```json
 {
-  "apiVersion": "2016-03-30",
+  "apiVersion": "[variables('vmssApiVersion')]",
   "type": "Microsoft.Compute/virtualMachineScaleSets",
   ...
   "properties": {
@@ -382,10 +443,10 @@ Azure AD позволяет организациям (известным как 
 #### <a name="configure-the-service-fabric-cluster-certificate"></a>Настройка сертификата кластера Service Fabric
 Сертификат аутентификации кластера должен быть настроен в ресурсе кластера Service Fabric (Microsoft.ServiceFabric/clusters) и расширении Service Fabric для масштабируемых наборов виртуальных машин в ресурсе масштабируемого набора виртуальных машин. Это позволяет поставщику ресурсов Service Fabric настроить его, чтобы использовать для аутентификации кластера и сервера на конечных точках управления.
 
-##### <a name="virtual-machine-scale-set-resource"></a>Ресурс масштабируемого набора виртуальных машин:
+##### <a name="add-the-certificate-information-the-virtual-machine-scale-set-resource"></a>Добавление ресурса набора масштабирования виртуальных машин сведения о сертификате.
 ```json
 {
-  "apiVersion": "2016-03-30",
+  "apiVersion": "[variables('vmssApiVersion')]",
   "type": "Microsoft.Compute/virtualMachineScaleSets",
   ...
   "properties": {
@@ -414,10 +475,10 @@ Azure AD позволяет организациям (известным как 
 }
 ```
 
-##### <a name="service-fabric-resource"></a>Ресурс Service Fabric.
+##### <a name="add-the-certificate-information-to-the-service-fabric-cluster-resource"></a>Добавьте сведения о сертификате в ресурс кластера Service Fabric:
 ```json
 {
-  "apiVersion": "2016-03-01",
+  "apiVersion": "[variables('sfrpApiVersion')]",
   "type": "Microsoft.ServiceFabric/clusters",
   "name": "[parameters('clusterName')]",
   "location": "[parameters('clusterLocation')]",
@@ -434,12 +495,13 @@ Azure AD позволяет организациям (известным как 
 }
 ```
 
-### <a name="insert-azure-ad-configuration"></a>Получение конфигурации Azure AD
-Конфигурацию Azure AD, которая была создана ранее, можно добавить непосредственно в шаблон Resource Manager. Тем не менее рекомендуется сначала извлечь значения в файл параметров, чтобы сохранить возможность повторного использования шаблона Resource Manager и не привязываться к значениям, относящимся к определенной развернутой службе.
+### <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Добавление конфигурации Azure AD с помощью Azure AD для клиентского доступа
+
+Конфигурация Azure AD s Добавление шаблона диспетчера ресурсов кластера, ссылаясь на хранилище ключей, содержащий ключи сертификата. Добавьте эти параметры Azure AD и значения в файл параметров шаблона диспетчера ресурсов (azuredeploy.parameters.json).
 
 ```json
 {
-  "apiVersion": "2016-03-01",
+  "apiVersion": "[variables('sfrpApiVersion')]",
   "type": "Microsoft.ServiceFabric/clusters",
   "name": "[parameters('clusterName')]",
   ...
@@ -459,9 +521,30 @@ Azure AD позволяет организациям (известным как 
 }
 ```
 
-### <a "configure-arm" ></a>Настройка параметров шаблона Resource Manager
-<!--- Loc Comment: It seems that <a "configure-arm" > must be replaced with <a name="configure-arm"></a> since the link seems not to be redirecting correctly --->
-Наконец, используйте полученные значения из хранилища ключей и с помощью команд PowerShell Azure AD для заполнения файла параметров.
+### <a name="populate-the-parameter-file-with-the-values"></a>Заполните файл со значениями параметров.
+Наконец используйте выходные значения из хранилища ключей и команд powershell Azure AD для заполнения файла параметров:
+
+Если вы планируете использовать модули powershell RM структуры службы Azure, затем не необходимо заполнить сведения о сертификате кластера, если вам требуется систему для создания подписи самозаверяющего сертификата для безопасности кластера, достаточно разместить их как значения null. 
+
+> [!NOTE]
+> Для модулей RM взять и заполнить эти значения пустой параметр имена параметров должны совпадать имена ниже
+>
+
+```json
+        "clusterCertificateThumbprint": {
+            "value": ""
+        },
+        "clusterCertificateUrlValue": {
+            "value": ""
+        },
+        "sourceVaultvalue": {
+            "value": ""
+        },
+```
+
+Если вы используете сертификаты приложения или используете существующий кластер, отправленными keyvault, необходимо получить эту информацию и заполнить его 
+
+Модули RM имеют возможность geneate конфигурации Azure AD для вас. Поэтому если вы планируете использовать Azure AD для клиентского доступа, необходимо заполнить его.
 
 ```json
 {
@@ -500,120 +583,69 @@ Azure AD позволяет организациям (известным как 
     }
 }
 ```
-На этом этапе должны быть доступны следующие элементы:
 
-* группа ресурсов хранилища ключей;
-  * Хранилище ключей
-  * сертификат проверки подлинности сервера кластера;
-  * сертификат шифрования данных;
-* клиент Azure Active Directory;
-  * приложение Azure AD для управления через Интернет и Service Fabric Explorer;
-  * приложение Azure AD для управления собственными клиентами.
-  * Пользователи и назначенные им роли
-* шаблон Resource Manager для кластера Service Fabric;
-  * Сертификаты, настроенные с помощью хранилища ключей
-  * настроенная среда Azure Active Directory.
-
-На приведенной ниже схеме показано, как конфигурация хранилища ключей и Azure AD помещается в шаблон Resource Manager.
-
-![Сопоставление зависимостей Resource Manager][cluster-security-arm-dependency-map]
-
-## <a name="create-the-cluster"></a>Создание кластера
-Теперь можно создать кластер с помощью [развертывания шаблона ресурсов Azure][resource-group-template-deploy].
-
-#### <a name="test-it"></a>Тестирование
-Используйте следующую команду PowerShell для тестирования шаблона Resource Manager с помощью файла параметров.
+### <a name="test-your-template"></a>Тестировать шаблон  
+Используйте следующую команду PowerShell для тестирования с помощью файла параметров шаблона диспетчера ресурсов:
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
-#### <a name="deploy-it"></a>Развертывание
-Если шаблон Resource Manager прошел проверку, то введите следующую команду PowerShell для развертывания этого шаблона с использованием файла параметров.
+Если возникают проблемы, а получения зашифрованная сообщений, затем с помощью «-Отладка» в качестве альтернативы.
+
+```powershell
+Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
+```
+
+На приведенной ниже схеме показано, как конфигурация хранилища ключей и Azure AD помещается в шаблон Resource Manager.
+
+![Сопоставление зависимостей Resource Manager][cluster-security-arm-dependency-map]
+
+## <a name="create-the-cluster-using-azure-resource-template"></a>Создание кластера с помощью шаблона ресурсов Azure 
+
+Теперь можно развернуть кластер с помощью действия, описанные ранее в этом документе, или если значения в файле параметров заполняется, затем теперь вы готовы для создания кластера с помощью [развертывания шаблона ресурсов Azure] [ resource-group-template-deploy] напрямую.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
+Если возникают проблемы, а получения зашифрованная сообщений, затем с помощью «-Отладка» в качестве альтернативы.
+
+
 <a name="assign-roles"></a>
 
 ## <a name="assign-users-to-roles"></a>Назначение пользователей ролям
-Создав приложения, представляющие кластер, сопоставьте пользователей с ролями, поддерживаемыми Service Fabric и разрешающими доступ на чтение и администрирование. Роли можно назначить с помощью [классического портала Azure][azure-classic-portal].
+Создав приложения, представляющие кластер, сопоставьте пользователей с ролями, поддерживаемыми Service Fabric и разрешающими доступ на чтение и администрирование. Можно назначать роли с помощью [портал Azure][azure-portal].
 
-1. На портале Azure перейдите к нужному клиенту и выберите элемент **Приложения**.
-2. Выберите веб-приложение с именем вида `myTestCluster_Cluster`.
-3. Откройте вкладку **Пользователи** .
-4. Выберите пользователя для назначения и нажмите кнопку **Назначить** в нижней части экрана.
+1. На портале Azure выберите клиента в правом верхнем углу.
 
-    ![Кнопка "Назначить пользователей ролям"][assign-users-to-roles-button]
-5. Выберите роль для назначения пользователю.
+    ![Нажмите кнопку "клиент"][select-tenant-button]
+2. Выберите **Azure Active Directory** на левой вкладке, а затем выберите «Enterprise приложений».
+3. Выберите «Все приложения», найдите и выберите веб-приложения, который имеет имя, например `myTestCluster_Cluster`.
+4. Нажмите кнопку **пользователей и групп** вкладки.
 
-    ![Диалоговое окно "Назначить пользователей"][assign-users-to-roles-dialog]
+    ![Вкладка «пользователи и группы»][users-and-groups-tab]
+5. Нажмите кнопку **добавить пользователя** кнопку на новую страницу, выберите пользователя и роль, и нажмите кнопку **выберите** , расположенную в нижней части страницы.
+
+    ![Назначить пользователей в роли страницы][assign-users-to-roles-page]
+6. Нажмите кнопку **назначить** , расположенную в нижней части страницы.
+
+    ![Добавление назначения подтверждения][assign-users-to-roles-confirm]
 
 > [!NOTE]
 > Дополнительные сведения о ролях в Service Fabric см. в статье [Контроль доступа на основе ролей для клиентов Service Fabric](service-fabric-cluster-security-roles.md).
 >
 >
 
- <a name="secure-linux-clusters"></a>
- <!--- Loc Comment: It seems that letter S in cluster was missing, which caused the wrong redirection of the link --->
 
-## <a name="create-secure-clusters-on-linux"></a>Создание безопасных кластеров в Linux
-Чтобы упростить процесс, мы предоставили [вспомогательный сценарий](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux). Прежде чем использовать этот вспомогательный сценарий, убедитесь, что интерфейс командной строки Azure уже установлен и указан в пути. Убедитесь, что скрипт имеет разрешения на выполнение, запустив `chmod +x cert_helper.py` после скачивания. Первым делом войдите в учетную запись Azure с помощью команды `azure login` интерфейса командной строки. Войдя в учетную запись Azure, используйте вспомогательный сценарий, передав ему подписанный сертификат ЦС, как показано в следующем примере:
-
-```sh
-./cert_helper.py [-h] CERT_TYPE [-ifile INPUT_CERT_FILE] [-sub SUBSCRIPTION_ID] [-rgname RESOURCE_GROUP_NAME] [-kv KEY_VAULT_NAME] [-sname CERTIFICATE_NAME] [-l LOCATION] [-p PASSWORD]
-```
-
-Параметр -ifile позволяет загрузить начальные данные из PFX-файла или PEM-файла с указанием соответствующего типа сертификата (pfx, pem или ss, если это самозаверяющий сертификат).
-Параметр -h позволяет вывести текст справки.
-
-
-Эта команда возвращает следующие три строки выходных данных:
-
-* SourceVaultID — идентификатор новой группы ресурсов (KeyVault ResourceGroup), которая создана для вас;
-* CertificateUrl — адрес для доступа к сертификату;
-* CertificateThumbprint — используется для аутентификации.
-
-Ниже представлен пример использования этой команды:
-
-```sh
-./cert_helper.py pfx -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -sname "mycert" -l "East US" -p "pfxtest"
-```
-Представленная выше команда вернет эти три строки:
-
-```sh
-SourceVault: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
-CertificateUrl: https://myvault.vault.azure.net/secrets/mycert/00000000000000000000000000000000
-CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
-```
-
-Имя субъекта сертификата должно совпадать с доменным именем, которое используется для обращения к кластеру Service Fabric. Это необходимо, чтобы предоставить SSL-протокол конечным точкам управления HTTPS в кластере и Service Fabric Explorer. Не удается получить SSL-сертификат из ЦС для домена `.cloudapp.azure.com`. Необходимо получить имя личного домена для кластера. При запросе сертификата из ЦС имя субъекта сертификата должно совпадать с именем личного домена, используемого для кластера.
-
-Эти имена субъектов являются записями, которые необходимы для создания безопасного кластера Service Fabric (без Azure AD), как описано в разделе [Настройка параметров шаблона Resource Manager](#configure-arm). Инструкции по подключению к безопасному кластеру см. в статье [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md). Кластеры Linux не поддерживают аутентификацию Azure AD. Можно назначить роли администратора и клиента, как описано в разделе [Назначение ролей пользователям](#assign-roles). При указании роли администратора и клиента для кластера Linux нужно предоставить отпечатки сертификатов для аутентификации. (Отсутствует имя получателя, так как не выполняется цепочка проверки или отзыва.)
-
-Если для тестирования нужно использовать самозаверяющий сертификат, можно использовать тот же сценарий для его создания. Затем можно передать сертификат в хранилище ключей, указав флаг `ss` вместо указания пути и имени сертификата. Вот пример команды для создания и передачи самозаверяющего сертификата:
-
-```sh
-./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"   -sname "mycert" -l "East US" -p "selftest" -subj "mytest.eastus.cloudapp.net"
-```
-Эта команда возвращает те же три строки: SourceVault, CertificateUrl и CertificateThumbprint. Затем эти строки можно использовать для создания безопасного кластера Linux и расположения для размещения самозаверяющего сертификата. Самозаверяющий сертификат потребуется для подключения к кластеру. Инструкции по подключению к безопасному кластеру см. в статье [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md).
-
-Имя субъекта сертификата должно совпадать с доменным именем, которое используется для обращения к кластеру Service Fabric. Это необходимо, чтобы предоставить SSL-протокол конечным точкам управления HTTPS в кластере и Service Fabric Explorer. Не удается получить SSL-сертификат из ЦС для домена `.cloudapp.azure.com`. Необходимо получить имя личного домена для кластера. При запросе сертификата из ЦС имя субъекта сертификата должно совпадать с именем личного домена, используемого для кластера.
-
-Параметры можно заполнить данными из вспомогательного сценария на портале Azure, как описано в разделе [Создание кластера на портале Azure](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal).
-
-## <a name="next-steps"></a>Дальнейшие действия
-На этом этапе у вас имеется защищенный кластер с Azure Active Directory для аутентификации управления. Далее [подключитесь к этому кластеру](service-fabric-connect-to-secure-cluster.md) и узнайте, как [управлять секретами приложений](service-fabric-application-secret-management.md).
-
-## <a name="troubleshoot-setting-up-azure-active-directory-for-client-authentication"></a>Устранение неполадок с настройкой Azure Active Directory для проверки подлинности клиента
-Если при настройке Azure AD для аутентификации клиента возникли проблемы, возможные решения можно найти в этом разделе.
+## <a name="troubleshooting-help-in-setting-up-azure-active-directory"></a>По устранению неполадок при установке Azure Active Directory
+Настройка Azure AD и его использования, может оказаться сложной задачей, поэтому воспользуйтесь следующими советами по возможности для отладки проблемы.
 
 ### <a name="service-fabric-explorer-prompts-you-to-select-a-certificate"></a>Service Fabric Explorer предлагает выбрать сертификат
 #### <a name="problem"></a>Проблема
 После успешного входа в Azure AD в Service Fabric Explorer браузер отображает домашнюю страницу, но на экране отображается предложение выбрать сертификат.
 
-![Диалоговое окно выбора сертификата в Service Fabric Explorer][sfx-select-certificate-dialog]
+![Диалоговое окно сертификата SFX][sfx-select-certificate-dialog]
 
 #### <a name="reason"></a>Причина
 Пользователю не назначена роль в приложении кластера Azure AD. Таким образом, аутентификация Azure AD в кластере Service Fabric завершается ошибкой. Service Fabric Explorer воспользуется проверкой подлинности на основе сертификата.
@@ -638,7 +670,7 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 Приложение кластера (веб-приложение), представляющее Service Fabric Explorer, пытается выполнить аутентификацию в Azure AD и в составе запроса предоставляет URL-адрес ответа для перенаправления. URL-адрес не указан в списке **URL-АДРЕС ОТВЕТА** приложения Azure AD.
 
 #### <a name="solution"></a>Решение
-Добавьте URL-адрес Service Fabric Explorer в список **URL-АДРЕСОВ ОТВЕТА** на вкладке **Настройки** приложения кластера (веб-приложения) или замените один из элементов в списке. После завершения сохраните изменения.
+Выберите «Регистрация приложения» в AAD страницу, выберите приложение кластера и выберите **URL-адреса ответа** кнопки. На странице «URL-адреса ответа» добавить в список URL-адрес Service Fabric Explorer или заменить один из элементов в списке. После завершения сохраните изменения.
 
 ![URL-адрес ответа веб-приложения][web-application-reply-url]
 
@@ -657,27 +689,34 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalIn
 ### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>Почему мне все еще нужен сертификат сервера при включенном Azure AD?
 FabricClient и FabricGateway выполняют взаимную аутентификацию. Во время аутентификации Azure AD интеграция Azure AD предоставляет удостоверение клиента серверу и для аутентификации сервера используется сертификат сервера. Дополнительные сведения о сертификатах Service Fabric см. в разделе [Сертификаты X.509 и Service Fabric][x509-certificates-and-service-fabric].
 
+## <a name="next-steps"></a>Дальнейшие действия
+На этом этапе у вас имеется защищенный кластер с Azure Active Directory для аутентификации управления. Далее [подключитесь к этому кластеру](service-fabric-connect-to-secure-cluster.md) и узнайте, как [управлять секретами приложений](service-fabric-application-secret-management.md).
+
+
 <!-- Links -->
-[azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://manage.windowsazure.com
-[service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
+[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
-[service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/
+[service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
+[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-[assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
-[assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
+[select-tenant-button]: ./media/service-fabric-cluster-creation-via-arm/select-tenant-button.png
+[users-and-groups-tab]: ./media/service-fabric-cluster-creation-via-arm/users-and-groups-tab.png
+[assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-page.png
+[assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-confirm.png
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png

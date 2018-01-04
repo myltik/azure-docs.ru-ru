@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Устранение неполадок подключения типа "точка — сеть" Azure
 
@@ -263,3 +263,52 @@ VPN-клиент подключился к виртуальной сети Azure
 ### <a name="solution"></a>Решение
 
 Чтобы устранить эту проблему, удалите старые файлы конфигурации VPN-клиента из папки **C:\Users\{имя_пользователя}\AppData\Roaming\Microsoft\Network\Connections**, а затем снова запустите установщик VPN-клиента.
+
+## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Точка сеть VPN-клиента не удается разрешить полное доменное имя ресурсов в локальном домене
+
+### <a name="symptom"></a>Симптом
+
+Когда клиент подключается к Azure с помощью VPN-подключение точка сеть, он не может разрешить FQND ресурсов в локальном домене.
+
+### <a name="cause"></a>Причина:
+
+Точка сеть VPN-клиент использует Azure DNS-серверы, настроенные в виртуальной сети Azure. Azure DNS-серверы, имеют приоритет над локальные DNS-серверы, настроенные на клиенте, поэтому все DNS-запросы отправляются на Azure DNS-серверы. Если серверы Azure DNS нет записей для локальных ресурсов, запрос завершается ошибкой.
+
+### <a name="solution"></a>Решение
+
+Чтобы решить проблему, убедитесь, что Azure DNS-серверы, используемые в виртуальной сети Azure можно разрешить записи DNS для локальных ресурсов. Чтобы сделать это, можно использовать DNS-серверы пересылки или серверы условной пересылки. Дополнительные сведения см. в разделе [разрешение имен с помощью DNS-сервера](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+
+## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>Точка сеть VPN-подключения, но вы по-прежнему не удается подключиться к ресурсам Azure 
+
+### <a name="cause"></a>Причина:
+
+Это может происходить, если VPN-клиент не получает маршруты из VPN-шлюз Azure.
+
+### <a name="solution"></a>Решение
+
+Чтобы устранить эту проблему, [Сброс шлюза Azure VPN](vpn-gateway-resetgw-classic.md).
+
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Ошибка: «функции отзыва не удалось проверить отзыв, так как сервер отзыва был не в сети. (Ошибка 0x80092013»)
+
+### <a name="causes"></a>Причины
+Это сообщение об ошибке возникает, если клиент не может получить доступ к http://crl3.digicert.com/ssca-sha2-g1.crl и http://crl4.digicert.com/ssca-sha2-g1.cr.  Проверку отзыва сертификатов требуется доступ к этих двух сайтов.  Эта проблема обычно возникает на клиенте, который был настроен прокси-сервер. В некоторых средах Если запросы не будут использовать прокси-сервер, он будет запрещен на пограничном брандмауэре.
+
+### <a name="solution"></a>Решение
+
+Проверьте параметры прокси-сервера, убедитесь, что клиент имеет доступ http://crl3.digicert.com/ssca-sha2-g1.crl и http://crl4.digicert.com/ssca-sha2-g1.cr.
+
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Ошибка клиента VPN: Подключение не выполнено из-за политики настроены на сервере удаленного доступа или VPN. (Ошибка 812)
+
+### <a name="cause"></a>Причина:
+
+Эта ошибка возникает, если RADIUS-сервер, который использовался для проверки подлинности VPN-клиент имеет неправильные параметры. 
+
+### <a name="solution"></a>Решение
+
+Убедитесь, что RADIUS-сервер настроен правильно. Дополнительные сведения см. в разделе [проверки подлинности RADIUS, интеграция с сервера Azure Multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+
+## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>«Ошибка 405» при загрузке корневого сертификата из VPN-шлюза
+
+### <a name="cause"></a>Причина:
+
+Корневой сертификат не были установлены. Корневой сертификат установлен на клиенте **доверенных сертификатов** хранения.

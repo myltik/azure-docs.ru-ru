@@ -4,25 +4,25 @@ description: "Использование геоизбыточного храни
 services: storage
 documentationcenter: 
 author: georgewallace
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 547ca7843f53bd11fdb922af8e0ae77e38f813d9
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
-ms.translationtype: HT
+ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Обеспечение высокой доступности данных приложений в хранилище Azure
 
-Это руководство представляет первую часть цикла. В этом руководстве показано, как обеспечить высокую доступность данных приложений в Azure. В итоге у вас будет консольное приложение, которое передает и извлекает большие двоичные объекты в учетной записи хранения [геоизбыточного хранилища с доступом на чтение](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS). RA-GRS функционирует, реплицируя транзакции из основного в дополнительный регион. Репликация гарантирует, что данные в дополнительном регионе согласованы в конечном счете. Приложение использует шаблон [размыкателя цепи](/azure/architecture/patterns/circuit-breaker.md), чтобы определить, к какой конечной точке подключаться. При моделировании сбоя приложение переключается на использование вторичной конечной точки.
+Это руководство представляет первую часть цикла. В этом руководстве показано, как обеспечить высокую доступность данных приложений в Azure. Когда закончите, у вас есть консольного приложения .NET core, отправляет и получает большой двоичный объект для [доступа для чтения географически избыточная](../common/storage-redundancy.md#read-access-geo-redundant-storage) учетной записи хранилища (RA-GRS). RA-GRS функционирует, реплицируя транзакции из основного в дополнительный регион. Репликация гарантирует, что данные в дополнительном регионе согласованы в конечном счете. Приложение использует шаблон [размыкателя цепи](/azure/architecture/patterns/circuit-breaker.md), чтобы определить, к какой конечной точке подключаться. При моделировании сбоя приложение переключается на использование вторичной конечной точки.
 
 В первой части цикла вы узнаете, как выполнять такие задачи:
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/17/2017
 > * Создайте учетную запись хранения.
 > * Скачивание примера приложения
 > * Задание строки подключения
-> * Запуск консольного приложения.
+> * Запуск консольного приложения
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для работы с этим руководством:
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/17/2017
 
   ![Разработка Azure (в разделе Web & Cloud (Сеть и облако))](media/storage-create-geo-redundant-storage/workloads.png)
 
-* Скачайте и установите [Fiddler](https://www.telerik.com/download/fiddler).
+* скачайте и установите [Fiddler](https://www.telerik.com/download/fiddler).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -60,17 +60,17 @@ ms.lasthandoff: 10/17/2017
 2. Щелкните **Хранилище** на странице **Создать** и выберите **Учетная запись хранения — BLOB-объект, файл, таблица, очередь** на вкладке **Избранные**.
 3. Заполните форму учетной записи хранения следующей информацией, как показано в изображении ниже, и нажмите кнопку **Создать**:
 
-   | Настройка       | Рекомендуемое значение | Описание |
+   | Параметр       | Рекомендуемое значение | Описание |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Имя** | mystorageaccount | Уникальное значение учетной записи хранения. |
-   | **Модель развертывания** | Диспетчер ресурсов  | Resource Manager содержит новые функции.  |
+   | **Модель развертывания** | Диспетчер ресурсов  | Resource Manager содержит новые функции.|
    | **Account kind** (Тип учетной записи) | Универсальные | Дополнительные сведения о типах учетных записей см. в разделе [Типы учетных записей хранения](../common/storage-introduction.md#types-of-storage-accounts). |
-   | **Производительность** | Standard | Значения Standard достаточно для примера сценария. |
+   | **Производительность** | Стандартная | Значения Standard достаточно для примера сценария. |
    | **Репликация**| Геоизбыточное хранилище с доступом для чтения (RA-GRS) | Это значение необходимо для работы примера. |
    |**Secure transfer required** (Требуется безопасное перемещение) | Отключено| Безопасное перемещение не является обязательным для этого сценария. |
    |**Подписка** | Ваша подписка |Дополнительные сведения о подписках см. [здесь](https://account.windowsazure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Допустимые имена групп ресурсов см. в статье о [правилах и ограничениях именования](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   |**Расположение** | Восток США | Выберите расположение. |
+   |**Местоположение.** | Восток США | Выберите расположение. |
 
 ![создание учетной записи хранения](media/storage-create-geo-redundant-storage/figure1.png)
 
@@ -83,17 +83,29 @@ ms.lasthandoff: 10/17/2017
 
 ## <a name="set-the-connection-string"></a>Задание строки подключения
 
-Откройте консольное приложение *storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs* в Visual Studio.
+В приложении необходимо указать строку подключения для учетной записи хранения. Рекомендуется хранить в этой строке подключения в переменной среды на локальном компьютере, работающим с приложением. Выполните одну из приведенных ниже примерах в зависимости от операционной системы для создания переменной среды.
 
-В разделе узла **appSettings** в файле **App.config** замените значение _StorageConnectionString_ строкой подключения учетной записи хранения. Чтобы получить это значение, выберите пункт **Ключи доступа** в разделе **Параметры** вашей учетной записи хранения на портале Azure. Скопируйте **строку подключения** из основного или вторичного ключа и вставьте ее в файл **App.config**. Нажмите кнопку **Сохранить**, чтобы сохранить файл по завершении.
+На портале Azure перейдите к вашей учетной записи хранилища. Выберите **ключи доступа** под **параметры** вашей учетной записи хранилища. Копировать **строка подключения** из первичного или вторичного ключа. Замените \<yourconnectionstring\> с подключением к фактическое строку, выполнив один из следующих команд в зависимости от операционной системы. Эта команда сохраняет переменной среды на локальном компьютере. В Windows, переменная среды недоступно до перезагрузить **командной строки** или использовании оболочки. Замените  **\<storageConnectionString\>**  в следующем примере:
+
+### <a name="linux"></a>Linux
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+### <a name="windows"></a>Windows
+
+```cmd
+setx storageconnectionstring "<yourconnectionstring>"
+```
 
 ![Файл app config](media/storage-create-geo-redundant-storage/figure2.png)
 
 ## <a name="run-the-console-application"></a>Запуск консольного приложения
 
-В Visual Studio нажмите клавишу **F5** или щелкните **Запустить**, чтобы начать отладку приложения. Visual Studio автоматически восстанавливает отсутствующие пакеты Nuget, если это настроено. Дополнительные сведения см. в разделе [Обзор восстановления пакетов](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview). 
+В Visual Studio нажмите клавишу **F5** или щелкните **Запустить**, чтобы начать отладку приложения. Visual studio автоматически восстановления отсутствующих пакетов NuGet по настроена, обращайтесь к [Установка и переустановка пакетов с помощью восстановления пакета](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) для получения дополнительных сведений.
 
-Окно консоли запускается, и приложение начинает работать. Приложение передает изображение **HelloWorld.png** из решения в учетную запись хранения. Приложение проверяет, было ли изображение реплицировано во вторичную конечную точку RA-GRS. Затем оно начинает скачивать изображение (до 999 раз). Каждая операция чтения помечается буквой **P** или **S**. **P** представляет основную конечную точку, а **S** — вторичную конечную точку.
+Окно консоли запускается, и приложение начинает работать. Приложение передает изображение **HelloWorld.png** из решения в учетную запись хранения. Приложение проверяет, было ли изображение реплицировано во вторичную конечную точку RA-GRS. Затем оно начинает скачивать изображение (до 999 раз). Представленный каждой операции чтения **P** или **S**. **P** представляет основную конечную точку, а **S** — вторичную конечную точку.
 
 ![Консольное приложение выполняется](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -101,10 +113,10 @@ ms.lasthandoff: 10/17/2017
 
 ### <a name="retry-event-handler"></a>Обработчик события при повторном запуске
 
-Обработчик события `Operation_context_Retrying` вызывается, когда скачивание завершается с ошибкой и настроено на повторный запуск. Если достигнуто максимальное количество попыток, определенных для приложения, значение параметра [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) запроса изменяется на `SecondaryOnly`. В таком случае приложение принудительно повторно пытается скачать изображение из вторичной конечной точки. Эта конфигурация уменьшает время, затрачиваемое на запрос изображения, так как основная конечная точка не запрашивается бесконечно.
+`OperationContextRetrying` Обработчик событий вызывается при сбое загрузки образа, а набор, чтобы повторить попытку. При достижении максимальное число повторных попыток, которые определены в приложении [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) запроса изменяется на `SecondaryOnly`. В таком случае приложение принудительно повторно пытается скачать изображение из вторичной конечной точки. Эта конфигурация уменьшает время, затрачиваемое на запрос изображения, так как основная конечная точка не запрашивается бесконечно.
 
 ```csharp
-private static void Operation_context_Retrying(object sender, RequestEventArgs e)
+private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
     retryCount++;
     Console.WriteLine("Retrying event because of failure reading the primary. RetryCount = " + retryCount);
@@ -129,10 +141,10 @@ private static void Operation_context_Retrying(object sender, RequestEventArgs e
 
 ### <a name="request-completed-event-handler"></a>Обработчик события при успешном выполнении запроса
 
-Обработчик события `Operation_context_RequestCompleted` вызывается при успешном выполнении запроса. Если приложение использует вторичную конечную точку, приложение запрашивает эту конечную точку до 20 раз. После 20 раза приложение обратно устанавливает для параметра [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) значение `PrimaryThenSecondary` и повторно запрашивает основную конечную точку. При успешном выполнении запроса приложение продолжает выполнять чтение из основной конечной точки.
+Обработчик события `OperationContextRequestCompleted` вызывается при успешном выполнении запроса. Если приложение использует вторичную конечную точку, приложение запрашивает эту конечную точку до 20 раз. После 20 раз приложение задает [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) к `PrimaryThenSecondary` повторяет основной конечной точки. Если запрос выполнен успешно, приложение продолжает считывать из основной конечной точки.
 
 ```csharp
-private static void Operation_context_RequestCompleted(object sender, RequestEventArgs e)
+private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
     if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
     {
@@ -156,7 +168,7 @@ private static void Operation_context_RequestCompleted(object sender, RequestEve
 > * Создайте учетную запись хранения.
 > * Скачивание примера приложения
 > * Задание строки подключения
-> * Запуск консольного приложения.
+> * Запуск консольного приложения
 
 Перейдите ко второй части серии, чтобы узнать, как имитировать сбой и заставить приложение использовать вторичную конечную точку RA-GRS.
 

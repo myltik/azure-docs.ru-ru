@@ -4,7 +4,7 @@ description: "Сведения о настройке гибридных устр
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 12469573eb58d53a4f6a8632c23d716ef6716263
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: f503f373ec32ffcdd9be3ca03da6ec5e1b10e35a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Настройка гибридных устройств, присоединенных к Azure Active Directory
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/14/2017
 
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Прежде чем настраивать в организации гибридные устройства, присоединенные к Azure AD, обязательно убедитесь в том, что вы используете последнюю версию Azure AD Connect.
 
@@ -548,7 +548,7 @@ Azure AD Connect выполняет следующие функции:
 2. Перейдите к узлу домена, на котором нужно активировать автоматическую регистрацию текущих компьютеров Windows.
 3. Щелкните правой кнопкой мыши **Объекты групповой политики**, а затем выберите **Создать**.
 4. Введите имя объекта групповой политики. Например, *Гибридное присоединение к Azure AD. 
-5. Нажмите кнопку **ОК**.
+5. Последовательно выберите **ОК**.
 6. Щелкните новый объект групповой политики правой кнопкой мыши, а затем выберите **Изменить**.
 7. Выберите **Конфигурация компьютера** > **Политики** > **Административные шаблоны** > **Компоненты Windows** > **Регистрация устройств**. 
 8. Щелкните правой кнопкой мыши пункт **Зарегистрировать подключенные к домену компьютеры в качестве устройств** и выберите **Изменить**.
@@ -557,7 +557,7 @@ Azure AD Connect выполняет следующие функции:
    > В более ранних версиях консоли управления групповыми политиками этот шаблон групповой политики назывался по-другому. Если вы используете более раннюю версию консоли, перейдите к `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
 7. Выберите параметр **Включено**, а затем — **Применить**.
-8. Нажмите кнопку **ОК**.
+8. Последовательно выберите **ОК**.
 9. Свяжите объект групповой политики с выбранным расположением. Например, его можно связать с определенным подразделением. Его также можно связать с определенной группой безопасности компьютеров, которые присоединяются к Azure AD автоматически. Чтобы задать эту политику для всех присоединенных к домену компьютеров Windows 10 и Windows Server 2016 в организации, свяжите объект групповой политики с доменом.
 
 ### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Пакеты установщика Windows для компьютеров, не работающих на базе Windows 10

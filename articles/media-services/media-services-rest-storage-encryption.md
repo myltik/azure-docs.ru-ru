@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 1979f5bf5e8cab88dab5fba49018afacf24504b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3c752573be7c07f800b0dce3d12d4dabd7328922
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Шифрование содержимого с помощью шифрования хранилища
 
-Настоятельно рекомендуется шифровать содержимое локально, используя 256-битное шифрование AES, а затем передавать его в хранилище Azure, где оно будет храниться в зашифрованном виде.
+Настоятельно рекомендуется шифровать контент локально с помощью AES-256-разрядного шифрования, а затем передать его в хранилище Azure, где она хранится в зашифрованном виде.
 
 В этой статье приводятся общие сведения о шифровании хранилища AMS и показывается, как передавать зашифрованное содержимое хранилища.
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
   
      Зашифрованные ресурсы-контейнеры должны быть связаны с типами содержимого.
 * Привяжите ключ содержимого к ресурсу.  
-* Настройте связанные с шифрованием параметры в сущностях AssetFile.
+* Установка параметров шифрования связанных сущностей AssetFile.
 
 ## <a name="considerations"></a>Рекомендации 
 
@@ -43,11 +43,8 @@ ms.lasthandoff: 10/11/2017
 
 Сведения о подключении к API AMS см. в разделе [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI.
-
 ## <a name="storage-encryption-overview"></a>Общие сведения о шифровании хранилища
-Шифрование хранилища AMS применяет режим шифрования **AES-CTR** ко всему файлу.  AES-CTR — это блочный шифр, который может шифровать данные произвольной длины и не требует заполнения. Он шифрует блок счетчика, используя алгоритм AES, а затем применяет XOR к выходным данным AES, содержащим данные для шифрования или расшифровки.  Используемый блок счетчика формируется путем копирования значения InitializationVector в байты 0–7 значения счетчика и присвоения байтам 8–15 нулевого значения. Байты 8–15 в 16-байтовом блоке счетчика (т. е. наименее значимые) используются как простое 64-разрядное целое число без знака, увеличивающееся на единицу с каждым последующим блоком данных, которые обрабатываются и хранятся в соответствии с порядком байтов в сети. Если это число достигает максимального значения (0xFFFFFFFFFFFFFFFF), при следующем приращении счетчик блока сбрасывается до нуля (байты 8–15) и не влияет на другие 64 разряда в счетчика (байты 0–7).   Для обеспечения безопасности шифрования в режиме AES-CTR значение InitializationVector для соответствующего идентификатора ключа должно быть уникальным для каждого файла содержимого, а длина файлов должна быть меньше 2^64 блоков.  Это гарантирует, что значение счетчика не будет использоваться с данным ключом повторно. Дополнительные сведения о режиме CTR см. на [этой вики-странице](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (в вики-статье вместо InitializationVector используется термин Nonce).
+Шифрование хранилища AMS применяет режим шифрования **AES-CTR** ко всему файлу.  AES-CTR — это блочный шифр, который может шифровать данные произвольной длины и не требует заполнения. Он шифрует блок счетчика, используя алгоритм AES, а затем применяет XOR к выходным данным AES, содержащим данные для шифрования или расшифровки.  Используемый блок счетчика формируется путем копирования значения InitializationVector в байты 0–7 значения счетчика и присвоения байтам 8–15 нулевого значения. 16-байтовый счетчик блока как простой 64-разрядное целое число без знака увеличивается на единицу для каждого блока данных обрабатывается и хранится в байтовом формате сети используются байтов 8 до 15 (то есть, младший байт). Если это целое число не достигнет максимального значения (0xFFFFFFFFFFFFFFFF) его увеличением сбрасывает показания счетчика блока (в байтах 8 до 15) без влияния на другие 64 бита счетчика (то есть байт 0-7).   Для обеспечения безопасности шифрования в режиме AES-CTR значение InitializationVector для соответствующего идентификатора ключа должно быть уникальным для каждого файла содержимого, а длина файлов должна быть меньше 2^64 блоков.  Это гарантирует, что значение счетчика не будет использоваться с данным ключом повторно. Дополнительные сведения о режиме CTR см. на [этой вики-странице](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (в вики-статье вместо InitializationVector используется термин Nonce).
 
 Параметр **Storage Encryption** используется для локального удаления незашифрованного содержимого с помощью AES 256 и его добавления в хранилище Azure, где оно хранится в зашифрованном виде. Ресурсы, защищенные с помощью шифрования хранилища, автоматически расшифровываются и помещаются в зашифрованную файловую систему до кодирования, а затем при необходимости повторно кодируются перед добавлением в виде нового выходного актива. Основная причина использования шифрования хранилища — для защиты входных файлов мультимедиа высокого качества с помощью стойкого шифрования при хранении на диске.
 
@@ -56,11 +53,11 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-contentkeys-used-for-encryption"></a>Создание сущности ContentKeys, используемой для шифрования
 Зашифрованные ресурсы должны быть связаны с ключом шифрования хранилища. Прежде чем создавать файлы ресурсов, необходимо создать ключ содержимого, который будет использоваться для шифрования. В этой статье описывается, как создать ключ содержимого.
 
-Ниже приведены общие шаги создания ключей содержимого, которые нужно связать с ресурсами, подлежащими шифрованию. 
+Ниже приведены общие шаги для создания ключей контента, которые связаны с ресурсами, которые требуется зашифровать. 
 
 1. Для шифрования хранилища случайным образом формируется 32-разрядный ключ AES. 
    
-    Это будет ключ содержимого для ресурса, то есть для всех файлов, связанных с этим ресурсом, при расшифровке будет использоваться один и тот же ключ содержимого. 
+    Это ключ содержимого для ресурса, что означает все файлы, связанные с средств требуется использовать один и тот же ключ содержимого во время расшифровки. 
 2. Вызовите методы [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) и [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey), чтобы получить правильный сертификат X.509, который должен использоваться для шифрования ключа содержимого.
 3. Зашифруйте ключ содержимого с помощью открытого ключа сертификата X.509. 
    
@@ -97,11 +94,11 @@ ms.lasthandoff: 10/11/2017
 
     Для шифрования хранилища в текст запроса необходимо включить указанные ниже свойства.
 
-    Свойство текста запроса    | Описание
+    Свойство текста запроса    | ОПИСАНИЕ
     ---|---
     Идентификатор | Идентификатор ContentKey, созданный нами в следующем формате "nb:kid:UUID:<NEW GUID>".
     ContentKeyType | Тип ключа содержимого, который в данном случае выражается целым числом. Для шифрования хранилища передается значение 1.
-    EncryptedContentKey | Мы создаем новое значение ключа содержимого, которое представляет собой 256-битное (32-байтное) значение. Ключ шифруется с помощью сертификата шифрования хранилища X.509, полученного из служб мультимедиа Microsoft Azure с помощью HTTP- запроса GET для методов GetProtectionKeyId и GetProtectionKey. Например, см. следующий код .NET: метод **EncryptSymmetricKeyData**, определенный [здесь](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    EncryptedContentKey | Создадим новое значение ключа контента, имеющий значение 256-разрядный (32 байта). Ключ шифруется с использованием сертификата хранилища шифрования X.509, который получен из службы мультимедиа Microsoft Azure, выполнив запрос HTTP GET для GetProtectionKeyId и GetProtectionKey методы. Например, см. следующий код .NET: метод **EncryptSymmetricKeyData**, определенный [здесь](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Идентификатор ключа защиты для сертификата шифрования хранилища X.509, который использовался для шифрования ключа содержимого.
     ProtectionKeyType | Тип шифрования для защиты ключа, который использовался для шифрования ключа содержимого. В нашем примере этим значением является StorageEncryption(1).
     Checksum |Контрольная сумма, рассчитанная для ключа содержимого с помощью MD5. Она вычисляется путем шифрования идентификатора содержимого с использованием ключа содержимого. В примере кода показано, как вычислить контрольную сумму.
@@ -118,7 +115,7 @@ ms.lasthandoff: 10/11/2017
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 Ответ:
@@ -149,7 +146,7 @@ ms.lasthandoff: 10/11/2017
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -189,7 +186,7 @@ ms.lasthandoff: 10/11/2017
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -238,7 +235,7 @@ ms.lasthandoff: 10/11/2017
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"BigBuckBunny" "Options":1}
@@ -285,7 +282,7 @@ ms.lasthandoff: 10/11/2017
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
@@ -299,7 +296,7 @@ ms.lasthandoff: 10/11/2017
 
 Обратите внимание, что экземпляр **AssetFile** и фактический файл мультимедиа – это два разных объекта. Экземпляр AssetFile содержит метаданные о файле мультимедиа, а сам файл мультимедиа — фактическое мультимедийное содержимое.
 
-После отправки цифрового файла мультимедиа в контейнер больших двоичных объектов будет использоваться HTTP-запрос **MERGE** , чтобы обновить сущность AssetFile информацией о файле мультимедиа (не показано в этом разделе). 
+После отправки файла мультимедиа в контейнер больших двоичных объектов, используется **СЛИЯНИЯ** HTTP-запроса для обновления AssetFile со сведениями о файл (не показано в этой статье). 
 
 **HTTP-запрос**
 
@@ -310,7 +307,7 @@ ms.lasthandoff: 10/11/2017
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     Content-Length: 164
 

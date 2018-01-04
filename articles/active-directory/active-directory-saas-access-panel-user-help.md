@@ -4,7 +4,7 @@ description: "Инструкции по выполнению типичных з
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 5887dbd606acd1df47be1c421bee1a1008dc91d1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Нужна помощь по работе с порталом "Мои приложения"?
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/23/2017
 
 - Удостоверьтесь в том, что пароль действителен и вы не забыли его. Дополнительные сведения о смене пароля см. в [этой статье](active-directory-passwords-update-your-own-password.md).
 
-- Убедитесь в том, что ваши контактные данные для проверки подлинности актуальны и доступ не блокируется из-за них. Дополнительные сведения о настройке данных для проверки подлинности см. в [этой статье](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
+- Убедитесь в том, что ваши контактные данные для проверки подлинности актуальны и доступ не блокируется из-за них. Дополнительные сведения о настройке данных для проверки подлинности см. в [этой статье](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
 
 - Попробуйте очистить файлы cookie в браузере и повторите попытку входа.
 

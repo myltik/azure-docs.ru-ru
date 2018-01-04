@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 11fa0d01463e398ae4106e1a70dc4c51b8698ff4
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 37523506369ece144183dba76feb8b23b6c1acb2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-database-security-checklist"></a>Контрольный список для обеспечения безопасности баз данных
 
 Для повышения безопасности база данных Azure содержит ряд встроенных элементов управления безопасностью, которые можно использовать для ограничения и контроля доступа.
 
-В частности, описаны такие возможности:
+в частности такие:
 
--   брандмауэр, который позволяет создавать [правила брандмауэра](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure), ограничивающие подключение по IP-адресу;
+-   брандмауэр, который позволяет создавать [правила брандмауэра](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure), ограничивающие подключение по IP-адресу;
 -   брандмауэр на уровне сервера, доступны на портале Azure;
 -   правила брандмауэра уровня базы данных, доступные в SSMS;
 -   защищенное подключение к базе данных с помощью безопасных строк подключения;
@@ -35,24 +35,24 @@ ms.lasthandoff: 11/22/2017
 -   аудит баз данных SQL;
 -   обнаружение угроз для баз данных SQL.
 
-## <a name="introduction"></a>Введение
+## <a name="introduction"></a>Общие сведения
 Для облачных вычислений требуются новые принципы обеспечения безопасности, незнакомые многим пользователям приложений, администраторам базы данных и программистам. Поэтому в некоторых организациях не решаются реализовать облачную инфраструктуру для управления данными из-за предполагаемых угроз безопасности. Однако большую часть этой проблемы можно устранить, лучше изучив возможности безопасности, встроенные в Microsoft Azure и Базу данных SQL Microsoft Azure.
 
 ## <a name="checklist"></a>Контрольный список
-Рекомендуется ознакомиться со статьей [Рекомендации по обеспечению безопасности базы данных Azure](https://docs.microsoft.com/en-us/azure/security/azure-database-security-best-practices) до изучения данного контрольного списка. Вы сможете максимально эффективно использовать этот контрольный список, изучив приведенные в статье рекомендации. Затем вы сможете использовать этот контрольный список для устранения важных проблем в системе безопасности Базы данных SQL Azure.
+Рекомендуется ознакомиться со статьей [Рекомендации по обеспечению безопасности базы данных Azure](https://docs.microsoft.com/azure/security/azure-database-security-best-practices) до изучения данного контрольного списка. Вы сможете максимально эффективно использовать этот контрольный список, изучив приведенные в статье рекомендации. Затем вы сможете использовать этот контрольный список для устранения важных проблем в системе безопасности Базы данных SQL Azure.
 
 
-|Категория контрольного списка| Описание|
+|Категория контрольного списка| ОПИСАНИЕ|
 | ------------ | -------- |
 |**Защита данных**||
-| <br> Шифрование данных при передаче| <ul><li>[Безопасность на транспортном уровне](https://docs.microsoft.com/en-us/windows-server/security/tls/transport-layer-security-protocol). Используется для шифрования данных при перемещении в сетях.</li><li>Для базы данных требуется безопасное подключение клиентов по протоколу [TDS (поток табличных данных)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) на основе TLS (безопасность на транспортном уровне).</li></ul> |
+| <br> Шифрование данных при передаче| <ul><li>[Безопасность на транспортном уровне](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol). Используется для шифрования данных при перемещении в сетях.</li><li>Для базы данных требуется безопасное подключение клиентов по протоколу [TDS (поток табличных данных)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) на основе TLS (безопасность на транспортном уровне).</li></ul> |
 |<br>Шифрование при хранении| <ul><li>[Прозрачное шифрование данных](http://go.microsoft.com/fwlink/?LinkId=526242). Используется при физическом хранении неактивных данных в любом цифровом виде.</li></ul>|
 |**Контроль доступа**||  
-|<br> Доступ к базе данных | <ul><li>[Аутентификация](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-control-access) (Аутентификация Azure Active Directory). Используются удостоверения, управляемые Azure Active Directory.</li><li>[Авторизация](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-control-access) позволяет предоставлять пользователям минимальные необходимые привилегии.</li></ul> |
-|<br>Доступ к приложениям| <ul><li>[Безопасность на уровне строк](https://msdn.microsoft.com/library/dn765131). Используется политика безопасности и ограничение доступа на уровне строк на основе удостоверения пользователя, роли или контекста выполнения.</li><li>[Динамическое маскирование данных](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started). С помощью разрешений и политик ограничивается возможность раскрытия конфиденциальных данных, которые маскируются для обычных пользователей без соответствующих привилегий.</li></ul>|
+|<br> Доступ к базе данных | <ul><li>[Аутентификация](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Аутентификация Azure Active Directory). Используются удостоверения, управляемые Azure Active Directory.</li><li>[Авторизация](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) позволяет предоставлять пользователям минимальные необходимые привилегии.</li></ul> |
+|<br>Доступ к приложениям| <ul><li>[Безопасность на уровне строк](https://msdn.microsoft.com/library/dn765131). Используется политика безопасности и ограничение доступа на уровне строк на основе удостоверения пользователя, роли или контекста выполнения.</li><li>[Динамическое маскирование данных](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started). С помощью разрешений и политик ограничивается возможность раскрытия конфиденциальных данных, которые маскируются для обычных пользователей без соответствующих привилегий.</li></ul>|
 |**Упреждающий мониторинг**||  
-| <br>Отслеживание и обнаружение| <ul><li>[Аудит](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) позволяет отслеживать события базы данных и записывать их в журнал аудита или журнал действий в [учетной записи хранения Azure](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account).</li><li>Отслеживание работоспособности базы данных Azure с помощью [журналов действий Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs).</li><li>[Система обнаружения угроз](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection) обнаруживает подозрительные действия в базе данных, указывающие на наличие потенциальных угроз безопасности. </li></ul> |
-|<br>Центр безопасности Azure| <ul><li>[Мониторинг данных](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-auditing-on-sql-databases). Используйте центр безопасности Azure как централизованное решение мониторинга безопасности для SQL и других служб Azure.</li></ul>|     
+| <br>Отслеживание и обнаружение| <ul><li>[Аудит](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) позволяет отслеживать события базы данных и записывать их в журнал аудита или журнал действий в [учетной записи хранения Azure](https://docs.microsoft.com/azure/storage/storage-create-storage-account).</li><li>Отслеживание работоспособности базы данных Azure с помощью [журналов действий Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs).</li><li>[Система обнаружения угроз](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) обнаруживает подозрительные действия в базе данных, указывающие на наличие потенциальных угроз безопасности. </li></ul> |
+|<br>Центр безопасности Azure| <ul><li>[Мониторинг данных](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-databases). Используйте центр безопасности Azure как централизованное решение мониторинга безопасности для SQL и других служб Azure.</li></ul>|       
 
 ## <a name="conclusion"></a>Заключение
 База данных Azure — это надежная платформа базы данных с полным набором функций безопасности, которые удовлетворяют многим организационным и нормативным требованиям. Вы можете легко защитить данные, контролируя физический доступ к ним и используя различные способы защиты данных на уровне файла, столбца или строки благодаря прозрачному шифрованию данных, шифрованию на уровне ячейки или обеспечению безопасности на уровне строк. Always Encrypted также позволяет выполнять операции с зашифрованными данными, что упрощает процесс обновления приложений. В свою очередь, благодаря доступу к журналам аудита действий базы данных SQL вы получаете необходимые сведения о способе и времени доступа к данным.
@@ -60,7 +60,7 @@ ms.lasthandoff: 11/22/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 Выполнив всего несколько простых действий, можно значительно повысить уровень защиты базы данных от пользователей-злоумышленников или несанкционированного доступа. Из этого руководства вы узнаете, как выполнять такие задачи.
 
-- Настройка [правил брандмауэра](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) для сервера и (или) базы данных.
-- Защита данных с помощью [шифрования](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/sql-server-encryption).
-- Включение [аудита базы данных SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing).
+- Настройка [правил брандмауэра](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) для сервера и (или) базы данных.
+- Защита данных с помощью [шифрования](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).
+- Включение [аудита базы данных SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 **Индексатор** — это ресурс, соединяющий один источник данных с целевым индексом поиска. Индексатор используется в следующих случаях.
 
-* Для выполнения однократного копирования данных с целью заполнения индекса.
+* однократное копирование данных для заполнения индекса;
 * добавление в индекс изменений в источнике данных по расписанию;
 * запуск по требованию для обновления индекса при необходимости.
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 * мастера импорта данных на [портале Azure](https://portal.azure.com);
 * [пакета SDK .NET для Поиска Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet);
-* [REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations) Поиска Azure.
+* [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) Поиска Azure;
 
 В этой статье мы будем использовать REST API для создания **индексаторов** и **источников данных**.
 
@@ -283,7 +283,7 @@ ms.lasthandoff: 10/11/2017
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>Сопоставление типов данных SQL и Поиска Azure
-| Тип данных SQL | Совместимые типы полей целевого индекса | Примечания |
+| Тип данных SQL | Совместимые типы полей целевого индекса | Заметки |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
@@ -294,16 +294,16 @@ ms.lasthandoff: 10/11/2017
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Поддерживаются только географические объекты типа POINT с SRID 4326 (значение по умолчанию). |
-| rowversion |Недоступно |Столбцы версии строк не могут храниться в индексе поиска, но их можно использовать для отслеживания изменений. |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |Недоступно |Не поддерживается |
+| rowversion |Н/Д |Столбцы версии строк не могут храниться в индексе поиска, но их можно использовать для отслеживания изменений. |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |Н/Д |Не поддерживается |
 
 ## <a name="configuration-settings"></a>Параметры конфигурации
 Индексатор SQL предоставляет несколько параметров конфигурации.
 
-| Настройка | Тип данных | Назначение | Значение по умолчанию |
+| Параметр | Тип данных | Назначение | Значение по умолчанию |
 | --- | --- | --- | --- |
 | queryTimeout |строка |Задает время ожидания для выполнения запроса SQL. |5 мин ("00:05:00") |
-| disableOrderByHighWaterMarkColumn |bool |Указывает SQL-запросу, используемому политикой верхнего предела, опустить предложение ORDER BY. Ознакомьтесь с [политикой верхнего предела](#HighWaterMarkPolicy). |нет |
+| disableOrderByHighWaterMarkColumn |bool |Указывает SQL-запросу, используемому политикой верхнего предела, опустить предложение ORDER BY. Ознакомьтесь с [политикой верхнего предела](#HighWaterMarkPolicy). |false |
 
 Эти параметры используются в объекте `parameters.configuration` в определении индексатора. Например, чтобы задать время ожидания запроса, равное 10 минутам, создайте или обновите индексатор, используя приведенную ниже конфигурацию.
 

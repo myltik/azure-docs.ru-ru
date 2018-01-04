@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
 ms.openlocfilehash: ee48ca45ae0d337b5b919dbbb28341caf8af0d45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-resource-manager"></a>Настройка шлюза приложений для разгрузки SSL с помощью диспетчера ресурсов Azure
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 10/11/2017
 3. [Создание объекта конфигурации шлюза приложений](#create-an-application-gateway-configuration-object).
 4. [Создание ресурса шлюза приложений](#create-an-application-gateway-resource).
 
-## <a name="create-a-resource-group-for-resource-manager"></a>Создание группы ресурсов для диспетчера ресурсов
+## <a name="create-a-resource-group-for-resource-manager"></a>Создание группы ресурсов для диспетчера ресурсов.
 
 Для работы с командлетами диспетчера ресурсов Azure необходимо перейти в режим PowerShell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 10/11/2017
    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
    ```
 
-В диспетчере ресурсов Azure для всех групп ресурсов должно быть указано расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Убедитесь, что во всех командах для создания шлюза приложений используется одна группа ресурсов.
+Диспетчер ресурсов Azure требует, чтобы все группы ресурсов указывали расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Убедитесь, что во всех командах для создания шлюза приложений используется одна группа ресурсов.
 
 В предыдущем примере мы создали группу ресурсов **appgw-RG** в расположении **Западная часть США**.
 
@@ -135,7 +135,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicI
 
 Этот пример создает ресурс общедоступного IP-адреса **publicIP01** в группе ресурсов **appgw-rg** для региона **Западная часть США**.
 
-## <a name="create-an-application-gateway-configuration-object"></a>Создание объекта конфигурации шлюза приложений
+## <a name="create-an-application-gateway-configuration-object"></a>Создание объекта конфигурации шлюза приложений.
 
    1. Чтобы создать объект конфигурации шлюза приложений, введите следующую команду:
 

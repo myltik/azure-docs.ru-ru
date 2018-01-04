@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: f3fc8fb08cd23543ecfcbdc4010aabc9c0184a65
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 22e19ca3377b623ae15a28a109cb5de419247ba4
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Как настроить параметры сервера в базе данных Azure для MySQL с помощью портала Azure
 
@@ -44,6 +44,8 @@ ms.lasthandoff: 12/01/2017
 | Стандартный, 400 | 10240 | 800 | 
 | Стандартный, 800 | 20480 | 1600 |
 
+ Innodb_file_per_table в базовый уровень: OFF
+ 
 Для остальных параметров сервера, которые не перечислены в предыдущей таблице, устанавливаются значения по умолчанию для версий [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) и [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## <a name="next-steps"></a>Дальнейшие действия

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Рекомендации по безопасности Azure Service Fabric
 Развертывание приложения в Azure — быстрое, удобное и экономичное. Прежде чем развертывать облачное приложение в рабочей среде, ознакомьтесь с нашим списком важных рекомендаций по реализации защищенных кластеров в приложении.
@@ -64,7 +64,7 @@ Azure Service Fabric — это платформа распределенных 
 Существуют три [сценария](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) для реализации безопасности кластера с помощью разных технологий.
 
 -   Безопасность обмена данными между узлами. В этом сценарии обеспечивается защита взаимодействия виртуальных машин и компьютеров в кластере. Такая разновидность защиты гарантирует, что размещать приложения и службы в кластере смогут только пользователи тех компьютеров, которые прошли авторизацию для подключения к кластеру.
-В этом сценарии кластеры, работающие в Azure, или автономные кластеры, работающие под управлением Windows, могут использовать [безопасность на основе сертификатов](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) или [систему безопасности Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security) для компьютеров Windows Server.
+В этом сценарии кластеры, работающие в Azure, или автономные кластеры, работающие под управлением Windows, могут использовать [безопасность на основе сертификатов](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) или [систему безопасности Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) для компьютеров Windows Server.
 -   Безопасность обмена данными между клиентами и узлами. В этом сценарии обеспечивается защита взаимодействия клиента Service Fabric и отдельных узлов в кластере.
 -   Управление доступом на основе ролей (RBAC). В этом сценарии используются отдельные удостоверения (сертификаты, удостоверения Azure AD и т. д) для каждой клиентской роли администратора и пользователя, обращающегося к кластеру. Удостоверения роли указываются при создании кластера.
 
@@ -125,7 +125,7 @@ Service Fabric также защищает ресурсы, которые исп
 Конфигурации репликатора используются для настройки репликатора, отвечающего за надежность состояний поставщика состояний субъекта.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Настройка SSL для Azure Service Fabric.
-Процесс аутентификации сервера [аутентифицирует](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) конечные точки управления кластера в клиенте управления. Затем клиент управления определяет, что он взаимодействует с реальным кластером. Этот сертификат также предоставляет [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm) для API управления HTTPS и Service Fabric Explorer по протоколу HTTPS.
+Процесс аутентификации сервера [аутентифицирует](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) конечные точки управления кластера в клиенте управления. Затем клиент управления определяет, что он взаимодействует с реальным кластером. Этот сертификат также предоставляет [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) для API управления HTTPS и Service Fabric Explorer по протоколу HTTPS.
 Необходимо получить имя личного домена для кластера. При запросе сертификата из центра сертификации имя субъекта сертификата должно совпадать с именем личного домена, используемого для кластера.
 
 Чтобы настроить протокол SSL для приложения, сначала необходимо получить SSL-сертификат, подписанный центром сертификации. ЦС является доверенным сторонним производителем, выдающим сертификаты для обеспечения безопасности SSL. Если у вас еще нет SSL-сертификата, нужно получить его в компании, продающей SSL-сертификаты.

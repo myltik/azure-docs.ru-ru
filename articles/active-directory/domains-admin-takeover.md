@@ -4,7 +4,7 @@ description: "Узнайте, как выполнить смену доменн�
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ee100fa86d78840a3b6a6bbf9453954c054931c2
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: f18e5883fca9291eb1447c1eebfe0883936fe84f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Смена неуправляемого каталога от имени администратора в Azure Active Directory
 В этой статье описывается два способа смены доменного имени DNS в неуправляемом каталоге в Azure Active Directory (Azure AD). Когда пользователь самостоятельно регистрируется в облачной службе, использующей Azure AD, он добавляется в неуправляемый каталог Azure AD на основе домена электронной почты. Дополнительные сведения о самостоятельной (или "вирусной") регистрации в службе см. в разделе [What is self-service signup for Azure Active Directory?]() (Что такое самостоятельная регистрация для Azure Active Directory?).
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/17/2017
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
   ````
 
-4. Скопируйте значение (запрос защиты), которое возвращает эта команда. Например:
+4. Скопируйте значение (запрос защиты), которое возвращает эта команда. Например: 
   ````
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
   ````
@@ -154,7 +154,7 @@ ms.lasthandoff: 11/17/2017
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
   ````
   
-  Например:
+  Например: 
   
   ````
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
@@ -164,7 +164,7 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Добавление имени личного домена в Azure Active Directory](add-custom-domain.md)
-* [Установка и настройка Azure PowerShell](/powershell/azure/overview)
+* [Как установить и настроить Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Справка по командлетам Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)

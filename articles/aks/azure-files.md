@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 12c5d4985260c734ba813ace3143433883966712
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: b6267dd2bc1b29229b2e8016e2429ed88b7bf676
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Использование службы файлов Azure с Kubernetes
 
@@ -66,7 +66,7 @@ echo -n $AKS_PERS_STORAGE_ACCOUNT_NAME | base64
 echo -n $STORAGE_KEY | base64
 ```
 
-Создайте файл `azure-secret.yml` и скопируйте в него следующий код YAML. Измените значения `azurestorageaccountname` и `azurestorageaccountkey`, указав значения в кодировке base64, полученные на предыдущем шаге.
+Создайте файл `azure-secret.yaml` и скопируйте в него следующий код YAML. Измените значения `azurestorageaccountname` и `azurestorageaccountkey`, указав значения в кодировке base64, полученные на предыдущем шаге.
 
 ```yaml
 apiVersion: v1
@@ -82,12 +82,12 @@ data:
 Выполните команду [kubectl create][kubectl-create], чтобы создать секрет.
 
 ```azurecli-interactive
-kubectl create -f azure-secret.yml
+kubectl create -f azure-secret.yaml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Подключение файлового ресурса в качестве тома
 
-Можно подключить общий ресурс службы файлов Azure к pod, настроив том в его спецификации. Создайте файл `azure-files-pod.yml` со следующим содержимым. Измените `aksshare`, указав имя, присвоенное общему ресурсу службы файлов Azure.
+Можно подключить общий ресурс службы файлов Azure к pod, настроив том в его спецификации. Создайте файл `azure-files-pod.yaml` со следующим содержимым. Измените `aksshare`, указав имя, присвоенное общему ресурсу службы файлов Azure.
 
 ```yaml
 apiVersion: v1
@@ -112,7 +112,7 @@ spec:
 Используйте команду kubectl для создания pod.
 
 ```azurecli-interactive
-kubectl apply -f azure-files-pod.yml
+kubectl apply -f azure-files-pod.yaml
 ```
 
 Теперь у вас есть работающий контейнер с общим ресурсом службы файлов Azure, подключенным к каталогу `/mnt/azure`. Подключенный том можно увидеть, изучив pod с помощью команды `kubectl describe pod azure-files-pod`.
@@ -122,13 +122,16 @@ kubectl apply -f azure-files-pod.yml
 Узнайте больше о томах Kubernetes, использующих службу файлов Azure.
 
 > [!div class="nextstepaction"]
-> [Подключаемый модуль Kubernetes для службы файлов Azure](https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md)
+> [Подключаемый модуль Kubernetes для службы файлов Azure][kubernetes-files]
 
-<!-- LINKS -->
+<!-- LINKS - external -->
+[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+[kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
+[kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+
+<!-- LINKS - internal -->
+[az-group-create]: /cli/azure/group#az_group_create
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
-[kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
-[az-group-create]: /cli/azure/group#az_group_create

@@ -2,29 +2,24 @@
 title: "Краткое руководство по Azure. Передача объектов в хранилище BLOB-объектов Azure и из него с помощью Python | Документация Майкрософт"
 description: "Краткое руководство по передаче объектов в хранилище BLOB-объектов Azure и из него с помощью Python"
 services: storage
-documentationcenter: storage
 author: ruthogunnnaike
-manager: cwatson
-editor: tysonn
-ms.assetid: 
-ms.custom: mvc
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 50f43e6ef9ee60cbf489bb8d0c1c64ca61a393e1
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Передача объектов в хранилище BLOB-объектов Azure и из него с помощью Python
 Из этого краткого руководства вы узнаете, как использовать Python для отправки, скачивания и перечисления блочных BLOB-объектов в контейнере в хранилище BLOB-объектов Azure. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим кратким руководством сделайте следующее: 
 * установите [Python](https://www.python.org/downloads/);
@@ -166,7 +161,7 @@ os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
  
 Из этого краткого руководства вы узнали, как передавать файлы между локальным диском и хранилищем BLOB-объектов Azure с помощью Python. Дополнительные сведения о работе с хранилищем BLOB-объектов см. в соответствующем практическом руководстве.
 

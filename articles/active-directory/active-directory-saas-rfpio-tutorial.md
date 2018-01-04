@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 87187076-7b50-4247-814f-f217b052703f
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 26a8bb17dad5a01b401ce7f9b484f09822825cbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 57bb448f1bb858d15a7ecaad5a9ba797f5d7d85e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Руководство по интеграции Azure Active Directory с RFPIO
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с RFPIO, вам потребуется:
 
@@ -63,11 +63,11 @@ ms.lasthandoff: 10/11/2017
 
 2. Перейдите в колонку **Корпоративные приложения** и выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![ПРИЛОЖЕНИЯ][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![Приложения][3]
+    ![ПРИЛОЖЕНИЯ][3]
 
 4. В поле поиска введите **RFPIO**.
 
@@ -110,11 +110,11 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес: `https://www.rfpio.com`
+    a. В текстовом поле **Идентификатор** введите URL-адрес `https://www.rfpio.com`.
 
     ![Настройка единого входа](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url1.png)
 
-    b. Установите флажок **Показать дополнительные параметры URL-адресов**,
+    Б. Установите флажок **Показать дополнительные параметры URL-адресов**,
 
     c. В текстовом поле **Состояние ретранслятора** введите строковое значение. Чтобы получить это значение, обратитесь в [службу поддержки RFPIO](https://www.rfpio.com/contact/). 
 
@@ -154,16 +154,16 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-rfpio-tutorial/app5.png)
     
-    а. Скопируйте содержимое **скачанного XML-файла с метаданными** и вставьте его в текстовое поле **Identity configuration** (Конфигурация удостоверений).
+    a. Скопируйте содержимое **скачанного XML-файла с метаданными** и вставьте его в текстовое поле **Identity configuration** (Конфигурация удостоверений).
 
     > [!NOTE]
     >Чтобы скопировать содержимое скачанного **XML-файла с метаданными**, используйте **Notepad++** или соответствующий **редактор XML**. 
 
-    b. Щелкните **Проверить**.
+    Б. Щелкните **Проверить**.
 
     c. После нажатия кнопки **Validate** (Проверить) установите переключатель **SAML(Enabled)** (SAML (Включено)) в положение "Вкл.".
 
-    г) Нажмите кнопку **Submit**(Отправить).
+    d. Нажмите кнопку **Submit**(Отправить).
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -192,13 +192,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rfpio-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-rfpio-test-user"></a>Создание тестового пользователя RFPIO
 
@@ -229,9 +229,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-rfpio-tutorial/app8.png)
 
-    а. Введите **адрес электронной почты** в текстовом поле **Enter one email per line** (Введите один адрес электронной почты в каждой строке).
+    a. Введите **адрес электронной почты** в текстовом поле **Enter one email per line** (Введите один адрес электронной почты в каждой строке).
 
-    b. Выберите **роль** в соответствии с требованиями.
+    Б. Выберите **роль** в соответствии с требованиями.
 
     c. Щелкните **ADD MEMBERS** (Добавить участников).
         

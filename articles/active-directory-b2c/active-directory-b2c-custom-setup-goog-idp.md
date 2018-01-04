@@ -4,7 +4,7 @@ description: "Пример использования Google+ в качеств�
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 0d84dde1f70023abcfd0c15f5425d3cbaeb8c765
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 54bf10acfb885042278c4457a70ec86248c96c1c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C. Добавление Google+ в качестве поставщика удостоверений OAuth2 с помощью пользовательских политик
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/01/2017
 
 В этой статье описывается, как включить возможность входа для пользователей из учетной записи Google+ с помощью [пользовательских политик](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Выполните шаги, описанные в статье [Azure Active Directory B2C. Приступая к работе с настраиваемыми политиками](active-directory-b2c-get-started-custom.md).
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 11/01/2017
 
     ![Google+, выбор типа приложения](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  В поле **Name** (Имя) введите имя приложения, затем введите `https://login.microsoftonline.com` в поле **Authorized JavaScript origins** (Авторизованные источники JavaScript) и `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` — в поле **Authorized redirect URIs** (Авторизованные URI перенаправления). Замените **{tenant}** именем своего клиента (например, contosob2c.onmicrosoft.com). В значении **{клиент}** необходимо учитывать регистр. Щелкните **Создать**.
+13.  В поле **Name** (Имя) введите имя приложения, затем введите `https://login.microsoftonline.com` в поле **Authorized JavaScript origins** (Авторизованные источники JavaScript) и `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` — в поле **Authorized redirect URIs** (Авторизованные URI перенаправления). Замените **{tenant}** именем своего клиента (например, contosob2c.onmicrosoft.com). В значении **{клиент}** необходимо учитывать регистр. Нажмите кнопку **Создать**.
 
     ![Google+, предоставление авторизованных источников JavaScript и URI перенаправления](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 11/01/2017
     Префикс `B2C_1A_` может быть добавлен автоматически.
 6.  В поле **Secret** (Секрет) введите скопированный выше секрет приложения Google из [консоли разработчиков Google](https://console.developers.google.com/).
 7.  Для параметра **Использование ключа** задайте значение **Подпись**.
-8.  Нажмите кнопку **Создать**
+8.  Нажмите кнопку **Создать**.
 9.  Убедитесь, что вы создали ключ `B2C_1A_GoogleSecret`.
 
 ## <a name="add-a-claims-provider-in-your-extension-policy"></a>Добавление поставщика утверждений в политику расширения

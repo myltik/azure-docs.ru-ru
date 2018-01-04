@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: f3579942624de282b01d74c4b8c449c56a66e7b7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 6fede727a36b0f3243975bf23df2ef53baf1b15c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sprint-2---december-2017"></a>Спринт 2 — декабрь 2017 г. 
 
 #### <a name="version-number-01171115263"></a>Номер версии: 0.1.1711.15263
 
->Узнать, как найти номер версии, можно из статьи [Azure Machine Learning Workbench: руководство по устранению неполадок и описание известных проблем](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Узнать, как найти номер версии, можно из статьи [Azure Machine Learning Workbench: руководство по устранению неполадок и описание известных проблем](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
 
 Представляем вам третье обновление Azure Machine Learning Workbench. В это обновление включены усовершенствования в приложении Workbench, интерфейсе командной строки (CLI) и серверных службах. Благодарим вас за поддержку и критические замечания. Многие из следующих обновлений являются их прямым результатом. 
 
 ## <a name="notable-new-features"></a>Новые важные функции
-- [Поддержка SQL Server и Azure SQL DB в качестве источников данных](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Поддержка SQL Server и Azure SQL DB в качестве источников данных](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
 - [Глукбокое обучение в Spark с поддежкой GPU с использованием MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - [Все контейнеры AML совместимы с устройствами Azure IoT Edge при развертывании (дополнительные шаги не требуются)](http://aka.ms/aml-iot-edge-blog)
 - На портале Azure доступен список зарегистрированных моделей вместе со сведениями о них
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/05/2017
 
 - Повышение производительности с рекомендациями по крайним случаям в преобразовании "Получение столбца по образцу"
 
-- [Поддержка SQL Server и Azure SQL DB в качестве источников данных](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Поддержка SQL Server и Azure SQL DB в качестве источников данных](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
 
 ![Изображение по созданию источника данных SQL Server](media/release-notes-sprint-2/sql-server-data-source.png)
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 12/05/2017
 
 - Вы можете подготовить этот целевой объект вычислений и использовать его для выполнения, а затем Azure ML Workbench использует этот ключ для проверки подлинности.  
 
-Дополнительные сведения о создании целевых объектов вычислений см. в статье [Настройка службы "Экспериментирование в Машинном обучении Azure"](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration)
+Дополнительные сведения о создании целевых объектов вычислений см. в статье [Настройка службы "Экспериментирование в Машинном обучении Azure"](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration)
 
 ### <a name="visual-studio-tools-for-ai"></a>Инструменты Visual Studio для ИИ
 - Добавлена поддержка [Инструментов Visual Studio для ИИ](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 

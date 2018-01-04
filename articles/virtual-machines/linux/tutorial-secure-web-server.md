@@ -4,7 +4,7 @@ description: "Узнайте, как защитить веб-сервер NGINX 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/17/2017
+ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d2d6a0b00704e1d97be9a4c5bd00ba37374419e5
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 6b333b75f571e367470037ab9ce8b273fcae5498
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Защита веб-сервера с помощью SSL-сертификатов на виртуальной машине Linux в Azure
-Чтобы защитить веб-серверы, можно использовать сертификат Secure Sockets Later (SSL) для шифрования веб-трафика. SSL-сертификаты могут храниться в Azure Key Vault и разрешать безопасное развертывание сертификатов на виртуальных машинах Linux в Azure. Из этого руководства вы узнаете, как выполнить следующие задачи:
+Чтобы защитить веб-серверы, можно использовать сертификат Secure Sockets Later (SSL) для шифрования веб-трафика. SSL-сертификаты могут храниться в Azure Key Vault и разрешать безопасное развертывание сертификатов на виртуальных машинах Linux в Azure. Из этого руководства вы узнали, как выполнять такие задачи:
 
 > [!div class="checklist"]
 > * Создание Azure Key Vault
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/29/2017
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).  
+При выборе для установки и использования CLI локально упражнений этого учебника требуется, что вы используете Azure CLI версии 2.0.22 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).  
 
 
 ## <a name="overview"></a>Обзор
@@ -83,7 +83,7 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Создание конфигурации cloud-init для защиты сервера NGINX
 [Пакет cloud-init](https://cloudinit.readthedocs.io) — широко используемое средство, используемое для настройки виртуальной машины Linux при ее первой загрузке. Вы можете использовать cloud-init для установки пакетов, записи файлов или настройки пользователей и параметров безопасности. Так как cloud-init выполняется при начальной загрузке, для применения вашей конфигурации не требуются какие-либо дополнительные действия или обязательные агенты.
 
-При создании виртуальной машины сертификаты и ключи хранятся в защищенном каталоге */var/lib/waagent/*. Используйте cloud-init, чтобы автоматизировать добавление сертификата виртуальной машины и настройку веб-сервера. В этом примере выполняется установка и настройка веб-сервера NGINX. Этот же процесс можно использовать для установки и настройки Apache. 
+При создании виртуальной машины сертификаты и ключи хранятся в защищенном каталоге */var/lib/waagent/*. Используйте cloud-init, чтобы автоматизировать добавление сертификата виртуальной машины и настройку веб-сервера. В этом примере нужно установить и настроить веб-сервер NGINX. Этот же процесс можно использовать для установки и настройки Apache. 
 
 Создайте файл *cloud-init-web-server.txt* и вставьте в него приведенную ниже конфигурацию:
 

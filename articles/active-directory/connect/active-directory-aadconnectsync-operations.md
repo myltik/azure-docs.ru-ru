@@ -4,7 +4,7 @@ description: "В этой статье описываются рабочие з�
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 4252a5ff3dd985185745060073cbe5432dba726a
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Службы синхронизации Azure AD Connect: рабочие задачи и рекомендации
 В этой статье описаны рабочие задачи служб синхронизации Azure AD Connect.
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/22/2017
 ## <a name="staging-mode"></a>Промежуточный режим
 Промежуточный режим может использоваться в нескольких ситуациях, например:
 
-* обеспечение высокой доступности;
+* обеспечение высокой доступности; Каждый набор масштабирования помещает свои виртуальные машины в группу доступности с 5 доменами сбоя (FD) и 5 доменами обновления (UD) для обеспечения доступности (дополнительные сведения о доменах сбоя и обновления см.
 * тестирование и развертывание новых изменений в конфигурации;
 * введение в эксплуатацию нового сервера и списание старого.
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/22/2017
    ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
 2. Выйдите из системы и снова войдите в нее, а затем в меню "Пуск" выберите пункт **Служба синхронизации**.
 
-#### <a name="configuration"></a>Конфигурация
+#### <a name="configuration"></a>Параметр Configuration
 Если вы внесли какие-либо изменения на сервере-источнике и хотите сравнить конфигурацию с промежуточным сервером, то воспользуйтесь [средством документирования конфигураций Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### <a name="import-and-synchronize"></a>Импорт и синхронизация
@@ -261,7 +261,7 @@ do
 } while ($reader.Read)
 
 #need to write out any users that didn't get picked up in a batch of 1000
-#export the collection of users as as CSV
+#export the collection of users as CSV
 Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 ```

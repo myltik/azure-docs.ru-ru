@@ -4,7 +4,7 @@ description: "Узнайте, как с помощью управления ус
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1288fe2eeb9b31b912cd918be624e7a4703f0709
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Общие сведения об управлении устройствами в Azure Active Directory
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 11/14/2017
 
     - для изменения локального состояния устройства;
 
-- гибридные устройства, присоединенные к Azure AD, для устройств, которые присоединены к локальной службе AD:     
+- гибридные устройства, присоединенные к Azure AD, для устройств, которые присоединены к локальной службе AD.     
 
     - для корпоративного пользования;
 

@@ -4,7 +4,7 @@
 <a id="attachempty"></a>
 
 ## <a name="attach-an-empty-disk"></a>Подключение пустого диска
-1. Откройте Azure CLI 1.0 и [подключитесь к подписке Azure](../articles/xplat-cli-connect.md). Убедитесь, что вы находитесь в режиме управления службами Azure (`azure config mode asm`).
+1. Откройте Azure CLI 1.0 и [подключитесь к подписке Azure](/cli/azure/authenticate-azure-cli). Убедитесь, что вы находитесь в режиме управления службами Azure (`azure config mode asm`).
 2. Введите `azure vm disk attach-new`, чтобы создать и подключить новый диск, как показано в примере ниже. Замените имя *myVM* именем своей виртуальной машины Linux и укажите размер диска в гигабайтах. В нашем примере это *100 ГБ*.
 
     ```azurecli
@@ -37,7 +37,7 @@
 ## <a name="attach-an-existing-disk"></a>Подключение существующего диска
 Для подключения существующего диска требуется VHD-файл в учетной записи хранения.
 
-1. Откройте Azure CLI 1.0 и [подключитесь к подписке Azure](../articles/xplat-cli-connect.md). Убедитесь, что вы находитесь в режиме управления службами Azure (`azure config mode asm`).
+1. Откройте Azure CLI 1.0 и [подключитесь к подписке Azure](/cli/azure/authenticate-azure-cli). Убедитесь, что вы находитесь в режиме управления службами Azure (`azure config mode asm`).
 2. Проверьте, не добавлен ли уже виртуальный жесткий диск, который вы хотите подключить, в подписку Azure.
    
     ```azurecli

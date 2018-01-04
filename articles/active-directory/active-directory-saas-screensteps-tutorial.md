@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 4563fe94-a88f-4895-a07f-79df44889cf9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: b6ded8ba1adf03fdccbdb7573c09fae1857c8b16
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ee2adf151d47931ab6a2e3bdc5e20c16deb8e8e4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Учебник. Интеграция Azure Active Directory с ScreenSteps
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с ScreenSteps, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление ScreenSteps из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-screensteps-from-the-gallery"></a>Добавление ScreenSteps из коллекции
 Чтобы настроить интеграцию ScreenSteps с Azure AD, необходимо добавить ScreenSteps из коллекции в список управляемых приложений SaaS.
@@ -143,11 +143,11 @@ ms.lasthandoff: 10/11/2017
 
     ![Создание конечной точки аутентификации](./media/active-directory-saas-screensteps-tutorial/ic778526.png "Создание конечной точки аутентификации")
     
-    а. В текстовом поле **Название** введите название.
+    a. В текстовом поле **Название** введите название.
     
-    b. Из списка **Mode** (Режим) выберите **SAML**.
+    Б. Из списка **Mode** (Режим) выберите **SAML**.
     
-    c. Щелкните **Создать**.
+    c. Нажмите кнопку **Создать**.
 
 12. **Измените** новую конечную точку.
 
@@ -157,9 +157,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Конечная точка удаленной аутентификации](./media/active-directory-saas-screensteps-tutorial/ic778527.png "Конечная точка удаленной аутентификации")
 
-    а. Щелкните **Upload new SAML Certificate file** (Отправить новый файл сертификата SAML), а затем отправьте сертификат, скачанный с портала Azure.
+    a. Щелкните **Upload new SAML Certificate file** (Отправить новый файл сертификата SAML), а затем отправьте сертификат, скачанный с портала Azure.
     
-    b. Вставьте **URL-адрес службы единого входа SAML**, скопированный на портале Azure, в текстовое поле **URL-адрес удаленного входа**.
+    Б. Вставьте **URL-адрес службы единого входа SAML**, скопированный на портале Azure, в текстовое поле **URL-адрес удаленного входа**.
     
     c. Вставьте **URL-адрес входа**, скопированный на портале Azure, в текстовое поле **URL-адрес выхода**.
     
@@ -201,13 +201,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-screensteps-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-screensteps-test-user"></a>Создание тестового пользователя ScreenSteps
 

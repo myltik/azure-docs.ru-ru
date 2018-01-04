@@ -4,7 +4,7 @@ description: "Узнайте, как открыть порт или создат
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Как открыть порты для виртуальной машины Windows с помощью портала Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -38,7 +38,12 @@ ms.lasthandoff: 10/11/2017
 
 ![Добавление правила для входящих подключений](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Выберите общую **службу** в раскрывающемся меню, например *HTTP*. Кроме того, можно выбрать *Настраиваемый*, чтобы указать конкретный порт для использования. При необходимости измените приоритет или имя. Приоритет влияет на порядок, в котором применяются правила: чем ниже числовое значение, тем раньше применяется правило. В верхней части экрана можно также выбрать **Дополнительно** для ввода определенного блока исходных IP-адресов или, например, диапазона портов. Когда все будет готово, нажмите кнопку **ОК** для создания правила:
+Чтобы создать правило, разрешающее трафик:
+
+- Выберите **основные** кнопки. По умолчанию **Дополнительно** содержит некоторые дополнительные параметры конфигурации, например, для определения диапазона блока или порта IP определенного источника.
+- Выберите общую **службу** в раскрывающемся меню, например *HTTP*. Кроме того, можно выбрать *Настраиваемый*, чтобы указать конкретный порт для использования. 
+- При необходимости измените приоритет или имя. Приоритет влияет на порядок, в котором применяются правила: чем ниже числовое значение, тем раньше применяется правило.
+- Когда все будет готово, нажмите кнопку **ОК** для создания правила:
 
 ![Создание правила для входящих подключений](./media/nsg-quickstart-portal/create-inbound-rule.png)
 

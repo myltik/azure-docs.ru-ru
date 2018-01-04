@@ -4,7 +4,7 @@ description: "Изучите основы единого входа с помо�
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1deb3d91049d45fe26791783e13bd23e0a7d9f95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e3f2ed6f019760fd4109c6fc3d8449d95c4959a9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Как прокси приложения Azure AD предоставляет единый вход?
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы просмотреть параметры единого входа, выполните следующие действия.
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. Выберите **Azure Active Directory** > **Корпоративные приложения** > **Все приложения**.
 3. Выберите приложение, параметрами единого входа которого требуется управлять.
 4. Щелкните **Единый вход**.

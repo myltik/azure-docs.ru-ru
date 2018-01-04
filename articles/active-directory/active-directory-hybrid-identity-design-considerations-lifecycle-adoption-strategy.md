@@ -4,7 +4,7 @@ description: "Эта статья поможет определить задач
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 18b40486a66d8e092a8af299460145989a1ab99d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ef8c4a0f672af2540f071f40eac77dc881eb31ac
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Определение стратегии выбора жизненного цикла гибридной идентификации
 В этом упражнении вы определите стратегию управления идентификацией для решений гибридной идентификации в соответствии с бизнес-требованиями, определенными в разделе [Определение задач управления гибридной идентификацией](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 Azure Active Directory предоставляет единый вход и расширенные возможности защиты доступа для тысяч приложений SaaS и локальных веб-приложений. Подробный перечень приложений из коллекции Azure Active Directory, где перечислены поддерживаемые приложения SaaS, см. в статье «Список совместимости федерации Azure Active Directory: использование сторонних поставщиков удостоверений для реализации единого входа».
 
 ## <a name="define-synchronization-management"></a>Организация управления синхронизацией
-Интеграция локальных каталогов с Azure AD помогает повысить продуктивность ваших пользователей, предоставляя им единую идентификацию для доступа к облачным и локальным ресурсам. Благодаря этой интеграции пользователи и организации получат следующие преимущества:
+Интеграция локальных каталогов с Azure AD помогает повысить продуктивность пользователей, так как используется единая идентификация для доступа к облачным и локальным ресурсам. Благодаря этой интеграции пользователи и организации получат следующие преимущества:
 
 * Организации могут предоставлять пользователям общее гибридное удостоверение для локальных и облачных служб, используя Windows Server Active Directory, а затем подключившись к Azure Active Directory.
 * Администраторы могут предоставлять условный доступ на основе ресурсов приложения, удостоверения устройства и пользователя, сетевого расположения и многофакторной проверки подлинности.

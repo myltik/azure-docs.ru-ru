@@ -1,24 +1,16 @@
 ---
 title: "Настройка параметров оценки службы \"Миграция Azure\" | Документация Майкрософт"
 description: "В этой статье описывается, как настроить и выполнить оценку для миграции виртуальных машин VMware в Azure с помощью службы \"Миграция Azure\"."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: a068b9c7-5f87-4fe1-90b9-3be48d91aa3f
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 20aeb2073ad307952f92c8377bc9d78169f1756c
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: ce47790f6214864afdba33eb5cbe3a9e49b81cd5
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="customize-an-assessment"></a>Настройка оценки
 

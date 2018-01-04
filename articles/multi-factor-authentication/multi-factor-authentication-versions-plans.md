@@ -5,7 +5,7 @@ keywords:
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: ddac8feedc8ded73e0f436c1e5dd6391016943a9
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: c7e880b6632e3a1456cf2fa535e6218d3bb31e4a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Как получить службу Многофакторной идентификации Azure
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/28/2017
 
 В следующей таблице описываются различия между тремя версиями службы многофакторной идентификации.
 
-| Version (версия) | Описание |
+| Version (версия) | ОПИСАНИЕ |
 | --- | --- |
 | Многофакторная проверка подлинности для Office 365 |Эта версия работает исключительно с приложениями Office 365, и ей можно управлять с портала Office 365. Администраторы могут [защитить свои ресурсы Office 365 с помощью двухшаговой проверки подлинности](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Эта версия является частью подписки Office 365. |
 | Многофакторная идентификация для администраторов Azure | Глобальные администраторы клиентов Azure могут включить двухфакторную проверку подлинности для своих учетных записей глобального администратора без дополнительных затрат.|

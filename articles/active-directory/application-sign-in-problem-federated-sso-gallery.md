@@ -4,7 +4,7 @@ description: "Рекомендации по конкретным ошибкам 
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 0fc5a8eb3d033d60bf6082d61bf1698924ab91c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b84badda80015600027d7f138bdb4048f6eeaa43
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Проблемы с входом в приложение из коллекции, для которого настроен федеративный единый вход
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 
 3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
+4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 
 3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
+4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 10/11/2017
 
 3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
+4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 
@@ -182,7 +182,7 @@ Azure AD не поддерживает запрос SAML, отправленны
 
 3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
+4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 
@@ -209,7 +209,7 @@ Azure AD не поддерживает запрос SAML, отправленны
 
 3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
+4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 
@@ -241,7 +241,7 @@ Azure AD не поддерживает запрос SAML, отправленны
 
 3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
+4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 

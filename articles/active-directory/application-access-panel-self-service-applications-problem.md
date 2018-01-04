@@ -4,7 +4,7 @@ description: "Проблемы с устранением неполадок, с�
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 217726709a1fdb02275de5a76a1352ea9c350600
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dcd3ea1269ff40e4777cc9b0ca46f0b64560f923
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="problem-using-self-service-application-access"></a>Проблемы при использовании самостоятельного доступа к приложениям
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
+4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 

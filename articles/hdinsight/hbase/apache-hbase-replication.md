@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/09/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 6d7c2eaf139ddbff46a2fba99bdf5515f64be40c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Настройка репликации кластера HBase в виртуальных сетях Azure
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/03/2017
 
 Кластеры можно реплицировать с помощью скриптов [действий сценария](../hdinsight-hadoop-customize-cluster-linux.md), которые можно найти на [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Прежде чем приступать к изучению этого руководства, необходимо оформить подписку Azure. См. страницу о [получении бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Настройка сред
@@ -79,7 +79,7 @@ ms.lasthandoff: 11/03/2017
 
 **Настройка статических IP-адресов**
 
-1. Выполните вход на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. В меню слева выберите **Группы ресурсов**.
 3. Выберите группу ресурсов, содержащую кластер назначения HBase. Это группа ресурсов, указанная при использовании шаблона Resource Manager для создания среды. Для сужения списка можно использовать фильтр. Вы увидите список ресурсов, содержащий две виртуальные сети.
 4. Выберите виртуальную сеть, содержащую кластер назначения HBase. Например, **xxxx-vnet2**. Появится три устройства с именами, которые начинаются с **nic-zookeepermode-**. Это три виртуальные машины ZooKeeper.
@@ -116,7 +116,7 @@ ms.lasthandoff: 11/03/2017
 | Имя шлюза. | vnet1gw |
 | Тип шлюза | Vpn |
 | Тип VPN шлюза. | RouteBased |
-| Gateway SKU | Basic |
+| Gateway SKU | базовая; |
 | Gateway IP | vnet1gwip |
 | Имя кластера, | &lt;префикс_имени_кластера>1 |
 | Cluster version | 3.6 |
@@ -138,7 +138,7 @@ ms.lasthandoff: 11/03/2017
 | Имя шлюза. | vnet2gw |
 | Тип шлюза | Vpn |
 | Тип VPN шлюза. | RouteBased |
-| Gateway SKU | Basic |
+| Gateway SKU | базовая; |
 | Gateway IP | vnet1gwip |
 | Имя кластера, | &lt;префикс_имени_кластера>2 |
 | Cluster version | 3.6 |
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/03/2017
 
 **Включение репликации HBase на портале Azure**
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. Откройте исходный кластер HBase.
 3. В меню кластера выберите **Действия скрипта**.
 4. В верхней части страницы выберите **Отправить новое**.
@@ -182,7 +182,7 @@ ms.lasthandoff: 11/03/2017
 
 Ниже приведены обязательные аргументы.
 
-|Имя|Описание|
+|ИМЯ|ОПИСАНИЕ|
 |----|-----------|
 |-s, --src-cluster | Указывает DNS-имя исходного кластера HBase. например -s hbsrccluster, --src-cluster=hbsrccluster. |
 |-d, --dst-cluster | Указывает DNS-имя кластера назначения (реплики) HBase. например -s dsthbcluster, --src-cluster=dsthbcluster. |
@@ -191,7 +191,7 @@ ms.lasthandoff: 11/03/2017
 
 Необязательные аргументы для этой команды.
 
-|Имя|Описание|
+|ИМЯ|ОПИСАНИЕ|
 |----|-----------|
 |-su, --src-ambari-user | Указывает имя пользователя-администратора для Ambari в исходном кластере HBase. Значение по умолчанию — **admin**. |
 |-du, --dst-ambari-user | Указывает имя пользователя-администратора для Ambari в целевом кластере HBase. Значение по умолчанию — **admin**. |

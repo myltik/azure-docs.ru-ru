@@ -1,24 +1,22 @@
 ---
-title: "Создание рабочей области машинного обучения | Документация Майкрософт"
+title: "Создание Studio рабочей области машинного обучения | Документы Microsoft"
 description: "Создание рабочей области для Студии машинного обучения Azure"
 services: machine-learning
-documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: garye;bradsev;ahgyger
-ms.openlocfilehash: 4e1fa0a9abd4721d15a94923263ff2f521bceee8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/07/2017
+ms.author: garye
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Создание рабочей области машинного обучения Azure и предоставление к ней общего доступа
 Это меню содержит ссылки на разделы, описывающие настройку различных сред обработки и анализа данных, используемых процессом Cortana Analytics (CAP).
@@ -39,16 +37,16 @@ ms.lasthandoff: 10/11/2017
 
 2. Щелкните **+Создать**.
 
-3. Выберите **Аналитика**, щелкните **Рабочая область машинного обучения**, а затем — **Создать**.
+3. В поле поиска введите **рабочую область машинного обучения Studio** и выберите соответствующий элемент. Затем выберите пункт **создать** в нижней части страницы.
 
-4. Введите сведения о рабочей области.
+4. Введите сведения о вашей рабочей области:
 
     - *Имя рабочей области* может содержать до 260 символов и не должно заканчиваться пробелом. Оно не может содержать следующие символы: `< > * % & : \ ? + /`.
     - Выбранный (или созданный) *план веб-службы* и связанная *ценовая категория* используются при развертывании веб-служб из этой рабочей области.
 
     ![Создание рабочей области](./media/create-workspace/create-new-workspace.png)
 
-5. Нажмите кнопку **Создать**
+5. Нажмите кнопку **Создать**.
 
 После развертывания рабочей области вы можете открыть Студию машинного обучения.
 

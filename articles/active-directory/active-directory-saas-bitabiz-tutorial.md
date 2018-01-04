@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 1a51e677-c62b-4aee-9c61-56926aaaa899
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: dca0a460224436d3886cf9a9c354ce662f99ae84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6265f11216aaa75a2dd0dbbf572ecbd913135458
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Руководство по интеграции Azure Active Directory с BitaBIZ
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с BitaBIZ, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление BitaBIZ из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-bitabiz-from-the-gallery"></a>Добавление BitaBIZ из коллекции.
 Чтобы настроить интеграцию BitaBIZ с Azure AD, необходимо добавить BitaBIZ из коллекции в список управляемых приложений SaaS.
@@ -127,7 +127,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-bitabiz-tutorial/tutorial_general_400.png)
     
-7. В разделе **Настройка BitaBIZ** щелкните **Настроить BitaBIZ**, чтобы открыть окно **Настройка единого входа**. Скопируйте **идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+7. В разделе **Настройка BitaBIZ** щелкните **Настроить BitaBIZ**, чтобы открыть окно **Настройка единого входа**. Скопируйте **идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Quick Reference** (Краткий справочник).
 
     ![Настройка BitaBIZ](./media/active-directory-saas-bitabiz-tutorial/tutorial_bitabiz_configure.png) 
 
@@ -145,9 +145,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка BitaBIZ](./media/active-directory-saas-bitabiz-tutorial/settings3.png)
 
-    а. Скопируйте значение из текстового поля **Entity ID (”Identifier” in Azure AD)** (Идентификатор сущности ("Идентификатор" в Azure AD)) и вставьте его в текстовое поле **Идентификатор** в разделе **Домены и URL-адреса приложения BitaBIZ** на портале Azure. 
+    a. Скопируйте значение из текстового поля **Entity ID (”Identifier” in Azure AD)** (Идентификатор сущности ("Идентификатор" в Azure AD)) и вставьте его в текстовое поле **Идентификатор** в разделе **Домены и URL-адреса приложения BitaBIZ** на портале Azure. 
     
-    b. В текстовое поле **Azure AD Single Sign-On Service URL** (URL-адрес службы единого входа в Azure AD) вставьте **URL-адрес службы единого входа SAML**, скопированный на портале Azure.
+    Б. В текстовое поле **Azure AD Single Sign-On Service URL** (URL-адрес службы единого входа в Azure AD) вставьте **URL-адрес службы единого входа SAML**, скопированный на портале Azure.
     
     c. В текстовое поле **Azure AD SAML Entity ID** (Идентификатор сущности SAML Azure AD) вставьте значение **идентификатора сущности SAML**, скопированное на портале Azure.
 
@@ -186,13 +186,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-bitabiz-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-bitabiz-test-user"></a>Создание тестового пользователя BitaBIZ
 
@@ -219,9 +219,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Добавление пользователя BitaBIZ](./media/active-directory-saas-bitabiz-tutorial/user3.png)
 
-    а. В текстовом поле **First Name** (Имя) введите имя пользователя, например Britta.
+    a. В текстовом поле **First Name** (Имя) введите имя пользователя, например Britta.
 
-    b. В текстовом поле **Last Name** (Фамилия) введите фамилию пользователя, например Simon.
+    Б. В текстовом поле **Last Name** (Фамилия) введите фамилию пользователя, например Simon.
 
     c. В текстовом поле **Email** (Электронная почта) введите адрес электронной почты пользователя, например Brittasimon@contoso.com.
 

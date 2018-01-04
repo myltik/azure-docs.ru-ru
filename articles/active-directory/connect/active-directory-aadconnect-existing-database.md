@@ -4,7 +4,7 @@ description: "В этой статье описывается, как испол
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.reviewer: cychua
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: d65e12350e6302b0f95091f48f71cdc7d4610e2c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Установка Azure AD Connect с помощью имеющейся базы данных ADSync
 Azure AD Connect требуется база данных SQL Server для хранения данных. Можно использовать выпуск SQL Server 2012 Express LocalDB по умолчанию, установленный с помощью Azure AD Connect, или полную версию SQL Server. Ранее при установке Azure AD Connect всегда создавалась база данных с именем ADSync. В Azure AD Connect версии 1.1.613.0 (или более поздней) имеется возможность установить Azure AD Connect, указав имеющуюся базу данных ADSync.
@@ -60,7 +60,7 @@ Azure AD Connect требуется база данных SQL Server для хр
 ![PowerShell](media/active-directory-aadconnect-existing-database/db2.png)
 4.  Появится экран приветствия Azure AD Connect. После принятия условий лицензии и заявления о конфиденциальности, щелкните **Продолжить**.
 ![Добро пожаловать!](media/active-directory-aadconnect-existing-database/db3.png)
-5.  На экране **Установить требующиеся компоненты** включен параметр **Использовать существующий SQL Server**. Укажите имя сервера SQL, на котором размещена база данных ADSync. Если экземпляр ядра SQL, используемый для размещения базы данных, не является экземпляром по умолчанию сервера SQL, необходимо указать ядро SQL и имя экземпляра. Кроме того, если просмотр SQL не включен, также необходимо указать номер порта экземпляра ядра SQL. Например:         
+5.  На экране **Установить требующиеся компоненты** включен параметр **Использовать существующий SQL Server**. Укажите имя сервера SQL, на котором размещена база данных ADSync. Если экземпляр ядра SQL, используемый для размещения базы данных, не является экземпляром по умолчанию сервера SQL, необходимо указать ядро SQL и имя экземпляра. Кроме того, если просмотр SQL не включен, также необходимо указать номер порта экземпляра ядра SQL. Например:          
 ![Добро пожаловать!](media/active-directory-aadconnect-existing-database/db4.png)           
 
 6.  На экране **Подключение к Azure AD** необходимо предоставить учетные данные глобального администратора для каталога Azure AD. Рекомендуется использовать учетную запись в домене onmicrosoft.com по умолчанию. Эта учетная запись используется только для создания учетной записи службы в Azure AD и не используется после завершения работы мастера.
@@ -74,7 +74,7 @@ Azure AD Connect требуется база данных SQL Server для хр
 ![Добро пожаловать!](media/active-directory-aadconnect-existing-database/db7.png)
  
  
-9.  После предоставления учетных данных красный значок с крестиком заменяется зеленым значком с галочкой. Щелкните **Далее**.
+9.  После предоставления учетных данных красный значок с крестиком заменяется зеленым значком с галочкой. Нажмите кнопку **Далее**.
 ![Добро пожаловать!](media/active-directory-aadconnect-existing-database/db8.png)
  
  

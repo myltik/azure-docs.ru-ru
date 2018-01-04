@@ -4,21 +4,21 @@ description: "Имитация ошибки при обращении к гео�
 services: storage
 documentationcenter: 
 author: georgewallace
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 2919eb0e301000b53f4f63799e9c65aad45ca9f2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
-ms.translationtype: HT
+ms.openlocfilehash: f709e216f9308c4405776b25ca44b0aaddd3d3f8
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Имитация сбоя при обращении к избыточному хранилищу с доступом на чтение
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/17/2017
 > * имитация сбоя;
 > * имитация восстановления основной конечной точки.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для работы с этим руководством:
 

@@ -1,6 +1,6 @@
 ---
 title: "Размеры виртуальных машин Linux общего назначения в Azure | Документация Майкрософт"
-description: "Список различных размеров виртуальных машин Linux общего назначения в Azure. Сведения о количестве виртуальных ЦП, дисков данных и сетевых адаптеров, а также о пропускной способности хранилища и сети для размеров ВМ этой серии."
+description: "Список различных размеров виртуальных машин Linux общего назначения в Azure. Сведения о количестве виртуальных ЦП, дисков данных и сетевых адаптеров, а также о пропускной способности хранилища и сети для размеров виртуальных машин этой серии."
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: a426efebb3b68f419498839d0cfb1ce796abc9e0
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: ed4bfe6ca15c53c95fb1fd1b93b5acc1d36d57ff
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Размеры виртуальных машин общего назначения
 
@@ -37,5 +37,5 @@ ms.lasthandoff: 11/17/2017
 - [Для высокопроизводительных вычислений](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](../windows/acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
+Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
 

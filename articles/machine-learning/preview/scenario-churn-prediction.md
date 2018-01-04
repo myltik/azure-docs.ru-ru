@@ -7,6 +7,7 @@ author: miprasad
 manager: kristin.tolle
 editor: miprasad
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: b9026090addde35dc702a80f302abd7e3eb9c690
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 7db93786b71fb7876ae02fd8fd006a1e8e0c2271
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Прогнозирование оттока клиентов с помощью Машинного обучения Azure
 
@@ -54,7 +55,7 @@ ms.lasthandoff: 12/06/2017
 
 Для данного решения будет использован конкретный пример построения модели прогнозирования оттока клиентов для телекоммуникационных компаний.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 * [Учетная запись Azure](https://azure.microsoft.com/free/) (доступны бесплатные пробные версии).
 
@@ -71,7 +72,7 @@ ms.lasthandoff: 12/06/2017
 2.  На странице **Projects** (Проекты) щелкните знак **+** и выберите **New Project** (Создать проект).
 3.  В области **Create New Project** (Создание проекта) введите информацию о новом проекте.
 4.  В поле поиска **Search Project Templates** (Поиск шаблонов проектов) введите Customer Churn Prediction (Прогнозирование оттока клиентов) и выберите шаблон.
-5.  Нажмите кнопку **Создать**
+5.  Нажмите кнопку **Создать**.
 
 ## <a name="data-description"></a>Описание данных
 
@@ -97,8 +98,8 @@ __docs__: содержит все практические занятия.
 |--|-----------|------|
 | 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | data/CATelcoCustomerChurnTrainingSample.csv |
 | 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | CATelcoCustomerChurnModeling.py |
-| 3 | [`CATelcoCustomerChurnModelingWithoutDprep.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/CATelcoCustomerChurnModelingWithoutDprep.md) | CATelcoCustomerChurnModelingWithoutDprep.py |
-| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | model.pkl<br>churn_schema_gen.py |
+| 3 | [`ModelingAndEvaluationWithoutDprep.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationWithoutDprep.md) | CATelcoCustomerChurnModelingWithoutDprep.py |
+| 4. | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | model.pkl<br>churn_schema_gen.py |
 
 Выполняйте практические задания в последовательном режиме, описанном выше.
 

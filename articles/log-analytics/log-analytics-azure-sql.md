@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Мониторинг базы данных SQL Azure с помощью служб анализа SQL Azure (предварительная версия) в Log Analytics
 
@@ -41,21 +41,21 @@ ms.lasthandoff: 11/22/2017
 
 В следующей таблице описаны подключенные источники, которые поддерживаются этим решением.
 
-| Подключенный источник | Поддержка | Описание |
+| Подключенный источник | Поддержка | ОПИСАНИЕ |
 | --- | --- | --- |
-| [Агенты Windows](log-analytics-windows-agents.md) | Нет | Решение не использует прямые агенты Windows. |
-| [Агенты Linux](log-analytics-linux-agents.md) | Нет | Решение не использует прямые агенты Linux. |
-| [Группы управления SCOM](log-analytics-om-agents.md) | Нет | Решение не использует прямое подключение агента SCOM к Log Analytics. |
-| [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет | Log Analytics не считывает данные из учетной записи хранения. |
-| [Система диагностики Azure](log-analytics-azure-storage.md) | Да | Данные метрик и журнала Azure отправляются в Log Analytics непосредственно из Azure. |
+| [Агенты Windows](log-analytics-windows-agent.md) | Нет  | Решение не использует прямые агенты Windows. |
+| [Агенты Linux](log-analytics-linux-agents.md) | Нет  | Решение не использует прямые агенты Linux. |
+| [Группы управления SCOM](log-analytics-om-agents.md) | Нет  | Решение не использует прямое подключение агента SCOM к Log Analytics. |
+| [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет  | Log Analytics не считывает данные из учетной записи хранения. |
+| [Система диагностики Azure](log-analytics-azure-storage.md) | Yes | Данные метрик и журнала Azure отправляются в Log Analytics непосредственно из Azure. |
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 - Подписка Azure. Если у вас ее нет, вы можете создать ее [бесплатно](https://azure.microsoft.com/free/).
 - Рабочая область Log Analytics. Вы можете использовать имеющуюся рабочую область или же [создать ее](log-analytics-quick-create-workspace.md), прежде чем начать использовать это решение.
 - Включите систему диагностики Azure для баз данных SQL Azure и эластичных пулов и [настройте для них отправку данных в Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
-## <a name="configuration"></a>Конфигурация
+## <a name="configuration"></a>Параметр Configuration
 
 Чтобы добавить решение "Аналитика SQL Azure" в рабочую область, сделайте следующее.
 
@@ -107,7 +107,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 Каждая перспектива предоставляет сводки по подписке, серверу, эластичному пулу и уровню базы данных. Кроме того, справа в каждой перспективе показан отчет о ней. При выборе подписки, сервера, пула или базы данных из списка позволяет продолжить подробное изучение.
 
-| Перспектива | Описание |
+| Перспектива | ОПИСАНИЕ |
 | --- | --- |
 | Resource by type (Ресурсы по типу) | Перспектива, в которой представлено число всех отслеживаемых ресурсов. При подробном изучении вы получаете сводку о метриках DTU и ГБ. |
 | Аналитика | Предоставляет подробные сведения о Intelligent Insights в иерархическом виде. Получите дополнительные сведения об Intelligent Insights. |

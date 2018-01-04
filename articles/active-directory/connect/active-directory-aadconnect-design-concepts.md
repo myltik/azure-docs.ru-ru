@@ -4,7 +4,7 @@ description: "В этой статье описываются факторы, к
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 53a0f766de9db7e6ee48b6659aad378620c0d727
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 510efc4ae6674a3987c2bb5d7cd155ea8c710c83
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: принципы проектирования
 В этой статье приведено описание факторов, которые должны учитываться при проектировании реализации Azure AD Connect. Здесь подробно рассмотрены некоторые вопросы, но часть из них вкратце рассмотрена в других статьях.
@@ -117,7 +117,7 @@ Azure AD Connect (версии 1.1.524.0 и более поздних верси
 
 ![Выборочная установка: настройка sourceAnchor](./media/active-directory-aadconnect-design-concepts/consistencyGuid-02.png)
 
-| Настройка | Описание |
+| Параметр | ОПИСАНИЕ |
 | --- | --- |
 | Параметр "Azure управляет привязкой к источнику" | Выберите этот параметр, если вы хотите, чтобы среда Azure AD выбирала этот атрибут автоматически. Если выбрать этот параметр, то мастер Azure AD Connect применит [логику выбора атрибута sourceAnchor, использованную при экспресс-установке](#express-installation). Как и при экспресс-установке, мастер сообщит, какой атрибут был выбран в качестве атрибута привязки к источнику после завершения выборочной установки. |
 | Определенный атрибут | Выберите этот параметр, если вы хотите указать имеющийся атрибут AD в качестве атрибута sourceAnchor. |

@@ -4,7 +4,7 @@ description: "Узнайте, как установить и настроить 
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: d8d6130a270285c84c1dd057a3512cdeb39287f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Установка и настройка удаленного рабочего стола для подключения к виртуальной машине Linux в Azure
 Управление виртуальными машинами Linux в Azure обычно осуществляется из командной строки с помощью подключения Secure Shell (SSH). Если вы только начинаете работу с Linux или хотите быстро устранить неполадки, проще всего использовать удаленный рабочий стол. В этой статье описывается установка и настройка среды рабочего стола ([xfce](https://www.xfce.org)) и удаленного рабочего стола ([xrdp](http://www.xrdp.org)) для виртуальной машины Linux с помощью модели развертывания Resource Manager.
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Для работы с этой статьей требуется существующая виртуальная машина Linux в Azure. Если требуется создать виртуальную машину, используйте один из следующих методов:
 
 - [Azure CLI 2.0](quick-create-cli.md);
@@ -85,16 +85,10 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Создание правила группы безопасности сети, разрешающего трафик с удаленного рабочего стола
 Чтобы трафик с удаленного рабочего стола мог поступать на виртуальную машину Linux, необходимо создать правило группы безопасности сети, разрешающее использовать протокол TCP на порту 3389 для доступа к виртуальной машине. Дополнительные сведения о правилах групп безопасности сети см. в статье [Группа безопасности сети](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Вы также можете [создать правило группы безопасности сети с помощью портала Azure](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Следующий пример с помощью команды [az network nsg rule create](/cli/azure/network/nsg/rule#create) создает правило группы безопасности сети *myNetworkSecurityGroupRule*, которое *разрешает* трафик для *TCP*-порта *3389*.
+В следующем примере создается правило группы безопасности сети с [az виртуальной машины откройте порт-](/cli/azure/vm#open-port) через порт *3389*.
 
 ```azurecli
-az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRule \
-    --protocol tcp \
-    --priority 1010 \
-    --destination-port-range 3389
+az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
 
@@ -109,7 +103,7 @@ az network nsg rule create \
 
 
 ## <a name="troubleshoot"></a>Устранение неполадок
-Если не удается подключиться к виртуальной машине Linux с помощью клиента удаленного рабочего стола, используйте `netstat` на виртуальной машине Linux, чтобы убедиться, что она прослушивает RDP-подключения:
+Если не удается подключиться к виртуальной Машине Linux с помощью клиента удаленного рабочего стола, используйте `netstat` на ВМ Linux для убедитесь, что ВМ для подключений по протоколу RDP следующим образом:
 
 ```bash
 sudo netstat -plnt | grep rdp
@@ -122,13 +116,13 @@ tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesm
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-Если служба xrdp не выполняет прослушивание, перезапустите службу на виртуальной машине Ubuntu следующим образом:
+Если *xrdp sesman* службы не прослушивается, на Виртуальной машине Ubuntu перезапустите службу следующим образом:
 
 ```bash
 sudo service xrdp restart
 ```
 
-Просмотрите журналы в папке */var/log* на виртуальной машине Ubuntu, чтобы узнать, почему служба не отвечает. Вы также можете проверять системный журнал на предмет ошибок во время попыток подключения к удаленному рабочему столу:
+Просмотрите журналы */var/log* на вашей виртуальной Машине Ubuntu для данные о том, почему служба не отвечает. Вы также можете проверять системный журнал на предмет ошибок во время попыток подключения к удаленному рабочему столу:
 
 ```bash
 tail -f /var/log/syslog

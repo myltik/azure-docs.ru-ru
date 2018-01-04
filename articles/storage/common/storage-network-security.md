@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Настройка брандмауэров службы хранилища Azure и виртуальных сетей (предварительная версия)
 Служба хранилища Azure предоставляет модель многоуровневой безопасности, которая обеспечивает безопасность учетных записей хранения, открывая к ним доступ только по определенным разрешенным сетям.  При настройке правил сети к учетной записи хранения могут получать доступ только приложения из разрешенных сетей.  Однако и из разрешенной сети доступ к учетной записи хранения имеют только приложения с надлежащим уровнем авторизации (допустимый ключ доступа или токен SAS).
@@ -291,15 +291,14 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 
 При включении исключения "Доверенные службы Майкрософт" доступ к учетной записи хранения предоставляется следующим службам (при регистрации в вашей подписке):
 
-|служба|Имя поставщика ресурсов|Назначение|
+|Service|Имя поставщика ресурсов|Назначение|
 |:------|:---------------------|:------|
-|Azure DevTest Labs|Microsoft.DevTestLab|Создание пользовательских образов и установка артефактов.  [Подробнее](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-overview).|
-|Сетка событий Azure|Microsoft.EventGrid|Включение публикации событий в хранилище BLOB-объектов.  [Подробнее](https://docs.microsoft.com/en-us/azure/event-grid/overview).|
-|Концентраторы событий Azure|Microsoft.EventHub|Архивация данных с помощью записи концентраторов событий.  [Подробнее](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview)|
-|Azure HDInsight|Microsoft.HDInsight|Подготовка и установка кластеров.  [Подробнее](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
-|Сеть Azure|Microsoft.Networking|Хранение и анализ журналов сетевого трафика.  [Подробнее](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Хранилище данных SQL Azure|Microsoft.Sql|Импорт и экспорт данных.  [Подробнее](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
-|Служба архивации Azure|Microsoft.RecoveryServices|Архивация и восстановление неуправляемых дисков.  [Подробнее](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
+|Azure DevTest Labs|Microsoft.DevTestLab|Создание пользовательских образов и установка артефактов.  [Узнайте больше](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
+|Сетка событий Azure|Microsoft.EventGrid|Включение публикации событий в хранилище BLOB-объектов.  [Узнайте больше](https://docs.microsoft.com/azure/event-grid/overview).|
+|Концентраторы событий Azure|Microsoft.EventHub|Архивация данных с помощью записи концентраторов событий.  [Подробнее](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|
+|Azure HDInsight|Microsoft.HDInsight|Подготовка и установка кластеров.  [Узнайте больше](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
+|Сеть Azure|Microsoft.Networking|Хранение и анализ журналов сетевого трафика.  [Узнайте больше](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Служба архивации Azure|Microsoft.RecoveryServices|Архивация и восстановление неуправляемых дисков.  [Узнайте больше](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Доступ к данным аналитики хранилища

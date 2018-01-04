@@ -4,7 +4,7 @@ description: "Пошаговое руководство по включению 
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2342690d983b6e27fa008b5c72a736a9ecda8f47
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory
 Когда требуется, чтобы пользователи присоединяли свои личные устройства к рабочей области в службе регистрации устройств Azure Active Directory (Azure AD), эти устройства можно помечать как известные организации. Ниже приведено пошаговое руководство по включению условного доступа к локальным приложениям с помощью служб федерации Active Directory (AD FS) в Windows Server 2012 R2.
@@ -101,19 +101,13 @@ ms.lasthandoff: 11/27/2017
 | Теперь, когда у пользователей появилась возможность регистрировать устройства, можно создать политики доступа к приложениям в AD FS, позволяющие использовать только зарегистрированные устройства. В этой задаче вы создадите правило доступа к приложениям и пользовательское сообщение об отказе в доступе. |[Создание политики доступа к приложениям и пользовательского сообщения об отказе в доступе](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Интеграция Azure Active Directory с локальной службой Active Directory
-Данный раздел поможет вам интегрировать клиент Azure AD с локальной службой Active Directory, используя Azure AD Connect. Эта процедура также описана на портале Azure, но в данном разделе приведены особые указания. Обратите на них внимание.
 
-1. Войдите на классический портал Azure, используя учетную запись глобального администратора в Azure AD.
-2. На панели слева выберите **Active Directory**.
-3. На вкладке **Каталог** выберите требуемый каталог.
-4. Выберите вкладку **Интеграция каталогов** .
-5. В разделе **Развертывание и управление** повторите шаги 1–3, чтобы интегрировать Azure Active Directory в локальный каталог.
-   
-   1. Добавьте домены.
-   2. Установите и запустите Azure AD Connect, выполнив следующие инструкции: [Выборочная установка Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
-   3. Выполните проверку и управление синхронизацией каталогов. Инструкции по единому входу доступны на этом шаге.
-   
-   Кроме того, настройте федерацию с AD FS, как описано в разделе [Выборочная установка Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
+**См.:**
+
+- [Интеграция локальных каталогов с Azure Active Directory](./connect/active-directory-aadconnect.md) -, чтобы просмотреть общие сведения.
+
+- [Пользовательские установки Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) — инструкции по установке.
+
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Обновление схемы доменных служб Active Directory
 > [!NOTE]

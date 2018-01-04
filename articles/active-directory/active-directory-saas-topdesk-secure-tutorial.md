@@ -1,177 +1,230 @@
 ---
 title: "Руководство по интеграции Azure Active Directory с TOPdesk — Secure | Документация Майкрософт"
-description: "Узнайте, как использовать TOPdesk — Secure с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого."
+description: "Подробные сведения о настройке единого входа в Azure Active Directory и безопасной версии TOPdesk."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
-ms.assetid: 8e149d2d-7849-48ec-9993-31f4ade5fdb4
+ms.reviewer: joflore
+ms.assetid: 8e06ee33-18f9-4c05-9168-e6b162079d88
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 28f0542dbe87bb34c83a7852db7c3a9fef055ce9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ca3362bc3f966adaf9940f6eb4bec5235c6ea7d8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Учебник. Интеграция Azure Active Directory с TOPdesk — Secure
-Цель данного учебника — показать интеграцию Azure и TOPdesk — Secure.  
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-* Действующая подписка на Azure
-* Подписка TOPdesk — Secure с поддержкой единого входа.
+В этом учебнике вы узнаете, как интегрировать TOPdesk - Secure с Azure Active Directory (Azure AD).
 
-По завершении работы с этим руководством пользователи Azure AD, назначенные в TOPdesk — Secure, смогут выполнять единый вход в приложение на веб-сайте TOPdesk — Secure вашей компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Интеграция безопасной версии TOPdesk с Azure AD предоставляет следующие преимущества:
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+- Можно управлять в Azure AD, который имеет доступ к безопасной версии TOPdesk.
+- Позволяет пользователям автоматически получить вошедшего в безопасной версии TOPdesk (единый вход) с помощью своих учетных записей Azure AD.
+- Вы можете управлять учетными записями централизованно — на портале Azure.
 
-1. Включение интеграции приложений для TOPdesk — Secure
-2. Настройка единого входа
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Сценарий](./media/active-directory-saas-topdesk-secure-tutorial/IC790596.png "Сценарий")
+## <a name="prerequisites"></a>Технические условия
 
-## <a name="enabling-the-application-integration-for-topdesk---secure"></a>Включение интеграции приложений для TOPdesk — Secure
-В этом разделе показано, как включить интеграцию приложений для TOPdesk — Secure.
+Чтобы настроить интеграция Azure AD с версией TOPdesk - безопасным, требуются следующие элементы:
 
-### <a name="to-enable-the-application-integration-for-topdesk---secure-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для TOPdesk — Secure, выполните следующие действия:
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-   
-    ![Active Directory](./media/active-directory-saas-topdesk-secure-tutorial/IC700993.png "Active Directory")
+- подписка Azure AD;
+- Подписка TOPdesk — Secure с поддержкой единого входа.
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-    ![Приложения](./media/active-directory-saas-topdesk-secure-tutorial/IC700994.png "Приложения")
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-    ![Добавление приложения](./media/active-directory-saas-topdesk-secure-tutorial/IC749321.png "Добавление приложения")
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Добавление приложения из коллекции](./media/active-directory-saas-topdesk-secure-tutorial/IC749322.png "Добавление приложения из коллекции")
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-6. В **поле поиска** введите **TOPdesk — Secure**.
-   
-    ![Коллекция приложений](./media/active-directory-saas-topdesk-secure-tutorial/IC790597.png "Коллекция приложений")
+1. Добавление TOPdesk — безопасный из галереи
+2. настройка и проверка единого входа в Azure AD.
 
-7. В области результатов выберите **TOPdesk — Secure** и щелкните **Завершить**, чтобы добавить приложение.
-   
-    ![TOPdesk — Secure](./media/active-directory-saas-topdesk-secure-tutorial/IC791933.png "TOPdesk — Secure")
+## <a name="adding-topdesk---secure-from-the-gallery"></a>Добавление TOPdesk — безопасный из галереи
+Для настройки интеграции TOPdesk - Secure в Azure AD, необходимо добавить TOPdesk — безопасный из коллекции в список управляемых SaaS приложений.
 
-## <a name="configuring-single-sign-on"></a>Настройка единого входа
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в TOPdesk — Secure с помощью своей учетной записи Azure AD, используя федерацию на основе протокола SAML.  
-Для настройки единого входа для TOPdesk — Secure вам необходимо отправить файл значка с логотипом. Для получения файла значка обратитесь в службу поддержки TOPdesk.
+**Чтобы добавить TOPdesk — безопасный из коллекции, выполните следующие действия:**
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
-1. Выполните вход на веб-сайт **TOPdesk — Secure** своей компании в качестве администратора.
-2. В меню **TOPdesk** выберите пункт **Settings** (Параметры).
-   
-    ![Параметры](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "Параметры")
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-3. Щелкните **Параметры входа**.
-   
-    ![Параметры входа](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "Параметры входа")
+    ![Кнопка "Azure Active Directory"][1]
 
-4. Разверните меню **Login Settings** (Параметры входа), а затем выберите **General** (Общие).
-   
-    ![Общие](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "Общие")
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-5. В разделе **Secure** (Безопасность) для конфигурации **SAML login** (Вход SAML) сделайте следующее.
-   
-    ![Технические параметры](./media/active-directory-saas-topdesk-secure-tutorial/IC790855.png "Технические параметры")
-   
-    а. Нажмите кнопку **Скачать** , чтобы скачать общедоступный файл метаданных, а затем сохраните его локально на компьютере.
-   
-    b. Откройте файл метаданных и определите местоположение узла **AssertionConsumerService** .
+    ![Колонка "Корпоративные приложения"][2]
     
-    ![Служба обработчика утверждений](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Служба обработчика утверждений")
-   
-    c. Скопируйте значение **AssertionConsumerService** .  
-      
-    > [!NOTE]
-    > Это значение потребуется в разделе **Настройка URL-адреса приложения** далее в этом руководстве.
-    > 
-    > 
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-6. В другом окне веб-браузера войдите на **классический портал Azure** в качестве администратора.
+    ![Кнопка "Новое приложение"][3]
 
-7. На странице интеграции с приложением **TOPdesk — Secure** нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "Настройка единого входа")
+4. В поле поиска введите **безопасной версии TOPdesk**выберите **безопасной версии TOPdesk** из панели результатов щелкните **добавить** кнопку, чтобы добавить приложение.
 
-8. На странице **Как пользователи будут входить в TOPdesk — Secure** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-topdesk-secure-tutorial/IC790603.png "Настройка единого входа")
+    ![TOPdesk - Secure в списке результатов](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_addfromgallery.png)
 
-9. На странице **Настройка URL-адреса приложения** выполните следующие действия.
-   
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Настройка URL-адреса приложения")
-   
-    а. В текстовом поле **URL-адрес для входа в TOPdesk — Secure** введите URL-адрес, используемый пользователями для входа в ваше приложение TOPdesk — Secure (например, *https://qssolutions.topdesk.net*).
-   
-    b. В текстовое поле **URL-адрес ответа TOPdesk — Secure** вставьте значение **TOPdesk - Secure AssertionConsumerService URL** (URL-адрес AssertionConsumerService для TOPdesk — Secure) (например, *https://qssolutions.topdesk.net/tas/public/login/saml*).
-   
-    c. Щелкните **Далее**.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
-10. На странице **Настройка единого входа в TOPdesk — Secure** щелкните **Скачать метаданные**, чтобы скачать метаданные, а затем сохраните файл данных локально на компьютере.
+В этом разделе Настройка и тестирование Azure AD единого входа с версией TOPdesk — безопасный на основе на тестового пользователя с именем «Britta Simon».
+
+Azure AD для единого входа для работы, необходимо знать пользователя аналога в безопасной версии TOPdesk с пользователем в Azure AD. Другими словами связи между пользователя Azure AD и соответствующих пользователей в безопасной версии TOPdesk необходимо установить.
+
+В версии TOPdesk - Secure, присвойте значение **имя пользователя** в Azure AD в качестве значения **Username** для установления связи.
+
+Для настройки и проверки Azure AD единого входа с версией TOPdesk - уровень безопасности, необходимо выполнить следующие стандартные блоки:
+
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание TOPdesk — безопасный тестового пользователя](#create-a-topdesk---secure-test-user)**  — иметь аналог Саймон Britta в безопасной версии TOPdesk, связанного с представлением Azure AD пользователя.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+
+В этом разделе вы включите Azure AD единого входа на портале Azure и настроить единый вход в ваш безопасную версию TOPdesk.
+
+**Для настройки Azure AD единого входа с версией TOPdesk - Secure, выполните следующие действия:**
+
+1. На портале Azure на **безопасной версии TOPdesk** странице интеграции приложения щелкните **единого входа**.
+
+    ![Ссылка "Настройка единого входа"][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_samlbase.png)
+
+3. На **TOPdesk - Secure доменов и URL-адреса** выполните следующие действия:
+
+    ![TOPdesk — безопасный домен и URL-адреса единого входа сведения](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_url.png)
+
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<companyname>.topdesk.net`
+
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<companyname>.topdesk.net/tas/secure/login/verify`
+
+    c. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<companyname>.topdesk.net/tas/public/login/saml`.
+
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. URL-адрес ответа описан далее в учебнике. Обратитесь к [TOPdesk - группа поддержки защиты клиента](http://www.topdesk.com/us/support) для получения этих значений. 
+
+4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_400.png)
+
+6. На **TOPdesk - Secure конфигурации** щелкните **Настройка безопасной версии TOPdesk** Открытие **Настройка входа** окна. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+
+    ![TOPdesk — безопасный конфигурации](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_configure.png)
     
-    ![Настройка единого входа](./media/active-directory-saas-topdesk-secure-tutorial/IC790605.png "Настройка единого входа")
+7. Выполните вход на веб-сайт **TOPdesk — Secure** своей компании в качестве администратора.
 
-11. Чтобы создать файл сертификата, выполните следующие действия:
+8. В меню **TOPdesk** выберите пункт **Settings** (Параметры).
+
+    ![Параметры](./media/active-directory-saas-topdesk-secure-tutorial/ic790598.png "Параметры")
+
+9. Щелкните **Параметры входа**.
+
+    ![Параметры входа](./media/active-directory-saas-topdesk-secure-tutorial/ic790599.png "Параметры входа")
+
+10. Разверните меню **Login Settings** (Параметры входа), а затем выберите **General** (Общие).
+
+    ![Общие](./media/active-directory-saas-topdesk-secure-tutorial/ic790600.png "Общие")
+
+11. В разделе **Secure** (Безопасность) для конфигурации **SAML login** (Вход SAML) сделайте следующее.
+
+    ![Технические параметры](./media/active-directory-saas-topdesk-secure-tutorial/ic790855.png "Технические параметры")
+   
+    a. Нажмите кнопку **Скачать** , чтобы скачать общедоступный файл метаданных, а затем сохраните его локально на компьютере.
+   
+    Б. Откройте файл метаданных и определите местоположение узла **AssertionConsumerService** .
     
-    ![Сертификат](./media/active-directory-saas-topdesk-secure-tutorial/IC790606.png "Сертификат")
+    ![Служба обработчика утверждений](./media/active-directory-saas-topdesk-secure-tutorial/ic790856.png "Служба обработчика утверждений")
+   
+    c. Копировать **AssertionConsumerService** значений, вставьте это значение в текстовое поле URL-адрес ответа в **TOPdesk - Secure доменов и URL-адреса** раздела.
+
+12. Чтобы создать файл сертификата, выполните следующие действия:
     
-    а. Откройте скачанный файл метаданных.
-    b. Разверните узел **RoleDescriptor**, содержащий **xsi:type** со значением **fed:ApplicationServiceType**.
+    ![Сертификат](./media/active-directory-saas-topdesk-secure-tutorial/ic790606.png "Сертификат")
+    
+    a. Откройте скачанный файл метаданных на портале Azure.
+
+    Б. Разверните узел **RoleDescriptor**, содержащий **xsi:type** со значением **fed:ApplicationServiceType**.
+
     c. Скопируйте значение узла **X509Certificate** .
+
     d. Сохраните скопированное значение узла **X509Certificate** локально в файл на компьютере.
 
-12. На веб-сайте TOPdesk — Secure своей компании в меню **TOPdesk** выберите **Settings** (Параметры).
+13. В разделе **Public** (Общедоступные) щелкните **Add** (Добавить).
     
-    ![Параметры](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "Параметры")
+    ![Добавление](./media/active-directory-saas-topdesk-secure-tutorial/ic790607.png "Добавление")
 
-13. Щелкните **Параметры входа**.
+14. На странице диалогового окна **Помощник настройки SAML** сделайте следующее:
     
-    ![Параметры входа](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "Параметры входа")
+    ![Помощник по настройке SAML](./media/active-directory-saas-topdesk-secure-tutorial/ic790608.png "Помощник по настройке SAML")
+    
+    a. Чтобы отправить скачанный файл метаданных через портал Azure, напротив пункта **Federation Metadata** (Метаданные федерации) нажмите кнопку **Browse** (Обзор).
 
-14. Разверните меню **Login Settings** (Параметры входа), а затем выберите **General** (Общие).
-    
-    ![Общие](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "Общие")
-
-15. В разделе **Public** (Общедоступные) щелкните **Add** (Добавить).
-    
-    ![Добавление](./media/active-directory-saas-topdesk-secure-tutorial/IC790607.png "Добавление")
-
-16. На странице диалогового окна **Помощник настройки SAML** сделайте следующее:
-    
-    ![Помощник по настройке SAML](./media/active-directory-saas-topdesk-secure-tutorial/IC790608.png "Помощник по настройке SAML")
-    
-    а. Чтобы отправить скачанный файл метаданных, напротив пункта **Federation Metadata** (Метаданные федерации) нажмите кнопку **Browse** (Обзор).
-
-    b. Чтобы отправить файл сертификата, напротив пункта **Certificate (RSA)** (Сертификат (RSA)) нажмите кнопку **Browse** (Обзор).
+    Б. Чтобы отправить файл сертификата, напротив пункта **Certificate (RSA)** (Сертификат (RSA)) нажмите кнопку **Browse** (Обзор).
 
     c. Чтобы отправить файл с логотипом, полученный от службы поддержки TOPdesk, напротив пункта **Logo icon** (Значок логотипа) нажмите кнопку **Browse** (Обзор).
 
-    d. В текстовом поле **User name attribute** (Атрибут имени пользователя) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    d. В текстовое поле **Атрибут имени пользователя** введите значение `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     д. В текстовом поле **Отображаемое имя** введите имя конфигурации.
 
-    Е. Щелкните **Сохранить**.
+    f. Выберите команду **Сохранить**.
 
-17. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-topdesk-secure-tutorial/IC790609.png "Настройка единого входа")
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
 
-## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+   ![Создание тестового пользователя Azure AD][100]
+
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+
+1. На портале Azure в области слева нажмите кнопку **Azure Active Directory**.
+
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_01.png)
+
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_02.png)
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
+
+    ![Кнопка "Добавить"](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_03.png)
+
+4. В диалоговом окне **Пользователь** сделайте следующее.
+
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_04.png)
+
+    a. В поле **Имя** введите **BrittaSimon**.
+
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+
+    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
+
+    d. Нажмите кнопку **Создать**.
+ 
+### <a name="create-a-topdesk---secure-test-user"></a>Создание TOPdesk — безопасный тестового пользователя
+
 Чтобы пользователи Azure AD могли выполнять вход в систему TOPdesk — Secure, они должны быть подготовлены для нее.  
 В случае TOPdesk — Secure подготовка пользователей осуществляется вручную.
 
@@ -179,39 +232,78 @@ ms.lasthandoff: 10/11/2017
 1. Выполните вход на веб-сайт **TOPdesk — Secure** компании в качестве администратора.
 2. В меню в верхней части страницы щелкните **TOPdesk \> New (Создать) \> Support Files (Файлы поддержки) \> Operator (Оператор)**.
    
-    ![Оператор](./media/active-directory-saas-topdesk-secure-tutorial/IC790610.png "Оператор")
+    ![Оператор](./media/active-directory-saas-topdesk-secure-tutorial/ic790610.png "Оператор")
 
 3. В диалоговом окне **Новый оператор** выполните следующие действия:
    
-    ![Новый оператор](./media/active-directory-saas-topdesk-secure-tutorial/IC790611.png "Новый оператор")
+    ![Новый оператор](./media/active-directory-saas-topdesk-secure-tutorial/ic790611.png "Новый оператор")
    
-    а. Перейдите на вкладку "Общее".
+    a. Нажмите кнопку **Общие** вкладки.
    
-    b. В текстовом поле **Surname** (Фамилия) в разделе **General** (Общее) введите фамилию пользователя действующей учетной записи Azure Active Directory, которую нужно подготовить.
+    Б. В **Фамилия** тип фамилию пользователя в текстовое поле, например **Simon**.
    
     c. Выберите для этой учетной записи **Site** (Веб-сайт) в разделе **Location** (Расположение).
    
     d. В текстовом поле **Login Name** (Имя для входа в систему) в разделе **TOPdesk Login** (Вход в TOPdesk) введите имя для входа пользователя.
    
-    д. Щелкните **Сохранить**.
+    д. Выберите команду **Сохранить**.
 
 > [!NOTE]
 > Вы можете использовать любые другие инструменты создания учетных записей пользователей TOPdesk — Secure или API-интерфейсы, предоставляемые TOPdesk — Secure для подготовки учетных записей пользователя AAD.
-> 
-> 
 
-## <a name="assigning-users"></a>Назначение пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>Чтобы назначить пользователей TOPdesk — Secure, выполните следующие действия:
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **TOPdesk — Secure** нажмите кнопку **Назначить пользователей**.
-   
-    ![Назначение пользователей](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "Назначение пользователей")
+В этом разделе включите Саймон Britta для использования Azure единого входа, предоставление доступа к безопасной версии TOPdesk.
 
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-    ![Да](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Да")
+![Назначение роли пользователя][200] 
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+**Чтобы назначить Саймон Britta TOPdesk - Secure, выполните следующие действия:**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **безопасной версии TOPdesk**.
+
+    ![TOPdesk — безопасный канал связи в списке приложений](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_app.png)  
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Ссылка "Пользователи и группы"][202]
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Область "Добавление назначения"][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="test-single-sign-on"></a>Проверка единого входа
+
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+При нажатии кнопки TOPdesk — безопасный плитки на панели доступа вы должны получить автоматически вошедшего в вашей безопасную версию TOPdesk.
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_203.png
 

@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 21f8f66d8b78c2b536792bc96e9233d5739fde81
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Распознавание биомедицинских сущностей с помощью шаблона командного процесса обработки и анализа данных (TDSP)
 
@@ -76,7 +77,7 @@ ms.lasthandoff: 10/23/2017
         pubdate: Publication date
         title
 
-### <a name="2-lstm-model-training-data"></a>2) Данные для обучения модели LSTM
+### <a name="2-lstm-model-training-data"></a>2. Данные для обучения модели LSTM
 
 При обучении и оценке нейронной модели для извлечения сущностей использовались общедоступные наборы данных. Подробное описание этих наборов данных см. в следующих источниках:
  * [Report on Bio-Entity Recognition Task at BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html) (Отчет по задаче распознавания биомедицинских сущностей, представленный на семинаре NLPBA в 2004 г.);
@@ -89,7 +90,7 @@ ms.lasthandoff: 10/23/2017
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## <a name="prerequisites"></a>Предварительные требования 
+## <a name="prerequisites"></a>Технические условия 
 
 * Подписка [Azure](https://azure.microsoft.com/free/).
 * Azure Machine Learning Workbench. Сведения см. в [руководстве по установке](quickstart-installation.md). Сейчас Azure Machine Learning Workbench можно установить только в следующих операционных системах: 
@@ -150,7 +151,7 @@ ms.lasthandoff: 10/23/2017
  * [совокупность задач семинара BioCreative V по исследованию связей типа "лекарство — заболевание" (CDR)](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/);
  * [семинар по семантической оценке (SemEval), 2013 г., задача 9.1 (распознавание названий лекарств)](https://www.cs.york.ac.uk/semeval-2013/task9/).
 
-### <a name="2-modeling"></a>2) Моделирование
+### <a name="2-modeling"></a>2. Моделирование
 
 См. раздел о [моделировании](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling).
 

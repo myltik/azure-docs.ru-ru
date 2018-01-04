@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Создание изолированного кластера под управлением Windows Server
 Azure Service Fabric позволяет создавать кластеры Service Fabric на любых виртуальных машинах или компьютерах под управлением Windows Server. Это означает, что вы сможете разворачивать и запускать приложения Service Fabric в любой среде с набором подключенных друг к другу компьютеров с Windows Server как в локальной среде, так и у любого поставщика облачных служб. Service Fabric предоставляет установочный пакет для создания кластеров Service Fabric, который называется изолированным пакетом Windows Server.
@@ -36,22 +36,22 @@ Azure Service Fabric позволяет создавать кластеры Serv
 * Спросите у сообщества об изолированном пакете Service Fabric для Windows Server на [форуме Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Откройте запрос на [техническую поддержку для Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Узнайте больше о [профессиональной технической поддержке Майкрософт](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Поддержка для этого пакета также доступна в рамках [поддержки Microsoft Premier](https://support.microsoft.com/en-us/premier).
-* Дополнительные сведения см. в разделе [Варианты поддержки Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).
+* Дополнительные сведения см. в разделе [Варианты поддержки Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Чтобы собирать журналы в целях поддержки, запустите [изолированный сборщик журналируемых данных Service Fabric](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Скачивание Service Fabric для пакета Windows Server
 Чтобы создать кластер, используйте Service Fabric для пакета Windows Server (2012 R2 и более поздней версии), доступный здесь: <br>
-[Ссылка для скачивания изолированного пакета Service Fabric для Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
+[Загрузить связи - автономный пакет Service Fabric — Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
 
 Подробные сведения о содержимом пакета можно получить [здесь](service-fabric-cluster-standalone-package-contents.md).
 
 Пакет среды выполнения Service Fabric автоматически скачивается во время создания кластера. В случае развертывания с компьютера, не подключенного к Интернету, скачайте внешний пакет среды выполнения отсюда: <br>
-[Ссылка для скачивания среды выполнения Service Fabric для Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)
+[Загрузка сервера Windows - среда выполнения Service Fabric - ссылка](https://go.microsoft.com/fwlink/?linkid=839354)
 
 Примеры конфигурации изолированного кластера доступны здесь: <br>
-[Примеры конфигурации изолированного кластера](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+[Примеры конфигурации кластера автономный](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 <a id="createcluster"></a>
 
@@ -70,7 +70,7 @@ Service Fabric можно развернуть на кластере с одни
 
 ### <a name="step-1b-create-a-multi-machine-cluster"></a>Шаг 1Б. Создание кластера с несколькими компьютерами
 Выполнив этапы планирования и подготовки, как описано в разделе, доступном по ссылке ниже, вы будете готовы создать рабочий кластер с помощью своего файла конфигурации кластера. <br>
-[Планирование и подготовка развертывания кластера](service-fabric-cluster-standalone-deployment-preparation.md)
+[Планирование и Подготовка развертывания кластера](service-fabric-cluster-standalone-deployment-preparation.md)
 
 1. Проверьте созданный файл конфигурации, запустив сценарий *TestConfiguration.ps1* в папке изолированного пакета.  
 

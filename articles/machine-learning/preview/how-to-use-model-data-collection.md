@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6a40a85426d2be72fa688548f7ab30e7e5f92146
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Сбор данных модели с помощью функции сбора данных
 
@@ -81,14 +81,14 @@ ms.lasthandoff: 10/24/2017
 ## <a name="view-the-collected-data"></a>Просмотр собранных данных
 Чтобы просмотреть собранные данные в хранилище больших двоичных объектов, сделайте следующее:
 
-1. Выполните вход на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. Выберите **Больше служб**.
 3. В поле поиска введите **учетные записи хранения** и нажмите клавишу ВВОД.
 4. В колонке поиска **Учетные записи хранения** выберите ресурс **Учетная запись хранения**. Чтобы определить учетную запись хранения, сделайте следующее.
 
-    а. Перейдите в Azure Machine Learning Workbench, выберите рабочий проект и откройте командную строку из меню **Файл**.
+    a. Перейдите в Azure Machine Learning Workbench, выберите рабочий проект и откройте командную строку из меню **Файл**.
     
-    b. Введите `az ml env show -v` и проверьте значение *storage_account*. Это и есть имя учетной записи хранения.
+    Б. Введите `az ml env show -v` и проверьте значение *storage_account*. Это и есть имя учетной записи хранения.
 
 5. В меню колонки ресурсов щелкните **Контейнеры**, а затем выберите контейнер **modeldata**. После первого запроса к веб-службе может пройти до 10 минут, прежде чем начнется передача данных в учетную запись хранения, поэтому нужно подождать. Потоки данных передаются в большие двоичные объекты по следующему пути контейнера:
 
@@ -98,9 +98,9 @@ ms.lasthandoff: 10/24/2017
 - Azure Machine Learning Workbench. Откройте CSV-файл в Azure Machine Learning Workbench, добавив его в качестве источника данных.
 - Excel. Откройте CSV-файл с данными за день в качестве электронной таблицы.
 - [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/). Создайте диаграмму на основе данных, извлеченных из CSV-файлов больших двоичных объектов.
-- [Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-overview). Создайте кадр данных с крупным сегментом данных в формате CSV.
+- [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview). Создайте кадр данных с крупным сегментом данных в формате CSV.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
     ```
-- [Hive](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started). Загрузите данные в формате CSV в таблицу Hive и выполняйте SQL-запросы прямо к большому двоичному объекту.
+- [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started). Загрузите данные в формате CSV в таблицу Hive и выполняйте SQL-запросы прямо к большому двоичному объекту.
 

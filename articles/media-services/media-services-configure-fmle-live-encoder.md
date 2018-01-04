@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: e831048f34ecf6e89595adc4bfd58b5977e04bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Использование кодировщика FMLE для отправки односкоростного обновляющегося потока
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 Обратите внимание, что в этом руководстве мы используем кодек AAC. Однако FMLE не поддерживает AAC по умолчанию. Для использования AAC необходимо приобрести подключаемый модуль, например, от MainConcept: [подключаемый модуль AAC](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 * [Создайте учетную запись служб мультимедиа Azure](media-services-portal-create-account.md).
 * Убедитесь, что запущена конечная точка потоковой передачи. Дополнительные сведения см. в статье об [управлении конечными точками потоковой передачи с помощью учетной записи служб мультимедиа](media-services-portal-manage-streaming-endpoints.md).
 * Установите последнюю версию средства [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
@@ -106,14 +106,14 @@ ms.lasthandoff: 10/11/2017
    * Уровень: 4.0
    * Частота опорного кадра: 2 секунды
 
-     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
+     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
 3. Установите следующие важные параметры звука:
 
    * Формат: AAC
    * Частота выборки: 44100 Гц
    * Скорость: 192 Кбит/с
 
-     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
+     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 4. Получите входной URL-адрес канала, чтобы назначить его **конечной точке RTMP**FMLE.
 
     Перейдите обратно в средство AMSE и проверьте состояние запуска канала. После изменения состояния **Starting** (Запуск) на **Running** (Выполняется) можно получить URL-адрес входных данных.
@@ -123,7 +123,7 @@ ms.lasthandoff: 10/11/2017
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
 5. Вставьте этот адрес в поле **URL-адрес FMS** раздела выхода и укажите имя потока.
 
-    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
+    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
 
     Для обеспечения дополнительной надежности повторите эти действия с полем «Дополнительный входной URL-адрес».
 6. Нажмите кнопку **Подключиться**.

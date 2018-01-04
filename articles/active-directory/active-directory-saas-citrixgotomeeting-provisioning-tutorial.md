@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 0f59fedb-2cf8-48d2-a5fb-222ed943ff78
 ms.service: active-directory
 ms.workload: identity
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 72f887b18daef27ff7e6ccea5bb30b55c86c7b98
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
-ms.translationtype: HT
+ms.openlocfilehash: ac664e2b4035f3572584e6f00e86453b10ce44e5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-gotomeeting-for-automatic-user-provisioning"></a>Руководство по настройке GoToMeeting для автоматической подготовки пользователей
 
 Цель этого руководства — показать, как настроить автоматическую подготовку и отмену подготовки учетных записей пользователей Azure AD в GoToMeeting.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -62,13 +62,13 @@ ms.lasthandoff: 10/24/2017
 
 4. Для параметра **Режим подготовки** выберите значение **Автоматический**. 
 
-    ![подготовка](./media/active-directory-saas-citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Подготовка](./media/active-directory-saas-citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 5. В разделе "Учетные данные администратора" выполните следующие действия:
    
-    а. В текстовом поле **Имя пользователя администратора GoToMeeting** введите имя пользователя администратора.
+    a. В текстовом поле **Имя пользователя администратора GoToMeeting** введите имя пользователя администратора.
 
-    b. В текстовом поле **Пароль администратора GoToMeeting** введите пароль администратора.
+    Б. В текстовом поле **Пароль администратора GoToMeeting** введите пароль администратора.
 
 6. На портале Azure щелкните **Проверить подключение**, чтобы убедиться, что Azure AD может подключиться к приложению GoToMeeting. Если подключение отсутствует, убедитесь, что у учетной записи GoToMeeting есть права администратора команды, и повторите шаг **"Учетные данные администратора"**.
 
@@ -90,6 +90,6 @@ ms.lasthandoff: 10/24/2017
 
 * [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Настройка единого входа](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
+* [Настройка единого входа](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 
 

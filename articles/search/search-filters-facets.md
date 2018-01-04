@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Как создать фильтр аспекта в службе "Поиск Azure" 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/25/2017
 
 Аспекты являются динамическими и возвращаются в запросе. В ответах поиска приводятся фасетные категории, используемые для навигации по результатам. Если вы не знакомы с аспектами, ниже приведен пример структуры фасетной навигации.
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 Хотите подробнее узнать о фасетной навигации? Ознакомьтесь со статьей [Как реализовать фасетную навигацию в службе поиска Azure](search-faceted-navigation.md).
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/25/2017
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections (см. раздел об [аспектировании сложных типов данных](#facet-complex-fields) далее).
++ Edm.Collections
 + Типы числовых полей: Edm.Int32, Edm.Int64, Edm.Double
 
 В фасетной навигации нельзя использовать Edm.GeographyPoint. Аспекты формируются на основе понятного для человека текста и чисел. Таким образом аспекты не поддерживаются для географических координат. Вам понадобится поле города или региона для поиска по местоположению с использованием фасетизации.

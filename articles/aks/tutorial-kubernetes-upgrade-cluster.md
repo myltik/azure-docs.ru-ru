@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: aa457c97292fc9f97d3bc4769ca45d55dd5829a6
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 5fd9a1890c1940cdd4e79cc32e0b3984edd043e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Обновление Kubernetes в Службе контейнеров Azure (AKS)
 
-Кластер Службы контейнеров Azure (AKS) можно обновить с помощью Azure CLI. В процессе обновления узлы Kubernetes тщательно [блокируются и останавливаются](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), чтобы свести к минимуму время простоя работающих приложений.
+Кластер Службы контейнеров Azure (AKS) можно обновить с помощью Azure CLI. В процессе обновления Kubernetes узлов, тщательно [cordoned и постепенно завершается] [ kubernetes-drain] чтобы свести к минимуму время простоя для выполнения приложений.
 
 В этом руководстве (часть восьмая из восьми) обновляется кластер Kubernetes. Здесь будут выполнены следующие задачи:
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/06/2017
 
 В предыдущих руководствах приложение было упаковано в образ контейнера, этот образ был передан в реестр контейнеров Azure и был создан кластер Kubernetes. Затем приложение было запущено в кластере Kubernetes.
 
-Если вы не выполнили эти действия, то можете ознакомиться со статьей [Создание образов контейнеров для использования со службой контейнеров Azure](./tutorial-kubernetes-prepare-app.md).
+Если вы не были выполнены следующие действия и при необходимости дальнейшей работы, вернуться к [учебник 1 – Создание образов контейнеров][aks-tutorial-prepare-app].
 
 
 ## <a name="get-cluster-versions"></a>Получение версий кластера
@@ -141,4 +141,11 @@ myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded        
 Перейдите по ссылке для получения дополнительных сведений об AKS.
 
 > [!div class="nextstepaction"]
-> [Знакомство со Службой контейнеров Azure (AKS)](./intro-kubernetes.md)
+> [Общие сведения о AKS][aks-intro]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-intro]: ./intro-kubernetes.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

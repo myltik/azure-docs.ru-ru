@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 72ab75ba-132b-4f83-a34b-d28b81b6d7bc
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: jeedes
-ms.openlocfilehash: a380e9c07710e0c79a44e036f9c5bd72a731fe40
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
-ms.translationtype: HT
+ms.openlocfilehash: 1f697b95074e0fc9dbb3e8c7800e69f8ece9e0b3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Руководство по интеграции Azure Active Directory с QPrism
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/13/2017
 
 Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с QPrism, вам потребуется:
 
@@ -45,10 +45,10 @@ ms.lasthandoff: 10/13/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление QPrisme из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="add-qprism-from-the-gallery"></a>Добавление QPrism из коллекции
 Чтобы настроить интеграцию QPrism с Azure AD, необходимо добавить QPrism из коллекции в список управляемых приложений SaaS.
@@ -103,20 +103,20 @@ ms.lasthandoff: 10/13/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения QPrism](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<customer domain>.qmyzone.com/login`.
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<customer domain>.qmyzone.com/login`.
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<customer domain>.qmyzone.com/metadata.php`.
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<customer domain>.qmyzone.com/metadata.php`.
          
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим идентификатором и URL-адресом для входа. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов QPrism](mailto:qsupport-ce@quatrro.com). 
 
 4. Чтобы создать **URL-адрес метаданных**, выполните следующие действия:
 
-    а. Щелкните **Регистрация приложений**.
+    a. Щелкните **Регистрация приложений**.
     
     ![Регистрация приложений в окне настройки единого входа](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appregistrations.png)
    
-    b. Выберите **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
+    Б. Выберите **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
     
     ![Настройка конечных точек для единого входа](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpointicon.png)
 
@@ -163,9 +163,9 @@ ms.lasthandoff: 10/13/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-qprism-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 

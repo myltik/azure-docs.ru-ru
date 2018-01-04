@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
 ms.author: kraigb
-ms.openlocfilehash: d5d41ab47c17a024900efc88ba0a006da63ab246
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 1ced364bed821a9391f8ffd049f61ac236d98309
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Инструкции. Миграция и публикация веб-приложения в облачную службу Azure из среды Visual Studio
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="migrate-a-project-to-cloud-services"></a>Миграция проекта в облачные службы
 
-1. Щелкните проект веб-приложения правой кнопкой мыши и выберите **Convert (Преобразовать) > Преобразовать в проект облачной службы Microsoft Azure**. (Эта команда не отображается, если в решении уже имеется веб-роль проекта.)
+1. Щелкните проект веб-приложения правой кнопкой мыши и выберите **Convert (Преобразовать) > Преобразовать в проект облачной службы Microsoft Azure**. (Обратите внимание, что эта команда не отображается, если уже имеется проект веб-роли в решении).
 1. Visual Studio создает проект облачной службы в решении, в котором имеется требуемая веб-роль. У этого проекта такое же название, как и у проекта приложения, но с суффиксом `.Azure`.
 1. В Visual Studio для свойства **Копировать локально** присваивается значение true для всех сборок, необходимых для MVC 2, MVC 3, MVC 4 и бизнес-приложений Silverlight. В результате эти сборки свойств будут добавлены в пакет служб, используемый для развертывания.
 

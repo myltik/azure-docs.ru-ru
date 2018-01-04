@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 85d6ec20fb0447165c672ba267569994e3a96e45
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: bc5b97192e0d4ad896d6d74a8745a3866d053a25
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Вопросы об использовании службы Azure Backup для резервного копирования виртуальных машин
 В этой статье содержатся ответы на часто задаваемые вопросы о компонентах службы Azure Backup для резервного копирования виртуальных машин. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/08/2017
 Хранилища служб восстановления поддерживают обе модели.  В хранилище служб восстановления можно создать резервную копию классической виртуальной машины (созданной на классическом портале) или виртуальной машины Resource Manager (созданной на портале Azure).
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Какие конфигурации не поддерживаются службой Azure Backup для резервного копирования виртуальных машин?
-Узнайте о [поддерживаемых версиях операционных систем](backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup) и [ограничениях при резервном копировании виртуальных машин](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+Узнайте о [поддерживаемых версиях операционных систем](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) и [ограничениях при резервном копировании виртуальных машин](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Почему моя виртуальная машина не отображается в мастере настройки резервного копирования?
 В мастере настройки резервного копирования службы Azure Backup отображается только список виртуальных машин, которые:

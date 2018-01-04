@@ -6,25 +6,25 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Структура панелей мониторинга Azure
 В этом документе описывается структура панели мониторинга Azure. В качестве примера используется следующая панель мониторинга Azure:
 
 ![пример панели мониторинга](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Так как [панели мониторинга Azure являются ресурсами](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), панель мониторинга можно представить в виде кода JSON.  Следующий код JSON представляет панель мониторинга, которая визуализирована выше.
+Так как [панели мониторинга Azure являются ресурсами](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), панель мониторинга можно представить в виде кода JSON.  Следующий код JSON представляет панель мониторинга, которая визуализирована выше.
 
 ```json
 
@@ -294,7 +294,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="the-id-property"></a>Свойство id
 
-Идентификатор ресурса Azure, в котором учитывается [соглашение об именовании ресурсов Azure](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). Когда портал создает панель мониторинга, он обычно выбирает идентификатор в форме GUID, однако при создании панели программным способом можно использовать любое допустимое имя. 
+Идентификатор ресурса Azure, в котором учитывается [соглашение об именовании ресурсов Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Когда портал создает панель мониторинга, он обычно выбирает идентификатор в форме GUID, однако при создании панели программным способом можно использовать любое допустимое имя. 
 
 ### <a name="the-name-property"></a>Свойство name
 Имя является сегментом идентификатора ресурса, который не включает в себя сведения о подписке, типе ресурса или группе ресурсов. По сути, это последний сегмент идентификатора ресурса.
@@ -303,7 +303,7 @@ ms.lasthandoff: 10/11/2017
 Все панели мониторинга имеют тип __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>Свойство location
-В отличие от других ресурсов, панели мониторинга не имеют компонента времени выполнения.  Для панелей мониторинга расположение указывает основное географическое местоположение, где хранится представление JSON панели мониторинга. Значение должно быть одним из кодов расположения, который можно извлечь с помощью [API расположений в ресурсе подписок](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+В отличие от других ресурсов, панели мониторинга не имеют компонента времени выполнения.  Для панелей мониторинга расположение указывает основное географическое местоположение, где хранится представление JSON панели мониторинга. Значение должно быть одним из кодов расположения, который можно извлечь с помощью [API расположений в ресурсе подписок](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>Свойство tags
 Теги — это основная возможность ресурсов Azure, которая позволяет организовать ресурс с помощью произвольных пар "имя — значение". Для панелей мониторинга есть один специальный тег, называемый __hidden-title__. Если это свойство панели мониторинга заполнено, оно используется в качестве отображаемого имени панели мониторинга на портале. Идентификаторы ресурсов Azure нельзя переименовать, но теги — можно. Этот тег дает возможность изменять отображаемое имя для панели мониторинга.

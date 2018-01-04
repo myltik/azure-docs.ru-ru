@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="advanced-reporting-with-engagement-on-android"></a>Создание расширенных отчетов с помощью службы Engagement в Android
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 В этой статье описаны дополнительные сценарии создания отчетов в приложении Android. Эти параметры можно применить для приложения, созданного в учебнике [по началу работы](mobile-engagement-android-get-started.md) .
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 Для изученного учебника были намеренно подобраны понятные и простые задания, однако для выбора доступны и дополнительные параметры.
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Пример:
+Вот пример: 
 
     public class MyActivity extends Some3rdPartyActivity
     {

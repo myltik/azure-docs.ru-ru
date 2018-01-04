@@ -4,7 +4,7 @@ description: "Узнайте, как настроить устройства, з
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/27/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 427bf9a0487c771e57ac53a9bb0b7d7e2f6bdca2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1ff50a63aca93c4b9ba79eb113064a41a5e05cd7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Настройка устройств с Windows 10, зарегистрированных в Azure Active Directory
 
@@ -51,18 +51,18 @@ ms.lasthandoff: 10/11/2017
 
 В этом разделе приводятся инструкции по регистрации устройства Windows 10 в Azure AD. После успешной регистрации устройства в Azure AD в диалоговом окне **Доступ к учетной записи места работы или учебного заведения** отобразится запись **Рабочая или учебная учетная запись**.
 
-![регистрация;](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
+![Зарегистрировать](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
 
 **Чтобы зарегистрировать устройство Windows 10, выполните следующее.**
 
 1. В меню **Пуск** щелкните **Параметры**.
 
-    ![данных](./media/device-management-azuread-registered-devices-windows10-setup/01.png)
+    ![Параметры](./media/device-management-azuread-registered-devices-windows10-setup/01.png)
 
 2. Щелкните **Учетные записи**.
 
-    ![Учетные записи](./media/device-management-azuread-registered-devices-windows10-setup/02.png)
+    ![учетные записи;](./media/device-management-azuread-registered-devices-windows10-setup/02.png)
 
 
 3. Щелкните **Доступ к учетной записи места работы или учебного заведения**.
@@ -92,11 +92,11 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы проверить, присоединено ли устройство к Azure AD, можно просмотреть диалоговое окно **Доступ к учетной записи места работы или учебного заведения** на устройстве.
 
-![регистрация;](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
+![Зарегистрировать](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
 Можно также просмотреть параметры устройства на портале Azure AD.
 
-![регистрация;](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
+![Зарегистрировать](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
 
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Приступая к работе с Azure AD для веб-API .NET | Документация Майкрософт"
+title: "Azure AD .NET веб-API Приступая к работе | Документы Microsoft"
 description: "Практическое руководство по созданию веб-API для .NET MVC, который интегрируется с Azure AD для аутентификации и авторизации."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: f44d75f45073a5d9aa9b1863ed227aba4efcf785
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Защита веб-API с помощью токенов носителя из Azure AD
+# <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET веб-API Приступая к работе
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Если вы создаете приложение, которое предоставляет доступ к конфиденциальным ресурсам, то необходимо знать, как предотвратить несанкционированный доступ к этим ресурсам.
@@ -43,7 +43,7 @@ Azure Active Directory (Azure AD) упрощает для разработчик
 ## <a name="step-1-register-an-application-with-azure-ad"></a>Шаг 1. Регистрация приложения в Azure AD
 Для защиты приложения необходимо сначала создать приложение в клиенте и предоставить Azure AD некоторую важную информации.
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 
 2. На верхней панели щелкните свою учетную запись. В списке **Каталог** выберите клиент Azure AD, в котором будет зарегистрировано приложение.
 

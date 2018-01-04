@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-samples"></a>Примеры концентраторов событий 
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 - [Примеры кода для разработчиков на сайте MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
 - [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-Дополнительные сведения о различных версиях платформы .NET Framework см. в статье [Платформы и целевые объекты](/dotnet/articles/standard/frameworks).
+Дополнительные сведения о различных версиях платформы .NET Framework см. в разделе [платформы и целевых объектов](/dotnet/articles/standard/frameworks).
 
 Со временем примеры будут добавляться, поэтому регулярно проверяйте наличие обновлений.
 
@@ -78,6 +78,6 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы узнать больше о концентраторах событий, обратитесь к следующим статьям:
 
-- [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
+- [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 - [Создание концентратора событий](event-hubs-create.md)
 - [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)

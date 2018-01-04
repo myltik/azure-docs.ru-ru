@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: ed728011f2cb7b6108e19a916010fd5447c07093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 609b811705bb6f116db055b756910450f8990528
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Руководство по обеспечению высокого уровня доступности виртуальных машин Azure для SAP NetWeaver на SUSE Linux Enterprise Server для приложений SAP
 
@@ -50,8 +50,8 @@ ms.lasthandoff: 10/11/2017
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
-В этой статье описывается развертывание виртуальных машин, их настройка, установка платформы кластера, а также установка высокодоступной системы SAP NetWeaver 7.50.
-В примерах конфигурации, командах установки и т. д. используется экземпляр ASCS номер 00, экземпляр ERS номер 02 и идентификатор системы SAP NWS. Имена ресурсов (например, виртуальных машин или сетей) в примере предполагают, что вы использовали [конвергированный шаблон][template-converged] с идентификатором системы SAP NWS, чтобы создать эти ресурсы.
+В этой статье описывается развертывание виртуальных машин, Настройка виртуальных машин, установите платформу кластера и установка высокой доступности системы SAP NetWeaver 7,50.
+В примерах конфигурации, командах установки и т. д. Номер экземпляра ASCS 00 ющих Методов экземпляра номер 02 и используется NWS идентификатор системы SAP. Имена ресурсов (например, виртуальных машин или сетей) в примере предполагают, что вы использовали [конвергированный шаблон][template-converged] с идентификатором системы SAP NWS, чтобы создать эти ресурсы.
 
 Сначала прочитайте следующие примечания и документы SAP:
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Общие сведения о высоком уровне доступности SAP NetWeaver](./media/high-availability-guide-suse/img_001.png)
 
-NFS-сервер, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS и база данных SAP HANA используют виртуальное имя узла и виртуальные IP-адреса. Балансировщику нагрузки в Azure нужен виртуальный IP-адрес. Ниже показана конфигурация балансировщика нагрузки.
+NFS-сервера, SAP NetWeaver ASCS, SAP NetWeaver SCS, ющих Методов SAP NetWeaver и база данных SAP HANA использование виртуального имени узла и виртуальными IP-адресами. Балансировщику нагрузки в Azure нужен виртуальный IP-адрес. Ниже показана конфигурация балансировщика нагрузки.
 
 ### <a name="nfs-server"></a>Сервер NFS
 * Конфигурация внешнего интерфейса:
@@ -142,7 +142,7 @@ NFS-сервер, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS и б
 ### <a name="deploying-linux"></a>Развертывание Linux
 
 В Azure Marketplace доступен образ для SUSE Linux Enterprise Server для приложения SAP 12, который можно использовать для развертывания новых виртуальных машин.
-Шаблоны быстрого запуска с сайта GitHub можно использовать для развертывания всех необходимых ресурсов. Шаблон развертывает виртуальные машины, подсистему балансировки нагрузки, группу доступности и т. д. Выполните следующее, чтобы развернуть шаблон.
+Примеры использования шаблонов можно использовать на github для развертывания всех необходимых ресурсов. Шаблон развертывает виртуальные машины, подсистему балансировки нагрузки, группу доступности и т. д. Выполните следующее, чтобы развернуть шаблон.
 
 1. Откройте [шаблон файлового сервера SAP][template-file-server] на портале Azure.   
 1. Задайте следующие параметры.
@@ -153,7 +153,7 @@ NFS-сервер, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS и б
    3. Имя пользователя и пароль администратора  
       Создается учетная запись пользователя, которую можно использовать для входа на компьютер.
    4. Идентификатор подсети  
-      Идентификатор подсети, к которой следует подключить виртуальные машины. Оставьте пустым, если вы хотите создать виртуальную сеть, или выберите подсеть виртуальной сети VPN или Express Route для подключения виртуальной машины к локальной сети. Идентификатор обычно выглядит следующим образом: /subscriptions/**&lt;идентификатор_подписки&gt;**/resourceGroups/**&lt;имя_группы_ресурсов&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;имя_виртуальной_сети&gt;**/subnets/**&lt;имя_подсети&gt;**.
+      Идентификатор подсети, к которой следует подключить виртуальные машины. Оставьте пустым, если вы хотите создать виртуальную сеть, или выберите подсеть виртуальной сети VPN или Express Route для подключения виртуальной машины к локальной сети. Идентификатор обычно выглядит /subscriptions/**&lt;Код_подписки&gt;**/resourceGroups/**&lt;имя группы ресурсов&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;имя виртуальной сети&gt;**/subnets/**&lt;имя подсети&gt;**
 
 ### <a name="installation"></a>Установка
 
@@ -254,7 +254,7 @@ NFS-сервер, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS и б
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Настройте corosync для использования другого транспорта и добавьте список узлов. Иначе кластер не будет работать.
+1. **[A]** Настройте corosync для использования другого транспорта и добавьте список узлов. Кластер не работает в противном случае.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
@@ -475,7 +475,7 @@ NFS-сервер, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS и б
    sudo crm configure
 
    crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
@@ -495,7 +495,7 @@ NFS-сервер, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS и б
 
 1. Перейдите на портал <https://portal.azure.com>.
 1. Откройте колонку "Azure Active Directory".  
-   Перейдите в колонку "Свойства" и запишите идентификатор каталога. Это **идентификатор клиента**.
+   Перейдите к свойствам и запишите идентификатор каталога. Это **идентификатор клиента**.
 1. Щелкните "Регистрация приложений".
 1. Нажмите "Добавить"
 1. Введите имя, выберите тип приложения "Веб-приложения или API", введите URL-адрес входа (например. http://localhost) и нажмите кнопку "Создать".
@@ -503,7 +503,7 @@ NFS-сервер, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS и б
 1. Выберите новое приложение и щелкните "Ключи" на вкладке "Параметры".
 1. Введите описание нового ключа, выберите "Срок действия не ограничен" и нажмите кнопку "Сохранить".
 1. Запишите его значение. Он используется в качестве **пароля** субъекта-службы.
-1. Запишите идентификатор приложения. Он используется в качестве имени пользователя (**идентификатора для входа** в следующих шагах) субъекта-службы.
+1. Запишите идентификатор приложения. Он используется в качестве имени пользователя (**идентификатора входа** шаги описаны ниже) участника службы
 
 У субъекта-службы по умолчанию нет разрешений на доступ к ресурсам Azure. Необходимо предоставить ему разрешения на запуск и остановку (освобождение) всех виртуальных машин кластера.
 
@@ -523,13 +523,13 @@ NFS-сервер, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS и б
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -549,13 +549,13 @@ sudo crm configure property stonith-enabled=true
 
 В Azure Marketplace доступен образ для SUSE Linux Enterprise Server для приложения SAP 12, который можно использовать для развертывания новых виртуальных машин. Образ Marketplace содержит агент ресурса для SAP NetWeaver.
 
-Шаблоны быстрого запуска с сайта GitHub можно использовать для развертывания всех необходимых ресурсов. Шаблон развертывает виртуальные машины, подсистему балансировки нагрузки, группу доступности и т. д. Выполните следующее, чтобы развернуть шаблон.
+Примеры использования шаблонов можно использовать на github для развертывания всех необходимых ресурсов. Шаблон развертывает виртуальные машины, подсистему балансировки нагрузки, группу доступности и т. д. Выполните следующее, чтобы развернуть шаблон.
 
 1. Откройте [шаблон нескольких ИД безопасности ASCS/SCS][template-multisid-xscs] или [конвергированный шаблон][template-converged] на портале Azure. Шаблон ASCS/SCS создает только правила балансировки нагрузки для экземпляров SAP NetWeaver ASCS/SCS и ERS (только для Linux), в то время как конвергированный шаблон также создает правила балансировки нагрузки для базы данных. Например, Microsoft SQL Server или SAP HANA. Если вы планируете установить систему на основе SAP NetWeaver и базу данных на одних и тех же компьютерах, используйте [конвергированный шаблон][template-converged].
 1. Задайте следующие параметры.
    1. Префикс ресурса (только шаблон нескольких ИД безопасности ASCS/SCS).  
       Введите префикс, который вы хотите использовать. Значение будет использоваться в качестве префикса для развертываемых ресурсов.
-   3. Идентификатор системы SAP (только конвергированный шаблон).  
+   3. Идентификатор системы SAP (схождением только шаблон)  
       Введите идентификатор системы SAP, которую требуется установить. Идентификатор будет использоваться в качестве префикса для развертываемых ресурсов.
    4. Тип стека  
       Выберите тип стека SAP NetWeaver.
@@ -564,13 +564,13 @@ sudo crm configure property stonith-enabled=true
    6. Тип базы данных.  
       Выберите HANA.
    7. Размер системы SAP  
-      Количество систем SAP, которые предоставляет новая система. Если вы не знаете, сколько систем SAP потребуется для системы, обратитесь к партнеру по технологиям или системному интегратору SAP.
+      Количество систем SAP, которые предоставляет новая система. Если вы не убедитесь, что число SAPS система требует, обратитесь к партнеру технологии SAP или системные интеграторы
    8. Доступность системы  
       Выберите высокую доступность
    9. Имя пользователя и пароль администратора  
       Создается учетная запись пользователя, которую можно использовать для входа на компьютер.
    10. Идентификатор подсети  
-   Идентификатор подсети, к которой следует подключить виртуальные машины.  Оставьте пустым, если вы хотите создать виртуальную сеть, или выберите ту же подсеть, которую вы использовали или создали как часть развертывания NFS-сервера. Идентификатор обычно выглядит следующим образом: /subscriptions/**&lt;идентификатор_подписки&gt;**/resourceGroups/**&lt;имя_группы_ресурсов&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;имя_виртуальной_сети&gt;**/subnets/**&lt;имя_подсети&gt;**.
+   Идентификатор подсети, к которой следует подключить виртуальные машины.  Оставьте пустым, если вы хотите создать виртуальную сеть, или выберите ту же подсеть, которую вы использовали или создали как часть развертывания NFS-сервера. Идентификатор обычно выглядит /subscriptions/**&lt;Код_подписки&gt;**/resourceGroups/**&lt;имя группы ресурсов&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;имя виртуальной сети&gt;**/subnets/**&lt;имя подсети&gt;**
 
 ### <a name="installation"></a>Установка
 
@@ -700,7 +700,7 @@ sudo crm configure property stonith-enabled=true
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Настройте corosync для использования другого транспорта и добавьте список узлов. Иначе кластер не будет работать.
+1. **[A]** Настройте corosync для использования другого транспорта и добавьте список узлов. Кластер не работает в противном случае.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
@@ -967,7 +967,7 @@ sudo crm configure property stonith-enabled=true
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
@@ -1008,7 +1008,7 @@ sudo crm configure property stonith-enabled=true
 
 1. **[1]** Установите SAP NetWeaver ASCS.  
 
-   Установите SAP NetWeaver ASCS в качестве корневого на первом узле, используя виртуальное имя узла, которое сопоставляется с внешним IP-адресом балансировщика нагрузки для ASCS (например, <b>nws-ascs</b>, <b>10.0.0.10</b>) и экземпляром номера, который использовался для пробы балансировщика нагрузки, например <b>00</b>.
+   Установить как корень на первом узле с помощью виртуального имени узла, которое сопоставляется с IP-адрес внешнего интерфейса конфигурации подсистемы балансировки нагрузки для ASCS, например SAP NetWeaver ASCS <b>nws ascs</b>, <b>10.0.0.10</b> и экземпляр, который использовался для пробы подсистемы балансировки нагрузки, например номер <b>00</b>.
 
    Чтобы разрешить непривилегированному пользователю подключаться к SAPinst, можно использовать параметр SAPINST_REMOTE_ACCESS_USER.
 
@@ -1041,7 +1041,7 @@ sudo crm configure property stonith-enabled=true
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
@@ -1092,7 +1092,7 @@ sudo crm configure property stonith-enabled=true
 
 1. **[2]** Установите SAP NetWeaver ERS.  
 
-   Установите SAP NetWeaver ERS в качестве корневого на втором узле, используя виртуальное имя узла, которое сопоставляется с внешним IP-адресом балансировщика нагрузки для ERS (например, <b>nws-ers</b>, <b>10.0.0.11</b>) и экземпляром номера, который использовался для пробы балансировщика нагрузки, например <b>02</b>.
+   Установите ющих Методов SAP NetWeaver в качестве корневого на втором узле с помощью виртуального имени узла, которое сопоставляется с IP-адрес внешнего интерфейса конфигурации подсистемы балансировки нагрузки для ющих Методов, например <b>ющих методов nws</b>, <b>10.0.0.11</b> и экземпляр, который использовался для пробы подсистемы балансировки нагрузки, например номер <b>02</b>.
 
    Чтобы разрешить непривилегированному пользователю подключаться к SAPinst, можно использовать параметр SAPINST_REMOTE_ACCESS_USER.
 
@@ -1136,7 +1136,7 @@ sudo crm configure property stonith-enabled=true
 
 1. **[A]** Настройте активность.
 
-   Обмен данными между сервером приложений SAP NetWeaver и ASCS/SCS происходит через программный балансировщик нагрузки. Балансировщик нагрузки отключает неактивные подключения по истечении времени ожидания, которое можно настроить. Во избежание этого необходимо задать соответствующий параметр в профиле SAP NetWeaver ASCS/SCS и изменить параметры системы Linux. Дополнительные сведения см. в примечании к SAP [1410736][1410736].
+   Обмен данными между сервером приложений SAP NetWeaver и ASCS/SCS происходит через программный балансировщик нагрузки. Балансировщик нагрузки отключает неактивные подключения по истечении времени ожидания, которое можно настроить. Во избежание этого необходимо задать соответствующий параметр в профиле SAP NetWeaver ASCS/SCS и изменить параметры системы Linux. Чтение [1410736 Примечание SAP] [ 1410736] для получения дополнительной информации.
    
    Параметр профиля ASCS/SCS enque/encni/set_so_keepalive уже был добавлен на предыдущем шаге.
 
@@ -1228,7 +1228,7 @@ sudo crm configure property stonith-enabled=true
 
 1. Перейдите на портал <https://portal.azure.com>.
 1. Откройте колонку "Azure Active Directory".  
-   Перейдите в колонку "Свойства" и запишите идентификатор каталога. Это **идентификатор клиента**.
+   Перейдите к свойствам и запишите идентификатор каталога. Это **идентификатор клиента**.
 1. Щелкните "Регистрация приложений".
 1. Нажмите "Добавить"
 1. Введите имя, выберите тип приложения "Веб-приложения или API", введите URL-адрес входа (например. http://localhost) и нажмите кнопку "Создать".
@@ -1236,7 +1236,7 @@ sudo crm configure property stonith-enabled=true
 1. Выберите новое приложение и щелкните "Ключи" на вкладке "Параметры".
 1. Введите описание нового ключа, выберите "Срок действия не ограничен" и нажмите кнопку "Сохранить".
 1. Запишите его значение. Он используется в качестве **пароля** субъекта-службы.
-1. Запишите идентификатор приложения. Он используется в качестве имени пользователя (**идентификатора для входа** в следующих шагах) субъекта-службы.
+1. Запишите идентификатор приложения. Он используется в качестве имени пользователя (**идентификатора входа** шаги описаны ниже) участника службы
 
 У субъекта-службы по умолчанию нет разрешений на доступ к ресурсам Azure. Необходимо предоставить ему разрешения на запуск и остановку (освобождение) всех виртуальных машин кластера.
 
@@ -1256,13 +1256,13 @@ sudo crm configure property stonith-enabled=true
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -1280,7 +1280,7 @@ sudo crm configure property stonith-enabled=true
 
 ## <a name="install-database"></a>Установка базы данных
 
-В этом примере устанавливается и настраивается репликация системы SAP HANA. SAP HANA будет выполняться в том же кластере, что и SAP NetWeaver ASCS/SCS и ERS. SAP HANA можно также установить на выделенный кластер. Дополнительные сведения см. в статье [Высокий уровень доступности SAP HANA на виртуальных машинах Azure][sap-hana-ha].
+В этом примере репликации системы SAP HANA установлен и настроен. SAP HANA выполняется в том же кластере, а SAP NetWeaver ASCS/SCS ющих Методов. SAP HANA можно также установить на выделенный кластер. Дополнительные сведения см. в разделе [высокого уровня доступности SAP HANA на виртуальных машинах Azure (ВМ)][sap-hana-ha].
 
 ### <a name="prepare-for-sap-hana-installation"></a>Подготовка к установке SAP HANA
 
@@ -1326,7 +1326,7 @@ sudo crm configure property stonith-enabled=true
    sudo chattr +i /hana/data
    sudo chattr +i /hana/log
    sudo chattr +i /hana/shared
-   # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
    
@@ -1440,7 +1440,7 @@ sudo crm configure property stonith-enabled=true
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number and HANA system id
+   # replace the bold string with your instance number and HANA system ID
    
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1461,7 +1461,7 @@ sudo crm configure property stonith-enabled=true
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
     
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \

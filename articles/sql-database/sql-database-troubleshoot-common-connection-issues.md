@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: cc9b1e1474e67628857dd80a63850634469ca5e8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 1d756aa023ae143608acc988ddd0ae8acee1a113
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Устранение неполадок подключения к базе данных SQL Azure
 При сбоях подключения к базе данных SQL Azure отображаются [сообщения об ошибке](sql-database-develop-error-messages.md). Эта статья представляет собой объединенный раздел, который поможет в устранении неполадок подключения к базе данных SQL Azure. В ней описываются [распространенные причины](#cause) проблем подключения, рекомендуется [инструмент устранения неполадок](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues), который поможет выявить проблему, и приводятся пошаговые инструкции по устранению [временных ошибок](#troubleshoot-transient-errors) и [постоянных или повторяющихся ошибок](#troubleshoot-persistent-errors). 
@@ -77,7 +77,7 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Порядок устранения постоянных проблем подключения
 1. Настройте [правила брандмауэра](sql-database-configure-firewall-settings.md) , разрешив предоставление IP-адреса клиенту. Для временных целей тестирования настройте правило брандмауэра, используя 0.0.0.0 как начало диапазона IP-адресов и 255.255.255.255 как завершение диапазона IP-адресов. Откроется сервер для всех IP-адресов. Если это позволяет устранить проблемы с подключением, удалите это правило и создайте правило брандмауэра для надлежащим образом ограниченных IP-адресов или диапазона адресов. 
 2. На всех брандмауэрах между клиентом и Интернетом откройте порт 1433 для входящих соединений. См инструкции по настройке [брандмауэра Windows для разрешения доступа к SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) и [портов и протоколов, необходимых для гибридной идентификации](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports). Вы узнаете о дополнительных указателях, относящихся к дополнительным портам, которые необходимо открыть для аутентификации в Azure Active Directory.
-3. Проверьте строку подключения и другие параметры подключения. Ознакомьтесь с разделом "Строка подключения" в [статье о проблемах подключения](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
+3. Проверьте строку подключения и другие параметры подключения. Ознакомьтесь с разделом "Строка подключения" в [статье о проблемах подключения](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Проверьте работоспособность службы на панели мониторинга. Если вы считаете, что имеет место региональный сбой, выполните инструкции по восстановлению в новый регион из раздела [Восстановление после сбоя](sql-database-disaster-recovery.md) .
 
 ## <a name="next-steps"></a>Дальнейшие действия

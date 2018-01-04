@@ -1,6 +1,6 @@
 ---
-title: "Создание пространства имен служебной шины с помощью шаблона Azure Resource Manager | Документация Майкрософт"
-description: "Используйте шаблон Azure Resource Manager для создания пространства имен служебной шины"
+title: "Создание пространства имен на обмен сообщениями Service Bus с помощью шаблона диспетчера ресурсов Azure | Документы Microsoft"
+description: "Шаблон диспетчера ресурсов Azure используется для создания пространства имен, обмен сообщениями Service Bus"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 12/21/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: f184cc9418e4af95423c0ede65bca312dfca7393
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Создание пространства имен служебной шины с помощью шаблона диспетчера ресурсов Azure
 
@@ -41,6 +41,7 @@ ms.lasthandoff: 11/11/2017
 > 
 
 ## <a name="what-will-you-deploy"></a>Что вы развернете?
+
 С помощью этого шаблона вы развернете пространство имен служебной шины с номером SKU уровня ["Стандартный" или "Премиум"](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
@@ -48,11 +49,13 @@ ms.lasthandoff: 11/11/2017
 [![Развертывание в Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Параметры
+
 С помощью диспетчера ресурсов Azure можно определить параметры значений, которые должны указываться на этапе развертывания шаблона. В шаблоне есть раздел `Parameters` , содержащий все значения параметров. Для этих значений необходимо определить параметры, которые будут зависеть от развертываемого проекта либо от среды, в которой выполняется развертывание. Не определяйте параметры для значений, которые не меняются. Значение каждого параметра в шаблоне определяет развертываемые ресурсы.
 
 Ниже описаны параметры, которые определяет шаблон.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 Имя создаваемого пространства имен служебной шины.
 
 ```json
@@ -65,6 +68,7 @@ ms.lasthandoff: 11/11/2017
 ```
 
 ### <a name="servicebussku"></a>serviceBusSKU
+
 Имя создаваемого [SKU](https://azure.microsoft.com/pricing/details/service-bus/) служебной шины.
 
 ```json
@@ -86,6 +90,7 @@ ms.lasthandoff: 11/11/2017
 Дополнительные сведения о ценах на использование служебной шины приведены в статье [Service Bus pricing and billing][Service Bus pricing and billing] (Сведения о расценках и выставлении счетов служебной шины).
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 Версия API служебной шины для шаблона.
 
 ```json
@@ -98,7 +103,9 @@ ms.lasthandoff: 11/11/2017
 ```
 
 ## <a name="resources-to-deploy"></a>Развертываемые ресурсы
+
 ### <a name="service-bus-namespace"></a>Пространство имен служебной шины
+
 Создает стандартное пространство имен служебной шины типа **Messaging**.
 
 ```json
@@ -120,15 +127,18 @@ ms.lasthandoff: 11/11/2017
 ```
 
 ## <a name="commands-to-run-deployment"></a>Команды для выполнения развертывания
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### <a name="azure-cli"></a>Инфраструктура CLI Azure
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json

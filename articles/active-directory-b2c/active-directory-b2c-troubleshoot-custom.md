@@ -4,7 +4,7 @@ description: "Сведения о настройке Application Insights для
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 8c79df33cd5f04f490e2cc6372f7e8ac1c4d9bbe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 10b18400e92c5a626cd1e6ce9a6d6bd56df57dc1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: сбор журналов
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   ```
 
-1. Если он еще не существует, добавьте дочерний узел `<UserJourneyBehaviors>` в узел `<RelyingParty>`. Он должен находиться сразу после `<DefaultUserJourney ReferenceId="YourPolicyName" />`.
+1. Если он еще не существует, добавьте дочерний узел `<UserJourneyBehaviors>` в узел `<RelyingParty>`. Он должен находиться сразу после `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`.
 2. Добавьте следующий узел в качестве дочернего узла элемента `<UserJourneyBehaviors>`. Обязательно замените `{Your Application Insights Key}` **ключом инструментирования**, полученным из Application Insights в предыдущем разделе.
 
   ```XML
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 1. Откройте новую вкладку в Application Insights
 1. Ниже приведен список запросов, которые можно использовать для просмотра журналов.
 
-| Запрос | Описание |
+| Запрос | ОПИСАНИЕ |
 |---------------------|--------------------|
 traces | Просмотр всех журналов, созданных Azure AD B2C |
 traces \| where timestamp > ago(1d) | Просмотр всех журналов, созданных Azure AD B2C за последний день
@@ -113,6 +113,6 @@ traces \| where timestamp > ago(1d) | Просмотр всех журналов
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Изучите данные в Application Insights, чтобы понять, как работает платформа Identity Experience Framework, лежащая в основе B2C, чтобы предоставить собственные удостоверения.

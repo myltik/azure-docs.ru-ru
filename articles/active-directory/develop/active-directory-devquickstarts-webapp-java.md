@@ -4,7 +4,7 @@ description: "Создайте веб-приложение Java, которое 
 services: active-directory
 documentationcenter: java
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5358404881b65d217ab36a41ca04a73f2c462c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Вход в веб-приложение Java и выход из него с помощью Azure AD
+# <a name="azure-ad-java-web-app-getting-started"></a>Azure веб-приложения AD Java Приступая к работе
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Azure Active Directory (Azure AD) позволяет легко выполнять функции управления удостоверением веб-приложения, обеспечивая единый вход и выход с помощью всего лишь нескольких строк кода. Пользователи могут входить в веб-приложения Java и выходить из них с помощью реализованной корпорацией Майкрософт библиотеки проверки подлинности Azure Active Directory для Java (ADAL4J), поддерживаемой сообществом.
@@ -42,12 +42,12 @@ Azure Active Directory (Azure AD) позволяет легко выполнят
 ## <a name="step-1-register-the-new-app-with-azure-ad"></a>Шаг 1. Регистрация приложения в Azure AD
 Чтобы настроить приложение для аутентификации пользователей, сначала зарегистрируйте его в клиенте. Для этого выполните следующие действия:
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. На верхней панели щелкните имя учетной записи. В списке **Каталог** выберите клиент Active Directory для регистрации приложения.
 3. В области слева щелкните **Больше служб** и выберите **Azure Active Directory**.
 4. Щелкните **Регистрация приложений**, а затем выберите **Добавить**.
 5. Следуйте инструкциям на экране, чтобы создать **веб-приложение и (или) веб-API**.
-  * **Имя** — описание приложения для пользователей.
+  * **Имя** — это описание приложения для пользователей.
   * **URL-адрес входа** — это базовый URL-адрес приложения. Формат URL-адреса по умолчанию — http://localhost:8080/adal4jsample/.
 6. После завершения регистрации Azure AD присваивает приложению уникальный идентификатор. Скопируйте значение на странице приложения, чтобы использовать его в следующих разделах.
 7. На странице **Параметры** -> **Свойства** приложения обновите его универсальный код ресурса (URI) идентификатора. **URI кода приложения** — это уникальный идентификатор приложения. Соглашение об именовании — `https://<tenant-domain>/<app-name>` (например, `http://localhost:8080/adal4jsample/`).

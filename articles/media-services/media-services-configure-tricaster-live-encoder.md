@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
 ms.openlocfilehash: 42b012fb98bd0504c931ce391d63aecca8c3d311
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Использование кодировщика NewTek TriCaster для отправки односкоростного обновляющегося потока
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 * [Создайте учетную запись служб мультимедиа Azure](media-services-portal-create-account.md).
 * Убедитесь, что запущена конечная точка потоковой передачи. Дополнительные сведения см. в статье об [управлении конечными точками потоковой передачи с помощью учетной записи служб мультимедиа](media-services-portal-manage-streaming-endpoints.md).
 * Установите последнюю версию средства [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
@@ -99,7 +99,7 @@ ms.lasthandoff: 10/11/2017
 3. Открыв меню, щелкните **New** (Создать) под заголовком «Connection» (Подключение). При появлении запроса для типа подключения выберите **Adobe Flash**.
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
-4. Нажмите кнопку **ОК**.
+4. Последовательно выберите **ОК**.
 5. Профиль FMLE теперь можно импортировать, щелкнув стрелку в раскрывающемся списке **Streaming Profile** (Профиль потоковой передачи) и выбрав пункт **Browse** (Обзор).
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)

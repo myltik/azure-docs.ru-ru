@@ -4,7 +4,7 @@ description: "Просмотр всех назначений управлени�
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 editor: jeffsta
 ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: andredm
-ms.openlocfilehash: 72c695d08bdf5de003d51ffb0768184e1e4d00ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 51b158ebfeea52e726213edd042277779f52124b
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Просмотр назначенных прав доступа для пользователей и групп на портале Azure
 > [!div class="op_single_selector"]

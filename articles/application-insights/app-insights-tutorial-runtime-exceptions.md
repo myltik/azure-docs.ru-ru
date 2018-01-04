@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 11e0f2f19acc843f1c558b5d0cfe84291035a6a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f6844dd6747854a60ff8eb8be0d913b73ca2bdb2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Поиск и диагностика исключений во время выполнения с помощью Azure Application Insights
 
@@ -29,7 +29,7 @@ Azure Application Insights собирает данные телеметрии и
 > * Создание рабочего элемента для исправления ошибочного кода.
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для работы с этим руководством:
 
@@ -37,7 +37,7 @@ Azure Application Insights собирает данные телеметрии и
     - ASP.NET и веб-разработка.
     - разработка Azure;
 - Загрузите и установите [отладчик моментальных снимков Visual Studio](http://aka.ms/snapshotdebugger).
-- Включите [отладчик моментальных снимков Visual Studio](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger).
+- Включите [отладчик моментальных снимков Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger).
 - Разверните приложение .NET в Azure и [включите пакет SDK для Application Insights](app-insights-asp-net.md). 
 - Это руководство содержит сведения об отслеживании идентификатора исключения в вашем приложении, поэтому измените свой код в среде разработки или тестирования, чтобы создать исключение. 
 
@@ -97,7 +97,7 @@ Application Insights собирает сведения об ошибках в в
 
     ![Код](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
-9. Выберите **Анализировать влияние**, чтобы открыть аналитику Application Insights.  Она содержит несколько запросов, предоставляющих сведения о неудачных запросах, например сведения о затронутых пользователях, браузерах и регионах.<br><br>![Аналитика](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+9. Выберите **Анализировать влияние**, чтобы открыть аналитику Application Insights.  Она содержит несколько запросов, предоставляющих сведения о неудачных запросах, например сведения о затронутых пользователях, браузерах и регионах.<br><br>![Аналитика в Application Insights](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>Добавление рабочего элемента
 Если подключить Application Insights к системе отслеживания, например Visual Studio Team Services или GitHub, можно создать рабочий элемент непосредственно в Application Insights.

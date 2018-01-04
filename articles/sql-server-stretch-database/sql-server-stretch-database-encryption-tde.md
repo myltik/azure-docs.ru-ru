@@ -1,6 +1,6 @@
 ---
-title: "Включение прозрачного шифрования данных для базы данных Stretch в Azure | Документация Майкрософт"
-description: "Включение прозрачного шифрования данных (TDE) для базы данных SQL Server Stretch в Azure"
+title: "Включение прозрачного шифрования данных для Stretch Database в Azure | Документация Майкрософт"
+description: "Включение прозрачного шифрования данных (TDE) для SQL Server Stretch Database в Azure"
 services: sql-server-stretch-database
 documentationcenter: 
 author: douglaslMS
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/14/2016
 ms.author: douglasl
 ms.openlocfilehash: ceb355d2ba872ed5d3886c6dc82ca75b1854db0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Включение прозрачного шифрования данных (TDE) для базы данных Stretch в Azure
+# <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Включение прозрачного шифрования данных (TDE) для Stretch Database в Azure
 > [!div class="op_single_selector"]
 > * [Портал Azure](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)

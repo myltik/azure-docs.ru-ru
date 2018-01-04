@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 8c27e340-2b25-47b6-bf1f-438be4c14f93
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 4964634cd5aaf0dbb98c766f5e12700c4d118750
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cada2ca63e27f4a17f1541679395727ef710c035
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Руководство. Интеграция Azure Active Directory с Qlik Sense Enterprise
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Qlik Sense Enterprise, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Qlik Sense Enterprise из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-qlik-sense-enterprise-from-the-gallery"></a>Добавление Qlik Sense Enterprise из коллекции
 Чтобы настроить интеграцию Qlik Sense Enterprise в Azure AD, необходимо добавить Qlik Sense Enterprise из коллекции в список управляемых приложений SaaS.
@@ -108,12 +108,12 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах в приложении Qlik Sense Enterprise](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
     
     > [!NOTE]
     > Обратите внимание на косую черту в конце этого URI. Она обязательная.
     
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
@@ -137,13 +137,13 @@ ms.lasthandoff: 10/11/2017
     
     ![QlikSense][qs24]
    
-    а. Откройте в текстовом редакторе файл FederationMetaData.xml, скачанный с портала Azure.
+    a. Откройте в текстовом редакторе файл FederationMetaData.xml, скачанный с портала Azure.
    
-    b. Найдите значение **RoleDescriptor**.  Вы найдете четыре записи (две пары открывающих и закрывающих тегов для элементов).
+    Б. Найдите значение **RoleDescriptor**.  Вы найдете четыре записи (две пары открывающих и закрывающих тегов для элементов).
    
     c. Удалите теги RoleDescriptor и все данные между ними из файла.
    
-    г) Сохраните файл и держите его под рукой для дальнейшего использования в этом документе.
+    d. Сохраните файл и держите его под рукой для дальнейшего использования в этом документе.
 
 7. Перейдите к консоли управления Qlik Management Console (QMC) Qlik Sense как пользователь с возможностью создания конфигураций виртуального прокси-сервера.
 
@@ -163,9 +163,9 @@ ms.lasthandoff: 10/11/2017
     
     ![QlikSense][qs8]  
     
-    а. В поле **Description** (Описание) укажите понятное имя для конфигурации виртуального прокси-сервера.  Введите значение в поле Description (Описание).
+    a. В поле **Description** (Описание) укажите понятное имя для конфигурации виртуального прокси-сервера.  Введите значение в поле Description (Описание).
     
-    b. Значение в поле **Prefix** (Префикс) определяет конечную точку виртуального прокси-сервера для подключения к Qlik Sense с использованием единого входа Azure AD.  Введите уникальное имя префикса для этого виртуального прокси-сервера.
+    Б. Значение в поле **Prefix** (Префикс) определяет конечную точку виртуального прокси-сервера для подключения к Qlik Sense с использованием единого входа Azure AD.  Введите уникальное имя префикса для этого виртуального прокси-сервера.
     
     c. **Session inactivity timeout (minutes)** (Время ожидания при бездействии сеанса (в минутах)) — это время для ожидания подключений через этот виртуальный прокси-сервер.
     
@@ -175,9 +175,9 @@ ms.lasthandoff: 10/11/2017
     
     ![QlikSense][qs10]
     
-    а. Значение в раскрывающемся списке **Anonymous access mode** (Режим анонимного доступа) определяет, могут ли анонимные пользователи получить доступ к Qlik Sense через виртуальный прокси-сервер.  Параметр по умолчанию — No anonymous user (Без анонимных пользователей).
+    a. Значение в раскрывающемся списке **Anonymous access mode** (Режим анонимного доступа) определяет, могут ли анонимные пользователи получить доступ к Qlik Sense через виртуальный прокси-сервер.  Параметр по умолчанию — No anonymous user (Без анонимных пользователей).
     
-    b. В раскрывающемся меню **Authentication method** (Метод аутентификации) следует выбрать схему аутентификации, которую будет использовать виртуальный прокси-сервер.  Выберите в этом списке элемент SAML.  После этого появятся дополнительные параметры.
+    Б. В раскрывающемся меню **Authentication method** (Метод аутентификации) следует выбрать схему аутентификации, которую будет использовать виртуальный прокси-сервер.  Выберите в этом списке элемент SAML.  После этого появятся дополнительные параметры.
     
     c. В поле **SAML host URI** (URI узла SAML) введите имя узла, которое пользователи будут вводить для доступа к Qlik Sense через этот виртуальный прокси-сервер SAML.  Имя узла представляет собой URI сервера Qlik Sense.
     
@@ -272,13 +272,13 @@ ms.lasthandoff: 10/11/2017
 
    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_04.png)
 
-   а. В поле **Имя** введите **BrittaSimon**.
+   a. В поле **Имя** введите **BrittaSimon**.
 
-   b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+   Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-   г) Щелкните **Создать**.
+   d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-qlik-sense-enterprise-test-user"></a>Создание тестового пользователя Qlik Sense Enterprise
 

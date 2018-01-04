@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: cef4a146-f4b0-4e94-82de-f5227a4b462c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 02c751b5d9e6f13c81b9c957cd6689c1fc744a07
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: 855525e2c1d3c33cc7134bbc1cd9b53ca59e1a70
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Руководство по интеграции Azure Active Directory с SAP HANA
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/11/2017
 
 Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с SAP HANA, вам потребуется:
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/11/2017
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом руководстве, состоит из двух основных блоков:
 
 1. Добавление SAP HANA из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="add-sap-hana-from-the-gallery"></a>Добавление SAP HANA из коллекции
 Чтобы настроить интеграцию SAP HANA с Azure AD, добавьте SAP HANA из коллекции в список управляемых приложений SaaS.
@@ -109,9 +109,9 @@ ms.lasthandoff: 11/11/2017
 
     ![Сведения о домене и URL-адресах единого входа](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_url.png)
 
-    а. В поле **Идентификатор** введите следующее: `HA100` 
+    a. В поле **Идентификатор** введите следующее: `HA100` 
 
-    b. В поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
+    Б. В поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Чтобы получить их, обратитесь в [службу поддержки клиентов SAP HANA](https://cloudplatform.sap.com/contact.html). 
@@ -131,9 +131,9 @@ ms.lasthandoff: 11/11/2017
 
 6. В разделе **Атрибуты пользователя** диалогового окна **Единый вход** выполните следующие действия:
 
-    а. В раскрывающемся списке **Идентификатор пользователя** выберите **ExtractMailPrefix**.
+    a. В раскрывающемся списке **Идентификатор пользователя** выберите **ExtractMailPrefix**.
     
-    b. В раскрывающемся списке **Почта** выберите **user.mail**.
+    Б. В раскрывающемся списке **Почта** выберите **user.mail**.
 
 7. Нажмите кнопку **Сохранить**.
 
@@ -148,11 +148,11 @@ ms.lasthandoff: 11/11/2017
 
     ![Добавление поставщика удостоверений](./media/active-directory-saas-saphana-tutorial/sap1.png)
 
-    а. В области **Add Identity Provider Info** (Добавление сведений о поставщике удостоверений) в текстовое поле **Metadata** (Метаданные) добавьте содержимое XML-файла метаданных, скачанного с портала Azure.
+    a. В области **Add Identity Provider Info** (Добавление сведений о поставщике удостоверений) в текстовое поле **Metadata** (Метаданные) добавьте содержимое XML-файла метаданных, скачанного с портала Azure.
 
     ![Добавление параметров поставщика удостоверений](./media/active-directory-saas-saphana-tutorial/sap2.png)
 
-    b. Если содержимое XML-документа является допустимым, процесс синтаксического анализа извлечет сведения, необходимые для вставки в поля **темы, идентификатора сущности и издателя** в области экрана **General Data** (Общие данные). Он извлекает сведения, необходимые для поля URL-адресов в области экрана **Destination** (Место назначения), например **базовый URL-адрес и URL-адрес единого входа (*)**.
+    Б. Если содержимое XML-документа является допустимым, процесс синтаксического анализа извлечет сведения, необходимые для вставки в поля **темы, идентификатора сущности и издателя** в области экрана **General Data** (Общие данные). Он извлекает сведения, необходимые для поля URL-адресов в области экрана **Destination** (Место назначения), например **базовый URL-адрес и URL-адрес единого входа (*)**.
 
     ![Добавление параметров поставщика удостоверений](./media/active-directory-saas-saphana-tutorial/sap3.png)
 
@@ -196,9 +196,9 @@ ms.lasthandoff: 11/11/2017
  
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-saphana-tutorial/create_aaduser_04.png) 
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль**, а затем запишите пароль.
 

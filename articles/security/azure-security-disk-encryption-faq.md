@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
-ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Шифрование дисков Azure: часто задаваемые вопросы
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 * Выполните шифрование (этот процесс может занять несколько часов или даже дней в зависимости от характеристик виртуальной машины и размера всех подключенных дисков данных).
 * При необходимости настройте образ и добавьте к нему программное обеспечение.
 
-Если эти действия невозможно выполнить, в качестве альтернативы шифрованию всего диска с помощью dm-crypt можно воспользоваться [шифрованием службы хранилища](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) на уровне учетной записи хранения платформы.
+Если эти действия невозможно выполнить, в качестве альтернативы шифрованию всего диска с помощью dm-crypt можно воспользоваться [шифрованием службы хранилища](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE) на уровне учетной записи хранения платформы.
 
 **Вопрос.** Что такое диск "том Bek" или /mnt/azure_bek_disk?
 

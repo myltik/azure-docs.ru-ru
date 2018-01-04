@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 36ebffb41211e443cc1619df46f50247945cc57c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: HT
+ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="review-usage-and-costs"></a>Просмотр сведений об использовании и затратах
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/12/2017
 
 ## <a name="open-the-cloudyn-portal"></a>Переход на портал Cloudyn
 
-Все сведения об использовании и затратах можно просмотреть на портале Cloudyn. Откройте портал Cloudyn из портала Azure или перейдите по адресу https://app.cloudyn.com и выполните вход.
+Все сведения об использовании и затратах можно просмотреть на портале Cloudyn. Открыть портал Cloudyn на портале Azure или https://azure.cloudyn.com, войдите.
 
 ## <a name="track-usage-and-cost-trends"></a>Отслеживание тенденций использования и затрат
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 10/12/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * Отслеживание тенденций использования и затрат

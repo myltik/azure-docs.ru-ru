@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: 8a31ed948fe9387720db61018e0edded530cd900
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Миграция базы данных SQL Server в базу данных SQL в облаке
 В этой статье вы узнаете о двух основных методах миграции базы данных SQL Server 2005 или более поздней версии в базу данных SQL Azure. Первый метод проще, но миграция происходит с простоем, который может длиться достаточно долго. Второй метод более сложен, но значительно сокращает время простоя при выполнении миграции.
@@ -39,11 +39,11 @@ ms.lasthandoff: 11/07/2017
 
   ![Схема переноса VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Оцените](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) базу данных для обеспечения совместимости с помощью [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) последней версии.
+1. [Оцените](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) базу данных для обеспечения совместимости с помощью [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) последней версии.
 2. Подготовьте все необходимые исправления в виде скриптов Transact-SQL.
 3. Создайте транзакционно согласованную копию базы данных-источника для миграции. В нее не должны вноситься дальнейшие изменения (такие изменения можно применить вручную после завершения миграции). Существует множество методов замораживания базы данных — от запрета подключения клиента до создания [моментального снимка базы данных](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Разверните скрипты Transact-SQL для применения исправлений к копии базы данных.
-5. [Перенесите](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) копию базы данных в новую базу данных SQL Azure с помощью Data Migration Assistant.
+5. [Перенесите](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) копию базы данных в новую базу данных SQL Azure с помощью Data Migration Assistant.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Оптимизация производительности передачи данных во время миграции 
 

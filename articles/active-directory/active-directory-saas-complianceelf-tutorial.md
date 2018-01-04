@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/2/2017
 ms.author: jeedes
-ms.openlocfilehash: 5f7019d1fddcea186713a5985d7e4b66cd1628e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f05c43e2d8f6e777ae128e90040d8d5c270c212b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Руководство по интеграции Azure Active Directory с Compliance ELF
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Compliance ELF, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Compliance ELF из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-compliance-elf-from-the-gallery"></a>Добавление Compliance ELF из коллекции
 Чтобы настроить интеграцию Compliance ELF с Azure AD, необходимо добавить Compliance ELF из коллекции в список управляемых приложений SaaS.
@@ -125,11 +125,11 @@ ms.lasthandoff: 10/11/2017
 
 6. Для создания URL-адреса **метаданных** выполните следующие действия.
 
-    а. Щелкните **Регистрация приложений**.
+    a. Щелкните **Регистрация приложений**.
     
     ![Настройка единого входа](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appregistrations.png)
    
-    b. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
+    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
     
     ![Настройка единого входа](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpointicon.png)
 
@@ -172,13 +172,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-complianceelf-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
   
 ### <a name="create-a-compliance-elf-test-user"></a>Создание тестового пользователя Compliance ELF
 

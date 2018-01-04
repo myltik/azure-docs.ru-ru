@@ -1,10 +1,10 @@
 ---
 title: "Приложение Microsoft Authenticator: справка и поддержка | Документация Майкрософт"
-description: "Содержит перечень часто задаваемых вопросов и ответов о приложении Microsoft Authentication и Azure Multi-Factor Authentication."
+description: "Содержит перечень часто задаваемых вопросов и ответов о приложениях Microsoft Authentication и Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,17 +15,17 @@ ms.date: 06/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 4d1302416cfa767415d7bb1e8b426079099caf28
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: 073b8adfcbe5fdcc2a6d1dba820a1101fac83218
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Часто задаваемые вопросы о приложении Microsoft Authenticator
 
 В этой статье содержатся ответы на часто задаваемые вопросы о приложении Microsoft Authenticator. Если вы не нашли ответ на свой вопрос, то перейдите на [форум приложения Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Сведения об определенных функциях приложения также можно найти в разделе часто задаваемых вопросов статьи [Sign in with your phone, not your password](microsoft-authenticator-app-phone-signin-faq.md) (Вход с помощью телефона, а не пароля).
 
-Приложение Microsoft Authenticator пришло на смену приложению Azure Authenticator. Это приложение, рекомендуемое при использовании Azure Multi-Factor Authentication. Приложение Microsoft Authenticator доступно для [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Приложение Microsoft Authenticator пришло на смену приложению Azure Authenticator. Это приложение, рекомендуемое при использовании Многофакторной идентификации Azure. Приложение Microsoft Authenticator доступно для [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 8558efffa354cc4bb93820c837077ee997924c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9c4b2c1b2fdd9bf70775e5fd4369d1633258ae2a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="validate-xml-for-enterprise-integration"></a>Проверка XML для интеграции Enterprise
 
@@ -30,29 +30,29 @@ ms.lasthandoff: 10/11/2017
 
 2. Добавьте триггер **Request - When an HTTP request is received** (Запрос: при получении HTTP-запроса) в свое приложение логики.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
 
 3. Добавьте действие **Проверка XML**, щелкнув **Добавить действие**.
 
 4. Введите *xml* в поле поиска, чтобы отфильтровать все действия и оставить только необходимые. Выберите действие **Проверка XML**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-2.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
 
 5. Чтобы указать содержимое XML, которое будет проверено, выберите **Содержимое**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
 
 6. Выберите тег body в качестве содержимого, которое будет проверено.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-3.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
 
 7. Чтобы определить схему для проверки ввода предыдущего *содержимого*, выберите **Имя схемы**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-4.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
 
 8. Сохраните результаты своих действий.  
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
 
 Вы закончили работу с настройкой соединителя проверки. В реальном приложении вам нужно будет передать проверенные данные в бизнес-приложение (например, SalesForce). Чтобы отправить проверенные выходные данные в Salesforce, добавьте действие.
 

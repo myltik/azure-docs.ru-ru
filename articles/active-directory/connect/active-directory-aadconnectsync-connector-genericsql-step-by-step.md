@@ -4,7 +4,7 @@ description: "В этом документе содержится пошагов
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 3fdc1b405b95180d031aa4ad45b406f7fc149d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 311ef784497310b5605e25daf13102e3ff4bb08c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Универсальный соединитель SQL: пошаговое руководство
 Эта статья является пошаговым руководством. Она поможет вам создать простую базу данных для отдела кадров, которая предназначена для импорта некоторых пользователей и их членства в группе.
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
    ![ODBC 2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc2.png)
 4. Укажите имя файла, например **GenericSQL**.  
    ![ODBC 3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc3.png)
-5. Нажмите кнопку **Finish**(Готово).  
+5. Нажмите кнопку **Готово**  
    ![ODBC 4](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc4.png)
 6. Теперь нужно настроить подключение. Введите понятное описание источника данных и укажите имя сервера, на котором выполняется SQL Server.  
    ![ODBC 5](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc5.png)
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
    ![ODBC 6](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc6.png)
 8. Укажите имя образца базы данных — **GSQLDEMO**.  
    ![ODBC 7](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc7.png)
-9. На этом экране оставьте настройки по умолчанию. Нажмите кнопку **Finish**(Готово).  
+9. На этом экране оставьте настройки по умолчанию. Нажмите кнопку **Готово**  
    ![ODBC 8](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc8.png)
 10. Чтобы проверить, все ли работает правильно, нажмите кнопку **Test Data Source**(Проверить источник данных).  
     ![ODBC 9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc9.png)

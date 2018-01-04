@@ -4,7 +4,7 @@ description: "Исправление распространенных ошибо
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 8b7327508633e33917d1fa9c1f35ed1bde5a26e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 66e002b092e02f92a33c6e498b176331ebdc190f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="problem-installing-the-application-access-panel-browser-extension"></a>Проблема при установке расширения браузера для панели доступа к приложениям
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 
 -   Вы уже настроили [доменные службы Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)и подключили компьютеры пользователей к домену.
 
--   У вас есть разрешение на изменение параметров для редактирования объекта групповой политики. По умолчанию такое разрешение имеют члены следующих групп безопасности: «Администраторы домена», «Администраторы предприятия» и «Владельцы-создатели групповой политики». [Подробнее](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   У вас есть разрешение на изменение параметров для редактирования объекта групповой политики. По умолчанию такое разрешение имеют члены следующих групп безопасности: «Администраторы домена», «Администраторы предприятия» и «Владельцы-создатели групповой политики». [Узнайте больше](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
 Пошаговые инструкции по настройке групповой политики и ее развертыванию для пользователей см. в учебнике [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md).
 

@@ -10,11 +10,11 @@ ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fb295b37819788ed14f54e4123ae0fe1b52d0210
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 1dfe46d307a076ae02362c4bba292602001ed915
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Развертывание Функции Azure в виде модуля IoT Edge — предварительный просмотр
 Вы можете использовать Функции Azure для развертывания кода, который реализует нужную бизнес-логику, непосредственно на устройствах IoT Edge. В этом руководстве описывается создание и развертывание Функции Azure, которая фильтрует данные датчиков на виртуальном устройстве IoT Edge, созданном по инструкциям в руководствах по развертыванию Azure IoT Edge на виртуальном устройстве в [Windows][lnk-tutorial1-win] или [Linux][lnk-tutorial1-lin]. Из этого руководства вы узнаете, как выполнять такие задачи:     
@@ -28,64 +28,85 @@ ms.lasthandoff: 12/05/2017
 
 Функция Azure, которую вы создадите в этом руководстве, фильтрует сформированные устройством данные о температуре и отправляет сообщения в вышестоящий Центр Интернета вещей Azure, если температура превышает заданный порог. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 * Устройство Azure IoT Edge, которое вы создали при работе с кратким руководством или предыдущим руководством.
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [C# для расширения Visual Studio Code (на платформе OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). Расширение можно установить с помощью панели расширений в Visual Studio Code.
-* [Расширение Azure IoT Edge для Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). Расширение можно установить с помощью панели расширений в Visual Studio Code.
+* [C# для расширения Visual Studio Code (на платформе OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
+* [Расширение Azure IoT Edge для Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [Docker](https://docs.docker.com/engine/installation/). Для этого руководства достаточно выпуска Community Edition (CE) для вашей платформы. 
 * [Пакет SDK для .NET Core 2.0](https://www.microsoft.com/net/core#windowscmd). 
 
-## <a name="set-up-a-docker-registry"></a>Настройка реестра Docker
-В этом руководстве используется расширение Azure IoT Edge для VS Code, чтобы создать функцию Azure и собрать на ее основе образ [Docker](https://docs.docker.com/glossary/?term=image). Затем вы отправите этот образ Docker в [репозиторий Docker](https://docs.docker.com/glossary/?term=repository), размещенный в [реестре Docker](https://docs.docker.com/glossary/?term=registry). Наконец, вы развернете образ Docker, упакованный в виде [контейнера Docker](https://docs.docker.com/glossary/?term=container), из вашего реестра на свое устройство IoT Edge.  
+## <a name="create-a-container-registry"></a>Создание реестра контейнеров
+В этом руководстве вы используете расширение Azure IoT Edge для Visual Studio Code, чтобы создать модуль, и создадите **образ контейнера** из файлов. Затем вы отправите этот образ в **реестр**, содержащий ваши образы и управляющий ими. Наконец, вы развернете свой образ из реестра для выполнения на устройстве IoT Edge.  
 
-Для работы с этим руководством можно использовать любые реестры, совместимые с Docker. Две популярные службы реестров Docker, доступные в облаке, — **реестр контейнеров Azure** и **Центр Docker**:
+Для работы с этим руководством можно использовать любые реестры, совместимые с Docker. Две популярные службы реестров Docker, доступные в облаке, — [реестр контейнеров Azure](https://docs.microsoft.com/azure/container-registry/) и [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). В этом руководстве используется реестр контейнеров Azure. 
 
-- [Реестр контейнеров Azure](https://docs.microsoft.com/en-us/azure/container-registry/) доступен в [платной подписке](https://azure.microsoft.com/en-us/pricing/details/container-registry/). Для работы с этим руководством достаточно подписки уровня **Стандартный**. 
-
-- [Центр Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) предлагает один бесплатный частный репозиторий, если вы регистрируетесь для получения (бесплатного) идентификатора Docker. 
-    1. Чтобы зарегистрироваться для получения идентификатора Docker, следуйте инструкциям [по регистрации](https://docs.docker.com/docker-id/#register-for-a-docker-id) на сайте Docker. 
-
-    2. Чтобы создать частный репозиторий Docker, следуйте инструкциям [по созданию репозитория в Центре Docker](https://docs.docker.com/docker-hub/repos/#creating-a-new-repository-on-docker-hub) на сайте Docker.
-
-В этом руководстве предоставлены команды как для реестра контейнеров Azure, так и для Центра Docker, где это необходимо.
+1. На [портале Azure](https://portal.azure.com) выберите **Создать ресурс** > **Контейнеры** > **Реестр контейнеров Azure**.
+2. Укажите имя реестра, выберите подписку, выберите группу ресурсов и задайте номер SKU **Базовый**. 
+3. Нажмите кнопку **Создать**.
+4. После создания реестра контейнеров перейдите к нему и выберите **Ключи доступа**. 
+5. **Включите** параметр **Пользователь-администратор**.
+6. Скопируйте значения **Сервер входа**, **Имя пользователя** и **Пароль**. Эти значения вам понадобятся позже при работе с этим руководством. 
 
 ## <a name="create-a-function-project"></a>Создание проекта функции
 Следующий процесс позволяет создать модуль IoT Edge с использованием Visual Studio Code и расширения Azure IoT Edge.
-1. Откройте VS Code.
-2. Используйте команду меню **Вид | Интегрированный терминал**, чтобы открыть встроенный терминал VS Code.
-3. Во встроенном терминале введите следующую команду для установки (или обновления) шаблона **AzureIoTEdgeFunction** в dotnet:
+1. Откройте Visual Studio Code.
+2. Чтобы открыть терминалов интеграции VS Code, выберите **представление** > **интеграции терминалов**.
+3. Установите (или обновлять) **AzureIoTEdgeFunction** шаблона в dotnet, выполните следующую команду в окне терминала интеграции:
 
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Function
     ```
-2. В окне встроенного терминала введите следующую команду, чтобы создать проект нового модуля:
+2. Создайте проект для нового модуля. Следующая команда создает папку проекта, **FilterFunction**, в текущей рабочей папке:
 
     ```cmd/sh
     dotnet new aziotedgefunction -n FilterFunction
     ```
 
-    >[!NOTE]
-    > Эта команда создает папку проекта **FilterFunction** в текущей рабочей папке. Если вы хотите создать ее в другом расположении, перед выполнением команды перейдите в другой каталог.
+3. Выберите **файл** > **открыть папку**, перейдите к **FilterFunction** папку и откройте проект в VS Code.
+4. В обозревателе VS Code разверните **EdgeHubTrigger Csharp** папку, затем откройте **run.csx** файла.
+5. Замените содержимое файла следующим кодом:
 
-3. Используйте команду меню **Файл | Открыть папку**, перейдите в папку **FilterFunction** и щелкните **Выбрать папку**, чтобы открыть проект в VS Code.
-4. В обозревателе VS Code щелкните папку **EdgeHubTrigger-Csharp** а затем откройте файл **run.csx**.
-5. Добавьте после оператора `#r "Microsoft.Azure.Devices.Client"` следующий оператор:
+   ```csharp
+   #r "Microsoft.Azure.Devices.Client"
+   #r "Newtonsoft.Json"
 
-    ```csharp
-    #r "Newtonsoft.Json"
-    ```
+   using System.IO;
+   using Microsoft.Azure.Devices.Client;
+   using Newtonsoft.Json;
 
-5. Добавьте после существующего оператора `using` следующий оператор:
+   // Filter messages based on the temperature value in the body of the message and the temperature threshold value.
+   public static async Task Run(Message messageReceived, IAsyncCollector<Message> output, TraceWriter log)
+   {
+        const int temperatureThreshold = 25;
+        byte[] messageBytes = messageReceived.GetBytes();
+        var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
 
-    ```csharp
-    using Newtonsoft.Json;
-    ```
+        if (!string.IsNullOrEmpty(messageString))
+        {
+            // Get the body of the message and deserialize it
+            var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
 
-1. Добавьте следующие классы. Эти классы определяют ожидаемую схему текста входящего сообщения.
+            if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+            {
+                // Send the message to the output as the temperature value is greater than the threashold
+                var filteredMessage = new Message(messageBytes);
+                // Copy the properties of the original message into the new Message object
+                foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                {
+                    filteredMessage.Properties.Add(prop.Key, prop.Value);
+                }
+                // Add a new property to the message to indicate it is an alert
+                filteredMessage.Properties.Add("MessageType", "Alert");
+                // Send the message        
+                await output.AddAsync(filteredMessage);
+                log.Info("Received and transferred a message with temperature above the threshold");
+            }
+        }
+    }
 
-    ```csharp
+    //Define the expected schema for the body of incoming messages
     class MessageBody
     {
         public Machine machine {get;set;}
@@ -102,66 +123,28 @@ ms.lasthandoff: 12/05/2017
        public double temperature {get; set;}
        public int humidity {get; set;}         
     }
-    ```
-
-1. Замените текст метода **Run** следующим кодом. Он фильтрует сообщения на основе значения температуры в тексте сообщения и порогового значения температуры.
-
-    ```csharp
-    const int temperatureThreshold = 25;
-
-    byte[] messageBytes = messageReceived.GetBytes();
-    var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
-
-    if (!string.IsNullOrEmpty(messageString))
-    {
-        // Get the body of the message and deserialize it
-        var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
-        
-        if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
-        {
-            // We will send the message to the output as the temperature value is greater than the threashold
-            var filteredMessage = new Message(messageBytes);
-            // We need to copy the properties of the original message into the new Message object
-            foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
-            {
-                filteredMessage.Properties.Add(prop.Key, prop.Value);
-            }
-            // We are adding a new property to the message to indicate it is an alert
-            filteredMessage.Properties.Add("MessageType", "Alert");
-            // Send the message        
-            await output.AddAsync(filteredMessage);
-            log.Info("Received and transferred a message with temperature above the threshold");
-        }
-    }
-    ```
+   ```
 
 11. Сохраните файл.
 
 ## <a name="publish-a-docker-image"></a>Публикация образа Docker
 
 1. Выполните сборку образа Docker.
-    1. В проводнике VS Code откройте папку **Docker**. Выберите папку для платформы своего контейнера: **linux-x64** или **windows-nano**. 
+    1. В обозревателе VS Code разверните папку **Docker**. Затем разверните папку для платформы своего контейнера: **linux-x64** или **windows-nano**. 
     2. Щелкните правой кнопкой мыши файл **Dockerfile** и выберите **Build IoT Edge module Docker image** (Создать образ Docker модуля IoT Edge). 
-    3. В поле **Выбор папки** перейдите к папке проекта **FilterFunction** и щелкните **Select Folder as EXE_DIR** (Выбрать папку как EXE_DIR). 
-    4. В верхней части окна VS Code введите имя образа в текстовом поле всплывающего окна. Например, `<docker registry address>/filterfunction:latest`, где *docker registry address* — это идентификатор Docker, если вы используете центр Docker, или адрес `<your registry name>.azurecr.io`, если вы используете реестр контейнеров Azure.
+    3. Перейдите к **FilterFunction** папку проекта и нажмите кнопку **Выбор папки как EXE_DIR**. 
+    4. В верхней части окна VS Code введите имя образа в текстовом поле всплывающего окна. Например, `<your container registry address>/filterfunction:latest`. Адрес реестра контейнеров совпадает с адресом сервера входа, который был скопирован из реестра. Он должен быть указан в формате `<your container registry name>.azurecr.io`.
  
-4. Войдите в Docker. Во встроенном терминале введите следующую команду: 
+4. Войдите в Docker. В окне терминала интеграции введите следующую команду: 
 
-    - Центр Docker (введите учетные данные при появлении запроса):
+   ```csh/sh
+   docker login -u <username> -p <password> <Login server>
+   ```
         
-        ```csh/sh
-        docker login
-        ```
+   Чтобы найти имя пользователя, пароль и сервер входа для использования в этой команде, перейдите на [портал Azure] (https://portal.azure.com). В разделе **Все ресурсы** щелкните плитку вашего реестра контейнеров Azure, чтобы открыть его свойства, а затем щелкните **Ключи доступа**. Скопируйте значения полей **Имя пользователя**, **Пароль** и **Сервер входа**. 
 
-    - Реестр контейнеров Azure:
-        
-        ```csh/sh
-        docker login -u <username> -p <password> <Login server>
-        ```
-        
-        Чтобы найти имя пользователя, пароль и сервер входа для использования в этой команде, перейдите на [портал Azure] (https://portal.azure.com). В разделе **Все ресурсы** щелкните плитку вашего реестра контейнеров Azure, чтобы открыть его свойства, а затем щелкните **Ключи доступа**. Скопируйте значения полей **Имя пользователя**, **Пароль** и **Сервер входа**. Сервер входа должен иметь формат `<your registry name>.azurecr.io`.
-
-3. Отправьте образ в репозиторий Docker. Используйте команду меню **Вид | Палитра команд... | Edge: Push IoT Edge module Docker image** (Передать образ Docker для модуля IoT Edge) и введите имя образа в текстовое поле всплывающего окна в верхней части окна VS Code. Укажите имя образа, выбранное на шаге 1.3.
+3. Отправьте образ в репозиторий Docker. Выберите **представление** > **команда палитры...**  выполните поиск **Edge: образа Docker модуля Push IoT Edge**.
+4. В поле всплывающие подсказки, введите имя того же образа, который использовался в шаге 1.d.
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>Добавление учетных данных реестра на устройство Edge
 Добавьте учетные данные для своего реестра в среду выполнения Edge на компьютере, где запущено устройство Edge. Таким образом среда выполнения сможет получить доступ к контейнеру. 
@@ -169,43 +152,43 @@ ms.lasthandoff: 12/05/2017
 - В ОС Windows выполните следующую команду:
     
     ```cmd/sh
-    iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password> 
+    iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
 - В ОС Linux выполните следующую команду:
     
     ```cmd/sh
-    sudo iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password> 
+    sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
 ## <a name="run-the-solution"></a>Запуск решения
 
 1. Найдите нужный Центр Интернета вещей на **портале Azure**.
-2. Перейдите к **IoT Edge (preview)** (IoT Edge (предварительная версия)) и выберите устройство IoT Edge.
+2. Щелкните **IoT Edge (preview)** (IoT Edge (предварительная версия)) и выберите устройство IoT Edge.
 1. Щелкните **Set Modules** (Настроить модули). 
-2. Добавьте модуль **tempSensor**. Это действие необходимо только в том случае, если ранее на устройстве IoT Edge не был развернут модуль **tempSensor**.
+2. Если вы уже развернули **tempSensor** модуль к этому устройству, он может быть автоматически. Если нет, выполните следующие действия, чтобы добавить его.
     1. Выберите **Add IoT Edge Modulе** (Добавить модуль IoT Edge).
     2. В поле **Имя** введите `tempSensor`.
     3. В поле **URI образа** введите `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
     4. Оставьте без изменений другие параметры и нажмите кнопку **Сохранить**.
-1. Добавьте модуль **filterfunction**.
+1. Добавить **filterFunction** модуля.
     1. Снова выберите **Add IoT Edge Modulе** (Добавить модуль IoT Edge).
-    2. В поле **Имя** введите `filterfunction`.
+    2. В поле **Имя** введите `filterFunction`.
     3. В поле **Образ** введите адрес образа, например `<docker registry address>/filterfunction:latest`.
-    74. Щелкните **Сохранить**.
-2. Щелкните **Далее**.
-3. На шаге **Specify Routes** (Указание маршрутов) скопируйте приведенный ниже код JSON в текстовое поле. Модули публикуют все сообщения в среду выполнения Edge. Декларативные правила в среде выполнения определяют, куда отправляются эти сообщения. Для работы с этим руководством необходимы два маршрута. Первый маршрут передает сообщения от датчика температуры в модуль фильтра через конечную точку input1, которая настроена с помощью обработчика **FilterMessages**. Второй маршрут передает сообщения из модуля фильтра в Центр Интернета вещей. В этом маршруте `upstream` является специальным пунктом назначения, который говорит концентратору Edge отправлять сообщения в Центр Интернета вещей. 
+    74. Выберите команду **Сохранить**.
+2. Нажмите кнопку **Далее**.
+3. На шаге **Specify Routes** (Указание маршрутов) скопируйте приведенный ниже код JSON в текстовое поле. Первый маршрут передает сообщения из датчик температуры модуля фильтра через конечную точку «input1». Второй маршрут передает сообщения из модуля фильтра в Центр Интернета вещей. В этом маршруте `$upstream` является специальным пунктом назначения, который говорит концентратору Edge отправлять сообщения в Центр Интернета вещей. 
 
     ```json
     {
        "routes":{
-          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterfunction/inputs/input1\")",
-          "filterToIoTHub":"FROM /messages/modules/filterfunction/outputs/* INTO $upstream"
+          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterFunction/inputs/input1\")",
+          "filterToIoTHub":"FROM /messages/modules/filterFunction/outputs/* INTO $upstream"
        }
     }
     ```
 
-4. Щелкните **Далее**.
+4. Нажмите кнопку **Далее**.
 5. На шаге **Review Template** (Проверка шаблона) щелкните **Отправить**. 
 6. Вернитесь на страницу сведений об устройстве IoT Edge и щелкните **Обновить**. Вы должны увидеть новый модуль **filtermodule**, работающий вместе с модулем **tempSensor** и **средой выполнения IoT Edge**. 
 
@@ -213,13 +196,13 @@ ms.lasthandoff: 12/05/2017
 
 Чтобы отслеживать сообщения между устройством и облаком, отправленные с вашего устройства IoT Edge в Центр Интернета вещей:
 1. Настройте расширение Azure IoT Toolkit со строкой подключения для вашего Центра Интернета вещей: 
-    1. Используйте команду меню **Вид | Проводник**, чтобы открыть проводник VS Code. 
-    3. В проводнике щелкните **IOT HUB DEVICES** (Устройства Центра Интернета вещей) и нажмите кнопку **...**. Щелкните **Set IoT Hub Connection String** (Настроить строку подключения Центра Интернета вещей) и введите во всплывающем окне строку подключения Центра Интернета вещей, к которому подключается ваше устройство IoT Edge. 
+    1. На портале Azure перейдите в центр IoT и выберите **политики общего доступа**. 
+    2. Выберите **iothubowner** скопировать значение из **строки первичного ключа подключения**.
+    1. В обозревателе VS Code щелкните **УСТРОЙСТВАМИ IOT HUB** и нажмите кнопку **...** . 
+    1. Выберите **задать строку подключения концентратора IoT** и введите строку подключения центр Iot во всплывающем окне. 
 
-        Чтобы найти строку подключения, щелкните плитку своего Центра Интернета вещей на портале Azure и выберите **Политики общего доступа**. В колонке **Политики общего доступа** выберите политику **iothubowner**, а затем скопируйте строку подключения Центра Интернета вещей в окне **iothubowner**.   
-
-1. Чтобы отслеживать данные, поступающие в Центр Интернета вещей, используйте команду меню **Вид | Палитра команд... | Центр Интернета вещей: Start monitoring D2C message** (Начать мониторинг сообщений D2C). 
-2. Чтобы перестать отслеживать данные, используйте команду меню **Вид | Палитра команд... | Центр Интернета вещей: Stop monitoring D2C message** (Остановить мониторинг сообщений D2C). 
+1. Для отображения данных, поступающих в центр IoT, выберите **представление** > **палитры команд...**  и выполните поиск **IoT: запуск наблюдения за сообщения D2C**. 
+2. Чтобы остановить наблюдение за данными, используйте **IoT: остановить отслеживание сообщений D2C** команды в палитру команд. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

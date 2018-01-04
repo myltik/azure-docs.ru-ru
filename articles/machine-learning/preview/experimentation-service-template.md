@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 2efffd14c748a070fff59bcf9dd21c02eb9f6dcd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: c7f4bf0fed35ffb2c03e8b983260c6093032fe79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Настройка службы "Экспериментирование в Машинном обучении Azure"
 
 ## <a name="overview"></a>Обзор
-Учетная запись, рабочая область и проект службы "Экспериментирование в Машинном обучении Azure" являются ресурсами Azure. Таким образом, их можно развернуть с помощью шаблонов Resource Manager. Шаблоны Resource Manager — это JSON-файлы, которые определяют ресурсы, необходимые для развертывания решения. Основные понятия, связанные с развертыванием и управлением решений Azure, см. в [обзоре Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+Учетная запись, рабочая область и проект службы "Экспериментирование в Машинном обучении Azure" являются ресурсами Azure. Таким образом, их можно развернуть с помощью шаблонов Resource Manager. Шаблоны Resource Manager — это JSON-файлы, которые определяют ресурсы, необходимые для развертывания решения. Основные понятия, связанные с развертыванием и управлением решений Azure, см. в [обзоре Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="deploy-a-template"></a>Развертывание шаблона
 Чтобы развернуть шаблон, нужно выполнить всего лишь несколько действий в интерфейсе командной строки Azure или на портале Azure.
@@ -137,7 +137,7 @@ az group deployment create -n testdeploy -g <resource group name> --template-fil
 Вы можете изменить три значения. 
 * Имя учетной записи. Имя учетной записи экспериментирования.
 * Расположение. Один из поддерживаемых регионов Azure.
-* SKU учетной записи хранения. Машинное обучение Azure поддерживает только стандартное хранилище и не поддерживает хранилище класса Premium. Дополнительные сведения о хранилище см. в статье [Введение в хранилище Microsoft Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). 
+* SKU учетной записи хранения. Машинное обучение Azure поддерживает только стандартное хранилище и не поддерживает хранилище класса Premium. Дополнительные сведения о хранилище см. в статье [Введение в хранилище Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
 
 ```json
 {

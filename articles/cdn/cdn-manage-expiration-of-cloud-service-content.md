@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
 ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Управление сроком действия веб-содержимого в сети доставки содержимого Azure
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/06/2017
 
 Файлы из любого общедоступного исходного веб-сервера могут кэшироваться в Azure CDN до истечения срока их жизни. Срок жизни определяется заголовком `Cache-Control`, указанным в HTTP-ответе исходного сервера. В этой статье описано, как определить заголовки `Cache-Control` для функции веб-приложений службы приложений Microsoft Azure, облачных служб Azure, приложений ASP.NET и сайтов IIS. Все они настраиваются сходным образом. Определить заголовок `Cache-Control` можно с помощью файлов конфигурации или программным способом. 
 
-Можно также управлять параметрами кэша на портале Azure, определив [правила кэширования CDN](cdn-caching-rules.md). Если определить одно или несколько правил кэширование и настроить их на **переопределение** или **отключение кэша**, предоставляемые системой параметры, описываемые в этой статье, будут игнорироваться. См. дополнительные сведения о [функции кэширования](cdn-how-caching-works.md).
+Можно также управлять параметрами кэша на портале Azure, определив [правила кэширования CDN](cdn-caching-rules.md). Если определить одно или несколько правил кэширования и настроить их на **переопределение** или **отключение кэша**, предоставляемые системой параметры, описываемые в этой статье, будут игнорироваться. См. дополнительные сведения о [функции кэширования](cdn-how-caching-works.md).
 
 > [!TIP]
 > Срок жизни для файла можно не указывать. В этом случае Azure CDN автоматически применяет стандартное значение TTL (семь дней), если только вы не настроили правила кэширования на портале Azure. Этот срок жизни по умолчанию применяется только к оптимизациям общей веб-доставки. Для оптимизаций больших файлов срок жизни по умолчанию составляет один день, а для оптимизаций потоковой передачи срок жизни по умолчанию составляет один год.
@@ -81,7 +81,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 ## <a name="testing-the-cache-control-header"></a>Проверка заголовка Cache-Control
 Вы легко можете проверить установленный для веб-содержимого срок жизни. Используя встроенные в браузер [средства разработчика](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), убедитесь, что ваше веб-содержимое содержит заголовок ответа `Cache-Control`. Для просмотра заголовков ответа можно использовать и другие средства, например **wget**, [Postman](https://www.getpostman.com/) или [Fiddler](http://www.telerik.com/fiddler).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 * [Сведения об элементе **clientCache**](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).
 * [Документация по свойству **HttpResponse.Cache**](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx). 
 * [Документация по **классу HttpCachePolicy**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ef68f64437935f08f76c29ecf15d574279cca7f1
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Создание веб-приложения .NET Core с базой данных SQL в службе приложений Azure в Linux
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/20/2017
 > * Потоковая передача журналов диагностики из Azure.
 > * Управление приложением на портале Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для работы с этим руководством:
 
@@ -93,7 +93,7 @@ dotnet run
 
 ### <a name="create-a-sql-database-logical-server"></a>Создание логического сервера базы данных SQL
 
-В Cloud Shell создайте логический сервер базы данных SQL с помощью команды [az sql server create](/cli/azure/sql/server#create).
+В Cloud Shell создайте логический сервер базы данных SQL с помощью команды [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
 
 Замените заполнитель *\<server_name>* уникальным именем базы данных SQL. Это имя используется как часть конечной точки базы данных SQL (`<server_name>.database.windows.net`), поэтому оно должно быть уникальным для логических серверов в Azure. В нем могут использоваться только строчные буквы, цифры и дефис (-). Его длина должна быть от 3 до 50 знаков. Кроме того, замените *\<db_username >* на имя пользователя, а *\<db_password >* — на пароль по своему усмотрению. 
 
@@ -124,7 +124,7 @@ az sql server create --name <server_name> --resource-group myResourceGroup --loc
 
 ### <a name="configure-a-server-firewall-rule"></a>Настройка правил брандмауэра сервера
 
-Создайте [правило брандмауэра на уровне сервера базы данных Azure SQL](../../sql-database/sql-database-firewall-configure.md) с помощью команды [az sql server firewall create](/cli/azure/sql/server#create). Если для начального и конечного IP-адресов задано значение 0.0.0.0, брандмауэр открыт только для других ресурсов Azure. 
+Создайте [правило брандмауэра на уровне сервера базы данных Azure SQL](../../sql-database/sql-database-firewall-configure.md) с помощью команды [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Если для начального и конечного IP-адресов задано значение 0.0.0.0, брандмауэр открыт только для других ресурсов Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +132,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Создание базы данных
 
-Создайте на сервере базу данных с [уровнем производительности S0](../../sql-database/sql-database-service-tiers.md) с помощью команды [az sql db create](/cli/azure/sql/db#create).
+Создайте на сервере базу данных с [уровнем производительности S0](../../sql-database/sql-database-service-tiers.md) с помощью команды [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -166,7 +166,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persis
 
 ### <a name="configure-an-environment-variable"></a>Настройка переменной среды
 
-Чтобы задать строки подключения для приложения Azure, используйте команду [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) в Cloud Shell. В следующей команде замените *\<app name>* на собственное значение, а параметр *\<connection_string>* — на строку подключения, созданную ранее.
+Чтобы задать строки подключения для приложения Azure, используйте [az webapp конфигурации appsettings набор](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) в оболочке облака. В следующей команде замените *\<app name>* на собственное значение, а параметр *\<connection_string>* — на строку подключения, созданную ранее.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

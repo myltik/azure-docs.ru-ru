@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 151e7c2dc808a8fa117a0d7a1950185abe9e3152
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="model-management-setup"></a>Установка службы управления моделями
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="what-you-need-to-get-started"></a>Что необходимо для начала работы
 Для получения оптимального результата вам понадобятся права владельца на доступ к подписке Azure, в которую вы сможете развернуть модели.
-Интерфейс командной строки поставляется предварительно установленным в Azure Machine Learning Workbench и на [виртуальных машинах Azure для обработки и анализа данных](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+Интерфейс командной строки поставляется предварительно установленным в Azure Machine Learning Workbench и на [виртуальных машинах Azure для обработки и анализа данных](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Использование интерфейса командной строки
 Чтобы использовать интерфейсы командной строки (CLI) на платформе Workbench, щелкните **Файл** -] **Open CommandLine Interface** (Открыть интерфейс командной строки). 
@@ -167,5 +167,5 @@ az ml account modelmanagement set -n [your account name] -g [resource group it w
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-### <a name="next-steps"></a>Дальнейшие действия
+### <a name="next-steps"></a>Следующие шаги
 Воспользуйтесь одним из многих примеров в коллекции.

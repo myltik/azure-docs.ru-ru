@@ -14,13 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/20/2017
 ms.author: saveenr
-ms.openlocfilehash: 51c0bac3cd03965d002b3fe87804a0d7ea6cf63e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: a8acaa16265070308753c2a0df3a9e7b8a3a841a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Руководство. Начало работы с расширением возможностей U-SQL c Python
+
+## <a name="prerequisites"></a>Технические условия
+
+Прежде чем начать, убедитесь, что в вашей учетной записи аналитики Озера данных Azure устанавливаются расширения Python.
+
+* Перейдите к учетной записи аналитики Озера данных на портале Azure
+* В меню слева в списке **ПРИСТУПАЯ к работе** щелкните **примеры сценариев**
+* Нажмите кнопку **установить расширения U-SQL** затем **ОК**
+
+## <a name="overview"></a>Обзор 
 
 Расширения Python для U-SQL позволяют разработчикам выполнять код Python с массовым параллелизмом. В следующих примерах представлены основные шаги:
 
@@ -94,8 +104,8 @@ ms.lasthandoff: 11/28/2017
 ### <a name="input-and-output-size-limitations"></a>Ограничения размера входных и выходных данных
 Каждой вершине назначен ограниченный объем памяти. В настоящее время он составляет 6 ГБ на единицу аналитики. Так как входящие и исходящие кадры данных должны существовать в памяти кода Python, общий размер входных и выходных данных должен находиться в пределах 6 ГБ.
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
-* [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Разработка сценариев U-SQL с помощью средств озера данных для Visual Studio.](data-lake-analytics-data-lake-tools-get-started.md)
 * [Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
 * [Использование средств Azure Data Lake для Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: dfab0a371ffb2d8ea52bea2cdcf3d92d6c669a9d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Георепликация в реестре контейнеров Azure
 
@@ -94,7 +94,7 @@ ACR начинает синхронизацию образов между нас
 
 ## <a name="geo-replication-pricing"></a>Расходы, связанные с георепликацией
 
-Георепликация — это функция [SKU уровня "Премиум"](container-registry-skus.md#premium) реестра контейнеров Azure. При репликации реестра в необходимые регионы с вас взимается плата за реестры уровня "Премиум" для каждого региона.
+Георепликация — это функция [SKU уровня "Премиум"](container-registry-skus.md) реестра контейнеров Azure. При репликации реестра в необходимые регионы с вас взимается плата за реестры уровня "Премиум" для каждого региона.
 
 В предыдущем примере Contoso объединил два реестра в один, добавив реплики в восточную часть США, Центральную Канаду и Западную Европу. Contoso будет платить за уровень "Премиум" четыре раза в месяц. Для этого не нужна дополнительная настройка и управление. Теперь каждый регион извлекает свои образы локально, повышая производительность и надежность, без дополнительной исходящей платы за сеть начиная от западной части США и заканчивая Канадой и восточной частью США.
 

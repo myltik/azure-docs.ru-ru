@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: 3c7c57b05220d1e82c3baa8bc266e02d961a84be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Выполнение задачи-контейнера в службе "Экземпляры контейнеров Azure"
 
@@ -20,13 +20,13 @@ ms.lasthandoff: 12/05/2017
 
 Настраиваемая политика перезапуска позволяет указать, что контейнер нужно остановить после завершения всех его процессов. Так как работа экземпляров контейнеров оплачивается посекундно, в счет включаются только те вычислительные ресурсы, которые использовались во время выполнения контейнера с задачей.
 
-В этой статье представлены примеры, в которых используется Azure CLI. Для их выполнения потребуется [локально установленная](/cli/azure/install-azure-cli) версия Azure CLI 2.0.21 или выше. Также можно использовать CLI в [Azure Cloud Shell](../cloud-shell/overview.md).
+В этой статье представлены примеры, в которых используется Azure CLI. Необходимо иметь Azure CLI версии 2.0.21 или более поздней [установлены локально][azure-cli-install], или использовать CLI в [оболочки облако Azure](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Политика перезапуска контейнера
 
 При создании контейнера в экземплярах контейнера Azure вы можете выбрать один из трех режимов политики перезапуска.
 
-| Политика перезапуска   | Описание |
+| Политика перезапуска   | ОПИСАНИЕ |
 | ---------------- | :---------- |
 | `Always` | Контейнеры в группе контейнеров всегда перезапускаются. Эта политика применяется **по умолчанию**, если при создании контейнера не указать другую политику перезапуска. |
 | `Never` | Контейнеры в группе контейнеров никогда не перезапускаются. Такие контейнеры будут выполнены не более одного раза. |
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Пример выполнения до завершения
 
-Чтобы увидеть применение политики перезагрузки, создайте экземпляр контейнера из образа [aci/microsoft-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) и укажите для него политику перезапуска `OnFailure`. Контейнер из этого примера запускает скрипт Python, который по умолчанию анализирует текст пьесы [Гамлет](http://shakespeare.mit.edu/hamlet/full.html) Уильяма Шекспира, выдает в STDOUT 10 самых употребимых слов в тексте, и завершает работу.
+Чтобы увидеть политика перезагрузки в действии, создайте экземпляр контейнера из [aci/microsoft-wordcount] [ aci-wordcount-image] изображения и укажите `OnFailure` перезапустите политики. Контейнер из этого примера запускает скрипт Python, который по умолчанию анализирует текст пьесы [Гамлет](http://shakespeare.mit.edu/hamlet/full.html) Уильяма Шекспира, выдает в STDOUT 10 самых употребимых слов в тексте, и завершает работу.
 
 Запустите этот контейнер с помощью команды [az container create][az-container-create], как показано ниже.
 
@@ -168,7 +168,11 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 
 Дополнительные сведения о том, как сохранить выходные данные контейнеров, которые выполняются до завершения, вы найдете в статье [Подключение файлового ресурса Azure с помощью Экземпляров контейнеров Azure](container-instances-mounting-azure-files-volume.md).
 
-<!-- LINKS -->
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-cli-install]: /cli/azure/install-azure-cli

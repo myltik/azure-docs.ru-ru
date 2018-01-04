@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
 ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Устранение неполадок шлюза виртуальной сети и подключений с помощью Наблюдателя за сетями Azure и PowerShell
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-В этом сценарии предполагается, что вы создали Наблюдатель за сетями в соответствии с инструкциями в статье [Create an Azure Network Watcher instance](network-watcher-create.md) (Наблюдатель за сетями: создание экземпляра службы).
+В этом сценарии предполагается, что вы создали Наблюдатель за сетями в соответствии с инструкциями в статье [Create a Network Watcher](network-watcher-create.md) (Создание Наблюдателя за сетями).
 
 Список поддерживаемых типов шлюзов см. в разделе [Поддерживаемые типы шлюзов](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 
 В окне в разделе **Сведения** на вкладке **Состояние** отображается состояние в результате последнего устранения неполадок, выполненного в выбранном ресурсе. В результатах последней диагностики отображается число минут, прошедших с последнего выполнения.
 
-|Свойство  |Описание  |
+|Свойство  |ОПИСАНИЕ  |
 |---------|---------|
 |Ресурс     | Ссылка на ресурс.        |
 |Путь к хранилищу     |  Путь к учетной записи хранения и контейнеру, содержащему журналы (если они были созданы во время выполнения). Этот параметр не сохраняется после выхода из портала.        |

@@ -3,7 +3,7 @@ title: "Использование Azure DevTest Labs для виртуальн�
 description: "Сведения об использовании Azure DevTest Labs для виртуальных машин и тестовых сред PaaS."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: d4e2c334-643a-40c9-9051-625b8f39fc86
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: tarcher
-ms.openlocfilehash: 6926fe1be44c078482dd5073788e36d7ae77efef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: dc54b1638fbea577f383ead47b83d29e677cd78f
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Использование Azure DevTest Labs для виртуальных машин и тестовых сред PaaS
 
@@ -56,7 +56,7 @@ Azure DevTest Labs можно использовать для реализаци
    
    | Задача | Что вы узнаете |
    | --- | --- |
-   | [Настройка образов Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Сведения о том, как добавить образы Azure Marketplace в список разрешений, а также сделать доступными необходимые образы для тестировщиков.|
+   | [Настройка образы Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Сведения о том, как добавить образы Azure Marketplace в список разрешений, а также сделать доступными необходимые образы для тестировщиков.|
    | [Создание пользовательского образа](devtest-lab-create-template.md) |Сведения о том, как создать пользовательский образ путем предварительной установки необходимого ПО. С помощью пользовательского образа тестеры смогут быстро создавать виртуальные машины.|
    | [Дополнительные сведения о фабрике образов](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Как настроить и использовать фабрику образов (видео).|
 

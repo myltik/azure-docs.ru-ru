@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Создание расширенных отчетов с помощью пакета SDK службы Engagement для универсальных приложений для Windows
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 В этом разделе описаны дополнительные сценарии создания отчетов в универсальном приложении для Windows. В них описываются параметры, которые можно применить для приложения, созданного в [учебнике по началу работы](mobile-engagement-windows-store-dotnet-get-started.md) .
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 Прежде чем приступать к этому учебнику, необходимо изучить учебник [по началу работы](mobile-engagement-windows-store-dotnet-get-started.md) , в котором намеренно подобраны понятные и простые задания. В этом учебнике рассматриваются дополнительные параметры, доступные для выбора.

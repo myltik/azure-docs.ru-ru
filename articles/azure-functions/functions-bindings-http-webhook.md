@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 6b3da498a613d63515ecb624b87496cf536c0ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Привязки HTTP и webhook в функциях Azure
 
@@ -41,14 +41,14 @@ ms.lasthandoff: 11/30/2017
 
 Языковой пример см. в разделах:
 
-* [Предкомпилированный код C#](#trigger---c-example)
-* [Сценарий C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Скрипт C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Пример C# в триггере
 
-В следующем примере показана [предкомпилированная функция C#](functions-dotnet-class-library.md), выполняющая поиск параметра `name` в строке запроса или в тексте HTTP-запроса.
+В следующем примере показан [функции C#](functions-dotnet-class-library.md) , выполняющее поиск `name` параметр в строке запроса или тексте HTTP-запроса.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -235,14 +235,14 @@ module.exports = function(context, req) {
 
 Языковой пример см. в разделах:
 
-* [Предкомпилированный код C#](#webhook---c-example)
-* [Сценарий C#](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [Скрипт C# (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Пример веб-перехватчика в C#
 
-В следующем примере показана [предкомпилированная функция C#](functions-dotnet-class-library.md), которая отправляет HTTP 200 в ответ на универсальный запрос JSON.
+В следующем примере показан [функции C#](functions-dotnet-class-library.md) HTTP 200, отправляет в ответ на запрос универсального JSON.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Атрибуты триггера
 
-Для [предкомпилированных функций C#](functions-dotnet-class-library.md) используйте атрибут [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) атрибута, определенного в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 В параметрах конструктора атрибута можно задать уровень авторизации и допустимые методы HTTP. Имеются свойства для типа веб-перехватчика и шаблона пути. Дополнительные сведения об этих параметрах см. в разделе [Конфигурация триггера](#trigger---configuration). Вот как выглядит атрибут `HttpTrigger` в сигнатуре метода:
 
@@ -377,18 +377,19 @@ public static HttpResponseMessage Run(
 }
  ```
 
-Полный пример см. в разделе [Пример C# в триггере](#trigger---c-example).
+Полный пример см. в разделе [триггер - пример на C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Конфигурация триггера
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `HttpTrigger`.
 
-|свойство function.json | Свойство атрибута |Описание|
+
+|свойство function.json | Свойство атрибута |ОПИСАНИЕ|
 |---------|---------|----------------------|
 | **type** | Недоступно| Обязательное. Необходимо задать значение `httpTrigger`. |
 | **direction** | Недоступно| Обязательное. Необходимо задать значение `in`. |
 | **name** | Недоступно| Обязательное. Имя переменной, из которой в коде функции можно получить запрос или текст запроса. |
-| **authLevel** |  **AuthLevel** |Определяет, какие ключи (если они требуются) должны присутствовать в запросе, чтобы вызвать функцию. Уровень авторизации может принимать одно из следующих значений: <ul><li><code>anonymous</code>&mdash; — ключи API не требуются.</li><li><code>function</code>&mdash; — требуется ключ API для конкретной функции. Это значение используется по умолчанию, если не указано иное.</li><li><code>admin</code>&mdash; — требуется главный ключ.</li></ul> Дополнительные сведения см. в разделе [Ключи авторизации](#authorization-keys). |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Определяет, какие ключи (если они требуются) должны присутствовать в запросе, чтобы вызвать функцию. Уровень авторизации может принимать одно из следующих значений: <ul><li><code>anonymous</code>&mdash; — ключи API не требуются.</li><li><code>function</code>&mdash; — требуется ключ API для конкретной функции. Это значение используется по умолчанию, если не указано иное.</li><li><code>admin</code>&mdash; — требуется главный ключ.</li></ul> Дополнительные сведения см. в разделе [Ключи авторизации](#authorization-keys). |
 | **methods** |**Методы** | Массив методов HTTP, на которые отвечает функция. Если свойство не указано, функция отвечает на все методы HTTP. Ознакомьтесь с разделом о [настройке конечной точки HTTP](#trigger---customize-the-http-endpoint). |
 | **route** | **Route** | Шаблон маршрута, определяющий URL-адреса запросов, на которые отвечает функция. Если значение не указано, по умолчанию используется `<functionname>`. Дополнительные сведения см. в разделе о [настройке конечной точки HTTP](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Указывает, что триггер HTTP должен выступать в качестве получателя [веб-перехватчика](https://en.wikipedia.org/wiki/Webhook) для указанного поставщика. Если вы установите это свойство, не устанавливайте свойство `methods`. Тип веб-перехватчика может принимать одно из следующих значений:<ul><li><code>genericJson</code>&mdash; — конечная точка веб-перехватчика общего назначения без логики для конкретного поставщика. Этот параметр определяет, что принимаются только запросы HTTP POST с содержимым типа `application/json`.</li><li><code>github</code>&mdash; — функция отвечает на вызовы [веб-перехватчиков GitHub](https://developer.github.com/webhooks/). Не используйте свойство _authLevel_ вместе с веб-перехватчиками GitHub. Дополнительные сведения см. в этой статье, в разделе веб-перехватчики GitHub.</li><li><code>slack</code>&mdash; — функция отвечает на вызовы [веб-перехватчиков Slack](https://api.slack.com/outgoing-webhooks). Не используйте свойство _authLevel_ вместе с веб-перехватчиками Slack. Дополнительные сведения см. в разделе о веб-перехватчиках Slack далее в этой статье.</li></ul>|
@@ -539,7 +540,7 @@ module.exports = function (context, req) {
 
 ## <a name="output---configuration"></a>Выходная конфигурация
 
-Для предкомпилированных функций C# не предусмотрены свойства конфигурации привязки для выходных данных. Чтобы отправить HTTP-ответ, измените тип возвращаемого значения функции на `HttpResponseMessage` или `Task<HttpResponseMessage>`.
+Для C# библиотеки классов нет выходных данных конкретных привязку свойств конфигурации. Чтобы отправить HTTP-ответ, измените тип возвращаемого значения функции на `HttpResponseMessage` или `Task<HttpResponseMessage>`.
 
 Для других языков выходная привязка HTTP определяется как объект JSON в массиве `bindings` файла function.json, как показано в следующем примере.
 
@@ -553,7 +554,7 @@ module.exports = function (context, req) {
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json*.
 
-|Свойство  |Описание  |
+|Свойство  |ОПИСАНИЕ  |
 |---------|---------|
 | **type** |Нужно задать значение `http`. |
 | **direction** | Нужно задать значение `out`. |

@@ -3,7 +3,7 @@ title: "Использование тегов в формате JSON для пл
 description: "В этой статье демонстрируется использование строк JSON в тегах для автоматизации планирования запуска и завершения работы виртуальной машины."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9855921f4a3aa9cda8497b400d50a186d7162dc3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Сценарий службы автоматизации Azure: создание расписания запуска и завершения работы виртуальной машины Azure с помощью тегов в формате JSON
 Часто клиентам необходимо планировать запуск и завершение работы виртуальных машин, чтобы уменьшить затраты на подписку или соблюсти деловые и технические требования.
 
 Приведенный ниже сценарий позволяет настроить автоматические запуск и завершение работы виртуальных машин, используя тег Schedule на уровне группы ресурсов или виртуальной машины в Azure. Это расписание можно настроить с воскресенья по субботу с указанием времени запуска и времени завершения работы.
 
-Для реализации этой возможности используются некоторые готовые функции. К ним относятся:
+Для реализации этой возможности используются некоторые готовые функции. в частности такие:
 
 * [наборы масштабирования виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) с параметрами автомасштабирования, которые позволяют увеличивать или уменьшать масштаб;
 * [DevTest Labs](../devtest-lab/devtest-lab-overview.md) со встроенными возможностями планирования операций запуска и завершения работы.
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="download-the-runbooks-for-the-scenario"></a>Скачивание модулей Runbook для сценария
 Сценарий состоит из четырех модулей Runbook рабочего процесса PowerShell, которые можно скачать из [коллекции TechNet](https://gallery.technet.microsoft.com/Azure-Automation-Runbooks-84f0efc7) или репозитория [GitHub](https://github.com/paulomarquesdacosta/azure-automation-scheduled-shutdown-and-startup) для этого проекта.
 
-| Модуль Runbook | Описание |
+| Модуль Runbook | ОПИСАНИЕ |
 | --- | --- |
 | Test-ResourceSchedule |Проверяет расписание каждой виртуальной машины и выполняет завершение работы или запуск в зависимости от расписания |
 | Add-ResourceSchedule |Добавляет тег Schedule для виртуальной машины или группы ресурсов |
@@ -138,7 +138,7 @@ ms.lasthandoff: 10/11/2017
 
    ![Параметр тега виртуальной машины](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)
 
-3. Теги определяются следующей парой "ключ — значение". Введите **Schedule** в поле **Ключ** и вставьте строку JSON в поле **Значение**. Щелкните **Сохранить**. Новый тег должен появиться в списке тегов для ресурса.
+3. Теги определяются следующей парой "ключ — значение". Введите **Schedule** в поле **Ключ** и вставьте строку JSON в поле **Значение**. Выберите команду **Сохранить**. Новый тег должен появиться в списке тегов для ресурса.
 
    ![Тег Schedule виртуальной машины](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 

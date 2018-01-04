@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 58cdf029-bdc0-43c4-a469-b921c2a669bd
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: jeedes
-ms.openlocfilehash: b9aec6f8f293cdd31456a7f50e3efe792804c7c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e532659be9b8aef303a20900465d16a7641d8cfe
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Руководство: интеграция Azure Active Directory с Springer Link
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Springer Link, вам потребуется следующее:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Springer Link из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-springer-link-from-the-gallery"></a>Добавление Springer Link из коллекции
 Чтобы настроить интеграцию Springer Link с Azure AD, необходимо добавить Springer Link из коллекции в список управляемых приложений SaaS.
@@ -107,9 +107,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах единого входа Springer Link](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url1.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес `https://fsso.springer.com`.
+    a. В текстовом поле **Идентификатор** введите URL-адрес `https://fsso.springer.com`.
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`.    
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`.    
 
 4. Установите флажок **Показать дополнительные параметры URL-адресов**, если хотите настроить приложение для работы в режиме, инициируемом **поставщиком услуг**.
 
@@ -123,11 +123,11 @@ ms.lasthandoff: 10/11/2017
 
 6. Для создания URL-адреса **метаданных** выполните следующие действия.
 
-    а. Щелкните **Регистрация приложений**.
+    a. Щелкните **Регистрация приложений**.
     
     ![Настройка единого входа](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_appregistrations.png)
    
-    b. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
+    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
     
     ![Настройка единого входа](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_endpointicon.png)
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 10/11/2017
     
     ![Настройка единого входа](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_endpoint.png)
      
-    г) Теперь перейдите на страницу свойств **Springer Link** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
+    d. Теперь перейдите на страницу свойств **Springer Link** и скопируйте **идентификатор приложения** с помощью кнопки **Копировать**, а затем вставьте его в Блокнот.
  
     ![Настройка единого входа](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_appid.png)
 
@@ -171,13 +171,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-springerlink-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 

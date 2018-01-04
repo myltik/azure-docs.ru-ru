@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 34550ed33cd81bcbf5b405a5e5c09d25adf5e6ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 597ea68f063d02541132d275de815c1673369ae0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Публикация приложения HDInsight в Azure Marketplace
 Вы можете установить приложения Azure HDInsight в кластере HDInsight под управлением Linux. В этой статье описано, как опубликовать приложение HDInsight в Azure Marketplace. Общие сведения о публикации в Azure Marketplace см. в статье [Публикация предложения и управление им в Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 * [Установка сторонних приложений Hadoop в Azure HDInsight](hdinsight-apps-install-applications.md). Узнайте, как установить приложение HDInsight в кластерах.
 * [Установка пользовательских приложений Hadoop в Azure HDInsight](hdinsight-apps-install-custom-applications.md). Узнайте, как устанавливать и тестировать пользовательские приложения HDInsight.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Чтобы отправить пользовательское приложение в Marketplace, необходимо сначала [создать и протестировать его](hdinsight-apps-install-custom-applications.md).
 
 Также вы должны зарегистрировать учетную запись разработчика. Дополнительные сведения см. в статье [Публикация предложения и управление им в Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) и [Создание учетной записи разработчика Майкрософт](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
@@ -46,16 +46,14 @@ ms.lasthandoff: 10/11/2017
     "version": "0.0.1-preview",
     "clusterFilters": {
         "types": ["Hadoop", "HBase", "Storm", "Spark"],
-        "tiers": ["Standard", "Premium"],
-        "versions": ["3.4"]
+        "versions": ["3.6"]
     }
 }
 ```
 
-| Поле | Описание | Возможные значения |
+| Поле | ОПИСАНИЕ | Возможные значения |
 | --- | --- | --- |
 | types |Типы кластеров, совместимые с приложением. |Hadoop, HBase, Storm, Spark (или любое их сочетание) |
-| tiers |Уровни кластеров, совместимые с приложением. |"Стандартный", "Премиум" (или оба) |
 | versions |Версии кластеров HDInsight, совместимые с приложением. |3.4 |
 
 ## <a name="application-installation-script"></a>Сценарий установки приложения

@@ -4,7 +4,7 @@ description: "Эта статья представляет собой практ
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 8713fc7dd27023e1244ccb00673dd1652689baf5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 22b360aec8878925ebe8d2c67c76d275a42ca7a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C. Добавление ADFS в качестве поставщика удостоверений SAML с помощью пользовательских политик
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 В этой статье описывается выполнение входа для пользователей из учетной записи ADFS с помощью [пользовательских политик](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Выполните шаги, описанные в статье [Azure Active Directory B2C. Приступая к работе с настраиваемыми политиками](active-directory-b2c-get-started-custom.md).
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 
 5.  На странице **Specify Display Name** (Указание отображаемого имени) введите имя в поле **Отображаемое имя**. В поле **Примечания** введите описание для этого отношения доверия с проверяющей стороной и нажмите кнопку **Далее**.
     ![Указание отображаемого имени и примечаний](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-4.png)
-6.  необязательный параметр. Если у вас есть необязательный сертификат для шифрования маркера, на странице **Configure Certificate** (Настройка сертификата) щелкните **Обзор** для поиска файла сертификата, а затем нажмите кнопку **Далее**.
+6.  Необязательный элемент. Если у вас есть необязательный сертификат для шифрования маркера, на странице **Configure Certificate** (Настройка сертификата) щелкните **Обзор** для поиска файла сертификата, а затем нажмите кнопку **Далее**.
     ![Настройка сертификата](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-5.png)
 7.  На странице **Configure URL** (Настройка URL-адреса) установите флажок **Enable support for the SAML 2.0 WebSSO protocol** (Включить поддержку протокола SAML 2.0 WebSSO). В поле **Relying party SAML 2.0 SSO service URL** (URL-адрес службы SAML 2.0 SSO проверяющей стороны) введите URL-адрес конечной точки службы SAML для этого отношения доверия с проверяющей стороной и нажмите кнопку **Далее**.  Вставьте `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}` в поле **Relying party SAML 2.0 SSO service URL** (URL-адрес службы SAML 2.0 SSO проверяющей стороны). Замените {tenant} на имя вашего клиента (например, contosob2c.onmicrosoft.com), а {policy} — на имя политики расширений (например, B2C_1A_TrustFrameworkExtensions).
     > [!IMPORTANT]
@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
     Префикс `B2C_1A_` может быть добавлен автоматически.
 6.  В поле "Отправка файлов" выберите PFX-файл сертификата с закрытым ключом. Примечание. Это должен быть сертификат (с закрытым ключом), выданный и использованный для проверяющей стороны ADFS.
 ![Отправка ключа политики](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-cert.png)
-7.  Нажмите кнопку **Создать**
+7.  Нажмите кнопку **Создать**.
 8.  Убедитесь, что вы создали ключ `B2C_1A_ADFSSamlCert`.
 
 ## <a name="add-a-claims-provider-in-your-extension-policy"></a>Добавление поставщика утверждений в политику расширения

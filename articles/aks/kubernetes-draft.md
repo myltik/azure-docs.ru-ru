@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df5614d8a708b49ee1368c4d7983f45d29920fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Использование Draft со Службой контейнеров Azure (AKS)
 
-Draft является инструментом с открытым кодом, который помогает упаковывать и запускать код в кластере Kubernetes. Draft нацелен на цикл итераций разработки по мере разработки кода, но перед фиксированием в системе управления версиями. С помощью Draft можно быстро повторно развернуть приложение в Kubernetes при изменении кода. Дополнительные сведения о Draft см. в [документации по Draft на Github](https://github.com/Azure/draft/tree/master/docs).
+Draft является инструментом с открытым кодом, который помогает упаковывать и запускать код в кластере Kubernetes. Draft нацелен на цикл итераций разработки по мере разработки кода, но перед фиксированием в системе управления версиями. С помощью Draft можно быстро повторно развернуть приложение в Kubernetes при изменении кода. Дополнительные сведения о черновике см. в разделе [черновики документации на Github][draft-documentation].
 
 В этом документе описано использование Draft с кластером Kubernetes в AKS.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
-В действиях, описанных в этом документе, предполагается, что кластер AKS создан и с ним установлено соединение kubectl. Если вам требуются эти компоненты, см. статью [Deploy an Azure Container Service (AKS) cluster](./kubernetes-walkthrough.md) (Развертывание кластера Службы контейнера Azure (AKS)).
+В действиях, описанных в этом документе, предполагается, что кластер AKS создан и с ним установлено соединение kubectl. При необходимости эти элементы в разделе [краткое руководство AKS][aks-quickstart].
 
-Кроме того, необходим частный реестр Docker в реестре контейнеров Azure(ACR). Инструкции по развертыванию экземпляра ACR см. в статье [Создание реестра контейнеров с помощью Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
+Кроме того, необходим частный реестр Docker в реестре контейнеров Azure(ACR). Инструкции по развертыванию экземпляра записи управления Доступом см. в разделе [краткое руководство реестра контейнера Azure][acr-quickstart].
 
 ## <a name="install-helm"></a>Установка Helm
 
 Интерфейс командной строки Helm — это клиент, который выполняется в системе разработки и позволяет запускать и останавливать приложения с помощью чартов Helm, а также управлять ими.
 
-Чтобы установить интерфейс командной строки Helm на компьютере Mac, выполните команду `brew`. Дополнительные параметры установки см. в статье [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) (Установка Helm).
+Чтобы установить интерфейс командной строки Helm на компьютере Mac, выполните команду `brew`. Дополнительные параметры установки, в разделе [Установка Helm][install-helm].
 
 ```console
 brew install kubernetes-helm
@@ -54,7 +54,7 @@ Bash completion has been installed to:
 
 CLI Draft — это клиент, который выполняется в системе разработки и позволяет быстро развертывать код в кластер Kubernetes.
 
-Чтобы установить интерфейс командной строки Draft на компьютере Mac, выполните команду `brew`. Дополнительные параметры установки см. в [руководстве по установке Draft](https://github.com/Azure/draft/blob/master/docs/install.md).
+Чтобы установить интерфейс командной строки Draft на компьютере Mac, выполните команду `brew`. Дополнительные параметры установки в разделе, [руководство по установке черновик][install-draft].
 
 ```console
 brew install draft
@@ -178,7 +178,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 ## <a name="expose-application"></a>Предоставление приложения
 
-При тестировании приложения в Kubernetes можно предоставить доступ к приложению через Интернет. Это можно сделать с помощью службы Kubernetes с типом [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) или с помощью [входящего контроллера](https://kubernetes.io/docs/concepts/services-networking/ingress/). В этом документе описано использование службы Kubernetes.
+При тестировании приложения в Kubernetes можно предоставить доступ к приложению через Интернет. Это можно сделать с помощью Kubernetes службы с типом [Подсистема балансировки нагрузки] [ kubernetes-service-loadbalancer] или [входящих контроллера][kubernetes-ingress]. В этом документе описано использование службы Kubernetes.
 
 
 Сначала пакет Draft необходимо обновить, чтобы указать, что служба с типом `LoadBalancer` может быть создана. Чтобы сделать это, необходимо обновить тип службы в файле `values.yaml`.
@@ -302,4 +302,15 @@ Hello World, I'm Java - Draft Rocks!
 Дополнительные сведения о Draft см. в документации Draft на GitHub.
 
 > [!div class="nextstepaction"]
-> [Документация по Draft](https://github.com/Azure/draft/tree/master/docs)
+> [Черновик документации][draft-documentation]
+
+<!-- LINKS - external -->
+[draft-documentation]: https://github.com/Azure/draft/tree/master/docs
+[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
+[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
+
+<!-- LINKS - internal -->
+[acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-quickstart]: ./kubernetes-walkthrough.md

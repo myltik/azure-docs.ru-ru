@@ -5,7 +5,7 @@ services: active-directory
 keywords: "защита идентификации Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности, глоссарий"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5b6d2db0a8df31fd159053cceab6b9b320ffd8cb
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Глоссарий по защите идентификации Azure Active Directory
 ### <a name="at-risk-user"></a>Под угрозой (пользователь)
@@ -139,7 +139,7 @@ ms.lasthandoff: 10/18/2017
 ### <a name="sign-in-from-unfamiliar-location"></a>Вход из неизвестного расположения
 Событие риска, возникающее, когда пользователь успешно выполняет вход из нового расположения (IP-адрес, широта и долгота и ASN).
 
-### <a name="sign-in-risk"></a>Риск входа
+### <a name="sign-in-risk"></a>Риск при входе
 См. "Уровень риска" (вход)
 
 ### <a name="sign-in-risk-policy"></a>Политика риска входа
@@ -160,6 +160,6 @@ ms.lasthandoff: 10/18/2017
 ### <a name="vulnerability"></a>Уязвимость
 Конфигурация или условие в Azure Active Directory, которое делает каталог уязвимым к атакам или угрозам.
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
 

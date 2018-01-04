@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 9b35572b3275b5a2c5e89adf4890a2659d09626e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/28/2017
 
 Сведения о том, как перенести активный веб-сайт и его DNS-имя домена в службу приложений, см. в статье [Перенос активного DNS-имени в службу приложений Azure](app-service-custom-domain-name-migrate.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для работы с этим руководством:
 
@@ -58,6 +58,8 @@ ms.lasthandoff: 11/28/2017
 ## <a name="prepare-the-app"></a>Подготовка приложения
 
 Чтобы сопоставить настраиваемое DNS-имя с веб-приложением, его уровень [плана службы приложений](https://azure.microsoft.com/pricing/details/app-service/) должен быть платным (**Общий**, **Базовый**, **Стандартный** или **Премиум**). На этом шаге следует убедиться, что приложение службы приложений находится в поддерживаемой ценовой категории.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a name="sign-in-to-azure"></a>Вход в Azure
 
@@ -145,7 +147,7 @@ ms.lasthandoff: 11/28/2017
 
 ![Запись CNAME добавлена](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Если вы пропустили шаг или допустили опечатку где-либо ранее, появится ошибка проверки в нижней части страницы.
+Если вы пропустили шаг или где-то допустили опечатку, в нижней части страницы появится сообщение об ошибке проверки.
 
 ![Ошибка проверки](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
@@ -182,7 +184,7 @@ ms.lasthandoff: 11/28/2017
 
 | Тип записи | Узел | Значение |
 | - | - | - |
-| Файл , | `@` | IP-адрес из раздела [Копирование IP-адреса приложения](#info). |
+| A | `@` | IP-адрес из раздела [Копирование IP-адреса приложения](#info). |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
 После добавления этих записей страница управления записями DNS выглядит так:
@@ -215,7 +217,7 @@ ms.lasthandoff: 11/28/2017
 
 ![Запись добавлена](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
-Если вы пропустили шаг или допустили опечатку где-либо ранее, появится ошибка проверки в нижней части страницы.
+Если вы пропустили шаг или где-то допустили опечатку, в нижней части страницы появится сообщение об ошибке проверки.
 
 ![Ошибка проверки](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
@@ -324,7 +326,7 @@ Set-AzureRmWebApp `
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * Сопоставление поддомена с помощью записи CNAME.

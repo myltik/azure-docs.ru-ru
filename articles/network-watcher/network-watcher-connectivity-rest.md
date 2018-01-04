@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
 ms.openlocfilehash: 802658b50d8e398451507ad11c76fedd0db697df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Проверка возможности подключения с помощью службы Azure "Наблюдатель за сетями" на портале Azure
 
@@ -37,9 +37,9 @@ ms.lasthandoff: 10/11/2017
 
 * виртуальные машины, возможность подключения к которым необходимо проверить.
 
-Чтобы вызвать REST API при помощи PowerShell, потребуется ARMClient. Пакет ARMClient можно скачать на сайте [Chocolatey](https://chocolatey.org/packages/ARMClient).
+Чтобы вызвать REST API при помощи командлетов PowerShell, вам потребуется ARMClient. Пакет ARMClient можно скачать на сайте [Chocolatey](https://chocolatey.org/packages/ARMClient).
 
-В этом сценарии предполагается, что вы создали Наблюдатель за сетями в соответствии с инструкциями в статье [Create an Azure Network Watcher instance](network-watcher-create.md) (Наблюдатель за сетями: создание экземпляра службы).
+В этом сценарии предполагается, что вы создали Наблюдатель за сетями в соответствии с инструкциями в статье [Create a Network Watcher](network-watcher-create.md) (Создание Наблюдателя за сетями).
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
@@ -69,7 +69,7 @@ FeatureName                             ProviderName      RegistrationState
 AllowNetworkWatcherConnectivityCheck    Microsoft.Network Registered
 ```
 
-## <a name="log-in-with-armclient"></a>Вход с помощью ARMClient
+## <a name="log-in-with-armclient"></a>выполните вход с помощью ARMClient;
 
 Войдите в ARMClient, используя учетные данные Azure.
 
@@ -79,7 +79,7 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Получение виртуальной машины
 
-Выполните следующий сценарий, чтобы получить сведения о виртуальной машине. Эти сведения потребуются для подключения. 
+Выполните следующий скрипт, чтобы получить сведения о виртуальной машине. Эти сведения потребуются для подключения. 
 
 Выполните приведенный ниже код, указав в нем значения следующих переменных:
 

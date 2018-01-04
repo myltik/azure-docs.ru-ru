@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/12/2017
 ms.author: rickbyh
-ms.openlocfilehash: b6a7a1d6e7c9f8a921dc73bb3bf629de71f85acf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 3493ac89775bfccc0139c5cbefc046e9fef35bde
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Использование аутентификации Azure Active Directory для аутентификации с помощью базы данных SQL или хранилища данных SQL
 Проверка подлинности Azure Active Directory — это механизм подключения к Базе данных SQL Microsoft Azure и [хранилищу данных SQL](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) с помощью удостоверений в Azure Active Directory (Azure AD). С помощью проверки подлинности Azure AD можно централизованно управлять удостоверениями пользователей базы данных и другими службами Майкрософт. Централизованное управление удостоверениями позволяет использовать единое расположение для управления пользователями и упрощает управление разрешениями. Это дает такие преимущества:
@@ -100,7 +100,7 @@ ms.lasthandoff: 11/14/2017
 * [Драйвер Microsoft JDBC 6.0 для SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) поддерживает проверку подлинности Azure AD. Вы можете также ознакомиться с [настройкой свойств подключения](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase не поддерживает проверку подлинности Azure AD.   
 * База данных SQL поддерживает проверку подлинности Azure AD на портале Azure. Для этого используются колонки **Импорт базы данных** и **Экспорт базы данных**. Импорт и экспорт с использованием проверки подлинности Azure AD также можно выполнить с помощью команды PowerShell.   
-* Проверка подлинности Azure AD для базы данных SQL и хранилища данных SQL поддерживается с помощью CLI. Сведения о настройке и управлении Azure AD см. в статьях [Настройка аутентификации Azure Active Directory и управление ею с использованием базы данных SQL или хранилища данных SQL](sql-database-aad-authentication-configure.md) и [SQL Server - az sql server](https://docs.microsoft.com/en-us/cli/azure/sql/server).
+* Проверка подлинности Azure AD для базы данных SQL и хранилища данных SQL поддерживается с помощью CLI. Сведения о настройке и управлении Azure AD см. в статьях [Настройка аутентификации Azure Active Directory и управление ею с использованием базы данных SQL или хранилища данных SQL](sql-database-aad-authentication-configure.md) и [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - Сведения о создании и заполнении каталога Azure AD, а также настройке Azure AD с помощью базы данных SQL Azure или хранилища данных SQL см. в статье [Настройка аутентификации Azure Active Directory и управление ею с использованием базы данных SQL или хранилища данных SQL](sql-database-aad-authentication-configure.md).

@@ -16,10 +16,10 @@ ms.custom: security
 ms.date: 08/21/2017
 ms.author: rortloff;barbkess
 ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Аудит в хранилище данных SQL Azure
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 5. Нажмите кнопку **ОК** , чтобы сохранить сведения о конфигурации хранилища.
 6. В разделе **ВЕДЕНИЕ ЖУРНАЛА ПО СОБЫТИЯМ** щелкните **УСПЕШНО** и **СБОЙ**, чтобы включить в журнал все события, или выберите отдельные категории событий.
 7. При настройке аудита для базы данных может потребоваться изменить строку подключения вашего клиента, чтобы убедиться в правильном сборе данных аудита. Ознакомьтесь с разделом [Изменение FDQN сервера в строке подключения](sql-data-warehouse-auditing-downlevel-clients.md) , чтобы узнать больше о подключениях клиентов нижнего уровня.
-8. Нажмите кнопку **ОК**.
+8. Последовательно выберите **ОК**.
 
 ## <a id="subheading-3"></a>Анализ журналов и отчетов аудита
 Журналы аудита объединяются в коллекцию таблиц хранилища с префиксом **SQLDBAuditLogs** в учетной записи хранилища Azure, выбранной во время установки. Просматривать файлы журнала можно с помощью таких инструментов, как <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">обозреватель хранилищ Azure</a>.

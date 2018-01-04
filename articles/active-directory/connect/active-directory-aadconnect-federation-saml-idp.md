@@ -3,7 +3,7 @@ title: "Azure AD Connect: использование поставщика удо
 description: "В этом разделе описывается использование поставщика удостоверений, совместимого с SAML 2.0, для единого входа."
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 048697f87383662506fb851bb3ea510c2cddf043
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Использование поставщика удостоверений (IdP) SAML 2.0 для единого входа
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="required-attributes"></a>Требуемые атрибуты
 В таблице ниже приведены требования к определенным атрибутам в сообщении SAML 2.0.
  
-|Атрибут|Описание|
+|Атрибут|ОПИСАНИЕ|
 | ----- | ----- |
 |NameID|Значение этого утверждения должно совпадать с идентификатором ImmutableID пользователя в Azure AD. Это должно быть буквенно-цифровое значение длиной до 64 символов. Все небезопасные символы HTML должны кодироваться, например, символ "+" должен быть представлен как ".2B".|
 |IDPEmail|Имя субъекта-пользователя (UPN) приводится в ответе SAML в виде элемента с именем IDPEmail. Это атрибут UserPrincipalName (UPN) пользователя в Azure AD и Office 365. Имя субъекта-пользователя указывается в формате адреса электронной почты. Значение UPN в Windows Office 365 (Azure Active Directory).|
@@ -263,7 +263,7 @@ ms.lasthandoff: 10/11/2017
 2.  Щелкните в поле "Пароль". Если единый вход настроен, поле "Пароль" станет темнее и отобразится следующее сообщение: "Вам нужно войти на веб-сайт <your company>".
 3.  Щелкните ссылку "Войти на веб-сайт <your company>". Если вход возможен, то единый вход настроен.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 
 - [Управление службами федерации Active Directory и их настройка с помощью Azure AD Connect](active-directory-aadconnect-federation-management.md)

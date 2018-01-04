@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
 ms.openlocfilehash: 28a7fcb3e08a9c4b6a27e9fbc8d3ebae309adc62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-existing-application-gateway-for-hosting-multiple-web-applications"></a>Настройка шлюза приложений для размещения нескольких веб-приложений
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 
 Требуется отдельный внутренний пул для каждого сайта, который поддерживает шлюз приложений. В данном случае создаются 2 пула: один для contoso11.com и второй для fabrikam11.com.
 
-### <a name="step-1"></a>Шаг 1.
+### <a name="step-1"></a>Шаг 1
 
 На портале Azure (https://portal.azure.com) перейдите к существующему шлюзу приложений. Выберите **Пулы серверной части** и нажмите кнопку **Добавить**
 

@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cad36fdaf0e7b151809cf07ede10abd1abec99d0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Использование расширения VMAccess для сброса пароля или ключа SSH, исправления конфигурации SSH и проверки согласованности диска виртуальной машины Linux
 Если вы не можете подключиться к виртуальной машине Linux в Azure из-за утерянного пароля, неправильного ключа SSH или проблем с конфигурацией SSH, воспользуйтесь расширением VMAccessForLinux с интерфейсом командной строки Azure, чтобы сбросить пароль или ключ SSH либо исправить конфигурацию SSH и проверить согласованность диска. 
 
 > [!IMPORTANT] 
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Узнайте, как [выполнить эти действия с помощью модели Resource Manager](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Узнайте, как [выполнить эти действия с помощью модели Resource Manager](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
 Благодаря Azure CLI команду **azure vm extension set** можно использовать прямо в интерфейсе командной строки (это может быть Bash, окно терминала, командная строка) для доступа к командам. Выполните команду **azure help vm extension set** для получения подробных сведений об использовании расширения.
 
@@ -41,10 +41,10 @@ ms.lasthandoff: 10/11/2017
 * [проверка согласованности добавленных дисков](#checkdisk)
 * [восстановление дисков, добавленных на виртуальной машине Linux.](#repairdisk)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Выполните следующие действия:
 
-* Вам также нужно [установить интерфейс командной строки Azure](../../../cli-install-nodejs.md) и [подключиться к своей подписке](../../../xplat-cli-connect.md) для использования ресурсов Azure, связанных с вашей учетной записью.
+* Вам также нужно [установить интерфейс командной строки Azure](../../../cli-install-nodejs.md) и [подключиться к своей подписке](/cli/azure/authenticate-azure-cli) для использования ресурсов Azure, связанных с вашей учетной записью.
 * Задайте режим, необходимый для классической модели развертывания, введя в командной строке следующее:
     ``` 
         azure config mode asm

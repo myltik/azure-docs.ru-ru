@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: f2dca5ac40dff077f9e5ce983b15fcb5b2624a14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Управление ресурсами отдельной базы данных в Базе данных SQL Azure
 
@@ -35,19 +35,25 @@ ms.lasthandoff: 10/31/2017
 
 ![Настройка уровня служб и производительности](./media/sql-database-single-database-resources/change-service-tier.png)
 
+Нажмите кнопку **Обзор** для мониторинга и отменить текущую операцию.
+
+![Отменить операцию](./media/sql-database-single-database-resources/cancel-operation.png)
+
 > [!IMPORTANT]
 > Выбирая уровень служб P11 или P15, ознакомьтесь с разделом [Текущие ограничения баз данных P11 и P15 с максимальным размером 4 ТБ](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 >
 
 ## <a name="manage-single-database-resources-using-powershell"></a>Управление ресурсами отдельной базы данных с помощью PowerShell
 
-Чтобы определить или изменить уровни служб, уровни производительности и объем хранилища баз данных SQL Azure с помощью PowerShell, используйте приведенные командлеты PowerShell. Если вам нужно выполнить установку или обновление PowerShell, прочитайте статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Чтобы определить или изменить уровни служб, уровни производительности и объем хранилища баз данных SQL Azure с помощью PowerShell, используйте приведенные командлеты PowerShell. Если вам нужно выполнить установку или обновление PowerShell, см. статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-| Командлет | Описание |
+| Командлет | ОПИСАНИЕ |
 | --- | --- |
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Создает базу данных. |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Получает одну или несколько баз данных.|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Определяет свойства базы данных или перемещает ее в эластичный пул. Например, можно использовать свойство **MaxSizeBytes**, чтобы задать максимальный размер базы данных.|
+|[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|Возвращает состояние операции с базой данных. |
+|[STOP-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|Отменяет операцию асинхронного обновления в базе данных.|
 
 
 > [!TIP]
@@ -57,14 +63,15 @@ ms.lasthandoff: 10/31/2017
 
 Чтобы определить или изменить уровни служб, уровни производительности и объем хранилища баз данных SQL Azure с помощью Azure CLI, используйте следующие команды [Azure CLI для базы данных SQL](/cli/azure/sql/db). Запускайте интерфейс командной строки в браузере с помощью [Cloud Shell](/azure/cloud-shell/overview) либо [установите](/cli/azure/install-azure-cli) его на платформе macOS, Linux или Windows. Изучите дополнительные сведения о создании [эластичных пулов SQL](sql-database-elastic-pool.md) и управлении ими.
 
-| Командлет | Описание |
+| Командлет | ОПИСАНИЕ |
 | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Создает правило брандмауэра для сервера.|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Выводит список правил брандмауэра на сервере.|
 |[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Отображает сведения о правиле брандмауэра.|
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Обновляет правило брандмауэра.|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Удаляет правило брандмауэра.|
-
+|[Список op AZ sql db](/cli/azure/sql/db/op?#az_sql_db_op_list)|Возвращает список операций, выполняемых в базе данных.|
+|[Отмена op db sql AZ](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Отменяет асинхронную операцию в базе данных.|
 
 > [!TIP]
 > В этом примере скрипт Azure CLI масштабирует отдельную базу данных SQL Azure до другого уровня производительности после запроса на получение сведений о размере базы данных. См. дополнительные сведения об [использовании CLI для мониторинга и масштабирования отдельной базы данных SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -74,7 +81,7 @@ ms.lasthandoff: 10/31/2017
 
 Чтобы определить или изменить уровни служб, уровни производительности и объем хранилища баз данных SQL Azure с помощью Transact-SQL, используйте следующие команды Transact-SQL. Можно выполнить эти команды на портале Azure, в [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) или любой другой программе, которая может подключаться к серверу базы данных SQL Azure и передавать команды Transact-SQL. 
 
-| Команда | Описание |
+| Get-Help | ОПИСАНИЕ |
 | --- | --- |
 |[CREATE DATABASE (база данных SQL Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Создает базу данных. Для создания базы данных требуется подключение к базе данных master.|
 | [ALTER DATABASE (база данных SQL Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Изменяет базу данных SQL Azure. |
@@ -92,7 +99,7 @@ ALTER DATABASE <myDatabaseName>
 
 Чтобы задать или изменить уровни служб, уровни производительности и объем хранилища баз данных используйте следующие команды REST API.
 
-| Команда | Описание |
+| Get-Help | ОПИСАНИЕ |
 | --- | --- |
 |[Базы данных: создание или обновление](/rest/api/sql/databases/createorupdate)|Создает новую базу данных или обновляет имеющуюся.|
 |[Базы данных: получение](/rest/api/sql/databases/get)|Получает базу данных.|
@@ -102,6 +109,7 @@ ALTER DATABASE <myDatabaseName>
 |[Базы данных: вывод списка по рекомендуемому эластичному пулу](/rest/api/sql/databases/listbyrecommendedelasticpool)|Возвращает список баз данных в рекомендуемом эластичном пуле.|
 |[Базы данных: вывод списка по серверу](/rest/api/sql/databases/listbyserver)|Возвращает список баз данных на сервере.|
 |[Базы данных: обновление](/rest/api/sql/databases/update)|Обновляет имеющуюся базу данных.|
+|[Операции — список](/rest/api/sql/Operations/List)|Список всех доступных операций SQL Rest API.|
 
 
 

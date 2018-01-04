@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Управление паролями Active Directory, управление паролями, самостоятельный сброс пароля Azure AD"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ae1e6c34b610aff245e051454269f0b8619b54c7
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
-ms.translationtype: HT
+ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Политики и ограничения для паролей в Azure Active Directory
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/21/2017
 | --- | --- |
 | Допустимые символы |<ul><li>A–Z</li><li>a–z</li><li>0–9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Недопустимые символы |<ul><li>Знаки Юникода.</li><li>Пробелы.</li><li> Только надежные пароли: не могут содержать знак точки "." непосредственно перед знаком "@".</li></ul> |
-| Ограничения для пароля |<ul><li>От 8 до 16 знаков.</li><li>Только надежные пароли: необходимо выполнить 3 из 4 следующих условий:<ul><li>строчные буквы;</li><li>прописные буквы;</li><li>числа (0–9);</li><li>символы (см. ограничения для пароля выше).</li></ul></li></ul> |
+| Ограничения для пароля |<ul><li>От 8 до 16 знаков.</li><li>Только надежные пароли: необходимо выполнить 3 из 4 следующих условий:<ul><li>Символы нижнего регистра.</li><li>прописные буквы;</li><li>числа (0–9);</li><li>символы (см. ограничения для пароля выше).</li></ul></li></ul> |
 | Длительность срока действия пароля |<ul><li>Значение по умолчанию: **90** дней.</li><li>Значение можно изменить с помощью командлета `Set-MsolPasswordPolicy` из модуля Azure Active Directory для Windows PowerShell.</li></ul> |
 | Уведомление об окончании срока действия пароля |<ul><li>Значение по умолчанию: **14** дней (до истечения срока действия пароля).</li><li>Это значение можно настроить с помощью командлета `Set-MsolPasswordPolicy`.</li></ul> |
 | Срок действия пароля |<ul><li>Значение по умолчанию: **false** дней (означает, что включен срок действия пароля).</li><li>Это значение можно настроить для каждой учетной записи пользователя с помощью командлета `Set-MsolUser`.</li></ul> |
@@ -150,7 +150,7 @@ ms.lasthandoff: 11/21/2017
 
 Дополнительные сведения о сбросе пароля с помощью Azure AD см. в следующих статьях:
 
-* [Как развернуть самостоятельный сброс пароля](active-directory-passwords-best-practices.md)
+* [Как развернуть самостоятельный сброс пароля?](active-directory-passwords-best-practices.md)
 * [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
 * [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
 * [Требования к лицензированию самостоятельного сброса пароля в Azure AD](active-directory-passwords-licensing.md)

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 61179c5bf29ed2c338b45ba909ec01237806cf26
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Управлением планом службы приложений в Azure
 
-[План службы приложений](azure-web-sites-web-hosting-plans-in-depth-overview.md) предоставляет ресурсы, которые нужны для выполнения приложений службы приложений. Это пошаговое руководство описывает процессы управления планом службы приложений. 
+[План службы приложений](azure-web-sites-web-hosting-plans-in-depth-overview.md) предоставляет ресурсы, которые нужны для выполнения приложений службы приложений. Это пошаговое руководство описывает процессы управления планом службы приложений.
 
 ## <a name="create-an-app-service-plan"></a>Создание плана службы приложений
 
@@ -68,6 +68,8 @@ ms.lasthandoff: 11/17/2017
 > 
 
 ![Селектор планов службы приложений.][change]
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Каждый план имеет свою ценовую категорию. Например, при изменении уровня сайта с **Бесплатный** на **Стандартный** все назначенные ему приложения получат доступ к функциям и ресурсам уровня **Стандартный**. Но перемещение приложения в план более низкого уровня приведет к недоступности некоторых возможностей. Если ваше приложение использует компонент, который недоступен в целевом плане, вы получите сообщение об ошибке с информацией о том, какой используемый компонент станет недоступен в новом плане. Например, если ваше приложение использует SSL-сертификаты, может появиться такое сообщение об ошибке: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`. Чтобы устранить такую проблему, измените ценовую категорию целевого плана на **базовую** или более высокую или удалите из приложения все соединения, использующие SSL. После этого вы сможете переместить приложение в новый план.
 
