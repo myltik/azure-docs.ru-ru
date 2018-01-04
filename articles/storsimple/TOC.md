@@ -90,8 +90,7 @@
 
 ### управление
 
-#### 
-            [Использование службы StorSimple Manager](storsimple-8000-manager-service-administration.md)
+#### [Использование службы StorSimple Manager](storsimple-8000-manager-service-administration.md)
 ##### [Восстановление из архива](storsimple-8000-restore-from-backup-set-u2.md)
 ##### [Клонирование тома](storsimple-8000-clone-volume-u2.md)
 ##### [Удаленное подключение к устройству](storsimple-8000-remote-connect.md)
