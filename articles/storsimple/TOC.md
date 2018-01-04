@@ -10,7 +10,7 @@
 #### [Изучение ограничений](storsimple-ova-limits.md)
 #### [Анализ рекомендаций](storsimple-ova-best-practices.md)
 
-### Развернуть
+### Развертывание
 #### [Подготовка к развертыванию](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### 
             [Развертывание службы StorSimple Manager](storsimple-virtual-array-manage-service.md)
@@ -39,7 +39,6 @@
 #### [Управление записями ACR](storsimple-virtual-array-manage-acrs.md)
 #### [Управление заданиями](storsimple-virtual-array-manage-jobs.md)
 #### [Изменение пароля устройства](storsimple-virtual-array-change-device-admin-password.md)
-#### [Настройка MPIO на узле Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
 #### [Мониторинг с использованием оповещений](storsimple-virtual-array-manage-alerts.md)
 #### [Диагностирование и устранение неполадок](storsimple-virtual-array-diagnose-problems.md)
 #### [Регистрация запроса на техническую поддержку](storsimple-virtual-array-log-support-ticket.md)
@@ -79,7 +78,7 @@
 #### [Распаковка, установка в стойку, подключение кабелей 8600](storsimple-8600-hardware-installation.md)
 #### [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Развернуть
+### Развертывание
 #### [Служба диспетчера устройств StorSimple](storsimple-8000-manage-service.md)
 #### [Физическое устройство в Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Физическое устройство на портале управления](storsimple-8000-deployment-walkthrough-gov-u2.md)
@@ -89,7 +88,7 @@
 
 ## Практическое руководство
 
-### Управление
+### управление
 
 #### 
             [Использование службы StorSimple Manager](storsimple-8000-manager-service-administration.md)
@@ -153,7 +152,7 @@
 #### [StorSimple с Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
 #### [Распределенное глобальное пространство имен](https://www.microsoft.com/download/details.aspx?id=45507)
 
-### Монитор
+### Мониторинг
 #### [Использование сводки по службе](storsimple-8000-service-dashboard.md)
 #### [Использование сводки по устройству](storsimple-8000-device-dashboard.md)
 #### [Использование диаграмм мониторинга](storsimple-8000-monitor-device.md)
@@ -201,7 +200,7 @@
 #### [Выпуск общедоступной версии](storsimple-july-2014-release-notes.md)
 
 ## Справочные материалы
-### [ИНТЕРФЕЙС REST API](https://docs.microsoft.com/rest/api/storsimple)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell для командлетов StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 
@@ -210,7 +209,7 @@
 ## Обзор
 ### [Что из себя представляет это решение?](storsimple-data-manager-overview.md)
 
-## Приступая к работе
+## Начало работы
 ### [Использование диспетчера данных StorSimple](storsimple-data-manager-ui.md)
 
 ## Практическое руководство
@@ -223,7 +222,7 @@
 ## Обзор
 ### [Что из себя представляет это решение?](storsimple-partner-csp-overview.md)
 
-## Приступая к работе
+## Начало работы
 ### [Развертывание виртуального массива для CSP](storsimple-partner-csp-deploy.md)
 
 ## Заметки о выпуске
