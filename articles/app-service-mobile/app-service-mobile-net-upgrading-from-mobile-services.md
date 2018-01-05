@@ -3,8 +3,8 @@ title: "Обновление приложения мобильных служб 
 description: "Узнайте, как без труда обновить приложение мобильных служб до мобильного приложения службы приложений."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 81c8ba6245565368eab4cdaca297ff7656180605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Обновление существующего приложения мобильной службы Azure .NET до службы приложений
 Мобильное приложение службы приложений — это новый способ сборки мобильных приложений с помощью Microsoft Azure. Дополнительные сведения см. в статье [Общие сведения о мобильных приложениях].
@@ -150,7 +150,7 @@ ms.lasthandoff: 10/11/2017
 
 В iOS необходимо изменить схему основных данных для сущностей данных в соответствии с приведенными ниже условиями. Обратите внимание, что у свойств `createdAt`, `updatedAt` и `version` больше нет префикса `ms_`.
 
-| Атрибут | Тип | Примечание. |
+| Атрибут | type | Примечание |
 | --- | --- | --- |
 | id |Строка, помеченная как обязательная |первичный ключ в удаленном хранилище |
 | дата создания |Дата |(необязательно) сопоставляется с системным свойством createdAt |

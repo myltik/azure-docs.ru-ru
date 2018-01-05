@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 978af1a57a5fc3d9c95d517288a074c636874984
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Обработка данных, экспортированных из Application Insights, при помощи Stream Analytics
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) — идеальное средство для обработки данных, [экспортированных из Application Insights](app-insights-export-telemetry.md). Stream Analytics может извлекать данные из различных источников. Это средство может преобразовывать и фильтровать данные и затем отправлять их в различные приемники.
@@ -76,27 +76,27 @@ ms.lasthandoff: 11/01/2017
 События записываются в JSON-файлы больших двоичных объектов. Каждый файл может содержать одно или несколько событий. Поэтому нам нужна возможность считывать данные событий и отфильтровывать необходимые поля. С данными можно выполнять любые действия, но сейчас мы будем использовать Stream Analytics для перемещения данных в Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Создание экземпляра Azure Stream Analytics
-В [классическом портале Azure](https://manage.windowsazure.com/)выберите службу Azure Stream Analytics и создайте новое задание Stream Analytics:
+Из [портал Azure](https://portal.azure.com/), выберите службу Azure Stream Analytics и создайте новое задание Stream Analytics:
 
-![](./media/app-insights-export-stream-analytics/090.png)
+![](./media/app-insights-export-stream-analytics/SA001.png)
 
-![](./media/app-insights-export-stream-analytics/100.png)
+![](./media/app-insights-export-stream-analytics/SA002.png)
 
-При создании нового задания разверните информацию о нем:
+Когда создается новое задание, выберите **переход к ресурсу**.
 
-![](./media/app-insights-export-stream-analytics/110.png)
+![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### <a name="set-blob-location"></a>Установка расположения большого двоичного объекта
+### <a name="add-a-new-input"></a>Добавить новые входные данные
+
+![](./media/app-insights-export-stream-analytics/SA004.png)
+
 Задайте расположение для приема входных данных из большого двоичного объекта непрерывного экспорта:
 
-![](./media/app-insights-export-stream-analytics/120.png)
+![](./media/app-insights-export-stream-analytics/SA005.png)
 
 Теперь потребуется первичный ключ доступа из вашей учетной записи хранения, указанной ранее. Задайте его в качестве ключа учетной записи хранения.
 
-![](./media/app-insights-export-stream-analytics/130.png)
-
 ### <a name="set-path-prefix-pattern"></a>Установка шаблона префикса пути
-![](./media/app-insights-export-stream-analytics/140.png)
 
 **Задайте в поле "Формат даты" значение в формате ГГГГ-ММ-ДД (с дефисами).**
 
@@ -114,33 +114,19 @@ ms.lasthandoff: 11/01/2017
 > [!NOTE]
 > Проверьте хранилище и убедитесь, что вы получаете нужный путь.
 > 
-> 
 
-### <a name="finish-initial-setup"></a>Завершение начальной настройки
-Подтвердите формат сериализации:
+## <a name="add-new-output"></a>Добавить новый выход
+Теперь выберите задание > **выходов** > **добавить**.
 
-![Подтвердите выбор и закройте мастер.](./media/app-insights-export-stream-analytics/150.png)
+![](./media/app-insights-export-stream-analytics/SA006.png)
 
-Закройте мастер и дождитесь завершения установки.
 
-> [!TIP]
-> Воспользуйтесь примером команды для загрузки некоторых данных. Сохраните их как тестовый образец для отладки запроса.
-> 
-> 
-
-## <a name="set-the-output"></a>Определение выходных данных
-Теперь выберите задание и задайте выходные данные.
-
-![Выбор нового канала и элементов "Выходные данные", "Добавить", "Power BI".](./media/app-insights-export-stream-analytics/160.png)
+![Выбор нового канала и элементов "Выходные данные", "Добавить", "Power BI".](./media/app-insights-export-stream-analytics/SA010.png)
 
 Предоставьте свою **рабочую или учебную учетную запись** для обеспечения доступа Stream Analytics к ресурсу Power BI. Затем укажите имя для выходных данных, а также для целевого набора данных и таблицы Power BI.
 
-![Создание трех имен.](./media/app-insights-export-stream-analytics/170.png)
-
 ## <a name="set-the-query"></a>Определение запроса
 Запрос определяет преобразование входных данных в выходные.
-
-![Выбор задания и элемента "Запрос". Вставка следующего примера.](./media/app-insights-export-stream-analytics/180.png)
 
 Используйте функцию "Проверить" для проверки выходных данных. Предоставьте ей образец данных, полученный на странице входных данных. 
 
@@ -162,7 +148,7 @@ ms.lasthandoff: 11/01/2017
 
 * export-input — это псевдоним, присвоенный входным данным потока.
 * pbi-output — это определенный псевдоним выходных данных.
-* Мы используем [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) , так как имя события находится во вложенном массиве JSON. Затем элемент Select выбирает имя события, а также количество экземпляров с этим именем за определенный период времени. Предложение [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) группирует элементы по периодам времени в 1 минуту.
+* Мы используем [GetElements ВНЕШНЕГО применить](https://msdn.microsoft.com/library/azure/dn706229.aspx) так как вложенный массив JSON имя события. Затем элемент Select выбирает имя события, а также количество экземпляров с этим именем за определенный период времени. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) предложение группирует элементы периодам времени до одной минуты.
 
 ### <a name="query-to-display-metric-values"></a>Запрос для отображения значений метрики
 ```SQL
@@ -206,7 +192,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="run-the-job"></a>Выполнение задания
 Дату запуска задания можно выбрать в прошлом. 
 
-![Выбор задания и элемента "Запрос". Вставка следующего примера.](./media/app-insights-export-stream-analytics/190.png)
+![Выбор задания и элемента "Запрос". Вставка следующего примера.](./media/app-insights-export-stream-analytics/SA008.png)
 
 Подождите, пока задание находится в статусе выполнения.
 

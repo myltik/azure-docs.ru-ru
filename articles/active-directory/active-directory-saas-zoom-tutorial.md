@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 12/28/2017
 ms.author: jeedes
-ms.openlocfilehash: a525bab0409dc212da9fe46a23b8320aed9a4463
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Руководство. Интеграция Azure Active Directory с Zoom
 
@@ -113,29 +113,57 @@ ms.lasthandoff: 12/11/2017
     Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `<companyname>.zoom.us`
 
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Zoom](https://support.zoom.us/hc). 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Zoom](https://support.zoom.us/hc).
+
+4. Масштаб приложения ожидает утверждения SAML в определенном формате, поэтому необходимо добавить настраиваемые сопоставления атрибутов в конфигурацию атрибутов токена SAML. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно в разделе **Атрибуты пользователя** на странице интеграции приложения. 
+
+    ![Настройка единого входа](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
+
+5. В разделе **Атрибуты пользователя** диалогового окна **Единый вход** настройте атрибут токена SAML, как показано на рисунке выше, и выполните следующие действия.
+    
+    | Имя атрибута | Значение атрибута | Значение пространства имен |
+    | ------------------- | -----------|--------- |    
+    | Адрес электронной почты | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail`|
+    | Имя | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`|
+    | Фамилия | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname `|
+    | номер телефона. | User.telephoneNumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
+    | Department | user.department | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`|
+
+    a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+
+    ![Настройка единого входа](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_04.png)
+
+    ![Настройка единого входа](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_05.png)
+
+    Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+
+    c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
+
+    d. В **имен** текстовом поле введите значение пространства имен, показанный для этой строки.
+    
+    д. Нажмите кнопку **ОК**. 
  
-4. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
+6. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
 
-    ![Ссылка для скачивания сертификата](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png)
 
-5. Нажмите кнопку **Сохранить** .
+7. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-6. В разделе **Конфигурация Zoom** щелкните **Настроить Zoom**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+8. В разделе **Конфигурация Zoom** щелкните **Настроить Zoom**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
-    ![Настройка Zoom](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png) 
+    ![Настройка Zoom](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png)
 
-7. В другом окне браузера войдите на свой корпоративный сайт Zoom в качестве администратора.
+9. В другом окне браузера войдите на свой корпоративный сайт Zoom в качестве администратора.
 
-8. Выберите вкладку **Единый вход** .
+10. Выберите вкладку **Единый вход** .
    
     ![Вкладка единого входа](./media/active-directory-saas-zoom-tutorial/IC784700.png "Single sign-on")
 
-9. Откройте вкладку **Security Control** (Контроль безопасности) и перейдите к параметрам **единого входа**.
+11. Откройте вкладку **Security Control** (Контроль безопасности) и перейдите к параметрам **единого входа**.
 
-10. В разделе "Единый вход" выполните следующие действия:
+12. В разделе "Единый вход" выполните следующие действия:
    
     ![Раздел единого входа](./media/active-directory-saas-zoom-tutorial/IC784701.png "Single sign-on")
    
@@ -148,6 +176,9 @@ ms.lasthandoff: 12/11/2017
     d. В текстовое поле **Издатель** вставьте **идентификатор сущности SAML**, скопированный на портале Azure. 
 
     д. Выберите команду **Сохранить**.
+
+    > [!NOTE] 
+    > Дополнительные сведения см. на сайте документации масштаба [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).

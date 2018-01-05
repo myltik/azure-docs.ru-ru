@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bf57fa11c63930c594c63043ab4b695f586d9e1b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Разработка модуля IoT Edge с кодом C# и его развертывание на имитированном устройстве (предварительная версия)
 
@@ -98,11 +98,19 @@ ms.lasthandoff: 12/11/2017
     }
     ```
 
-8. В методе **Init** код создает и настраивает объект **DeviceClient**. Этот объект позволяет модулю подключаться к локальной среде выполнения Azure IoT Edge для отправки и получения сообщений. Строка подключения, используемая в методе **Init**, предоставляется модулю средой выполнения IoT Edge. После создания **DeviceClient** этот код регистрирует обратный вызов для получения сообщений из концентратора IoT Edge через конечную точку **input1**. Замените метод `SetInputMessageHandlerAsync` новым методом и добавьте метод `SetDesiredPropertyUpdateCallbackAsync` для обновления нужных свойств. Чтобы внести это изменение, замените последнюю строку метода **Init** следующим кодом:
+8. В методе **Init** код создает и настраивает объект **DeviceClient**. Этот объект позволяет модулю подключаться к локальной среде выполнения Azure IoT Edge для отправки и получения сообщений. Строка подключения, используемая в методе **Init**, предоставляется модулю средой выполнения IoT Edge. После создания **DeviceClient**, код считывает TemperatureThreshold с нужными свойствами двойных модуля и регистрирует обратный вызов для получения сообщений из концентратора IoT Edge через **input1**конечной точки. Замените метод `SetInputMessageHandlerAsync` новым методом и добавьте метод `SetDesiredPropertyUpdateCallbackAsync` для обновления нужных свойств. Чтобы внести это изменение, замените последнюю строку метода **Init** следующим кодом:
 
     ```csharp
     // Register callback to be called when a message is received by the module
     // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+
+    // Read TemperatureThreshold from Module Twin Desired Properties
+    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+    var moduleTwinCollection = moduleTwin.Properties.Desired;
+    if (moduleTwinCollection["TemperatureThreshold"] != null)
+    {
+        temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    }
 
     // Attach callback for Twin desired properties updates
     await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);

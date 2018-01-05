@@ -3,9 +3,9 @@ title: "Добавление push-уведомлений в приложение
 description: "Узнайте, как использовать мобильные приложения Azure для отправки push-уведомлений в приложение Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
-manager: syntaxc4
+manager: crdun
 editor: 
-author: ggailey777
+author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: dc3cab0a6a8b4a56ab0fba1a02e5bba9d0ed1b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Добавление push-уведомлений в приложение Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -194,7 +194,7 @@ ms.lasthandoff: 10/11/2017
 #### <a name="install-google-play-services"></a>Установка служб Google Play
 Подключаемый модуль push-уведомлений передает push-уведомления через службы Google Play Android.
 
-1. В Visual Studio щелкните **Инструменты** > **Android** > **Диспетчер пакетов SDK для Android**, разверните папку **Дополнения** и установите соответствующие флажки, чтобы обеспечить установку всех следующих пакетов SDK.
+1. В Visual Studio щелкните **средства** > **Android** > **диспетчер Android SDK Manager**, разверните **дополнения** папки и установите флажок, чтобы убедиться в том, что каждый из следующих пакетов SDK установлен.
 
    * Android 2.3 или более поздней версии.
    * Репозиторий Google версии 27 или более поздней.

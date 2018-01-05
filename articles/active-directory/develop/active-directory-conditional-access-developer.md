@@ -1,5 +1,5 @@
 ---
-title: "Руководство для разработчиков по условному доступу в Azure Active Directory | Документация Майкрософт"
+title: "Руководство для разработчиков по условному доступу в Azure Active Directory"
 description: "Руководство для разработчиков и сценарии по условному доступу в Azure AD"
 services: active-directory
 keywords: 
@@ -8,17 +8,16 @@ manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
-ms.assetid: 115bdab2-e1fd-4403-ac15-d4195e24ac95
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Руководство для разработчиков по условному доступу в Azure Active Directory
 
@@ -28,7 +27,7 @@ Azure Active Directory (AD) предоставляет несколько спо
 * разрешение доступа к определенным службам только устройствам, зарегистрированным в Intune;
 * ограничение расположения пользователей и диапазонов IP-адресов.
 
-Дополнительные сведения обо всех возможностях условного доступа см. в статье [Условный доступ на классическом портале Azure](../active-directory-conditional-access-azure-portal.md). 
+Дополнительные сведения о полных возможностях условного доступа см. в разделе [условного доступа в Azure Active Directory](../active-directory-conditional-access-azure-portal.md). 
 
 В этой статье рассматриваются возможности, которые условный доступ дает разработчикам приложений для Azure AD.  Предполагается знание [однотенантных](active-directory-integrating-applications.md) и [мультитенантных](active-directory-devhowto-multi-tenant-overview.md) приложений, а также [распространенных шаблонов аутентификации](active-directory-authentication-scenarios.md).
 
@@ -218,7 +217,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 ## <a name="see-also"></a>См. также
 
-* Дополнительные сведения о возможностях условного доступа см. в статье [Приступая к работе с условным доступом Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+* Дополнительные сведения о возможностях см. в разделе [условного доступа в Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * Дополнительные примеры кода Azure AD см. в [репозитории примеров кода GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Дополнительные сведения о пакете SDK ADAL и доступу к справочной документации см. в статье [Библиотеки проверки подлинности Azure Active Directory](active-directory-authentication-libraries.md).
 * Дополнительные сведения о сценариях с несколькими клиентами см. в статье [Как реализовать вход любого пользователя Azure Active Directory (AD) с помощью шаблона мультитенантного приложения](active-directory-devhowto-multi-tenant-overview.md).

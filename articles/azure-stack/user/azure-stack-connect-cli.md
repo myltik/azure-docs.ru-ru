@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5d15815e9b1d20ab03b5716de45ad0fa77a11057
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3ca71abb1b84f619cfafbf4c25b0c0cb95430858
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Установка и настройка интерфейса командной строки для работы с Azure Stack
 
@@ -76,7 +76,7 @@ $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().
 $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
 $sha1Entry    = [string]::Format("# SHA1 Finterprint: {0}", $sha1Hash)
 $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
-$certText = (Get-Content -Path root.pem -Raw).ToString().Replace("`r`n","`n")
+$certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
 
 $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
 $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
@@ -98,7 +98,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 1. Зарегистрируйте среду Azure Stack, выполнив команду `az cloud register`.
    
-   а. Чтобы зарегистрировать среду *администратора облака*, используйте следующую команду:
+   a. Чтобы зарегистрировать среду *администратора облака*, используйте следующую команду:
 
       ```azurecli
       az cloud register \ 
@@ -110,7 +110,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-   b. Чтобы зарегистрировать среду *пользователя*, используйте команду:
+   Б. Чтобы зарегистрировать среду *пользователя*, используйте команду:
 
       ```azurecli
       az cloud register \ 
@@ -124,14 +124,14 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 2. Следующие команды позволяют выбрать активную среду:
 
-   а. В среде *администратора облака* используйте такую команду:
+   a. В среде *администратора облака* используйте такую команду:
 
       ```azurecli
       az cloud set \
         -n AzureStackAdmin
       ```
 
-   b. В среде *пользователя* используйте команду:
+   Б. В среде *пользователя* используйте команду:
 
       ```azurecli
       az cloud set \
@@ -190,7 +190,7 @@ az group create \
 * По умолчанию CLI 2.0 использует в качестве размера образа виртуальной машины по умолчанию "Standard_DS1_v2". Так как этот размер еще не доступен в Azure Stack, необходимо явным образом указать параметр `--size` при создании виртуальной машины. Список размеров виртуальных машин, доступных в Azure Stack, можно получить с помощью команды `az vm list-sizes --location <locationName>`.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Развертывание шаблонов с помощью интерфейса командной строки Azure](azure-stack-deploy-template-command-line.md)
 

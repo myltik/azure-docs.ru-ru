@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/04/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f503f373ec32ffcdd9be3ca03da6ec5e1b10e35a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Настройка гибридных устройств, присоединенных к Azure Active Directory
 
@@ -32,11 +32,12 @@ ms.lasthandoff: 12/11/2017
 
 Прежде чем настраивать в среде гибридные устройства, присоединенные к Azure AD, ознакомьтесь с ограничениями и поддерживаемыми сценариями.  
 
+При использовании полного [средство подготовки системы (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), убедитесь, что создание изображений из установки Windows, который не был еще зарегистрирован в Azure AD.
+
 Чтобы упростить описания, в этой статье используются следующие термины. 
 
 - **Текущие устройства Windows.** Это собирательное описание всех присоединенных к домену устройств под управлением Windows 10 или Windows Server 2016.
 - **Устройства Windows нижнего уровня.** Этот термин относится ко всем **поддерживаемым** устройствам Windows, присоединенным к домену, операционная система которых отлична от Windows 10 и Windows Server 2016.  
-
 
 ### <a name="windows-current-devices"></a>Текущие устройства Windows
 
@@ -66,6 +67,15 @@ Azure AD Connect выполняет следующие функции:
 - Отслеживает связи между учетными записями на компьютерах в локальной среде Active Directory (AD) и объектами устройств в Azure AD. 
 - Поддерживает другие функции, связанные с устройствами, например Windows Hello для бизнеса.
 
+Убедитесь, что следующие URL-адреса доступны из компьютеров в сети организации для регистрации компьютеров в Azure AD:
+
+- https://enterpriseregistration.Windows.NET
+
+- https://login.microsoftonline.com
+
+- https://Device.Login.microsoftonline.com
+
+Если организации требуется доступ к Интернету через исходящего прокси-сервера, необходимо реализовать автоматическое обнаружение прокси-сервера веб-(WPAD) для включения компьютеров Windows 10, чтобы выполнить регистрацию в Azure AD.
 
 
 ## <a name="configuration-steps"></a>Этапы настройки

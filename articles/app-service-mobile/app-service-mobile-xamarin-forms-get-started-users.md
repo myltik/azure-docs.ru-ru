@@ -4,7 +4,7 @@ description: "Узнайте, как использовать мобильные
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
-manager: syntaxc4
+manager: crdun
 editor: 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
-ms.openlocfilehash: 81c731f560ed9cdc56416076cd44cba504fa614d
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: e3e8c843437558c6d5d3a3c39bed1e647f852b18
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Добавление проверки подлинности в приложение Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/09/2017
 ## <a name="overview"></a>Обзор
 В этом разделе показано, как выполнить проверку подлинности пользователей мобильного приложения службы приложений из клиентского приложения. В этом руководстве вы добавите проверку подлинности в проект быстрого запуска Xamarin Forms, используя поставщик удостоверений, поддерживаемый службой приложений. После успешной проверки подлинности и авторизации мобильным приложением отображается значение идентификатора пользователя, и вы сможете получить доступ к ограниченным табличным данным.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Для продуктивной работы с этим руководством мы рекомендуем сначала изучить руководство [Создание приложения Xamarin.Forms][1]. Завершив работу, вы получите проект Xamarin Forms — кроссплатформенное приложение TodoList.
 
 Если вы не используете скачанный проект быстрого запуска сервера, в проект необходимо добавить пакет расширений для аутентификации. Дополнительные сведения о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure][2].
@@ -44,9 +44,9 @@ ms.lasthandoff: 11/09/2017
 
 3. В поле **Разрешенные URL-адреса внешнего перенаправления** введите `url_scheme_of_your_app://easyauth.callback`.  **url_scheme_of_your_app** в этой строке — это схема URL-адресов для вашего мобильного приложения.  Она должна соответствовать обычной спецификации URL-адресов для протокола (можно использовать буквы и цифры, и адрес должен начинаться с буквы).  Необходимо записать выбранную строку, так как потребуется в нескольких местах настроить код мобильного приложения с использованием схемы URL-адресов.
 
-4. Нажмите кнопку **ОК**.
+4. Последовательно выберите **ОК**.
 
-5. Щелкните **Сохранить**.
+5. Выберите команду **Сохранить**.
 
 ## <a name="restrict-permissions-to-authenticated-users"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]

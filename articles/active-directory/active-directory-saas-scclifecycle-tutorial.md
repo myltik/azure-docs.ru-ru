@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 30b3ed453cb67516b49bcf27376a1a0aea43d9b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c7e6cc4a78b3e31b1357671fdb19d8eb9cf927ce
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Учебник. Интеграция Azure Active Directory с SCC LifeCycle
 
@@ -132,10 +132,8 @@ ms.lasthandoff: 12/11/2017
 
 6. Чтобы настроить единый вход на стороне **SCC LifeCycle**, отправьте скачанный **XML-файл метаданных** [группе поддержки SCC LifeCycle](mailto:lifecycle.support@scc.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
-     >[!NOTE]
-   >Единый вход должна включить группа поддержки SCC LifeCycle.
-   > 
-   > 
+  >[!NOTE]
+  >Единый вход должна включить группа поддержки SCC LifeCycle.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -179,7 +177,7 @@ ms.lasthandoff: 12/11/2017
 Когда назначенный пользователь пытается войти в SCC LifeCycle, учетная запись SCC LifeCycle создается автоматически (при необходимости).
 
 > [!NOTE]
-    > Владелец учетной записи Azure Active Directory получит по электронной почте сообщение со ссылкой для активации учетной записи.
+> Владелец учетной записи Azure Active Directory получит по электронной почте сообщение со ссылкой для активации учетной записи.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 

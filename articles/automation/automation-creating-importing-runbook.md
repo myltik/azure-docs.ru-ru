@@ -14,25 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: f2e34e6a4d3d2f29fe6320d805e38e6fccbb74de
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0484b1f230a8544e3de2388df2cbdab3b54f9d3d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Создание или импорт модуля Runbook в службе автоматизации Azure
 Чтобы добавить модуль Runbook в службу автоматизации Azure, можно [создать новый модуль](#creating-a-new-runbook) или импортировать уже существующий модуль из файла или из [коллекции Runbook](automation-runbook-gallery.md). В этой статье рассказывается, как создавать и импортировать модули Runbook из файла.  Информацию о получении доступа к модулям Runbook сообществ см. в статье [Коллекции модулей Runbook и других модулей для службы автоматизации Azure](automation-runbook-gallery.md).
 
 ## <a name="creating-a-new-runbook"></a>Создание нового модуля Runbook
 Создать новый модуль в службе автоматизации Azure можно с помощью одного из порталов Azure или Windows PowerShell. Вновь созданный модуль Runbook можно изменить, следуя инструкциям в статьях [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md) и [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md).
-
-### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-classic-portal"></a>Создание модуля Runbook в службе автоматизации Azure с помощью классического портала Azure
-На портале Azure можно работать только с [модулями Runbook рабочих процессов PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) .
-
-1. На классическом портале Azure щелкните **Создать** > **Службы приложений** > **Автоматизация** > **Runbook** > **Быстрое создание**.
-2. Введите необходимые сведения и нажмите кнопку **Создать**. Имя модуля Runbook должно начинаться с буквы и содержать буквы, цифры, символы подчеркивания и дефисы.
-3. Если вы хотите изменить модуль Runbook сейчас, нажмите кнопку **Изменить Runbook**. В противном случае нажмите кнопку **ОК**.
-4. Новый модуль Runbook появится на вкладке **Модули Runbook**.
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>Создание нового модуля Runbook в службе автоматизации Azure с помощью портала Azure
 1. На портале Azure выберите свою учетную запись службы автоматизации.
@@ -55,16 +47,6 @@ ms.lasthandoff: 12/14/2017
 * Файл GRAPHRUNBOOK может быть импортирован только в новый [графический модуль Runbook](automation-runbook-types.md#graphical-runbooks), а графические модули Runbook могут быть созданы только из файла GRAPHRUNBOOK.
 * Файл PS1 с рабочим процессом PowerShell можно импортировать только в [модуль Runbook рабочего процесса PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).  Если файл содержит несколько рабочих процессов PowerShell, импорт завершится ошибкой. Каждый рабочий процесс необходимо сохранить в отдельный файл и импортировать отдельно.
 * Файл PS1 без рабочего процесса можно импортировать либо в [модуль Runbook PowerShell](automation-runbook-types.md#powershell-runbooks), либо в [модуль Runbook рабочего процесса PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).  Если файл импортируется в модуль Runbook рабочего процесса PowerShell, он преобразуется в рабочий процесс, а в модуль Runbook включаются комментарии с описанием внесенных изменений.
-
-### <a name="to-import-a-runbook-from-a-file-with-the-azure-classic-portal"></a>Импорт модуля Runbook из файла с помощью классического портала Azure
-Для импорта файла сценария в службу автоматизации Azure можно использовать описанную ниже процедуру.  Обратите внимание, что с помощью этого портала файл PS1 можно импортировать только в модуль Runbook рабочего процесса PowerShell.  Для других типов необходимо использовать портал Azure.
-
-1. На классическом портале Azure щелкните **Служба автоматизации**, а затем выберите учетную запись службы автоматизации.
-2. Щелкните **Импорт**.
-3. Щелкните **Поиск файла** и найдите файл сценария, который нужно импортировать.
-4. Если вы хотите изменить модуль Runbook сейчас, нажмите кнопку **Изменить Runbook**. В противном случае нажмите кнопку «ОК».
-5. Новый модуль Runbook появится на вкладке **Модули Runbook** учетной записи службы автоматизации.
-6. Перед запуском модуля его необходимо [опубликовать](#publishing-a-runbook) .
 
 ### <a name="to-import-a-runbook-from-a-file-with-the-azure-portal"></a>Импорт модуля Runbook из файла с помощью портала Azure
 Для импорта файла сценария в службу автоматизации Azure можно использовать описанную ниже процедуру.  
@@ -105,11 +87,6 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="publishing-a-runbook"></a>Публикация модуля Runbook
 Перед запуском вновь созданного или импортированного модуля Runbook его необходимо опубликовать.  У каждого Runbook в службе автоматизации есть черновая и опубликованная версия. Запустить можно только опубликованную версию, а изменить — только черновую. Изменения, внесенные в черновик, не влияют на опубликованную версию. Если требуется черновая версия, ее можно опубликовать, заменив опубликованную версию черновой.
-
-## <a name="to-publish-a-runbook-using-the-azure-classic-portal"></a>Публикация модуля Runbook с помощью классического портала Azure
-1. Откройте Runbook на классическом портале Azure.
-2. В верхней части экрана щелкните **Автор**.
-3. В нижней части экрана щелкните **Опубликовать**, а в проверочном сообщении нажмите кнопку **Да**.
 
 ## <a name="to-publish-a-runbook-using-the-azure-portal"></a>Публикация модуля Runbook с помощью портала Azure
 1. Откройте модуль Runbook на портале Azure.

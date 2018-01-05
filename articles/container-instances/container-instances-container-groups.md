@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: b4a0af8fffd3ce012bf9addeec7029884d4ccf25
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Группы контейнера в экземплярах контейнера Azure
 
@@ -33,6 +33,9 @@ ms.lasthandoff: 01/02/2018
 * Предоставляет один общий IP-адрес, с одной предоставленный порт.
 * Состоит из двух контейнеров. Один контейнер ожидает передачи данных на порте 80, а другой — на порте 5000.
 * Содержит две Azure файловыми ресурсами общего доступа, как подключение тома, и каждый контейнер подключает одну из общих папок локально.
+
+> [!NOTE]
+> Контейнер для нескольких групп в настоящее время ограничены контейнеров Linux. Хотя мы работаем, чтобы привести все функции контейнеров Windows, можно найти текущей платформы различия в [квоты и область доступности для экземпляров контейнера Azure](container-instances-quotas.md).
 
 ### <a name="networking"></a>Сеть
 

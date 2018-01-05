@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7aacb31f708e8c3221a5b8cf4223c65160ccb019
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Уведомления отчетов Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Какие отчеты создают уведомления по электронной почте
@@ -36,13 +36,13 @@ ms.lasthandoff: 12/11/2017
 Письмо отправляется, если за последние 30 дней или с момента отправки последнего письма (в зависимости от того, что меньше) происходит 10 новых нестандартных операций входа.
 
 ## <a name="how-do-i-access-the-report-mentioned-in-the-email"></a>Как получить доступ к отчету, указанному в сообщении электронной почты
-Если щелкнуть ссылку, вы перейдете на страницу отчета на классическом портале Azure. Чтобы получить доступ к отчету, необходимо одновременно быть:
+Если щелкнуть ссылку, вы будете перенаправлены на страницу отчета на портале Azure. Чтобы получить доступ к отчету, необходимо одновременно быть:
 
 * администратором или соадминистратором подписки Azure;
 * глобальным администратором в каталоге с назначенной лицензией Active Directory Premium. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>Можно ли отключить эти сообщения?
-Да, чтобы отключить уведомления об аномальных операциях входа на классическом портале Azure, щелкните **Настройка** и выберите **Отключено** в разделе **Уведомления**.
+Да, чтобы отключить уведомления об аномальных попытках входа на портале Azure, щелкните **Настройка**и выберите **отключено** под **уведомления** раздела.
 
 ## <a name="whats-next"></a>Что дальше?
 * Интересуют доступные отчеты о безопасности, аудиту и действиях? См. раздел [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md).

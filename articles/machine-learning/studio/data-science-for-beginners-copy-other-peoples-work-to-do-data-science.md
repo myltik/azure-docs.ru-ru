@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: d7cc0deabf6ce19e7a2b90a474e6c890fa5b76ae
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: f63911d8b48393ec8b0f041b1340bec40c768f38
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Копирование работы других пользователей для обработки и анализа данных
 ## <a name="video-5-data-science-for-beginners-series"></a>Видео 5. Обработка и анализ данных для начинающих

@@ -3,10 +3,9 @@ title: "Интеграция приложений с Azure Active Directory"
 description: "Сведения о том, как добавить, обновить или удалить приложение в Active Directory (Azure AD)."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -16,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Интеграция приложений с Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +110,7 @@ ms.lasthandoff: 12/11/2017
 - Делегированное разрешение: вашему приложению требуется доступ к веб-API от лица выполнившего вход пользователя, но с ограничением доступа по выбранному разрешению. Этот тип разрешения может быть предоставлен пользователем, если только для разрешения не требуется согласие администратора. 
 
   > [!NOTE]
-  > Когда вы добавляете в приложение делегированные разрешения, согласие не предоставляется автоматически для всех пользователей в клиенте, как это происходило ранее на классическом портале Azure. Теперь пользователи должны вручную предоставлять согласие на дополнительные делегированные полномочия в процессе их использования, если администратор не нажмет кнопку **Предоставить разрешения** в разделе **Необходимые разрешения** на странице приложения на портале Azure. 
+  > Добавление делегированных разрешений в приложение не предоставляет разрешения для пользователей в клиенте автоматически. Теперь пользователи должны вручную предоставлять согласие на дополнительные делегированные полномочия в процессе их использования, если администратор не нажмет кнопку **Предоставить разрешения** в разделе **Необходимые разрешения** на странице приложения на портале Azure. 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Добавление учетных данных приложения или разрешений для доступа к веб-API
 1. Войдите на [портале Azure](https://portal.azure.com).

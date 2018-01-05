@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bf6efd96bea8a6f563ec72d5469d91b4cbfbd5fe
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: cf398d18091a008afc24cbe583001fd538039db2
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Построение веб-приложения PHP и MySQL в службе приложений Azure в Linux
 
@@ -164,7 +164,7 @@ php artisan serve
 В следующей команде замените _&lt;mysql_server_name>_ именем своего сервера MySQL везде, где встречается этот заполнитель. Допустимые символы: `a-z`, `0-9` и `-`. Это имя является частью имени узла сервера MySQL (`<mysql_server_name>.database.windows.net`). Оно должно быть глобально уникальным.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017 --ssl-enforcement Disabled
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --ssl-enforcement Disabled
 ```
 
 После создания сервера MySQL в Azure CLI отображаются следующие сведения.
@@ -202,7 +202,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-При появлении запроса на ввод пароля используйте пароль _$tr0ngPa$ w0rd!_, указанный во время создания базы данных.
+При появлении запроса пароля используйте _$tr0ngPa$ w0rd!_, который был указан при создании сервера базы данных.
 
 ### <a name="create-a-production-database"></a>Создание рабочей базы данных
 
@@ -243,7 +243,7 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.database.windows.net
+DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017

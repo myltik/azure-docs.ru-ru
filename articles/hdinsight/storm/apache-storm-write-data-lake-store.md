@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: efb0a19e0793a93b2bfab93adb747e6f130341df
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 485bc8e21e92b7dc5734458506c6825d349c45f9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Запись данных в HDFS из Apache Storm в HDInsight
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/03/2017
 
 Чтобы скомпилировать этот проект, требуется следующая конфигурация среды разработки:
 
-* Пакет [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 1.8 или более поздней версии. Для HDInsight 3.5 или более поздней версии требуется Java 8.
+* Пакет [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 1.8 или более поздней версии. Для HDInsight 3.5 или более поздней версии требуется Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -59,7 +59,7 @@ HdfsBolt использует предоставленную схему файл
 
 Следующая таблица содержит примеры использования схемы файлов для разных сценариев.
 
-| Схема | Примечания |
+| Схема | Заметки |
 | ----- | ----- |
 | `wasb:///` | Учетная запись хранения по умолчанию — это контейнер больших двоичных объектов в учетной записи хранения Azure. |
 | `adl:///` | Учетная запись хранения по умолчанию представляет собой каталог в Azure Data Lake Store. Во время создания кластера укажите каталог в Data Lake Store, который является корнем системы HDFS кластера. Например, каталог `/clusters/myclustername/`. |
@@ -140,7 +140,7 @@ bolts:
 
 По умолчанию Storm в HDInsight не содержит компоненты, которые HdfsBolt использует для взаимодействия с хранилищем Azure или Data Lake Store в пути к классу Storm. Используйте следующее действие скрипта, чтобы добавить эти компоненты в каталог `extlib` для Storm в кластере:
 
-* URI-адрес сценария: `https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* URI-адрес сценария: `https://gist.githubusercontent.com/Blackmist/dbd4a3f555397a84ac1074ee73484df2/raw/63a76e559efd532021580d079e378c6b2f8c475e/stormextlib.sh`
 * Узлы, к которым применяется: Nimbus, Supervisor
 * Параметры: нет
 

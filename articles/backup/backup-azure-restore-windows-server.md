@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/16/2017
+ms.date: 1/4/2018
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 7b259009a8d96e81a141e7718c0d54d40d7b67d1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3444b13972ab9e5c435fc009e8ddb51bcafb1a41
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Восстановление файлов на сервере Windows Server или клиентском компьютере Windows с помощью модели развертывания Resource Manager
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/21/2017
 > Если вы хотите использовать мгновенное восстановление данных, необходимо использовать [обновление службы архивации Azure за январь 2017 г.](https://support.microsoft.com/en-us/help/3216528?preview) Кроме того, архивные данные должны быть защищены в хранилищах в местонахождениях, перечисленных в статье технической поддержки. В описании [обновления службы архивации Azure за январь 2017 г.](https://support.microsoft.com/en-us/help/3216528?preview) вы найдете актуальный список регионов, поддерживающих мгновенное восстановление. Сейчас мгновенное восстановление доступно **не во всех** регионах.
 >
 
-Мгновенное восстановление можно использовать для хранилищ службы восстановления на портале Azure и хранилищ службы архивации на классическом портале. Если вы хотите использовать мгновенное восстановление, загрузите обновление служб восстановления Microsoft Azure и выполните процедуры, в которых упоминается мгновенное восстановление.
+Используйте мгновенное восстановление с хранилищами служб восстановления на портале Azure. Если данные хранятся в хранилищах службы архивации, они были преобразованы в хранилищах службы восстановления. Если вы хотите использовать мгновенное восстановление, загрузите обновление служб восстановления Microsoft Azure и выполните процедуры, в которых упоминается мгновенное восстановление.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 

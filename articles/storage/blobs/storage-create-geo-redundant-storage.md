@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Обеспечение высокой доступности данных приложений в хранилище Azure
 
-Это руководство представляет первую часть цикла. В этом руководстве показано, как обеспечить высокую доступность данных приложений в Azure. Когда закончите, у вас есть консольного приложения .NET core, отправляет и получает большой двоичный объект для [доступа для чтения географически избыточная](../common/storage-redundancy.md#read-access-geo-redundant-storage) учетной записи хранилища (RA-GRS). RA-GRS функционирует, реплицируя транзакции из основного в дополнительный регион. Репликация гарантирует, что данные в дополнительном регионе согласованы в конечном счете. Приложение использует шаблон [размыкателя цепи](/azure/architecture/patterns/circuit-breaker.md), чтобы определить, к какой конечной точке подключаться. При моделировании сбоя приложение переключается на использование вторичной конечной точки.
+Это руководство представляет первую часть цикла. В этом руководстве показано, как обеспечить высокую доступность данных приложений в Azure. Когда закончите, у вас есть консольного приложения .NET core, отправляет и получает большой двоичный объект для [доступа для чтения географически избыточная](../common/storage-redundancy.md#read-access-geo-redundant-storage) учетной записи хранилища (RA-GRS). RA-GRS функционирует, реплицируя транзакции из основного в дополнительный регион. Репликация гарантирует, что данные в дополнительном регионе согласованы в конечном счете. Приложение использует шаблон [размыкателя цепи](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker), чтобы определить, к какой конечной точке подключаться. При моделировании сбоя приложение переключается на использование вторичной конечной точки.
 
 В первой части цикла вы узнаете, как выполнять такие задачи:
 
@@ -109,11 +109,11 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 ![Консольное приложение выполняется](media/storage-create-geo-redundant-storage/figure3.png)
 
-В примере кода задача `RunCircuitBreakerAsync` в файле `Program.cs` используется для скачивания изображения из учетной записи хранения с помощью метода [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet). Перед скачиванием определяется [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Контекст операции определяет обработчики событий, которые срабатывают при успешном завершении скачивания или при сбое и повторной попытке.
+В примере кода задача `RunCircuitBreakerAsync` в файле `Program.cs` используется для скачивания изображения из учетной записи хранения с помощью метода [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet). Перед скачиванием определяется [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Контекст операции определяет обработчики событий, которые срабатывают при успешном завершении скачивания или при сбое и повторной попытке.
 
 ### <a name="retry-event-handler"></a>Обработчик события при повторном запуске
 
-`OperationContextRetrying` Обработчик событий вызывается при сбое загрузки образа, а набор, чтобы повторить попытку. При достижении максимальное число повторных попыток, которые определены в приложении [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) запроса изменяется на `SecondaryOnly`. В таком случае приложение принудительно повторно пытается скачать изображение из вторичной конечной точки. Эта конфигурация уменьшает время, затрачиваемое на запрос изображения, так как основная конечная точка не запрашивается бесконечно.
+`OperationContextRetrying` Обработчик событий вызывается при сбое загрузки образа, а набор, чтобы повторить попытку. При достижении максимальное число повторных попыток, которые определены в приложении [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) запроса изменяется на `SecondaryOnly`. В таком случае приложение принудительно повторно пытается скачать изображение из вторичной конечной точки. Эта конфигурация уменьшает время, затрачиваемое на запрос изображения, так как основная конечная точка не запрашивается бесконечно.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -141,7 +141,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>Обработчик события при успешном выполнении запроса
 
-Обработчик события `OperationContextRequestCompleted` вызывается при успешном выполнении запроса. Если приложение использует вторичную конечную точку, приложение запрашивает эту конечную точку до 20 раз. После 20 раз приложение задает [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) к `PrimaryThenSecondary` повторяет основной конечной точки. Если запрос выполнен успешно, приложение продолжает считывать из основной конечной точки.
+Обработчик события `OperationContextRequestCompleted` вызывается при успешном выполнении запроса. Если приложение использует вторичную конечную точку, приложение запрашивает эту конечную точку до 20 раз. После 20 раз приложение задает [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) к `PrimaryThenSecondary` повторяет основной конечной точки. Если запрос выполнен успешно, приложение продолжает считывать из основной конечной точки.
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: ae50f2f76af890e1dbabd892dc587b762beab38e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Управление зарегистрированными серверами в службе "Синхронизация файлов Azure" (предварительная версия)
 Служба "Синхронизация файлов Azure" (предварительная версия) позволяет централизовано хранить файловые ресурсы организации в службе файлов Azure, обеспечивая гибкость, производительность и совместимость локального файлового сервера. Это достигается путем преобразования серверов Windows Server в быстрый кэш общего файлового ресурса Azure. Для локального доступа к данным вы можете использовать любой протокол (в том числе SMB, NFS и FTPS), доступный в Windows Server. Кроме того, вы можете создать любое число кэшей в любом регионе.
@@ -147,9 +147,9 @@ Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEac
 > Если лимит будет слишком низким, пострадает производительность синхронизации и восстановления данных службой "Синхронизация файлов Azure".
 
 ### <a name="set-azure-file-sync-network-limits"></a>Настройка сетевых ограничений для службы "Синхронизация файлов Azure"
-Использование сети синхронизации файлов Azure можно ограничить с помощью `StorageSyncNetworkLimit` командлетов. 
+Использование сети синхронизации файлов Azure можно регулировать с помощью `StorageSyncNetworkLimit` командлетов. 
 
-Например, вы можете создать новое ограничение сети, не позволяющее службе синхронизации файлов Azure использовать скорость выше 10 Мбит/с в период с 9:00 по 17:00 в рабочие дни: 
+Например можно создать новый предел регулирования для синхронизации файлов Azure не более 10 Мбит/с 9: 00 до 17: 00 (17:00 h) во время рабочей недели: 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

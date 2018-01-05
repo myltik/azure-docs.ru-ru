@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Расширения Python для подготовки данных
 В качестве способа заполнения функциональных пробелов между встроенными функциями подготовка данных в Машинном обучении Azure включает в себя расширяемость на нескольких уровнях. В этом документе описана расширяемость с помощью скрипта Python. 
@@ -123,6 +123,31 @@ import scipy as sp
 или 
 
 `./pip install <libraryname>`
+
+## <a name="use-custom-modules"></a>Использовать пользовательские модули
+В преобразование потока данных (сценарий) напишите python код следующим образом:
+
+```python
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction1
+df = ExtensionFunction1(df)
+```
+
+В добавление столбца (сценарий), задайте тип блока кода = модуля и написать код, следующий python:
+
+```python 
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction2
+
+def newvalue(row):
+    return ExtensionFunction2(row)
+```
+Контекстов выполнения различных (local, spark docker) Укажите абсолютный путь в нужном месте. Можно использовать «os.getcwd() + relativePath» найдите его.
+
 
 ## <a name="column-data"></a>Данные столбцов 
 Доступ к данным столбцов можно получить из строки, используя точечную нотацию или нотацию "ключ — значение". Имена столбцов, содержащие пробелы или специальные символы, нельзя получить с помощью точечной нотации. Переменная `row` всегда должна быть определена в обоих режимах расширений Рython (Module и Expression). 

@@ -1,12 +1,11 @@
 ---
-title: "Общие сведения о потоке кода проверки подлинности OAuth 2.0 в Azure AD | Документация Майкрософт"
+title: "Понять поток кода авторизации OAuth 2.0 в Azure AD"
 description: "В этой статье описывается, как использовать HTTP-сообщения для авторизации в клиенте доступа к веб-приложениям и веб-API с использованием Azure Active Directory и OAuth 2.0."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a3aa69ce35ff6049478a4182afeda2ee62266b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d123a6b18baf8019a6dcea2faa938e9ee403f400
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Авторизация доступа к веб-приложениям с помощью OAuth 2.0 и Azure Active Directory
 В Azure Active Directory (Azure AD) используется протокол OAuth 2.0, чтобы обеспечивать авторизацию доступа к веб-приложениям и веб-API в клиенте Azure AD. Это руководство не зависит от языка и описывает, как отправлять и получать сообщения HTTP, не используя ни одну из наших библиотек с открытым кодом.
@@ -34,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 ![Поток кода проверки подлинности OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>Запрос кода авторизации
-Поток кода авторизации начинается с того, что клиент направляет пользователя к конечной точке `/authorize` . В этом запросе клиент указывает разрешения, которые ему требуется получить от пользователя. Конечные точки OAuth 2.0 можно получить на классическом портале Azure на странице приложения, нажав на нижней панели кнопку **Просмотр конечных точек** .
+Поток кода авторизации начинается с того, что клиент направляет пользователя к конечной точке `/authorize` . В этом запросе клиент указывает разрешения, которые ему требуется получить от пользователя. Конечная точка OAuth 2.0 для вашего клиента можно получить, выбрав **регистрации приложения > конечные точки** на портале Azure.
 
 ```
 // Line breaks for legibility only
@@ -133,7 +132,7 @@ grant_type=authorization_code
 | Параметр |  | ОПИСАНИЕ |
 | --- | --- | --- |
 | tenant |обязательно |Значение `{tenant}` в пути запроса можно использовать для того, чтобы контролировать, кто может входить в приложение.  Допустимые значения — идентификаторы клиента, например `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` или `common` для маркеров без указания клиента. |
-| client_id |обязательно |Идентификатор приложения, назначенный вашему приложению при регистрации в Azure AD. Это значение можно найти на классическом портале Azure. Щелкните **Active Directory**, выберите каталог и приложение, а затем щелкните **Настройка**. |
+| client_id |обязательно |Идентификатор приложения, назначенный вашему приложению при регистрации в Azure AD. Его можно найти на портале Azure. Идентификатор приложения отображается в окне параметров регистрации приложения.  |
 | grant_type |обязательно |Должен быть `authorization_code` для потока кода авторизации. |
 | Код |обязательно |Код авторизации ( `authorization_code` ), полученный в предыдущем разделе. |
 | redirect_uri |обязательно |То же значение `redirect_uri`, что использовалось для получения `authorization_code`. |

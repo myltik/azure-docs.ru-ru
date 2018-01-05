@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d442fd3c1713f4cdc53ef0dc6f7e15cd74b21d1a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ресурсы подключений в службе автоматизации Azure
 
@@ -71,14 +71,6 @@ ms.lasthandoff: 12/14/2017
 3. Щелкните **Добавить подключение** в верхней части колонки.
 4. В раскрывающемся списке **Тип** выберите тип подключения, которое необходимо создать. Форма представит свойства для этого типа.
 5. Заполните форму и нажмите кнопку **Создать** для сохранения нового подключения.
-
-### <a name="to-create-a-new-connection-with-the-azure-classic-portal"></a>Создание нового подключения на классическом портале Azure
-
-1. Из учетной записи службы автоматизации щелкните **Активы** в верхней части окна.
-2. Нажмите кнопку **Добавить параметр**в нижней части окна.
-3. Щелкните **Добавить подключение**.
-4. В раскрывающемся списке **Тип подключения** выберите тип подключения, которое необходимо создать.  Мастер представит свойства для этого типа.
-5. Завершите работу мастера и установите флажок, чтобы сохранить новое подключение.
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Создание нового подключения с помощью Windows PowerShell
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: danis
-ms.openlocfilehash: 25677c2a4ab78c601f4d4a8630787f6f16dda3c4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9a8eae62d2dcb4c422b707909a27c84c7bf1aab3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>Расширение Custom Script в ОС Windows
 
@@ -28,6 +28,11 @@ ms.lasthandoff: 12/08/2017
 В этом документе объясняется, как использовать расширение пользовательских сценариев с помощью модуля Azure PowerShell и шаблонов Azure Resource Manager, а также подробно описываются действия по устранению неполадок в системах Windows.
 
 ## <a name="prerequisites"></a>Технические условия
+
+> [!NOTE]  
+> Не используйте настраиваемое расширение скриптов для выполнения обновления AzureRmVM с одной виртуальной Машины в качестве параметра, так как время ожидания на себя.  
+>   
+> 
 
 ### <a name="operating-system"></a>Операционная система
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: 0c399a24962efc1263ed35361a96c98bc60633ee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Подключение компьютеров для управления с помощью Azure Automation DSC
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/14/2017
 Кроме того, если вы не готовы управлять конфигурацией компьютера из облака, платформа Azure Automation DSC может также использоваться как конечная точка только для отчетности. Это позволяет задать (отправить) требуемую конфигурацию через DSC локально и просмотреть подробные сведения отчетов о соответствии узла требуемому состоянию в службе автоматизации Azure.
 
 > [!NOTE]
-> Управление виртуальными машинами Azure с помощью DSC поставляется без дополнительной оплаты, если установлена версия расширения виртуальной машины DSC выше, чем 2.7.  Дополнительные сведения см. на странице [**цен на службу автоматизации**](https://azure.microsoft.com/en-us/pricing/details/automation/).
+> Управление виртуальными машинами Azure с помощью DSC включается без дополнительной платы, если установлены расширения виртуальной машины DSC больше, чем 2,70. Дополнительные сведения см. на странице [**цен на службу автоматизации**](https://azure.microsoft.com/en-us/pricing/details/automation/).
 
 
 В следующих разделах описываются способы подключения каждого типа компьютеров к службе Azure Automation DSC.

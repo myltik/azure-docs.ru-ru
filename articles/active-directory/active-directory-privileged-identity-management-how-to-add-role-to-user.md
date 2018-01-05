@@ -6,23 +6,21 @@ documentationcenter:
 author: billmath
 manager: mtillman
 editor: 
-ms.assetid: 6a47ced8-cf34-4ce8-bea2-e4fc548cfe22
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/06/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.custom: pim;oldportal;it-pro;
-ms.openlocfilehash: 5a2150b67fb4926ac9bb04c74a281ba78692c5f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 53deb04a33a5f878c5e3f765099c54d30e6ac005
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Управление привилегированными пользователями Azure AD: добавление и удаление роли пользователя
-С помощью Azure Active Directory (AD) глобальный администратор (или администратор организации) может изменить назначения **постоянных** ролей для пользователей в Azure AD. Это делается с помощью таких командлетов PowerShell, как `Add-MsolRoleMember` и `Remove-MsolRoleMember`. Кроме того, можно использовать классический портал Azure, как описано в разделе [Назначение ролей администраторов в Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+С помощью Azure Active Directory (AD) глобальный администратор (или администратор организации) может изменить назначения **постоянных** ролей для пользователей в Azure AD. Это делается с помощью таких командлетов PowerShell, как `Add-MsolRoleMember` и `Remove-MsolRoleMember`. Также они могут использовать портал Azure, как описано в [назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
 
 Приложение "Управление привилегированными пользователями" (PIM) Azure AD также позволяет администраторам привилегированных ролей назначать постоянные роли. Кроме того, администраторы привилегированных ролей могут предоставлять пользователям **право** на получение ролей администратора. Временные администраторы могут активировать роль при необходимости; срок действия их разрешений истекает, когда роль больше не требуется им для работы.
 

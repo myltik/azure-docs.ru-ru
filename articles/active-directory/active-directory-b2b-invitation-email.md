@@ -1,5 +1,5 @@
 ---
-title: "Элементы сообщения с приглашением службы совместной работы Azure Active Directory B2B | Документация Майкрософт"
+title: "Элементы электронное приглашение совместной работы B2B - Azure Active Directory | Документы Microsoft"
 description: "Шаблон сообщения с приглашением в службу совместной работы Azure Active Directory B2B"
 services: active-directory
 documentationcenter: 
@@ -7,21 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
+ms.custom: seohack1
 ms.service: active-directory
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7b82565a337f331b8b0eda723ccd58c3beaebdd9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Элементы сообщения с приглашением в службу совместной работы B2B
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Элементы электронное приглашение совместной работы B2B - Azure Active Directory
 
 Сообщение с приглашением является важнейшим компонентом, необходимым для подключения партнеров в качестве пользователей службы совместной работы B2B в Azure AD. Их можно использовать, чтобы повысить уровень доверия получателя. Вы можете придать сообщению законность и социальную значимость, чтобы получатель был спокоен, нажимая кнопку **Начало работы** и принимая приглашение. Это доверие является ключевым компонентом в процессе налаживания совместной работы. И, конечно же, вам бы хотелось, чтобы это сообщение отлично выглядело!
 

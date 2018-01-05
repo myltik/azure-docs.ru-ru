@@ -4,8 +4,8 @@ description: "Узнайте, как работать с пакетом SDK дл
 keywords: "служба приложений, служба приложений azure, мобильное приложение, мобильная служба, масштабировать, масштабируемый, разработка приложений, разработка приложений azure"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 1728e1d76f075eae8f5500afa34674785f8e3848
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: a88b360821a06bdf106a9a83accce4023b8864ad
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 3. Выберите **Веб-приложение ASP.NET**.
 4. Введите имя проекта. Нажмите кнопку **ОК**.
 5. В разделе *ASP.NET 4.5.2 Templates* (Шаблоны ASP.NET 4.5.2) выберите **Мобильное приложение Azure**. Установите флажок **Разместить в облаке** , чтобы создать мобильный внутренний сервер в облаке, в котором можно опубликовать этот проект.
-6. Нажмите кнопку **ОК**.
+6. Последовательно выберите **ОК**.
 
 ## <a name="install-sdk"></a>Практическое руководство. Скачивание и инициализация пакета SDK
 Пакет SDK доступен на сайте [NuGet.org]. Этот пакет включает в себя базовые функции, необходимые для начала работы пакетом SDK. Для инициализации пакета SDK необходимо выполнить действия с объектом **HttpConfiguration** .
@@ -151,7 +151,7 @@ ms.lasthandoff: 10/11/2017
 2. Настройка ссылки на таблицу в мобильном классе DbContext.
 3. Создание контроллера таблиц.
 
-Объект передачи данных — это обычный объект C#, наследуемый от `EntityData`.  Например:
+Объект передачи данных — это обычный объект C#, наследуемый от `EntityData`.  Например: 
 
     public class TodoItem : EntityData
     {

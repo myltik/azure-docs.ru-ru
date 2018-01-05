@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.openlocfilehash: 5e7bab0b0c3222ba093a93dc2d15f1e41898e62c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2898e3404dcfa3d75e3920f9c83e4efa7201998e
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Проверка запросов Azure Stream Analytics на портале Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="test-the-input"></a>Проверки входных данных
 
-1. Чтобы проверить пример входных данных, щелкните любые из них правой кнопкой мыши и выберите **Отправить образец данных из файла**.
+1. Чтобы проверить пример входных данных, щелкните любые из них правой кнопкой мыши и выберите **Отправить образец данных из файла**. В настоящее время можно отправлять только данные в формате JSON. Если данные хранятся в другом формате, например CSV, следует преобразовать его в формат JSON перед отправкой. Можно использовать любое средство преобразования отрытым исходным кодом, такие как [общего тома Кластера для конвертера JSON](http://www.convertcsv.com/csv-to-json.htm) для преобразования данных в JSON.
 
     ![Проверка запроса редактора запросов Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

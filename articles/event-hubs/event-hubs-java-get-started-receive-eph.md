@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3c1b455e6298367dc50f0943b58f6cf1e7f1c5fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 94b56fdd1ad350d861b27644c6bedcc59e1cefb0
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Получение событий от концентраторов событий Azure с помощью Java
 
 
-## <a name="introduction"></a>Введение
+## <a name="introduction"></a>Общие сведения
 Концентраторы событий — это высокомасштабируемая система, способная принимать миллионы событий в секунду, благодаря которой приложения могут обрабатывать и анализировать большие объемы данных от подключенных устройств и приложений. После сбора данных в концентраторах событий их можно преобразовать и сохранить с помощью любого поставщика аналитики в реальном времени или в кластере хранилища.
 
 Дополнительные сведения см. в [обзоре концентраторов событий][Event Hubs overview].
 
 В этом руководстве показано, как получать события из концентратора событий с помощью консольного приложения, написанного на языке Java.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для работы с данным руководством вам потребуется:
 
@@ -68,11 +68,6 @@ ms.lasthandoff: 10/11/2017
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
     <version>{VERSION}</version>
-</dependency>
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>azure-eventhubs-eph</artifactId>
-  <version>0.14.0</version>
 </dependency>
 ```
 
@@ -232,7 +227,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о концентраторах событий см. в следующих источниках:
 
-* [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 * [Создание концентратора событий](event-hubs-create.md)
 * [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
 

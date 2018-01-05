@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6f9ca3d9b0f41210a3f43a8ae505f0a90b130b34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Сведения об использовании, настройке и повторном использовании модулей Azure IoT Edge (предварительная версия)
 
@@ -83,7 +83,7 @@ Azure IoT Edge позволяет составить несколько моду
 
 *Источник* может быть любым из следующих:
 
-| Источник | Описание |
+| Источник | ОПИСАНИЕ |
 | ------ | ----------- |
 | `/*` | Все сообщения с устройства в облако из любого устройства или модуля. |
 | `/messages/*` | Все сообщения с устройства в облако, отправленные устройством или модулем с некоторыми выходными данными или без них. |
@@ -96,10 +96,10 @@ Azure IoT Edge позволяет составить несколько моду
 
 Приемник может принять одно из следующих значений:
 
-| Приемник | Описание |
+| Приемник | ОПИСАНИЕ |
 | ---- | ----------- |
 | `$upstream` | Отправляет сообщение в Центр Интернета вещей. |
-| `BrokeredEndpoint(/modules/{moduleId}/inputs/{input})` | Отправляет сообщение во входные данные `{input}` модуля `{moduleId}`. |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Отправляет сообщение во входные данные `{input}` модуля `{moduleId}`. |
 
 Следует отметить, что концентратор Edge предоставляет однократные гарантии, то есть сообщения будут храниться локально в случае, если маршрут не сможет доставить сообщение в свой приемник, например, концентратор Edge не может подключиться к Центру Интернета вещей или целевой модуль не подключен.
 
@@ -193,27 +193,27 @@ Azure IoT Edge позволяет составить несколько моду
 
 ### <a name="edge-agent-twin-desired-properties"></a>Требуемые свойства двойника агента Edge
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Требуется |
 | -------- | ----------- | -------- |
-| schemaVersion | Должно быть "1.0". | Да |
-| runtime.type | Должно быть "docker". | Да |
-| runtime.settings.minDockerVersion | Задайте минимальную версию Docker, которая требуется для этого манифеста развертывания. | Да |
-| runtime.settings.loggingOptions | Переведенные в строку JSON, содержащую параметры ведения журнала для контейнера агента Edge. [Параметры ведения журнала Docker][lnk-docker-logging-options] | Нет |
-| systemModules.edgeAgent.type | Должно быть "docker". | Да |
-| systemModules.edgeAgent.settings.image | Универсальный код ресурса (URI) образа агента Edge. В настоящее время агент Edge не может обновить себя сам. | Да |
-| systemModules.edgeAgent.settings.createOptions | Переведенные в строку JSON, содержащую параметры для создания контейнера агента Edge. [Параметры создания Docker][lnk-docker-create-options] | Нет |
+| schemaVersion | Должно быть "1.0". | Yes |
+| runtime.type | Должно быть "docker". | Yes |
+| runtime.settings.minDockerVersion | Задайте минимальную версию Docker, которая требуется для этого манифеста развертывания. | Yes |
+| runtime.settings.loggingOptions | Переведенные в строку JSON, содержащую параметры ведения журнала для контейнера агента Edge. [Параметры ведения журнала Docker][lnk-docker-logging-options] | Нет  |
+| systemModules.edgeAgent.type | Должно быть "docker". | Yes |
+| systemModules.edgeAgent.settings.image | Универсальный код ресурса (URI) образа агента Edge. В настоящее время агент Edge не может обновить себя сам. | Yes |
+| systemModules.edgeAgent.settings.createOptions | Переведенные в строку JSON, содержащую параметры для создания контейнера агента Edge. [Параметры создания Docker][lnk-docker-create-options] | Нет  |
 | systemModules.edgeAgent.configuration.id | Идентификатор развертывания, которое развернуло этот модуль. | Этот параметр задается в Центре Интернета вещей при применении этого манифеста с помощью развертывания. Не является частью манифеста развертывания. |
-| systemModules.edgeHub.type | Должно быть "docker". | Да |
-| systemModules.edgeHub.status | Должно быть "running". | Да |
-| systemModules.edgeHub.restartPolicy | Должно быть "always". | Да |
-| systemModules.edgeHub.settings.image | Универсальный код ресурса (URI) образа концентратора Edge. | Да |
-| systemModules.edgeHub.settings.createOptions | Переведенные в строку JSON, содержащую параметры для создания контейнера концентратора Edge. [Параметры создания Docker][lnk-docker-create-options] | Нет |
+| systemModules.edgeHub.type | Должно быть "docker". | Yes |
+| systemModules.edgeHub.status | Должно быть "running". | Yes |
+| systemModules.edgeHub.restartPolicy | Должно быть "always". | Yes |
+| systemModules.edgeHub.settings.image | Универсальный код ресурса (URI) образа концентратора Edge. | Yes |
+| systemModules.edgeHub.settings.createOptions | Переведенные в строку JSON, содержащую параметры для создания контейнера концентратора Edge. [Параметры создания Docker][lnk-docker-create-options] | Нет  |
 | systemModules.edgeHub.configuration.id | Идентификатор развертывания, которое развернуло этот модуль. | Этот параметр задается в Центре Интернета вещей при применении этого манифеста с помощью развертывания. Не является частью манифеста развертывания. |
-| modules.{ИД_модуля}.version | Определяемая пользователем строка, представляющая версию этого модуля. | Да |
-| modules.{ИД_модуля}.type | Должно быть "docker". | Да |
-| modules.{ИД_модуля}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Да |
-| modules.{ИД_модуля}.settings.image | Универсальный код ресурса (URI) для образа модуля. | Да |
-| modules.{ИД_модуля}.settings.createOptions | Переведенные в строку JSON, содержащую параметры для создания контейнера модуля. [Параметры создания Docker][lnk-docker-create-options] | Нет |
+| modules.{ИД_модуля}.version | Определяемая пользователем строка, представляющая версию этого модуля. | Yes |
+| modules.{ИД_модуля}.type | Должно быть "docker". | Yes |
+| modules.{ИД_модуля}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Yes |
+| modules.{ИД_модуля}.settings.image | Универсальный код ресурса (URI) для образа модуля. | Yes |
+| modules.{ИД_модуля}.settings.createOptions | Переведенные в строку JSON, содержащую параметры для создания контейнера модуля. [Параметры создания Docker][lnk-docker-create-options] | Нет  |
 | modules.{ИД_модуля}.configuration.id | Идентификатор развертывания, которое развернуло этот модуль. | Этот параметр задается в Центре Интернета вещей при применении этого манифеста с помощью развертывания. Не является частью манифеста развертывания. |
 
 ### <a name="edge-agent-twin-reported-properties"></a>Сообщаемые свойства двойника агента Edge
@@ -231,7 +231,7 @@ Azure IoT Edge позволяет составить несколько моду
 
 Следующая таблица не включает сведения, которые копируются из требуемых свойств.
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 | -------- | ----------- |
 | lastDesiredVersion | Это свойство относится к последней версии требуемых свойств, обрабатываемых агентом Edge. |
 | lastDesiredStatus.code | Это код состояния, ссылающийся на последние требуемые свойства, используемые агентом Edge. Допустимые значения: `200` — успех, `400` — недопустимая конфигурация,`412` — недопустимая версия схемы, `417` — нужные свойства пусты, `500` — сбой. |
@@ -264,15 +264,15 @@ Azure IoT Edge позволяет составить несколько моду
 
 ### <a name="edge-hub-twin-desired-properties"></a>Требуемые свойства двойника концентратора Edge
 
-| Свойство | Описание | Требуется в манифесте развертывания |
+| Свойство | ОПИСАНИЕ | Требуется в манифесте развертывания |
 | -------- | ----------- | -------- |
-| schemaVersion | Должно быть "1.0". | Да |
+| schemaVersion | Должно быть "1.0". | Yes |
 | routes.{имя_маршрута} | Строка, представляющая маршрут концентратора Edge. | Элемент `routes` может присутствовать, но быть пустым. |
-| storeAndForwardConfiguration.timeToLiveSecs | Время в секундах, в течение которого концентратор Edge сохраняет сообщения в случае отключения конечных точек маршрутизации, например отключения от Центра Интернета вещей или локального модуля. | Да |
+| storeAndForwardConfiguration.timeToLiveSecs | Время в секундах, в течение которого концентратор Edge сохраняет сообщения в случае отключения конечных точек маршрутизации, например отключения от Центра Интернета вещей или локального модуля. | Yes |
 
 ### <a name="edge-hub-twin-reported-properties"></a>Сообщаемые свойства двойника концентратора Edge
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 | -------- | ----------- |
 | lastDesiredVersion | Это свойство относится к последней версии требуемых свойств, обрабатываемых концентратором Edge. |
 | lastDesiredStatus.code | Это код состояния, ссылающийся на последние требуемые свойства, используемые концентратором Edge. Допустимые значения: `200` — успех, `400` — недопустимая конфигурация, `500` — сбой. |

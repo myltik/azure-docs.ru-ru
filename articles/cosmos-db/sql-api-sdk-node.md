@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c9b68ee25ae3d675b71ec5543738493216b1212
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: fa9b11e754ab86f0e4c88923d4b895aa5dd0e271
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure SDK Cosmos DB Node.js для API-Интерфейсы SQL: заметки о выпуске и ресурсы
 > [!div class="op_single_selector"]
@@ -62,6 +62,13 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="1.14.2"/>1.14.2</a>
+* Обновленная документация к ссылке Azure DB Cosmos вместо Azure DocumentDB.
+* Добавлена поддержка proxyUrl параметр в ConnectionPolicy.
+
+### <a name="1.14.1"/>1.14.1</a>
+* Небольшие исправления регистра файловых систем.
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Добавлена поддержка согласованности сеанса.
@@ -187,6 +194,8 @@ ms.lasthandoff: 12/18/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.14.2](#1.14.2) |21 декабря 2017 г. |--- |
+| [1.14.1](#1.14.1) |10 ноября 2017 г. |--- |
 | [1.14.0](#1.14.0) |9 ноября 2017 г. |--- |
 | [1.13.0](#1.13.0) |11 октября 2017 г. |--- |
 | [1.12.2](#1.12.2) |10 августа 2017 г. |--- |

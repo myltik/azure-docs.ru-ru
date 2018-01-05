@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 1/3/2017
 ms.author: jeedes
-ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: c8c56cd3e222e8e9ebf4cd3bb5109b6f552ec387
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Руководство по интеграции Azure Active Directory с Amazon Web Services
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 12/22/2017
 
 4. Приложение Amazon Web Services (AWS) ожидает утверждения SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно в разделе **Атрибуты пользователя** на странице интеграции приложения. На следующем снимке экрана приведен пример.
 
-    ![Настройка единого входа для атрибутов](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)  
+    ![Настройка атрибута единого входа](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)   
 
 5. В разделе **Атрибуты пользователя** диалогового окна **Единый вход** настройте атрибут токена SAML, как показано на рисунке выше, и выполните следующие действия:
     
@@ -126,7 +126,7 @@ ms.lasthandoff: 12/22/2017
 
     ![Добавление атрибута для настройки единого входа](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
 
-    ![Настройка единого входа для атрибутов](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
+    ![Окно добавления атрибута для настройки единого входа](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
     Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
 
@@ -230,18 +230,18 @@ ms.lasthandoff: 12/22/2017
 
     ![Создание новой политики](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Создайте собственную политику для выборки всех ролей из AWS учетных записей. В **создать собственную политику** щелкните **выберите** кнопки.
+25. Создайте собственную политику для выборки всех ролей из AWS учетных записей. В **создать собственную политику** щелкните раздел **выберите** кнопки.
     
     ![Создание новой политики](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
 26. Определите новую политику, выполнив следующие действия.
 
-    ![Определение новой политики](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
+    ![Определение новой политики](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
     a. Укажите **имя политики** как **AzureAD_SSOUserRole_Policy**.
 
     Б. Вы можете предоставить **описание** политику как **это политика позволяет выбирать роли из учетных записей AWS**.
-
+    
     c. Добавьте в документ политики ниже JSON.
     
     ```
@@ -271,16 +271,14 @@ ms.lasthandoff: 12/22/2017
     }
     
     ```
-
-    d. Убедитесь, что установлен флажок на **использовать автоматическое форматирование для редактирования политики**.
-
-    д. Щелкните **политики проверки** кнопку внизу.
-
-    f. После политики были проверяется правильность затем можно щелкнуть на **создать политику** кнопки.
-
-    ![Создать новую политику](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
     
-27. Создание новой учетной записи пользователя в службе IAM AWS, выполнив следующие шаги:
+    d. Убедитесь, что установлен флажок на **использовать автоматическое форматирование для редактирования политики**.
+    
+    д. Щелкните **политики проверки** кнопку внизу.
+    
+    f. После политики были проверяется правильность затем можно щелкнуть на **создать политику** кнопки.
+    
+27. Создание новой учетной записи пользователя в службе IAM AWS, выполнив следующие действия:
 
     a. Щелкните **пользователей** навигации в консоли AWS IAM.
 
@@ -300,9 +298,9 @@ ms.lasthandoff: 12/22/2017
     
     * Щелкните **Далее разрешения** кнопку в правом нижнем углу.
 
-28. Теперь можно создайте новую политику для этого пользователя, выполнив следующие шаги:
+28. Теперь можно создайте новую политику для этого пользователя, выполнив следующие действия:
 
-    ![Добавление пользователя](./media/active-directory-saas-amazon-web-service-tutorial/policy6.png)
+    ![Добавление пользователя](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
     a. Щелкните **подключение существующих политик напрямую** кнопки.
 
@@ -332,7 +330,7 @@ ms.lasthandoff: 12/22/2017
 
     ![Добавление пользователя](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. Введите **ключ доступа** и **секрет** в **секрет клиента** и **секрет маркера** полей соответственно.
+32. Введите **ключ доступа** и **секрет** в **секрет клиента** и **секрет маркера** поле соответственно.
 
     ![Добавление пользователя](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -424,13 +422,6 @@ ms.lasthandoff: 12/22/2017
 
 Щелкнув плитку Amazon Web Services на панели доступа, вы автоматически войдете в приложение Amazon Web Services.
 Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
-
-## <a name="known-issues"></a>Известные проблемы
-
- * В **Provisioning** разделе **сопоставления** подраздел будет отображать сообщение «Загрузка...» и никогда не будут отображаться сопоставления атрибутов. Только рабочий процесс подготовки, поддерживаемых сейчас — для импорта ролей из AWS в Azure AD для выбора во время назначения пользователей или групп. Сопоставления атрибутов для этого заранее заданное и не настраивается.
- 
- * **Provisioning** раздел поддерживает только ввода один набор учетных данных для одного клиента AWS одновременно. Все импортированные роли записываются в свойство appRoles Azure AD [объект субъекта-службы](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) AWS клиента. Можно добавить несколько клиентов AWS (представленным субъекты службы) в Azure AD из коллекции для инициализации, однако имеется известная проблема с не смогла автоматически записи все роли, импортированные из нескольких субъекты службы AWS, используемый для Подготовка в одном субъекта-службы, используемые для единого входа. Чтобы избежать этого [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) можно использовать для извлечения всех appRoles, импортируются в каждом servicePrincipal AWS которой задан режим инициализации. Эти строки роли можно впоследствии добавить servicePrincipal AWS, в котором единого входа настроена.
-
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 

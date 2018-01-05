@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f1f9f306d7759cbd1202c985da27a2a3b879ebd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Отладочные моментальные снимки для исключений в приложениях .NET
 
@@ -62,8 +62,6 @@ ms.lasthandoff: 12/08/2017
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
-        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
@@ -174,8 +172,8 @@ ms.lasthandoff: 12/08/2017
 1. Нажмите кнопку "Сохранить", чтобы добавить пользователя к роли.
 
 
-[!IMPORTANT]
-    Моментальные снимки могут содержать личные и другие конфиденциальные данные в значениях переменных и параметров.
+> [!IMPORTANT]
+> Моментальные снимки могут содержать личные и другие конфиденциальные данные в значениях переменных и параметров.
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Отладка моментальных снимков на портале Application Insights
 
@@ -276,6 +274,17 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 ```
 
 Для приложений, которые _не_ размещаются в службе приложений, журналы отправителя находятся в той же папке минидампов: `%TEMP%\Dumps\<ikey>` (где `<ikey>` ваш ключ инструментирования).
+
+Для ролей в облачных службах временную папку по умолчанию может быть слишком мал для хранения файлов минидампа. В этом случае можно указать альтернативную папку через свойство может быть TempFolder в файле ApplicationInsights.config.
+
+```xml
+<TelemetryProcessors>
+  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+    <!-- Use an alternative folder for minidumps -->
+    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+    </Add>
+</TelemetryProcessors>
+```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Поиск исключений с моментальными снимками с помощью поиска Application Insights
 

@@ -2,8 +2,8 @@
 title: "Включение автономной синхронизации с помощью мобильных приложений iOS | Документация Майкрософт"
 description: "Узнайте, как использовать мобильные приложений службы приложений Azure для кэширования и синхронизации автономных данных в приложениях iOS."
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: b676b51241e4883fb1b4c40caba8e281bfa68a4c
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Включение автономной синхронизации с помощью мобильных приложений iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -158,7 +158,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Атрибуты таблицы MS_TableOperations][defining-core-data-tableoperations-entity]
 
-| Атрибут | Тип |
+| Атрибут | type |
 | --- | --- |
 | id | Integer 64 |
 | itemId | Строка |
@@ -171,7 +171,7 @@ ms.lasthandoff: 10/11/2017
 
  ![Атрибуты таблицы MS_TableOperationErrors][defining-core-data-tableoperationerrors-entity]
 
-| Атрибут | Тип |
+| Атрибут | type |
 | --- | --- |
 | id |Строка |
 | operationId |Integer 64 |
@@ -182,23 +182,23 @@ ms.lasthandoff: 10/11/2017
 
  ![][defining-core-data-tableconfig-entity]
 
-| Атрибут | Тип |
+| Атрибут | type |
 | --- | --- |
 | id |Строка |
 | key |Строка |
 | keyType |Integer 64 |
 | таблица |Строка |
-| значение |Строка |
+| value |Строка |
 
 ### <a name="data-table"></a>Таблица данных
 
 **TodoItem**
 
-| Атрибут | Тип | Примечание. |
+| Атрибут | type | Примечание |
 | --- | --- | --- |
 | id | Строка, помеченная как обязательная |Первичный ключ в удаленном хранилище |
-| complete | Логический | Поле элемента списка дел |
-| text |Строка |Поле элемента списка дел |
+| complete | Логическое | Поле элемента списка дел |
+| текст |Строка |Поле элемента списка дел |
 | дата создания | Дата | (необязательно) Сопоставляется с системным свойством **createdAt** |
 | дата обновления | Дата | (необязательно) Сопоставляется с системным свойством **updatedAt** |
 | версия | Строка | (необязательно) Используется для обнаружения конфликтов, сопоставляется со свойством version |
