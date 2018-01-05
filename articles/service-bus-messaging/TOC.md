@@ -6,7 +6,6 @@
 
 # Начало работы
 ## [Создание пространства имен](service-bus-create-namespace-portal.md)
-### [Очереди, разделы и подписки](service-bus-queues-topics-subscriptions.md)
 ## Использование очередей
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -25,7 +24,7 @@
 ## [Создание многоуровневого приложения служебной шины](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Практическое руководство
-## планирование и разработка
+## Планирование и проектирование
 ### [Управляемые удостоверения службы (предварительная версия)](service-bus-managed-service-identity.md)
 ### [Управление доступом на основе ролей (предварительная версия)](service-bus-role-based-access-control.md)
 ### [Обмен сообщениями: уровень "Премиум"](service-bus-premium-messaging.md)
@@ -37,6 +36,7 @@
 
 ## Разработка
 ### Обработка сообщений
+#### [Очереди, разделы и подписки](service-bus-queues-topics-subscriptions.md)
 #### [Сообщения, полезные данные и сериализация](service-bus-messages-payloads.md)
 #### [Передача, блокировка и согласование сообщений](message-transfers-locks-settlement.md)
 #### [Последовательность сообщений и метки времени](message-sequencing.md)
@@ -64,7 +64,7 @@
 #### [Объединение в цепочки сущностей с помощью автоматической пересылки](service-bus-auto-forwarding.md)
 #### [Обработка транзакций](service-bus-transactions.md)
 #### [Реализация сопряженных пространств имен](service-bus-paired-namespaces.md)
-## Управление
+## управление
 ### [Мониторинг служебной шины с помощью Azure Monitor](service-bus-metrics-azure-monitor.md)
 ### [Библиотеки управления служебной шиной](service-bus-management-libraries.md)
 ### [Журналы диагностики](service-bus-diagnostic-logs.md)
