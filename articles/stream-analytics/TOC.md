@@ -49,9 +49,10 @@
 ### [Масштабирование для повышения пропускной способности](stream-analytics-scale-jobs.md)
 ### [Масштабирование для функций машинного обучения](stream-analytics-scale-with-machine-learning-functions.md)
 
-## Управление
+## управление
 ### [Ротация учетных данных для источников входных данных и целей выходных данных](stream-analytics-login-credentials-inputs-outputs.md)
 ### [Надежность задания при обновлении](stream-analytics-job-reliability.md)
+### [Настройка уровня совместимости](stream-analytics-compatibility-level.md)
 
 ## Устранение неполадок
 ### [Руководство по устранению неполадок](stream-analytics-troubleshooting-guide.md)

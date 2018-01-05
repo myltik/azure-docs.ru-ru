@@ -35,7 +35,7 @@
       href: tutorial-backup-vms.md
     - name: 10. Мониторинг и обновление виртуальных машин
       href: tutorial-monitoring.md
-    - name: "11\_— управление безопасностью виртуальных машин"
+    - name: 11. Управление безопасностью виртуальных машин
       href: tutorial-azure-security.md
     - name: 12. Непрерывные интеграция и развертывание Team Services
       href: tutorial-vsts-iis-cicd.md
@@ -191,6 +191,8 @@
           href: agent-user-guide.md
         - name: Плановое техническое обслуживание
           href: maintenance-notifications.md
+        - name: Вопросы и ответы по ускоренному обслуживанию
+          href: accelerated-maintenance.md
         - name: Запланированные события
           href: scheduled-events.md
         - name: Монитор метаданных
@@ -235,7 +237,7 @@
           href: publish-web-app-from-visual-studio.md
     - name: Запуск приложений
       items:
-        - name: SQL Server
+        - name: SQL Server;
           href: sql/virtual-machines-windows-sql-server-iaas-overview.md
         - name: MongoDB
           href: install-mongodb.md
@@ -304,6 +306,8 @@
           href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Использование нескольких сетевых адаптеров
           href: multiple-nics.md
+        - name: Использование ускорения работы в сети
+          href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Назначение общедоступного DNS-имени
           href: portal-create-fqdn.md
         - name: Разрешение DNS

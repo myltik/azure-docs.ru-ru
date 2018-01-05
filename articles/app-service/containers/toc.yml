@@ -29,6 +29,8 @@
       items:
         - name: .NET Core с базой данных SQL
           href: tutorial-dotnetcore-sqldb-app.md
+        - name: Ruby с MySQL
+          href: tutorial-ruby-mysql-app.md
         - name: PHP с MySQL
           href: tutorial-php-mysql-app.md
         - name: Приложение Node.js с MongoDB
@@ -139,7 +141,7 @@
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
-    - name: Интерфейс REST API
+    - name: ИНТЕРФЕЙС REST API
       href: /rest/api/appservice/
 - name: Ресурсы
   items:

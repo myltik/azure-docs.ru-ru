@@ -1,5 +1,5 @@
 # Обзор
-## [Что такое службы Azure Analysis Services?](analysis-services-overview.md)
+## [Сведения о службах Analysis Services](analysis-services-overview.md)
 ## [Поддерживаемые источники данных](analysis-services-datasource.md)
 ## [Аутентификация и пользовательские разрешения](analysis-services-manage-users.md)
 ## [Подключение к локальным источникам данных](analysis-services-gateway.md)

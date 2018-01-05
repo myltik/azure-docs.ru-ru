@@ -20,7 +20,7 @@
 #### [Добавление управляемого диска в зоны доступности с помощью PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### наборы для масштабирования виртуальных машин
-#### [Создание масштабируемого набора виртуальных машин с помощью портала Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+#### [Создание масштабируемого набора в зоне доступности ](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Подсистема балансировки нагрузки
 #### [Что такое подсистема балансировки нагрузки?](../load-balancer/load-balancer-standard-overview.md)

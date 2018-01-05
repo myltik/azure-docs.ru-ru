@@ -26,8 +26,12 @@
       href: tutorial-deploy-function.md
 - name: Практические руководства
   items:
-    - name: Создание прозрачного шлюза
-      href: how-to-create-transparent-gateway.md
+    - name: Создание шлюзов
+      items:
+        - name: Создание прозрачного шлюза
+          href: how-to-create-transparent-gateway.md
+        - name: Шлюз Modbus
+          href: deploy-modbus-gateway.md
     - name: Развертывание и мониторинг в нужном масштабе
       href: how-to-deploy-monitor.md
     - name: Подготовка устройства с ОС "Windows 10 IoT Базовая"

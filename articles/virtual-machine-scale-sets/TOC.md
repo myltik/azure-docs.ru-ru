@@ -19,9 +19,10 @@
 ### [Использование пользовательского образа](virtual-machine-scale-sets-mvss-custom-image.md)
 ### [Автоматическое масштабирование на основе метрик гостевой виртуальной машины с помощью шаблона масштабируемого набора Linux](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
-## Развернуть
+## Развертывание
 ### [Создание с помощью Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Масштабируемый набор с управляемыми дисками](virtual-machine-scale-sets-managed-disks.md)
+### [Использование зон доступности](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Автоматическое масштабирование масштабируемого набора](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Использование портала Azure](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Использование Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
@@ -32,7 +33,7 @@
 ### [Работа с большими масштабируемыми наборами](virtual-machine-scale-sets-placement-groups.md)
 ### [Преобразование шаблона масштабируемого набора для использования управляемого диска](virtual-machine-scale-sets-convert-template-to-md.md)
 
-## Управление
+## управление
 ### Общие задачи управления
 #### [Использование Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md)
 #### [Использование Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
