@@ -286,7 +286,6 @@
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
 #### [Миграция классических политик](active-directory-conditional-access-migration.md)
-#### [Средство"Что если"](active-directory-conditional-access-whatif.md)
 #### Задачи
 ##### [Перенос классической политики MFA](active-directory-conditional-access-migration-mfa.md)
 ##### [Настройка условного доступа на основе устройств](active-directory-conditional-access-policy-connected-applications.md)
