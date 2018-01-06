@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>События риска Azure Active Directory
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/20/2017
 
 ![События риска](./media/active-directory-reporting-risk-events/91.png)
 
-Подробные сведения для события риска для обнаруженных привязывается к подписке Azure AD. Если выпуск Azure AD Premium P1 (включен в предложение EMS E3), обнаружения, не охватываемые лицензию помечаются как **войти, используя дополнительный риск обнаружил**. Другими словами отображается события риска вход с дополнительный риск для обнаружения только для подписчиков Azure AD Identity Protection.
+Подробные сведения для события риска для обнаруженных привязывается к подписке Azure AD. Выпуск Azure AD Premium P2 позволяет получить наиболее полные сведения о всех базовых данных обнаружения. С выпуском Azure AD Premium P1 обнаружений, не охватываемые лицензию отображаются как события риска **войти, используя дополнительный риск обнаружил**.
 
 
 В этой статье содержится подробный обзор событий риска и способов их использования для защиты идентификации Azure AD.

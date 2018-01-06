@@ -1,6 +1,6 @@
 ---
-title: "Эксперименты в коллекции Cortana Intelligence | Документация Майкрософт"
-description: "Ознакомьтесь с экспериментами из коллекции Cortana Intelligence и делитесь ими с другими пользователями."
+title: "Экспериментов в коллекции Azure AI | Документы Microsoft"
+description: "Обнаружение и совместно использовать экспериментов в коллекции Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 472ecac4ac1d9a86f0a3ad8271dd96257c331e5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Поиск экспериментов в коллекции Cortana Intelligence
+# <a name="discover-experiments-in-azure-ai-gallery"></a>Обнаружение экспериментов в коллекции Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Эксперименты для Студии машинного обучения
@@ -40,12 +40,12 @@ ms.lasthandoff: 10/11/2017
 
 ![Расскажите друзьям о том, что вы нашли](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Добавление комментариев](./media/gallery-how-to-use-contribute-publish/comments.png)
+![Добавляйте свои комментарии](./media/gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="download"></a>Загрузить
+## <a name="download"></a>Загрузка
 В рабочую область Студии машинного обучения можно загрузить копию любого эксперимента из коллекции. Затем можно изменить свою копию для создания собственных решений.
 
-Коллекция Cortana Intelligence поддерживает два способа импорта копии эксперимента.
+Коллекции AI Azure предлагает два способа импортировать копию эксперимента.
 
 * **Из коллекции**. Если вы нашли нужный эксперимент в коллекции, его копию можно скачать, а затем открыть в рабочей области Студии машинного обучения.
 * **Из Студии машинного обучения Azure**. Любой эксперимент из коллекции в Студии машинного обучения можно использовать в качестве шаблона для создания эксперимента.

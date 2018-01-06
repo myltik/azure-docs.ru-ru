@@ -1,5 +1,5 @@
 ---
-title: "Что такое Microsoft Power BI Embedded? | Документация Майкрософт"
+title: "О Azure Power BI Embedded | Документы Microsoft"
 description: "Цель Power BI Embedded — упростить использование возможностей Power BI независимыми поставщиками программного обеспечения и разработчиками, помогая им быстро добавлять привлекательные визуальные элементы, отчеты и панели мониторинга в свои приложения."
 services: power-bi-embedded
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/04/2018
 ms.author: asaxton
-ms.openlocfilehash: 03ac36b2b3f3e26770f681b101824ddeca29b61f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2e96575e74e20c80a79803ea56cdcbd4542e54a2
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-power-bi-embedded"></a>Что такое Power BI Embedded
+# <a name="about-power-bi-embedded"></a>О Power BI Embedded
 
 Назначение Power BI Embedded — упростить использование возможностей Power BI независимыми поставщиками программного обеспечения и разработчиками. Power BI Embedded упрощает возможности Power BI, позволяя быстро добавлять привлекательные визуальные элементы, отчеты и панели мониторинга в приложения. Аналогичным образом приложения на основе Microsoft Azure используют такие службы, как "Машинное обучение" и "Интернет вещей". Обеспечивая в своих приложениях анализ данных с удобной навигацией, независимые поставщики программного обеспечения позволяют своим клиентам быстро принимать обоснованные решения, исходя из контекста.
 

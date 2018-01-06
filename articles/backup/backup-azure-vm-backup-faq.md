@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: bc5b97192e0d4ad896d6d74a8745a3866d053a25
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Вопросы об использовании службы Azure Backup для резервного копирования виртуальных машин
 В этой статье содержатся ответы на часто задаваемые вопросы о компонентах службы Azure Backup для резервного копирования виртуальных машин. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -51,6 +51,9 @@ ms.lasthandoff: 12/21/2017
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Можно ли отменить выполняющееся задание резервного копирования?
 Да. Задание резервного копирования можно отменить, если оно находится на этапе "Создание моментального снимка". **Невозможно отменить задание, если выполняется передача данных из моментального снимка**. 
+
+### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Я включил блокировку группы ресурсов на диске управляемых резервных копий виртуальных машин. Будет ли после этого работать резервное копирование?
+Если пользователь блокирует группу ресурсов, службы резервного копирования не может удалить старые точки восстановления. В связи с появлением новых резервных копий начинаются сбои как ограничено максимальное число 18 точек восстановления, установленные с внутреннего сервера. Если после блокировки RG произошла внутренняя ошибка выдающие резервных копий, выполните следующие [действия по удалению восстановления выберите коллекцию](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
 
 ## <a name="restore"></a>восстановление;
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Что лучше выбрать — восстановление дисков или полное восстановление виртуальной машины?

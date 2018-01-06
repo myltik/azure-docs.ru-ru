@@ -1,6 +1,6 @@
 ---
-title: "Руководства в коллекции Cortana Intelligence | Документация Майкрософт"
-description: "Поиск и совместное использование руководств в коллекции Cortana Intelligence."
+title: "Учебники Azure коллекции AI | Документы Microsoft"
+description: "Обнаружение и совместно использовать учебники в коллекции Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: eee86899c14905655c4217d5fcf3865ca594366f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-tutorials-in-cortana-intelligence-gallery"></a>Поиск и совместное использование руководств в коллекции Cortana Intelligence
+# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Обнаружение и совместно использовать учебники в коллекции Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="tutorials"></a>Учебники
-В коллекции Cortana Intelligence доступен ряд [руководств](https://gallery.cortanaintelligence.com/tutorials), в которых описаны технологии и основные понятия машинного обучения. В них также описываются передовые методы решения различных задач машинного обучения.
+Коллекции AI Azure предлагает несколько вариантов [учебники](https://gallery.cortanaintelligence.com/tutorials) , можно подробно машины обучение технологии и основные понятия. В них также описываются передовые методы решения различных задач машинного обучения.
 
 ## <a name="discover"></a>Поиск
 Для поиска руководств [в коллекции](http://gallery.cortanaintelligence.com) в разделе **More** (Дополнительно) выберите **Tutorials** (Руководства).
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Расскажите друзьям о том, что вы нашли](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Добавление комментариев](./media/gallery-how-to-use-contribute-publish/comments.png)
+![Добавляйте свои комментарии](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="contribute"></a>Участие
 Вы можете добавить в коллекцию руководство, которое поможет другим пользователям решить какую-то проблему или изучить ту или иную концепцию.
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 
 7. Нажмите кнопку **Создать**.
 
-Теперь ваше руководство является частью коллекции Cortana Intelligence. Оно появится на странице вашей учетной записи на вкладке **Items** (Элементы).
+Этот учебник теперь находится в коллекции Azure AI. Оно появится на странице вашей учетной записи на вкладке **Items** (Элементы).
 
 **[Перейти к коллекции](http://gallery.cortanaintelligence.com)**
 

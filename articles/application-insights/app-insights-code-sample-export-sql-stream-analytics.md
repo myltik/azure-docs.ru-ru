@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: e935350fbcdeb7a3192778b3dafb288aac281886
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Пошаговое руководство. Экспорт в SQL из Application Insights с использованием Stream Analytics
 В этой статье показано, как переместить данные телеметрии из [Azure Application Insights][start] в базу данных SQL Azure, используя [непрерывный экспорт][export] и [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -141,29 +141,29 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 В этом примере мы используем данные из представлений страниц. Для просмотра других доступных данных проверьте выходные данные JSON и ознакомьтесь с разделом [Экспорт модели данных](app-insights-export-data-model.md).
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Создание экземпляра Azure Stream Analytics
-В [классическом портале Azure](https://manage.windowsazure.com/)выберите службу Azure Stream Analytics и создайте новое задание Stream Analytics:
+Из [портал Azure](https://portal.azure.com/), выберите службу Azure Stream Analytics и создайте новое задание Stream Analytics:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-При создании нового задания разверните информацию о нем:
+Когда создается новое задание, выберите **переход к ресурсу**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="set-blob-location"></a>Установка расположения большого двоичного объекта
+#### <a name="add-a-new-input"></a>Добавить новые входные данные
+
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+
 Задайте расположение для приема входных данных из большого двоичного объекта непрерывного экспорта:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
 
 Теперь потребуется первичный ключ доступа из вашей учетной записи хранения, указанной ранее. Задайте его в качестве ключа учетной записи хранения.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
-
 #### <a name="set-path-prefix-pattern"></a>Установка шаблона префикса пути
-![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Задайте в поле "Формат даты" значение в формате **ГГГГ-ММ-ДД** (с **дефисами**).
+**Задайте в поле "Формат даты" значение в формате ГГГГ-ММ-ДД (с дефисами).**
 
 Шаблон префикса пути указывает, как Stream Analytics находит входные файлы в хранилище. Вам необходимо настроить это поле в соответствии с тем, как функция непрерывного экспорта сохраняет данные. Задайте следующее значение:
 
@@ -178,22 +178,12 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 Чтобы получить имя и ключ инструментирования Application Insights, откройте раздел "Основные компоненты" на странице обзора или вкладку "Параметры".
 
-#### <a name="finish-initial-setup"></a>Завершение начальной настройки
-Подтвердите формат сериализации:
-
-![Подтвердите выбор и закройте мастер.](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
-
-Закройте мастер и дождитесь завершения установки.
-
 > [!TIP]
 > Используйте функцию Sample для проверки правильности входного пути. В случае сбоя убедитесь, что в хранилище для выбранного диапазона времени есть данные. Измените определение ввода и убедитесь, что учетная запись хранения, префикс пути и формат даты указаны правильно.
 > 
 > 
-
 ## <a name="set-query"></a>Настройка запроса
 Откройте раздел запроса:
-
-![В Stream Analytics выберите "Запрос".](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
 Замените запрос по умолчанию следующим:
 
@@ -238,22 +228,20 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 ## <a name="set-up-output-to-database"></a>Настройка выходных данных в базе данных
 Выберите SQL в качестве типа выходных данных.
 
-![В Stream Analytics выберите "Выходные данные".](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
+![В Stream Analytics выберите "Выходные данные".](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 Укажите базу данных SQL.
 
-![Введите информацию о базе данных.](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![Введите информацию о базе данных.](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 Закройте окно мастера и дождитесь появления уведомления о том, что выходные данные были настроены.
 
 ## <a name="start-processing"></a>Начало обработки
 Запустите задание на панели действий:
 
-![В Stream Analytics щелкните "Запуск".](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![В Stream Analytics щелкните "Запуск".](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
 Вы можете выбрать тип обработки данных – обработка текущих данных или данных, полученных ранее. Последний вариант удобен, если непрерывный экспорт уже выполняется в течение некоторого времени.
-
-![В Stream Analytics щелкните "Запуск".](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 Через несколько минут вернитесь к инструментам управления SQL Server и просмотрите передачу данных. Например, используйте запрос наподобие этого:
 

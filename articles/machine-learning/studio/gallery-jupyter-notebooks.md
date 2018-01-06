@@ -1,6 +1,6 @@
 ---
-title: "Записные книжки Jupyter в коллекции Cortana Intelligence | Документация Майкрософт"
-description: "Поиск записных книжек Jupyter в коллекции Cortana Intelligence."
+title: "Azure записные книжки Jupyter коллекции AI | Документы Microsoft"
+description: "Обнаружение записные книжки Jupyter в коллекции Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 10828d78f6e16b57c21f4d05b6d6116428ea4039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 59092514705d998fcf9ff835b3fde8a04f81aac5
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-jupyter-notebooks-in-the-cortana-intelligence-gallery"></a>Поиск записных книжек Jupyter в коллекции Cortana Intelligence
+# <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Обнаружение записные книжки Jupyter в коллекции Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="jupyter-notebooks"></a>Записные книжки Jupyter
@@ -38,9 +38,9 @@ ms.lasthandoff: 10/11/2017
 
 ![Расскажите друзьям о том, что вы нашли](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Добавление комментариев](./media/gallery-how-to-use-contribute-publish/comments.png)
+![Добавляйте свои комментарии](./media/gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="download"></a>Загрузить
+## <a name="download"></a>Загрузка
 Копию любой записной книжки из коллекции можно загрузить в рабочую область студии машинного обучения.
 
 ### <a name="download-from-the-gallery"></a>Скачивание из коллекции

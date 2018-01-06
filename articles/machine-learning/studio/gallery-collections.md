@@ -1,6 +1,6 @@
 ---
-title: "Коллекции Cortana Intelligence | Документация Майкрософт"
-description: "Поиск коллекций Cortana Intelligence и общий доступ к ним."
+title: "Azure AI коллекции коллекций | Документы Microsoft"
+description: "Обнаружение и совместного использования коллекций в коллекции Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9ca9b45bf977a562982535feb4093fcee0f10a05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-collections-in-cortana-intelligence-gallery"></a>Поиск коллекций Cortana Intelligence и общий доступ к ним
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Обнаружение и совместного использования коллекций в коллекции Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>Коллекции
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Расскажите друзьям о том, что вы нашли](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Добавление комментариев](./media/gallery-how-to-use-contribute-publish/comments.png)
+![Добавляйте свои комментарии](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="contribute"></a>Участие
 Можно создать коллекцию, которая будет содержать собственные элементы или элементы, созданные сообществом. Элементами коллекции могут быть любые элементы, касающиеся определенного решения или понятия.
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
     ![Выбор Public (Общедоступная) или Unlisted (Вне списка)](./media/gallery-collections/create-collection-page-3.png)
 7. Нажмите кнопку **Создать**.
 
-Теперь ваша коллекция является частью коллекции Cortana Intelligence. Ваши коллекции появятся на вкладке **Collection** (Коллекция) на странице вашей учетной записи.
+Ваша коллекция находится в коллекции Azure AI. Ваши коллекции появятся на вкладке **Collection** (Коллекция) на странице вашей учетной записи.
 
 ### <a name="add-items-to-a-collection"></a>Добавление элементов в коллекцию
 Чтобы добавить элементы в коллекцию, откройте коллекцию, выберите **Edit** (Изменить), а затем **Add Item** (Добавить элемент).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Инструменты Функций Azure для Visual Studio  
 
@@ -46,7 +46,8 @@ ms.lasthandoff: 01/03/2018
 
 * Активная подписка Azure. Если у вас нет подписки Azure, воспользуйтесь [бесплатными учетными записями](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Учетная запись хранения Azure. Чтобы создать учетную запись хранения, см. раздел [Создайте учетную запись хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
+* Учетная запись хранения Azure. Чтобы создать учетную запись хранения, см. раздел [Создайте учетную запись хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
 ## <a name="create-an-azure-functions-project"></a>Создание проекта Функций Azure 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
@@ -136,4 +137,4 @@ ms.lasthandoff: 01/03/2018
 Дополнительные сведения об инструментах Функций Azure см. в разделе часто задаваемых вопросов записи блога [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) (Инструменты Visual Studio 2017 для Функций Azure).
 
 Дополнительные сведения об основных инструментах Функций Azure см. в статье [Как программировать и тестировать функции Azure в локальной среде](functions-run-local.md).  
-Дополнительные сведения о разработке функций, таких как библиотек классов .NET, см. в статье [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md) (Использование библиотек классов .NET с помощью Функций Azure). Здесь также приведены примеры того, как использовать атрибуты для объявления различных типов привязок, поддерживаемых Функциями Azure.    
+Дополнительные сведения о разработке функции как библиотеки классов .NET см. в разделе [Справочник разработчика Azure функции C#](functions-dotnet-class-library.md). В этом разделе также приводятся ссылки на примеры можно объявлять различные типы привязок, поддерживаемых функций Azure с помощью атрибутов.    

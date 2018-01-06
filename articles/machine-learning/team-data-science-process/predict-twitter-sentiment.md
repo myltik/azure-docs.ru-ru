@@ -1,6 +1,6 @@
 ---
-title: "Предсказать мнений Twitter, внедряемые объекты word, с помощью процесса обработки и анализа данных командного - Azure | Документы Microsoft"
-description: "Порядок выполнения проектов по обработке и анализу данных"
+title: "Прогноз мнений Twitter с внедряемые объекты word с помощью командного процесса обработки и анализа данных в Azure | Документы Microsoft"
+description: "Действия, необходимые для выполнения проектов обработки и анализа данных."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,126 +14,137 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: fe1c87df40102a62e1e0c8873b25fa3df7d743bc
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 20bc3f31897cec4a3cec9ca409062229133102f5
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="predict-twitter-sentiment-with-word-embeddings-using-the-team-data-science-process"></a>Предсказать мнений Twitter, внедряемые объекты word, с помощью командного процесса обработки и анализа данных
+# <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Прогноз мнений Twitter с внедряемые объекты word с помощью командного процесса обработки и анализа данных
 
-В этой статье показано, как для эффективной совместной работы при использовании **Word2Vec** word, применяя алгоритм и **мнений конкретного слова внедрение (SSWE) алгоритм** для прогнозирования мнений Twitter с [Машинного обучения azure](../preview/index.yml). Дополнительные сведения о задача прогнозирования twitter полярности мнений, см. в разделе [репозитория](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction). Ключом к проведению эффективных совместная работа над проектами обработки и анализа данных является стандартизировать структуры и документации проектов с жизненным циклом обработки и анализа данных. [Процесса обработки и анализа данных Team (TDSP)](overview.md) предоставляет такое структурированных [жизненного цикла](lifecycle.md). 
+В этой статье показано, как для эффективной совместной работы с помощью _Word2Vec_ word, применяя алгоритм и _внедрение мнений конкретного слова (SSWE)_ алгоритм для прогнозирования мнений Twitter с [Машинного обучения azure](../preview/index.yml). Дополнительные сведения о прогнозирование полярности мнений Twitter. в разделе [MachineLearningSamples TwitterSentimentPrediction репозитория](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) на GitHub. Ключом к проведению эффективных совместная работа над проектами обработки и анализа данных является стандартизировать структуры и документации проектов с жизненным циклом установленного-обработки и анализа данных. [Процесса обработки и анализа данных Team (TDSP)](overview.md) предоставляет этот тип структурированных [жизненного цикла](lifecycle.md). 
 
-Создание проектов научных вычислений с **TDSP шаблона** предоставляет стандартизированные платформа для проектов машинного обучения Azure. Ранее выпустила TDSP team [репозитории GitHub для TDSP структуры проекта и шаблонов](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Теперь процесс создания проектов машинного обучения Azure, экземпляры которых создаются с [TDSP шаблоны структуры и документации для машинного обучения Azure](https://github.com/amlsamples/tdsp) был включен. Инструкции по использованию TDSP структуры и шаблоны в машинном обучении Azure см. в разделе [структуры проектов с помощью шаблона процесса обработки и анализа данных командного](../preview/how-to-use-tdsp-in-azure-ml.md). 
+Создание проектов обработки и анализа данных с _TDSP шаблона_ предоставляет стандартизированные framework для проектов машинного обучения Azure. Ранее, выпуска командой TDSP [репозитории GitHub для TDSP структуры проекта и шаблонов](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Теперь проектов машинного обучения, реализованным с [TDSP шаблонов машинного обучения Azure](https://github.com/amlsamples/tdsp) включены. Инструкции см. в разделе способы использования [TDSP структура проектов с помощью шаблона TDSP](../preview/how-to-use-tdsp-in-azure-ml.md) в машинном обучении Azure. 
 
 
-## <a name="the-sentiment-polarity-sample"></a>Полярность мнений
+## <a name="twitter-sentiment-polarity-sample"></a>Полярность мнений Twitter
 
-Образец, в котором показано, как создать и выполнить машинного обучения структуры процесса обработки и анализа данных командного проекта и шаблоны в установку обучения рабочих Azure компьютеров предоставляется в этом [Пошаговое руководство](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md). Задачи моделирования состоит в прогнозировании мнениях полярности (положительное или отрицательное) текста из твиты. В этой статье описываются моделирования задач, описанных в этом пошаговом руководстве. Пошаговом руководстве рассматриваются следующие задачи:
+В этой статье используется пример объясняется, как создать и выполнять проект машинного обучения. В образце используется структура TDSP и шаблонов в Azure Machine Learning Workbench. Полный пример приведен в [в данном пошаговом руководстве](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md). Задачи моделирования прогнозирует полярности мнений (положительное или отрицательное), используя текст из твиты. В этой статье описываются задачи моделирования данных, описанные в этом пошаговом руководстве. Пошаговом руководстве рассматриваются следующие задачи:
 
-- Изучение данных, обучение и развертывание модели машинного обучения для выполнения задачи прогнозирования. Задача описана в обзоре вариантов использования. Для этой цели [мнений Twitter данных](http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip) используется.
-- Выполнение проекта в службе "Машинное обучение Microsoft Azure" на основе предоставляемого службой шаблона для командного процесса обработки и анализа данных (TDSP). Жизненный цикл TDSP используется для выполнения проекта и создания отчетов.
-- Ввод решения в эксплуатацию напрямую из службы "Машинное обучение Microsoft Azure" в Службе контейнеров Azure.
+- Просмотр данных, обучения и развертывания модели машинного обучения, решить проблему прогноза, описанное в обзоре вариантов использования. [Twitter настроении](http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip) используется для выполнения следующих задач.
+- Выполнение проекта с помощью шаблона TDSP из машинного обучения Azure для этого проекта. Жизненный цикл TDSP используется для выполнения проекта и создания отчетов.
+- Ввода в эксплуатацию решений непосредственно из машинного обучения Azure в службе контейнера Azure.
 
-Проект выделяет несколько функций машинного обучения Azure, такие при создании экземпляра структуры TDSP и использование, выполнение кода в Azure Machine обучения рабочих сред и простоту практического применения в контейнере службы Azure, с помощью Docker и Kubernetes.
+Проект выделены следующие функции машинного обучения Azure.
+
+- Создание экземпляра и использование структуры TDSP.
+- Выполнение кода в Azure Machine Learning Workbench.
+- Простоту практического применения в контейнер службы с помощью Docker и Kubernetes.
 
 ## <a name="team-data-science-process"></a>Процесс обработки и анализа данных группы
-Для выполнения этого примера используйте шаблоны проектов TDSP структуры и документации. Следует [TDSP жизненного цикла]((https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)). Проект создается в соответствии с инструкциями [здесь](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
+Для выполнения этого примера, используйте шаблоны проектов TDSP структуры и документации в Azure Machine Learning Workbench. В этом образце реализуется [жизненного цикла TDSP](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md), как показано на следующем рисунке:
 
 ![Жизненный цикл процесса обработки и анализа данных группы](./media/predict-twitter-sentiment/tdsp-lifecycle.PNG)
 
-![Создать экземпляр TDSP](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
+В Azure Machine Learning рабочей среды на основе создается проект TDSP [эти инструкции](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md), как показано на следующем рисунке:
+
+![Создание TDSP в Azure Machine Learning Workbench](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
 
 
-## <a name="data-acquisition-and-understandinghttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode01dataacquisitionandunderstanding"></a>[Получение и анализ данных](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding).
-Первым шагом в этом образце является скачать набор данных sentiment140 и разделить ее на обучающий и проверочный наборы данных. Sentiment140 набор данных содержит фактическое содержимое твит (с удалены эмотиконы), а также полярности каждого твит (отрицательное = 0, положительное = 4), с нейтральным твиты удалены. При разделении, полученный обучающих данных 1,3 миллиона строк, а проверочных данных имеет 320 тысяч строк.
+## <a name="data-acquisition-and-preparationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode01dataacquisitionandunderstanding"></a>[Получение данных и подготовка](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding)
+Первым шагом в этом образце является скачать набор данных sentiment140 и разделить данные на обучающие и проверочные наборы данных. Sentiment140 набор данных содержит фактическое содержимое твит (с настроения удалены). Набор данных также содержит полярности каждого твит (отрицательное = 0, положительное = 4) с нейтральным твиты удалены. Деления данных обучающих данных 1,3 миллиона строк, а проверочных данных имеет 320,000 строк.
 
 
-## <a name="modelinghttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling"></a>[Моделирование](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling)
+## <a name="model-developmenthttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling"></a>[Модель разработки](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling)
 
-Эта часть образца подразделяются на три части:
- 
-- **Функция Engineering** соответствует создания компонентов с использованием различных слов, внедрение алгоритмов. 
-- **Создание модели** сделок учебному различных моделей, например _логистической регрессии_ и _градиентный бустинг_ для прогнозирования мнений вводимого текста. 
-- **Модель оценки** применяет обученной модели проверочных данных.
+При разработке модели данных является следующим шагом в образце. Задачи моделирования состоит из трех частей:
+
+- Функция engineering: создавать признаки для модели с помощью различных слов, внедрение алгоритмов. 
+- Создание модели: обучения различных моделей для прогнозирования мнений вводимого текста. Примеры этих моделей _логистической регрессии_ и _градиентный Бустинг_.
+- Модель оценки: оценки обученных моделей по проверочных данных.
 
 
 ### <a name="feature-engineeringhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling01featureengineering"></a>[Конструируются](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/01_FeatureEngineering)
 
-Word2Vec и SSWE — это слово, внедрение алгоритмы, используемые здесь, для создания внедренных word. 
+Алгоритмы Word2Vec и SSWE, используются для создания внедренных word. 
 
 
-#### <a name="word2vec"></a>Word2Vec
+#### <a name="word2vec-algorithm"></a>Алгоритм Word2Vec
 
-В режиме Skipgram используется алгоритм Word2Vec. Этот способ формирования внедряемые объекты word объясняется в документе Tomas Mikolov et al.: [распределенного представления слов и фраз и их композициональность. Усовершенствованные возможности нейронной сведения о системах обработки. 2013.](https://arxiv.org/abs/1310.4546).
+Skip-Gram модели используется алгоритм Word2Vec. Эта модель объясняется в документе по Tomas Mikolov и т. п. «[Распределенного представления ключевых слов и фраз и их композициональность. Усовершенствованные возможности нейронной сведения о системах обработки. ](https://arxiv.org/abs/1310.4546)" 2013.
 
-Skip-gram является неполной нейронной сети. Его входные данные — слово целевой кодировке один горячий вектор, который используется для прогнозирования ближайших слова. Если **V** — размер термины, то размер выходного слоя будет __C * V__ C является размер окна контекста. Skip-gram основе архитектура показана на следующем рисунке:
+Skip-Gram модель является неполной нейронной сети. Введенное значение целевой слово, которое кодируется как вектор горячей один, который используется для прогнозирования ближайших слова. Если **V** — размер термины, то размер выходного слоя __C * V__ C является размер окна контекста. На следующем рисунке показана архитектуру, которая основана на модели пропустить-грамм:
 
-![Skip-gram модели](./media/predict-twitter-sentiment/skip-gram-model.PNG)
+![Skip-Gram модели](./media/predict-twitter-sentiment/skip-gram-model.PNG)
 
-***Skip-gram модели***
+Подробные механизмы Word2Vec алгоритм и пропустить-Gram модели выходят за рамки данного образца. Дополнительные сведения см. следующие ссылки:
 
-Подробные механизм, позволяющий модели алгоритм и пропустить грамм word2vec выходят за рамки данного образца. Читатели заинтересованы в более подробные сведения о его работы можно найти следующие ссылки:
-
-- [Код 02_A_Word2Vec.py ссылки на примеры TensorFlow](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py)
-- [Представление вектор слов](https://www.tensorflow.org/tutorials/word2vec)
+- [Код 02_A_Word2Vec.py с примерами упоминаемого TensorFlow](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py) 
+- [Vector Representations of Words](https://www.tensorflow.org/tutorials/word2vec) (Векторные представления слов).
 - [Как именно работает word2vec?](http://www.1-4-5.net/~dmm/ml/how_does_word2vec_work.pdf)
 - [Замечания о Contrastive оценка шума и отрицательное выборки](http://demo.clab.cs.cmu.edu/cdyer/nce_notes.pdf)
 
 
-#### <a name="sswe"></a>SSWE
-**Мнений конкретного слова внедрение (SSWE) алгоритм** пытается преодолеть недоработки Word2vec алгоритма, слов с контекстами аналогичные и противоположными полярности может иметь аналогичные векторов word. Это сходство означает, что Word2vec не может выполнить точно для выполнения задач, таких как анализ мнений. Алгоритм SSWE пытается обработать этот недостаток особенно, включая полярности предложения и контекст word в его функции потерь.
-
-В этом образце используется вариант SSWE. SSWE использует исходное ngram и поврежденный ngram как входные данные, стиль ранжирования бизнеса функцию потерь для потери синтаксические и семантические потери. Функции потерь Ultimate — взвешенного сочетание потери синтаксические и семантические потери. С целью упрощения только семантического перекрестной энтропии используется в качестве функции потерь. Как видно в более поздней версии, даже с этого простым функции потерь производительности внедрения SSWE лучше, чем внедрение Word2Vec.
-
-Модели SSWE впечатляющие нейронной сети, используемой в этом образце показан на следующем рисунке:
-
-![Сравнение моделей ROC](./media/predict-twitter-sentiment/embedding-model-2.PNG)
-
-***Convolutional модель для создания внедрение словам мнений.***
 
 
-После завершения процесса обучения двух внедрение файлов в формате TSV создаются для моделирования рабочей области.
+#### <a name="sentiment-specific-word-embedding-algorithm"></a>Внедрение Word мнений конкретного алгоритма
+Алгоритм SSWE пытается преодолеть недоработки Word2Vec алгоритма, где слов с контекстами аналогичные и противоположными полярности может иметь аналогичные векторов word. Сходство может привести к алгоритм Word2Vec точно выполнение задач, таких как анализ мнений. Алгоритм SSWE пытается обработать этот недостаток особенно, включая полярности предложения и контекст word в его функции потерь.
 
-Дополнительные сведения об алгоритмах SSWE см. в документе Duyu Tang et al.: [обучения мнений конкретного слова внедрение классификация мнений Twitter. СПИСОК УПРАВЛЕНИЯ ДОСТУПОМ (1). 2014.](http://www.aclweb.org/anthology/P14-1146) 
+В образце используется вариант алгоритма SSWE следующим образом:
+
+- Как для исходного _ngram_ или поврежденные _ngram_ используются в качестве входных данных.
+- Объект Ранжирующая функция потери стиль около петель монитора используется для потери синтаксические и семантические потери.
+- Функция ultimate потери — взвешенного сочетание потери синтаксические и семантические потери.
+- Для простоты только семантического перекрестной энтропии используется в качестве функции потерь.
+
+В этом примере, даже с простой функцию потерь производительности внедрения SSWE лучше, чем внедрение Word2Vec. На следующем рисунке показана convolutional модель, которая используется для создания внедрение мнений словам:
+
+![Модель нейронной сети по SSWE](./media/predict-twitter-sentiment/embedding-model-2.PNG)
+
+После завершения процесса обучения двух внедрение файлов в формате значений, разделенных табуляцией (TSV) создаются для моделирования рабочей области.
+
+Дополнительные сведения об алгоритмах SSWE см. в статье Duyu Tang и т. п. «[Обучения конкретного мнений Word внедрение классификация мнений Twitter](http://www.aclweb.org/anthology/P14-1146).» Ассоциации для вычислительных Linguistics (1). 2014.
 
 
 ### <a name="model-creationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling02modelcreation"></a>[Создание моделей](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/02_ModelCreation)
-Векторы word были созданы с помощью алгоритмов SSWE или Word2vec, следующим шагом после для обучения модели классификации для прогнозирования полярности фактическое мнений. Два типа функций Word2Vec и SSWE, применяются к две модели GBM модели и модели логистической регрессии. Поэтому четыре различных моделей прошла обучение.
+После слова векторов создаются с помощью алгоритма SSWE или Word2Vec, модели классификации, подготовленные для прогнозирования полярности фактическое мнений. Два типа функций: Word2Vec и SSWE, применяются к две модели: градиентный Бустинг модели и модели логистической регрессии. В результате для четырех разных моделей обучения.
 
 
 ### <a name="model-evaluationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling03modelevaluation"></a>[Модель оценки](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/03_ModelEvaluation)
-Теперь используется четыре модели, обучение в предыдущем шаге в проверочных данных для оценки производительности модели. 
+После обучения модели модели используются для тестирования Twitter текстовых данных и оценки производительности каждой модели. Образец оценивает следующие четыре модели:
 
-1. Градиент Boosting через SSWE внедрения
-2. Алгоритм логистической регрессии через SSWE внедрения
-3. Градиент Boosting через Word2Vec внедрения
-4. Алгоритм логистической регрессии через Word2Vec внедрения
+- Градиент Boosting через SSWE внедрения.
+- Алгоритм логистической регрессии через SSWE внедрения.
+- Градиент Boosting через Word2Vec внедрения.
+- Алгоритм логистической регрессии через Word2Vec внедрения.
 
-![Сравнение моделей ROC](./media/predict-twitter-sentiment/roc-model-comparison.PNG)
+На следующем рисунке показано сравнение производительности четыре модели:
 
-GBM модели с функциями SSWE наилучшим является использование AUC метрику.
+![Получатель операционные характеристики сравнения моделей (ROC)](./media/predict-twitter-sentiment/roc-model-comparison.PNG)
+
+Градиентный Бустинг модели с помощью функции SSWE покажет лучшую производительность при сравнении моделей с помощью площадь под кривой (AUC) метрику.
 
 
 ## <a name="deploymenthttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode03deployment"></a>[Развертывание](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/03_deployment)
 
-Эта часть развертывает модель прогнозирования обученной мнений (внедрение SSWE + GBM модели) для веб-службы в кластере в контейнере службы Azure (ACS). Среда ввода в эксплуатацию подготавливает в кластере Docker и Kubernetes для управления развертыванием веб службы. Дополнительные сведения о вводе в эксплуатацию вы найдете [здесь](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
+Последним шагом является развертывание модели прогнозирования обученной мнений в веб-службу в кластере в контейнере службы Azure. В образце используется модель градиентный Бустинг внедрения алгоритму SSWE как обученной модели. Среда ввода в эксплуатацию подготавливает Docker и Kubernetes в кластере для развертывания веб службы, как показано на следующем рисунке: 
 
-![kubenetes_dashboard](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
+![Панель мониторинга Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
+Дополнительные сведения о процессе ввода в эксплуатацию см. в разделе [развертывание модели машинного обучения Azure через веб-службу](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
 
 ## <a name="conclusion"></a>Заключение
 
-Были представлены сведения о том, как обучить модель внедрения word с помощью алгоритмов Word2Vec и SSWE и извлеченные внедряемые объекты были использованы в качестве функции для обучения нескольких моделей для прогнозирования оценок мнений Twitter текстовых данных. Компонент конкретных формулировка Embeddings(SSWE) мнений с градиентной повышенного дерева модели предлагает наилучшую производительность. Затем эта модель была развернута в режиме реального времени веб-службы в службах Azure контейнера с помощью Azure машины обучения рабочих сред.
+В этой статье вы узнали, как для обучения модели внедрения word с помощью Word2Vec и внедрение Word мнений конкретных алгоритмов. Извлеченные внедряемые объекты были использованы в качестве функции для обучения нескольких моделей для прогнозирования оценок мнений Twitter текстовых данных. Функция SSWE, используется с моделью градиентный Бустинг предлагает наивысшую производительность. Модель затем развернуть в реальном времени веб-службы в службе контейнера с помощью Azure Machine Learning Workbench.
 
 
 ## <a name="references"></a>Ссылки
 
 * [Процесс обработки и анализа данных для команды](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
 * [Использование командного процесса обработки и анализа данных (TDSP) в службе "Машинное обучение Microsoft Azure"](https://aka.ms/how-to-use-tdsp-in-aml).
-* [Шаблон проекта TDSP для службы "Машинное обучение Microsoft Azure"](https://aka.ms/tdspamlgithubrepo).
-* [Azure ML рабочих сред](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
-* [Набор данных о доходах граждан США из репозитория ML UCI](https://archive.ics.uci.edu/ml/datasets/adult).
-* [С помощью шаблона TDSP биомедицинских распознавание сущности](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
-* [Mikolov Tomas, и т. п. Distributed representations of words and phrases and their compositionality (Распределенные представления слов и фраз и их композиционность). Усовершенствованные возможности нейронной сведения о системах обработки. 2013.](https://arxiv.org/abs/1310.4546)
+* [Шаблоны проектов TDSP для машинного обучения Azure](https://aka.ms/tdspamlgithubrepo)
+* [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/).
+* [Доход США набора данных из репозитория UCI машинного Обучения](https://archive.ics.uci.edu/ml/datasets/adult)
+* [Распознавание биомедицинских сущности с помощью шаблонов TDSP](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Mikolov Tomas, и т. п. «Распределенные представления ключевых слов и фраз и их композициональность. Перемещает нейронной сведения о системах обработки.» 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang Duyu, и т. п. «Обучения словам мнений внедрение классификация мнений Twitter». СПИСОК УПРАВЛЕНИЯ ДОСТУПОМ (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

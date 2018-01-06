@@ -1,5 +1,5 @@
 ---
-title: "Привязка внешних таблиц в Функциях Azure (предварительная версия) | Документация Майкрософт"
+title: "Внешние привязки таблицы для функций Azure (экспериментальная функция)"
 description: "Использование привязок внешних таблиц в Функциях Azure"
 services: functions
 documentationcenter: 
@@ -14,24 +14,28 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 1d983a6924a939a8eb89355fab0c90596dbf2ed3
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 8a4358fa67e45d0b7a2df1519d649099b5ef5850
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-functions-external-table-binding-preview"></a>Привязка внешних таблиц в Функциях Azure (предварительная версия)
-В этой статье показано, как управлять табличными данными для поставщиков SaaS (например, Sharepoint, Dynamics) внутри функции со встроенными привязками. Функции Azure поддерживают входные и выходные привязки для внешних таблиц.
+# <a name="external-table-binding-for-azure-functions-experimental"></a>Внешние привязки таблицы для функций Azure (экспериментальная функция)
+
+В этой статье объясняется, как работать с табличными данными на поставщики SaaS, таких как Sharepoint и Dynamics в функциях Azure. Azure поддерживает функции ввода и вывода привязки для внешних таблиц.
+
+> [!IMPORTANT]
+> Привязка внешней таблицы является экспериментальной и никогда не может перейти в состояние общедоступными (GA). Она включена только в Azure 1.x, и не планируется добавление функций Azure 2.x. Для сценариев, которым требуется доступ к данным в поставщики SaaS, рассмотрите возможность использования [логику приложения, которые вызывают функции](functions-twitter-email.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="api-connections"></a>Подключения API
+## <a name="api-connections"></a>API подключения
 
-Привязки таблиц используют внешние подключения API для проверки подлинности у сторонних поставщиков SaaS. 
+Привязки таблицы использовать внешние подключения API для проверки подлинности с помощью сторонних поставщиков SaaS. 
 
-При назначении привязки можно создать новое подключение API или использовать существующее подключение API в той же группе ресурсов.
+При назначении привязки можно создать новое соединение API или использовать существующее соединение API в пределах той же группе ресурсов.
 
-### <a name="supported-api-connections-tables"></a>Поддерживаемые подключения API (таблица)
+### <a name="available-api-connections-tables"></a>Доступные подключения API (таблицы)
 
 |Соединитель|Триггер|Входные данные|Выходные данные|
 |:-----|:---:|:---:|:---:|
@@ -52,26 +56,35 @@ ms.lasthandoff: 12/22/2017
 |UserVoice||x|x
 |Zendesk||x|x
 
-
 > [!NOTE]
-> В [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list) могут также использоваться подключения к внешним таблицам.
+> Внешние таблицы подключения также может использоваться в [приложения логики Azure](https://docs.microsoft.com/azure/connectors/apis-list).
 
-### <a name="creating-an-api-connection-step-by-step"></a>Пошаговые инструкции по созданию подключения API
+## <a name="creating-an-api-connection-step-by-step"></a>Пошаговые инструкции по созданию подключения API
 
-1. Create a function (Создать функцию) > Пользовательская функция ![Создание пользовательской функции](./media/functions-bindings-storage-table/create-custom-function.jpg)
-1. Сценарий `Experimental`  >  Шаблон `ExternalTable-CSharp` > Создать новое подключение `External Table connection` 
- ![Выбор шаблона входных данных для таблицы](./media/functions-bindings-storage-table/create-template-table.jpg)
-1. Выберите поставщика SaaS > Выберите или создайте подключение ![Настройка подключения SaaS](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
-1. Выберите подключение API > Создайте функцию ![Создание табличной функции](./media/functions-bindings-storage-table/table-template-options.jpg)
-1. Выберите `Integrate` > `External Table`
-    1. Настройте подключение так, чтобы использовать в нем целевую таблицу. Эти параметры варьируются у разных поставщиков SaaS. Они описаны ниже в разделе [Параметры источника данных](#datasourcesettings).
-![Настройка таблицы](./media/functions-bindings-storage-table/configure-API-connection.jpg)
+1. На странице портала Azure для приложения функции, выберите знак «плюс» (**+**) для создания функции.
 
-## <a name="usage"></a>Использование
+1. В **сценарий** выберите **экспериментальный**.
+
+1. Выберите **внешней таблицы**.
+
+1. Выберите язык.
+
+2. В разделе **подключения внешней таблицы**выберите существующее соединение или **новый**.
+
+1. Новое соединение, настройте параметры и выберите **авторизовать**.
+
+1. Выберите **создать** для создания функции.
+
+1. Выберите **интегрировать > внешней таблицы**.
+
+1. Настройте подключение так, чтобы использовать в нем целевую таблицу. Эти параметры будут различаться для разных поставщиков SaaS. Примеры, описаны в следующем разделе.
+
+## <a name="example"></a>Пример
 
 В этом примере мы установим подключение к таблице Contact со столбцами Id, LastName и FirstName. В коде перечислены сущности таблицы Contact, а также записаны имена и фамилии.
 
-### <a name="bindings"></a>Привязки
+Ниже показан файл *function.json*.
+
 ```json
 {
   "bindings": [
@@ -93,29 +106,8 @@ ms.lasthandoff: 12/22/2017
   "disabled": false
 }
 ```
-Параметр `entityId` должен быть пустым для привязок таблиц.
 
-`ConnectionAppSettingsKey` определяет параметр приложения, в котором хранится строка подключения API. Параметр приложения создается автоматически при добавлении подключения API в интерфейсе интеграции.
-
-Табличный соединитель предоставляет наборы данных, и каждый набор данных содержит таблицы. По умолчанию задано имя набора данных default. Ниже перечислены заголовки для набора данных и таблицы у различных поставщиков SaaS.
-
-|Соединитель|Выборка|Таблица|
-|:-----|:---|:---| 
-|**SharePoint**|Сайт|Список SharePoint
-|**SQL**|База данных|Таблица 
-|**Таблица Google**|Электронная таблица|Лист 
-|**Excel**|Файл Excel|Лист 
-
-<!--
-See the language-specific sample that copies the input file to the output file.
-
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
--->
-<a name="incsharp"></a>
-
-### <a name="usage-in-c"></a>Использование в языке C# #
+Ниже приведен код скрипта C#.
 
 ```cs
 #r "Microsoft.Azure.ApiHub.Sdk"
@@ -154,25 +146,9 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
 }
 ```
 
-<!--
-<a name="innodejs"></a>
+### <a name="sql-server-data-source"></a>Источник данных SQL Server
 
-### Usage in Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
--->
-<a name="datasourcesettings"></a>
-## Параметры источника данных
-
-### <a name="sql-server"></a>SQL Server;
-
-Скрипт для создания и заполнения таблицы Contact приведен ниже. Имя dataSetName — default.
+Чтобы создать таблицы в SQL Server для использования с этим примером, Вот сценарий. `dataSetName`«Default».
 
 ```sql
 CREATE TABLE Contact
@@ -191,11 +167,36 @@ INSERT INTO Contact(Id, LastName, FirstName)
 GO
 ```
 
-### <a name="google-sheets"></a>Таблицы Google
-В Документах Google создайте таблицу с листом `Contact`. Соединитель не может использовать отображаемое имя листа. В качестве dataSetName необходимо использовать внутреннее имя (выделено полужирным шрифтом), например: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**. Добавьте имена столбцов `Id`, `LastName`, `FirstName` в первую строку, а затем заполните данные в последующих строках.
+### <a name="google-sheets-data-source"></a>Источник данных Google листов
+
+Чтобы создать таблицу, чтобы использовать в данном примере в Google документы, создайте таблицу с листом `Contact`. Соединитель не может использовать отображаемое имя листа. В качестве dataSetName необходимо использовать внутреннее имя (выделено полужирным шрифтом), например: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**. Добавьте имена столбцов `Id`, `LastName`, `FirstName` в первую строку, а затем заполните данные в последующих строках.
 
 ### <a name="salesforce"></a>Salesforce
-Имя dataSetName — default.
+
+Чтобы использовать этот пример с Salesforce, `dataSetName` «Default».
+
+## <a name="configuration"></a>Параметр Configuration
+
+В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json*.
+
+|свойство function.json | ОПИСАНИЕ|
+|---------|----------------------|
+|**type** | Нужно задать значение `apiHubTable`. Это свойство задается автоматически при создании триггера на портале Azure.|
+|**direction** | Нужно задать значение `in`. Это свойство задается автоматически при создании триггера на портале Azure. |
+|**name** | Имя переменной, представляющей элемент события в коде функции. | 
+|**подключение**| Определяет параметр приложения, в которой хранятся строки подключения API. Параметр приложения создается автоматически при добавлении подключения API в интерфейсе интеграции.|
+|**dataSetName**|Имя набора данных, содержащую таблицу, для чтения.|
+|**tableName**|Имя таблицы|
+|**entityId**|Должен быть пустым для привязки таблицы.
+
+Табличный соединитель предоставляет наборы данных, и каждый набор данных содержит таблицы. По умолчанию задано имя набора данных default. Ниже перечислены заголовки для набора данных и таблицы у различных поставщиков SaaS.
+
+|Соединитель|Выборка|Таблица|
+|:-----|:---|:---| 
+|**SharePoint**|Сайт|Список SharePoint
+|**SQL**|База данных|Таблица 
+|**Таблица Google**|Электронная таблица|Лист 
+|**Excel**|Файл Excel|Лист 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: 519ac38c484b9631a3fc096a17be026e9378a178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2adfffa00a726fe2c452c25dd777ef054319b04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API обнаружения аномалий в машинном обучении
 ## <a name="overview"></a>Обзор
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/08/2017
 >
 
 ## <a name="api-deployment"></a>Развертывание API
-Чтобы использовать API-интерфейс, необходимо развернуть его в подписке Azure. Он будет размещаться там в роли веб-службы машинного обучения Azure.  Это можно сделать с помощью [коллекции Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  В результате в подписке Azure будут развернуты две веб-службы AzureML (и соответствующие ресурсы). Одна из них используется для обнаружения аномалий и сезонности, а вторая работает без обнаружения сезонности.  Когда завершится развертывание, этими интерфейсами API можно управлять на странице [веб-служб AzureML](https://services.azureml.net/webservices/).  На этой странице вы можете найти расположения конечных точек, ключи API и примеры кода для вызова API.  Более подробные инструкции см. [здесь](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Чтобы использовать API-интерфейс, необходимо развернуть его в подписке Azure. Он будет размещаться там в роли веб-службы машинного обучения Azure.  Вы можете сделать это в [коллекции AI Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  В результате в подписке Azure будут развернуты две веб-службы AzureML (и соответствующие ресурсы). Одна из них используется для обнаружения аномалий и сезонности, а вторая работает без обнаружения сезонности.  Когда завершится развертывание, этими интерфейсами API можно управлять на странице [веб-служб AzureML](https://services.azureml.net/webservices/).  На этой странице вы можете найти расположения конечных точек, ключи API и примеры кода для вызова API.  Более подробные инструкции см. [здесь](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Масштабирование API
 По умолчанию для развертывания применяется бесплатный тарифный план для разработки и тестирования. Он предоставляет 1000 транзакций и 2 часа вычислений ежемесячно.  Этот план вы можете сменить на любой другой в соответствии с потребностями.  Сведения о ценах на разные планы приводятся [на этой странице](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) в разделе "Цены на производственный веб-API".

@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rajanaki
-ms.openlocfilehash: cc832d06611c10901d4370dc7467f0b681d89cbd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 28f35498593c896a5ad1fe7030c96c38bd4a48a9
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Репликация виртуальных машин Hyper-V из облаков VMM в Azure с помощью PowerShell и Azure Resource Manager
 > [!div class="op_single_selector"]
 > * [портале Azure](site-recovery-vmm-to-azure.md)
 > * [PowerShell — Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-> * [Классический портал](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell — классическая модель](site-recovery-deploy-with-powershell.md)
 >
 >

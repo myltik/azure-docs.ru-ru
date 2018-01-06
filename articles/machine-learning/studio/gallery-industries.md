@@ -1,6 +1,6 @@
 ---
-title: "Решения для определенных отраслей в рамках коллекции Cortana Intelligence | Документация Майкрософт"
-description: "Поиск отраслевых решений в коллекции Cortana Intelligence."
+title: "Azure коллекции AI специализированные решения | Документы Microsoft"
+description: "Обнаружение отраслевых решений в коллекции Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 0dec0f47eced45c496399bc6b84169116dcc551d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9b9f835620153d0e68e8c5504eab00d7b6e0f1e8
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-industry-specific-solutions-in-the-cortana-intelligence-gallery"></a>Поиск решений для определенных отраслей в коллекции Cortana Intelligence
+# <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Найти специализированные решения в коллекции Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="industry-specific-cortana-intelligence-solutions"></a>Решения Cortana Intelligence для определенных отраслей
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 Эти ресурсы включают в себя эксперименты, пользовательские модули, API-интерфейсы, коллекции и другие элементы, которые помогут разрабатывать решения, относящиеся к отрасли, где вы работаете.
 
-## <a name="discover"></a>Обнаружение
+## <a name="discover"></a>Поиск
  Чтобы просмотреть отраслевые решения в коллекции, откройте раздел [Gallery](http://gallery.cortanaintelligence.com) (Коллекция), наведите указатель мыши на элемент **Industries** (Отрасли) в верхней части домашней страницы коллекции, выберите определенный отраслевой сегмент или выберите **View All** (Просмотреть все) для отображения страницы обзора всех отраслей.
 
  На каждой странице отрасли отображается список наиболее популярных элементов коллекции, связанных с этой отраслью.

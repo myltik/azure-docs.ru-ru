@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: b9b7091a8cb1de3eefcce77cbf82eedfcb33c787
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Копирование данных из Dynamics CRM или Dynamics 365 и обратно с помощью фабрики данных Azure
 
@@ -68,10 +68,10 @@ ms.lasthandoff: 12/22/2017
 | authenticationType | Тип проверки подлинности для подключения к серверу Dynamics. Укажите **Office365** для Dynamics Online. | Yes |
 | Имя пользователя | Укажите имя пользователя для подключения к Dynamics. | Yes |
 | password | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. Необходимо поместить пароль в Azure Key Vault и настроить его как AzureKeyVaultSecret. Подробнее о [хранении учетных данных в Key Vault](store-credentials-in-key-vault.md). | Yes |
-| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. | "Нет" для источника, "Да" для приемника |
+| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. | Не для источника, Да для приемника Если связан источник служба не имеет IR |
 
 >[!IMPORTANT]
->Чтобы копировать данные в Dynamics, явным образом [создайте среду Azure IR](create-azure-integration-runtime.md#create-azure-ir), расположенную вблизи вашей системы Dynamics, и сопоставьте ее в связанной службе, как показано в следующем примере.
+>При копировании данных **в** Dynamics, по умолчанию среда выполнения интеграции Azure не может использоваться для выполнения копирования. В другие слова, если связанный источник служба не имеет указанного IR, явно [создать IR Azure](create-azure-integration-runtime.md#create-azure-ir) с расположением рядом Dynamics и сопоставления в связанной службы Dynamics в следующем примере.
 
 **Пример. Dynamics Online с использованием проверки подлинности Office 365**
 

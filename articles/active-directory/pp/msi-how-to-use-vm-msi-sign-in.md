@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2017
+ms.date: 01/05/2018
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 74d732709e1cc3c97b485cc45e3a4e2c8e3cd11e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Выполните вход с помощью виртуальной Машины назначенный пользователем управляемые службы удостоверений (MSI)
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/22/2017
 2. Вызов диспетчера ресурсов Azure и получения сведений о расположении регион Azure для виртуальной Машины. CLI автоматически управляет получением и использованием маркера. Обязательно замените на имя виртуальной Машины `<VM NAME>`и пользователь назначен идентификатор ресурса MSI для `<MSI ID>`. Идентификатор ресурса MSI возвращается в `id` свойства во время создания MSI, назначенный пользователем (см. [настроить назначенное пользователем управляемые службы удостоверений (MSI) для виртуальной Машины, с помощью Azure CLI](msi-qs-configure-cli-windows-vm.md) примеры `az identity create` команды ).
 
     ```azurecli
-    az login -–msi –u <MSI ID>
+    az login --msi –u <MSI ID>
    
     vmLocation=$(az resource list -n <VM NAME> --query [*].location --out tsv)
     echo The VM region location is $vmLocation

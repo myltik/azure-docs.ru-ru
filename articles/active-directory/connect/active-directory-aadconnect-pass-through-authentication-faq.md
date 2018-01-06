@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Сквозная проверка подлинности Azure Active: ответы на часто задаваемые вопросы
 
@@ -81,6 +81,12 @@ ms.lasthandoff: 12/11/2017
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Можно ли установить два или более агентов сквозной проверки подлинности на одном сервере?
 
 Нет, на одном сервере можно установить только один агент сквозной проверки подлинности. Если вы хотите настроить сквозную аутентификацию для обеспечения высокой доступности, следуйте инструкциям в разделе [Краткое руководство по сквозной проверке подлинности Azure Active Directory](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Удаление агента сквозной проверки подлинности
+
+При условии, что выполняется агент сквозной проверки подлинности, он остается активным и постоянно обрабатывает запросы на вход пользователя. Если вы хотите удалить агент проверки подлинности, перейдите к **панель управления -> программы -> программы и компоненты** и удаления **агент Microsoft Azure AD Connect проверки подлинности** и  **Обновления подключения агента Microsoft Azure AD** программы.
+
+Если проверка колонке сквозная проверка подлинности на [Центр администрирования Azure Active Directory](https://aad.portal.azure.com) после завершения предыдущего шага, вы увидите агент проверки подлинности, показывающий, как **неактивно**. Это _ожидаемое поведение_. Агент проверки подлинности автоматически удаляется из списка через несколько дней.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Я уже использую AD FS для входа в Azure AD. Как изменить этот метод на сквозную проверку подлинности?
 

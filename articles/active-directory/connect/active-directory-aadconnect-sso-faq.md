@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Часто задаваемые вопросы о простом едином входе Azure Active Directory
 
@@ -38,11 +38,17 @@ ms.lasthandoff: 01/04/2018
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Какие приложения используют возможность параметра `domain_hint` или `login_hint` простого единого входа?
 
-В настоящее время мы готовим список приложений, которые отправляют эти параметры, а также приложений, которые их не отправляют. Если вас интересуют конкретные приложения, свяжитесь с нами в разделе "Примечания".
+В настоящее время мы готовим список приложений, которые отправляют эти параметры, а также приложений, которые их не отправляют. Если у вас есть приложения, которые вас интересуют, свяжитесь с нами в разделе "Примечания".
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Поддерживает ли простой единый вход `Alternate ID` в качестве имени пользователя, а не `userPrincipalName`?
 
 Да. Поддерживает ли простой единый вход `Alternate ID` в качестве имени пользователя, если это настроено в Azure AD Connect, как показано [здесь](active-directory-aadconnect-get-started-custom.md). Не все приложения Office 365 поддерживают `Alternate ID`. Заявление о поддержке см. в документации на приложения.
+
+## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>То, что разница между единого входа предоставляется [присоединения Azure AD](../active-directory-azureadjoin-overview.md) и эффективная единого входа?
+
+[Соединения Azure AD](../active-directory-azureadjoin-overview.md) обеспечивает единый вход для пользователей, если их устройства зарегистрированы в Azure AD. Эти устройства не должны входить в домен. SSO обеспечивается с помощью *токенов обновления основного* или *PRTs*, а не Kerberos. Взаимодействие с пользователем является наиболее оптимальным на устройствах Windows 10. Единый вход выполняется автоматически в браузере Edge. Она также работает Chrome с использованием расширение браузера.
+
+Можно использовать присоединения Azure AD и эффективная единого входа для клиента. Эти две возможности дополняют друг друга. Если включены обе эти функции единого входа из присоединения Azure AD имеет приоритет над прозрачную единого входа.
 
 ## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>Я хочу зарегистрировать устройства, на которых не применяется Windows 10, с помощью Azure AD, без использования AD FS. Можно вместо этого использовать простой единый вход?
 

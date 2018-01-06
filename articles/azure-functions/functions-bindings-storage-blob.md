@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 923bc54d9edc9aecdf27c674d3020c2f82f03b3d
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Привязки хранилища BLOB-объектов Azure для службы "Функции Azure"
 
@@ -210,10 +210,12 @@ module.exports = function(context) {
 
 ## <a name="trigger---usage"></a>Использование триггера
 
-В коде и скрипте C# для доступа к данным большого двоичного объекта используйте параметр метода, например `Stream paramName`. В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. Вы можете выполнить привязку к одному из следующих типов:
+В коде и скрипте C# для доступа к данным большого двоичного объекта используйте параметр метода, например `T paramName`. В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. Вы можете выполнить привязку к одному из следующих типов:
 
-* `TextReader`
 * `Stream`
+* `TextReader`
+* `Byte[]`
+* `string`
 * `ICloudBlob` (требует направления привязки inout в *function.json*);
 * `CloudBlockBlob` (требует направления привязки inout в *function.json*).
 * `CloudPageBlob` (требует направления привязки inout в *function.json*).
@@ -498,11 +500,17 @@ public static void Run(
 
 Библиотеки классов C# и скрипт C#, для получения доступа к BLOB-объекта с помощью параметра метода, например `Stream paramName`. В скрипте C# `paramName` — это значение, заданное в свойстве `name` файла *function.json*. Вы можете выполнить привязку к одному из следующих типов:
 
-* `out string`
-* `TextWriter` 
-* `TextReader`
+* `TextReader` (только для входных данных);
+* `string` (только для входных данных);
+* `Byte[]` (только для входных данных);
+* `TextWriter` (только для выходных данных);
+* `out string` (только для выходных данных);
+* `out Byte[]` (только для выходных данных);
+*  `CloudBlobStream` (только для выходных данных);
 * `Stream`
-* `ICloudBlob` (требует направления привязки inout в *function.json*);
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `ICloudBlob` (требует направления привязки inout в *function.json*).
 * `CloudBlockBlob` (требует направления привязки inout в *function.json*).
 * `CloudPageBlob` (требует направления привязки inout в *function.json*).
 * `CloudAppendBlob` (требует направления привязки inout в *function.json*).

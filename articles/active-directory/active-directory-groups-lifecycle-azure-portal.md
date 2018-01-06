@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/05/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: d485d2e7d22ea79a87dc52dbc063a811f4a1a2ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Настройка срока действия групп Office 365 (предварительная версия)
 
@@ -30,9 +30,7 @@ ms.lasthandoff: 12/11/2017
 -   Владельцы или администратор любой удаленной группы Office 365 могут восстановить ее в течение 30 дней.
 
 > [!NOTE]
-> Чтобы настроить срок действия групп Office 365, необходима лицензия Azure AD Premium или Azure AD Basic EDU для всех членов группы, к которой применяются параметры срока действия.
-> 
-> Для пользователей с лицензией Azure AD Basic EDU: чтобы настроить эту политику в первый раз, используйте командлеты Azure Active Directory PowerShell. После этого можно будет обновить параметры срока действия с помощью PowerShell или портала Azure AD, используя учетную запись с правами администратора учетных записей пользователей или глобального администратора в клиенте Azure AD.
+> Для настройки истечения срока действия для управления группами Office 365 требуется лицензия Azure AD Premium, для всех членов группы, к которой применяются параметры истечения срока действия.
 
 Сведения о том, как скачать и установить командлеты Azure AD PowerShell, см. на странице [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Azure Active Directory PowerShell для Graph: общедоступная предварительная версия 2.0.0.137).
 

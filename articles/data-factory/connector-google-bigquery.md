@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 00962b1bb32ff096712d36c07620505e72667380
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: f2d2b3eed3e3249ba863fa3d6a37abb6c4a2bdd8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-google-bigquery-using-azure-data-factory-beta"></a>Копирование данных из Google BigQuery, с помощью фабрики данных Azure (бета-версия)
 
@@ -48,8 +48,8 @@ ms.lasthandoff: 12/12/2017
 | Свойство | ОПИСАНИЕ | Требуется |
 |:--- |:--- |:--- |
 | Тип | Свойство типа должно быть присвоено: **GoogleBigQuery** | Yes |
-| Проект | Проект BigQuery по умолчанию для запросов к.  | Yes |
-| additionalProjects | Список разделенных запятыми public BigQuery проектов для доступа.  | Нет  |
+| Проект | Идентификатор проекта BigQuery проекта по умолчанию для запросов к.  | Yes |
+| additionalProjects | Список разделенных запятыми идентификаторов проектов открытых BigQuery проектов для доступа.  | Нет  |
 | requestGoogleDriveScope | Следует ли запрашивать доступ к Google диске. Разрешение доступа Google диске включает поддержку для федеративных таблиц, объединяющие данные BigQuery с данными с Google диска. По умолчанию для этого параметра используется значение false.  | Нет  |
 | authenticationType | Механизм проверки подлинности OAuth 2.0, используемый для проверки подлинности. ServiceAuthentication может использоваться только на резидентных IR. <br/>Допустимые значения:: **ServiceAuthentication**, **UserAuthentication** | Yes |
 | RefreshToken | Токен обновления, полученный из Google для авторизации доступа к BigQuery для UserAuthentication. Можно выбрать в этом поле в виде строки SecureString, сохраните его в безопасном месте в ADF или сохранить пароль в хранилище ключей Azure и позволить действие копирования по запросу из него при выполнении копирования данных — ознакомьтесь с дополнительными [учетные данные хранятся в хранилище ключей](store-credentials-in-key-vault.md). | Нет  |
@@ -66,13 +66,13 @@ ms.lasthandoff: 12/12/2017
     "properties": {
         "type": "GoogleBigQuery",
         "typeProperties": {
-            "project" : "<project>",
-            "additionalProjects" : "<additionalProjects>",
+            "project" : "<project ID>",
+            "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
             "refreshToken": {
                  "type": "SecureString",
-                 "value": "<refreshToken>"
+                 "value": "<refresh token>"
             }
         }
     }
