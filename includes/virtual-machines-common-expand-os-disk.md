@@ -10,7 +10,11 @@
 > 
 
 ## <a name="resize-the-os-drive"></a>Изменение размера диска операционной системы
-В этой статье мы займемся задачей изменения размера для диска операционной системы с помощью модулей Resource Manager из [Azure Powershell](/powershell/azureps-cmdlets-docs). Откройте интегрированную среду сценариев Powershell или окно Powershell в режиме администратора и выполните следующие действия.
+В этой статье мы займемся задачей изменения размера для диска операционной системы с помощью модулей Resource Manager из [Azure Powershell](/powershell/azureps-cmdlets-docs). Мы рассмотрим изменение размера диска ОС для дисков Unamanged и управляемый код так, как подход, чтобы изменить размер дисков отличается от обоих типов дисков.
+
+### <a name="for-resizing-unmanaged-disks"></a>Для изменения размеров неуправляемые дисков:
+
+Откройте интегрированную среду сценариев Powershell или окно Powershell в режиме администратора и выполните следующие действия.
 
 1. Войдите в учетную запись Microsoft Azure в режиме управления ресурсами и выберите подписку следующим образом:
    
@@ -34,7 +38,7 @@
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
-5. И вот теперь долгожданный момент. Задайте нужное значение для размера диска операционной системы и обновите виртуальную машину следующим образом:
+5. И вот теперь долгожданный момент. Размер диска ОС неуправляемые нужное значение и обновление виртуальной Машины следующим образом:
    
    ```Powershell
    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
@@ -42,7 +46,50 @@
    ```
    
    > [!WARNING]
-   > Новый размер должен быть больше, чем размер существующего диска. Максимальный допустимый размер равен 2048 ГБ. (Можно развернуть большой двоичный объект VHD сверх этого размера, но операционная система сможет работать только с первыми 2048 ГБ.)
+   > Новый размер должен быть больше, чем размер существующего диска. Допустимое значение составляет 2048 ГБ для дисков операционной системы. (Можно развернуть большой двоичный объект VHD сверх этого размера, но операционная система сможет работать только с первыми 2048 ГБ.)
+   > 
+   > 
+6. Обновление виртуальной машины может занять несколько секунд. После завершения команды перезапустите виртуальную машину, как показано ниже:
+   
+   ```Powershell
+   Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   ```
+
+### <a name="for-resizing-managed-disks"></a>Для изменения размеров управляемых дисков:
+
+Откройте интегрированную среду сценариев Powershell или окно Powershell в режиме администратора и выполните следующие действия.
+
+1. Войдите в учетную запись Microsoft Azure в режиме управления ресурсами и выберите подписку следующим образом:
+   
+   ```Powershell
+   Login-AzureRmAccount
+   Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
+   ```
+2. Задайте имя группы ресурсов и имя виртуальной машины следующим образом:
+   
+   ```Powershell
+   $rgName = 'my-resource-group-name'
+   $vmName = 'my-vm-name'
+   ```
+3. Получите ссылку на виртуальную машину следующим образом:
+   
+   ```Powershell
+   $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   ```
+4. Остановите виртуальную машину перед изменением размера диска следующим образом:
+   
+    ```Powershell
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+    ```
+5. Получите ссылку на диск управляемых операционной системы. Задать размер диска операционной системы на управляемых нужное значение и обновления диска следующим образом:
+   
+   ```Powershell
+   $disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
+   $disk.DiskSizeGB = 1023
+   Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
+   ```   
+   > [!WARNING]
+   > Новый размер должен быть больше, чем размер существующего диска. Допустимое значение составляет 2048 ГБ для дисков операционной системы. (Можно развернуть большой двоичный объект VHD сверх этого размера, но операционная система сможет работать только с первыми 2048 ГБ.)
    > 
    > 
 6. Обновление виртуальной машины может занять несколько секунд. После завершения команды перезапустите виртуальную машину, как показано ниже:
@@ -54,7 +101,9 @@
 Вот и все! Теперь подключитесь по RDP к виртуальной машине, откройте раздел "Управление компьютером" (или "Управление дисками") и увеличьте диск, используя только что выделенное для этого место.
 
 ## <a name="summary"></a>Сводка
-В этой статье мы использовали модули Resource Manager в Azure Powershell для увеличения диска операционной системы виртуальной машины IaaS. Ниже приведен полный код сценария для справки:
+В этой статье мы использовали модули Resource Manager в Azure Powershell для увеличения диска операционной системы виртуальной машины IaaS. Воспроизвести ниже приведен полный скрипт в качестве справочной информации для дисков неуправляемый и управляемый код.
+
+Unamanged диски:
 
 ```Powershell
 Login-AzureRmAccount
@@ -67,17 +116,43 @@ $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
 Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
+Управляемые диски:
 
-## <a name="next-steps"></a>Дальнейшие действия
-Хотя в этой статье основное внимание уделено увеличению диска операционной системы виртуальной машины, разработанный сценарий можно также использовать для увеличения дисков с данными, подключенных к виртуальной машине, изменив одну строку кода. Например, чтобы увеличить первый диск с данными, подключенный к виртуальной машине, замените объект ```OSDisk``` в ```StorageProfile``` на массив ```DataDisks``` и используйте числовой индекс для получения ссылки на первый подключенный диск с данными, как показано ниже:
+```Powershell
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
+$rgName = 'my-resource-group-name'
+$vmName = 'my-vm-name'
+$vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+Stop-AzureRMVM -ResourceGroupName $rgName -Name $vmName
+$disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
+$disk.DiskSizeGB = 1023
+Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
+Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+```
 
+## <a name="next-steps"></a>Следующие шаги
+На то, что в этой статье мы уделять расширение виртуальной машины диска ОС Unamanged/управляемый код, разработанный скрипт может также использоваться для расширения дисков, подключенных к виртуальной машине. Например, чтобы увеличить первый диск с данными, подключенный к виртуальной машине, замените объект ```OSDisk``` в ```StorageProfile``` на массив ```DataDisks``` и используйте числовой индекс для получения ссылки на первый подключенный диск с данными, как показано ниже:
+
+Unamanged диск:
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
+Управляемый диск:
+```Powershell
+$disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDisks[0].Name
+$disk.DiskSizeGB = 1023
+```
+
 Аналогичным образом можно ссылаться на другие диски с данными, подключенные к виртуальной машине, либо с помощью индекса, как показано выше, либо с помощью свойства ```Name``` диска, как показано ниже:
 
+Unamanged диск:
 ```Powershell
-($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
+($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
+```
+Управляемые диск:
+```Powershell
+(Get-AzureRmDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```
 
 Дополнительные сведения о подключении дисков к виртуальной машине через Azure Resource Manager см. в этой [статье](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
