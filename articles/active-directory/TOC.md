@@ -19,7 +19,7 @@
 
 
 # Практическое руководство
-## планирование и разработка
+## Планирование и проектирование
 ### [Основы архитектуры Azure AD](active-directory-architecture.md)
 ### [Сопоставление утверждений в Azure Active Directory](active-directory-claims-mapping.md)
 ### [Развертывание решения для гибридной идентификации](active-directory-hybrid-identity-design-considerations-overview.md)
@@ -111,7 +111,7 @@
 ### Справочные материалы
 #### [Сохранение](active-directory-reporting-retention.md)
 #### [Задержки](active-directory-reporting-latencies-azure-portal.md)
-#### [Notifications](active-directory-reporting-notifications.md)
+#### [Уведомления](active-directory-reporting-notifications.md)
 #### [Коды ошибок входа в систему](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Многофакторная проверка подлинности](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Устранение неполадок
@@ -140,11 +140,11 @@
 ### [Требования к данным SSPR](active-directory-passwords-data.md)
 ### [Отчеты SSPR](active-directory-passwords-reporting.md)
 ### ИТ-администрирование. Сброс паролей
-#### [Портал Azure](active-directory-users-reset-password-azure-portal.md)
+#### [портал Azure](active-directory-users-reset-password-azure-portal.md)
 ### [Лицензия SSPR](active-directory-passwords-licensing.md)
 ### [Обратная запись паролей](active-directory-passwords-writeback.md)
 ### [Устранение неполадок](active-directory-passwords-troubleshoot.md)
-### [ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ](active-directory-passwords-faq.md)
+### [Часто задаваемые вопросы](active-directory-passwords-faq.md)
 
 
 ## Управление устройствами
@@ -303,20 +303,20 @@
 ### Аутентификация на основе сертификата
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Приступая к работе](active-directory-certificate-based-authentication-get-started.md)
+#### [Начало работы](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Защита идентификации Azure AD](active-directory-identityprotection.md)
 #### [Включение](active-directory-identityprotection-enable.md)
 #### [Обнаружение уязвимостей](active-directory-identityprotection-vulnerabilities.md)
 #### [События риска](active-directory-identity-protection-risk-events.md)
-#### [Notifications](active-directory-identityprotection-notifications.md)
+#### [Уведомления](active-directory-identityprotection-notifications.md)
 #### [Процедура входа](active-directory-identityprotection-flows.md)
 #### [Моделирование событий риска](active-directory-identityprotection-playbook.md)
 #### [Разблокирование пользователей](active-directory-identityprotection-unblock-howto.md)
 #### [Часто задаваемые вопросы](active-directory-identity-protection-faqs.md)
 #### [Глоссарий](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Управление привилегированными пользователями](./privileged-identity-management/active-directory-securing-privileged-access.md)
+### [управление привилегированными пользователями;](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 ## [Интеграция других служб с Azure AD]()
 ### [Включение интеграции с LinkedIn](linkedin-integration.md)
@@ -346,7 +346,7 @@
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Командлеты Azure PowerShell](/powershell/azure/overview)
 ## [Справочник по API Java](/java/api)
-## [API .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
+## [API для .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Ограничения службы](active-directory-service-limits-restrictions.md)
 
 # Сопутствующие материалы

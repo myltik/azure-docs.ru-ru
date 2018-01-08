@@ -39,14 +39,18 @@
       href: kubernetes-helm.md
     - name: Разработка приложений с помощью Draft
       href: kubernetes-draft.md
-    - name: Сохранение данных в службе файлов Azure
-      href: azure-files.md
     - name: Интеграция с Azure с помощью OSBA
       href: integrate-azure.md
     - name: Использование панели мониторинга Kubernetes
       href: kubernetes-dashboard.md
     - name: Создание субъекта-службы
       href: kubernetes-service-principal.md
+    - name: Конфигурирование томов данных
+      items:
+        - name: "Файлы Azure\_— постоянные тома"
+          href: azure-files-dynamic-pv.md
+        - name: "Файлы Azure\_— тома"
+          href: azure-files.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

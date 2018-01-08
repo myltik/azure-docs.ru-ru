@@ -90,6 +90,7 @@
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [План подготовки к работе с центром безопасности](security-center-readiness-roadmap.md)
 ## [Блог по безопасности, конфиденциальности и соответствию нормам Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обзор службы](https://azure.microsoft.com/services/security-center/)

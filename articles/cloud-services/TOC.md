@@ -37,13 +37,14 @@
 #### [Портал](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
-## Развернуть
+## Развертывание
 ### [Создание и развертывание облачной службы на портале](cloud-services-how-to-create-deploy-portal.md)
 ### [Создание пустого контейнера облачной службы в PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### [Настройка пользовательского имени домена](cloud-services-custom-domain-name-portal.md)
 ### [Подключение к пользовательскому контроллеру домена](cloud-services-connect-to-custom-domain.md)
 
 ## Управление службой
+### [Устранение уязвимостей, связанных со спекулятивным выполнением команд](mitigate-se.md}
 ### [Общие задачи управления](cloud-services-how-to-manage-portal.md)
 ### [Настройка облачной службы](cloud-services-how-to-configure-portal.md)
 ### [Управление облачной службой с помощью службы автоматизации Azure](automation-manage-cloud-services.md)
@@ -61,7 +62,7 @@
 ### [Облачные службы и сертификаты управления](cloud-services-certs-create.md)
 ### [Настройка SSL](cloud-services-configure-ssl-certificate-portal.md)
 
-## Монитор
+## Мониторинг
 ### [Мониторинг облачной службы](cloud-services-how-to-monitor.md)
 ### [Тестирование производительности](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Тестирование с помощью профилировщика Visual Studio](cloud-services-performance-testing-visual-studio-profiler.md)

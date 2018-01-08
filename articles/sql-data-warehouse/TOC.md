@@ -90,7 +90,6 @@
 
 
 ## Загрузка и перемещение данных
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
 ### [Общедоступные данные Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Хранилище озера данных Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

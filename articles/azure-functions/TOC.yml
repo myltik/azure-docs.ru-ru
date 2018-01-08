@@ -71,10 +71,10 @@
       items:
         - name: Поддерживаемые языки
           href: supported-languages.md
-        - name: 'Сценарии C#'
-          href: functions-reference-csharp.md
-        - name: Библиотека классов .NET
+        - name: 'C# (библиотека классов)'
           href: functions-dotnet-class-library.md
+        - name: 'Скрипт C# (.csx)'
+          href: functions-reference-csharp.md
         - name: 'F#'
           href: functions-reference-fsharp.md
         - name: JavaScript
@@ -131,7 +131,7 @@
           href: functions-run-local.md
         - name: Разработка в Visual Studio
           href: functions-develop-vs.md
-    - name: Развернуть
+    - name: Развертывание
       items:
         - name: Непрерывное развертывание
           href: functions-continuous-deployment.md
@@ -147,7 +147,7 @@
           href: functions-how-to-use-azure-function-app-settings.md
         - name: Установка версии среды выполнения
           href: functions-versions.md
-    - name: Монитор
+    - name: Мониторинг
       href: functions-monitoring.md
     - name: Интеграция
       items:
@@ -165,7 +165,7 @@
           href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Устойчивые функции
       items:
-        - name: Установить
+        - name: Install
           href: durable-functions-install.md
         - name: Построение цепочек
           href: durable-functions-sequence.md
@@ -201,7 +201,7 @@
           href: functions-bindings-storage-queue.md
         - name: SendGrid
           href: functions-bindings-sendgrid.md
-        - name: Service Bus
+        - name: Служебная шина
           href: functions-bindings-service-bus.md
         - name: Хранилище таблиц
           href: functions-bindings-storage-table.md

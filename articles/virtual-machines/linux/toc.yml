@@ -197,6 +197,8 @@
               href: update-agent.md
         - name: Плановое техническое обслуживание
           href: maintenance-notifications.md
+        - name: 'Устранение уязвимостей, связанных со спекулятивным выполнением команд'
+          href: mitigate-se.md
         - name: Вопросы и ответы по ускоренному обслуживанию
           href: accelerated-maintenance.md
         - name: Запланированные события
