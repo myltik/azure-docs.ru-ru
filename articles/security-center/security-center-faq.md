@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 01/05/2018
 ms.author: terrylan
-ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Центр безопасности Azure: часто задаваемые вопросы
 Данная статья содержит ответы на часто задаваемые вопросы о центре безопасности Azure — службе, которая помогает вам выявлять и предотвращать угрозы, а также принимать ответные меры благодаря более полной информации о состоянии ресурсов Microsoft Azure и контролю над их безопасностью.
@@ -131,7 +131,7 @@ Microsoft Security Response Center (MSRC) проводит выборочный 
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Как часто центр безопасности проверяет наличие уязвимостей операционной системы, системных обновлений и проблем защиты конечной точки?
 Показатели задержки в центре безопасности во время проверки на уязвимости, обновления и проблемы защиты конечной точки:
 
-- Уязвимости операционной системы (корпорация Майкрософт) — данные обновляются в течение 48 часов.
+- Настройки безопасности операционной системы: данных обновляется в течение 48 часов
 - Системные обновления — данные обновляются в течение 24 часов.
 - Проблемы защиты конечной точки — данные обновляются в течение 8 часов.
 

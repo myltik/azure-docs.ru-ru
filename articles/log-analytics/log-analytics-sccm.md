@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-ms.openlocfilehash: 6785bfcefb09fa6135ba451fafa76efc8c2e6c76
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7acf0cbd4f4cba885e6cc91dfe3cb68306a3649a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Подключение Configuration Manager к Log Analytics
 System Center Configuration Manager можно подключить к Log Analytics в OMS, чтобы синхронизировать данные коллекции устройств. Так данные из иерархии Configuration Manager можно сделать доступными в OMS.
@@ -30,8 +30,8 @@ System Center Configuration Manager можно подключить к Log Analy
 ## <a name="configuration-overview"></a>Общие сведения о настройке
 Следующие шаги описывают процесс для подключения к службе анализа журналов Configuration Manager.  
 
-1. На портале управления Azure зарегистрируйте Configuration Manager как веб-приложение и (или) приложение веб-API. Затем убедитесь, что у вас есть идентификатор клиента и секретный ключ клиента, полученные при регистрации в Azure Active Directory. В разделе [использовать портал для создания приложения и службы-участника, который имеет доступ к ресурсам Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md) подробные сведения о том, как выполнить этот шаг.
-2. На портале управления Azure [укажите Configuration Manager (зарегистрированное веб-приложение) с разрешением на доступ к OMS](#provide-configuration-manager-with-permissions-to-oms).
+1. На портале Azure зарегистрировать приложение веб-приложение или веб-API как Configuration Manager и убедитесь, что идентификатор клиента и секретный ключ клиента из регистрации из Azure Active Directory. В разделе [использовать портал для создания приложения и службы-участника, который имеет доступ к ресурсам Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md) подробные сведения о том, как выполнить этот шаг.
+2. На портале Azure [укажите Configuration Manager (зарегистрированные веб-приложения) с разрешениями на доступ к OMS](#provide-configuration-manager-with-permissions-to-oms).
 3. В Configuration Manager [добавьте подключение с помощью мастера добавления подключений к OMS](#add-an-oms-connection-to-configuration-manager).
 4. В случае утери пароля или секретного ключа клиента либо истечения срока их действия вы можете [обновить свойства подключения](#update-oms-connection-properties) в Configuration Manager.
 5. Руководствуясь сведениями на портале OMS, [скачайте и установите Microsoft Monitoring Agent](#download-and-install-the-agent) на компьютере под управлением роли системы сайта для точки подключения службы Configuration Manager. Агент отправляет данные Configuration Manager в OMS.
@@ -41,7 +41,7 @@ System Center Configuration Manager можно подключить к Log Analy
 Дополнительные сведения о подключении Configuration Manager к OMS см. в статье [Sync data from Configuration Manager to the Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx) (Синхронизация данных из Configuration Manager в Microsoft Operations Management Suite).
 
 ## <a name="provide-configuration-manager-with-permissions-to-oms"></a>Предоставление Configuration Manager разрешений в OMS
-С помощью приведенной ниже процедуры можно предоставить порталу управления Azure разрешения для доступа к OMS. В частности, вы должны предоставить пользователям в группе ресурсов *роль "Участник"*. Это позволит порталу управления Azure подключить Configuration Manager к OMS.
+Следующая процедура предоставляет портал Azure с разрешениями на доступ к OMS. В частности, необходимо предоставить *роль участника* пользователям в группе ресурсов, чтобы разрешить порталу Azure для подключения Configuration Manager к OMS.
 
 > [!NOTE]
 > Необходимо указать разрешения на доступ к OMS для Configuration Manager. В противном случае появляется сообщение об ошибке при использовании мастера конфигурации в Configuration Manager.
@@ -81,9 +81,9 @@ System Center Configuration Manager можно подключить к Log Analy
 1. В рабочей области **Администрирование** в Configuration Manager выберите **Соединитель OMS**. Откроется **мастер добавления подключений к OMS**. Щелкните **Далее**.
 2. На экране **Общие** убедитесь, что вы выполнили следующие действия и указали сведения по каждому пункту, а затем щелкните **Далее**.
 
-   1. На портале управления Azure вы зарегистрировали Configuration Manager как веб-приложение и (или) приложение веб-API, и у вас есть [идентификатор клиента, полученный при регистрации](../active-directory/active-directory-integrating-applications.md).
-   2. На портале управления Azure вы создали секретный ключ приложения для зарегистрированного приложения в Azure Active Directory.  
-   3. На портале управления Azure вы указали зарегистрированное веб-приложение с разрешением на доступ к OMS.  
+   1. На портале Azure Configuration Manager после регистрации веб-приложение или веб-API приложение как и у вас есть [идентификатор клиента из регистрации](../active-directory/active-directory-integrating-applications.md).
+   2. На портале Azure вы создали секретный ключ приложения для зарегистрированного приложения в Azure Active Directory.  
+   3. На портале Azure предоставили зарегистрированных веб-приложения с разрешением на доступ к OMS.  
       ![Страница "Общие" мастера подключений к OMS](./media/log-analytics-sccm/sccm-console-general01.png)
 3. На **Azure Active Directory** экрана, настроить параметры подключения к OMS, предоставляя вашей **клиента**, **идентификатор клиента**, и **секретный ключ клиента** , а затем выберите **Далее**.  
    ![Страница "Azure Active Directory" мастера подключений к OMS](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
