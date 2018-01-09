@@ -21,6 +21,7 @@
 ### [Политики безопасности на основе политики Azure](security-center-azure-policy.md)
 ### [Уведомления по почте](security-center-provide-security-contact-details.md)
 ### [Ценовая категория](security-center-pricing.md)
+### [Конфигурация системы безопасности](security-center-customize-os-security-config.md)
 
 ## [Переход](security-center-onboarding.md)
 ## [События](security-center-events-dashboard.md)
@@ -54,7 +55,7 @@
 #### [Включение агента виртуальной машины](security-center-enable-vm-agent.md)
 #### [Установка Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Перезагрузка после завершения обновлений системы](security-center-apply-system-updates.md#reboot-after-system-updates)
-#### [Исправление уязвимостей ОС](security-center-remediate-os-vulnerabilities.md)
+#### [Исправление конфигурации системы безопасности](security-center-remediate-os-vulnerabilities.md)
 #### [Обновление версии ОС](security-center-update-os-version.md)
 #### [Оценка уязвимостей не установлена](security-center-vulnerability-assessment-recommendations.md)
 ### [Мониторинг состояния системы безопасности](security-center-monitoring.md)
@@ -90,7 +91,7 @@
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [План подготовки к работе с центром безопасности](security-center-readiness-roadmap.md)
+## [План подготовки к работе](security-center-readiness-roadmap.md)
 ## [Блог по безопасности, конфиденциальности и соответствию нормам Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обзор службы](https://azure.microsoft.com/services/security-center/)
