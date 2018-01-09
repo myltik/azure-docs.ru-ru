@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 44044939f044b573d19270830ab140e8332b6825
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c17815db136b404cd0c723cf44cafe46fa681cf6
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights для облачных служб Azure
-С помощью [Application Insights][start] можно отслеживать [приложения облачной службы Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) на предмет доступности, производительности, сбоев и использования, объединяя данные из пакета SDK Application Insights с данными [диагностики Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) из облачных служб. Благодаря получаемым данным о производительности и эффективности работы приложения на практике вы можете принимать осознанные решения о направлении разработки в каждом жизненном цикле.
+С помощью [Application Insights][start] можно отслеживать [приложения облачной службы Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) на предмет доступности, производительности, сбоев и использования, объединяя данные из пакета SDK Application Insights с данными [системы диагностики Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) из облачных служб. Благодаря получаемым данным о производительности и эффективности работы приложения на практике вы можете принимать осознанные решения о направлении разработки в каждом жизненном цикле.
 
 ![Пример](./media/app-insights-cloudservices/sample.png)
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 12/08/2017
     ![Нажмите "Создать" и "Application Insights"](./media/app-insights-cloudservices/01-new.png)
 2. Обратите внимание, что каждый ресурс идентифицируется с помощью ключа инструментирования. Это может понадобиться позже, если вы захотите вручную настроить или проверить конфигурацию пакета SDK.
 
-    ![Нажмите "Свойства", выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-cloudservices/02-props.png) 
+    ![Нажмите «Свойства», выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-cloudservices/02-props.png) 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Настройка системы диагностики Azure для каждой роли
 Настройте мониторинг приложения с помощью Application Insights. Для веб-ролей это обеспечивает мониторинг производительности, создание оповещений и диагностику, а также анализ сведений об использовании. Для других ролей можно искать и отслеживать диагностические данные Azure, например о событиях перезапуска, показаниях счетчиков производительности и вызовах System.Diagnostics.Trace. 
@@ -187,7 +187,7 @@ ms.lasthandoff: 12/08/2017
     * \.NET CLR Exceptions(??APP_CLR_PROC??)\# Исключений в секунду
     * \Process(??APP_WIN32_PROC??)\Байт исключительного пользования
     * \Process(??APP_WIN32_PROC??)\I/O — обмен данными, байт в секунду
-    * \Processor(_Total)\% Загруженность процессора
+    * \Процессор (_общий объем ресурсов)\% загруженности процессора
 
 Эти счетчики также собираются для веб-ролей.
 
@@ -235,7 +235,7 @@ ms.lasthandoff: 12/08/2017
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Настройка системы диагностики Azure для отправки данных в Application Insights](app-insights-azure-diagnostics.md)
 * [Автоматизация создания ресурсов Application Insights](app-insights-powershell.md)
 * [Автоматизация системы диагностики Azure](app-insights-powershell-azure-diagnostics.md)

@@ -10,18 +10,18 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 024db86b8760c8edb8347679eec6c68ceab3cd35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4214b80dc4c5db644d5a05f942907c86f292fe18
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>База данных Azure для MySQL: подключение и запрос данных с помощью MySQL Workbench
 В этом кратком руководстве показано, как подключиться к базе данных Azure для MySQL с помощью приложения MySQL Workbench. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 В качестве отправной точки в этом кратком руководстве используются ресурсы, созданные в соответствии со следующими материалами:
-- [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Создание сервера базы данных Azure для MySQL с помощью портала Azure)
+- [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Создание базы данных Azure для сервера MySQL с помощью портала Azure)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Создание сервера базы данных Azure для MySQL с помощью Azure CLI)
 
 ## <a name="install-mysql-workbench"></a>Установка MySQL Workbench
@@ -69,7 +69,7 @@ ms.lasthandoff: 10/11/2017
         Откроется новая вкладка SQL с пустым окном редактора, в котором можно вводить запросы.
     
         > [!NOTE]
-        > По умолчанию защита SSL-подключения является обязательной и применяется к базе данных Azure для сервера MySQL. Обычно для подключения MySQL Workbench к вашему серверу не требуется никаких дополнительных настроек с использованием сертификатов SSL. Дополнительные сведения о протоколе SSL см. в статье [Настройка SSL-подключений в приложении для безопасного подключения к базе данных Azure для MySQL](./howto-configure-ssl.md).  Если необходимо отключить протокол SSL, войдите на портал Azure и перейдите на страницу "Безопасность подключения", чтобы отключить выключатель "Принудительно использовать SSL-соединение".
+        > По умолчанию защита SSL-подключения является обязательной и применяется к базе данных Azure для сервера MySQL. Обычно для подключения MySQL Workbench к вашему серверу не требуется никаких дополнительных настроек с использованием сертификатов SSL. Но мы рекомендуем привязать SSL-сертификат ЦС к MySQL Workbench. Дополнительные сведения о скачивании и привязке сертификатов см. в статье [Настройка SSL-подключений в приложении для безопасного подключения к базе данных Azure для MySQL](./howto-configure-ssl.md).  Если необходимо отключить протокол SSL, войдите на портал Azure и перейдите на страницу "Безопасность подключения", чтобы отключить выключатель "Принудительно использовать SSL-соединение".
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Создание таблицы, добавление, считывание, обновление и удаление данных
 1. Скопируйте и вставьте пример кода SQL в пустую вкладку SQL для иллюстрации примера данных.
@@ -111,6 +111,6 @@ ms.lasthandoff: 10/11/2017
 
 Вы подключились к базе данных Azure для MySQL с помощью MySQL Workbench и запросили данные с помощью языка SQL.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 > [!div class="nextstepaction"]
 > [Перенос базы данных с помощью экспорта и импорта](./concepts-migrate-import-export.md)

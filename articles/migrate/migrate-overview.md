@@ -1,24 +1,16 @@
 ---
 title: "Сведения о службе \"Миграция Azure\" | Документация Майкрософт"
 description: "Обзор службы \"Миграция Azure\"."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
-ms.service: migrate
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.service: azure-migrate
+ms.topic: overview
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-migrate"></a>Сведения о службе "Миграция Azure"
 
@@ -41,13 +33,12 @@ ms.lasthandoff: 12/04/2017
 - Сейчас для перехода на виртуальные машины Azure можно оценить только локальные виртуальные машины VMware.
 
 > [!NOTE]
-> В ближайшие месяцы планируется реализовать поддержку для Hyper-V. Пока для планирования миграции рабочих нагрузок Hyper-V рекомендуем использовать планировщик развертывания Azure Site Recovery. 
+> Вскоре мы планируем реализовать поддержку Hyper-V. Пока для планирования миграции рабочих нагрузок Hyper-V рекомендуем использовать [планировщик развертывания Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc). 
 
-- Можно обработать до 1000 виртуальных машин в одной операции оценки и до 1500 виртуальных машин в одном проекте службы "Миграция Azure". Если нужно оценить больше виртуальных машин, вы можете увеличить количество проектов или операций оценки. [Подробнее](how-to-scale-assessment.md).
+- Вы можете обработать до 1000 виртуальных машин при помощи одной операции обнаружения и до 1500 виртуальных машин в одном проекте. Кроме того, можно обработать до 400 виртуальных машин при помощи одной операции оценки. Если нужно обнаружить или оценить больше виртуальных машин, вы можете увеличить количество операций обнаружения или оценки. [Узнайте больше](how-to-scale-assessment.md).
 - Оцениваемая виртуальная машина должна работать под управлением vCenter Server версии 5.5, 6.0 или 6.5.
 - Проект службы "Миграция Azure" можно создать только в регионе "Центральная часть США". Но это не влияет на планирование миграции для различных целевых расположений Azure. Расположение проекта миграции используется только для хранения метаданных из локальной среды.
-- Портал службы "Миграция Azure" пока доступен только на английском языке. 
-- Сейчас служба "Миграция Azure" поддерживает только репликацию [локально избыточного хранилища (LRS)](../storage/common/storage-introduction.md#replication).
+- Служба "Миграция Azure" поддерживает только управляемые диски для оценки миграции.
 
 ## <a name="what-do-i-need-to-pay-for"></a>За что будет взиматься плата?
 
@@ -91,7 +82,7 @@ ms.lasthandoff: 12/04/2017
 |-------------------|------------------------|---------------|---------|
 |Сборщик          |со службой "Миграция Azure"   |TCP 443        |Сборщик подключается к службе через SSL-порт 443|
 |Сборщик          |с сервером vCenter          |По умолчанию 9443   | По умолчанию сборщик подключается к серверу vCenter через порт 9443. Если сервер прослушивает другой порт, на виртуальной машине сборщика его нужно настроить как исходящий порт. |
-|Локальная виртуальная машина     | Рабочая область Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |Агент MMA использует TCP-порт 443 для подключения к Log Analytics. Этот порт требуется, только если используется визуализация зависимостей и устанавливается Microsoft Monitoring Agent (MMA). |
+|Локальная виртуальная машина     | Рабочая область Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |Агент MMA использует TCP-порт 443 для подключения к Log Analytics. Этот порт требуется, только если используется визуализация зависимостей и устанавливается Microsoft Monitoring Agent (MMA). |
 
 
   
@@ -106,9 +97,9 @@ ms.lasthandoff: 12/04/2017
   - Выполните отработку отказа, чтобы перенести локальные компьютеры в Azure. 
   - Ознакомьтесь с [дополнительными сведениями](../site-recovery/tutorial-migrate-on-premises-to-azure.md) в руководстве по миграции с Site Recovery.
 
-- **Azure Database Migration.** Если ваши локальные компьютеры работают с базой данных, такой как SQL Server, MySQL или Oracle, вы можете перенести ее в Azure при помощи Azure Database Migration Service. [Подробнее](https://azure.microsoft.com/campaigns/database-migration/).
+- **Azure Database Migration.** Если ваши локальные компьютеры работают с базой данных, такой как SQL Server, MySQL или Oracle, вы можете перенести ее в Azure при помощи Azure Database Migration Service. [Узнайте больше](https://azure.microsoft.com/campaigns/database-migration/).
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия 
+## <a name="next-steps"></a>Дополнительная информация 
 [Выполните задачи из этого руководства](tutorial-assessment-vmware.md), чтобы оценить локальную виртуальную машину VMware.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: cherylmc
-ms.openlocfilehash: 35c9da37a3e21a0b98928f6c1a7c6df1630e69c1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fc3ba82003d7714ee26ffcfb32f096f0374d2800
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Настройка подключения "точка — сеть" к виртуальной сети с использованием собственной аутентификации Azure на основе сертификата и портала Azure
 
@@ -81,7 +81,6 @@ VPN-шлюз типа "точка — сеть" (P2S) позволяет соз
 ## <a name="createvnet"></a>1. Создать виртуальную сеть
 
 Прежде чем начать, убедитесь в том, что у вас есть подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial).
-
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-p2s-vnet-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>2. Добавление подсети шлюза
@@ -125,7 +124,7 @@ VPN-шлюз типа "точка — сеть" (P2S) позволяет соз
 
 ## <a name="uploadfile"></a>7. Отправка данных об открытом ключе корневого сертификата
 
-После создания шлюза нужно передать сведения об открытом ключе доверенного корневого сертификата в Azure. После отправки общедоступных данных сертификата Azure сможет использовать их для проверки подлинности клиентов, на которых установлен клиентский сертификат, созданный из доверенного корневого сертификата. Вы можете отправить 20 дополнительных доверенных корневых сертификатов.
+После создания шлюза нужно передать сведения об открытом ключе доверенного корневого сертификата в Azure. После отправки общедоступных данных сертификата Azure сможет использовать их для проверки подлинности клиентов, на которых установлен клиентский сертификат, созданный из доверенного корневого сертификата. Всего вы можете отправить до 20 дополнительных доверенных корневых сертификатов.
 
 1. Сертификаты добавляются на страницу **Point-to-site configuration** (Конфигурация "точка — сеть") в колонку **Корневой сертификат**.  
 2. Корневой сертификат необходимо экспортировать в виде CER-файла X.509 в кодировке Base64. Это позволит открыть сертификат в текстовом редакторе.
@@ -233,5 +232,5 @@ VPN-шлюз типа "точка — сеть" (P2S) позволяет соз
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительные сведения о виртуальных машинах см. [здесь](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Дополнительные сведения о сетях и виртуальных машинах см. в статье [Azure и Linux: обзор сетей виртуальных машин](../virtual-machines/linux/azure-vm-network-overview.md).
