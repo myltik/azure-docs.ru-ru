@@ -6,13 +6,13 @@
 
 # Начало работы
 ## [Использование портала](data-lake-store-get-started-portal.md)
-## [Использование PowerShell](data-lake-store-get-started-powershell.md)
+## [PowerShell](data-lake-store-get-started-powershell.md)
 ## [Использование Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 
 
 # Практическое руководство
 ## Загрузка и перемещение данных
-### [Использование фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md)
+### [Использование фабрики данных Azure](../data-factory/connector-azure-data-lake-store.md)
 ### [С помощью AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [С помощью DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Использование Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -74,7 +74,7 @@
 ### [Использование с SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)
 ### [Другие варианты интеграции с Azure](data-lake-store-integrate-with-other-services.md)
 
-## Управление
+## управление
 ### [Доступ к журналам диагностики](data-lake-store-diagnostic-logs.md)
 ### [Планирование высокой доступности](data-lake-store-disaster-recovery-guidance.md)
 
@@ -87,7 +87,7 @@
 ## [Python (управление учетными записями)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (управление файловой системой)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
-## [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/dls)
+## [интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/dls)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
