@@ -3,7 +3,7 @@
 ## [Что такое Центр Интернета вещей в Azure?](iot-hub-what-is-iot-hub.md)
 ## [Обзор управления устройствами](iot-hub-device-management-overview.md)
 
-# [Приступая к работе](iot-hub-get-started.md)
+# [Начало работы](iot-hub-get-started.md)
 
 ## Настройка устройства
 ### [Моделирование устройства на ПК](iot-hub-get-started-simulated.md)
@@ -112,8 +112,8 @@
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 
-## Управление
-### Создание центра IoT 
+## управление
+### Создание Центра Интернета вещей 
 #### [Использование портала Azure](iot-hub-create-through-portal.md)
 #### [Использование Azure PowerShell](iot-hub-create-using-powershell.md)
 #### [Использование Azure CLI](iot-hub-create-using-cli.md)
@@ -136,7 +136,7 @@
 ### [Все аспекты безопасности](iot-hub-security-ground-up.md)
 ### [Рекомендации по обеспечению безопасности](iot-hub-security-best-practices.md)
 ### [Архитектура безопасности](iot-hub-security-architecture.md)
-### [Защита развернутой службы Интернета вещей](iot-hub-security-deployment.md)
+### [Защита развертывания Интернета вещей](iot-hub-security-deployment.md)
 ### Защита с помощью сертификатов X.509 ЦС
 #### [Общие сведения о безопасности, обеспечиваемой сертификатами X.509 ЦС](iot-hub-x509ca-overview.md)
 ##### [Понятия безопасности в контексте сертификатов X.509 ЦС](iot-hub-x509ca-concept.md)
@@ -145,7 +145,7 @@
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
-## [Интерфейс командной строки Azure](/cli/azure/iot)
+## [интерфейс командной строки Azure](/cli/azure/iot)
 ## [.NET (служба)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (устройства)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (служба)](/java/api/com.microsoft.azure.sdk.iot.service)
@@ -162,13 +162,14 @@
 
 # Сопутствующие материалы
 ## [Набор Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Служба подготовки устройств для Центра Интернета вещей Azure](https://azure.microsoft.com/documentation/services/iot-dps/)
 ## [Концентраторы событий Azure](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Машинное обучение](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Ресурсы
 ## [Каталог устройств, сертифицированных по программе Microsoft Azure Certified for IoT](https://catalog.azureiotsuite.com/)
-## [Центре разработчика для IoT в Azure](https://azure.microsoft.com/develop/iot/)
+## [Центре разработчика Центра Интернета вещей Azure](https://azure.microsoft.com/develop/iot/)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Средство DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [Средство iothub-diagnostics (диагностика Центра Интернета вещей)](https://github.com/Azure/iothub-diagnostics)

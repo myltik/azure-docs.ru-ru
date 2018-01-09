@@ -1,10 +1,10 @@
 ---
-title: "Развертывание приложения в масштабируемых наборах виртуальных машин Azure | Документация Майкрософт"
-description: "Сведения о развертывании простого приложения автомасштабирования в масштабируемом наборе виртуальных машин с помощью шаблона Azure Resource Manager."
+title: "Создание масштабируемого набора виртуальных машин с помощью шаблона Azure | Документация Майкрософт"
+description: "Узнайте, как быстро создать масштабируемый набор виртуальных машин с помощью шаблона Azure Resource Manager"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: rwike77
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,297 +13,211 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2017
-ms.author: ryanwi
-ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.author: iainfou
+ms.openlocfilehash: 614c7c82aabab212753529a21d7a770b7a02027e
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="deploy-an-autoscaling-app-using-a-template"></a>Развертывание приложения автомасштабирования с помощью шаблона
+# <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Создание масштабируемого набора виртуальных машин с помощью Azure CLI 2.0
+Масштабируемый набор виртуальных машин обеспечивает развертывание и администрирование набора идентичных автомасштабируемых виртуальных машин. Вы можете вручную изменить число виртуальных машин в масштабируемом наборе или определить правила для автоматического масштабирования на основе использования ЦП, объема памяти или сетевого трафика. В этом руководстве по началу работы описано, как создадать масштабируемый набор виртуальных машин с помощью шаблона Azure Resource Manager. Вы также можете создать масштабируемый набор с помощью [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) или [портала Azure](virtual-machine-scale-sets-create-portal.md).
 
-[Шаблоны Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) прекрасно подходят для развертывания группы связанных ресурсов. В этом руководстве, которое составлено на основе статьи [О данном учебнике](virtual-machine-scale-sets-mvss-start.md), описывается развертывание простого приложения автомасштабирования в масштабируемом наборе с помощью шаблона Azure Resource Manager.  Можно также настроить автомасштабирование с помощью PowerShell, интерфейса командной строки или портала. Дополнительные сведения см. в разделе [Как использовать автомасштабирование и масштабируемые наборы виртуальных машин](virtual-machine-scale-sets-autoscale-overview.md).
 
-## <a name="two-quickstart-templates"></a>Два шаблона быстрого запуска
-При развертывании масштабируемого набора вы можете установить новое программное обеспечение в образ платформы, используя [расширения виртуальной машины](../virtual-machines/virtual-machines-windows-extensions-features.md). Расширение виртуальной машины — это небольшое приложение, которое выполняет задачи настройки и автоматизации после развертывания виртуальных машин Azure, таких как развертывание приложения. Два различных примера шаблонов приведены в [репозитории azure-quickstart-templates на сайте GitHub](https://github.com/Azure/azure-quickstart-templates), где показано, как развернуть приложение автомасштабирования в масштабируемом наборе с помощью расширений виртуальной машины.
+## <a name="overview-of-templates"></a>Общие сведения о шаблонах
+Шаблоны Azure Resource Manager позволяют развертывать группы связанных ресурсов. Шаблоны написаны в формате JSON (нотация объектов JavaScript) и определяют всю среду инфраструктуры Azure для приложения. С помощью одного шаблона можно создать масштабируемый набор виртуальных машин, установить приложения и настроить правила автоматического масштабирования. Вы можете повторно использовать этот шаблон, применив переменные и параметры, чтобы обновить существующие или создать дополнительные масштабируемые наборы. Шаблоны можно развернуть с помощью портала Azure, Azure CLI 2.0 или Azure PowerShell либо вызывать их из конвейеров непрерывной интеграции и непрерывной поставки (CI/CD).
 
-### <a name="python-http-server-on-linux"></a>HTTP-сервер Python под управлением Linux
-Пример шаблона [HTTP-сервера Python под управлением Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) развертывает простое приложение автомасштабирования, выполняющееся в масштабируемом наборе Linux.  Веб-платформа [Bottle](http://bottlepy.org/docs/dev/) Python и простой HTTP-сервер развертываются на каждой виртуальной машине в масштабируемом наборе с помощью расширения пользовательского скрипта виртуальной машины. Емкость масштабируемого набора увеличивается, когда средний объем использования ЦП на всех виртуальных машинах превышает 60 %. Если средний объем использования ЦП составляет менее 30 % — емкость масштабируемого набора уменьшается.
+Дополнительные сведения о шаблонах см. в [обзоре Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment).
 
-Помимо ресурса масштабируемого набора, пример шаблона *azuredeploy.json* также объявляет виртуальную сеть, общедоступный IP-адрес, балансировщик нагрузки и ресурсы параметров автомасшабирования.  Дополнительные сведения о создании ресурсов в шаблоне см. в статье [Автоматическое масштабирование машин Linux в наборе масштабирования виртуальных машин](virtual-machine-scale-sets-linux-autoscale.md).
 
-В шаблоне *azuredeploy.json* свойство `extensionProfile` ресурса `Microsoft.Compute/virtualMachineScaleSets` указывает расширение пользовательского скрипта. `fileUris` указывает расположение скрипта (скриптов). В нашем случае расположение двух файлов: *workserver.py*, который определяет простой HTTP-сервер, и *installserver.sh*, который устанавливает Bottle и запускает HTTP-сервер. `commandToExecute` указывает команду, которую необходимо выполнить после развертывания масштабируемого набора.
+## <a name="define-a-scale-set"></a>Определение масштабируемого набора
+Шаблон определяет конфигурацию для каждого типа ресурсов. Тип ресурса масштабируемого набора виртуальных машин такой же, как и у отдельной виртуальной машины. Ниже перечислены основные элементы и типы ресурсов для масштабируемого набора виртуальных машин.
+
+| Свойство                     | Описание свойства                                  | Пример значения в шаблоне                    |
+|------------------------------|----------------------------------------------------------|-------------------------------------------|
+| Тип                         | Создаваемый тип ресурса Azure                            | Microsoft.Compute/virtualMachineScaleSets; |
+| name                         | Имя масштабируемого набора                                       | myScaleSet                                |
+| location                     | Расположение для создания масштабируемого набора                     | Восток США                                   |
+| sku.name                     | Размер виртуальной машины для каждого экземпляра масштабируемого набора                  | Standard_A1                               |
+| sku.capacity                 | Количество экземпляров виртуальных машин, которое требуется изначально создать           | 2                                         |
+| upgradePolicy.mode           | Режим обновления экземпляра виртуальной машины при внесении изменений              | Автоматический                                 |
+| imageReference               | Платформа или пользовательский образ, используемые для экземпляров виртуальных машин | Сервер Canonical Ubuntu 16.04-LTS         |
+| osProfile.computerNamePrefix | Префикс имени для каждого экземпляра виртуальной машины                     | myvmss                                    |
+| osProfile.adminUsername      | Имя пользователя для каждого экземпляра виртуальной машины                        | azureuser                                 |
+| osProfile.adminPassword      | Пароль для каждого экземпляра виртуальной машины                        | P@ssw0rd!                                 |
+
+ Во фрагменте кода ниже показано определение основного ресурса масштабируемого набора в шаблоне. Для краткости в примере не показана конфигурация адаптера виртуальной сети. Чтобы настроить шаблон масштабируемого набора, вы можете изменить размер виртуальной машины или начальную емкость либо использовать другую платформу или пользовательский образ.
 
 ```json
-          "extensionProfile": {
-            "extensions": [
-              {
-                "name": "lapextension",
-                "properties": {
-                  "publisher": "Microsoft.Azure.Extensions",
-                  "type": "CustomScript",
-                  "typeHandlerVersion": "2.0",
-                  "autoUpgradeMinorVersion": true,
-                  "settings": {
-                    "fileUris": [
-                      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
-                      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
-                    ],
-                    "commandToExecute": "bash installserver.sh"
-                  }
-                }
-              }
-            ]
-          }
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "name": "myScaleSet",
+  "location": "East US",
+  "apiVersion": "2016-04-30-preview",
+  "sku": {
+    "name": "Standard_A1",
+    "capacity": "2"
+  },
+  "properties": {
+    "upgradePolicy": {
+      "mode": "Automatic"
+    },
+    "virtualMachineProfile": {
+      "storageProfile": {
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage"
+        },
+        "imageReference":  {
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "16.04-LTS",
+          "version": "latest"
+        }
+      },
+      "osProfile": {
+        "computerNamePrefix": "myvmss",
+        "adminUsername": "azureuser",
+        "adminPassword": "P@ssw0rd!"
+      }
+    }
+  }
+}
 ```
 
-### <a name="aspnet-mvc-application-on-windows"></a>Приложение ASP.NET MVC для Windows
-Пример шаблона [приложения ASP.NET MVC под управлением Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) развертывает простое приложение ASP.NET MVC, выполняющееся в IIS в масштабируемом наборе Windows.  IIS и приложение MVC развертываются с помощью расширения виртуальной машины для [настройки требуемого состояния PowerShell (DSC)](virtual-machine-scale-sets-dsc.md).  Емкость масштабируемого набора увеличивается (на одной виртуальной машине за раз), когда объем использования ЦП превышает 50 % в течение 5 минут. 
 
-Помимо ресурса масштабируемого набора, пример шаблона *azuredeploy.json* также объявляет виртуальную сеть, общедоступный IP-адрес, балансировщик нагрузки и ресурсы параметров автомасшабирования. В этом шаблоне также показано обновление приложения.  Дополнительные сведения о создании ресурсов в шаблоне см. в статье [Автоматическое масштабирование ВМ в наборе масштабирования ВМ](virtual-machine-scale-sets-windows-autoscale.md).
+## <a name="install-an-application"></a>Установка приложения
+Когда вы развертываете масштабируемый набор, расширения виртуальных машин могут предусматривать задачи автоматизации и настройки после развертывания, например задачи установки приложения. Сценарии можно скачать из службы хранилища Azure или GitHub или передать на портал Azure во время выполнения расширения. Чтобы применить расширение к масштабируемому набору, добавьте раздел *extensionProfile* в предыдущий пример ресурса. Как правило, профиль расширения определяет следующие свойства:
 
-В шаблоне *azuredeploy.json* свойство `extensionProfile` ресурса `Microsoft.Compute/virtualMachineScaleSets` указывает расширение [настройки требуемого состояния](virtual-machine-scale-sets-dsc.md), которое устанавливает IIS и веб-приложение по умолчанию из пакета WebDeploy.  Скрипт *IISInstall.ps1*, расположенный в папке *DSC*, устанавливает IIS на виртуальной машине.  Веб-приложение MVC находится в папке *WebDeploy*.  Пути к установленному скрипту и веб-приложению определяются в параметрах `powershelldscZip` и `webDeployPackage` в файле *azuredeploy.parameters.json*. 
+- тип расширения;
+- издатель расширения;
+- версия расширения;
+- расположение скриптов настройки или установки;
+- команды для выполнения на экземплярах виртуальных машин.
+
+Рассмотрим два способа установки приложения с расширениями: настраиваемое расширение скриптов для установки приложения Python в среде Linux или расширение PowerShell DSC для установки приложения ASP.NET в Windows.
+
+### <a name="python-http-server-on-linux"></a>HTTP-сервер Python под управлением Linux
+[HTTP-сервер Python под управлением Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) использует настраиваемое расширение скриптов для установки [Bottle](http://bottlepy.org/docs/dev/), веб-платформы Python и простого HTTP-сервера. 
+
+Два скрипта определены в файлах *fileUris* - *installserver.sh* и *workserver.py*. Эти файлы загружаются из GitHub, а затем *commandToExecute* определяет `bash installserver.sh` для приложения, которое будет установлено и настроено:
 
 ```json
-          "extensionProfile": {
-            "extensions": [
-              {
-                "name": "Microsoft.Powershell.DSC",
-                "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.9",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('powershelldscUpdateTagVersion')]",
-                  "settings": {
-                    "configuration": {
-                      "url": "[variables('powershelldscZipFullPath')]",
-                      "script": "IISInstall.ps1",
-                      "function": "InstallIIS"
-                    },
-                    "configurationArguments": {
-                      "nodeName": "localhost",
-                      "WebDeployPackagePath": "[variables('webDeployPackageFullPath')]"
-                    }
-                  }
-                }
-              }
-            ]
+"extensionProfile": {
+  "extensions": [
+    {
+      "name": "AppInstall",
+      "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "fileUris": [
+            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
+            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
+          ],
+          "commandToExecute": "bash installserver.sh"
+        }
+      }
+    }
+  ]
+}
+```
+
+### <a name="aspnet-application-on-windows"></a>Приложение ASP.NET для Windows
+В примере шаблона [приложения ASP.NET в Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) используется расширение PowerShell DSC для установки приложения ASP.NET MVC, выполняющегося в IIS. 
+
+Скрипт установки скачивается с сайта GitHub, как определено в свойстве *url*. Затем расширение запускает *InstallIIS* из скрипта *IISInstall.ps1*, как определено в свойствах *function* и *script*. Само приложение ASP.NET предоставляется в виде пакета веб-развертывания, который также скачивается с сайта GitHub, как определено в свойстве *WebDeployPackagePath*:
+
+```json
+"extensionProfile": {
+  "extensions": [
+    {
+      "name": "Microsoft.Powershell.DSC",
+      "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.9",
+        "autoUpgradeMinorVersion": true,
+        "forceUpdateTag": "1.0",
+        "settings": {
+          "configuration": {
+            "url": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/DSC/IISInstall.ps1.zip",
+            "script": "IISInstall.ps1",
+            "function": "InstallIIS"
+          },
+          "configurationArguments": {
+            "nodeName": "localhost",
+            "WebDeployPackagePath": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/WebDeploy/DefaultASPWebApp.v1.0.zip"
           }
+        }
+      }
+    }
+  ]
+}
 ```
 
 ## <a name="deploy-the-template"></a>Развертывание шаблона
-Самый простой способ развернуть шаблон [HTTP-сервера Python под управлением Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) или шаблон [приложения ASP.NET MVC под управлением Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) — использовать кнопку **Deploy to Azure** (Развертывание в Azure), расположенную в файлах сведений на GitHub.  Чтобы развернуть примеры шаблонов, можно также использовать PowerShell или Azure CLI.
+Самый простой способ развернуть шаблон [HTTP-сервера Python под управлением Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) или шаблон [приложения ASP.NET MVC под управлением Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) — использовать кнопку **Развертывание в Azure**, расположенную в файлах сведений на портале GitHub.  Чтобы развернуть примеры шаблонов, можно также использовать PowerShell или Azure CLI.
 
-### <a name="powershell"></a>PowerShell
-Скопируйте из репозитория GitHub файл [HTTP-сервера Python под управлением Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) или [приложения ASP.NET MVC под управлением Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) в папку на локальном компьютере.  Откройте файл *azuredeploy.parameters.json* и обновите значения по умолчанию для параметров `vmssName`, `adminUsername` и `adminPassword`. Сохраните приведенный ниже скрипт PowerShell под именем *deploy.ps1* в той же папке, что и шаблон *azuredeploy.json*. Чтобы развернуть пример шаблона, выполните скрипт *deploy.ps1* в командной строке PowerShell.
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+Для установки HTTP-сервера Python в Linux можно использовать Azure CLI 2.0:
 
-```powershell
-param(
- [Parameter(Mandatory=$True)]
- [string]
- $subscriptionId,
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location EastUS
 
- [Parameter(Mandatory=$True)]
- [string]
- $resourceGroupName,
-
- [string]
- $resourceGroupLocation,
-
- [Parameter(Mandatory=$True)]
- [string]
- $deploymentName,
-
- [string]
- $templateFilePath = "template.json",
-
- [string]
- $parametersFilePath = "parameters.json"
-)
-
-<#
-.SYNOPSIS
-    Registers RPs
-#>
-Function RegisterRP {
-    Param(
-        [string]$ResourceProviderNamespace
-    )
-
-    Write-Host "Registering resource provider '$ResourceProviderNamespace'";
-    Register-AzureRmResourceProvider -ProviderNamespace $ResourceProviderNamespace;
-}
-
-#******************************************************************************
-# Script body
-# Execution begins here
-#******************************************************************************
-$ErrorActionPreference = "Stop"
-
-# sign in
-Write-Host "Logging in...";
-Login-AzureRmAccount;
-
-# select subscription
-Write-Host "Selecting subscription '$subscriptionId'";
-Select-AzureRmSubscription -SubscriptionID $subscriptionId;
-
-# Register RPs
-$resourceProviders = @("microsoft.compute","microsoft.insights","microsoft.network");
-if($resourceProviders.length) {
-    Write-Host "Registering resource providers"
-    foreach($resourceProvider in $resourceProviders) {
-        RegisterRP($resourceProvider);
-    }
-}
-
-#Create or check for existing resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
-if(!$resourceGroup)
-{
-    Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
-    if(!$resourceGroupLocation) {
-        $resourceGroupLocation = Read-Host "resourceGroupLocation";
-    }
-    Write-Host "Creating resource group '$resourceGroupName' in location '$resourceGroupLocation'";
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
-}
-else{
-    Write-Host "Using existing resource group '$resourceGroupName'";
-}
-
-# Start the deployment
-Write-Host "Starting deployment...";
-if(Test-Path $parametersFilePath) {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
-} else {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
-}
+# Deploy template into resource group
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
 
-### <a name="azure-cli"></a>Инфраструктура CLI Azure
-```azurecli
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
+Чтобы просмотреть, как работает приложение, получите общедоступный IP-адрес подсистемы балансировки нагрузки с помощью команды [az network public-ip list](/cli/azure/network/public-ip#show):
 
-# -e: immediately exit if any command has a non-zero exit status
-# -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
-
-usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
-
-declare subscriptionId=""
-declare resourceGroupName=""
-declare deploymentName=""
-declare resourceGroupLocation=""
-
-# Initialize parameters specified from command line
-while getopts ":i:g:n:l:" arg; do
-    case "${arg}" in
-        i)
-            subscriptionId=${OPTARG}
-            ;;
-        g)
-            resourceGroupName=${OPTARG}
-            ;;
-        n)
-            deploymentName=${OPTARG}
-            ;;
-        l)
-            resourceGroupLocation=${OPTARG}
-            ;;
-        esac
-done
-shift $((OPTIND-1))
-
-#Prompt for parameters is some required parameters are missing
-if [[ -z "$subscriptionId" ]]; then
-    echo "Subscription Id:"
-    read subscriptionId
-    [[ "${subscriptionId:?}" ]]
-fi
-
-if [[ -z "$resourceGroupName" ]]; then
-    echo "ResourceGroupName:"
-    read resourceGroupName
-    [[ "${resourceGroupName:?}" ]]
-fi
-
-if [[ -z "$deploymentName" ]]; then
-    echo "DeploymentName:"
-    read deploymentName
-fi
-
-if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below to create a new resource group else skip this"
-    echo "ResourceGroupLocation:"
-    read resourceGroupLocation
-fi
-
-#templateFile Path - template file to be used
-templateFilePath="template.json"
-
-if [ ! -f "$templateFilePath" ]; then
-    echo "$templateFilePath not found"
-    exit 1
-fi
-
-#parameter file path
-parametersFilePath="parameters.json"
-
-if [ ! -f "$parametersFilePath" ]; then
-    echo "$parametersFilePath not found"
-    exit 1
-fi
-
-if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentName" ]; then
-    echo "Either one of subscriptionId, resourceGroupName, deploymentName is empty"
-    usage
-fi
-
-#login to azure using your credentials
-az account show 1> /dev/null
-
-if [ $? != 0 ];
-then
-    az login
-fi
-
-#set the default subscription id
-az account set --name $subscriptionId
-
-set +e
-
-#Check for existing RG
-az group show $resourceGroupName 1> /dev/null
-
-if [ $? != 0 ]; then
-    echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
-    set -e
-    (
-        set -x
-        az group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
-    )
-    else
-    echo "Using existing resource group..."
-fi
-
-#Start deployment
-echo "Starting deployment..."
-(
-    set -x
-    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
-)
-
-if [ $?  == 0 ];
- then
-    echo "Template has been successfully deployed"
-fi
+```azurecli-interactive
+az network public-ip list \
+    --resource-group myResourceGroup \
+    --query [*].ipAddress -o tsv
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+Введите в браузер общедоступный IP-адрес своей подсистемы балансировки нагрузки в формате *http://<publicIpAddress>:9000/do_work*. Подсистема балансировки нагрузки передаст запрос на один из экземпляров виртуальной машины, как показано в следующем примере:
 
-[!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
+![Веб-страница NGINX по умолчанию](media/virtual-machine-scale-sets-create-template/running-python-app.png)
+
+
+### <a name="azure-powershell"></a>Azure PowerShell
+Для установки приложения ASP.NET в Windows можно использовать Azure PowerShell:
+
+```azurepowershell-interactive
+# Create a resource group
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+
+# Deploy template into resource group
+New-AzureRmResourceGroupDeployment `
+    -ResourceGroupName myResourceGroup `
+    -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
+```
+
+Чтобы изучить работу приложения, получите общедоступный IP-адрес своей подсистемы балансировки нагрузки с помощью командлета [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress), как показано ниже.
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+Введите в браузер общедоступный IP-адрес своей подсистемы балансировки нагрузки в формате *http://<publicIpAddress>/MyApp*. Подсистема балансировки нагрузки передаст запрос на один из экземпляров виртуальной машины, как показано в следующем примере:
+
+![Выполнение сайта IIS](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
+
+
+## <a name="clean-up-resources"></a>Очистка ресурсов
+Вы можете удалить ненужную группу ресурсов, масштабируемый набор и все связанные ресурсы с помощью команды [az group delete](/cli/azure/group#delete), как показано ниже.
+
+```azurecli-interactive 
+az group delete --name myResourceGroup
+```
+
+
+## <a name="next-steps"></a>Дополнительная информация

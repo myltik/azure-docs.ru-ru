@@ -1,8 +1,8 @@
 ---
 title: "Приступая к работе с Центрами уведомлений для приложений Xamarin.Android | Документация Майкрософт"
 description: "Из этого учебника вы узнаете, как использовать Центры уведомлений Azure для отправки push-уведомлений в приложение Xamarin.Android."
-author: ysxu
-manager: erikre
+author: jwhitedev
+manager: kpiteira
 editor: 
 services: notification-hubs
 documentationcenter: xamarin
@@ -12,34 +12,32 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/25/2017
-ms.author: yuaxu
-ms.openlocfilehash: f9fef96b71e0db7b15ff5208e9bd1a0b4ecf7211
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/22/2017
+ms.author: jawh
+ms.openlocfilehash: 4cb3aaa3d4e577e45f01f245d3898c033092f5a3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="get-started-with-notification-hubs-with-xamarin-for-android"></a>Приступая к работе с Центрами уведомлений для приложений Xamarin в Android
+# <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>Начало работы с Центрами уведомлений для приложений Xamarin.Android
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Обзор
-В этом учебнике показано, как использовать Центры уведомлений Azure для отправки push-уведомлений в приложение Xamarin.Android. Вы создаете пустое приложение Xamarin.Android, которое получает push-уведомления с помощью Google Cloud Messaging (GCM). По завершении вы сможете рассылать push-уведомления на все устройства, где запущено ваше приложение, с помощью центра уведомлений. Готовый код доступен в примере [приложения NotificationHubs][GitHub].
+В этом учебнике показано, как использовать Центры уведомлений Azure для отправки push-уведомлений в приложение Xamarin.Android. Вы создадите пустое приложение Xamarin.Android, которое получает push-уведомления с помощью Firebase Cloud Messaging. По завершении вы сможете рассылать push-уведомления на все устройства, где запущено ваше приложение, с помощью центра уведомлений. Готовый код доступен в примере [приложения NotificationHubs][GitHub].
 
 В этом учебнике описывается простой сценарий вещания с использованием Центров уведомлений.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-Полный код для этого учебника можно найти на портале [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid).
+Полный код для этого руководства можно найти на портале GitHub [здесь][GitHub].
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Для работы с данным учебником требуется следующее:
 
-* Visual Studio с расширением Xamarin для Windows или Xamarin Studio для Mac OS X. Инструкции по установке см. в [руководстве по установке и настройке Visual Studio и Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
+* [Visual Studio с Xamarin] на компьютере Windows или [Visual Studio для Mac] на компьютере OS X.
 * Активная учетная запись Google
-* [Компонент обмена сообщениями в Azure]
-* [Компонент клиента Google Cloud Messaging]
 
 Для прохождения других учебников, посвященных Центрам уведомлений для приложений Xamarin.Android, необходимо сначала выполнить действия, описанные в этом учебнике.
 
@@ -48,30 +46,31 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="enable-google-cloud-messaging"></a>Включение Google Cloud Messaging
-[!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+## <a name="enable-firebase-cloud-messaging"></a>Включение Firebase Cloud Messaging
+[!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 ## <a name="configure-your-notification-hub"></a>Настройка концентратора уведомлений
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="5">
+<ol start="6">
 
 <li><p>Выберите расположенную сверху вкладку <b>Настройка</b>, введите значение <b>Ключ API</b>, полученное в предыдущем разделе, а затем выберите <b>Сохранить</b>.</p>
 </li>
 </ol>
-&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
+&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
-Концентратор уведомлений теперь настроен для работы с GCM. Также у вас есть строки подключения, с помощью которых вы можете зарегистрировать приложение для получения уведомлений и отправки push-уведомлений.
+Концентратор уведомлений настроен для работы с GCM. Также у вас есть строки подключения, с помощью которых вы можете зарегистрировать приложение для получения уведомлений и отправки push-уведомлений.
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Подключение приложения к центру уведомлений
-Сначала создайте проект.
-1. В Xamarin Studio выберите **New Solution** (Новое решение) > **Android App** (Приложение Android), а затем нажмите кнопку **Next** (Далее).
-   
-      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+Сначала создайте проект. 
 
-2. Введите значения в поля **App Name** (Имя приложения) и **Identifier** (Идентификатор). В разделе **Target Plaforms** (Целевые платформы) выберите поддерживаемые платформы и нажмите кнопки **Next** (Далее) и **Create** (Создать).
+1. В Visual Studio выберите **Новое решение** > **Приложение Android**, а затем нажмите кнопку **Далее**.
    
-      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
+      ![Visual Studio — создание нового проекта Android][22]
+
+2. Введите значения в поля **App Name** (Имя приложения) и **Identifier** (Идентификатор). В разделе **Целевые платформы** выберите поддерживаемые платформы и нажмите кнопки **Далее** и **Создать**.
+   
+      ![Visual Studio — конфигурация приложения Android][23]
 
     Будет создан проект Android.
 
@@ -80,283 +79,187 @@ ms.lasthandoff: 10/11/2017
     Убедитесь, что **Имя пакета** начинается со строчной буквы.
    
    > [!IMPORTANT]
-   > Первая буква имени пакета должна быть строчной. В противном случае возникнут ошибки манифеста приложения при регистрации **BroadcastReceiver** и **IntentFilter** для push-уведомлений ниже.
+   > Первая буква имени пакета должна быть строчной. В противном случае возникнут ошибки манифеста приложения при регистрации приложения для push-уведомлений ниже.
    > 
    > 
    
-      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
+      ![Visual Studio — параметры проекта Android][24]
 4. Или выберите другой уровень API для параметра **Minimum Android version** (Минимальная версия Android).
-5. Или для параметра **Target Android version** (Целевая версия Android) выберите другую версию API, которую нужно использовать в качестве целевой (используйте API уровня 8 или выше).
+5. Или для параметра **Целевая версия Android** выберите другую версию API, которую нужно использовать в качестве целевой (используйте API уровня 8 или выше).
 6. Нажмите кнопку **ОК** и закройте диалоговое окно параметров проекта.
 
-### <a name="add-the-required-components-to-your-project"></a>Добавление в проект необходимых компонентов
-Клиент Google Cloud Messaging, доступный в магазине компонентов Xamarin, упрощает процесс поддержки push-уведомлений в Xamarin.Android.
+### <a name="add-the-required-packages-to-your-project"></a>Добавление обязательных пакетов в проект
 
-1. Щелкните правой кнопкой мыши папку компонентов в приложении Xamarin.Android и выберите пункт **Get More Components**(Получить дополнительные компоненты).
-2. Найдите компонент **Обмен сообщениями Azure** и добавьте его в проект.
-3. Найдите компонент **Клиент Google Cloud Messaging** и добавьте его в проект.
+1. Щелкните проект правой кнопкой мыши и выберите **Добавить** > **Добавить пакеты NuGet**.
+2. Найдите пакет **Xamarin.Azure.NotificationHubs.Android** и добавьте его в проект.
+3. Найдите пакет **Xamarin.Firebase.Messaging** и добавьте его в проект.
 
 ### <a name="set-up-notification-hubs-in-your-project"></a>Настройка центров уведомлений в проекте
 1. Подготовьте следующую информацию для вашего приложения Android и концентратора уведомлений.
    
-   * **GoogleProjectNumber**. Найдите это значение номера проекта на странице своего приложения на портале разработчиков Google. Вы записали это значение ранее, когда создавали приложение на портале.
-   * **Прослушивание строки подключения**. На [классическом портале Azure] на панели мониторинга выберите **Просмотреть строки подключения**. Для этого значения скопируйте строку подключения *DefaultListenSharedAccessSignature*.
-   * **Имя концентратора**— это имя вашего концентратора на [классическом портале Azure]. Например, *mynotificationhub2*.
+   * **Прослушивание строки подключения**. На [ портале Azure] на панели мониторинга выберите **Просмотреть строки подключения**. Для этого значения скопируйте строку подключения *DefaultListenSharedAccessSignature*.
+   * **Имя концентратора** — это имя вашего концентратора на [ портале Azure]. Например, *mynotificationhub2*.
      
 2. Создайте класс **Constants.cs** для вашего проекта Xamarin и определите в классе следующие постоянные значения. Замените значения заполнителей на собственные значения.
-     
+    
+    ```csharp
         public static class Constants
         {
-     
-           public const string SenderID = "<GoogleProjectNumber>"; // Google API Project Number
            public const string ListenConnectionString = "<Listen connection string>";
            public const string NotificationHubName = "<hub name>";
         }
+    ```
+
 3. Добавьте следующие элементы, используя операторы **MainActivity.cs**:
    
+    ```csharp
         using Android.Util;
-        using Gcm.Client;
-4. Добавьте переменную экземпляра в класс `MainActivity` , чтобы отобразить диалоговое окно оповещения при выполнении приложения.
+    ```
+
+4. Добавьте переменную экземпляра в класс **MainActivity.cs**, чтобы отобразить диалоговое окно оповещения при выполнении приложения:
    
-        public static MainActivity instance;
-5. Создайте следующий метод в классе **MainActivity** :
-   
-        private void RegisterWithGCM()
+    ```csharp
+        public const string TAG = "MainActivity";
+    ```
+
+5. Добавьте следующий код в `OnCreate` в классе **MainActivity.cs** после `base.OnCreate(savedInstanceState)`:
+
+    ```csharp   
+        if (Intent.Extras != null)
         {
-            // Check to ensure everything's set up right
-            GcmClient.CheckDevice(this);
-            GcmClient.CheckManifest(this);
-   
-            // Register for push notifications
-            Log.Info("MainActivity", "Registering...");
-            GcmClient.Register(this, Constants.SenderID);
+            foreach (var key in Intent.Extras.KeySet())
+            {
+                if(key!=null)
+                {
+                    var value = Intent.Extras.GetString(key);
+                    Log.Debug(TAG, "Key: {0} Value: {1}", key, value);
+                }
+            }
         }
-6. В методе `OnCreate` файла **MainActivity.cs** инициализируйте переменную `instance` и добавьте вызов в `RegisterWithGCM`:
+    ```
+
+6. Щелкните правой кнопкой мыши проект и добавьте файл `google-services.json`, скачанный из проекта Firebase ранее. Щелкните правой кнопкой мыши добавленный файл и задайте действие сборки для `GoogleServicesJson`
+
+    ![Visual Studio — настройка google-services.json][25]
+
+7. Создайте новый класс с именем **MyFirebaseIIDService**.
+
+8. Добавьте следующие операторы using в класс **MyFirebaseIIDService.cs**:
    
-        protected override void OnCreate (Bundle bundle)
-        {
-            instance = this;
-   
-            base.OnCreate (bundle);
-   
-            // Set your view from the "main" layout resource
-            SetContentView (Resource.Layout.Main);
-   
-            // Get your button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button> (Resource.Id.myButton);
-   
-            RegisterWithGCM();
-        }
-7. Создайте класс **MyBroadcastReceiver**.
-   
-   > [!NOTE]
-   > Здесь мы рассмотрим создание класса **BroadcastReceiver** с нуля. Быстрой альтернативой созданию файла **MyBroadcastReceiver.cs** вручную является использование ссылки на файл **GcmService.cs**, находящийся в образце проекта Xamarin.Android на [NotificationHubs][GitHub]. Вы также можете скопировать файл **GcmService.cs** и изменить имена классов.
-   > 
-   > 
-8. Добавьте следующие инструкции using в файл **MyBroadcastReceiver.cs** (ссылки на компонент и сборку, которые были добавлены ранее):
-   
+    ```csharp
+        using System;
+        using Android.App;
+        using Firebase.Iid;
+        using Android.Util;
+        using WindowsAzure.Messaging;
         using System.Collections.Generic;
-        using System.Text;
+    ```
+
+9. Добавьте следующий код в класс **MyFirebaseIIDService.cs** перед объявлением **class** и настройте наследование класса из **FirebaseInstanceIdService**:
+   
+    ```csharp
+        [Service]
+        [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
+        public class MyFirebaseIIDService : FirebaseInstanceIdService
+    ```
+
+10. В класс **MyFirebaseIIDService.cs** добавьте следующий код:
+   
+    ```csharp
+        const string TAG = "MyFirebaseIIDService";
+        NotificationHub hub;
+
+        public override void OnTokenRefresh()
+        {
+            var refreshedToken = FirebaseInstanceId.Instance.Token;
+            Log.Debug(TAG, "FCM token: " + refreshedToken);
+            SendRegistrationToServer(refreshedToken);
+        }
+
+        void SendRegistrationToServer(string token)
+        {
+            // Register with Notification Hubs
+            hub = new NotificationHub(Constants.NotificationHubName,
+                                      Constants.ListenConnectionString, this);
+
+            var tags = new List<string>() { };
+            var regID = hub.Register(token, tags.ToArray()).RegistrationId;
+
+            Log.Debug(TAG, $"Successful registration of ID {regID}");
+        }
+    ```
+
+11. Создайте еще один класс в проекте и назовите его **MyFirebaseMessagingService**.
+
+12. Добавьте следующие операторы using в класс **MyFirebaseMessagingService.cs**.
+    
+    ```csharp
+        using System;
+        using System.Linq;
+        using Android;
         using Android.App;
         using Android.Content;
         using Android.Util;
-        using Gcm.Client;
-        using WindowsAzure.Messaging;
-9. В файле **MyBroadcastReceiver.cs** добавьте следующие разрешения запросов между операторами **using** и объявлением **namespace**:
-   
-        [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-   
-        //GET_ACCOUNTS is needed only for Android versions 4.0.3 and below
-        [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
-        [assembly: UsesPermission(Name = "android.permission.INTERNET")]
-        [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
-10. В файле **MyBroadcastReceiver.cs** измените класс **MyBroadcastReceiver** таким образом, чтобы он соответствовал следующему коду:
-   
-        [BroadcastReceiver(Permission=Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE },
-            Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK },
-            Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY },
-            Categories = new string[] { "@PACKAGE_NAME@" })]
-        public class MyBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
+        using Firebase.Messaging;
+    ```
+
+13. Добавьте следующий код в класс перед объявлением class и настройте наследование класса из **FirebaseMessagingService**:
+    
+    ```csharp
+        [Service]
+        [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
+        public class MyFirebaseIIDService : FirebaseMessagingService
+    ```
+    
+14. Добавьте следующий код в **MyFirebaseMessagingService.cs**:
+    
+    ```csharp
+        const string TAG = "MyFirebaseMsgService";
+        public override void OnMessageReceived(RemoteMessage message)
         {
-            public static string[] SENDER_IDS = new string[] { Constants.SenderID };
-   
-            public const string TAG = "MyBroadcastReceiver-GCM";
-        }
-11. Добавьте в файл **MyBroadcastReceiver.cs** еще один класс с именем **PushHandlerService**, сделав его производным от **GcmServiceBase**. Примените для класса атрибут **Service** :
-    
-         [Service] // Must use the service tag
-         public class PushHandlerService : GcmServiceBase
-         {
-             public static string RegistrationID { get; private set; }
-             private NotificationHub Hub { get; set; }
-    
-             public PushHandlerService() : base(Constants.SenderID)
-                {
-                 Log.Info(MyBroadcastReceiver.TAG, "PushHandlerService() constructor");
-             }
-         }
-12. **GcmServiceBase** реализует методы **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()** и **OnError()**. Наш класс реализации **PushHandlerService** должен переопределить эти методы, чтобы они срабатывали в ответ на взаимодействие с центром уведомлений.
-13. Переопределите метод **OnRegistered()** в классе **PushHandlerService** с помощью следующего кода:
-    
-         protected override void OnRegistered(Context context, string registrationId)
-         {
-             Log.Verbose(MyBroadcastReceiver.TAG, "GCM Registered: " + registrationId);
-             RegistrationID = registrationId;
-    
-             createNotification("PushHandlerService-GCM Registered...",
-                                 "The device has been Registered!");
-    
-             Hub = new NotificationHub(Constants.NotificationHubName, Constants.ListenConnectionString,
-                                         context);
-             try
-             {
-                 Hub.UnregisterAll(registrationId);
-             }
-             catch (Exception ex)
-             {
-                 Log.Error(MyBroadcastReceiver.TAG, ex.Message);
-             }
-    
-             //var tags = new List<string>() { "falcons" }; // create tags if you want
-             var tags = new List<string>() {};
-    
-             try
-             {
-                 var hubRegistration = Hub.Register(registrationId, tags.ToArray());
-             }
-             catch (Exception ex)
-             {
-                 Log.Error(MyBroadcastReceiver.TAG, ex.Message);
-             }
-         }
-    
-    > [!NOTE]
-    > В коде **OnRegistered()** выше обратите внимание на возможность задать теги для регистрации на конкретные каналы обмена сообщениями.
-    > 
-    > 
-14. Переопределите метод **OnMessage** в классе **PushHandlerService** с помощью следующего кода:
-    
-        protected override void OnMessage(Context context, Intent intent)
-        {
-            Log.Info(MyBroadcastReceiver.TAG, "GCM Message Received!");
-    
-            var msg = new StringBuilder();
-    
-            if (intent != null && intent.Extras != null)
+            Log.Debug(TAG, "From: " + message.From);
+            if(message.GetNotification()!= null)
             {
-                foreach (var key in intent.Extras.KeySet())
-                    msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
+                //These is how most messages will be received
+                Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
+                SendNotification(message.GetNotification().Body);
             }
-    
-            string messageText = intent.Extras.GetString("message");
-            if (!string.IsNullOrEmpty (messageText))
+            else 
             {
-                createNotification ("New hub message!", messageText);
+                //Only used for debugging payloads sent from the Azure portal
+                SendNotification(message.Data.Values.First());
+
             }
-            else
-            {
-                createNotification ("Unknown message details", msg.ToString ());
-            }
+
         }
-15. Добавьте методы **createNotification** и **dialogNotify** к службе **PushHandlerService** для уведомления пользователей при получении уведомления.
-    
-    > [!NOTE]
-    > Структура уведомлений в версии платформы Android 5.0 и более поздних версиях существенно отличается от структуры в предыдущих версиях. Если вы проверяете это на платформе Android версии 5.0 или более поздней версии, необходимо запустить приложение, чтобы получить уведомление. Дополнительные сведения см. в статье об [уведомлениях Android](http://go.microsoft.com/fwlink/?LinkId=615880).
-    > 
-    > 
-    
-        void createNotification(string title, string desc)
+
+        void SendNotification(string messageBody)
         {
-            //Create notification
-            var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
-    
-            //Create an intent to show UI
-            var uiIntent = new Intent(this, typeof(MainActivity));
-    
-            //Create the notification
-            var notification = new Notification(Android.Resource.Drawable.SymActionEmail, title);
-    
-            //Auto-cancel will remove the notification once the user touches it
-            notification.Flags = NotificationFlags.AutoCancel;
-    
-            //Set the notification info
-            //we use the pending intent, passing our ui intent over, which will get called
-            //when the notification is tapped.
-            notification.SetLatestEventInfo(this, title, desc, PendingIntent.GetActivity(this, 0, uiIntent, 0));
-    
-            //Show the notification
-            notificationManager.Notify(1, notification);
-            dialogNotify (title, desc);
+            var intent = new Intent(this, typeof(MainActivity));
+            intent.AddFlags(ActivityFlags.ClearTop);
+            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+
+            var notificationBuilder = new Notification.Builder(this)
+                        .SetContentTitle("FCM Message")
+                        .SetSmallIcon(Resource.Drawable.ic_launcher)
+                        .SetContentText(messageBody)
+                        .SetAutoCancel(true)
+                        .SetContentIntent(pendingIntent);
+
+            var notificationManager = NotificationManager.FromContext(this);
+
+            notificationManager.Notify(0, notificationBuilder.Build());
         }
-    
-        protected void dialogNotify(String title, String message)
-        {
-    
-            MainActivity.instance.RunOnUiThread(() => {
-                AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.instance);
-                AlertDialog alert = dlg.Create();
-                alert.SetTitle(title);
-                alert.SetButton("Ok", delegate {
-                    alert.Dismiss();
-                });
-                alert.SetMessage(message);
-                alert.Show();
-            });
-        }
-16. Переопределите абстрактные члены **OnUnRegistered()**, **OnRecoverableError()** и **OnError()** для компиляции кода:
-    
-        protected override void OnUnRegistered(Context context, string registrationId)
-        {
-            Log.Verbose(MyBroadcastReceiver.TAG, "GCM Unregistered: " + registrationId);
-    
-            createNotification("GCM Unregistered...", "The device has been unregistered!");
-        }
-    
-        protected override bool OnRecoverableError(Context context, string errorId)
-        {
-            Log.Warn(MyBroadcastReceiver.TAG, "Recoverable Error: " + errorId);
-    
-            return base.OnRecoverableError (context, errorId);
-        }
-    
-        protected override void OnError(Context context, string errorId)
-        {
-            Log.Error(MyBroadcastReceiver.TAG, "GCM Error: " + errorId);
-        }
+    ```
 
-## <a name="run-your-app-in-the-emulator"></a>Запустите ваше приложение в эмуляторе
-При запуске этого приложения в эмуляторе убедитесь, что используется виртуальное устройство на платформе Android (AVD), поддерживающее API-интерфейсы Google.
+15. Запустите приложение на устройстве или в загруженном эмуляторе.
 
-> [!IMPORTANT]
-> Чтобы получать push-уведомления, необходимо настроить учетную запись Google на виртуальном устройстве Google Android (в эмуляторе выберите пункт (В эмуляторе перейдите к пункту **Settings** (Параметры) и нажмите кнопку **Add Account** (Добавить учетную запись).) Кроме того, убедитесь, что эмулятор подключен к Интернету.
-> 
-> [!NOTE]
-> Структура уведомлений в версии платформы Android 5.0 и более поздних версиях существенно отличается от структуры в предыдущих версиях. Дополнительные сведения см. в статье об [уведомлениях Android](http://go.microsoft.com/fwlink/?LinkId=615880).
-> 
-> 
+## <a name="send-notifications-from-the-portal"></a>Отправка уведомлений с портала
+Используя параметр *Тестовая отправка* на [ портале Azure], вы можете проверить, получает ли приложение уведомления. Этот параметр позволяет отправить тестовое push-уведомление на устройство.
 
-1. В меню **Tools** (Средства) выберите **Open Android Emulator Manager** (Открыть диспетчер эмулятора Android), выберите свое устройство и нажмите кнопку **Edit** (Изменить).
-   
-      ![][18]
-2. В разделе **Target** (Цель) выберите **Google APIs** (API-интерфейсы Google), а затем нажмите кнопку **ОК**.
-   
-      ![][19]
-3. На верхней панели инструментов нажмите кнопку **Run** (Запуск) и выберите приложение. При этом запускается эмулятор и выполняется приложение.
-   
-   Приложение получает значение *registrationId* из GCM и регистрируется в концентраторе уведомлений.
+![Портал Azure — тестовая отправка][30]
 
-## <a name="send-notifications-from-your-backend"></a>Отправка уведомлений из серверной части
-Получение уведомлений в приложении можно проверить, отправив уведомления на [классическом портале Azure] на вкладке отладки центра уведомлений, как показано на следующем рисунке.
-
-![][30]
-
-Push-уведомления обычно отправляются в серверной службе, например мобильными службами или ASP.NET, с помощью совместимой библиотеки. Также можно напрямую использовать API REST для отправки уведомлений, если библиотека недоступна для серверной части.
+Push-уведомления обычно отправляются в серверной службе, например в мобильной службе или ASP.NET, с помощью совместимой библиотеки. Если для серверной части библиотека недоступна, для отправки уведомлений можно напрямую использовать REST API.
 
 Ниже приведен список других учебников, касающихся отправки уведомлений.
 
@@ -364,71 +267,7 @@ Push-уведомления обычно отправляются в серве�
 * Пакет SDK для Центров уведомлений Azure для Java: сведения об отправке уведомлений Java см. в статье [Использование концентраторов уведомлений из Java](notification-hubs-java-push-notification-tutorial.md). Было протестировано в Eclipse для разработки для Android.
 * PHP: см. статью [Использование центров уведомлений в PHP](notification-hubs-php-push-notification-tutorial.md).
 
-В следующих подразделах этого учебника вы отправляете уведомления с помощью консольного приложения .NET, а также с помощью мобильных служб с использованием скрипта узла.
-
-#### <a name="optional-send-notifications-by-using-a-net-app"></a>(Необязательно) Отправка уведомлений с помощью приложения .NET
-В этом разделе мы будем отправлять уведомления с помощью консольного приложения .NET.
-
-1. Создайте новое консольное приложение Visual C#.
-   
-      ![][20]
-2. В Visual Studio выберите **Сервис** > **Диспетчер пакетов NuGet** и **Консоль диспетчера пакетов**.
-   
-    В результате в Visual Studio откроется консоль диспетчера пакетов.
-3. В окне консоли диспетчера пакетов задайте свойство **Проект по умолчанию** для нового проекта консольного приложения, а затем в окне консоли выполните следующую команду:
-   
-        Install-Package Microsoft.Azure.NotificationHubs
-   
-    После этого будет добавлена ссылка на пакет SDK для Центров уведомлений Azure с помощью <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">пакета NuGet Microsoft.Azure.Notification Hubs</a>.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-4. Откройте файл Program.cs и добавьте следующий оператор `using` :
-   
-        using Microsoft.Azure.NotificationHubs;
-5. Добавьте в класс `Program` следующий метод: Замените текст заполнителя значением строки подключения *DefaultFullSharedAccessSignature* и именем центра на [классическом портале Azure].
-   
-        private static async void SendNotificationAsync()
-        {
-            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"message\":\"Hello from Azure!\"}}");
-        }
-6. Добавьте в метод **Main** следующие строки:
-   
-         SendNotificationAsync();
-         Console.ReadLine();
-7. Нажмите клавишу F5, чтобы запустить приложение. Вы получите уведомление в приложении.
-   
-      ![][21]
-
-#### <a name="optional-send-notifications-by-using-a-mobile-service"></a>(Необязательно) Отправка уведомлений с помощью мобильной службы
-1. Выполните действия, описанные в статье [Приступая к работе с мобильными службами].
-2. Войдите на [классическом портале Azure]и выберите мобильную службу.
-3. Перейдите на расположенную вверху вкладку **Планировщик** .
-   
-      ![][22]
-4. Создайте новое запланированное задание, вставьте имя и выберите **По запросу**.
-   
-      ![][23]
-5. Создав задание, выберите его имя. Выберите вкладку **Скрипт** в верхней панели.
-6. Вставьте следующий скрипт внутрь функции планировщика. Обязательно замените заполнители именем концентратора уведомлений и строкой подключения для элемента *DefaultFullSharedAccessSignature* , полученными ранее. Нажмите **Сохранить**.
-   
-        var azure = require('azure');
-        var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string>');
-        notificationHubService.gcm.send(null,'{"data":{"message" : "Hello from Mobile Services!"}}',
-          function (error)
-          {
-            if (!error) {
-               console.warn("Notification successful");
-            }
-            else
-            {
-              console.warn("Notification failed" + error);
-            }
-          }
-        );
-7. Нажмите кнопку **Запустить один раз** на нижней панели. Вы получите всплывающее уведомление.
-
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом простом примере осуществляется широковещательная рассылка уведомлений на все устройства Android. Инструкции по их отправке определенным целевым пользователям, см. в руководстве [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]. Если необходимо разделить пользователей по группам интересов, см. раздел [Использование концентраторов уведомлений для передачи экстренных новостей]. Дополнительные сведения об использовании центров уведомлений см. в статьях [Общие сведения о концентраторах уведомлений] и [Руководство по использованию центров уведомлений Azure с приложениями Android].
 
 <!-- Anchors. -->
@@ -451,28 +290,28 @@ Push-уведомления обычно отправляются в серве�
 
 [20]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-console-app.png
 [21]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-android-toast.png
-[22]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler1.png
-[23]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler2.png
+[22]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png
+[23]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png
+[24]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-xamarin-android-app-options.png
+[25]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-google-services-json.png
 
-[30]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png
+[30]: ./media/notification-hubs-android-get-started/notification-hubs-test-send.png
 
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[Visual Studio с Xamarin]: https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio
+[Visual Studio для Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 
-[классическом портале Azure]: https://manage.windowsazure.com/
+[ портале Azure]: https://portal.azure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Руководство по использованию центров уведомлений Azure с приложениями Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Использование концентраторов уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-dotnet
-[GCMClient Component page]: http://components.xamarin.com/view/GCMClient
-[Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
-[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
-[Компонент клиента Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
-[Компонент обмена сообщениями в Azure]: http://components.xamarin.com/view/azure-messaging
+[GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid

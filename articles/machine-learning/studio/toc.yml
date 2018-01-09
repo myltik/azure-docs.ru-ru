@@ -57,7 +57,7 @@
           items:
             - name: Создание
               href: create-workspace.md
-            - name: Управление
+            - name: управление
               href: manage-workspace.md
             - name: Устранение неполадок
               href: troubleshooting-creating-ml-workspace.md
@@ -195,7 +195,7 @@
       href: web-service-error-codes.md
 - name: Сопутствующие материалы
   items:
-    - name: Коллекция Cortana Intelligence
+    - name: Коллекция решений ИИ Azure
       items:
         - name: Обзор
           href: gallery-how-to-use-contribute-publish.md
