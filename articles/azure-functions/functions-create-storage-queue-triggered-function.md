@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3fd5a5b9d2e2eec485fd9ecc5380ad6adb9851d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77c8c8dbe6228d80062f34f4bb7fc93a1871e8c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Создание функции, активируемой хранилищем очередей Azure
 
@@ -52,13 +52,16 @@ ms.lasthandoff: 10/11/2017
 
     ![Страница быстрого начала работы с функциями на портале Azure](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-2. Выберите шаблон **QueueTrigger** для нужного языка и используйте параметры, как указано в таблице.
+2. В поле поиска введите `queue` и выберите нужный язык для шаблона триггера для хранилища очередей.
 
-    ![Создайте функцию, активируемую очередью службы хранилища.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Выбор шаблона триггера для хранилища очередей](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+
+3. Затем используйте настройки, указанные в таблице под изображением.
+    ![Настройка функции, активируемой очередью хранилища](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
     
     | Настройка | Рекомендуемое значение | Описание |
     |---|---|---|
-    | **Имя функции** | Уникальное для вашего приложения-функции | Имя функции, активируемой очередью. |
+    | **Имя** | Уникальное для вашего приложения-функции | Имя функции, активируемой очередью. |
     | **Имя очереди**   | myqueue-items    | Имя очереди для подключения к вашей учетной записи хранения. |
     | **Подключение к учетной записи хранения** | AzureWebJobStorage | Вы можете использовать подключение к учетной записи хранения, которое уже используется вашим приложением-функцией, или создать его.  |    
 

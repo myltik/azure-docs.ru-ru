@@ -1,10 +1,10 @@
 ---
 title: "Доменные службы Azure Active Directory: начало работы | Документы Майкрософт"
-description: "Включение доменных служб Azure Active Directory с помощью портала Azure"
+description: "Включение доменных служб Azure Active Directory с помощью портала Azure."
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory-ds
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: a476e5228fc7fb83c1fe0b7ae0989a7752be09e1
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
-ms.translationtype: HT
+ms.openlocfilehash: 680ffc41ab96d69153ef7039698bf9285ed6ce16
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Включение доменных служб Azure Active Directory с помощью портала Azure
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Включение доменных служб Azure Active Directory с помощью портала Azure.
 
 
 ## <a name="before-you-begin"></a>Перед началом работы

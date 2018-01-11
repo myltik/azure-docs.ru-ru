@@ -1,6 +1,6 @@
 ---
-title: "Создание виртуальной машины SQL Server 2017 на базе Windows в Azure | Документация Майкрософт"
-description: "Это руководство содержит сведения о создании виртуальной машины SQL Server 2017 на базе Windows на портале Azure."
+title: "Настройка виртуальных машин 2017 года Windows SQL Server на портале Azure | Документы Microsoft"
+description: "Это руководство описывает варианты для создания виртуальных машин 2017 г. Windows SQL Server на портале Azure."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -9,39 +9,29 @@ tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: 440c783de73652ad2d312cd92db8635dc65df9ed
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Подготовка виртуальной машины SQL Server на базе Windows на портале Azure
+# <a name="how-to-create-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Создание виртуальной машины Windows SQL Server на портале Azure
 
-> [!div class="op_single_selector"]
-> * [Портал](virtual-machines-windows-portal-sql-server-provision.md)
-> * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+В этом руководстве рассматриваются различные варианты при создании виртуальной машины Windows SQL Server на портале Azure. Можно выполнить действия, чтобы создать собственную виртуальную Машину SQL Server во время обучения, разные доступные варианты. Также можно перейти к конкретному разделу для ссылки на каком именно этапе на портале.
 
-В этом кратком руководстве вы будете использовать портал Azure для создания виртуальной машины Windows с установленным SQL Server.
+> [!TIP]
+> Чтобы быстро приступить к работе с портала значения по умолчанию, в разделе [Azure quickstart - создать виртуальную Машину SQL Server на портале](quickstart-sql-vm-create-portal.md).
 
-Изучив данный учебник, вы научитесь:
-
-* [выбирать образ виртуальной машины из коллекции;](#select)
-* [настраивать и создавать виртуальные машины;](#configure)
-* [открывать виртуальные машины с помощью удаленного рабочего стола;](#remotedesktop)
-* [удаленно подключаться к SQL Server;](#connect)
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 ## <a id="select"></a> Выбор образа виртуальной машины SQL из коллекции
 
 1. Войдите на [портал Azure](https://portal.azure.com) , используя свою учетную запись.
-
-   > [!NOTE]
-   > Если у вас нет учетной записи Azure, используйте [бесплатную пробную версию Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 1. На портале Azure нажмите кнопку **Создать**. На портале откроется окно **Создать** .
 
@@ -71,14 +61,14 @@ ms.lasthandoff: 10/11/2017
 
 1. В разделе **Выбор модели развертывания** выберите **Resource Manager**. Для новых виртуальных машин рекомендуется использовать модель развертывания Resource Manager. 
 
-1. Щелкните **Создать**.
+1. Нажмите кнопку **Создать**.
 
     ![Создание виртуальной машины SQL с помощью Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a id="configure"></a> Настройка виртуальной машины
 Есть пять окон для настройки виртуальной машины SQL Server.
 
-| Шаг | Описание |
+| Шаг | ОПИСАНИЕ |
 | --- | --- |
 | **Основы** |[Настройка основных параметров](#1-configure-basic-settings) |
 | **Размер** |[Выбор размера виртуальной машины](#2-choose-virtual-machine-size) |
@@ -111,7 +101,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Окно "Общие сведения об SQL"](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
-## <a name="2-choose-virtual-machine-size"></a>2) Выбор размера виртуальной машины.
+## <a name="2-choose-virtual-machine-size"></a>2. Выбор размера виртуальной машины.
 
 Чтобы изменить **размер** виртуальной машины, выберите нужное значение в окне **Выбор размера**. В окне изначально отображаются рекомендуемые размеры виртуальных машин в зависимости от выбранного образа.
 
@@ -147,7 +137,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="4-configure-sql-server-settings"></a>4. Настройка параметров SQL Server
 В окне **Настройки SQL Server** укажите нужные параметры и настройте оптимизацию для SQL Server. Для SQL Server можно настроить следующие параметры:
 
-| Настройка |
+| Параметр |
 | --- |
 | [Соединение](#connectivity) |
 | [Аутентификация](#authentication) |
@@ -178,7 +168,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Образ виртуальной машины выпуска SQL Server Express не включает протокол TCP/IP автоматически, даже если выбрано общедоступное и частное подключение. Для выпуска Express необходимо [включить протокол TCP/IP вручную](#configure-sql-server-to-listen-on-the-tcp-protocol) в диспетчере конфигурации SQL Server после создания виртуальной машины.
 
-### <a name="authentication"></a>Аутентификация
+### <a name="authentication"></a>Authentication
 
 Если требуется проверка подлинности SQL Server, выберите для параметра **Включить** under **Включить**.
 
@@ -277,19 +267,11 @@ ms.lasthandoff: 10/11/2017
 
 Выполните следующие действия, чтобы подключиться к виртуальной машине SQL Server через удаленный рабочий стол.
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 После подключения к виртуальной машине SQL Server вы можете запустить SQL Server Management Studio и подключиться с проверкой подлинности Windows, используя свои учетные данные локального администратора. Если включена проверка подлинности SQL Server, можно также подключиться с проверкой подлинности SQL, используя имя пользователя и пароль SQL, настроенные во время подготовки.
 
 Доступ к машине позволяет напрямую изменять настройки компьютера и SQL Server в зависимости от ваших требований. Например, можно настроить параметры брандмауэра или изменить параметры конфигурации SQL Server.
-
-## <a name="enable-tcpip-for-developer-and-express-editions"></a>Включение TCP/IP для выпусков Developer и Express
-
-При подготовке новой виртуальной машины SQL Server Azure не включает автоматически протокол TCP/IP для выпусков SQL Server Developer и Express. В шагах ниже описывается, как вручную включить TCP/IP для удаленного подключения по IP-адресу.
-
-В следующих шагах используется **диспетчер конфигурации SQL Server** для включения протоколов TCP/IP для выпусков SQL Server Developer и Express.
-
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a id="connect"></a> Удаленное подключение к SQL Server
 
@@ -300,8 +282,8 @@ ms.lasthandoff: 10/11/2017
 
 В следующих разделах описано, как подключиться к экземпляру SQL Server на виртуальной машине с другого компьютера через Интернет.
 
-> [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Дополнительные сведения об использовании SQL Server в Azure см. в статье [Приступая к работе с SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md) и [Часто задаваемые вопросы об SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-faq.md).

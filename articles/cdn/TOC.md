@@ -8,7 +8,9 @@
 ## Интеграция
 ### [Веб-приложения](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Облачные службы](cdn-cloud-service-with-cdn.md)
-### [Хранилище](cdn-create-a-storage-account-with-cdn.md)
+### Хранилище
+#### [Интеграция учетной записи хранения](cdn-create-a-storage-account-with-cdn.md)
+#### [Поддержка хранилища SAS](cdn-sas-storage-support.md)
 ### [Общий доступ к ресурсам независимо от источника](cdn-cors.md)
 ### [Добавление личного домена к конечной точке CDN](cdn-map-content-to-custom-domain.md)
 ### [Настройка HTTPS в личном домене](cdn-custom-ssl.md)
@@ -18,7 +20,7 @@
 ####[Оптимизация потоковой передачи мультимедиа](cdn-media-streaming-optimization.md)
 ####[Динамическое ускорение сайтов](cdn-dynamic-site-acceleration.md)
  
-## Управление
+## управление
 ### [Управление с помощью Azure PowerShell](cdn-manage-powershell.md)
 ### [Ограничение доступа в зависимости от страны](cdn-restrict-access-by-country.md)
 ### [Повышение производительности за счет сжатия файлов](cdn-improve-performance.md)

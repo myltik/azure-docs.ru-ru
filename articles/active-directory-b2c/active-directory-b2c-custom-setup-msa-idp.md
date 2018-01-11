@@ -4,7 +4,7 @@ description: "Пример использования Майкрософт в к
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 8c981046ff41d3927ff60d6dc4f40366ae25ba74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cdc77d093358fa15bb1acbc9ba6b1867bae062f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C. Добавление учетной записи Майкрософт (MSA) в качестве поставщика удостоверений с помощью пользовательских политик
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 В этой статье описывается, как включить возможность входа для пользователей из учетной записи Майкрософт (MSA) с помощью [пользовательских политик](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Выполните шаги, описанные в статье [Azure Active Directory B2C. Приступая к работе с настраиваемыми политиками](active-directory-b2c-get-started-custom.md).
 
 А именно:
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Учетная запись Майкрософт, копирование нового пароля](media/active-directory-b2c-custom-setup-ms-account-idp/msa-new-password.png)
 
-9.  Установите флажок **Поддержка Live SDK** в разделе **Дополнительные параметры**. Щелкните **Сохранить**.
+9.  Установите флажок **Поддержка Live SDK** в разделе **Дополнительные параметры**. Выберите команду **Сохранить**.
 
     ![Учетная запись Майкрософт: поддержка Live SDK](media/active-directory-b2c-custom-setup-ms-account-idp/msa-live-sdk-support.png)
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
     Префикс `B2C_1A_` может быть добавлен автоматически.
 6.  В поле **Секрет** введите свой секрет приложения Майкрософт с сайта https://apps.dev.microsoft.com.
 7.  Для параметра **Использование ключа** задайте значение **Подпись**.
-8.  Нажмите кнопку **Создать**
+8.  Нажмите кнопку **Создать**.
 9.  Убедитесь, что вы создали ключ `B2C_1A_MSASecret`.
 
 ## <a name="add-a-claims-provider-in-your-extension-policy"></a>Добавление поставщика утверждений в политику расширения

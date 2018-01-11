@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 32707a8089abef6caebedea168f5891161b1b480
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Поддерживаемые источники данных в инструменте подготовки данных службы "Машинное обучение Azure" 
 В этой статье приведены источники данных, поддерживаемые инструментом подготовки данных службы "Машинное обучение Azure".
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/04/2017
 
 ## <a name="types"></a>Типы 
 
-### <a name="sql-server"></a>SQL Server
+### <a name="sql-server"></a>SQL Server;
 Чтение с локального сервера SQL или из базы данных Azure SQL.
 
 #### <a name="options"></a>Параметры
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/04/2017
 - база данных для подключения;
 - Запросы SQL
 
-#### <a name="notes"></a>Примечания
+#### <a name="notes"></a>Заметки
 - Столбцы sql-variant не поддерживаются.
 - Столбец времени преобразуется в тип datetime. Для этого время из базы данных добавляется к дате 01.01.1970.
 - При выполнении в кластере Spark во всех столбцах, связанных с датами (date, datetime, datetime2, datetimeoffset), будут вычислены неправильные значения для дат до значения 1583.
@@ -108,7 +108,7 @@ ms.lasthandoff: 12/04/2017
 ### <a name="local"></a>Local
 Локальный жесткий диск или сопоставленное сетевое расположение для хранения.
 
-### <a name="sql-server"></a>SQL Server
+### <a name="sql-server"></a>SQL Server;
 Локальный сервер SQL или база данных Azure SQL.
 
 ### <a name="azure-blob-storage"></a>Хранилище больших двоичных объектов Azure

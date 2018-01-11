@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: b5616aa9f8b15ab576d914fbae89a56f64c27f4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4ffced8e11f05d214995f9fc8506dd7c6c7deaa5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Использование стандартной версии кодировщика мультимедиа Azure для автоматического создания схемы скоростей
 
 ## <a name="overview"></a>Обзор
 
-В этом разделе показано, как использовать Media Encoder Standard (MES) для автоматического создания таблицы скоростей и разрешений (пар "скорость-разрешение") на основе разрешения и скорости входных данных. Созданная автоматически предустановка никогда не превышает разрешение и скорость входных данных. Например, если указаны входные данные с разрешением 720p и скоростью 3 Мбит/с, то выходные данные будут иметь разрешение не выше 720p, а их скорости начнутся со значений ниже 3 Мбит/с.
+В этой статье показано, как использовать Media Encoder стандартных (MES) для автоматического создания лестницу скоростью (разрешение bitrate пары), на основе входных разрешение и битрейт. Созданная автоматически предустановка никогда не превышает разрешение и скорость входных данных. Например если входное значение 720p скоростью 3 Мбит/с, выходные данные в лучшем остается 720p и начнется с частотой меньше 3 Мбит/с.
 
 ### <a name="encoding-for-streaming-only"></a>Кодирование только для потоковой передачи
 
-Чтобы применить к источнику видео кодирование только для потоковой передачи, используйте при создании задачи кодирования предустановленный режим "Adaptive Streaming". При использовании предустановки **Adaptive Streaming** кодировщик MES интеллектуально ограничит таблицу скоростей и разрешений. Однако вы не сможете контролировать затраты на кодирование, так как служба определяет, сколько уровней использовать и с каким разрешением. В конце этого раздела вы найдете примеры слоев выходных данных, созданных MES с применением кодирования с предустановленным режимом **Adaptive Streaming**. Выходной ресурс будет содержать MP4-файлы без чередования аудио и видео.
+Если планируется для кодирования источника видео только для потоковой передачи, следует использовать, «адаптивной потоковой передачи» стиль при создании задачи кодирования. При использовании предустановки **Adaptive Streaming** кодировщик MES интеллектуально ограничит таблицу скоростей и разрешений. Однако вы не сможете контролировать затраты на кодирование, так как служба определяет, сколько уровней использовать и с каким разрешением. Можно просмотреть примеры слоев выходные данные, созданные MES в результате кодирования с **адаптивной потоковой передачи** предустановленный набор в конце этой статьи. Выходные данные средства содержит MP4-файлов, тогда аудио и видео не чередуются.
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>Кодирование для потоковой передачи и прогрессивного скачивания
 
-Чтобы кодировать источник видео не только для потоковой передачи, но и для создания MP4-файлов для прогрессивного скачивания, используйте при создании задачи кодирования предустановленный режим "Content Adaptive Multiple Bitrate MP4". При выборе предустановки **Content Adaptive Multiple Bitrate MP4** кодировщик MES применит ту же логику кодирования, которая описана выше, но в исходящий ресурс будут помещены файлы MP4 с чередованием аудио и видео. Такой MP4-файл (например, версию с самым высоким битрейтом) можно использовать для прогрессивного скачивания.
+Если планируется для кодирования источника видео для потоковой передачи а также для создания для прогрессивного скачивания MP4-файлов, следует использовать «содержимого адаптивной несколько Bitrate MP4» стиль при создании задачи кодирования. При использовании **содержимого адаптивной несколько Bitrate MP4** заданы, MES кодировщик применяет ту же логику кодирования, как описано выше, но теперь выходного актива будет содержать MP4-файлов, где аудио и чередуются видео. Такой MP4-файл (например, версию с самым высоким битрейтом) можно использовать для прогрессивного скачивания.
 
 ## <a id="encoding_with_dotnet"></a>Кодирование с помощью пакета SDK служб мультимедиа для .NET
 
@@ -41,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 - Создание задания кодирования.
 - Получение ссылки на стандартный кодировщик мультимедиа.
 - Добавьте задачу кодирования в задание и укажите предустановку **Adaptive Streaming**. 
-- Создание выходного ресурса-контейнера, который будет содержать закодированный ресурс-контейнер.
+- Создание выходного ресурса-контейнера с закодированным ресурсом.
 - Добавление обработчика событий для проверки хода выполнения задания.
 - Отправка задания.
 
@@ -51,28 +50,37 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="example"></a>Пример
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace AdaptiveStreamingMESPresest
+namespace AdaptiveStreamingMESPresest
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -122,26 +130,26 @@ ms.lasthandoff: 10/11/2017
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
         private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -150,12 +158,13 @@ ms.lasthandoff: 10/11/2017
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
-        }
     }
+}
+```
 
 ## <a id="output"></a>Выходные данные
 

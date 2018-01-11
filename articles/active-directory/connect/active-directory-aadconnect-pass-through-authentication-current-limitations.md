@@ -5,20 +5,20 @@ services: active-directory
 keywords: "сквозная проверка подлинности azure ad connect, установка active directory, необходимые компоненты для azure ad, единый вход"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: a7edfd1939ad45dd3309fe5eaee2afa36086e9eb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 02faf589db532222208ca53dd97b8d7a8ed92965
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Текущие ограничения сквозной проверки подлинности Azure Active Directory
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/06/2017
 Следующие сценарии полностью поддерживаются:
 
 - Вход пользователей во все браузерные приложения.
-- Вход пользователей в клиентские приложения Office 365, поддерживающие [современную аутентификацию](https://aka.ms/modernauthga).
-- Office 2016 и Office 2013 _с_ современной аутентификацией.
+- Вход пользователя в приложениях Office, которые поддерживают [современная проверка подлинности](https://aka.ms/modernauthga): Office 2016 и Office 2013 _с_ современная проверка подлинности
+- Входе пользователя в Скайп для бизнеса, поддержка современную проверку подлинности, включая Online и гибридной топологии. Дополнительные сведения о поддерживаемых топологий [здесь](https://technet.microsoft.com/library/mt803262.aspx).
 - Присоединение устройств Windows 10 к доменам Azure AD.
 - Поддержка Exchange ActiveSync.
 
@@ -40,14 +40,15 @@ ms.lasthandoff: 12/06/2017
 Следующие сценарии _не_ поддерживаются:
 
 - Вход пользователей в устаревшие клиентские приложения Office — Office 2010 и Office 2013 _без_ современной аутентификации. Организациям рекомендуется перейти на современные способы аутентификации, если это возможно. Современная аутентификация обеспечивает поддержку сквозной аутентификации. Он также позволяет лучше защитить учетные записи пользователей с помощью функций [условного доступа](../active-directory-conditional-access-azure-portal.md), таких как Многофакторная идентификация Azure.
-- Вход пользователей в клиентские приложения Skype для бизнеса, включая Skype для бизнеса 2016.
+- Входе пользователя в Скайп для клиентских приложений бизнес- _без_ современную проверку подлинности.
 - Вход пользователей в PowerShell версии 1.0. Рекомендуется использовать PowerShell версии 2.0.
-- Доменные службы Azure Active Directory.
 - Добавление паролей для Многофакторной идентификации.
 - Определение пользователей с [утерянными учетными данными](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Доменные службы Azure AD требуется синхронизация хэшей паролей включена на клиенте. Поэтому клиенты, использующие проверку подлинности к серверу _только_ не поддерживаются для сценариев, требующих доменные службы Azure AD.
+- Сквозная проверка подлинности не интегрирована с [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
->_Исключительно_ в качестве временного решения для неподдерживаемых сценариев включите синхронизацию хэшей паролей на странице [Дополнительные возможности](active-directory-aadconnect-get-started-custom.md#optional-features) в мастере Azure AD Connect.
+>_Исключительно_ в качестве временного решения для неподдерживаемых сценариев включите синхронизацию хэша паролей на странице [Дополнительные возможности](active-directory-aadconnect-get-started-custom.md#optional-features) в мастере Azure AD Connect.
 
 >[!NOTE]
 Включение синхронизации хэшей паролей позволяет выполнять отработку отказа для аутентификации при полном сбое локальной инфраструктуры. Отработка отказа сквозной аутентификации с переходом на синхронизацию хэша паролей Active Directory не выполняется автоматически. Необходимо вручную переключить метод входа с помощью Azure AD Connect. Если сервер под управлением Azure AD Connect вышел из строя, потребуется помощь службы поддержки Майкрософт, чтобы отключить сквозную аутентификацию.

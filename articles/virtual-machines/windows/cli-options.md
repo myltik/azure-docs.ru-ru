@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 0ac4aa10db43fb84119ab97cf78b2d5592cfd277
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="using-the-azure-cli-on-windows"></a>Использование Azure CLI в Windows
 
 Интерфейс командной строки Azure (CLI) представляет собой интерфейс командной строки и среду скриптов для создания ресурсов Azure и управления ими. Azure CLI доступен для операционных систем macOS, Linux и Windows. Для этих операционных систем команды CLI идентичны. Однако синтаксис конкретного скрипта операционной системы может отличаться.
 
-В этом документе представлены сведения об установке Azure CLI и его запуске в Windows, а также сведения о синтаксисе для каждого сценария. Подробную документацию по Azure CLI см. [здесь]( https://docs.microsoft.com/en-us/cli/azure/overview).
+В этом документе представлены сведения об установке Azure CLI и его запуске в Windows, а также сведения о синтаксисе для каждого сценария. Подробную документацию по Azure CLI см. [здесь]( https://docs.microsoft.com/cli/azure/overview).
 
 ## <a name="windows-subsystem-for-linux"></a>Подсистема Windows для Linux
 
@@ -36,13 +36,13 @@ ms.lasthandoff: 10/11/2017
 |Задача | Указания |
 |---|---|
 | Включение подсистемы Windows для Linux | [Документация по установке подсистемы Windows для Linux](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
-| Установка Azure CLI |[Install the CLI on WSL/Ubuntu 14.04](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#ubuntu) (Установка интерфейса командной строки в подсистеме Windows для Linux или в Ubuntu 14.04)|
+| Установка Azure CLI |[Install the CLI on WSL/Ubuntu 14.04](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu) (Установка интерфейса командной строки в подсистеме Windows для Linux или в Ubuntu 14.04)|
 
 ## <a name="powershell"></a>PowerShell
 
 Azure CLI можно запускать в собственном коде в Windows. В такой конфигурации пакет Azure CLI устанавливается в операционной системе Windows, а команды можно выполнять из PowerShell. В такой конфигурации команды и скрипты Azure CLI можно выполнять в любой поддерживаемой версии Windows, но для этого потребуется синтаксис скрипта для конкретной платформы. Поэтому сценарии не обязательно совместно использовать в macOS, Linux и Windows, не изменяя их.
 
-[Установите Azure CLI в Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#windows), следуя инструкциям, для использования Azure CLI в Windows.
+[Установите Azure CLI в Windows](https://docs.microsoft.com/cli/azure/install-az-cli2#windows), следуя инструкциям, для использования Azure CLI в Windows.
 
 ## <a name="docker-image"></a>Образ Docker
 
@@ -56,7 +56,7 @@ docker run -it azuresdk/azure-cli-python:latest bash
 
 После завершения начнется сеанс Bash, в котором предварительно скачаны средства Azure CLI.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 [Примеры сценариев интерфейса командной строки для виртуальных машин Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

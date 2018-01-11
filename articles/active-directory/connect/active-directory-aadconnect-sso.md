@@ -5,7 +5,7 @@ services: active-directory
 keywords: "что такое Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: billmath
-ms.openlocfilehash: dd619ddf62b079ecc06bdf3699e3e32c35313284
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f259474e8e3ba8b9a3d9d1ad83c8d848e06cff8c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Простой единый вход Azure Active Directory
 
@@ -57,11 +57,11 @@ ms.lasthandoff: 10/11/2017
 
 | Операционная система и браузер |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Да|Нет|Да|Да\*|Недоступно
-|Windows 8.1|Да|Недоступно|Да|Да\*|Недоступно
-|Windows 8|Да|Недоступно|Да|Да\*|Недоступно
-|Windows 7|Да|Недоступно|Да|Да\*|Недоступно
-|Mac OS X|Недоступно|Недоступно|Да\*|Да\*|Да\*
+|Windows 10|Yes|Нет |Yes|Да\*|Н/Д
+|Windows 8.1|Yes|Н/Д|Yes|Да\*|Н/Д
+|Windows 8|Yes|Н/Д|Yes|Да\*|Н/Д
+|Windows 7|Yes|Н/Д|Yes|Да\*|Н/Д
+|Mac OS X|Н/Д|Н/Д|Да\*|Да\*|Да\*
 
 \*Требуется [дополнительная настройка](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 

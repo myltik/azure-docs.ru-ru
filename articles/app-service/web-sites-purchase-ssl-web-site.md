@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Приобретение и настройка сертификата SSL для службы приложений Azure
 
-Из этого руководства вы узнаете, как можно защитить веб-приложение, приобретя SSL-сертификат для **[службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714)**, безопасно сохранив его в [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) и сопоставив с личным доменом.
+Из этого руководства вы узнаете, как можно защитить веб-приложение, приобретя SSL-сертификат для **[службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714)**, безопасно сохранив его в [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) и сопоставив с личным доменом.
 
 ## <a name="step-1---log-in-to-azure"></a>Шаг 1. Вход в Azure
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/01/2017
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Шаг 3. Сохранение сертификата в Azure Key Vault
 
 > [!NOTE]
-> [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) — это служба Azure, которая помогает защитить криптографические ключи и секреты, используемые облачными приложениями и службами.
+> [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) — это служба Azure, которая помогает защитить криптографические ключи и секреты, используемые облачными приложениями и службами.
 >
 
 Когда приобретение SSL-сертификата завершится, откройте страницу [Сертификаты службы приложений](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders).

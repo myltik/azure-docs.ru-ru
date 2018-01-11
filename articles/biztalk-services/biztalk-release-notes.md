@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Заметки о выпуске служб Azure BizTalk
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Заметки о выпуске служб Microsoft Azure BizTalk содержат известные проблемы в этом выпуске.
 
@@ -34,8 +36,8 @@ ms.lasthandoff: 10/11/2017
 * Поддержка учетных записей организации  
   * **Сценарий**. Вы зарегистрировали развернутую службу BizTalk с помощью учетной записи Майкрософт (например, user@live.com). В этом случае управлять службой BizTalk через портал смогут только пользователи с учетной записью Майкрософт. Учетную запись организации для этого использовать нельзя.  
   * **Сценарий**. Вы зарегистрировали развернутую службу BizTalk с помощью учетной записи организации в Azure Active Directory (например, user@fabrikam.com или user@contoso.com). В этом случае управлять службой BizTalk через портал смогут только пользователи Azure Active Directory в пределах одной организации. Учетную запись Майкрософт для этого использовать нельзя.  
-* При создании службы BizTalk через классический портал Azure вы автоматически регистрируетесь на портале служб BizTalk.
-  * **Сценарий**. Вы выполняете вход на классический портал Azure, создаете службу BizTalk и выбираете в первый раз **Управление**. Когда открывается портал служб BizTalk, служба BizTalk автоматически регистрируется и становится доступной для развертывания.  
+* При создании службы BizTalk выполняется автоматическая регистрация на портале служб BizTalk.
+  * **Сценарий**: вход в Azure, создайте службу BizTalk, а затем выберите **управление** в первый раз. Когда открывается портал служб BizTalk, служба BizTalk автоматически регистрируется и становится доступной для развертывания.  
     Ознакомьтесь со статьей [Регистрация и обновление развертывания службы BizTalk на портале служб BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>Обновление от 14 августа

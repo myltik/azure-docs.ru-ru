@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ed2a17fd735c1b0e67cbf5d08450d36620d4c857
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Техническое руководство по шаблону решения Cortana Intelligence для прогнозирования спроса на энергию
 ## <a name="overview"></a>**Обзор**
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы найти запрос [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) , необходимо выполнить следующее:
 
-* Войти на [портал Azure](https://manage.windowsazure.com/).
+* Войти на [портал Azure](https://portal.azure.com/).
 * Найти задания Stream Analytics ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png), созданные при развертывании решения. Одно предназначено для передачи данных в хранилище BLOB-объектов (например, mytest1streaming432822asablob), а другое — для передачи данных в Power BI (например, mytest1streaming432822asapbi).
 * Выбрать
 
@@ -150,7 +150,7 @@ ms.lasthandoff: 10/11/2017
     Одно из заданий Stream Analytics записывает необработанные входные данные в хранилище BLOB-объектов. Если щелкнуть компонент **Хранилище BLOB-объектов Azure** решения на экране, где успешно развернуто решение, и нажать кнопку **Открыть** на правой панели, откроется [портал Azure](https://portal.azure.com). На портале щелкните **BLOB-объекты**. На следующей панели появится список контейнеров. Щелкните **energysadata**. На следующей панели появится папка **demandongoing**. В папке rawdata находятся папки с именами, например date=28-01-2016 и т. д. Если вы видите эти папки, это значит, что на вашем компьютере успешно формируются необработанные данные, которые затем сохраняются в хранилище BLOB-объектов. Вы увидите файлы, которые должны иметь в этих папках ограничение по размерам (в МБ).
 2. Проверка данных из базы данных SQL Azure.
 
-    На последнем шаге конвейера выполняется запись данных (например, прогнозов из системы машинного обучения) в базу данных SQL. Появление данных в базе данных SQL может занять не более 2 часов. Одним из способов мониторинга объема данных, доступных в базе данных SQL, является использование [портала Azure](https://manage.windowsazure.com/). На левой панели найдите компонент "Базы данных SQL"![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) и щелкните его. Затем найдите свою базу данных (например demo123456db) и щелкните ее. На следующей странице в разделе **Соединение с базой данных** щелкните **Выполнение запросов Transact-SQL к базе данных SQL**.
+    На последнем шаге конвейера выполняется запись данных (например, прогнозов из системы машинного обучения) в базу данных SQL. Может потребоваться подождать до двух часов для отображения данных в базе данных SQL. Одним из способов мониторинга объема данных, доступных в базе данных SQL, является использование [портала Azure](https://portal.azure.com/). На левой панели найдите баз данных SQL![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) и щелкните его. Затем найдите свою базу данных (например demo123456db) и щелкните ее. На следующей странице в разделе **Соединение с базой данных** щелкните **Выполнение запросов Transact-SQL к базе данных SQL**.
 
     Здесь можно щелкнуть "Создать запрос" и запросить количество строк (например, "select count(*) from DemandRealHourly"). По мере увеличения размера базы данных количество строк в таблице должно увеличиваться.
 3. Проверка данных на панели мониторинга Power BI.
@@ -167,7 +167,7 @@ ms.lasthandoff: 10/11/2017
 1. Добавьте выходные данные Power BI в Azure Stream Analytics (ASA).
 
    * Чтобы настроить выходные данные задания Azure Stream Analytics в качестве панели мониторинга Power BI, следуйте инструкциям, приведенным в статье [Stream Analytics и Power BI. Панель мониторинга для анализа потоковой передачи данных](stream-analytics/stream-analytics-power-bi-dashboard.md).
-   * Найдите задание Stream Analytics на [портале Azure](https://manage.windowsazure.com). Задание должно иметь имя в следующем формате: "имя_решения + streamingjob + случайное число + asapbi" (например, demostreamingjob123456asapbi).
+   * Найдите задание Stream Analytics на [портале Azure](https://portal.azure.com). Задание должно иметь имя в следующем формате: "имя_решения + streamingjob + случайное число + asapbi" (например, demostreamingjob123456asapbi).
    * Добавьте выходные данные PowerBI для задания ASA. Задайте для параметра **Выходной псевдоним** значение **PBIoutput**. Для параметров **Имя набора данных** и **Имя таблицы** укажите **EnergyStreamData**. После добавления выходных данных щелкните **Запуск** в нижней части страницы, чтобы запустить задание Stream Analytics. Должно появиться сообщение с подтверждением (например, "Запуск задания Stream Analytics myteststreamingjob12345asablob выполнен успешно").
 2. Войдите в [Power BI Online](http://www.powerbi.com)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: anoopkv
-ms.openlocfilehash: cfcc20b55b9e9b662ea8eec0802727b9a5a0ebf0
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.openlocfilehash: b99f0a2ff2521438bf543b010f688b13ad19f94c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="automate-mobility-service-installation-by-using-software-deployment-tools"></a>Автоматизация установки Mobility Service с использованием средств развертывания программного обеспечения
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/27/2017
 > [!NOTE]
 > В этой статье демонстрируется развертывание на примере System Center Configuration Manager 2012 R2. Автоматизировать установку Mobility Service можно также с помощью [службы автоматизации Azure и настройки требуемого состояния](site-recovery-automate-mobility-service-install.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 1. Установленное в вашей среде средство развертывания программного обеспечения, например Configuration Manager.
   Создайте две [коллекции устройств](https://technet.microsoft.com/library/gg682169.aspx) — одну для всех **серверов Windows** и другую для всех **серверов Linux**, для защиты которых вы будете применять Site Recovery.
 3. Сервер конфигурации, зарегистрированный в Site Recovery.
@@ -178,7 +178,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
   | **Имя параметра** | **Значение** |
   |--|--|
-  | Имя | Установка Microsoft Azure Mobility Service (Windows) |
+  | ИМЯ | Установка Microsoft Azure Mobility Service (Windows) |
   | Команда | install.bat |
   | Программа может запускаться | Независимо от входа пользователя в систему |
 
@@ -403,7 +403,7 @@ cd /tmp
 
     | **Имя параметра** | **Значение** |
   |--|--|
-  | Имя | Установка Microsoft Azure Mobility Service (Linux) |
+  | ИМЯ | Установка Microsoft Azure Mobility Service (Linux) |
   | Команда | ./install_linux.sh |
   | Программа может запускаться | Независимо от входа пользователя в систему |
 
@@ -470,4 +470,4 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь вы можете [включить защиту](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) для виртуальных машин.
+Теперь вы можете [включить защиту](https://docs.microsoft.com/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) для виртуальных машин.

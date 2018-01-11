@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 4fe78050-cb6d-4db9-96ec-58cc0779167f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: d49349c5ae08e67d91e30967f3644623211823ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 270b373943ea72f1ddbee4f9c6fa4967ff85b861
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Руководство. Интеграция Azure Active Directory с Veracode
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с приложением Veracode, вам потребуется:
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Veracode из коллекции
 2. Настройка и проверка единого входа в Azure AD
@@ -126,13 +126,13 @@ ms.lasthandoff: 10/11/2017
     | lastname |User.surname |
     | email |User.mail |
     
-    а. Для каждой строки данных в приведенной выше таблице нажмите кнопку **добавить атрибут пользователя**.
+    a. Для каждой строки данных в приведенной выше таблице нажмите кнопку **добавить атрибут пользователя**.
     
     ![Атрибуты](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_addattr.png "Атрибуты")
     
     ![Атрибуты](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_addattr1.png "Атрибуты")
     
-    b. В текстовом поле **Имя атрибута** введите имя атрибута, отображаемое для этой строки.
+    Б. В текстовом поле **Имя атрибута** введите имя атрибута, отображаемое для этой строки.
     
     c. В текстовом поле **Значение атрибута** выберите значение атрибута, отображаемое для этой строки.
     
@@ -158,9 +158,9 @@ ms.lasthandoff: 10/11/2017
    
     ![Администрирование](./media/active-directory-saas-veracode-tutorial/ic802912.png "Администрирование")
    
-    а.  В текстовое поле **Issuer** (Издатель) вставьте **идентификатор сущности SAML**, скопированный на портале Azure.
+    a.  В текстовое поле **Issuer** (Издатель) вставьте **идентификатор сущности SAML**, скопированный на портале Azure.
     
-    b. Чтобы загрузить сертификат, скачанный на портале Azure, нажмите кнопку **Choose File** (Выбрать файл).
+    Б. Чтобы загрузить сертификат, скачанный на портале Azure, нажмите кнопку **Choose File** (Выбрать файл).
    
     c. Выберите параметр **Включить саморегистрацию**.
 
@@ -168,9 +168,9 @@ ms.lasthandoff: 10/11/2017
    
     ![Администрирование](./media/active-directory-saas-veracode-tutorial/ic802913.png "Администрирование")
    
-    а. Для параметра **New User Activation** (Активация нового пользователя) выберите значение **No Activation Required** (Активация не требуется).
+    a. Для параметра **New User Activation** (Активация нового пользователя) выберите значение **No Activation Required** (Активация не требуется).
    
-    b. Для параметра **User Data Updates** (Обновления пользовательских данных) выберите значение **Preference Veracode User Data** (Предпочтение пользовательских данных Veracode).
+    Б. Для параметра **User Data Updates** (Обновления пользовательских данных) выберите значение **Preference Veracode User Data** (Предпочтение пользовательских данных Veracode).
    
     c. Для параметра **Сведения об атрибутах SAML**выберите следующие значения:
       * **роли пользователей;**
@@ -212,13 +212,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-veracode-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-veracode-test-user"></a>Создание тестового пользователя Veracode
 Чтобы пользователи Azure AD могли выполнять вход в Veracode, они должны быть подготовлены для Veracode. В случае Veracode подготовка выполняется автоматически. С вашей стороны никакие действия не требуются. В случае необходимости пользователи создаются автоматически при первой попытке входа в систему.

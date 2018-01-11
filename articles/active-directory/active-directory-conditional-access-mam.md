@@ -5,7 +5,7 @@ services: active-directory
 keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 57f5c5ce5dcc88b273385f50b3f9ef69f1ffd157
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: aaf2da57d8653371ab0b46e47474442aa4be1d65
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Условный доступ на основе приложений Azure Active Directory  
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/06/2017
 - [Перенос политик условного доступа](active-directory-conditional-access-best-practices.md#policy-migration).
  
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для создания политики условного доступа на основе приложений у вас должна быть подписка Enterprise Mobility + Security или Azure Active Directory Premium, а у пользователей — лицензия на EMS или Azure AD. 
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 12/06/2017
 
 Любые политики защиты приложений Intune активируются во время получения доступа к корпоративным данным. Пользователю может быть предложено перезапустить приложение, использовать дополнительный PIN-код и т. д. (если он настроен для приложения и платформы).
 
-### <a name="configuration"></a>Конфигурация 
+### <a name="configuration"></a>Параметр Configuration 
 
 **Шаг 1. Настройка политики условного доступа Azure AD для Exchange Online**
 
@@ -114,11 +114,11 @@ ms.lasthandoff: 12/06/2017
 
 4. **Условия.** В качестве **условий** необходимо настроить **платформы устройств** и **клиентские приложения**.
 
-    а. В разделе **Платформы устройств** выберите **Android** и **iOS**.
+    a. В разделе **Платформы устройств** выберите **Android** и **iOS**.
 
     ![Условный доступ](./media/active-directory-conditional-access-mam/03.png)
 
-    b. В разделе **Клиентские приложения** выберите **Mobile apps and desktop apps** (Мобильные и классические приложения).
+    Б. В разделе **Клиентские приложения** выберите **Mobile apps and desktop apps** (Мобильные и классические приложения).
 
     ![Условный доступ](./media/active-directory-conditional-access-mam/04.png)
 
@@ -144,11 +144,11 @@ ms.lasthandoff: 12/06/2017
 
 4. **Условия.** В качестве **условий** необходимо настроить **клиентские приложения**. 
 
-    а. В разделе **Клиентские приложения** выберите **Exchange Active Sync**.
+    a. В разделе **Клиентские приложения** выберите **Exchange Active Sync**.
 
     ![Условный доступ](./media/active-directory-conditional-access-mam/08.png)
 
-    b. В разделе **Элементы управления доступом** необходимо установить флажок **Требовать утвержденное клиентское приложение (предварительная версия)**.
+    Б. В разделе **Элементы управления доступом** необходимо установить флажок **Требовать утвержденное клиентское приложение (предварительная версия)**.
 
     ![Условный доступ](./media/active-directory-conditional-access-mam/05.png)
 
@@ -176,7 +176,7 @@ ms.lasthandoff: 12/06/2017
 - не должен выполнять повторную регистрацию и может получить доступ к ресурсам.
 
 
-### <a name="configuration"></a>Конфигурация
+### <a name="configuration"></a>Параметр Configuration
 
 **Шаг 1. Настройка политики условного доступа Azure AD для Exchange Online и SharePoint Online**
 
@@ -195,11 +195,11 @@ ms.lasthandoff: 12/06/2017
 
 4. **Условия.** В качестве **условий** необходимо настроить **платформы устройств** и **клиентские приложения**.
 
-    а. В разделе **Платформы устройств** выберите **Android** и **iOS**.
+    a. В разделе **Платформы устройств** выберите **Android** и **iOS**.
 
     ![Условный доступ](./media/active-directory-conditional-access-mam/03.png)
 
-    b. В разделе **Клиентские приложения** выберите **Mobile apps and desktop apps** (Мобильные и классические приложения).
+    Б. В разделе **Клиентские приложения** выберите **Mobile apps and desktop apps** (Мобильные и классические приложения).
 
     ![Условный доступ](./media/active-directory-conditional-access-mam/04.png)
 
@@ -226,11 +226,11 @@ ms.lasthandoff: 12/06/2017
 
 4. **Условия.** В качестве **условий** необходимо настроить **клиентские приложения**.
 
-    а. В разделе **Клиентские приложения** выберите **Exchange Active Sync**.
+    a. В разделе **Клиентские приложения** выберите **Exchange Active Sync**.
 
     ![Условный доступ](./media/active-directory-conditional-access-mam/08.png)
 
-    b. В разделе **Элементы управления доступом** необходимо установить флажок **Требовать утвержденное клиентское приложение (предварительная версия)**.
+    Б. В разделе **Элементы управления доступом** необходимо установить флажок **Требовать утвержденное клиентское приложение (предварительная версия)**.
 
     ![Условный доступ](./media/active-directory-conditional-access-mam/05.png)
 
@@ -261,7 +261,7 @@ ms.lasthandoff: 12/06/2017
 - зарегистрированным пользователям, использующим защищенное приложение, не нужно повторно регистрировать устройство.
 
 
-### <a name="configuration"></a>Конфигурация
+### <a name="configuration"></a>Параметр Configuration
 
 **Шаг 1. Настройка политики условного доступа Azure AD для Exchange Online и SharePoint Online**
 
@@ -279,11 +279,11 @@ ms.lasthandoff: 12/06/2017
 
 4. **Условия.** В качестве **условий** необходимо настроить **платформы устройств** и **клиентские приложения**. 
  
-    а. В разделе **Платформы устройств** выберите **Android** и **iOS**.
+    a. В разделе **Платформы устройств** выберите **Android** и **iOS**.
 
     ![Условный доступ](./media/active-directory-conditional-access-mam/03.png)
 
-    b. В разделе **Клиентские приложения** выберите **Mobile apps and desktop apps** (Мобильные и классические приложения).
+    Б. В разделе **Клиентские приложения** выберите **Mobile apps and desktop apps** (Мобильные и классические приложения).
 
     ![Условный доступ](./media/active-directory-conditional-access-mam/04.png)
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 12/06/2017
 Любые политики защиты приложений Intune активируются во время получения доступа к корпоративным данным. Пользователю может быть предложено перезапустить приложение, использовать дополнительный PIN-код и т. д. (если он настроен для приложения и платформы).
 
 
-### <a name="configuration"></a>Конфигурация
+### <a name="configuration"></a>Параметр Configuration
 
 **Шаг 1. Настройка политики условного доступа Azure AD для Exchange Online и SharePoint Online**
 
@@ -375,11 +375,11 @@ ms.lasthandoff: 12/06/2017
 
 4. **Условия.** В качестве **условий** необходимо настроить **платформы устройств** и **клиентские приложения**. 
  
-    а. В разделе **Платформы устройств** выберите **Android** и **iOS**.
+    a. В разделе **Платформы устройств** выберите **Android** и **iOS**.
 
     ![Условный доступ](./media/active-directory-conditional-access-mam/03.png)
 
-    b. В разделе **Клиентские приложения** выберите **Mobile apps and desktop apps** (Мобильные и классические приложения).
+    Б. В разделе **Клиентские приложения** выберите **Mobile apps and desktop apps** (Мобильные и классические приложения).
 
     ![Условный доступ](./media/active-directory-conditional-access-mam/04.png)
 

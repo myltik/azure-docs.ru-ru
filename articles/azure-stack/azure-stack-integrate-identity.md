@@ -2,26 +2,25 @@
 title: "Интеграция центра обработки данных Azure Stack: идентификация"
 description: "Узнайте, как интегрировать AD FS Azure Stack с AD FS центра обработки данных."
 services: azure-stack
-author: troettinger
+author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/20/2017
-ms.author: victorh
+ms.date: 12/12/2017
+ms.author: mabrigg
 keywords: 
-ms.openlocfilehash: e43b9c7a854bc7150247a2b92d2d37ad6d74c705
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Интеграция центра обработки данных Azure Stack: идентификация
 
 *Область применения: интегрированные системы Azure Stack*
 
-Azure Stack можно развернуть с помощью Azure Active Directory (Azure AD) или служб федерации Active Directory (AD FS) в качестве поставщика удостоверений. Выбор поставщика удостоверений нужно сделать до развертывания. Развертывание с помощью AD FS также называется развертыванием Azure Stack в отключенном режиме.
+Azure Stack можно развернуть с помощью Azure Active Directory (Azure AD) или служб федерации Active Directory (AD FS) в качестве поставщика удостоверений. Сделать выбор следует перед развертыванием Azure Stack. Развертывание с помощью AD FS также называется развертыванием Azure Stack в отключенном режиме.
 
 В следующей таблице показаны различия между двумя вариантами идентификации.
-
 
 ||Физическое отключение|Физическое подключение|
 |---------|---------|---------|
@@ -75,33 +74,36 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 При необходимости можно создать учетную запись для службы Graph в существующей службе Active Directory. Выполните этот шаг, если у вас еще нет учетной записи, которую требуется использовать.
 
 1. В существующей службе Active Directory создайте следующую учетную запись пользователя (рекомендация).
-   - Имя пользователя: graphservice.
-   - Пароль: используйте надежный пароль.<br>Настройте бессрочный пароль.
+   - **Имя пользователя**: graphservice.
+   - **Пароль**: используйте надежный пароль.<br>Настройте бессрочный пароль.
 
    Особые разрешения или членство не требуются.
 
-**Активация службы автоматизации для настройки Graph**
+#### <a name="trigger-automation-to-configure-graph"></a>Активация службы автоматизации для настройки Graph
 
 Для выполнения этой процедуры используйте компьютер в сети центра обработки данных, который может взаимодействовать с привилегированной конечной точкой в Azure Stack.
 
-2. Откройте сеанс Windows PowerShell с повышенными правами (запуск от имени администратора) и подключитесь к IP-адресу привилегированной конечной точки. Используйте учетные данные CloudAdmin для аутентификации.
+2. Откройте сеанс Windows PowerShell с повышенными правами (запуск от имени администратора) и подключитесь к IP-адресу привилегированной конечной точки. Используйте учетные данные **CloudAdmin** для аутентификации.
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. После подключения к привилегированной конечной точке выполните следующие команды. При появлении запроса укажите данные учетной записи пользователя, которую требуется использовать для службы Graph (например, graphservice).
+3. После подключения к привилегированной конечной точке выполните следующие команды. 
 
-   `Register-DirectoryService -CustomADGlobalCatalog contoso.com`
+   ```powershell
+   Register-DirectoryService -CustomADGlobalCatalog contoso.com
+   ```
+
+   При появлении запроса укажите данные учетной записи пользователя, которую требуется использовать для службы Graph (например, graphservice).
 
    > [!IMPORTANT]
    > Дождитесь появления всплывающего элемента для ввода учетных данных (Get-Credential не поддерживается на привилегированной конечной точке) и укажите данные учетной записи службы Graph.
 
-**Протоколы и порты Graph**
+#### <a name="graph-protocols-and-ports"></a>Протоколы и порты Graph
 
 Служба Graph в Azure Stack использует приведенные ниже протоколы и порты для связи с целевой службой Active Directory.
-
 
 |Тип|Порт|Протокол|
 |---------|---------|---------|
@@ -114,7 +116,6 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 
 Необходимо указать следующие сведения в качестве входных для параметров службы автоматизации:
 
-
 |Параметр|Описание|Пример|
 |---------|---------|---------|
 |CustomAdfsName|Имя поставщика утверждений. <cr>Так оно отображается на целевой странице AD FS.|Contoso|
@@ -123,22 +124,26 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Активация службы автоматизации для настройки отношений доверия с поставщиком утверждений в Azure Stack
 
-Для выполнения этой процедуры используйте компьютер, который может взаимодействовать с привилегированной конечной точкой в Azure Stack. Ожидается, что сертификат, используемый AD FS службы токенов безопасности учетной записи, является доверенным для Azure Stack.
+Для выполнения этой процедуры используйте компьютер, который может взаимодействовать с привилегированной конечной точкой в Azure Stack. Ожидается, что сертификат, используемый **AD FS службы токенов безопасности** учетной записи, является доверенным для Azure Stack.
 
 1. Откройте сеанс Windows PowerShell с повышенными правами и подключитесь к привилегированной конечной точке.
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Подключившись к привилегированной конечной точке, выполните следующую команду, указав параметры, подходящие для используемой среды.
 
-   `Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
+   ```powershell
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+   ```
 
 3. Выполните следующую команду, чтобы обновить владельца подписки поставщика по умолчанию, указав параметры, подходящие для используемой среды.
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
+   ```
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Настройка интеграции AD FS путем предоставления файла метаданных федерации
 
@@ -161,7 +166,7 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 
 1. Откройте сеанс Windows PowerShell с повышенными правами и выполните следующую команду, указав параметры, подходящие для используемой среды.
 
-   ```
+   ```powershell
    [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
 
    $Metadata.outerxml|out-file c:\metadata.xml
@@ -176,18 +181,22 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 
 1. Откройте сеанс Windows PowerShell с повышенными правами и подключитесь к привилегированной конечной точке.
 
-   ```
+   ```powershell
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Подключившись к привилегированной конечной точке, выполните следующую команду, указав параметры, подходящие для используемой среды.
 
-   `Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml`
+   ```powershell
+   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
+   ```
 
 3. Выполните следующую команду, чтобы обновить владельца подписки поставщика по умолчанию, указав параметры, подходящие для используемой среды.
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
+   ```
 
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Настройка проверяющей стороны в существующем развертывании AD FS (службе токенов безопасности для учетной записи)
 
@@ -199,7 +208,7 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 
 1. Скопируйте приведенное ниже содержимое в TXT-файл (например, сохраните этот файл как c:\ClaimRules.txt) на экземпляре AD FS или элементе фермы своего центра обработки данных.
 
-   ```
+   ```text
    @RuleTemplate = "LdapClaims"
    @RuleName = "Name claim"
    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
@@ -232,35 +241,50 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 
 2. Чтобы включить аутентификацию на основе Windows Forms, откройте сеанс Windows PowerShell от имени привилегированного пользователя и выполните следующую команду.
 
-   `Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")`
+   ```powershell
+   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   ```
 
 3. Чтобы добавить отношения доверия с проверяющей стороной, выполните следующую команду Windows PowerShell на экземпляре AD FS или элементе фермы. Обязательно обновите конечную точку AD FS и укажите файл, созданный на шаге 1.
 
    **Для AD FS 2016**
 
-   `Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"`
+   ```powershell
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   ```
 
    **Для AD FS 2012 и AD FS 2012 R2**
 
-   `Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true`
+   ```powershell
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   ```
 
    > [!IMPORTANT]
    > Чтобы настроить правила авторизации выдачи при использовании AD FS на основе Windows Server 2012 или Windows Server 2012 R2, необходимо использовать оснастку MMC AD FS.
 
 4. При использовании браузера Internet Explorer или Edge для доступа к Azure Stack необходимо игнорировать привязки токенов. В противном случае попытка входа завершится сбоем. На экземпляре AD FS или элементе фермы выполните следующую команду.
 
-   `Set-AdfsProperties -IgnoreTokenBinding $true`
+   ```powershell
+   Set-AdfsProperties -IgnoreTokenBinding $true
+   ```
+
+5. Чтобы использовать маркеры обновления, откройте сеанс Windows PowerShell с повышенными правами и выполните следующие команды.
+
+   ```powershell
+   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
+   ```
 
 ## <a name="spn-creation"></a>Создание имени субъекта-службы
 
 Существует множество сценариев, в которых требуется использовать имя субъекта-службы для проверки аутентификации. Ниже приводятся некоторые примеры:
+
 - использование интерфейса командной строки с развертыванием AD FS в Azure Stack;
 - использование пакета управления System Center для Azure Stack при развертывании с AD FS;
 - использование поставщиков ресурсов Azure Stack при развертывании с AD FS;
 - различные приложения;
 - необходимость в неинтерактивном входе.
 
-Дополнительные сведения о создании имени субъекта-службы см. в разделе [Создание субъекта-службы для AD FS](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
+Дополнительные сведения о создании имени субъекта-службы см. в разделе [Создание субъекта-службы для AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
 
 ## <a name="troubleshooting"></a>Устранение неполадок
@@ -271,21 +295,25 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 
 1. Откройте сеанс Windows PowerShell с повышенными правами и выполните следующие команды.
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Затем выполните следующий командлет.
 
-   `Reset-DatacenterIntegationConfiguration`
+   ```powershell
+   Reset-DatacenterIntegationConfiguration
+   ```
 
-   После выполнения отката откатываются все изменения конфигурации. Возможна будет только аутентификация с использованием встроенного пользователя CloudAdmin.
+   После выполнения отката откатываются все изменения конфигурации. Возможна будет только аутентификация с использованием встроенного пользователя **CloudAdmin**.
 
    > [!IMPORTANT]
    > Необходимо настроить первоначального владельца подписки поставщика по умолчанию.
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
+   ```
 
 ### <a name="collecting-additional-logs"></a>Сбор дополнительных журналов
 
@@ -293,14 +321,16 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 
 1. Откройте сеанс Windows PowerShell с повышенными правами и выполните следующие команды.
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Затем выполните следующий командлет.
 
-   `Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE`
+   ```powershell
+   Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
+   ```
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

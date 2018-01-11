@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>Управление каталогом Azure AD
 
@@ -80,7 +80,6 @@ Azure AD предоставляет основные возможности уп
 * настраивать локальную интеграцию со службами идентификации и проверки подлинности Azure AD.
 
 Центр администрирования Azure AD, Центр администрирования Office 365, портал учетных записей Microsoft Intune и командлеты Azure AD считывают и записывают данные в одном общем экземпляре Azure AD, связанном с каталогом вашей организации. Каждый из этих инструментов представляет собой внешний интерфейс, который запрашивает или изменяет данные каталога.
-
 Если вы измените данные организации с помощью любого портала или командлета после выполнения входа в одну из этих служб, изменения также отобразятся при следующем входе на другие порталы. Эти данные совместно используются в облачных службах Майкрософт, на которые вы подписаны.
 
 Например, если вы заблокировали вход пользователя с помощью Центра администрирования Office 365, вход в любую другую службу, на которую подписана ваша организация, также будет заблокирован для этого пользователя. Если вы просмотрите учетную запись этого пользователя на портале учетных записей Microsoft Intune, вы также увидите, что она заблокирована.
@@ -116,9 +115,9 @@ Azure AD предоставляет основные возможности уп
 * С каталогом не должны быть связаны подписки на любые службы Microsoft Online Services, такие как Microsoft Azure, Office 365 или Azure AD Premium. Например, если каталог по умолчанию создан в Azure, его невозможно удалить, если ваша подписка Azure по-прежнему использует его для проверки подлинности. Точно так же нельзя удалить каталог, если у другого пользователя есть связанная с ним подписка. 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
-* [Форум Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Форум Многофакторной идентификации Azure](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Вопросы об Azure на форуме Stack Overflow](http://stackoverflow.com/questions/tagged/azure)
+## <a name="next-steps"></a>Дополнительная информация
+* [Форум Azure AD](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Форум Многофакторной идентификации Azure](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [Вопросы об Azure на сайте StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [PowerShell для Azure Active Directory](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Назначение ролей администратора в Azure AD](active-directory-assign-admin-roles-azure-portal.md)

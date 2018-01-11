@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: 250fb1dfed5cdab5308c2d91744e0cf051c32ccc
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: a0a63c414bc68f5125b65e288d78fb546c376c04
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Использование Apache Sqoop для импорта и экспорта между Hadoop в HDInsight и базой данных SQL
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/03/2017
 >
 > * [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)
 > * [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)
-> * служебная программа [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility).
+> * [Sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) программы
 
 ## <a name="create-the-table-in-sql-database"></a>Создание таблицы в базе данных SQL
 
@@ -95,7 +95,7 @@ GO
 
     ```sql
     SET ROWCOUNT 50;
-    SELECT * FROM mobiledata;"
+    SELECT * FROM mobiledata;
     ```
 
     Эта команда выводит 50 строк, импортированных в таблицу.
@@ -105,7 +105,7 @@ GO
 1. Для импорта данных из таблицы **mobiledata** базы данных SQL в каталог **wasb:///tutorials/usesqoop/importeddata** в HDInsight используйте следующую команду:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
     Поля в данных разделены знаками табуляции, а строки завершаются символом новой строки.
@@ -121,7 +121,7 @@ GO
 
 ## <a name="using-sql-server"></a>Использование SQL Server
 
-Sqoop можно также использовать для импорта и экспорта данных в SQL Server. Ниже приведены различия между использованием базы данных SQL и SQL Server.
+Sqoop можно также использовать для импорта и экспорта данных в SQL Server. Ниже приведены различия между использованием базы данных SQL и SQL Server:
 
 * HDInsight и SQL Server должны находиться в одной виртуальной сети Azure.
 
@@ -150,10 +150,10 @@ Sqoop можно также использовать для импорта и э
     [sessionpagevieworder] [bigint])
     ```
 
-* При подключении к SQL Server из HDInsight может потребоваться использовать IP-адрес SQL Server. Например:
+* При подключении к SQL Server из HDInsight может потребоваться использовать IP-адрес SQL Server. Например: 
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P <adminPassword> -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
 ## <a name="limitations"></a>Ограничения

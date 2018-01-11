@@ -1,6 +1,6 @@
 ---
-title: "Создание учетной записи, базы данных и коллекции API DocumentDB для Azure Cosmos DB с помощью сценария Azure CLI | Документация Майкрософт"
-description: "Пример сценария Azure CLI для создания учетной записи, базы данных и коллекции API DocumentDB в Azure Cosmos DB."
+title: "Azure CLI-Создание скрипта базы данных SQL Azure Cosmos API учетную запись базы данных и коллекции | Документы Microsoft"
+description: "Сценарий Azure CLI пример — создание базы данных SQL Azure Cosmos API учетной записи, базы данных и коллекции"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/06/2017
 ms.author: mimig
-ms.openlocfilehash: 28f99d56404e47adcd375d9f3106cc234469cbfd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f8225b074420983096ee89d5816b0bfe9bc138fe
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-create-an-documentdb-api-account-using-cli"></a>Azure Cosmos DB: создание учетной записи API DocumentDB с помощью интерфейса командной строки
+# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB: Создайте учетную запись SQL API с использованием интерфейса CLI
 
-Этот пример сценария интерфейса командной строки (CLI) создает учетную запись, базу данных и коллекцию API DocumentDB в Azure Cosmos DB.  
+Этот пример скрипта CLI создает учетную запись базы данных SQL Azure Cosmos API, базы данных и коллекции.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="sample-script"></a>Пример скрипта
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB DocumentDB API account, database, and collection")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB SQL API account, database, and collection")]
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
 
@@ -46,7 +46,7 @@ az group delete --name myResourceGroup
 
 Этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
 | [az group create](/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
 | [az cosmosdb create](/cli/azure/cosmosdb#create) | Создает учетную запись Azure Cosmos DB. |

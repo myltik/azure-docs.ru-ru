@@ -9,17 +9,17 @@ editor:
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.custom: oms-security
-ms.topic: get-started-article
+ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: eb5283c8f32fddaa8a20a565e4b877821de979a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9772e4c1022cf8609e52ccfe16376959b67e92eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Приступая к работе с решением "Безопасность и аудит" Operations Management Suite
 В этой статье приводится описание всех возможностей, которые помогут вам быстро приступить к работе с функциями решения "Безопасность и аудит" Operations Management Suite (OMS).
@@ -158,7 +158,7 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 
 ![Важные проблемы](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
 
-Вы можете заметить, что эти проблемы уже были описаны в различных разделах группы **Домены безопасности** , которая дополняет задачу этого представления: централизованную визуализацию наиболее важных проблем в вашей среде.
+Вы можете заметить, что эти проблемы уже были описаны в различных разделах группы **Домены безопасности**, которая дополняет задачу этого представления: централизованную визуализацию наиболее важных проблем в вашей среде.
 
 ## <a name="detections-preview"></a>Обнаружения (ознакомительная версия)
 Основное предназначение этого параметра — предоставить ИТ-отделу возможности быстрого обнаружения угроз в среде и определения уровня их серьезности.

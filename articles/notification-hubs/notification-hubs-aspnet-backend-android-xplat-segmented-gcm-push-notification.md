@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3b3fc05cfec2b20501a28f3d76f474ccd49e27e8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Использование концентраторов уведомлений для передачи экстренных новостей
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 Широковещательные сценарии реализуются путем включения одного или нескольких *тегов* при создании регистрации в концентраторе уведомлений. Если уведомления отправляются на тег, их получают все устройства, зарегистрированные для данного тега. Поскольку теги представляют собой обычные строки, их не нужно подготавливать заранее. Дополнительные сведения о тегах см. в статье [Маршрутизация и выражения тегов](notification-hubs-tags-segment-push-message.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Материал данной статьи основан на приложении, созданном в разделе по [началу работы с центрами уведомлений][get-started]. Перед началом работы с данным руководством необходимо выполнить задания руководства по [началу работы с центрами уведомлений][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Добавление возможности выбора категорий в приложение
@@ -278,7 +278,7 @@ ms.lasthandoff: 10/11/2017
 2. Включите переключатели одной или нескольких категорий, затем нажмите **Подписаться**.
    
     Приложение преобразует выбранные категории в теги и запрашивает у концентратора уведомлений новую регистрацию устройств для выбранных тегов. Зарегистрированные категории возвращаются и отображаются во всплывающем уведомлении.
-3. Отправьте новое уведомление, запустив консольное приложение .NET.  Кроме того, можно отправлять шаблонные уведомления с тегами с помощью вкладки «Отладка» центра уведомлений на [классическом портале Azure].
+3. Отправьте новое уведомление, запустив консольное приложение .NET.  Кроме того, вы можете отправлять уведомления шаблона с тегом, используя вкладку «Отладка» в концентратор уведомлений [портал Azure].
    
     Уведомления для выбранных категорий отображаются в виде всплывающих уведомлений.
 
@@ -302,5 +302,5 @@ ms.lasthandoff: 10/11/2017
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[классическом портале Azure]: https://manage.windowsazure.com
+[портал Azure]: https://portal.azure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

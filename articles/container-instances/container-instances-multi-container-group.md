@@ -6,28 +6,29 @@ author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 12/19/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 2ffebf06e2e013f909410fa4861420a5ae3d4dcf
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="deploy-a-container-group"></a>Развертывание группы контейнеров
 
-Служба "Экземпляры контейнеров Azure" поддерживает развертывание нескольких контейнеров на одном узле с использованием *группы контейнеров*. Это полезно при создании сопроводительного приложения для ведения журнала, мониторинга или любой другой конфигурации, когда службе требуется еще один прикрепленный процесс.
+Экземпляры контейнером Azure поддерживает развертывание несколько контейнеров на одном узле с помощью [группы контейнеров](container-instances-container-groups.md). Это полезно при создании сопроводительного приложения для ведения журнала, мониторинга или любой другой конфигурации, когда службе требуется еще один прикрепленный процесс.
 
-В этом документе рассматривается запуск простой конфигурации многоконтейнерного сопроводительного приложения с использованием шаблона Azure Resource Manager.
+В этом документе описывается выполнение простого сопроводительные несколькими контейнера конфигурации путем развертывания шаблона диспетчера ресурсов Azure.
+
+> [!NOTE]
+> Контейнер для нескольких групп в настоящее время ограничены контейнеров Linux. Хотя мы работаем, чтобы привести все функции контейнеров Windows, можно найти текущей платформы различия в [квоты и область доступности для экземпляров контейнера Azure](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Настройка шаблона
 
-Создайте файл с именем `azuredeploy.json` и скопируйте в него следующий код JSON.
+Создайте файл с именем `azuredeploy.json` и скопируйте в него следующий JSON.
 
-В этом примере определяется группа контейнеров с двумя контейнерами и общедоступным IP-адресом. Первый контейнер группы запускает приложение с выходом в Интернет. Второй контейнер (сопроводительный) осуществляет HTTP-запрос к основному веб-приложению через локальную сеть группы.
-
-Пример сопроводительного приложения можно расширить, реализовав активацию оповещения при получении кода ответа HTTP, отличающегося от 200 OK.
+В этом примере определяется группа контейнеров с двумя контейнерами и общедоступным IP-адресом. Первый контейнер в группе запускает приложение с выходом в Интернет. Второй контейнер (сопроводительный) осуществляет HTTP-запрос к основному веб-приложению через локальную сеть группы.
 
 ```json
 {
@@ -101,7 +102,7 @@ ms.lasthandoff: 12/05/2017
   }
 ```
 
-Чтобы использовать частный реестр образов контейнеров, добавьте объект в документ JSON в следующем формате.
+Чтобы использовать образ контейнера закрытого реестра, добавьте объект документа JSON в следующем формате.
 
 ```json
 "imageRegistryCredentials": [
@@ -115,81 +116,91 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="deploy-the-template"></a>Развертывание шаблона
 
-Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create).
+Создайте группу ресурсов с помощью команды [az group create][az-group-create].
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Разверните шаблон с помощью команды [az group deployment create](/cli/azure/group/deployment#create).
+Развертывание шаблона с [создания развертывания группы az] [ az-group-deployment-create] команды.
 
 ```azurecli-interactive
-az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
+az group deployment create --resource-group myResourceGroup --name myContainerGroup --template-file azuredeploy.json
 ```
 
-В течение нескольких секунд вы получите исходный ответ Azure.
+Через несколько секунд вы должны получить первого ответа из Azure.
 
 ## <a name="view-deployment-state"></a>Просмотр состояния развертывания
 
-Чтобы просмотреть состояние развертывания, используйте команду `az container show`. Она возвращает подготовленный общедоступный IP-адрес, по которому можно получить доступ к приложению.
+Чтобы просмотреть состояние развертывания, используйте [Показать контейнера az] [ az-container-show] команды. Это возвращает подготовленных общедоступный IP-адрес, по которому можно получить доступ приложения.
 
 ```azurecli-interactive
-az container show --name myContainerGroup --resource-group myResourceGroup -o table
-```
-
-Выходные данные:
-
-```azurecli
-Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
-----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
-myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
-```
-
-## <a name="view-logs"></a>Просмотр журналов
-
-Просмотрите выходные данные журнала контейнера с помощью команды `az container logs`. Аргумент `--container-name` определяет контейнер, из которого извлекаются журналы. В этом примере указывается первый контейнер.
-
-```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup
+az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
 Выходные данные:
 
 ```bash
-istening on port 80
-::1 - - [27/Jul/2017:17:35:29 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:32 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:35 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:38 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
+----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
+myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
+```
+
+## <a name="view-logs"></a>Просмотр журналов
+
+Просмотреть выходные данные журнала для контейнера с помощью [журналы контейнера az] [ az-container-logs] команды. Аргумент `--container-name` определяет контейнер, из которого извлекаются журналы. В этом примере указывается первый контейнер.
+
+```azurecli-interactive
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
+```
+
+Выходные данные:
+
+```bash
+listening on port 80
+::1 - - [18/Dec/2017:21:31:08 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:11 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:15 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 Чтобы просмотреть журналы для сопроводительного контейнера, выполните ту же команду, указав имя второго контейнера.
 
 ```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-sidecar --resource-group myResourceGroup
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
 Выходные данные:
 
 ```bash
-Every 3.0s: curl -I http://localhost                                                                                                                       Mon Jul 17 11:27:36 2017
+Every 3s: curl -I http://localhost                          2017-12-18 23:19:34
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 HTTP/1.1 200 OK
+X-Powered-By: Express
 Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
+ETag: W/"67f-16006818640"
+Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Content-Type: text/html; charset=utf-8
-Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
-Date: Mon, 17 Jul 2017 18:27:36 GMT
+Date: Mon, 18 Dec 2017 23:19:34 GMT
+Connection: keep-alive
 ```
 
-Как видите, сопроводительное приложение периодически выполняет HTTP-запрос к основному веб-приложению через локальную сеть группы, чтобы убедиться, что оно работает.
+Как видите, сопроводительное приложение периодически выполняет HTTP-запрос к основному веб-приложению через локальную сеть группы, чтобы убедиться, что оно работает. Пример сопроводительного приложения можно расширить, реализовав активацию оповещения при получении кода ответа HTTP, отличающегося от 200 OK.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В этом документе описаны шаги по развертыванию многоконтейнерного экземпляра контейнера Azure. Дополнительные сведения о службе "Экземпляры контейнеров Azure" см. в соответствующем руководстве.
+В этой статье описаны шаги, необходимые для развертывания экземпляра несколькими контейнера Azure. Для взаимодействия с начала до конца экземпляры контейнером Azure см. в учебнике экземпляров контейнера Azure.
 
 > [!div class="nextstepaction"]
-> [Руководство по службе "Экземпляры контейнеров Azure"]: ./container-instances-tutorial-prepare-app.md
+> [Учебник по Azure экземпляры контейнером][aci-tutorial]
+
+<!-- LINKS - Internal -->
+[aci-tutorial]: ./container-instances-tutorial-prepare-app.md
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create

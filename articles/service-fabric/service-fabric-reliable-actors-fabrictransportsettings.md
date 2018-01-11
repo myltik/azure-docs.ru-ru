@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 75bdd4644f4ccc583271b9169c50a375e2cd6629
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7a21dfde5544045e4961549fe5728e14647eb886
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Настройка параметров FabricTransport для Reliable Actors
 
 Ниже приведены параметры, которые можно настраивать.
 - C#: [FabricTransportRemotingSettings](
-https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
+https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings).
 
 Конфигурацию FabricTransport по умолчанию можно изменить одним из следующих способов.
 
 ## <a name="assembly-attribute"></a>Атрибут сборки
 
-Атрибут [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) необходимо применить в клиенте субъекта и в сборках службы субъектов.
+Атрибут [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) необходимо применить в клиенте субъекта и в сборках службы субъектов.
 
 В следующем примере показано, как изменить значение по умолчанию параметра OperationTimeout в конфигурации FabricTransport.
 
@@ -49,7 +49,7 @@ https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remot
 
 ## <a name="config-package"></a>Пакет конфигурации
 
-Для изменения конфигурации по умолчанию можно использовать [пакет конфигурации](service-fabric-application-model.md).
+Для изменения конфигурации по умолчанию можно использовать [пакет конфигурации](service-fabric-application-and-service-manifests.md).
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Настройка параметров FabricTransport для службы субъектов
 

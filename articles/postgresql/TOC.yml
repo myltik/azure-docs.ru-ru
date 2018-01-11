@@ -69,7 +69,7 @@
           href: concepts-firewall-rules.md
         - name: Настройка SSL
           href: concepts-ssl-connection-security.md
-    - name: Монитор
+    - name: Мониторинг
       href: concepts-monitoring.md
     - name: Разработка
       items:
@@ -95,6 +95,8 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: Импорт и экспорт
           href: howto-migrate-using-export-and-import.md
+        - name: Миграция с минимальным временем простоя
+          href: howto-migrate-online.md
     - name: Настройка параметров сервера
       items:
         - name: Портал Azure
@@ -107,7 +109,7 @@
           href: howto-configure-server-logs-in-portal.md
         - name: Инфраструктура CLI Azure
           href: howto-configure-server-logs-using-cli.md
-    - name: Монитор
+    - name: Мониторинг
       items:
         - name: Создание оповещений на основе метрик
           href: howto-alert-on-metric.md
@@ -115,7 +117,7 @@
   items:
     - name: Инфраструктура CLI Azure
       href: /cli/azure/postgres
-    - name: Интерфейс REST API
+    - name: ИНТЕРФЕЙС REST API
       href: /rest/api/postgresql
 - name: Ресурсы
   items:

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Управление базами данных в хранилище данных SQL Azure
 Хранилище данных SQL позволяет автоматизировать многие аспекты управления базами данных. Например, для масштабирования производительности достаточно выбрать и оплатить необходимый уровень вычислительных ресурсов, после чего всю работу по увеличению и уменьшению масштаба выполнит хранилище данных SQL.
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools в Visual Studio
 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) в Visual Studio обеспечивают возможности подключения, управления и разработки для баз данных. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), предлагаем обратить внимание на SSDT в составе Visual Studio.
 
-Средства SSDT содержат обозреватель объектов сервера SQL, который позволяет визуализировать, подключать и выполнять скрипты для баз данных хранилища данных SQL. Чтобы быстро подключиться к хранилищу данных SQL, нажмите кнопку **Открыть в Visual Studio** в командной строке во время просмотра сведений базы данных на классическом портале Azure.  
+Средства SSDT содержат обозреватель объектов сервера SQL, который позволяет визуализировать, подключать и выполнять скрипты для баз данных хранилища данных SQL. Чтобы быстро подключиться к хранилищу данных SQL, можно просто щелкнуть **в среде Visual Studio** кнопку в командной строке при просмотре базы данных сведения на портале Azure.  
 
 Начало работы с SSDT в Visual Studio описывается в статье [Подключение к хранилищу данных SQL с помощью Visual Studio и SSDT][Query Azure SQL Data Warehouse with Visual Studio].
 

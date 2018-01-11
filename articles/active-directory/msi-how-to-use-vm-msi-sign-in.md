@@ -4,7 +4,7 @@ description: "Пошаговая инструкция с примерами де
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 5f0228dbe8df8cf0892569fd89162dfaf39cc8cb
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 6c9e3ce4bbe33d06af64d97e1455ec20902d0ff4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Использование удостоверения управляемой службы (MSI) виртуальной машины Azure для входа 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Эта статья содержит примеры сценариев PowerShell и CLI, позволяющих войти в систему с использованием участника-службы MSI, а также рекомендации по некоторым важным вопросам, таким как обработка ошибок.
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+Эта статья содержит пример сценария PowerShell и интерфейс командной строки для входа в систему с помощью MSI участника-службы и рекомендации на важные подразделы, такие как обработка ошибок.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

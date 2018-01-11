@@ -3,7 +3,7 @@ title: "Проверка доступа с помощью проверок до�
 description: "Узнайте, как проверять доступ с помощью проверок доступа Azure Active Directory."
 services: active-directory
 author: markwahl-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 9cd11d41c68c29bfcba44673ae6dbd154fc463f6
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: 98658a2b9fdd0ede98b3f6c10a19af527a8677cc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="review-access-with-azure-ad-access-reviews"></a>Проверка доступа с помощью проверок доступа Azure AD
 

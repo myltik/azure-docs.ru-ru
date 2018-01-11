@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Общие сведения об обработчике расширения Desired State Configuration в Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 В этой статье описано расширение PowerShell Desired State Configuration (DSC) для виртуальных машин Azure, которое входит в пакет SDK для Azure PowerShell. С помощью новых командлетов вы можете передать и применить конфигурацию DSC PowerShell на виртуальной машине Azure, на которой включено расширение DSC PowerShell. Расширение DSC PowerShell вызывает DSC PowerShell, чтобы применить полученную конфигурацию DSC к виртуальной машине. Эта функция доступна также на портале Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 **Локальный компьютер.** Для взаимодействия с расширением виртуальной машины Azure нужно использовать портал Azure или пакет SDK для Azure PowerShell. 
 
 **Гостевой агент.** Виртуальная машина Azure, на которой применяется конфигурация DSC, должна работать под управлением ОС, которая поддерживает Windows Management Framework (WMF) 4.0 или 5.0. Полный список поддерживаемых версий ОС можно найти в [журнале версий расширения DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
@@ -37,11 +37,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="terms-and-concepts"></a>Термины и основные понятия
 Для изучения этого руководства нужно знать приведенные ниже понятия.
 
-Конфигурация — документ конфигурации DSC. 
-
-Узел — целевой объект для конфигурации DSC. Слово "узел" в этом документе всегда означает виртуальную машину Azure.
-
-Данные конфигурации — PSD1-файл, содержащий данные среды для конфигурации.
+* **Конфигурация** -документа конфигурации DSC. 
+* **Узел** -целевым объектом для конфигурации DSC. Слово "узел" в этом документе всегда означает виртуальную машину Azure.
+* **Данные конфигурации** - psd1-файл, содержащий данные среды для конфигурации
 
 ## <a name="architectural-overview"></a>Основные сведения об архитектуре
 Расширение DSC Azure использует платформу агента Azure, чтобы доставлять и применять конфигурации DSC виртуальных машин Azure, а также сообщать об этих конфигурациях. Расширению DSC требуется ZIP-файл, содержащий по крайней мере документ конфигурации, а также набор параметров, которые передаются через пакет SDK для Azure PowerShell или портал Azure.
@@ -146,7 +144,9 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>Ведение журналов
 Журналы размещаются в следующем каталоге:
 
-C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[номер версии]
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Для получения дополнительных сведений о DSC PowerShell [посетите центр документации PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 

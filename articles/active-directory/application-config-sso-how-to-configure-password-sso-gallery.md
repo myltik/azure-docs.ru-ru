@@ -4,7 +4,7 @@ description: "Как настроить приложение для защище
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: d4dc110eb25c3e550ac4663d28e626a696b58f62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e0217f557440d1741c9c8afdba5a3d52d574fdf9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Настройка единого входа по паролю для приложения из коллекции Azure AD
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="add-an-application-from-the-azure-ad-gallery"></a>Добавление приложения из коллекции Azure AD
 
-Чтобы добавить приложение из коллекции Azure AD, выполните указанные ниже действия.
+Чтобы добавить приложение, не входящее в коллекцию Azure AD, сделайте следующее:
 
 1.  Откройте [портал Azure](https://portal.azure.com) и войдите в систему как **глобальный администратор** или **соадминистратор**.
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
 
 3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
+4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Назначение приложения пользователю напрямую
 
-Чтобы напрямую назначить одного или нескольких пользователей для приложения, сделайте следующее:
+Чтобы напрямую назначить одного или нескольких пользователей для приложения, выполните указанные ниже действия.
 
 1.  Откройте [**портал Azure**](https://portal.azure.com/) и войдите в систему как **глобальный администратор**.
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 10/11/2017
 
 3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
+4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 
@@ -150,7 +150,7 @@ ms.lasthandoff: 10/11/2017
 
 3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
+4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 

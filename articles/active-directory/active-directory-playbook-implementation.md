@@ -5,7 +5,7 @@ services: active-directory
 keywords: "azure active directory, сборник тренировочных заданий, подтверждение концепции, PoC"
 documentationcenter: 
 author: dstefanMSFT
-manager: asuthar
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: dstefan
-ms.openlocfilehash: 10877ee33ec04cf0d350417af59d598eab249aa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e26dfe4aaa374f5587038a0de66c0bd8703c9a41
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory. Реализация
 
@@ -152,8 +152,8 @@ ms.lasthandoff: 10/11/2017
 
 | Сценарий | Стандартные блоки| 
 | --- | --- |  
-| [Самостоятельный сброс пароля](#self-service-password-reset) | [Самостоятельный сброс пароля](active-directory-playbook-building-blocks.md#self-service-password-reset) |
-| [Самостоятельный доступ к приложениям](#self-service-access-to-applications) | [Самостоятельный доступ к приложениям](active-directory-playbook-building-blocks.md#self-service-access-to-application-management) |
+| [Самостоятельный сброс пароля](#self-service-password-reset) | [Самостоятельный сброс пароля](active-directory-playbook-building-blocks.md#self-service-password-reset). |
+| [Самостоятельный доступ к приложениям](#self-service-access-to-applications). | [Самостоятельный доступ к приложениям](active-directory-playbook-building-blocks.md#self-service-access-to-application-management) |
 
 ### <a name="self-service-password-reset"></a>Самостоятельный сброс пароля 
 

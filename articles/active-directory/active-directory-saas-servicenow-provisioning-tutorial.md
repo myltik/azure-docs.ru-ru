@@ -4,7 +4,7 @@ description: "Узнайте, как настроить автоматическ
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: e338804a0c5fcb09dfdfd9bf18ae4d0466cd9a82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 06772c9e21936d224f721413ccdc1c859b07b940
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Руководство по настройке ServiceNow для автоматической подготовки пользователей с помощью Azure Active Directory
 
 Цель этого руководства — показать, как в ServiceNow и Azure AD настроить автоматическую подготовку и отзыв учетных записей пользователей из Azure AD в ServiceNow.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -60,13 +60,13 @@ ms.lasthandoff: 10/11/2017
 
 4. Для параметра **Режим подготовки** выберите значение **Автоматический**. 
 
-    ![подготовка](./media/active-directory-saas-servicenow-provisioning-tutorial/provisioning.png)
+    ![Подготовка](./media/active-directory-saas-servicenow-provisioning-tutorial/provisioning.png)
 
 5. В разделе "Учетные данные администратора" выполните следующие действия:
    
-    а. В текстовое поле **Имя экземпляра ServiceNow** введите имя экземпляра ServiceNow.
+    a. В текстовое поле **Имя экземпляра ServiceNow** введите имя экземпляра ServiceNow.
 
-    b. В текстовое поле **Имя пользователя администратора ServiceNow** введите имя пользователя администратора.
+    Б. В текстовое поле **Имя пользователя администратора ServiceNow** введите имя пользователя администратора.
 
     c. В текстовое поле **Пароль администратора ServiceNow** введите пароль администратора.
 

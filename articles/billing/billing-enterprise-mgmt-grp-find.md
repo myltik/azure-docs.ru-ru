@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f1b9c1ec2af8240ff71f6907516d8894c36ac9c3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-an-azure-subscription-or-management-group"></a>Поиск подписки Azure или группы управления
 
-Если вам сложно найти подписку или группу управления в Azure, возможно, вы используете неверный каталог. Такое может произойти, если ваша учетная запись имеется в нескольких каталогах Azure Active Directory. Каждый [каталог Active Directory является независимым](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence), а доступ в них не наследуется.      
+Если вам сложно найти подписку или группу управления в Azure, возможно, вы используете неверный каталог. Такое может произойти, если ваша учетная запись имеется в нескольких каталогах Azure Active Directory. Каждый [каталог Active Directory является независимым](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-directory-independence), а доступ в них не наследуется.      
 
 ![Меню "Переключение каталога"](media/billing-enterprise-mgmt-groups/mgempty.png)
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 ![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Свяжитесь с административной группой подписки или группой управления, чтобы получить доступ.  
-* Чтобы получить доступ к подпискам, ознакомьтесь со статьей [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure), чтобы узнать о необходимой роли.
+* Чтобы получить доступ к подпискам, ознакомьтесь со статьей [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure), чтобы узнать о необходимой роли.
 * Для групп управления доступ RBAC пока недоступен, но ожидается в скором времени. Свяжитесь с административной группой корпоративного портала, чтобы получить доступ.   
 
 ## <a name="improve-your-experience-with-management-groups-and-subscriptions-in-the-same-directory"></a>Улучшение взаимодействия с группами управления и подписками в одном каталоге 

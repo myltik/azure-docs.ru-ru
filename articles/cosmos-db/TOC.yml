@@ -143,7 +143,7 @@
       href: unique-keys.md
     - name: Целостность
       href: consistency-levels.md
-    - name: Пропускная способность
+    - name: Throughput
       href: request-units.md
     - name: Многомодельные API-интерфейсы
       items:
@@ -187,8 +187,10 @@
               href: programming.md
             - name: Тестирование производительности
               href: performance-testing.md
-            - name: Советы по улучшению производительности
+            - name: Советы по повышению производительности для .NET
               href: performance-tips.md
+            - name: Советы по повышению производительности для Java
+              href: performance-tips-java.md
             - name: Архитектура с несколькими источниками
               href: multi-region-writers.md
             - name: DateTimes
@@ -252,6 +254,8 @@
               href: mongodb-mongochef.md
             - name: Использование Robomongo
               href: mongodb-robomongo.md
+            - name: Использование Mongoose
+              href: mongodb-mongoose.md
             - name: Поддержка функций MongoDB
               href: mongodb-feature-support.md
             - name: Серия руководств по Angular
@@ -318,7 +322,7 @@
           href: indexing-policies.md
         - name: Подключенная служба в Visual Studio
           href: connected-service.md
-    - name: Управление
+    - name: управление
       items:
         - name: Экономичные операции чтения и записи
           href: key-value-store-cost.md
@@ -378,7 +382,7 @@
           href: odbc-driver.md
         - name: Использование начального приложения Spring Boot с API-интерфейсами SQL
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Справочные материалы
+- name: Ссылка
   items:
     - name: Примеры кода
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'

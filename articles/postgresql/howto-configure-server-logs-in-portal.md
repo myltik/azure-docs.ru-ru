@@ -9,24 +9,24 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 9e22d96d20f3201a8d1618c5ff1878e99d50ad79
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Настройка журналов сервера и получение к ним доступа с помощью портала Azure
 
 Чтобы настроить [журналы сервера в базе данных Azure для PostgreSQL](concepts-server-logs.md), получить их список и скачать их, можно воспользоваться порталом Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Прежде чем приступить к выполнению этого руководства, необходимы следующие компоненты:
 - [сервер базы данных Azure для PostgreSQL](quickstart-create-server-database-portal.md).
 
 ## <a name="configure-logging"></a>Настройка журнала
 Настройте доступ к журналам запросов и журналам ошибок. 
 
-1. Выполните вход на [портал Azure](http://portal.azure.com/).
+1. Войдите на [портале Azure](http://portal.azure.com/).
 
 2. Выберите сервер базы данных Azure для PostgreSQL.
 
@@ -75,5 +75,5 @@ ms.lasthandoff: 11/07/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 - Ознакомьтесь с разделом [Настройка журналов сервера и получение к ним доступа с помощью Azure CLI](howto-configure-server-logs-using-cli.md), чтобы узнать, как скачать журналы программно.
 - Узнайте больше о [журналах сервера](concepts-server-logs.md) в базе данных Azure для PostgreSQL. 
-- Дополнительные сведения об определениях параметров и ведении журнала PostgreSQL см. в документации PostgreSQL по [отчетам об ошибках и ведению журнала](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- Дополнительные сведения о PostgreSQL ведения журнала и определения параметров см. в документации PostgreSQL на [отчеты об ошибках и ведение журнала](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

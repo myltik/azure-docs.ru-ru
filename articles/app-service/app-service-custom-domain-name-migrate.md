@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Перенос активного DNS-имени в службу приложений Azure
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 Если вас не беспокоит простой при разрешении DNS-имен, обратитесь к разделу [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для работы с этим руководством:
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы проверить принадлежность домена, добавьте запись типа TXT. Запись типа TXT выполняет сопоставление из _awverify.&lt;поддомен>_ в _&lt;имя_приложения>.azurewebsites.net_. 
 
-Требуемая запись типа TXT зависит от записи DNS, которую требуется перенести. Примеры см. в следующей таблице (`@` обычно обозначает корневой домен):  
+Требуемая запись типа TXT зависит от записи DNS, которую требуется перенести. Примеры см. в следующей таблице (`@` обычно обозначает корневой домен):
 
 | Пример записи DNS | Узел, для которого задается TXT | Значение TXT |
 | - | - | - |
@@ -114,7 +114,7 @@ ms.lasthandoff: 10/11/2017
 
 | Пример полного доменного имени | Тип записи | Узел | Значение |
 | - | - | - | - |
-| contoso.com (корневой домен) | Файл , | `@` | IP-адрес из раздела [Копирование IP-адреса приложения](#info). |
+| contoso.com (корневой домен) | A | `@` | IP-адрес из раздела [Копирование IP-адреса приложения](#info). |
 | www.contoso.com (поддомен) | CNAME | `www` | _&lt;имя_приложения>.azurewebsites.net_ |
 | \*.contoso.com (с подстановочным знаком) | CNAME | _\*_ | _&lt;имя_приложения>.azurewebsites.net_ |
 

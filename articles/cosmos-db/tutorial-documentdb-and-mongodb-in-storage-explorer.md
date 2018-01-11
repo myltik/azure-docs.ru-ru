@@ -1,10 +1,10 @@
 ---
 title: "Управление Azure DB Cosmos в Обозревателе службы хранилища Azure"
 description: "Сведения об управлении Azure DB Cosmos в Обозревателе службы хранилища Azure."
-Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, DocumentDB
+Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
-author: Jiaj-Li
+author: jejiang
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -16,23 +16,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
-ms.author: Jiaj-Li
-ms.openlocfilehash: 303fcfbda1934e3b29cb8ed06087c560275489e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.author: Jejiang
+ms.openlocfilehash: fa91630674151ac434c7f97fa2795e47bb38f16f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Управление Azure DB Cosmos в Обозревателе службы хранилища Azure (предварительная версия)
 
-В Обозревателе службы хранилища Azure можно управлять объектами Azure Cosmos DB и работать с данными, хранимыми процедурами и триггерами, а также другими объектами Azure, такими как хранилища BLOB-объектов и очереди. Теперь это средство можно использовать для управления всеми объектами Azure в одном месте. Сейчас Обозреватель службы хранилища Azure поддерживает учетные записи SQL (DocumentDB) и MongoDB.
+В Обозревателе службы хранилища Azure можно управлять объектами Azure Cosmos DB и работать с данными, хранимыми процедурами и триггерами, а также другими объектами Azure, такими как хранилища BLOB-объектов и очереди. Теперь это средство можно использовать для управления всеми объектами Azure в одном месте. В данный момент обозреватель хранилища Azure поддерживает SQL <!--and MongoDB--> учетные записи. Обозреватель хранилищ Azure не работает с локальный эмулятор Azure DB Cosmos. 
 
 В этой статье описано, как управлять Azure Cosmos DB с помощью Обозревателя службы хранилища.
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
-Учетная запись Azure Cosmos DB для базы данных SQL (DocumentDB) или MongoDB. Если у вас нет учетной записи, вы можете создать ее на портале Azure, как описано в разделе [Azure Cosmos DB. Создание веб-приложения API DocumentDB с использованием языка .NET и портала Azure](create-documentdb-dotnet.md).
+Учетная запись Azure Cosmos DB API-Интерфейсы SQL <!--or MongoDB API-->. Если у вас нет учетной записи, можно создать на портале Azure, как описано в [Azure Cosmos DB: сборки SQL API веб-приложения с помощью .NET и на портале Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Установка
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/05/2017
 
 2. В диалоговом окне **Вход в Azure** нажмите кнопку **Войти**, а затем введите свои учетные данные Azure.
 
-    ![входа](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/sign-in.png)
+    ![Вход](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/sign-in.png)
 
 3. Выберите свою подписку и нажмите кнопку **Применить**.
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/05/2017
 
     ![Подключение к Azure Cosmos DB с помощью строки подключения](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Выберите соответствующую **Базу данных по умолчанию** для вашего типа учетной записи (**DocumentDB** или **MongoDB**), вставьте **строку подключения** и нажмите кнопку **ОК** для подключения учетной записи Azure Cosmos DB. Сведения о том, как получить строку подключения, см. в разделе [Получение строки подключения](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Выберите соответствующий **по умолчанию взаимодействие** для типа учетной записи, <!--either--> **DocumentDB** <!--or **MongoDB**-->, вставьте в вашей **строка подключения**, а затем Нажмите кнопку **ОК** для подключения учетной записи Azure Cosmos DB. Сведения о том, как получить строку подключения, см. в разделе [Получение строки подключения](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![Строка подключения](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 12/05/2017
 #### <a name="delete-a-document"></a>Удаление документа
 Нажмите кнопку **Удалить**, чтобы удалить выбранный документ.
 #### <a name="query-for-documents"></a>Запросы для документов
-Измените фильтр документов, указав [SQL-запрос](documentdb-sql-query.md), и нажмите кнопку **Применить**.
+Измените фильтр документов, указав [SQL-запрос](sql-api-sql-query.md), и нажмите кнопку **Применить**.
 
 ![Фильтр](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 
@@ -152,5 +152,5 @@ ms.lasthandoff: 12/05/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Чтобы узнать, как использовать Azure Cosmos DB в Обозревателе службы хранилища Azure, просмотрите это видео: [Использование Azure Cosmos DB в Обозревателе службы хранилища Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Дополнительные сведения об обозревателе службы хранилища и подключении дополнительных служб см. в статье [Приступая к работе с обозревателем службы хранилища (предварительная версия)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Дополнительные сведения об обозревателе службы хранилища и подключении дополнительных служб см. в статье [Приступая к работе с обозревателем службы хранилища (предварительная версия)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "учетная запись службы синхронизации Azure AD, пароль"
 documentationcenter: 
 author: cychua
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: bf6234d0810f870909957ee1c1e33c225a4922b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0e4f143779a33bc2511974884fa16894611050f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Изменение пароля учетной записи Azure AD Connect Sync
 Если вы измените пароль учетной записи для Azure AD Connect Sync, служба синхронизации не сможет правильно запуститься, пока вы не сбросите ключ шифрования и не выполните повторную инициализацию пароля учетной записи для Azure AD Connect. 
@@ -82,7 +82,7 @@ Azure AD Connect входит в состав служб синхронизац
 Так как расшифровка существующих паролей, которые хранятся в базе данных, стала невозможной, необходимо предоставить службе синхронизации пароль для учетной записи службы AD DS. Служба синхронизации зашифрует пароли, с помощью нового ключа шифрования.
 
 1. Запустите Synchronization Service Manager ("Запуск" → "Служба синхронизации").
-</br>![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)  
+</br>![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)  
 2. Перейдите на вкладку **Соединители**.
 3. Выберите **соединитель AD**, соответствующий локальному экземпляру AD. Если у вас несколько соединителей AD, выполните перечисленные ниже шаги для каждого из них.
 4. В разделе **Действия** выберите **Свойства**.

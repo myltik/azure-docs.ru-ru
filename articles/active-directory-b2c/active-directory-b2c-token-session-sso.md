@@ -4,7 +4,7 @@ description: "Конфигурация маркера, сеанса и един�
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: e78e6344-0089-49bf-8c7b-5f634326f58c
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: parakhj
-ms.openlocfilehash: 256c93e5c343cba022599f8e13c5b7616bfa8b58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 76feb172ce9b08d4feef9c86e74a592553a3c7f4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: конфигурация маркера, сеанса и единого входа
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 4. Щелкните **Изменить** в верхней части меню.
 5. Щелкните **Конфигурация маркера, сеанса и единого входа**.
 6. Внесите нужные изменения. Сведения о доступных свойствах см. в последующих разделах.
-7. Нажмите кнопку **ОК**.
+7. Последовательно выберите **ОК**.
 8. Нажмите кнопку **Сохранить** в верхней части меню.
 
 ## <a name="token-lifetimes-configuration"></a>Конфигурация времени существования маркеров

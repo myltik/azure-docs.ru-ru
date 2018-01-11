@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Расширенная конфигурация для пакета SDK Android для Служб мобильного взаимодействия Azure
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 В этой статье описано, как настроить различные параметры конфигурации для приложений Android в Службах мобильного взаимодействия Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="permission-requirements"></a>Требования к разрешениям
@@ -44,15 +44,15 @@ ms.lasthandoff: 10/11/2017
 
 | Разрешение | Применение |
 | --- | --- |
-| ИНТЕРНЕТ |обязательный параметр. Базовые отчеты |
-| ACCESS_NETWORK_STATE |обязательный параметр. Базовые отчеты |
-| RECEIVE_BOOT_COMPLETED |обязательный параметр. Отображение центра уведомлений после перезагрузки устройства |
+| ИНТЕРНЕТ |Обязательный элемент. Базовые отчеты |
+| ACCESS_NETWORK_STATE |Обязательный элемент. Базовые отчеты |
+| RECEIVE_BOOT_COMPLETED |Обязательный элемент. Отображение центра уведомлений после перезагрузки устройства |
 | WAKE_LOCK |(рекомендуется). Включает сбор данных при использовании Wi-Fi или при выключенном экране |
-| VIBRATE |необязательный параметр. Включает вибрацию при получении уведомления |
-| DOWNLOAD_WITHOUT_NOTIFICATION |необязательный параметр. Включает общие уведомления Android |
-| WRITE_EXTERNAL_STORAGE |необязательный параметр. Включает общие уведомления Android |
-| ACCESS_COARSE_LOCATION |необязательный параметр. Включает отчет о расположении в реальном времени |
-| ACCESS_FINE_LOCATION |необязательный параметр. Включает отчет о расположении на основе GPS |
+| VIBRATE |Необязательный элемент. Включает вибрацию при получении уведомления |
+| DOWNLOAD_WITHOUT_NOTIFICATION |Необязательный элемент. Включает общие уведомления Android |
+| WRITE_EXTERNAL_STORAGE |Необязательный элемент. Включает общие уведомления Android |
+| ACCESS_COARSE_LOCATION |Необязательный элемент. Включает отчет о расположении в реальном времени |
+| ACCESS_FINE_LOCATION |Необязательный элемент. Включает отчет о расположении на основе GPS |
 
 Начиная с Android M [управление некоторыми разрешениями осуществляется в среде выполнения](mobile-engagement-android-location-reporting.md#android-m-permissions).
 

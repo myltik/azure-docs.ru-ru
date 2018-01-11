@@ -51,7 +51,7 @@ azure vm sizes --location <location>
 
 Создайте отдельные учетные записи хранения Azure для виртуальных жестких дисков каждой виртуальной машины, чтобы не превышать ограничения по операциям ввода-вывода для учетных записей хранения. 
 
-Добавьте один или несколько дисков данных. Создаваемый диск VHD не форматируется. Чтобы отформатировать диск, войдите на виртуальную машину. В оболочке Linux диски данных отображаются как `/dev/sdc`, `/dev/sdd` и т. д. Можно выполнить `lsblk` , чтобы вывести список блочных устройств, включая диски. Чтобы использовать диск данных, создайте раздел и файловую систему, а затем подключите этот диск. Например:
+Добавьте один или несколько дисков данных. Создаваемый диск VHD не форматируется. Чтобы отформатировать диск, войдите на виртуальную машину. В оболочке Linux диски данных отображаются как `/dev/sdc`, `/dev/sdd` и т. д. Можно выполнить `lsblk` , чтобы вывести список блочных устройств, включая диски. Чтобы использовать диск данных, создайте раздел и файловую систему, а затем подключите этот диск. Например: 
 
 ```bat
 # Create a partition.
@@ -155,7 +155,7 @@ d> [!NOTE]
    * Имя **группы ресурсов** уже определено в файле параметров, поэтому выберите **Создать** и введите `ra-single-vm-rg` в текстовом поле.
    * В раскрывающемся списке **Расположение** выберите регион.
    * Не изменяйте поля **Template Root Uri** (Корневой URI шаблона) или **Parameter Root Uri** (Корневой URI параметра).
-.   * В раскрывающемся списке **Тип ОС** выберите пункт **linux**.
+.   * Выберите **linux** в **тип ОС** раскрывающийся список.
    * Прочтите условия использования и установите флажок **Я принимаю указанные выше условия**.
    * Нажмите кнопку **Приобрести**.
 3. Дождитесь завершения развертывания.
@@ -188,7 +188,7 @@ d> [!NOTE]
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
-[premium-storage]:../articles/storage/common/storage-premium-storage.md
+[premium-storage]:../articles/virtual-machines/windows/premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user

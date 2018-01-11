@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 3934f814a9060adf275a4bdcc83403da4b2a4075
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Руководство. Интеграция Azure Active Directory с Cezanne HR Software
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/28/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Cezanne HR Software, вам потребуется следующее:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 11/28/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Cezanne HR Software из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-cezanne-hr-software-from-the-gallery"></a>Добавление Cezanne HR Software из коллекции.
 Чтобы настроить интеграцию Cezanne HR Software с Azure AD, вам потребуется добавить Cezanne HR Software из коллекции в список управляемых приложений SaaS.
@@ -108,9 +108,9 @@ ms.lasthandoff: 11/28/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Cezanne HR Software](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес `https://w3.cezanneondemand.com/CezanneOnDemand/`.
+    Б. В текстовом поле **Идентификатор** введите URL-адрес `https://w3.cezanneondemand.com/CezanneOnDemand/`.
 
     c. В текстовом поле **URL-адрес ответа** введите URL-адрес `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`.
     
@@ -125,31 +125,35 @@ ms.lasthandoff: 11/28/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. В разделе **Cezanne HR Software Configuration** (Конфигурация Cezanne HR Software) щелкните **Configure Cezanne HR Software** (Настройка Cezanne HR Software), чтобы открыть окно **Настройка единого входа**. Скопируйте **идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+6. В разделе **Cezanne HR Software Configuration** (Конфигурация Cezanne HR Software) щелкните **Configure Cezanne HR Software** (Настройка Cezanne HR Software), чтобы открыть окно **Настройка единого входа**.
 
-    ![Раздел "Конфигурация Cezanne HR Software"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    ![Раздел "Конфигурация Cezanne HR Software"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. В другом окне веб-браузера войдите на веб-сайт Cezanne HR Software своей компании в качестве администратора.
+7. Прокрутите вниз до **краткий справочник** раздела. Копировать **SAML единого входа URL-адрес службы и идентификатор сущности SAML** из **краткий справочник.**
 
-8. В левой панели навигации щелкните **System Setup**(Настройка системы). Выберите пункт **Параметры безопасности**. Далее перейдите к пункту **Конфигурация единого входа**.
+    ![Раздел "Конфигурация Cezanne HR Software"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+
+8. В другом окне веб-браузера войдите на веб-сайт Cezanne HR Software своей компании в качестве администратора.
+
+9. В левой панели навигации щелкните **System Setup**(Настройка системы). Выберите пункт **Параметры безопасности**. Далее перейдите к пункту **Конфигурация единого входа**.
 
     ![Настройка единого входа на стороне приложения](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. На панели **Allow users to log in using the following Single Sign-On (SSO) Service** (Разрешить пользователям вход с использованием следующей службы единого входа) установите флажок **SAML 2.0** и выберите параметр **Расширенная конфигурация**.
+10. На панели **Allow users to log in using the following Single Sign-On (SSO) Service** (Разрешить пользователям вход с использованием следующей службы единого входа) установите флажок **SAML 2.0** и выберите параметр **Расширенная конфигурация**.
 
     ![Настройка единого входа на стороне приложения](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-10. Нажмите кнопку **Добавить** .
+11. Нажмите кнопку **Добавить** .
 
     ![Настройка единого входа на стороне приложения](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-11. В разделе **SAML 2.0 Identity providers** (Поставщики удостоверений SAML) выполните следующие действия.
+12. В разделе **SAML 2.0 Identity providers** (Поставщики удостоверений SAML) выполните следующие действия.
 
     ![Настройка единого входа на стороне приложения](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
-    а. Введите имя поставщика удостоверений в поле **Отображаемое имя**.
+    a. Введите имя поставщика удостоверений в поле **Отображаемое имя**.
 
-    b. В текстовое поле **Entity Identifier** (Идентификатор сущности) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure. 
+    Б. В текстовое поле **Entity Identifier** (Идентификатор сущности) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure. 
 
     c. В поле **SAML Binding** (Привязка SAML) укажите значение POST.
 
@@ -161,7 +165,7 @@ ms.lasthandoff: 11/28/2017
     
     ж. Нажмите кнопку **ОК** . 
 
-12. Нажмите кнопку **Сохранить** .
+13. Нажмите кнопку **Сохранить** .
 
     ![Настройка единого входа на стороне приложения](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
@@ -193,13 +197,13 @@ ms.lasthandoff: 11/28/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-cezanne-hr-software-test-user"></a>Создание тестового пользователя в Cezanne HR Software
 
@@ -217,25 +221,25 @@ ms.lasthandoff: 11/28/2017
 
     ![Новый пользователь](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Новый пользователь")
     
-    а. Установите для параметра **Внутренний пользователь** значение "Выкл.".
+    a. Установите для параметра **Внутренний пользователь** значение "Выкл.".
     
-    b. В текстовом поле **First name** (Имя) введите имя пользователя, например **Britta**.  
+    Б. В текстовом поле **First name** (Имя) введите имя пользователя, например **Britta**.  
  
     c. В текстовом поле **Last name** (Фамилия) введите фамилию, например **Simon**.
     
-    г) В текстовом поле **Email** (Электронная почта) введите адрес электронной почты пользователя, например Brittasimon@contoso.com.
+    d. В текстовом поле **Email** (Электронная почта) введите адрес электронной почты пользователя, например Brittasimon@contoso.com.
 
 4.  В разделе **Account Information** (Сведения об учетной записи) выполните следующие действия.
 
     ![Новый пользователь](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Новый пользователь")
     
-    а. В текстовом поле **Username** (Имя пользователя) введите электронный адрес пользователя, например Brittasimon@contoso.com.
+    a. В текстовом поле **Username** (Имя пользователя) введите электронный адрес пользователя, например Brittasimon@contoso.com.
     
-    b. В текстовом поле **Password** (Пароль) введите пароль пользователя.
+    Б. В текстовом поле **Password** (Пароль) введите пароль пользователя.
     
     c. В раскрывающемся списке **Роль безопасности** выберите **Специалист отдела кадров**.
     
-    г) Нажмите кнопку **ОК**.
+    d. Последовательно выберите **ОК**.
 
 5. Перейдите на вкладку **Единый вход** и нажмите кнопку **Добавить** в области **Идентификаторы SAML 2.0)**.
 

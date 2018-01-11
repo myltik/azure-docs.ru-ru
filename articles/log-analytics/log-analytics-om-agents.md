@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 12/10/2017
 ms.author: magoedte
-ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Подключение Operations Manager к Log Analytics
 Чтобы не увеличивать затраты на System Center Operations Manager и использовать расширенные возможности в Log Analytics, Operations Manager можно интегрировать с рабочей областью OMS.  Таким образом вы сможете использовать функции OMS, располагая следующими возможностями благодаря интеграции с Operations Manager:
@@ -40,9 +40,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="system-requirements"></a>Требования к системе
 Перед началом необходимо выполнить следующие требования.
 
-* OMS поддерживает только Operations Manager 2016, Operations Manager 2012 с пакетом обновления 1 (SP1) и накопительным пакетом обновления UR10 и более поздней версии, а также Operations Manager 2012 R2 с накопительным пакетом обновления UR11 и более поздней версии.
+* OMS поддерживает только Operations Manager 2016, Operations Manager 2012 с пакетом обновления 1 (SP1) и накопительным пакетом обновления 6 (UR6) и более поздней версии, а также Operations Manager 2012 R2 с накопительным пакетом обновления 2 (UR2) и более поздней версии.  Поддержка прокси-сервера была добавлена в Operations Manager 2012 с пакетом обновления 1 (SP1) и накопительным пакетом обновления 7 (UR7) и в Operations Manager 2012 R2 с накопительным пакетом обновления 3 (UR3).
 * Все агенты Operations Manager должны удовлетворять минимальным требованиям поддержки. Убедитесь, что агенты соответствуют минимальным требованиям, иначе при передаче трафика агента Windows может возникнуть сбой, а журнал событий Operations Manager заполнит множество ошибок.
-* Подписка Azure Log Analytics.  Дополнительные сведения см. в статье [Начало работы с Log Analytics](log-analytics-get-started.md).
+* Наличие подписки OMS.  Дополнительные сведения см. в статье [Начало работы с Log Analytics](log-analytics-get-started.md).
 
 ### <a name="network"></a>Сеть
 Ниже приводятся сведения о конфигурации прокси-сервера и брандмауэра, необходимые для взаимодействия агента Operations Manager, серверов управления и консоли управления с OMS.  Трафик с каждого компонента является исходящим из локальной сети к службе OMS.     
@@ -50,15 +50,15 @@ ms.lasthandoff: 10/11/2017
 |Ресурс | Номер порта| Обход проверки HTTP|  
 |---------|------|-----------------------|  
 |**Агент**|||  
-|\*.ods.opinsights.azure.com| 443 |Да|  
-|\*.oms.opinsights.azure.com| 443|Да|  
-|\*.blob.core.windows.net| 443|Да|  
-|\*.azure-automation.net| 443|Да|  
+|\*.ods.opinsights.azure.com| 443 |Yes|  
+|\*.oms.opinsights.azure.com| 443|Yes|  
+|\*.blob.core.windows.net| 443|Yes|  
+|\*.azure-automation.net| 443|Yes|  
 |**Сервер управления**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| Да|  
-|\*.ods.opinsights.azure.com| 443| Да|  
-|*.azure-automation.net | 443| Да|  
+|\*.blob.core.windows.net| 443| Yes|  
+|\*.ods.opinsights.azure.com| 443| Yes|  
+|*.azure-automation.net | 443| Yes|  
 |**Консоль Operations Manager с OMS**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -208,7 +208,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ```
-    `param(
+    param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

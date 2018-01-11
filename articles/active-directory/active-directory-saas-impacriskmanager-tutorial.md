@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 4d77390e-898c-4258-a562-a1181dfe2880
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 0d3f17b86caaf781ab8825b047853f2949828e9e
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: ade4076917988c5747a0d10a99578b49c917e1db
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Руководство по интеграции Azure Active Directory с IMPAC Risk Manager
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/07/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с приложением IMPAC Risk Manager, вам потребуется следующее:
 
@@ -48,12 +48,12 @@ ms.lasthandoff: 11/07/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление IMPAC Risk Manager из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-impac-risk-manager-from-the-gallery"></a>Добавление IMPAC Risk Manager из коллекции
+## <a name="adding-impac-risk-manager-from-the-gallery"></a>Добавление IMPAC Risk Manager из коллекции.
 Чтобы настроить интеграцию IMPAC Risk Manager в Azure AD, необходимо добавить IMPAC Risk Manager из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить IMPAC Risk Manager из коллекции, выполните следующие действия:**
@@ -108,9 +108,9 @@ ms.lasthandoff: 11/07/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения IMPAC Risk Manager](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_url_new.png)
 
-    а. В текстовом поле **Идентификатор** введите значение, предоставленное IMPAC.
+    a. В текстовом поле **Идентификатор** введите значение, предоставленное IMPAC.
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате:
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате:
     | Среда | Шаблон URL-адреса |
     | ---------------|--------------- |    
     | Рабочая среда |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -176,13 +176,13 @@ ms.lasthandoff: 11/07/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-impacriskmanager-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-impac-risk-manager-test-user"></a>Создание тестового пользователя приложения IMPAC Risk Manager
 

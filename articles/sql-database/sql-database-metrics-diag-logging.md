@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Метрики и журналы диагностики базы данных SQL Azure 
 База данных SQL Azure может выдавать значения метрик и журналы диагностики для упрощения мониторинга. Вы можете настроить базу данных SQL для хранения сведений об использовании ресурсов, о рабочих ролях и сеансах, а также настроить подключение к одному из этих ресурсов Azure:
@@ -157,7 +157,7 @@ ms.lasthandoff: 12/01/2017
 
 Можно объединять эти параметры, чтобы получить несколько вариантов вывода.
 
-### <a name="rest-api"></a>Интерфейс REST API
+### <a name="rest-api"></a>ИНТЕРФЕЙС REST API
 
 Сведения об изменении параметров диагностики с помощью REST API Azure Monitor см. в [этом документе](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
 
@@ -271,12 +271,12 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="query-store-runtime-statistics"></a>Статистика среды выполнения хранилища запросов
 
-|Свойство|Описание|
+|Свойство|ОПИСАНИЕ|
 |---|---|
 |TenantId|Идентификатор клиента.|
 |SourceSystem|Всегда: Azure.|
 |TimeGenerated [UTC]|Метка времени, когда был записан журнал.|
-|Тип|Всегда: AzureDiagnostics.|
+|type|Всегда: AzureDiagnostics.|
 |ResourceProvider|Имя поставщика ресурсов. Всегда: MICROSOFT.SQL.|
 |Категория|Имя категории. Всегда: QueryStoreRuntimeStatistics.|
 |OperationName|Имя операции. Всегда: QueryStoreRuntimeStatisticsEvent.|
@@ -318,16 +318,16 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |query_id_d|Идентификатор запроса в хранилище запросов.|
 |plan_id_d|Идентификатор плана в хранилище запросов.|
 
-[Дополнительные сведения о статистических данных среды выполнения хранилища запросов.](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql)
+[Дополнительные сведения о статистических данных среды выполнения хранилища запросов.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql)
 
 ### <a name="query-store-wait-statistics"></a>Статистика времени ожидания хранилища запросов
 
-|Свойство|Описание|
+|Свойство|ОПИСАНИЕ|
 |---|---|
 |TenantId|Идентификатор клиента.|
 |SourceSystem|Всегда: Azure.|
 |TimeGenerated [UTC]|Метка времени, когда был записан журнал.|
-|Тип|Всегда: AzureDiagnostics.|
+|type|Всегда: AzureDiagnostics.|
 |ResourceProvider|Имя поставщика ресурсов. Всегда: MICROSOFT.SQL.|
 |Категория|Имя категории. Всегда: QueryStoreWaitStatistics.|
 |OperationName|Имя операции. Всегда: QueryStoreWaitStatisticsEvent.|
@@ -356,16 +356,16 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |query_id_d|Идентификатор запроса в хранилище запросов.|
 |plan_id_d|Идентификатор плана в хранилище запросов.|
 
-Дополнительные сведения о [статистических данных времени ожидания хранилища запросов](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Дополнительные сведения о [статистических данных времени ожидания хранилища запросов](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 ### <a name="errors-dataset"></a>Набор данных ошибок
 
-|Свойство|Описание|
+|Свойство|ОПИСАНИЕ|
 |---|---|
 |TenantId|Идентификатор клиента.|
 |SourceSystem|Всегда: Azure.|
 |TimeGenerated [UTC]|Метка времени, когда был записан журнал.|
-|Тип|Всегда: AzureDiagnostics.|
+|type|Всегда: AzureDiagnostics.|
 |ResourceProvider|Имя поставщика ресурсов. Всегда: MICROSOFT.SQL.|
 |Категория|Имя категории. Всегда: Errors.|
 |OperationName|Имя операции. Всегда: ErrorEvent.|
@@ -380,7 +380,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |Сообщение|Сообщение об ошибке в виде обычного текста.|
 |user_defined_b|Указывает, установлен ли бит ошибки пользователем.|
 |error_number_d|Код ошибки.|
-|Severity|Серьезность ошибки.|
+|Уровень серьезности|Серьезность ошибки.|
 |state_d|Состояние ошибки.|
 |query_hash_s|Хэш запроса, завершенного сбоем, если он доступен.|
 |query_plan_hash_s|Хэш плана запроса для запроса, завершенного сбоем, если он доступен.|
@@ -389,12 +389,12 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="database-wait-statistics-dataset"></a>Набор данных статистики времени ожидания базы данных
 
-|Свойство|Описание|
+|Свойство|ОПИСАНИЕ|
 |---|---|
 |TenantId|Идентификатор клиента.|
 |SourceSystem|Всегда: Azure.|
 |TimeGenerated [UTC]|Метка времени, когда был записан журнал.|
-|Тип|Всегда: AzureDiagnostics.|
+|type|Всегда: AzureDiagnostics.|
 |ResourceProvider|Имя поставщика ресурсов. Всегда: MICROSOFT.SQL.|
 |Категория|Имя категории. Всегда: DatabaseWaitStatistics.|
 |OperationName|Имя операции. Всегда: DatabaseWaitStatisticsEvent.|
@@ -414,16 +414,16 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |delta_wait_time_ms_d|Общее время ожидания в течение периода.|
 |delta_waiting_tasks_count_d|Число ожидающих задач.|
 
-Дополнительные сведения о [статистике времени ожидания базы данных](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Дополнительные сведения о [статистике времени ожидания базы данных](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 ### <a name="time-outs-dataset"></a>Набор данных времени ожидания
 
-|Свойство|Описание|
+|Свойство|ОПИСАНИЕ|
 |---|---|
 |TenantId|Идентификатор клиента.|
 |SourceSystem|Всегда: Azure.|
 |TimeGenerated [UTC]|Метка времени, когда был записан журнал.|
-|Тип|Всегда: AzureDiagnostics.|
+|type|Всегда: AzureDiagnostics.|
 |ResourceProvider|Имя поставщика ресурсов. Всегда: MICROSOFT.SQL.|
 |Категория|Имя категории. Всегда: Timeouts.|
 |OperationName|Имя операции. Всегда: TimeoutEvent.|
@@ -441,12 +441,12 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="blockings-dataset"></a>Набор данных блокировки
 
-|Свойство|Описание|
+|Свойство|ОПИСАНИЕ|
 |---|---|
 |TenantId|Идентификатор клиента.|
 |SourceSystem|Всегда: Azure.|
 |TimeGenerated [UTC]|Метка времени, когда был записан журнал.|
-|Тип|Всегда: AzureDiagnostics.|
+|type|Всегда: AzureDiagnostics.|
 |ResourceProvider|Имя поставщика ресурсов. Всегда: MICROSOFT.SQL.|
 |Категория|Имя категории. Всегда: Blocks.|
 |OperationName|Имя операции. Всегда: BlockEvent.|

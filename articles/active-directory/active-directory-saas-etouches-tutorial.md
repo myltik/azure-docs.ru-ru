@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 76cccaa8-859c-4c16-9d1d-8a6496fc7520
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 3cd9e9d6aae924369065ca492b1f6380c0ddc5fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bc111d6805af9e4f86ab91b6673a0d52dca78223
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Руководство. Интеграция Azure Active Directory с etouches
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с etouches, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление etouches из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-etouches-from-the-gallery"></a>Добавление etouches из коллекции
 Чтобы настроить интеграцию etouches с Azure AD, необходимо добавить etouches из коллекции в список управляемых приложений SaaS.
@@ -107,9 +107,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения etouches](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://www.eiseverywhere.com/<instance name>`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://www.eiseverywhere.com/<instance name>`
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Их необходимо заменить на фактический URL-адрес входа и идентификатор, как описано далее в этом руководстве.
@@ -125,17 +125,17 @@ ms.lasthandoff: 10/11/2017
     | ------------------- | -------------------- |
     | Email | user.mail |    
     
-    а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+    a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 
     ![Добавление атрибута](./media/active-directory-saas-etouches-tutorial/tutorial_attribute_04.png)
 
     ![Диалоговое окно добавления атрибута](./media/active-directory-saas-etouches-tutorial/tutorial_attribute_05.png)
 
-    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+    Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
 
     c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
     
-    г) Нажмите кнопку **ОК**. 
+    d. Нажмите кнопку **ОК**. 
 
 6. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
@@ -149,9 +149,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка etouches](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_06.png) 
 
-    а. Войдите в приложение **etouches** с правами администратора.
+    a. Войдите в приложение **etouches** с правами администратора.
    
-    b. Перейдите к настройке **SAML**.
+    Б. Перейдите к настройке **SAML**.
 
     c. Перейдите в раздел **General Settings** (Общие параметры), откройте в Блокноте скачанный с портала Azure сертификат, скопируйте его содержимое и вставьте в текстовое поле IDP metadata (Метаданные поставщика удостоверений). 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 10/11/2017
 
     f. Это действие открывает страницу единого входа. Если единый вход работает, можно настроить имя пользователя.
 
-    g. В поле Username (Имя пользователя) выберите значение **emailaddress**, как показано на изображении ниже. 
+    ж. В поле Username (Имя пользователя) выберите значение **emailaddress**, как показано на изображении ниже. 
 
     h. Скопируйте значение **SP entity ID** (Идентификатор сущности SP) и вставьте его в текстовое поле **Идентификатор** в разделе **Домены и URL-адреса приложения etouches** на портале Azure.
 
@@ -194,13 +194,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-etouches-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-an-etouches-test-user"></a>Создание тестового пользователя etouches
 

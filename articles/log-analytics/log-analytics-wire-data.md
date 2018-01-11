@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 3bb4c82268fe7805227c213000dc803307876fe7
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Решение Wire Data 2.0 (предварительная версия) в Log Analytics
 
@@ -58,10 +58,10 @@ ms.lasthandoff: 10/20/2017
 
 | **Подключенный источник** | **Поддерживаются** | **Описание** |
 | --- | --- | --- |
-| Агенты Windows | Да | Решение "Данные передачи" анализирует и собирает данные из компьютеров агентов Windows. <br><br> Помимо [агента OMS](log-analytics-windows-agents.md) для агентов Windows необходим агент зависимостей Майкрософт. Полный список версий операционных систем см. в разделе [Поддерживаемые операционные системы](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems). |
-| Агенты Linux | Да | Решение "Данные передачи" анализирует и собирает данные из компьютеров агентов Linux.<br><br> Помимо [агента OMS](log-analytics-quick-collect-linux-computer.md) для агентов Linux необходим агент зависимостей Майкрософт. Полный список версий операционных систем см. в разделе [Поддерживаемые операционные системы](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems). |
-| Группа управления System Center Operations Manager | Да | Решение "Данные передачи" анализирует и собирает данные из агентов Windows и Linux в подключенной [группе управления System Center Operations Manager](log-analytics-om-agents.md). <br><br> Требуется прямое подключение из агента System Center Operations Manager к Log Analytics. Данные пересылаются из группы управления в Log Analytics. |
-| Учетная запись хранения Azure. | Нет | Решение "Данные передачи" собирает данные из компьютеров агента, поэтому данные из службы хранилища Azure не собираются. |
+| Агенты Windows | Yes | Решение "Данные передачи" анализирует и собирает данные из компьютеров агентов Windows. <br><br> Помимо [агента OMS](log-analytics-windows-agent.md) для агентов Windows необходим агент зависимостей Майкрософт. Полный список версий операционных систем см. в разделе [Поддерживаемые операционные системы](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems). |
+| Агенты Linux | Yes | Решение "Данные передачи" анализирует и собирает данные из компьютеров агентов Linux.<br><br> Помимо [агента OMS](log-analytics-quick-collect-linux-computer.md) для агентов Linux необходим агент зависимостей Майкрософт. Полный список версий операционных систем см. в разделе [Поддерживаемые операционные системы](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems). |
+| Группа управления System Center Operations Manager | Yes | Решение "Данные передачи" анализирует и собирает данные из агентов Windows и Linux в подключенной [группе управления System Center Operations Manager](log-analytics-om-agents.md). <br><br> Требуется прямое подключение из агента System Center Operations Manager к Log Analytics. Данные пересылаются из группы управления в Log Analytics. |
+| Учетная запись хранения Azure. | Нет  | Решение "Данные передачи" собирает данные из компьютеров агента, поэтому данные из службы хранилища Azure не собираются. |
 
 В ОС Windows System Center Operations Manager и Log Analytics используют Microsoft Monitoring Agent для сбора и отправки данных. В зависимости от контекста этот агент называется агентом System Center Operations Manager, агентом OMS, агентом Log Analytics, MMA или прямым агентом. System Center Operations Manager и Log Analytics предоставляют немного разные версии MMA. В каждой из этих версий предусмотрена возможность отправлять отчеты в System Center Operations Manager, Log Analytics или в оба решения.
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 10/20/2017
 
 При использовании Direct Agent необходимо настроить агент OMS для подключения к Log Analytics или шлюзу OMS. Шлюз OMS можно скачать в [Центре загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 - Требуется предложение решения [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing).
 - Если вы используете предыдущую версию решения "Данные передачи", сначала необходимо ее удалить. Тем не менее все данные, зафиксированные с помощью исходного решения "Данные передачи", по-прежнему будут доступны в Wire Data 2.0 и для поиска по журналам.
@@ -193,7 +193,7 @@ ms.lasthandoff: 10/20/2017
 
 
 
-## <a name="configuration"></a>Конфигурация
+## <a name="configuration"></a>Параметр Configuration
 
 Выполните следующие действия, чтобы настроить решение "Данные передачи" в своих рабочих областях.
 
@@ -208,7 +208,7 @@ ms.lasthandoff: 10/20/2017
 
 Выполните приведенные шаги, чтобы установить агент зависимостей на каждом компьютере Windows.
 
-1. Установите агент OMS, выполнив действия, приведенные в статье [Подключение компьютеров Windows к службе Log Analytics в Azure](log-analytics-windows-agents.md).
+1. Установите агент OMS, выполнив действия, приведенные в статье [Подключение компьютеров Windows к службе Log Analytics в Azure](log-analytics-windows-agent.md).
 2. Скачайте агент зависимостей для Windows, используя ссылку в предыдущем разделе, а затем запустите его с помощью команды `InstallDependencyAgent-Windows.exe`.
 3. Следуйте инструкциям мастера для установки агента.
 4. Если агент зависимостей не запускается, просмотрите подробные сведения об ошибке в записях журналов. В агентах Windows каталогом журналов является каталог %Programfiles%\Microsoft Dependency Agent\logs.
@@ -252,7 +252,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Файлы для агента зависимостей размещаются в следующих каталогах.
 
-| **Файлы** | **Расположение** |
+| **Файлы** | **Местоположение.** |
 | --- | --- |
 | Основные файлы | /opt/microsoft/dependency-agent |
 | Файлы журналов | /var/opt/microsoft/dependency-agent/log |
@@ -420,7 +420,7 @@ rpm -e dependency-agent dependency-agent-connector
 
 Для каждого типа входных данных создается запись с данными о типе _WireData_. У этих записей есть свойства, приведенные в таблице ниже.
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 |---|---|
 | Компьютер | Имя компьютера, на котором были собраны данные |
 | TimeGenerated | Время создания записи |
@@ -431,7 +431,7 @@ rpm -e dependency-agent dependency-agent-connector
 | IPVersion | Версия IP |
 | Направление | Входящий или исходящий |
 | MaliciousIP | IP-адрес известного вредоносного источника |
-| Severity | Опасность потенциально вредоносной программы |
+| Уровень серьезности | Опасность потенциально вредоносной программы |
 | RemoteIPCountry | Страна удаленного IP-адреса |
 | ManagementGroupName | Имя группы управления Operations Manager |
 | SourceSystem | Источник, на котором были собраны данные |

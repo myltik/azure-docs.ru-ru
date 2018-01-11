@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 29fea32a-fa20-47b2-9e24-26feb47b0ae6
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 29a88b2efdb9f0f33f7933bc654a5a0fdf589c5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b69cf1c42cbc6aedb064378271e2c631b4be39f3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Руководство. Интеграция Azure Active Directory с Bonusly
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с приложением Bonusly, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Bonusly из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-bonusly-from-the-gallery"></a>Добавление Bonusly из коллекции
 Чтобы настроить интеграцию Bonusly с Azure AD, необходимо добавить Bonusly из коллекции в список управляемых приложений SaaS.
@@ -120,7 +120,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-bonus-tutorial/tutorial_general_400.png)
 
-6. В разделе **Настройка Bonusly** щелкните **Настроить Bonusly**, чтобы открыть окно **Настройка единого входа**. Скопируйте **идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+6. В разделе **Настройка Bonusly** щелкните **Настроить Bonusly**, чтобы открыть окно **Настройка единого входа**. Скопируйте **идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Quick Reference** (Краткий справочник).
 
     ![Конфигурация Bonusly](./media/active-directory-saas-bonus-tutorial/tutorial_bonusly_configure.png) 
 
@@ -135,15 +135,15 @@ ms.lasthandoff: 10/11/2017
    
     ![Диалоговое окно SAML в Bonusly](./media/active-directory-saas-bonus-tutorial/ic773687.png "Bonusly")
    
-    а. В текстовое поле **IdP SSO target URL** (Целевой URL-адрес единого входа IdP) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
+    a. В текстовое поле **IdP SSO target URL** (Целевой URL-адрес единого входа IdP) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
    
-    b. В текстовое поле **IdP Issuer** (Издатель IdP) вставьте значение **идентификатора сущности SAML**, скопированное на портале Azure. 
+    Б. В текстовое поле **IdP Issuer** (Издатель IdP) вставьте значение **идентификатора сущности SAML**, скопированное на портале Azure. 
 
     c. В текстовое поле **IdP Login URL** (URL-адрес входа IdP) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
 
     d. Вставьте значение **Отпечаток** с портала Azure в текстовое поле **Cert Fingerprint** (Отпечаток сертификата).
    
-11. Щелкните **Сохранить**.
+11. Выберите команду **Сохранить**.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -172,13 +172,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-bonus-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-bonusly-test-user"></a>Создание тестового пользователя приложения Bonusly
 
@@ -212,13 +212,13 @@ ms.lasthandoff: 10/11/2017
    
     ![Добавление пользователя](./media/active-directory-saas-bonus-tutorial/ic781045.png "Добавление пользователя")  
 
-    а. В текстовое поле **First name** (Имя) введите имя пользователя, например **Britta**.
+    a. В текстовое поле **First name** (Имя) введите имя пользователя, например **Britta**.
 
-    b. В текстовое поле **Last name** (Фамилия) введите фамилию пользователя, например **Simon**.
+    Б. В текстовое поле **Last name** (Фамилия) введите фамилию пользователя, например **Simon**.
  
     c. В текстовое поле **Email** (Электронная почта) введите адрес электронной почты пользователя, например **brittasimon@contoso.com**.
 
-    г) Щелкните **Сохранить**.
+    d. Выберите команду **Сохранить**.
    
      >[!NOTE]
      >Владелец учетной записи Azure AD получит сообщение электронной почты со ссылкой для подтверждения учетной записи перед ее активацией.

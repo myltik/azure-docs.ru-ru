@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
 ms.openlocfilehash: 6759d3f49e15a3b01022df318a83563ad6bd859f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Публикация содержимого на портале Azure
 > [!div class="op_single_selector"]
@@ -68,7 +68,7 @@ ms.lasthandoff: 10/11/2017
 > Когда вы обновляете срок действия последовательного указателя, URL-адрес изменяется.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Публикация ресурса с помощью портала
-1. Создание учетной записи служб мультимедиа Azure с помощью [портала Azure](https://portal.azure.com/).
+1. Выберите учетную запись служб мультимедиа Azure на [портале Azure](https://portal.azure.com/).
 2. Установите флажок **Параметры** > **Ресурсы-контейнеры**. Выберите ресурс, который требуется опубликовать.
 3. Нажмите кнопку **Опубликовать**.
 4. Выберите тип указателя.

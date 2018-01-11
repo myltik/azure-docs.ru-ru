@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9815e01dffb0342979f17974527b559de8146fed
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Использование веб-перехватчиков Azure для наблюдения за уведомлениями о заданиях служб мультимедиа с использованием .NET
-При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Уведомления о заданиях служб мультимедиа можно отслеживать с помощью объектов webhook Azure или [хранилища очередей Azure](media-services-dotnet-check-job-progress-with-queues.md). В этой статье приведены сведения о работе с веб-перехватчиками.
+При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Уведомления о заданиях служб мультимедиа можно отслеживать с помощью объектов webhook Azure или [хранилища очередей Azure](media-services-dotnet-check-job-progress-with-queues.md). В этой статье показано, как работать с веб-привязок.
 
-В этой статье вы узнаете, как:
+В этой статье показано, как
 
 *  Определить функцию Azure, настроенную для ответа на объекты webhook. 
     
@@ -33,11 +33,11 @@ ms.lasthandoff: 10/11/2017
     >Прежде чем продолжить, убедитесь, что вы понимаете, как работают [привязки HTTP и webhook в Функциях Azure](../azure-functions/functions-bindings-http-webhook.md).
     >
     
-* Добавьте объект webhook в задачу кодирования и укажите URL-адрес объекта webhook, а также секретный ключ, соответствующий этому объекту. Вы найдете пример, который добавит веб-перехватчик к задаче кодирования в конце раздела.  
+* Добавьте объект webhook в задачу кодирования и укажите URL-адрес объекта webhook, а также секретный ключ, соответствующий этому объекту. Вы увидите пример, который добавляет веб-перехватчика задачи кодирования в конце статьи.  
 
-Определения разных Функций Azure для служб мультимедиа .NET (включая приведенные в этом разделе) см. [здесь](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Вы можете найти определения из различных Media Services .NET Azure функции (включая показанному в этой статье) [здесь](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Ниже перечислены необходимые условия для выполнения действий, описанных в этом учебнике.
 
@@ -54,9 +54,9 @@ ms.lasthandoff: 10/11/2017
 
 При разработке функций служб мультимедиа удобно добавить переменные среды, которые будут использоваться в функциях. Чтобы настроить параметры приложения, щелкните ссылку "Настроить параметры приложения". 
 
-Раздел [параметров приложения](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) определяет параметры, используемые в веб-перехватчике, определенном в этом разделе. Добавьте также в приложение параметры ниже. 
+[Параметры приложения](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) раздел определяет параметры, используемые в веб-перехватчика, определенные в этой статье. Добавьте также в приложение параметры ниже. 
 
-|Имя|Определение|Пример| 
+|ИМЯ|Определение|Пример| 
 |---|---|---|
 |SigningKey |Ключ подписи.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Адрес конечной точки объекта webhook. После создания функции веб-перехватчика скопируйте URL-адрес из ссылки **Получить URL-адрес функции**. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="files"></a>Файлы
 
-Функция Azure связана с файлами кода и другими файлами, описание которых представлено в данной статье. По умолчанию она связана с файлами **function.json** и **run.csx** (C#). Вам потребуется добавить файл **project.json**. Ниже приведены определения этих файлов.
+Функция Azure связана с файлами кода и другими файлами, описание которых представлено в данной статье. По умолчанию она связана с файлами **function.json** и **run.csx** (C#). Необходимо добавить **project.json** файла. Ниже приведены определения этих файлов.
 
 ![файлов](./media/media-services-azure-functions/media-services-azure-functions003.png)
 

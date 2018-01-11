@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Отправка заданий обрезки из Azure Media Clipper
 Чтобы обрабатывать отправку заданий обрезки, для Azure Media Clipper требуется реализация метода **submitSubclipCallback**. Эта функция служит для реализации отправки методом HTTP POST выходных данных Clipper в веб-службу. Эта веб-служба является местом, куда можно отправить задание кодирования. Выходные данные Clipper представляют собой либо предустановку кодирования Media Encoder Standard для преобразованных для просмотра заданий, либо полезные данные REST API для динамических вызовов фильтров манифестов. Такая модель сквозной передачи необходима, так как данные учетной записи служб мультимедиа не защищены в браузере клиента.
@@ -151,7 +151,7 @@ var subclipper = new subclipper({
 }
 ```
 
-Чтобы выполнить задание кодирования, отправьте задание кодирования Media Encoder Standard со связанной предустановкой. В этой статье приведены сведения об отправке заданий кодирования с помощью [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) или [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+Чтобы выполнить задание кодирования, отправьте задание кодирования Media Encoder Standard со связанной предустановкой. В этой статье приведены сведения об отправке заданий кодирования с помощью [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) или [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset).
 
 ## <a name="quickly-creating-video-clips-without-encoding"></a>Быстро создание видеоклипов без кодирования
 Вместо того чтобы создавать задание кодирования, можно с помощью Azure Media Clipper создать фильтры динамического манифеста. Для фильтров не требуется кодирование, они быстро создаются, так как не нужно создавать новый ресурс. Контракт на вывод для обрезки с фильтром представляет собой объект JSON со следующими свойствами:
@@ -227,4 +227,4 @@ var subclipper = new subclipper({
 }
 ```
 
-Чтобы отправить вызов REST для создания фильтра динамического манифеста, отправьте связанные полезные данные фильтра с помощью [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).
+Чтобы отправить вызов REST для создания фильтра динамического манифеста, отправьте связанные полезные данные фильтра с помощью [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest).

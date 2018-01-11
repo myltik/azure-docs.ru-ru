@@ -4,7 +4,7 @@ description: "В этом разделе приводятся решения р�
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: d8fb9c71ede7558d12ce3e22dcd359ed82527e43
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
-ms.translationtype: HT
+ms.openlocfilehash: d0bdce43796ea555fc20ddc56a2a670042d4f16b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Проблема при настройке федеративного единого входа для приложения не из коллекции
 
@@ -49,7 +49,7 @@ Azure AD выбирает формат атрибута NameID (идентифи
 
 3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
+4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/31/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Технологии шифрования Azure. Защита неактивных персональных данных с помощью шифрования
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="azure-key-vault"></a>Хранилище ключей Azure
 
-[Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) предоставляет безопасное хранилище ключей, которые используются при шифровании неактивных данных в службах Azure. Это рекомендованное хранилище ключей и решение по управлению ими. Управление ключами шифрования имеет важное значение при защите хранимых данных.
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) предоставляет безопасное хранилище ключей, которые используются при шифровании неактивных данных в службах Azure. Это рекомендованное хранилище ключей и решение по управлению ими. Управление ключами шифрования имеет важное значение при защите хранимых данных.
 
 #### <a name="how-do-i-use-azure-key-vault-to-protect-keys-that-encrypt-personal-data"></a>Защита ключей шифрования персональных данных с помощью Azure Key Vault
 
@@ -79,13 +79,13 @@ Azure Key Vault предоставляет ключ с программной з
 
 Вы также можете создать ключ в своем локальном аппаратном модуле безопасности и передать его в аппаратные модули безопасности в службе Key Vault так, чтобы ключ не покидал их пределы.
 
-Подробные инструкции по использованию Azure Key Vault см. в статье [Приступая к работе с хранилищем ключей Azure](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started).
+Подробные инструкции по использованию Azure Key Vault см. в статье [Приступая к работе с хранилищем ключей Azure](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
 
-Сведения о списке командлетов PowerShell, используемых с Azure Key Vault, см. в статье [Azure​RM.​Key​Vault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
+Сведения о списке командлетов PowerShell, используемых с Azure Key Vault, см. в статье [Azure​RM.​Key​Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
 ### <a name="azure-disk-encryption-for-windows"></a>Шифрование дисков Azure для Windows
 
-[Шифрование дисков Azure для виртуальных машин IaaS под управлением Windows и Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) позволяет защитить неактивные персональные данные на виртуальных машинах Azure. Эта возможность интегрируется с Azure Key Vault. Служба шифрования дисков Azure шифрует диски ОС и диски данных на основе технологии [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) в Windows и [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) в Linux. Шифрование дисков Azure поддерживается в Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, а также клиентах Windows 8 и Windows 10.
+[Шифрование дисков Azure для виртуальных машин IaaS под управлением Windows и Linux](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) позволяет защитить неактивные персональные данные на виртуальных машинах Azure. Эта возможность интегрируется с Azure Key Vault. Служба шифрования дисков Azure шифрует диски ОС и диски данных на основе технологии [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) в Windows и [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) в Linux. Шифрование дисков Azure поддерживается в Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, а также клиентах Windows 8 и Windows 10.
 
 #### <a name="how-do-i-use-azure-disk-encryption-to-protect-personal-data"></a>Защита персональных данных с помощью шифрования дисков Azure
 
@@ -103,11 +103,11 @@ Azure обновит виртуальную машину и конфигурац
 
 ![](media/protect-personal-data-at-rest/create-key.png)
 
-Подробные инструкции для определенных сценариев развертывания и взаимодействия с пользователем см. в статье [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).
+Подробные инструкции для определенных сценариев развертывания и взаимодействия с пользователем см. в статье [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
 
 ### <a name="azure-storage-service-encryption"></a>Шифрование службы хранилища Azure
 
-[Шифрование службы хранилища Azure (SSE) для неактивных данных](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) помогает защитить данные в соответствии с предложениями по безопасности и соответствию вашей организации. Служба хранилища Azure автоматически шифрует данные с помощью 256-битного шифрования AES перед сохранением в хранилище и расшифровывает их перед извлечением. Эта служба доступна для файлов и больших двоичных объектов Azure.
+[Шифрование службы хранилища Azure (SSE) для неактивных данных](https://docs.microsoft.com/azure/storage/storage-service-encryption) помогает защитить данные в соответствии с предложениями по безопасности и соответствию вашей организации. Служба хранилища Azure автоматически шифрует данные с помощью 256-битного шифрования AES перед сохранением в хранилище и расшифровывает их перед извлечением. Эта служба доступна для файлов и больших двоичных объектов Azure.
 
 #### <a name="how-do-i-use-storage-service-encryption-to-protect-personal-data"></a>Защита персональных данных с помощью шифрования службы хранения
 
@@ -129,13 +129,13 @@ Azure обновит виртуальную машину и конфигурац
 
 После включения шифрования скопируйте данные в учетную запись хранения с помощью одного из следующих методов:
 
-1. Скопируйте большие двоичные объекты или файлы с помощью [служебной программы командной строки AzCopy](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy).
+1. Скопируйте большие двоичные объекты или файлы с помощью [служебной программы командной строки AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy).
 
-2. [Подключите общую папку с помощью SMB](https://docs.microsoft.com/en-us/azure/storage/storage-file-how-to-use-files-windows), чтобы иметь возможность копировать файлы, используя такие служебные программы, как Robocopy.
+2. [Подключите общую папку с помощью SMB](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-windows), чтобы иметь возможность копировать файлы, используя такие служебные программы, как Robocopy.
 
-3. Скопируйте данные большого двоичного объекта или файла в и из хранилища BLOB-объектов или между учетными записями хранения с помощью [клиентских библиотек хранилища, таких как .NET](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs).
+3. Скопируйте данные большого двоичного объекта или файла в и из хранилища BLOB-объектов или между учетными записями хранения с помощью [клиентских библиотек хранилища, таких как .NET](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-blobs).
 
-4.  Отправьте большие двоичные объекты в учетную запись хранения с включенным шифрованием с помощью [обозревателя хранилищ](https://docs.microsoft.com/en-us/azure/storage/storage-explorers).
+4.  Отправьте большие двоичные объекты в учетную запись хранения с включенным шифрованием с помощью [обозревателя хранилищ](https://docs.microsoft.com/azure/storage/storage-explorers).
 
 ### <a name="transparent-data-encryption"></a>Прозрачное шифрование данных
 
@@ -159,7 +159,7 @@ Azure обновит виртуальную машину и конфигурац
 
 ![Включение шифрования данных](media/protect-personal-data-at-rest/turn-data-encryption-on.png)
 
-Инструкции по включению TDE и сведения о расшифровке баз данных, защищенных на основе прозрачного шифрования данных, см. в статье [Transparent Data Encryption for Azure SQL Database and Data Warehouse](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) (Прозрачное шифрование данных с помощью базы данных SQL Azure и хранилища данных).
+Инструкции по включению TDE и сведения о расшифровке баз данных, защищенных на основе прозрачного шифрования данных, см. в статье [Transparent Data Encryption for Azure SQL Database and Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) (Прозрачное шифрование данных с помощью базы данных SQL Azure и хранилища данных).
 
 ## <a name="summary"></a>Сводка
 
@@ -169,10 +169,10 @@ Azure обновит виртуальную машину и конфигурац
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- [Руководство по устранению неполадок шифрования дисков Azure](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg)
+- [Руководство по устранению неполадок шифрования дисков Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 
-- [Шифрование виртуальной машины Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
+- [Шифрование виртуальной машины Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
 
-- [Шифрование данных в Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption)
+- [Шифрование данных в Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
 
-- [Шифрование неактивных данных базы данных в Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest)
+- [Шифрование неактивных данных базы данных в Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest)

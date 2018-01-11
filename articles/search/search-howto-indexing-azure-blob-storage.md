@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/22/2017
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Индексирование документов в хранилище BLOB-объектов Azure с помощью службы поиска Azure
 В этой статье показано, как использовать поиск Azure для индексации документов (например, файлов PDF, Microsoft Office и некоторых других распространенных форматов), которые хранятся в хранилище BLOB-объектов Azure. Во-первых, объясняются основные принципы установки и настройки индексатора больших двоичных объектов. Затем предлагается более углубленно изучить возможные сценарии и поведения.
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="setting-up-blob-indexing"></a>Настройка индексирования больших двоичных объектов
 Можно настроить индексатор хранилище BLOB-объектов Azure с помощью следующих инструментов:
 
-* [Портал Azure](https://ms.portal.azure.com)
+* [портал Azure](https://ms.portal.azure.com)
 * [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) Поиска Azure;
 * [пакета SDK .NET для Поиска Azure](https://aka.ms/search-sdk);
 
@@ -225,28 +225,6 @@ ms.lasthandoff: 10/11/2017
 
 Если присутствуют оба параметра `indexedFileNameExtensions` и `excludedFileNameExtensions`, то Azure сначала выполняет поиск по `indexedFileNameExtensions`, а затем по `excludedFileNameExtensions`. Это означает, что если одно расширение файла присутствует в обоих списках, объект будет исключен из индексации.
 
-### <a name="dealing-with-unsupported-content-types"></a>Работа с неподдерживаемыми типами содержимого
-
-По умолчанию индексатор больших двоичных объектов останавливается, как только обнаружит большой двоичный объект с неподдерживаемым типом содержимого (например, изображение). Чтобы пропустить определенные типы содержимого, можно воспользоваться параметром `excludedFileNameExtensions`. Тем не менее может потребоваться индексировать большие двоичные объекты, не зная все возможные типы их содержимого. Чтобы продолжить индексирование при обнаружении неподдерживаемого типа содержимого, задайте для параметра конфигурации `failOnUnsupportedContentType` значение `false`:
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    }
-
-### <a name="ignoring-parsing-errors"></a>Игнорирование ошибок анализа
-
-Логика извлечения документов службы поиска Azure несовершенна, поэтому иногда происходит сбой анализа документов поддерживаемого типа содержимого, например DOCX или PDF. Если вы не хотите прерывать индексирование в таких случаях, задайте для параметров конфигурации `maxFailedItems` и `maxFailedItemsPerBatch` приемлемые значения. Например:
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    }
-
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Управление индексированием частей большого двоичного объекта
 
@@ -275,6 +253,31 @@ ms.lasthandoff: 10/11/2017
 | --- | --- | --- |
 | AzureSearch_Skip |True |Указывает индексатору больших двоичных объектов пропустить весь большой двоичный объект. Не извлекаются ни метаданные, ни содержимое. Это полезно, когда обработка определенного большого двоичного объекта постоянно завершается сбоем и индексирование прерывается. |
 | AzureSearch_SkipContent |True |Это эквивалент параметра `"dataToExtract" : "allMetadata"`, описанного [выше](#PartsOfBlobToIndex), относящегося к определенному большому двоичному объекту. |
+
+<a name="DealingWithErrors"></a>
+## <a name="dealing-with-errors"></a>Обработка ошибок
+
+По умолчанию индексатор больших двоичных объектов останавливается, как только обнаружит большой двоичный объект с неподдерживаемым типом содержимого (например, изображение). Чтобы пропустить определенные типы содержимого, можно воспользоваться параметром `excludedFileNameExtensions`. Тем не менее может потребоваться индексировать большие двоичные объекты, не зная все возможные типы их содержимого. Чтобы продолжить индексирование при обнаружении неподдерживаемого типа содержимого, задайте для параметра конфигурации `failOnUnsupportedContentType` значение `false`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
+    }
+
+Для некоторых больших двоичных объектов поиска Azure не удается определить тип содержимого, или не удалось обработать документ в противном случае поддерживается тип содержимого. Чтобы пропустить этот режим сбоя, задайте `failOnUnprocessableDocument` параметра конфигурации значение false:
+
+      "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Вы также можете продолжить индексирование Если ошибки возникают в любой момент обработки, при анализе больших двоичных объектов или при добавлении документов в индексе. Чтобы пропустить определенное количество ошибок, задайте `maxFailedItems` и `maxFailedItemsPerBatch` нужные значения параметров конфигурации. Например: 
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+    }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Добавочное индексирование и обнаружение удаления 
 Когда для индексатора больших двоичных объектов вы настраиваете запуск по расписанию, повторно индексируются только измененные большие двоичные объекты. Они определяются по метке времени большого двоичного объекта `LastModified`.

@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,rajak
+editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/3/2017
+ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Инструкции и рекомендации для надежных коллекций в Azure Service Fabric
 В этом разделе приведены инструкции по использованию надежных коллекций и диспетчера надежных состояний. Цель этого руководства — помочь пользователям избежать распространенных ошибок.
@@ -33,6 +33,7 @@ ms.lasthandoff: 10/11/2017
 * Не создавайте транзакцию в операторе `using` другой транзакции, так как это может привести к возникновению взаимоблокировки.
 * Убедитесь, что реализация `IComparable<TKey>` правильна. Система использует соответствующую зависимость `IComparable<TKey>` для слияния контрольных точек и строк.
 * Используете блокировку изменения при чтении элемента с целью обновить его, чтобы предотвратить взаимоблокировки определенного класса.
+* Примите во внимание хранение число коллекций надежного на секцию, быть не более 1000. Предпочтение надежного коллекций с больше элементов больше надежного коллекций с меньшим числом элементов.
 * Постарайтесь поддерживать размер элементов (например, TKey + TValue для надежного словаря) до 80 КБ: чем меньше, тем лучше. Это позволит уменьшить объем использования кучи больших объектов, а также снизить требования к дискам и сетевым операциям ввода-вывода. Часто это также помогает уменьшить репликацию повторяющихся данных при обновлении только небольшой части значения. Распространенный способ добиться этого в надежном словаре — разбить строки на несколько строк.
 * Возможно, вас заинтересует применение функций архивации и восстановления для аварийного восстановления.
 * Избегайте совместного использования операций с одной сущностью и операций с несколькими сущностями (например, `GetCountAsync`, `CreateEnumerableAsync`) в одной и той же транзакции ввиду различных уровней изоляции.
@@ -54,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 * [Внутренние компоненты Reliable State Manager и Reliable Collections](service-fabric-reliable-services-reliable-collections-internals.md)
 * Управление данными
   * [Резервное копирование и восстановление](service-fabric-reliable-services-backup-restore.md)
-  * [Notifications](service-fabric-reliable-services-notifications.md)
+  * [Уведомления](service-fabric-reliable-services-notifications.md)
   * [Влияние сериализации данных на обновление приложений](service-fabric-application-upgrade-data-serialization.md)
   * [Конфигурация диспетчера надежных состояний](service-fabric-reliable-services-configuration.md)
 * Прочее

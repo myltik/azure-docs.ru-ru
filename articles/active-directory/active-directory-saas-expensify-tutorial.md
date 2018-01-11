@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 1e761484-7a2f-4321-91f4-6d5d0b69344e
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/2/2017
 ms.author: jeedes
-ms.openlocfilehash: 68131663c96137b6a56a566e8207a14698c05608
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 730c1e1eeb9fc1a7037ffa1a5815d5e9d484a52d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Руководство. Интеграция Azure Active Directory с Expensify
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Expensify, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Expensify из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-expensify-from-the-gallery"></a>Добавление Expensify из коллекции
 Чтобы настроить интеграцию Expensify с Azure AD, необходимо добавить это приложение из коллекции в список управляемых приложений SaaS.
@@ -108,9 +108,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах для единого входа в приложение Expensify](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите следующий URL-адрес: `https://www.expensify.com/authentication/saml/login`
+    a. В текстовом поле **URL-адрес для входа** введите следующий URL-адрес: `https://www.expensify.com/authentication/saml/login`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://www.<companyname>.expensify.com`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://www.<companyname>.expensify.com`
 
     > [!NOTE] 
     > Замените часть `<companyname>` URL-адреса идентификатора доменным именем вашей компании. Ознакомьтесь с примером `https://contoso.expensify.com` выше. Чтобы получить это значение, обратитесь в [службу поддержки клиентов Expensify](mailto:help@expensify.com).
@@ -127,17 +127,17 @@ ms.lasthandoff: 10/11/2017
    
     ![Настройка единого входа](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_51.png)
     
-    а. Войдите в приложение Expensify.
+    a. Войдите в приложение Expensify.
     
-    b. На панели инструментов в верхней части экрана нажмите **Администратор**.
+    Б. На панели инструментов в верхней части экрана нажмите **Администратор**.
     
     c. На панели слева щелкните **Домен**.
     
-    г) Щелкните имя проверенного домена.
+    d. Щелкните имя проверенного домена.
     
     д. На панели слева щелкните **SAML**, а затем переведите переключатель в положение **Включено**.
     
-    Е. Откройте скачанные метаданные федерации из Azure AD в блокноте, скопируйте содержимое и вставьте его в текстовое поле **Метаданные поставщика удостоверений**.
+    f. Откройте скачанные метаданные федерации из Azure AD в блокноте, скопируйте содержимое и вставьте его в текстовое поле **Метаданные поставщика удостоверений**.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -167,13 +167,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-expensify-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-an-expensify-test-user"></a>Создание тестового пользователя Expensify
 

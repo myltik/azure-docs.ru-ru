@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 6b4b0e3ab126e70e4b27b971b15127aae0486bed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 309415a68308943f638195303ceb236569519472
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Руководство по интеграции Azure Active Directory с SAP Cloud Platform
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с SAP Cloud Platform, вам потребуется:
 
@@ -51,10 +51,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление SAP Cloud Platform из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-sap-cloud-platform-from-the-gallery"></a>Добавление SAP Cloud Platform из коллекции
 Чтобы настроить интеграцию SAP Cloud Platform с Azure AD, необходимо добавить SAP Cloud Platform из коллекции в список управляемых приложений SaaS.
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения SAP Cloud Platform](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
 
-    а. В текстовом поле **URL-адрес входа** введите URL-адрес, который пользователи используют для входа в приложение **Sign On URL**. Это URL-адрес защищенного ресурса для конкретной учетной записи в приложении SAP Cloud Platform. URL-адрес имеет следующий формат: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`.
+    a. В текстовом поле **URL-адрес входа** введите URL-адрес, который пользователи используют для входа в приложение **Sign On URL**. Это URL-адрес защищенного ресурса для конкретной учетной записи в приложении SAP Cloud Platform. URL-адрес имеет следующий формат: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`.
       
      >[!NOTE]
      >Это URL-адрес в приложении SAP Cloud Platform, запрашивающий аутентификацию пользователя.
@@ -122,7 +122,7 @@ ms.lasthandoff: 10/11/2017
     | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
     | `https://<subdomain>.hana.ondemand.com/<instancename>` |
 
-    b. В текстовом поле **Идентификатор** укажите URL-адрес SAP Cloud Platform в одном из следующих форматов: 
+    Б. В текстовом поле **Идентификатор** укажите URL-адрес SAP Cloud Platform в одном из следующих форматов: 
 
     | |
     |--|
@@ -165,9 +165,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Управление доверием](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic793931.png "Управление доверием")
    
-    а. Нажмите кнопку **Изменить**.
+    a. Нажмите кнопку **Изменить**.
 
-    b. Для параметра **Configuration Type** (Тип конфигурации) выберите значение **Custom** (Настраиваемая).
+    Б. Для параметра **Configuration Type** (Тип конфигурации) выберите значение **Custom** (Настраиваемая).
 
     c. В поле **Имя поставщика локальных служб**оставьте значение по умолчанию. Скопируйте это значение и вставьте его в поле **Идентификатор** в конфигурации Azure AD для SAP Cloud Platform.
 
@@ -177,15 +177,15 @@ ms.lasthandoff: 10/11/2017
 
     f. Для параметра **Force Authentication** (Принудительная аутентификация) выберите значение **Disabled** (Отключено).
 
-    ж. Щелкните **Сохранить**.
+    ж. Выберите команду **Сохранить**.
 
 9. После сохранения параметров на вкладке **Local Service Provider** (Поставщик локальных служб) выполните следующие действия, чтобы получить URL-адрес ответа:
    
     ![Получение метаданных](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic793930.png "Получение метаданных")
 
-    а. Скачайте файл метаданных SAP Cloud Platform, щелкнув ссылку **Get Metadata** (Получить метаданные).
+    a. Скачайте файл метаданных SAP Cloud Platform, щелкнув ссылку **Get Metadata** (Получить метаданные).
 
-    b. Откройте скачанный XML-файл метаданных SAP Cloud Platform, а затем найдите тег **ns3:AssertionConsumerService**.
+    Б. Откройте скачанный XML-файл метаданных SAP Cloud Platform, а затем найдите тег **ns3:AssertionConsumerService**.
  
     c. Скопируйте значение атрибута **Location** и вставьте его в текстовое поле **URL-адрес ответа** в конфигурации Azure AD для SAP Cloud Platform.
 
@@ -212,7 +212,7 @@ ms.lasthandoff: 10/11/2017
     
     ![Атрибуты](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic790804.png "Атрибуты") 
 
-    а. Щелкните **Add Assertion-Based Attribute** (Добавить атрибут на основе утверждений) и добавьте следующие атрибуты на основе утверждений:
+    a. Щелкните **Add Assertion-Based Attribute** (Добавить атрибут на основе утверждений) и добавьте следующие атрибуты на основе утверждений:
        
     | Атрибут утверждения | Атрибут субъекта |
     | --- | --- |
@@ -224,7 +224,7 @@ ms.lasthandoff: 10/11/2017
      >Конфигурация атрибутов зависит от способа разработки приложений в SCP, т. е. какие атрибуты предполагается использовать в ответе SAML и какое имя (атрибут субъекта) используется для доступа к этому атрибуту в коде.
      > 
     
-    b. **Атрибут по умолчанию** на снимке экрана предоставляется только для примера. Он не требуется для того, чтобы сценарий работал.  
+    Б. **Атрибут по умолчанию** на снимке экрана предоставляется только для примера. Он не требуется для того, чтобы сценарий работал.  
  
     c. Имена и значения для **атрибута субъекта** , показанные на снимке экрана, зависят от способа разработки приложения. Возможно, приложению требуются другие сопоставления.
 
@@ -266,13 +266,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-sap-cloud-platform-test-user"></a>Создание тестового пользователя SAP Cloud Platform
 
@@ -286,15 +286,15 @@ ms.lasthandoff: 10/11/2017
    
     ![Авторизации](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic790805.png "Авторизации")
    
-    а. Щелкните **Авторизация**.
+    a. Щелкните **Авторизация**.
 
-    b. Откройте вкладку **Пользователи** .
+    Б. Откройте вкладку **Пользователи** .
 
     c. В тестовом поле **Пользователь** введите электронный адрес пользователя.
 
     d. Щелкните **Назначить** , чтобы назначить роль пользователю.
 
-    д. Щелкните **Сохранить**.
+    д. Выберите команду **Сохранить**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 

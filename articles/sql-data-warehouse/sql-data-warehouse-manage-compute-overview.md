@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 3/23/2017
 ms.author: elbutter
 ms.openlocfilehash: 0d0d3b94fb50155ce0579d32e8ff78a47b9e3589
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Управление вычислительными ресурсами в хранилище данных SQL Azure (обзор)
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/25/2017
 | 600  | 6                  | 10                           |
 | 1000 | 10                 | 6                            |
 | 1200 | 12                 | 5                            |
-| 1500 | 15                 | 4                            |
+| 1500 | 15                 | 4.                            |
 | 2000 | 20                 | 3                            |
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
@@ -75,10 +75,10 @@ ms.lasthandoff: 10/25/2017
 
 |              | Приостановка и возобновление | Масштаб | Проверка состояния базы данных |
 | ------------ | ------------ | ----- | -------------------- |
-| Портал Azure | Да          | Да   | **Нет**               |
-| PowerShell   | Да          | Да   | Да                  |
-| Интерфейс REST API     | Да          | Да   | Да                  |
-| T-SQL        | **Нет**       | Да   | Да                  |
+| Портал Azure | Yes          | Yes   | **Нет**               |
+| PowerShell   | Yes          | Yes   | Yes                  |
+| ИНТЕРФЕЙС REST API     | Yes          | Yes   | Yes                  |
+| T-SQL        | **Нет**       | Yes   | Yes                  |
 
 
 

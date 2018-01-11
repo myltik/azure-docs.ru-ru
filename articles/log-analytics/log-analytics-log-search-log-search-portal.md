@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Создание поисков по журналам в Azure Log Analytics с помощью портала поиска по журналам
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы создать поиски на портале расширенной аналитики, а не на портале поиска по журналам, ознакомьтесь со статьей [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856587) (Начало работы с порталом аналитики).  Оба портала используют тот же язык запросов для доступа к одним и тем же данным в рабочей области Log Analytics.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Это руководство предполагает наличие рабочей области Log Analytics с хотя бы одним подключенным источником, который генерирует данные для анализа запросов.  
 
 - Если у вас нет рабочей области, вы можете создать ее бесплатно, выполнив действия, описанные в статье [Начало работы с рабочей областью Log Analytics](log-analytics-get-started.md).
-- Подключите хотя бы один агент [Windows](log-analytics-windows-agents.md) или [Linux](log-analytics-linux-agents.md) к рабочей области.  
+- Подключите хотя бы один агент [Windows](log-analytics-windows-agent.md) или [Linux](log-analytics-linux-agents.md) к рабочей области.  
 
 ## <a name="open-the-log-search-portal"></a>Открытие портала поиска по журналам
 Откройте портал поиска по журналам, используя  портал Azure или портал OMS.

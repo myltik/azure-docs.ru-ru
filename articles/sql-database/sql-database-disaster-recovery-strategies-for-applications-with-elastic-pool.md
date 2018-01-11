@@ -12,14 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
+ms.author: sashan
+ms.reviewer: carlrab
 ms.workload: Inactive
-ms.date: 04/07/2017
-ms.author: sashan;carlrab
-ms.openlocfilehash: 03bc991d5c1f644b439e9ebfa0d750cbf0c56764
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Стратегии аварийного восстановления для приложений с использованием пула эластичных баз данных SQL
 За последние годы мы увидели, что в облачных службах также могут возникать серьезные инциденты с работоспособностью. Базы данных SQL предоставляют несколько возможностей для обеспечения непрерывности бизнес-процессов приложения при возникновении таких инцидентов. [Пулы эластичных баз данных](sql-database-elastic-pool.md) и изолированные базы данных поддерживают одинаковые возможности аварийного восстановления. В этой статье представлены несколько стратегий аварийного восстановления для пулов эластичных БД, в которых используются функции обеспечения непрерывности бизнес-процессов базы данных SQL.

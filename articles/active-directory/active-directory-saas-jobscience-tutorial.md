@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 77282dcc-bbe2-4728-953d-adb4ab6a713b
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 66bec35a8f17482433dbf02827b90620d1cff378
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a2840968cadb3d78dee9d35fd0048d5941508cd3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Руководство. Интеграция Azure Active Directory с Jobscience
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Jobscience, вам потребуется:
 
@@ -47,10 +47,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Jobscience из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-jobscience-from-the-gallery"></a>Добавление Jobscience из коллекции
 Чтобы настроить интеграцию Jobscience с Azure AD, необходимо добавить Jobscience из коллекции в список управляемых приложений SaaS.
@@ -63,11 +63,11 @@ ms.lasthandoff: 10/11/2017
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![ПРИЛОЖЕНИЯ][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![Приложения][3]
+    ![ПРИЛОЖЕНИЯ][3]
 
 4. В поле поиска введите **Jobscience**.
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>настройка и проверка единого входа в Azure AD.
 В этом разделе описана настройка и проверка единого входа Azure AD в Jobscience с использованием тестового пользователя Britta Simon.
 
 Чтобы единый вход работал, Azure AD необходима информация о том, какой пользователь в Jobscience соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Jobscience.
@@ -86,11 +86,11 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы настроить и проверить единый вход Azure AD в Jobscience, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа в Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя Jobscience](#creating-a-jobscience-test-user)** требуется для того, чтобы в Jobscience существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-jobscience-tutorial/tutorial_general_400.png)
 
-6. В разделе **Конфигурация Jobscience** щелкните **Настроить Jobscience**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+6. В разделе **Конфигурация Jobscience** щелкните **Настроить Jobscience**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
     ![Настройка единого входа](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_configure.png) 
 
@@ -147,33 +147,33 @@ ms.lasthandoff: 10/11/2017
 
 12. В разделе **Параметры единого входа** сделайте следующее:
     
-    ![Single Sign-On Settings](./media/active-directory-saas-jobscience-tutorial/ic781026.png "Single Sign-On Settings") (Параметры единого входа)
+    ![Параметры единого входа](./media/active-directory-saas-jobscience-tutorial/ic781026.png "Параметры единого входа")
     
-    а. Установите флажок **SAML включен**.
+    a. Установите флажок **SAML включен**.
 
-    b. Нажмите кнопку **Создать**.
+    Б. Нажмите кнопку **Создать**.
 
 13. В диалоговом окне **Изменение параметров единого входа SAML** выполните следующие действия.
     
     ![Параметры единого входа SAML](./media/active-directory-saas-jobscience-tutorial/ic784365.png "Параметры единого входа SAML")
     
-    а. В текстовом поле **Имя** введите имя конфигурации.
+    a. В текстовом поле **Имя** введите имя конфигурации.
 
-    b. В текстовое поле **Issuer** (Издатель) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
+    Б. В текстовое поле **Issuer** (Издатель) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
 
     c. В текстовое поле **Entity id** (Идентификатор сущности) введите `https://salesforce-jobscience.com`.
 
-    г) Чтобы отправить сертификат Azure AD, нажмите кнопку **Обзор** .
+    d. Чтобы отправить сертификат Azure AD, нажмите кнопку **Обзор** .
 
     д. В поле **SAML Identity Type** (Тип удостоверения SAML) выберите значение **Assertion contains the Federation ID from the User object** (Проверочное утверждение содержит идентификатор федерации из объекта User).
 
-    Е. В поле **SAML Identity Location** (Расположение удостоверения SAML) выберите значение **Identity is in the NameIdentfier element of the Subject statement** (Удостоверение находится в элементе NameIdentifier оператора Subject).
+    f. В поле **SAML Identity Location** (Расположение удостоверения SAML) выберите значение **Identity is in the NameIdentfier element of the Subject statement** (Удостоверение находится в элементе NameIdentifier оператора Subject).
 
-    g. В текстовое поле **Identity Provider Login URL** (URL-адрес входа IdP) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
+    ж. В текстовое поле **Identity Provider Login URL** (URL-адрес входа IdP) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
 
     h. В текстовое поле **Identity Provider Logout URL** (URL-адрес выхода IdP) вставьте значение **URL-адрес выхода**, скопированное на портале Azure.
 
-    i. Щелкните **Сохранить**.
+    i. Выберите команду **Сохранить**.
 
 14. В области навигации слева в разделе **Administer** (Администрирование) щелкните **Domain Management** (Управление доменами), чтобы развернуть соответствующий раздел, а затем щелкните **My Domain** (Мой домен), чтобы открыть страницу **My Domain** (Мой домен). 
     
@@ -189,7 +189,7 @@ ms.lasthandoff: 10/11/2017
 
 17. Чтобы получить URL-адрес единого входа, инициированный поставщиком услуг, в разделе меню **Security Controls** (Средства управления безопасностью) щелкните **Single Sign On settings** (Параметры единого входа).
 
-    ![Средства управления безопасностью](./media/active-directory-saas-jobscience-tutorial/ic784368.png "Средства управления безопасностью")
+    ![Security Controls](./media/active-directory-saas-jobscience-tutorial/ic784368.png "Security Controls") (Средства управления безопасностью)
     
     Выберите профиль единого входа, созданный на предыдущем этапе. На этой странице отображается URL-адрес единого входа для вашей компании (например, [https://название_компании.my.salesforce.com?so=companyid](https://companyname.my.salesforce.com?so=companyid)).    
 
@@ -220,13 +220,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-jobscience-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="creating-a-jobscience-test-user"></a>Создание тестового пользователя Jobscience
 
@@ -253,19 +253,19 @@ ms.lasthandoff: 10/11/2017
    
    ![Изменение пользователя](./media/active-directory-saas-jobscience-tutorial/ic784371.png "Изменение пользователя")
    
-   а. В текстовое поле **First Name** (Имя) введите имя пользователя, например Britta.
+   a. В текстовое поле **First Name** (Имя) введите имя пользователя, например Britta.
    
-   b. В текстовое поле **Last Name** (Фамилия) введите фамилию пользователя, например Simon.
+   Б. В текстовое поле **Last Name** (Фамилия) введите фамилию пользователя, например Simon.
    
    c. В текстовое поле **Alias** (Псевдоним) введите имя пользователя, например brittas.
 
-   г) В текстовом поле **Email** (Электронная почта) введите адрес электронной почты пользователя, например Brittasimon@contoso.com.
+   d. В текстовом поле **Email** (Электронная почта) введите адрес электронной почты пользователя, например Brittasimon@contoso.com.
 
    д. В текстовом поле **User Name** (Имя пользователя) укажите имя пользователя, например Brittasimon@contoso.com.
 
    f. В текстовом поле **Nick Name** (Псевдоним) укажите псевдоним пользователя, например Simon.
 
-   g. Щелкните **Сохранить**.
+   ж. Выберите команду **Сохранить**.
 
     
 > [!NOTE]

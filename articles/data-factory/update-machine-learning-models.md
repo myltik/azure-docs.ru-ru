@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Обновление моделей машинного обучения Azure с помощью действия обновления ресурса
 Эта статья дополняет основную статью, посвященную интеграции фабрики данных Azure и машинного обучения Azure: [Создание прогнозирующих конвейеров с помощью машинного обучения Azure и фабрики данных Azure](transform-data-using-machine-learning.md). Перед прочтением этой статьи ознакомьтесь с основной статьей, если вы еще этого не сделали. 
@@ -60,15 +60,15 @@ ms.lasthandoff: 11/01/2017
 
 
 
-| Свойство                      | Описание                              | Обязательно |
+| Свойство                      | ОПИСАНИЕ                              | Требуется |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Имя действия в конвейере.     | Да      |
-| description                   | Описание действия.  | Нет       |
-| type                          | Для действия обновления ресурса в службе машинного обучения Azure тип действия — **AzureMLUpdateResource**. | Да      |
-| linkedServiceName (имя связанной службы)             | Связанная служба машинного обучения Azure, которая содержит свойство updateResourceEndpoint. | Да      |
-| trainedModelName              | Имя модуля модели обучения для обновления в эксперименте веб-службы. | Да      |
-| trainedModelLinkedServiceName | Имя связанной службы хранилища Azure, содержащей файл iLearner, который был отправлен действием обновления. | Да      |
-| trainedModelFilePath          | Относительный путь к файлу в trainedModelLinkedService для представления файла iLearner, который отправлен действием обновления. | Да      |
+| name                          | Имя действия в конвейере.     | Yes      |
+| description                   | Описание действия.  | Нет        |
+| Тип                          | Для действия обновления ресурса в службе машинного обучения Azure тип действия — **AzureMLUpdateResource**. | Yes      |
+| linkedServiceName             | Связанная служба машинного обучения Azure, которая содержит свойство updateResourceEndpoint. | Yes      |
+| trainedModelName              | Имя модуля модели обучения для обновления в эксперименте веб-службы. | Yes      |
+| trainedModelLinkedServiceName | Имя связанной службы хранилища Azure, содержащей файл iLearner, который был отправлен действием обновления. | Yes      |
+| trainedModelFilePath          | Относительный путь к файлу в trainedModelLinkedService для представления файла iLearner, который отправлен действием обновления. | Yes      |
 
 
 ## <a name="end-to-end-workflow"></a>Комплексный рабочий процесс
@@ -86,33 +86,6 @@ ms.lasthandoff: 11/01/2017
 2. Связанная служба машинного обучения Azure для обновления конечной точки ресурса прогнозной веб-службы. Эта связанная служба используется действием обновления ресурса для обновления прогнозной веб-службы с помощью файла iLearner, возвращенного на предыдущем шаге. 
 
 Конфигурация второй связанной службы машинного обучения Azure отличается, если веб-служба машинного обучения Azure является классической веб-службой или новой веб-службой. Различия отдельно рассматриваются в следующих разделах. 
-
-## <a name="web-service-is-a-classic-web-service"></a>Веб-служба — классическая веб-служба
-Если веб-служба прогнозирования является **классической веб-службой**, то создайте вторую **обновляемую конечную точку не по умолчанию** с помощью портала Azure. Инструкции см. в статье [Создание конечных точек](../machine-learning/machine-learning-create-endpoint.md). Создав обновляемую конечную точку не по умолчанию, выполните следующие действия:
-
-* Щелкните **Выполнение пакета**, чтобы получить значение URI свойства JSON **mlEndpoint**.
-* Затем щелкните **Обновить ресурс**, чтобы получить значение URI свойства JSON **updateResourceEndpoint**. Ключ API указывается на странице конечной точки (в правом нижнем углу).
-
-![обновляемая конечная точка](./media/update-machine-learning-models/updatable-endpoint.png)
-
-После этого с помощью следующего примера связанной службы создайте новую связанную службу машинного обучения Azure. Связанная служба использует для аутентификации ключ apiKey.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Веб-служба — новая веб-служба Azure Resource Manager 
 

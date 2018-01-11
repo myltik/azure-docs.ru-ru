@@ -9,53 +9,55 @@
 ## [Устранение неполадок VPN-подключения](network-watcher-troubleshoot-overview.md)
 ## [Проверка подключения](network-watcher-connectivity-overview.md)
 ## [Ограничения служб](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
+
 # Начало работы
 ## [Настройка Наблюдателя за сетями](network-watcher-create.md)
 ## Управление захватом пакетов
-### [Портал Azure](network-watcher-packet-capture-manage-portal.md)
+### [портал Azure](network-watcher-packet-capture-manage-portal.md)
 ### [Azure PowerShell](network-watcher-packet-capture-manage-powershell.md)
 ### [Azure CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-### [Интерфейс командной строки Azure](network-watcher-packet-capture-manage-cli.md)
+### [интерфейс командной строки Azure](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
 ## Проверка потоков для IP-адреса, поступающих на виртуальную машину и обратно
-### [Портал Azure](network-watcher-check-ip-flow-verify-portal.md)
+### [портал Azure](network-watcher-check-ip-flow-verify-portal.md)
 ### [Azure PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 ### [Azure CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
-### [Интерфейс командной строки Azure](network-watcher-check-ip-flow-verify-cli.md)
+### [интерфейс командной строки Azure](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Анализ следующего прыжка
-### [Портал Azure](network-watcher-check-next-hop-portal.md)
+### [портал Azure](network-watcher-check-next-hop-portal.md)
 ### [Azure PowerShell](network-watcher-check-next-hop-powershell.md)
 ### [Azure CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
-### [Интерфейс командной строки Azure](network-watcher-check-next-hop-cli.md)
+### [интерфейс командной строки Azure](network-watcher-check-next-hop-cli.md)
 ### [REST](network-watcher-check-next-hop-rest.md)
 ## Просмотр топологии сети
 ### [Azure PowerShell](network-watcher-topology-powershell.md)
 ### [Azure CLI 1.0](network-watcher-topology-cli-nodejs.md)
-### [Интерфейс командной строки Azure](network-watcher-topology-cli.md)
+### [интерфейс командной строки Azure](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Устранение неполадок VPN-шлюза и подключений
-### [Портал Azure](network-watcher-troubleshoot-manage-portal.md)
+### [портал Azure](network-watcher-troubleshoot-manage-portal.md)
 ### [Azure PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [Azure CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
-### [Интерфейс командной строки Azure](network-watcher-troubleshoot-manage-cli.md)
+### [интерфейс командной строки Azure](network-watcher-troubleshoot-manage-cli.md)
 ### [REST](network-watcher-troubleshoot-manage-rest.md)
 ## Анализ представления группы безопасности сети
 ### [Azure PowerShell](network-watcher-security-group-view-powershell.md)
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
-### [Интерфейс командной строки Azure](network-watcher-security-group-view-cli.md)
+### [интерфейс командной строки Azure](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Проверка подключения
-### [Портал Azure](network-watcher-connectivity-portal.md)
+### [портал Azure](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
-### [Интерфейс командной строки Azure](network-watcher-connectivity-cli.md)
+### [интерфейс командной строки Azure](network-watcher-connectivity-cli.md)
 ### [REST](network-watcher-connectivity-rest.md)
 ## Настройка журналов потоков для NSG
-### [Портал Azure](network-watcher-nsg-flow-logging-portal.md)
+### [портал Azure](network-watcher-nsg-flow-logging-portal.md)
 ### [Azure PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 ### [Azure CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-### [Интерфейс командной строки Azure](network-watcher-nsg-flow-logging-cli.md)
+### [интерфейс командной строки Azure](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
+
 # Практическое руководство
 ## [Мониторинг VPN-шлюза с помощью службы автоматизации Azure](network-watcher-monitor-with-azure-automation.md)
 ## [Диагностика локальных подключений через VPN-шлюз](network-watcher-diagnose-on-premises-connectivity.md)
@@ -72,9 +74,10 @@
 ### [Использование эластичного пула](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Использование Grafana](network-watcher-nsg-grafana.md)
 ### [Использование Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+## [Определение относительной задержки между конкретным расположением и регионом Azure](view-relative-latencies.md)
 
 # Справочные материалы
-## [Интерфейс командной строки Azure](/cli/azure/network/watcher)
+## [интерфейс командной строки Azure](/cli/azure/network/watcher)
 ## [Azure PowerShell](/powershell/module/azurerm.network/#network_watcher)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher) 
@@ -91,5 +94,5 @@
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Цены](https://azure.microsoft.com/pricing/details/network-watcher/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=network-watcher)
-## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla/)
+## [Соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)

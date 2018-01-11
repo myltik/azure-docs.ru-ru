@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Навигация и панели мониторинга на портале Application Insights
 После [настройки Application Insights для проекта](app-insights-overview.md) данные телеметрии о производительности и использовании вашего приложения будут отображаться в ресурсе Application Insights на [портале Azure](https://portal.azure.com).
@@ -97,6 +97,9 @@ ms.lasthandoff: 11/01/2017
 ![Щелкните общую папку в заголовке панели мониторинга.](./media/app-insights-dashboards/41.png)
 
 Дополнительные сведения о [ролях и контроле доступа](app-insights-resources-roles-access-control.md).
+
+## <a name="create-dashboards-programmatically"></a>Программное создание панелей мониторинга
+Можно автоматизировать с помощью создания панели мониторинга [диспетчера ресурсов Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) и простой редактор JSON.
 
 ## <a name="app-navigation"></a>Навигация в приложении
 Колонка "Обзор" — это шлюз для получения дополнительных сведений о приложении.

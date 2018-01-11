@@ -1,5 +1,5 @@
 
-Создайте приложение в рамках плана службы приложений `myAppServicePlan` с помощью команды [az webapp create](/cli/azure/webapp#az_webapp_create). 
+Создайте приложение в рамках плана службы приложений `myAppServicePlan` с помощью команды [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
 
 Веб-приложение предусматривает пространство для API, а также предоставляет URL-адрес для просмотра развернутого приложения.
 

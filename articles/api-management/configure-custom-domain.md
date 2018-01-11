@@ -9,20 +9,19 @@ editor:
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: a7abba87035016eee05b4ab663404f10127bba1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cf8a3eb502a808945e97822e10e44d38137d1161
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="configure-a-custom-domain-name"></a>Настройка пользовательского имени домена 
 
 При создании экземпляра службы управления API (APIM) Azure назначает его поддомену домена azure-api.net (например, `apim-service-name.azure-api.net`). Но доступ к конечным точкам APIM можно предоставлять через собственное доменное имя, например **contoso.com**. В этом руководстве показано, как сопоставить существующее пользовательское DNS-имя с конечными точками, предоставленными экземпляром службы управления API Azure.
 
-
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
@@ -57,6 +56,8 @@ ms.lasthandoff: 10/11/2017
 
     >[!NOTE]
     >Процесс назначения сертификата может занять примерно 15 минут.
+
+[!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

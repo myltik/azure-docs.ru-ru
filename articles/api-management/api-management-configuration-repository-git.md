@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 0abf2635e08bfc3113e9dec1947b9bb162cd3952
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Сохранение и настройка конфигурации службы управления API с помощью Git
 > 
@@ -157,14 +157,14 @@ git push
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Развертывание изменений конфигурации службы в экземпляре службы управления API
 После фиксации и отправки локальных изменений в репозиторий сервера их можно развернуть в экземпляре службы управления API.
 
-![Развернуть][api-management-configuration-deploy]
+![Развертывание][api-management-configuration-deploy]
 
-Дополнительные сведения о выполнении этой операции с помощью REST API см. в статье о [развертывании изменений Git в базе данных конфигурации с помощью REST API](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
+Дополнительные сведения о выполнении этой операции с помощью REST API см. в статье о [развертывании изменений Git в базе данных конфигурации с помощью REST API](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Справочные сведения по структуре файлов и папок локального репозитория Git
 В файлах и папках в локальном репозитории Git содержатся сведения о конфигурации для экземпляра службы.
 
-| Элемент | Описание |
+| Элемент | ОПИСАНИЕ |
 | --- | --- |
 | Корневая папка api-management |Содержит конфигурацию верхнего уровня для экземпляра службы |
 | Папка apis |Содержит конфигурацию для API в экземпляре службы |
@@ -190,7 +190,7 @@ git push
 > 
 > * Пользователи
 > * Подписки
-> * Свойства
+> * properties
 > * Сущности портала разработчика, отличные от стилей
 > 
 > 

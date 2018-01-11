@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
 ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>Создание шлюза приложений для размещения нескольких веб-приложений
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](application-gateway-create-multisite-portal.md)
+> * [портал Azure](application-gateway-create-multisite-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 
 Размещение нескольких сайтов позволяет развернуть в одном шлюзе приложений не одно, а несколько веб-приложений. Чтобы определить, какой прослушиватель должен принимать трафик, шлюз приложений проверяет наличие заголовка узла во входящем HTTP-запросе. Затем прослушиватель направляет трафик в соответствующий внутренний пул согласно определениям правил шлюза. В веб-приложениях с поддержкой протокола SSL шлюз приложений использует расширение SNI (указание имени сервера) для выбора соответствующего прослушивателя веб-трафика. Как правило, размещение нескольких сайтов используется для балансировки нагрузки запросов к разным веб-доменам между различными внутренними пулами серверов. Подобным образом в одном шлюзе приложений можно разместить несколько поддоменов одного корневого домена.
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-1. Установите последнюю версию командлетов Azure PowerShell, используя установщик веб-платформы. Последнюю версию можно загрузить и установить в разделе **Windows PowerShell** на [странице загрузок](https://azure.microsoft.com/downloads/).
+1. Установите последнюю версию командлетов Azure PowerShell, используя установщик веб-платформы. Скачать и установить последнюю версию вы можете в разделе **Windows PowerShell** на [странице загрузок](https://azure.microsoft.com/downloads/).
 2. Серверы, добавляемые во внутренний пул для использования шлюза приложений, должны находиться в отдельной подсети виртуальной сети, или их конечные точки должны находиться в этой подсети либо иметь назначенный общедоступный или виртуальный IP-адрес.
 
 ## <a name="requirements"></a>Требования
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 3. Создание объекта конфигурации шлюза приложений.
 4. Создание ресурса шлюза приложений.
 
-## <a name="create-a-resource-group-for-resource-manager"></a>Создание группы ресурсов для диспетчера ресурсов
+## <a name="create-a-resource-group-for-resource-manager"></a>Создание группы ресурсов для диспетчера ресурсов.
 
 Убедитесь, что у вас установлена последняя версия Azure PowerShell. Дополнительные сведения см. в статье [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md).
 
@@ -79,7 +79,7 @@ Get-AzureRmSubscription
 
 ### <a name="step-3"></a>Шаг 3.
 
-Выберите подписку Azure.
+Выберите, какие подписки Azure будут использоваться.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -99,7 +99,7 @@ New-AzureRmResourceGroup -Name appgw-RG -location "West US"
 $resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway multiple site"}
 ```
 
-В диспетчере ресурсов Azure для всех групп ресурсов должно быть указано расположение. Это расположение используется в качестве расположения по умолчанию для всех ресурсов данной группы. Убедитесь, что во всех командах для создания шлюза приложений используется одна группа ресурсов.
+Диспетчер ресурсов Azure требует, чтобы все группы ресурсов указывали расположение. Это расположение используется в качестве расположения по умолчанию для всех ресурсов данной группы. Убедитесь, что во всех командах для создания шлюза приложений используется одна группа ресурсов.
 
 В приведенном выше примере мы создали группу ресурсов **appgw-RG** в расположении **West US** (Западная часть США).
 
@@ -184,7 +184,7 @@ $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetti
 $poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting02" -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 240
 ```
 
-### <a name="step-4"></a>Шаг 4.
+### <a name="step-4"></a>Шаг 4.
 
 Настройте внешний IP-адрес, используя конечную точку с общедоступным IP-адресом.
 

@@ -4,7 +4,7 @@ description: "Обеспечение регистрации и входа для
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: d2424c66-ba68-4d82-847e-d137683527b0
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-ms.openlocfilehash: a54aec23d951610118246e9f70cdd27752ef39a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1cc1de1926edd28d09a3779da9595ef22491d0d9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-wechat-accounts"></a>Azure Active Directory B2C: организация регистрации и входа для потребителей с учетными записями WeChat
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 1. Перейдите на сайт [https://open.weixin.qq.com](https://open.weixin.qq.com/) и войдите в систему.
 2. Щелкните **管理中心** (Центр управления).
 3. Выполните отображаемые инструкции, чтобы зарегистрировать новое приложение.
-4. В поле **授权回调域** (URL-адрес обратного вызова) введите `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Например, если используется `tenant_name` contoso.onmicrosoft.com, укажите URL-адрес `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+4. В поле **授权回调域** (URL-адрес обратного вызова) введите `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Например если `tenant_name` — contoso.onmicrosoft.com, задайте URL-адрес `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 5. Найдите и скопируйте **идентификатор приложения** и **ключ приложения**. Они вам потребуются позднее.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Настройка WeChat в качестве поставщика удостоверений в клиенте

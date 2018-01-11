@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Создание моделей текстовой аналитики в Студии машинного обучения Azure
 Машинное обучения Azure можно использовать для создания и ввода в эксплуатацию моделей текстовой аналитики. Эти модели могут быть полезными, например, при решении проблем с классификацией документов или анализом мнений.
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 В данном учебнике эти действия демонстрируются на примере модели анализа мнений с использованием набора данных Amazon Book Reviews (Обзоры книг на Amazon). См. исследовательскую работу "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification" (Биографии, Болливуд, бум-боксы и блендеры: адаптация домена для классификации мнений пользователей), авторы — Джон Блитцер (John Blitzer), Марк Дредзе (Mark Dredze) и Фернандо Перейра (Fernando Pereira); Ассоциация компьютерной лингвистики (ACL), 2007 г. Этот набор данных состоит из оценок в обзоре (1-2 или 4-5) и текста в произвольной форме. Целью является прогнозирование оценки в обзоре: низкая (1-2) или высокая (4-5).
 
-Эксперименты, рассматриваемые в этом учебнике, можно найти в коллекции Cortana Intelligence:
+Можно найти экспериментов освещены в учебнике по коллекции AI Azure:
 
 [Predict Book Reviews (Прогнозирование оценок в обзоре книг).](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
@@ -88,6 +88,6 @@ ms.lasthandoff: 10/11/2017
 
 Теперь у нас готов эксперимент, который можно опубликовать как веб-службу и вызывать с помощью интерфейсов API "запрос-ответ" или пакетного выполнения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 Дополнительные сведения о модулях текстовой аналитики см. в [документации MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 

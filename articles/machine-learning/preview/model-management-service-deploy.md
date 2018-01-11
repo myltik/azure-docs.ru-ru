@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.date: 01/03/2018
+ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Развертывание модели машинного обучения в качестве веб-службы
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/02/2017
 Ниже приведены действия по развертыванию.
 1. Использование сохраненной обученной модели машинного обучения.
 2. Создание схемы для входных и выходных данных веб-службы.
-3. Создание образа контейнера на основе Docker.
+3. Создание образа контейнера на основе Docker
 4. Создание и развертывание веб-службы
 
 ### <a name="1-save-your-model"></a>1. Сохранение модели
@@ -43,11 +43,12 @@ import pickle
 from sklearn import datasets
 iris = datasets.load_iris()
 X, y = iris.data, iris.target
+clf = linear_model.LogisticRegression()
 clf.fit(X, y)  
 saved_model = pickle.dumps(clf)
 ```
 
-### <a name="2-create-a-schemajson-file"></a>2) Создание файла schema.json
+### <a name="2-create-a-schemajson-file"></a>2. Создание файла schema.json
 Этот шаг не является обязательным. 
 
 Создайте схему для автоматической проверки входных и выходных данных веб-службы. Интерфейс командной строки также использует схему для создания документа Swagger для веб-службы.
@@ -86,9 +87,9 @@ generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
 
 Добавьте следующий код в верхнюю часть файла score.py для включения функции сбора данных, которая позволяет собирать входные данные модели и данные прогнозирования.
 
-    ```
-    from azureml.datacollector import ModelDataCollector
-    ```
+```python
+from azureml.datacollector import ModelDataCollector
+```
 
 Дополнительные сведения о том, как использовать эту функцию, см. в разделе [Сбор данных модели](how-to-use-model-data-collection.md).
 

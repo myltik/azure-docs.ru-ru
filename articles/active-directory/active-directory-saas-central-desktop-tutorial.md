@@ -1,157 +1,286 @@
 ---
 title: "Руководство. Интеграция Azure Active Directory с Central Desktop | Документация Майкрософт"
-description: "Узнайте, как использовать Central Desktop вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
+description: "Подробные сведения о настройке единого входа в Azure Active Directory и Central Desktop."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: fe32c1d68040ceb9d9de2ad6c4a6dc9ea93f5aef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 94c67bef7a0c6ba60fc9c7a60c79a23bf7984fb1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Учебник. Интеграция Azure Active Directory с Central Desktop
-Цель данного учебника — показать интеграцию Azure и Central Desktop. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-* Действующая подписка на Azure
-* Подписка с поддержкой единого входа в Central Desktop/клиент Central Desktop
+В этом учебнике вы узнаете, как интегрировать Central Desktop с Azure Active Directory (Azure AD).
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+Интеграция Central Desktop с Azure AD предоставляет следующие преимущества:
 
-* Включение интеграции приложений для Central Desktop
-* Настройка единого входа
-* Настройка подготовки учетных записей пользователей
-* Назначение пользователей
+- Можно управлять в Azure AD, который имеет доступ к Central Desktop.
+- Позволяет пользователям автоматически получить входить в Central Desktop с их учетными записями Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-![Сценарий](./media/active-directory-saas-central-desktop-tutorial/IC769558.png "Сценарий")
+Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="enable-the-application-integration-for-central-desktop"></a>Включение интеграции приложений для Central Desktop
-В этом разделе показано, как включить интеграцию приложений для Central Desktop.
+## <a name="prerequisites"></a>Технические условия
 
-**Чтобы включить интеграцию приложений для Central Desktop, сделайте следующее:**
+Чтобы настроить интеграцию Azure AD с Central Desktop, необходимо следующее:
 
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-central-desktop-tutorial/IC700993.png "Active Directory")
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-   ![Приложения](./media/active-directory-saas-central-desktop-tutorial/IC700994.png "Приложения")
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-   ![Добавление приложения](./media/active-directory-saas-central-desktop-tutorial/IC749321.png "Добавление приложения")
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-   ![Добавление приложения из коллекции](./media/active-directory-saas-central-desktop-tutorial/IC749322.png "Добавление приложения из коллекции")
-6. В **поле поиска** введите **Central Desktop**.
-   
-   ![Коллекция приложений](./media/active-directory-saas-central-desktop-tutorial/IC769559.png "Коллекция приложений")
-7. В области результатов выберите **Central Desktop** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-   ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
-   
-## <a name="configure-single-sign-on"></a>Настройка единого входа
+- подписка Azure AD;
+- Подписка единого входа с включенным Central Desktop
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Central Desktop со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом руководстве.
 
-В рамках этой процедуры потребуется передать в клиент Central Desktop сертификат в кодировке Base-64.  
-Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+При проверке действий в этом руководстве соблюдайте следующие рекомендации:
 
-**Чтобы настроить единый вход, выполните следующие действия:**
+- Не используйте рабочую среду без необходимости.
+- Если у вас еще нет среде пробной версии Azure AD, [получить бесплатную пробную версию один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
-1. На странице интеграции с приложением **Central Desktop** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-central-desktop-tutorial/IC749323.png "Настройка единого входа")
-2. На странице **Как пользователи должны входить в Central Desktop?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-central-desktop-tutorial/IC777628.png "Настройка единого входа")
-3. На странице **Настроить URL-адрес приложения** выполните следующие действия, а затем нажмите кнопку **Далее**. 
-   
-   1. В текстовом поле **URL-адрес входа в Central Desktop** введите URL-адрес своего клиента Central Desktop (например, *http://contoso.centraldesktop.com*).
-   2. В текстовом поле "URL-адрес ответа Central Desktop" введите URL-адрес службы AssertionConsumerService Central Desktop (например, https://contoso.centraldesktop.com/saml2-assertion.php).
-   
-   >[!NOTE]
-   >Это значение можно найти в метаданных Central Desktop (например, *http://contoso.centraldesktop.com*).
-   >  
-   
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-central-desktop-tutorial/IC769561.png "Настройка URL-адреса приложения")
-4. На странице **Настройка единого входа в Central Desktop** нажмите кнопку **Скачать сертификат** и сохраните файл сертификата локально на своем компьютере.
-   
-  ![Настройка единого входа](./media/active-directory-saas-central-desktop-tutorial/IC769562.png "Настройка единого входа")
-5. Выполните вход в клиент **Central Desktop** .
-6. Выберите **Параметры**, **Дополнительно** и **Единый вход**.
-   
-  ![Настройка — Дополнительно](./media/active-directory-saas-central-desktop-tutorial/IC769563.png "Настройка — Дополнительно")
-7. На странице **Параметры единого входа** выполните следующие действия.
-   
-  ![Параметры единого входа](./media/active-directory-saas-central-desktop-tutorial/IC769564.png "Параметры единого входа")
-   
-  1. Установите флажок **Разрешить единый вход SAML версии 2**.
-  2. На странице **Настройка единого входа в Central Desktop** классического портала Azure скопируйте значение поля **URL-адрес издателя** и вставьте его в текстовое поле **SSO URL** (URL-адрес единого входа).
-  3. На странице **Настройка единого входа в Central Desktop** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **SSO Login URL** (URL-адрес единого входа).
-  4. На странице **Настройка единого входа в Central Desktop** классического портала Azure скопируйте значение поля **URL-адрес службы единого выхода** и вставьте его в текстовое поле **SSO Logout URL** (URL-адрес единого выхода).
-8. В разделе **Метод проверки подписей в сообщениях** выполните следующие действия.
-   
-   ![Метод проверки подписей в сообщениях](./media/active-directory-saas-central-desktop-tutorial/IC769565.png "Метод проверки подписей в сообщениях")
-   
-  1. Выберите **Сертификат**.
-  2. В списке **SSO Certificate** (Сертификат единого входа) выберите значение **RSH SHA256**.
-  3. Создайте текстовый файл из загруженного сертификата, скопируйте содержимое текстового файла и вставьте его в поле **Сертификат единого входа** .  
-     >[!TIP]
-     >Дополнительные сведения можно узнать из видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
-      >  
-   4. Установите флажок **Отображать ссылку на страницу входа SAML версии 2**.
-9. Нажмите кнопку **Обновить**.
-10. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом руководстве, состоит из двух основных блоков:
+
+1. Добавление Central Desktop из галереи
+2. настройка и проверка единого входа в Azure AD.
+
+## <a name="add-central-desktop-from-the-gallery"></a>Добавить Central Desktop из галереи
+Для настройки интеграции Central Desktop в Azure AD, необходимо добавить Central Desktop из коллекции в список управляемых приложений SaaS.
+
+**Чтобы добавить Central Desktop из коллекции, выполните следующие действия:**
+
+1. На [портале Azure](https://portal.azure.com) в области слева щелкните значок **Azure Active Directory**. 
+
+    ![Кнопка "Azure Active Directory"][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Колонка "Корпоративные приложения"][2]
     
-    ![Настройка единого входа](./media/active-directory-saas-central-desktop-tutorial/IC769566.png "Настройка единого входа")
-    
-## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
+3. Чтобы добавить новые приложения, выберите **новое приложение** кнопку в верхней части диалоговое окно.
 
-Чтобы пользователи AAD могли входить систему, их необходимо подготовить для Central Desktop. В этом разделе описывается порядок создания учетных записей пользователей AAD в Central Desktop.
+    ![Кнопка "Новое приложение"][3]
+
+4. В поле поиска введите **Central Desktop**. Выберите **Central Desktop** из панели «результаты», а затем выберите **добавить** кнопку, чтобы добавить приложение.
+
+    ![Central Desktop в списке результатов](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+
+В этом разделе настройки и тестирования в Azure AD единого входа с Central Desktop, на основании тестового пользователя с именем «Britta Simon».
+
+Azure AD для единого входа для работы, необходимо знать, кто является пользователем аналога в Central Desktop для пользователя в Azure AD. Другими словами необходимо установить связь между пользователем Azure AD и связанных пользователей в Central Desktop.
+
+В Central Desktop предоставляет **Username** то же значение, как **имя пользователя** в Azure AD. Это действие устанавливает связь между двумя пользователями.
+
+Для настройки и проверки Azure AD единого входа с Central Desktop, необходимо выполнить следующие стандартные блоки:
+
+1. [Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on) необходима, чтобы пользователи могли использовать эту функцию.
+2. [Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user) требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. [Создание тестового пользователя Central Desktop](#create-a-central-desktop-test-user) имел аналог Саймон Britta в Central Desktop, связанного с представлением Azure AD пользователя.
+4. [Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user) необходимо, чтобы разрешить Britta Simon использовать единый вход Azure AD.
+5. [Проверьте единый вход](#test-single-sign-on), чтобы убедиться, что конфигурация работает правильно.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+
+В этом разделе включения Azure AD единого входа на портале Azure и настройки единого входа в приложении Central Desktop.
+
+**Чтобы настроить Azure AD единого входа с Central Desktop, выполните следующие действия:**
+
+1. На портале Azure на **Central Desktop** странице интеграции приложений выберите **единого входа**.
+
+    ![Ссылка "Настройка единого входа"][4]
+
+2. Чтобы включить единый вход, в **единого входа** в диалоговом **режим** раскрывающемся списке выберите **входа на базе SAML**.
+ 
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_samlbase.png)
+
+3. В **центра домена рабочего стола и URL-адреса** статьи, выполните следующие действия:
+
+    ![Центра домена рабочего стола и URL-адреса единого входа сведения](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_url.png)
+
+    a. В поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<companyname>.centraldesktop.com`.
+
+    Б. В **идентификатор** введите URL-адрес с помощью следующего шаблона:
+    | |
+    |--|
+    | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
+    | `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
+
+    c. В поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
+     
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Обновите эти значения фактический идентификатор, URL-адрес ответа и URL-адрес входа. Обратитесь к [группа поддержки клиента Central Desktop](https://imeetcentral.com/contact-us) для получения этих значений. 
+
+4. В **сертификат подписи SAML** выберите **сертификата**. Затем сохраните файл сертификата на компьютере.
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
+
+5. Нажмите кнопку **Сохранить**.
+
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-central-desktop-tutorial/tutorial_general_400.png)
+    
+6. В **Настройка централизованных рабочих столов** выберите **Настройка Central Desktop** Открытие **Настройка входа** окна. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+
+    ![Настройка централизованных рабочих столов](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_configure.png) 
+
+7. Войдите в ваш **Central Desktop** клиента.
+
+8. Перейдите в меню **Параметры**. Выберите **Дополнительно**, а затем выберите **Single Sign On**.
+
+    ![Настройка — Дополнительно](./media/active-directory-saas-central-desktop-tutorial/ic769563.png "Настройка — Дополнительно")
+
+9. На **настройки единого входа** выполните следующие действия:
+
+    ![Единый вход параметры](./media/active-directory-saas-central-desktop-tutorial/ic769564.png "настройки единого входа")
+    
+    a. Установите флажок **Разрешить единый вход SAML версии 2**.
+    
+    Б. В **URL-адрес SSO** вставьте **идентификатор сущности SAML** значением, скопированным на портале Azure.
+    
+    c. В **URL-адрес входа SSO** вставьте **SAML единого входа URL-адрес службы** значением, скопированным на портале Azure.
+    
+    d. В **URL-адрес выхода SSO** вставьте **URL-адрес выхода** значением, скопированным на портале Azure.
+
+10. В **метод проверки подписи сообщения** статьи, выполните следующие действия:
+
+    ![Метод проверки подписи сообщения](./media/active-directory-saas-central-desktop-tutorial/ic769565.png "метод проверки подписи сообщения") . Выберите **Сертификат**.
+    
+    Б. В **сертификат SSO** выберите **RSH SHA256**.
+    
+    c. В блокноте, откройте загруженный сертификат. Затем скопируйте его содержимое сертификата и вставьте его в **сертификат SSO** поля.
+        
+    d. Установите флажок **Отображать ссылку на страницу входа SAML версии 2**.
+    
+    д. Выберите **обновление**.
+
+> [!TIP]
+> Краткая версия этих инструкций теперь также доступна на [портале Azure](https://portal.azure.com) во время настройки приложения. После добавления этого приложения из **Active Directory** > **корпоративных приложений** выберите **Single Sign-On** вкладку, а затем открыть внедренный Документация по **конфигурации** в нижней. Дополнительные сведения о встроенной документации см. в статье [Управление параметрами единого входа для корпоративных приложений]( https://go.microsoft.com/fwlink/?linkid=845985).
+
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+   ![Создание тестового пользователя Azure AD][100]
+
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+
+1. На портале Azure в области слева нажмите кнопку **Azure Active Directory**.
+
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-central-desktop-tutorial/create_aaduser_01.png)
+
+2. Чтобы отобразился список пользователей, выберите элемент **Пользователи и группы**. Затем выберите **Все пользователи**.
+
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-central-desktop-tutorial/create_aaduser_02.png)
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
+
+    ![Кнопка "Добавить"](./media/active-directory-saas-central-desktop-tutorial/create_aaduser_03.png)
+
+4. В диалоговом окне **Пользователь** сделайте следующее:
+
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-central-desktop-tutorial/create_aaduser_04.png)
+
+    a. В поле **Имя** введите **BrittaSimon**.
+
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+
+    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
+
+    d. Нажмите кнопку **Создать**.
+ 
+### <a name="create-a-central-desktop-test-user"></a>Создание тестового пользователя Central Desktop
+
+Для пользователей Azure AD могли осуществлять вход их необходимо подготовить в приложении Central Desktop. В этом разделе описывается создание учетных записей пользователей Azure AD в Central Desktop.
+
+> [!NOTE]
+> Для подготовки учетных записей Azure AD, можно использовать другие средства создания учетных записей пользователя Central Desktop или интерфейсы API, предоставляемые Central Desktop.
 
 **Чтобы подготовить учетные записи пользователей для Central Desktop, сделайте следующее:**
-1. Выполните вход в клиент Central Desktop.
-2. Выберите **Пользователи \> Internal Members** (Внутренние участники).
-3. Нажмите кнопку **Добавить внутренних участников**.
-   
-  ![Люди](./media/active-directory-saas-central-desktop-tutorial/IC781051.png "Люди")
-4. В текстовом поле **Email Address of New Members** (Адреса электронной почты новых участников) введите учетную запись AAD, которую вы хотите подготовить, и нажмите кнопку **Далее**.
-   
-  ![Адреса электронной почты новых участников](./media/active-directory-saas-central-desktop-tutorial/IC781052.png "Адреса электронной почты новых участников")
-5. Нажмите кнопку **Добавить внутренних участников**.
-   
-  ![Добавление внутренних участников](./media/active-directory-saas-central-desktop-tutorial/IC781053.png "Добавление внутренних участников")
+
+1. Войдите в клиент Central Desktop.
+
+2. Последовательно выберите пункты **людей** > **внутренние члены**.
+
+3. Выберите **добавить внутренние члены**.
+
+    ![Люди](./media/active-directory-saas-central-desktop-tutorial/ic781051.png "Люди")
+    
+4. В **электронной почты адрес новых членов** введите учетную запись Azure AD, которую требуется подготовить, а затем выберите **Далее**.
+
+    ![Отправить по электронной почте адреса новых участников](./media/active-directory-saas-central-desktop-tutorial/ic781052.png "адреса новых участников электронной почты")
+
+5. Выберите **добавить внутренние члены**.
+
+    ![Добавить внутренний член](./media/active-directory-saas-central-desktop-tutorial/ic781053.png "добавить внутренний член")
    
    >[!NOTE]
-   >Добавленные пользователи получат сообщение электронной почты со ссылкой для активации учетной записи.
-   > 
-
->[!NOTE]
->Вы можете использовать любые другие средства создания учетной записи пользователя Central Desktop или API, предоставляемые Central Desktop для подготовки учетных записей пользователя AAD.
->  
-
-## <a name="assign-users"></a>Назначить пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
-
-**Чтобы назначить пользователей Central Desktop, сделайте следующее:**
-
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **Central Desktop** нажмите **Назначить пользователей**.
+   >Пользователи, которые вы добавляете получения электронной почты, содержащее ссылку для подтверждения для активации своих учетных записей.
    
-   ![Назначение пользователей](./media/active-directory-saas-central-desktop-tutorial/IC769567.png "Назначение пользователей")
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-   ![Да](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "Да")
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+В этом разделе включите пользователя Саймон Britta для использования Azure единого входа, предоставляя им доступ к Central Desktop.
+
+![Назначение роли пользователя][200] 
+
+**Чтобы назначить Саймон Britta Central Desktop, выполните следующие действия:**
+
+1. На портале Azure откройте представление "Приложения". Перейдите в представление каталога, а затем перейдите к **корпоративных приложений**.
+
+2. Выберите **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **Central Desktop**.
+
+    ![В списке приложений ссылку Central Desktop](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_app.png)  
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Ссылка "Пользователи и группы"][202]
+
+4. Нажмите кнопку **Добавить**. Теперь выберите **Пользователи и группы** в диалоговом окне **Добавление назначения**.
+
+    ![Область "Добавление назначения"][203]
+
+5. В диалоговом окне **Пользователи и группы** выберите **Britta Simon** из списка **Пользователи**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В **добавить назначение** выберите **назначить** кнопки.
+    
+### <a name="test-single-sign-on"></a>Проверка единого входа
+
+В этом разделе тестирования конфигурации Azure AD единого входа с помощью панели доступа.
+
+При выборе Central Desktop плитки на панели доступа, можно автоматически получить входить в приложении Central Desktop.
+Дополнительные сведения о панели доступа см. в статье [Что такое панель доступа?](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-central-desktop-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-central-desktop-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-central-desktop-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-central-desktop-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-central-desktop-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-central-desktop-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-central-desktop-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-central-desktop-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-central-desktop-tutorial/tutorial_general_203.png
 

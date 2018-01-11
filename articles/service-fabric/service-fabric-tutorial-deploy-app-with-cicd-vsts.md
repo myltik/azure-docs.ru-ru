@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: acfeb5a3f27f6451309017bad88c687b408872b6
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Развертывание приложения с непрерывной интеграцией и развертыванием в кластере Service Fabric
 Это руководство из цикла. В нем описано, как настроить непрерывные интеграцию и развертывание для приложения Azure Service Fabric с помощью Visual Studio Team Services.  Вам потребуется приложение Service Fabric. В качестве примера используется приложение, созданное в разделе [Создание приложения .NET](service-fabric-tutorial-create-dotnet-app.md).
@@ -39,12 +39,11 @@ ms.lasthandoff: 11/20/2017
 > * Настройка непрерывной интеграции и непрерывного развертывания с помощью Visual Studio Team Services.
 > * [Настройка мониторинга и диагностики приложения](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Перед началом работы с этим руководством выполните следующие действия:
 - Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Установите Visual Studio 2017](https://www.visualstudio.com/), а также рабочие нагрузки **разработка Azure** и **ASP.NET и веб-разработка**.
 - [Установка пакета SDK для Service Fabric](service-fabric-get-started.md)
-- Создайте приложение Service Fabric, например с помощью [этого руководства](service-fabric-tutorial-create-dotnet-app.md). 
 - Создайте кластер Service Fabric с Windows, например с помощью [этого руководства](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 - Создайте [учетную запись Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
@@ -83,39 +82,49 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 Определение выпуска Team Services описывает рабочий процесс развертывания пакета приложения в кластере. При совместном использовании определение сборки и определение выпуска выполняют весь рабочий процесс начиная с исходных файлов и заканчивая запуском приложения в кластере. Узнайте больше об [определениях выпуска](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)Team Services.
 
 ### <a name="create-a-build-definition"></a>Создание определения сборки
-Откройте веб-браузер и перейдите к новому командному проекту по адресу: https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting. 
+Откройте веб-браузер и перейдите к новому командному проекту в: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
 
 Перейдите на вкладку **Сборка и выпуск**, выберите **Сборки** и щелкните **+Новое определение**.  В области **Выбор шаблона** выберите шаблон **Приложение Azure Service Fabric** и нажмите кнопку **Применить**. 
 
 ![Выбор шаблона сборки][select-build-template] 
 
-Приложение для голосования содержит проект .NET Core, поэтому необходимо добавить задачу для восстановления зависимостей. В представлении **Задачи** нажмите кнопку **+Добавить задачу** в нижнем левом углу. Выполните поиск по фразе "Командная строка", чтобы найти задачу командной строки, и нажмите кнопку **Добавить**. 
+В **задачи**, введите «Размещенные VS2017» в качестве **очереди агента**. 
 
-![Добавление задачи][add-task] 
+![Выберите задачи][save-and-queue]
 
-В поле **Отображаемое имя** новой задачи введите "Run dotnet.exe", в поле **Средство** введите "dotnet.exe", а в поле **Аргументы** — "restore". 
+В разделе **триггеры**, непрерывной интеграции, задав **активировать состояние**.  Выберите **сохранить и очередь** запуск сборки вручную.  
 
-![Создание задачи][new-task] 
+![Выберите триггеры][save-and-queue2]
 
-В представлении **Триггеры** щелкните переключатель **Включить этот триггер** в разделе **Непрерывная интеграция**. 
-
-Щелкните **Сохранить и поместить в очередь** и введите "Hosted VS2017" в качестве значения параметра **Очередь агента**. Щелкните **Поставить в очередь**, чтобы выполнить сборку вручную.  Сборки также активируются после принудительного запуска или возврата.
-
-Чтобы проверить ход сборки, перейдите на вкладку **Сборки**.  Проверив, что сборка запускается успешно, создайте определение выпуска, которое развертывает приложение в кластер. 
+Основан на также триггер push или возврата. Чтобы проверить ход сборки, перейдите на вкладку **Сборки**.  Проверив, что сборка запускается успешно, создайте определение выпуска, которое развертывает приложение в кластер. 
 
 ### <a name="create-a-release-definition"></a>Создание определения выпуска  
 
-Перейдите на вкладку **Сборка и выпуск**, выберите **Выпуски** и щелкните **+Новое определение**.  В области **Создание определения выпуска** выберите шаблон **Развертывание Azure Service Fabric** в списке и нажмите кнопку **Далее**.  Выберите источник **Сборка**, установите флажок **Непрерывное развертывание** и нажмите кнопку **Создать**. 
+Перейдите на вкладку **Сборка и выпуск**, выберите **Выпуски** и щелкните **+Новое определение**.  В **выберите шаблон**выберите **развертывание структуры службы Azure** шаблон из списка и затем **применить**.  
 
-В представлении **Среды** щелкните **Добавить** справа от поля **Подключение кластера**.  Укажите mysftestcluster в качестве имени подключения, адрес tcp://mysftestcluster.westus.cloudapp.azure.com:19000 для конечной точки кластера и учетные данные сертификата или Azure Active Directory для кластера. В полях **Имя пользователя** и **Пароль** укажите учетные данные Azure Active Directory для подключения к кластеру. В поле **Сертификат клиента** укажите кодировку Base64 для файла сертификата клиента, который используется для проверки подлинности на основе сертификата.  Сведения о том, как получить это значение, получите во всплывающем окне справки для этого поля.  Если ваш сертификат защищен паролем, укажите его в поле **Пароль** .  Нажмите кнопку **Сохранить**, чтобы сохранить определение выпуска.
+![Выберите шаблон выпуска][select-release-template]
 
-![Добавление подключения к кластеру][add-cluster-connection] 
+Выберите **задачи**->**1 среды** и затем **+ создать** для добавления нового подключения кластера.
 
-Щелкните **Запуск в агенте** и в поле **Очередь развертывания** выберите **Hosted VS2017**. Нажмите кнопку **Сохранить**, чтобы сохранить определение выпуска.
+![Добавление подключения к кластеру][add-cluster-connection]
 
-![Запуск в агенте][run-on-agent]
+В **добавить новое подключение к службе структуры** просмотра выберите **на основе сертификатов** или **Azure Active Directory** проверки подлинности.  Укажите имя подключения «mysftestcluster» и к конечной точке кластера «tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000» (или конечную точку кластера, который выполняется развертывание). 
 
-Чтобы создать выпуск вручную, последовательно выберите **+Выпуск** -> **Создать выпуск** -> **Создать**.  Убедитесь, что развертывание выполнено успешно и приложение выполняется в кластере.  Откройте браузер и перейдите по ссылке [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Обратите внимание на версию приложения, в данном случае "1.0.0.20170616.3". 
+Для проверки подлинности на основе сертификатов, добавьте **отпечаток сертификата сервера** сертификата сервера, используемого для создания кластера.  В **сертификат клиента**, добавьте кодировку base-64 файла сертификата клиента. Всплывающее окно справки см. на этом поле, сведения о том, как получить кодированное представление сертификата, base-64. Кроме того, добавить **пароль** для сертификата.  При отсутствии отдельные клиентский сертификат можно использовать сертификат кластера или сервера. 
+
+Учетные данные Azure Active Directory, добавьте **отпечаток сертификата сервера** сертификата сервера, используемый для создания кластера и учетные данные, необходимо использовать для подключения к кластеру в **имяпользователя** и **пароль** поля. 
+
+Нажмите кнопку **добавить** сохранения подключения кластера.
+
+Добавьте артефакт сборки в конвейер, чтобы определение выпуска можно найти выходные данные сборки. Выберите **конвейера** и **артефакты**->**+ добавить**.  В **источника (определение сборки)**, выберите определение сборки, созданной ранее.  Нажмите кнопку **добавить** сохранить артефакт сборки.
+
+![Добавление артефакта][add-artifact]
+
+Включение триггера непрерывного развертывания, чтобы выпуск создается автоматически после завершения построения. Щелкните значок артефакт, включить триггер и нажмите кнопку **Сохранить** сохранить определение выпуска.
+
+![Включение триггера][enable-trigger]
+
+Чтобы создать выпуск вручную, последовательно выберите **+Выпуск** -> **Создать выпуск** -> **Создать**.  Убедитесь, что развертывание выполнено успешно и приложение выполняется в кластере.  Откройте веб-браузер и перейдите к [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/обозреватель/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Обратите внимание на версию приложения, в данном случае "1.0.0.20170616.3". 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Фиксация и отправка изменений, создание выпуска
 Чтобы проверить работу конвейера непрерывной интеграции, отправьте некоторые изменения кода в Team Services.    
@@ -134,7 +143,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 Чтобы проверить ход сборки, перейдите на вкладку **Сборки** в **Team Explorer** в Visual Studio.  Проверив, что сборка запускается успешно, создайте определение выпуска, которое развертывает приложение в кластер.
 
-Убедитесь, что развертывание выполнено успешно и приложение выполняется в кластере.  Откройте браузер и перейдите по ссылке [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Обратите внимание на версию приложения, в этом случае — 1.0.0.20170815.3.
+Убедитесь, что развертывание выполнено успешно и приложение выполняется в кластере.  Откройте веб-браузер и перейдите к [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/обозреватель/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Обратите внимание на версию приложения, в этом случае — 1.0.0.20170815.3.
 
 ![Service Fabric Explorer][sfx1]
 
@@ -150,7 +159,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ![Service Fabric Explorer][sfx3]
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * Добавление проекта в систему управления версиями
@@ -168,10 +177,13 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
-[add-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddTask.png
-[new-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewTask.png
+[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
+[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png
+[select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectReleaseTemplate.png
 [set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
 [add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnection.png
+[add-artifact]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddArtifact.png
+[enable-trigger]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/EnableTrigger.png
 [sfx1]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png
 [sfx2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png
 [sfx3]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png
@@ -182,4 +194,3 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 [continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
-[run-on-agent]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/RunOnAgent.png

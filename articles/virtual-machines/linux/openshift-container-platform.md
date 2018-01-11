@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 159f30fc59a050b9a4ff983e8ac84e424104b484
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: 81d1e2a92a24d43c6324b4fe026680c379e656da
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Развертывание платформы контейнеров OpenShift в Azure
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/11/2017
 
 Используйте значение `appId` созданной ранее субъект-службы для параметра `aadClientId`. 
 
-В следующем примере создается файл параметров с именем azuredeploy.parameters.json со всеми необходимыми входными данными.
+В примере ниже создается файл параметров с именем azuredeploy.parameters.json, который содержит все необходимые входные данные.
 
 ```json
 {
@@ -138,7 +138,7 @@ ms.lasthandoff: 11/11/2017
 ### <a name="deploy-by-using-azure-cli"></a>Развертывание с помощью Azure CLI
 
 > [!NOTE] 
-> Для выполнения следующей команды необходим интерфейс командной строки версии не ниже 2.0.8. Узнать свою версию CLI вы можете с помощью команды `az --version`. Чтобы обновить версию CLI, ознакомьтесь со статьей [Установка Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> Для выполнения следующей команды необходим интерфейс командной строки версии не ниже 2.0.8. Узнать свою версию CLI можно с помощью команды `az --version`. Чтобы обновить версию CLI, ознакомьтесь со статьей [Установка Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 В следующем примере кластер OpenShift и все связанные ресурсы развертываются в группу ресурсов myResourceGroup с именем развертывания myOpenShiftCluster. Репозиторий GitHub ссылается непосредственно на шаблон, при этом используется локальный файл параметров с именем azuredeploy.parameters.json.
 
@@ -171,7 +171,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
 
 ## <a name="connect-to-the-openshift-cluster"></a>Подключение к кластеру OpenShift
 
-После завершения развертывания подключитесь к консоли OpenShift через браузер с помощью `OpenShift Console Uri`. Кроме того, можно подключиться к основному кластеру OpenShift, используя команду ниже:
+После завершения развертывания подключитесь к консоли OpenShift через браузер, используя `OpenShift Console Uri`. Кроме того, к главному узлу OpenShift можно подключиться с помощью следующей команды:
 
 ```bash
 $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
@@ -179,7 +179,7 @@ $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-С помощью команды [az group delete](/cli/azure/group#delete) можно удалить ставшие ненужными группу ресурсов, кластер OpenShift и все связанные ресурсы.
+Если группа ресурсов, кластер OpenShift и все связанные ресурсы больше не нужны, их можно удалить с помощью команды [az group delete](/cli/azure/group#delete).
 
 ```azurecli 
 az group delete --name myResourceGroup

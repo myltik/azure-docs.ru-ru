@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 9818edd3-48c0-411d-b05a-3ec805eafb2e
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 042a41eaa6bb21670b4c12068f1b017222f64b99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c6bae8e24f252a535571308467b428832b542e48
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Руководство. Интеграция Azure Active Directory с Procore SSO
 
@@ -39,7 +39,7 @@ To enable single sign-on with Procore SSO, it must be configured to use Azure Ac
 >This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Procore SSO, вам потребуется:
 
@@ -55,10 +55,10 @@ To enable single sign-on with Procore SSO, it must be configured to use Azure Ac
 - Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Procore SSO из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-procore-sso-from-the-gallery"></a>Добавление Procore SSO из коллекции
 Чтобы настроить интеграцию Procore SSO с Azure AD, необходимо добавить Procore SSO из коллекции в список управляемых приложений SaaS.
@@ -71,11 +71,11 @@ To enable single sign-on with Procore SSO, it must be configured to use Azure Ac
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![ПРИЛОЖЕНИЯ][2]
     
 3. Нажмите кнопку **Добавить** в верхней части диалогового окна.
 
-    ![Приложения][3]
+    ![ПРИЛОЖЕНИЯ][3]
 
 4. В поле поиска введите **Procore SSO**.
 
@@ -85,7 +85,7 @@ To enable single sign-on with Procore SSO, it must be configured to use Azure Ac
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-procoresso-tutorial/tutorial_procoresso_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>настройка и проверка единого входа в Azure AD.
 В этом разделе описана настройка и проверка единого входа Azure AD в Procore SSO с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в Procore SSO соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Procore SSO.
@@ -94,11 +94,11 @@ To enable single sign-on with Procore SSO, it must be configured to use Azure Ac
 
 Чтобы настроить и проверить единый вход Azure AD в Procore SSO, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа в Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя Procore SSO](#creating-a-procore-sso-test-user)** требуется для создания пользователя Britta Simon в Procore SSO, связанного с соответствующим представлением в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
@@ -140,9 +140,9 @@ To enable single sign-on with Procore SSO, it must be configured to use Azure Ac
 
     ![Настройка единого входа](./media/active-directory-saas-procoresso-tutorial/procore_setting_admin.png)    
 
-    а. В поле **Single Sign On Issuer URL** (URL-адрес издателя единого входа), вставьте идентификатор сущности SAML, скопированный на портале Azure.
+    a. В поле **Single Sign On Issuer URL** (URL-адрес издателя единого входа), вставьте идентификатор сущности SAML, скопированный на портале Azure.
 
-    b. В поле **Single Sign On Target URL)** (Целевой URL-адрес единого входа), вставьте URL-адрес службы единого входа SAML, скопированный на портале Azure.
+    Б. В поле **Single Sign On Target URL)** (Целевой URL-адрес единого входа), вставьте URL-адрес службы единого входа SAML, скопированный на портале Azure.
 
     c. Теперь откройте **XML-файл метаданных**, который вы ранее скачали с портала Azure, и скопируйте из него сертификат, расположенный в теге с именем **X509Certificate**. Вставьте это значение в поле **Single Sign On x509 Certificate** (Сертификат x509 для единого входа).
 
@@ -160,7 +160,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
  
 - To configure access polices for Procore SSO users, see Access Policies.
  
-- For additional information on deploying single sign-on to users, see [this article](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users).-->
+- For additional information on deploying single sign-on to users, see [this article](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users).-->
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
@@ -186,13 +186,13 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-procoresso-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="creating-a-procore-sso-test-user"></a>Создание тестового пользователя Procore SSO
 
@@ -208,15 +208,15 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 
     ![Настройка единого входа](./media/active-directory-saas-procoresso-tutorial/Procore_user_add.png)
 
-    а. В текстовое поле **First Name** (Имя) введите имя пользователя, например **Britta**.
+    a. В текстовое поле **First Name** (Имя) введите имя пользователя, например **Britta**.
 
-    b. В текстовое поле **Last Name** (Фамилия) введите фамилию пользователя, например **Simon**.
+    Б. В текстовое поле **Last Name** (Фамилия) введите фамилию пользователя, например **Simon**.
 
     c. В текстовое поле **Email Address** (Адрес электронной почты) введите адрес электронной почты пользователя, например **BrittaSimon@contoso.com**.
 
     d. Для параметра **Permission Template** (Шаблон разрешений) выберите значение **Apply Permission Template Later** (Применить шаблон разрешений позже).
 
-    д. Щелкните **Создать**.
+    д. Нажмите кнопку **Создать**.
 
 4. Проверьте и измените при необходимости сведения о добавляемом сотруднике.
 

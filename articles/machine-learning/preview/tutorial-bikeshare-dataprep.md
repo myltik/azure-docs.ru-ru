@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: e71680887c4e81eba831ab0b7af9fa2cceed74a0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Руководство по расширенной подготовке данных для системы совместного использования велосипедов при помощи Azure Machine Learning Workbench
 Служба "Машинное обучение Azure" (предварительная версия) — это полнофункциональное интегрированное аналитическое решение для специалистов по обработке данных. Оно помогает подготавливать данные, разрабатывать эксперименты и развертывать модели в масштабе облака.
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/18/2017
 >
 > Подготовленные данные можно использовать для обучения собственных моделей прогнозирования. Например, можно создать модель для прогнозирования спроса на велосипеды в течение 2-часового интервала времени.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 * Приложение Azure Machine Learning Workbench должно быть установлено локально. Дополнительные сведения см. в [кратком руководстве по установке](quickstart-installation.md).
 * Навыки создания проектов в Workbench.
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 12/18/2017
 
    ![Изображение элемента File(s)/Directory (Файл(ы) или каталог)](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **Выбор файла.** Добавьте сведения о погоде. Найдите и выберите загруженный ранее файл `BostonWeather.csv`. Щелкните **Далее**.
+2. **Выбор файла.** Добавьте сведения о погоде. Найдите и выберите загруженный ранее файл `BostonWeather.csv`. Нажмите кнопку **Далее**.
 
    ![Экран выбора с выбранным файлом BostonWeater.csv](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
 

@@ -12,8 +12,7 @@
 
 ### Развертывание
 #### [Подготовка к развертыванию](storsimple-virtual-array-deploy1-portal-prep.md)
-##### 
-            [Развертывание службы StorSimple Manager](storsimple-virtual-array-manage-service.md)
+##### [Развертывание службы StorSimple Manager](storsimple-virtual-array-manage-service.md)
 #### [Подготовка в Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Подготовка в VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Настройка в качестве файлового сервера](storsimple-virtual-array-deploy3-fs-setup.md)

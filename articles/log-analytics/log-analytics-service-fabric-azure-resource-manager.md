@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: nini
 ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Оценка приложений и микрослужб Azure Service Fabric на портале Azure
 
 > [!div class="op_single_selector"]
-> * [Диспетчер ресурсов](log-analytics-service-fabric-azure-resource-manager.md)
+> * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
 >
 >
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 - Перейдите к параметрам на левой панели и последовательно выберите "Данные" >> "Счетчики производительности Windows" >> "Добавить выбранные счетчики производительности": ![Service Fabric](./media/log-analytics-service-fabric/7.png).
 - В функции поиска по журналам используйте следующие запросы, чтобы получить основные метрики производительности узлов:
 
-    а. Сравните среднее использование ЦП на всех узлах за последний час, чтобы определить проблемные узлы и промежуток времени, в течение которого для узла зарегистрирован пик:
+    a. Сравните среднее использование ЦП на всех узлах за последний час, чтобы определить проблемные узлы и промежуток времени, в течение которого для узла зарегистрирован пик:
 
     ```
     Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR.
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Service Fabric](./media/log-analytics-service-fabric/10.png)
 
-    b. Просмотрите аналогичные графики для доступной памяти на каждом узле, используя этот запрос:
+    Б. Просмотрите аналогичные графики для доступной памяти на каждом узле, используя этот запрос:
 
     ```
     Type=Perf ObjectName=Memory CounterName="Available MBytes Memory" | measure avg(CounterValue) by Computer Interval 1HOUR.
@@ -152,7 +152,7 @@ ms.lasthandoff: 10/11/2017
 
 В следующей таблице описаны методы сбора данных, а также приведены сведения о сборе данных для Service Fabric.
 
-| платформа | Direct Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | частота сбора |
+| платформа | Direct Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10 минут |
 

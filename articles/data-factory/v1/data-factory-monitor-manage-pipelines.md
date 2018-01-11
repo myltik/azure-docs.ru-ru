@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Мониторинг конвейеров фабрики данных Azure и управление ими с помощью портала Azure и PowerShell
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/02/2017
 В этом разделе также содержатся сведения о переходе среза набора данных из одного состояния в другое.   
 
 ### <a name="navigate-to-your-data-factory"></a>Переход к фабрике данных
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. Щелкните колонку **Фабрики данных** в меню слева. Если вы ее не видите, выберите **Больше служб** и щелкните **Фабрики данных** в категории **Аналитика**.
 
    !["Просмотреть все" -> "Фабрики данных"](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -86,7 +86,7 @@ ms.lasthandoff: 11/02/2017
 
 <table>
 <tr>
-    <th align="left">Состояние</th><th align="left">Подсостояние</th><th align="left">Описание</th>
+    <th align="left">Состояние</th><th align="left">Подсостояние</th><th align="left">ОПИСАНИЕ</th>
 </tr>
 <tr>
     <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Время для выполнения среза еще не пришло.</td>
@@ -134,10 +134,10 @@ ms.lasthandoff: 11/02/2017
 <td>Ready</td><td>-</td><td>Срез готов к использованию.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>None</td><td>Срез не обрабатывается.</td>
+<td>Skipped</td><td>Нет</td><td>Срез не обрабатывается.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Срез, который ранее существовал с другим состоянием, но был сброшен.</td>
+<td>Нет</td><td>-</td><td>Срез, который ранее существовал с другим состоянием, но был сброшен.</td>
 </tr>
 </table>
 
@@ -177,7 +177,7 @@ ms.lasthandoff: 11/02/2017
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Например:
+Например: 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -188,7 +188,7 @@ Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produ
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Например:
+Например: 
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -220,7 +220,7 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
     ```powershell   
     Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Например:
+   Например: 
 
     ```powershell   
     Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -234,7 +234,7 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Например:
+    Например: 
 
     ```powershell   
     Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -288,7 +288,7 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ### <a name="use-azure-powershell"></a>Использование Azure PowerShell
 Вы можете повторно обработать проблемные срезы, используя командлет **Set-AzureRmDataFactorySliceStatus**. Синтаксис и другие сведения об этом командлете см. в соответствующем разделе статьи [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx).
 
-**Пример**
+**Пример.**
 
 В следующем примере состояние всех срезов в таблице DAWikiAggregatedData в фабрике данных WikiADF меняется на Waiting.
 
@@ -366,13 +366,13 @@ Azure регистрирует пользовательские события, 
 
 Список возможных операций и состояний (а также дополнительных состояний) см. в следующей таблице.
 
-| Имя операции | Состояние | Подсостояние |
+| Имя операции | Status | Подсостояние |
 | --- | --- | --- |
-| RunStarted |Started |Starting |
+| RunStarted |Started |Запуск |
 | RunFinished |Failed / Succeeded |FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned |
 | OnDemandClusterCreateStarted |Started | |
-| OnDemandClusterCreateSuccessful |Успешно | |
-| OnDemandClusterDeleted |Успешно | |
+| OnDemandClusterCreateSuccessful |Succeeded | |
+| OnDemandClusterDeleted |Succeeded | |
 
 Дополнительные сведения об элементах JSON, используемых в примере, см. в статье о том, как [создать правило оповещения](https://msdn.microsoft.com/library/azure/dn510366.aspx).
 

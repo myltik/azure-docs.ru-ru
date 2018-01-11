@@ -3,7 +3,7 @@ title: "Гибридные рабочие роли Runbook службы авто
 description: "В этой статье содержатся сведения об установке гибридной рабочей роли Runbook в службе автоматизации Azure, которая позволяет запускать модули Runbook на компьютерах под управлением Windows в локальном центре обработки данных или облачной среде."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: d889fda72f54af3a5f6db24f7ee6632f72eacb88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 71c98a7e17472ae0aa7646b9e7fc745363546211
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Развертывание гибридной рабочей роли Runbook для Windows
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 
 > [!NOTE]
 > Чтобы управлять конфигурацией серверов, поддерживающих гибридную рабочую роль Runbook с настройкой требуемого состояния (DSC), добавьте такие серверы в качестве узлов DSC.  Дополнительные сведения о развертывании этих узлов для управления с помощью DSC см. в статье [Подключение компьютеров для управления с помощью Azure Automation DSC](automation-dsc-onboarding.md).        
-Если вы включите [решение по управлению обновлениями](../operations-management-suite/oms-solution-update-management.md), любой подключенный к рабочей области OMS компьютер Windows будет автоматически настроен в качестве гибридной рабочей роли Runbook для поддержки модулей runbook, которые входят в это решение.  Но он не регистрируется в группах гибридных рабочих ролей, которые уже определены в вашей учетной записи службы автоматизации.  Его можно добавить в группу гибридных рабочих ролей Runbook в учетной записи службы автоматизации, чтобы обеспечить поддержку модулей Runbook службы автоматизации при условии, что вы используете одну и ту же учетную запись для решения и для членства в группе гибридных рабочих ролей Runbook.  Эта функция добавлена в версии 7.2.12024.0 гибридной рабочей роли Runbook.  
+Если вы включите [решение по управлению обновлениями](../operations-management-suite/oms-solution-update-management.md), любой подключенный к рабочей области OMS компьютер Windows будет автоматически настроен в качестве гибридной рабочей роли Runbook для поддержки модулей runbook, которые входят в это решение.  Но он не регистрируется в группах гибридных рабочих ролей, которые уже определены в вашей учетной записи службы автоматизации.  Его можно добавить в группу гибридных рабочих ролей Runbook в учетной записи службы автоматизации, чтобы обеспечить поддержку модулей Runbook службы автоматизации при условии, что вы используете одну и ту же учетную запись для решения и для членства в группе гибридных рабочих ролей Runbook.  Эта функция добавлена в версии 7.2.12024.0 гибридной рабочей роли Runbook.  
 
 Перед началом развертывания гибридной рабочей роли Runbook ознакомьтесь со следующими сведениями о [требованиях к оборудованию и программному обеспечению](automation-offering-get-started.md#hybrid-runbook-worker) и [сведениями о подготовке сети](automation-offering-get-started.md#network-planning).  После успешного развертывания рабочей роли Runbook ознакомьтесь с [запуском модулей runbook в гибридной рабочей роли Runbook](automation-hrw-run-runbooks.md), чтобы узнать, как настроить модули runbook для автоматизации процессов в локальном центре обработки данных или другой облачной среде.  
  
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 
 Если у вас еще нет рабочей области Operations Management Suite, [создайте](../log-analytics/log-analytics-manage-access.md) ее. Если у вас уже есть рабочая область, вы можете использовать ее.
 
-#### <a name="2-add-automation-solution-to-operations-management-suite-workspace"></a>2) Добавьте решение автоматизации в рабочую область Operations Management Suite
+#### <a name="2-add-automation-solution-to-operations-management-suite-workspace"></a>2. Добавьте решение автоматизации в рабочую область Operations Management Suite
 
 Решения расширяют функциональные возможности Operations Management Suite.  Решение автоматизации расширяет функциональные возможности службы автоматизации Azure, включая поддержку гибридных компонентов Runbook Worker.  Когда вы добавляете решение в рабочую область, она автоматически загружает компоненты рабочей роли на компьютер агента (вы установите его на следующем этапе).
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 10/11/2017
 
 Microsoft Monitoring Agent подключает компьютеры к Operations Management Suite.  Когда агент устанавливается на локальный компьютер и подключается к рабочей области, он автоматически скачивает компоненты, необходимые для гибридной рабочей роли Runbook.
 
-Установите агент на локальный компьютер, следуя инструкциям в статье [Подключение компьютеров Windows к Log Analytics](../log-analytics/log-analytics-windows-agents.md).  Выполните эту процедуру на нескольких компьютерах, чтобы добавить в среду несколько компонентов Worker.
+Установите агент на локальный компьютер, следуя инструкциям в статье [Подключение компьютеров Windows к Log Analytics](../log-analytics/log-analytics-windows-agent.md).  Выполните эту процедуру на нескольких компьютерах, чтобы добавить в среду несколько компонентов Worker.
 
 Агент, успешно подключенный к Operations Management Suite, появится на вкладке **Подключенные источники** в области **Параметры** Operations Management Suite.  Если агент скачал решение службы автоматизации правильно, в каталоге C:\Program Files\Microsoft Monitoring Agent\Agent появится папка **AzureAutomationFiles**.  Чтобы проверить версию гибридной рабочей роли Runbook, откройте папку C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ и найдите вложенную папку \\*version*.   
 
@@ -148,7 +148,7 @@ Microsoft Monitoring Agent подключает компьютеры к Operatio
 
 Журналы сохраняются локально в каждом гибридном компоненте Worker по адресу C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Можно проверить, зарегистрированы ли в журналах событий в папках **Application and Services Logs\Microsoft-SMA\Operations** и **Application and Services Logs\Operations Manager** какие-либо предупреждения или ошибки, которые указывают на проблемы подключения или другие проблемы, связанные с адаптацией роли службы автоматизации Azure, либо на проблемы во время выполнения обычных операций.  
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 * Ознакомьтесь с [запуском модулей runbook в гибридной рабочей роли Runbook](automation-hrw-run-runbooks.md), чтобы узнать, как настроить модули runbook для автоматизации процессов в локальном центре обработки данных или другой облачной среде.
 * Инструкции по удалению гибридных рабочих ролей Runbook см. в статье [Удаление гибридных рабочих ролей Runbook в службе автоматизации Azure](automation-remove-hrw.md).

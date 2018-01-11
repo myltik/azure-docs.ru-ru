@@ -3,7 +3,7 @@ title: "Отслеживание изменений в виртуальных м
 description: "Используйте функцию отслеживания изменений, чтобы отслеживать изменения в файлах и реестрах на виртуальных машинах."
 services: automation
 documentationcenter: automation
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ms.custom: 
-ms.openlocfilehash: 5c6e8390ec8533fc7ab281c212e47a6982b30f1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3a661fada2e768c2206183c125593d019b557c1d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="track-changes-in-your-azure-virtual-machines"></a>Отслеживание изменений в виртуальных машинах Azure
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 Если у вас нет виртуальной машины Azure, создайте ее, следуя инструкциям в статье о [быстром запуске в Windows](../virtual-machines/windows/quick-create-portal.md) или [быстром запуске в Linux](../virtual-machines/linux/quick-create-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Выполните вход на портал Azure.
-Выполните вход на [портал Azure](https://portal.azure.com/).
+Войдите на [портале Azure](https://portal.azure.com/).
 
 ## <a name="enable-change-tracking-for-an-azure-virtual-machine"></a>Включение функции отслеживания изменений виртуальной машины Azure
 

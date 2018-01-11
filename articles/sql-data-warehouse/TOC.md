@@ -90,12 +90,11 @@
 
 
 ## Загрузка и перемещение данных
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Общедоступные данные Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Хранилище озера данных Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Фабрика данных](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase из хранилища BLOB-объектов](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase из SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [Redgate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 

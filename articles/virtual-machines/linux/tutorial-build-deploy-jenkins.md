@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: c96aafeb05293ccdc4c30c2b828cead1dfdb157c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Развертывание приложения на виртуальных машинах Linux с помощью Jenkins и Team Services
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/09/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-* Вам нужен доступ к серверу Jenkins. Если вы еще не создали сервер Jenkins, см. сведения в статье [Создание сервера Jenkins на виртуальной машине Azure под управлением Linux на портале Azure](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
+* Вам нужен доступ к серверу Jenkins. Если вы еще не создали сервер Jenkins, см. сведения в статье [Создание сервера Jenkins на виртуальной машине Azure под управлением Linux на портале Azure](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * Войдите в учетную запись Team Services (**https://{ваша_учетная _запись}.visualstudio.com**). 
   Вы можете получить [бесплатную учетную запись Team Services](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
@@ -48,9 +48,9 @@ ms.lasthandoff: 11/09/2017
   > [!NOTE]
   > Дополнительные сведения см. в разделе [Connect to Visual Studio Team Services from Eclipse, Xcode, Visual Studio, and more](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services) (Подключение к Visual Studio Team Services из Eclipse, Xcode, Visual Studio и других сред).
 
-*  Для целевого развертывания понадобится виртуальная машина Linux.  Для получения дополнительной информации см. статью [Создание виртуальных машин Linux и управление ими с помощью Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
+*  Для целевого развертывания понадобится виртуальная машина Linux.  Для получения дополнительной информации см. статью [Создание виртуальных машин Linux и управление ими с помощью Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Откройте входящий порт 80 для виртуальной машины. Дополнительные сведения см. в статье [Создание групп безопасности сети с помощью портала Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Откройте входящий порт 80 для виртуальной машины. Дополнительные сведения см. в статье [Создание групп безопасности сети с помощью портала Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 ## <a name="get-the-sample-app"></a>Получение примера приложения
 

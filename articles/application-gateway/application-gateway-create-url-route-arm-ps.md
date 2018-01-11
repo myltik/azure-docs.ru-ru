@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
-ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>Создание шлюза приложений с помощью маршрутизации на основе пути
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](application-gateway-create-url-route-portal.md)
+> * [портал Azure](application-gateway-create-url-route-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-url-route-arm-ps.md)
 > * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-an-application-gateway"></a>Создание шлюза приложений
 
-Разница между использованием классического портала Azure и Azure Resource Manager заключается в порядке создания шлюза приложений и элементов, которые нужно настроить.
+Различие между использованием классической модели развертывания и диспетчера ресурсов Azure — это порядок, создать шлюз приложений и элементы, которые необходимо настроить.
 
 При использовании Resource Manager все элементы, которые будут включены в единый ресурс шлюза приложений, сначала настраиваются по отдельности.
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 3. Создание объекта конфигурации шлюза приложений.
 4. Создание ресурса шлюза приложений.
 
-## <a name="create-a-resource-group-for-resource-manager"></a>Создание группы ресурсов для диспетчера ресурсов
+## <a name="create-a-resource-group-for-resource-manager"></a>Создание группы ресурсов для диспетчера ресурсов.
 
 Убедитесь, что у вас установлена последняя версия Azure PowerShell. Дополнительные сведения см. в статье [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md).
 
@@ -90,7 +90,7 @@ Get-AzureRmSubscription
 
 ### <a name="step-3"></a>Шаг 3.
 
-Выберите подписку Azure. <BR>
+Выберите, какие подписки Azure будут использоваться. <BR>
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"

@@ -4,7 +4,7 @@ description: "Сведения о настройке устройств, при�
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 41ae5d019e303246d7c7c2b06cf73280f6472b6e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Настройка устройств, присоединенных к Azure Active Directory
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 Если вы хотите перевести рабочие устройства Windows 10 под управление Azure AD, это можно сделать, настроив устройства, присоединенные Azure AD. В этой статье вы найдете описание соответствующих действий. 
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы присоединить устройство Windows 10, необходимо настроить службу регистрации устройств для регистрации устройств. Помимо наличия разрешения на присоединение устройств в клиенте Azure AD, необходимо, чтобы число зарегистрированных устройств не превышало установленное максимальное значение. Дополнительные сведения см. в разделе [Управление устройствами с помощью портала Azure (предварительная версия)](device-management-azure-portal.md#configure-device-settings).
 
@@ -59,11 +59,11 @@ ms.lasthandoff: 10/11/2017
 
 1. В меню **Пуск** щелкните **Параметры**.
 
-    ![данных](./media/device-management-azuread-joined-devices-setup/01.png)
+    ![Параметры](./media/device-management-azuread-joined-devices-setup/01.png)
 
 2. Щелкните **Учетные записи**.
 
-    ![Учетные записи](./media/device-management-azuread-joined-devices-setup/02.png)
+    ![учетные записи;](./media/device-management-azuread-joined-devices-setup/02.png)
 
 
 3. Щелкните **Доступ к учетной записи места работы или учебного заведения**.

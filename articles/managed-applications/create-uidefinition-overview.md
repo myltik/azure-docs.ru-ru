@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8f04d8ed2e56cecb1b7a850bed55a02a9492bb5
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Создание пользовательского интерфейса портала Azure для управляемого приложения
 В этом документе описывается файл createUiDefinition.json. На основе этого файла портал Azure создает пользовательский интерфейс для создания управляемого приложения.
@@ -58,7 +58,19 @@ CreateUiDefinition всегда содержит три свойства:
 ## <a name="outputs"></a>outputs
 Портал Azure использует свойство `outputs` для сопоставления элементов `basics` и `steps` с параметрами шаблона развертывания Azure Resource Manager. Ключами являются имена параметров шаблона, а значениями — свойства выходных объектов из элементов, на которые даются ссылки.
 
-## <a name="functions"></a>Функции
+Чтобы задать имя ресурса управляемого приложения, необходимо включить значение с именем `applicationResourceName` в свойстве выходные данные. Если это значение не задано, приложение назначает идентификатор GUID для имени. В пользовательском интерфейсе, который запрашивает имя пользователя может включать текстовое поле.
+
+```json
+"outputs": {
+    "vmName": "[steps('appSettings').vmName]",
+    "trialOrProduction": "[steps('appSettings').trialOrProd]",
+    "userName": "[steps('vmCredentials').adminUsername]",
+    "pwd": "[steps('vmCredentials').vmPwd.password]",
+    "applicationResourceName": "[steps('appSettings').vmName]"
+}
+```
+
+## <a name="functions"></a>Functions
 Аналогично функциям шаблонов в Azure Resource Manager (и синтаксис, и функции) CreateUiDefinition предоставляет функции для работы с входными и выходными данными элементов, а также условные выражения.
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -67,6 +79,6 @@ CreateUiDefinition всегда содержит три свойства:
 - [CreateUiDefinition elements](create-uidefinition-elements.md) (Элементы CreateUiDefinition)
 - [Функции](create-uidefinition-functions.md)
 
-Текущая схема JSON для createUiDefinition доступна здесь: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
+Текущая схема JSON для createUiDefinition доступна здесь: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Более поздние версии будут доступны там же. Замените часть `0.1.2-preview` URL-адреса и значение `version` идентификатором версии, которую вы собираетесь использовать. Сейчас поддерживаются идентификаторы версий `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview` и `0.1.2-preview`.
+Пример файла интерфейса пользователя, в разделе [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

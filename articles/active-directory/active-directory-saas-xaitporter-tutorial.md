@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 9734c3f91eace144993a75063334d5c6ce16eb2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2012d990f7cdcb8c12da5f16db518b261b06a5b7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Руководство по интеграции Azure Active Directory с XaitPorter
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с XaitPorter, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление XaitPorter из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+1. Добавление XaitPorter из коллекции
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-xaitporter-from-the-gallery"></a>Добавление XaitPorter из коллекции
 Чтобы настроить интеграцию XaitPorter с Azure AD, необходимо добавить XaitPorter из коллекции в список управляемых приложений SaaS.
@@ -108,9 +108,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения XaitPorter](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.xaitporter.com/saml/login`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.xaitporter.com/saml/login`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.xaitporter.com`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.xaitporter.com`
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов XaitPorter](https://www.xait.com/support/). 
@@ -121,11 +121,11 @@ ms.lasthandoff: 10/11/2017
 
 5. Для создания URL-адреса **метаданных** выполните следующие действия.
 
-    а. Щелкните **Регистрация приложений**.
+    a. Щелкните **Регистрация приложений**.
     
     ![Настройка единого входа](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appregistrations.png)
    
-    b. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
+    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.  
     
     ![Настройка единого входа](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpointicon.png)
 
@@ -155,13 +155,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-xaitporter-tutorial/user3.png)
 
-    а. Выберите **Enable Single Sign-On Authentication** (Включить аутентификацию с помощью единого входа).
+    a. Выберите **Enable Single Sign-On Authentication** (Включить аутентификацию с помощью единого входа).
 
-    b. В текстовое поле **Identity Provider Settings** (Параметры поставщика удостоверений) вставьте **URL-адрес метаданных**, скопированный на портале Azure, и нажмите кнопку **Fetch** (Получить).
+    Б. В текстовое поле **Identity Provider Settings** (Параметры поставщика удостоверений) вставьте **URL-адрес метаданных**, скопированный на портале Azure, и нажмите кнопку **Fetch** (Получить).
 
     c. Выберите **Enable Autocreation of Users** (Включить автоматическое создание пользователей).
 
-    d. Нажмите кнопку **ОК**.
+    d. Последовательно выберите **ОК**.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -191,13 +191,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-xaitporter-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-xaitporter-test-user"></a>Создание тестового пользователя XaitPorter
 

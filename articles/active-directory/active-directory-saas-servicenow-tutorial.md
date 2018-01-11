@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: a5a1a264-7497-47e7-b129-a1b5b1ebff5b
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 7b25e2184296182687d49b798e5e5a9a2d623c6e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 8b21c7b18c31f3111caa13d08efb5aa42ecc0e49
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Руководство: интеграция Azure Active Directory с ServiceNow
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/18/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с приложением ServiceNow, вам потребуется:
 
@@ -50,10 +50,10 @@ ms.lasthandoff: 11/18/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление ServiceNow из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-servicenow-from-the-gallery"></a>Добавление ServiceNow из коллекции.
 Чтобы настроить интеграцию ServiceNow с Azure AD, необходимо добавить ServiceNow из коллекции в список управляемых приложений SaaS.
@@ -111,9 +111,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Сведения о домене и URL-адресах единого входа приложения ServiceNow](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<instance-name>.service-now.com/navpage.do`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<instance-name>.service-now.com/navpage.do`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<instance-name>.service-now.com`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<instance-name>.service-now.com`
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Необходимо будет изменить эти значения, указав фактические URL-адрес для входа и идентификатор. Это описывается далее в этом руководстве.
@@ -128,11 +128,11 @@ ms.lasthandoff: 11/18/2017
 
 6. Для создания URL-адреса **метаданных** выполните следующие действия.
 
-    а. Щелкните **Регистрация приложений**.
+    a. Щелкните **Регистрация приложений**.
     
     ![Настройка единого входа](./media/active-directory-saas-servicenow-tutorial/appregistrations.png)
 
-    b. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.
+    Б. Щелкните **Конечные точки**, чтобы открыть диалоговое окно **Конечные точки**.
     
     ![Настройка единого входа](./media/active-directory-saas-servicenow-tutorial/endpointicon.png)
     
@@ -158,11 +158,11 @@ ms.lasthandoff: 11/18/2017
 
 10. Активируйте подключаемый модуль **Integration - Multiple Provider Single Sign-On Installer** (Интеграция — установщик единого входа для нескольких поставщиков), выполнив следующие действия.
 
-    а. В левой области навигации найдите раздел **System Definition** (Определение системы) с помощью панели поиска и щелкните **Plugins** (Подключаемые модули).
+    a. В левой области навигации найдите раздел **System Definition** (Определение системы) с помощью панели поиска и щелкните **Plugins** (Подключаемые модули).
 
     ![Активация подключаемого модуля](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_03.png "Activate plugin")
 
-     b. Найдите **Integration - Multiple Provider Single Sign-On Installer** (Интеграция — установщик единого входа для нескольких поставщиков).
+     Б. Найдите **Integration - Multiple Provider Single Sign-On Installer** (Интеграция — установщик единого входа для нескольких поставщиков).
 
      ![Активация подключаемого модуля](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_04.png "Activate plugin")
 
@@ -178,15 +178,15 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-servicenow-tutorial/ic7694981.png "Настройка URL-адреса приложения")
 
-    а. Для параметра **Enable multiple provider SSO** (Включить единый вход для нескольких поставщиков) выберите значение **Yes** (Да).
+    a. Для параметра **Enable multiple provider SSO** (Включить единый вход для нескольких поставщиков) выберите значение **Yes** (Да).
 
-    b. Для параметра **Enable Auto Importing of users from all identity providers into the user table** (Включить автоматический импорт пользователей из всех поставщиков удостоверений в таблицу пользователей) выберите значение **Yes** (Да).
+    Б. Для параметра **Enable Auto Importing of users from all identity providers into the user table** (Включить автоматический импорт пользователей из всех поставщиков удостоверений в таблицу пользователей) выберите значение **Yes** (Да).
 
     c. Для параметра **Enable debug logging for the multiple provider SSO integration** (Включить ведение журнала отладки для интеграции нескольких поставщиков единого входа) выберите значение **Yes** (Да).
 
     d. В текстовом поле **The field on the user table that...** (Поле в пользовательской таблице) введите значение **user_name**.
 
-    д. Щелкните **Сохранить**.
+    д. Выберите команду **Сохранить**.
 
 13. В левой области навигации найдите раздел **Multi-Provider SSO** (Единый вход с помощью нескольких поставщиков) с помощью панели поиска, затем щелкните **x509 Certificates** (Сертификаты x509).
 
@@ -200,9 +200,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка единого входа](./media/active-directory-saas-servicenow-tutorial/ic7694975.png "Настройка единого входа")
 
-    а. В текстовое поле **Name** (Имя) введите имя конфигурации (например, **TestSAML2.0**).
+    a. В текстовое поле **Name** (Имя) введите имя конфигурации (например, **TestSAML2.0**).
 
-    b. Установите флажок **Активно**.
+    Б. Установите флажок **Активно**.
 
     c. В поле **Format** (Формат) выберите **PEM**.
 
@@ -228,9 +228,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка единого входа](./media/active-directory-saas-servicenow-tutorial/idp.png "Настройка единого входа")
 
-    а. В диалоговом окне **Import Identity Provider Metadata** (Импорт метаданных поставщика удостоверений) выберите **URL** (URL-адрес).
+    a. В диалоговом окне **Import Identity Provider Metadata** (Импорт метаданных поставщика удостоверений) выберите **URL** (URL-адрес).
 
-    b. Введите **URL-адрес метаданных**, созданный на портале Azure.
+    Б. Введите **URL-адрес метаданных**, созданный на портале Azure.
 
     c. Щелкните **Импорт**.
 
@@ -238,9 +238,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка единого входа](./media/active-directory-saas-servicenow-tutorial/ic7694982.png "Настройка единого входа")
 
-    а. В текстовое поле **Name** (Имя) введите имя конфигурации (например, **SAML 2.0**).
+    a. В текстовое поле **Name** (Имя) введите имя конфигурации (например, **SAML 2.0**).
 
-    b. В текстовом поле **User Field** (Поле пользователя) введите значение **email** или **user_name**, в зависимости от того, какое поле используется для уникальной идентификации пользователей в развернутой службе ServiceNow.
+    Б. В текстовом поле **User Field** (Поле пользователя) введите значение **email** или **user_name**, в зависимости от того, какое поле используется для уникальной идентификации пользователей в развернутой службе ServiceNow.
 
     > [!NOTE]
     > Azure AD можно настроить таким образом, чтобы в качестве уникального идентификатора в токене SAML выдавался идентификатор пользователя Azure AD (имя участника-пользователя) или его электронный адрес. Для этого перейдите в раздел **ServiceNow > Атрибуты > Единый вход** на портале Azure и сопоставьте нужное поле с атрибутом **nameidentifier**. Значение, хранящееся для выбранного атрибута в Azure AD (например, имя участника-пользователя), должно соответствовать значению, хранящемуся в ServiceNow для заполненного поля (например, user_name).
@@ -268,9 +268,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка единого входа](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите значение в следующем формате: `https://<instance-name>.service-now.com/navpage.do`.
+    a. В текстовом поле **URL-адрес для входа** введите значение в следующем формате: `https://<instance-name>.service-now.com/navpage.do`.
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<instance-name>.service-now.com`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<instance-name>.service-now.com`
 
     > [!NOTE]
     > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов ServiceNow](https://www.servicenow.com/support/contact-support.html).
@@ -301,9 +301,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-servicenow-tutorial/ic7694981ex.png "Настройка URL-адреса приложения")
 
-    а. Передвиньте переключатель **Enable multiple provider SSO** (Включить единый вход для нескольких поставщиков) вправо.
+    a. Передвиньте переключатель **Enable multiple provider SSO** (Включить единый вход для нескольких поставщиков) вправо.
     
-    b. Передвиньте переключатель **Enable debug logging for the multiple provider SSO integration** (Включить ведение журнала отладки для интеграции нескольких поставщиков единого входа) вправо.
+    Б. Передвиньте переключатель **Enable debug logging for the multiple provider SSO integration** (Включить ведение журнала отладки для интеграции нескольких поставщиков единого входа) вправо.
     
     c. В текстовом поле **The field on the user table that...** (Поле в пользовательской таблице) введите значение **user_name**.
 
@@ -315,9 +315,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка единого входа](./media/active-directory-saas-servicenow-tutorial/ic7694975.png "Настройка единого входа")
 
-    а. В текстовое поле **Name** (Имя) введите имя конфигурации (например, **TestSAML2.0**).
+    a. В текстовое поле **Name** (Имя) введите имя конфигурации (например, **TestSAML2.0**).
 
-    b. Установите флажок **Активно**.
+    Б. Установите флажок **Активно**.
 
     c. В поле **Format** (Формат) выберите **PEM**.
 
@@ -335,9 +335,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка единого входа](./media/active-directory-saas-servicenow-tutorial/ic7694982ex.png "Настройка единого входа")
 
-    а. В текстовое поле **Name** (Имя) введите имя конфигурации (например, **SAML 2.0**).
+    a. В текстовое поле **Name** (Имя) введите имя конфигурации (например, **SAML 2.0**).
 
-    b. В поле **Identity Provider URL** (URL-адрес поставщика удостоверений) вставьте значение поля **Идентификатор поставщика удостоверений**, скопированное на портале Azure.
+    Б. В поле **Identity Provider URL** (URL-адрес поставщика удостоверений) вставьте значение поля **Идентификатор поставщика удостоверений**, скопированное на портале Azure.
     
     c. В поле **Identity Provider's AuthnRequest** (Запрос на аутентификацию поставщика удостоверений) вставьте значение поля **URL-адрес запроса проверки подлинности**, скопированное на портале Azure.
 
@@ -349,9 +349,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка единого входа](./media/active-directory-saas-servicenow-tutorial/ic7694983ex.png "Настройка единого входа")
 
-    а. В текстовом поле **Protocol Binding for the IDP's SingleLogoutRequest** (Привязка протокола для запроса на единый выход поставщика удостоверений) введите **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
+    a. В текстовом поле **Protocol Binding for the IDP's SingleLogoutRequest** (Привязка протокола для запроса на единый выход поставщика удостоверений) введите **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
-    b. В текстовое поле **NameID Policy** (Политика идентификатора имени) введите **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
+    Б. В текстовое поле **NameID Policy** (Политика идентификатора имени) введите **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
 
     c. В поле **AuthnContextClassRef Method** (Метод AuthnContextClassRef) введите `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`.
 
@@ -361,12 +361,12 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка единого входа](./media/active-directory-saas-servicenow-tutorial/ic7694984ex.png "Настройка единого входа")
 
-    а. В текстовое поле **ServiceNow Homepage** (Домашняя страница ServiceNow) введите URL-адрес домашней страницы экземпляра ServiceNow.
+    a. В текстовое поле **ServiceNow Homepage** (Домашняя страница ServiceNow) введите URL-адрес домашней страницы экземпляра ServiceNow.
 
     > [!NOTE]
     > URL-адрес домашней страницы экземпляра ServiceNow состоит из **URL-адреса клиента ServiceNow** и **/navpage.do** (например, `https://fabrikam.service-now.com/navpage.do`).
 
-    b. В текстовое поле **Entity ID / Issuer** (Идентификатор сущности или издатель) введите URL-адрес клиента ServiceNow.
+    Б. В текстовое поле **Entity ID / Issuer** (Идентификатор сущности или издатель) введите URL-адрес клиента ServiceNow.
 
     c. В текстовое поле **Audience URI** (URI аудитории) введите URL-адрес клиента ServiceNow.
 
@@ -377,7 +377,7 @@ ms.lasthandoff: 11/18/2017
     > [!NOTE]
     > Azure AD можно настроить таким образом, чтобы в качестве уникального идентификатора в токене SAML выдавался идентификатор пользователя Azure AD (имя участника-пользователя) или его электронный адрес. Для этого перейдите в раздел **ServiceNow > Атрибуты > Единый вход** на портале Azure и сопоставьте нужное поле с атрибутом **nameidentifier**. Значение, хранящееся для выбранного атрибута в Azure AD (например, имя участника-пользователя), должно соответствовать значению, хранящемуся в ServiceNow для заполненного поля (например, user_name).
 
-    f. Щелкните **Сохранить**.
+    f. Выберите команду **Сохранить**.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -407,13 +407,13 @@ ms.lasthandoff: 11/18/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-servicenow-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-servicenow-test-user"></a>Создание тестового пользователя ServiceNow
 

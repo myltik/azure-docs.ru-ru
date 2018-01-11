@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Средства приема данных виртуальных машин для обработки и анализа данных
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 | Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Windows      |
 | Распространенные способы применения      | Импорт нескольких больших двоичных объектов из службы хранилища Azure в Azure Data Lake Store.      |
 |  Запуск и использование    |   Откройте командную строку и введите `adlcopy` для получения справки.    |
-| Ссылки на примеры      | [С помощью AdlCopy]https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Ссылки на примеры      | Https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob [с помощью AdlCopy])      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | AzCopy, командная строка Azure     |
 
 ## <a name="azure-command-line"></a>Командная строка Azure
@@ -58,19 +58,19 @@ ms.lasthandoff: 10/11/2017
 | Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Windows      |
 | Распространенные способы применения      | Копирование файлов в хранилище BLOB-объектов, копирование больших двоичных объектов между учетными записями.      |
 |  Запуск и использование    |   Откройте командную строку и введите `azcopy` для получения справки.    |
-| Ссылки на примеры      | [AzCopy в Windows](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)      |
+| Ссылки на примеры      | [AzCopy в Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | AdlCopy     |
 
 
-## <a name="azure-cosmos-db-documentdb-api-data-migration-tool"></a>Azure Cosmos DB: средство миграции данных API DocumentDB
+## <a name="azure-cosmos-db-data-migration-tool"></a>Средство переноса данных DB Cosmos Azure
 
 |    |           |
 | ------------- | ------------- |
-| Что это такое?   | Средство для импорта данных из различных источников, включая JSON-файлы, CSV-файлы, SQL, MongoDB, хранилище таблиц Azure, Amazon DynamoDB и коллекции API DocumentDB для базы данных Azure Cosmos DB, в Azure Cosmos DB или Azure DocumentDB.      |
+| Что это такое?   | Средство для импорта данных из различных источников, включая файлы JSON, CSV-файлы, SQL, MongoDB, хранилище таблиц Azure, Amazon DynamoDB и базы данных SQL Azure Cosmos API коллекций в базе данных Azure Cosmos.      |
 | Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Windows      |
 | Распространенные способы применения      | Импорт файлов из виртуальной машины в CosmosDB, импорт данных из хранилища таблиц Azure в CosmosDB или импорт данных из базы данных SQL Server в CosmosDB.     |
 |  Запуск и использование    |   Чтобы использовать версию для командной строки, откройте командную строку и введите `dt`. Чтобы использовать средство графического пользовательского интерфейса, откройте командную строку и введите `dtui`.    |
-| Ссылки на примеры      | [Как импортировать данные в Azure Cosmos DB для API DocumentDB](https://docs.microsoft.com/en-us/azure/cosmos-db/import-data)      |
+| Ссылки на примеры      | [Как импортировать данные в Azure Cosmos DB для API DocumentDB](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | AzCopy, AdlCopy      |
 
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 | Поддерживаемые версии виртуальных машин для обработки и анализа данных      | Windows      |
 | Распространенные способы применения      | Импорт CSV-файла в таблицу SQL Server, экспорт таблицы SQL Server в файл.      |
 |  Запуск и использование    |   Откройте командную строку и введите `bcp` для получения справки.    |
-| Ссылки на примеры      | [Программа bcp](https://docs.microsoft.com/en-us/sql/tools/bcp-utility)      |
+| Ссылки на примеры      | [Программа bcp](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | SQL Server, SQLCMD      |
 
 

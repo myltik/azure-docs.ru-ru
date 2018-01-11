@@ -5,7 +5,7 @@ services: active-directory
 keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b9a95cea57f4d0a4a927679cd4802bb56420887a
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: f31487c5b5d8b888c7eb58aea2e42199b1614af8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Начало работы с условным доступом в Azure Active Directory
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/23/2017
 Во многих организациях общим требованием является обязательная многофакторная идентификация для доступа к приложениям, который выполняется не из корпоративной интрасети. Вы легко можете реализовать это с помощью Azure Active Directory, настроив политику условного доступа на основе расположения. В этой статье вы найдете подробные инструкции по настройке соответствующей политики. С помощью [надежных IP-адресов](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) политика отличает попытки доступа из корпоративной интрасети от попыток доступа из остальных расположений.
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 В сценарии из этой статьи предполагается, что вы знакомы с основными понятиями, описанными в статье об [условном доступе Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
@@ -78,9 +78,9 @@ ms.lasthandoff: 10/23/2017
 
     ![Условный доступ](./media/active-directory-conditional-access-azure-portal-get-started/06.png)
 
-    а. Щелкните **Выбрать пользователей и группы**.
+    a. Щелкните **Выбрать пользователей и группы**.
 
-    b. Нажмите кнопку **Выбрать**.
+    Б. Нажмите кнопку **Выбрать**.
 
     c. В колонке **Выбрать** выберите тестового пользователя и нажмите кнопку **Выбрать**.
 
@@ -94,9 +94,9 @@ ms.lasthandoff: 10/23/2017
 
     ![Условный доступ](./media/active-directory-conditional-access-azure-portal-get-started/08.png)
 
-    а. Щелкните **Выбрать приложения**.
+    a. Щелкните **Выбрать приложения**.
 
-    b. Нажмите кнопку **Выбрать**.
+    Б. Нажмите кнопку **Выбрать**.
 
     c. В колонке **Выбрать** выберите облачное приложение и нажмите кнопку **Выбрать**.
 
@@ -114,9 +114,9 @@ ms.lasthandoff: 10/23/2017
 
     ![Условный доступ](./media/active-directory-conditional-access-azure-portal-get-started/11.png)
 
-    а. Под параметром **Настройка** нажмите кнопку **Да**.
+    a. Под параметром **Настройка** нажмите кнопку **Да**.
 
-    b. На вкладке **Включить** выберите **Все расположения**.
+    Б. На вкладке **Включить** выберите **Все расположения**.
 
     c. Откройте вкладку **Исключить** и выберите **All trusted IPs** (Все надежные IP-адреса).
 
@@ -134,9 +134,9 @@ ms.lasthandoff: 10/23/2017
 
     ![Условный доступ](./media/active-directory-conditional-access-azure-portal-get-started/14.png)
 
-    а. Выберите **Требовать многофакторную проверку подлинности**.
+    a. Выберите **Требовать многофакторную проверку подлинности**.
 
-    b. Нажмите кнопку **Выбрать**.
+    Б. Нажмите кнопку **Выбрать**.
 
 15. В колонке **Создать** в разделе **Включить политику** нажмите кнопку **Вкл.**
 

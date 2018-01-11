@@ -1,11 +1,11 @@
 ---
 title: "Установка леса Active Directory в виртуальной сети Azure | Документация Майкрософт"
-description: "В этом учебнике объясняется, как создать новый лес Active Directory на виртуальной машине (ВМ) в виртуальной сети Microsoft Azure."
+description: "Учебник, в котором описывается процесс создания нового леса Active Directory на виртуальной машине (VM) на виртуальную сеть Azure."
 services: active-directory, virtual-network
 keywords: "виртуальная машина active directory, установка леса active directory, видео azure active directory  "
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 tags: 
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 23bea4b6e3351bdce77e6d265ba258ce60a22a36
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Установка нового леса Active Directory в виртуальной сети Azure
 В этой статье показано, как создать новую среду Windows Server Active Directory на виртуальной машине (VM) в [виртуальной сети Azure](../virtual-network/virtual-networks-overview.md). В данном случае виртуальная сеть Azure не соединена с локальной сетью.
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/04/2017
 Вас также могут заинтересовать следующие связанные статьи:
 
 * Видео, в котором показаны эти шаги, см. в разделе [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network) (Как установить новый лес Active Directory в виртуальной сети Azure).
-* Можно также [настроить подключение VPN типа "сеть — сеть"](../vpn-gateway/vpn-gateway-site-to-site-create.md), а затем либо установить новый лес, либо расширить существующий локальный лес на виртуальную сеть Azure. Инструкции по выполнению этих действий см. в разделе [Установка реплики контроллера домена Active Directory в виртуальной сети Azure](active-directory-install-replica-active-directory-domain-controller.md).
+* Можно также [настроить подключение VPN типа "сеть — сеть"](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), а затем либо установить новый лес, либо расширить существующий локальный лес на виртуальную сеть Azure. Инструкции по выполнению этих действий см. в разделе [Установка реплики контроллера домена Active Directory в виртуальной сети Azure](active-directory-install-replica-active-directory-domain-controller.md).
 * Концептуальное руководство об установке доменных служб Active Directory (AD DS) в виртуальной сети Azure см. в статье [Руководства по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Схема сценария
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/04/2017
 | **Хранилище базы данных Active Directory** |При желании измените расположение хранилища по умолчанию, C:\ |Вам нужно изменить расположение хранилища по умолчанию, C:\ |
 
 ## <a name="create-an-azure-virtual-network"></a>Создание виртуальной сети Azure
-1. Войдите на классический портал Azure.
+1. Войдите на портал Azure.
 2. Создайте виртуальную сеть. Щелкните **Сети** > **Создать виртуальную сеть**. Для завершения работы мастера используйте значения из приведенной ниже таблицы.
 
    | На странице мастера… | Укажите такие значения |
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/04/2017
 
 Чтобы создать виртуальные машины с помощью Windows PowerShell, а не пользовательского интерфейса, см. раздел [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-1. На классическом портале щелкните **Создать** > **Вычисления** > **Виртуальная машина** > **Из коллекции**. Для завершения работы мастера используйте следующие значения. Настройте значение по умолчанию, если не рекомендуется и не требуется иное.
+1. На портале Azure выберите **New** > **вычислений**, а затем выберите виртуальную машину. Для завершения работы мастера используйте следующие значения. Настройте значение по умолчанию, если не рекомендуется и не требуется иное.
 
    | На странице мастера… | Укажите такие значения |
    | --- | --- |
@@ -69,7 +69,7 @@ ms.lasthandoff: 12/04/2017
    |  **Конфигурация виртуальной машины** |<p>Выберите <b>Установить агент ВМ</b> и другие необходимые вам расширения.</p> |
 2. Подключите диск к каждой виртуальной машине, на которой будет выполняться роль сервера контроллера домена. Дополнительный диск необходим для хранения базы данных AD, журналов и SYSVOL. Укажите размер диска (например, 10 ГБ), а для параметра **Настройки кэша узла** выберите **Отсутствует**. Подробнее об этом см. в разделе [Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. После первого входа в виртуальную машину откройте **Диспетчер серверов** > **Файловые службы и службы хранилища** для создания тома на этом диске с использованием файловой системы NTFS.
-4. Зарезервируйте статический IP-адрес для виртуальных машин, на которых будет выполняться роль контроллера домена. Чтобы зарезервировать статический IP-адрес, скачайте Установщик веб-платформ Майкрософт, [установите Azure PowerShell](/powershell/azure/overview) и запустите командлет Set-AzureStaticVNetIP. Например:
+4. Зарезервируйте статический IP-адрес для виртуальных машин, на которых будет выполняться роль контроллера домена. Чтобы зарезервировать статический IP-адрес, скачайте Установщик веб-платформ Майкрософт, [установите Azure PowerShell](/powershell/azure/overview) и запустите командлет Set-AzureStaticVNetIP. Например: 
 
     `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 
@@ -108,12 +108,12 @@ ms.lasthandoff: 12/04/2017
 ## <a name="see-also"></a>См. также
 * [Установка нового леса Active Directory в виртуальной сети Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-* [Настроить VPN типа «сеть-сеть»](../vpn-gateway/vpn-gateway-site-to-site-create.md)
+* [Настроить VPN типа «сеть-сеть»](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Установка реплики контроллера домена Active Directory в виртуальной сети Azure](active-directory-install-replica-active-directory-domain-controller.md)
 * [Microsoft Azure IaaS для профессионалов в сфере IT. (01) Основная информация о виртуальных машинах](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS для профессионалов в сфере IT. (05) Создание виртуальных сетей и подключений между организациями](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 * [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md)
-* [Установка и настройка Azure PowerShell](/powershell/azure/overview)
+* [Как установить и настроить Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Справка по командлетам Azure](/powershell/azure/get-started-azureps)
 * [Настройка статического IP-адреса для виртуальной машины Azure](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)

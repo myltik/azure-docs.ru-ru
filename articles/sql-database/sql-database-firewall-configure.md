@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: e18645667cfb126ae2f2f9c8074fdcff5a6ade1b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 1988bc7ab5b498db32d7bb40623f1194d7290b94
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Правила брандмауэра уровня сервера и уровня базы данных SQL Azure 
 
@@ -45,6 +45,10 @@ ms.lasthandoff: 10/31/2017
 * **Правила брандмауэра уровня базы данных.** Эти правила разрешают клиентам доступ к определенным (защищенным) базам данных на одном логическом сервере. Вы можете создать такие правила для каждой базы данных (в том числе базы данных **master**), и они будут храниться в отдельных базах данных. Для создания правил брандмауэра уровня базы данных для базы данных master и пользовательской базы данных и управления этими правилами можно использовать только инструкции Transact-SQL и только после настройки первого правила брандмауэра уровня сервера. Если в правиле брандмауэра уровня базы данных указать диапазон IP-адресов, выходящий за пределы диапазона, указанного в правиле брандмауэра уровня сервера, доступ к базе данных смогут получить только те клиенты, которые имеют IP-адреса в диапазоне уровня базы данных. Для базы данных можно задать не более 128 правил брандмауэра уровня базы данных. Дополнительные сведения о настройке правил брандмауэра уровня базы данных см. в примере ниже и в статье [sp_set_database_firewall_rule (база данных SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 **Рекомендация.** Корпорация Майкрософт рекомендует по возможности всегда использовать правила брандмауэра на уровне базы данных, чтобы повысить уровень безопасности и портативность базы данных. Используйте правила брандмауэра серверного уровня для администраторов, если у вас много баз данных с одинаковыми требованиями к доступу и вы не хотите тратить время на настройку каждой базы данных по отдельности.
+
+> [!Important]
+> База данных SQL Windows Azure поддерживает не более 128 правил брандмауэра.
+>
 
 > [!Note]
 > Сведения о портативных базах данных в контексте непрерывности бизнес-процессов см. в разделе [Требования к проверке подлинности для аварийного восстановления](sql-database-geo-replication-security-config.md).
@@ -109,7 +113,7 @@ ms.lasthandoff: 10/31/2017
 2. Щелкните **Добавить IP-адрес клиента** на панели инструментов, чтобы добавить IP-адрес используемого компьютера, а затем щелкните **Сохранить**. Для текущего IP-адреса будет создано правило брандмауэра уровня сервера.
 
 ## <a name="manage-firewall-rules-using-transact-sql"></a>Управление правилами брандмауэра с помощью Transact-SQL
-| Представление каталога или хранимая процедура | Уровень | Описание |
+| Представление каталога или хранимая процедура | Уровень | ОПИСАНИЕ |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |сервер; |Отображает текущие правила брандмауэра уровня сервера |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |сервер; |Создает или обновляет правила брандмауэра уровня сервера |
@@ -139,7 +143,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```   
 
 ## <a name="manage-firewall-rules-using-azure-powershell"></a>Управление правилами брандмауэра с помощью Azure PowerShell
-| Командлет | Уровень | Описание |
+| Командлет | Уровень | ОПИСАНИЕ |
 | --- | --- | --- |
 | [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |сервер; |Возвращает текущие правила брандмауэра уровня сервера |
 | [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |сервер; |Создает новое правило брандмауэра уровня сервера |
@@ -160,7 +164,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 >
 
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Управление правилами брандмауэра с помощью Azure CLI
-| Командлет | Уровень | Описание |
+| Командлет | Уровень | ОПИСАНИЕ |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|сервер;|Создает правило брандмауэра для сервера.|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|сервер;|Выводит список правил брандмауэра на сервере.|
@@ -180,7 +184,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 >
 
 ## <a name="manage-firewall-rules-using-rest-api"></a>Управление правилами брандмауэра с помощью REST API
-| API | Уровень | Описание |
+| API | Уровень | ОПИСАНИЕ |
 | --- | --- | --- |
 | [Вывод списка правил брандмауэра](https://docs.microsoft.com/rest/api/sql/FirewallRules/ListByServer) |сервер; |Отображает текущие правила брандмауэра уровня сервера |
 | [Создание и изменение правила брандмауэра](https://docs.microsoft.com/rest/api/sql/FirewallRules/CreateOrUpdate) |сервер; |Создает или обновляет правила брандмауэра уровня сервера |

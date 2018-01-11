@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 91b632c0c4bab2f0ac71b662cf1b73f5d37881ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Установка расширения устойчивых функций и примеров (Функции Azure)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/05/2017
 
 Сейчас Visual Studio обеспечивает максимальное удобство разработки приложений с использованием устойчивых функций.  Функции можно выполнять локально, а также публиковать в Azure. Можно начать с пустого проекта или набора примеров функций.
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Технические условия
 
 * Установите [последнюю версию Visual Studio](https://www.visualstudio.com/downloads/) (15.3 или выше). Включите рабочую нагрузку **разработки Azure** в параметрах установки.
 
@@ -58,11 +58,11 @@ ms.lasthandoff: 12/05/2017
 
 Visual Studio Code поддерживает процесс локальной разработки на всех основных платформах: Windows, macOS и Linux.  Функции можно выполнять локально, а также публиковать в Azure. Можно начать с пустого проекта или набора примеров функций.
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Технические условия
 
 * Установите [последнюю версию Visual Studio Code](https://code.visualstudio.com/Download). 
 
-* Выполните инструкции раздела "Установка основных инструментов Функций Azure" из статьи [Как программировать и тестировать Функции Azure в локальной среде](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local).
+* Выполните инструкции раздела "Установка основных инструментов Функций Azure" из статьи [Как программировать и тестировать Функции Azure в локальной среде](https://docs.microsoft.com/azure/azure-functions/functions-run-local).
 
     >[!IMPORTANT]
     > Если у вас уже есть кроссплатформенные средства Функций Azure, обновите их до последней доступной версии.

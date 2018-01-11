@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Передача данных с использованием библиотеки перемещения данных службы хранилища Microsoft Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 Эта библиотека также использует .NET Core, а это означает, что ее можно применять при создании приложений .NET для Windows, Linux и MacOS. Дополнительные сведения о .NET Core см. [документации по .NET Core](https://dotnet.github.io/). Эта библиотека также подходит для традиционных приложений .NET Framework для Windows. 
 
-В этом документе показано, как создать консольное приложение .NET Core, которое работает в Windows, Linux и MacOS и выполняет приведенные ниже функции.
+В этом документе показано, как создать консольное приложение .NET Core, который выполняется в Windows, Linux и macOS и выполняет следующие сценарии:
 
 - Передача файлов и каталогов в хранилище BLOB-объектов.
 - Определение количества параллельных операций при передаче данных.

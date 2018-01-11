@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: a84fd69c568e26bbd1ff06b699b804c70e0e9c09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Приступая к созданию балансировщика нагрузки для Интернета с поддержкой IPv6 с помощью PowerShell для Resource Manager
 
@@ -42,7 +42,7 @@ Azure Load Balancer является балансировщиком нагруз
 В этом сценарии вы создадите следующие ресурсы Azure:
 
 * балансировщик нагрузки для Интернета с общедоступными IPv4- и IPv6-адресами;
-* два правила балансировки нагрузки для сопоставления общедоступных виртуальных IP-адресов с частными конечными точками;
+* два правила балансировки нагрузки для сопоставления общедоступных виртуальных IP-адресов с частными конечными точками.
 * группу доступности, которая содержит две виртуальные машины;
 * две виртуальные машины;
 * виртуальный сетевой интерфейс для каждой виртуальной машины с назначенными IPv4 и IPv6-адресами.
@@ -79,7 +79,7 @@ Azure Load Balancer является балансировщиком нагруз
     Get-AzureRmSubscription
     ```
 
-3. Выберите подписку Azure.
+3. Выберите, какие подписки Azure будут использоваться.
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'

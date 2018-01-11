@@ -3,7 +3,7 @@ title: "Управление зонами DNS в службе DNS Azure (Azure C
 description: "Зонами DNS можно управлять с помощью Azure CLI 2.0. В этой статье показано, как обновлять, удалять и создавать зоны DNS в службе DNS Azure."
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,32 +12,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: gwallace
-ms.openlocfilehash: 1414baf9e51d648cc3a46c4f8635040b4d276910
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Как управлять зонами DNS в службе DNS Azure с помощью Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Портал](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 
 В этом руководстве показано, как управлять зонами DNS с помощью кроссплатформенного интерфейса командной строки Azure, доступного для Windows, Mac и Linux. Зонами DNS также можно управлять с помощью [Azure PowerShell](dns-operations-dnszones.md) или портала Azure.
 
-## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
-
-Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
-
-* [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) — это интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-* [Azure CLI 2.0](dns-operations-dnszones-cli.md) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager.
-
-## <a name="introduction"></a>Введение
+## <a name="introduction"></a>Общие сведения
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -49,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 
 * Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
 
-* Установите последнюю версию Azure CLI 2.0 для Windows, Linux или Mac. Дополнительные сведения см. в статье [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2) (Установка Azure CLI 2.0).
+* Установите последнюю версию Azure CLI 2.0 для Windows, Linux или Mac. Дополнительные сведения см. в статье [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (Установка Azure CLI 2.0).
 
 ### <a name="sign-in-to-your-azure-account"></a>Вход в учетную запись Azure
 
@@ -67,7 +59,7 @@ az login
 az account list
 ```
 
-Выберите подписку Azure.
+Выберите, какие подписки Azure будут использоваться.
 
 ```azurecli
 az account set --subscription "subscription name"
@@ -75,7 +67,7 @@ az account set --subscription "subscription name"
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-В диспетчере ресурсов Azure для всех групп ресурсов должно быть указано расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Но так как все ресурсы DNS глобальные, а не региональные, выбор расположения группы ресурсов не влияет на Azure DNS.
+Диспетчер ресурсов Azure требует, чтобы все группы ресурсов указывали расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Но так как все ресурсы DNS глобальные, а не региональные, выбор расположения группы ресурсов не влияет на Azure DNS.
 
 Если используется существующая группа ресурсов, можно пропустить этот шаг.
 
@@ -85,7 +77,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Получение справки
 
-Все команды CLI 2.0 для Azure DNS начинаются с `az network dns`. Справку для каждой команды можно отобразить с помощью параметра `--help` (краткая форма: `-h`).  Например:
+Все команды CLI 2.0 для Azure DNS начинаются с `az network dns`. Справку для каждой команды можно отобразить с помощью параметра `--help` (краткая форма: `-h`).  Например: 
 
 ```azurecli
 az network dns --help

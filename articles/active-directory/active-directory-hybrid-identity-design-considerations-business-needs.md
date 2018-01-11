@@ -4,7 +4,7 @@ description: "С помощью этой статьи вы сможете опр
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 6503034b3f5a17a2a42338c73329eef0b01f2f27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d88648731ef021f2705a15a544d23359e65c64f6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Определение требований к идентификации для решений гибридной идентификации
 При разработке решения гибридной идентификации первым делом необходимо определить потребности организации, которая будет использовать это решение.  Гибридная идентификация прежде всего играет вспомогательную роль (она поддерживает другие облачные решения, обеспечивая для них проверку подлинности), но позволяет пользоваться также и многими новыми интересными возможностями, предоставляя пользователям дополнительные рабочие нагрузки.  Эти рабочие нагрузки или службы, которые вы будете применять для своих пользователей, определяют требования по проектированию гибридной идентификации.  Такие службы и рабочие нагрузки должны использовать гибридную идентификацию как локально, так и в облаке.  
@@ -106,6 +106,6 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 [Определение требований к синхронизации каталога](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
 

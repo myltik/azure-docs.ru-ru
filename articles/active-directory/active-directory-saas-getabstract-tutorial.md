@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 2b63d048-b529-4fad-9e90-f244323409dd
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 01ff91ab86a9140c066050d35da5b59e2a040c28
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 37419f8f65f5dfa171302bb0d85cef23e8cea93b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Руководство по интеграции Azure Active Directory с Getabstract
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/18/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Getabstract, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 11/18/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Getabstract из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-getabstract-from-the-gallery"></a>Добавление Getabstract из коллекции
 Чтобы настроить интеграцию Getabstract с Azure AD, необходимо добавить Getabstract из коллекции в список управляемых приложений SaaS.
@@ -108,13 +108,13 @@ ms.lasthandoff: 11/18/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Getabstract](./media/active-directory-saas-getabstract-tutorial/tutorial_getabstract_url.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес:
+    a. В текстовом поле **Идентификатор** введите URL-адрес:
 
     На этапе подготовки к разработке: `https://int.getabstract.com`.
 
     На этапе разработки: `https://www.getabstract.com`.
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес:
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес:
     
     На этапе подготовки к разработке: `https://int.getabstract.com/ACS.do`.
     
@@ -170,13 +170,13 @@ ms.lasthandoff: 11/18/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-getabstract-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-getabstract-test-user"></a>Создание тестового пользователя Getabstract
 

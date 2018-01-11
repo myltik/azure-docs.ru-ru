@@ -15,30 +15,32 @@
 ### [Использование Azure PowerShell для создания и настройки приложения AAD](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Предоставление видео по запросу
-### [Портал Azure](media-services-portal-vod-get-started.md)
+### [портал Azure](media-services-portal-vod-get-started.md)
 ### [ПАКЕТ SDK .NET](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Потоковая трансляция в реальном времени
-### [Портал Azure](media-services-portal-live-passthrough-get-started.md)
+### [портал Azure](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Практическое руководство
-## Управление
+## управление
 ### Сущности
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
 ### [Конечные точки потоковой передачи](media-services-streaming-endpoints-overview.md)
-#### [Портал Azure](media-services-portal-manage-streaming-endpoints.md)
+#### [портал Azure](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### Хранилище
 #### [Обновление служб мультимедиа после оборота ключей доступа к хранилищу](media-services-roll-storage-access-keys.md)
 #### [Управление ресурсами в нескольких учетных записях хранения](meda-services-managing-multiple-storage-accounts.md)
 ### [Квоты и ограничения](media-services-quotas-and-limitations.md)
-
+## [Настройка Postman](media-rest-apis-with-postman.md)
+### [Среда](postman-environment.md)
+### [Коллекция](postman-collection.md)
 ## Передача содержимого
 ### Отправка файлов в учетную запись
-#### [Портал Azure](media-services-portal-upload-files.md)
+#### [портал Azure](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Отправка больших файлов с помощью Aspera](media-services-upload-files-with-aspera.md)
@@ -52,7 +54,7 @@
 #### [Форматы и кодеки Media Encoder Standard](media-services-media-encoder-standard-formats.md)
 #### [Автоматическое создание схемы скоростей с помощью MES](media-services-autogen-bitrate-ladder-with-mes.md)
 #### Кодирование с помощью Media Encoder Standard
-##### [Портал Azure](media-services-portal-encode.md)
+##### [портал Azure](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Расширенное кодирование с помощью MES](media-services-advanced-encoding-with-mes.md)
@@ -107,10 +109,10 @@
 ## [Потоковая трансляция в реальном времени](media-services-manage-channels-overview.md)
 ### [Локальные кодировщики](media-services-live-streaming-with-onprem-encoders.md)
 #### [Рекомендуемые локальные кодировщики](media-services-recommended-encoders.md)
-#### [Портал Azure](media-services-portal-live-passthrough-get-started.md)
+#### [портал Azure](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Потоковая трансляция с использованием облачного кодировщика](media-services-manage-live-encoder-enabled-channels.md)
-#### [Портал Azure](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [портал Azure](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Настройка локальных кодировщиков для использования с облачными кодировщиками](media-services-live-encoders-overview.md)
 #### [Кодировщик Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -126,7 +128,7 @@
 ### [Настройка сочетаний клавиш](media-services-azure-media-clipper-keyboard-shortcuts.md)
 ### [Настройка локализации](media-services-azure-media-clipper-localization.md)
 ### [Отправка заданий обрезки](media-services-azure-media-clipper-submit-job.md)
-### [Портал Azure](media-services-azure-media-clipper-portal.md)
+### [портал Azure](media-services-azure-media-clipper-portal.md)
 
 ## [Защита содержимого](media-services-content-protection-overview.md)
 ### [Шифрование хранилища](media-services-rest-storage-encryption.md)
@@ -147,7 +149,7 @@
 #### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
 #### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Настройка политики авторизации ключей содержимого
-#### [Портал Azure](media-services-portal-configure-content-key-auth-policy.md)
+#### [портал Azure](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 ### [Передача маркеров проверки подлинности в AMS](media-services-pass-authentication-tokens.md)
@@ -174,10 +176,10 @@
 
 ## Масштаб
 ### [Обработка мультимедиа](media-services-scale-media-processing-overview.md)
-#### [Портал Azure](media-services-portal-scale-media-processing.md)
+#### [портал Azure](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
 ### Конечные точки потоковой передачи
-#### [Портал Azure](media-services-portal-scale-streaming-endpoints.md)
+#### [портал Azure](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Доставка содержимого](media-services-deliver-content-overview.md)
 ### [Динамическая упаковка](media-services-dynamic-packaging-overview.md)
@@ -185,8 +187,8 @@
 #### [Создание фильтров с помощью .NET](media-services-dotnet-dynamic-manifest.md)
 #### [Создание фильтров с помощью REST](media-services-rest-dynamic-manifest.md)
 ### [Политика кэширования CDN в расширении служб мультимедиа](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### Публикация контента
-#### [Портал Azure](media-services-portal-publish.md)
+### Публикация содержимого
+#### [портал Azure](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [Доставка путем скачивания](media-services-deliver-asset-download.md)
@@ -206,10 +208,10 @@
 ### [Использование функций Azure и служб мультимедиа](media-services-dotnet-how-to-use-azure-functions.md)
 ### [Использование функций Azure и примеров служб мультимедиа](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
-## Монитор
+## Мониторинг
 ### Проверка хода выполнения задания
 #### [REST](media-services-rest-check-job-progress.md)
-#### [Портал Azure](media-services-portal-check-job-progress.md)
+#### [портал Azure](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
 ### [Мониторинг уведомлений о заданиях с помощью хранилища очередей](media-services-dotnet-check-job-progress-with-queues.md)
 ### [Мониторинг уведомлений о заданиях с помощью вызовов webhook](media-services-dotnet-check-job-progress-with-webhooks.md)

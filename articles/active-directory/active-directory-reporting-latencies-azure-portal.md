@@ -4,7 +4,7 @@ description: "Узнайте, сколько времени необходимо
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Задержки в отчетах Azure Active Directory
 
@@ -37,13 +37,15 @@ ms.lasthandoff: 10/18/2017
 
 В следующей таблице приведены сведения о задержках для отчетов об активности.
 
-| Отчет | Минимальная | Средняя | Максимальная |
-| :-- | --- | --- | --- |
-| Журналы аудита             | 30 минут  | 45 минут | 1 час     |
-| Вход в систему               | 15 минут  | 15 минут | 2 часа*   |
+| Отчет | Минимальная | Средняя | Примечания |
+| :-- | --- | --- | :-- |
+| Журналы аудита | 30 минут  | 1 час  |В некоторых случаях может потребовать до 2 часов для аудита активности данные появляются.|
+| Вход в систему | 15 минут  | 2 ч |В некоторых случаях он может занять до 24 часов для действия при входе данные появляются. Сюда входят действия данных входа в систему, поступающих от приложений прежних версий office. |
 
->[!NOTE]
-> Для некоторых данных активности входа в систему, поступающих из устаревших приложений Office, может потребоваться до 8 часов, чтобы данные отчетов отобразились. 
+
+
+
+
 
 
 ## <a name="security-reports"></a>Отчеты о безопасности
@@ -55,7 +57,7 @@ ms.lasthandoff: 10/18/2017
 
 В следующей таблице приведены сведения о задержках для отчетов о безопасности.
 
-| Отчет | Минимальная | Средняя | Максимальная |
+| Отчет | Минимальная | Средние | Максимальная |
 | :-- | --- | --- | --- |
 | пользователи под угрозой;          | 5 мин   | 15 минут  | 2 ч  |
 | Вход, представляющий риск         | 5 мин   | 15 минут  | 2 ч  |

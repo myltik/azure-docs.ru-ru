@@ -14,42 +14,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/15/2017
+ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9beef44b3fbaf26d49757544f32b97c7ef2cf425
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Передача прав владения подпиской Azure другой учетной записи
 
-В Центре управления учетной записью есть возможность передачи прав владения подпиской другому пользователю. Эта функция предназначена для передачи прав владения выставлением счетов по подписке другому пользователю, изменения учетной записи входа или перемещения подписки в другой каталог. Сведения о том, как изменить подписку и воспользоваться другим предложением, см. в статье [Переключение подписки Azure на другое предложение](billing-how-to-switch-azure-offer.md).
+Перенос подписки другому пользователю в центре учетных записей, чтобы изменить администратора учетной записи и передавать владение подписки выставления счетов. Сведения о том, как изменить подписку и воспользоваться другим предложением, см. в статье [Переключение подписки Azure на другое предложение](billing-how-to-switch-azure-offer.md).
 
 > [!IMPORTANT]
 > 
 > Сейчас передача прав владения для подписки бесплатной пробной версии или [Azure с открытой лицензией](https://azure.microsoft.com/offers/ms-azr-0111p/) не поддерживается. Сведения об обходном решении см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](../azure-resource-manager/resource-group-move-resources.md).
-
-<a id="supported"></a>
-
-## <a name="whats-supported"></a>Поддерживаемые функции
-
-Самостоятельная передача подписки доступна для типов предложений или подписок, перечисленных в следующей таблице. Для передачи других подписок (например [спонсорское предложение](https://azure.microsoft.com/offers/ms-azr-0036p/) или планы поддержки) [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-| Название предложения                                                                             | Номер предложения |
-|----------------------------------------------------------------------------------------|--------------|
-| [Соглашение Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
-| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
-| [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
-| [Оплата по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
-| [Разработка и тестирование с оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
-| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
-| [Visual Studio Enterprise: Bizspark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
-| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
-| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
-
-\*[Через портал EA](#EA)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Передача прав владения подпиской Azure
 
@@ -57,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-1. Войдите в [Центр управления учетной записью Azure](https://account.windowsazure.com/Subscriptions) в качестве администратора учетной записи. Чтобы узнать, кто является администратором учетной записи для подписки, ознакомьтесь с инструкциями в разделе [Часто задаваемые вопросы](#faq).
+1. Войдите в систему в [центр учетных записей Azure](https://account.windowsazure.com/Subscriptions) имени учетной записи администратора. Чтобы узнать, кто является администратор учетной записи подписки, в разделе [часто задаваемые вопросы](#faq).
 
 1. Выберите подписку для передачи.
 
@@ -88,20 +68,39 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Дальнейшие действия после принятия владения подпиской
 
-1. Теперь вы являетесь администратором учетной записи. Просмотрите и обновите данные об администраторе служб и соадминистраторах. Для управления администраторами перейдите в раздел "Параметры" на [классическом портале Azure](https://manage.windowsazure.com) . [Дополнительные сведения о ролях администратора](billing-add-change-azure-subscription-administrator.md).
-1. Для управления подпиской и службами можно использовать управление доступом на основе ролей (RBAC). Войдите на [портал Azure](https://portal.azure.com). [Дополнительные сведения о RBAC](../active-directory/role-based-access-control-configure.md).
+1. Теперь вы находитесь к администратору учетной записи. Просмотрите и обновите администратора служб, Соадминистраторы и другие роли RBAC. Дополнительные сведения см. в разделе [добавить или изменить роли администратора Azure, подписки или службы управления](billing-add-change-azure-subscription-administrator.md).
 1. Обновите учетные данные, связанные со службами этой подписки, включая следующие:
    1. Сертификаты управления, которые предоставляют пользователю доступ к ресурсам подписки с правами администратора. Дополнительные сведения см. в статье [Создание и передача сертификата управления для Azure](../cloud-services/cloud-services-certs-create.md).
    1. Ключи доступа для служб, таких как служба хранилища. Дополнительные сведения см. в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md).
    1. Учетные данные удаленного доступа для служб, таких как Виртуальные машины Azure. 
 1. [Измените настройки оповещений о выставлении счетов для этой подписки](billing-set-up-alerts.md) в [Центре управления учетной записью Azure](https://account.windowsazure.com/Subscriptions). 
-1. Если вы работаете с партнером, мы рекомендуем изменить идентификатор партнера для этой подписки. Вы можете обновить идентификатор партнера в [Центре управления учетной записью Azure](https://account.windowsazure.com/Subscriptions).
+1. Если вы работаете с партнером, мы рекомендуем изменить идентификатор партнера для этой подписки. Можно обновить ИД партнера в [портал Azure](https://portal.azure.com).
+
+<a id="supported"></a>
+
+## <a name="whats-supported"></a>Поддерживаемые функции
+
+Самостоятельная передача подписки доступна для типов предложений или подписок, перечисленных в следующей таблице. Для передачи других подписок (например [спонсорское предложение](https://azure.microsoft.com/offers/ms-azr-0036p/) или планы поддержки) [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+| Название предложения                                                                             | Номер предложения |
+|----------------------------------------------------------------------------------------|--------------|
+| [Соглашение Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
+| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
+| [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
+| [Оплата по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
+| [Разработка и тестирование с оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
+| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
+| [Visual Studio Enterprise: Bizspark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
+| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
+| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
+
+\*[Через портал EA](#EA)
 
 <a id="faq"></a>
 
 ## <a name="frequently-asked-questions-faq"></a>Часто задаваемые вопросы
 
-### <a name="whoisaa"></a> Кто является администратором учетной записи для подписки?
+### <a name="whoisaa"></a>Кто является администратором учетной записи подписки?
 
 Администратор учетной записи — это пользователь, который зарегистрировал или приобрел подписку Azure. Он может получить доступ к [Центру управления учетной записью](https://account.azure.com/Subscriptions) и выполнять различные задачи управления, такие как создание и отмена подписки, изменение выставляемых счетов за подписку или администратора службы. Если вы не знаете, кто является администратором учетной записи для вашей подписки, следуйте инструкциям ниже, чтобы узнать это.
 
@@ -111,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Можно ли передать все группы ресурсов, виртуальные машины, диски и другие работающие службы?
 
-Да, все ресурсы, такие как виртуальные машины, диски и веб-сайты, перейдут к новому владельцу. Тем не менее нельзя передавать настроенные [роли администратора](billing-add-change-azure-subscription-administrator.md) и политики [управления доступом на основе ролей (RBAC)](../active-directory/role-based-access-control-configure.md) между разными каталогами.
+Все ресурсы, такие как виртуальные машины, диски и передачи веб-сайтов с новым владельцем. Тем не менее нельзя передавать настроенные [роли администратора](billing-add-change-azure-subscription-administrator.md) и политики [управления доступом на основе ролей (RBAC)](../active-directory/role-based-access-control-configure.md) между разными каталогами. Кроме того [регистрации приложения](../active-directory//develop/active-directory-integrating-applications.md) и другие службы для конкретного клиента не передачи вместе.
 
 ### <a id="no-button"></a>Почему не отображается кнопка "Перенос подписки"?
 

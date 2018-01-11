@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: b3a9befe5c6607c108e11b583f8b67c483710021
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-database-security-best-practices"></a>Рекомендации по обеспечению безопасности базы данных Azure
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 11/22/2017
 
 Организации, не защищающие передаваемые данные, более уязвимы для [атак типа "злоумышленник в середине"](https://technet.microsoft.com/library/gg195821.aspx), [перехвата данных](https://technet.microsoft.com/library/gg195641.aspx) и перехвата сеанса. Такие атаки могут стать первым шагом в ходе получения доступа к конфиденциальным данным.
 
-Дополнительные сведения о возможностях VPN в Azure см. в статье [Планирование и проектирование VPN-шлюза](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
+Дополнительные сведения о возможностях VPN в Azure см. в статье [Планирование и проектирование VPN-шлюза](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ## <a name="enable-database-auditing"></a>Включение аудита базы данных
 Аудит экземпляра ядра СУБД SQL Server или отдельной базы данных включает в себя отслеживание и ведение журнала событий, происходящих в ядре СУБД. Подсистема аудита SQL Server позволяет проводить аудит сервера, который может предусматривать спецификации аудита серверов для событий на уровне сервера и спецификации аудита баз данных для событий на уровне базы данных. Прошедшие аудит события могут записываться в журналы событий или файлы аудита.

@@ -4,7 +4,7 @@ description: "Как регистрировать запросы на подде
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 51922008-6fbd-487c-b2c7-a5db57d154b4
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: ad02321c99c57d0f83f7eacb354e47d8c6d4d14f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b37575d636356304ca94a55736e7f69605cf8218
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: регистрация запросов в службу поддержки
 Вы можете регистрировать запросы в службу поддержки для Azure Active Directory (AD) B2C на портале Azure следующим образом.
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
    * В разделе **Отправка файлов**отправьте все снимки экрана и файлы, которые, по вашему мнению, помогут в устранении этой проблемы.
      
      ![Поддержка. Проблема](./media/active-directory-b2c-support/support-problem.png)
-7. В колонке **Контактные данные** добавьте контактные данные. Щелкните **Создать**.
+7. В колонке **Контактные данные** добавьте контактные данные. Нажмите кнопку **Создать**.
    
     ![Поддержка. Контактная информация](./media/active-directory-b2c-support/support-contact.png)
 8. Отправленный в службу поддержки запрос можно отслеживать, щелкнув **Справка и поддержка** на начальной панели и выбрав **Управление запросами в службу поддержки**.

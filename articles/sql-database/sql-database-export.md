@@ -1,6 +1,6 @@
 ---
 title: "Экспорт базы данных SQL Azure в BACPAC-файл | Документация Майкрософт"
-description: "Экспорт базы данных SQL Azure в BACPAC-файл с помощью портала Azure."
+description: "Экспорт базы данных Azure SQL в файл BACPAC с помощью портала Azure"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.author: carlrab
 ms.workload: Active
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 2291088b3d8e50f4e8143bf8560580e89db4cae3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 227e171880ec3f59875ea792465f68c75a4a5fa8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Экспорт базы данных SQL Azure в BACPAC-файл
 

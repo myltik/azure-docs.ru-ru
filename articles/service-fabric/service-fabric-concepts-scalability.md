@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 680b996e370f66a5e22644ae1d1bf41d314bb4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6dc89bda31af35e4c7eb0f2255db301b39ac05eb
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scaling-in-service-fabric"></a>Масштабирование в Service Fabric
 Azure Service Fabric упрощает создание масштабируемых приложений, обеспечивая управление службами, секциями и репликами на узлах кластера. Выполнение множества рабочих нагрузок на одном и том же оборудовании обеспечивает не только максимальное использование ресурсов, но и гибкость в выборе способа масштабирования рабочих нагрузок. 
@@ -69,7 +69,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>масштабирование путем создания или удаления новых именованных служб;
 Именованный экземпляр службы представляет собой экземпляр определенного типа службы (см. статью [Жизненный цикл приложения Service Fabric](service-fabric-application-lifecycle.md)) в каком-либо именованном экземпляре приложения в кластере. 
 
-Новые именованные экземпляры службы могут создаваться (или удаляться) при повышении (или снижении) нагрузки службы. Это позволяет распределять запросы между несколькими экземплярами службы, что, как правило, дает возможность снизить нагрузку существующих служб. При создании служб диспетчер кластерных ресурсов Service Fabric распределяет их по кластеру. Точные решения о размещении определяются [метриками](service-fabric-cluster-resource-manager-metrics.md) в кластере и другими правилами размещения. Службы могут быть созданы несколькими способами, однако чаще всего они создаются с помощью административных действий, таких как вызов [`New-ServiceFabricService`](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), или кода, вызывающего [`CreateServiceAsync`](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` можно даже вызвать из других служб, выполняющихся в кластере.
+Новые именованные экземпляры службы могут создаваться (или удаляться) при повышении (или снижении) нагрузки службы. Это позволяет распределять запросы между несколькими экземплярами службы, что, как правило, дает возможность снизить нагрузку существующих служб. При создании служб диспетчер кластерных ресурсов Service Fabric распределяет их по кластеру. Точные решения о размещении определяются [метриками](service-fabric-cluster-resource-manager-metrics.md) в кластере и другими правилами размещения. Службы могут быть созданы несколькими способами, однако чаще всего они создаются с помощью административных действий, таких как вызов [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), или кода, вызывающего [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` можно даже вызвать из других служб, выполняющихся в кластере.
 
 Динамическое создание служб можно использовать во всех видах сценариев, это общепринятая практика. Например, рассмотрим службу с отслеживанием состояния, которая представляет определенный рабочий процесс. К этой службе будут поступать вызовы, представляющие работу, и она будет выполнять действия рабочего процесса и записывать ход выполнения. 
 

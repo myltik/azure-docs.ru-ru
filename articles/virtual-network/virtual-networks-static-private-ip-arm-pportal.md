@@ -17,17 +17,17 @@ ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 672462fad715758e50680fa5bade4b1f9d50e6e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Настройка частных IP-адресов для виртуальной машины с помощью портала Azure
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](virtual-networks-static-private-ip-arm-pportal.md)
+> * [портал Azure](virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-> * [Интерфейс командной строки Azure](virtual-networks-static-private-ip-arm-cli.md)
+> * [интерфейс командной строки Azure](virtual-networks-static-private-ip-arm-cli.md)
 > * [Портал Azure (классическая модель)](virtual-networks-static-private-ip-classic-pportal.md)
 > * [PowerShell (классическая модель)](virtual-networks-static-private-ip-classic-ps.md)
 > * [Интерфейс командной строки Azure (классическая модель)](virtual-networks-static-private-ip-classic-cli.md)
@@ -96,7 +96,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Как удалить статический частный IP-адрес виртуальной машины
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Удаление статического частного IP-адреса виртуальной машины
 Чтобы удалить статический частный IP-адрес виртуальной машины, созданной ранее, выполните следующее.
 
 В колонке **IP-адреса**, показанной выше, в разделе **Назначение** щелкните **Динамический** и нажмите кнопку **Сохранить**.

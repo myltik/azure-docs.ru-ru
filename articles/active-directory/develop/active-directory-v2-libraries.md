@@ -4,7 +4,7 @@ description: "Сведения о совместимых клиентских б
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Библиотеки проверки подлинности Azure Active Directory версии 2.0
-[Конечная точка Azure Active Directory (Azure AD) версии 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) поддерживает стандартные отраслевые протоколы OAuth 2.0 и OpenID Connect 1.0. С конечной точкой версии 2.0 можно использовать различные библиотеки от корпорации Майкрософт и других организаций.
+[Конечная точка Azure Active Directory (Azure AD) версии 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) поддерживает стандартные отраслевые протоколы OAuth 2.0 и OpenID Connect 1.0. С конечной точкой версии 2.0 можно использовать различные библиотеки от корпорации Майкрософт и других организаций.
 
 При создании приложения, использующего конечную точку версии 2.0, рекомендуется использовать библиотеки, написанные специалистами в области протоколов, сторонниками методов жизненного цикла разработки защищенных приложений (SDL), [таких, каким следуют в корпорации Майкрософт][Microsoft-SDL]. Если вы приняли решение написать код поддержки для протоколов, рекомендуется следовать методам SDL и внимательно просмотреть рекомендации по безопасности в спецификациях стандартов для каждого из протоколов.
 
 > [!NOTE]
-> Ищете библиотеки Azure AD версии 1.0 (ADAL)? Ознакомьтесь с [руководством по библиотекам ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> Ищете библиотеки Azure AD версии 1.0 (ADAL)? Ознакомьтесь с [руководством по библиотекам ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
 > 
 > 
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 > [!IMPORTANT]
 > Библиотеки MSAL предварительной версии можно использовать в рабочей среде. Для этих библиотек предоставляется такая же поддержка рабочего уровня, как и для текущих рабочих библиотек (ADAL). Во время действия предварительной версии мы можем вносить изменения в API MSAL, формат внутреннего кэша и другие механизмы этих библиотек без уведомления. Вы будете применять их вместе с исправлениями ошибок или обновлениями функций. Это может повлиять на приложение. Например, изменение формата кэша может повлиять на пользователей (в частности, потребуется повторный вход). Изменение API может потребовать обновления кода. После выпуска общедоступной версии вам понадобится перейти на нее в течение шести месяцев, так как приложения, написанные с помощью предварительной версии библиотеки, могут перестать работать.
 
-| Платформа | Библиотека | Загрузить | Исходный код | Образец | Справочные материалы
+| платформа | Библиотека | Загрузка | Исходный код | Образец | Справочные материалы
 | --- | --- | --- | --- | --- | --- |
 | Клиент .NET, Магазин Windows, UWP, Xamarin iOS и Android | MSAL для .NET (предварительная версия) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Классическое приложение](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
 | JavaScript | MSAL.js (предварительная версия) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Одностраничное приложение](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Серверные библиотеки ПО промежуточного слоя, поддерживаемые корпорацией Майкрософт
 
-| Платформа | Библиотека | Загрузить | Исходный код | Образец | Справочные материалы
+| платформа | Библиотека | Загрузка | Исходный код | Образец | Справочные материалы
 | --- | --- | --- | --- | --- | --- |
 | .NET 4.x | ПО промежуточного слоя OWIN OpenID Connect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Приложение MVC](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
 | .NET 4.x | ПО промежуточного слоя носителя OWIN OAuth для AzureAD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
@@ -73,14 +73,14 @@ ms.lasthandoff: 10/11/2017
 | Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Веб-приложение](active-directory-v2-devquickstarts-node-web.md)| |
 
 ## <a name="compatible-client-libraries"></a>Совместимые клиентские библиотеки
-| Платформа | Имя библиотеки | Проверенные версии | Исходный код | Образец |
+| платформа | Имя библиотеки | Проверенные версии | Исходный код | Образец |
 |:---:|:---:|:---:|:---:|:---:|
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Пример встроенного приложения](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Пример встроенного приложения](active-directory-v2-devquickstarts-ios.md) |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[Безопасная проверка пароля](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 
 ## <a name="compatible-server-middleware-libraries"></a>Совместимые серверные библиотеки ПО промежуточного слоя
-| Платформа | Имя библиотеки | Проверенные версии | Исходный код | Образец |
+| платформа | Имя библиотеки | Проверенные версии | Исходный код | Образец |
 |:---:|:---:|:---:|:---:|:---:|
 | Java | [Scribe Java (scribejava)](https://github.com/scribejava/scribejava) | [Версия 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
 | PHP | [The PHP League (oauth2-client)](https://github.com/thephpleague/oauth2-client) | [Версия 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |

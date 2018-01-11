@@ -94,7 +94,7 @@
               href: connector-azure-file-storage.md
             - name: поиск Azure;
               href: connector-azure-search.md
-            - name: База данных SQL Azure
+            - name: Базы данных SQL Azure
               href: connector-azure-sql-database.md
             - name: "Хранилище данных SQL\_Azure"
               href: connector-azure-sql-data-warehouse.md
@@ -124,7 +124,7 @@
               href: connector-google-bigquery.md
             - name: Greenplum
               href: connector-greenplum.md
-            - name: HBase
+            - name: hbase
               href: connector-hbase.md
             - name: HDFS
               href: connector-hdfs.md
@@ -188,7 +188,7 @@
               href: connector-shopify.md
             - name: Spark
               href: connector-spark.md
-            - name: SQL Server
+            - name: SQL Server;
               href: connector-sql-server.md
             - name: Маркер
               href: connector-square.md
@@ -303,13 +303,15 @@
       items:
         - name: Создание триггера расписания
           href: how-to-create-schedule-trigger.md
+        - name: Создание триггера "переворачивающегося" окна
+          href: how-to-create-tumbling-window-trigger.md
 - name: Справочные материалы
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory
     - name: PowerShell
       href: /powershell/module/azurerm.datafactoryv2/
-    - name: Интерфейс REST API
+    - name: ИНТЕРФЕЙС REST API
       href: /rest/api/datafactory
     - name: Python
       href: /python/api/overview/azure/datafactory?view=azure-python

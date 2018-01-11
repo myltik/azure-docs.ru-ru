@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: вопросы и ответы
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/01/2017
 * [Troubleshooting no data - Application Insights for .NET](app-insights-asp-net-troubleshoot-no-data.md)
 * [раздел "Устранение неполадок"](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Настройка системы диагностики Azure для входа в Application Insights](app-insights-azure-diagnostics.md)
-* [Устранение неполадок, а также вопросы и ответы по Application Insights для Java](app-insights-java-troubleshoot.md)
+* [Веб-приложение Java](app-insights-java-troubleshoot.md)
 
 *Я не получаю данные с моего сервера*
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 11/01/2017
 
 Это классическое приложение, которое можно использовать на веб-сервере IIS для настройки Application Insights в веб-приложениях. Оно не собирает телеметрию: его можно остановить, когда вы не настраиваете приложение. 
 
-[Подробнее](app-insights-monitor-performance-live-website-now.md#questions).
+[Узнайте больше](app-insights-monitor-performance-live-website-now.md#questions).
 
 ## <a name="what-telemetry-is-collected-by-application-insights"></a>Какую телеметрию собирает Application Insights?
 
@@ -140,7 +140,7 @@ ms.lasthandoff: 11/01/2017
 * Телеметрия браузера: мы собираем сведения об IP-адресе отправителя.
 * Телеметрия сервера: модуль Application Insights собирает сведения об IP-адресе клиента. Эти сведения не собираются, если задан заголовок `X-Forwarded-For`.
 
-Вы можете настроить `ClientIpHeaderTelemetryInitializer` для получения IP-адреса из другого заголовка. Например, в некоторых системах он переносится прокси-сервером, балансировщиком нагрузки или сетью CDN в `X-Originating-IP`. [Подробнее](http://apmtips.com/blog/2016/07/05/client-ip-address/).
+Вы можете настроить `ClientIpHeaderTelemetryInitializer` для получения IP-адреса из другого заголовка. Например, в некоторых системах он переносится прокси-сервером, балансировщиком нагрузки или сетью CDN в `X-Originating-IP`. [Узнайте больше](http://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 Вы можете [использовать Power BI](app-insights-export-power-bi.md) для отображения данных телеметрии по запросам на карте.
 
@@ -242,7 +242,7 @@ ms.lasthandoff: 11/01/2017
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Можно ли отправлять данные телеметрии на портал Application Insights?
 
-Мы рекомендуем использовать наши пакеты SDK и интерфейс API SDK (app-insights-api-custom-events-metrics.md). Существуют разновидности пакетов SDK для разных [платформ](app-insights-platforms.md). Эти пакеты SDK управляют буферизацией, сжатием, регулированием, повторными попытками и другими операциями. Однако [схема приема](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) и [протокол конечной точки](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) являются открытыми.
+Мы рекомендуем использовать наши пакеты SDK и использовать [API пакета SDK](app-insights-api-custom-events-metrics.md). Существуют разновидности пакетов SDK для разных [платформ](app-insights-platforms.md). Эти пакеты SDK управляют буферизацией, сжатием, регулированием, повторными попытками и другими операциями. Однако [схема приема](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) и [протокол конечной точки](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) являются открытыми.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Можно ли отслеживать веб-сервер в интрасети?
 

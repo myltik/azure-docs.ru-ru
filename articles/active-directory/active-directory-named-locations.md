@@ -4,7 +4,7 @@ description: "Узнайте, что такое именованные расп�
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 231255d9a119c404c0c947c00414572aaab82719
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Именованные расположения в Azure Active Directory
 
@@ -81,11 +81,11 @@ ms.lasthandoff: 12/07/2017
 
     ![Колонка "Создать"](./media/active-directory-named-locations/56.png)
 
-    а. В поле **Имя** введите имя именованного расположения.
+    a. В поле **Имя** введите имя именованного расположения.
 
-    b. В поле **Диапазоны IP-адресов** введите диапазон IP-адресов. Диапазон IP-адресов должен иметь формат *бесклассовой междоменной маршрутизации* (CIDR).  
+    Б. В поле **Диапазоны IP-адресов** введите диапазон IP-адресов. Диапазон IP-адресов должен иметь формат *бесклассовой междоменной маршрутизации* (CIDR).  
 
-    c. Щелкните **Создать**.
+    c. Нажмите кнопку **Создать**.
 
 
 

@@ -4,7 +4,7 @@ description: "Что делать, если пункт меню Active Directory
 services: active-directory
 documentationcenter: na
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: b27363a38c1a5955e062d1e5c036b542341e16bc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 27a884b89224ed5765e9fcef134e711e3952ff72
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Устранение неполадок: элемент Active Directory отсутствует или недоступен
 Многие указания по использованию функций и служб Azure Active Directory начинаются с «Перейдите на портал управления Azure и щелкните **Active Directory**». Но что делать, если расширение или пункт меню Active Directory не отображается или помечен **Недоступно**? В этой статье вы найдете нужные ответы. В ней описываются условия, при которых элемент **Active Directory** не отображается или недоступен, и дальнейшие действия в такой ситуации.
@@ -32,13 +32,13 @@ ms.lasthandoff: 11/14/2017
 
 * Текущий пользователь вошел в систему через учетную запись Майкрософт (ранее известную как Windows Live ID).
   
-    ИЛИ
+    Или
 * У клиента Azure есть каталог, а владелец текущей учетной записи является администратором каталога.
   
-    ИЛИ
+    Или
 * У клиента Azure есть хотя бы одно пространство имен контроля доступа Azure AD (ACS). Дополнительные сведения см. в статье о [пространстве имен контроля доступа](https://msdn.microsoft.com/library/azure/gg185908.aspx).
   
-    ИЛИ
+    Или
 * У клиента Azure есть хотя бы один поставщик Многофакторной идентификации Azure. Дополнительные сведения см. в статье [Администрирование поставщиков Многофакторной идентификации Azure](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 Чтобы создать пространство имен контроля доступа или поставщик Многофакторной идентификации, щелкните **+Создать** > **Службы приложений** > **Active Directory**.

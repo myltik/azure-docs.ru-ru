@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 3e5b49d2-7096-46bc-a9ce-90e09177ba28
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 701a97aa2001256354fe487c9499ff3cbb8b4540
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
-ms.translationtype: HT
+ms.openlocfilehash: 23270e14e8b6072c167f5d5979c9a73988b19dd3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Руководство по интеграции Azure Active Directory с TextMagic
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/13/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с TextMagic, вам потребуется следующее:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/13/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление TextMagic из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-textmagic-from-the-gallery"></a>Добавление TextMagic из коллекции
 Чтобы настроить интеграцию TextMagic с Azure AD, необходимо добавить TextMagic из коллекции в список управляемых приложений SaaS.
@@ -138,15 +138,15 @@ ms.lasthandoff: 10/13/2017
     
     ![Настройка TextMagic](./media/active-directory-saas-textmagic-tutorial/config2.png)
 
-    а. В текстовое поле **Identity Provider Entity ID** (Идентификатор сущности поставщика удостоверений) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
+    a. В текстовое поле **Identity Provider Entity ID** (Идентификатор сущности поставщика удостоверений) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
 
-    b. В текстовое поле **Identity provider SSO URL:** (URL-адрес поставщика удостоверений единого входа) вставьте значение **URL-адрес службы единого входа**, скопированное на портале Azure.
+    Б. В текстовое поле **Identity provider SSO URL:** (URL-адрес поставщика удостоверений единого входа) вставьте значение **URL-адрес службы единого входа**, скопированное на портале Azure.
 
     c. В текстовое поле **Identity Provider SLO URL:** (URL-адрес выхода поставщика удостоверений) вставьте значение **URL-адрес выхода**, скопированное на портале Azure.
 
     d. Откройте в блокноте сертификат в кодировке **Base-64**, скачанный с портала Azure, скопируйте его в буфер обмена и вставьте в текстовое поле **Public x509 certificate:** (Открытый сертификат x509).
 
-    д. Щелкните **Сохранить**.
+    д. Выберите команду **Сохранить**.
 
 
 > [!TIP]
@@ -176,13 +176,13 @@ ms.lasthandoff: 10/13/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-textmagic-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-textmagic-test-user"></a>Создание тестового пользователя TextMagic
 

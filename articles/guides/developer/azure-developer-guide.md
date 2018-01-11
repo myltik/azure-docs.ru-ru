@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Руководство по началу работы для разработчиков Azure
 
@@ -108,7 +108,7 @@ Service Fabric поддерживает веб-API благодаря испол
 -   **Azure Cosmos DB** — это глобально распределенная многомодельная служба базы данных, которая позволяет гибко масштабировать пропускную способность и ресурсы хранилища в любых регионах в рамках полного соглашения об уровне обслуживания. 
     >**Сценарии использования** — если для приложения требуются базы данных документов, таблиц или диаграмм, включая базы данных MongoDB, с несколькими четко определенными и согласованными моделями. 
 
-    >**Начало работы** — [создание веб-приложения Azure Cosmos DB](../../cosmos-db/create-documentdb-dotnet.md). Если вы разработчик MongoDB, см. статью о [создании веб-приложения MongoDB с помощью Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Начало работы** — [создание веб-приложения Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Если вы разработчик MongoDB, см. статью о [создании веб-приложения MongoDB с помощью Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Служба хранилища Azure**. Обеспечивает надежное высокодоступное хранилище для больших двоичных объектов, очередей, файлов и других типов нереляционных данных. Служба хранилища является платформой хранения данных для виртуальных машин.
 
@@ -153,7 +153,7 @@ Service Fabric поддерживает веб-API благодаря испол
 
     >**Приступая к работе**. [Используйте пользовательский образ Docker для службы приложений на платформе Linux](../../app-service/containers/quickstart-custom-docker-image.md).
 
-### <a name="authentication"></a>Аутентификация
+### <a name="authentication"></a>Authentication
 
 Очень важно не только знать, кто использует ваши приложения, но и предотвращать несанкционированный доступ к ресурсам. Azure предоставляет несколько способов аутентификации клиентов приложения.
 

@@ -4,7 +4,7 @@ description: "Узнайте, как добавить настраиваемый
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Добавление настраиваемого образа в шаблон масштабируемого набора Azure
 
@@ -27,13 +27,13 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="change-the-template-definition"></a>Изменение определения шаблона
 
-Шаблон минимального приемлемого масштабируемого набора доступен [здесь](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), а шаблон для развертывания масштабируемого набора с помощью настраиваемого образа — [здесь](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Давайте рассмотрим DIFF-файл, с помощью которого можно постепенно создать этот шаблон (`git diff minimum-viable-scale-set custom-image`).
+Шаблон Минимальный масштаб допустимого набора может видеть [здесь](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), и шаблон для развертывания шкалы значение с помощью пользовательского образа можно будет увидеть [здесь](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Давайте рассмотрим DIFF-файл, с помощью которого можно постепенно создать этот шаблон (`git diff minimum-viable-scale-set custom-image`).
 
 ### <a name="creating-a-managed-disk-image"></a>Создание образа управляемого диска
 
 Если вы уже создали настраиваемый образ управляемого диска (ресурс типа `Microsoft.Compute/images`), можете пропустить этот раздел.
 
-Сначала добавьте параметр `sourceImageVhdUri`, который представляет собой URI универсального большого двоичного объекта в службе хранилища Azure, содержащего настраиваемый образ для развертывания.
+Сначала добавьте `sourceImageVhdUri` параметра, который является обобщенной большого двоичного объекта в хранилище Azure, содержащий пользовательского образа для развертывания из URI.
 
 
 ```diff
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
    "variables": {},
 ```
 
-Затем добавьте ресурс типа `Microsoft.Compute/images`, который является образом управляемого диска, основанном на универсальном большом двоичном объекте, расположенном в URI `sourceImageVhdUri`. Этот образ должен находиться в том же регионе, что и масштабируемый набор, который его использует. В свойствах образа укажите тип ОС, расположение большого двоичного объекта (из параметра `sourceImageVhdUri`) и тип учетной записи хранения:
+Добавьте ресурс типа `Microsoft.Compute/images`, который является изображение управляемого диска, на основании обобщенный большой двоичный объект, расположенный в URI `sourceImageVhdUri`. Этот образ должен находиться в том же регионе, что и масштабируемый набор, который его использует. В свойствах образа, укажите тип операционной системы, расположение большого двоичного объекта (из `sourceImageVhdUri` параметра) и тип учетной записи хранения:
 
 ```diff
    "resources": [
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 
 ```
 
-В ресурс масштабируемого набора добавьте предложение `dependsOn`, которое ссылается на настраиваемый образ, чтобы создать образ до того, как масштабируемый набор попытается выполнить развертывание из этого образа:
+На шкале задать ресурсов, добавить `dependsOn` предложение, ссылающиеся на пользовательского образа, чтобы убедиться, что изображение создается до шкалы пытается развернуть из этого образа:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -95,7 +95,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Изменение свойств масштабируемого набора для использования управляемого образа
 
-В свойстве `imageReference` масштабируемого набора `storageProfile` вместо издателя, предложения, номера SKU и версии образа платформы укажите `id` ресурса `Microsoft.Compute/images`:
+В `imageReference` шкалы задать `storageProfile`, вместо указания издателя, предложение, sku, и укажите версию образа платформы, `id` из `Microsoft.Compute/images` ресурсов:
 
 ```diff
          "virtualMachineProfile": {
@@ -111,9 +111,9 @@ ms.lasthandoff: 10/11/2017
            "osProfile": {
 ```
 
-В этом примере используется функция `resourceId`, чтобы получить идентификатор ресурса образа, созданного в том же шаблоне. Если образ управляемого диска создан заранее, укажите идентификатор этого образа. Этот идентификатор должен иметь следующий формат: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+В этом примере используется `resourceId` функции, чтобы получить идентификатор ресурса изображения, созданные в тот же шаблон. Если заранее после создания образа управляемого диска, необходимо предоставить идентификатор этого образа вместо. Этот идентификатор должен иметь вид: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

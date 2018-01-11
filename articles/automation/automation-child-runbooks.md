@@ -3,7 +3,7 @@ title: "Дочерние модули Runbook в службе автоматиз
 description: "Описывает различные методы запуска Runbook в службе автоматизации Azure из другого Runbook и обмена информацией между ними."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 617e18f5435c7eacb7751ccca6ac2f3814745f04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5c18444b5a2767ccdd9a61a3bc9218fa4c0aac04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Дочерние модули Runbook в службе автоматизации Azure
 Рекомендуется создавать в службе автоматизации Azure повторно используемые модульные Runbook с отдельной функцией, которую могут использовать другие Runbook. Родительский Runbook часто будет вызывать один или несколько дочерних Runbook для выполнения требуемых функций. Существует два способа вызвать дочерний Runbook, и у каждого из них есть определенные отличия, которые следует понимать, чтобы определить, какой способ наилучшим образом подходит для тех или иных сценариев.
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 При публикации Runbook все дочерние Runbook, которые он вызывает, уже должны быть опубликованы. Это связано с тем, что служба автоматизации Azure создает связь с любыми дочерними Runbook при компиляции Runbook. В противном случае родительский компонент Runbook будет отображаться как доступный для публикации, но будет выдавать исключение при запуске. В этом случае можно повторно опубликовать родительский Runbook, чтобы исправить ссылки на дочерние Runbook. Не надо повторно публиковать родительский Runbook, если были изменены все дочерние Runbook, так как связь уже будет создана.
 
-Параметры дочернего модуля Runbook со встроенным вызовом могут иметь любой тип данных, включая сложные объекты. Кроме того, отсутствует [сериализация JSON](automation-starting-a-runbook.md#runbook-parameters), как при запуске Runbook с помощью портала управления Azure или командлета Start-AzureRmAutomationRunbook.
+Параметры дочернего модуля Runbook с вызовом встроенной могут иметь любой тип данных, включая сложные объекты и есть не [сериализации JSON](automation-starting-a-runbook.md#runbook-parameters) как при запуске runbook с помощью портала Azure или с Командлет Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Типы Runbook
 Какие типы могут вызывать друг друга?

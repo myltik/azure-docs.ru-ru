@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 9aecd7310ad44eb585c1326a3c705ed822735b9a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: ed127afbca5135ade21f6ac53d18d46e88939fd9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Руководство по интеграции Azure Active Directory с Salesforce
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/18/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Salesforce, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 11/18/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Salesforce из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-salesforce-from-the-gallery"></a>Добавление Salesforce из коллекции
 Чтобы настроить интеграцию приложения Salesforce с Azure AD, вам нужно добавить Salesforce из коллекции в список управляемых приложений SaaS.
@@ -108,13 +108,13 @@ ms.lasthandoff: 11/18/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Salesforce](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_url.png)
     
-    а. В текстовом поле **URL-адрес для входа** введите значение в следующем формате:
+    a. В текстовом поле **URL-адрес для входа** введите значение в следующем формате:
     
     Учетная запись предприятия: `https://<subdomain>.my.salesforce.com`
 
     Учетная запись разработчика: `https://<subdomain>-dev-ed.my.salesforce.com`
     
-    b. В текстовое поле **Идентификатор** введите значение в следующем формате:
+    Б. В текстовое поле **Идентификатор** введите значение в следующем формате:
     
     Учетная запись предприятия: `https://<subdomain>.my.salesforce.com`
 
@@ -163,9 +163,9 @@ ms.lasthandoff: 11/18/2017
 
     ![Настройка единого входа](./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png)
 
-    а. В поле **Имя** введите понятное имя конфигурации. При вводе значения в поле **Name** (Имя) текстовое поле **API Name** (Имя API) заполняется автоматически.
+    a. В поле **Имя** введите понятное имя конфигурации. При вводе значения в поле **Name** (Имя) текстовое поле **API Name** (Имя API) заполняется автоматически.
 
-    b. В поле **Issuer** (Издатель) вставьте **идентификатор сущности SAML**, скопированный на портале Azure.
+    Б. В поле **Issuer** (Издатель) вставьте **идентификатор сущности SAML**, скопированный на портале Azure.
 
     c. Введите в текстовое поле **Идентификатор сущности**имя домена Salesforce в следующем формате.
       
@@ -233,13 +233,13 @@ ms.lasthandoff: 11/18/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-salesforce-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-salesforce-test-user"></a>Создание тестового пользователя Salesforce
 

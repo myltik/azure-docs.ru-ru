@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8feabb464c87032db40a66a67f471d0f41cd98eb
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
-ms.translationtype: HT
+ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB. Документация по API MongoDB
 
 В этой статье приведены ссылки на все содержимое Azure Cosmos DB, связанное с API MongoDB.
 
-Эти статьи неприменимы к API DocumentDB, API Graph или API таблиц. 
+Эти статьи не применяются к SQL API Graph API API или таблицы. 
 
 ## <a name="introduction-and-concepts"></a>Основные понятия
 
@@ -31,16 +31,18 @@ ms.lasthandoff: 10/26/2017
 
 - [Общие сведения об API MongoDB](mongodb-introduction.md)
 - [Подключение к учетной записи MongoDB](connect-mongodb-account.md)
+- [Поддержка функций MongoDB и синтаксис](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>Быстрое начало работы
 
 Краткое руководство — это самый быстрый способ создать работающее приложение с помощью Azure Cosmos DB. В каждом кратком руководстве описывается, как использовать портал Azure на основе пользовательского интерфейса и привычный язык программирования для создания решения базы данных с помощью Azure Cosmos DB. Клонируемые веб-приложения из области GitHub доступны для каждого краткого руководства. 
 
 
-- [MongoDB + Express + AngularJS + Node.js + веб-приложения](create-mongodb-nodejs.md)
+- [Node.js + Express + AngularJS + веб-приложений](create-mongodb-nodejs.md)
 - [.NET + портал Azure + веб-приложения](create-mongodb-dotnet.md)
 - [Java + портал Azure + веб-приложения](create-mongodb-java.md)
 - [Go + портал Azure + Go](create-mongodb-golang.md)
+- [Python + термосе + портал Azure](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>Учебники
 

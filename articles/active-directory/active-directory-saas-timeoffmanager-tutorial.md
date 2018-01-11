@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 3685912f-d5aa-4730-ab58-35a088fc1cc3
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 3f944ffbf704694b293b4b1e5bdb4f2c93ae35a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5638a1b2271fe50344c29de1e3883ca67c20c9ec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Учебник. Интеграция Azure Active Directory с TimeOffManager
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с TimeOffManager, вам потребуется:
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление TimeOffManager из коллекции.
 2. Настройка и проверка единого входа в Azure AD
@@ -64,11 +64,11 @@ ms.lasthandoff: 10/11/2017
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![ПРИЛОЖЕНИЯ][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![Приложения][3]
+    ![ПРИЛОЖЕНИЯ][3]
 
 4. В поле поиска введите **TimeOffManager**, выберите **TimeOffManager** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
@@ -128,13 +128,13 @@ ms.lasthandoff: 10/11/2017
     | Lastname |User.surname |
     | Email |User.mail |
     
-    а.  Для каждой строки данных в приведенной выше таблице нажмите кнопку **добавить атрибут пользователя**.
+    a.  Для каждой строки данных в приведенной выше таблице нажмите кнопку **добавить атрибут пользователя**.
     
     ![Атрибуты токена SAML](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_addattrb.png "Атрибуты токена SAML")
     
     ![Атрибуты токена SAML](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_addattrb1.png "Атрибуты токена SAML")
     
-    b.  В текстовом поле **Имя атрибута** введите имя атрибута, отображаемое для этой строки.
+    Б.  В текстовом поле **Имя атрибута** введите имя атрибута, отображаемое для этой строки.
     
     c.  В текстовом поле **Значение атрибута** выберите значение атрибута, отображаемое для этой строки.
     
@@ -144,7 +144,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_400.png)
 
-7. В разделе **Конфигурация TimeOffManager** щелкните **Настроить TimeOffManager**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+7. В разделе **Конфигурация TimeOffManager** щелкните **Настроить TimeOffManager**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
     ![Раздел "Конфигурация TimeOffManager"](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_configure.png) 
 
@@ -155,11 +155,11 @@ ms.lasthandoff: 10/11/2017
    ![Параметры единого входа](./media/active-directory-saas-timeoffmanager-tutorial/ic795917.png "Параметры единого входа")
 7. В разделе **Параметры единого входа** сделайте следующее:
    
-   ![Single Sign-On Settings](./media/active-directory-saas-timeoffmanager-tutorial/ic795918.png "Single Sign-On Settings") (Параметры единого входа)
+   ![Параметры единого входа](./media/active-directory-saas-timeoffmanager-tutorial/ic795918.png "Параметры единого входа")
    
-   а. Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена и вставьте весь сертификат в текстовое поле **Сертификат X.509** .
+   a. Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена и вставьте весь сертификат в текстовое поле **Сертификат X.509** .
    
-   b. В текстовое поле **Idp Issuer** (Издатель IdP) вставьте значение **идентификатора сущности SAML**, скопированное на портале Azure.
+   Б. В текстовое поле **Idp Issuer** (Издатель IdP) вставьте значение **идентификатора сущности SAML**, скопированное на портале Azure.
    
    c. В текстовое поле **IdP Endpoint URL** (URL-адрес конечной точки IdP) вставьте значение **URL-адрес службы единого входа SAML**, скопированное на портале Azure.
    
@@ -169,7 +169,7 @@ ms.lasthandoff: 10/11/2017
    
    f. В текстовое поле **Logout URL** (URL-адрес выхода) вставьте значение **URL-адрес выхода**, скопированное на портале Azure.
    
-   g. Нажмите кнопку **Save Changes** (Сохранить изменения).
+   ж. Нажмите кнопку **Save Changes** (Сохранить изменения).
 
 11. На странице **Single Sign on settings** (Параметры единого входа) скопируйте значение **Assertion Consumer Service URL** (URL-адрес службы обработчика утверждений) и вставьте его в текстовое поле **URL-адрес ответа** в разделе **Домены и URL-адреса приложения TimeOffManager** на портале Azure. 
 
@@ -202,13 +202,13 @@ ms.lasthandoff: 10/11/2017
  
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-timeoffmanager-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **BrittaSimon**.
+    a. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
     c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-timeoffmanager-test-user"></a>Создание тестового пользователя TimeOffManager
 

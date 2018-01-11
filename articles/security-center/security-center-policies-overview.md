@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 60cc65bb94e05da1c0b7ee20930c0530f46e71ec
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-policies-overview"></a>Обзор политик безопасности
 В этой статье представлен обзор политик безопасности в центре безопасности.
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/06/2017
 Политики центра безопасности содержат следующие компоненты:
 
 - **Сбор данных**. Определяет настройки подготовки агента и [сбора данных](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
-- **Политика безопасности**. Определяет, какие параметры отслеживаются и рекомендуются центром безопасности. [Политику безопасности](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) можно изменить в центре безопасности. [Политику Azure](security-center-azure-policy.md) (в ограниченной предварительной версии) можно также использовать для создания определений, настройки дополнительных политик и назначения политик в группах управления.
+- **Политика безопасности**. Определяет, какие параметры отслеживаются и рекомендуются центром безопасности. [Политику безопасности](https://docs.microsoft.com/azure/security-center/security-center-policies) можно изменить в центре безопасности. [Политику Azure](security-center-azure-policy.md) (в ограниченной предварительной версии) можно также использовать для создания определений, настройки дополнительных политик и назначения политик в группах управления.
 - **Уведомления по электронной почте**. Определяют контакты безопасности и параметры [уведомлений по электронной почте](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
 - **Ценовая категория**. Определяет выбор [ценовой категории](https://docs.microsoft.com/azure/security-center/security-center-pricing) ("Бесплатная" или "Стандартная"). Выбранная ценовая категория определяет функции центра безопасности, доступные для выбранных ресурсов. Ценовую категорию можно указать для подписок, групп ресурсов и рабочих областей. 
 

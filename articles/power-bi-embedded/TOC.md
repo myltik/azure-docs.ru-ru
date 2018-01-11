@@ -1,5 +1,5 @@
 # Обзор
-## [Что такое Power BI Embedded?](what-is-power-bi-embedded.md)
+## [О службе Power BI Embedded](what-is-power-bi-embedded.md)
 
 # Начало работы
 ## [Начало работы с Power BI Embedded](get-started.md)
@@ -21,22 +21,20 @@
 # Примеры
 ## [Примеры кода](https://github.com/Microsoft/PowerBI-Developer-Samples)
 ## [Пример пошагового руководства](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
+## [Пример внедрения JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
 # Справочные материалы
 ## Интерфейсы API
 ### [REST API управления ресурсами Azure](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [Интерфейсы REST API](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
-## Пакеты SDK
-### [Скачивание пакета SDK для .NET](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
-### [Скачивание пакета SDK для JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
+### [Интерфейсы API REST Power BI](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 
 # Ресурсы
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [Пример внедрения JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-## [Apiary](http://docs.powerbi.apiary.io/)
+## [Сообщество Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Скачивание пакета SDK для .NET](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
+## [Скачивание пакета SDK для JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## Репозитории GitHub
-### [.NET](https://github.com/Microsoft/PowerBI-CSharp)
-### [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Сообщество Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+### [.NET для Power BI](https://github.com/Microsoft/PowerBI-CSharp)
+### [JavaScript для Power BI](https://github.com/Microsoft/PowerBI-JavaScript)
+
 

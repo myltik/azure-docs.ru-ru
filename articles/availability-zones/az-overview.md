@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 53c5c340dc4e91db29fbbb45893fabe6eec2bc5d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: b3618207c1d4d2b8d3c0eaf83408b4813cd3da2d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Общие сведения о зонах доступности в Azure (предварительная версия)
 
@@ -32,6 +32,7 @@ ms.lasthandoff: 11/17/2017
 
 - Восток США 2
 - Западная Европа
+- Центральная Франция
 
 ## <a name="services-that-support-availability-zones"></a>Службы с поддержкой зон доступности
 
@@ -42,24 +43,18 @@ ms.lasthandoff: 11/17/2017
 - Связанные с зонами масштабируемые наборы виртуальных машин
 - Управляемые диски
 - Подсистема балансировки нагрузки
-
-## <a name="supported-virtual-machine-size-families"></a>Поддерживаемые семейства размеров виртуальных машин
-
-- Av2
-- Dv2
-- DSv2
-
+- Общедоступный IP-адрес
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Начало работы с предварительной версией зон доступности
 
-Предварительная версия зон доступности используется в восточной части США 2 и Западной Европе для определенных служб Azure. 
+Предварительный просмотр зон доступности доступен в восточная часть США 2, Западной Европе и Франции центральном регионах для определенных служб Azure. 
 
 1. [Зарегистрируйтесь для использования предварительной версии зон доступности](http://aka.ms/azenroll). 
 2. Войдите в свою подписку Azure.
 3. Выберите регион с поддержкой зон доступности.
 4. Перейдите по одной из следующих ссылок, чтобы начать использовать зоны доступности со своей службой. 
     - [Создание виртуальной машины](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Создание связанного с зонами масштабируемого набора виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+    - [Создание набора масштабирования виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [Добавление управляемого диска с помощью PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Подсистема балансировки нагрузки](../load-balancer/load-balancer-standard-overview.md)
 

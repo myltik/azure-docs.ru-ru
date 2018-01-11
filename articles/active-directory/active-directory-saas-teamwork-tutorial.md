@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 00292d0aed24ea034eba8686bcd9cbdd1ef676e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Руководство по интеграции Azure Active Directory с Teamwork.com
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Учебник: Интеграция Azure Active Directory с [Teamwork.com](https://www.teamwork.com/projects)
 
 В этом руководстве описано, как интегрировать Teamwork.com с Azure Active Directory (Azure AD).
 
@@ -32,12 +32,12 @@ ms.lasthandoff: 11/23/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Teamwork.com, вам потребуется следующее:
 
 - подписка Azure AD;
-- подписка Teamwork.com с поддержкой единого входа.
+- Объект [Teamwork.com](https://www.teamwork.com/projects) подписки на план Pro или более поздней версии
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
@@ -48,10 +48,10 @@ ms.lasthandoff: 11/23/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
-1. Добавление Teamwork.com из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+1. Добавление Teamwork.com из коллекции
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-teamworkcom-from-the-gallery"></a>Добавление Teamwork.com из коллекции
 Чтобы настроить интеграцию Teamwork.com с Azure AD, необходимо добавить Teamwork.com из коллекции в список управляемых приложений SaaS.
@@ -151,13 +151,13 @@ ms.lasthandoff: 11/23/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-teamworkcom-test-user"></a>Создание тестового пользователя Teamwork.com
 

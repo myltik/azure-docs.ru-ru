@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39dea03ef9f42a3ff06dadd94c8d70541cbdc06c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Обнаружение, идентификация и классификация персональных данных в Microsoft Azure
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/23/2017
 
 ## <a name="azure-active-directory-data-discovery"></a>Azure Active Directory: обнаружение данных
 
-[Azure Active Directory](https://azure.microsoft.com/services/active-directory/) — это мультитенантный облачный каталог и служба управления удостоверениями Майкрософт. С помощью [портала Azure](https://portal.azure.com/) вы можете найти пользовательские профили клиентов и сотрудников, а также сведения об их работе. Они содержат персональные данные в среде [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (AAD).
+[Azure Active Directory](https://azure.microsoft.com/services/active-directory/) — это мультитенантный облачный каталог и служба управления удостоверениями Майкрософт. С помощью [портала Azure](https://portal.azure.com/) вы можете найти пользовательские профили клиентов и сотрудников, а также сведения об их работе. Они содержат персональные данные в среде [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (AAD).
 
 Это особенно полезно, если вы хотите найти или изменить персональные данные конкретного пользователя. Вы также можете добавить или изменить профиль пользователя и сведения о работе. Вы должны выполнить вход с помощью учетной записи глобального администратора каталога.
 
@@ -183,13 +183,13 @@ Hadoop является хранилищем Apache с открытым кодо
 
 Чтобы получить основные сведения, ознакомьтесь со статьей [Как выполнять запросы с помощью SQL в базе данных Azure Cosmos DB](../cosmos-db/tutorial-query-documentdb.md). В этой статье содержится пример документа и два примера SQL-запросов и результатов.
 
-Чтобы получить более подробные сведения о создании запросов SQL, ознакомьтесь со статьей [SQL-запросы для API DocumentDB в Azure Cosmos DB](../cosmos-db/documentdb-sql-query.md).
+Чтобы получить более подробные сведения о создании запросов SQL, ознакомьтесь со статьей [SQL-запросы для API DocumentDB в Azure Cosmos DB](../cosmos-db/sql-api-sql-query.md).
 
-Если вы еще не знакомы с Azure Cosmos DB и хотите узнать, как создать базу данных, добавить коллекцию и данные, ознакомьтесь со статьей [Azure Cosmos DB. Создание веб-приложения API DocumentDB с использованием языка .NET и портала Azure](../cosmos-db/create-documentdb-dotnet.md). Если же вас интересует другой язык, отличный от .NET, например Java или Python, вам просто нужно его указать.
+Если вы не знакомы к базе данных Cosmos Azure и хотите узнать, как создать базу данных, добавить коллекцию и добавить данные, посетите [Azure Cosmos DB: сборки SQL API веб-приложения](../cosmos-db/create-sql-api-dotnet.md) краткого руководства. Если же вас интересует другой язык, отличный от .NET, например Java или Python, вам просто нужно его указать.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[База данных SQL Azure;](https://azure.microsoft.com/services/sql-database/?v=16.50)
+[база данных SQL Azure;](https://azure.microsoft.com/services/sql-database/?v=16.50)
 
 [Что такое база данных SQL?](../sql-database/sql-database-technical-overview.md)
 

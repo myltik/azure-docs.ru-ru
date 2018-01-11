@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 85d6ec20fb0447165c672ba267569994e3a96e45
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Вопросы об использовании службы Azure Backup для резервного копирования виртуальных машин
 В этой статье содержатся ответы на часто задаваемые вопросы о компонентах службы Azure Backup для резервного копирования виртуальных машин. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/08/2017
 Хранилища служб восстановления поддерживают обе модели.  В хранилище служб восстановления можно создать резервную копию классической виртуальной машины (созданной на классическом портале) или виртуальной машины Resource Manager (созданной на портале Azure).
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Какие конфигурации не поддерживаются службой Azure Backup для резервного копирования виртуальных машин?
-Узнайте о [поддерживаемых версиях операционных систем](backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup) и [ограничениях при резервном копировании виртуальных машин](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+Узнайте о [поддерживаемых версиях операционных систем](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) и [ограничениях при резервном копировании виртуальных машин](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Почему моя виртуальная машина не отображается в мастере настройки резервного копирования?
 В мастере настройки резервного копирования службы Azure Backup отображается только список виртуальных машин, которые:
@@ -51,6 +51,9 @@ ms.lasthandoff: 11/08/2017
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Можно ли отменить выполняющееся задание резервного копирования?
 Да. Задание резервного копирования можно отменить, если оно находится на этапе "Создание моментального снимка". **Невозможно отменить задание, если выполняется передача данных из моментального снимка**. 
+
+### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Я включил блокировку группы ресурсов на диске управляемых резервных копий виртуальных машин. Будет ли после этого работать резервное копирование?
+Если пользователь блокирует группу ресурсов, службы резервного копирования не может удалить старые точки восстановления. В связи с появлением новых резервных копий начинаются сбои как ограничено максимальное число 18 точек восстановления, установленные с внутреннего сервера. Если после блокировки RG произошла внутренняя ошибка выдающие резервных копий, выполните следующие [действия по удалению восстановления выберите коллекцию](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
 
 ## <a name="restore"></a>восстановление;
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Что лучше выбрать — восстановление дисков или полное восстановление виртуальной машины?

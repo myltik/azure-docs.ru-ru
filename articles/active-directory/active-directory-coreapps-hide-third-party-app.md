@@ -1,10 +1,10 @@
 ---
-title: "Скрытие сторонних приложений в пользовательском интерфейсе Azure Active Directory | Документация Майкрософт"
-description: "Как скрыть сторонние приложения в пользовательском интерфейсе Azure Active Directory"
+title: "Скрыть приложения с пользователем в Azure Active Directory | Документы Microsoft"
+description: "Как скрыть приложения с пользователем в Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,18 +15,18 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 667fdd45bc9eb1f01ce3883006bb29274478cb83
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Скрытие сторонних приложений в пользовательском интерфейсе Azure Active Directory
+# <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Скрыть приложения с пользователем в Azure Active Directory
 
-Если вы используете стороннее приложение (опубликованное другим поставщиком, а не корпорацией Майкрософт), которое не должно отображаться для пользователей на панелях доступа и в средствах запуска Office 365, можете скрыть плитку этого приложения. Когда вы скроете приложение, у пользователей останутся разрешения для этого приложения, но оно не будет отображаться в их средствах запуска. Необходимо иметь соответствующие разрешения для управления корпоративным приложением, а также права глобального администратора для доступа к каталогу.
+Если у вас есть приложение, которое не требуется отображать на панели доступа пользователей и средства запуска Office 365, есть параметр для скрытия этой плитки приложения. Этот параметр доступен только для сторонних приложений (приложения, не опубликованные корпорацией Майкрософт). Когда вы скроете приложение, у пользователей останутся разрешения для этого приложения, но оно не будет отображаться в их средствах запуска. Необходимо иметь соответствующие разрешения для управления корпоративным приложением, а также права глобального администратора для доступа к каталогу. 
 
-## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Скрытие сторонних приложений в пользовательском интерфейсе
-Чтобы скрыть сторонние приложения на панели доступа пользователя и в средствах запуска приложений Office 365, выполните описанные ниже действия.
+## <a name="hiding-an-application-from-users-end-user-experiences"></a>Скрытие приложения от работы пользователя конечного пользователя
+Выполните следующие действия, чтобы скрыть приложения из средства запуска приложений Office 365 и панели доступа пользователя
 
 ### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Как скрыть стороннее приложение на панели доступа пользователя и в средствах запуска приложений O365?
 

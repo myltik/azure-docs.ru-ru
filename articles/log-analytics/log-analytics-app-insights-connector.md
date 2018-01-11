@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: fe6c003e095b25cf3ec3430fc68dcd399150b3ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Решение "Соединитель Application Insights" (предварительная версия) в Operations Management Suite (OMS)
 
@@ -37,25 +37,25 @@ ms.lasthandoff: 10/11/2017
 
 В отличие от большинства других решений Log Analytics, данные для соединителя Application Insights не собираются агентами. Все данные, используемые решением, поступают непосредственно из Azure.
 
-| Подключенный источник | Поддерживаются | Описание |
+| Подключенный источник | Поддерживаются | ОПИСАНИЕ |
 | --- | --- | --- |
-| [Агенты Windows](log-analytics-windows-agents.md) | Нет | Решение не собирает сведения из агентов Windows. |
-| [Агенты Linux](log-analytics-linux-agents.md) | Нет | Решение не собирает сведения из агентов Linux. |
-| [Группы управления SCOM](log-analytics-om-agents.md) | Нет | Решение не собирает сведения из агентов в подключенной группе управления SCOM. |
-| [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет | Решение не собирает сведения из службы хранилища Azure. |
+| [Агенты Windows](log-analytics-windows-agent.md) | Нет  | Решение не собирает сведения из агентов Windows. |
+| [Агенты Linux](log-analytics-linux-agents.md) | Нет  | Решение не собирает сведения из агентов Linux. |
+| [Группы управления SCOM](log-analytics-om-agents.md) | Нет  | Решение не собирает сведения из агентов в подключенной группе управления SCOM. |
+| [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет  | Решение не собирает сведения из службы хранилища Azure. |
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 - Для доступа к сведениям о соединителе Application Insights необходима подписка Azure.
 - Необходимо иметь хотя бы один настроенный ресурс Application Insights.
 - Необходимо быть владельцем или участником ресурса Application Insights.
 
-## <a name="configuration"></a>Конфигурация
+## <a name="configuration"></a>Параметр Configuration
 
 1. Включите решение "Аналитика веб-приложений Azure" из [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) или выполните инструкции по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).
 2. На портале OMS щелкните **Параметры** &gt; **Данные** &gt; **Application Insights**.
 3. В разделе **Выбор подписки** выберите подписку с ресурсами Application Insights, а затем в разделе **Имя приложения** выберите одно или несколько приложений.
-4. Щелкните **Сохранить**.
+4. Выберите команду **Сохранить**.
 
 Приблизительно через 30 минут данные станут доступными, а на плитке Application Insights появятся данные, как показано на следующем изображении:
 
@@ -158,7 +158,7 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 
 - Доступность
 - Исключения
-- Запросы
+- Requests
 - Просмотры страниц. Чтобы ваша рабочая область получала данные о просмотре страниц, в приложении необходимо настроить сбор этих сведений. Дополнительные сведения см. в разделе [Просмотры страниц](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Настраиваемые события. Чтобы ваша рабочая область получала данные о настраиваемых событиях, в приложении необходимо настроить сбор этих сведений. Дополнительные сведения см. в разделе [TrackEvent (Отслеживание событий)](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
@@ -170,9 +170,9 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 
 ### <a name="generic-fields"></a>Универсальные поля
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 | --- | --- |
-| Тип | ApplicationInsights |
+| type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Время создания записи |
 | ApplicationId | Ключ инструментирования приложения Application Insights |
@@ -196,7 +196,7 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 
 ### <a name="availability-specific-fields"></a>Поля со сведениями о доступности
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 | --- | --- |
 | TelemetryType | Доступность |
 | AvailabilityTestName | Имя веб-теста |
@@ -221,7 +221,7 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 
 ### <a name="exception-specific-fields"></a>Поля со сведениями об исключениях
 
-| Тип | ApplicationInsights |
+| type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Исключение |
 | ExceptionType | Тип исключения |
@@ -238,9 +238,9 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 
 ### <a name="request-specific-fields"></a>Поля со сведениями о запросах
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 | --- | --- |
-| Тип | ApplicationInsights |
+| type | ApplicationInsights |
 | TelemetryType | Запрос |
 | ResponseCode | HTTP-отклик, отправленный клиенту. |
 | RequestSuccess | Указывает успешное или неудачное выполнение. Значение true или false. |

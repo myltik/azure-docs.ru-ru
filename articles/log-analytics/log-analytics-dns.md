@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 0e8fc0ffb8e0d0bdf00bea46594fe050c00b6c8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Сбор сведений об инфраструктуре DNS с помощью решения аналитики DNS (предварительной версии)
 
@@ -42,20 +42,20 @@ ms.lasthandoff: 10/11/2017
 
 | **Подключенный источник** | **Поддержка** | **Описание** |
 | --- | --- | --- |
-| [Агенты Windows](log-analytics-windows-agents.md) | Да | Решение собирает сведения о DNS из агентов Windows. |
-| [Агенты Linux](log-analytics-linux-agents.md) | Нет | Решение не собирает сведения о DNS из прямых агентов Linux. |
-| [Группа управления System Center Operations Manager](log-analytics-om-agents.md) | Да | Решение собирает сведения о DNS из агентов в подключенной группе управления Operations Manager. Прямое подключение из агента Operations Manager к Operations Management Suite не требуется. Данные пересылаются из группы управления в репозиторий Operations Management Suite. |
-| [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет | Решение не использует службу хранилища Azure. |
+| [Агенты Windows](log-analytics-windows-agent.md) | Yes | Решение собирает сведения о DNS из агентов Windows. |
+| [Агенты Linux](log-analytics-linux-agents.md) | Нет  | Решение не собирает сведения о DNS из прямых агентов Linux. |
+| [Группа управления System Center Operations Manager](log-analytics-om-agents.md) | Yes | Решение собирает сведения о DNS из агентов в подключенной группе управления Operations Manager. Прямое подключение из агента Operations Manager к Operations Management Suite не требуется. Данные пересылаются из группы управления в репозиторий Operations Management Suite. |
+| [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет  | Решение не использует службу хранилища Azure. |
 
 ### <a name="data-collection-details"></a>Сведения о сборе данных
 
 Решение собирает данные, связанные с инвентаризацией и событиями DNS, с DNS-серверов, на которых установлен агент Log Analytics. Затем эти данные передаются в службу Log Analytics и отображаются на панели мониторинга решения. Данные, связанные с инвентаризацией, такие как количество DNS-серверов, зон и записей ресурсов, собираются с помощью командлетов PowerShell для DNS. Эти данные обновляются каждые два дня. Данные, связанные с событиями, собираются практически в реальном времени из [журналов аналитики и аудита](https://technet.microsoft.com/library/dn800669.aspx#enhanc), которые обеспечиваются расширенными функциями диагностики и ведения журнала DNS в Windows Server 2012 R2.
 
-## <a name="configuration"></a>Конфигурация
+## <a name="configuration"></a>Параметр Configuration
 
 Для настройки решения используйте указанные ниже данные.
 
-- Агент [Windows](log-analytics-windows-agents.md) или [Operations Manager](log-analytics-om-agents.md) должен быть установлен на каждом DNS-сервере, который вы хотите отслеживать.
+- Агент [Windows](log-analytics-windows-agent.md) или [Operations Manager](log-analytics-om-agents.md) должен быть установлен на каждом DNS-сервере, который вы хотите отслеживать.
 - Вы можете добавить решение аналитики DNS в рабочую область Operations Management Suite из [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Вы также можете использовать процесс, описанный в статье [Добавление решений для управления Azure Log Analytics в рабочую область](log-analytics-add-solutions.md).
 
 Чтобы решение начало сбор данных, никакие дополнительные настройки не требуются. Однако можно использовать описанные ниже действия, чтобы настроить процесс сбора данных.
@@ -170,9 +170,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Поиск по журналу событий DNS](./media/log-analytics-dns/log-search-dnsevents.png)  
 
-    а. Чтобы просмотреть данные журнала о запросах поиска, отфильтруйте **подтип** по значению **LookUpQuery**, используя элемент управления в левой части экрана. Отобразится таблица, содержащая все события запросов поиска за выбранный период времени.
+    a. Чтобы просмотреть данные журнала о запросах поиска, отфильтруйте **подтип** по значению **LookUpQuery**, используя элемент управления в левой части экрана. Отобразится таблица, содержащая все события запросов поиска за выбранный период времени.
 
-    b. Чтобы просмотреть данные журнала о динамических регистрациях, отфильтруйте **подтип** по значению **DynamicRegistration**, используя элемент управления в левой части экрана. Отобразится таблица, содержащая все события динамической регистрации за выбранный период времени.
+    Б. Чтобы просмотреть данные журнала о динамических регистрациях, отфильтруйте **подтип** по значению **DynamicRegistration**, используя элемент управления в левой части экрана. Отобразится таблица, содержащая все события динамической регистрации за выбранный период времени.
 
     c. Чтобы просмотреть данные журнала об изменениях конфигурации, отфильтруйте **подтип** по значению **ConfigurationChange**, используя элемент управления в левой части экрана. Отобразится таблица, содержащая все события изменения конфигурации за выбранный период времени.
 

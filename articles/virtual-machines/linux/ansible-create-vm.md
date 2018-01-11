@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ee499b57733cd19dfe411e0e463dd3c65e82a52d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.openlocfilehash: 184a30c91de0d4141d6bd8a8b9db93c539e083b5
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Создание базовой виртуальной машины в Azure с помощью Ansible
 Ansible позволяет автоматизировать развертывание и настройку ресурсов в среде. Ansible можно использовать для управления виртуальными машинами в Azure так же, как любым другим ресурсом. В этой статье показано, как создать базовую виртуальную машину с помощью Ansible. Вы также можете узнать, как [создать готовую среду виртуальных машин с помощью Ansible](ansible-create-complete-vm.md).
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Для управления ресурсами Azure с помощью Ansible необходимо следующее:
 
 - Ansible и модули SDK Python для Azure, установленные в системе узла.
@@ -33,11 +33,11 @@ Ansible позволяет автоматизировать развертыва
 - Учетные данные Azure, настроенные для использования в Ansible.
     - [Создание учетных данных Azure и настройка Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. 
-    - Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). Вы также можете использовать [Cloud Shell](/azure/cloud-shell/quickstart) из своего браузера.
+    - Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). Вы также можете использовать [Cloud Shell](/azure/cloud-shell/quickstart) из своего браузера.
 
 
 ## <a name="create-supporting-azure-resources"></a>Создание вспомогательных ресурсов Azure
-В этом примере мы создадим модуль runbook, который развертывает виртуальную машину в существующей инфраструктуре. Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/vm#create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
+В этом примере создается модуль runbook, который развертывает виртуальную Машину в существующую инфраструктуру. Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/vm#create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -56,7 +56,7 @@ az network vnet create \
 
 
 ## <a name="create-and-run-ansible-playbook"></a>Создание и запуск скрипта playbook Ansible
-Создайте скрипт playbook Ansible с именем **azure_create_vm.yml** и вставьте приведенное ниже содержимое. В этом примере создается одна виртуальная машина и настраиваются учетные данные SSH. Введите собственные данные открытого ключа в паре *key_data* следующим образом:
+Создайте скрипт playbook Ansible с именем *azure_create_vm.yml* и вставьте приведенное ниже содержимое. В этом примере создается одна виртуальная машина и настраиваются учетные данные SSH. Введите свои собственные полные данные открытого ключа, в *key_data* пары следующим образом:
 
 ```yaml
 - name: Create Azure VM

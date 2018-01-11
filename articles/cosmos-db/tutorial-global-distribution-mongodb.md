@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: a934643be02abeadecf9e8384e29bd3e0e1a36f5
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: d051c648ac66a42cefe0113d2571fe0a3050a237
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Как настроить глобальное распределение Azure Cosmos DB с помощью API MongoDB
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/05/2017
 В этой статье рассматриваются следующие задачи: 
 
 > [!div class="checklist"]
-> * настройка глобального распределения на портале Azure;
+> * настроили глобальное распределение на портале Azure;
 > * настройка глобального распределения с помощью [API MongoDB](mongodb-introduction.md).
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
@@ -101,7 +101,7 @@ collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode
 
 > [!div class="checklist"]
 > * настроили глобальное распределение на портале Azure;
-> * настроили глобальное распределение с помощью API-интерфейсов DocumentDB.
+> * Настройка глобальных распространения, с помощью API-интерфейсов SQL
 
 Перейдите к следующему руководству, чтобы узнать о разработке в локальной среде с помощью локального эмулятора Azure Cosmos DB.
 

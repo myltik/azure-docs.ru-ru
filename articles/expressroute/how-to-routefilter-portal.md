@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
 ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Настройка фильтров маршрутов для пиринга Майкрософт с помощью портала Azure
 > [!div class="op_single_selector"]
-> * [Портал Azure](how-to-routefilter-portal.md)
+> * [портале Azure](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
-> * [Интерфейс командной строки Azure](how-to-routefilter-cli.md)
+> * [интерфейс командной строки Azure](how-to-routefilter-cli.md)
 > 
 
 Фильтры маршрутов — это способ использовать подмножество поддерживаемых служб через пиринг Майкрософт. Действия, описанные в этой статье, помогут настроить фильтры маршрутов для каналов ExpressRoute и управлять ими.
@@ -83,11 +83,11 @@ ms.lasthandoff: 10/11/2017
 
 Значения BGP сообщества, связанные со службами, доступными через пиринг Майкрософт, приведены на странице [Требования к маршрутизации ExpressRoute](expressroute-routing.md).
 
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2) Создание списка значений, которые можно использовать
+### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Создание списка значений, которые можно использовать
 
 Создайте список значений сообщества BGP, которые нужно использовать в фильтре маршрута. Например, значение сообщества BGP для службы Dynamics 365 — 12076:5040.
 
-## <a name="filter"></a>Шаг 2. Создание фильтра маршрута и правила фильтрации
+## <a name="filter"></a>Шаг 2. Создание фильтра маршрутов и правила фильтрации
 
 Фильтр может иметь только одно правило, и оно должно иметь тип "Разрешить". С этим правилом может быть связан список значений сообщества BGP.
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Создание фильтра маршрута](.\media\how-to-routefilter-portal\CreateRouteFilter.png)
 
-### <a name="2-create-a-filter-rule"></a>2) Создание правила фильтрации
+### <a name="2-create-a-filter-rule"></a>2. Создание правила фильтрации
 
 Можно добавлять и обновлять правила, выбрав вкладку "Управление правилами фильтра маршрута".
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 10/11/2017
 ![Создание фильтра маршрута](.\media\how-to-routefilter-portal\AddRouteFilterRule.png)
 
 
-## <a name="attach"></a>Шаг 3. Подключение фильтра маршрута к каналу ExpressRoute
+## <a name="attach"></a>Шаг 3. Подключение фильтра маршрутов к каналу ExpressRoute
 
 Фильтр маршрутов можно вложить в схему, нажав кнопку "Добавить схемы" и выбрав схему ExpressRoute из раскрывающегося списка.
 
@@ -154,6 +154,6 @@ ms.lasthandoff: 10/11/2017
 
 ![Создание фильтра маршрута](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Дополнительные сведения об ExpressRoute см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).

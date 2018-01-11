@@ -3,7 +3,7 @@ title: "Типы модулей Runbook в службе автоматизаци
 description: "Описание различных типов модулей Runbook, которые можно использовать в службе автоматизации Azure, и рекомендации по выбору типа модуля. "
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 9265c975-4281-4819-a84f-d86641277f36
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: e4a8ab0e68d6614fea1b44f0115a1c633f145277
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Типы модулей Runbook в службе автоматизации Azure
 Служба автоматизации Azure поддерживает несколько типов модулей Runbook, кратко описанных в приведенной ниже таблице.  Следующие разделы содержат дополнительную информацию о каждом типе, включая рекомендацию по использованию.
 
-| Тип | Описание |
+| type | ОПИСАНИЕ |
 |:--- |:--- |
 | [Графический](#graphical-runbooks) |Опирается на Windows PowerShell, а полностью создается и редактируется в графическом редакторе на портале Azure. |
 | [Графический модуль рабочего процесса PowerShell](#graphical-runbooks) |Опирается на рабочий процесс Windows PowerShell, а полностью создается и редактируется в графическом редакторе на портале Azure. |
@@ -96,7 +96,7 @@ Runbook рабочих процессов PowerShell представляют с
 ### <a name="known-issues"></a>Известные проблемы
 Ниже перечислены известные проблемы с модулями Runbook Python.
 
-* Чтобы использовать библиотеки сторонних производителей, модуль Runbook должен выполняться в гибридной рабочей роли Runbook для [Windows](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) или [Linux](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) с библиотеками, которые уже установлены на компьютере перед запуском модуля.
+* Чтобы использовать библиотеки сторонних производителей, модуль Runbook должен выполняться в гибридной рабочей роли Runbook для [Windows](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install) или [Linux](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install) с библиотеками, которые уже установлены на компьютере перед запуском модуля.
 
 ## <a name="considerations"></a>Рекомендации
 Выбирая тип модуля Runbook, принимайте во внимание следующие факторы:

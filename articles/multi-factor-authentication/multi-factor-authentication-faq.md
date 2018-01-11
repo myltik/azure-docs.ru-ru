@@ -4,7 +4,7 @@ description: "Часто задаваемые вопросы и ответы о 
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
 ms.service: multi-factor-authentication
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8881fc9193aa905b5d7083644a3ce8ac4411d693
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 4532cbab7f727e71908d5a2da43a11351f7aeeb3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Часто задаваемые вопросы о Многофакторной идентификации Azure
 В этой статье приведены ответы на часто задаваемые вопросы о Многофакторной идентификации Azure и использовании службы MFA. Здесь рассматриваются вопросы о службе в целом, моделях выставления счетов, пользовательских интерфейсах и устранении неполадок.
@@ -200,7 +200,7 @@ ms.lasthandoff: 11/28/2017
 - Пользователь уже зарегистрирован для MFA, но выбрал метод проверки, отключенный администратором. В таком случае пользователь должен зарегистрироваться для MFA еще раз, чтобы выбрать новый метод проверки по умолчанию.
 
 
-## <a name="errors"></a>Ошибки
+## <a name="errors"></a>Errors
 **Вопрос. Что делать пользователю, если при использовании уведомлений через мобильное приложение он видит сообщение об ошибке приблизительно следующего содержания: "Запрос на проверку подлинности не предназначен для активированной учетной записи"?**
 
 Такому пользователю следует удалить и заново добавить учетную запись в мобильном приложении следующим образом.

@@ -4,7 +4,7 @@ description: "Настройка срока действия для групп O
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/05/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: c2dd56bd34e5b7845298fab1f36e231113a2e28e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Настройка срока действия групп Office 365 (предварительная версия)
 
@@ -30,9 +30,7 @@ ms.lasthandoff: 12/04/2017
 -   Владельцы или администратор любой удаленной группы Office 365 могут восстановить ее в течение 30 дней.
 
 > [!NOTE]
-> Чтобы настроить срок действия групп Office 365, необходима лицензия Azure AD Premium или Azure AD Basic EDU для всех членов группы, к которой применяются параметры срока действия.
-> 
-> Для пользователей с лицензией Azure AD Basic EDU: чтобы настроить эту политику в первый раз, используйте командлеты Azure Active Directory PowerShell. После этого можно будет обновить параметры срока действия с помощью PowerShell или портала Azure AD, используя учетную запись с правами администратора учетных записей пользователей или глобального администратора в клиенте Azure AD.
+> Для настройки истечения срока действия для управления группами Office 365 требуется лицензия Azure AD Premium, для всех членов группы, к которой применяются параметры истечения срока действия.
 
 Сведения о том, как скачать и установить командлеты Azure AD PowerShell, см. на странице [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Azure Active Directory PowerShell для Graph: общедоступная предварительная версия 2.0.0.137).
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Как создавать сложные расписания и расширенное повторение с помощью планировщика Azure
 ## <a name="overview"></a>Обзор
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -89,13 +89,13 @@ ms.lasthandoff: 10/11/2017
 
 | **Имя JSON** | **Тип значения** | **Обязательный?** | **Значение по умолчанию** | **Допустимые значения** | **Пример** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| ***startTime*** |Строка |Нет |None |Дата и время по спецификации ISO-8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
-| ***recurrence*** |Объект |Нет |None |Объект recurrence |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
-| ***frequency*** |Строка |Да |None |"minute" (минута), "hour" (час), "day" (день), "week" (неделя), "month" (месяц) |<code>"frequency" : "hour"</code> |
-| ***interval*** |Number |Нет |1 |От 1 до 1000 |<code>"interval":10</code> |
-| ***endTime*** |Строка |Нет |None |Значение даты-времени, представляющее время в будущем |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-| ***count*** |Number |Нет |None |>=1 |<code>"count": 5</code> |
-| ***schedule*** |Объект |Нет |None |Объект schedule |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
+| ***startTime*** |Строка |Нет  |None |Дата и время по спецификации ISO-8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
+| ***recurrence*** |Объект. |Нет  |Нет |Объект recurrence |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
+| ***frequency*** |Строка |Yes |Нет |"minute" (минута), "hour" (час), "day" (день), "week" (неделя), "month" (месяц) |<code>"frequency" : "hour"</code> |
+| ***interval*** |Number |Yes |None |От 1 до 1000 |<code>"interval":10</code> |
+| ***endTime*** |Строка |Нет  |Нет |Значение даты-времени, представляющее время в будущем |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+| ***count*** |Number |Нет  |Нет |>=1 |<code>"count": 5</code> |
+| ***schedule*** |Объект. |Нет  |Нет |Объект schedule |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
 
 ## <a name="deep-dive-starttime"></a>Подробно: *startTime*
 В приведенной ниже таблице показано, каким образом параметр *startTime* управляет выполнением задания.
@@ -125,11 +125,11 @@ ms.lasthandoff: 10/11/2017
 
 | **Имя JSON** | **Описание** | **Допустимые значения** |
 |:--- |:--- |:--- |
-| **minutes** |Минуты часа, в которые будет выполняться задание. |<ul><li>Целое число</li><li>массив целых чисел</li></ul> |
-| **hours** |Часы дня, в которые будет выполняться задание. |<ul><li>Целое число</li><li>массив целых чисел</li></ul> |
-| **weekDays** |Дни недели, в которые будет выполняться задание. Указываются только при выборе еженедельной частоты. |<ul><li>Понедельник, вторник, среда, четверг, пятница, суббота, воскресенье</li><li>Массив любого из указанных выше значений (максимальное количество элементов в массиве — 7)</li></ul>*Без учета* регистра |
+| **minutes** |Минуты часа, в которые будет выполняться задание. |<ul><li>массив целых чисел</li></ul> |
+| **hours** |Часы дня, в которые будет выполняться задание. |<ul><li>массив целых чисел</li></ul> |
+| **weekDays** |Дни недели, в которые будет выполняться задание. Указываются только при выборе еженедельной частоты. |<ul><li>Массив всех ниже значений (размер массива max 7)<ul><li>Понедельник</li><li>«Вторник»</li><li>«Среда»</li><li>«Четверг»</li><li>«Пятница»</li><li>Суббота</li><li>«Воскресенье»</li></ul></li></ul>*Без учета* регистра |
 | **monthlyOccurrences** |Определяет, в какие числа месяца будет выполняться задание. Указываются только при выборе ежемесячной частоты. |<ul><li>Массив объектов monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *day* — это день недели, в который будет выполняться задание, например {Sunday} означает каждое воскресенье месяца. Обязательный элемент.</p><p>*occurence* — это появление указанного дня в течение месяца, например {Sunday, -1} означает последнее воскресенье месяца. Необязательный элемент.</p> |
-| **monthDays** |День месяца, в который будет выполняться задание. Указываются только при выборе ежемесячной частоты. |<ul><li>Любое значение < = –1 и > = –31</li><li>Любое значение > = 1 и < = 31</li><li>Массив указанных выше значений</li></ul> |
+| **monthDays** |День месяца, в который будет выполняться задание. Указываются только при выборе ежемесячной частоты. |<ul><li>Массив значений</li><ul><li>Любое значение < = –1 и > = –31</li><li>Любое значение > = 1 и < = 31</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Примеры: расписания повторений
 Ниже приведены различные примеры расписания повторений с применением объекта schedule и его элементов.

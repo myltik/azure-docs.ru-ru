@@ -4,7 +4,7 @@ description: "Пошаговое руководство по настройке 
 services: active-directory-b2c
 documentationcenter: dev-center-name
 author: parakhj
-manager: krassk
+manager: mtillman
 ms.service: active-directory-b2c
 ms.devlang: na
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
 ms.author: parja
-ms.openlocfilehash: 35fab74abf2c2ba27a8bf99eb93eb53f39b26227
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 063c00fe47be25b9359e80d71abfaf453c7a7074
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Связывание подписки Azure с клиентом Azure B2C
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>Создание ресурса Azure AD B2C в подписке Azure
 
-В диалоговом окне создания ресурса выберите в раскрывающемся списке клиент Azure AD B2C. Вы увидите полный список клиентов, для которых вы являетесь глобальным администратором и которые еще не связаны с подпиской.
+В диалоговом окне создания ресурса выберите клиент Azure AD B2C из раскрывающегося списка. Вы увидите полный список клиентов, для которых вы являетесь глобальным администратором и которые еще не связаны с подпиской.
 
 Имя ресурса Azure AD B2C устанавливается автоматически и совпадает с доменным именем клиента Azure AD B2C.
 
@@ -68,15 +68,15 @@ ms.lasthandoff: 12/01/2017
 
 ![Создание ресурса B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
-## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Управление ресурсами клиента Azure AD B2C
+## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Управление ресурсами клиента Azure AD B2C
 
-Когда создание ресурса Azure AD в подписке Azure успешно завершится, вы увидите новый ресурс типа "Клиент B2C" рядом с другими ресурсами Azure.
+Когда ресурс Azure AD B2C успешно создан в рамках подписки Azure, вы увидите новый ресурс типа «Клиента B2C» добавлено вместе с другими ресурсами Azure.
 
 Этот ресурс можно использовать в следующих целях:
 
 - для перехода к подписке, где можно просмотреть сведения о выставлении счетов;
 - для перехода к клиенту Azure AD B2C;
-- для отправки запроса на техническую поддержку;
+- Отправить запрос на техническую поддержку.
 - для перемещения ресурса "Клиент B2C" в другую подписку Azure или в другую группу ресурсов.
 
 ![Параметры ресурсов B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)

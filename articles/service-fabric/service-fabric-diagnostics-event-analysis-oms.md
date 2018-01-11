@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 977c5d64a32157b39aa6b618196dde20c4c3cc8e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>Анализ и визуализация событий с помощью OMS
 
@@ -41,7 +41,7 @@ Operations Management Suite (OMS) — это набор служб управл
 
 ## <a name="using-the-oms-agent"></a>Использование агента OMS
 
-В качестве решений для статистической обработки рекомендуется использовать EventFlow и WAD, так как они обеспечивают более модульный подход к диагностике и мониторингу. Например, если необходимо изменить выходные данные из EventFlow, изменение фактического инструментирования не потребуется. Нужно будет всего лишь внести небольшое изменение в файл конфигурации. Если вы решите использовать OMS Log Analytics, следует настроить [агент OMS](../log-analytics/log-analytics-windows-agents.md). При развертывании контейнеров в кластер используйте агент OMS, как описано ниже. 
+В качестве решений для статистической обработки рекомендуется использовать EventFlow и WAD, так как они обеспечивают более модульный подход к диагностике и мониторингу. Например, если необходимо изменить выходные данные из EventFlow, изменение фактического инструментирования не потребуется. Нужно будет всего лишь внести небольшое изменение в файл конфигурации. Если вы решите использовать OMS Log Analytics, следует настроить [агент OMS](../log-analytics/log-analytics-windows-agent.md). При развертывании контейнеров в кластер используйте агент OMS, как описано ниже. 
 
 Описание шагов см. в статье [Добавление агента OMS в кластер](service-fabric-diagnostics-oms-agent.md).
 

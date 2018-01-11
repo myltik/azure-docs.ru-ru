@@ -4,7 +4,7 @@ description: "Эта статья содержит ответы на часто 
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 0c32ac27187a88dd13bb747f541968d2e81c5064
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: 8cbe60ad3eb26aa1152f8eec3bdc36b8006cf242
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Часто задаваемые вопросы об Azure AD Connect Health
 Эта статья содержит ответы на часто задаваемые вопросы о расширении Azure Active Directory (Azure AD) Connect Health. Здесь представлены сведения об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке.
@@ -131,8 +131,8 @@ ms.lasthandoff: 10/18/2017
 
 * Агент не может подключиться к необходимым конечным точкам, так как трафик блокируется брандмауэром. Это особенно часто происходит на прокси-серверах веб-приложений. Убедитесь, что исходящие подключения к необходимым конечным точкам и портам разрешены. Дополнительные сведения см. в разделе [Требования](active-directory-aadconnect-health-agent-install.md#requirements).
 * Исходящие подключения проверяются протоколом SSL на сетевом уровне. В результате сертификат, используемый агентом, заменяется проверяющим сервером или сущностью, что делает невозможной отправку данных в службу Azure AD Connect Health.
-* Можно использовать команду подключения, встроенную в агент. [Подробная информация](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
-* Агенты также поддерживают исходящие подключения через прокси-сервер HTTP без аутентификации. [Подробная информация](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
+* Можно использовать команду подключения, встроенную в агент. [Дополнительные сведения](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
+* Агенты также поддерживают исходящие подключения через прокси-сервер HTTP без аутентификации. [Дополнительные сведения](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
 
 ## <a name="operations-questions"></a>Вопросы, связанные с работой
 **Вопрос. Нужно ли включать аудит прокси-серверов веб-приложений?**

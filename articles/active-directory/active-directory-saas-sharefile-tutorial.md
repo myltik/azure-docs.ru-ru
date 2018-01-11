@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: b85680104fe4f33638c559b2a12483a2312a4476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8473c262f98e77708f01d17419e935979a533307
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Руководство. Интеграция Azure Active Directory с Citrix ShareFile
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Citrix ShareFile, вам потребуется:
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Citrix ShareFile из коллекции
 2. Настройка и проверка единого входа в Azure AD
@@ -137,13 +137,13 @@ ms.lasthandoff: 10/11/2017
    
     ![Единый вход](./media/active-directory-saas-sharefile-tutorial/ic773628.png "Единый вход")
    
-    а. Выберите команду **Enable SAML**(Включить SAML).
+    a. Выберите команду **Enable SAML**(Включить SAML).
     
-    b. В текстовое поле **Your IDP Issuer/ Entity ID** (Поставщик удостоверений/идентификатор сущности) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
+    Б. В текстовое поле **Your IDP Issuer/ Entity ID** (Поставщик удостоверений/идентификатор сущности) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
 
     c. Нажмите **Изменить** рядом с полем **X.509 Certificate** (Сертификат X.509) и передайте сертификат, скачанный с портала Azure AD.
     
-    d. В текстовое поле **URL-адрес входа** вставьте значение **URL-адреса службы единого входа SAML**, скопированное на портале Azure.
+    d. В текстовое поле **Login URL** (URL-адрес входа) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
     
     д. В текстовое поле **Logout URL** (URL-адрес выхода) вставьте значение **URL-адрес выхода**, скопированное на портале Azure.
 
@@ -177,13 +177,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-sharefile-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-citrix-sharefile-test-user"></a>Создание тестового пользователя Citrix ShareFile
 
@@ -201,9 +201,9 @@ ms.lasthandoff: 10/11/2017
    
    ![Основные сведения](./media/active-directory-saas-sharefile-tutorial/IC799951.png "Основные сведения")
    
-   а. В текстовое поле **Email Address** (Электронная почта) введите адрес электронной почты учетной записи Britta Simon**brittasimon@contoso.com**.
+   a. В текстовое поле **Email Address** (Электронная почта) введите адрес электронной почты учетной записи Britta Simon**brittasimon@contoso.com**.
    
-   b. В текстовое поле **First Name** (Имя) введите **имя пользователя**, например **Britta**.
+   Б. В текстовое поле **First Name** (Имя) введите **имя пользователя**, например **Britta**.
    
    c. В текстовое поле **Last Name** (Фамилия) введите **фамилию**, например **Simon**.
 

@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
-ms.translationtype: HT
+ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Проект по классификации доходов с использованием командного процесса обработки и анализа данных (TDSP)
 
-## <a name="introduction"></a>Введение
+## <a name="introduction"></a>Общие сведения
 
 Стандартизация структуры и документации проектов по обработке и анализу данных, которые привязаны к стабильному [жизненному циклу обработки и анализа данных](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md), — это главное условие успешной совместной работы в команде специалистов по обработке и анализу данных. Создавая проекты в службе "Машинное обучение Microsoft Azure" на основе шаблона [командного процесса обработки и анализа данных (TDSP)](https://github.com/Azure/Microsoft-TDSP), вы формируете платформу для стандартизации.
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 10/27/2017
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 ### <a name="required-subscription-hardware-software"></a>Вам потребуются: подписка, оборудование и программное обеспечение
 1. [Подписка](https://azure.microsoft.com) Azure. Для выполнения этого примера вы можете получить [бесплатную подписку](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg).
 2. [Виртуальная машина Azure для обработки и анализа данных под управлением Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm) (размер виртуальной машины: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), 4 виртуальных процессора и 14 ГБ ОЗУ). Решение тестировалось на виртуальной машине Azure для обработки и анализа данных, но, вероятнее всего, будет успешно работать на любом компьютере под управлением Windows 10.
@@ -76,7 +77,7 @@ ms.lasthandoff: 10/27/2017
 2.  На странице **Projects** (Проекты) щелкните знак **+** и выберите **New Project** (Создать проект).
 3.  В области **Create New Project** (Создание проекта) введите информацию о новом проекте.
 4.  В поле поиска **Search Project Templates** (Поиск шаблонов проектов) введите Classify US incomes - TDSP project (Классификация доходов граждан США — проект TDSP) и выберите шаблон.
-5.  Нажмите кнопку **Создать**
+5.  Нажмите кнопку **Создать**.
 
 Если во время создания проекта вы указали пустое расположение репозитория Git (в соответствующем поле), после создания проекта в репозитории будет размещена структура и содержимое проекта.
 
@@ -171,7 +172,7 @@ ms.lasthandoff: 10/27/2017
 
 Мы надеемся, что эта функция службы "Машинное обучение Microsoft Azure" поможет вам в стандартизации и организации совместной работы для команды обработки и анализа данных.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Чтобы приступить к работе, изучите сведения по ссылкам ниже:
 

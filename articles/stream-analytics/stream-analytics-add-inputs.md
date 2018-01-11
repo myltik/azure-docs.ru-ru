@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Подключение потоковой передачи входных или ссылочных данных к заданию Stream Analytics
 Узнайте, как подключить источник данных к заданию Stream Analytics в качестве источника потоковых входных данных из концентраторов событий или источника потоковых ссылочных данных из хранилища BLOB-объектов.
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 1. На портале Azure щелкните **Входные данные**, а затем выберите **Добавление входных данных** в задании Stream Analytics.
    
-    ![Классический портал Azure — добавление входных данных.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Портал Azure — Добавление входных данных.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     На портале Azure щелкните элемент **Входные данные** в вашем задании Stream Analytics.  
    

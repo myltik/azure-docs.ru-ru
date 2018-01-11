@@ -3,8 +3,8 @@ title: "Настройка удаленного доступа к SharePoint с 
 description: "Рассматриваются основные сведения об интеграции локального сервера SharePoint с прокси приложения Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
+author: daveba
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2b4ad3e7bda1346e606b2c185c204154b8f19f87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c6a1b82b82dc89378533e375bd8a5d4868ae5308
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Настройка удаленного доступа к SharePoint с помощью прокси приложения Azure AD
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы включить удаленный доступ к SharePoint с помощью прокси приложения Azure AD, следуйте пошаговым инструкциям в разделах этой статьи.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 В этой статье предполагается, что в вашей среде уже есть SharePoint 2013 или более поздней версии. Кроме того, необходимо выполнить следующие предварительные требования.
 
@@ -156,7 +156,7 @@ Klist возвращает набор целевых имен субъектов
   ![Добавление имени участника-службы для учетной записи службы](./media/application-proxy-remote-sharepoint/users-computers.png)
 
 6. В списке имен участников-служб выберите того, который вы создали ранее для учетной записи службы.
-7. Нажмите кнопку **ОК**. Нажмите кнопку **ОК** еще раз, чтобы сохранить изменения.
+7. Последовательно выберите **ОК**. Нажмите кнопку **ОК** еще раз, чтобы сохранить изменения.
 
 ## <a name="step-2-enable-remote-access-to-sharepoint"></a>Шаг 2. Включение удаленного доступа к SharePoint
 
@@ -198,7 +198,7 @@ Klist возвращает набор целевых имен субъектов
 
   ![Ввод пути](./media/application-proxy-remote-sharepoint/alternate-access3.png)
 
-7. Щелкните **Сохранить**.
+7. Выберите команду **Сохранить**.
 
 Теперь вы можете получать внешний доступ к сайту SharePoint через прокси приложения Azure AD.
 

@@ -6,6 +6,7 @@ documentationcenter:
 author: mezmicrosoft
 editor: mezmicrosoft
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
-ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+manager: tihazen
+ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Сопоставление вопросов и ответов с помощью Azure Machine Learning Workbench
 На открытые вопросы часто трудно найти ответ, и для этого требуются ручные действия профильных специалистов. Чтобы сократить нагрузку на внутренних специалистов, компании часто создают списки часто задаваемых вопросов (FAQ) для помощи пользователям. В этом примере показаны различные действующие методы машинного обучения, которые сопоставляют открытые запросы и уже существующие пары часто задаваемых вопросов и ответов на них. В этом примере показан несложный процесс разработки, позволяющий создать такое решение с использованием Azure Machine Learning Workbench. 
@@ -38,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 4. Обучение моделей классификации текста и оценка их эффективности.
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Предварительные требования для выполнения этого сценария:
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 2.  На странице **Projects** (Проекты) щелкните знак **+** и выберите **New Project** (Создать проект).
 3.  В области **Create New Project** (Создание проекта) введите информацию о новом проекте.
 4.  В поле поиска **Search Project Templates** (Поиск шаблонов проектов) введите Q & A Matching (Сопоставление вопросов и ответов) и выберите шаблон.
-5.  Нажмите кнопку **Создать**
+5.  Нажмите кнопку **Создать**.
 
 ## <a name="data-description"></a>Описание данных
 
@@ -79,7 +80,7 @@ ms.lasthandoff: 10/11/2017
 
 Схема данных и ссылки для прямого скачивания этих трех наборов представлены в следующей таблице.
 
-| Выборка | Поле | Тип | Описание
+| Выборка | Поле | type | ОПИСАНИЕ
 | ----------|------------|------------|--------
 | [questions](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Идентификатор | Строка | Уникальный идентификатор вопроса (первичный ключ)
 |  | AnswerId | Строка | Уникальный идентификатор ответа на вопрос
@@ -99,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 
 Файлы в этом примере упорядочены следующим образом:
 
-| Имя файла | Тип | Описание
+| Имя файла | type | ОПИСАНИЕ
 | ----------|------------|--------
 | `Image` | Папка | Папка, используемая для сохранения изображений для файла README
 | `notebooks` | Папка | Папка для записных книжек Jupyter.

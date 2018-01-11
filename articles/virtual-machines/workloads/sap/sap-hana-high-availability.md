@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Высокий уровень доступности SAP HANA на виртуальных машинах Azure
 
@@ -85,12 +85,12 @@ ms.lasthandoff: 10/11/2017
 1. Создание подсистемы балансировки нагрузки (внутренней).  
    Выбор виртуальной сети, созданной ранее.
 1. Создание виртуальной машины 1.  
-   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   Используйте по крайней мере SLES4SAP 12 с пакетом обновления 1, в этом примере мы будем использовать https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 изображения SLES4SAP 12 SP1 BYOS  
    SLES For SAP Applications 12 SP1 (BYOS).  
    Выбор учетной записи хранения 1.  
    Выбор группы доступности.  
 1. Создание виртуальной машины 2.  
-   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   Используйте по крайней мере SLES4SAP 12 с пакетом обновления 1, в этом примере мы будем использовать https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 изображения SLES4SAP 12 SP1 BYOS  
    SLES For SAP Applications 12 SP1 (BYOS).  
    Выбор учетной записи хранения 2.   
    Выбор группы доступности.  
@@ -99,7 +99,7 @@ ms.lasthandoff: 10/11/2017
     1. Создание пула внешних IP-адресов.
         1. Откройте подсистему балансировки нагрузки, выберите пул внешних IP-адресов и щелкните "Добавить".
         1. Введите имя нового пула внешних IP-адресов (например, hana-frontend).
-       1. Нажмите кнопку "ОК"
+        1. Нажмите кнопку "ОК"
         1. После создания пула внешних IP-адресов запишите его IP-адрес.
     1. Создание внутреннего пула.
         1. Выберите подсистему балансировки нагрузки, щелкните "Серверные пулы" и нажмите кнопку "Добавить".
@@ -109,7 +109,7 @@ ms.lasthandoff: 10/11/2017
         1. Выберите виртуальные машины кластера SAP HANA.
         1. Нажмите кнопку "ОК"
     1. Создание пробы работоспособности
-       1. Выберите подсистему балансировки нагрузки, щелкните "Зонды работоспособности" и нажмите кнопку "Добавить".
+        1. Выберите подсистему балансировки нагрузки, щелкните "Зонды работоспособности" и нажмите кнопку "Добавить".
         1. Введите имя новой пробы работоспособности (например, hana-hp).
         1. Выберите протокол TCP, порт 625**03**, интервал, равный 5, и порог состояния неработоспособности, равный 2.
         1. Нажмите кнопку "ОК"
@@ -119,14 +119,14 @@ ms.lasthandoff: 10/11/2017
         1. Выберите пул внешних IP-адресов, внутренний пул и пробу работоспособности, созданные ранее (например, hana-frontend).
         1. Оставьте выбранным протокол TCP и введите порт 3**03**15.
         1. Увеличьте время ожидания до 30 минут.
-       1. **Не забудьте включить плавающий IP-адрес**.
+        1. **Не забудьте включить плавающий IP-адрес**.
         1. Нажмите кнопку "ОК"
         1. Повторите предыдущие шаги для порта 3**03**17.
 
 ### <a name="deploy-with-template"></a>Развертывание с помощью шаблона
-Шаблоны быстрого запуска с сайта GitHub можно использовать для развертывания всех необходимых ресурсов. Шаблон развертывает виртуальные машины, подсистему балансировки нагрузки, группу доступности и т. д. Выполните следующее, чтобы развернуть шаблон.
+Примеры использования шаблонов можно использовать на github для развертывания всех необходимых ресурсов. Шаблон развертывает виртуальные машины, подсистему балансировки нагрузки, группу доступности и т. д. Выполните следующее, чтобы развернуть шаблон.
 
-1. Откройте [шаблон базы данных][template-multisid-db] или [конвергированный шаблон][template-converged] на портале Azure. Шаблон базы данных создает только правила балансировки нагрузки для базы данных, а конвергированный шаблон дополнительно создает правила балансировки нагрузки для экземпляра ASCS/SCS и ERS (только Linux). Если вы планируете установить систему на основе SAP NetWeaver и экземпляр ASCS/SCS на одних и тех же компьютерах, используйте [конвергированный шаблон][template-converged].
+1. Откройте [шаблона базы данных] [ template-multisid-db] или [схождение выполнено шаблона] [ template-converged] на портале Azure, которая создает только шаблона базы данных балансировки нагрузки правила для базы данных, тогда как схождением шаблон также создает правила балансировки нагрузки для ASCS/SCS и экземпляра ющих Методов (Linux). Если вы планируете установить систему на основе SAP NetWeaver и экземпляр ASCS/SCS на одних и тех же компьютерах, используйте [конвергированный шаблон][template-converged].
 1. Задайте следующие параметры.
     1. Идентификатор системы SAP  
        Введите идентификатор системы SAP, которую требуется установить. Идентификатор будет использоваться в качестве префикса для развертываемых ресурсов.
@@ -145,7 +145,7 @@ ms.lasthandoff: 10/11/2017
     1. Новая или имеющаяся подсеть  
        Определяет, следует ли создать виртуальную сеть и подсеть или использовать имеющуюся подсеть. При наличии виртуальной сети, подключенной к локальной сети, выберите ее.
     1. Идентификатор подсети  
-    Идентификатор подсети, к которой следует подключить виртуальные машины. Выберите подсеть виртуальной сети VPN или Express Route, чтобы подключить виртуальную машину к локальной сети. Идентификатор обычно выглядит следующим образом: /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>.
+    Идентификатор подсети, к которой следует подключить виртуальные машины. Выберите подсеть виртуальной сети VPN или Express Route, чтобы подключить виртуальную машину к локальной сети. Идентификатор обычно выглядит следующим образом: /subscriptions/`<subscription ID`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>.
 
 ## <a name="setting-up-linux-ha"></a>Настройка высокого уровня доступности Linux
 
@@ -229,7 +229,7 @@ ms.lasthandoff: 10/11/2017
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
         * Создайте записи fstab для трех логических томов.
@@ -252,7 +252,7 @@ ms.lasthandoff: 10/11/2017
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # <a name="write-down-the-id-of-devsdc1"></a>write down the id of /dev/sdc1
+    # <a name="write-down-the-id-of-devsdc1"></a>Запишите идентификатор /dev/sdc1
     sudo /sbin/blkid  sudo vi /etc/fstab
     ```
 
@@ -450,7 +450,7 @@ sudo crm configure load update crm-defaults.txt
 
 1. Перейдите на портал <https://portal.azure.com>.
 1. Откройте колонку "Azure Active Directory".  
-   Перейдите в колонку "Свойства" и запишите идентификатор каталога. Это **идентификатор клиента**.
+   Перейдите к свойствам и запишите идентификатор каталога. Это **идентификатор клиента**.
 1. Щелкните "Регистрация приложений".
 1. Нажмите "Добавить"
 1. Введите имя, выберите тип приложения "Веб-приложения или API", введите URL-адрес входа (например. http://localhost) и нажмите кнопку "Создать".
@@ -458,7 +458,7 @@ sudo crm configure load update crm-defaults.txt
 1. Выберите новое приложение и щелкните "Ключи" на вкладке "Параметры".
 1. Введите описание нового ключа, выберите "Срок действия не ограничен" и нажмите кнопку "Сохранить".
 1. Запишите его значение. Он используется в качестве **пароля** субъекта-службы.
-1. Запишите идентификатор приложения. Он используется в качестве имени пользователя (**идентификатора для входа** в следующих шагах) субъекта-службы.
+1. Запишите идентификатор приложения. Он используется в качестве имени пользователя (**идентификатора входа** шаги описаны ниже) участника службы
 
 У субъекта-службы по умолчанию нет разрешений на доступ к ресурсам Azure. Необходимо предоставить ему разрешения на запуск и остановку (освобождение) всех виртуальных машин кластера.
 
@@ -476,13 +476,13 @@ sudo crm configure load update crm-defaults.txt
 <pre>
 sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 <code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
@@ -496,7 +496,7 @@ sudo crm configure load update crm-fencing.txt
 <pre>
 sudo vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system id
+# replace the bold string with your instance number and HANA system ID
 <code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -516,7 +516,7 @@ sudo crm configure load update crm-saphanatop.txt
 <pre>
 sudo vi crm-saphana.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
 <code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -622,16 +622,16 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
-При переносе устанавливаются ограничения расположения, которые должны быть удалены.
+Миграция создает расположение ограничения, которые следует удалить еще раз.
 
 <pre><code>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
+# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
-Необходимо также очистить состояние ресурса на вторичном узле.
+Также необходимо очистить состояние дополнительного узла ресурса
 
 <pre><code>
 # switch back to root and cleanup the failed state

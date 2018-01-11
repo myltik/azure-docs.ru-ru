@@ -10,6 +10,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Заметки к выпуску интегрированных систем
           items:
+            - name: Обновление 1712
+              href: azure-stack-update-1712.md
             - name: Обновление 1711
               href: azure-stack-update-1711.md
             - name: Обновление 1710
@@ -41,17 +43,17 @@
       href: azure-stack-manage-basics.md
 - name: Практические руководства
   items:
-    - name: Развернуть
+    - name: Развертывание
       items:
-        - name: Предварительные требования
+        - name: предварительным требованиям
           href: azure-stack-deploy.md
         - name: Телеметрия
           href: azure-stack-telemetry.md
-        - name: Развернуть
+        - name: Развертывание
           href: azure-stack-run-powershell-script.md
         - name: Установка PowerShell
           href: azure-stack-powershell-install.md
-        - name: регистрация;
+        - name: Зарегистрировать
           href: azure-stack-register.md
         - name: Подключение к Azure Stack
           href: azure-stack-connect-azure-stack.md
@@ -71,7 +73,7 @@
           href: azure-stack-integrate-monitor.md
         - name: Безопасность
           href: azure-stack-integrate-security.md
-    - name: Управление
+    - name: управление
       items:
         - name: Управление регионами
           href: azure-stack-region-management.md
@@ -121,6 +123,21 @@
               href: azure-stack-replace-disk.md
             - name: Замена компонента
               href: azure-stack-replace-component.md
+        - name: Резервное копирование для Azure Stack
+          href: azure-stack-backup-infrastructure-backup.md
+          items:
+            - name: Включение резервного копирования для Azure Stack с консоли администрирования
+              href: azure-stack-backup-enable-backup-console.md
+            - name: Включение резервного копирования для Azure Stack с помощью PowerShell
+              href: azure-stack-backup-enable-backup-powershell.md
+            - name: Резервное копирование для Azure Stack
+              href: azure-stack-backup-back-up-azure-stack.md
+            - name: Восстановление после катастрофической потери данных
+              href: azure-stack-backup-recover-data.md
+            - name: Рекомендации по резервному копированию
+              href: azure-stack-backup-best-practices.md
+            - name: Справочник по резервному копированию
+              href: azure-stack-backup-reference.md
     - name: 'Безопасность, соответствие требованиям и удостоверения'
       items:
         - name: Обзор безопасности

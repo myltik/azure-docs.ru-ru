@@ -5,20 +5,20 @@ services: active-directory
 keywords: "Устранение неполадок в работе сквозной аутентификации Azure AD Connect, установка Active Directory, необходимые компоненты для Azure AD, единый вход"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: 730dfcb8925a1a7edf8796ddaf86d2038fd9df44
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Устранение неполадок в работе сквозной аутентификации Azure Active Directory
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/28/2017
 
 Если пользователи не могут выполнить вход с использованием сквозной аутентификации, для них могут отображаться следующие ошибки на экране входа в Azure AD: 
 
-|Ошибка|Description (Описание)|Способы устранения:
+|Ошибка|ОПИСАНИЕ|Способы устранения:
 | --- | --- | ---
 |AADSTS80001|Не удалось подключиться к Active Directory|Убедитесь, что серверы с агентами являются членами того же леса, что и пользователи, чьи пароли должны быть проверены, и могут подключиться к Active Directory.  
 |AADSTS8002|Истекло время ожидания подключения к Active Directory|Убедитесь, что служба Active Directory доступна и отвечает на запросы агентов.
@@ -165,7 +165,7 @@ ms.lasthandoff: 11/28/2017
     </QueryList>
 ```
 
-### <a name="performance-monitor-counters"></a>Счетчики системного монитора
+## <a name="performance-monitor-counters"></a>Счетчики системного монитора
 
 Другой способ наблюдения за агентами аутентификации — отслеживание счетчиков системного монитора на каждом сервере, на котором установлен агент аутентификации. Используйте приведенные глобальные счетчики (**# PTA authentications**, **#PTA failed authentications** и **#PTA successful authentications**) и счетчики ошибок (**# PTA authentication errors**).
 

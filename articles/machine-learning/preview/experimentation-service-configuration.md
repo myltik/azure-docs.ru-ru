@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Настройка службы "Экспериментирование в Машинном обучении Azure"
 
@@ -221,7 +221,8 @@ _**Обзор удаленного выполнения скриптов Python 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Запуск скрипта в кластере HDInsight
 HDInsight — это популярная платформа для анализа больших данных, которая поддерживает Apache Spark. Приложение Workbench позволяет выполнять эксперименты с большими данными в кластерах HDInsight Spark. 
 
->![ПРИМЕЧАНИЕ] Кластер HDInsight должен использовать большие двоичные объекты Azure в качестве основного хранилища. Использование хранилища Azure Data Lake еще не поддерживается.
+>[!NOTE]
+>Кластер HDInsight должны использовать больших двоичных объектов Azure в качестве основного хранилища. Использование хранилища Azure Data Lake еще не поддерживается.
 
 Вы можете создать целевой объект вычислений и запустить конфигурацию кластера HDInsight Spark с помощью следующей команды:
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - Добавьте открытый ключ, созданный средой Workbench, в файл ~/.ssh/authorized_keys в подключенном целевом объекте вычислений. 
 
-[!IMPORTANT] Необходимо войти в целевой объект вычислений с тем же именем пользователя, которое использовалось для создания целевого объекта вычислений. 
+>[!IMPORTANT]
+>Необходимо войти в целевой объект вычислений с тем же именем пользователя, которое использовалось для создания целевого объекта вычислений. 
 
 - Теперь можно подготовить и использовать целевой объект вычислений с применением аутентификации на основе ключей SSH.
 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 72a8729d22a9e76c8076d7a3347619a2163e4f09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Масштабирование кодирования с помощью пакета SDK для .NET
 > [!div class="op_single_selector"]
@@ -30,9 +30,13 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
+> [!NOTE]
+> Чтобы получить последнюю версию пакета SDK для Java и приступить к разработке с помощью Java, перейдите к статье [Начало работы с клиентским пакетом SDK для Java для служб мультимедиа Azure](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Чтобы загрузить последний пакет SDK для PHP для служб мультимедиа, найдите версию 0.5.7 пакета Microsoft/WindowAzure в [репозитории Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+
 ## <a name="overview"></a>Обзор
 > [!IMPORTANT]
-> Обязательно ознакомьтесь с этим [обзором](media-services-scale-media-processing-overview.md) , чтобы получить дополнительные сведения о масштабировании обработки мультимедиа.
+> Убедитесь в том просмотреть [Обзор](media-services-scale-media-processing-overview.md) для получения дополнительных сведений о масштабировании обработкой мультимедиа.
 > 
 > 
 
@@ -52,17 +56,7 @@ ms.lasthandoff: 10/11/2017
 По умолчанию каждая учетная запись служб мультимедиа может масштабироваться до 25 зарезервированных единиц кодирования и 5 зарезервированных единиц потоковой передачи по требованию. Вы можете запросить более высокий предел, открыв запрос в службу поддержки.
 
 ### <a name="open-a-support-ticket"></a>Открытие запроса в службу поддержки
-Чтобы открыть запрос в службу поддержки, выполните следующее:
-
-1. Щелкните [Получить поддержку](https://manage.windowsazure.com/?getsupport=true). Если вы не выполнили вход, будет предложено ввести учетные данные.
-2. Выберите свою подписку.
-3. В группе типа поддержки выберите "Техническая".
-4. Щелкните "Создать запрос в службу поддержки".
-5. Выберите "Службы мультимедиа Azure" в списке продуктов, представленных на следующей странице.
-6. Выберите соответствующее значение в поле "Тип проблемы".
-7. Нажмите кнопку "Продолжить".
-8. Следуйте указаниям на следующей странице, а затем введите сведения о проблеме.
-9. Нажмите кнопку "Отправить" для создания запроса в службу поддержки.
+На портале Azure перейдите к [Справка и поддержка](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Если вы не вошли в Azure, вам будет предложено ввести учетные данные.
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

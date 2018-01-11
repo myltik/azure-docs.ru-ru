@@ -10,17 +10,17 @@ tags:
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 232c2cf1ba0a7de23da10357de9a6e6ad9a0d41d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Создание виртуальной машины Linux в зоне доступности с помощью Azure CLI
 
@@ -29,6 +29,35 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
 Обязательно установите последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
+
+
+## <a name="check-vm-sku-availability"></a>Проверка доступности SKU ВМ
+Доступность размеры виртуальных Машин или номера SKU, зависит от региона и зоны. Сведения о планировании для использования доступность зон, можно составить список доступных SKU ВМ, регион Azure и зоны. Эта возможность гарантирует, выберите соответствующий размер виртуальной Машины и получить нужный устойчивости различных зон. Дополнительные сведения о разных типах ВМ и размеры см. в разделе [Общие сведения о размерах виртуальных Машин](sizes.md).
+
+Можно просмотреть доступные номера SKU ВМ с [az ВМ список-номеров SKU](/cli/azure/vm#az_vm_list_skus) команды. В следующем примере перечисляются доступные номера SKU ВМ в *eastus2* область:
+
+```azurecli
+az vm list-skus --location eastus2 --output table
+```
+
+Вывод команды будет примерно в следующем примере сокращенный, показывающий доступность зон, в которой доступно каждого размера виртуальной Машины:
+
+```azurecli
+ResourceType      Locations  Name               Tier       Size     Zones
+----------------  ---------  -----------------  ---------  -------  -------
+virtualMachines   eastus2    Standard_DS1_v2    Standard   DS1_v2   1,2,3
+virtualMachines   eastus2    Standard_DS2_v2    Standard   DS2_v2   1,2,3
+[...]
+virtualMachines   eastus2    Standard_F1s       Standard   F1s      1,2,3
+virtualMachines   eastus2    Standard_F2s       Standard   F2s      1,2,3
+[...]
+virtualMachines   eastus2    Standard_D2s_v3    Standard   D2_v3    1,2,3
+virtualMachines   eastus2    Standard_D4s_v3    Standard   D4_v3    1,2,3
+[...]
+virtualMachines   eastus2    Standard_E2_v3     Standard   E2_v3    1,2,3
+virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
+```
+
 
 ## <a name="create-resource-group"></a>Создать группу ресурсов
 

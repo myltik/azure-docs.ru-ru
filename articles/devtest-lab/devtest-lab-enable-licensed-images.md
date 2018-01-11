@@ -3,7 +3,7 @@ title: "Активация лицензированных образов в ла
 description: "Узнайте, как активировать лицензированные образы в Azure DevTest Labs на портале Azure."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 221390d2-8d3b-4e1f-b454-43d33f8072b7
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: tarcher
-ms.openlocfilehash: a74eff05285602574e45703dbe5b6caf074adecd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Активация лицензированных образов в лаборатории в Azure DevTest Labs
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Определение доступности лицензированного образа для пользователей
 Чтобы создавать виртуальные машины на основе лицензированных образов, сначала необходимо убедиться, что были приняты условия их использования. Ниже показано, как можно просмотреть состояние предложения лицензированных образов и, если необходимо, принять условия их использования.
 
-1. Выполните вход на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Щелкните **Другие службы**, а затем выберите в списке **DevTest Labs**.
 
@@ -83,4 +83,4 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- [Добавление виртуальной машины с артефактами в лабораторию в Azure DevTest Labs](./devtest-lab-add-vm-with-artifacts.md)
+- [Добавление виртуальной машины с артефактами в лабораторию в Azure DevTest Labs](devtest-lab-add-vm.md)

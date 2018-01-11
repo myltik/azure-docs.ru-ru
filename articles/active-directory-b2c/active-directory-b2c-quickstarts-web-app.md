@@ -4,7 +4,7 @@ description: "Протестируйте вход, регистрацию, из�
 services: active-directory-b2c
 documentationcenter: .net
 author: saraford
-manager: krassk
+manager: mtillman
 editor: PatAltimore
 ms.assetid: 2ffb780d-2c51-4c2e-b8d6-39c40a81a77e
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: patricka
-ms.openlocfilehash: 07f2c21409176d30f4570e267a4472745f843f85
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: bc56da695145f396a2899fb9dc7add3af9a549e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="test-drive-an-azure-ad-b2c-enabled-web-app"></a>Тестовый выпуск включенного веб-приложения Azure AD B2C
 
@@ -30,7 +30,7 @@ Azure Active Directory B2C обеспечивает управление иде�
 > * создание учетной записи и профиля пользователя Azure AD B2C и управление ими;
 > * вызов веб-API, защищенного Azure AD B2C.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) с рабочей нагрузкой **ASP.NET и веб-разработка**. 
 * Учетная запись социальных сетей Facebook, Google, Microsoft или Twitter.
@@ -54,7 +54,7 @@ Azure Active Directory B2C обеспечивает управление иде�
 
 1. В меню Visual Studio выберите **Проекты > Назначить запускаемые проекты...** 
 2. Выберите переключатель **Multiple startup projects** (Несколько запускаемых проектов).
-3. Установите **Запуск** в качестве **действия** для обоих проектов. Нажмите кнопку **ОК**.
+3. Установите **Запуск** в качестве **действия** для обоих проектов. Последовательно выберите **ОК**.
 
 ![Назначение начальной страницы в Visual Studio](media/active-directory-b2c-quickstarts-web-app/setup-startup-projects.png)
 

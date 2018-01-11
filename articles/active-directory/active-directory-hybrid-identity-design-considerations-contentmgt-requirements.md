@@ -4,7 +4,7 @@ description: "Содержит информацию о том, как опред
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 840de1e1fcba74285788d51d8f544375f0affa77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f2689306150f400f5a3cdf000a9ca590b397d812
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Определение требований к управлению содержимым для решения гибридной идентификации
 Понимание требований управления содержимым для вашего бизнеса может напрямую повлиять на то, каким решением для гибридной идентификации воспользоваться. С распространением большого количества устройств и возможностью пользователей приносить собственные устройства ([BYOD](http://aka.ms/byodcg)) компания должна защищать свои собственные данные, но также сохранять и конфиденциальность пользователя. Обычно когда у пользователя есть собственное устройство, он также может иметь несколько учетных записей, которые изменяются в зависимости от используемого приложения. Важно различать, какое содержимое было создано с помощью личных учетных данных и какое — с помощью корпоративных учетных данных. Ваше решение для идентификации должно иметь возможность взаимодействия с облачной службой для обеспечения эффективной работы конечного пользователя и одновременной защиты его конфиденциальности и усиления защиты от утечки данных. 

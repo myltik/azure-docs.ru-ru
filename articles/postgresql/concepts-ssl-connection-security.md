@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 3173964f0315559b0839fd7e659f8f3bd2c30b2a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Настройка SSL-соединения в базе данных Azure для PostgreSQL
 База данных Azure для PostgreSQL предпочитает подключать клиентские приложения к службе PostgreSQL с помощью SSL (Secure Sockets Layer). Применение SSL-соединений между сервером базы данных и клиентскими приложениями обеспечивает защиту от атак "злоумышленник в середине" за счет шифрования потока данных между сервером и приложением.
@@ -110,10 +110,6 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Подключение к базе данных Azure для PostgreSQL с использованием проверки подлинности на основе SSL-сертификата
 Теперь, когда вы успешно декодировали сертификат, можно безопасно подключиться к серверу базы данных по протоколу SSL. Чтобы выполнить проверку сертификата сервера, необходимо поместить сертификат в файл ~/.postgresql/root.crt в основном каталоге пользователя. (В Microsoft Windows этот файл имеет имя %APPDATA%\postgresql\root.crt). Ниже приводятся инструкции по подключению к базе данных Azure для PostgreSQL.
-
-> [!NOTE]
-> Сейчас при подключении к службе с использованием sslmode=verify-full может возникать известная проблема, из-за которой происходит сбой подключения со следующей ошибкой: _server certificate for "&lt;region&gt;.control.database.windows.net" (and 7 other names) does not match host name "&lt;servername&gt;.postgres.database.azure.com"_ (Сертификат сервера для "Регион.control.database.windows.net" (и 7 других имен) не соответствует имени узла "Имя_узла.postgres.database.azure.com").
-> Если требуется параметр sslmode=verify-full, используйте соглашение об именовании серверов (**&lt;Имя_сервера&gt;.database.windows.net**) в качестве имени узла строки подключения. Мы планируем устранить это ограничение в будущем. Для подключений, использующих другие [режимы SSL](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS), по прежнему используйте предпочитаемое соглашение об именовании узла (**&lt;Имя_узла&gt;.postgres.database.azure.com**).
 
 #### <a name="using-psql-command-line-utility"></a>Использование служебной программы командной строки psql
 В следующем примере показано, как подключиться к серверу PostgreSQL с помощью служебной программы командной строки psql, используя созданный файл `root.crt` и параметр `sslmode=verify-ca` или `sslmode=verify-full`.

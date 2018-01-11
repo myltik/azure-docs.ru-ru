@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: jonbeck
-ms.openlocfilehash: 0d972e8b9ffb8bfe158ec394baf237ef65333026
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 1a2107f0f813c39ec3e9676ec952803f6be2ebf9
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Размеры виртуальных машин, оптимизированных для операций в хранилище
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 12/01/2017
 
 
 ## <a name="other-sizes"></a>Остальные размеры
-- [Универсальные](../windows/sizes-general.md)
-- [Оптимизированные для вычислений](../windows/sizes-compute.md)
-- [Оптимизированные для памяти](../windows/sizes-memory.md)
-- [GPU](../windows/sizes-gpu.md)
-- [Для высокопроизводительных вычислений](../windows/sizes-hpc.md)
+- [Универсальные](sizes-general.md)
+- [Оптимизированные для вычислений](sizes-compute.md)
+- [Оптимизированные для памяти](sizes-memory.md)
+- [GPU](sizes-gpu.md)
+- [Для высокопроизводительных вычислений](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](../windows/acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
+Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](acu.md) сравнить производительность вычислений для различных номеров SKU Azure.

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: ba2a14e3f327fd8ab4f1ebfe329a64b4aa1a25a1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 49ec2f305c1aef50fcff977d60ff3ce0079ff5af
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-and-spark-technology-stack"></a>Общие сведения об Azure HDInsight и стеке технологий Hadoop и Spark
 В этой статье приводятся общие сведения об Azure HDInsight, полностью управляемой комплексной службе аналитики с открытым кодом, предназначенной для предприятий. Вы можете использовать такие платформы с открытым кодом, как Hadoop, Spark, Hive, LLAP, Kafka, Storm, R и др. 
@@ -45,7 +45,7 @@ Azure HDInsight является облачным распределением �
 В этом разделе перечислены возможности Azure HDInsight.
 
 
-|Функция  |Описание  |
+|Функция  |ОПИСАНИЕ  |
 |---------|---------|
 |Собственные решения в облаке     |     Azure HDInsight позволяет создавать кластеры, оптимизированные для [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Spark](../spark/apache-spark-jupyter-spark-sql.md), [Interactive Query (LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [ Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) и [R Server](../r-server/r-server-get-started.md) в Azure. HDInsight также предоставляет полное соглашение об уровне обслуживания для всех рабочих нагрузок.  |
 |Экономия и масштабируемость     | HDInsight позволяет увеличивать и уменьшать [масштаб](../hdinsight-administer-use-portal-linux.md) рабочих нагрузок. Чтобы сократить затраты, [создайте кластеры по требованию](../hdinsight-hadoop-create-linux-clusters-adf.md) и платите только за те ресурсы, которые используете. Вы также можете создавать конвейеры данных, чтобы реализовать задания. Разделенные вычислительные ресурсы и хранилище позволяют повысить производительность и эластичность. |
@@ -137,14 +137,15 @@ Azure HDInsight позволяет создавать кластеры на пл
 
 * [Использование средств визуализации данных с помощью Apache Spark BI в Azure HDInsight](../spark/apache-spark-use-bi-tools.md).
 * [Визуализация данных Hive с помощью Microsoft Power BI в Azure HDInsight](apache-hadoop-connect-hive-power-bi.md) 
+* [Visualize Interactive Query Hive data with Microsoft Power BI using DirectQuery in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) (Визуализация данных Hive из кластера Interactive Query с помощью Microsoft Power BI и DirectQuery в Azure HDInsight)
 * [Подключение Excel к HDInsight с помощью Power Query](apache-hadoop-connect-excel-power-query.md). Узнайте о подключении Excel к учетной записи хранения Azure, в которой размещаются данные из кластера HDInsight, с помощью Microsoft Power Query для Excel. Требуется рабочая станция Windows. 
 * [Подключение Excel к Hadoop с помощью драйвера Microsoft Hive ODBC](apache-hadoop-connect-excel-hive-odbc-driver.md). Узнайте об импорте данных из HDInsight с помощью драйвера Microsoft Hive ODBC. Требуется рабочая станция Windows. 
-* [Облачная платформа Майкрософт](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): узнайте о возможностях Power BI для Office 365, скачайте пробную версию SQL Server, а также настройте SharePoint Server 2013 и SQL Server BI.
+* [Облачная платформа Майкрософт](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx). Узнайте о возможностях Power BI для Office 365, скачайте пробную версию SQL Server, а также настройте SharePoint Server 2013 и SQL Server BI.
 * [Руководства по службам Analysis Services (SSAS)](http://msdn.microsoft.com/library/hh231701.aspx)
 * [Службы Reporting Services (SSRS)](http://msdn.microsoft.com/library/ms159106.aspx)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Руководство по Hadoop. Приступая к работе с Hadoop в HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Создание кластера Apache Spark в Azure HDInsight](../spark/apache-spark-jupyter-spark-sql.md)

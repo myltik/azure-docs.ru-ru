@@ -4,7 +4,7 @@ description: "В этой статье описывается, как настр
 services: active-directory-b2c
 documentationcenter: android
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: 
 ms.assetid: 1c75f17f-5ec5-493a-b906-f543b3b1ea66
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: parakhj
-ms.openlocfilehash: 7202be4e0e9b8b28b5ec1443d6d248c1738da6fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9d2df39118741d4254f7b7fe4c419a00ceb4ba8e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: запрос маркеров доступа
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 1. В меню **Приложения** Azure AD B2C откройте приложение веб-API (API Contoso).
 1. Щелкните **Опубликованные области**. Здесь вы определяете разрешения (области), которые могут быть предоставлены другим приложениям.
 1. При необходимости добавьте **значения области** (например, read). По умолчанию будут определены области user_impersonation. Их можно игнорировать. Введите описание области в столбце **Имя области**.
-1. Щелкните **Сохранить**.
+1. Выберите команду **Сохранить**.
 
 > [!IMPORTANT]
 > **Имя области** является описанием **значения области**. При использовании области обязательно используйте **значение области**.
@@ -69,7 +69,7 @@ ms.lasthandoff: 10/11/2017
 1. Щелкните **Доступ через API**.
 1. Щелкните **Добавить**.
 1. Выберите веб-API и области (разрешения), которые нужно предоставить.
-1. Нажмите кнопку **ОК**.
+1. Последовательно выберите **ОК**.
 
 > [!NOTE]
 > Для Azure AD B2C не нужно предоставлять согласие пользователей клиентского приложения. Вместо этого требуется согласие администратора, которое определяется на основе разрешений, настроенных для приложений, как описано выше. Если отозвать разрешение для приложения, все пользователи, которые могли получить это разрешение, больше не смогут его использовать.
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/11/2017
 https://login.microsoftonline.com/<tenantName>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
-Чтобы получить несколько разрешений в одном запросе, можно добавить несколько записей в одном параметре **scope**, разделив их пробелами. Например:
+Чтобы получить несколько разрешений в одном запросе, можно добавить несколько записей в одном параметре **scope**, разделив их пробелами. Например: 
 
 Декодированный URL-адрес:
 
@@ -117,7 +117,7 @@ scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_ac
 
 Успешно созданный **access\_token** (из конечной точки `/authorize` или `/token`) будет содержать следующие утверждения:
 
-| Имя | Утверждение | Описание |
+| ИМЯ | Утверждение | ОПИСАНИЕ |
 | --- | --- | --- |
 |Аудитория |`aud` |**Идентификатор приложения** одного ресурса, к которому предоставляет доступ маркер. |
 |Область |`scp` |Разрешения, предоставляемые ресурсу. Несколько предоставленных разрешений разделяются пробелами. |

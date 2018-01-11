@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 3284f9f9c3cef27cba599238f06b0dcf0f35de78
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: HT
+ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Безопасное хранение секретных параметров веб-приложения
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/20/2017
 ## <a name="aspnet-and-net-core-applications"></a>Приложения ASP.NET Core и .NET Core
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Хранение секретных параметров в хранилище секретов пользователя за пределами папки системы управления версиями
-Если вы создаете упрощенный прототип или у вас нет доступа к Интернету, переместите секретные параметры из папки системы управления версиями в хранилище секретов пользователя. Хранилище секретов пользователя — это файл, сохраненный в папке профиля пользователя, следовательно, секреты не будут регистрироваться в системе управления версиями. На следующей схеме показано, как применяется [секрет пользователя](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager).
+Если вы создаете упрощенный прототип или у вас нет доступа к Интернету, переместите секретные параметры из папки системы управления версиями в хранилище секретов пользователя. Хранилище секретов пользователя — это файл, сохраненный в папке профиля пользователя, следовательно, секреты не будут регистрироваться в системе управления версиями. На следующей схеме показано, как применяется [секрет пользователя](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager).
 
 ![Хранение секретных параметров с помощью секрета пользователя за пределами системы управления версиями](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/20/2017
 
     ![Создание хранилища Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Предоставьте членам своей команды доступ к хранилищу Key Vault. Если у вас большая команда разработчиков, можно создать [группу Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal) и предоставить этой группе безопасности доступ к хранилищу Key Vault. В разделе *Операции управления секретами* в раскрывающемся списке *Разрешения секретов* щелкните *Получить* и выберите *Список*.
+2. Предоставьте членам своей команды доступ к хранилищу Key Vault. Если у вас большая команда разработчиков, можно создать [группу Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) и предоставить этой группе безопасности доступ к хранилищу Key Vault. В разделе *Операции управления секретами* в раскрывающемся списке *Разрешения секретов* щелкните *Получить* и выберите *Список*.
 
     ![Добавление политики доступа к хранилищу Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

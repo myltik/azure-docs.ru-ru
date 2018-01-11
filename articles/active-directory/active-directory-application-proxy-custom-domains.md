@@ -3,8 +3,8 @@ title: "Личные домены в прокси приложения Azure AD 
 description: "Вы можете управлять личными доменами в прокси приложения Azure AD, чтобы использовать один и тот же URL-адрес для приложения вне зависимости от того, откуда к нему обращаются пользователи."
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
+author: daveba
+manager: mtillman
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: billmath
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f254f4959c66aeb3eec522f31e0d8a6780358188
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 6a5b7731cfd98a53f83a9882529a713381b4f848
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Работа с пользовательскими доменами в прокси приложения Azure AD
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="configure-a-custom-domain"></a>Настройка личного домена
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Технические условия
 
 Прежде чем настроить личный домен, убедитесь, что у вас есть следующие необходимые компоненты: 
 - [Проверенный домен, добавленный в Azure Active Directory](active-directory-domains-add-azure-portal.md).
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/14/2017
 
 При наличии этих трех компонентов выполните указанные ниже действия для настройки личного домена.
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. Перейдите в **Azure Active Directory** > **Корпоративные приложения** > **Все приложения** и выберите приложение, которым необходимо управлять.
 3. Выберите **Прокси приложения**. 
 4. Воспользуйтесь раскрывающимся списком в поле внешнего URL-адреса, чтобы выбрать личный домен. Если ваш домен не отображается в списке, значит он еще не проверен. 

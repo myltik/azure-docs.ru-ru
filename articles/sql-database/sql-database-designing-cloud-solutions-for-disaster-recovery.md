@@ -13,21 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
 ms.workload: On Demand
-ms.date: 09/08/2017
 ms.author: sashan
-ms.openlocfilehash: 0fb11ee553685618cc7466d3ad8b07ba01611027
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.reviewer: carlrab
+ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Разработка службы высокой доступности с помощью базы данных SQL Azure
 
 При создании и развертывании высокодоступных служб в базе данных SQL Azure следует использовать [группы отработки отказа и активную георепликацию](sql-database-geo-replication-overview.md). Они обеспечивают устойчивость к региональным сбоям и неожиданным отказам. Они также обеспечивает быстрое восстановление в базах данных-получателей. В этой статье мы рассмотрим общие шаблоны приложений, а также преимущества и недостатки каждого из них. Сведения об использовании активной георепликации с пулами эластичных баз данных см. в статье [Стратегии аварийного восстановления для приложений с использованием пула эластичных баз данных SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Сценарий 1. Использование двух регионов Azure для обеспечения непрерывности бизнес-процессов с минимальным временем простоя
-В этом сценарии приложения имеют следующие характеристики: 
+В этом сценарии приложений имеют следующие характеристики: 
 *   Приложение активно в одном регионе Azure.
 *   Для всех сеансов баз данных требуются права доступа на чтение и запись к данным.
 *   Для сокращения задержки и стоимости трафика веб-уровень и уровень данных должны быть расположены вместе. 

@@ -4,7 +4,7 @@ description: "В этой статье представлены инструкц
 services: active-directory
 documentationcenter: 
 author: cychua
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 2a5418ff61e07793fceca5a8207c1c5aa18847b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Синхронизация Azure AD Connect: обработка ошибок LargeObject, вызванных атрибутом userCertificate
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 10/11/2017
     | Атрибут | Оператор | Значение |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Пользователь |
-    | cloudMastered | NOTEQUAL | Да |
+    | cloudMastered | NOTEQUAL | Истина |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Шаг 3. Создайте требуемое исходящее правило синхронизации
 Для нового и имеющегося правила синхронизации нужно использовать один и тот же **фильтр области**, но **приоритет** нового правила синхронизации должен быть выше, чем приоритет имеющегося. Таким образом, новое и имеющееся правила синхронизации будут применяться к одному набору объектов. При этом новое правило будет переопределять имеющееся для атрибута userCertificate. Чтобы создать правило синхронизации, сделайте следующее:
@@ -113,8 +113,8 @@ ms.lasthandoff: 10/11/2017
 
     | Атрибут | Значение | Сведения |
     | --- | --- | --- |
-    | Имя | *Укажите имя* | Например, *Из внешней среды в AAD — пользовательское переопределение для userCertificate*. |
-    | Описание | *Укажите описание* | Например, *если атрибут userCertificate содержит более 15 значений, экспортировать NULL.* |
+    | ИМЯ | *Укажите имя* | Например, *Из внешней среды в AAD — пользовательское переопределение для userCertificate*. |
+    | ОПИСАНИЕ | *Укажите описание* | Например, *если атрибут userCertificate содержит более 15 значений, экспортировать NULL.* |
     | Подключенная система | *Выберите соединитель Azure AD* |
     | Тип объекта подключенной системы | **user** | |
     | Тип объекта метавселенной | **person** | |

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Создание функции, активируемой объектом webhook GitHub
 
@@ -51,9 +51,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Страница быстрого начала работы с функциями на портале Azure](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Выберите шаблон **Веб-перехватчик GitHub** для нужного языка. **Присвойте функции имя** и щелкните **Создать**.
+2. В поле поиска введите `github` и выберите нужный язык для шаблона триггера веб-перехватчика GitHub. 
 
-     ![Создание функции, активируемой веб-перехватчиком GitHub, на портале Azure](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+     ![Выбор шаблона триггера веб-перехватчика GitHub](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+
+2. Введите **имя** функции и выберите **Создать**. 
+
+     ![Настройка функции, активируемой веб-перехватчиком GitHub, на портале Azure](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger-2.png) 
 
 3. В новой функции щелкните **</> Получить URL-адрес функции**, а затем скопируйте и сохраните значения. Сделайте то же самое для **получения секрета GitHub**. Эти значения используются для настройки объекта webhook на сайте GitHub.
 

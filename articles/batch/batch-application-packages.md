@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d1f9951c9cc1b9380e166834afaeb18a4687e2d8
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
-ms.translationtype: HT
+ms.openlocfilehash: 86b5f10cbd79227ccc6acb2004e449f426a6cbd8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Развертывание приложений на вычислительных узлах с помощью пакетов приложений пакетной службы
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/24/2017
 
 ![Обзорная схема: приложения и пакеты приложений][1]
 
-### <a name="applications"></a>Приложения
+### <a name="applications"></a>ПРИЛОЖЕНИЯ
 Приложение в пакетной службе содержит один или несколько пакетов приложений и задает параметры конфигурации для приложения, Например, приложение может указать версию пакета приложения по умолчанию для установки на вычислительных узлах, а также определяет необходимость обновления или удаления пакетов.
 
 ### <a name="application-packages"></a>Пакеты приложений
@@ -184,7 +184,7 @@ ms.lasthandoff: 10/24/2017
 
 ![Обновление или удаление пакета на портале Azure][7]
 
-**Блокировка изменений**
+**Обновление**.
 
 Если щелкнуть **Обновить**, отобразится колонка *Обновление пакета* . Эта колонка аналогична колонке *New application package* (Новый пакет приложения), но в ней активно только поле выбора пакета, с помощью которого вы можете указать новый ZIP-файл для передачи.
 
@@ -262,7 +262,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-На узлах Linux формат немного отличается. Точки (.), дефисы (-) и символы решетки (#) в переменной среды преобразовываются в символы подчеркивания. Кроме того, обратите внимание, что регистр идентификатора приложения сохраняется. Например:
+На узлах Linux формат немного отличается. Точки (.), дефисы (-) и символы решетки (#) в переменной среды преобразовываются в символы подчеркивания. Кроме того, обратите внимание, что регистр идентификатора приложения сохраняется. Например: 
 
 ```
 Linux:
@@ -352,7 +352,7 @@ foreach (ApplicationSummary app in applications)
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
 [api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet
-[api_rest]: https://docs.microsoft.com/en-us/rest/api/batchservice/
+[api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [storage_pricing]: https://azure.microsoft.com/pricing/details/storage/

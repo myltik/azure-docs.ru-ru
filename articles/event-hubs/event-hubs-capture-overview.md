@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/19/2017
 ms.author: sethm;darosa
-ms.openlocfilehash: c4fd365ec8eeb389f0df9f53cd2f2a18f4c9b52a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fbd4aef62891341ad3760b74cd8aaee7abf7b827
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-event-hubs-capture"></a>Запись концентраторов событий Azure
 
@@ -39,7 +39,13 @@ ms.lasthandoff: 10/11/2017
 В функции записи концентраторов событий можно настроить окно управления записью. Это окно с минимальным размером и продолжительностью, для которого предусмотрена политика "побеждает первый". Это означает, что первый обнаруженный триггер активирует операцию записи. При наличии окна записи размером в 100 МБ и продолжительностью 15 минут для отправки данных со скоростью 1 МБ/с сначала используется окно размера, а затем — окно времени. Запись каждой секции выполняется отдельно, а запись выполненного блочного BLOB-объекта осуществляется в процессе записи. Имя блочного BLOB-объекта зависит от времени создания записи. Соглашение об именовании хранилища выглядит следующим образом:
 
 ```
-[namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
+{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+```
+
+Обратите внимание, что значения даты дополняются нулями; Пример имени файла может быть:
+
+```
+https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### <a name="scaling-to-throughput-units"></a>Масштабирование единиц пропускной способности

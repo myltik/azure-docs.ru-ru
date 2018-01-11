@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: fd047b8618f6e6814e0656ac2ab19e30016016fa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 104c7465968f9dd063561dec011b8fd50f3ebaa8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Язык запросов Центра Интернета вещей для двойников устройств, заданий и маршрутизации сообщений
 
@@ -35,6 +35,17 @@ ms.lasthandoff: 10/26/2017
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "US",
@@ -137,6 +148,12 @@ GROUP BY properties.reported.telemetryConfig.status
         "status": "Error"
     }
 ]
+```
+
+Проекции запросов позволяют разработчикам только свойства, которые их возвращают. Например чтобы получить время последнего действия всех отключен устройств используйте следующий запрос:
+
+```sql
+SELECT LastActivityTime FROM devices WHERE ConnectionState = 'Disconnected'
 ```
 
 ### <a name="c-example"></a>Пример C#
@@ -466,16 +483,16 @@ GROUP BY <group_by_element>
 | Логические |AND, OR, NOT |
 | Сравнение |=, !=, <, >, <=, >=, <> |
 
-### <a name="functions"></a>Функции
+### <a name="functions"></a>Functions
 В запросах двойников и заданий поддерживается только одна функция.
 
-| Функция | Описание |
+| Функция | ОПИСАНИЕ |
 | -------- | ----------- |
 | IS_DEFINED(Свойство) | Возвращает логическое значение, указывающее, назначено ли свойству значение (в том числе значение `null`). |
 
 В условиях маршрута поддерживаются следующие математические функции.
 
-| Функция | Описание |
+| Функция | ОПИСАНИЕ |
 | -------- | ----------- |
 | ABS(x) | Возвращает модуль (положительное значение) указанного числового выражения. |
 | EXP(x) | Возвращает значение экспоненты для указанного числового выражения (e^x). |
@@ -488,7 +505,7 @@ GROUP BY <group_by_element>
 
 В условиях маршрута поддерживаются следующие функции проверки и приведения типов.
 
-| Функция | Описание |
+| Функция | ОПИСАНИЕ |
 | -------- | ----------- |
 | AS_NUMBER | Преобразует входную строку в число. Возвращает `noop`, если аргумент является числом, или `Undefined`, если строка не представляет число.|
 | IS_ARRAY | Возвращает логическое значение, указывающее, является ли указанное выражение массивом. |
@@ -502,7 +519,7 @@ GROUP BY <group_by_element>
 
 В условиях маршрутов поддерживаются следующие строковые функции.
 
-| Функция | Описание |
+| Функция | ОПИСАНИЕ |
 | -------- | ----------- |
 | CONCAT(x, y, …) | Возвращает строку, являющуюся результатом объединения двух или более строковых значений. |
 | LENGTH(x) | Возвращает число символов указанного строкового выражения.|

@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b33ca8933f1dc3e9439614570c81784f28186b6
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 4f2c5f7323d9d10b6a784da8f45577ccf774b78f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Руководство по интеграции Azure Active Directory с Mimecast Personal Portal
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/28/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Mimecast Personal Portal, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 11/28/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 1. Добавление Mimecast Personal Portal из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. настройка и проверка единого входа в Azure AD.
 
 ## <a name="adding-mimecast-personal-portal-from-the-gallery"></a>Добавление Mimecast Personal Portal из коллекции
 Чтобы настроить интеграцию Mimecast Personal Portal с Azure AD, необходимо добавить Mimecast Personal Portal из коллекции в список управляемых приложений SaaS.
@@ -108,7 +108,7 @@ ms.lasthandoff: 11/28/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Mimecast Personal Portal](./media/active-directory-saas-mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес. 
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес. 
 
     | Регион  |  Значение | 
     | --------------- | --------------- | 
@@ -118,7 +118,7 @@ ms.lasthandoff: 11/28/2017
     | Австралия       | `https://au-api.mimecast.com/login/saml`|
     | Внешнее расположение        | `https://jer-api.mimecast.com/login/saml`|
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:
 
     | Регион  |  Значение | 
     | --------------- | --------------- |
@@ -161,9 +161,9 @@ ms.lasthandoff: 11/28/2017
    
     ![Authentication Profile](./media/active-directory-saas-mimecast-personal-portal-tutorial/ic795001.png "Authentication Profile") (Профиль аутентификации)
    
-    а. В текстовом поле **Описание** введите имя конфигурации.
+    a. В текстовом поле **Описание** введите имя конфигурации.
    
-    b. Выберите **Обязательное использование проверки подлинности SAML для личного портала Mimecast**.
+    Б. Выберите **Обязательное использование проверки подлинности SAML для личного портала Mimecast**.
    
     c. В поле **Provider** (Поставщик) выберите **Azure Active Directory**.
    
@@ -177,7 +177,7 @@ ms.lasthandoff: 11/28/2017
 
     h. Установите флажок **Разрешить единый вход**.
    
-    i. Щелкните **Сохранить**.
+    i. Выберите команду **Сохранить**.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -207,13 +207,13 @@ ms.lasthandoff: 11/28/2017
 
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-mimecast-personal-portal-tutorial/create_aaduser_04.png)
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
-    г) Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
  
 ### <a name="create-a-mimecast-personal-portal-test-user"></a>Создание тестового пользователя Mimecast Personal Portal
 
@@ -241,13 +241,13 @@ ms.lasthandoff: 11/28/2017
    
     ![Сохранить](./media/active-directory-saas-mimecast-personal-portal-tutorial/ic795006.png "Сохранить")
    
-    а. В текстовое поле **Email Address** (Адрес электронной почты) введите **адрес электронной почты** пользователя, например **BrittaSimon@contoso.com**.
+    a. В текстовое поле **Email Address** (Адрес электронной почты) введите **адрес электронной почты** пользователя, например **BrittaSimon@contoso.com**.
     
-    b. В текстовое поле **Global Name** (Глобальное имя) введите **имя пользователя** **BrittaSimon**.
+    Б. В текстовое поле **Global Name** (Глобальное имя) введите **имя пользователя** **BrittaSimon**.
 
     c. В текстовые поля **Password** (Пароль) и **Confirm Password** (Подтверждение пароля) введите **пароль** пользователя.
    
-    b. Щелкните **Сохранить**.
+    Б. Выберите команду **Сохранить**.
 
 >[!NOTE]
 >Вы можете использовать любые другие инструменты создания учетных записей пользователя Mimecast Personal Portal или API, предоставляемые Mimecast Personal Portal для подготовки учетных записей пользователя Azure Active Directory.

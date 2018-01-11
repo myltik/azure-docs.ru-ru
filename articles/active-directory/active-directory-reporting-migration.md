@@ -1,37 +1,36 @@
 ---
-title: "Поиск отчетов о действиях на портале Azure | Документация Майкрософт"
-description: "Узнайте, как находить отчеты о действиях Azure Active Directory на портале Azure."
+title: "Найти отчеты о действиях пользователя Azure Active Directory на портале Azure | Документы Microsoft"
+description: "Дополнительные сведения, в которых отчеты о действиях пользователя Azure Active Directory на портале Azure."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: curtand
+manager: mtillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/21/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Поиск отчетов о действиях на портале Azure
 
-При перемещении с классического портала Azure на портал Azure вы получаете новое представление журналов действий Azure Active Directory (Azure AD). В недавней [записи блога](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/) мы рассказывали, как просмотреть журналы действий в контексте ресурса, c которым вы работаете на портале Azure. В этой статье мы объясним, как находить на портале Azure отчеты, которые вы использовали на классическом портале Azure.
+В этой статье описаны способы поиска отчеты о действиях пользователя Azure Active Directory на портале Azure.
 
 ## <a name="whats-new"></a>Новые возможности
 
-Отчеты на классическом портале Azure разделены на различные категории.
-
-1.  Отчеты о безопасности
-2.  Отчеты об активности
-3.  Отчеты интегрированных приложений
+Отчеты в классическом портале Azure были разделены на категории:
+* Отчеты о безопасности
+* Отчеты об активности
+* Отчеты интегрированных приложений
 
 ### <a name="activity-and-integrated-app-reports"></a>Отчеты о действиях и отчеты интегрированных приложений
 
@@ -43,14 +42,14 @@ ms.lasthandoff: 10/23/2017
 
 В этом представлении объединяются следующие отчеты.
 
--   Отчет аудита
--   Действие сброса пароля
--   Действия регистрации сброса пароля
--   действия групп по самообслуживанию;
--   Операции изменения имен групп Office 365
--   Действия по подготовке учетных записей
--   Состояние смены пароля
--   Ошибки подготовки учетной записи
+* Отчет аудита
+* Действие сброса пароля
+* Действия регистрации сброса пароля
+* действия групп по самообслуживанию;
+* Операции изменения имен групп Office 365
+* Действия по подготовке учетных записей
+* Состояние смены пароля
+* Ошибки подготовки учетной записи
 
 
 Отчет об использовании приложений был усовершенствован и включен в представление **События входа**. Чтобы увидеть это представление, в колонке **Azure Active Directory** в разделе **Действие** выберите **События входа**.
@@ -136,7 +135,7 @@ ms.lasthandoff: 10/23/2017
 
 ![Журналы аудита](./media/active-directory-reporting-migration/61.png "Журналы аудита")
 
-| классическом портале Azure                 | На портале Azure                                                         |
+| Классический портал Azure                 | На портале Azure                                                         |
 | ---                                  | ---                                                                        |
 | Журналы аудита                           | Для параметра **Activity Category** (Категория действий) выберите **Core Directory** (Основной каталог).                       |
 | Действие сброса пароля              | Для параметра **Activity Category** (Категория действий) выберите **Self service Password Management** (Самостоятельное управление паролями). |

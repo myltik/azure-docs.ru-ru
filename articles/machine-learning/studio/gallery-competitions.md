@@ -1,6 +1,6 @@
 ---
-title: "Конкурсы в коллекции Cortana Intelligence | Документация Майкрософт"
-description: "Узнайте о конкурсах в коллекции Cortana Intelligence."
+title: "Azure AI коллекции состязаниях | Документы Microsoft"
+description: "Обнаружение состязаниях в коллекции Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: e9c1ae9448ad7179c33bbbafa34a4643a4840d0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1e39d636b3322201465700a4c9de83dda1bbefcc
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Сведения о конкурсах в коллекции Cortana Intelligence
+# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Обнаружение состязаниях в коллекции Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Конкурсы Cortana Intelligence
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 Ответы на часто задаваемые вопросы о конкурсах см. в статье [Часто задаваемые вопросы о конкурсах Microsoft Cortana Intelligence](competition-faq.md).
 
 ## <a name="discover"></a>Поиск
-  Для поиска конкурсов перейдите на сайт [коллекции](http://gallery.cortanaintelligence.com), в верхней части главной страницы наведите указатель мыши на пункт **More** (Дополнительно) и выберите **Competitions** (Конкурсы).
+ **[Состязаниях](https://gallery.cortanaintelligence.com/competitions)**  страницы ([aka.ms/CIComp](http://aka.ms/CIComp)) отображает список наиболее популярных решений конкурентов.
 
 ![Переход в раздел конкурсов с главной страницы коллекции](./media/gallery-competitions/select-competitions-in-gallery.png)
 
- На странице **[конкурсов](https://gallery.cortanaintelligence.com/competitions)** отобразится список наиболее популярных конкурсов.
-Щелкните **See all** (Показать все), чтобы просмотреть все конкурсы.
+ 
+ Щелкните **See all** (Показать все), чтобы просмотреть все конкурсы.
 На этой странице можно просмотреть все конкурсы в коллекции. Кроме того, для поиска можно задать условия фильтра в левой части страницы и ввести условия поиска вверху.
 
  Щелкнув любой конкурс, вы попадете на страницу с его описанием и дополнительными сведениями. На этой странице в разделе комментариев можно оставлять замечания, отзывы и задавать вопросы. Ссылку на страницу можно опубликовать в социальных сетях LinkedIn и Twitter для друзей и коллег. Кроме того, ссылку можно отправить по электронной почте, чтобы другие пользователи также могли просмотреть найденный вами конкурс.

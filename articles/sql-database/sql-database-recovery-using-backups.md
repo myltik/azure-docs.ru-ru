@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: ea762816cf0aa4c5fcafd2010bfc06eb580219fa
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
-ms.translationtype: HT
+ms.openlocfilehash: b23ee0629720676b76de17c81f90b33a4fd4d8a3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий
 База данных SQL предоставляет такие варианты восстановления базы данных с помощью [создаваемых автоматически резервных копий баз данных](sql-database-automated-backups.md) и [резервных копий в хранилище с включенной функцией долгосрочного хранения](sql-database-long-term-retention.md) Вы можете восстановить из резервной копии базы данных следующее:
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/21/2017
 |  | **Максимальное количество одновременно обрабатываемых запросов** | **Максимальное количество одновременно отправляемых запросов** |
 | :--- | --: | --: |
 |Отдельная база данных (на подписку)|10|60|
-|Эластичный пул (на пул)|4|200|
+|Эластичный пул (на пул)|4.|200|
 ||||
 
 Возможность массового восстановления встроенными средствами не предусмотрена. Сценарий [База данных SQL Azure: полное восстановление сервера](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) является примером одного из способов выполнения этой задачи.
@@ -70,7 +70,7 @@ ms.lasthandoff: 11/21/2017
 
 ## <a name="point-in-time-restore"></a>Восстановление до точки во времени
 
-Вы можете восстановить существующую базу данных до предшествующей точки во времени как новую базу данных на том же логическом сервере с помощью портала Azure, [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase) или [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Вы можете восстановить существующую базу данных до предшествующей точки во времени как новую базу данных на том же логическом сервере с помощью портала Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) или [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!TIP]
 > Пример сценария PowerShell, показывающий, как выполнить восстановление базы данных до точки во времени, приведен в разделе [Восстановление базы данных SQL с помощью PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -90,7 +90,7 @@ ms.lasthandoff: 11/21/2017
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>Восстановление удаленной базы данных
-Вы можете восстановить удаленную базу данных до момента удаления на том же логическом сервере с помощью портала Azure, [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase) или [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Вы можете восстановить удаленную базу данных до момента удаления на том же логическом сервере с помощью портала Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) или [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!TIP]
 > Пример сценария PowerShell, показывающий, как восстановить удаленную базу данных, приведен в разделе [Восстановление базы данных SQL с помощью PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/21/2017
 Как уже говорилось ранее, в дополнение к порталу Azure восстановление базы данных можно выполнить программно, с помощью Azure PowerShell или REST API. В приведенных ниже таблицах описан доступный для этого набор команд.
 
 ### <a name="powershell"></a>PowerShell
-| Командлет | Описание |
+| Командлет | ОПИСАНИЕ |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Получает одну или несколько баз данных. |
 | [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Получает удаленную базу данных, которую можно восстановить. |
@@ -142,8 +142,8 @@ ms.lasthandoff: 11/21/2017
 | [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Восстанавливает базу данных SQL. |
 |  | |
 
-### <a name="rest-api"></a>REST API
-| API | Описание |
+### <a name="rest-api"></a>ИНТЕРФЕЙС REST API
+| API | ОПИСАНИЕ |
 | --- | --- |
 | [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Восстанавливает базу данных. |
 | [Получение, создание или обновление состояния базы данных](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Возвращает состояние во время операции восстановления. |

@@ -4,7 +4,7 @@ description: "В этой статье содержатся сведения о 
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: d7f4143f-cd7c-4939-91a8-231a4104dc2c
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 06/11/2017
 ms.author: parakhj
-ms.openlocfilehash: 269cbd80fb6e861fa8588025eec70b6c6e2890d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 16f7c5708b479f18de17a612a733a2be6e97ad01
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C. Выполнение входа с помощью учетных записей Salesforce через SAML
 
@@ -26,13 +26,13 @@ ms.lasthandoff: 10/11/2017
 
 В этой статье описывается настройка входа для пользователей из определенной организации Salesforce с помощью [пользовательских политик](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 ### <a name="azure-ad-b2c-setup"></a>Настройка Azure AD B2C
 
 Убедитесь, что вы выполнили все действия, связанные с [началом работы с пользовательскими политиками](active-directory-b2c-get-started-custom.md) в Azure Active Directory B2C (Azure AD B2C).
 
-В частности, описаны такие возможности:
+в частности такие:
 
 * Создание клиента Azure AD B2C.
 * Создание приложения Azure AD B2C.
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 1. [Войдите в Salesforce](https://login.salesforce.com/). 
 2. В меню слева в разделе **Параметры** разверните узел **Удостоверение** и щелкните **Поставщик удостоверений**.
 3. Щелкните **Enable Identity Provider** (Включить поставщик удостоверений).
-4. В разделе **Select the certificate** (Выберите сертификат) выберите сертификат, который необходимо использовать в Salesforce при взаимодействии с Azure AD B2C. Вы можете использовать сертификат по умолчанию. Щелкните **Сохранить**. 
+4. В разделе **Select the certificate** (Выберите сертификат) выберите сертификат, который необходимо использовать в Salesforce при взаимодействии с Azure AD B2C. Вы можете использовать сертификат по умолчанию. Выберите команду **Сохранить**. 
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Создание подключенного приложения в Salesforce
 
@@ -117,7 +117,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
     2. Введите **имя** (например, SAMLSigningCert). Префикс *B2C_1A_* будет автоматически добавлен к имени ключа.
     3. Чтобы выбрать сертификат, выберите **элемент управления отправкой файла**. 
     4. Введите пароль сертификата, который задан в скрипте PowerShell.
-3. Щелкните **Создать**.
+3. Нажмите кнопку **Создать**.
 4. Убедитесь, что ключ создан (например, B2C_1A_SAMLSigningCert). Запишите полное имя (включая *B2C_1A_*). Вы будете ссылаться на этот ключ позднее в политике.
 
 ## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>Создание поставщика утверждений SAML Salesforce в базовой политике

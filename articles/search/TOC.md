@@ -5,15 +5,15 @@
 
 ## [Создание службы](search-create-service-portal.md)
 ## [Создание индекса](search-what-is-an-index.md)
-### [Портал Azure](search-create-index-portal.md)
+### [портал Azure](search-create-index-portal.md)
 ### [.NET](search-create-index-dotnet.md)
 ### [REST](search-create-index-rest-api.md)
 ## [Добавление данных](search-what-is-data-import.md)
-### [Портал Azure](search-import-data-portal.md)
+### [портал Azure](search-import-data-portal.md)
 ### [.NET](search-import-data-dotnet.md)
 ### [REST](search-import-data-rest-api.md)
 ## [Поиск в индексе](search-query-overview.md)
-### [Портал Azure](search-explorer.md)
+### [портал Azure](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
 
@@ -51,12 +51,12 @@
 ### [Индексатор хранилища BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md)
 ### [Индексатор хранилища таблиц Azure](search-howto-indexing-azure-tables.md)
 ### [Индексатор SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Индексатор базы данных Azure Cosmos](search-howto-index-documentdb.md)
+### [Индексатор базы данных Azure Cosmos](search-howto-index-cosmosdb.md)
 ### [Индексация больших двоичных объектов с разделителями-запятыми](search-howto-index-csv-blobs.md)
 ### [Индексация больших двоичных объектов JSON](search-howto-index-json-blobs.md)
 ### [Настройка подключений индексатора к SQL Server на виртуальной машине Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Сопоставление полей в индексаторах](search-indexer-field-mappings.md)
-##  Поиск
+##  поиска
 ### [Принцип работы полнотекстового поиска](search-lucene-query-architecture.md)
 ### Построение запросов
 #### [Простой синтаксис запросов](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
@@ -84,7 +84,7 @@
 ### [Поиск в аналитике трафика](search-traffic-analytics.md)
 ### [Производительность и оптимизация](search-performance-optimization.md)
 
-# Справочные материалы
+# Ссылка
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (управление)](/dotnet/api/?term=microsoft.azure.management.search)

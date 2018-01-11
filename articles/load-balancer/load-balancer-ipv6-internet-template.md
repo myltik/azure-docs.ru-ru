@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Развертывание решения балансировки нагрузки для Интернета с поддержкой IPv6 с помощью шаблона
 
@@ -110,7 +110,7 @@ Azure Load Balancer является балансировщиком нагруз
 
 Пример шаблона, используемый в этой статье, включает следующие переменные и параметры:
 
-| Параметр / переменная | Примечания |
+| Параметр / переменная | Заметки |
 | --- | --- |
 | adminUsername |Укажите имя учетной записи администратора, которое используется для входа в виртуальные машины. |
 | adminPassword |Укажите пароль учетной записи администратора, который используется для входа в виртуальные машины. |

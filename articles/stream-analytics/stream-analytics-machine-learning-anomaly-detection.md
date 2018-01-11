@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-anomalydetection-operator"></a>Использование оператора ANOMALYDETECTION
 
@@ -38,12 +38,12 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="syntax"></a>Синтаксис
 
-`ANOMALYDETECTION(\<scalar_expression\>) OVER ([PARTITION BY \<partition key\>] LIMIT DURATION(\<unit\>, \<length\>) [WHEN boolean_expression])` 
+`ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
 
 ## <a name="example-usage"></a>Пример использования
 
-`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id \> 100) FROM input`|
+`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`|
 
 
 ## <a name="arguments"></a>Аргументы
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 - **partition_by_clause** 
 
-  Предложение `PARTITION BY \<partition key\>` разделяет изучение и обучение на отдельные секции. Другими словами, для каждого значения `\<partition key\>` будет использоваться отдельная модель, и для изучения и обучения в этой модели будут использоваться только события с этим значением. Например,
+  Предложение `PARTITION BY <partition key>` разделяет изучение и обучение на отдельные секции. Другими словами, для каждого значения `<partition key>` будет использоваться отдельная модель, и для изучения и обучения в этой модели будут использоваться только события с этим значением. Например,
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
@@ -78,9 +78,9 @@ ms.lasthandoff: 10/11/2017
 - SlowPosTrendScore
 - SlowNegTrendScore
 
-Чтобы извлечь из записи отдельные значения, используйте функцию **GetRecordPropertyValue**. Например:
+Чтобы извлечь из записи отдельные значения, используйте функцию **GetRecordPropertyValue**. Например: 
 
-`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) \> 3.25` 
+`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 
 Аномалия определенного типа обнаруживается, когда один из этих показателей аномалий превышает пороговое значение. Пороговым значением может быть любое число с плавающей запятой \>= 0. Пороговое значение — это компромисс между чувствительностью и достоверностью. Например, более низкое пороговое значение сделает обнаружение более чувствительным к изменениям и создаст больше оповещений. А более высокое пороговое значение может сделать обнаружение менее чувствительным и более достоверным, но при этом некоторые аномалии будут маскироваться. Точное пороговое значение, которое следует использовать, зависит от конкретного сценария. Не существует верхнего предела, но рекомендуемый диапазон — от 3,25 до 5.
@@ -160,12 +160,12 @@ ms.lasthandoff: 10/11/2017
 
     WHERE
 
-        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) \>= 3.25
+        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) >= 3.25
 
-        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) \>=
+        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) >=
         3.25
 
-       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) \>=
+       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) >=
        3.25
 
 ## <a name="references"></a>Ссылки

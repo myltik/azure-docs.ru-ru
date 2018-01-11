@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Создание оповещений метрик в Azure Monitor для служб Azure с помощью кроссплатформенного интерфейса командной строки
 > [!div class="op_single_selector"]
@@ -50,12 +50,12 @@ ms.lasthandoff: 10/11/2017
 
 Для настройки правил генерации оповещений метрик и получении сведений о них можно использовать:
 
-* [Портал Azure](insights-alerts-portal.md)
+* [портал Azure](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [интерфейс командной строки (CLI)](insights-alerts-command-line-interface.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-Справку по командам всегда можно получить, введя команду с параметром -help. Например:
+Справку по командам всегда можно получить, введя команду с параметром -help. Например: 
 
     ```console
     azure insights alerts -help

@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b8afc266cd416f39a895285d05b8ff323fb46330
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Разработка модуля IoT Edge с кодом C# и его развертывание на имитированном устройстве (предварительная версия)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/01/2017
 
 Модуль IoT Edge, создаваемый в этом руководстве, фильтрует данные температуры, созданные вашим устройством. Оно отправляет сообщения, только если температура превышает заданное пороговое значение. Такой тип пограничного анализа удобен для сокращения объема данных, передаваемых в облако и сохраняемых в нем. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 * Устройство Azure IoT Edge, которое вы создали при работе с кратким руководством или первым руководством.
 * Строка подключения первичного ключа для устройства IoT Edge.  
@@ -98,11 +98,19 @@ ms.lasthandoff: 12/01/2017
     }
     ```
 
-8. В методе **Init** код создает и настраивает объект **DeviceClient**. Этот объект позволяет модулю подключаться к локальной среде выполнения Azure IoT Edge для отправки и получения сообщений. Строка подключения, используемая в методе **Init**, предоставляется модулю средой выполнения IoT Edge. После создания **DeviceClient** этот код регистрирует обратный вызов для получения сообщений из концентратора IoT Edge через конечную точку **input1**. Замените метод `SetInputMessageHandlerAsync` новым методом и добавьте метод `SetDesiredPropertyUpdateCallbackAsync` для обновления нужных свойств. Чтобы внести это изменение, замените последнюю строку метода **Init** следующим кодом:
+8. В методе **Init** код создает и настраивает объект **DeviceClient**. Этот объект позволяет модулю подключаться к локальной среде выполнения Azure IoT Edge для отправки и получения сообщений. Строка подключения, используемая в методе **Init**, предоставляется модулю средой выполнения IoT Edge. После создания **DeviceClient**, код считывает TemperatureThreshold с нужными свойствами двойных модуля и регистрирует обратный вызов для получения сообщений из концентратора IoT Edge через **input1**конечной точки. Замените метод `SetInputMessageHandlerAsync` новым методом и добавьте метод `SetDesiredPropertyUpdateCallbackAsync` для обновления нужных свойств. Чтобы внести это изменение, замените последнюю строку метода **Init** следующим кодом:
 
     ```csharp
     // Register callback to be called when a message is received by the module
     // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+
+    // Read TemperatureThreshold from Module Twin Desired Properties
+    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+    var moduleTwinCollection = moduleTwin.Properties.Desired;
+    if (moduleTwinCollection["TemperatureThreshold"] != null)
+    {
+        temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    }
 
     // Attach callback for Twin desired properties updates
     await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
@@ -219,7 +227,7 @@ ms.lasthandoff: 12/01/2017
         
    Укажите имя пользователя, пароль и сервер входа, который был скопирован из реестра контейнеров Azure при его создании.
 
-3. Отправьте образ в репозиторий Docker. Выберите **Вид** > **Палитра команд** и найдите пункт меню **Edge: Push IoT Edge module Docker image** (Edge: отправка образа Docker модуля IoT Edge). В верхней части окна VS Code введите имя образа в текстовом поле всплывающего элемента. Укажите имя образа, выбранное на шаге 1.4.
+3. Отправьте образ в репозиторий Docker. Выберите **Вид** > **Палитра команд** и найдите пункт меню **Edge: Push IoT Edge module Docker image** (Edge: отправка образа Docker модуля IoT Edge). В верхней части окна VS Code введите имя образа в текстовом поле всплывающего элемента. Используйте то же имя образа, который использовался в шаге 4.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Добавление учетных данных реестра в среду выполнения Edge
 Добавьте учетные данные для своего реестра в среду выполнения Edge на компьютере, где запущено устройство Edge. С их помощью среда выполнения сможет получить доступ для извлечения контейнера. 
@@ -239,7 +247,7 @@ ms.lasthandoff: 12/01/2017
 ## <a name="run-the-solution"></a>Запуск решения
 
 1. Найдите нужный Центр Интернета вещей на [портале Azure](https://portal.azure.com).
-2. Перейдите к **IoT Edge (preview)** (IoT Edge (предварительная версия)) и выберите устройство IoT Edge.
+2. Щелкните **IoT Edge (preview)** (IoT Edge (предварительная версия)) и выберите устройство IoT Edge.
 3. Щелкните **Set Modules** (Настроить модули). 
 2. Убедитесь, что модуль **tempSensor** заполняется автоматически. Если это не так, следуйте инструкциям ниже, чтобы добавить его.
     1. Выберите **Add IoT Edge Modulе** (Добавить модуль IoT Edge).
@@ -261,8 +269,8 @@ ms.lasthandoff: 12/01/2017
         }
         ```
  
-    6. Щелкните **Сохранить**.
-12. Щелкните **Далее**.
+    6. Выберите команду **Сохранить**.
+12. Нажмите кнопку **Далее**.
 13. На шаге **Specify Routes** (Указание маршрутов) скопируйте приведенный ниже код JSON в текстовое поле. Модули публикуют все сообщения в среду выполнения Edge. Декларативные правила в среде выполнения определяют, куда отправляются эти сообщения. Для работы с этим руководством необходимы два маршрута. Первый маршрут передает сообщения от датчика температуры в модуль фильтра через конечную точку input1, которая настроена с помощью обработчика **FilterMessages**. Второй маршрут передает сообщения из модуля фильтра в Центр Интернета вещей. В этом маршруте `upstream` является специальным пунктом назначения, который говорит концентратору Edge отправлять сообщения в Центр Интернета вещей. 
 
     ```json
@@ -274,7 +282,7 @@ ms.lasthandoff: 12/01/2017
     }
     ```
 
-4. Щелкните **Далее**.
+4. Нажмите кнопку **Далее**.
 5. На шаге **Review Template** (Проверка шаблона) щелкните **Отправить**. 
 6. Вернитесь на страницу сведений об устройстве IoT Edge и щелкните **Обновить**. Вы должны увидеть новый модуль **filtermodule**, работающий вместе с модулем **tempSensor** и **средой выполнения IoT Edge**. 
 

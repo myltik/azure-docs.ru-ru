@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 01/03/2018
 ms.author: dobett
-ms.openlocfilehash: 45f4de7e9ec880775f9ccf77b7d945766d465aa7
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Подключение устройства Raspberry Pi к предварительно настроенному решению для удаленного мониторинга (C)
 
@@ -47,9 +47,11 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="required-raspberry-pi-software"></a>Необходимое ПО для Raspberry Pi
 
+В этой статье предполагается установить последнюю версию [Raspbian ОС на ваш Pi Raspberry](https://www.raspberrypi.org/learning/software-guide/quickstart/).
+
 В следующих шагах объясняется, как подготовить устройство Raspberry Pi для создания приложения C, которое подключается к предварительно настроенному решению.
 
-1. Подключитесь к Raspberry Pi с помощью `ssh`. Дополнительные сведения см. в разделе о [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) на [веб-сайте Raspberry Pi](https://www.raspberrypi.org/).
+1. Подключение к Raspberry пи с помощью **ssh**. Дополнительные сведения см. в разделе о [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) на [веб-сайте Raspberry Pi](https://www.raspberrypi.org/).
 
 1. Чтобы обновить устройство Raspberry Pi, используйте следующую команду:
 
@@ -60,31 +62,27 @@ ms.lasthandoff: 11/10/2017
 1. Чтобы добавить необходимые средства разработки и библиотеки на устройство Raspberry Pi, используйте следующую команду:
 
     ```sh
-    sudo apt-get install g++ make cmake gcc git
+    sudo apt-get purge libssl-dev
+    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. Для установки клиентских библиотек Центра Интернета вещей используйте следующие команды:
-
-    ```sh
-    grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-    sudo apt-get update
-    sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-    ```
-
-1. Клонируйте средство синтаксического анализа JSON Parson на устройство Raspberry Pi с помощью следующих команд:
+1. Используйте следующие команды для загрузки, сборка и установка клиентских библиотек центр IoT с вашей пи Raspberry:
 
     ```sh
     cd ~
-    git clone https://github.com/kgabis/parson.git
+    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c/build_all/linux
+    ./build.sh --no-make
+    cd ../../cmake/iotsdk_linux
+    make
+    sudo make install
     ```
 
 ## <a name="create-a-project"></a>Создание проекта
 
-Выполните следующие шаги, установив подключение по протоколу `ssh` к устройству Raspberry Pi.
+Выполните следующие действия с помощью **ssh** подключение к вашей Raspberry Pi:
 
-1. Создайте папку с именем `remote_monitoring` в домашней папке на Raspberry Pi. Перейдите к этой папке с помощью командной строки.
+1. Создайте папку с именем `remote_monitoring` в домашней папке на Raspberry Pi. Перейдите к этой папке в оболочка:
 
     ```sh
     cd ~
@@ -92,13 +90,9 @@ ms.lasthandoff: 11/10/2017
     cd remote_monitoring
     ```
 
-1. В папке `remote_monitoring` создайте четыре файла: `main.c`, `remote_monitoring.c`, `remote_monitoring.h` и `CMakeLists.txt`.
+1. Создайте четыре файла **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, и **CMakeLists.txt** в `remote_monitoring` папка.
 
-1. Создайте папку с именем `parson` в папке `remote_monitoring`.
-
-1. Скопируйте файлы `parson.c` и `parson.h` из локальной копии репозитория Parson в папку `remote_monitoring/parson`.
-
-1. Откройте файл `remote_monitoring.c` в текстовом редакторе. На Raspberry Pi можно использовать текстовый редактор `nano` или `vi`. Добавьте следующие операторы `#include` :
+1. В текстовом редакторе откройте **remote_monitoring.c** файла. На Raspberry Pi, можно использовать **nano** или **vi** текстовый редактор. Добавьте следующие операторы `#include` :
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -113,15 +107,19 @@ ms.lasthandoff: 11/10/2017
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
+Сохранить **remote_monitoring.c** файл и закройте редактор.
+
 ## <a name="add-code-to-run-the-app"></a>Добавление кода для запуска приложения
 
-Откройте файл `remote_monitoring.h` в текстовом редакторе. Добавьте следующий код:
+Откройте в текстовом редакторе файл **remote_monitoring.h**. Добавьте следующий код:
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-Откройте файл `main.c` в текстовом редакторе. Добавьте следующий код:
+Сохранить **remote_monitoring.h** файл и закройте редактор.
+
+Откройте в текстовом редакторе файл **main.c** . Добавьте следующий код:
 
 ```c
 #include "remote_monitoring.h"
@@ -133,6 +131,8 @@ int main(void)
   return 0;
 }
 ```
+
+Сохранить **main.c** файл и закройте редактор.
 
 ## <a name="build-and-run-the-application"></a>Создание и запуск приложения
 
@@ -158,18 +158,16 @@ int main(void)
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
     set(sample_application_c_files
-        ./parson/parson.c
         ./remote_monitoring.c
         ./main.c
     )
 
     set(sample_application_h_files
-        ./parson/parson.h
         ./remote_monitoring.h
     )
 
@@ -188,6 +186,8 @@ int main(void)
         m
     )
     ```
+
+1. Сохранить **CMakeLists.txt** файл и закройте редактор.
 
 1. В папке `remote_monitoring` создайте папку для хранения файлов *make*, созданных с помощью CMake. Затем запустите команды **cmake** и **make** следующим образом:
 

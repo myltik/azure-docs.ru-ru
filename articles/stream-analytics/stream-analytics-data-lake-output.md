@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Выходные данные хранилища озера данных в Stream Analytics
 Задания Stream Analytics поддерживают несколько методов вывода, одним из которых является [хранилище озера данных Azure](https://azure.microsoft.com/services/data-lake-store/). Хранилище озера данных Azure — это крупномасштабный репозиторий корпоративного уровня для рабочих нагрузок анализа больших данных. Озеро данных Azure позволяет сохранять данные с любым размером, типом и скоростью приема в одном месте для эксплуатационной и исследовательской аналитики.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Авторизация учетной записи хранения озера данных Azure
-1. Если на портале Azure для вывода данных выбрано Data Lake Store, вам будет предложено разрешить использование существующего Data Lake Store или запросить доступ к Data Lake Store на классическом портале.
+1. При выборе хранилища Озера данных как выходные данные на портале Azure вы будет предложено авторизовать использование существующего хранилища Озера данных или для запроса доступа к хранилищу Озера данных.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
@@ -68,7 +68,7 @@ ms.lasthandoff: 10/11/2017
 </tr>
 <tr>
 <td>Кодирование</td>
-<td>Если используется формат CSV или JSON, необходимо указать формат кодирования. В настоящее время единственным поддерживаемым форматом кодирования является UTF-8.</td>
+<td>Если используется формат CSV или JSON, необходимо указать формат кодирования. В настоящее время единственным поддерживаемым форматом кодировки является UTF-8.</td>
 </tr>
 <tr>
 <td>Разделитель</td>

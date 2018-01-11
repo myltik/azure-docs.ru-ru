@@ -1,30 +1,30 @@
 ---
-title: "Техническая информация об условном доступе в Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как использовать элементы управления условным доступом Azure Active Directory. Укажите условия для аутентификации пользователей и управления доступом к приложению. В случае соблюдения заданных условий пользователи проходят аутентификацию и получают доступ к вашему приложению."
+title: "Справочник по параметрам Azure Active Directory условного доступа | Документы Microsoft"
+description: "Обзор поддерживаемых параметров в политике условного доступа Azure Active Directory."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/23/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Техническая информация об условном доступе в Azure Active Directory
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Справочник по параметрам условного доступа Azure Active Directory
 
-Благодаря [условному доступу Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) можно точно настроить доступ авторизованных пользователей к своим ресурсам.   
+Можно использовать [условного доступа Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) для управления как авторизованные пользователи имеют доступ к ресурсам.   
 
-Эта статья содержит информацию о поддержке следующих параметров конфигурации для политики условного доступа: 
+В этой статье предоставляются сведения о поддержке для следующих параметров конфигурации в политику условного доступа: 
 
 - назначения облачных приложений;
 
@@ -35,6 +35,7 @@ ms.lasthandoff: 12/06/2017
 - требование утвержденных клиентских приложений.
 
 
+Если это не информацию, которую вы ищете, оставьте комментарий в конце этой статьи.
 
 ## <a name="cloud-apps-assignments"></a>Назначения облачных приложений
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 12/06/2017
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (включая OneDrive для бизнеса)
+- Microsoft Office 365 SharePoint Online (включает в себя OneDrive для бизнеса и Project Online)
 
 - Microsoft Power BI 
 
@@ -153,7 +154,7 @@ ms.lasthandoff: 12/06/2017
 Этот параметр влияет на попытки доступа, предпринимаемые из следующих мобильных приложений и классических клиентов. 
 
 
-|Клиентские приложения|Целевая служба|Платформа|
+|Клиентские приложения|Целевая служба|платформа|
 |---|---|---|
 |Azure RemoteApp|Удаленная служба приложений Azure|Windows 10, Windows 8.1, Windows 7, iOS, Android и Mac OS X|
 |Приложение Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS и Android|

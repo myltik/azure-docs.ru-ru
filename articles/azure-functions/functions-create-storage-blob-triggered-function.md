@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e34d3634b592efe4581135f9dee52bf77d7506cd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Создание функции, активируемой хранилищем BLOB-объектов Azure
 
@@ -51,19 +51,23 @@ ms.lasthandoff: 10/11/2017
 
     ![Страница быстрого начала работы с функциями на портале Azure](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. Выберите шаблон **BlobTrigger** для нужного языка и используйте параметры, как указано в таблице.
+2. В поле поиска введите `blob` и выберите нужный язык для шаблона триггера для хранилища BLOB-объектов.
 
-    ![Создание функции, активируемой хранилищем BLOB-объектов.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Выбор шаблона триггера для хранилища BLOB-объектов](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+ 
+3. Затем используйте настройки, указанные в таблице под изображением.
+
+    ![Создание функции, активируемой хранилищем BLOB-объектов.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
     | Настройка | Рекомендуемое значение | Описание |
     |---|---|---|
-    | **Путь**   | mycontainer/{name}    | Расположение в хранилище BLOB-объектов отслеживается. Имя файла большого двоичного объекта передается в привязке как параметр _name_.  |
-    | **Подключение к учетной записи хранения** | AzureWebJobStorage | Вы можете использовать подключение к учетной записи хранения, которое уже используется вашим приложением-функцией, или создать его.  |
-    | **Имя функции** | Уникальное для вашего приложения-функции | Имя функции, активируемой большим двоичным объектом. |
+    | **Имя** | Уникальное для вашего приложения-функции | Имя функции, активируемой большим двоичным объектом. |
+    | **Путь**   | samples-workitems/{name}    | Расположение в хранилище BLOB-объектов отслеживается. Имя файла большого двоичного объекта передается в привязке как параметр _name_.  |
+    | **Подключение к учетной записи хранения** | AzureWebJobsStorage | Вы можете использовать подключение к учетной записи хранения, которое уже используется вашим приложением-функцией, или создать его.  |
 
 3. Щелкните **Создать**, чтобы создать функцию.
 
-Затем необходимо подключится к своей учетной записи хранения Azure и создать контейнер **mycontainer**.
+Затем необходимо подключиться к своей учетной записи хранения Azure и создать контейнер **samples-workitems**.
 
 ## <a name="create-the-container"></a>Создание контейнера
 
@@ -79,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Введите учетные данные хранилища и подключитесь.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Разверните подключенные учетную запись хранения, щелкните правой кнопкой мыши **Blob containers** (Контейнеры больших двоичных объектов), а затем щелкните **Create blob container** (Создать контейнер больших двоичных объектов), введите `mycontainer` и нажмите клавишу ВВОД.
+1. Разверните подключенные учетную запись хранения, щелкните правой кнопкой мыши **Blob containers** (Контейнеры больших двоичных объектов), а затем щелкните **Create blob container** (Создать контейнер больших двоичных объектов), введите `samples-workitems` и нажмите клавишу ВВОД.
 
     ![Создание очереди службы хранилища](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -89,7 +93,7 @@ ms.lasthandoff: 10/11/2017
 
 1. На портале Azure перейдите к вашей функции, в нижней части страницы разверните **Журналы** и убедитесь, что потоковая передача журналов не остановлена.
 
-1. В обозревателе хранилищ разверните вашу учетную запись хранения, **Blob containers** (Контейнеры больших двоичных объектов) и **mycontainer**. Щелкните **Отправка**, а затем **Отправка файлов**.
+1. В обозревателе службы хранилища разверните свою учетную запись хранения, **контейнеры больших двоичных объектов** и **samples-workitems**. Щелкните **Отправка**, а затем **Отправка файлов**.
 
     ![Отправьте файл в контейнер больших двоичных объектов.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

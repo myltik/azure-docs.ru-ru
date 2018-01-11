@@ -1,5 +1,5 @@
 ---
-title: "Приложение node.js с использованием Socket.io | Документация Майкрософт"
+title: "С помощью Socket.io - Azure приложение node.js"
 description: "Узнайте, как использовать socket.io в приложении Node.js, размещенном в Azure."
 services: cloud-services
 documentationcenter: nodejs
@@ -14,23 +14,24 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 0b4c3c540e27ba06a722cfec4f0c079f19ce7f67
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: HT
+ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Создание приложения для разговора Node.js с Socket.IO в облачной службе Azure
-Socket.IO обеспечивает связь в режиме реального времени между сервером и клиентами node.js. В этом учебнике рассматривается размещение приложения для разговора на основе Socket.IO в Azure. Дополнительные сведения о Socket.IO см. на веб-сайте <http://socket.io/>.
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Построение приложения Node.js разговора с Socket.IO на облачную службу Azure
+
+Socket.IO обеспечивает обмен данными в реальном времени между node.js сервером и клиентами. Этот учебник поможет выполнить размещение сокета. Операции ввода-ВЫВОДА на основе чата приложения в Azure. Дополнительные сведения о Socket.IO см. в разделе [socket.io](http://socket.io).
 
 Снимок экрана завершенного приложения приведен ниже:
 
 ![Окно браузера со службой, размещенной в Azure][completed-app]  
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Убедитесь, что следующие продукты и версии установлены для успешного завершения примера, описанного в этой статье.
 
-* Установите [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
+* установить [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx);
 * Установите [Node.js](https://nodejs.org/download/)
 * Установите [Python версии 2.7.10](https://www.python.org/)
 
@@ -122,7 +123,7 @@ Socket.IO обеспечивает связь в режиме реального
 4. После проверки приложения остановите эмулятор, выполнив следующую команду:
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Чтобы развернуть приложение в Azure, воспользуйтесь командлетом **Publish-AzureServiceProject** . Например:
+5. Чтобы развернуть приложение в Azure, воспользуйтесь командлетом **Publish-AzureServiceProject** . Например: 
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Создание задания экспорта для службы импорта и экспорта Azure
 Создание задания экспорта для службы импорта и экспорта Microsoft Azure с помощью интерфейса REST API включает следующие шаги:
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 
 Выполните следующие действия, чтобы получить адрес доставки.
 
--   Определите имя расположения своей учетной записи хранения. Оно находится в поле **Расположение** на **панели мониторинга** учетной записи хранения на классическом портале. Это значение также можно получить, отправив запрос с помощью операции API управления службами [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) (Получить свойства учетной записи хранения).
+-   Определите имя расположения своей учетной записи хранения. Оно находится в поле **Расположение** на **панели мониторинга** учетной записи хранения на портале Azure. Это значение также можно получить, отправив запрос с помощью операции API управления службами [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) (Получить свойства учетной записи хранения).
 
 -   Получите расположение, доступное для обработки этой учетной записи хранения, путем вызова операции `Get Location`.
 

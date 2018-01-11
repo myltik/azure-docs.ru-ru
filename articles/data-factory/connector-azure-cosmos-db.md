@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 3686057a267ef28d6a01ccc36775a399c64a0804
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
-ms.translationtype: HT
+ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Копирование данных в базу данных Azure Cosmos DB или из нее с помощью фабрики данных Azure
 
@@ -25,10 +25,10 @@ ms.lasthandoff: 11/10/2017
 > * [Версия 1 — общедоступная](v1/data-factory-azure-documentdb-connector.md)
 > * [Версия 2 — предварительная](connector-azure-cosmos-db.md)
 
-В этой статье объясняется, как с помощью действия копирования в фабрике данных Azure копировать данные в базу данных Azure Cosmos DB и из нее (API DocumentDB). Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
+В этой статье описаны способы использования действия копирования в фабрике данных Azure для копирования данных из и в базу данных Cosmos Azure (SQL API). Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
 
 > [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Move data to and from Azure Cosmos DB using Azure Data Factory](v1/data-factory-azure-documentdb-connector.md) (Перемещение данных в базу данных Azure Cosmos DB или из нее с помощью фабрики данных Azure).
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Move data to and from Azure Cosmos DB using Azure Data Factory](v1/data-factory-azure-documentdb-connector.md) (Перемещение данных в базу данных Azure Cosmos DB или из нее с помощью фабрики данных Azure).
 
 ## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
 
 В частности, Azure Cosmos DB поддерживает:
 
-- [API DocumentDB](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-introduction) в Cosmos DB.
+- Cosmos DB [API-Интерфейсы SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
 - Импорт и экспорт документов JSON "как есть", копирование данных в набор табличных данных и из него, например базу данных SQL, CSV-файлы и т. д.
 
 Сведения о копировании документов "как есть" в JSON-файлы или другую коллекцию Cosmos DB либо из них см. в разделе [Импорт и экспорт документов JSON](#importexport-json-documents).
@@ -50,13 +50,13 @@ ms.lasthandoff: 11/10/2017
 
 Для связанной службы Azure Cosmos DB поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Требуется |
 |:--- |:--- |:--- |
-| type | Для свойства type необходимо задать значение: **CosmosDb**. | Да |
-| connectionString |Укажите сведения, необходимые для подключения к базе данных Azure Cosmos DB. Обратите внимание, что необходимо указать сведения о базе данных в строке подключения, как показано в примере ниже. Пометьте это поле в качестве SecureString. |Да |
-| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать среду выполнения интеграции Azure или локальную среду IR (если хранилище данных расположено в частной сети). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет |
+| Тип | Для свойства type необходимо задать значение: **CosmosDb**. | Yes |
+| connectionString |Укажите сведения, необходимые для подключения к базе данных Azure Cosmos DB. Обратите внимание, что необходимо указать сведения о базе данных в строке подключения, как показано в примере ниже. Пометьте это поле в качестве SecureString. |Yes |
+| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать среду выполнения интеграции Azure или локальную среду IR (если хранилище данных расположено в частной сети). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет  |
 
-**Пример**
+**Пример.**
 
 ```json
 {
@@ -83,12 +83,12 @@ ms.lasthandoff: 11/10/2017
 
 Чтобы скопировать данные в базу данных Azure Cosmos DB или из нее, задайте тип свойства набора данных **DocumentDbCollection**. Поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Требуется |
 |:--- |:--- |:--- |
-| type | Свойство type должно иметь значение **DocumentDbCollection**. |Да |
-| collectionName |Имя коллекции документов Cosmos DB. |Да |
+| Тип | Свойство type должно иметь значение **DocumentDbCollection**. |Yes |
+| collectionName |Имя коллекции документов Cosmos DB. |Yes |
 
-**Пример**
+**Пример.**
 
 ```json
 {
@@ -121,13 +121,13 @@ ms.lasthandoff: 11/10/2017
 
 Чтобы скопировать данные из Azure Cosmos DB, в действии копирования задайте тип источника **DocumentDbCollectionSource**. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Требуется |
 |:--- |:--- |:--- |
-| type | Свойство type источника действия копирования должно иметь значение **DocumentDbCollectionSource**. |Да |
-| query |Укажите запрос Cosmos DB для чтения данных.<br/><br/>Пример: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Нет <br/><br/>Если не указано, то выполняется инструкция SQL `select <columns defined in structure> from mycollection`. |
+| Тип | Свойство type источника действия копирования должно иметь значение **DocumentDbCollectionSource**. |Yes |
+| query |Укажите запрос Cosmos DB для чтения данных.<br/><br/>Пример: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Нет  <br/><br/>Если не указано, то выполняется инструкция SQL `select <columns defined in structure> from mycollection`. |
 | nestingSeparator |Специальный символ, обозначающий, что документ является вложенным, и определяющий, как преобразовать результирующий набор в плоскую структуру.<br/><br/>Например, если запрос Cosmos DB возвращает вложенный результат `"Name": {"First": "John"}`, действие копирования идентифицирует имя колонки как Name.First со значением John, в котором nestedSeparator является точкой. |Нет (значение по умолчанию — точка `.`) |
 
-**Пример**
+**Пример.**
 
 ```json
 "activities":[
@@ -163,13 +163,13 @@ ms.lasthandoff: 11/10/2017
 
 Чтобы скопировать данные из Azure Cosmos DB, в действии копирования задайте тип приемника **DocumentDbCollectionSink**. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Требуется |
 |:--- |:--- |:--- |
-| type | Свойство type приемника действия копирования должно иметь значение **DocumentDbCollectionSink**. |Да |
+| Тип | Свойство type приемника действия копирования должно иметь значение **DocumentDbCollectionSink**. |Yes |
 | nestingSeparator |Такой специальный символ в имени исходного столбца, который указывает, что нужен вложенный документ. <br/><br/>Например, `Name.First` в выходной структуре набора данных создает следующую структуру JSON в документе Cosmos DB: `"Name": {"First": "[value maps to this column from source]"}`, в которой nestedSeparator является точкой. |Нет (значение по умолчанию — точка `.`) |
-| writeBatchTimeout |Время ожидания до выполнения операции, пока не завершится срок ее действия.<br/><br/>Допустимые значения: промежуток времени. Пример: 00:30:00 (30 минут). |Нет |
+| writeBatchTimeout |Время ожидания до выполнения операции, пока не завершится срок ее действия.<br/><br/>Допустимые значения: промежуток времени. Пример: 00:30:00 (30 минут). |Нет  |
 
-**Пример**
+**Пример.**
 
 ```json
 "activities":[

@@ -4,7 +4,7 @@ description: "Присоединение виртуальной машины Ubu
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: b41cebcc8592468fcabb157b1aee830dfe954229
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: a8a3610707ca7d00694779c4b3631e1483d6bbdd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Присоединение виртуальной машины Ubuntu к управляемому домену в Azure
 Из этой статьи вы узнаете, как присоединить виртуальную машину Ubuntu Linux к управляемому домену доменных служб Azure AD.
@@ -35,8 +35,8 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Подготовка виртуальной машины Ubuntu Linux
 Подготовьте виртуальную машину Ubuntu Linux в Azure любым из указанных ниже методов.
-* [Портал Azure](../virtual-machines/linux/quick-create-portal.md)
-* [Интерфейс командной строки Azure](../virtual-machines/linux/quick-create-cli.md)
+* [портал Azure](../virtual-machines/linux/quick-create-portal.md)
+* [интерфейс командной строки Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]

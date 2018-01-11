@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Общие сведения о предельной сумме расходов Azure и ее отключении
 
@@ -48,8 +48,10 @@ ms.lasthandoff: 10/11/2017
 
 1. Войдите в [Центр управления учетной записью](https://account.windowsazure.com/Subscriptions).
 1. Выберите подписку.
-1. Если подписка отключена из-за превышения установленной суммы расходов, щелкните уведомление "Для подписки достигнут расходный лимит, и она была отключена для предотвращения расходов". В противном случае в области **Состояние подписки** щелкните **Снять предельную сумму расходов**.
+. Если подписка отключена из-за превышения установленной суммы расходов, щелкните уведомление "Для подписки достигнут расходный лимит, и она была отключена для предотвращения расходов". В противном случае в области **Состояние подписки** щелкните **Снять предельную сумму расходов**.
 1. Выберите нужный вам вариант.
+
+![Выбрав параметр для удаления лимита оплаты](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |Параметр|Результат|
 |-------|-----|
@@ -80,7 +82,9 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Влияет ли предельная сумма расходов на все расходы в Azure?
 
-За использование некоторых [служб Майкрософт и сторонних служб](billing-understand-your-azure-marketplace-charges.md) с вашего счета будут списываться средства, даже если установлена предельная сумма расходов. Примером таких служб могут быть лицензии на Visual Studio, служба Azure Active Directory Premium, планы поддержки и большинство сторонних служб, продаваемых в [Azure Marketplace](https://azure.microsoft.com/marketplace/).
+[Некоторые внешние службы публикации в Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) не может использоваться с кредиты подписки и могут повлечь за собой отдельный плата, даже в том случае, если значение предельная сумма расходов. Примеры включают лицензии Visual Studio, Azure Active Directory premium, планы поддержки и большинство сторонних типизированной службы. При подготовке новой внешней службы, отображается предупреждение, чтобы можно было узнать, что выставляется отдельно:
+
+![Предупреждение о покупке Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 

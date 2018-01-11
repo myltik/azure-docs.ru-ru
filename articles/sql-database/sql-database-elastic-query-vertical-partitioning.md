@@ -4,7 +4,7 @@ description: "настройка межбазовых запросов для в
 services: sql-database
 documentationcenter: 
 manager: jhubbard
-author: torsteng
+author: MladjoA
 ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
 ms.custom: scale out apps
@@ -12,20 +12,20 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: d57f45066387f451463a38d76d3fe6adab77e41f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.date: 12/12/2017
+ms.author: mlandzic
+ms.openlocfilehash: f3bf919aa4aab8d37a5a97b90138b1f5434eb6ea
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Запрос к нескольким облачным базам данных с разными схемами (предварительная версия)
 ![Запросы между таблицами в разных базах данных][1]
 
 Базы данных с вертикальным секционированием используют разные наборы таблиц в разных базах данных. Это означает, что схемы разных баз данных различаются. Например, все таблицы, связанные с данными инвентаризации, хранятся в одной базе данных, а таблицы, связанные с учетом, — в другой. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 * Пользователь должен иметь разрешение ALTER ANY EXTERNAL DATA SOURCE. Это разрешение включено в разрешение ALTER DATABASE.
 * Для обращения к базовому источнику данных необходимы разрешения ALTER ANY EXTERNAL DATA SOURCE.
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/31/2017
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Создание главного ключа и учетных данных для конкретной базы данных
 Учетные данные используются эластичным запросом для подключения к удаленным базам данных.  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
@@ -155,14 +155,14 @@ ms.lasthandoff: 10/31/2017
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Хранимая процедура для удаленного выполнения T-SQL: sp\_execute_remote
-С функцией эластичных запросов вам становится доступна хранимая процедура, которая обеспечивает прямой доступ к сегментам. Хранимая процедура называется [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714), она может использоваться для выполнения удаленных хранимых процедур или кода T-SQL в удаленных базах данных. Она принимает следующие параметры. 
+Эластичный запроса также создает хранимую процедуру, которая предоставляет прямой доступ к удаленной базе данных. Вызывается хранимая процедура [sp\_выполнение \_удаленного](https://msdn.microsoft.com/library/mt703714) и может использоваться для выполнения удаленных хранимых процедур или код T-SQL в удаленную базу данных. Она принимает следующие параметры. 
 
 * Имя источника данных (nvarchar): имя внешнего источника данных типа "реляционная СУБД". 
-* Запрос (nvarchar): запрос T-SQL, выполняемый для каждого сегмента. 
+* Запрос (nvarchar): запрос T-SQL для выполнения в удаленной базе данных. 
 * Объявление параметра (nvarchar, необязательно): строка с определениями типов данных, используемых в параметрах запроса (например, для процедуры sp_executesql). 
 * Список значений параметров (необязательно): разделенный запятыми список значений параметров (например, sp_executesql).
 
-Процедура sp\_execute\_remote использует внешний источник данных, указанный в параметрах вызова, для выполнения заданной инструкции T-SQL в удаленных базах данных. Она использует учетные данные внешнего источника данных для подключения к базе данных диспетчера ShardMap и удаленным базам данных.  
+Sp\_выполнение\_удаленного использует источника внешних данных, заданные в параметрах вызова для выполнения данной инструкции T-SQL в удаленной базе данных. Она использует учетные данные из внешнего источника данных для подключения к удаленной базе данных.  
 
 Пример: 
 

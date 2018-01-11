@@ -15,15 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a10cbf1d3c8043ddcac9a725373fc30a3ecee20
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Перенос виртуальных машин Amazon Web Services (AWS) в Azure
 
-Из этого руководства вы узнаете, как перенести виртуальные машины Amazon Web Services (AWS) в виртуальные машины Azure с помощью Site Recovery. При миграции экземпляров EC2 в Azure компьютеры VMware считаются физическими локальными компьютерами. Из этого руководства вы узнаете, как выполнять такие задачи:
+Из этого руководства вы узнаете, как перенести виртуальные машины Amazon Web Services (AWS) в виртуальные машины Azure с помощью Site Recovery. При миграции EC2 экземпляров в Azure, виртуальные машины рассматриваются, как если бы они были физических, локальных компьютеров. Из этого руководства вы узнаете, как выполнять такие задачи:
 
 > [!div class="checklist"]
 > * Подготовка ресурсов Azure
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/01/2017
 
 Новое хранилище появится в колонке **Панель мониторинга** > **Все ресурсы** и на основной странице **Хранилища служб восстановления**.
 
-### <a name="set-up-an-azure-network"></a>Настроить сеть Azure
+### <a name="set-up-an-azure-network"></a>Настроить сеть
 
 При создании после миграции (отработки отказа) виртуальные машины Azure присоединяются к этой сети.
 

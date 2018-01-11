@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ef0395a9c666732ba117822f46e8d2a7540aee14
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 60e0feb1e45ac5d9f35eac9667eaf9004d77e86a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="prepare-application-for-azure-container-service-aks"></a>Подготовка приложения для Службы контейнеров Azure (AKS)
 
@@ -32,9 +32,9 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-Для выполнения действий, описанных в этом руководстве, необходимо базовое понимание основных понятий Docker, таких как контейнеры, образы контейнеров и основные команды Docker. При необходимости см. статью о [начале работы с Docker]( https://docs.docker.com/get-started/), чтобы ознакомиться с основами работы с контейнерами. 
+Для выполнения действий, описанных в этом руководстве, необходимо базовое понимание основных понятий Docker, таких как контейнеры, образы контейнеров и основные команды Docker. При необходимости в разделе [начало работы с Docker] [ docker-get-started] для Знакомство с основами контейнера. 
 
-Для работы с этим руководством требуется среда разработки Docker. Docker содержит пакеты, которые позволяют быстро настроить Docker в любой системе [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) или [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+Для работы с этим руководством требуется среда разработки Docker. Docker содержит пакеты, которые легко настроить Docker для какого-либо [Mac][docker-for-mac], [Windows][docker-for-windows], или [Linux] [ docker-for-linux] системы.
 
 Azure Cloud Shell не включает в себя компоненты Docker, необходимые для выполнения каждого шага этого руководства. Таким образом мы рекомендуем полную среду разработки Docker.
 
@@ -58,15 +58,15 @@ cd azure-voting-app-redis
 
 ## <a name="create-container-images"></a>Создание образов контейнеров
 
-С помощью [Docker Compose](https://docs.docker.com/compose/) можно автоматизировать создание дополнительных образов контейнеров и развертывание многоконтейнерных приложений.
+[Создание сообщения docker] [ docker-compose] можно использовать для автоматизации создания образов контейнеров и развертывание приложений с несколькими контейнера.
 
-Выполните файл `docker-compose.yml`, чтобы создать образ контейнера, скачать образ Redis и запустить приложение.
+Выполните файл `docker-compose.yaml`, чтобы создать образ контейнера, скачать образ Redis и запустить приложение.
 
 ```console
 docker-compose up -d
 ```
 
-После завершения выполните команду [docker images](https://docs.docker.com/engine/reference/commandline/images/), чтобы увидеть созданные образы.
+После завершения использования [образов docker] [ docker-images] команду, чтобы увидеть созданный изображения.
 
 ```console
 docker images
@@ -81,7 +81,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Выполните команду [docker ps](https://docs.docker.com/engine/reference/commandline/ps/), чтобы просмотреть выполняемые контейнеры.
+Запустите [docker ps] [ docker-ps] команду, чтобы увидеть запущенные контейнеры.
 
 ```console
 docker ps
@@ -131,4 +131,16 @@ docker-compose down
 Переходите к следующему руководству, чтобы узнать о хранении образов контейнеров в реестре контейнеров Azure.
 
 > [!div class="nextstepaction"]
-> [Развертывание реестра контейнеров Azure и его использование](./tutorial-kubernetes-prepare-acr.md)
+> [Образы принудительной реестр контейнера Azure][aks-tutorial-prepare-acr]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-for-mac]: https://docs.docker.com/docker-for-mac/
+[docker-for-windows]: https://docs.docker.com/docker-for-windows/
+[docker-get-started]: https://docs.docker.com/get-started/
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

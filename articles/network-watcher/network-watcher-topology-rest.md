@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: fefeae4e816994d3ee69d6ac1c1cbe6cf8bbd06e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="view-network-watcher-topology-with-rest-api"></a>Просмотр топологии Наблюдателя за сетями с помощью REST API
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 В сценарии, описанном в этой статье, вы получаете ответ топологии для указанной группы ресурсов.
 
-## <a name="log-in-with-armclient"></a>Вход с помощью ARMClient
+## <a name="log-in-with-armclient"></a>выполните вход с помощью ARMClient;
 
 Войдите в ARMClient, используя учетные данные Azure.
 

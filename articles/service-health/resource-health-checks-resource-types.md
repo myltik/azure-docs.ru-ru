@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 22e1768257524400f341cf881dfebfb35115a43b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Типы ресурсов и проверки работоспособности в службе работоспособности ресурсов Azure
 Ниже приведен полный список проверок, выполняемых в системе работоспособности ресурсов для разных типов ресурсов.
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/18/2017
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Выполняемые проверки|
 |---|
-|<ul><li>Существуют ли запросы к базам данных или коллекциям, которые не были выполнены из-за недоступности службы DocumentDB?</li><li>Существуют ли запросы к документам, которые не были выполнены из-за недоступности службы DocumentDB?</li></ul>|
+|<ul><li>Появились ли базы данных или коллекцию запросов, не выполненных из-за недоступности службы Azure Cosmos DB?</li><li>Существует было любой документ запросов, не выполненных из-за недоступности службы Azure Cosmos DB?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Выполняемые проверки|
@@ -120,7 +120,7 @@ ms.lasthandoff: 10/18/2017
 |---|
 |<ul><li>Сервер узла запущен и работает?</li><li>Работает ли сервер Internet Information?</li><li>Работает ли подсистема балансировки нагрузки?</li><li>Доступно ли веб-приложение из центра обработки данных?</li><li>Доступна ли учетная запись хранения, в которой размещается контент сайта?</li></ul>|
 
-# <a name="next-steps"></a>Дальнейшие действия
+# <a name="next-steps"></a>Следующие шаги
 -  Дополнительные сведения см. в [общих сведениях о работоспособности службы Azure](service-health-overview.md) и [общих сведениях о работоспособности ресурсов Azure](resource-health-overview.md). 
 -  [Azure Resource Health FAQ](resource-health-faq.md) (Часто задаваемые вопросы о службе работоспособности ресурсов Azure)
 - Настройте оповещения о проблемах, связанных с работоспособностью. Дополнительные сведения см. в статье [Создание оповещений журнала действий для уведомлений службы](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 

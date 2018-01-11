@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/26/2017
-ms.openlocfilehash: b3fba38cacf5b5abcdea7f0def8c1d39e653f0a8
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
-ms.translationtype: HT
+ms.date: 12/09/2017
+ms.openlocfilehash: e16982e4e57ba9f2f11e9ee59f88f24b3fe3fe3f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="limitations-in-azure-database-for-mysql-preview"></a>Ограничения в базе данных Azure для MySQL (предварительная версия)
-Служба базы данных Azure для MySQL работает в режиме общедоступной предварительной версии. В следующих разделах описываются действующие ограничения емкости и функциональных возможностей в службе базы данных. Кроме того, ознакомьтесь с [общими ограничениями](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html), применимыми к ядру СУБД базы данных MySQL.
+# <a name="limitations-in-azure-database-for-mysql"></a>Ограничения в базе данных Azure для MySQL
+Служба базы данных Azure для MySQL работает в режиме общедоступной предварительной версии. В следующих разделах описаны емкости, поддержки подсистемы хранения, поддержка прав доступа, поддержка инструкции обработки данных и функциональные ограничения в базе данных службы. Кроме того, ознакомьтесь с [общими ограничениями](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html), применимыми к ядру СУБД базы данных MySQL.
 
 ## <a name="service-tier-maximums"></a>Максимальные показатели уровней служб
 База данных Azure для MySQL имеет несколько уровней служб, которые можно выбрать при создании сервера. Дополнительные сведения см. в статье [Уровни служб в базе данных Azure для MySQL](concepts-service-tiers.md).  
@@ -42,6 +42,32 @@ ms.lasthandoff: 10/27/2017
 Когда число подключений превышается, может появиться следующая ошибка:
 > ОШИБКА 1040 (08004): Слишком много подключений
 
+## <a name="storage-engine-support"></a>Поддержка подсистемы хранилища
+
+### <a name="supported"></a>Поддерживаются
+- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
+- [ПАМЯТЬ](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+
+### <a name="unsupported"></a>Не поддерживается
+- [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
+- [BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
+- [АРХИВ](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [ФЕДЕРАТИВНЫЕ](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
+
+## <a name="privilege-support"></a>Поддержка прав доступа
+
+### <a name="unsupported"></a>Не поддерживается
+- Администратор базы данных роли многие sever параметров и параметров можно случайно снижают производительность сервера или отрицательный свойства ACID СУБД. Таким образом для поддержания нашей службы целостность и соглашения об уровне ОБСЛУЖИВАНИЯ на уровне продукта не представляйте роли администратора базы данных для клиентов. Учетная запись пользователя по умолчанию, который создается при создании нового экземпляра базы данных, позволяет пользователям выполнять большинство инструкций DDL и DML в экземпляре управляемую базу данных. 
+- SUPER право доступа аналогично [прав СУПЕРПОЛЬЗОВАТЕЛЯ](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) также ограничен.
+
+## <a name="data-manipulation-statement-support"></a>Поддержка инструкции обработки данных
+
+### <a name="supported"></a>Поддерживаются
+- Загрузка данных INFILE - поддерживается, но необходимо указать параметр [LOCAL], который направляется в формате UNC (хранилища Azure, подключенных через XSMB).
+
+### <a name="unsupported"></a>Не поддерживается
+- ВЫБЕРИТЕ... В OUTFILE
+
 ## <a name="preview-functional-limitations"></a>Ограничения функциональных возможностей предварительной версии
 
 ### <a name="scale-operations"></a>Операции масштабирования
@@ -52,12 +78,17 @@ ms.lasthandoff: 10/27/2017
 ### <a name="server-version-upgrades"></a>Обновления версии сервера
 - В настоящее время автоматический переход между основными версиями ядра СУБД не поддерживается.
 
-### <a name="subscription-management"></a>Управление подпиской
-- В настоящее время динамическое перемещение предварительно созданных серверов между подпиской и группой ресурсов не поддерживается.
-
 ### <a name="point-in-time-restore"></a>Восстановление до точки во времени
 - Восстановление в другой уровень служб и (или) до другого числа единиц вычислений и размера хранилища не допускается.
 - Восстановление удаленного сервера не поддерживается.
+
+## <a name="functional-limitations"></a>Ограничения функциональных возможностей
+
+### <a name="subscription-management"></a>Управление подпиской
+- В настоящее время динамическое перемещение предварительно созданных серверов между подпиской и группой ресурсов не поддерживается.
+
+## <a name="current-known-issues"></a>Текущие известные проблемы:
+- Экземпляр сервера MySQL отображает версию неправильный сервер после установки подключения. Чтобы получить правильный сервер экземпляр управления версиями, используйте выберите либо; команда в командной строке MySQL.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - [Параметры и производительность базы данных Azure для MySQL: возможности разных ценовых категорий](concepts-service-tiers.md)

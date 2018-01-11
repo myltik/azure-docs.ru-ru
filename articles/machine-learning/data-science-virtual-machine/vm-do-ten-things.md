@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: gokuma;weig;bradsev
-ms.openlocfilehash: 9aafd6300bebbb5505aa4ed707cac9716c8e6aa1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 622bb5971a6ad774e770f00d2d9f44999b844d12
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>10 задач, которые можно выполнить в виртуальной машине для обработки и анализа данных
 
@@ -353,7 +353,7 @@ DSVM уже поставляется с набором клиентских ин
 
 ![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
-### <a name="azure-data-lake"></a>Озеро данных Azure
+### <a name="azure-data-lake"></a>Azure Data Lake;
 Хранилище Azure Data Lake является гипермасштабируемым репозиторием для рабочих нагрузок аналитической обработки больших данных, совместимым с распределенной файловой системой Hadoop (HDFS). Оно работает с экосистемой Hadoop и Azure Data Lake Analytics. Мы покажем, как переместить данные в хранилище озера данных Azure и запустить анализ с помощью аналитики озера данных Azure.
 
 **Предварительные требования**
@@ -803,14 +803,14 @@ Azure Cosmos DB — это база данных NoSQL в облаке. Она 
 
 Чтобы получить доступ к Azure Cosmos DB из DSVM, необходимо выполнить приведенные ниже предварительные действия.
 
-1. Установите пакет SDK Python для DocumentDB (выполните команду ```pip install pydocumentdb``` из командной строки).
+1. Установка пакета SDK Azure Cosmos DB Python (запустить ```pip install pydocumentdb``` из командной строки)
 2. Создайте учетную запись и базу данных Azure Cosmos DB на [портале Azure](https://portal.azure.com).
 3. Скачайте средство миграции Azure Cosmos DB [отсюда](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) и извлеките нужный вам каталог.
 4. Импортируйте данные JSON (данные о вулканах), хранящиеся в [общедоступном большом двоичном объекте](https://cahandson.blob.core.windows.net/samples/volcano.json), в Cosmos DB с помощью следующих параметров команды средства миграции (файл dtui.exe из каталога, в который вы установили средство миграции Cosmos DB). Введите исходное и целевое расположение со следующими параметрами:
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
-После импорта данных перейдите в Jupyter и откройте записную книжку *DocumentDBSample*, содержащую код Python для доступа к DocumentDB и выполнения базовых запросов. Дополнительные сведения о Cosmos DB см. на [странице документации](https://docs.microsoft.com/azure/cosmos-db/) службы.
+После импорта данных, можно перейти к Jupyter и откройте Блокнот под названием *DocumentDBSample* , содержащее код python для доступа к базе данных Azure Cosmos и выполнять базовые запросы. Дополнительные сведения о Cosmos DB см. на [странице документации](https://docs.microsoft.com/azure/cosmos-db/) службы.
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Создание отчетов и панели мониторинга с помощью Power BI Desktop
 Давайте визуализируем в службе Power BI JSON-файл с данными о вулканах, который мы видели в предыдущем примере с Cosmos DB, чтобы выполнить визуальный анализ данных. Подробные указания см. в статье о [Power BI](../../cosmos-db/powerbi-visualize.md). Ниже приведены основные действия.

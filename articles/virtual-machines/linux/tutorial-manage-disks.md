@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5a7a58d4c402bcaf639bd255bb7c8b111694e548
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Управление дисками Azure с помощью Azure CLI
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/17/2017
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="default-azure-disks"></a>Диски Azure по умолчанию
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/17/2017
 
 ### <a name="temporary-disk-sizes"></a>Размеры временных дисков
 
-| Тип | Размер виртуальной машины | Максимальный размер временного диска (ГБ) |
+| type | Размер виртуальной машины | Максимальный размер временного диска (ГБ) |
 |----|----|----|
 | [Универсальные](sizes-general.md) | Серии A и D | 800 |
 | [Оптимизированные для вычислений](sizes-compute.md) | Серия F | 800 |
@@ -65,7 +65,7 @@ ms.lasthandoff: 11/17/2017
 
 ### <a name="max-data-disks-per-vm"></a>Максимальное число дисков данных на виртуальную машину
 
-| Тип | Размер виртуальной машины | Максимальное число дисков данных на виртуальную машину |
+| type | Размер виртуальной машины | Максимальное число дисков данных на виртуальную машину |
 |----|----|----|
 | [Универсальные](sizes-general.md) | Серии A и D | 32 |
 | [Оптимизированные для вычислений](sizes-compute.md) | Серия F | 32 |
@@ -225,7 +225,7 @@ az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-Если вы изменили размер диска операционной системы, ее раздел будет автоматически расширен. Если вы изменили размер диска данных, потребуется расширить все текущие разделы в операционной системе виртуальной машины.
+Если вы изменили размер диска операционной системы, автоматически разворачивается секции. Если вы изменили размер диска данных, потребуется расширить все текущие разделы в операционной системе виртуальной машины.
 
 ## <a name="snapshot-azure-disks"></a>Создание моментальных снимков дисков Azure по умолчанию
 
@@ -233,7 +233,7 @@ az vm start --resource-group myResourceGroupDisk --name myVM
 
 ### <a name="create-snapshot"></a>Создание моментального снимка
 
-Перед созданием моментального снимка диска виртуальной машины нужно получить идентификатор или имя этого диска. Для этого выполните команду [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show). В этом примере идентификатор диска сохраняется в переменной и может использоваться в дальнейшем.
+Перед созданием моментального снимка диска виртуальной машины нужно получить идентификатор или имя этого диска. Для этого выполните команду [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show). В этом примере идентификатор диска сохраняется в переменной и может использоваться в дальнейшем.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)

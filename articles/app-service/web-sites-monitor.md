@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Мониторинг приложений в службе приложений Azure
 [Служба приложений](http://go.microsoft.com/fwlink/?LinkId=529714) предоставляет встроенные средства мониторинга на [портале Azure](https://portal.azure.com).
@@ -29,6 +29,8 @@ ms.lasthandoff: 11/29/2017
 ## <a name="understanding-quotas-and-metrics"></a>Общие сведения о квотах и метриках
 ### <a name="quotas"></a>Квоты
 На приложения, размещенные в службе приложений, распространяются *ограничения* на использование ресурсов. Эти ограничения определены в рамках **плана службы приложений** , связанного с приложением.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Если приложение используется в режиме плана **Бесплатный** или **Общий**, ограничения на использование ресурсов выражены в виде **квот**.
 

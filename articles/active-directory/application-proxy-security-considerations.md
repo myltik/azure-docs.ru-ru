@@ -3,8 +3,8 @@ title: "Вопросы безопасности для прокси прилож
 description: "В этой статье рассматриваются вопросы безопасности при использовании прокси приложения Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
+author: daveba
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 239f3830a5e50f80ace15ff3f080653a5f402136
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 2370c4717e2cff6b4b8113b09624ef873b309647
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Вопросы безопасности при удаленном доступе к приложениям через прокси приложения Azure AD
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 11/14/2017
 Если на любом из этапов предварительной проверки подлинности происходит сбой, запрос пользователя отклоняется с сообщением о причинах проблемы.
 
 
-#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2) Служба помещает запрос в очередь соединителя
+#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. Служба помещает запрос в очередь соединителя
 
 Соединители не закрывают исходящее подключение к службе прокси приложения. При поступлении запроса служба добавляет его в очередь в одном из открытых подключений, чтобы его получил соединитель.
 

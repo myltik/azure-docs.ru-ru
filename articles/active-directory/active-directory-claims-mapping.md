@@ -3,7 +3,7 @@ title: "Сопоставление утверждений в Azure Active Direct
 description: "На этой странице описываются сопоставления утверждений Azure Active Directory."
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 78dbbe085fca26ad529c6262ba852f3c06ace404
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6f5ca44e08c783fdf22a14d71c56c3019cc2bb52
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Сопоставление утверждений в Azure Active Directory (общедоступная предварительная версия)
 
@@ -140,7 +140,7 @@ ms.lasthandoff: 10/11/2017
 |onprem_sam_account_name|
 |onprem_sid|
 |openid2_id|
-|пароль|
+|password|
 |platf|
 |polids|
 |pop_jwk|
@@ -280,7 +280,7 @@ ms.lasthandoff: 10/11/2017
 Элемент ID определяет, какое свойство в источнике предоставляет значение для утверждения. В следующей таблице перечислены значения идентификатора, допустимые для каждого значения источника.
 
 #### <a name="table-3-valid-id-values-per-source"></a>Таблица 3. Допустимый идентификатор значения для источника
-|Источник|ИД|Описание|
+|Источник|ИД|ОПИСАНИЕ|
 |-----|-----|-----|
 |Пользователь|surname|Фамилия|
 |Пользователь|givenname|Заданное имя|
@@ -323,7 +323,7 @@ ms.lasthandoff: 10/11/2017
 |Пользователь|facsimiletelephonenumber|Номер телефона, факса|
 |application, resource, audience|displayname|Отображаемое имя|
 |application, resource, audience|objected|ObjectID|
-|application, resource, audience|Теги|Тег субъекта-службы|
+|application, resource, audience|tags|Тег субъекта-службы|
 |Компания|tenantcountry|Страна клиента|
 
 **TransformationID:** элемент TransformationID должен быть указан только в том случае, если для элемента "Источник" задано значение "transformation".
@@ -353,7 +353,7 @@ ms.lasthandoff: 10/11/2017
 В зависимости от выбранного метода ожидается набор входных и выходных данных. Они определяются с помощью элементов **InputClaims**, **InputParameters** и **OutputClaims**.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Таблица 4. Методы преобразования и ожидаемые входные и выходные данные
-|TransformationMethod|Ожидаемые входные данные|Ожидаемые выходные данные|Описание|
+|TransformationMethod|Ожидаемые входные данные|Ожидаемые выходные данные|ОПИСАНИЕ|
 |-----|-----|-----|-----|
 |Объединение|строка 1, строка 2, разделитель|outputClaim|Объединение входных строк с помощью разделителя между ними. Например, результатом строка 1:"foo@bar.com", строка 2:"sandbox", разделитель:"." будет outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Извлекает локальную часть адреса электронной почты. Например, результатом mail:"foo@bar.com" будет outputClaim:"foo". Если символ "@" отсутствует, то возвращается исходная входная строка в состоянии "как есть".|
@@ -378,7 +378,7 @@ ms.lasthandoff: 10/11/2017
 **SAML NameID и UPN:** список атрибутов, из которых берутся значения NameID и UPN, а также список допустимых преобразований утверждений ограничены.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Таблица 5. Атрибуты, разрешенные в качестве источника данных для идентификатора имени SAML NameID
-|Источник|ИД|Описание|
+|Источник|ИД|ОПИСАНИЕ|
 |-----|-----|-----|
 |Пользователь|mail|Электронная почта|
 |Пользователь|userprincipalname|Имя участника-пользователя|
@@ -403,7 +403,7 @@ ms.lasthandoff: 10/11/2017
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Таблица 6. Разрешенные методы преобразования для идентификатора имени SAML NameID
 |TransformationMethod|Ограничения|
 | ----- | ----- |
-|ExtractMailPrefix|None|
+|ExtractMailPrefix|Нет|
 |Объединение|Присоединяемый суффикс должен быть подтвержденным доменом клиента ресурса.|
 
 ### <a name="custom-signing-key"></a>Пользовательский ключ подписывания
@@ -419,7 +419,7 @@ ms.lasthandoff: 10/11/2017
 
 В Azure AD существует множество сценариев, когда можно настроить утверждения, добавляемые в токены для определенных субъектов-служб. В этом разделе рассматриваются наиболее распространенные сценарии, которые помогут вам понять, как использовать политики сопоставления утверждений.
 
-#### <a name="prerequisites"></a>Предварительные требования
+#### <a name="prerequisites"></a>Технические условия
 В следующих примерах мы будем создавать, обновлять, связывать и удалять политики для субъектов-служб. Если вы еще не работали с Azure AD, прежде чем продолжить работу с этими примерами, советуем ознакомиться со статьей, посвященной тому, как получить клиент Azure Active Directory. 
 
 Чтобы начать работу, сделайте следующее:

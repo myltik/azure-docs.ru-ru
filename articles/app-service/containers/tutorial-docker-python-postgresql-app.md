@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 161d9fda75caa7836e012e6e1ff79df576281137
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 0bd4f390e4507fccd1ca564c48c0f321412e229d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Создание в Azure веб-приложения Docker Python с подключением к базе данных PostgreSQL
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/01/2017
 
 Выполните приведенные ниже действия в macOS. Инструкции для Linux и Windows в большей степени совпадают, но различия не описаны в этом руководстве.
  
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для работы с этим руководством:
 
@@ -121,7 +121,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
 
 ### <a name="log-in-to-azure"></a>Вход в Azure
 
-Теперь создадим ресурсы, необходимые для размещения приложения Python на платформе "Веб-приложения для контейнеров", с помощью Azure CLI 2.0.  Войдите в подписку Azure с помощью команды [az login](/cli/azure/#az_login) и следуйте инструкциям на экране.
+Теперь создадим ресурсы, необходимые для размещения приложения Python на платформе "Веб-приложения для контейнеров", с помощью Azure CLI 2.0.  Войдите в подписку Azure с помощью команды [az login](/cli/azure/?view=azure-cli-latest#az_login) и следуйте инструкциям на экране.
 
 ```azurecli
 az login
@@ -129,7 +129,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Создайте [группу ресурсов](../../azure-resource-manager/resource-group-overview.md) с помощью команды [az group create](/cli/azure/group#az_group_create).
+Создайте [группу ресурсов](../../azure-resource-manager/resource-group-overview.md) с помощью команды [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -139,11 +139,11 @@ az login
 az group create --name myResourceGroup --location "West US"
 ```
 
-Чтобы вывести список доступных расположений, используйте команду Azure CLI [az appservice list-locations](/cli/azure/appservice#az_appservice_list_locations).
+Чтобы вывести список доступных расположений, используйте команду Azure CLI [az appservice list-locations](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations).
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Создание сервера базы данных Azure для PostgreSQL
 
-Создайте сервер PostgreSQL с помощью команды [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create).
+Создайте сервер PostgreSQL с помощью команды [az postgres server create](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create).
 
 В следующей команде замените заполнитель *\<postgresql_name>* уникальным именем сервера, а заполнитель *\<admin_username>* — именем пользователя. Это имя используется как часть конечной точки PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), поэтому оно должно быть уникальным на всех серверах в Azure. Имя пользователя необходимо для создания учетной записи администратора исходной базы данных. Вам будет предложено выбрать пароль для этого пользователя.
 
@@ -364,7 +364,7 @@ docker push <registry_name>.azurecr.io/flask-postgresql-sample
 
 ### <a name="create-an-app-service-plan"></a>Создание плана службы приложений
 
-Создайте план службы приложений, выполнив команду [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
+Создайте план службы приложений, выполнив команду [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -414,7 +414,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ### <a name="create-a-web-app"></a>Создание веб-приложения
 
-Создайте веб-приложение в рамках плана *myAppServicePlan* службы приложений с помощью команды [az webapp create](/cli/azure/webapp#az_webapp_create).
+Создайте веб-приложение в рамках плана *myAppServicePlan* службы приложений с помощью команды [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
 
 Веб-приложение предоставляет место для размещения и развертывания кода, а также URL-адрес для просмотра развернутого приложения. Создайте веб-приложение.
 
@@ -445,7 +445,7 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 
 Ранее в этом руководстве вы определили переменные среды для подключения к базе данных PostgreSQL.
 
-В службе приложений переменные среды устанавливаются как _параметры приложения_ с помощью команды [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
+В службе приложений переменные среды устанавливаются как _параметры приложения_ с помощью команды [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
 
 Код ниже указывает сведения о подключении к базе данных как параметры приложения. Кроме того, в нем определена переменная *PORT*, которая сопоставляет порт 5000 из контейнера Docker для получения трафика HTTP через порт 80.
 

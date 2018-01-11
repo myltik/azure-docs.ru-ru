@@ -12,28 +12,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/13/2017
 ms.author: juluk
-ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: 129b43db85a0962005352e0f1e6ad2ad3be2c7d5
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Обзор Azure Cloud Shell
 Azure Cloud Shell — это интерактивная доступная браузеру оболочка для управления ресурсами Azure.
 Она предоставляет гибкие возможности при выборе оболочки, соответствующей вашим методам работы.
 Пользователи Linux могут использовать Bash, а пользователи Windows — PowerShell.
 
-Выполните запуск через портал Azure с помощью значка Cloud Shell.
+Попробуйте из shell.azure.com, с помощью этой кнопки.
+
+[![](https://shell.azure.com/images/launchcloudshell.png "Запустите консоль облако Azure")](https://shell.azure.com)
+
+Попробуйте из портал Azure, используя значок облака оболочки.
 
 ![Запуск с помощью портала](media/overview/portal-launch-icon.png)
-
-В раскрывающемся списке селектора оболочки выберите "Bash" или "PowerShell".
-
-![Bash в Cloud Shell](media/overview/overview-bash-pic.png)
-
-![PowerShell в Cloud Shell (предварительная версия)](media/overview/overview-ps-pic.png)
 
 ## <a name="features"></a>Функции
 ### <a name="browser-based-shell-experience"></a>Оболочка на основе браузера
@@ -41,23 +39,29 @@ Cloud Shell предоставляет доступ к браузерному и
 Используйте Cloud Shell для работы из локального компьютера с неограниченными возможностями, которые может обеспечить только облако.
 
 ### <a name="choice-of-preferred-shell-experience"></a>Выбор предпочтительной оболочки
-Azure Cloud Shell предоставляет гибкие возможности при выборе оболочки, соответствующей вашим методам работы.
-Пользователи Linux могут использовать Bash в Cloud Shell, тогда как пользователи Windows могут предпочесть PowerShell в Cloud Shell (предварительная версия).
+Linux пользователи могут использовать Bash в оболочке облака, пока Windows пользователи могут использовать PowerShell в облаке оболочки (Предварительная версия) из раскрывающегося списка оболочки.
+
+![Bash в Cloud Shell](media/overview/overview-bash-pic.png)
+
+![PowerShell в Cloud Shell (предварительная версия)](media/overview/overview-ps-pic.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Настроенная и аутентифицированная рабочая станция Azure
-Службой Cloud Shell управляет Майкрософт, поэтому в ней изначально присутствуют популярные инструменты командной строки и поддержка различных языков, что позволяет работать быстрее. Кроме того, Cloud Shell автоматически и безопасно проходит аутентификацию, тем самым обеспечивая мгновенный доступ к ресурсам с помощью Azure CLI 2.0 или командлетов Azure PowerShell.
+Оболочки облака управляется корпорацией Майкрософт, поэтому поставляется со популярных средств командной строки и поддержка языков. Облако оболочки безопасно автоматически используется для проверки мгновенный доступ к ресурсам через командлеты Azure CLI 2.0 или Azure PowerShell.
 
 Просмотрите полный список инструментов для работы с [Bash](features.md#tools) и [PowerShell (предварительная версия)](features-powershell.md#tools).
 
 ### <a name="multiple-access-points"></a>Доступность в нескольких расположениях
-Помимо портала Azure, служба Cloud Shell доступна также в таких местах:
+Оболочка облака — гибкий инструмент, который можно использовать из:
+* [Portal.Azure.com](https://portal.azure.com)
+* [Shell.Azure.com](https://shell.azure.com)
 * [ознакомительная документация по Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest);
 * [мобильные приложения Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/);
-* [расширение Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
+* [Учетная запись Azure кода расширении VS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Подключение хранилища файлов Microsoft Azure
-Компьютеры Cloud Shell являются временными, поэтому требуют подключения файлового ресурса Azure как `clouddrive` для хранения каталога $Home.
-При первом запуске Cloud Shell предлагает создать группу ресурсов, учетную запись хранения и файловый ресурс Azure от вашего имени. Это одноразовое действие, которое автоматически применяется для всех сеансов. Вы можете подключить один файловый ресурс Azure, который будет использоваться как при работе с Bash, так и при работе с PowerShell в Cloud Shell (предварительная версия).
+Оболочки компьютерах облака являются временными и требуют общей папке файлов Azure монтируется как `clouddrive` для сохранения файлов.
+
+При первом запуске оболочки облака предлагается создать ресурс группы, учетной записи хранилища и файлы Azure совместно использовать от вашего имени. Это одноразовое действие, которое автоматически применяется для всех сеансов. Вы можете подключить один файловый ресурс, который будет использоваться как при работе с Bash, так и при работе с PowerShell в Cloud Shell (предварительная версия).
 
 #### <a name="create-new-storage"></a>Создание хранилища
 ![](media/overview/basic-storage.png)
@@ -77,7 +81,9 @@ Azure Cloud Shell предоставляет гибкие возможности
 
 В Cloud Shell доступна дополнительная возможность, которая позволяет связывать существующие ресурсы с Cloud Shell.
 При появлении запроса на настройку хранилища щелкните "Показать дополнительные настройки", чтобы отобразить дополнительные параметры.
-Раскрывающиеся меню фильтруются с учетом назначенного региона Cloud Shell и учетных записей локально или глобально избыточных хранилищ.
+
+> [!Note]
+> Раскрывающиеся меню фильтруются по свой назначенный регион облачной оболочки и учетные записи хранения LRS и GRS.
 
 [Дополнительные сведения о хранилище Cloud Shell, обновлении файловых ресурсов Azure, а также о передаче и скачивании файлов](persisting-shell-storage.md).
 
@@ -87,16 +93,10 @@ Azure Cloud Shell предоставляет гибкие возможности
 * Для Cloud Shell требуется подключение файлового ресурса Azure.
 * Cloud Shell использует один и тот же файловый ресурс Azure для Bash и PowerShell.
 * Cloud Shell назначается один компьютер на учетную запись пользователя.
+* С помощью изображения размером 5 ГБ, которые содержатся в папке файл $Home сохраняется bash
 * Разрешения задаются как для обычного пользователя Linux в Bash.
 
 Узнайте больше о возможностях [Bash в Cloud Shell](features.md) и [PowerShell в Cloud Shell (предварительная версия)](features-powershell.md).
-
-## <a name="examples"></a>Примеры
-* Создание сценариев для автоматизации задач управления Azure
-* Одновременное управление ресурсами с помощью портала Azure и программ командной строки Azure.
-* Испытание Azure CLI 2.0 или командлетов Azure PowerShell.
-
-Эти примеры можно протестировать в кратких руководствах для [Bash в Cloud Shell](quickstart.md) и [PowerShell в Cloud Shell (предварительная версия)](quickstart-powershell.md).
 
 ## <a name="pricing"></a>Цены
 За использование компьютера, на котором размещена среда Cloud Shell, плата не взимается. На этом компьютере должен быть подключен файловый ресурс Azure. Применяются расходы на обычное хранение.

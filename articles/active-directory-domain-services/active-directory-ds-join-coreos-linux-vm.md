@@ -4,7 +4,7 @@ description: "Присоединение виртуальной машины Cor
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: a75871f0395ceb7d7abd79a0b9d336b400a88542
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
-ms.translationtype: HT
+ms.openlocfilehash: 790ad85df0dbf68674e2b9c6254858100ddfd0fd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Присоединение виртуальной машины CoreOS Linux к управляемому домену
 Из этой статьи вы узнаете, как присоединить виртуальную машину CoreOS Linux в Azure к управляемому домену доменных служб Azure AD.
@@ -34,8 +34,8 @@ ms.lasthandoff: 10/17/2017
 
 ## <a name="provision-a-coreos-linux-virtual-machine"></a>Подготовка виртуальной машины CoreOS Linux
 Подготовьте виртуальную машину CoreOS в Azure любым из следующих способов:
-* [Портал Azure](../virtual-machines/linux/quick-create-portal.md)
-* [Интерфейс командной строки Azure](../virtual-machines/linux/quick-create-cli.md)
+* [портал Azure](../virtual-machines/linux/quick-create-portal.md)
+* [интерфейс командной строки Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 В этой статье используется образ виртуальной машины с **CoreOS Linux (стабильная версия)** в Azure.

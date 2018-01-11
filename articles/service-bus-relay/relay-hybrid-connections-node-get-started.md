@@ -14,11 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 0349afa355038644e695858cc42d12a68ca2bdd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Приступая к работе с гибридными подключениями к ретранслятору
 
@@ -28,14 +28,14 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="what-will-be-accomplished"></a>Что будет выполнено
 
-Так как для гибридных подключений требуется компонент клиента и сервера, в этом руководстве мы создадим два консольных приложения. Для этого выполните следующие действия:
+Так как для гибридных подключений требуется компонент клиента и сервера, в этом руководстве нужно создать два консольных приложения. Для этого выполните следующие действия:
 
 1. Создайте пространство имен ретранслятора с помощью портала Azure.
 2. Создайте гибридное подключение с помощью портала Azure.
 3. Создайте серверное консольное приложение для получения сообщений.
 4. Создайте клиентское консольное приложение для отправки сообщений.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 1. [Node.js](https://nodejs.org/en/).
 2. Подписка Azure.
@@ -56,13 +56,13 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="3-create-a-server-application-listener"></a>3. Создание серверного приложения (прослушивателя)
 
-Для прослушивания и получения сообщений, отправленных ретранслятором, мы создадим консольное приложение Node.js.
+Для ожидания передачи данных и получения сообщений, отправленных ретранслятором, создайте консольное приложение Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. Создание клиентского приложения (отправителя)
 
-Для отправки сообщений в ретранслятор мы создадим консольное приложение Node.js.
+Для отправки сообщений в ретранслятор создайте консольное приложение Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 12/21/2017
 
 Поздравляем, вы создали приложение для гибридных подключений с помощью Node.js!
 
-## <a name="next-steps"></a>Дальнейшие действия:
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Вопросы и ответы по ретранслятору](relay-faq.md)
 * [Создание пространства имен](relay-create-namespace-portal.md)

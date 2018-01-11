@@ -4,7 +4,7 @@ description: "Регистрация и вход пользователей с �
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 06407322-142c-4cb3-9106-a8d752c4c853
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 59879dc0b3fc1d7af3e2a1f67f1701f451de9126
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e746a5e7a2d9a13eb23ac0268104a9394c9b198d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory (AD) B2C: организация регистрации и входа для потребителей с учетными записями Microsoft
 ## <a name="create-a-microsoft-account-application"></a>Создание приложения для учетной записи Майкрософт
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
     ![Microsoft учетной записи: создание нового пароля](./media/active-directory-b2c-setup-msa-app/msa-generate-new-password.png)
    
     ![Microsoft учетной записи: новый пароль](./media/active-directory-b2c-setup-msa-app/msa-new-password.png)
-8. Установите флажок **Поддержка Live SDK** в разделе **Дополнительные параметры**. Щелкните **Сохранить**.
+8. Установите флажок **Поддержка Live SDK** в разделе **Дополнительные параметры**. Выберите команду **Сохранить**.
    
     ![Учетная запись Майкрософт: поддержка Live SDK](./media/active-directory-b2c-setup-msa-app/msa-live-sdk-support.png)
 

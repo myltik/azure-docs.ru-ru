@@ -10,14 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e8089cbcc5e38504d6b4c7ced372781f9a5e6d8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.custom: mvc
+ms.openlocfilehash: e951eb47290a2d1b6f892f1ccf923f6ce0c1899c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="api-management-policy-samples"></a>Примеры политик службы управления API Azure
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 12/04/2017
 |[Добавление функций в серверную службу и кэширование ответа](./policies/cache-response.md?toc=api-management/toc.json) |Добавление функций в серверную службу. В статье показано, как принять имя вместо широты и долготы в API прогнозирования погоды.|
 |[Авторизация доступа на основе утверждений JWT](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |Авторизация доступа к определенным методам HTTP в API на основе утверждений JWT.|
 |[Авторизация доступа с помощью токена OAuth Google](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json) |Авторизация доступа к конечным точкам с использованием Google в качестве поставщика токена OAuth.|
-|[Создание подписанного URL-адреса и запроса на перенаправление к службе хранилища Azure](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Создание [подписанного URL-адреса](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) с помощью выражений и перенаправление запроса в службу хранилища Azure с использованием политики rewrite-uri. |
+|[Создание подписанного URL-адреса и запроса на перенаправление к службе хранилища Azure](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Создание [подписанного URL-адреса](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) с помощью выражений и перенаправление запроса в службу хранилища Azure с использованием политики rewrite-uri. |
 |[Получение маркера доступа OAuth2 из AAD и его перенаправление в серверную часть](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |Пример использования OAuth2 для авторизации между шлюзом и серверной частью. В статье показано, как получить маркер доступа из AAD и перенаправить его в серверную часть.|
 |[Получение маркера X-CSRF из шлюза SAP с помощью политики отправки запроса](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |Реализация шаблона X-CSRF, используемого во многих API-интерфейсах. Этот пример относится только к шлюзу SAP. |
 |[Маршрутизация запроса в зависимости от размера его текста](./policies/route-requests-based-on-size.md?toc=api-management/toc.json) |Маршрутизация запроса в зависимости от размера его текста.|

@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 294cd6b8-74d7-44bc-92bc-020ccd13ff12
 ms.service: active-directory
 ms.workload: identity
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: c6a618c9cb93fe5b82e97f84c346e3dc448737e4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: e8ba836a021a06c017defee2c5b7379d200ac642
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Руководство по настройке DocuSign для подготовки пользователей
 
 Цель этого руководства — показать, как настроить автоматическую подготовку и отмену подготовки учетных записей из Azure AD в DocuSign.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -71,9 +71,9 @@ ms.lasthandoff: 11/29/2017
 
 5. В разделе **Учетные данные администратора** укажите следующие параметры конфигурации.
    
-    а. В текстовом поле **Имя пользователя администратора** введите имя учетной записи DocuSign, для которой в DocuSign.com назначен профиль **Системный администратор**.
+    a. В текстовом поле **Имя пользователя администратора** введите имя учетной записи DocuSign, для которой в DocuSign.com назначен профиль **Системный администратор**.
    
-    b. В текстовом поле **Пароль администратора** введите пароль для этой учетной записи.
+    Б. В текстовом поле **Пароль администратора** введите пароль для этой учетной записи.
 
 6. На портале Azure щелкните **Проверить подключение**, чтобы убедиться, что Azure AD может подключиться к приложению DocuSign.
 

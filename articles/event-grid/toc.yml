@@ -36,6 +36,8 @@
   items:
     - name: Потоковая передача данных из концентраторов событий в хранилище данных
       href: event-grid-event-hubs-integration.md
+    - name: Шаблоны для подписок на события
+      href: event-subscription-template.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

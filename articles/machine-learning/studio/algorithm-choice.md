@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/25/2017
+ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 822bed8ffc43459dd053fda5b68f62f839b7d94b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f645890fc5e08dd468002c1ff0af79ba636ccce3
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Выбор алгоритмов машинного обучения Microsoft Azure
 Ответ на вопрос "Какие алгоритмы машинного обучения использовать?" всегда звучит так: "Это зависит от ряда обстоятельств". Это зависит от размера, качества и природы данных. Это зависит от того, что нужно сделать с ответом. Это зависит от того, как математический алгоритм был преобразован в инструкции для вашего компьютера. И это зависит от того, сколько времени у вас есть. Даже самые опытные специалисты по данным не смогут определить наилучший алгоритм, не попробовав его.
@@ -121,7 +121,7 @@ ms.lasthandoff: 10/11/2017
 | [нейронная сеть](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Возможна дополнительная настройка](http://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Просмотрите свойства выбранного двухклассового метода |
 | **Регрессия** | | | | | |
-| [линейная](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
+| [линейная](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4. | |
 | [Байесовская линейная](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [лес решений](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [увеличивающееся дерево решений](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Большой объем памяти |
@@ -132,7 +132,7 @@ ms.lasthandoff: 10/11/2017
 | **Обнаружение аномалий** | | | | | |
 | [метод опорных векторов](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Особенно полезна для больших наборов функций |
 | [Обнаружение аномалий на основе анализа первичных компонентов](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
-| [K-средних](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4 |Алгоритм кластеризации |
+| [K-средних](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4. |Алгоритм кластеризации |
 
 **Свойства алгоритма:**
 

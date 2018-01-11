@@ -4,7 +4,7 @@ description: "В этой статье описаны дополнительны
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: femila
+manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 06afc6b4149ea1590a2994d1638d6979a89035e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Операции Azure Active Directory Connect Health
 В этой статье описаны различные операции, которые можно выполнить с помощью Azure Active Directory (Azure AD) Connect Health.
@@ -94,7 +94,7 @@ Azure AD Connect Health поддерживает следующие встрое
 | Роль | Разрешения |
 | --- | --- |
 | Владелец. |Владельцы могут *управлять доступом* (например, назначать роль пользователю или группе), *просматривать все сведения* (например, предупреждения) на портале, а также *изменять параметры* (например, параметры отправки уведомлений по электронной почте) в Azure AD Connect Health. <br>По умолчанию данная роль назначается глобальным администраторам Azure AD и не может быть изменена. |
-| Участник. |Участники могут *просматривать все сведения* (например, предупреждения) на портале, а также *изменять параметры* (например, параметры отправки уведомлений по электронной почте) в Azure AD Connect Health. |
+| участник; |Участники могут *просматривать все сведения* (например, предупреждения) на портале, а также *изменять параметры* (например, параметры отправки уведомлений по электронной почте) в Azure AD Connect Health. |
 | Читатель |Читатели могут *просматривать все сведения* (например, предупреждения) на портале в Azure AD Connect Health. |
 
 Все остальные роли (например, "Администраторы доступа пользователя" или "Пользователи лаборатории для разработки и тестирования") никакого влияния на доступ в Azure AD Connect Health не оказывают, даже если они доступны на портале.
@@ -114,7 +114,7 @@ Azure AD Connect Health поддерживает управление досту
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Шаг 2. Добавление пользователей и групп, а также назначение ролей
 1. В разделе **Настройка** щелкните **Пользователи**.<br>
-   ![Снимок экрана главной колонки компонента управления доступом на основе ролей в Azure AD Connect Health с выделенной плиткой "Пользователи"](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Снимок экрана Azure AD RBAC работоспособности подключения главной колонке с пользователями, которые выделены](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Выберите **Добавить**.
 3. В области **Выбор роли** выберите роль (например, **Владелец**).<br>
    ![Снимок экрана окна "Пользователи" компонента управления доступом на основе ролей в Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
@@ -122,7 +122,7 @@ Azure AD Connect Health поддерживает управление досту
    ![Снимок экрана окна "Пользователи" компонента управления доступом на основе ролей в Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Нажмите кнопку **ОК**.<br>
 6. После назначения ролей пользователи и группы отобразятся в списке.<br>
-   ![Снимок экрана окна "Пользователи" компонента управления доступом на основе ролей в Azure AD Connect Health с выделенными новыми пользователями](./media/active-directory-aadconnect-health/RBAC_user_list.png)
+   ![Окно подключения пользователей RBAC работоспособности экрана Azure AD, с новыми пользователями выделен](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Теперь указанные пользователи и группы имеют доступ в соответствии с назначенными им ролями.
 
@@ -135,7 +135,7 @@ Azure AD Connect Health поддерживает управление досту
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Шаг 3. Общий доступ к расположению колонки для пользователей или групп
 1. После назначения разрешений пользователь может получить доступ к Azure AD Connect Health, перейдя по [этому адресу](http://aka.ms/aadconnecthealth).
 2. В этой колонке пользователь может закрепить ее или различные элементы на панели мониторинга. Для этого нужно просто щелкнуть значок **Закрепить колонку на панели мониторинга**.<br>
-   ![Снимок экрана колонки закрепления компонента управления доступом на основе ролей в Azure AD Connect Health с выделенным значком "Закрепить колонку на панели мониторинга"](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+   ![Колонка ПИН-код подключения RBAC работоспособности экрана Azure AD с значок булавки выделен](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
 > [!NOTE]
 > Пользователь с ролью "Читатель" не получает расширения Azure AD Connect Health из Azure Marketplace, так как он не может выполнить необходимую операцию create. Однако этот пользователь по-прежнему может перейти к колонке, воспользовавшись приведенной выше ссылкой. Для дальнейшего использования колонки пользователь может закрепить ее на панели мониторинга.
@@ -144,7 +144,7 @@ Azure AD Connect Health поддерживает управление досту
 
 ### <a name="remove-users-or-groups"></a>Удаление пользователей или групп
 Вы можете удалить пользователя или группу, добавленных в компонент управления доступом на основе ролей Azure AD Connect Health. Для этого просто щелкните пользователя или группу правой кнопкой мыши и выберите команду **Удалить**.<br>
-![Снимок экрана окна "Пользователи" компонента управления доступом на основе ролей в Azure AD Connect Health с выделенной командой "Удалить"](./media/active-directory-aadconnect-health/RBAC_remove.png)
+![Окно подключения пользователей RBAC работоспособности экрана Azure AD, с выделенной Remove](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # (End of RBAC section)
 

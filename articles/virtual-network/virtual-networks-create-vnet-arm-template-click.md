@@ -17,10 +17,10 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Создание виртуальной сети с использованием шаблона Azure Resource Manager
 
@@ -54,7 +54,7 @@ Azure предоставляет две модели развертывания:
 4. Если вы знакомы с шаблонами, перейдите к шагу 7.
 5. Откройте только что сохраненный файл и просмотрите содержимое раздела **parameters** в строке 5. Параметры шаблона ARM предоставляют заполнитель для значений, которые могут заполняться во время развертывания.
    
-   | Параметр | Описание |
+   | Параметр | ОПИСАНИЕ |
    | --- | --- |
    | **расположение** |Регион Azure, в котором будет создана виртуальная сеть |
    | **vnetName** |Имя для новой виртуальной сети |
@@ -104,7 +104,7 @@ Azure предоставляет две модели развертывания:
         }
     ```
 
-11. Сохраните файл .
+11. Сохраните файл.
 
 
 ## <a name="deploy-the-template-using-powershell"></a>Развертывание шаблона с помощью PowerShell

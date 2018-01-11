@@ -4,7 +4,7 @@ description: "Управление доступом на основе ролей
 services: active-directory
 documentationcenter: na
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: andredm
-ms.openlocfilehash: a5c19fd87ce1ae3e199bf1dfc8cf82f5653baac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Управление доступом на основе ролей с помощью REST API
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
-> * [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
+> * [REST API](role-based-access-control-manage-access-rest.md)
 
 Функция управления доступом на основе ролей (RBAC) на портале Azure и в API Azure Resource Manager помогает очень точно управлять доступом к подписке и ресурсам. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
 
@@ -151,10 +151,10 @@ ms.lasthandoff: 10/11/2017
 
 ```
 
-| Имя элемента | Обязательно | Тип | Описание |
+| Имя элемента | Требуется | type | ОПИСАНИЕ |
 | --- | --- | --- | --- |
-| roleDefinitionId |Да |Строка |Идентификатор роли. Он указывается в формате `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId |Да |Строка |ObjectId субъекта Azure AD (пользователя, группы или субъекта-службы), которому назначается роль. |
+| roleDefinitionId |Yes |Строка |Идентификатор роли. Он указывается в формате `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| principalId |Yes |Строка |ObjectId субъекта Azure AD (пользователя, группы или субъекта-службы), которому назначается роль. |
 
 ### <a name="response"></a>Ответ
 Код состояния: 201.
@@ -434,15 +434,15 @@ ms.lasthandoff: 10/11/2017
 
 ```
 
-| Имя элемента | Обязательно | Тип | Описание |
+| Имя элемента | Требуется | type | ОПИСАНИЕ |
 | --- | --- | --- | --- |
-| name |Да |Строка |Идентификатор GUID настраиваемой роли. |
-| properties.roleName |Да |Строка |Отображаемое имя настраиваемой роли. Не может быть более 128 символов в длину. |
-| properties.description |Нет |Строка |Описание настраиваемой роли. Не может быть более 1024 символов в длину. |
-| properties.type |Да |Строка |Укажите значение CustomRole. |
-| properties.permissions.actions |Да |String[] |Массив строк действий, определяющих операции, к которым предоставляет доступ настраиваемая роль. |
-| properties.permissions.notActions |Нет |String[] |Массив строк действий, определяющих операции, исключаемые из списка операций, к которым предоставляет доступ настраиваемая роль. |
-| properties.assignableScopes |Да |String[] |Массив областей, в которых можно использовать настраиваемую роль. |
+| name |Yes |Строка |Идентификатор GUID настраиваемой роли. |
+| properties.roleName |Yes |Строка |Отображаемое имя настраиваемой роли. Не может быть более 128 символов в длину. |
+| properties.description |Нет  |Строка |Описание настраиваемой роли. Не может быть более 1024 символов в длину. |
+| properties.type |Yes |Строка |Укажите значение CustomRole. |
+| properties.permissions.actions |Yes |String[] |Массив строк действий, определяющих операции, к которым предоставляет доступ настраиваемая роль. |
+| properties.permissions.notActions |Нет  |String[] |Массив строк действий, определяющих операции, исключаемые из списка операций, к которым предоставляет доступ настраиваемая роль. |
+| properties.assignableScopes |Yes |String[] |Массив областей, в которых можно использовать настраиваемую роль. |
 
 ### <a name="response"></a>Ответ
 Код состояния: 201.
@@ -537,15 +537,15 @@ ms.lasthandoff: 10/11/2017
 
 ```
 
-| Имя элемента | Обязательно | Тип | Описание |
+| Имя элемента | Требуется | type | ОПИСАНИЕ |
 | --- | --- | --- | --- |
-| name |Да |Строка |Идентификатор GUID настраиваемой роли. |
-| properties.roleName |Да |Строка |Отображаемое имя обновленной настраиваемой роли. |
-| properties.description |Нет |Строка |Описание обновленной настраиваемой роли. |
-| properties.type |Да |Строка |Укажите значение CustomRole. |
-| properties.permissions.actions |Да |String[] |Массив строк действий, определяющих операции, к которым предоставляет доступ обновленная настраиваемая роль. |
-| properties.permissions.notActions |Нет |String[] |Массив строк действий, определяющих операции, исключаемых из списка операций, к которым предоставляет доступ обновленная настраиваемая роль. |
-| properties.assignableScopes |Да |String[] |Массив областей, в которых можно использовать обновленную настраиваемую роль. |
+| name |Yes |Строка |Идентификатор GUID настраиваемой роли. |
+| properties.roleName |Yes |Строка |Отображаемое имя обновленной настраиваемой роли. |
+| properties.description |Нет  |Строка |Описание обновленной настраиваемой роли. |
+| properties.type |Yes |Строка |Укажите значение CustomRole. |
+| properties.permissions.actions |Yes |String[] |Массив строк действий, определяющих операции, к которым предоставляет доступ обновленная настраиваемая роль. |
+| properties.permissions.notActions |Нет  |String[] |Массив строк действий, определяющих операции, исключаемых из списка операций, к которым предоставляет доступ обновленная настраиваемая роль. |
+| properties.assignableScopes |Yes |String[] |Массив областей, в которых можно использовать обновленную настраиваемую роль. |
 
 ### <a name="response"></a>Ответ
 Код состояния: 201.

@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Мониторинг конвейеров фабрики данных Azure и управление ими с помощью приложения для мониторинга и управления
 > [!div class="op_single_selector"]
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/02/2017
 
 <table>
 <tr>
-    <th align="left">Состояние</th><th align="left">Подсостояние</th><th align="left">Описание</th>
+    <th align="left">Status</th><th align="left">Подсостояние</th><th align="left">ОПИСАНИЕ</th>
 </tr>
 <tr>
     <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Время выполнения окна действий еще не наступило.</td>
@@ -212,7 +212,7 @@ ms.lasthandoff: 11/02/2017
 <td>Skipped</td><td>-</td><td>Окно действий не обработано.</td>
 </tr>
 <tr>
-<td>Без блокировки</td><td>-</td><td>Окно действий, которое ранее существовало с другим состоянием, но было сброшено.</td>
+<td>None</td><td>-</td><td>Окно действий, которое ранее существовало с другим состоянием, но было сброшено.</td>
 </tr>
 </table>
 
@@ -322,14 +322,14 @@ ms.lasthandoff: 11/02/2017
 ### <a name="eventstatussubstatus"></a>Событие, состояние и подсостояние
 В приведенной далее таблице содержится список возможных событий и состояний (и подсостояний).
 
-| Имя события | Состояние | Подсостояние |
+| Имя события | Status | Подсостояние |
 | --- | --- | --- |
 | Выполнение действия начато |Started |Запуск |
-| Выполнение действия завершено |Успешно |Успешно |
+| Выполнение действия завершено |Succeeded |Succeeded |
 | Выполнение действия завершено |Сбой |Неудачное выделение ресурсов<br/><br/>Сбой при выполнении<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned |
 | Создание кластера HDI по запросу начато |Started |-|
-| Кластер HDI по запросу успешно создан |Успешно |-|
-| Кластер HDI по запросу удален |Успешно |-|
+| Кластер HDI по запросу успешно создан |Succeeded |-|
+| Кластер HDI по запросу удален |Succeeded |-|
 
 ### <a name="to-edit-delete-or-disable-an-alert"></a>Изменение, удаление или отключение оповещения
 

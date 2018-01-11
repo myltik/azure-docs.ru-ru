@@ -3,7 +3,7 @@ title: "Начало работы с Azure Active Directory | Документа
 description: "Получение лицензий, добавление доменного имени, создание настраиваемой страницы входа и добавление функции самостоятельного сброса пароля в Azure Active Diretory."
 keywords: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
@@ -15,11 +15,11 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: dd745869494a1ed740a0a05a5508363334aa7360
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-azure-ad"></a>Начало работы с Azure AD
 Современная система управления удостоверениями должна быть масштабируемой, стабильной и надежной, чтобы приложения и службы гарантированно были доступны только аутентифицированным пользователям. Чтобы обеспечить все потребности пользователей по управлению удостоверениями, ИТ-специалисты должны предоставить доступ к проверенному и общедоступному приложению формата SaaS (программное обеспечение как услуга), а также метод размещения внутренних бизнес-приложений и даже дополнительные возможности по разработке и использованию локальных приложений. Все эти требования приводят к необходимости использовать облачное решение по управлению удостоверениями.      

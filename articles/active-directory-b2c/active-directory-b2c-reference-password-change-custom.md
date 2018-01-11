@@ -4,7 +4,7 @@ description: "Статья о том, как настроить самостоя
 services: active-directory-b2c
 documentationcenter: 
 author: vigunase
-manager: ajalexander
+manager: mtillman
 ms.assetid: 712a7128-5788-4914-8a52-24e200aa4de1
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
 ms.author: vigunase
-ms.openlocfilehash: b152c22c96da38f8724010504cc2711ab82af00a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 76e7ed328716d09dc57e25f15c411f07fda77bb9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C. Настройка изменения пароля с помощью настраиваемых политик  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 С помощью функции изменения пароля пользователи, выполнившие вход с использованием локальных учетных записей, могут изменять пароли. Для этого им не нужно подтверждать их подлинность путем проверки адреса электронной почты, как описано в статье о [последовательности самостоятельного сброса пароля](active-directory-b2c-reference-sspr.md). Если время сеанса истекает, когда пользователь входит в последовательность изменения пароля, такому пользователю предлагается выполнить вход еще раз. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Клиент Azure AD B2C, необходимый для регистрации или входа с использованием локальной учетной записи, как описано в статье [Azure Active Directory B2C. Приступая к работе с настраиваемыми политиками](active-directory-b2c-get-started-custom.md).
 
@@ -156,13 +156,13 @@ ms.lasthandoff: 10/11/2017
 
 1. В файле расширений (TrustFrameworkExtensions.xml) найдите элемент `<TechnicalProfile Id="login-NonInteractive">` и `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
 
-2. Замените все экземпляры `IdentityExperienceFrameworkAppId` идентификатором приложения Identity Experience Framework, как описано в статье о [начале работы](active-directory-b2c-get-started-custom.md). Пример:
+2. Замените все экземпляры `IdentityExperienceFrameworkAppId` идентификатором приложения Identity Experience Framework, как описано в [руководстве по началу работы](active-directory-b2c-get-started-custom.md). Вот пример: 
 
    ```
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 
-3. Замените все экземпляры `ProxyIdentityExperienceFrameworkAppId` идентификатором прокси-приложения Identity Experience Framework, как описано в статье о [начале работы](active-directory-b2c-get-started-custom.md).
+3. Замените все экземпляры `ProxyIdentityExperienceFrameworkAppId` идентификатором прокси приложения Identity Experience Framework, как описано в [руководстве по началу работы](active-directory-b2c-get-started-custom.md).
 
 4. Сохраните файл расширений.
 
@@ -200,7 +200,7 @@ ms.lasthandoff: 10/11/2017
 
 
 
-## <a name="create-a-relying-party-rp-file"></a>Создание файла проверяющей стороны (RP)
+## <a name="create-a-relying-party-rp-file"></a>Создание файла проверяющей стороны
 
 Теперь обновите файл проверяющей стороны, который активирует созданный путь взаимодействия пользователя.
 

@@ -15,11 +15,11 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: khdang
-ms.openlocfilehash: 473cc23c73a721c54bc87c03069f4f3688cde11f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: d2ea692c5c353586cc2b653e57eca7ccb8c9c7ce
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB. Аналитика графов с помощью Spark и Apache TinkerPop Gremlin
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/26/2017
 
 Используя одновременно Azure Cosmos DB и Spark, вы можете выполнять рабочие нагрузки OLTP и OLAP с помощью Gremlin. В этом кратком руководстве показано, как выполнять запросы Gremlin в Azure Cosmos DB в кластере Azure HDInsight Spark.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для выполнения этого примера вам потребуется:
 * Кластер Azure HDInsight Spark 2.0.
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/26/2017
 
 3. Установите подключаемый модуль Spark-Gremlin. 
 
-    а. За установку подключаемого модуля отвечает Grape. Укажите сведения о репозитории для Grape для скачивания подключаемого модуля и его зависимостей. 
+    a. За установку подключаемого модуля отвечает Grape. Укажите сведения о репозитории для Grape для скачивания подключаемого модуля и его зависимостей. 
 
       Создайте файл конфигурации Grape, если его нет в каталоге `~/.groovy/grapeConfig.xml`. Используйте следующие параметры:
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 10/26/2017
     </ivysettings>
     ``` 
 
-    b. Запустите консоль Gremlin `bin/gremlin.sh`.
+    Б. Запустите консоль Gremlin `bin/gremlin.sh`.
         
     c. Установите подключаемый модуль Spark-Gremlin версии 3.3.0-SNAPSHOT, созданный на предыдущем шаге.
 
@@ -176,13 +176,13 @@ ms.lasthandoff: 10/26/2017
 
 ## <a name="get-the-azure-cosmos-db-spark-connector"></a>Получение соединителя Spark для Azure Cosmos DB
 
-1. Получите соединитель Spark для Azure Cosmos DB `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` и пакет SDK для Java для Cosmos DB `azure-documentdb-1.10.0.jar` из [соединителя Spark для Azure Cosmos DB в GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
+1. Получите соединитель Spark для Azure Cosmos DB `azure-cosmosdb-spark-0.0.3-SNAPSHOT.jar` и пакет SDK для Java для Cosmos DB `azure-documentdb-1.12.0.jar` из [соединителя Spark для Azure Cosmos DB в GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
 
 2. Кроме того, вы можете создать его локально. Так как последняя версия Spark-Gremlin создана с помощью Spark 1.6.1 и не совместима со Spark версии 2.0.2, которая сейчас используется в соединителе Spark для Azure Cosmos DB, вы можете создать новейший код TinkerPop3 и установить JAR-файлы вручную. Выполните следующее:
 
-    а. Клонируйте соединитель Spark для Azure Cosmos DB.
+    a. Клонируйте соединитель Spark для Azure Cosmos DB.
 
-    b. Создайте TinkerPop3 (сделано ранее). Установите все JAR-файлы TinkerPop 3.3.0-SNAPSHOT локально.
+    Б. Создайте TinkerPop3 (сделано ранее). Установите все JAR-файлы TinkerPop 3.3.0-SNAPSHOT локально.
 
     ```bash
     mvn install:install-file -Dfile="gremlin-core-3.3.0-SNAPSHOT.jar" -DgroupId=org.apache.tinkerpop -DartifactId=gremlin-core -Dversion=3.3.0-SNAPSHOT -Dpackaging=jar
@@ -195,7 +195,7 @@ ms.lasthandoff: 10/26/2017
 
     c. Обновите `tinkerpop.version` `azure-documentdb-spark/pom.xml` до версии `3.3.0-SNAPSHOT`.
     
-    г) Выполните сборку с помощью Maven. Необходимые JAR-файлы помещаются в каталоги `target` и `target/alternateLocation`.
+    d. Выполните сборку с помощью Maven. Необходимые JAR-файлы помещаются в каталоги `target` и `target/alternateLocation`.
 
     ```bash
     git clone https://github.com/Azure/azure-cosmosdb-spark.git
@@ -218,14 +218,14 @@ ms.lasthandoff: 10/26/2017
 
 2. Скопируйте зависимости Gremlin, перечисленные выше, JAR-файл соединителя Spark для CosmosDB и пакет SDK для Java для CosmosDB в рабочие узлы следующим образом:
 
-    а. Скопируйте все JAR-файлы в каталог `~/azure-documentdb-spark`.
+    a. Скопируйте все JAR-файлы в каталог `~/azure-documentdb-spark`.
 
     ```bash
     $ /home/sshuser/tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone:
     cp lib/* ~/azure-documentdb-spark
     ```
 
-    b. Получите список всех рабочих узлов Spark, которые можно найти на панели мониторинга Ambari, в списке `Spark2 Clients` в разделе `Spark2`.
+    Б. Получите список всех рабочих узлов Spark, которые можно найти на панели мониторинга Ambari, в списке `Spark2 Clients` в разделе `Spark2`.
 
     c. Скопируйте этот каталог для каждого узла.
 
@@ -241,9 +241,9 @@ ms.lasthandoff: 10/26/2017
 
 2. Задайте значение hdp.version для всех узлов. На панели мониторинга Ambari перейдите к **разделу YARN** > **Configs (Конфигурации)** > **Advanced** (Дополнительные), а затем сделайте следующее: 
  
-    а. В разделе `Custom yarn-site` добавьте новое свойство `hdp.version` со значением версии HDP на главном узле. 
+    a. В разделе `Custom yarn-site` добавьте новое свойство `hdp.version` со значением версии HDP на главном узле. 
      
-    b. Сохраните конфигурации. Могут появиться предупреждения, которые можно проигнорировать. 
+    Б. Сохраните конфигурации. Могут появиться предупреждения, которые можно проигнорировать. 
      
     c. Перезапустите службы YARN и Oozie в соответствии с сообщением в значках с уведомлением.
 
@@ -327,9 +327,9 @@ ms.lasthandoff: 10/26/2017
 
 3. Запустите консоль Gremlin и создайте следующие шаги вычисления, чтобы сохранить данные в настроенную коллекцию Azure Cosmos DB:  
 
-    а. Создайте граф `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`.
+    a. Создайте граф `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`.
 
-    b. Используйте SparkGraphComputer для записи: `graph.compute(SparkGraphComputer.class).result(GraphComputer.ResultGraph.NEW).persist(GraphComputer.Persist.EDGES).program(TraversalVertexProgram.build().traversal(graph.traversal().withComputer(Computer.compute(SparkGraphComputer.class)),"gremlin-groovy","g.V()").create(graph)).submit().get()`.
+    Б. Используйте SparkGraphComputer для записи: `graph.compute(SparkGraphComputer.class).result(GraphComputer.ResultGraph.NEW).persist(GraphComputer.Persist.EDGES).program(TraversalVertexProgram.build().traversal(graph.traversal().withComputer(Computer.compute(SparkGraphComputer.class)),"gremlin-groovy","g.V()").create(graph)).submit().get()`.
 
     ```bash
     gremlin> graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")
@@ -358,13 +358,13 @@ ms.lasthandoff: 10/26/2017
 
 2. Загрузите граф, просмотрите данные и выполните запросы Gremlin следующим образом:
 
-    а. Запустите консоль Gremlin `bin/gremlin.sh`.
+    a. Запустите консоль Gremlin `bin/gremlin.sh`.
 
-    b. Создайте граф с помощью конфигурации `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.
+    Б. Создайте граф с помощью конфигурации `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.
 
     c. Создайте обход графа со SparkGraphComputer `g = graph.traversal().withComputer(SparkGraphComputer)`.
 
-    г) Выполните следующие запросы графа Gremlin:
+    d. Выполните следующие запросы графа Gremlin:
 
     ```bash
     gremlin> graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")

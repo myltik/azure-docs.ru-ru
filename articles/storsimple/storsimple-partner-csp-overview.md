@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: b9f4004eb69314ad9d4cdad0f7140b6f85af300b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 75d0bbc536c907e6530570b4d7568f39371cfced
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>Что такое StorSimple для программы поставщиков облачных решений?
 
@@ -29,7 +29,7 @@ Microsoft Azure StorSimple — это уникальный подход к со�
 
 Виртуальный массив StorSimple для поставщика облачных решений (CSP) позволяет партнерам получить выгоду от этой возможности. Партнеры полностью контролируют жизненный цикл клиентов, напрямую выполняя подготовку, выставляя счета и оказывая поддержку по облачным службам корпорации Майкрософт. Иными словами, партнеры теперь могут обрабатывать StorSimple вместе с остальными услугами для своих клиентов.
 
-Дополнительные сведения о StorSimple по программе CSP вы можете найти в [Azure CSP overview](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview) (Обзор Azure CSP).
+Дополнительные сведения о StorSimple по программе CSP вы можете найти в [Azure CSP overview](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) (Обзор Azure CSP).
 
 Дополнительные сведения о выставлении счетов, ценообразовании, поощрениях и получении поддержки в CSP см. в статье [StorSimple in CSP: FAQ](storsimple-partner-csp-faq.md) (StorSimple в CSP: часто задаваемые вопросы). 
 

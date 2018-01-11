@@ -3,8 +3,8 @@ title: "Как обеспечить безопасный удаленный до
 description: "Описывается, как использовать прокси приложения Azure AD для обеспечения безопасного удаленного доступа к локальным приложениям."
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
+author: daveba
+manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 426056d394af0a9ded28202615cb80c7b50e59fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 24def898f282c4e122ae53932ae86047e815595c
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Как обеспечить безопасный удаленный доступ к локальным приложениям
 

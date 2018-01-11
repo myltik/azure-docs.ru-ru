@@ -3,7 +3,7 @@ title: "Часто задаваемые вопросы об Azure DevTest Labs |
 description: "Ответы на часто задаваемые вопросы об Azure DevTest Labs."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
-ms.author: tarcher
-ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Часто задаваемые вопросы об Azure DevTest Labs
 В этой статье содержатся ответы на некоторые самые распространенные вопросы об Azure DevTest Labs.
@@ -140,7 +140,7 @@ DevTest Labs предусматривает два типа ролей для п
 
 Чтобы найти целевую учетную запись хранения, связанную с лабораторией, сделайте следующее:
 
-1. Выполните вход на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. В меню слева выберите **Группы ресурсов**.
 3. Найдите и выберите группу ресурсов, связанную с вашей лабораторией.
 4. В разделе **Обзор** выберите одну из учетных записей хранения.
@@ -226,11 +226,11 @@ DevTest Labs предусматривает два типа ролей для п
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Почему при подготовке из PowerShell выводится ошибка Parent resource not found (Родительский ресурс не найден)?
 Если один ресурс является родительским для другого ресурса, то перед созданием этого дочернего ресурса должен существовать его родительский ресурс. Если родительский ресурс не существует, появится сообщение **ParentResourceNotFound**. Если не задать зависимость от родительского ресурса, то дочерний ресурс может быть развернут раньше родительского.
 
-Виртуальные машины представляют собой дочерние ресурсы в лаборатории в группе ресурсов. При использовании шаблонов Resource Manager для развертывания виртуальных машин с помощью PowerShell имя группы ресурсов, указанное в скрипте PowerShell, должно совпадать с именем группы ресурсов лаборатории. Дополнительные сведения см. в статье [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager | Microsoft Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Виртуальные машины представляют собой дочерние ресурсы в лаборатории в группе ресурсов. При использовании шаблонов Resource Manager для развертывания виртуальных машин с помощью PowerShell имя группы ресурсов, указанное в скрипте PowerShell, должно совпадать с именем группы ресурсов лаборатории. Дополнительные сведения см. в статье [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager | Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Где найти дополнительные сведения об ошибке при сбое развертывания виртуальной машины?
 Ошибки при развертывании виртуальной машины записываются в журналы действий. Найти журналы действий виртуальных машин лаборатории можно в **журналах аудита** или **диагностических данных виртуальной машины** в меню ресурсов в колонке виртуальной машины лаборатории (которая отображается после выбора виртуальной машины в списке **My virtual machines** (Мои виртуальные машины)).
 
-В некоторых случаях ошибка развертывания возникает до начала развертывания виртуальной машины. Например, при превышении лимита подписки для ресурса, созданного с помощью виртуальной машины. В таком случае сведения об ошибке регистрируются на уровне журналов действий. Журналы действий находятся под параметрами **конфигурации и политик**. Дополнительные сведения об использовании журналов действий в Azure см. в статье [Просмотр журналов действий для аудита действий с ресурсами](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
+В некоторых случаях ошибка развертывания возникает до начала развертывания виртуальной машины. Например, при превышении лимита подписки для ресурса, созданного с помощью виртуальной машины. В таком случае сведения об ошибке регистрируются на уровне журналов действий. Журналы действий находятся под параметрами **конфигурации и политик**. Дополнительные сведения об использовании журналов действий в Azure см. в статье [Просмотр журналов действий для аудита действий с ресурсами](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

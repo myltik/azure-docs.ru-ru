@@ -3,7 +3,7 @@ title: "Создание сред со множеством виртуальны
 description: "Узнайте, как в Azure DevTest Labs создавать среды со множеством виртуальных машин и ресурсов PaaS, используя шаблон Azure Resource Manager."
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: tarcher
-ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 3fd0f15c695bcd22a51233846ace8711a4fcd635
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Создание сред со множеством виртуальных машин и ресурсов PaaS с помощью шаблонов Azure Resource Manager
 
-[Портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) позволяет с легкостью [создать и добавить виртуальную машину в лабораторию](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). Этот вариант хорошо подходит, если одновременно создается только одна виртуальная машина. Но если среда содержит несколько виртуальных машин, то каждую из них необходимо создавать отдельно. Для сценариев, где задействовано многоуровневое веб-приложение или ферма SharePoint, требуется механизм создания множества виртуальных машин одним действием. С помощью шаблонов Azure Resource Manager теперь можно определить инфраструктуру и конфигурацию решения Azure и многократно развернуть множество виртуальных машин в согласованном состоянии. Эта функция обеспечивает следующие преимущества:
+[Портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) позволяет с легкостью [создать и добавить виртуальную машину в лабораторию](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Этот вариант хорошо подходит, если одновременно создается только одна виртуальная машина. Но если среда содержит несколько виртуальных машин, то каждую из них необходимо создавать отдельно. Для сценариев, где задействовано многоуровневое веб-приложение или ферма SharePoint, требуется механизм создания множества виртуальных машин одним действием. С помощью шаблонов Azure Resource Manager теперь можно определить инфраструктуру и конфигурацию решения Azure и многократно развернуть множество виртуальных машин в согласованном состоянии. Эта функция обеспечивает следующие преимущества:
 
 - Шаблоны Azure Resource Manager загружаются непосредственно из репозитория системы управления версиями (GitHub или Team Services Git).
 - После настройки пользователи могут создать среду, выбрав шаблон Azure Resource Manager на портале Azure, как они делают с другими типами [баз виртуальных машин](./devtest-lab-comparing-vm-base-image-types.md).
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 
 Ниже описаны шаги, которые помогут вам добавить в лабораторию репозиторий, используя портал Azure. 
 
-1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Щелкните **Больше служб**, а затем выберите в списке **DevTest Labs**.
 1. Из списка лабораторий выберите нужную лабораторию.   
 1. В колонке лаборатории выберите **Configuration and Policies** (Конфигурация и политики).
@@ -93,7 +93,7 @@ ms.lasthandoff: 10/11/2017
 
 После настройки в лаборатории репозитория шаблонов Azure Resource Manager пользователи лаборатории могут создать среду, выполнив следующие действия на портале Azure:
 
-1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Щелкните **Больше служб**, а затем выберите в списке **DevTest Labs**.
 1. Из списка лабораторий выберите нужную лабораторию.   
 1. В колонке лаборатории щелкните **+Добавить**.

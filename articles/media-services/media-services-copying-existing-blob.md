@@ -6,24 +6,23 @@ documentationcenter:
 author: Juliako
 manager: cfowler
 editor: 
-ms.assetid: 6a63823f-f3c9-424c-91b8-566f70bec346
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2bc1f0114a096920d4a7c9cb57e44c9b3612bf86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5a6e1b5bc377d3fc4ad47fdfb37da4853c3bb827
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Копирование существующих BLOB-объектов в файл служб мультимедиа
-В этой статье демонстрируется, как копировать большие двоичные объекты из учетной записи хранения в файл служб мультимедиа Azure (AMS) с помощью [расширений пакета SDK служб мультимедиа Azure для .NET](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
+В этой статье показано, как скопировать BLOB-объектов из учетной записи хранилища в новый актив служб мультимедиа Azure (AMS) с помощью [расширения SDK .NET служб мультимедиа Azure](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
 
-Методы этого расширения работают со следующими компонентами:
+Методы расширений, работают с:
 
 - обычные файлы;
 - файлы динамического архива (в формате FragBlob);
@@ -33,16 +32,16 @@ ms.lasthandoff: 10/11/2017
 > Не следует пытаться изменить содержимое контейнеров больших двоичных объектов, созданных службами мультимедиа, без использования интерфейсов API служб мультимедиа.
 > 
 
-В этом разделе представлено два образца кода.
+Статьи показано два образца кода.
 
 1. Первый копирует большие двоичные объекты из ресурса в одной учетной записи AMS в новый ресурс в другой учетной записи AMS.
 2. Второй копирует большие двоичные объекты из произвольной учетной записи хранения в новый ресурс в учетной записи AMS.
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Копирование больших двоичных объектов между двумя учетными записями AMS  
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Технические условия
 
-Две учетные записи служб мультимедиа. Дополнительные сведения см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md).
+Две учетные записи служб мультимедиа. См. в статье [Создание учетной записи Media Services](media-services-portal-create-account.md).
 
 ### <a name="download-sample"></a>Скачивание образца
 Можно выполнить действия, описанные в этой статье, или просто [скачать](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/) пример с используемым в этой статье кодом.
@@ -50,18 +49,27 @@ ms.lasthandoff: 10/11/2017
 ### <a name="set-up-your-project"></a>Настройка проекта
 
 1. Настройте среду разработки, как описано в статье [Разработка служб мультимедиа с помощью .NET](media-services-dotnet-how-to-use.md). 
-2. Добавьте другие ссылки, необходимые для этого проекта: System.Configuration.
-3. Добавьте раздел appSettings в файл CONFIG и обновите значения в соответствии со значениями учетных записей служб мультимедиа и хранилища, а также идентификатора исходного файла.  
+2. Добавить раздел appSettings в файле .config и обновите значения на основе учетных записей служб мультимедиа, целевой учетной записью хранения и идентификатор исходной активов.  
 
 ```   
 <appSettings>
-    <add key="AMSSourceAADTenantDomain" value="AADTenantDomain"/>
-    <add key="AMSSourceRESTAPIEndpoint" value="RESTAPIEndpoint"/>
-    <add key="AMSDestAADTenantDomain" value="AADTenantDomain"/>
-    <add key="AMSDestRESTAPIEndpoint" value="RESTAPIEndpoint"/>
+    <add key="AMSSourceAADTenantDomain" value="tenant"/>
+    <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
+
+    <add key="SourceAMSClientId" value="clientID"/>
+    <add key="SourceAMSClientSecret" value="clientSecret"/>
+
+    <add key="SourceAssetID" value="nb:cid:UUID:<id>"/>
+
+    <add key="AMSDestAADTenantDomain" value="tenant"/>
+    <add key="AMSDestRESTAPIEndpoint" value="endpoint"/>
+
+    <add key="DestAMSClientId" value="clientID"/>
+    <add key="DestAMSClientSecret" value="clientSecret"/>
+
     <add key="DestStorageAccountName" value="name"/>
     <add key="DestStorageAccountKey" value="key"/>
-    <add key="SourceAssetID" value="nb:cid:UUID:assetID"/>
+
 </appSettings>
 ```
 
@@ -80,22 +88,45 @@ namespace CopyExistingBlobsIntoAsset
 {
     class Program
     {
-        static string _sourceAADTenantDomain = ConfigurationManager.AppSettings["AMSSourceAADTenantDomain"];
-        static string _sourceRESTAPIEndpoint = ConfigurationManager.AppSettings["AMSSourceRESTAPIEndpoint"];
-        static string _destAADTenantDomain = ConfigurationManager.AppSettings["AMSDestAADTenantDomain"];
-        static string _destRESTAPIEndpoint = ConfigurationManager.AppSettings["AMSDestRESTAPIEndpoint"];
-        static string _destStorageAccountName = ConfigurationManager.AppSettings["DestStorageAccountName"];
-        static string _destStorageAccountKey = ConfigurationManager.AppSettings["DestStorageAccountKey"];
-        static string _sourceAssetID = ConfigurationManager.AppSettings["SourceAssetID"];
+        static string _sourceAADTenantDomain = 
+            ConfigurationManager.AppSettings["AMSSourceAADTenantDomain"];
+        static string _sourceRESTAPIEndpoint = 
+            ConfigurationManager.AppSettings["AMSSourceRESTAPIEndpoint"];
+        static string _sourceClientId = 
+            ConfigurationManager.AppSettings["SourceAMSClientId"];
+        static string _sourceClientSecret = 
+            ConfigurationManager.AppSettings["SourceAMSClientSecret"];
+
+        static string _destAADTenantDomain = 
+            ConfigurationManager.AppSettings["AMSDestAADTenantDomain"];
+        static string _destRESTAPIEndpoint = 
+            ConfigurationManager.AppSettings["AMSDestRESTAPIEndpoint"];
+        static string _destClientId = 
+            ConfigurationManager.AppSettings["DestAMSClientId"];
+        static string _destClientSecret = 
+            ConfigurationManager.AppSettings["DestAMSClientSecret"];
+
+        static string _destStorageAccountName = 
+            ConfigurationManager.AppSettings["DestStorageAccountName"];
+        static string _destStorageAccountKey = 
+            ConfigurationManager.AppSettings["DestStorageAccountKey"];
+        static string _sourceAssetID = 
+            ConfigurationManager.AppSettings["SourceAssetID"];
 
         private static CloudMediaContext _sourceContext = null;
         private static CloudMediaContext _destContext = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials1 = new AzureAdTokenCredentials(_sourceAADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials1 = new AzureAdTokenCredentials(_sourceAADTenantDomain,
+                   new AzureAdClientSymmetricKey(_sourceClientId, _sourceClientSecret),
+                   AzureEnvironments.AzureCloudEnvironment);
+
+            AzureAdTokenCredentials tokenCredentials2 = new AzureAdTokenCredentials(_destAADTenantDomain,
+                   new AzureAdClientSymmetricKey(_destClientId, _destClientSecret),
+                   AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider1 = new AzureAdTokenProvider(tokenCredentials1);
-            var tokenCredentials2 = new AzureAdTokenCredentials(_destAADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
             var tokenProvider2 = new AzureAdTokenProvider(tokenCredentials2);
 
             // Create the context for your source Media Services account.
@@ -109,12 +140,13 @@ namespace CopyExistingBlobsIntoAsset
                 new StorageCredentials(_destStorageAccountName, _destStorageAccountKey);
 
             // Get a reference to the source asset in the source context.
-            IAsset sourceAsset = _sourceContext.Assets.Where(a => a.Id == _sourceAssetID).First();
+            IAsset sourceAsset = _sourceContext.Assets.Where(asset => asset.Id == _sourceAssetID).First();
 
             // Create an empty destination asset in the destination context.
             IAsset destinationAsset = _destContext.Assets.Create(sourceAsset.Name, AssetCreationOptions.None);
 
             // Copy the files in the source asset instance into the destination asset instance.
+            // There is an additional overload with async support.
             sourceAsset.Copy(destinationAsset, destinationStorageCredentials);
 
             Console.WriteLine("Done");
@@ -125,7 +157,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Копирование больших двоичных объектов из учетной записи хранения в учетную запись AMS 
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Технические условия
 
 - Одна учетная запись хранения, из которой вы будете копировать BLOB-объекты.
 - Одна учетная запись AMS, в которую вы будете копировать BLOB-объекты.
@@ -133,26 +165,29 @@ namespace CopyExistingBlobsIntoAsset
 ### <a name="set-up-your-project"></a>Настройка проекта
 
 1. Настройте среду разработки, как описано в статье [Разработка служб мультимедиа с помощью .NET](media-services-dotnet-how-to-use.md). 
-2. Добавьте другие ссылки, необходимые для этого проекта: System.Configuration.
-3. Добавьте раздел appSettings в файл .config и обновите значения в соответствии с параметрами учетных записей AMS для исходного и целевого хранилищ.
+2. Добавьте раздел appSettings в файл .config и обновите значения в соответствии с параметрами учетных записей AMS для исходного и целевого хранилищ.
 
 ```
 <appSettings>
-  <add key="SourceStorageAccountName" value="name" />
-  <add key="SourceStorageAccountKey" value="key" />
-  <add key="AMSAADTenantDomain" value="tenant"/>
-  <add key="AMSESTAPIEndpoint" value="endpoint"/>
-  <add key="AMSStorageAccountName" value="name" />
-  <add key="AMSStorageAccountKey" value="key" />
+    <add key="SourceStorageAccountName" value="name" />
+    <add key="SourceStorageAccountKey" value="key" />
+    <add key="NameOfBlobContainerYouWantToCopy" value="BlobContainerName"/>
+    
+    <add key="AMSAADTenantDomain" value="tenant"/>
+    <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+    <add key="AMSClientId" value="clientID"/>
+    <add key="AMSClientSecret" value="clientSecret"/>
+    <add key="AMSStorageAccountName" value="name"/>
+    <add key="AMSStorageAccountKey" value="key"/>
 </appSettings>
 ```
 
-### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-a-ams-account"></a>Копирование больших двоичных объектов из произвольной учетной записи хранения в новый ресурс в учетной записи AMS
+### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>Копировать BLOB-объектов из учетной записи хранения в новый ресурс в учетной записи AMS
 
 Следующий код копирует большие двоичные объекты из учетной записи хранения в файл служб мультимедиа. 
 
 >[!NOTE]
->Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Например, политики для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Чтобы узнать больше, ознакомьтесь с [этим](media-services-dotnet-manage-entities.md#limit-access-policies) разделом.
+>Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Например, политики для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Дополнительные сведения см. в [этой статье](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 ```
 using System;
@@ -168,18 +203,25 @@ namespace CopyExistingBlobsIntoAsset
     class Program
     {
         // Read values from the App.config file.
-        private static readonly string _AMSAADTenantDomain =
-            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
-        private static readonly string _AMSRESTAPIEndpoint =
-            ConfigurationManager.AppSettings["AMSESTAPIEndpoint"];
-        private static readonly string _AMSStorageAccountName =
-            ConfigurationManager.AppSettings["AMSStorageAccountName"];
-        private static readonly string _AMSStorageAccountKey =
-            ConfigurationManager.AppSettings["AMSStorageAccountKey"];
         private static readonly string _sourceStorageAccountName =
             ConfigurationManager.AppSettings["SourceStorageAccountName"];
         private static readonly string _sourceStorageAccountKey =
             ConfigurationManager.AppSettings["SourceStorageAccountKey"];
+        private static readonly string _NameOfBlobContainerYouWantToCopy =
+            ConfigurationManager.AppSettings["NameOfBlobContainerYouWantToCopy"];
+
+        private static readonly string _AMSAADTenantDomain =
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _AMSRESTAPIEndpoint =
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+        private static readonly string _AMSStorageAccountName =
+            ConfigurationManager.AppSettings["AMSStorageAccountName"];
+        private static readonly string _AMSStorageAccountKey =
+            ConfigurationManager.AppSettings["AMSStorageAccountKey"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
@@ -188,13 +230,15 @@ namespace CopyExistingBlobsIntoAsset
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AMSAADTenantDomain, 
-                AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = new AzureAdTokenCredentials(_AMSAADTenantDomain,
+               new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+               AzureEnvironments.AzureCloudEnvironment);
+            
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             // Create the context for your source Media Services account.
             _context = new CloudMediaContext(new Uri(_AMSRESTAPIEndpoint), tokenProvider);
-            
+
             _sourceStorageAccount =
                 new CloudStorageAccount(new StorageCredentials(_sourceStorageAccountName,
                     _sourceStorageAccountKey), true);
@@ -206,14 +250,14 @@ namespace CopyExistingBlobsIntoAsset
             CloudBlobClient sourceCloudBlobClient =
                 _sourceStorageAccount.CreateCloudBlobClient();
             CloudBlobContainer sourceContainer =
-                sourceCloudBlobClient.GetContainerReference("NameOfBlobContainerYouWantToCopy");
+                sourceCloudBlobClient.GetContainerReference(_NameOfBlobContainerYouWantToCopy);
 
             CreateAssetFromExistingBlobs(sourceContainer);
 
             Console.WriteLine("Done");
         }
 
-        static public IAsset CreateAssetFromExistingBlobs(CloudBlobContainer sourceBlobContainer)
+        static private IAsset CreateAssetFromExistingBlobs(CloudBlobContainer sourceBlobContainer)
         {
             CloudBlobClient destBlobStorage = _destinationStorageAccount.CreateCloudBlobClient();
 
@@ -240,14 +284,15 @@ namespace CopyExistingBlobsIntoAsset
 
             var blobList = sourceBlobContainer.ListBlobs();
 
-            foreach (var sourceBlob in blobList)
+            foreach (CloudBlockBlob sourceBlob in blobList)
             {
                 var assetFile = asset.AssetFiles.Create((sourceBlob as ICloudBlob).Name);
 
                 ICloudBlob destinationBlob = destAssetContainer.GetBlockBlobReference(assetFile.Name);
 
-                CopyBlob(sourceBlob as ICloudBlob, destAssetContainer);
-
+                CopyBlob(sourceBlob, destAssetContainer);
+                
+                sourceBlob.FetchAttributes();
                 assetFile.ContentFileSize = (sourceBlob as ICloudBlob).Properties.Length;
                 assetFile.Update();
                 Console.WriteLine("File {0} is of {1} size", assetFile.Name, assetFile.ContentFileSize);
@@ -289,7 +334,7 @@ namespace CopyExistingBlobsIntoAsset
                 SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
             });
 
-            ICloudBlob destinationBlob = destinationContainer.GetBlockBlobReference(sourceBlob.Name);
+            var destinationBlob = destinationContainer.GetBlockBlobReference(sourceBlob.Name);
 
             if (destinationBlob.Exists())
             {
@@ -302,7 +347,7 @@ namespace CopyExistingBlobsIntoAsset
                 Console.WriteLine(sourceBlob.Properties.Length);
 
                 Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
-                destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + signature));
+                destinationBlob.StartCopy(new Uri(sourceBlob.Uri.AbsoluteUri + signature));
 
                 while (true)
                 {

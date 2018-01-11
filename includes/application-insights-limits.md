@@ -11,7 +11,7 @@
 | Длина имен свойств и метрик | 150 | См. [схемы типов](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Длина строки значения свойства | 8192 | См. [схемы типов](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Длина сообщения трассировки и исключения | 10 000 | См. [схемы типов](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| Количество [тестов доступности](../articles/application-insights/app-insights-monitor-web-app-availability.md) для одного приложения  | 10 |
+| Количество [тестов доступности](../articles/application-insights/app-insights-monitor-web-app-availability.md) для одного приложения  | 100 |
 | Хранение данных [профилировщика](../articles/application-insights/app-insights-profiler.md) | 5 дней |
 | Отправляемые данные [профилировщика](../articles/application-insights/app-insights-profiler.md) в день | 10 ГБ |
 

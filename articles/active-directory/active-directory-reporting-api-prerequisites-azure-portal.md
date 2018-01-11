@@ -4,7 +4,7 @@ description: "Узнайте о предварительных требован�
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: f1f4d79b59d44bc1c151391290e79026051fe1df
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Предварительные требования для доступа к API отчетов Azure AD
 
@@ -40,7 +40,7 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 2. предоставьте разрешения; 
 3. Сбор параметров конфигурации 
 
-Чтобы задать вопросы, обговорить проблемы или предоставить отзыв, [отправьте запрос в службу поддержки](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
+Чтобы задать вопросы, обговорить проблемы или предоставить отзыв, [отправьте запрос в службу поддержки](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## <a name="register-an-azure-active-directory-application"></a>Регистрация приложения Azure Active Directory
 
@@ -71,13 +71,13 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/04.png)
 
-    а. В текстовом поле **Имя** введите `Reporting API application`.
+    a. В текстовом поле **Имя** введите `Reporting API application`.
 
-    b. В качестве **типа приложения** выберите **Веб-приложение или API**.
+    Б. В качестве **типа приложения** выберите **Веб-приложение или API**.
 
     c. В текстовом поле **URL-адрес входа** введите `https://localhost`.
 
-    г) Щелкните **Создать**. 
+    d. Нажмите кнопку **Создать**. 
 
 
 ## <a name="grant-permissions"></a>Предоставление разрешений 
@@ -181,16 +181,16 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites-azure-portal/14.png)
 
-    а. В текстовом поле **Описание** введите `Reporting API`.
+    a. В текстовом поле **Описание** введите `Reporting API`.
 
-    b. Для параметра **Срок действия истекает** выберите значение **Через 2 года**.
+    Б. Для параметра **Срок действия истекает** выберите значение **Через 2 года**.
 
-    c. Щелкните **Сохранить**.
+    c. Выберите команду **Сохранить**.
 
-    г) Скопируйте значение ключа.
+    d. Скопируйте значение ключа.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 * Хотите получать доступ к данным из API отчетов Azure AD программным образом? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Дополнительные сведения об отчетах Azure Active Directory см. в статье [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).  
 

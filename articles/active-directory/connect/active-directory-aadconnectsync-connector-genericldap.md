@@ -4,7 +4,7 @@ description: "В этой статье описана настройка уни�
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: adb174526bc377f484be5fb0a71b28e8daaaa6fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fe8db8f2a2412a3dfdf31201678c51e4fa0cee30
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>Технический справочник по универсальному соединителю LDAP
 В этой статье описывается универсальный соединитель LDAP. Статья относится к следующим продуктам:
@@ -92,7 +92,7 @@ ms.lasthandoff: 10/11/2017
   * Поддерживаются все операции импорта изменений.
   * Поддерживаются установка и изменение пароля.
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Технические условия
 Прежде чем использовать соединитель, установите на сервере синхронизации такие компоненты:
 
 * Microsoft .NET Framework, начиная с версии 4.5.2.

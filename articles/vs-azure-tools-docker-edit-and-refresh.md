@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Отладка приложений в локальном контейнере Docker
 ## <a name="overview"></a>Обзор
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Должны быть установлены следующие средства.
 
 * [Последняя версия Visual Studio](https://www.visualstudio.com/downloads/)
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 
 1. Укажите для конфигурации решения значение `Debug` и нажмите клавиши **&lt;CTRL+F5>**, чтобы создать образ Docker и запустить его локально.
 
-    Когда образ контейнера будет построен и запущен в контейнере Docker, Visual Studio запустит веб-приложение в вашем браузере по умолчанию.
+    Когда образ контейнера построен и запущен в контейнер Docker, Visual Studio запускает веб-приложения в браузере по умолчанию.
     Если вы пользуетесь браузером Microsoft Edge или по каким-либо причинам в работе возникают проблемы, ознакомьтесь с разделом [Устранение неполадок](vs-azure-tools-docker-troubleshooting-docker-errors.md).
 2. Перейдите на страницу "О программе", где мы сможем внести наши изменения.
 3. Вернитесь в Visual Studio и откройте `Views\Home\About.cshtml`.

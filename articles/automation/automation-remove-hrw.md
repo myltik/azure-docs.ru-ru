@@ -3,7 +3,7 @@ title: "Удаление гибридных рабочих ролей Runbook в
 description: "В этой статье содержатся сведения об управлении развернутыми гибридными рабочими ролями Runbook в службе автоматизации Azure, которые позволяют запускать модули Runbook на компьютерах в локальном центре обработки данных или облачной среде."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 68031ba2ce5c47870c3e60dc469dcda2971b4d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a897a97b9a1e259f5994a27b974eb5183fd1194b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="remove-azure-automation-hybrid-runbook-workers"></a>Удаление гибридных рабочих ролей Runbook в службе автоматизации Azure
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 1. Выберите элемент **Группы гибридных рабочих ролей** и в колонке **Группы гибридных рабочих ролей** выберите группу, которую требуется удалить.  После выбора конкретной группы отобразится колонка свойств **гибридной рабочей роли**.<br> ![Колонка группы гибридных рабочих ролей Runbook](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
 1. В колонке свойств выбранной группы щелкните **Удалить**.  Появится запрос на подтверждение этого действия. Выберите **Да**, если вы уверены, что хотите продолжить.<br> ![Диалоговое окно подтверждения удаления группы](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> Этот процесс может занять несколько секунд. Ход его выполнения можно просмотреть в разделе **Уведомления** в меню. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 * Ознакомьтесь с [запуском модулей runbook в гибридной рабочей роли Runbook](automation-hrw-run-runbooks.md), чтобы узнать, как настроить модули runbook для автоматизации процессов в локальном центре обработки данных или другой облачной среде.
 * Сведения об установке гибридных рабочих ролей Runbook для Windows см. в статье [Гибридные рабочие роли Runbook службы автоматизации Azure для Windows](automation-windows-hrw-install.md).

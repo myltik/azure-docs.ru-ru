@@ -14,12 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: fa00f176ff56c13033907e134fc236c291308028
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: 5e8a410206f8c48affe171fb77b1a9555818953e
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/15/2017
 ---
+> [!NOTE]
+> В этой документации больше не являются текущими и не является точным. Вместо этого перейдите в Azure Marketplace [руководство продавца](https://docs.microsoft.com/en-us/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) инструкции по публикации предложения в Azure Marketplace.
+
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Публикация предложения и управление им в Azure Marketplace
 Эта статья поможет разработчикам создать и развернуть решения, а также управлять ими в Azure Marketplace, чтобы их могли приобрести и использовать другие клиенты и партнеры Azure.
 
@@ -56,25 +59,25 @@ ms.lasthandoff: 11/07/2017
 Для публикации решения в Marketplace сделайте следующее:
 1. Выполните нетехнические требования.
 
-    а. Выполните [предварительные нетехнические требования](marketplace-publishing-pre-requisites.md).
+    a. Выполните [предварительные нетехнические требования](marketplace-publishing-pre-requisites.md).
 
-    b. Выполните [предварительные технические требования к виртуальной машине](marketplace-publishing-vm-image-creation-prerequisites.md).
+    Б. Выполните [предварительные технические требования к виртуальной машине](marketplace-publishing-vm-image-creation-prerequisites.md).
 
     c. Выполните [предварительные технические требования для шаблона решения](marketplace-publishing-solution-template-creation-prerequisites.md).
 
 2. Создайте предложение.
 
-    а. [Создайте предложение виртуальной машины](marketplace-publishing-vm-image-creation.md).
+    a. [Создайте предложение виртуальной машины](marketplace-publishing-vm-image-creation.md).
 
-    b. [Создайте предложение шаблона решения](marketplace-publishing-solution-template-creation.md).
+    Б. [Создайте предложение шаблона решения](marketplace-publishing-solution-template-creation.md).
 
 3. [Создайте предложение с маркетинговыми материалами](marketplace-publishing-push-to-staging.md).
 
 4. Протестируйте предложение на этапе промежуточного развертывания.
 
-    а. [Протестируйте свое предложение виртуальной машины на этапе промежуточного развертывания](marketplace-publishing-vm-image-test-in-staging.md).
+    a. [Протестируйте свое предложение виртуальной машины на этапе промежуточного развертывания](marketplace-publishing-vm-image-test-in-staging.md).
 
-    b. [Протестируйте предложение шаблона решения на этапе промежуточного развертывания](marketplace-publishing-solution-template-test-in-staging.md).
+    Б. [Протестируйте предложение шаблона решения на этапе промежуточного развертывания](marketplace-publishing-solution-template-test-in-staging.md).
 
 5. [Разверните предложение в Azure Marketplace](marketplace-publishing-push-to-production.md).
 
@@ -93,9 +96,9 @@ ms.lasthandoff: 11/07/2017
 * [Обновление нетехнических сведений о предложении или номере SKU](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
 * [Добавление нового SKU во внесенное в список предложение](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
 * [Изменение числа дисков данных для внесенного в список номера SKU](marketplace-publishing-vm-image-post-publishing.md#change-the-data-disk-count-for-a-listed-sku)
-* [Удаление внесенного в список предложения из Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md)
-* [Удаление внесенного в список номера SKU из Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
-* [Удаление текущей версии внесенного в список номера SKU из Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
+* [Удаляет предложение, перечисленных в Marketplace](marketplace-publishing-vm-image-post-publishing.md)
+* [Удалить указанные SKU из Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
+* [Удаление текущей версии перечисленных SKU из Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
 * [Возврат рабочих значений цен для внесенных в список элементов](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
 * [Возврат рабочих значений для модели выставления счетов](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [Возврат рабочего значения параметра видимости для внесенного в список номера SKU](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)

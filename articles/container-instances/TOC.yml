@@ -23,8 +23,8 @@
       href: container-instances-tutorial-deploy-app.md
 - name: Основные понятия
   items:
-    - name: Регионы и доступность
-      href: container-instances-region-availability.md
+    - name: Квоты и региональные ограничения
+      href: container-instances-quotas.md
     - name: Связь с оркестраторами
       href: container-instances-orchestrator-relationship.md
     - name: Группы контейнеров

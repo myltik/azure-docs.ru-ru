@@ -4,7 +4,7 @@ description: "Какова разница между службой совмес
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: beca92e9259835fffa9178f558e9762637594570
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Сравнение службы совместной работы B2B и B2C в Azure Active Directory
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 Жизненный цикл партнера: управление основной или приглашающей организацией.  | Жизненный цикл клиента: самообслуживание или управление приложением.
 Политики безопасности и соответствие требованиям: управление основной или приглашающей организацией.  | Политики безопасности и соответствие требованиям: управление приложением.
 Фирменная символика: используется торговая марка основной или приглашающей организации.  |    Фирменная символика: управление приложением. Как правило, используется торговая марка продукта с изображением фирменной символики организации на фоне.
-Дополнительные сведения: [запись блога](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [документация](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).  | Дополнительные сведения: [страница продукта](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [документация](https://docs.microsoft.com/en-us/azure/active-directory-b2c/).
+Дополнительные сведения: [запись блога](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [документация](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).  | Дополнительные сведения: [страница продукта](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [документация](https://docs.microsoft.com/azure/active-directory-b2c/).
 
 
 ### <a name="next-steps"></a>Дальнейшие действия

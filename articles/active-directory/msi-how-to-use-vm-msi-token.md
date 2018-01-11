@@ -4,7 +4,7 @@ description: "Пошаговые инструкции и примеры испо
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 20ab8c9ceeb28c92b02a50ab03c9a7fa3fb7c7b7
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 9d80e0e4dbaa010aabd0e7aad91ac79cf2d433d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Использование управляемого удостоверения службы (MSI) виртуальной машины Azure для получения маркера 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)] Эта статья содержит различные примеры кода и скриптов для получения маркера, а также руководство по важным темам, таким как обработка срока действия маркера и ошибки HTTP.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -59,7 +59,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Элемент | Описание |
+| Элемент | ОПИСАНИЕ |
 | ------- | ----------- |
 | `GET` | HTTP-команда, указывающая, что необходимо извлечь данные из конечной точки. В этом случае используется маркер доступа OAuth. | 
 | `http://localhost:50342/oauth2/token` | Конечная точка MSI, в которой порт 50342 является портом по умолчанию, который можно настроить. |
@@ -82,7 +82,7 @@ Content-Type: application/json
 }
 ```
 
-| Элемент | Описание |
+| Элемент | ОПИСАНИЕ |
 | ------- | ----------- |
 | `access_token` | Запрашиваемый маркер доступа. При вызове защищенного REST API маркер внедряется в поле `Authorization` заголовка запроса в качестве маркера носителя, позволяя API выполнить проверку подлинности вызывающего объекта. | 
 | `refresh_token` | Не используется MSI. |
@@ -252,7 +252,7 @@ echo The MSI access token is $access_token
 
 Если возникает ошибка, в соответствующем тексте ответа HTTP содержится код JSON с подробностями об ошибке:
 
-| Элемент | Описание |
+| Элемент | ОПИСАНИЕ |
 | ------- | ----------- |
 | error   | Идентификатор ошибки. |
 | error_description | Подробное описание ошибки. **Описания ошибки могут в любое время измениться. Не записывайте код, который создает ветвь на основе значений в описании ошибки.**|

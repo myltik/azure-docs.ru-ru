@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Часто задаваемые вопросы об отправке push-уведомлений с помощью Центров уведомлений Azure
 ## <a name="general"></a>Общие сведения
@@ -179,14 +179,14 @@ Push-уведомления поддерживаются на платформа
 В течение определенного периода времени устройства, на которых не открыты приложения, не будут получать уведомления.
 
 ### <a name="is-there-audit-log-capability"></a>Предусмотрена ли возможность ведения журнала аудита?
-Все операции по управлению Центрами уведомлений регистрируются в журналах операций, которые представлены на [классическом портале Azure].
+Все операции управления концентраторы уведомлений перейдите к журналы операций, которые предоставляются в [портал Azure ].
 
 ## <a name="monitoring-and-troubleshooting"></a>Мониторинг и устранение неполадок
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Какие возможности для устранения неполадок доступны?
 Центры уведомлений Azure предоставляют несколько функциональных возможностей для устранения неполадок, особенно в наиболее распространенном случае удаления уведомлений. Дополнительные сведения см. в техническом документе [Центры уведомлений Azure — рекомендации по диагностике].
 
 ### <a name="what-telemetry-features-are-available"></a>Какие телеметрические функции доступны?
-Центры уведомлений Microsoft Azure позволяют просматривать данные телеметрии на [классическом портале Azure]. Дополнительные сведения о доступных метриках в Центрах уведомлений см. на [этой странице].
+Azure позволяет концентраторов уведомлений, просмотр данных телеметрии в [портал Azure ]. Дополнительные сведения о доступных метриках в Центрах уведомлений см. на [этой странице].
 
 > [!NOTE]
 > Успешная доставка уведомлений означает только то, что push-уведомления доставлены во внешнюю службу PNS (например, APNS для Apple или GCM для Google). Службы PNS отвечают за доставку уведомлений на целевые устройства. Как правило, служба PNS не предоставляет метрики доставки третьим лицам.  
@@ -195,7 +195,7 @@ Push-уведомления поддерживаются на платформа
 
 Центры уведомлений также предоставляют возможность экспортировать данные телеметрии программным путем (на уровне "Стандартный"). Дополнительные сведения см. в статье [Fetch Notification Hubs Telemetry Programmatically] (Получение данных телеметрии Центров уведомлений программным путем).
 
-[классическом портале Azure]: https://manage.windowsazure.com
+[портал Azure ]: https://portal.azure.com
 [цен на Центры уведомлений]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Анализ примера — Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -215,7 +215,7 @@ Push-уведомления поддерживаются на платформа
 [этой странице]: https://msdn.microsoft.com/library/dn458822.aspx
 [Fetch Notification Hubs Telemetry Programmatically]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel (Получение данных телеметрии Центров уведомлений программным путем)
 [Практическое руководство. Массовый экспорт и изменение регистраций]: https://msdn.microsoft.com/library/dn790624.aspx
-[портал Azure ]: https://portal.azure.com
+[портале Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [мобильных приложений]: https://azure.microsoft.com/services/app-service/mobile/
 [с ценами на службу приложений]: https://azure.microsoft.com/pricing/details/app-service/

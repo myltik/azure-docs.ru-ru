@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78ca1da8cafe93e76d640c0e6d5ad5309655c1b
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
-ms.translationtype: HT
+ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Оптимизация среды Active Directory с помощью решения проверки работоспособности Active Directory в Log Analytics
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/27/2017
 
 ![Изображение панели мониторинга "Проверка работоспособности AD"](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 * Для решения проверки работоспособности Active Directory на каждом компьютере с агентом Microsoft Monitoring Agent (MMA) должна быть установлена поддерживаемая платформа .NET Framework 4.5.2 или более поздней версии.  Агент MMA используется решением System Center 2016 Operations Manager и Operations Manager 2012 R2, а также службами Log Analytics. 
 * Решение поддерживает контроллеры домена под управлением Windows Server 2008 и 2008 R2, Windows Server 2012 и 2012 R2, а также Windows Server 2016.
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/27/2017
 
 Чтобы проверить работоспособность контроллеров, которые являются компонентами оцениваемого домена, требуется агент и подключение к Log Analytics с помощью одного из следующих способов:
 
-1. Установка [агента Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md), если контроллер домена уже не отслеживается с помощью решения System Center 2016 Operations Manager или Operations Manager 2012 R2.
+1. Установка [агента Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md), если контроллер домена уже не отслеживается с помощью решения System Center 2016 Operations Manager или Operations Manager 2012 R2.
 2. Если сервер отслеживается решением System Center 2016 Operations Manager или Operations Manager 2012 R2, и группа управления не интегрирована со службой Log Analytics, контроллер домена может использоваться как многосетевой. С помощью Log Analytics данные будут собираться и пересылаться в службу, а контроллер домена по-прежнему будет отслеживаться решением Operations Manager.  
 3. Если группа управления Operations Manager интегрирована со службой, после включения решения в рабочей области добавьте контроллеры домена для сбора данных службой. Для этого выполните инструкции по [добавлению компьютеров под управлением агентов](log-analytics-om-agents.md#connecting-operations-manager-to-oms).  
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 10/27/2017
 - Журнал событий 
 - Интерфейс ADSI
 - Windows PowerShell
-- Данные файлов 
+- данные файлов; 
 - Инструментарий управления Windows (WMI)
 - API инструмента DCDIAG
 - API службы репликации файлов (NTFRS)
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/27/2017
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Просмотр рекомендаций для приоритетной области и выполнение действий по исправлению
 1. Войдите на портал Azure по адресу [https://portal.azure.com](https://portal.azure.com). 
 2. На портале Azure щелкните **Другие службы** в нижнем левом углу. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.
-3. В области подписок Log Analytics выберите рабочую область, а затем щелкните плитку **Портал OMS**.  
+3. В области подписок Log Analytics выберите рабочую область, а затем выберите плитку **Портал OMS**.  
 4. На странице **Обзор** щелкните элемент **Проверка работоспособности AD**. 
 5. На странице **Проверка работоспособности** просмотрите сводные данные в одной из колонок приоритетной области, а затем щелкните ее, чтобы ознакомиться с рекомендациями для этой приоритетной области.
 6. На всех страницах интересующей области можно просматривать приоритетные рекомендации для вашей среды. Щелкните рекомендацию в разделе **Затронутые объекты** , чтобы просмотреть сведения о причинах возникновения этой рекомендации.<br><br> ![Экран с рекомендациями по проверке работоспособности](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
@@ -138,7 +138,7 @@ ms.lasthandoff: 10/27/2017
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Создание и использование текстового файла IgnoreRecommendations.txt
 1. Создайте файл с именем IgnoreRecommendations.txt.
 2. Вставьте или введите значение RecommendationId для каждой рекомендации, которую служба Log Analytics должна игнорировать, в отдельной строке, а затем сохраните и закройте файл.
-3. Поместите файл в указанную ниже папку на каждом компьютере, где служба Log Analytics должна игнорировать рекомендации.
+3. Поместите файл в следующую папку на каждом компьютере, где служба Log Analytics должна игнорировать рекомендации:
    * На компьютерах с Microsoft Monitoring Agent (подключенных напрямую или через Operations Manager): *системный диск*:\Program Files\Microsoft Monitoring Agent\Agent.
    * На сервере управления Operations Manager 2012 R2: *системный диск*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server. 
    * На сервере управления Operations Manager 2016 — *системный диск*:\Program Files\Microsoft System Center 2016\Operations Manager\Server.

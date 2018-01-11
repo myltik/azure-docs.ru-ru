@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Просмотр аналитических данных для метрик ресурсов веб-приложений Azure
 
@@ -37,18 +37,18 @@ ms.lasthandoff: 10/11/2017
 
 В отличие от большинства других решений Log Analytics, данные для веб-приложений Azure не собираются агентами. Все данные, используемые решением, поступают непосредственно из Azure.
 
-| Подключенный источник | Поддерживаются | Описание |
+| Подключенный источник | Поддерживаются | ОПИСАНИЕ |
 | --- | --- | --- |
-| [Агенты Windows](log-analytics-windows-agents.md) | Нет | Решение не собирает сведения из агентов Windows. |
-| [Агенты Linux](log-analytics-linux-agents.md) | Нет | Решение не собирает сведения из агентов Linux. |
-| [Группы управления SCOM](log-analytics-om-agents.md) | Нет | Решение не собирает сведения из агентов в подключенной группе управления SCOM. |
-| [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет | Решение не собирает сведения из службы хранилища Azure. |
+| [Агенты Windows](log-analytics-windows-agent.md) | Нет  | Решение не собирает сведения из агентов Windows. |
+| [Агенты Linux](log-analytics-linux-agents.md) | Нет  | Решение не собирает сведения из агентов Linux. |
+| [Группы управления SCOM](log-analytics-om-agents.md) | Нет  | Решение не собирает сведения из агентов в подключенной группе управления SCOM. |
+| [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет  | Решение не собирает сведения из службы хранилища Azure. |
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 - Для доступа к данным метрик веб-приложений Azure необходима подписка Azure.
 
-## <a name="configuration"></a>Конфигурация
+## <a name="configuration"></a>Параметр Configuration
 
 Выполните следующие действия, чтобы настроить решение "Аналитика веб-приложений Azure" в рабочих областях.
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
   - Среднее время ответа:
   - полученные и отправленные байты;
   - Время ЦП:
-  - Requests (Запросы)
+  - Requests
   - рабочий набор памяти;
   - Httpxxx.
 - Метрики плана службы приложений
@@ -92,7 +92,7 @@ ms.lasthandoff: 10/11/2017
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-| столбец | Описание |
+| столбец | ОПИСАНИЕ |
 | --- | --- |
 | Веб-приложения Azure |   |
 | Тенденции в запросах веб-приложений | Показывает график тенденций в запросах веб-приложений для выбранного диапазона дат, а также список из десяти основных веб-запросов. Щелкните график, чтобы выполнить поиск по журналам: <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Щелкните элемент веб-запроса, чтобы выполнить поиск по журналам, который вернет тенденции в метриках веб-запросов. |

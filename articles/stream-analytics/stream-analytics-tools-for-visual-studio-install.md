@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 9/19/2017
 ms.author: sujie
-ms.openlocfilehash: 80ce672ae91231e432f7ac9da49df29bb03efeca
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: 307270a25545a0388e67c37656057f81535d8d3b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="installation-instructions-for-stream-analytics-tools-for-visual-studio"></a>Инструкции по установке для инструментов Stream Analytics для Visual Studio
 Инструменты Azure Stream Analytics теперь поддерживают Visual Studio 2017, Visual Studio 2015 и Visual Studio 2013. В этом документе показано, как устанавливать и удалять инструменты.
 
-[Узнайте, как использовать инструменты Stream Analytics для Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+[Узнайте, как использовать инструменты Stream Analytics для Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
-## <a name="install"></a>Установить
+## <a name="install"></a>Install
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
 * [Скачать Visual Studio 2017 (версии 15.3 или более поздней)](https://www.visualstudio.com/). Поддерживаются выпуски Enterprise (Ultimate/Premium), Professional и Community. Выпуск Express не поддерживается. 
 * Инструменты Stream Analytics являются частью рабочей нагрузки **разработки Azure** и **хранилища и обработки данных** в Visual Studio 2017. Включите одну из этих рабочих нагрузок как часть установки Visual Studio.

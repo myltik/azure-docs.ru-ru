@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
-ms.translationtype: HT
+ms.openlocfilehash: 863277294fc0462e9221edffab1dd4e2001d7493
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Решения службы хранилища Azure для R Server в HDInsight
 
@@ -43,19 +43,25 @@ Microsoft R Server в HDInsight включает в себя множество 
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>Использование учетных записей хранения BLOB-объектов Azure с R Server
 
-При необходимости вы можете осуществлять доступ из кластера HDI к нескольким учетным записям хранения Azure или контейнерам. Для этого при создании кластера следует указать дополнительные учетные записи хранения и выполнить описанный здесь процесс их использования с R Server.
+При указании нескольких учетных записей хранилища при создании кластера серверов R, следующие инструкции описывают использование вторичную учетную запись для доступа к данным и операций на сервере R. Предположим, следующие учетные записи хранилища и контейнер: **storage1** и именем контейнера по умолчанию **container1**, и **storage2**.
 
 > [!WARNING]
 > Для повышения производительности кластер HDInsight создается в том же центре обработки данных, где находится заданная вами основная учетная запись хранения. Использование учетной записи хранения, расположение которой отличается от расположения кластера HDInsight, не поддерживается.
 
-1. Создайте кластер HDInsight с учетной записью хранения **storage1** и контейнером по умолчанию **container1**.
-2. Укажите также дополнительную учетную запись хранения с именем **storage2**.  
-3. Скопируйте файл mycsv.csv в каталог /share и выполните анализ этого файла.  
+1. Такой клиент SSH подключитесь, используя граничного узла кластера как remoteuser.  
+
+  + На портале Azure > страницу службы кластеров HDI > Общие сведения, нажмите кнопку **Secure Shell (SSH)**.
+  + В имени сервера, выберите узел edge (он включает *ed ssh.azurehdinsight.net* в имени).
+  + Скопируйте имя узла.
+  + Откройте клиент SSH, как PutTY или SmartTY и введите имя узла.
+  + Введите remoteuser имени пользователя, затем пароль кластера.
+  
+2. Скопируйте файл mycsv.csv в каталог /share. 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-4. В коде R задайте узел имени **default** и определите каталог и файл для обработки.  
+3. Переключитесь в другой консоль R или R Studio и написать код R, чтобы задать имя узла **по умолчанию** и расположение файла, которым требуется доступ.  
 
         myNameNode <- "default"
         myPort <- 0
@@ -64,7 +70,7 @@ Microsoft R Server в HDInsight включает в себя множество 
         bigDataDirRoot <- "/share"  
 
         #Define Spark compute context:
-        mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
         #Set compute context:
         rxSetComputeContext(mySparkCluster)

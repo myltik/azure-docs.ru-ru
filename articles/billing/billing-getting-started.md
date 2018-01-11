@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: tonguyen
-ms.openlocfilehash: d74f649a8b5f35ffe16479576959e5ebb2857bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Предотвращение непредвиденных расходов с помощью функции выставления счетов и управления затратами в Azure
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 10/11/2017
 - Если вы используете подписку на условиях соглашения Enterprise (EA), на портале Azure для вас доступна функция просмотра затрат в общедоступной предварительной версии. Если ваша подписка предоставлена на условиях соглашения поставщика облачных решений (CSP) или спонсорского предложения Azure, многие функции, описываемые в этой статье, вам недоступны. См. сведения о [дополнительных ресурсах для клиентов с соглашением Enterprise (EA), поставщиков облачных решений (CSP) и участников спонсорского предложения Azure](#other-offers).
 
 - Если ваша подписка используется в режиме бесплатной пробной версии, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure с открытой лицензией (AIO) или BizSpark, такая подписка будет автоматически деактивирована, когда будут израсходованы кредиты. Во избежание неожиданной деактивации подписки вам следует знать свою [предельную сумму расходов](#spending-limit).
+
+- Если вход в [Azure бесплатную учетную запись](https://azure.microsoft.com/en-us/free/), [можно использовать некоторые из наиболее популярных служб Azure бесплатно в течение 12 месяцев](billing-create-free-services-included-free-account.md). А также рекомендации, перечисленные ниже, в разделе [избежать выставления счета для получения бесплатной учетной записи](billing-avoid-charges-free-account.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Перед добавлением служб Azure узнайте их расчетную стоимость
 

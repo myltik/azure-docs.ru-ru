@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/20/2017
 ms.author: sethm;clemensv
-ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bfe7b95236c1a5336c1bb3a93d0eb5ca880adabf
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Обзор проверки подлинности концентраторов событий и модели безопасности
 
@@ -110,11 +110,11 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 Чтобы узнать больше о концентраторах событий, посетите следующие разделы:
 
-* [Обзор концентраторов событий]
+* [Event Hubs overview]
 * [Обзор подписанных URL-адресов]
-* [Примеры приложений, использующих концентраторы событий]
+* [Примеры приложений, использующие концентраторы событий]
 
-[Обзор концентраторов событий]: event-hubs-what-is-event-hubs.md
-[Примеры приложений, использующих концентраторы событий]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Примеры приложений, использующие концентраторы событий]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Обзор подписанных URL-адресов]: ../service-bus-messaging/service-bus-sas.md
 

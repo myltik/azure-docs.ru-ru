@@ -4,7 +4,7 @@ description: "Узнайте, как c помощью управления до�
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 07/11/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bb671e1870ae22eb515adc36ce0235e1d8ecddd
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 53c8060413f5625273360d9bf23cf27b3f56fb32
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Создание пользовательских ролей для управления доступом на основе ролей в Azure
 Если ни одна из встроенных ролей не соответствует вашим требованиям к доступу, создайте пользовательскую роль с помощью механизма RBAC Azure (управление доступом на основе ролей). Настраиваемые роли можно создавать с помощью [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [интерфейса командной строки (CLI) Azure](role-based-access-control-manage-access-azure-cli.md) и интерфейса [REST API](role-based-access-control-manage-access-rest.md). Пользовательские роли, так же как и встроенные, можно назначать пользователям, группам и приложениям в рамках подписки, группы ресурсов или области ресурсов. Пользовательские роли хранятся в клиенте Azure AD и могут использоваться несколькими подписками.
@@ -116,11 +116,11 @@ azure provider operations show "Microsoft.Network/*"
 * Кто может просматривать пользовательские роли?
     Все стандартные роли Azure RBAC позволяют просматривать список ролей, доступных для назначения. Просматривать роли RBAC, которые доступны для назначения в области, могут пользователи с правом выполнять операцию `Microsoft.Authorization/roleDefinition/read` для этой области.
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Управление доступом на основе ролей.](role-based-access-control-configure.md) Начало работы с RBAC на портале Azure.
 * Список доступных операций см. в статье [Операции поставщиков ресурсов Azure Resource Manager](role-based-access-control-resource-provider-operations.md).
 * Сведения об управлении доступом с помощью следующих средств:
   * [PowerShell](role-based-access-control-manage-access-powershell.md)
   * [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
-  * [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
+  * [REST API](role-based-access-control-manage-access-rest.md)
 * [Встроенные роли.](role-based-access-built-in-roles.md) Сведения о стандартных ролях в RBAC.

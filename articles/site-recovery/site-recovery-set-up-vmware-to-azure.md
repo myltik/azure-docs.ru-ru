@@ -15,19 +15,19 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: 32a3f7498d3c8891178818436e33221f91ae2f8f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Настройка целевой среды (из виртуальных машин VMware в Azure)
 > [!div class="op_single_selector"]
 > * [VMware в VMware](./site-recovery-set-up-vmware-to-azure.md)
-> * [Из физического расположения в Azure](./site-recovery-set-up-physical-to-azure.md)
+> * [Из физического расположения в Azure](./site-recovery-set-up-physical-to-azure.md)
 
 В этой статье приведены сведения о настройке локальной среды для запуска репликации виртуальных машин VMware в Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Для работы с руководством требуются следующие компоненты.
 - Хранилище служб восстановления на [портале Azure](http://portal.azure.com "портал Azure").

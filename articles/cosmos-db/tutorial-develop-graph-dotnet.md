@@ -1,9 +1,9 @@
 ---
 title: "Azure Cosmos DB. Разработка с помощью API Graph на .NET | Документация Майкрософт"
-description: "Сведения о разработке с помощью API DocumentDB базы данных Azure Cosmos DB на .NET"
+description: "Дополнительные сведения о разработке с помощью API Azure Cosmos DB SQL, с помощью .NET"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
@@ -12,19 +12,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: denlee
+ms.date: 01/02/2018
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB. Разработка с помощью API Graph на .NET
 Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете быстро создавать и запрашивать документы, пары "ключ — значение" и базы данных графов, используя преимущества возможностей глобального распределения и горизонтального масштабирования базы данных Azure Cosmos DB. 
 
-В этом руководстве показано, как создать учетную запись базы данных Azure Cosmos DB на портале Azure, а также базу данных графа и контейнер. Потом приложение создает обычную социальную сеть с четырьмя пользователями с помощью [API Graph](graph-sdk-dotnet.md) (предварительная версия), а затем обходит и запрашивает граф с использованием Gremlin.
+В этом руководстве показано, как создать учетную запись базы данных Azure Cosmos DB на портале Azure, а также базу данных графа и контейнер. Затем приложение создает простой социальных сетей с четырьмя пользователями [Graph API](graph-sdk-dotnet.md), затем проходит через и запросы с помощью Gremlin граф.
 
 В рамках этого руководства рассматриваются следующие задачи:
 
@@ -40,12 +40,12 @@ Azure Cosmos DB — это глобально распределенная мн
 
 Gremlin — это функциональный язык программирования, поддерживающий операции записи (DML) и операции запросов и обхода. В этой статье мы рассмотрим несколько примеров, чтобы приступить к работе с Gremlin. Подробное пошаговое руководство о возможностях Gremlin, доступных в базе данных Azure Cosmos DB, см. в статье [Azure Cosmos DB Gremlin graph support](gremlin-support.md) (Поддержка графа Gremlin в базе данных Azure Cosmos DB). 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Убедитесь, что у вас есть указанные ниже компоненты.
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
-    * Кроме того, в этом руководстве можно использовать [эмулятор Azure DocumentDB](local-emulator.md).
-* [Visual Studio](http://www.visualstudio.com/)
+    * Кроме того, можно использовать [локальный эмулятор](local-emulator.md) для этого учебника.
+* [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-database-account"></a>Создание учетной записи базы данных
 
@@ -96,7 +96,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Создание базы данных 
 
-Теперь создайте [базу данных](documentdb-resources.md#databases) Azure Cosmos DB с помощью метода [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) или [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) класса **DocumentClient** из [пакета SDK .NET для DocumentDB](documentdb-sdk-dotnet.md).  
+Теперь создайте Azure Cosmos DB [базы данных](sql-api-resources.md#databases) с помощью [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) метода или [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) метод  **DocumentClient** класса из [SQL .NET SDK](sql-api-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 

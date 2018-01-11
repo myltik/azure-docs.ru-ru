@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 179c6bac9a2d9509baa0007a7008d75d0874a25e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Пример рабочего процесса подготовки жестких дисков для задания импорта
 В этом разделе рассматривается полный процесс подготовки дисков для задания импорта.  
   
 Этот пример импортирует в учетную запись хранения Microsoft Azure `mystorageaccount` приведенные ниже данные.  
   
-|Расположение|Описание|  
+|Расположение|ОПИСАНИЕ|  
 |--------------|-----------------|  
 |H:\Video|Коллекция видео, общий размер которой составляет 5 ТБ.|  
 |H:\Photo|Коллекция фотографий, общий размер которой составляет 30 ГБ.|  
@@ -169,7 +169,7 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>Завершение сеанса копирования
 
-После того, как сеансы копирования будут завершены, можно будет отключить оба диска от компьютера копирования и доставить их в соответствующий центр обработки данных Microsoft Azure. При создании задания импорта на [портале Microsoft Azure](https://manage.windowsazure.com/) передайте два файла журнала: `FirstDrive.jrn` и `SecondDrive.jrn`.  
+После того, как сеансы копирования будут завершены, можно будет отключить оба диска от компьютера копирования и доставить их в соответствующий центр обработки данных Microsoft Azure. Отправить два файла журнала, `FirstDrive.jrn` и `SecondDrive.jrn`при создании задания импорта в [портал Azure](https://portal.azure.com).  
   
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 080c83fd0c34bdcb8978edf0ba4f783402a88b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7497753cc27867b1fdb9635ba6613ac75b449090
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Проверка подлинности устройства с помощью сертификатов ЦС X.509
 
 В этой статье описано использование сертификатов центра сертификации X.509 для проверки подлинности устройств, которые подключаются к Центру Интернета вещей.  В этой статье мы затронем следующие вопросы:
 
-* получение сертификата ЦС X.509;
+* Как получить сертификат ЦС X.509
 * регистрация сертификата ЦС X.509 в Центре Интернета вещей;
 * подпись устройств с помощью сертификата ЦС X.509;
 * способ проверки подлинности устройств, подписанных центром сертификации X.509.
@@ -81,8 +81,8 @@ ms.lasthandoff: 10/11/2017
 
 Дополнительные сведения о завершении подключения устройства см. в [этой статье](iot-hub-security-x509-get-started.md#authenticatedevice).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Узнайте о [значении проверки подлинности на основе ЦС X.509 в Центре Интернета вещей](iot-hub-x509ca-concept.md).
 
-Приступите к работе со [службой подготовки устройств](https://docs.microsoft.com/en-us/azure/iot-dps/) Центра Интернета вещей.
+Приступите к работе со [службой подготовки устройств](https://docs.microsoft.com/azure/iot-dps/) Центра Интернета вещей.

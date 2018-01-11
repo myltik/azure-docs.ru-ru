@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/12/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Создание функции, активируемой универсальным веб-перехватчиком
 
@@ -48,9 +48,13 @@ ms.lasthandoff: 10/11/2017
 
     ![Страница быстрого начала работы с функциями на портале Azure](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Выберите шаблон **Generic WebHook — C#** (Универсальный веб-перехватчик: C#). Введите имя функции C# и выберите **Создать**.
+2. В поле поиска введите `generic` и выберите нужный язык для шаблона триггера универсального веб-перехватчика. В этой статье используется функция C#.
 
-     ![Создание функции, активируемой универсальным веб-перехватчиком, на портале Azure](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![Выбор шаблона триггера универсального веб-перехватчика](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png)
+
+2. Введите **имя** для функции и выберите **Создать**. 
+
+     ![Создание функции, активируемой универсальным веб-перехватчиком, на портале Azure](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger-2.png) 
 
 2. В новой функции щелкните **</> Получить URL-адрес функции**, а затем скопируйте и сохраните значения. Это значение используется для настройки веб-перехватчика. 
 

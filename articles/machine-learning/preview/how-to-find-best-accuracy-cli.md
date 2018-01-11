@@ -5,16 +5,16 @@ services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
-ms.reviewer: akannava, haining, mldocs
+ms.reviewer: akannava, haining, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: aaadf526577b9b6c254204aae90200661d40f325
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
-ms.translationtype: HT
+ms.openlocfilehash: 40e066fe602e8c4680043158f1d401a884e07c19
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Поиск выполнений с максимальной точностью и наименьшей длительностью
 При множестве запусков один из вариантов использования — нахождение запусков с наибольшей точностью. Один из возможных подходов — использовать интерфейс командной строки с запросом [JMESPath](http://jmespath.org/). Дополнительные сведения об использовании JMESPath в Azure CLI см. в разделе [Использование запросов JMESPath в Azure CLI 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). В следующем примере создаются четыре запуска со значениями точности 0, 0,98, 1 и 1. Запуски фильтруются, если они находятся в диапазоне `[MaxAccuracy-Threshold, MaxAccuracy]`, где `Threshold = .03`.

@@ -8,23 +8,23 @@ manager: cshepard
 editor: 
 tags: 
 ms.service: virtual-machines-linux
-ms.topic: troubleshooting
+ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 9b1c9a283e1439c0db5fa37b6601868a7a830ed3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 891ca1c2db431c792329b1c67c24e2e453aa00d1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Устранение неполадок при изменении имени устройства виртуальной машины Linux
 
 В этом руководстве описывается, почему изменяются имена устройств после перезапуска виртуальной машины Linux или после повторного подключения дисков данных. В статье также приводятся решения этой проблемы.
 
-## <a name="symptoms"></a>Симптомы
+## <a name="symptoms"></a>Проблемы
 При выполнении виртуальных машин Linux в Microsoft Azure могут возникнуть следующие проблемы.
 
 - После перезапуска виртуальная машина не загружается.

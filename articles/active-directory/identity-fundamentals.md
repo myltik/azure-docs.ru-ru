@@ -3,7 +3,7 @@ title: "Основы управления удостоверениями Azure |
 description: "Облачные удостоверения на сегодняшний день являются оптимальным способом сохранить возможность контролировать и отслеживать доступ пользователей к корпоративным приложениям и данным."
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewr: jsnow
 ms.author: jeffgilb
 ms.date: 07/05/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 52f05ee8a5c07fc008da40aef12d1ad8e8136429
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b77fc9e6c9dbb5fde2e2f0d153f348bb553b9f79
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Основы управления удостоверениями Azure
 Все больше и больше корпоративных цифровых ресурсов размещается за пределами корпоративных сетей — в облачных средах и на мобильных устройствах. В связи с этим появилась необходимость в эффективном облачном решении для управления идентификацией и доступом. Облачные удостоверения на сегодняшний день являются оптимальным способом сохранить возможность контролировать и отслеживать доступ пользователей к корпоративным приложениям и данным.
@@ -68,7 +68,7 @@ Azure AD [расширяет локальную службу Active Directory](h
 
 -   Реализация единого входа в приложениях, включая тысячи предварительно интегрированных приложений SaaS, или обеспечение безопасного удаленного доступа к локальным приложениям SaaS с помощью [прокси приложения Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
--   Возможность безопасного доступа к приложениям с применением [Многофакторной идентификации](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next) на основе правил для локальных и облачных приложений.
+-   Возможность безопасного доступа к приложениям с применением [многофакторной проверки подлинности](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next) на основе правил для локальных и облачных приложений.
 
 -   Повышение производительности труда пользователей за счет [самостоятельного сброса пароля](https://docs.microsoft.com/azure/active-directory/active-directory-passwords), возможность запроса на доступ к группам и приложениям на [портале MyApps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-user-help).
 

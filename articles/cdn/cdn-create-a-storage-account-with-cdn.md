@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Интеграция учетной записи хранения Azure с Azure CDN
 CDN можно включить для кэширования содержимого из хранилища Azure. Она предоставляет разработчикам глобальное решение для доставки большого объема содержимого с возможностью кэширования больших двоичных объектов и статического содержимого на физических узлах в США, Европе, Азии, Австралии и Южной Америке.
@@ -55,7 +55,7 @@ CDN можно включить для кэширования содержимо
 5. Выберите **подписку** , с которой будет использоваться данная учетная запись хранения.
 6. Выберите или создайте **группу ресурсов**.  Дополнительные сведения о группах ресурсов см. в статье [Общие сведения об Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Выберите расположение для вашей учетной записи хранения.
-8. Щелкните **Создать**. Процесс создания учетной записи хранения может занять несколько минут.
+8. Нажмите кнопку **Создать**. Процесс создания учетной записи хранения может занять несколько минут.
 
 ## <a name="step-2-enable-cdn-for-the-storage-account"></a>Шаг 2. Включение CDN для учетной записи хранения
 
@@ -82,7 +82,7 @@ CDN можно включить для кэширования содержимо
     ![Новая конечная точка хранилища CDN][cdn-storage-new-endpoint]
 
 > [!NOTE]
-> Также для включения CDN можно перейти к расширению Azure CDN. [Руководство](#Tutorial-cdn-create-profile).
+> Можно также перейти Azure CDN расширения, чтобы включить CDN. [Учебник по](#Tutorial-cdn-create-profile).
 > 
 > 
 

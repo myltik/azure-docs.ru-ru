@@ -1,24 +1,24 @@
 ---
-title: "Azure AD B2C: получение токена с помощью приложения iOS | Документация Майкрософт"
-description: "В этой статье описано, как создать приложение iOS, которое использует AppAuth для управления удостоверениями пользователей и проверки подлинности пользователей в Azure Active Directory B2C."
+title: "Использование AppAuth в приложении iOS - Azure Active Directory B2C"
+description: "В этой статье показано, как создать приложение iOS, использующее AppAuth для проверки подлинности пользователей и управления удостоверениями пользователей Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: ios
-author: saeedakhter-msft
-manager: krassk
+author: PatAltimore
+manager: mtillman
 editor: parakhj
-ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: ebec5d910b8987dcc8155cd4ead00f87d219941c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: saeeda
+ms.openlocfilehash: b4f46129a7a18e4653d714599630d6cdddfff4ed
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C. Вход с помощью приложения iOS
 
@@ -41,14 +41,12 @@ ms.lasthandoff: 10/11/2017
 * Скопируйте **идентификатор приложения** , назначенный приложению. Этот GUID понадобится позже.
 * Задайте **URI перенаправления** с настраиваемой схемой (например, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Этот URI понадобится позже.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
 ## <a name="create-your-policies"></a>Создание политик
 В Azure AD B2C любое взаимодействие с пользователем определяется [политикой](active-directory-b2c-reference-policies.md). Это приложение предусматривает одну процедуру идентификации, сочетающую в себе вход и регистрацию. Создайте эту политику, как описано в [справочной статье о политиках](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). При создании политики обязательно сделайте следующее:
 
 * В разделе **Sign-up attributes** (Атрибуты регистрации) выберите атрибут **Отображаемое имя**.  Можно также выбрать другие атрибуты.
 * В разделе **Application claims** (Утверждения приложения) выберите утверждения **Отображаемое имя** и **ИД объекта пользователя**. Можно также выбрать другие утверждения.
-* Скопируйте **имя** каждой созданной политики. При сохранении политики к ее имени добавляется префикс `b2c_1_`.  Эти имена политик понадобятся вам позже.
+* Скопируйте **имя** каждой политики после ее создания. При сохранении политики к ее имени добавляется префикс `b2c_1_`.  Эти имена политик понадобятся вам позже.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -65,7 +63,7 @@ ms.lasthandoff: 10/11/2017
 > AppAuth поддерживает iOS 7 и более поздние версии.  Однако для поддержки социальных имен входа в Google необходим SFSafariViewController, который поддерживает iOS 9 и более поздние версии.
 >
 
-### <a name="configuration"></a>Конфигурация
+### <a name="configuration"></a>Параметр Configuration
 
 Вы можете настроить взаимодействие с Azure AD B2C, указав URI конечной точки авторизации и конечной точки токена.  Для создания URI вам потребуются следующие сведения:
 * идентификатор клиента (например, contoso.onmicrosoft.com);
@@ -131,8 +129,8 @@ appDelegate.currentAuthorizationFlow =
 * Щелкните стрелку слева от элемента "Элемент 0", чтобы открыть дерево.
 * Переименуйте первый элемент под элементом 0 в "Схемы URL-адресов".
 * Щелкните стрелку слева от элемента "Схемы URL-адресов", чтобы открыть дерево.
-* В столбце "Значение" слева от элемента "Элемент 0", под элементом "Схемы URL-адресов", находится пустое поле.  Присвойте ему значение уникальной схемы своего приложения.  Оно должно соответствовать схеме, указанной в redirectURL при создании объекта OIDAuthorizationRequest.  В этом примере мы использовали схему com.onmicrosoft.fabrikamb2c.exampleapp.
+* В столбце "Значение" слева от элемента "Элемент 0", под элементом "Схемы URL-адресов", находится пустое поле.  Присвойте ему значение уникальной схемы своего приложения.  Оно должно соответствовать схеме, указанной в redirectURL при создании объекта OIDAuthorizationRequest.  В этом примере используется схема «com.onmicrosoft.fabrikamb2c.exampleapp».
 
-Сведения о завершении остальной части процесса см. в [руководстве по AppAuth](https://openid.github.io/AppAuth-iOS/). Если вам нужно быстро приступить к работе с приложением, ознакомьтесь с [нашим примером](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Следуйте указаниям в файле [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md), чтобы ввести собственные значения для настройки Azure AD B2C.
+Сведения о завершении остальной части процесса см. в [руководстве по AppAuth](https://openid.github.io/AppAuth-iOS/). Если вам нужно быстро приступить к работе с работающем приложении, извлечь [образца](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Следуйте указаниям в файле [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md), чтобы ввести собственные значения для настройки Azure AD B2C.
 
-Мы всегда рады вашим отзывам и предложениям! Если у вас возникли трудности с выполнением действий, описанных в этой статье или у вас есть рекомендации по улучшению этого материала, поделитесь с нами своими наблюдениями, воспользовавшись формой в нижней части страницы. Запросы функций оставляйте на форуме [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Мы всегда рады вашим отзывам и предложениям! Если возникли проблемы с этой статьей, или иметь рекомендации по улучшению это содержимое, мы ценим ваши отзывы в нижней части страницы. Запросы функций оставляйте на форуме [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

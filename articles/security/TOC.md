@@ -54,6 +54,8 @@
 #### [Соответствие требованиям для рабочих нагрузок, предназначенных для служебного пользования (Соединенное Королевство)](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Обзор](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Обзор принципов безопасности](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### Соответствие требованиям финансовых служб
+##### [Финансовые услуги для контролируемых рабочих нагрузок](./blueprints/financial-services-regulated-workloads.md)
 
 # Начало работы
 ## [Приступая к работе с системой безопасности Azure](azure-security-getting-started.md)

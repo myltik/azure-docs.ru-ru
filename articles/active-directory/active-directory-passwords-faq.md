@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Управление паролями Active Directory, управление паролями, самостоятельный сброс пароля Azure AD"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Вопросы и ответы об управлении паролями
 
@@ -41,6 +41,11 @@ ms.lasthandoff: 12/07/2017
 * **Вопрос. Могут ли пользователи регистрировать свои собственные данные для сброса паролей?**
 
   > **Ответ.** Да. Если функция сброса пароля активирована и у пользователя есть лицензия, он может перейти на портал регистрации данных для сброса паролей по ссылке http://aka.ms/ssprsetup и зарегистрировать свои собственные данные для проверки подлинности. Пользователь также может зарегистрироваться с помощью панели доступа (http://myapps.microsoft.com). Для регистрации через панель доступа необходимо выбрать изображение профиля, щелкнуть **Профиль**, а затем — **Регистрация для сброса пароля**.
+  >
+  >
+* **Вопрос, если включить пароль Сброс для группы и затем при необходимости включить ее для всех пользователей: my пользователей необходимо повторно зарегистрировать?**
+
+  > **Ответ.** Нет. Пользователей, которые заполнены данные проверки подлинности не требуется повторная регистрация.
   >
   >
 * **Вопрос. Могу ли я определять данные для сброса паролей от имени пользователей?**
@@ -240,7 +245,7 @@ ms.lasthandoff: 12/07/2017
   >
   >
 
-## <a name="password-writeback"></a>Обратная запись паролей
+## <a name="password-writeback"></a>Компонент обратной записи паролей
 
 * **Вопрос. Что происходит во время обратной записи паролей?**
 
@@ -280,7 +285,7 @@ ms.lasthandoff: 12/07/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Как развернуть самостоятельный сброс пароля](active-directory-passwords-best-practices.md)
+* [Как развернуть самостоятельный сброс пароля?](active-directory-passwords-best-practices.md)
 * [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
 * [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
 * [Требования к лицензированию самостоятельного сброса пароля в Azure AD](active-directory-passwords-licensing.md)

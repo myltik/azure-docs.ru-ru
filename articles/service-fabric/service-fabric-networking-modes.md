@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f8e3af4e183952aaac5a8320966aab035b90a1a7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Сетевые режимы контейнеров Service Fabric
 
@@ -176,13 +176,13 @@ ms.lasthandoff: 12/06/2017
  
 3. Только для кластеров Windows: настройте правило группы безопасности сети (NSG) Azure, которое открывает порт UDP/53 для виртуальной сети, со следующими значениями:
 
-   |Настройка |Значение | |
+   |Параметр |Значение | |
    | --- | --- | --- |
    |Приоритет |2000 | |
-   |Имя |Custom_Dns  | |
+   |ИМЯ |Custom_Dns  | |
    |Источник |Виртуальная сеть | |
    |Место назначения | Виртуальная сеть | |
-   |служба | DNS (UDP/53) | |
+   |Service | DNS (UDP/53) | |
    |Действие | РАЗРЕШИТЬ  | |
    | | |
 
@@ -223,6 +223,6 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Моделирование приложения в Service Fabric](service-fabric-application-model.md)
-* [Указание ресурсов в манифесте службы](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources) для Service Fabric
+* [Указание ресурсов в манифесте службы](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources) для Service Fabric
 * [Развертывание контейнера Windows в Service Fabric на платформе Windows Server 2016](service-fabric-get-started-containers.md)
 * [Развертывание контейнера Docker в Service Fabric на платформе Linux](service-fabric-get-started-containers-linux.md)

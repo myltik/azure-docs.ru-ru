@@ -4,7 +4,7 @@ description: "Как начать работу с API аудита Azure Active 
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/17/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 242fa094010694d7060b05e5892ce738d5b37a32
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: 9294d478ef35cac20bd54c2171eecda7c932e7a6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Справочник по API аудита Azure Active Directory
 Эта статья входит в серию статей об API отчетов Azure Active Directory.  
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/18/2017
 * Глобальные администраторы
 * Любое приложение с разрешением на доступ к API (авторизацию приложения можно настроить только на основе разрешения глобального администратора)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 Для доступа к этому отчету с помощью API отчетов нужно:
 
 * установить [Azure Active Directory Free или более поздней версии](active-directory-editions.md)
@@ -200,7 +200,7 @@ ms.lasthandoff: 10/18/2017
 
 **Примечания**
 
-Не учитывает регистр.
+Без учета регистра
 
 - - -
 ### <a name="targetupn"></a>target/upn
@@ -233,11 +233,11 @@ ms.lasthandoff: 10/18/2017
 
 **Примечания**
 
-* Не учитывает регистр. 
+* Без учета регистра 
 * При запросе Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity необходимо добавить полное пространство имен.
 
 - - -
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 * Хотите увидеть примеры отфильтрованных системных операций? См. [примеры API аудита Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * Хотите узнать больше об API отчетов Azure AD? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 

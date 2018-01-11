@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 549e353bb41f1f31bc0441294d0a8066779402e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4231b5e72ea0852de344e7484bdf20997243cee6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Руководство. Интеграция Azure Active Directory с Absorb LMS
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Технические условия
 
 Чтобы настроить интеграцию Azure AD с Absorb LMS, вам потребуется:
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 10/11/2017
 - Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
 
 * Добавление Absorb LMS из коллекции
-* Настройка и проверка единого входа в Azure AD
+* настройка и проверка единого входа в Azure AD.
 
 ## <a name="add-absorb-lms-from-the-gallery"></a>Добавление Absorb LMS из коллекции
 Чтобы настроить интеграцию Absorb LMS с Azure AD, добавьте Absorb LMS из коллекции в список управляемых приложений SaaS.
@@ -102,9 +102,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Absorb LMS](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_url.png)
 
-    а. В поле **Идентификатор** введите URL-адрес, используя следующий синтаксис: `https://<subdomain>.myabsorb.com/Account/SAML`.
+    a. В поле **Идентификатор** введите URL-адрес, используя следующий синтаксис: `https://<subdomain>.myabsorb.com/Account/SAML`.
 
-    b. В поле **URL-адрес ответа** введите URL-адрес, используя следующий синтаксис: `https://<subdomain>.myabsorb.com/Account/SAML`.
+    Б. В поле **URL-адрес ответа** введите URL-адрес, используя следующий синтаксис: `https://<subdomain>.myabsorb.com/Account/SAML`.
      
     > [!NOTE] 
     > URL-адреса, указанные выше, приведены в качестве примера. Измените их фактическими значениями идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов Absorb LMS](https://www.absorblms.com/support). 
@@ -139,9 +139,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Страница "Single Sign-On Configuration" (Конфигурация единого входа)](./media/active-directory-saas-absorblms-tutorial/4.png)
 
-    а. В поле **Mode** (Режим) выберите **Identity Provider Initiated** (Инициируемый поставщиком удостоверений).
+    a. В поле **Mode** (Режим) выберите **Identity Provider Initiated** (Инициируемый поставщиком удостоверений).
 
-    b. В Блокноте откройте сертификат, скачанный с портала Azure. Удалите теги **---BEGIN CERTIFICATE---** и **---END CERTIFICATE---**. Затем в поле **Key** (Ключ) вставьте оставшееся содержимое.
+    Б. В Блокноте откройте сертификат, скачанный с портала Azure. Удалите теги **---BEGIN CERTIFICATE---** и **---END CERTIFICATE---**. Затем в поле **Key** (Ключ) вставьте оставшееся содержимое.
     
     c. В поле **Id Property** (Свойство идентификатора) выберите атрибут, который вы настроили в качестве идентификатора пользователя в Azure AD. Например, если вы выбрали в Azure AD *userPrincipalName*, то выберите атрибут **Username**.
 
@@ -182,9 +182,9 @@ ms.lasthandoff: 10/11/2017
  
     ![Диалоговое окно "Пользователь"](./media/active-directory-saas-absorblms-tutorial/create_aaduser_04.png) 
 
-    а. В поле **Имя** введите **BrittaSimon**.
+    a. В поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите адрес электронной почты учетной записи Britta Simon.
+    Б. В текстовом поле **Имя пользователя** введите адрес электронной почты учетной записи Britta Simon.
 
     c. Установите флажок **Показать пароль** и запишите значение в поле **Пароль**.
 
@@ -216,9 +216,9 @@ ms.lasthandoff: 10/11/2017
 
     ![Страница "Add User" (Добавление пользователя)](./media/active-directory-saas-absorblms-tutorial/user.png)
 
-    а. В текстовом поле **First Name** (Имя) введите имя, например **Britta**.
+    a. В текстовом поле **First Name** (Имя) введите имя, например **Britta**.
 
-    b. В текстовом поле **Last Name** (Фамилия) введите фамилию, например **Simon**.
+    Б. В текстовом поле **Last Name** (Фамилия) введите фамилию, например **Simon**.
     
     c. В текстовом поле **Username** (Имя пользователя) введите полное имя, например **Britta Simon**.
 

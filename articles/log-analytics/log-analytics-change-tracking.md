@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: HT
+ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Отслеживание изменений программного обеспечения в среде с помощью решения для отслеживания изменений
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/20/2017
 ## <a name="installing-and-configuring-the-solution"></a>Установка и настройка решения
 Для установки и настройки решений используйте указанные ниже данные.
 
-* Агент [Windows](log-analytics-windows-agents.md) [Operations Manager](log-analytics-om-agents.md) или [Linux](log-analytics-linux-agents.md) должен быть установлен на каждом компьютере, для которого требуется выполнять отслеживание изменений.
+* Агент [Windows](log-analytics-windows-agent.md) [Operations Manager](log-analytics-om-agents.md) или [Linux](log-analytics-linux-agents.md) должен быть установлен на каждом компьютере, для которого требуется выполнять отслеживание изменений.
 * Добавьте решение "Отслеживание изменений" в рабочую область OMS из [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Вы также можете добавить решение с помощью информации в статье [Добавление решений для управления Azure Log Analytics в рабочую область](log-analytics-add-solutions.md). Дальнейшая настройка не требуется.
 
 ### <a name="configure-linux-files-to-track"></a>Настройка отслеживания файлов Linux
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/20/2017
 1. На портале OMS щелкните **Параметры** (значок с шестеренкой).
 2. На странице **Параметры** щелкните **Данные**, а затем выберите **Linux File Tracking** (Отслеживание файлов Linux).
 3. В поле Linux File Change Tracking (Отслеживание изменений в файлах Linux) введите полный путь, в том числе имя файла, который необходимо отслеживать, а затем щелкните символ **Добавить**. Например: /etc/*.conf.
-4. Щелкните **Сохранить**.  
+4. Выберите команду **Сохранить**.  
 
 > [!NOTE]
 > Отслеживание файлов Linux имеет дополнительные возможности, включая отслеживание каталогов, рекурсию в каталогах и отслеживание с подстановочными знаками.
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/20/2017
 1. На портале OMS щелкните **Параметры** (значок с шестеренкой).
 2. На странице **Параметры** щелкните **Данные**, а затем выберите **Отслеживание файлов Windows**.
 3. В поле "Отслеживание изменений в файлах Windows" введите полный путь, в том числе имя файла, который необходимо отслеживать, а затем щелкните символ **Добавить**. Например, C:\Program Files (x86)\Internet Explorer\iexplore.exe или C:\Windows\System32\drivers\etc\hosts.
-4. Щелкните **Сохранить**.  
+4. Выберите команду **Сохранить**.  
    ![Отслеживание изменений в файлах Windows](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Настройка отслеживания разделов реестра Windows
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/20/2017
 1. На портале OMS щелкните **Параметры** (значок с шестеренкой).
 2. На странице **Параметры** щелкните **Данные**, а затем выберите **Отслеживание реестра Windows**.
 3. В поле отслеживания изменений в реестре Windows введите полный раздел, который вы хотите отследить, а затем щелкните знак **добавления**.
-4. Щелкните **Сохранить**.  
+4. Выберите команду **Сохранить**.  
    ![Отслеживание изменений в реестре Windows](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
 ### <a name="explanation-of-linux-file-collection-properties"></a>Описание свойств коллекции файлов Linux
@@ -114,7 +114,7 @@ ms.lasthandoff: 11/20/2017
 
 | **тип изменения** | **frequency** | **Отправляет** **ли** **агент сведения об обнаруженных изменениях?** |
 | --- | --- | --- |
-| Реестр Windows | 50 минут | Нет |
+| Реестр Windows | 50 минут | Нет  |
 | Файловый ресурс Windows | 30 минут | Да. Если изменения не происходят в течение 24 часов, отправляется моментальный снимок. |
 | Файловый ресурс Linux | 15 минут | Да. Если изменения не происходят в течение 24 часов, отправляется моментальный снимок. |
 | Службы Windows | 30 минут | Да, каждые 30 минут, при обнаружении изменений. Каждые 24 часа отправляется моментальный снимок независимо от изменений. Следовательно, моментальный снимок отправляется даже при отсутствии изменений. |

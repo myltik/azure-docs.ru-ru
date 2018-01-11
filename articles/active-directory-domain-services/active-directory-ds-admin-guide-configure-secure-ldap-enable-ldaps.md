@@ -4,7 +4,7 @@ description: "Настройка защищенного протокола LDAP 
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 12/15/2017
 ms.author: maheshu
-ms.openlocfilehash: d2ef65bb4dc8e12a18265ae8264def2bb32e191f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Настройка защищенного протокола LDAP (LDAPS) для управляемого домена доменных служб Azure AD
 
@@ -117,6 +117,7 @@ ms.lasthandoff: 11/04/2017
 * Убедитесь, что клиент LDAP (например, ldp.exe) подключается к конечной точке защищенного протокола LDAP с помощью DNS-имени, а не IP-адреса.
 * Убедитесь, что DNS-имя, к которому подключается клиент LDAP, разрешается в общедоступный IP-адрес для защищенного протокола LDAP на управляемом домене.
 * Убедитесь, что сертификат защищенного протокола LDAP для управляемого домена содержит DNS-имя в атрибуте "Субъект" или "Альтернативное имя субъекта" (SAN).
+* При подключении по защищенному LDAP через Интернет, убедитесь, что параметры NSG для виртуальной сети разрешить трафик на порт 636 из Интернета.
 
 Если проблема с подключением к управляемому домену с использованием защищенного протокола LDAP сохранится, то [обратитесь за помощью к команде разработчиков](active-directory-ds-contact-us.md). Сообщите им приведенные ниже сведения, чтобы помочь с диагностикой проблемы.
 * Снимок экрана, на котором ldp.exe пытается подключиться, но попытка завершается сбоем.

@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Работа с поддержкой веб-канала изменений в Azure Cosmos DB
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/03/2017
 ![Использование веб-канала изменений Azure Cosmos DB для аналитики в реальном времени и вычислений на основе событий](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Поддержка канала изменений предоставляется для всех моделей данных и контейнеров в Azure Cosmos DB. Однако канал изменений считывается с помощью клиента DocumentDB и сериализует элементы в формат JSON. Из-за форматирования в JSON клиенты MongoDB будут сталкиваться с несоответствием между документами в формате BSON и каналом изменений в формате JSON. 
+> Поддержка канала изменений предоставляется для всех моделей данных и контейнеров в Azure Cosmos DB. Однако изменение веб-канала считывается с помощью клиента SQL и сериализует элементы в формате JSON. Из-за форматирования в JSON клиенты MongoDB будут сталкиваться с несоответствием между документами в формате BSON и каналом изменений в формате JSON. 
 
 ## <a name="how-does-change-feed-work"></a>Как работает канал изменений?
 
@@ -90,11 +90,11 @@ ms.lasthandoff: 11/03/2017
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Использование пакета SDK
 
-[Пакет SDK DocumentDB](documentdb-sdk-dotnet.md) для Azure Cosmos DB предоставляет все возможности для считывания канала изменений и управления им. Однако чем больше возможностей, тем больше ответственности. Если вы хотите управлять контрольными точками, обрабатывать порядковые номера документа и детально управлять ключами секций, то использование пакета SDK будет верным решением.
+[SQL SDK](sql-api-sdk-dotnet.md) для Azure Cosmos DB предоставляет все возможности для чтения и изменения потока управления. Однако чем больше возможностей, тем больше ответственности. Если вы хотите управлять контрольными точками, обрабатывать порядковые номера документа и детально управлять ключами секций, то использование пакета SDK будет верным решением.
 
-Этот раздел содержит сведения о том, как использовать пакет SDK для DocumentDB для работы с каналом изменений.
+В этом разделе рассматривается использование пакета SDK SQL для работы с изменениями веб-канала.
 
-1. Начните с изучения следующих ресурсов из Appconfig. Сведения о получении конечной точки и ключа авторизации см. в разделе [Обновление строки подключения](create-documentdb-dotnet.md#update-your-connection-string).
+1. Начните с изучения следующих ресурсов из Appconfig. Сведения о получении конечной точки и ключа авторизации см. в разделе [Обновление строки подключения](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ ms.lasthandoff: 11/03/2017
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Использование библиотеки обработчика канала изменений 
 
-[Библиотека обработчика канала изменений Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) позволяет без проблем распределить обработку событий между несколькими объектами-получателями. Эта библиотека упрощает считывание изменений в секциях и нескольких потоках, работающих параллельно.
+[Библиотека обработчика канала изменений Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) позволяет без проблем распределить обработку событий между несколькими объектами-получателями. Эта библиотека упрощает считывание изменений в секциях и нескольких потоках, работающих параллельно.
 
 Основным преимуществом библиотеки обработчика канала изменений является то, что вам не нужно управлять каждой секцией и маркером продолжения. Вам также не нужно опрашивать каждую коллекцию вручную.
 
@@ -276,11 +276,11 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 Дополнительные сведения об использовании библиотеки обработчика канала изменений см. в следующих ресурсах:
 
-* [Пакет SDK для обработчика веб-канала изменений для DocumentDB .NET: скачивание и заметки о выпуске](documentdb-sdk-dotnet-changefeed.md) 
+* [Пакет SDK для обработчика веб-канала изменений для DocumentDB .NET: скачивание и заметки о выпуске](sql-api-sdk-dotnet-changefeed.md) 
 * [Microsoft.Azure.DocumentDB.ChangeFeedProcessor](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Пример кода, иллюстрирующий шаги 1–6 выше](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Дополнительные примеры на GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Дополнительные сведения об использовании канала изменений с помощью пакета SDK см. в следующих ресурсах:
 
-* [Пакет SDK для Azure Cosmos DB .NET: скачивание и заметки о выпуске](documentdb-sdk-dotnet.md)
+* [Пакет SDK для Azure Cosmos DB .NET: скачивание и заметки о выпуске](sql-api-sdk-dotnet.md)

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 2d2c83b1ce718e6954e908beb9080ace12a12a34
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Создание функции, активируемой с помощью Azure Cosmos DB
 
@@ -50,9 +50,9 @@ ms.lasthandoff: 12/06/2017
 
     ![Страница быстрого начала работы с функциями на портале Azure](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Найдите и выберите шаблон **Azure CosmosDBTrigger** для необходимого языка.
+2. В поле поиска введите `cosmos` и выберите нужный язык для шаблона триггера Azure Cosmos DB.
 
-    ![Создание функции, активируемой с помощью Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![Выбор триггера Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. Настройте новый триггер с параметрами, как указано в таблице под изображением.
 
@@ -60,10 +60,10 @@ ms.lasthandoff: 12/06/2017
     
     | Настройка      | Рекомендуемое значение  | Описание                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Имя функции** | значение по умолчанию | Используйте имя функции по умолчанию, предложенное шаблоном. |
-    | **Database name** (Имя базы данных) | Задачи | Имя базы данных с коллекцией для отслеживания. |
+    | **Имя** | значение по умолчанию | Используйте имя функции по умолчанию, предложенное шаблоном. |
     | **Имя коллекции** | Items | Имя коллекции для отслеживания. |
     | **Create lease collection if it doesn't exist** (Создать коллекцию аренд, если она не существует) | Флажок установлен | Коллекция не существует, создайте ее. |
+    | **Database name** (Имя базы данных) | Задачи | Имя базы данных с коллекцией для отслеживания. |
 
 4. Выберите **Создать** рядом с надписью **Azure Cosmos DB account connection** (Подключение к учетной записи Azure Cosmos DB). Затем выберите существующую учетную запись или **+ Создать**. 
  
