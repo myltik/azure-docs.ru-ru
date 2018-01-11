@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0fcd25183617de879ada6d1f7d2a8fcf9551d6de
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Запуск демонстрационной версии службы поиска на карте с помощью Azure Location Based Services (предварительная версия)
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/30/2017
 
 1. Скачайте файл [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html) или скопируйте его содержимое.
 2. Сохраните его локально как файл **AzureMapDemo.html** и откройте в текстовом редакторе.
-3. Найдите строку **<insert-key>** и замените ее значением **Первичный ключ**, полученным в предыдущем разделе. 
+3. Найдите строку **&#60;insert-key&#62;** и замените ее значением **первичного ключа**, полученным в предыдущем разделе. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Запуск демонстрационной версии приложения для службы карт Azure

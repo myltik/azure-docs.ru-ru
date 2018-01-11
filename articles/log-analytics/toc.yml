@@ -73,8 +73,6 @@
               href: log-analytics-sccm.md
             - name: Шлюз OMS
               href: log-analytics-oms-gateway.md
-            - name: Устранение неполадок агента Linux
-              href: log-analytics-agent-linux-support.md
         - name: Источники данных
           items:
             - name: Обзор источников данных
@@ -99,6 +97,8 @@
               href: log-analytics-data-sources-custom-logs.md
             - name: Настраиваемые поля
               href: log-analytics-custom-fields.md
+            - name: API сборщика данных
+              href: log-analytics-data-collector-api.md
     - name: Запрос данных
       items:
         - name: Документация по языкам
@@ -148,7 +148,7 @@
           items:
             - name: Портал OMS
               href: log-analytics-alerts-creating.md
-            - name: Интерфейс REST API
+            - name: ИНТЕРФЕЙС REST API
               href: log-analytics-api-alerts.md
             - name: Шаблон Resource Manager
               href: ../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md
@@ -156,7 +156,7 @@
           href: log-analytics-alerts-webhooks.md
         - name: Решение по управлению оповещениями
           href: log-analytics-solution-alert-management.md
-    - name: Управление
+    - name: управление
       items:
         - name: Управление агентами
           href: log-analytics-agent-manage.md
@@ -164,15 +164,25 @@
           href: log-analytics-manage-cost-storage.md
         - name: Удаление рабочей области
           href: log-analytics-manage-del-workspace.md
+    - name: Устранение неполадок
+      items:
+        - name: Устранение неполадок с расширением виртуальной машины
+          href: log-analytics-azure-vmext-troubleshoot.md
+        - name: Устранение неполадок агента Linux
+          href: log-analytics-agent-linux-support.md
     - name: Использование решений
       items:
         - name: Обзор решений
           href: log-analytics-add-solutions.md
         - name: Целевые решения
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Анализ журнала действий
-          href: log-analytics-activity.md
-        - name: Проверка работоспособности AD
+        - name: Журналы действий Azure
+          items:
+            - name: Аналитика
+              href: log-analytics-activity.md
+            - name: Сбор данных в разных подписках
+              href: log-analytics-activity-logs-subscriptions.md
+        - name: Оценка AD
           href: log-analytics-ad-assessment.md
         - name: Состояние репликации AD
           href: log-analytics-ad-replication-status.md
@@ -199,7 +209,7 @@
           items:
             - name: Подключения управления ИТ-службами
               href: log-analytics-itsmc-connections.md
-        - name: Хранилище ключей
+        - name: хранилище ключей;
           href: log-analytics-azure-key-vault.md
         - name: Сообщения B2B для приложений логики
           items:
@@ -244,8 +254,6 @@
           href: log-analytics-wire-data.md
     - name: Разработка
       items:
-        - name: API сборщика данных
-          href: log-analytics-data-collector-api.md
         - name: Командлеты PowerShell
           href: log-analytics-powershell-workspace-configuration.md
         - name: Шаблоны диспетчера ресурсов
@@ -257,7 +265,7 @@
               href: log-analytics-log-search-api-python.md
         - name: API оповещений
           href: log-analytics-api-alerts.md
-- name: Справочные материалы
+- name: Ссылка
   items:
     - name: Справочник по языку
       href: 'https://docs.loganalytics.io/docs/Language-Reference'

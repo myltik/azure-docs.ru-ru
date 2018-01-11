@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2017
   ms.author: carolz
-  ms.openlocfilehash: e65162e1badfb7a965f96a3207552063075c2834
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.openlocfilehash: 0d66952b5f159ce92b8586f7beb71c25fe7c7b39
+  ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 01/10/2018
 abstract:
   description: "Azure Site Recovery организует и контролирует аварийное восстановление виртуальных машин Azure, а также локальных виртуальных машин и физических серверов. Узнайте больше о репликации, отработке отказа и восстановлении размещения с помощью наших кратких руководств и руководств."
 sections:
@@ -50,18 +50,29 @@ sections:
     style: ordered
     items:
     - html: "<a href=\"tutorial-prepare-azure\">Подготовка Azure</a>."
-    - html: "<a href=\"tutorial-prepare-on-premises-vmware\">Подготовка локальной среды VMware</a>"
+    - html: "<a href=\"tutorial-prepare-on-premises-vmware\">Подготовка локальной среды VMware</a>."
     - html: "<a href=\"tutorial-vmware-to-azure\">Настройка аварийного восстановления</a>"
-    - html: "<a href=\"tutorial-dr-drill-azure\">Выполнение отработки аварийного восстановления</a>"
+    - html: "<a href=\"tutorial-dr-drill-azure\">Run a disaster recovery drill to Azure</a> (Выполнение отработки аварийного восстановления в Azure)"
     - html: "<a href=\"tutorial-vmware-to-azure-failover-failback\">Выполнение отработки отказа и восстановления размещения</a>"
+  - type: text
+    html: <h3>Hyper-V.</h3>
+  - type: list
+    style: ordered
+    items:
+    - html: "<a href=\"tutorial-prepare-azure\">Подготовка Azure</a>."
+    - html: "<a href=\"tutorial-prepare-on-premises-hyper-v\">Подготовка локальных серверов Hyper-V</a>"
+    - html: "<a href=\"tutorial-hyper-v-to-azure\">Настройка аварийного восстановления для виртуальных машин Hyper-V</a>"
+    - html: "<a href=\"tutorial-hyper-v-vmm-to-azure\">Настройки аварийного восстановления для виртуальных машин Hyper-V под управлением System Center VMM</a>"
+    - html: "<a href=\"tutorial-dr-drill-azure\">Run a disaster recovery drill to Azure</a> (Выполнение отработки аварийного восстановления в Azure)"
+    - html: "<a href=\"tutorial-hyper-v-to-azure-failover-failback\">Выполнение отработки отказа и восстановления размещения</a>"
   - type: text
     html: "<h3>Миграция в Azure</h3>"
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"tutorial-prepare-azure\">Подготовка Azure</a>"
+    - html: "<a href=\"tutorial-prepare-azure\">Подготовка Azure</a>."
     - html: "<a href=\"tutorial-migrate-on-premises-to-azure\">Миграция локальных компьютеров</a> или <a href=\"tutorial-migrate-aws-to-azure\">экземпляров AWS в Azure</a>"
-- title: "Справочные материалы"
+- title: "Ссылка"
   items:
   - type: list
     style: cards

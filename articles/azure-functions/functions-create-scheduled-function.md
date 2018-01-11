@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 476e103c7101621e116c5155241f56f1cb9036df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Создание в Azure функции, активируемой по таймеру
 
@@ -52,13 +52,17 @@ ms.lasthandoff: 10/11/2017
 
     ![Страница быстрого начала работы с функциями на портале Azure](./media/functions-create-scheduled-function/add-first-function.png)
 
-2. Выберите шаблон **TimerTrigger** для нужного языка. Затем используйте настройки, указанные в таблице.
+2. В поле поиска введите `timer` и выберите нужный язык для шаблона триггера таймера. 
 
-    ![Создайте функцию, активируемую по таймеру, на портале Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Выбор шаблона для активации функции по таймеру](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+
+3. Настройте новый триггер с параметрами, как указано в таблице под изображением.
+
+    ![Создайте функцию, активируемую по таймеру, на портале Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
     | Настройка | Рекомендуемое значение | Описание |
     |---|---|---|
-    | **Имя функции** | TimerTriggerCSharp1 | Определяет имя функции, активируемой по таймеру. |
+    | **Имя** | значение по умолчанию | Определяет имя функции, активируемой по таймеру. |
     | **[Расписание](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | [Выражение CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) с шестью полями, в котором запланировано ежеминутное выполнение функции. |
 
 2. Щелкните **Создать**. Будет создана функция на выбранном вами языке, которая будет выполняться каждую минуту.

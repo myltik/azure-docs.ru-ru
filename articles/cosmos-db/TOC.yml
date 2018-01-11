@@ -254,6 +254,8 @@
               href: mongodb-mongochef.md
             - name: Использование Robomongo
               href: mongodb-robomongo.md
+            - name: Использование Mongoose
+              href: mongodb-mongoose.md
             - name: Поддержка функций MongoDB
               href: mongodb-feature-support.md
             - name: Серия руководств по Angular
@@ -380,7 +382,7 @@
           href: odbc-driver.md
         - name: Использование начального приложения Spring Boot с API-интерфейсами SQL
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Справочные материалы
+- name: Ссылка
   items:
     - name: Примеры кода
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'

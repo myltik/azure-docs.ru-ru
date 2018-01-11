@@ -44,6 +44,7 @@
 ### [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
 ### [Совместное использование учетных записей](active-directory-sharing-accounts.md)
 ### [Назначение пользователям ролей администратора](active-directory-users-assign-role-azure-portal.md)
+### [Восстановление удаленного пользователя](active-directory-users-restore.md)
 ### [Добавление гостевых пользователей из другого каталога (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Добавление пользователей B2B администраторами](active-directory-b2b-admin-add-users.md)
 #### [Добавление пользователей B2B информационными работниками](active-directory-b2b-iw-add-users.md)
@@ -108,7 +109,7 @@
 #### [Настройка именованных расположений](active-directory-named-locations.md)
 #### [Поиск отчетов об активности](active-directory-reporting-migration.md)
 #### [Использование пакета содержимого Azure Active Directory Power BI](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Справочные материалы
+### Ссылка
 #### [Сохранение](active-directory-reporting-retention.md)
 #### [Задержки](active-directory-reporting-latencies-azure-portal.md)
 #### [Уведомления](active-directory-reporting-notifications.md)
@@ -342,7 +343,7 @@
 ### [Сборник тренировочных заданий по PoC: стандартные блоки](active-directory-playbook-building-blocks.md)
 
 
-# Справочные материалы
+# Ссылка
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Командлеты Azure PowerShell](/powershell/azure/overview)
 ## [Справочник по API Java](/java/api)

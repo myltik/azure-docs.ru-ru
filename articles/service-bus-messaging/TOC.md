@@ -64,6 +64,7 @@
 #### [Объединение в цепочки сущностей с помощью автоматической пересылки](service-bus-auto-forwarding.md)
 #### [Обработка транзакций](service-bus-transactions.md)
 #### [Реализация сопряженных пространств имен](service-bus-paired-namespaces.md)
+### [Всесторонняя трассировка и диагностика](service-bus-end-to-end-tracing.md)
 ## управление
 ### [Мониторинг служебной шины с помощью Azure Monitor](service-bus-metrics-azure-monitor.md)
 ### [Библиотеки управления служебной шиной](service-bus-management-libraries.md)
@@ -78,7 +79,7 @@
 #### 
 ### [Подготовка сущностей с помощью Azure PowerShell](service-bus-manage-with-ps.md)
 
-# Справочные материалы
+# Ссылка
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
