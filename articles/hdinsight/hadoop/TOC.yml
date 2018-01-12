@@ -86,10 +86,16 @@
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: Разработка
       items:
+        - name: Запуск настраиваемых программ MapReduce
+          href: apache-hadoop-run-custom-programs.md
         - name: 'Разработка программ MapReduce для потоковой передачи на C#'
           href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
         - name: Разработка программ Java MapReduce
           href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
+        - name: 'Использование Apache Hive как средства для извлечения, преобразования и загрузки'
+          href: apache-hadoop-using-apache-hive-as-an-etl-tool.md
+        - name: 'Извлечение, преобразование и загрузка в нужном масштабе'
+          href: apache-hadoop-etl-at-scale.md
         - name: Использование пустых граничных узлов
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -145,6 +151,8 @@
         - name: Анализ журналов телеметрии Application Insights
           href: ../spark/apache-spark-analyze-application-insight-logs.md
           maintainContext: true
+        - name: Расширенная аналитика для HDInsight
+          href: apache-hadoop-deep-dive-advanced-analytics.md
     - name: Расширение кластеров
       items:
         - name: Настройка кластеров с использованием Bootstrap
@@ -378,7 +386,9 @@
         - name: Мониторинг производительности кластера
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Справочные материалы
+        - name: Анализ журналов Hadoop
+          href: apache-hadoop-debug-jobs.md
+- name: Ссылка
   items:
     - name: Примеры кода
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
