@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/25/2017
   ms.author: tomfitz
-  ms.openlocfilehash: a51f2d028dc09bfe8d58357d2ade7c3dfa6e3fef
-  ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+  ms.openlocfilehash: 85f4d5d37dabfa5a8781a4f9ed0fb52d7c6e0297
+  ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 12/08/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Управляемые приложения Azure позволяют предлагать облачные решения внутренним и внешним клиентам. Вы самостоятельно определяете инфраструктуру решения, а также условия управления решением. Счета за использование решения обрабатываются в службе Azure по выставлению счетов."
 sections:
@@ -37,18 +37,18 @@ sections:
   - type: paragraph
     text: "Узнайте, как разрабатывать управляемые приложения и предлагать их в Azure Marketplace."
   - type: list
-    style: unordered
-    className: spaced noBullet
+    style: ordered
     items:
     - html: "<a href=\"/azure/managed-applications/publish-service-catalog-app\">Публикация управляемого приложения для внутренних пользователей.</a>"
-- title: "Справочные материалы"
+    - html: "<a href=\"/azure/managed-applications/publish-marketplace-app\">Публикация управляемого приложения для внешних пользователей.</a>"
+- title: "Ссылка"
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: "Командная строка"
-      html: "<p><a href=\"/cli/azure/managedapp\">Интерфейс командной строки Azure</a></p><p><a href=\"/powershell/module/azurerm.resources\">PowerShell</a></p>"
+      html: "<p><a href=\"/cli/azure/managedapp\">интерфейс командной строки Azure</a></p><p><a href=\"/powershell/module/azurerm.resources\">PowerShell</a></p>"
     - title: "Интерфейсы API REST"
       html: <p><a href="/rest/api/resources/">REST</a></p>
     - title: "Пользовательский интерфейс"
