@@ -77,7 +77,7 @@
           href: app-insights-platforms.md
 - name: Практические руководства
   items:
-    - name: планирование и разработка
+    - name: Планирование и проектирование
       items:
         - name: Углубленная диагностика для веб-приложений и служб
           href: app-insights-devops.md
@@ -162,7 +162,7 @@
           items:
             - name: Панели мониторинга
               href: app-insights-dashboards.md
-            - name: Поиск
+            - name: поиска
               href: app-insights-diagnostic-search.md
             - name: Метрики
               href: app-insights-metrics-explorer.md
@@ -226,7 +226,7 @@
           href: app-insights-api-filtering-sampling.md
         - name: Выборка
           href: app-insights-sampling.md
-    - name: Управление
+    - name: управление
       items:
         - name: Управление ценами и объемом данных
           href: app-insights-pricing.md
@@ -265,7 +265,11 @@
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
-- name: Справочные материалы
+- name: Примеры
+  items:
+    - name: Примеры кода
+      href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
+- name: Ссылка
   items:
     - name: Язык запросов Analytics
       href: 'https://docs.loganalytics.io/'

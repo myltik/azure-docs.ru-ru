@@ -85,7 +85,7 @@
       href: functions-best-practices.md
     - name: Прокси функций
       href: functions-proxies.md
-    - name: Среда выполнения функций
+    - name: Функции в локальной среде
       href: functions-runtime-overview.md
     - name: Устойчивые функции
       items:
@@ -175,14 +175,14 @@
           href: durable-functions-counter.md
         - name: Участие пользователя
           href: durable-functions-phone-verification.md
-- name: Справочные материалы
+- name: Ссылка
   items:
     - name: Привязки
       items:
         - name: Хранилище BLOB-объектов
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-documentdb.md
+          href: functions-bindings-cosmosdb.md
         - name: Концентраторы событий
           href: functions-bindings-event-hubs.md
         - name: Внешний файл

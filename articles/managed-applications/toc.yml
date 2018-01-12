@@ -12,6 +12,8 @@
   items:
     - name: Создание файлов управляемого приложения
       href: publish-service-catalog-app.md
+    - name: Создание приложения для Marketplace
+      href: publish-marketplace-app.md
 - name: Примеры
   items:
     - name: Инфраструктура CLI Azure
@@ -28,7 +30,7 @@
       href: update-managed-resources.md
     - name: Публикация с помощью портала
       href: publish-portal.md
-- name: Справочные материалы
+- name: Ссылка
   items:
     - name: Инфраструктура CLI Azure
       href: /cli/azure/managedapp
