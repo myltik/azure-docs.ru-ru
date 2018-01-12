@@ -45,7 +45,7 @@
   items:
     - name: Развертывание
       items:
-        - name: предварительным требованиям
+        - name: Необходимые компоненты
           href: azure-stack-deploy.md
         - name: Телеметрия
           href: azure-stack-telemetry.md
@@ -154,6 +154,8 @@
               href: Azure-stack-create-service-principals.md
             - name: Включение поддержки мультитенантности
               href: azure-stack-enable-multitenancy.md
+        - name: Смена секретов
+          href: azure-stack-rotate-secrets.md
     - name: Предложение служб
       items:
         - name: Обзор предложений служб
@@ -248,9 +250,11 @@
           href: azure-stack-troubleshooting.md
         - name: Диагностика в Azure Stack
           href: azure-stack-diagnostics.md
+        - name: Проверка для Azure Stack
+          href: azure-stack-diagnostic-test.md
         - name: Повторное развертывание пакета SDK для Azure Stack
           href: azure-stack-redeploy.md
-- name: Справочные материалы
+- name: Ссылка
   items:
     - name: PowerShell для Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9

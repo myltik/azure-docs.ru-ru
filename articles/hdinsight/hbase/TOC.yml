@@ -68,7 +68,7 @@
         - name: Использование туннелирования SSH
           href: ../hdinsight-linux-ambari-ssh-tunnel.md
           maintainContext: true
-    - name: Управление
+    - name: управление
       items:
         - name: Создание кластеров Linux
           href: ../hdinsight-hadoop-provision-linux-clusters.md
@@ -121,6 +121,8 @@
         - name: Передача данных для заданий Hadoop
           href: ../hdinsight-upload-data.md
           maintainContext: true
+        - name: Массовая загрузка данных в Phoenix с помощью psql
+          href: apache-hbase-phoenix-psql.md
         - name: Использование нескольких кластеров HDInsight с Data Lake Store
           href: ../hdinsight-multiple-clusters-data-lake-store.md
           maintainContext: true
@@ -218,7 +220,7 @@
         - name: Мониторинг производительности кластера
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Справочные материалы
+- name: Ссылка
   items:
     - name: Примеры кода
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

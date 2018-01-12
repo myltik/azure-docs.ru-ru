@@ -8,10 +8,10 @@
       href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Быстрое начало работы
   items:
-    - name: Создание учетной записи хранения с помощью PowerShell
-      href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Создание учетной записи хранения с помощью интерфейса командной строки
-      href: ../common/storage-quickstart-create-storage-account-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Создайте учетную запись хранения.
+      href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Работа с большими двоичными объектами на портале Azure
+      href: storage-quickstart-blobs-portal.md
     - name: Работа с большими двоичными объектами с помощью PowerShell
       href: storage-quickstart-blobs-powershell.md
     - name: Работа с большими двоичными объектами с помощью интерфейса командной строки
@@ -70,6 +70,10 @@
       href: storage-samples-blobs-powershell.md
     - name: Инфраструктура CLI Azure
       href: storage-samples-blobs-cli.md
+    - name: .NET
+      href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Java
+      href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Основные понятия
   items:
     - name: Планирование и проектирование
@@ -94,16 +98,32 @@
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Хранилище класса Premium
           items:
-            - name: Высокопроизводительное хранилище класса Premium для дисков виртуальных машин
-              href: ../common/storage-premium-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Переход на хранилище Azure класса Premium с помощью Azure Site Recovery
-              href: ../common/storage-migrate-to-premium-storage-using-azure-site-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Проектирование для обеспечения высокой производительности
-              href: ../common/storage-premium-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Linux
+              items:
+                - name: Высокопроизводительное хранилище класса Premium для дисков виртуальных машин
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage'
+                - name: Переход на хранилище Azure класса Premium с помощью Azure Site Recovery
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery'
+                - name: Проектирование для обеспечения высокой производительности
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance'
+            - name: Windows
+              items:
+                - name: Высокопроизводительное хранилище класса Premium для дисков виртуальных машин
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage'
+                - name: Переход на хранилище Azure класса Premium с помощью Azure Site Recovery
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery'
+                - name: Проектирование для обеспечения высокой производительности
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance'
         - name: Стандартное хранилище
           items:
-            - name: 'Экономичное хранилище класса "Стандартный", управляемые и неуправляемые диски виртуальных машин'
-              href: ../common/storage-standard-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Linux
+              items:
+                - name: Хранилище уровня "Стандартный" для дисков виртуальной машины
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage'
+            - name: Windows
+              items:
+                - name: Хранилище уровня "Стандартный" для дисков виртуальной машины
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage'
     - name: Безопасность
       items:
         - name: Руководство по обеспечению безопасности
@@ -146,6 +166,8 @@
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Разработка
       items:
+        - name: REST
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: .NET
           href: storage-dotnet-how-to-use-blobs.md
         - name: Java
@@ -172,8 +194,6 @@
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: управление
       items:
-        - name: PowerShell для службы BLOB-объектов Azure
-          href: storage-how-to-use-blobs-powershell.md
         - name: PowerShell для службы хранилища Azure
           href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'PowerShell для облаков Azure для Китая, Германии и государственных организаций'
@@ -297,7 +317,7 @@
               href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Миграция хранилища: часто задаваемые вопросы'
           href: ../common/storage-migration-faq.md
-- name: Справочные материалы
+- name: Ссылка
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage

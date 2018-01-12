@@ -1,0 +1,190 @@
+- name: Документация по центру безопасности
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Сведения о центре безопасности
+      href: security-center-intro.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Подписки Azure
+      href: security-center-get-started.md
+    - name: Компьютеры Windows
+      href: quick-onboard-windows-computer.md
+    - name: Компьютеры Linux
+      href: quick-onboard-linux-computer.md
+    - name: Решения по обеспечению безопасности
+      href: quick-security-solutions.md
+- name: Учебники
+  items:
+    - name: Определение политик безопасности
+      href: tutorial-security-policy.md
+    - name: Защита ресурсов
+      href: tutorial-protect-resources.md
+    - name: Реагирование на инциденты
+      href: tutorial-security-incident.md
+- name: Основные понятия
+  items:
+    - name: Разрешения
+      href: security-center-permissions.md
+    - name: Защита данных
+      href: security-center-data-security.md
+- name: Практические руководства
+  items:
+    - name: Переход к расширенным функциям безопасности
+      href: security-center-onboarding.md
+    - name: Настройка политики безопасности
+      href: security-center-policies-overview.md
+      items:
+        - name: Сбор данных
+          href: security-center-enable-data-collection.md
+        - name: Определения политик
+          href: security-center-policies.md
+        - name: Уведомления по почте
+          href: security-center-provide-security-contact-details.md
+        - name: Ценовой уровень
+          href: security-center-pricing.md
+        - name: Конфигурации системы безопасности
+          href: security-center-customize-os-security-config.md
+        - name: Политики безопасности на основе политики Azure
+          href: security-center-azure-policy.md
+    - name: Отслеживание состояния системы безопасности
+      href: security-center-monitoring.md
+    - name: Удостоверение и доступ
+      href: security-center-identity-access.md
+    - name: Реализация рекомендаций по вопросам безопасности
+      href: security-center-recommendations.md
+    - name: Защита вычислений
+      href: security-center-virtual-machine-recommendations.md
+      items:
+        - name: Применение шифрования дисков
+          href: security-center-apply-disk-encryption.md
+        - name: Применение обновлений системы
+          href: security-center-apply-system-updates.md
+        - name: Включение шифрования для учетной записи хранения
+          href: security-center-enable-encryption-for-storage-account.md
+        - name: Включение агента виртуальной машины
+          href: security-center-enable-vm-agent.md
+        - name: Установка Endpoint Protection
+          href: security-center-install-endpoint-protection.md
+        - name: Перезагрузка после завершения обновлений системы
+          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+        - name: Исправление конфигураций системы безопасности
+          href: security-center-remediate-os-vulnerabilities.md
+        - name: Обновление версии ОС
+          href: security-center-update-os-version.md
+        - name: Решение для оценки уязвимостей не установлено
+          href: security-center-vulnerability-assessment-recommendations.md
+    - name: Безопасность сети
+      href: security-center-network-recommendations.md
+      items:
+        - name: Добавление брандмауэра следующего поколения
+          href: security-center-add-next-generation-firewall.md
+        - name: Включение групп безопасности сети
+          href: security-center-enable-network-security-groups.md
+        - name: Ограничение доступа через подключенные к Интернету конечные точки
+          href: security-center-restrict-access-through-internet-facing-endpoints.md
+        - name: Маршрутизация трафика только через NGFW
+          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+    - name: Защита хранилища и данных
+      href: security-center-sql-service-recommendations.md
+      items:
+        - name: Включение аудита и обнаружения угроз в базах данных SQL
+          href: security-center-enable-auditing-on-sql-databases.md
+        - name: Включение аудита и обнаружения угроз на серверах SQL Server
+          href: security-center-enable-auditing-on-sql-servers.md
+        - name: Включение прозрачного шифрования данных
+          href: security-center-enable-transparent-data-encryption.md
+    - name: Безопасность приложения
+      href: security-center-application-recommendations.md
+      items:
+        - name: Добавление брандмауэра веб-приложения
+          href: security-center-add-web-application-firewall.md
+        - name: Завершение подготовки защиты приложений
+          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+    - name: Средства защиты в облаке
+      items:
+        - name: JIT-доступ
+          href: security-center-just-in-time.md
+        - name: Адаптивные элементы управления приложениями
+          href: security-center-adaptive-application.md
+    - name: Управление решениями по обеспечению безопасности
+      href: security-center-partner-integration.md
+      items:
+        - name: Подключенные решения
+          href: security-center-partner-solutions.md
+        - name: Подключение Microsoft ATA
+          href: security-center-ata-integration.md
+        - name: Подключение службы защиты идентификации Azure AD
+          href: security-center-aadip-integration.md
+    - name: Изучение угроз безопасности
+      href: security-center-detection-capabilities.md
+      items:
+        - name: Оповещения безопасности
+          href: security-center-managing-and-responding-alerts.md
+        - name: Инциденты безопасности
+          href: security-center-incident.md
+        - name: Отчеты об угрозах
+          href: security-center-threat-report.md
+        - name: Типы оповещений
+          href: security-center-alerts-type.md
+        - name: Настраиваемые оповещения
+          href: security-center-custom-alert.md
+        - name: Проверка оповещений
+          href: security-center-alert-validation.md
+        - name: Карта анализа угроз
+          href: security-center-threat-intel.md
+        - name: Исследование
+          href: security-center-investigation.md
+    - name: Автоматизация и оркестрация
+      items:
+        - name: Модули Playbook в Logic Apps
+          href: security-center-playbooks.md
+        - name: Просмотр событий
+          href: security-center-events-dashboard.md
+        - name: поиска
+          href: security-center-search.md
+    - name: Служба интеграции журналов Azure
+      href: security-center-integrating-alerts-with-log-integration.md
+    - name: Сценарии
+      items:
+        - name: реагирование на инциденты.
+          href: security-center-incident-response.md
+        - name: Использование рекомендаций для повышения уровня безопасности
+          href: security-center-using-recommendations.md
+    - name: Устранение неполадок
+      href: security-center-troubleshooting-guide.md
+- name: Ссылка
+  items:
+    - name: Интерфейсы API REST
+      href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
+- name: Ресурсы
+  items:
+    - name: Часто задаваемые вопросы
+      href: security-center-faq.md
+    - name: Поддерживаемые платформы
+      href: security-center-os-coverage.md
+    - name: Миграция платформы
+      href: security-center-platform-migration.md
+    - name: 'Миграция платформы: часто задаваемые вопросы'
+      href: security-center-platform-migration-faq.md
+    - name: Планирование и эксплуатация
+      href: security-center-planning-and-operations-guide.md
+    - name: Безопасность в Azure
+      href: /azure/security/
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: План подготовки к работе
+      href: security-center-readiness-roadmap.md
+    - name: 'Блог по безопасности, конфиденциальности и соответствию нормам Azure'
+      href: 'http://blogs.msdn.com/b/azuresecurity/'
+    - name: Переполнение стека
+      href: 'https://stackoverflow.com/search?q=security-center'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/security-center/'
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
+    - name: Доступ по регионам
+      href: 'https://azure.microsoft.com/regions/services/'

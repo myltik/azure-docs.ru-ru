@@ -16,6 +16,7 @@
 ### [Создание виртуальных машин](devtest-lab-add-vm.md)
 ### [Создание запрашиваемых виртуальных машин и управление ими](devtest-lab-add-claimable-vm.md)
 ### [Создание виртуальных машин и управление ими с помощью Azure CLI](devtest-lab-vmcli.md)
+### [Создание виртуальной машины с помощью шаблона Resource Manager](devtest-lab-use-resource-manager-template.md)
 ### [Перезапуск виртуальной машины](devtest-lab-restart-vm.md)
 
 ## Использование сред в лаборатории
@@ -46,7 +47,6 @@
 
 ## Управление шаблонами для повторного использования
 ### [Добавление репозитория Git для артефактов и шаблонов](devtest-lab-add-artifact-repo.md)
-### [Использование шаблона Resource Manager](devtest-lab-use-resource-manager-template.md)
 ### [Управление формулами](devtest-lab-manage-formulas.md)
 
 ## Управление артефактами
@@ -65,16 +65,16 @@
 ## Интеграция с помощью непрерывной интеграции и доставки
 ### [Интеграция лабораторий в конвейер VSTS или конвейер непрерывной интеграции и доставки](devtest-lab-integrate-ci-cd-vsts.md)
 
-# Справочные материалы
+# Ссылка
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Автоматическое создание или изменение лабораторий](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
-## [ИНТЕРФЕЙС REST API](https://docs.microsoft.com/rest/api/dtl/)
+## [REST API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Шаблоны Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
 
 
 # Сопутствующие материалы
-## [ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ](devtest-lab-faq.md)
+## [Часто задаваемые вопросы](devtest-lab-faq.md)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=devtest-lab)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Блог группы разработчиков](https://blogs.msdn.microsoft.com/devtestlab/)

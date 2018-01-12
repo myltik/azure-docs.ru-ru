@@ -38,7 +38,9 @@
       href: event-grid-event-hubs-integration.md
     - name: Шаблоны для подписок на события
       href: event-subscription-template.md
-- name: Справочные материалы
+    - name: Мониторинг доставки событий
+      href: monitor-event-delivery.md
+- name: Ссылка
   items:
     - name: Инфраструктура CLI Azure
       href: /cli/azure/eventgrid
