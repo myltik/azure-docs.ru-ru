@@ -1,53 +1,71 @@
-# [Обзор](search-what-is-azure-search.md)
-## [Что такое поиск Azure?](search-what-is-azure-search.md)
+# Обзор
+## [Сведения о службе "Поиск Azure"](search-what-is-azure-search.md)
 
-# Начало работы
+# Быстрое начало работы
 
 ## [Создание службы](search-create-service-portal.md)
-## [Создание индекса](search-what-is-an-index.md)
-### [портал Azure](search-create-index-portal.md)
-### [.NET](search-create-index-dotnet.md)
-### [REST](search-create-index-rest-api.md)
-## [Добавление данных](search-what-is-data-import.md)
-### [портал Azure](search-import-data-portal.md)
-### [.NET](search-import-data-dotnet.md)
-### [REST](search-import-data-rest-api.md)
-## [Поиск в индексе](search-query-overview.md)
-### [портал Azure](search-explorer.md)
-### [.NET](search-query-dotnet.md)
-### [REST](search-query-rest-api.md)
+## Microsoft Azure
+### [Создание индекса](search-create-index-portal.md)
+### [Импорт данных](search-import-data-portal.md)
+### [Обозреватель поиска](search-explorer.md)
+## .NET
+### [Создание индекса](search-create-index-dotnet.md)
+### [Импорт данных](search-import-data-dotnet.md)
+### [Поиск](search-query-dotnet.md)
+## REST
+### [Создание индекса](search-create-index-rest-api.md)
+### [Импорт данных](search-import-data-rest-api.md)
+### [Поиск](search-query-rest-api.md)
+### [Тестирование с помощью клиентов REST](search-fiddler.md)
 
 # Учебники
 
-## [Разработка в .NET](search-howto-dotnet-sdk.md)
-## [Предварительная версия функции синонимов в .NET](search-synonyms-tutorial-sdk.md)
-## [Индексатор данных SQL в .NET](search-indexer-tutorial.md)
-## [Пошаговое руководство по порталу](search-get-started-portal.md)
-## [Поиск частично структурированных данных](search-semi-structured-data.md)
-## [Знакомство с REST API](search-fiddler.md)
+## [1. Индексирование Базы данных SQL Azure](search-indexer-tutorial.md)
+## [2. Индексирование больших двоичных объектов Azure](search-semi-structured-data.md)
+## [3. Добавление синонимов в .NET](search-synonyms-tutorial-sdk.md)
+## [4. Работа с индексом на портале](search-get-started-portal.md)
 
-# Практическое руководство
+# Примеры
+## [Примеры кода Azure](https://azure.microsoft.com/resources/samples/?service=search)
+## [Примеры GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
-## Планирование и разработка
+# Основные понятия
+## [Полнотекстовый поиск](search-lucene-query-architecture.md)
+## [Индексирование](search-what-is-data-import.md)
+## [Определение индексов](search-what-is-an-index.md)
+## [Лингвистический анализ](search-analyzers.md)
+
+# Практические руководства
+
+## планирование и разработка
 ### [Выбор SKU](search-sku-tier.md)
 ### [Ограничения служб](search-limits-quotas-capacity.md)
 ### [Масштабируемость службы](search-capacity-planning.md)
 ### [Конструктивные шаблоны для мультитенантности](search-modeling-multitenant-saas-applications.md)
+### [Производительность и оптимизация](search-performance-optimization.md)
+
 ## Безопасность
 ### [Защита данных и операционная безопасность](search-security-overview.md)
-### [Защита с помощью фильтров идентификаторов](search-security-trimming-for-azure-search.md)
-### [Защита с помощью Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+### [Защита с помощью фильтров удостоверений](search-security-trimming-for-azure-search.md)
+### [Защита с помощью Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+
 ## Разработка
 ### [Версии API](search-api-versions.md)
+### [Разработка в .NET](search-howto-dotnet-sdk.md)
 ### [Разработка в Node.js](search-get-started-nodejs.md)
 ### [Разработка в Java](search-get-started-java.md)
 ### [Обновление пакета SDK](search-dotnet-sdk-migration.md)
 ### [Обновление REST API](search-api-migration.md)
 ### [Моделирование сложных типов данных](search-howto-complex-data-types.md)
 ### [Обработка одновременных обновлений](search-howto-concurrency.md)
-### [Примеры кода](https://azure.microsoft.com/resources/samples/?service=search)
-## Загрузка данных
-### [Обзор индексатора](search-indexer-overview.md)
+### [Разбиение результатов по страницам](search-pagination-page-layout.md)
+
+## Анализ текста
+### [Языковые анализаторы](https://docs.microsoft.com/rest/api/searchservice/language-support)
+### [Пользовательские анализаторы](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+
+## Индексирование данных
+### [Индексаторы в службе поиска Azure](search-indexer-overview.md)
 ### [Индексатор хранилища BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md)
 ### [Индексатор хранилища таблиц Azure](search-howto-indexing-azure-tables.md)
 ### [Индексатор SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
@@ -57,32 +75,24 @@
 ### [Настройка подключений индексатора к SQL Server на виртуальной машине Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Сопоставление полей в индексаторах](search-indexer-field-mappings.md)
 ##  поиска
-### [Принцип работы полнотекстового поиска](search-lucene-query-architecture.md)
-### Построение запросов
-#### [Простой синтаксис запросов](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-#### [Синтаксис запросов Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-#### [Примеры запросов Lucene](search-query-lucene-examples.md)
-### Анализаторы в службе поиска Azure
-#### [Обзор](search-analyzers.md)
-#### [Языковые анализаторы](https://docs.microsoft.com/rest/api/searchservice/language-support)
-#### [Пользовательские анализаторы](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
-### Фильтры в службе "Поиск Azure"
-#### [Обзор](search-filters.md)
-#### [Фильтры аспекта](search-filters-facets.md)
-#### [Фильтры языка](search-filters-language.md)
-#### [Справочник по синтаксису выражений](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### [Разбиение результатов по страницам](search-pagination-page-layout.md)
-### [Профили повышения](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-### [Предложения](https://docs.microsoft.com/rest/api/searchservice/suggesters)
+### [Создание простых запросов](search-query-overview.md)
+### [Простой синтаксис запросов](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+### [Синтаксис запросов Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+### [Примеры запросов с использованием синтаксиса Lucene](search-query-lucene-examples.md)
 ### [Фасетная навигация](search-faceted-navigation.md)
-### [Предварительный просмотр синонимов](search-synonyms.md)
-### [moreLikeThis (предварительная версия)](search-more-like-this.md)
+### [Профили оценки](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+### [Предложения](https://docs.microsoft.com/rest/api/searchservice/suggesters)
+### [Синонимы (предварительная версия)](search-synonyms.md)
+## Фильтры
+### [Общие сведения о фильтрах](search-filters.md)
+### [Фильтры аспекта](search-filters-facets.md)
+### [Синтаксис выражений OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+
 ## Администрирование и аналитика
-### [Управление с помощью портала Azure](search-manage.md)
-### [Управление с помощью PowerShell](search-manage-powershell.md)
-### [Мониторинг использования и статистики](search-monitor-usage.md)
+### [Администрирование на портале](search-manage.md)
+### [PowerShell (Поиск Azure)](search-manage-powershell.md)
+### [Мониторинг использования и статистика](search-monitor-usage.md)
 ### [Поиск в аналитике трафика](search-traffic-analytics.md)
-### [Производительность и оптимизация](search-performance-optimization.md)
 
 # Ссылка
 
@@ -97,21 +107,16 @@
 
 ## [Вопросы и ответы](search-faq-frequently-asked-questions.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/search/)
-## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=search)
 ## Обучающие программы и учебники
-### [Видео и учебники](search-video-demo-tutorial-list.md)
+### [Видеоролики и руководства](search-video-demo-tutorial-list.md)
 ### [Виртуальная академия](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
 ## Сайты с демоверсиями
 ### [Search Analyzer Demo](http://alice.unearth.ai/)
 ### [Демонстрационные приложения, работающие в реальном времени](https://searchsamples.azurewebsites.net/)
 ### [Приложение с описаниями заданий](http://aka.ms/azjobsdemo)
 ## Партнеры и сообщество
-### [Поиск Azure и GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Форум MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Форум MSDN по службе "Поиск Azure"](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Блог: моделирование реляционных данных](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Блог: многоуровневая фасетизация](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-
-
-

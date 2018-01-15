@@ -6,13 +6,13 @@
       href: how-iot-edge-works.md
 - name: Быстрое начало работы
   items:
-    - name: Развертывание в пограничной зоне — Linux
+    - name: Развертывание в пограничной зоне — Linux/Mac
       href: quickstart-linux.md
     - name: Развертывание в пограничной зоне — Windows
       href: quickstart.md
 - name: Учебники
   items:
-    - name: Имитация пограничного устройства — Linux
+    - name: Имитация пограничного устройства — Linux/Mac
       href: tutorial-simulate-device-linux.md
     - name: Имитация пограничного устройства — Windows
       href: tutorial-simulate-device-windows.md

@@ -16,14 +16,14 @@
 #### [Переменные](resource-manager-templates-variables.md)
 #### [Ресурсы](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
-### [Использование ссылок на другие шаблоны](resource-group-linked-templates.md)
+### [Связанные и вложенные шаблоны](resource-group-linked-templates.md)
 ### [Определение зависимости между ресурсами](resource-group-define-dependencies.md)
 ### [Развертывание нескольких экземпляров ресурсов в шаблонах Azure Resource Manager](resource-group-create-multiple.md)
 ### [Обновление ресурса](/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [Схемы проектирования шаблонов](best-practices-resource-manager-design-templates.md)
 
 
-## Развернуть
+## Развертывание
 ### Azure PowerShell
 #### [Развертывание шаблона](resource-group-template-deploy.md)
 #### [Развертывание частного шаблона с помощью маркера SAS](resource-manager-powershell-sas-token.md)
@@ -40,10 +40,10 @@
 ### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)
 
-## Управление
+## управление
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
-### [Портал Azure](resource-group-portal.md)
+### [портал Azure](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
@@ -54,8 +54,8 @@
 ## Контроль доступа
 ### Создание субъекта-службы
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
-#### [Интерфейс командной строки Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Портал Azure](resource-group-create-service-principal-portal.md)
+#### [интерфейс командной строки Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [портал Azure](resource-group-create-service-principal-portal.md)
 ### [API проверки подлинности для доступа к подпискам](resource-manager-api-authentication.md)
 ### [Блокировка ресурсов](resource-group-lock-resources.md)
 
@@ -80,7 +80,7 @@
 #### [Проблемы с развертыванием в Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [Сведения об ошибках развертывания](resource-manager-troubleshoot-tips.md)
 
-# Справочные материалы
+# Ссылка
 ## [Формат шаблона](/azure/templates/)
 ## [Функции шаблонов](resource-group-template-functions.md)
 ### [Функции массива и объекта](resource-group-template-functions-array.md)
@@ -91,7 +91,7 @@
 ### [Функции для работы с ресурсами](resource-group-template-functions-resource.md)
 ### [Строковые функции](resource-group-template-functions-string.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
-## [Интерфейс командной строки Azure](/cli/azure/resource)
+## [интерфейс командной строки Azure](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
