@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 62cfc713c3b7ce8f7c0a7ff4dd5e80802f1843b7
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a850b3fdff956abe41ac9a4af10a96dc119a75f4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>Операции файловой системы в Azure Data Lake Store с использованием REST API
 > [!div class="op_single_selector"]
 > * [ПАКЕТ SDK .NET](data-lake-store-data-operations-net-sdk.md)
 > * [Пакет SDK для Java](data-lake-store-get-started-java-sdk.md)
-> * [ИНТЕРФЕЙС REST API](data-lake-store-data-operations-rest-api.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
 В этой статье содержатся сведения об использовании интерфейсов REST API WebHDFS и REST API Data Lake Store для выполнения операций файловой системы в Azure Data Lake Store. Дополнительные сведения о том, как выполнять операции управления учетными записями в Data Lake Store с помощью REST API, см. в статье [Начало работы с Azure Data Lake Store с помощью интерфейсов REST API](data-lake-store-get-started-rest-api.md).
 
-## <a name="prerequisites"></a>Предварительные требования
-* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="prerequisites"></a>Необходимые компоненты
+* **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Учетная запись хранилища озера данных Azure**. Следуйте инструкциям в разделе [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).
 
@@ -159,7 +159,7 @@ ms.lasthandoff: 12/18/2017
 
     {"boolean":true}
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Начало работы с Azure Data Lake Store с помощью интерфейсов REST API](data-lake-store-get-started-rest-api.md).
 
 ## <a name="see-also"></a>См. также

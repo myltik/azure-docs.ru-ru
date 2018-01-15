@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 46d5a673c530c6fbcbd1a88a8e74a753ae04998b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d38d2790ae73d147209bb0ccdbbbe20bf880daa4
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Сброс пароля Azure AD на экране входа
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/11/2017
       * Для параметра **Значение** установите значение **1**.
       * Щелкните **ОК**
    * Щелкните **ОК**
-4. Нажмите кнопку **Создать**
+4. Нажмите кнопку **Создать**.
 
 ### <a name="assign-a-device-configuration-policy-in-intune"></a>Назначение политики конфигурации устройства в Intune
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 12/11/2017
 3. Введите имя для группы и в поле **Тип членства** выберите **Назначено**. 
    * В разделе **Участники** выберите устройства с Windows 10, присоединенные к Azure AD, к которым требуется применить политику.
    * Нажмите кнопку **Выбрать**.
-4. Нажмите кнопку **Создать**
+4. Нажмите кнопку **Создать**.
 
 Дополнительные сведения о создании групп см. в статье [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md).
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 12/11/2017
 
 * Сброс пароля сейчас не поддерживается на удаленном рабочем столе.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о сбросе пароля с помощью Azure AD см. в следующих источниках:
 
 * [Как развернуть самостоятельный сброс пароля](active-directory-passwords-best-practices.md)

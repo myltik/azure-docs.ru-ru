@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Руководство разработчика Java по Функциям Azure
 > [!div class="op_single_selector"]
@@ -276,7 +276,7 @@ public class MyClass {
 | `HttpResponseMessage<T>` | Привязка к выходным данным HTTP | Возврат кодов состояния, отличных от 200   |
 
 > [!NOTE] 
-> Вы также можете использовать заметки `@BindingName` для получения HTTP-заголовков и запросов. Например, `@Bind("name") String query` перебирает все заголовки и запросы из HTTP-запроса и передает эти значения методу. Например, `query` примет значение `"test"`, если будет получен запрос с URL-адресом `http://example.org/api/echo?name=test`.
+> Вы также можете использовать заметки `@BindingName` для получения HTTP-заголовков и запросов. Например, `@BindingName("name") String query` перебирает все заголовки и запросы из HTTP-запроса и передает эти значения методу. Например, `query` примет значение `"test"`, если будет получен запрос с URL-адресом `http://example.org/api/echo?name=test`.
 
 ### <a name="metadata"></a>Метаданные
 
@@ -325,7 +325,7 @@ public class Function {
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Для получения дополнительных сведений см. следующие ресурсы:
 
 * [Рекомендации по функциям Azure](functions-best-practices.md)

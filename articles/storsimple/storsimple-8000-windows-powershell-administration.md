@@ -4,7 +4,7 @@ description: "Узнайте, как использовать Windows PowerShell
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 89e1054117f19e787da5330932021351fb016209
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Администрирование устройства с помощью Windows PowerShell для StorSimple
 
@@ -126,8 +126,8 @@ Windows PowerShell для StorSimple — это интерфейс команд�
 
 Для подключения с использованием удаленного взаимодействия Windows PowerShell можно использовать HTTP или HTTPS. Соответствующие инструкции см. в следующих учебниках.
 
-* [Подключение по протоколу HTTP](storsimple-remote-connect.md#connect-through-http)
-* [Подключение по протоколу HTTPS](storsimple-remote-connect.md#connect-through-https)
+* [Подключение по протоколу HTTP](storsimple-8000-remote-connect.md#connect-through-http)
+* [Подключение по протоколу HTTPS](storsimple-8000-remote-connect.md#connect-through-https)
 
 ## <a name="connection-security-considerations"></a>Вопросы безопасности подключения
 
@@ -182,7 +182,7 @@ Windows PowerShell для StorSimple — это интерфейс команд�
 > Чтобы получить список всех доступных командлетов в пространстве выполнения, войдите в соответствующий пункт меню и выполните командлет `Get-Command`.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-Если при выполнении одного из указанных выше рабочих процессов возникнут проблемы с устройством StorSimple, см. раздел [Средства для устранения неполадок в развертываниях StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+Если при выполнении одного из указанных выше рабочих процессов возникнут проблемы с устройством StorSimple, см. раздел [Средства для устранения неполадок в развертываниях StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 43582ae805d560e72fb8d03ab8e0abee4c4325b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Контроль доступа в Azure Data Lake Store
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/11/2017
 |--------------|------------|------------------------|
 | 7            | RWX        | чтение, запись и выполнение |
 | 5            | R-X        | Чтение + выполнение         |
-| 4            | R--        | чтение                   |
+| 4.            | R--        | чтение                   |
 | 0            | ---        | Нет разрешений         |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 10/11/2017
 
 В системе HDFS umask, как правило, является параметром конфигурации уровня сайта, управляемым администраторами. Data Lake Store использует маску **umask уровня учетной записи** , которую нельзя изменить. В следующей таблице показана работа umask в Data Lake Store.
 
-| Группа пользователя  | Настройка | Влияние на ACL для доступа для нового дочернего элемента |
+| Группа пользователя  | Параметр | Влияние на ACL для доступа для нового дочернего элемента |
 |------------ |---------|---------------------------------------|
 | владельца | ---     | Не влияет                             |
 | группы владельцев| ---     | Не влияет                             |
@@ -337,6 +337,6 @@ GUID отображается, если пользователь не сущес
 
 * [ACL: Using Access Control Lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: использование списков управления доступом в Linux)
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)

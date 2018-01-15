@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: 827c0122fafceca369c0350e6846c77e98abc3b5
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a51aa48a9a2c3c062c374885d45f08ae0b397ce1
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="indexers-in-azure-search"></a>Индексаторы в службе поиска Azure
 > [!div class="op_single_selector"]
@@ -27,9 +27,9 @@ ms.lasthandoff: 12/13/2017
 > * [Обзор](search-indexer-overview.md)
 > * [Портал](search-import-data-portal.md)
 > * [Azure SQL;](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [База данных Azure Cosmos](search-howto-index-cosmosdb.md)
 > * [Хранилище BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md)
-> * [Хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
+> * [хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
 >
 
 *Индексатор* в службе поиска Azure — это программа-обходчик, которая извлекает доступные для поиска данные и метаданные из внешнего источника данных, а затем заполняет индекс, сопоставляя поля в индексе и источнике данных. Этот подход иногда называют моделью извлечения, так как запрос данных службой не предполагает написание кода, который передает данные в индекс.
@@ -57,9 +57,9 @@ ms.lasthandoff: 12/13/2017
 Индексатор извлекает данные из *источника данных*, который содержит такие сведения, как строка подключения и, возможно, учетные данные. Сейчас поддерживаются следующие источники данных:
 
 * [база данных Azure SQL (или SQL Server на виртуальных машинах Azure);](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [База данных Azure Cosmos](search-howto-index-documentdb.md)
+* [База данных Azure Cosmos](search-howto-index-cosmosdb.md)
 * [Хранилище больших двоичных объектов Azure](search-howto-indexing-azure-blob-storage.md) для выбранных типов содержимого
-* [Хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
+* [хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
 
 Источники данных настраиваются и управляются независимо от индексаторов, которые их используют. Это означает, что источник данных может использоваться несколькими индексаторами для одновременной загрузки нескольких индексов.
 
@@ -72,12 +72,12 @@ ms.lasthandoff: 12/13/2017
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Шаг 3. Создание и планирование индексатора
 Определение индексатора — это конструкция, которая позволяет указать индекс, источник данных и расписание. Индексатор может ссылаться на источник данных из другой службы, если этот источник данных принадлежит к той же подписке. Дополнительные сведения о структурировании индексатора см. в статье, посвященной [созданию индекса (с использованием REST API службы поиска Azure)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы ознакомились с основной идеей, можно переходить к изучению требований и задач, связанных с каждым типом источника данных.
 
 * [база данных Azure SQL (или SQL Server на виртуальных машинах Azure);](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [База данных Azure Cosmos](search-howto-index-documentdb.md)
+* [База данных Azure Cosmos](search-howto-index-cosmosdb.md)
 * [Хранилище BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md)
-* [Хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
+* [хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
 * [Индексирование BLOB-объектов в формате CSV с помощью индексатора BLOB-объектов службы поиска Azure](search-howto-index-csv-blobs.md)
 * [Индексирование BLOB-объектов JSON с помощью индексатора BLOB-объектов службы поиска Azure](search-howto-index-json-blobs.md)

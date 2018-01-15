@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 6c43f2b341280731707e486ba6f22f11560102c6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5fafde870a01a6ceb5e86f7b00b0ca11b748c68a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>Операции управления учетными записями в Azure Data Lake Store с использованием REST API
 > [!div class="op_single_selector"]
 > * [ПАКЕТ SDK .NET](data-lake-store-get-started-net-sdk.md)
-> * [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
+> * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
 В этой статье содержатся сведения о выполнении операций управления учетными записями в Data Lake Store с использованием REST API. Операции управления учетными записями включают в себя создание учетной записи Data Lake Store, удаление учетной записи Data Lake Store и т. д. Дополнительные сведения о том, как выполнять операции файловой системы в Data Lake Store с помощью REST API, см. в [этой статье](data-lake-store-data-operations-rest-api.md).
 
-## <a name="prerequisites"></a>Предварительные требования
-* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="prerequisites"></a>Необходимые компоненты
+* **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **[cURL](http://curl.haxx.se/)**. В этой статье для демонстрации вызовов REST API к учетной записи хранения озера данных используется cURL.
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/18/2017
     ...
     ...
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Операции файловой системы в Azure Data Lake Store с использованием REST API](data-lake-store-data-operations-rest-api.md).
 
 ## <a name="see-also"></a>См. также

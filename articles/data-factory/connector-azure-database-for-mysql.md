@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 232096acb2f79e1c1a7816e4074674b48534c440
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 89c971ae0dd0a519a1b0214e33b5a6ad2bb7fc99
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Копирование данных из базы данных Azure для MySQL с помощью фабрики данных Azure
 
 В этой статье описывается, как с помощью действия копирования в фабрике данных Azure копировать данные из базы данных Azure для MySQL. Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
 
 > [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Перемещение данных из MySQL с помощью фабрики данных Azure](v1/data-factory-onprem-mysql-connector.md).
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Перемещение данных из MySQL с помощью фабрики данных Azure](v1/data-factory-onprem-mysql-connector.md).
 
 ## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="getting-started"></a>Приступая к работе
 
-Вы можете создать конвейер с помощью операции копирования, используя пакет SDK для .NET, пакет SDK для Python, Azure PowerShell, API REST или шаблон Azure Resource Manager. Пошаговые инструкции по созданию конвейера с действием копирования см. в [руководстве по действию копирования](quickstart-create-data-factory-dot-net.md).
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, характерных для соединителя базы данных Azure для MySQL.
 
@@ -42,13 +42,13 @@ ms.lasthandoff: 11/10/2017
 
 Для связанной службы базы данных Azure для MySQL поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
-| type | Для свойства type необходимо задать значение **AzureMySql**. | Да |
-| connectionString | Укажите сведения, необходимые для подключения к экземпляру базы данных Azure для MySQL. Пометьте это поле в качестве SecureString. | Да |
-| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать среду выполнения интеграции Azure или локальную среду IR (если хранилище данных расположено в частной сети). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет |
+| Тип | Для свойства type необходимо задать значение **AzureMySql**. | Yes |
+| connectionString | Укажите сведения, необходимые для подключения к экземпляру базы данных Azure для MySQL. Пометьте это поле в качестве SecureString. | Yes |
+| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать среду выполнения интеграции Azure или локальную среду IR (если хранилище данных расположено в частной сети). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет  |
 
-**Пример**
+**Пример.**
 
 ```json
 {
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/10/2017
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<server>.mysql.database.azure.com;Port=3306;Database=<database>;UID=<username>;PWD=<password>"
+                 "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
             }
         },
         "connectVia": {
@@ -75,9 +75,9 @@ ms.lasthandoff: 11/10/2017
 
 Чтобы скопировать данные из базы данных Azure для MySQL, задайте для свойства type набора данных значение **AzureMySqlTable**. Поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
-| type | Свойство type набора данных должно иметь значение **AzureMySqlTable**. | Да |
+| Тип | Свойство type набора данных должно иметь значение **AzureMySqlTable**. | Yes |
 | tableName | Имя таблицы в базе данных MySQL. | Нет (если свойство query указано в источнике действия) |
 
 **Пример**
@@ -106,12 +106,12 @@ ms.lasthandoff: 11/10/2017
 
 Чтобы скопировать данные из базы данных Azure для MySQL, задайте тип источника в действии копирования как **AzureMySqlSource**. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
-| type | Свойство type источника действия копирования должно иметь значение **AzureMySqlSource**. | Да |
+| Тип | Свойство type источника действия копирования должно иметь значение **AzureMySqlSource**. | Yes |
 | query | Используйте пользовательский SQL-запрос для чтения данных. Например, `"SELECT * FROM MyTable"`. | Нет (если для набора данных задано свойство tableName) |
 
-**Пример**
+**Пример.**
 
 ```json
 "activities":[
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/10/2017
         "typeProperties": {
             "source": {
                 "type": "AzureMySqlSource",
-                "query": "SELECT * FROM MyTable"
+                "query": "<custom query e.g. SELECT * FROM MyTable>"
             },
             "sink": {
                 "type": "<sink type>"
@@ -190,5 +190,5 @@ ms.lasthandoff: 11/10/2017
 | `year` |`Int32` |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В таблице [Поддерживаемые хранилища данных](copy-activity-overview.md#supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования в фабрике данных Azure.

@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a80500e806d85d0c1dd01d10fea74f59c92fb50a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fa47d4ea9aa019464e465c051b016dac7c224dc9
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-6-create-measures"></a>Занятие 6. Создание мер
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-measures"></a>Создание мер
 
 В этом занятии вы будете создавать меры для включения в модель. Аналогично созданным вами вычисляемым столбцам, мера представляет собой расчет, создаваемый с помощью формулы DAX. Но в отличие от вычисляемых столбцов меры вычисляются на основе выбранного пользователем *фильтра*. Например, в поле "Метки строк" сводной таблицы добавляется имя определенного столбца или среза. Значение для каждой ячейки в фильтре вычисляется с учетом применимой меры. Меры — это эффективные и гибкие средства вычисления, которые пригодятся почти в любых табличных моделях для динамических расчетов с числовыми данными. Дополнительные сведения см. в статье [Меры](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
   
@@ -35,7 +33,7 @@ ms.lasthandoff: 11/02/2017
   
 Предполагаемое время выполнения этого занятия: **30 минут**  
   
-## <a name="prerequisites"></a>Предварительные требования  
+## <a name="prerequisites"></a>Необходимые компоненты  
 Этот раздел входит в учебник по табличному моделированию, который следует изучать в предложенном порядке. Прежде чем выполнять задачи в этом разделе, нужно завершить предыдущее занятие: [Занятие 5. Создание вычисляемых столбцов](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
 ## <a name="create-measures"></a>Создание мер  
@@ -92,7 +90,7 @@ ms.lasthandoff: 11/02/2017
 
     |столбец|Имя меры|Автосумма (∑)|Формула|  
     |----------------|----------|-----------------|-----------|  
-    |SalesOrderLineNumber|InternetOrderLinesCount|Count|=COUNTA([SalesOrderLineNumber])|  
+    |SalesOrderLineNumber|InternetOrderLinesCount|Количество|=COUNTA([SalesOrderLineNumber])|  
     |OrderQuantity|InternetTotalUnits|Sum|=SUM([OrderQuantity])|  
     |DiscountAmount|InternetTotalDiscountAmount|Sum|=SUM([DiscountAmount])|  
     |TotalProductCost|InternetTotalProductCost|Sum|=SUM([TotalProductCost])|  

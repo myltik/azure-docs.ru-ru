@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.openlocfilehash: e09b472a53c02b39bcf7ad06d228049b0a392452
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Настройка кластера Linux RDMA для выполнения приложений MPI
 Узнайте, как настроить кластер Linux RDMA в Azure с [виртуальными машинами серии H или серии A для ресурсоемких вычислений](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) для параллельного выполнения приложений с интерфейсом MPI. Эта статья содержит процедуру подготовки образа Linux HPC для запуска Intel MPI в кластере. После предварительной подготовки вы развернете кластер виртуальных машин, используя этот образ и еще один для любого размера виртуальной машины Azure, поддерживающего RDMA (сейчас это H16r, H16mr, A8 и A9). Такой кластер позволяет выполнять приложения MPI, которые эффективно взаимодействуют через сеть с низкой задержкой и высокой пропускной способностью с использованием технологии удаленного прямого доступа к памяти (RDMA).
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/09/2017
 >
 >
 
-### <a name="prerequisites"></a>Технические условия
+### <a name="prerequisites"></a>Необходимые компоненты
 * **Клиентский компьютер**. Для взаимодействия с Azure необходим клиентский компьютер под управлением Mac, Linux или Windows. Далее предполагается, что вы используете клиент Linux.
 * **Подписка Azure**. Если у вас ее нет, можно за пару минут создать [бесплатную учетную запись](https://azure.microsoft.com/free/). Для больших кластеров можно использовать подписку с оплатой по мере использования или другие варианты приобретения.
 * **Доступность виртуальных машин нужного размера**. Сейчас технологию RDMA поддерживают следующие размеры экземпляра: H16r, H16mr, A8 и A9. Проверьте [доступность продуктов по регионам](https://azure.microsoft.com/regions/services/) , чтобы узнать, в каких регионах Azure их можно использовать.
@@ -304,7 +304,7 @@ cluster12
 Следующая команда Intel MPI выполняет проверку связи для анализа конфигурации кластера и подключения к сети RDMA.
 
 ```
-mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
+mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
 В работающем кластере с двумя узлами вы должны увидеть результаты, аналогичные приведенным ниже. В сети RDMA Azure для сообщения размером до 512 байт можно ожидать задержку на уровне 3 микросекунд или ниже.
@@ -375,7 +375,7 @@ mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAP
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Разверните и запустите приложения MPI в кластере Linux.
 * Рекомендации по Intel MPI см. в [документации для библиотеки Intel MPI](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/).
 * Чтобы создать кластер Intel Lustre с помощью образа пакета HPC на основе CentOS, воспользуйтесь [шаблоном быстрого запуска](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos). Дополнительные сведения см. в статье [Deploying Intel Cloud Edition for Lustre on Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/) (Развертывание Intel Cloud Edition для Lustre в Microsoft Azure).

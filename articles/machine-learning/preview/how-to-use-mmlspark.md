@@ -9,23 +9,23 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: 9ba2cbe1d6ce4b2010decb8bff4fa46faf0852b3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.date: 01/12/2018
+ms.openlocfilehash: f978805f800a35908629a6febb59d7db50d14023
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Как использовать библиотеку службы "Машинное обучение Microsoft" для Apache Spark
 
-## <a name="introduction"></a>Общие сведения
+## <a name="introduction"></a>Введение
 
 [Библиотека службы "Машинное обучение Microsoft" для Apache Spark](https://github.com/Azure/mmlspark) (MMLSpark) предоставляет средства, позволяющие легко создавать масштабируемые модели машинного обучения для больших наборов данных. Она включает интеграцию конвейеров SparkML с [Microsoft Cognitive Toolkit ](https://github.com/Microsoft/CNTK) и [OpenCV](http://www.opencv.org/). Благодаря этому вы получаете следующие возможности: 
  * Получение и предварительная обработка данных изображения.
  * Создание признаков изображений и текста с помощью предварительно обученных моделей глубокого обучения.
  * Обучение и оценка моделей классификации и регрессии с помощью неявного создания признаков.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>Необходимые компоненты
 
 Прежде чем приступить к выполнению этого руководства, вам понадобится сделать следующее:
 - [Установить Azure Machine Learning Workbench](quickstart-installation.md).
@@ -56,7 +56,7 @@ repositories:
 packages:
   - group: "com.microsoft.ml.spark"
     artifact: "mmlspark_2.11"
-    version: "0.7.9"
+    version: "0.9.9"
 ```
 
 MMLSpark также можно установить непосредственно в кластере HDInsight Spark с помощью [действия скрипта](https://github.com/Azure/mmlspark#hdinsight).
@@ -83,7 +83,7 @@ az ml experiment prepare -c <myhdi>
 
 Azure Machine Learning Workbench отправит задание Spark в кластер. Вы можете отслеживать ход выполнения и просмотреть результаты в представлении журнала выполнения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Сведения о библиотеке MMLSpark и примерах см. в [репозитории MMLSpark на GitHub](https://github.com/Azure/mmlspark).
 
 *Apache® Apache Spark и Spark® являются охраняемыми товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах.*

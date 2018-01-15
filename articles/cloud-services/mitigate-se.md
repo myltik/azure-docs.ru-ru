@@ -1,12 +1,13 @@
 ---
-title: "Рекомендации по снижению рисков наблюдающей выполнения в Azure | Документы Microsoft"
-description: "Рекомендации по снижению рисков Упреждающее исполнение стороне канала уязвимости в Azure."
+title: "Рекомендации по устранению рисков упреждающего исполнения в Azure | Документация Майкрософт"
+description: "Рекомендации по устранению рисков при уязвимостях упреждающего исполнения по сторонним каналам в Azure."
 services: cloud-services
 documentationcenter: 
 author: cynthn
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
+keywords: spectre,meltdown,specter
 ms.service: cloud-services
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -14,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2018
 ms.author: cynthn
-ms.openlocfilehash: 5ea886a9d81c0217bf76fce154263fe6f10c3572
-ms.sourcegitcommit: 113fe856a110b5522d2759ba1788b01697ae2b32
-ms.translationtype: MT
+ms.openlocfilehash: e70b6bf4673a35669c09af0dabef3e851fcaf797
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/07/2018
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities"></a>Рекомендации по снижению рисков уязвимостей Упреждающее исполнение стороне канала
+# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Рекомендации по устранению рисков при уязвимостях упреждающего исполнения по сторонним каналам в Azure
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../includes/virtual-machines-common-mitigate-se.md)]

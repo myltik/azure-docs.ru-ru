@@ -14,21 +14,21 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/03/2017
   ms.author: carolz
-  ms.openlocfilehash: a1d192cd5fc63b3e1f1b2c4f821cf447e7600373
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.openlocfilehash: 662d4f32cb6abb8694253a50d17daa242b55e409
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "База данных SQL Azure — это реляционная база данных как услуга на базе ядра Microsoft SQL Server. База данных SQL — это высокопроизводительная, надежная и безопасная база данных, с помощью которой можно создавать приложения и веб-сайты на основе данных, используя любой язык программирования, без необходимости управлять инфраструктурой. Узнайте, как использовать базу данных SQL, с помощью наших шаблонов быстрого запуска, примеров и руководств."
   aside:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/create-sql-database-on-azure.png
+      src: https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png
       width: 250
     title: "Создание базы данных SQL в Azure (3:12)"
-    href: https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/
+    href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
     width: 250
 sections:
 - title: "5-минутные руководства по началу работы"
@@ -39,17 +39,17 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
       text: "Портал Azure"
-      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal
     - image:
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
       text: "Инфраструктура CLI Azure"
-      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-cli
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-cli
     - image:
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
       text: Azure PowerShell
-      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-powershell
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-powershell
 - title: "Пошаговые руководства"
   items:
   - type: paragraph
@@ -81,15 +81,15 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
-    - html: "<a href=\"/azure/sql-database/sql-database-cli-samples\">Интерфейс командной строки Azure</a>"
-- title: "Справочные материалы"
+    - html: "<a href=\"/azure/sql-database/sql-database-cli-samples\">интерфейс командной строки Azure</a>"
+- title: "Ссылка"
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: "Командная строка"
-      html: "<p><a href=\"/powershell/module/azurerm.sql/#sql\">Azure PowerShell</a></p><p><a href=\"/powershell/module/elasticdatabasejobs/#elasticdatabasejobs\">Azure PowerShell (эластичная база данных)</a></p><p><a href=\"/cli/azure/sql\">Интерфейс командной строки Azure</a></p>"
+      html: "<p><a href=\"/powershell/module/azurerm.sql/#sql\">Azure PowerShell</a></p><p><a href=\"/powershell/module/elasticdatabasejobs/#elasticdatabasejobs\">Azure PowerShell (эластичная база данных)</a></p><p><a href=\"/cli/azure/sql\">интерфейс командной строки Azure</a></p>"
     - title: "Языки"
       html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
     - title: REST

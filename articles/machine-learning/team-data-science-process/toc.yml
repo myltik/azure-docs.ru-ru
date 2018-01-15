@@ -223,7 +223,7 @@
 - name: Сопутствующие материалы
   items:
     - name: Набор средств Microsoft Cognitive Toolkit (CNTK)
-      href: 'https://docs.microsoft.com/en-us/cognitive-toolkit/'
+      href: 'https://docs.microsoft.com/cognitive-toolkit/'
       maintainContext: true
     - name: Партнерские решения Cortana Intelligence
       items:
@@ -240,8 +240,8 @@
             - name: Обнаружение аномалий
               href: apps-anomaly-detection-api.md
             - name: Cognitive Services
-              href: 'https://docs.microsoft.com/en-us/azure/cognitive-services/'
-            - name: Диагностическое обслуживание
+              href: 'https://docs.microsoft.com/azure/cognitive-services/'
+            - name: диагностическое обслуживание;
               items:
                 - name: Обзор
                   href: cortana-analytics-playbook-predictive-maintenance.md

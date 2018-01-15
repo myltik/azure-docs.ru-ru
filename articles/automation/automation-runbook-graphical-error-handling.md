@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: 9bbaf7bac013dffb941f15bdccd2ab2996f1576e
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Обработка ошибок в графических модулях Runbook в службе автоматизации Azure
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 12/14/2017
 Ссылки ошибок ведут от этих действий к одному действию **управления ошибками** (действие кода). Это действие настраивается с помощью простого выражения PowerShell, которое использует ключевое слово *Throw* для остановки обработки, а также для *$Error.Exception.Message*, чтобы получить сообщение, описывающее текущее исключение.<br><br> ![Пример кода для обработки ошибок в модуле Runbook службы автоматизации](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения о ссылках и их типах в графических модулях Runbook см. в статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md#links-and-workflow).
 

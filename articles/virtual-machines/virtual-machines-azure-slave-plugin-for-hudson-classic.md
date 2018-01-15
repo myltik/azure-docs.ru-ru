@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Hudson
 Подчиненный подключаемый модуль Azure для Hudson позволяет подготовить подчиненные узлы в Azure при выполнении распределенных сборок.
@@ -147,7 +147,7 @@ ms.lasthandoff: 10/11/2017
 1. На панели мониторинга Hudson щелкните элемент **New Job**(Создать задание).
 2. Введите название создаваемого задания.
 3. В качестве типа задания выберите **Build a free-style software job**(Создание программного задания в свободной форме).
-4. Нажмите кнопку **ОК**.
+4. Последовательно выберите **ОК**.
 5. На странице настройки задания выберите **Restrict where this project can be run**(Ограничения для запуска этого проекта).
 6. Откройте меню **Node and label** (Узел и метка) и выберите вариант **linux** (мы указали эту метку при создании шаблона виртуальной машины в предыдущем разделе).
 7. В поле **Build** (Сборка) щелкните **Add build step** (Добавить шаг сборки) и выберите **Execute shell** (Запустить оболочку).

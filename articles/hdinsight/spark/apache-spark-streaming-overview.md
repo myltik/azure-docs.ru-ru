@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
-ms.author: nitinme
-ms.openlocfilehash: 4699673255706a69d597ce28b47ab05a5f8eb957
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 01/09/2018
+ms.author: maxluk
+ms.openlocfilehash: 6a57576704d1814d08514dc436070cab07f12b39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="overview-of-spark-streaming"></a>Общие сведения о потоковой передаче Spark
 
@@ -188,7 +188,7 @@ ms.lasthandoff: 11/09/2017
 | 1 | 1497316294139 |
 | 2 | 1497316299158
 | 3 | 1497316304178
-| 4 | 1497316309204
+| 4. | 1497316309204
 | 5 | 1497316314224
 | 6 | 1497316319243
 | 7 | 1497316324260
@@ -210,7 +210,7 @@ ms.lasthandoff: 11/09/2017
 
 Состояние всех приложений можно также проверить с помощью запроса GET к конечной точке LIVY. Наконец, можно закрыть работающее приложение, выполнив запрос DELETE к конечной точке LIVE. Дополнительные сведения об API LIVY см. в статье [Удаленная отправка заданий Spark в кластер Azure HDInsight с помощью Apache Spark REST API](apache-spark-livy-rest-interface.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Создание кластеров под управлением Linux в HDInsight с помощью портала Azure](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Руководство по программированию потоковой передачи Spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)

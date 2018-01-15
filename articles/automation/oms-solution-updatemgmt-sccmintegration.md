@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 40e343ab75a2c2508d64ec0aeb293f5154813135
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 4696f3b9602c1da01d9706f15f38cdf5bc0f3372
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Интеграция Integrate System Center Configuration Manager с решением "Управление обновлениями OMS"
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 
 Основываясь на имеющейся интеграции между OMS и Configuration Manager, можно получать отчеты и обновлять управляемые серверы Windows путем создания и предварительного промежуточного размещения развертываемых обновлений программного обеспечения в Configuration Manager и получения подробных сведений о состоянии завершенных развертываний обновлений с помощью [решения "Управление обновлениями"](../operations-management-suite/oms-solution-update-management.md). При использовании Configuration Manager для отчетов о соответствии нормативным требованиям (но не для управления развертываниями обновлений на ваших серверах Windows) можно продолжать отправлять отчеты Configuration Manager, в то время как обновлениями безопасности управляет решение "Управление обновлениями OMS".
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Необходимые компоненты
 
 * Необходимо добавить [решение "Управление обновлениями"](../operations-management-suite/oms-solution-update-management.md) в Log Analytics и связать с учетной записью службы автоматизации в той же группе ресурсов и регионе.   
 * Серверы Windows, которыми в текущее время управляет среда System Center Configuration Manager, также должны отправлять отчеты в рабочую область Log Analytics, в которой также включено решение "Управление обновлениями".  
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/14/2017
 
 Управление клиентами, размещенными в Azure IaaS, с помощью имеющейся среды Configuration Manager в первую очередь зависит от подключения между центрами обработки данных Azure и вашей инфраструктурой. Это подключение влияет на все изменения структуры, которые может потребоваться внести в инфраструктуру Configuration Manager, и связанные с этим затраты на поддержку этих необходимых изменений.  Чтобы понять, какие аспекты планирования вам необходимо оценить, прежде чем продолжить, ознакомьтесь с разделом [Что следует знать о требованиях к сети? Необходимо использовать ExpressRoute или VPN-шлюз Azure?](https://docs.microsoft.com/sccm/core/understand/configuration-manager-on-azure#networking).    
 
-## <a name="configuration"></a>Конфигурация
+## <a name="configuration"></a>Параметр Configuration
 
 ### <a name="manage-software-updates-from-configuration-manager"></a>Управление обновлениями программного обеспечения из Configuration Manager 
 

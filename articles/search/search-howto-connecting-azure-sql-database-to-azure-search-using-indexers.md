@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/08/2017
 
 В этой статье рассматривается механизм использования [индексаторов](search-indexer-overview.md), а также подробно описываются функции, доступные только в базах данных SQL Azure (например, интегрированное отслеживание изменений). 
 
-В дополнение к базам данных SQL Azure, Поиск Azure предоставляет индексаторы для [Azure Cosmos DB](search-howto-index-documentdb.md), [хранилища BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md) и [хранилища таблиц Azure](search-howto-indexing-azure-tables.md). Чтобы запросить поддержку для других источников данных, оставьте свой отзыв на [форуме отзывов по Поиску Azure](https://feedback.azure.com/forums/263029-azure-search/).
+В дополнение к базам данных SQL Azure, Поиск Azure предоставляет индексаторы для [Azure Cosmos DB](search-howto-index-cosmosdb.md), [хранилища BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md) и [хранилища таблиц Azure](search-howto-indexing-azure-tables.md). Чтобы запросить поддержку для других источников данных, оставьте свой отзыв на [форуме отзывов по Поиску Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Индексаторы и источники данных
 

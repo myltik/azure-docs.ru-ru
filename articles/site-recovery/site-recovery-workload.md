@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 03d311f84a4b9bc5f3a4c3c488ee7c84b1ef49ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Какие рабочие нагрузки можно защитить с помощью службы Azure Site Recovery?
 
@@ -62,7 +62,7 @@ Site Recovery помогает реализовать защиту и восст
 | Dynamics AX |Да |Да |Да |Да |Да|
 | Oracle |Y (испытан корпорацией Майкрософт) |Y (испытан корпорацией Майкрософт) |Y (испытан корпорацией Майкрософт) |Y (испытан корпорацией Майкрософт) |Y (испытан корпорацией Майкрософт)|
 | Файловый сервер Windows |Да |Да |Да |Да |Да|
-| Citrix XenApp и XenDesktop |Да|Недоступно |Да |Недоступно |Да |
+| Citrix XenApp и XenDesktop |Да|Н/Д |Да |Н/Д |Да |
 
 ## <a name="replicate-active-directory-and-dns"></a>Репликация Active Directory и DNS
 Инфраструктура Active Directory и DNS необходима для большинства корпоративных приложений. Во время аварийного восстановления эти компоненты инфраструктуры необходимо защитить и восстановить перед восстановлением рабочих нагрузок и приложений.
@@ -110,11 +110,11 @@ Azure Site Recovery обеспечивает защиту решения Dynamic
 
 | **RDS** |**Репликация виртуальных машин Azure в Azure** | **Репликация виртуальных машин Hyper-V на дополнительный сайт** | **Репликация виртуальных машин Hyper-V в Azure** | **Репликация виртуальных машин VMware на дополнительный сайт** | **Репликация виртуальных машин VMware в Azure** | **Репликация физических серверов на дополнительный сайт** | **Репликация физических серверов в Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Виртуальный рабочий стол в пуле (неуправляемый)** |Нет|Да |Нет |Да |Нет |Да |Нет |
-| **Виртуальный рабочий стол в пуле (управляемый и без UPD)** |Нет|Да |Нет |Да |Нет |Да |Нет |
-| **Сеансы удаленных приложений и рабочих столов (без UPD)** |Да|Да |Да |Да |Да |Да |Да |
+| **Виртуальный рабочий стол в пуле (неуправляемый)** |Нет |Yes |Нет  |Yes |Нет  |Yes |Нет  |
+| **Виртуальный рабочий стол в пуле (управляемый и без UPD)** |Нет |Yes |Нет  |Yes |Нет  |Yes |Нет  |
+| **Сеансы удаленных приложений и рабочих столов (без UPD)** |Yes|Yes |Yes |Yes |Yes |Yes |Yes |
 
-[Настройка аварийного восстановления для служб удаленных рабочих столов (RDS) с помощью Azure Site Recovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
+[Настройка аварийного восстановления для служб удаленных рабочих столов (RDS) с помощью Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [Дополнительные сведения](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) о защите RDS.
 
@@ -161,6 +161,6 @@ Site Recovery обеспечивает защиту развертывания C
 
 Сведения о защите развертывания Citrix XenApp и XenDesktop см. [здесь](site-recovery-citrix-xenapp-and-xendesktop.md). Кроме того, вы можете просмотреть [технический документ Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr). В нем представлены те же сведения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Начало работы](azure-to-azure-quickstart.md) с репликацией виртуальных машин Azure.

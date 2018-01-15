@@ -4,9 +4,8 @@ description: "Система обнаружения угроз обнаружи�
 services: sql-database
 documentationcenter: 
 author: rmatchoro
-manager: jhubbard
+manager: shaik
 editor: v-romcal
-ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
 ms.custom: security
 ms.devlang: NA
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
-ms.author: ronmat; ronitr
-ms.openlocfilehash: 06b4fe19b8c468b3fc98a5bb25ba9b1f169e529c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.author: ronmat
+ms.openlocfilehash: 889f65a796aee20d7902964b8c47af46dd9149cb
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="sql-database-threat-detection"></a>Обнаружение угроз для базы данных SQL
 
@@ -74,7 +73,7 @@ ms.lasthandoff: 12/08/2017
   ![Область навигации][8]
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Узнайте больше об обнаружении угроз, посетив [блог Azure](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/). 
 * Узнайте больше об [аудите базы данных SQL Azure](sql-database-auditing.md).

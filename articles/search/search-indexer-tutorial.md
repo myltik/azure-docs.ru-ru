@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: c5b7d5a5f20a4a70cbbbe43e33fdf65f12cb8e7d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Как выполнять сканирование базы данных Azure SQL с помощью индексаторов в службе "Поиск Azure"
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/15/2017
 > * поиск по индексу;
 > * просмотр конфигурации индексатора на портале.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Необходимые компоненты
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйтесь, чтобы воспользоваться [бесплатной пробной версией](https://azure.microsoft.com/free/). 
 
@@ -113,13 +113,13 @@ ms.lasthandoff: 11/15/2017
 
 На этом этапе создается внешний источник данных, который может сканироваться индексатором. Для нашего руководства это файл данных *hotels.sql* в папке решения \DotNetHowToIndexers. 
 
-### <a name="azure-sql-database"></a>База данных SQL Azure
+### <a name="azure-sql-database"></a>Базы данных SQL Azure
 
 Чтобы создать набор данных в базе данных Azure SQL, вы можете использовать портал Azure и файл *hotels.sql*. В службе "Поиск Azure" используются плоские наборы строк. Такие наборы обычно создаются на основе представления или запроса. При помощи файла SQL в примере решения создается и заполняется одна таблица.
 
 В следующем упражнении предполагается, что сервер и база данных не существуют. Поэтому здесь рекомендуется создать их на шаге 2. Если у вас уже есть необходимый ресурс, можно добавить в него таблицу отелей и начать с шага 4.
 
-1. Выполните вход на [портал Azure](https://portal.azure.com/). 
+1. Войдите на [портале Azure](https://portal.azure.com/). 
 
 2. Последовательно выберите **Создать** > **База данных SQL**, чтобы создать базу данных, сервер и группу ресурсов. Вы можете использовать значения по умолчанию и самую низкую ценовую категорию. Одним из преимуществ создания сервера является то, что вы можете указать имя пользователя и пароль администратора, которые потребуются для создания и загрузки таблиц в дальнейшем.
 
@@ -281,13 +281,13 @@ public string HotelName { get; set; }
 1. В меню слева на портале Azure щелкните **Группы ресурсов**, а затем выберите имя созданного ресурса. 
 2. На странице группы ресурсов щелкните **Удалить группу ресурсов**, в текстовом поле введите имя ресурса для удаления и щелкните **Удалить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения и задачи, относящиеся к другим поддерживаемым источникам данных, см. в следующих статьях:
 
 * [база данных Azure SQL (или SQL Server на виртуальных машинах Azure);](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [База данных Azure Cosmos](search-howto-index-documentdb.md)
-* [Хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
+* [База данных Azure Cosmos](search-howto-index-cosmosdb.md)
+* [хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
 * [Хранилище BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md)
 * [Индексирование BLOB-объектов в формате CSV с помощью индексатора BLOB-объектов службы поиска Azure](search-howto-index-csv-blobs.md)
 * [Индексирование BLOB-объектов JSON с помощью индексатора BLOB-объектов службы поиска Azure](search-howto-index-json-blobs.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 20d6f463d135028bf272c23de9f34be66e73325a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Копирование данных из SAP Business Warehouse с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/07/2017
 В этой статье описывается, как с помощью действия копирования в фабрике данных Azure копировать данные из SAP Business Warehouse (BW). Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
 
 > [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Перемещение данных из SAP Business Warehouse с помощью фабрики данных Azure](v1/data-factory-sap-business-warehouse-connector.md).
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Перемещение данных из SAP Business Warehouse с помощью фабрики данных Azure](v1/data-factory-sap-business-warehouse-connector.md).
 
 ## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/07/2017
 - Копирование данных из **InfoCubes и QueryCubes** (включая запросы BEx) с помощью запросов многомерных выражений.
 - Копирование данных с помощью базовой проверки подлинности.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Необходимые компоненты
 
 Чтобы использовать этот соединитель SAP Business Warehouse, сделайте следующее:
 
@@ -50,7 +50,8 @@ ms.lasthandoff: 11/07/2017
 > Поместите библиотеки DLL, извлеченные из пакета SDK RFC для NetWeaver, в папку system32.
 
 ## <a name="getting-started"></a>Приступая к работе
-Вы можете создать конвейер с помощью операции копирования, используя пакет SDK для .NET, пакет SDK для Python, Azure PowerShell, API REST или шаблон Azure Resource Manager. Пошаговые инструкции по созданию конвейера с действием копирования см. в [руководстве по действию копирования](quickstart-create-data-factory-dot-net.md).
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, относящихся к соединителю SAP Business Warehouse.
 
@@ -58,17 +59,17 @@ ms.lasthandoff: 11/07/2017
 
 Для связанной службы SAP Business Warehouse (BW) поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
-| type | Для свойства type необходимо задать значение **SapBw** | Да |
-| server | Имя сервера, на котором размещен экземпляр SAP Business Warehouse. | Да |
-| systemNumber | Номер системы SAP Business Warehouse.<br/>Допустимые значения: двузначное десятичное число, представленное в виде строки. | Да |
-| clientid | Идентификатор клиента в системе SAP Business Warehouse.<br/>Допустимые значения: трехзначное десятичное число, представленное в виде строки. | Да |
-| userName | Имя пользователя, имеющего доступ к серверу SAP. | Да |
-| пароль | Пароль для пользователя Пометьте это поле в качестве SecureString. | Да |
-| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Требуется локальная среда IR, как упоминалось в разделе [Предварительные требования](#prerequisites). |Да |
+| Тип | Для свойства type необходимо задать значение **SapBw** | Yes |
+| server | Имя сервера, на котором размещен экземпляр SAP Business Warehouse. | Yes |
+| systemNumber | Номер системы SAP Business Warehouse.<br/>Допустимые значения: двузначное десятичное число, представленное в виде строки. | Yes |
+| clientid | Идентификатор клиента в системе SAP Business Warehouse.<br/>Допустимые значения: трехзначное десятичное число, представленное в виде строки. | Yes |
+| userName | Имя пользователя, имеющего доступ к серверу SAP. | Yes |
+| password | Пароль для пользователя Пометьте это поле в качестве SecureString. | Yes |
+| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Требуется локальная среда IR, как упоминалось в разделе [Предварительные требования](#prerequisites). |Yes |
 
-**Пример**
+**Пример.**
 
 ```json
 {
@@ -99,7 +100,7 @@ ms.lasthandoff: 11/07/2017
 
 Чтобы скопировать данные из SAP BW, установите свойство type набора данных **RelationalTable**. Сейчас для набора данных SAP Business Warehouse типа RelationalTable не поддерживаются какие-либо свойства типа.
 
-**Пример**
+**Пример.**
 
 ```json
 {
@@ -123,12 +124,12 @@ ms.lasthandoff: 11/07/2017
 
 Чтобы копировать данные из SAP BW, установите тип источника в действии копирования **RelationalSource**. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
-| type | Свойство type источника действия копирования должно иметь значение **RelationalSource**. | Да |
-| query | Указывает запрос многомерных выражений для чтения данных из экземпляра SAP Business Warehouse. | Да |
+| Тип | Свойство type источника действия копирования должно иметь значение **RelationalSource**. | Yes |
+| query | Указывает запрос многомерных выражений для чтения данных из экземпляра SAP Business Warehouse. | Yes |
 
-**Пример**
+**Пример.**
 
 ```json
 "activities":[
@@ -177,18 +178,18 @@ ms.lasthandoff: 11/07/2017
 | INT2 | Int16 |
 | INT4 | int |
 | LANG | Строка |
-| LCHR | string |
+| LCHR | Строка |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | string |
+| STRING | Строка |
 | ЕДИНИЦА ИЗМЕРЕНИЯ | Строка |
 | DATS | Строка |
 | NUMC | Строка |
 | TIMS | Строка |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В таблице [Поддерживаемые хранилища данных](copy-activity-overview.md#supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования в фабрике данных Azure.

@@ -13,23 +13,21 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 8cff85337ac7f5d1c0e00f09128cbbd4fa79741e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-4-create-relationships"></a>Занятие 4. Создание связей
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-relationships"></a>Создать связи
 
 В этом занятии вы проверите связи, созданные автоматически при импорте данных, а также добавите новые связи между различными таблицами. Связь — это соединение между двумя таблицами, определяющее, как именно должны соотноситься данные в них. Например, таблицы DimProduct и DimProductSubcategory имеют связь, основанную на том факте, что каждый продукт принадлежит подкатегории. Дополнительные сведения см. в статье [Связи](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   
 Предполагаемое время выполнения этого занятия: **10 минут**  
   
-## <a name="prerequisites"></a>Предварительные требования  
+## <a name="prerequisites"></a>Необходимые компоненты  
 Этот раздел входит в учебник по табличному моделированию, который следует изучать в предложенном порядке. Прежде чем выполнять задачи в этом разделе, нужно завершить предыдущее занятие: [Занятие 3. Обозначение таблицы дат](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Просмотр существующих и добавление новых связей  
@@ -62,11 +60,11 @@ ms.lasthandoff: 11/02/2017
   
     |Активна|Таблица|Соответствующая таблица подстановки|  
     |----------|---------|------------------------|  
-    |Да|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
-    |Да|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
-    |Да|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
-    |Да|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
-    |Да|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
+    |Yes|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
+    |Yes|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
+    |Yes|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
+    |Yes|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
+    |Yes|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
     При отсутствии связей убедитесь, что модель включает в себя следующие таблицы: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory и FactInternetSales. Если таблицы из одного подключения к источнику данных импортируются в разное время, связи между ними не создаются автоматически, поэтому их нужно настроить вручную. Если связи не отображаются, это значит, что в источнике данных нет связей. Их можно создать вручную в модели данных.
 

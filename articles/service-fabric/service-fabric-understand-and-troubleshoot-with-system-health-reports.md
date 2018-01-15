@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Устранение неполадок с помощью отчетов о работоспособности системы
 Компоненты Azure Service Fabric предоставляют готовые системные отчеты о работоспособности для всех сущностей в кластере. В [хранилище данных о работоспособности](service-fabric-health-introduction.md#health-store) сущности создаются и удаляются на основании отчетов системы. Кроме того, эти сущности упорядочиваются в иерархию с учетом взаимодействия между ними.
@@ -632,7 +632,7 @@ HealthEvents          :
 
 - **IStatefulServiceReplica.ChangeRole(P)**. Наиболее распространенный случай — когда служба не вернула задачу из `RunAsync`.
 
-Остальные вызовы API, которые могут быть заблокированы, относятся к интерфейсу **IReplicator**. Например:
+Остальные вызовы API, которые могут быть заблокированы, относятся к интерфейсу **IReplicator**. Например: 
 
 - **IReplicator.CatchupReplicaSet**. Это предупреждение означает одну из следующих ситуаций: недостаточно реплик (это можно определить, просмотрев состояние реплик в секции или отчет о работоспособности System.FM для заблокированной перенастройки); реплики не подтверждают операции. С помощью командлета PowerShell `Get-ServiceFabricDeployedReplicaDetail` можно узнать ход выполнения всех реплик. Проблема связана с репликами, у которых значение `LastAppliedReplicationSequenceNumber` ниже значения `CommittedSequenceNumber` первичной реплики.
 
@@ -743,7 +743,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Загрузить
+### <a name="download"></a>Загрузка
 System.Hosting сообщает об ошибке, если скачивание пакета приложения завершается сбоем.
 
 * **SourceId**: System.Hosting.
@@ -821,7 +821,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Загрузить
+### <a name="download"></a>Загрузка
 System.Hosting сообщает об ошибке при скачивании пакета службы.
 
 * **SourceId**: System.Hosting.
@@ -842,7 +842,7 @@ System.Hosting сообщает о предупреждении, если емк
 * **Свойство.** ResourceGovernance.
 * **Дальнейшие действия.** Предпочтительный способ решения этой проблемы — изменение манифеста кластера, чтобы включить автоматическое обнаружение доступных ресурсов. Другой способ — обновление манифеста кластера путем указания правильных значений емкости узла для этих метрик.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Просмотр отчетов о работоспособности Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Проверка работоспособности службы и оповещение о проблемах](service-fabric-diagnostics-how-to-report-and-check-service-health.md)

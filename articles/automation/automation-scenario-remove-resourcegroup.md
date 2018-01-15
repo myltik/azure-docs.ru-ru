@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: b7b27ca64d9aacabf96fdff8e7dca16f13000d19
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: e1734bdd22ecfc4e54074f02582f5a8eca7d4f59
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Сценарий службы автоматизации Azure: автоматизация удаления групп ресурсов
 Многие клиенты создают несколько групп ресурсов. Одни можно использовать для управления рабочими приложениями, а другие — в качестве промежуточных сред или сред разработки и тестирования. Но автоматизация развертывания этих ресурсов и возможность удалить группу ресурсов с помощью нажатия кнопки — это две разных задачи. С помощью службы автоматизации Azure можно упростить эту распространенную задачу управления. Это будет полезно, если вы работаете с подпиской Azure, для которой настроена предельная сумма расходов, например в рамках предложения для участников MSDN или программы Microsoft Partner Network Cloud Essentials.
@@ -28,20 +28,20 @@ ms.lasthandoff: 12/14/2017
 ## <a name="getting-the-scenario"></a>Получение сценария
 В этом сценарии используется модуль Runbook PowerShell, который можно скачать из [коллекции PowerShell](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript). Его также можно импортировать непосредственно из [коллекции Runbook](automation-runbook-gallery.md) на портале Azure.<br><br>
 
-| Модуль Runbook | Описание |
+| Модуль Runbook | ОПИСАНИЕ |
 | --- | --- |
 | Remove-ResourceGroup |Удаляет из подписки одну или несколько групп ресурсов Azure вместе со связанными ресурсами. |
 
 <br>
 Для этого модуля Runbook определены следующие входные параметры.
 
-| Параметр | Описание |
+| Параметр | ОПИСАНИЕ |
 | --- | --- |
 | NameFilter (обязательный) |Определяет имя фильтра для ограничения групп ресурсов, которые будут удалены. Можно передать несколько значений, указав их через запятую.<br>Фильтр не учитывает регистр, возвращая все группы ресурсов, которые содержат строку. |
 | PreviewMode (необязательный) |Выполняет модуль Runbook, чтобы узнать, какие группы ресурсов будут удалены.<br>Значение по умолчанию **true** используется, чтобы избежать случайного удаления одной или нескольких групп ресурсов, переданных в модуль Runbook. |
 
 ## <a name="install-and-configure-this-scenario"></a>Установка и настройка сценария
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Необходимые компоненты
 Этот модуль Runbook выполняет проверку подлинности с помощью [учетной записи запуска от имени Azure](automation-sec-configure-azure-runas-account.md).    
 
 ### <a name="install-and-publish-the-runbooks"></a>Установка и публикация модулей Runbook
@@ -64,6 +64,6 @@ ms.lasthandoff: 12/14/2017
 
 **Сводка по заданию** содержит сообщения из потоков вывода, предупреждений и ошибок. Щелкните **Вывод**, чтобы просмотреть подробные сведения о результатах выполнения модуля Runbook.<br> ![Выходные данные модуля Runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Инструкции по созданию модулей Runbook см. в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md).
 * Сведения о том, как начать работу с модулями Runbook рабочих процессов PowerShell, см. в статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).

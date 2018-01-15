@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 02b1b3f2a567f6073b891a0376eddbc87cd268aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Вход пользователей с помощью сквозной проверки подлинности Azure Active Directory
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Сквозная проверка подлинности Azure Active Directory (Azure AD) позволяет пользователям входить в локальные и облачные приложения, используя те же пароли. Эта функция облегчает работу пользователей, так как им не нужно запоминать на один пароль больше, и сокращает затраты на ИТ-поддержку, так как снижается вероятность того, что пользователи забудут процедуру входа. Если пользователи выполняют вход с помощью Azure AD, эта функция проверяет пароли пользователей непосредственно в локальной службе Active Directory.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 Сквозная проверка подлинности является альтернативой [синхронизации хэшей паролей Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), которая также обеспечивает преимущество облачной проверки подлинности в организации. Однако политики безопасности и соответствия требованиям в некоторых организациях не позволяют отправлять пароли пользователей за пределы внутренней сети даже в хэшированной форме. Сквозная проверка подлинности является подходящим решением для таких организаций.
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/11/2017
 - Установка нескольких агентов обеспечивает высокий уровень доступности запросов на вход.
 - Она [защищает](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) локальные учетные записи от атак методом подбора пароля в облаке.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [**Краткое руководство по сквозной проверке подлинности Azure Active Directory**](active-directory-aadconnect-pass-through-authentication-quick-start.md). Настройка и подготовка к работе сквозной проверки подлинности Azure Active Directory.
 - [**Интеллектуальная блокировка**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md). Настройте возможность интеллектуальной блокировки на клиенте для защиты учетных записей пользователей.

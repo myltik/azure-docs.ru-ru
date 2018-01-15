@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Создание пакета поддержки StorSimple для устройства StorSimple серии 8000 и управление им
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="create-a-support-package"></a>Создать пакет поддержки.
 
-В некоторых случаях необходимо вручную создать пакет поддержки с помощью Windows PowerShell для StorSimple. Например:
+В некоторых случаях необходимо вручную создать пакет поддержки с помощью Windows PowerShell для StorSimple. Например: 
 
 * Если необходимо удалить конфиденциальную информацию из файлов журнала до их предоставления службе технической поддержки Майкрософт.
 * Если возникают сложности с отправкой пакета из-за проблем с подключением.
@@ -71,10 +71,10 @@ ms.lasthandoff: 11/28/2017
 
 С командлетом Export-HcsSupportPackage можно использовать следующие параметры.
 
-| Параметр | Обязательный/необязательный | Description (Описание) |
+| Параметр | Обязательный/необязательный | ОПИСАНИЕ |
 | --- | --- | --- |
-| `-Path` |Обязательно |Позволяет указать расположение общей сетевой папки, в которой будет расположен пакет поддержки. |
-| `-EncryptionPassphrase` |Обязательно |Позволяет указать парольную фразу для шифрования пакета поддержки. |
+| `-Path` |Обязательное значение |Позволяет указать расположение общей сетевой папки, в которой будет расположен пакет поддержки. |
+| `-EncryptionPassphrase` |Обязательное значение |Позволяет указать парольную фразу для шифрования пакета поддержки. |
 | `-Credential` |Необязательно |Позволяет передать учетные данные для доступа к общей сетевой папке. |
 | `-Force` |Необязательно |Используется, чтобы пропустить шаг подтверждения парольной фразы шифрования. |
 | `-PackageTag` |Необязательно |Позволяет указать в поле *Путь* каталог, в котором будет размещен пакет поддержки. Значение по умолчанию — [имя устройства]-[текущая дата и время:гггг-ММ-дд-ЧЧ-мм-сс]. |
@@ -144,9 +144,9 @@ ms.lasthandoff: 11/28/2017
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения о [данных, собираемых в пакете поддержки](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs).
-* Узнайте об [использовании пакетов поддержки и журналов устройства для устранения неполадок при его развертывании](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Узнайте об [использовании пакетов поддержки и журналов устройства для устранения неполадок при его развертывании](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Узнайте, как [использовать службу диспетчера устройств StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).
 

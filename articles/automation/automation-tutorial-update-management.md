@@ -11,14 +11,15 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: zachal
-ms.openlocfilehash: 3b1821a7a36a9d42cf6fd4bee5f3d85a07a17e0e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: ae53832d28af8a36e3a1dea67f6680906630a399
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Управление обновлениями Windows в службе автоматизации Azure
 
@@ -31,11 +32,11 @@ ms.lasthandoff: 12/22/2017
 
 > [!div class="checklist"]
 > * подключение виртуальной машины к управлению обновлениями;
-> * просмотр оценки обновлений;
-> * планирование развертывания обновлений;
+> * Просмотр оценки обновлений
+> * Планирование развертывания обновлений
 > * просмотр результатов развертывания.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Необходимые компоненты
 
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
@@ -164,8 +165,8 @@ ms.lasthandoff: 12/22/2017
 
 > [!div class="checklist"]
 > * подключение виртуальной машины к управлению обновлениями;
-> * просмотр оценки обновлений;
-> * планирование развертывания обновлений;
+> * Просмотр оценки обновлений
+> * Планирование развертывания обновлений
 > * просмотр результатов развертывания.
 
 Теперь переходите к обзору решения для управления обновлениями.

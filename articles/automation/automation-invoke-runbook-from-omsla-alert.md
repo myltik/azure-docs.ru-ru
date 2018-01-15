@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 76d5ab23ef1962733ccb3b36640facdba9ab8acb
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a10be867965eef9746a0f4cc9b14c4fc429f6e35
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Вызов модуля Runbook службы автоматизации Azure из оповещения Log Analytics
 
@@ -101,7 +101,7 @@ $SearchResult.SvcDisplayName_CF
 >[!NOTE]
 > Если ваша рабочая область переведена на [новый язык запросов Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), полезные данные веб-перехватчика будут работать по-другому. Подробные сведения о формате см. в документации [API REST Log Analytics в Azure](https://aka.ms/loganalyticsapiresponse).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения об оповещениях в Log Analytics и их создании см. в статье [Оповещения в Log Analytics](../log-analytics/log-analytics-alerts.md).
 

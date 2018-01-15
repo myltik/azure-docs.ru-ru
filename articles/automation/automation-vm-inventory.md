@@ -6,13 +6,13 @@ keywords: "данные инвентаризации, автоматизация
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
-ms.topic: hero-article
+ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 275e4e9103808710e2a71168a05b3440bb288c6a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Управление виртуальной машиной Azure с помощью сбора данных инвентаризации
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/08/2017
 [Создайте виртуальную машину](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal), если вы еще не сделали этого.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Выполните вход на портал Azure.
-Выполните вход на [портал Azure](https://portal.azure.com/).
+Войдите на [портале Azure](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Включение сбора данных инвентаризации на странице ресурсов виртуальной машины
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 12/08/2017
 5. В диалоговом окне подтверждения выберите **Да**.  
     Это действие отключает компьютер от управления.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения об управлении изменениями файлов и параметров реестра на виртуальных машинах см. в статье [Отслеживание изменений программного обеспечения в среде с помощью решения для отслеживания изменений](../log-analytics/log-analytics-change-tracking.md).
 * Дополнительные сведения об управлении Windows и пакетами обновлений на виртуальных машинах см. в статье [Решение для управления обновлениями в OMS](../operations-management-suite/oms-solution-update-management.md).

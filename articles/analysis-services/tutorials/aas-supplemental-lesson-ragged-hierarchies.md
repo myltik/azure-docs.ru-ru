@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Дополнительное занятие. Неоднородные иерархии
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 В этом дополнительном занятии вы устраните распространенную проблему, которая возникает при сведении иерархий, содержащих пустые значения (члены) на различных уровнях. Например, организация, где прямыми подчиненными высокопоставленного руководителя являются как руководители подразделений, так и не руководящие работники. Или географические иерархии, состоящие из комбинации страна+регион+город, где некоторые города не относятся к конкретному штату или конкретной провинции, например Вашингтон, округ Колумбия, или Ватикан. Когда иерархия содержит пустые члены, она часто опускается на другие — или неоднородные — уровни.
 
@@ -33,7 +31,7 @@ ms.lasthandoff: 11/02/2017
   
 Предполагаемое время выполнения этого занятия: **20 минут**  
   
-## <a name="prerequisites"></a>Предварительные требования  
+## <a name="prerequisites"></a>Необходимые компоненты  
 Это дополнительное занятие входит в учебник по табличному моделированию. Прежде чем выполнять задачи из этого дополнительного занятия, следует завершить все предыдущие занятия или располагать готовым учебным проектом модели интернет-продаж Adventure Works. 
 
 Если вы создали проект AW Internet Sales во время прохождения этого учебника, то ваша модель еще не содержит неоднородные иерархии или данные. Для выполнения этого дополнительного занятия нужно сначала создать проблему, добавив несколько дополнительных таблиц, создать связи, вычисляемые столбцы, меры и новую иерархию "Organization". Эта часть займет около 15 минут. Затем вам потребуется решить проблему за несколько минут.  
@@ -52,11 +50,11 @@ ms.lasthandoff: 11/02/2017
 
     | Таблица 1           | столбец       | Направление фильтра   | Таблица 2     | столбец      | Активна |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | значение по умолчанию            | DimDate     | Дата        | Да    |
-    | FactResellerSales | DueDate      | значение по умолчанию            | DimDate     | Дата        | Нет     |
-    | FactResellerSales | ShipDateKey  | значение по умолчанию            | DimDate     | Дата        | Нет     |
-    | FactResellerSales | ProductKey   | значение по умолчанию            | DimProduct  | ProductKey  | Да    |
-    | FactResellerSales | EmployeeKey  | В обе таблицы | DimEmployee | EmployeeKey | Да    |
+    | FactResellerSales | OrderDateKey | значение по умолчанию            | DimDate     | Дата        | Yes    |
+    | FactResellerSales | DueDate      | значение по умолчанию            | DimDate     | Дата        | Нет      |
+    | FactResellerSales | ShipDateKey  | значение по умолчанию            | DimDate     | Дата        | Нет      |
+    | FactResellerSales | ProductKey   | значение по умолчанию            | DimProduct  | ProductKey  | Yes    |
+    | FactResellerSales | EmployeeKey  | В обе таблицы | DimEmployee | EmployeeKey | Yes    |
 
 5. В таблице **DimEmployee** создайте следующие [вычисляемые столбцы](../tutorials/aas-lesson-5-create-calculated-columns.md): 
 

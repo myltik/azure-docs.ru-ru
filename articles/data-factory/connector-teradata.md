@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Копирование данных из Teradata с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/07/2017
 В этой статье описывается, как с помощью действия копирования в фабрике данных Azure копировать данные из базы данных Teradata. Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
 
 > [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если вы используете службу фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Move data from Teradata using Azure Data Factory](v1/data-factory-onprem-teradata-connector.md) (Перемещение данных из Teradata с использованием фабрики данных Azure).
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете службу фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Move data from Teradata using Azure Data Factory](v1/data-factory-onprem-teradata-connector.md) (Перемещение данных из Teradata с использованием фабрики данных Azure).
 
 ## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/07/2017
 - Teradata **версии 12 и выше**;
 - копирование данных с использованием **базовой** проверки подлинности или проверки подлинности **Windows**.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Необходимые компоненты
 
 Чтобы использовать этот соединитель Teradata, вам нужно:
 
@@ -46,7 +46,8 @@ ms.lasthandoff: 11/07/2017
 - Установить на машине интегрированной среды выполнения [Поставщик данных .NET для Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) версии 14 или более поздней.
 
 ## <a name="getting-started"></a>Приступая к работе
-Вы можете создать конвейер с помощью операции копирования, используя пакет SDK для .NET, пакет SDK для Python, Azure PowerShell, API REST или шаблон Azure Resource Manager. Пошаговые инструкции по созданию конвейера с действием копирования см. в [руководстве по действию копирования](quickstart-create-data-factory-dot-net.md).
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения объектов фабрики данных, относящихся к соединителю Teradata.
 
@@ -54,16 +55,16 @@ ms.lasthandoff: 11/07/2017
 
 Связанная служба Teradata поддерживает следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
-| type | Для свойства type необходимо задать значение **Teradata** | Да |
-| server | Имя сервера Teradata. | Да |
-| authenticationType | Тип проверки подлинности, используемый для подключения к базе данных Teradata.<br/>Допустимые значения: **Basic** и **Windows**. | Да |
-| Имя пользователя | Укажите имя пользователя для подключения к базе данных Teradata. | Да |
-| пароль | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. Пометьте это поле в качестве SecureString. | Да |
-| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Требуется локальная среда IR, как упоминалось в разделе [Предварительные требования](#prerequisites). |Да |
+| Тип | Для свойства type необходимо задать значение **Teradata** | Yes |
+| server | Имя сервера Teradata. | Yes |
+| authenticationType | Тип проверки подлинности, используемый для подключения к базе данных Teradata.<br/>Допустимые значения: **Basic** и **Windows**. | Yes |
+| Имя пользователя | Укажите имя пользователя для подключения к базе данных Teradata. | Yes |
+| password | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. Пометьте это поле в качестве SecureString. | Yes |
+| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Требуется локальная среда IR, как упоминалось в разделе [Предварительные требования](#prerequisites). |Yes |
 
-**Пример**
+**Пример.**
 
 ```json
 {
@@ -93,12 +94,12 @@ ms.lasthandoff: 11/07/2017
 
 Чтобы скопировать данные из Teradata, задайте для свойства type набора данных значение **RelationalTable**. Поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
-| type | Свойство type для набора данных должно иметь значение **RelationalTable**. | Да |
+| Тип | Свойство type для набора данных должно иметь значение **RelationalTable**. | Yes |
 | tableName | Имя таблицы в базе данных Teradata. | Нет (если свойство query указано в источнике действия) |
 
-**Пример**
+**Пример.**
 
 ```json
 {
@@ -122,12 +123,12 @@ ms.lasthandoff: 11/07/2017
 
 Чтобы копировать данные из Teradata, задайте тип источника **RelationalSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
-| type | Свойство type источника действия копирования должно иметь значение **RelationalSource**. | Да |
+| Тип | Свойство type источника действия копирования должно иметь значение **RelationalSource**. | Yes |
 | query | Используйте пользовательский SQL-запрос для чтения данных. Например, `"SELECT * FROM MyTable"`. | Нет (если для набора данных задано свойство tableName) |
 
-**Пример**
+**Пример.**
 
 ```json
 "activities":[
@@ -171,22 +172,22 @@ ms.lasthandoff: 11/07/2017
 | ByteInt |Int16 |
 | Char |Строка |
 | Clob |Строка |
-| Дата |DateTime |
+| Дата |Datetime |
 | Decimal |Decimal |
 | Double |Double |
 | Graphic |Строка |
 | Целое число  |Int32 |
-| Interval Day |TimeSpan |
-| Interval Day To Hour |TimeSpan |
-| Interval Day To Minute |TimeSpan |
-| Interval Day To Second |TimeSpan |
-| Interval Hour |TimeSpan |
-| Interval Hour To Minute |TimeSpan |
-| Interval Hour To Second |TimeSpan |
-| Interval Minute |TimeSpan |
-| Interval Minute To Second |TimeSpan |
+| Interval Day |Интервал времени |
+| Interval Day To Hour |Интервал времени |
+| Interval Day To Minute |Интервал времени |
+| Interval Day To Second |Интервал времени |
+| Interval Hour |Интервал времени |
+| Interval Hour To Minute |Интервал времени |
+| Interval Hour To Second |Интервал времени |
+| Interval Minute |Интервал времени |
+| Interval Minute To Second |Интервал времени |
 | Interval Month |Строка |
-| Interval Second |TimeSpan |
+| Interval Second |Интервал времени |
 | Interval Year |Строка |
 | Interval Year To Month |Строка |
 | Number |Double |
@@ -196,15 +197,15 @@ ms.lasthandoff: 11/07/2017
 | Period(Timestamp) |Строка |
 | Period(Timestamp With Time Zone) |Строка |
 | SmallInt |Int16 |
-| Время |TimeSpan |
+| Время |Интервал времени |
 | Time With Time Zone |Строка |
-| Timestamp |DateTime |
-| Timestamp With Time Zone |Datetimeoffset |
+| Timestamp |Datetime |
+| Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
 | VarChar |Строка |
 | VarGraphic |Строка |
-| Xml |Строка |
+| xml |Строка |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В таблице [Поддерживаемые хранилища данных](copy-activity-overview.md#supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования в фабрике данных Azure.

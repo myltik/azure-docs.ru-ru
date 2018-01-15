@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0397b45753ea64d1a33916d5e0dff12d6e1d80aa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Создание автономной учетной записи службы автоматизации Azure
 В этой статье вы узнаете, как создать учетную запись службы автоматизации на портале Azure, если для обеспечения расширенного мониторинга заданий Runbook требуется оценить и изучить службу автоматизации Azure, не включая дополнительные решения по управлению или интеграцию с OMS Log Analytics.  В дальнейшем эти решения по управлению можно добавить или интегрировать с Log Analytics.  С использованием учетной записи службы автоматизации можно проверять подлинность ресурсов управления модулями Runbook в Azure Resource Manager или в классическом развертывании Azure.
@@ -67,7 +67,7 @@ ms.lasthandoff: 12/14/2017
 ### <a name="resources-included"></a>Создаваемые ресурсы
 После создания учетной записи службы автоматизации автоматически создаются несколько ресурсов.  В следующей таблице перечислены ресурсы для учетной записи запуска от имени.<br>
 
-| Ресурс | Описание |
+| Ресурс | ОПИСАНИЕ |
 | --- | --- |
 | Модуль Runbook AzureAutomationTutorial |Пример графического модуля Runbook, который демонстрирует, как выполнить аутентификацию с помощью учетной записи запуска от имени, и получает доступ ко всем ресурсам Resource Manager. |
 | Модуль Runbook AzureAutomationTutorialScript |Пример модуля Runbook PowerShell, который демонстрирует, как выполнить проверку подлинности с помощью учетной записи запуска от имени, и получает доступ ко всем ресурсам Resource Manager. |
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/14/2017
 
 В следующей таблице перечислены ресурсы для классической учетной записи запуска от имени.<br>
 
-| Ресурс | Описание |
+| Ресурс | ОПИСАНИЕ |
 | --- | --- |
 | Модуль Runbook AzureClassicAutomationTutorial |Пример графического модуля Runbook, получающего доступ ко всем классическим виртуальным машинам в подписке с помощью классической учетной записи запуска от имени (сертификат), а затем выводит имя и состояние виртуальной машины. |
 | Модуль Runbook AzureClassicAutomationTutorialScript |Пример модуля Runbook PowerShell, получающего доступ ко всем классическим виртуальным машинам в подписке с помощью классической учетной записи запуска от имени (сертификат), а затем выводит имя и состояние виртуальной машины. |
@@ -85,7 +85,7 @@ ms.lasthandoff: 12/14/2017
 | AzureClassicRunAsConnection |Автоматически созданный ресурс-контейнер подключений, который используется для проверки подлинности в Azure, что позволяет управлять классическими ресурсами Azure с помощью модулей Runbook. |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о графической разработке в службе автоматизации Azure см. в [этой статье](automation-graphical-authoring-intro.md).
 * Сведения о том, как начать работу с модулями Runbook, см. в статье [Мой первый модуль Runbook PowerShell](automation-first-runbook-textual-powershell.md).
 * Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).

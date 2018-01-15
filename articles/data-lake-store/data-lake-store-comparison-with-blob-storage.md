@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 7b2b6c01de92e3d7375b6cee71e8097799fb6081
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8881d28e1625664d0a124057821192aabfe1180b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure
 В таблице ниже приведены различия между Azure Data Lake Store и хранилищем BLOB-объектов Azure, а также некоторые ключевые аспекты обработки больших данных. Хранилище BLOB-объектов Azure является универсальным масштабируемым хранилищем объектов, предназначенным для разнообразных сценариев хранения. Azure Data Lake Store — это гипермасштабируемый репозиторий, оптимизированный для рабочих нагрузок, относящихся к аналитике больших данных.
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 | structure |Иерархическая файловая система |Хранилище объектов с одноуровневым пространством имен |
 | API |REST API по протоколу HTTPS |REST API по протоколу HTTP/HTTPS |
 | API серверной части |[REST API, совместимый с WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[REST API хранилища BLOB-объектов Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Клиент файловой системы Hadoop |Да |Да |
+| Клиент файловой системы Hadoop |Yes |Yes |
 | Операции с данными — аутентификация |Основана на [удостоверениях Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Основана на общих секретах — [ключи доступа к учетным записям](../storage/common/storage-create-storage-account.md#manage-your-storage-account) и [ключи подписанных URL-адресов](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Операции с данными — протокол проверки подлинности |OAuth 2.0. Вызовы должны содержать допустимые веб-маркеры JSON (JWT), выданные Azure Active Directory. |Код проверки подлинности сообщения на основе хэша (HMAC). Вызовы должны содержать хэш SHA-256 с кодировкой Base64 для части HTTP-запроса. |
 | Операции с данными — авторизация |Списки управления доступом (ACL) POSIX.  Списки ACL на основе удостоверений Azure Active Directory можно настроить на уровне файлов и папок. |Для авторизации на уровне учетной записи используйте [ключи доступа к учетным записям](../storage/common/storage-create-storage-account.md#manage-your-storage-account),<br>а для авторизации в учетной записи, контейнере или большом двоичном объекте — [ключи подписанных URL-адресов](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 | Доступ по регионам |Дополнительные сведения см. [здесь](https://azure.microsoft.com/regions/#services). |Дополнительные сведения см. [здесь](https://azure.microsoft.com/regions/#services). |
 | Цена |Дополнительные сведения см. на [этой странице](https://azure.microsoft.com/pricing/details/data-lake-store/). |Дополнительные сведения см. на [этой странице](https://azure.microsoft.com/pricing/details/storage/). |
 
-### <a name="next-steps"></a>Дальнейшие действия
-* [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
+### <a name="next-steps"></a>Дополнительная информация
+* [Обзор Azure Data Lake Store](data-lake-store-overview.md)
 * [Начало работы с хранилищем озера данных](data-lake-store-get-started-portal.md)
 

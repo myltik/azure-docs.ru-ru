@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Статьи об SQL API | Документы Microsoft"
-description: "Список всех статей, специально для создания баз данных документов с помощью API SQL в базе данных Azure Cosmos."
+title: "Azure Cosmos DB. Статьи об API SQL | Документация Майкрософт"
+description: "Список всех статей, посвященных созданию баз данных документов с помощью API SQL в Azure Cosmos DB."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8de2a541f307adfed1125dbfc25825b3e28d9c48
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: Документация по SQL API
+# <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB. Документация по API SQL
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-В этой статье ссылки на все содержимое базы данных Azure Cosmos определенных API-интерфейса SQL.
+В этой статье приведены ссылки на все содержимое Azure Cosmos DB, связанное с API SQL.
 
 Эти статьи неприменимы к API Graph, API таблиц или API MongoDB. 
 
 ## <a name="introduction-and-concepts"></a>Основные понятия
 
-Это необходимо прочитать разделы и ресурсы начинать изучение API-Интерфейсы SQL для Azure Cosmos DB.
+Эти разделы и ресурсы обязательны для ознакомления при изучении API SQL для Azure Cosmos DB.
 
-- [Введение в SQL API](sql-api-introduction.md)
+- [Общие сведения об API SQL](sql-api-introduction.md)
 - [Модель ресурсов базы данных](sql-api-resources.md)
 - Веб-сайт [Query Playground](https://www.documentdb.com/sql/demo)
 - Памятка по [грамматике SQL](sql-api-sql-query-cheat-sheet.md)
@@ -102,16 +102,16 @@ Azure Cosmos DB предоставляет различные пакеты SDK �
 - [Node.js](sql-api-sdk-node.md)
 - [Python](sql-api-sdk-python.md)
 
-## <a name="reference"></a>Справочные материалы
+## <a name="reference"></a>Ссылка
 
 - [REST](/rest/api/documentdb/)
 - [Поставщик ресурсов REST](/rest/api/documentdbresourceprovider/)
 - [Справочник по SQL-запросам](sql-api-sql-query-reference.md)
-- [Справочник по решению "Функции Azure"](../azure-functions/functions-bindings-documentdb.md)
+- [Справочник по решению "Функции Azure"](../azure-functions/functions-bindings-cosmosdb.md)
 
 ## <a name="samples"></a>Примеры
 
-Эти образцы страниц предоставляют ссылки на образцы кода и API ссылаются на содержимое для выполнения распространенных задач SQL API.
+На следующих страницах предоставлены ссылки на примеры кода и справочные материалы по API для выполнения распространенных задач в API SQL.
 
 - [.NET](sql-api-dotnet-samples.md)
 - [Node.js](sql-api-nodejs-samples.md)

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7d4d680e3460fbeff73c2f334c6461da7967374d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Управление оповещениями для виртуального массива StorSimple с помощью диспетчера устройств StorSimple
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/06/2017
 
 ![Страница оповещений](./media/storsimple-virtual-array-manage-alerts/alerts1.png)
 
-## <a name="configure-alert-settings"></a>Настройка параметров оповещений
+## <a name="configure-alert-settings"></a>Настроить параметры оповещений.
 
 Вы можете настроить получение уведомлений по электронной почте об условиях оповещений для каждого виртуального массива StorSimple. Кроме того, можно указать других получателей оповещений. Для этого следует ввести их адреса электронной почты в поле **Дополнительные получатели письма**, разделяя их точкой с запятой.
 
@@ -125,7 +125,6 @@ ms.lasthandoff: 11/06/2017
 * [Оповещения о сбоях заданий](#job-failure-alerts)
 * [Оповещения производительности](#performance-alerts)
 * [Оповещения безопасности](#security-alerts)
-* [Оповещения об обновлениях](#update-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Оповещения облачных подключений
 
@@ -165,14 +164,7 @@ ms.lasthandoff: 11/06/2017
 |:--- |:--- |:--- |
 | Срок действия пароля <*имя устройства*> истекает через <*число*> дней. |Предупреждение о пароле. |Срок действия пароля истекает через <число> дн. Рекомендуется изменить пароль. Дополнительные сведения см. в статье [Изменение пароля администратора для устройства виртуального массива StorSimple](storsimple-virtual-array-change-device-admin-password.md). |
 
-### <a name="update-alerts"></a>Оповещения об обновлениях
-
-| Текст оповещения | Событие | Дополнительные сведения и рекомендуемые действия |
-|:--- |:--- |:--- |
-| Доступны новые обновления для вашего устройства. |Для виртуального массива StorSimple доступны обновления. |Чтобы установить новые обновления, откройте страницу **Обслуживание** . |
-| Не удается проверить наличие новых обновлений на <*имя устройства*>. |Не удалось обновить. |Произошла ошибка при установке новых обновлений. Обновления можно установить вручную. Если проблема повторится, обратитесь в [службу поддержки Майкрософт](storsimple-contact-microsoft-support.md). |
-
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Дополнительные сведения о виртуальном массиве StorSimple](storsimple-ova-overview.md).
 

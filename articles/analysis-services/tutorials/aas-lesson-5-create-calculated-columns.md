@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: d7d2265aa82e54cdbd3b85e09a05e5ea55a7a2c2
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b491af1e5c9da03f48335f5793ed71ddaf644fb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-5-create-calculated-columns"></a>Занятие 5. Создание вычисляемых столбцов
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-calculated-columns"></a>Создание вычисляемых столбцов
 
 В этом занятии вы создадите в модели данные, добавив вычисляемые столбцы. Вычисляемые столбцы можно создать (в качестве настраиваемых столбцов) при использовании функции получения данных, с помощью редактора запросов или позднее в конструкторе моделей. Последним способом вы и воспользуетесь. Дополнительные сведения см. в разделе [Вычисляемые столбцы](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).
   
@@ -33,7 +31,7 @@ ms.lasthandoff: 11/02/2017
   
 Предполагаемое время выполнения этого занятия: **15 минут**  
   
-## <a name="prerequisites"></a>Предварительные требования  
+## <a name="prerequisites"></a>Необходимые компоненты  
 Этот раздел входит в учебник по табличному моделированию, который следует изучать в предложенном порядке. Прежде чем выполнять задачи в этом разделе, нужно завершить предыдущее занятие: [Занятие 4. Создание связей](../tutorials/aas-lesson-4-create-relationships.md). 
   
 ## <a name="create-calculated-columns"></a>Создание вычисляемых столбцов  

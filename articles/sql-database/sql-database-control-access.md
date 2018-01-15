@@ -3,7 +3,7 @@ title: "Предоставление доступа к базе данных SQL
 description: "Предоставление доступа к базе данных SQL Microsoft Azure."
 services: sql-database
 documentationcenter: 
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 02/06/2017
-ms.author: rickbyh
-ms.openlocfilehash: 79281de7a644af79092efd7ba52c03f687d9d029
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: carlrab
+ms.openlocfilehash: 28c1ec79752f822939fefe6ce3686ace8ad1b6b0
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-sql-database-access-control"></a>Контроль доступа к базе данных SQL Azure
 Чтобы обеспечить безопасность, база данных SQL управляет доступом с помощью правил брандмауэра, ограничивающих подключение по IP-адресу, механизмов проверки подлинности, требующих удостоверений пользователей, и методов авторизации, ограничивающих действия и данные для пользователей. 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/31/2017
 
 В рамках процесса подключения все подключения от виртуальных машин Azure будут перенаправлены на другой IP-адрес и порт, уникальный для каждой рабочей роли. Номер порта находится в диапазоне от 11000 до 11999. Дополнительные сведения о TCP-портах см. в статье [Порты для ADO.NET 4.5, отличные от порта 1433](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-## <a name="authentication"></a>Аутентификация
+## <a name="authentication"></a>Authentication
 
 База данных SQL поддерживает два типа аутентификации:
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/31/2017
 * [Маскирование данных](sql-database-dynamic-data-masking-get-started.md) позволяет снизить уязвимость конфиденциальных данных.
 * [хранимые процедуры](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) .
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Обзор функций защиты в базе данных SQL см. в [этой статье](sql-database-security-overview.md).
 - Общие сведения о правилах брандмауэра см. в [этой статье](sql-database-firewall-configure.md).

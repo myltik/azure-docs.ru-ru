@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 1496e4523154ba791bf55a0708a1a77132f5257c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5fb0e2dd56e373ecf723a3672d9538bcc6dc68e3
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-11-create-roles"></a>Занятие 11. Создание ролей
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-roles"></a>Создание ролей
 
 На этом занятии мы создадим роли. Роли обеспечивают безопасность данных и объектов базы данных модели, разрешая доступ только тем пользователям, которые являются членами роли. Каждая роль определяется с помощью одного разрешения: "Нет", "Чтение", "Чтение и обработка", "Обработка" или "Администратор". Роли можно определить во время создания модели с помощью диспетчера ролей. После развертывания модели ролями можно управлять с помощью SQL Server Management Studio (SSMS). Дополнительные сведения см.в статье [Роли](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   
@@ -42,7 +40,7 @@ ms.lasthandoff: 11/02/2017
   
 Предполагаемое время выполнения этого занятия: **15 минут**  
   
-## <a name="prerequisites"></a>Предварительные требования  
+## <a name="prerequisites"></a>Необходимые компоненты  
 Этот раздел входит в учебник по табличному моделированию, который следует изучать в предложенном порядке. Прежде чем выполнять задачи в этом разделе, необходимо завершить предыдущее занятие: [Занятие 10. Создание разделов](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Создание ролей  

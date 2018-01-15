@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 07b681f8721c7c5627eb6809d4fc2cb9536d65eb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Синхронизация Azure AD Connect: справочник по функциям
 В службе Azure AD Connect функции используются для обработки значения атрибута во время синхронизации.  
@@ -155,12 +155,6 @@ ms.lasthandoff: 12/11/2017
 
 `CDate("2013-01-10 4:00 PM -8")`  
 Возвращает объект DateTime, представляющий значение 2013-01-11 12:00 AM.
-
-
-
-
-
-
 
 
 - - -
@@ -546,7 +540,7 @@ Azure Active Directory использует формат вывода этой �
 * ComponentNumber: компонент в различающемся имени для возврата.
 
 **Пример.**  
-`DNComponent([dn],1)`  
+`DNComponent(CRef([dn]),1)`  
 Если значение различающегося имени равно cn=Joe,ou=…, функция возвращает Joe.
 
 - - -
@@ -564,8 +558,8 @@ Azure Active Directory использует формат вывода этой �
 
 **Пример.**  
 Если различающееся имя — cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com, то  
-`DNComponentRev([dn],3)`  
-`DNComponentRev([dn],1,"DC")`  
+`DNComponentRev(CRef([dn]),3)`  
+`DNComponentRev(CRef([dn]),1,"DC")`  
 оба вернут US.
 
 - - -
