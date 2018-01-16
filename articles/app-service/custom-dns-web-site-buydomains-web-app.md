@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Приобретение имени личного домена для веб-приложений Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/03/2018
 
 Эта статья предназначена для службы приложений Azure ("Веб-приложения", "Приложения API", "Мобильные приложения", Logic Apps). Сведения о виртуальной машине Azure или службе хранилища Azure см. в статье [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Назначение домена службы приложений виртуальной машине Azure или службе хранилища Azure). Сведения об облачных службах см. в статье [Настройка пользовательского доменного имени для облачной службы Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством:
 
