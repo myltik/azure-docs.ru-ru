@@ -11,6 +11,10 @@
   items:
     - name: Создание фабрики данных
       items:
+        - name: Пользовательский интерфейс
+          href: quickstart-create-data-factory-portal.md
+        - name: Средство копирования данных
+          href: quickstart-create-data-factory-copy-data-tool.md
         - name: PowerShell
           href: quickstart-create-data-factory-powershell.md
         - name: .NET
@@ -19,35 +23,75 @@
           href: quickstart-create-data-factory-python.md
         - name: REST
           href: quickstart-create-data-factory-rest-api.md
-        - name: Microsoft Azure
-          href: quickstart-create-data-factory-portal.md
         - name: Шаблон Resource Manager
           href: quickstart-create-data-factory-resource-manager-template.md
 - name: Учебники
   items:
     - name: 1. Развертывание пакетов служб SSIS в Azure
-      href: tutorial-deploy-ssis-packages-azure.md
+      items:
+        - name: Пользовательский интерфейс
+          href: tutorial-create-azure-ssis-runtime-portal.md
+        - name: PowerShell
+          href: tutorial-deploy-ssis-packages-azure.md
     - name: 2. Копирование данных в облако
-      href: tutorial-copy-data-dot-net.md
+      items:
+        - name: Средство копирования данных
+          href: tutorial-copy-data-tool.md
+        - name: Пользовательский интерфейс
+          href: tutorial-copy-data-portal.md
+        - name: PowerShell
+          href: tutorial-copy-data-dot-net.md
     - name: 3. Копирование локальных данных в облако
-      href: tutorial-hybrid-copy-powershell.md
+      items:
+        - name: Средство копирования данных
+          href: tutorial-hybrid-copy-data-tool.md
+        - name: Пользовательский интерфейс
+          href: tutorial-hybrid-copy-portal.md
+        - name: PowerShell
+          href: tutorial-hybrid-copy-powershell.md
     - name: 4. Копирование данных в пакетном режиме
-      href: tutorial-bulk-copy.md
+      items:
+        - name: Пользовательский интерфейс
+          href: tutorial-bulk-copy-portal.md
+        - name: PowerShell
+          href: tutorial-bulk-copy.md
     - name: 5. Добавочное копирование данных
       href: tutorial-incremental-copy-overview.md
       items:
         - name: 5.1. Копирование из одной таблицы
-          href: tutorial-incremental-copy-powershell.md
+          items:
+            - name: Пользовательский интерфейс
+              href: tutorial-incremental-copy-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-powershell.md
         - name: 5.2. Копирование из нескольких таблиц
-          href: tutorial-incremental-copy-multiple-tables-powershell.md
+          items:
+            - name: PowerShell
+              href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3. Использование функции отслеживания изменений
-          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+          items:
+            - name: Пользовательский интерфейс
+              href: tutorial-incremental-copy-change-tracking-feature-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6. Преобразование данных в облаке
-      href: tutorial-transform-data-spark-powershell.md
+      items:
+        - name: Пользовательский интерфейс
+          href: tutorial-transform-data-spark-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-spark-powershell.md
     - name: 7. Преобразование данных в виртуальной сети
-      href: tutorial-transform-data-hive-virtual-network.md
+      items:
+        - name: Пользовательский интерфейс
+          href: tutorial-transform-data-hive-virtual-network-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-hive-virtual-network.md
     - name: 8. Управление потоками
-      href: tutorial-control-flow.md
+      items:
+        - name: Пользовательский интерфейс
+          href: tutorial-control-flow-portal.md
+        - name: PowerShell
+          href: tutorial-control-flow.md
 - name: Примеры
   items:
     - name: Примеры кода
@@ -66,10 +110,14 @@
       href: concepts-integration-runtime.md
 - name: Практические руководства
   items:
+    - name: Визуальная разработка фабрик данных
+      href: author-visually.md
     - name: Копирование данных
       items:
-        - name: Копирование данных из поддерживаемых источников в целевые
+        - name: Копирование данных с помощью действия копирования
           href: copy-activity-overview.md
+        - name: Средство копирования данных
+          href: copy-data-tool.md
         - name: Чтение или запись секционированных данных
           href: how-to-read-write-partitioned-data.md
         - name: Соединители
@@ -86,6 +134,9 @@
               href: connector-azure-cosmos-db.md
             - name: Хранилище озера данных Azure
               href: connector-azure-data-lake-store.md
+              items:
+                - name: Загрузка Data Lake Store
+                  href: load-azure-data-lake-store.md
             - name: База данных Azure для MySQL
               href: connector-azure-database-for-mysql.md
             - name: База данных Azure для PostgreSQL
@@ -98,6 +149,9 @@
               href: connector-azure-sql-database.md
             - name: "Хранилище данных SQL\_Azure"
               href: connector-azure-sql-data-warehouse.md
+              items:
+                - name: Загрузка хранилища данных SQL Azure
+                  href: load-azure-sql-data-warehouse.md
             - name: Хранилище таблиц Azure
               href: connector-azure-table-storage.md
             - name: Cassandra
@@ -289,8 +343,6 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Запуск пакетов служб SSIS в Azure
       items:
-        - name: Создание среды выполнения для интеграции Azure SSIS
-          href: create-azure-ssis-integration-runtime.md
         - name: Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Управление средой выполнения интеграции Azure SSIS

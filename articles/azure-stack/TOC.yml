@@ -19,7 +19,7 @@
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Развертывание Azure Stack
+    - name: Оценка Azure Stack
       href: azure-stack-deploy-overview.md
 - name: Учебники
   items:
@@ -31,8 +31,6 @@
       href: azure-stack-tutorial-app-service.md
 - name: Основные понятия
   items:
-    - name: Рекомендации относительно планирования
-      href: azure-stack-planning-considerations.md
     - name: Политика обслуживания
       href: azure-stack-servicing-policy.md
     - name: Основные возможности и концепции
@@ -43,9 +41,9 @@
       href: azure-stack-manage-basics.md
 - name: Практические руководства
   items:
-    - name: Развертывание
+    - name: Развертывание пакета SDK для Azure Stack
       items:
-        - name: Необходимые компоненты
+        - name: предварительным требованиям
           href: azure-stack-deploy.md
         - name: Телеметрия
           href: azure-stack-telemetry.md
@@ -61,6 +59,23 @@
           href: azure-stack-add-default-image.md
         - name: Создание тестовой виртуальной машины
           href: azure-stack-provision-vm.md
+    - name: Развертывание интегрированных систем Azure Stack
+      items:
+        - name: Рекомендации по планированию развертывания
+          href: azure-stack-deployment-planning.md
+        - name: Выбор плана развертывания
+          href: azure-stack-deployment-decisions.md
+        - name: Развертывание с подключением к Azure
+          href: azure-stack-connected-deployment.md
+        - name: Развертывание без подключения к Azure
+          href: azure-stack-disconnected-deployment.md
+        - name: Требования к инфраструктуре открытых ключей (PKI) для развертывания Azure Stack
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Получение сертификатов PKI для развертывания Azure Stack
+              href: azure-stack-get-pki-certs.md
+        - name: Регистрация Azure Stack
+          href: azure-stack-registration.md
     - name: Интеграция центра обработки данных
       items:
         - name: DNS
@@ -254,7 +269,7 @@
           href: azure-stack-diagnostic-test.md
         - name: Повторное развертывание пакета SDK для Azure Stack
           href: azure-stack-redeploy.md
-- name: Ссылка
+- name: Справочные материалы
   items:
     - name: PowerShell для Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9

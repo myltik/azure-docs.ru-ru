@@ -135,8 +135,9 @@
 ### [Шифрование AES-128](media-services-protect-with-aes128.md)
 ### [Защита потокового содержимого с помощью PlayReady или Widevine](media-services-protect-with-playready-widevine.md)
 ### [Защита потокового содержимого с помощью FairPlay](media-services-protect-hls-with-fairplay.md)
-### [Использование PlayReady в автономном режиме](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
-### [Использование FairPlay в автономном режиме](media-services-protect-hls-with-offline-fairplay.md)
+### [PlayReady для Windows 10 (автономный режим)](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [FairPlay для iOS (автономный режим)](media-services-protect-hls-with-offline-fairplay.md)
+### [Widevine для Android (автономный режим)](offline-widevine-for-android.md)
 ### [Настройка на портале Azure](media-services-portal-protect-content.md)
 ### [Доставка лицензий DRM](media-services-deliver-keys-and-licenses.md)
 ### Создание ContentKey

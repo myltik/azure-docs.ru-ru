@@ -54,7 +54,7 @@
 ### [Надежные службы](service-fabric-reliable-services-introduction.md)
 #### [Жизненный цикл Reliable Services (C#)](service-fabric-reliable-services-lifecycle.md)
 #### [Жизненный цикл Reliable Services (Java)](service-fabric-reliable-services-lifecycle-java.md)
-#### [Надежные коллекции](service-fabric-reliable-services-reliable-collections.md)
+#### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [Reliable Collections: инструкции и рекомендации](service-fabric-reliable-services-reliable-collections-guidelines.md)
 #### [Работа с Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Транзакции и блокировки](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
@@ -96,6 +96,7 @@
 ##### [Параметры обновления приложений](service-fabric-application-upgrade-parameters.md)
 ##### [Сериализация данных при обновлении приложения](service-fabric-application-upgrade-data-serialization.md)
 ##### [Обновление приложения: более сложные темы](service-fabric-application-upgrade-advanced.md)
+#### [Управление приложениями для использования в нескольких средах](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Тестирование приложений с помощью анализа сбоев](service-fabric-testability-overview.md)
 #### [Параметр ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
@@ -226,7 +227,6 @@
 ## Работа в среде разработки Windows или Visual Studio
 ### [Управление приложениями в Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Настройка безопасных соединений в Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Настройка приложения для нескольких сред](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Отладка службы .NET в VS](service-fabric-debugging-your-application.md)
 ### [Распространенные ошибки и исключения](service-fabric-errors-and-exceptions.md)
 ### [Локальный мониторинг и диагностика](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,10 +244,13 @@
 
 ## Управление жизненным циклом приложения
 ### [Создание пакета приложения](service-fabric-package-apps.md)
+### [Использование параметров в файлах конфигурации](service-fabric-how-to-parameterize-configuration-files.md)
+### [Указание номеров портов с помощью параметров](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Указание переменных среды](service-fabric-how-to-specify-environment-variables.md)
 
 ### Развертывание или удаление приложений
 #### [Развертывание приложений в локальном кластере](service-fabric-get-started-with-a-local-cluster.md)
-#### [Диспетчер ресурсов Azure](service-fabric-application-arm-resource.md)
+#### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Интерфейс командной строки Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [API-интерфейсы FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
@@ -273,8 +276,8 @@
 ## Создание кластеров и управление ими
 ### Кластеры в Azure
 #### Создание
-##### [Портал Azure](service-fabric-cluster-creation-via-portal.md)
-##### [Диспетчер ресурсов Azure](service-fabric-cluster-creation-via-arm.md)
+##### [портал Azure](service-fabric-cluster-creation-via-portal.md)
+##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Масштаб
 ##### [Вручную](service-fabric-cluster-scale-up-down.md)
 ##### [Программным способом](service-fabric-cluster-programmatic-scaling.md)
@@ -328,6 +331,7 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Схема XML для модели службы](service-fabric-service-model-schema.md)
+## [Переменные среды](service-fabric-environment-variables-reference.md)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
