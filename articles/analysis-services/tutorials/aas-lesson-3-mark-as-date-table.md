@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 7a77efb21d38c7c5ff5ca6e17757cbfa9e845ad7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 25e4475c77a25e4dcdcb90729f8633656bb186ff
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-3-mark-as-date-table"></a>Занятие 3. Обозначение таблицы дат
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="mark-as-date-table"></a>Обозначение таблицы дат
 
 В занятии 2 "Получение данных" вы импортировали таблицу измерения DimDate. Хотя в вашей модели эта таблица имеет имя DimDate, она также может называться *таблицей дат*, так как содержит данные о датах и времени.  
   
@@ -35,7 +33,7 @@ ms.lasthandoff: 11/02/2017
   
 Предполагаемое время выполнения этого занятия: **3 минуты**  
   
-## <a name="prerequisites"></a>Предварительные требования  
+## <a name="prerequisites"></a>Необходимые компоненты  
 Этот раздел входит в учебник по табличному моделированию, который следует изучать в предложенном порядке. Прежде чем выполнять задачи в этом разделе, нужно завершить предыдущее занятие: [Занятие 2. Получение данных](../tutorials/aas-lesson-2-get-data.md). 
 
 ### <a name="to-rename-the-fulldatealternatekey-column"></a>Чтобы переименовать столбец FullDateAlternateKey, сделайте следующее:
@@ -51,7 +49,7 @@ ms.lasthandoff: 11/02/2017
   
 2.  Щелкните меню **Таблица**, а затем выберите **Date** и **Пометить как таблицу дат**.  
   
-3.  В списке **Date** диалогового окна **Пометить как таблицу дат** выберите столбец **Date** в качестве уникального идентификатора. Обычно он уже выбран по умолчанию. Нажмите кнопку **ОК**. 
+3.  В списке **Date** диалогового окна **Пометить как таблицу дат** выберите столбец **Date** в качестве уникального идентификатора. Обычно он уже выбран по умолчанию. Последовательно выберите **ОК**. 
 
     ![aas-lesson3-date-table](../tutorials/media/aas-lesson3-date-table.png)
   

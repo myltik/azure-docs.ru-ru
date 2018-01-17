@@ -1,5 +1,5 @@
 ---
-title: "Что такое службы Azure Analysis Services | Документация Майкрософт"
+title: "Общие сведения о службах Azure Analysis Services | Документация Майкрософт"
 description: "Общие сведения о службах Analysis Services в Azure."
 services: analysis-services
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 01/04/2017
 ms.author: owend
-ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: fe46b3c099c4fd4e04a39e2b2f127c1206711e60
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-azure-analysis-services"></a>Службы Azure Analysis Services
+# <a name="azure-analysis-services-overview"></a>Общие сведения о службах Azure Analysis Services
 ![Службы Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Службы Azure Analysis Services позволяют выполнять моделирование данных в облаке на корпоративном уровне. Это полностью управляемая платформа как услуга (PaaS), интегрированная со службами платформ данных Azure. 
@@ -95,7 +95,7 @@ ms.lasthandoff: 12/09/2017
 ## <a name="your-data-is-secure"></a>Надежное хранение данных
 ![Визуализации данных](./media/analysis-services-overview/aas-overview-secure.png)
 
-#### <a name="authentication"></a>Аутентификация
+#### <a name="authentication"></a>Authentication
 Проверка подлинности пользователей в Azure Analysis Services осуществляется через [Azure Active Directory (AD)](../active-directory/active-directory-whatis.md). При входе в базу данных служб Azure Analysis Services пользователи используют удостоверение рабочей учетной записи с соответствующими правами доступа. Эти учетные записи должны быть участниками каталога Azure Active Directory по умолчанию для подписки, где находится сервер служб Azure Analysis Services. Дополнительные сведения см. в руководстве по [аутентификации и настройке пользовательских разрешений](analysis-services-manage-users.md).
 
 #### <a name="data-security"></a>Защита данных
@@ -140,5 +140,5 @@ ms.lasthandoff: 12/09/2017
 
 У вас есть предложения относительно документации? Чтобы добавить комментарии, щелкните надпись Livefyre в нижней части каждой статьи.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы достаточно знаете о службах Azure Analysis Services, пора приступать к работе. Узнайте, как [создать сервер](analysis-services-create-server.md) в Azure. Создав сервер, ознакомьтесь с [руководством по Adventure Works](tutorials/aas-adventure-works-tutorial.md). Вы узнаете, как создать полнофункциональную табличную модель и развернуть ее на сервере.

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3649cc2800e774f8dca1b88a1704744b4663a68d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4bd20cc9a553952ad86b662fa763e220cb8d8081
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Создание первого контейнера-приложения Service Fabric в Linux
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 
 Чтобы запустить существующее приложение в контейнере Linux кластера Service Fabric не требуется вносить изменения в приложение. В этой статье описано создание образа Docker, содержащего веб-приложение [Flask](http://flask.pocoo.org/) Python, и его развертывание в кластер Service Fabric.  Кроме того, вы предоставите общий доступ к контейнерному приложению через [реестр контейнеров Azure](/azure/container-registry/).  Для работы с этой статьей необходимо знание основных понятий Docker. Чтобы ознакомиться с Docker, см. этот [обзор Docker](https://docs.docker.com/engine/understanding-docker/).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Необходимые компоненты
 * Компьютер для разработки, на котором установлено ПО, перечисленное ниже.
   * [Пакет SDK и средства для Service Fabric](service-fabric-get-started-linux.md).
   * [Предварительные выпуски](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -202,6 +202,30 @@ docker push myregistry.azurecr.io/samples/helloworldapp
     </Policies>
    </ServiceManifestImport>
 ``` 
+## <a name="configure-docker-healthcheck"></a>Настройка инструкции HEALTHCHECK в Docker 
+Начиная с версии 6.1 Service Fabric автоматически интегрирует события [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) в отчеты о работоспособности системы. Это означает, что если в вашем контейнере включена инструкция **HEALTHCHECK**, то Service Fabric будет отправлять отчет о работоспособности при каждом изменении состояния контейнера согласно сведениям Docker. В [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) будет отображаться состояние работоспособности **ОК**, если значение *health_status* равно *healthy*. Если же значение *health_status* равно *unhealthy*, отобразится **предупреждение**. В файле **Dockerfile**, который используется при создании образа контейнера, должна содержаться инструкция **HEALTHCHECK**, указывающая на фактическую проверку для отслеживания работоспособности контейнера. 
+
+![HealthCheckHealthy][1]
+
+![HealthCheckUnealthyApp][2]
+
+![HealthCheckUnhealthyDsp][3]
+
+Поведение инструкции **HEALTHCHECK** можно настроить для каждого контейнера, указав параметры **HealthConfig** в составе политик **ContainerHostPolicies** в манифесте приложения.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+      </ContainerHostPolicies>
+    </Policies>
+</ServiceManifestImport>
+```
+По умолчанию для *IncludeDockerHealthStatusInSystemHealthReport* задано значение **true**, а для *RestartContainerOnUnhealthyDockerHealthStatus* — значение **false**. Если для *RestartContainerOnUnhealthyDockerHealthStatus* задано значение **true**, контейнер, для которого несколько раз отображалось неработоспособное состояние, перезапускается (возможно, на других узлах).
+
+Если вы хотите отключить интеграцию с **HEALTHCHECK** во всем кластере Service Fabric, задайте для [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) значение **false**.
 
 ## <a name="build-and-package-the-service-fabric-application"></a>Создание и упаковка приложений Service Fabric
 Шаблоны Service Fabric для Yeoman включают скрипт сборки для [Gradle](https://gradle.org/), который можно использовать для создания приложения из терминала. Используйте следующую команду, чтобы собрать и упаковать приложение:
@@ -231,6 +255,7 @@ sfctl cluster select --endpoint http://localhost:19080
 Подключитесь к запущенному контейнеру.  Откройте в веб-браузере IP-адрес, возвращаемый через порт 4000, например http://localhost:4000. Вы должны увидеть заголовок Hello World! в браузере.
 
 ![Привет, мир!][hello-world]
+
 
 ## <a name="clean-up"></a>Очистка
 Для удаления экземпляра приложения из локального кластера разработки и отмены регистрации типа приложения используйте сценарий удаления, предоставленный в шаблоне.
@@ -359,7 +384,6 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 Интервал времени по умолчанию установлен на 10 секунд. Так как эта конфигурация является динамической, файл конфигурации обновляет только кластер для которого обновляется время ожидания. 
 
-
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Настройка среды выполнения для удаления неиспользуемых образов контейнера
 
 Можно настроить кластер Service Fabric для удаления неиспользуемых образов контейнера из узла. Эта конфигурация позволяет месту на диске перезаписываться, если на узле находится слишком много образов контейнера.  Чтобы включить эту функцию, обновите раздел `Hosting` в манифесте кластера, как показано в следующем фрагменте кода: 
@@ -380,8 +404,35 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 Образы, которые не должны удаляться, можно указать в параметре `ContainerImagesToSkip`. 
 
+## <a name="configure-container-image-download-time"></a>Настройка времени загрузки образа контейнера
 
-## <a name="next-steps"></a>Дальнейшие действия
+По умолчанию среда выполнения Service Fabric выделяет 20 минут для загрузки и извлечения образов контейнеров. Этого достаточно для большинства образов контейнеров. В случае с большими образами или при медленном сетевом подключении, возможно, потребуется увеличить время ожидания перед прерыванием загрузки и извлечения образа. Это значение можно задать с помощью атрибута **ContainerImageDownloadTimeout** в разделе **Hosting** манифеста кластера, как показано в следующем фрагменте кода:
+
+```json
+{
+"name": "Hosting",
+        "parameters": [
+          {
+              "name": " ContainerImageDownloadTimeout ",
+              "value": "1200"
+          }
+]
+}
+```
+
+
+## <a name="set-container-retention-policy"></a>Настройка политики хранения контейнера
+
+Для упрощения диагностики сбоев при запуске контейнеров Service Fabric (версии 6.1 и более поздних версий) поддерживает хранение контейнеров, работа которых завершилась или при запуске которых произошел сбой. Эту политику можно настроить в файле **ApplicationManifest.xml**, как показано в следующем фрагменте кода:
+
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+```
+
+В атрибуте **ContainersRetentionCount** указывается число контейнеров, которые следует сохранить после сбоя. Если указано отрицательное значение, будут сохраняться все контейнеры после сбоя. Если значение **ContainersRetentionCount** не указано, контейнеры не будут сохраняться. Атрибут **ContainersRetentionCount** также поддерживает параметры приложения, поэтому пользователи могут указывать разные значения для тестовых и рабочих кластеров. Чтобы предотвратить перемещение службы контейнеров на другие узлы, при использовании этих функций рекомендуется использовать ограничения на размещение, указав для службы контейнеров конкретный узел. Удаление всех контейнеров, сохраненных с помощью этой функции, выполняется вручную.
+
+
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о запуске [контейнеров в Service Fabric](service-fabric-containers-overview.md).
 * Ознакомьтесь с руководством [Развертывание приложения-контейнера .NET в Azure Service Fabric](service-fabric-host-app-in-a-container.md).
 * Дополнительные сведения о [жизненном цикле приложения](service-fabric-application-lifecycle.md) Service Fabric.
@@ -389,3 +440,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
+
+[1]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[2]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png

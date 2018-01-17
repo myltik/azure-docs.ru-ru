@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: fe504d826b6c40099f1f8706ef7e8780eed5cf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea5274f6bfd2d6c68509f52d93b6875d3a43a5a0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Пошаговое руководство по разработке решения для прогнозной аналитики в службе машинного обучения Azure для оценки кредитных рисков
 
@@ -55,6 +55,6 @@ ms.lasthandoff: 10/11/2017
 6. [Доступ к веб-службе](walkthrough-6-access-web-service.md)
 
 > [!TIP] 
-> Рабочую копию эксперимента, разработанного в этом руководстве, можно найти в [коллекции Cortana Intelligence](https://gallery.cortanaintelligence.com). Перейдите по ссылке **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Руководство. Прогнозирование кредитных рисков) и нажмите кнопку **Open in Studio** (Открыть в Студии), чтобы скачать в рабочее пространство Студии машинного обучения копию этого эксперимента.
+> Рабочую копию эксперимента, разработанного в этом руководстве, можно найти в [коллекции решений Azure AI](https://gallery.cortanaintelligence.com). Перейдите по ссылке **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Руководство. Прогнозирование кредитных рисков) и нажмите кнопку **Open in Studio** (Открыть в Студии), чтобы скачать в рабочее пространство Студии машинного обучения копию этого эксперимента.
 > 
 > В этом пошаговом руководстве используется упрощенная версия примера эксперимента [Binary Classfication: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (Двоичная классификация: прогнозирование кредитных рисков), который также доступен в [коллекции](http://gallery.cortanaintelligence.com/).

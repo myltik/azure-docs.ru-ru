@@ -13,28 +13,26 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 138f9f6e85d5e206c8b09d5c93822cfef5dd1246
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-2-get-data"></a>Занятие 2. Получение данных
+# <a name="get-data"></a>Получение данных
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-В этом занятии вы используете функцию получения данных в SSDT, чтобы подключиться к примеру базы данных AdventureWorksDW2014, выбрать данные, просмотреть и отфильтровать их, а затем импортировать в рабочую область модели.  
+В этом занятии вы воспользуетесь функцией получения данных в SSDT, чтобы подключиться к примеру базы данных Adventure Works, выбрать данные, просмотреть и отфильтровать их, а затем импортировать в рабочую область модели.  
   
 С помощью функции получения данных можно импортировать данные из самых разнообразных источников: базы данных SQL Azure, Oracle, Sybase, канала OData, Teradata, файлов и других. Данные также можно запросить с помощью выражения формулы Power Query M.
 
 > [!NOTE]
-> Для задач и образов в этом руководстве требуется подключение к базе данных AdventureWorksDW2014 на локальном сервере. В некоторых случаях база данных AdventureWorksDW2014 в Azure может отличаться.
+> Для задач и образов в этом руководстве требуется подключение к базе данных AdventureWorksDW2014 на локальном сервере. В некоторых случаях база данных Adventure Works в Azure может отличаться.
   
 Предполагаемое время выполнения этого занятия: **10 минут**  
   
-## <a name="prerequisites"></a>Предварительные требования  
+## <a name="prerequisites"></a>Необходимые компоненты  
 Этот раздел входит в учебник по табличному моделированию, который следует изучать в предложенном порядке. Прежде чем выполнять задачи в этом разделе, нужно завершить предыдущее занятие: [Занятие1. Создание проекта табличной модели](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Создание подключения  

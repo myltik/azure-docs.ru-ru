@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Введение в хранилище Microsoft Azure
 
@@ -35,9 +35,7 @@ ms.lasthandoff: 12/11/2017
 * передача данных в хранилище или из него;
 * многочисленные клиентские библиотеки для хранилища.
 
-Чтобы быстро начать работу со службой хранилища Azure, ознакомьтесь с одним из следующих кратких руководств:
-* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md) (Создание учетной записи хранения с помощью PowerShell)
-* [Create a storage account using the Azure CLI](storage-quickstart-create-storage-account-cli.md) (Создание учетной записи хранения с помощью Azure CLI)
+Чтобы начать работу со службой хранилища Azure, см. дополнительные сведения о [создании учетной записи хранения](storage-quickstart-create-account.md).
 
 ## <a name="introducing-the-azure-storage-services"></a>Введение в службы хранилища Azure
 
@@ -213,15 +211,13 @@ BLOB-объекты по сути являются файлами — таки�
 * [Командлеты хранилища для PowerShell](/powershell/module/azure.storage/?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)
 * [Команды хранилища для CLI 2.0](/cli/azure/storage)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Introduction to Blob storage](../blobs/storage-blobs-introduction.md) (Общие сведения о хранилище BLOB-объектов)
 * [Introduction to Azure File storage](../storage-files-introduction.md) (Общие сведения о хранилище файлов)
 * [Introduction to Queues](../queues/storage-queues-introduction.md) (Общие сведения о хранилище очередей)
 
-Чтобы быстро начать работу со службой хранилища Azure, ознакомьтесь с одним из следующих кратких руководств:
-* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md) (Создание учетной записи хранения с помощью PowerShell)
-* [Create a storage account using the Azure CLI](storage-quickstart-create-storage-account-cli.md) (Создание учетной записи хранения с помощью Azure CLI)
+Чтобы начать работу со службой хранилища Azure, см. дополнительные сведения о [создании учетной записи хранения](storage-quickstart-create-account.md).
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

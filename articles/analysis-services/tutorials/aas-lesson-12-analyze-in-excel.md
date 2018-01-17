@@ -13,25 +13,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: be23d25fe9765025b86e86687fb38b2dab61269e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d7f79db612ee02eaf585f9b45d888b3533a91b2
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-12-analyze-in-excel"></a>Занятие 12. Анализ в Excel
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="analyze-in-excel"></a>Анализировать в Excel
 
 В этом занятии вы воспользуетесь функцией "Анализ в Excel", чтобы открыть Microsoft Excel, автоматически создать подключение к рабочей области модели и автоматически добавить сводную таблицу на лист. Функция "Анализ в Excel" предназначена для быстрого и удобного тестирования эффективности модели до ее развертывания. В этом занятии выполнять анализ данных не нужно. Оно призвано познакомить вас как автора модели со средствами для проверки модели.   
   
-Для этого занятия нужно установить Excel на том же компьютере, где находится SSDT.
+Для этого занятия нужно установить Excel на том же компьютере, где находится Visual Studio.
   
 Предполагаемое время выполнения этого занятия: **5 минут**  
   
-## <a name="prerequisites"></a>Предварительные требования  
+## <a name="prerequisites"></a>Необходимые компоненты  
 Этот раздел входит в учебник по табличному моделированию, который следует изучать в предложенном порядке. Прежде чем выполнять задачи в этом разделе, нужно завершить предыдущее занятие: [Занятие 11. Создание ролей](../tutorials/aas-lesson-11-create-roles.md).  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Просмотр с помощью перспективы по умолчанию и перспективы Internet Sales  

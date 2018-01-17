@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c7375b91790cc7a089560bd823e99850e3b34fec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 89a232af6387f6403e6e341cced16d06e9979dae
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory для разработчиков
-Azure Active Directory (Azure AD) — это облачная служба идентификации, с помощью которой разработчики обеспечивают безопасный вход пользователей с рабочей или учебной учетной записью Майкрософт. В этой документации показано, как с помощью стандартных отраслевых протоколов OAuth и OpenID Connect добавить поддержку Azure AD в ваше приложение.
+Azure Active Directory (Azure AD) — это облачная служба идентификации, с помощью которой разработчики обеспечивают безопасный вход пользователей с рабочей или учебной учетной записью Майкрософт. В этом документе показано, как с помощью стандартных отраслевых протоколов OAuth 2.0 и OpenID Connect добавить поддержку Azure AD в ваше приложение.
 
 | | |
 | --- | --- |
@@ -33,11 +33,11 @@ Azure Active Directory (Azure AD) — это облачная служба ид�
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| <center>![Мобильные и классические приложения](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />Мобильные и классические приложения</center> | [Обзор](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET](active-directory-devquickstarts-dotnet.md)<br /><br />[Windows](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md)<br /><br />[OAuth 2.0](active-directory-protocols-oauth-code.md) |
-| <center>![Веб-приложения](./media/active-directory-developers-guide/Web_app.png)<br />Веб-приложения</center> | [Обзор](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)<br /><br />[OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) |  |
+| <center>![Мобильные и классические приложения](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />Мобильные и классические приложения</center> | [Обзор](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET (WPF)](active-directory-devquickstarts-dotnet.md)<br /><br />[.NET (UWP)](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md) |
+| <center>![Веб-приложения](./media/active-directory-developers-guide/Web_app.png)<br />Веб-приложения</center> | [Обзор](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |  |
 | <center>![Одностраничные приложения](./media/active-directory-developers-guide/SPA.png)<br />Одностраничные приложения</center> | [Обзор](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |  |
 | <center>![Веб-интерфейсы API](./media/active-directory-developers-guide/Web_API.png)<br />Веб-интерфейсы API</center> | [Обзор](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
-| <center>![Обмен между службами](./media/active-directory-developers-guide/Service_App.png)<br />Обмен между службами</center> | [Обзор](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[Учетные данные клиента OAuth 2.0](active-directory-protocols-oauth-service-to-service.md) |  |
+| <center>![Обмен между службами](./media/active-directory-developers-guide/Service_App.png)<br />Обмен между службами</center> | [Обзор](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |
 
 ## <a name="how-to-guides"></a>Практические руководства
 В этих руководствах объясняется, как выполнять общие задачи с помощью Azure AD.

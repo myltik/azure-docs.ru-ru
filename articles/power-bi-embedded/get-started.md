@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/11/2018
 ms.author: asaxton
-ms.openlocfilehash: b32b06e9d6cbaacdfbdfe92e2c72cb6763c9eb52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79ec87ad7d7dc4a4dc003e4163c8e609c828f545
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Начало работы с Microsoft Power BI Embedded
 
@@ -47,9 +47,12 @@ Power BI Embedded предоставляет преимущества для н�
 
 Создайте емкость Power BI Embedded в Microsoft Azure, чтобы перенести приложение в рабочую среду. Сведения о создании емкости см. в статье [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Создание емкости Power BI Embedded на портале Azure).
 
+> [!IMPORTANT]
+> Так как маркеры безопасности предназначены только для тестирования в рамках разработки, число таких маркеров, создаваемых основной учетной записью Power BI, ограничено. Вы можете [приобрести дополнительную емкость](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) для рабочих сценариев внедрения. В таком случае органичений на число маркеров внедрения нет.
+
 Управлять емкостью можно на портале администрирования Power BI. Назначьте того, кто будет присваивать рабочие области и, следовательно, помогать вам в работе с рабочими областями приложения. Дополнительные сведения см. в разделе [Управление емкостью в Power BI Premium и Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Сведения о создании емкости Power BI Embedded см. в статье [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Создание емкости Power BI Embedded на портале Azure).
 

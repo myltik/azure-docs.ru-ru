@@ -13,27 +13,25 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0e223222c482d6d3aeaed85388f3a1ce1b53a78d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services — учебник по Adventure Works
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+Это руководство описывает, как создать и развернуть табличную модель на уровне совместимости 1400 с помощью Visual Studio и [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-Этот учебник состоит из занятий по созданию и развертыванию табличной модели на уровне совместимости 1400 с помощью [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
-Если ранее вы не работали со службами Analysis Services и табличным моделированием, с помощью этого руководства вы быстро научитесь создавать и развертывать простые табличные модели. После установки всех необходимых компонентов прохождение руководства займет около 2–3 часов.  
+Если ранее вы не работали со службами Analysis Services и табличным моделированием, с помощью этого руководства вы быстро научитесь создавать и развертывать простые табличные модели с использованием Visual Studio. После установки всех необходимых компонентов прохождение руководства займет около 2–3 часов.  
   
 ## <a name="what-you-learn"></a>Что вы узнаете   
   
--   Создание проекта табличной модели на **уровне совместимости 1400** в SSDT.
+-   Как создать проект табличной модели на **уровне совместимости 1400** в Visual Studio с помощью SSDT.
   
--   Импорт данных из реляционной базы данных в проекте табличной модели.  
+-   Как импортировать данные из реляционной базы данных в базу данных рабочего пространства проекта табличной модели.  
   
 -   Способы создания связей между таблицами в модели и управления ими.  
   
@@ -47,16 +45,16 @@ ms.lasthandoff: 11/02/2017
   
 -   Развертывание табличной модели на сервере **служб Azure Analysis Services** или на локальном сервере SQL Server 2017 Analysis Services.  
   
-## <a name="prerequisites"></a>Предварительные требования  
-Для работы с этим руководством необходимы указанные ниже компоненты.  
+## <a name="prerequisites"></a>Необходимые компоненты  
+Для работы с этим учебником необходимы указанные ниже компоненты.  
   
--   Экземпляр служб Azure Analysis Services или SQL Server 2017 Analysis Services для развертывания модели. Подпишитесь для получения бесплатной [пробной версии служб Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) и [создайте сервер](../analysis-services-create-server.md). Либо зарегистрируйтесь и скачайте [ознакомительную версию для сообщества SQL Server 2017](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
+-   Сервер Azure Analysis Services. Подпишитесь для получения бесплатной [пробной версии служб Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) и [создайте сервер](../analysis-services-create-server.md). 
 
--   Хранилище данных SQL Server или хранилище данных SQL Azure с [примером базы данных AdventureWorksDW2014](http://go.microsoft.com/fwlink/?LinkID=335807). Этот пример базы данных содержит данные, необходимые для работы с настоящим учебником. Скачайте [бесплатные выпуски SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads). Либо зарегистрируйтесь для получения бесплатной [пробной версии базы данных SQL Azure](https://azure.microsoft.com/services/sql-database/). 
+-   [Хранилище данных Azure SQL](../../sql-data-warehouse/create-data-warehouse-portal.md) с **примером базы данных AdventureWorksDW** или хранилище данных SQL Server с примером [базы данных Adventure Works](http://go.microsoft.com/fwlink/?LinkID=335807).
 
-    **Важно!** При установке примера базы данных на SQL Server и развертывании модели на сервере служб Azure Analysis Services [локальный шлюз данных](../analysis-services-gateway.md) является обязательным.
+    **Важно!** При установке примера базы данных в хранилище данных SQL Server и развертывании модели на сервере служб Azure Analysis Services [локальный шлюз данных](../analysis-services-gateway.md) является обязательным.
 
--   Последняя версия [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+-   Последняя версия [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) для Visual Studio.
 
 -   Последняя версия [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).    
 
@@ -101,7 +99,7 @@ ms.lasthandoff: 11/02/2017
 |[Неоднородные иерархии](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)|20 минут| 
 
   
-## <a name="next-steps"></a>Дальнейшие действия  
+## <a name="next-steps"></a>Дополнительная информация  
 Для начала работы см. [Занятие 1. Создание нового проекта табличной модели](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
   

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: ed62f2f8441220eb37aea7f4c848702e9821698b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Добавление образа виртуальной машины Windows Server 2016 в Azure Stack Marketplace
 
@@ -34,15 +34,15 @@ ms.lasthandoff: 12/11/2017
 
 2. Щелкните **Больше служб** > **Marketplace Management** (Управление Marketplace) > **Add from Azure** (Добавить из Azure). 
 
-3. Найдите образ **Windows Server 2016 Datacenter — Eval** и щелкните **Скачать**.
+3. Найдите образ **Windows Server 2016 Datacenter** и щелкните **Скачать**.
 
    ![Скачивание образа из Azure](media/azure-stack-add-default-image/download-image.png)
 
-После завершения скачивания этот образ станет доступен в разделе **Marketplace Management** (Управление Marketplace). Этот образ также доступен в разделе **Виртуальные машины**.
+После завершения скачивания этот образ станет доступен в разделе **Marketplace Management** (Управление Marketplace). Этот образ также доступен в разделе **Вычисления** для создания виртуальных машин.
 
 ## <a name="add-the-image-by-using-powershell"></a>Добавление образа с помощью PowerShell
 
-### <a name="prerequisites"></a>Предварительные требования 
+### <a name="prerequisites"></a>Необходимые компоненты 
 
 Выполните следующие предварительные требования с помощью либо [пакета средств разработки](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), либо внешнего клиента на базе Windows (при [подключении через VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)).
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 12/11/2017
       -GraphAudience $GraphAudience `
       -EnableAdfsAuthentication:$true
 
-   $TenantID = Get-AzsDirectoryTenantId `
+    $TenantID = Get-AzsDirectoryTenantId `
      -ADFS `
      -EnvironmentName "AzureStackAdmin" 
 
@@ -137,18 +137,18 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="parameters"></a>Параметры
 
-|Параметры New-AzsServer2016VMImage|Обязательный?|Описание|
+|Параметры New-AzsServer2016VMImage|Обязательное значение|ОПИСАНИЕ|
 |-----|-----|------|
-|ISOPath|Да|Полный путь к скачанному образу ISO Windows Server 2016.|
-|Net35|Нет|Устанавливает среду выполнения .NET 3.5 в образе Windows Server 2016. По умолчанию установлено значение **true**.|
-|Version (версия)|Нет|Указывает образы Windows Server 2016 **Базовый**, **Полный** или **Оба**. По умолчанию установлено значение **Полный**.|
-|VHDSizeInMB|Нет|Задает размер (в МБ) образа VHD для добавления в среду Azure Stack. По умолчанию установлено значение 40 960 МБ.|
-|CreateGalleryItem|Нет|Указывает, следует ли создать элемент Marketplace для образа Windows Server 2016. По умолчанию установлено значение **true**.|
-|location |Нет |Указывает расположение, в которое должны публиковаться образы Windows Server 2016.|
-|IncludeLatestCU|Нет|Применяет последнее накопительное обновление Windows Server 2016 для нового виртуального жесткого диска.|
-|CUUri |Нет |Задает запуск накопительного обновления Windows Server 2016 из указанного URI. |
-|CUPath |Нет |Задает запуск накопительного обновления Windows Server 2016 из локального пути. Этот вариант целесообразно использовать, если экземпляр Azure Stack развернут в отключенной среде.|
+|ISOPath|Yes|Полный путь к скачанному образу ISO Windows Server 2016.|
+|Net35|Нет |Устанавливает среду выполнения .NET 3.5 в образе Windows Server 2016. По умолчанию установлено значение **true**.|
+|Version (версия)|Нет |Указывает образы Windows Server 2016 **Базовый**, **Полный** или **Оба**. По умолчанию установлено значение **Полный**.|
+|VHDSizeInMB|Нет |Задает размер (в МБ) образа VHD для добавления в среду Azure Stack. По умолчанию установлено значение 40 960 МБ.|
+|CreateGalleryItem|Нет |Указывает, следует ли создать элемент Marketplace для образа Windows Server 2016. По умолчанию установлено значение **true**.|
+|location |Нет  |Указывает расположение, в которое должны публиковаться образы Windows Server 2016.|
+|IncludeLatestCU|Нет |Применяет последнее накопительное обновление Windows Server 2016 для нового виртуального жесткого диска (проверьте скрипт, чтобы убедиться, что он указывает на последнее текущее обновление, или воспользуйтесь одним из следующих вариантов). |
+|CUUri |Нет  |Задает запуск накопительного обновления Windows Server 2016 из указанного URI. |
+|CUPath |Нет  |Задает запуск накопительного обновления Windows Server 2016 из локального пути. Этот вариант целесообразно использовать, если экземпляр Azure Stack развернут в отключенной среде.|
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Подготовка виртуальной машины](azure-stack-provision-vm.md)

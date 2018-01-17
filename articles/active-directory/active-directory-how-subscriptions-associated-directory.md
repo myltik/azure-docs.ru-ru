@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Как связать или добавить подписку Azure в Azure Active Directory
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/16/2017
 
     ![Снимок экрана, показывающий элемент интерфейса "Сменить каталог"](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. Щелкните **Изменить**.
-6. Готово! Используйте переключатель каталогов, чтобы перейти в новый каталог.
+6. Готово! Используйте переключатель каталогов, чтобы перейти в новый каталог. Отображение всех элементов может занять до 10 минут.
 
     ![Снимок экрана, показывающий уведомление о выполнении смены каталога](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/16/2017
 
 Изменение каталога подписки — это операция, выполняющаяся на уровне обслуживания. Она не влияет на права владения выставлением счетов по подписке, а администратор учетной записи по-прежнему может менять администратора службы в [Центре управления учетной записью](https://account.azure.com/subscriptions). Если необходимо удалить исходный каталог, передайте права владения выставлением счетов по подписке новому администратору учетной записи. Сведения о передаче прав владения выставлением счетов см. в статье [Передача прав владения подпиской Azure другой учетной записи](../billing/billing-subscription-transfer.md). 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения о создании каталога Azure AD бесплатно см. в статье [Как получить клиент Azure Active Directory](develop/active-directory-howto-tenant.md).
 * Сведения о передаче прав владения выставлением счетов по подписке Azure см. в статье [Передача прав владения подпиской Azure другой учетной записи](../billing/billing-subscription-transfer.md).

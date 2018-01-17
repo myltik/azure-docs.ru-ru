@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0209142da5d94e0ed863a07c9ea694232421cfb
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Приступая к работе с сервером Многофакторной идентификации Azure
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/11/2017
 
 Убедитесь, что сервер, используемый для Многофакторной идентификации Azure, соответствует следующим требованиям:
 
-| Требования к серверу Многофакторной идентификации Azure | Описание |
+| Требования к серверу Многофакторной идентификации Azure | ОПИСАНИЕ |
 |:--- |:--- |
 | Оборудование |<li>200 МБ места на жестком диске</li><li>32- или 64-разрядный процессор</li><li>Не менее 1 ГБ ОЗУ</li> |
 | Программное обеспечение |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008 с пакетом обновления 1 (SP1) и 2 (SP2)</li><li>Windows Server 2003 R2</li><li>Windows Server 2003 с пакетом обновления 1 (SP1) и 2 (SP2)</li><li>Windows 10</li><li>Windows 8.1, все выпуски</li><li>Windows 8, все выпуски</li><li>Windows 7, все выпуски</li><li>Windows Vista, все выпуски, а также выпуски с пакетом обновления 1 (SP1) и 2 (SP2)</li><li>Microsoft .NET Framework 4.0</li><li>IIS 7.0 или более поздняя версия, если вы устанавливаете SDK для пользовательского портала или веб-службы</li> |
@@ -94,7 +94,7 @@ ms.lasthandoff: 12/11/2017
 Чтобы скачать сервер Многофакторной идентификации Azure с портала Azure, сделайте следующее:
 
 1. Войдите на [портал Azure](https://portal.azure.com) с использованием учетной записи администратора.
-2. Выберите **Active Directory** > **Multi-Factor Authentication**.
+2. Выберите **Active Directory** > **MFA Server** (Сервер MFA).
 3. Выберите **Параметры сервера**.
 4. Выберите **Загрузить** и следуйте инструкциям на странице скачивания, чтобы сохранить установщик. 
 
@@ -187,7 +187,7 @@ ms.lasthandoff: 12/11/2017
 
 Теперь новый сервер запущен и работает с исходной конфигурацией и данными пользователя из резервной копии.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Установка и настройка [пользовательского портала](multi-factor-authentication-get-started-portal.md) для самообслуживания пользователей.
 - Установите и настройте сервер Azure MFA со [службой федерации Active Directory](multi-factor-authentication-get-started-adfs.md), [проверкой подлинности RADIUS](multi-factor-authentication-get-started-server-radius.md) или [проверкой подлинности LDAP](multi-factor-authentication-get-started-server-ldap.md).

@@ -1,6 +1,6 @@
 ---
 title: "Отправка файлов в учетную запись служб мультимедиа Azure с помощью Aspera | Документация Майкрософт"
-description: "Из этого руководства вы узнаете, как отправлять файлы в учетную запись хранения, связанную с учетной записью служб мультимедиа, с помощью службы **Aspera Server On Demand** в Azure."
+description: "Из этого руководства вы узнаете, как отправлять файлы в учетную запись хранилища, связанную с учетной записью служб мультимедиа, с помощью службы **Aspera Server On Demand** в Azure."
 services: media-services
 documentationcenter: 
 author: johndeu
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Отправка файлов в учетную запись служб мультимедиа с помощью службы Aspera Server On Demand в Azure
 
@@ -28,17 +28,17 @@ ms.lasthandoff: 10/11/2017
   
 **Aspera Server On Demand** для Azure можно приобрести в [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/). Чтобы купить **Aspera Server On Demand**, войдите в Azure Marketplace с помощью учетной записи Windows Live ID.
 
-Из этого руководства вы узнаете, как отправлять файлы в учетную запись хранилища, связанную с учетной записью служб мультимедиа, с помощью службы **Aspera Server On Demand** в Azure. 
+Из этого руководства вы узнаете, как отправлять файлы в учетную запись хранения, связанную с учетной записью служб мультимедиа, с помощью службы **Aspera Server On Demand** в Azure. 
 
 Пример, в котором показано, как пользоваться функциями Azure со службами мультимедиа и Aspera, вы можете найти [здесь](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
->Существует ограничение на максимальный размер файла, который могут обработать службы мультимедиа Azure. Подробные сведения об этом см. [здесь](media-services-quotas-and-limitations.md).
+>Существует ограничение на максимальный размер файла, который могут обработать службы мультимедиа Azure. Подробные сведения об этих ограничениях см. [здесь](media-services-quotas-and-limitations.md).
 >
 
-## <a name="prerequisites"></a>Предварительные требования 
+## <a name="prerequisites"></a>Необходимые компоненты 
 
-Для работы с этим руководством необходимы указанные ниже компоненты.
+Для работы с этим учебником необходимы указанные ниже компоненты.
 
 * Учетная запись Windows Live ID.
 * [Учетная запись Azure](https://azure.microsoft.com). Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -127,7 +127,7 @@ ms.lasthandoff: 10/11/2017
 * [клиент Aspera](http://downloads.asperasoft.com/en/downloads/2);
 * [справочная документация по клиенту Aspera](http://downloads.asperasoft.com/en/documentation/2).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Теперь вы можете [копировать большие двоичные объекты из учетной записи хранения в учетную запись AMS](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 

@@ -4,7 +4,7 @@ description: "Как использовать Fiddler или Postman для от
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,22 +12,22 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2017
+ms.date: 01/04/2018
 ms.author: heidist
-ms.openlocfilehash: d8da3f02fab90e0c690e320736409a4d113d634c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a9a6bc035ba9f02057e3086a9682b54282da19f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Работа с REST API службы "Поиск Azure" с помощью Fiddler или Postman
 
-Проще всего изучить [REST API службы "Поиск Azure"](https://docs.microsoft.com/rest/api/searchservice) с помощью Fiddler или Postman для формирования HTTP-запросов и изучения ответов. В этой статье вы поэкспериментируете с полезными данными запроса и ответа без необходимости написания кода.
+Проще всего изучить [REST API службы "Поиск Azure"](https://docs.microsoft.com/rest/api/searchservice) с помощью Fiddler или Postman для формирования HTTP-запросов и изучения ответов. С помощью соответствующих средств и этих инструкций вы сможете отправлять запросы и просматривать ответы без написания кода.
 
 > [!div class="checklist"]
 > * Скачивание средства тестирования веб-API
 > * Получение ключа API и конечной точки для службы поиска.
-> * Настройка заголовков запроса.
+> * Настройка заголовков запроса
 > * Создание индекса
 > * Загрузка индекса.
 > * Поиск в индексе
@@ -253,7 +253,7 @@ ms.lasthandoff: 10/25/2017
 
 В Fiddler откройте вкладку **Inspectors** (Инспекторы), затем вкладку **Headers** (Заголовки) и выберите формат JSON. Вы увидите количество документов и занятый ими размер (в килобайтах).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Клиенты REST являются очень полезными для незапланированного исследования, но теперь, когда вы знаете, как работают REST API, можно приступить к написанию кода. Следующие шаги см. в статьях по следующим ссылкам:
 

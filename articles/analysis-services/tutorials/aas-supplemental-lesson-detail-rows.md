@@ -13,31 +13,29 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: fbc6187e80a42330c96ebaa1195ea188430894cc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Дополнительное занятие. Строки детализации
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 В этом дополнительном занятии вы воспользуетесь редактором DAX для определения пользовательского выражения строк детализации. Выражение строк детализации — это свойство меры, предоставляющее конечным пользователям дополнительные сведения об агрегированных результатах для меры. 
   
 Предполагаемое время выполнения этого занятия: **10 минут**  
   
-## <a name="prerequisites"></a>Предварительные требования  
-Это дополнительное занятие входит в учебник по табличному моделированию. Прежде чем выполнять задачи из этого дополнительного занятия, следует завершить все предыдущие занятия или располагать готовым учебным проектом модели интернет-продаж Adventure Works.  
+## <a name="prerequisites"></a>Необходимые компоненты  
+Это дополнительное занятие входит в руководство по табличному моделированию. Прежде чем выполнять задачи из этого дополнительного занятия, следует завершить все предыдущие занятия или располагать готовым учебным проектом модели интернет-продаж Adventure Works.  
   
-## <a name="what-do-we-need-to-solve"></a>Какие задачи нам нужно решить?
+## <a name="whats-the-issue"></a>В чем заключается проблема?
 Прежде чем добавлять выражение строк детализации, давайте взглянем на сведения о мере InternetTotalSales.
 
 1.  В SSDT откройте меню **Модель** и выберите **Анализ в Excel**, чтобы открыть Excel и создать пустую сводную таблицу.
   
-2.  В области **Поля сводной таблицы** добавьте меру **InternetTotalSales** из таблицы FactInternetSales поле **Значения**, **CalendarYear** из таблицы DimDate поле **Столбцы** и **EnglishCountryRegionName** в поле **Строки**. Теперь наша сводная таблица предоставляет агрегированные результаты из меры InternetTotalSales по регионам и годам. 
+2.  В области **Поля сводной таблицы** добавьте меру **InternetTotalSales** из таблицы FactInternetSales поле **Значения**, **CalendarYear** из таблицы DimDate поле **Столбцы** и **EnglishCountryRegionName** в поле **Строки**. Теперь сводная таблица предоставляет агрегированные результаты из меры InternetTotalSales по регионам и годам. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
@@ -51,7 +49,7 @@ ms.lasthandoff: 11/02/2017
 
 #### <a name="to-create-a-detail-rows-expression"></a>Чтобы добавить выражение строк детализации, сделайте следующее: 
   
-1. В сетке мер таблицы FactInternetSales SSDT выберите меру **InternetTotalSales**. 
+1. В сетке мер таблицы FactInternetSales выберите меру **InternetTotalSales**. 
 
 2. В области **Свойства** > **Выражение строк детализации** нажмите кнопку редактора, чтобы открыть редактор DAX.
 
@@ -82,6 +80,6 @@ ms.lasthandoff: 11/02/2017
 
   
 ## <a name="see-also"></a>См. также  
-[Функция SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
+[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
 [Дополнительное занятие. Динамическая безопасность](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Дополнительное занятие. Неоднородные иерархии](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
