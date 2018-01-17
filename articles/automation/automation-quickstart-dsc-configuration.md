@@ -6,14 +6,14 @@ keywords: dsc, configuration, automation
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e9e75f1714217f452d55aba49929fec767df3353
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Настройка требуемого состояния на виртуальной машине Linux
 
@@ -28,10 +28,10 @@ ms.lasthandoff: 12/22/2017
 * Виртуальная машина Azure Resource Manager (не классическая) под управлением Red Hat Enterprise Linux, CentOS или Oracle Linux. Инструкции по созданию виртуальной машины см. в статье [Создание первой виртуальной машины Linux на портале Azure](../virtual-machines/linux/quick-create-portal.md).
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
-Войдите в Azure по адресу https://portal.azure.com.
+Войдите на портал Azure по адресу https://portal.azure.com.
 
 ## <a name="onboard-a-virtual-machine"></a>Подключение виртуальной машины
-Подключить компьютер и активировать настройку требуемого состояния можно разными способами. В этом руководстве мы рассматриваем подключение с помощью учетной записи службы автоматизации. Сведения о других методах подключения компьютера к настройке требуемого состояния см. [в этой статье](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding).
+Подключить компьютер и активировать настройку требуемого состояния можно разными способами. В этом руководстве мы рассматриваем подключение с помощью учетной записи службы автоматизации. Сведения о других методах подключения компьютера к настройке требуемого состояния см. [в этой статье](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
 
 1. В области слева на портале Azure выберите **Учетные записи службы автоматизации**. Если в этой области нет такого элемента, щелкните **Все службы** и найдите его в этом представлении.
 1. Выберите из списка учетную запись службы автоматизации.
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/22/2017
 1. Щелкните пункт меню **Добавить виртуальную машину Azure**.
 1. Найдите виртуальную машину, для которой вы хотите включить DSC. Для поиска конкретной виртуальной машины можно применить поле поиска и фильтры.
 1. Щелкните виртуальную машину, а затем выберите **Подключить**.
-1. Выберите настройки DSC для этой виртуальной машины. Если у вас есть уже готовая конфигурация, укажите ее в поле *Имя конфигурации узла*. Также вы можете задать [режим конфигурации](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig), который определяет правила применения настройки для виртуальной машины.
+1. Выберите настройки DSC для этой виртуальной машины. Если у вас есть уже готовая конфигурация, укажите ее в поле *Имя конфигурации узла*. Также вы можете задать [режим конфигурации](https://docs.microsoft.com/powershell/dsc/metaconfig), который определяет правила применения настройки для виртуальной машины.
 1. Щелкните **ОК**
 
 ![Подключение виртуальной машины Azure к DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -105,7 +105,7 @@ configuration LAMPServer {
 
 ## <a name="compile-a-configuration"></a>Компиляция конфигурации
 
-Прежде чем назначать конфигурацию DSC узлу, ее нужно скомпилировать в конфигурации узла (документ MOF). В процессе компиляции проходит проверка конфигурации и предоставляется возможность ввести значения параметров. Дополнительные сведения о компиляции конфигурации см. в статье [Compiling Configurations in Azure Automation DSC](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile) (Компиляция конфигурации в Azure Automation DSC).
+Прежде чем назначать конфигурацию DSC узлу, ее нужно скомпилировать в конфигурации узла (документ MOF). В процессе компиляции проходит проверка конфигурации и предоставляется возможность ввести значения параметров. Дополнительные сведения о компиляции конфигурации см. в статье [Compiling Configurations in Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-compile) (Компиляция конфигурации в Azure Automation DSC).
 
 Чтобы скомпилировать конфигурацию, выполните следующие действия.
 
@@ -141,6 +141,6 @@ configuration LAMPServer {
 > [!div class="nextstepaction"]
 > [Пример использования. Непрерывное развертывание на виртуальных машинах с помощью Automation DSC и Chocolatey](./automation-dsc-cd-chocolatey.md)
 
-* Дополнительные сведения о настройке требуемого состояния для PowerShell см. в статье [Обзор платформы Desired State Configuration в Windows PowerShell](https://docs.microsoft.com/en-us/powershell/dsc/overview).
-* Дополнительные сведения об управлении Automation DSC из PowerShell см. в документации по [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/?view=azurermps-5.0.0).
-* Чтобы научиться пересылать отчеты DSC в Log Analytics для создания отчетов и оповещений, изучите статью о [пересылке данных отчетов Azure Automation DSC в OMS Log Analytics](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-diagnostics). 
+* Дополнительные сведения о настройке требуемого состояния для PowerShell см. в статье [Обзор платформы Desired State Configuration в Windows PowerShell](https://docs.microsoft.com/powershell/dsc/overview).
+* Дополнительные сведения об управлении Automation DSC из PowerShell см. в документации по [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0).
+* Чтобы научиться пересылать отчеты DSC в Log Analytics для создания отчетов и оповещений, изучите статью о [пересылке данных отчетов Azure Automation DSC в OMS Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics). 

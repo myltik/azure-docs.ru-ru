@@ -7,11 +7,12 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
-ms.openlocfilehash: 55bed1bc4788799465e87e65b136ff9e51318fbd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: 34ae160c5e19e161f4412838e377a844c737728d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-an-azure-automation-runbook"></a>Создание runbook службы автоматизации Azure
 
@@ -21,7 +22,7 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 
-Войдите в Azure по адресу https://portal.azure.com.
+Войдите на портал Azure по адресу https://portal.azure.com.
 
 ## <a name="create-runbook"></a>Создание модуля Runbook
 
@@ -71,7 +72,7 @@ ms.lasthandoff: 12/22/2017
 
 1. На странице **Изменение Runbook PowerShell** щелкните **Опубликовать**, чтобы опубликовать официальную версию runbook в учетной записи.
 
-   ![Общие сведения о runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-overview.png)
+   ![Задание тестирования runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
 ## <a name="run-the-runbook"></a>Запуск runbook
 
@@ -83,11 +84,11 @@ ms.lasthandoff: 12/22/2017
 
 1. Оставьте поле **Имя** пустым, чтобы применить значение по умолчанию, и щелкните **ОК**. Задание runbook отправится на выполнение, после чего откроется страница этого задания.
 
-   ![Задание тестирования runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   ![Задание тестирования runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
 1. Если **состояние задания** имеет значение **Выполняется** или **Завершено**, щелкнув элемент **Выходные данные**, вы откроете панель **Выходные данные**, где отображается результат работы runbook.
 
-    ![Задание тестирования runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   ![Задание тестирования runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 

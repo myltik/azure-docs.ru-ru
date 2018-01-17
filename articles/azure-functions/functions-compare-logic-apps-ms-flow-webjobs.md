@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure
 В этой статье сравниваются следующие службы Microsoft Cloud, используемые для настройки интеграции и автоматизации бизнес-процессов:
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/08/2017
 
 <a name="flow"></a>
 
-## <a name="flow-vs-logic-apps"></a>Сравнение Flow Logic Apps
+## <a name="flow-vs-logic-apps"></a>Сравнение Flow приложения логики;
 Мы можем рассматривать Microsoft Flow и Azure Logic Apps вместе, так как обе эти службы являются службами интеграции на основе модели *configuration-first*. Они упрощают создание процессов и рабочих процессов, а также обеспечивают интеграцию с разными корпоративными приложениями и приложениями SaaS. 
 
 * Служба Flow создана на основе Logic Apps.
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/08/2017
 
 Сведения в следующей таблице помогут определить, какую из этих двух служб лучше всего использовать для определенной интеграции.
 
-|  | Поток | Приложения логики |
+|  | Поток | приложения логики; |
 | --- | --- | --- |
 | Аудитория |Офисные сотрудники, бизнес-пользователи, администраторы SharePoint |Профессиональные интеграторы и разработчики, ИТ-специалисты |
 | Сценарии |Самообслуживание |Расширенные интеграции |
@@ -81,7 +81,7 @@ ms.lasthandoff: 12/08/2017
 | Масштабирование |Масштабирование без настройки |Масштабирование в рамках плана службы приложений |
 | Цены |Оплата за использование или в рамках плана службы приложений |В рамках плана службы приложений |
 | Тип запуска |Активация, по расписанию (с помощью триггера таймера) |Активация, непрерывная работа, по расписанию |
-| События триггера |[Таймер](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [HTTP и веб-перехватчик (GitHub, Slack)](functions-bindings-http-webhook.md), [мобильные приложения службы приложений Azure](functions-bindings-mobile-apps.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [очереди и большие двоичные объекты службы хранилища Azure](functions-bindings-storage-blob.md), [очереди и разделы служебной шины Azure](functions-bindings-service-bus.md) |[Очереди и большие двоичные объекты службы хранилища Azure](functions-bindings-storage-blob.md), [очереди и разделы служебной шины Azure](functions-bindings-service-bus.md) |
+| События триггера |[Таймер](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-cosmosdb.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [HTTP и веб-перехватчик (GitHub, Slack)](functions-bindings-http-webhook.md), [мобильные приложения службы приложений Azure](functions-bindings-mobile-apps.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [очереди и большие двоичные объекты службы хранилища Azure](functions-bindings-storage-blob.md), [очереди и разделы служебной шины Azure](functions-bindings-service-bus.md) |[Очереди и большие двоичные объекты службы хранилища Azure](functions-bindings-storage-blob.md), [очереди и разделы служебной шины Azure](functions-bindings-service-bus.md) |
 | Разработка в браузере |Поддерживаются |Не поддерживается |
 | C# |Поддерживаются |Поддерживаются |
 | F# |Поддерживаются |Не поддерживается |
@@ -111,7 +111,7 @@ ms.lasthandoff: 12/08/2017
 
 Приложение логики можно вызвать в потоке. Функцию также можно вызвать в приложении логики, а приложение логики — в функции. Интеграция между Flow, Logic Apps и функциями со временем улучшается. Вы можете создать что-нибудь в одной службе, а использовать в других. Поэтому все вложенные в эти три технологии средства оправданы.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Начните работу с каждой из этих служб, создав первый поток, приложение логики, приложение-функцию или веб-задание. Щелкните любую из следующих ссылок:
 
 * [Начало работы с Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)

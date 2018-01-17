@@ -19,7 +19,7 @@ ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="get-started-with-the-box-connector"></a>Начало работы с соединителем Box
 Подключение к Box позволяет создавать и удалять файлы, а также выполнять многие другие действия. С помощью Box можно:
