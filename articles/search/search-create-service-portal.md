@@ -13,15 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Создание службы "Поиск Azure" на портале
 
-Узнайте, как создать или подготовить службу "Поиск Azure" на портале. Инструкции для PowerShell см. в разделе [Управление службой поиска Azure с помощью PowerShell](search-manage-powershell.md).
+Узнайте, как создать или подготовить службу "Поиск Azure" на портале. 
+
+Предпочитаете использовать PowerShell? Используйте [шаблон службы](https://azure.microsoft.com/resources/templates/101-azure-search-create/) Azure Resource Manager. Чтобы получить дополнительные сведения и приступить к работе, ознакомьтесь с разделом [Управление службой поиска Azure с помощью PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Подписка (бесплатная или платная)
 
@@ -30,7 +32,7 @@ ms.lasthandoff: 11/10/2017
 Кроме того, вы можете [активировать преимущества подписчика MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Подписка MSDN каждый месяц приносит вам кредиты, которыми можно оплачивать использование платных служб Azure. 
 
 ## <a name="find-azure-search"></a>Как найти Поиск Azure
-1. Войдите на [портал Azure](https://portal.azure.com/).
+1. Войдите на [портале Azure](https://portal.azure.com/).
 2. Щелкните знак "плюс" ("+") в верхнем левом углу.
 3. Выберите **Интернет + мобильные устройства** > **Поиск Azure**.
 
@@ -107,7 +109,7 @@ ms.lasthandoff: 11/10/2017
 
 Для обеспечения высокого уровня доступности вторая служба не является обязательной. Высокая доступность для запросов достигается за счет использования двух или более реплик в одной службе. Обновление реплик выполняется последовательно, то есть при развертывании обновления службы должна работать по крайней мере одна реплика. Дополнительные сведения об обеспечении бесперебойной работы см. в [Соглашении об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Подготовив службу Поиска Azure, вы можете [определить индекс](search-what-is-an-index.md), чтобы передавать свои данные и осуществлять в них поиск. 
 
 > [!div class="nextstepaction"]

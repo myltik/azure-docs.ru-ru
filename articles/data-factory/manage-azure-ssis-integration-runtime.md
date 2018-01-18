@@ -1,6 +1,6 @@
 ---
-title: "Перенастройте среды выполнения служб SSIS Azure integration | Документы Microsoft"
-description: "Подробнее о повторной настройке среды выполнения служб SSIS Azure интеграции в фабрике данных Azure, после его уже инициализации."
+title: "Перенастройка среды выполнения интеграции Azure-SSIS | Документация Майкрософт"
+description: "Узнайте, как перенастроить среду выполнения интеграции Azure-SSIS в фабрике данных Azure после ее подготовки."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -13,42 +13,66 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: spelluru
-ms.openlocfilehash: 19a81917ade977a0d04934b77e8213ef6d9e0f12
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: c1743a0d06f911122ed0aba586aec837f81c578c
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="reconfigure-an-azure-ssis-integration-runtime"></a>Перенастройте среды выполнения служб SSIS Azure интеграции
-В статье [Create an Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md) (Создание среды выполнения интеграции Azure SSIS в фабрике данных Azure) показано, как создать среду выполнения интеграции Azure SSIS с помощью фабрики данных Azure. Также приводятся сведения о перенастройке существующих среда выполнения интеграции служб SSIS Azure.  
+# <a name="manage-an-azure-ssis-integration-runtime"></a>Управление средой выполнения интеграции Azure SSIS
+В статье [Create an Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md) (Создание среды выполнения интеграции Azure SSIS в фабрике данных Azure) показано, как создать среду выполнения интеграции Azure-SSIS с помощью фабрики данных Azure. В этой статье приводятся сведения о перенастройке имеющейся среды выполнения интеграции Azure-SSIS.  
 
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, используйте [документацию по версии 1 фабрики данных](v1/data-factory-introduction.md).
 
-После подготовки и запуска экземпляра среды выполнения Azure SSIS его можно перенастроить, выполнив последовательность командлетов PowerShell `Stop` - `Set` - `Start`. Например, следующий сценарий PowerShell изменяет количество узлов, выделенных для экземпляра среды выполнения интеграции Azure-SSIS, до 5.
+После подготовки и запуска экземпляра среды выполнения Azure SSIS его можно перенастроить, выполнив последовательность командлетов PowerShell `Stop` - `Set` - `Start`. Например, следующий сценарий PowerShell изменяет количество узлов, выделенных для экземпляра среды выполнения интеграции Azure-SSIS, до пяти.
 
-## <a name="stop-azure-ssis-ir"></a>Остановка служб SSIS Azure IR
-Во-первых, остановите выполнения интеграции служб SSIS Azure с помощью [Stop AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) командлета. Эта команда освобождает все узлы и прекращает выставление счетов.
+## <a name="reconfigure-an-azure-ssis-ir"></a>Перенастройка Azure-SSIS IR
 
-```powershell
-Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
-```
+1. Сначала остановите среду выполнения интеграции Azure-SSIS с помощью командлета [Stop-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). Эта команда освобождает все узлы и прекращает выставление счетов.
 
-## <a name="reconfigure-azure-ssis-ir"></a>Перенастройте IR Azure SSIS
-Перенастройте IR Azure SSIS с помощью [AzureRmDataFactoryV2IntegrationRuntime набор](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) командлета. Следующий пример команды масштабируемостью среды выполнения служб SSIS Azure интеграции для пяти узлов.
+    ```powershell
+    Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
+    ```
+2. Затем выполните настройку Azure SSIS IR с помощью командлета [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). В следующем примере команды развертывается среда выполнения интеграции Azure-SSIS на пять узлов.
 
-```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
-```  
+    ```powershell
+    Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
+    ```  
+3. Затем запускается среда выполнения интеграции Azure-SSIS с помощью командлета [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). Эта команда выделяет все ее узлы для запуска пакетов SSIS.   
 
-## <a name="start-azure-ssis-ir"></a>Запуск служб SSIS Azure IR
-Запустите выполнения интеграции служб SSIS Azure с помощью [AzureRmDataFactoryV2IntegrationRuntime начала](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) командлета. Эта команда выделяет все его узлы для запуска пакетов служб SSIS.   
+    ```powershell
+    Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
+    ```
 
-```powershell
-Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
-```
+## <a name="delete-an-azure-ssis-ir"></a>Удаление среды выполнения интеграции Azure-SSIS
+1. Сначала перечислите все имеющиеся среды выполнения интеграции Azure-SSIS в фабрике данных.
 
-## <a name="next-steps"></a>Дальнейшие действия
+    ```powershell
+    Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -Status
+    ```
+2. Затем остановите все имеющиеся среды выполнения интеграции Azure-SSIS в фабрике данных.
+
+    ```powershell
+    Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+    ```
+3. После чего удалите все имеющиеся среды выполнения интеграции Azure-SSIS в фабрике данных одну за другой.
+
+    ```powershell
+    Remove-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+    ```
+4. Наконец, удалите фабрику данных.
+
+    ```powershell
+    Remove-AzureRmDataFactoryV2 -Name $DataFactoryName -ResourceGroupName $ResourceGroupName -Force
+    ```
+5. Если вы создавали группу ресурсов, удалите ее.
+
+    ```powershell
+    Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force 
+    ```
+
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о среде выполнения Azure SSIS см. в следующих разделах: 
 
 - [Среда выполнения интеграции Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). В этой статье содержатся общие сведения о средах выполнения интеграции в целом, включая Azure SSIS IR. 

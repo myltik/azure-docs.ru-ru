@@ -1,6 +1,6 @@
 ---
-title: "Сценарий Azure PowerShell пример — перенести большие двоичные объекты в учетных записях хранения, с помощью AzCopy в Windows | Документы Microsoft"
-description: "С помощью AzCopy, копирует содержимое большого двоичного объекта для учетной записи хранилища Azure в другой."
+title: "Пример сценария Azure PowerShell по миграции больших двоичных объектов между учетными записями хранения с помощью AzCopy в ОС Windows | Документация Майкрософт"
+description: "Копирование содержимого большого двоичного объекта между учетными записями хранения Azure с помощью AzCopy."
 services: storage
 documentationcenter: na
 author: roygara
@@ -13,29 +13,29 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 1/3/2018
 ms.author: v-rogara
-ms.openlocfilehash: 5fb3771b591e92b1c55f4f9748a2e16b46ccdae2
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 0902792b2367aa56285e7e074e184ffa35fca466
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Перенос больших двоичных объектов в учетных записях хранения, с помощью AzCopy в Windows
+# <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Перенос больших двоичных объектов между различными учетными записями хранения с помощью AzCopy в ОС Windows
 
-В этом примере копирует все объекты BLOB-объектов из учетной записи хранилища пользовательских источника учетная запись хранения, предоставленные пользователем целевой. 
+В этом примере показано, как скопировать все большие двоичные объекты из исходной учетной записи хранения, предоставленной пользователем, в целевую. 
 
-Это достигается путем внесения использование `Get-AzureStorageContainer` команду, которая перечисляет все контейнеры в учетной записи хранения. Образец затем выдает команды AzCopy, копирование каждого контейнера из учетной записи хранилища источника в целевой учетной записью хранения. В случае сбоя, образец повторяет $retryTimes (по умолчанию — 3 и могут быть изменены с `-RetryTimes` параметр). Если ошибки возникают при каждой повторной попытке, пользователь может перезапустить сценарий, предоставляя последнего успешно скопированного контейнер с помощью образца `-LastSuccessContainerName` параметра. Образец затем продолжает операции копирования контейнеров из этой точки.
+Для этого используется команда `Get-AzureStorageContainer`, которая перечисляет все контейнеры в учетной записи хранения. Затем, как показано в примере, AzCopy выдает команды для копирования каждого контейнера из исходной учетной записи хранения источника в целевую. В случае сбоя выполняется повторная попытка столько раз, сколько указано в свойстве $retryTimes (по умолчанию — 3 раза, что можно изменить в параметре `-RetryTimes`). Если при каждой повторной попытке возникают ошибки, то пользователь может перезапустить сценарий, указав в примере последний успешно скопированный контейнер с помощью параметра `-LastSuccessContainerName`. Затем с этого места будет продолжена операция копирования.
 
-В этом примере требуется версия модуля PowerShell хранилища Azure **4.0.2** или более поздней версии. Вы можете проверить установленную версию с помощью `Get-Module -ListAvailable Azure.storage`. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Для работы с этим примером требуется модуль хранилища Azure PowerShell **4.0.2** или более поздней версии. С помощью команды `Get-Module -ListAvailable Azure.storage` можно проверить, какая версия установлена. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-В этом примере также требуется последняя версия [AzCopy в Windows](http://aka.ms/downloadazcopy). Каталог установки по умолчанию`C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`
+Для этого примера также необходима последняя версия [AzCopy для ОС Windows](http://aka.ms/downloadazcopy). Каталог установки по умолчанию — `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`
 
-В этом примере принимает имя учетной записи хранилища источника и ключ, имя учетной записи целевого хранилища и ключ и полный путь к файлу, из AzCopy.exe (если они не установлены в каталоге по умолчанию).
+В этом примере используются имя и ключ исходной и целевой учетной записи хранения, а также полный путь к файлу AzCopy.exe (если он не установлен в каталоге по умолчанию).
 
-Ниже приведены примеры входных данных для данного образца:
+Ниже приведены примеры входных данных:
 
-Если AzCopy устанавливается в каталог по умолчанию:
+Если AzCopy установлен в каталог по умолчанию:
 ```PowerShell
 srcStorageAccountName: ExampleSourceStorageAccountName
 srcStorageAccountKey: ExampleSourceStorageAccountKey
@@ -43,7 +43,7 @@ DestStorageAccountName: ExampleTargetStorageAccountName
 DestStorageAccountKey: ExampleTargetStorageAccountKey
 ```
 
-Если AzCopy не установлены в каталоге по умолчанию:
+Если AzCopy не установлен в каталоге по умолчанию:
 
 ```Powershell
 srcStorageAccountName: ExampleSourceStorageAccountName
@@ -53,7 +53,7 @@ DestStorageAccountKey: ExampleTargetStorageAccountKey
 AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 ```
 
-Если произошел сбой и образца необходимо снова запустить из конкретного контейнера: 
+Если произошел сбой и пример необходимо снова запустить из определенного контейнера: 
 
 `.\copyScript.ps1 -LastSuccessContainerName myContainerName`
 
@@ -62,7 +62,7 @@ AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 ```Powershell
 # Run the script in a new open Powershell window, which has not run other cmdlets, or AzCopy performance could suffer .
 # Install Azure PowerShell before runing the script: https://github.com/Azure/azure-powershell/releases
-# Install AzCopy before runing the script: https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy
+# Install AzCopy before runing the script: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy
 # Do not modify the Source or Destination accounts while the script is running
 
  param (
@@ -285,14 +285,14 @@ else
 
 ## <a name="script-explanation"></a>Описание скрипта
 
-Этот скрипт использует следующие команды для копирования данных из одной учетной записи хранения. Для каждого элемента в таблице приведены ссылки на документацию по команде.
+В этом сценарии для копирования данных между учетными записями хранения используются следующие команды: Для каждого элемента в таблице приведены ссылки на документацию по команде.
 
 | Get-Help | Заметки |
 |---|---|
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Возвращает контейнеров, связанных с этой учетной записи хранения. |
-| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Создает контекст хранилища Azure. |
+| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Возвращает контейнеры, связанные с этой учетной записью хранения. |
+| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Создает контекст службы хранилища Azure. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 

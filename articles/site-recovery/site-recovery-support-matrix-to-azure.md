@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Таблица поддержки Azure Site Recovery для репликации из локальной среды в Azure
 
@@ -68,45 +68,44 @@ ms.lasthandoff: 12/18/2017
 
  **VMware или физический сервер** | **Hyper-V (с или без VMM)** |
 --- | --- |
-64-разрядная версия Windows Server 2016 (Server Core, сервер с возможностями рабочего стола)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 как минимум с пакетом обновления 1<br/><br/> Red Hat Enterprise Linux: 5.2–5.11, 6.1–6.9, 7.0–7.3 <br/><br/>Cent OS: 5.2–5.11, 6.1–6.9, 7.0–7.3 <br/><br/>Сервер Ubuntu версии 14.04 LTS [(поддерживаемые версии ядра)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Сервер Ubuntu версии 16.04 LTS [(поддерживаемые версии ядра)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8;<br/><br/>Oracle Enterprise Linux 6.4, 6.5 с ядром, совместимым с Red Hat, или с ядром Unbreakable Enterprise Kernel Release 3 (UEK3). <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Обновление реплицируемых компьютеров с SLES 11 SP3 до SLES 11 SP4 не поддерживается. Если реплицируемый компьютер обновлен с SLES 11 SP3 до SLES 11 SP4, вам потребуется отключить репликацию и включить повторную защиту компьютера после обновления.) | Любая гостевая ОС, [поддерживаемая Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-разрядная версия Windows Server 2016 (Server Core, сервер с возможностями рабочего стола)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 как минимум с пакетом обновления 1<br/><br/> Red Hat Enterprise Linux: 5.2–5.11, 6.1–6.9, 7.0–7.4.<br/><br/>Cent OS: 5.2–5.11, 6.1–6.9, 7.0–7.4. <br/><br/>Сервер Ubuntu версии 14.04 LTS [(поддерживаемые версии ядра)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Сервер Ubuntu версии 16.04 LTS [(поддерживаемые версии ядра)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8;<br/><br/>Oracle Enterprise Linux 6.4, 6.5 с ядром, совместимым с Red Hat, или с ядром Unbreakable Enterprise Kernel Release 3 (UEK3). <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Обновление реплицируемых компьютеров с SLES 11 SP3 до SLES 11 SP4 не поддерживается. Если реплицируемый компьютер обновлен с SLES 11 SP3 до SLES 11 SP4, вам потребуется отключить репликацию и включить повторную защиту компьютера после обновления.) | Любая гостевая ОС, [поддерживаемая Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
 > \* Nano Server Windows Server 2016 не поддерживается.
-
->[!IMPORTANT]
->(Применимо к репликации серверов VMware и физических серверов в Azure.)
 >
-> На серверах Red Hat Enterprise Linux Server 7+ и CentOS 7+ поддерживается версия ядра 3.10.0-514, начиная с Azure Site Recovery Mobility Service версии 9.8.<br/><br/>
-> Для клиентов, использующих ядро 3.10.0-514 с версией службы Mobility Service ниже версии 9.8, требуется отключить репликацию, обновить версию службы мобильности до 9.8, а затем повторно включить репликацию.
+> Поддерживаются только дистрибутивы Linux на основе номенклатурных ядер, которые являются частью выпуска или обновления дополнительной версии.
+>
+> Обновления для всех основных версий дистрибутива Linux на виртуальных машинах VMware или физических серверах, защищенных с помощью Azure Site Recovery, не поддерживаются. При установке новой версии операционной системы какой-либо основной версии (например, при обновлении CentOS 6.* до CentOS 7.*) следует отключить репликацию для компьютера, обновить операционную систему на нем и затем включить репликацию.
+> 
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Поддерживаемые версии ядра Ubuntu для серверов VMware и физических серверов
 
 **Выпуск** | **Версия службы Mobility Service** | **Версия ядра** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-generic to 3.13.0-117-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic–3.13.0-121-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic–4.4.0-81-generic |
 14.04 LTS | 9.11 | с 3.13.0-24-generic по 3.13.0-128-generic<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>с 4.4.0-21-generic по 4.4.0-91-generic |
 14.04 LTS | 9.12 | с 3.13.0-24-generic по 3.13.0-132-generic<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>с 4.4.0-21-generic по 4.4.0-96-generic |
+14.04 LTS | 9.13 | С 3.13.0-24-generic по 3.13.0-137-generic;<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>с 4.4.0-21-generic по 4.4.0-104-generic. |
 16.04 LTS | 9.10 | 4.4.0-21-generic–4.4.0-81-generic,<br/>4.8.0-34-generic–4.8.0-56-generic,<br/>4.10.0-14-generic–4.10.0-24-generic |
 16.04 LTS | 9.11 | с 4.4.0-21-generic по 4.4.0-91-generic<br/>с 4.8.0-34-generic по 4.8.0-58-generic<br/>с 4.10.0-14-generic по 4.10.0-32-generic |
 16.04 LTS | 9.12 | с 4.4.0-21-generic по 4.4.0-96-generic<br/>с 4.8.0-34-generic по 4.8.0-58-generic<br/>с 4.10.0-14-generic по 4.10.0-35-generic |
+16.04 LTS | 9.13 | С 4.4.0-21-generic по 4.4.0-104-generic;<br/>с 4.8.0-34-generic по 4.8.0-58-generic<br/>с 4.10.0-14-generic по 4.10.0-42-generic. |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Поддерживаемые файловые системы и конфигурации гостевого хранилища в Linux (серверы VMware и физические серверы)
 
-Следующие файловые системы и программа настройки хранилища поддерживаются на серверах Linux в среде VMware либо на физических серверах:
+Следующие файловые системы и программа настройки хранилища поддерживаются на серверах Linux в среде VMware либо на физических серверах.
 * Файловые системы — ext3, ext4, ReiserFS (только Suse Linux Enterprise Server), XFS.
 * Диспетчер томов: LVM2.
-* многопутевые программы — Device Mapper.
+* Программное обеспечение Multipath — Device Mapper
 
 Паравиртуализованные хранилища (устройства, экспортируемые паравиртуализованными драйверами) не поддерживаются.<br/>
 Блочные устройства ввода-вывода с несколькими очередями не поддерживаются.<br/>
 Физические серверы с контроллером хранилища HP CCISS не поддерживаются.<br/>
 
 >[!Note]
-> На серверах Linux следующие каталоги (если они настроены в качестве отдельных разделов и файловых систем) должны находиться на одном диске (диск ОС) исходного сервера: /(root), /boot, /usr, /usr/local, /var, /etc.<br/><br/>
-> Функции XFSv5 для файловых систем XFS, например контрольная сумма метаданных, поддерживаются с версии 9.10 службы Mobility Service. Если вам нужны функции XFSv5, обязательно используйте службу Mobility Service версии 9.10 или более поздней версии. Вы можете использовать служебную программу xfs_info, чтобы проверить системный блок XFS для раздела. Если для параметра ftype задано значение 1, будут использоваться функции XFSv5.
+> На серверах Linux следующие каталоги (если они настроены в качестве отдельных разделов и файловых систем) должны находиться на одном диске (диск ОС) исходного сервера: /(root), /boot, /usr, /usr/local, /var, /etc, а каталог /boot должен находиться на дисковом разделе и не являться томом LVM.<br/><br/>
 >
 
 
@@ -130,7 +129,7 @@ IPv6 | Нет  | Нет
 IPv4 | Yes | Yes
 IPv6 | Нет  | Нет 
 Статический IP-адрес (Windows) | Yes | Yes
-Статический IP-адрес (Linux) | Yes <br/><br/>Виртуальные машины настроены на использование DHCP при восстановлении после сбоя  | Нет 
+Статический IP-адрес (Linux) | Yes <br/><br/>Виртуальные машины настроены для использования DHCP при восстановлении размещения  | Нет 
 Несколько сетевых адаптеров | Yes | Yes
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Конфигурация сети виртуальных машин Azure после отработки отказа
@@ -194,7 +193,7 @@ RA-GRS | Yes | Yes
 Хранилище уровня "Премиум" | Yes | Yes
 Служба импорта и экспорта | Нет  | Нет 
 Конечные точки службы виртуальной сети (брандмауэры службы хранилища Azure и виртуальные сети), настроенные для целевой учетной записи хранения или учетной записи хранения кэша, используемой для хранения реплицируемых данных. | Нет  | Нет 
-Учетные записи хранения общего назначения V2 (горячие, так и стильной уровень) | Нет  | Нет 
+Учетные записи хранения общего назначения версии 2 ("горячего" и "холодного" уровней) | Нет  | Нет 
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Поддержка конфигурации службы вычислений Azure
@@ -247,5 +246,5 @@ RA-GRS | Yes | Yes
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Проверьте, соблюдены ли предварительные требования](site-recovery-prereq.md)

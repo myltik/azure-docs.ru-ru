@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/13/2018
 ---
 > [!WARNING]
-> Интеграция Azure Active Directory доступна в только на уровнях [Developer и Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
+> Интеграция Azure Active Directory доступна в только на уровнях [Developer, Standard и Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
 
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure
 ## <a name="overview"></a>Обзор
@@ -40,11 +40,11 @@ ms.lasthandoff: 12/04/2017
 
 В меню **Управление API** слева выберите пункт **Безопасность**, а затем перейдите на вкладку **Внешние удостоверения**.
 
-![External Identities][api-management-security-external-identities]
+![Внешние удостоверения][api-management-security-external-identities]
 
 В меню **Azure Active Directory** (Внешние удостоверения). Запишите **URL-адрес перенаправления** и переключитесь в Azure Active Directory на классическом портале Azure.
 
-![External Identities][api-management-security-aad-new]
+![Внешние удостоверения][api-management-security-aad-new]
 
 Нажмите кнопку **Добавить**, чтобы создать приложение Azure Active Directory, а затем установите флажок **Добавить приложение, разрабатываемое моей организацией**.
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 12/04/2017
 
 Скопируйте **идентификатор клиента** в буфер обмена.
 
-![идентификатор клиента][api-management-aad-app-client-id]
+![Идентификатор клиента][api-management-aad-app-client-id]
 
 Вернитесь на портал издателя и вставьте **идентификатор клиента** , скопированный из конфигурации приложения Azure Active Directory.
 

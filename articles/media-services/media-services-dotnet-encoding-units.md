@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Масштабирование кодирования с помощью пакета SDK для .NET
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="overview"></a>Обзор
 > [!IMPORTANT]
-> Убедитесь в том просмотреть [Обзор](media-services-scale-media-processing-overview.md) для получения дополнительных сведений о масштабировании обработкой мультимедиа.
+> Обязательно ознакомьтесь с этим [обзором](media-services-scale-media-processing-overview.md), чтобы получить дополнительные сведения о масштабировании обработки мультимедиа.
 > 
 > 
 
@@ -54,9 +54,6 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="opening-a-support-ticket"></a>Открытие запроса в службу поддержки
 По умолчанию каждая учетная запись служб мультимедиа может масштабироваться до 25 зарезервированных единиц кодирования и 5 зарезервированных единиц потоковой передачи по требованию. Вы можете запросить более высокий предел, открыв запрос в службу поддержки.
-
-### <a name="open-a-support-ticket"></a>Открытие запроса в службу поддержки
-На портале Azure перейдите к [Справка и поддержка](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Если вы не вошли в Azure, вам будет предложено ввести учетные данные.
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

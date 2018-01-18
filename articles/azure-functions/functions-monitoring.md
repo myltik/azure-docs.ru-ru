@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>Мониторинг Функций Azure
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/09/2017
 
 * [создание подключенного экземпляра Application Insights одновременно с созданием приложения-функции](#new-function-app);
 * [подключение экземпляра Application Insights к существующему приложению-функции](#existing-function-app).
- 
+
 ### <a name="new-function-app"></a>Новое приложение-функция
 
 Включите Application Insights на странице **Создать** для приложения-функции, выполнив следующие действия.
@@ -65,6 +65,14 @@ ms.lasthandoff: 12/09/2017
    ![Добавление ключа инструментирования в настройках приложения](media/functions-monitoring/add-ai-key.png)
 
 1. Выберите команду **Сохранить**.
+
+## <a name="disable-built-in-logging"></a>Отключение встроенного ведения журнала
+
+При включении Application Insights рекомендуется отключить [встроенное ведение журнала, которое использует хранилище Azure](#logging-to-storage). Встроенное ведение журнала полезно для тестирования с легкими рабочими нагрузками, но не предназначено для использования в рабочей среде с высокой нагрузкой. Для мониторинга рабочей среды рекомендуем использовать Application Insights. Если встроенное ведение журнала используется в рабочей среде, записи журнала могут быть неполными из-за регулирования службы хранилища Azure.
+
+Чтобы отключить встроенное ведение журнала, удалите параметр приложения `AzureWebJobsDashboard`. Дополнительные сведения о том, как удалять параметры приложения на портале Azure, см. в разделе **Параметры приложения** статьи [Управление приложением-функцией на портале Azure](functions-how-to-use-azure-function-app-settings.md#settings).
+
+При включении Application Insights и отключении встроенного ведения журнала с вкладки **Монитор** для функции на портале Azure вы перейдете в Application Insights.
 
 ## <a name="view-telemetry-data"></a>Просмотр данных телеметрии
 
@@ -464,58 +472,41 @@ module.exports = function (context, req) {
 
 ## <a name="monitoring-without-application-insights"></a>Мониторинг без использования Application Insights
 
-Мы рекомендуем использовать для мониторинга функций службу Application Insights, которая предоставляет дополнительные данные и больше возможностей для их анализа. Но вы также можете найти данные телеметрии и журналов на страницах приложения-функции на портале Azure. 
+Мы рекомендуем использовать для мониторинга функций службу Application Insights, которая предоставляет дополнительные данные и больше возможностей для их анализа. Но вы также можете найти журналы и данные телеметрии на страницах приложения-функции на портале Azure.
 
-Выберите вкладку **Мониторинг** для нужной функции, и вы увидите список выполнений этой функции. Щелкнув конкретное выполнение, можно просмотреть его длительность, входные данные, ошибки и связанные файлы журнала.
+### <a name="logging-to-storage"></a>Ведение журналов в хранилище
 
-> [!IMPORTANT]
-> При использовании [плана потребления](functions-overview.md#pricing) для Функций Azure на плитке **Мониторинг** приложения-функции не отображаются какие-либо данные. Это связано с тем, что платформа самостоятельно динамически масштабирует вычислительные операции и управляет ими. Эти показатели не имеют смысла в плане потребления.
+Встроенное ведение журнала использует учетную запись хранения, указанную в строке подключения в параметре приложения `AzureWebJobsDashboard`. Если параметр приложения настроен, данные ведения журнала отображаются на портале Azure. На странице приложения-функции выберите функцию, а затем выберите вкладку **Монитор**, и вы увидите список выполнений этой функции. Щелкнув конкретное выполнение, можно просмотреть его длительность, входные данные, ошибки и связанные файлы журнала.
+
+При использовании Application Insights и [отключенном встроенном ведении журнала](#disable-built-in-logging) на вкладке **Монитор** происходит переход к Application Insights.
 
 ### <a name="real-time-monitoring"></a>Мониторинг в реальном времени
 
-Чтобы включить мониторинг в реальном времени, щелкните ссылку **Прямой поток событий** на вкладке **Мониторинг** для функции. Прямой поток событий отображается в виде диаграммы на новой вкладке браузера.
+Вы можете настроить потоковую передачу файлов журнала в сеанс командной строки на локальной рабочей станции с помощью [Azure CLI 2.0](/cli/azure/install-azure-cli) или [Azure PowerShell](/powershell/azure/overview).  
 
-> [!NOTE]
-> Есть известная проблема, из-за которой может произойти сбой заполнения данных. Возможно, вам потребуется закрыть вкладку браузера с прямым потоком событий, а затем щелкнуть ссылку **Прямой поток событий** еще раз, чтобы приложение правильно заполнило данные потока событий. 
-
-Эти статистические данные отображаются в режиме реального времени, но фактическое построение диаграммы данных выполнения может происходить с задержкой приблизительно в 10 секунд.
-
-### <a name="monitor-log-files-from-a-command-line"></a>Мониторинг файлов журнала из командной строки
-
-Вы можете настроить потоковую передачу файлов журнала в сеанс командной строки на локальной рабочей станции с помощью Azure CLI 1.0 или PowerShell.
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Мониторинг файлов журнала для приложения-функции с помощью Azure CLI 1.0
-
-Чтобы начать работу, [установите Azure CLI 1.0](../cli-install-nodejs.md) и [войдите в Azure](/cli/azure/authenticate-azure-cli).
-
-Используйте следующие команды, чтобы включить классический режим управления службами, выбрать подписку и включить потоковую передачу файлов журнала:
+Для Azure CLI 2.0 используйте следующие команды, чтобы войти, выбрать подписку и включить потоковую передачу файлов журнала:
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>Мониторинг файлов журнала для приложения-функции с помощью PowerShell
-
-Чтобы начать работу, [установите и настройте Azure PowerShell](/powershell/azure/overview).
-
-Используйте следующие команды, чтобы добавить учетную запись Azure, выбрать подписку и включить потоковую передачу файлов журнала:
+Для Azure PowerShell используйте следующие команды, чтобы добавить учетную запись Azure, выбрать подписку и включить потоковую передачу файлов журнала:
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Дополнительные сведения см. в разделе [Практическое руководство. Потоковая передача журналов](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
+Дополнительные сведения см. в разделе [Практическое руководство. Потоковая передача журналов](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-> [!div class="nextstepaction"]
-> [Дополнительные сведения об Application Insights](https://docs.microsoft.com/azure/application-insights/)
+Для получения дополнительных сведений см. следующие ресурсы:
 
-> [!div class="nextstepaction"]
-> [Дополнительные сведения о платформе ведения журналов, которую используют Функции](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [Общие сведения о ведении журналов в ASP.NET Core](/aspnet/core/fundamentals/logging/)

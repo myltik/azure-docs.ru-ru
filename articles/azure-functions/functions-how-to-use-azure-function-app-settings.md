@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: a6cfcd939cb0f21d01fe849ef04619ec9c1c972a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Управление приложением-функцией на портале Azure 
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 11/29/2017
 
 | | |
 |-|-|
-| ![Параметры приложения-функции](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | Колонка **Параметры приложения** службы приложений позволяет настроить версии платформы, удаленную отладку, параметры приложения и строки подключения. При интеграции приложения-функции с Azure и сторонними службами соответствующие параметры можно изменить здесь. |
+| ![Параметры приложения-функции](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | Колонка **Параметры приложения** службы приложений позволяет настроить версии платформы, удаленную отладку, параметры приложения и строки подключения. При интеграции приложения-функции с Azure и сторонними службами соответствующие параметры можно изменить здесь. Чтобы удалить параметр, прокрутите вправо и выберите значок **X** в правом конце строки (не показано на следующем рисунке).
 
 ![Настройка параметров приложения](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 11/29/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 + [Настройка параметров службы приложений Azure](../app-service/web-sites-configure.md)
 + [Непрерывное развертывание для функций Azure](functions-continuous-deployment.md)

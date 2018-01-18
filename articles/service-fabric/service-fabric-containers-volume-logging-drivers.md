@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Использование подключаемых модулей томов и драйверов ведения журналов Docker в контейнере
 Azure Service Fabric позволяет указывать [подключаемые модули томов Docker](https://docs.docker.com/engine/extend/plugins_volume/) и [драйверы ведения журналов Docker](https://docs.docker.com/engine/admin/logging/overview/) для службы контейнеров. Так вы можете хранить данные в [службе "Файлы Azure"](https://azure.microsoft.com/services/storage/files/), даже если ваш контейнер перемещен на другой узел или перезапущен на нем.
@@ -39,6 +39,11 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
     DEBUG=1
 ```
+
+> [!NOTE]
+> Windows Server 2016 не поддерживает подключение SMB на узле ([поддерживается только в Windows Server версии 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Это предотвращает использование определенных драйверов тома, например драйверов тома службы файлов Azure. Вместо этого можно подключать общие папки напрямую в контейнер с помощью **net use**. 
+>   
+
 
 ## <a name="specify-the-plug-in-or-driver-in-the-manifest"></a>Указание имени подключаемого модуля или драйвера в манифесте
 Подключаемые модули указываются в манифесте приложения следующим образом:
@@ -87,5 +92,5 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 Если задан драйвер ведения журналов Docker, необходимо развернуть агенты (или контейнеры) для обработки журналов в кластере. Чтобы указать параметры драйвера ведения журналов можно использовать тег **DriverOption**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 См. дополнительные сведения о [развертывании контейнеров в Service Fabric](service-fabric-deploy-container.md).

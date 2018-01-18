@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.date: 01/12/2018
+ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench: руководство по устранению неполадок и описание известных проблем 
 С помощью сведений в этой статье можно найти и исправить ошибки или сбои, обнаруженные при использовании приложения Azure Machine Learning Workbench. 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/21/2017
 ```
 Можно заархивировать содержимое этих папок и отправить нам для диагностики.
 
-### <a name="workbench-desktop-app-log"></a>Журнал Workbench классического приложения
+### <a name="workbench-desktop-app-log"></a>Журнал классического приложения Workbench
 Если возникли проблемы с входом или в случае аварийного завершения Workbench, файлы журнала можно найти здесь:
 ```
 # Windows
@@ -85,7 +85,7 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
 
 - Библиотека RevoScalePy поддерживается только в Windows и Linux (в контейнерах Docker). Она не поддерживается в macOS.
 
-- Записные книжки Jupyter с лимитом максимальным размером 5 МБ при их открытии в приложении рабочей среды. Большие портативные компьютеры можно открыть из CLI с помощью команды «start записной книжки ml az» и выводит очистить ячейки для уменьшения размера файла.
+- Записные книжки Jupyter имеют ограничение максимального размера 5 МБ при открытии в приложении Workbench. Большие записные книжки можно открыть в интерфейсе командной строки с помощью команды az ml notebook start и очистить выходные данные ячейки для уменьшения размера файла.
 
 ## <a name="cant-update-workbench"></a>Не удается обновить Workbench
 Когда появляется новое обновление, на главной странице приложения Workbench отображается сообщение, информирующее об этом. В левом нижнем углу приложения на значке с колокольчиком появляется индикатор обновления. Щелкните индикатор и следуйте указаниям мастера установки, чтобы установить обновление. 
@@ -104,7 +104,7 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
    - удалите с рабочего стола ярлык, который запускает указанный выше скрипт;
    - скачайте установщик https://aka.ms/azureml-wb-msi и переустановите приложение.
 
-## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Заблокировано на экран «Проверка экспериментов учетной записи» после входа в систему
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>После входа постоянно отображается экран с надписью о проверке учетной записи службы экспериментирования
 После входа в приложение Workbench могут возникнуть затруднения. Отображается пустой экран с сообщением "Checking experimentation account" (Проверка учетной записи службы экспериментирования) и крутящееся колесико. Чтобы устранить эту проблему, выполните описанные ниже действия.
 1. Завершите работу приложения.
 2. Удалите следующий файл:
@@ -118,7 +118,7 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
 3. Перезапустите приложение.
 
 ## <a name="cant-delete-experimentation-account"></a>Не удается удалить учетную запись службы "Экспериментирование"
-С помощью интерфейса командной строки можно удалить учетную запись службы "Экспериментирование". Но сначала необходимо удалить дочерние рабочие области и дочерние проекты в этих рабочих областях. В противном случае возникнет ошибка.
+С помощью интерфейса командной строки можно удалить учетную запись службы "Экспериментирование". Но сначала необходимо удалить дочерние рабочие области и дочерние проекты в этих рабочих областях. В противном случае появится ошибка "Не удается удалить ресурс до удаления вложенных ресурсов".
 
 ```azure-cli
 # delete a project
@@ -139,12 +139,14 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 ## <a name="file-name-too-long-on-windows"></a>Имя файла слишком длинное для Windows
 Если используется Workbench для Windows, вы можете столкнуться с используемым по умолчанию ограничением длины имени файла в 260 символов. Признаком этого может быть сообщение об ошибке "Системе не удается найти указанный путь". Можно изменить параметр раздела реестра, чтобы разрешить гораздо более длинные пути к файлам. Прочитайте [эту статью](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath), чтобы узнать больше о том, как настроить раздел реестра _MAX_PATH_.
 
-## <a name="interrupt-cli-execution-output"></a>Прерывание выполнения CLI
-Если начнем экспериментов, выполняются с использованием `az ml experiment submit` или `az ml notebook start` и вы хотите прерывать выходные данные: 
-- В Windows используйте сочетание клавиш Ctrl-Break с клавиатуры
-- На macOS используйте сочетание клавиш Ctrl-C.
+## <a name="interrupt-cli-execution-output"></a>Прерывание вывода при выполнении CLI
+Если вы запускаете эксперимент, используя `az ml experiment submit` или `az ml notebook start`, и необходимо прервать вывод: 
+- в Windows используется сочетание клавиш CTRL+BREAK на клавиатуре;
+- в macOS используется CTRL+C.
 
-Обратите внимание на то, что это только прервет выходной поток в окне CLI. Не остановит фактически задание, которое уже выполняется. Если вы хотите отменить текущее задание, используйте `az ml experiment cancel -r <run_id> -t <target name>` команды.
+Обратите внимание на то, что это прерывает только поток вывода в окне CLI. Фактически выполнение задания не останавливается. Если вы хотите отменить текущее задание, используйте команду `az ml experiment cancel -r <run_id> -t <target name>`.
+
+На компьютерах под управлением Windows с клавиатурами, на которых нет клавиши BREAK, можно использовать альтернативные сочетания, такие как Fn+B, CTRL+Fn+B или Fn+Esc. Конкретную комбинацию клавиш см. в документации поставщика оборудования.
 
 ## <a name="docker-error-read-connection-refused"></a>Ошибка Docker "read: connection refused" (Чтение: в подключении отказано)
 Иногда при выполнении в локальном контейнере Docker может произойти следующая ошибка: 
@@ -198,7 +200,7 @@ $ docker system prune -a
 
 Можно также добавить диск данных и настроить в подсистеме Docker использование этого диска для хранения образов. Сведения о добавлении диска данных см. [здесь](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Затем вы сможете [изменить расположение, в котором Docker хранит образы](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Вы также можете расширить диск ОС, и вам не придется менять конфигурацию подсистемы Docker. Сведения о расширении диска ОС см. [здесь](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+Вы также можете расширить диск ОС, и вам не придется менять конфигурацию подсистемы Docker. Сведения о расширении диска ОС см. [здесь](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
 #Deallocate VM (stopping will not work)
@@ -223,16 +225,16 @@ $ az vm start --resource-group myResourceGroup  --name myVM
 
 Вы также можете предотвратить проблему с общим доступом при низкой производительности, задав для `sharedVolumne` значение `false` в файле `docker.compute`.
 
-## <a name="wipe-clean-workbench-installation"></a>Очистка чистую установку рабочей среды
-Обычно не нужно делать это. Однако в случае, если необходимо выполнить очистку чистой установки, ниже приведены шаги:
+## <a name="wipe-clean-workbench-installation"></a>Полная очистка установки Workbench
+Обычно этого не нужно делать. Однако если необходимо выполнить полную очистку установки, сделайте следующее:
 
 - Действия для ОС Windows.
-  - Убедитесь, что вы используете _Установка и удаление программ_ приложения в _панели управления_ удаление _Azure Machine Learning Workbench_ входа приложения.  
-  - Затем можно загрузить и запустить либо один из следующих сценариев:
+  - Сначала убедитесь, что при удалении записи приложения _Azure Machine Learning Workbench_ используется приложение _Установка и удаление программ_ на _панели управления_.  
+  - Затем можно скачать и запустить один из следующих сценариев:
     - [Сценарий командной строки Windows](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
-    - [Сценарий Windows PowerShell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Необходимо запустить `Set-ExecutionPolicy Unrestricted` в окне PowerShell с повышенными правами доступа перед выполнением скрипта.)
+    - [Сценарий Windows PowerShell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Необходимо выполнить `Set-ExecutionPolicy Unrestricted` в окне PowerShell с повышенными привилегиями, прежде чем вы сможете запустить сценарий.)
 - Действия для MacOS.
-  - Просто загрузите и запустите [macOS bash сценарий](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+  - Просто скачайте и запустите [сценарий оболочки macOS bash](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
 
 
 ## <a name="some-useful-docker-commands"></a>Некоторые полезные команды Docker

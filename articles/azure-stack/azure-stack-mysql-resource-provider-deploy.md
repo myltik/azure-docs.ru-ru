@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: e1752bfe40fb53568b79e2b7eec56ca9f3139d4c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Использование баз данных MySQL в Microsoft Azure Stack
 
@@ -56,9 +56,13 @@ ms.lasthandoff: 12/01/2017
 
 2. Войдите на узел, на котором доступна виртуальная машина привилегированной конечной точки.
 
-    а. Если используется комплект разработки для Azure Stack (ASDK), войдите на физический узел.
+    a. Если используется комплект разработки для Azure Stack (ASDK), войдите на физический узел.
 
-    b. Если в системе несколько узлов, нужно использовать тот, который предоставляет доступ к привилегированной конечной точке.
+    Б. Если в системе несколько узлов, нужно использовать тот, который предоставляет доступ к привилегированной конечной точке.
+    
+    >[!NOTE]
+    > Сценарий *должен* выполняться в системе Windows 10 или Windows Server 2016 с установленной последней версией среды выполнения .NET. В противном случае произойдет сбой установки. Узел ASDK соответствует этому критерию.
+    
 
 3. Скачайте двоичный файл поставщика ресурсов MySQL и запустите самоизвлечение содержимого во временный каталог.
 
@@ -67,15 +71,20 @@ ms.lasthandoff: 12/01/2017
 
     | Сборка Azure Stack | Установщик MySQL RP |
     | --- | --- |
-    | 1.0.171122.1 | [MySQL RP версии 1.1.10.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 | **Подождите, пока не появится дополнительная информация. После обновления Azure Stack вы не сможете установить текущие сборки, но они будут продолжать работать на нескольких узлах.** |
+    | 1.0.171122.1 | [MySQL RP версии 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
     | 1.0.171028.1 | [MySQL RP версии 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
     | 1.0.170928.3 | [MySQL RP версии 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Корневой сертификат Azure Stack можно получить из привилегированной конечной точки. Для ASDK в рамках этого процесса создается самозаверяющий сертификат. Для системы с несколькими узлами вам нужно предоставить подходящий сертификат.
 
-    Если сертификат вы будете предоставлять самостоятельно, у него должен быть такой формат:
+    Если нужно предоставить собственный сертификат, необходимо разместить PFX-файл в параметре **DependencyFilesLocalPath** (см. ниже) следующим образом:
 
-    групповой сертификат для \*.dbadapter.\<регион\>.\<внешнее_полное_доменное_имя\>. Этот сертификат должен быть доверенным, например выданным центром сертификации. То есть должна существовать цепочка доверия без промежуточных сертификатов. Можно применить сертификат для одного узла с явно указанным именем виртуальной машины [mysqladapter], которое использовалось при установке.
+    - Групповой сертификат для \*.dbadapter.\<регион\>.\<внешнее_полное_доменное_имя\> или сертификат для одного сайта с общим именем mysqladapter.dbadapter.\<регион\>.\<внешнее_полное_доменное_имя\>
+    - Этот сертификат должен быть доверенным, например выданным центром сертификации. То есть должна существовать цепочка доверия без промежуточных сертификатов.
+    - В DependencyFilesLocalPath имеется только один файл сертификата.
+    - Имя файла не должно содержать специальные знаки.
+
 
 
 5. Откройте **новую** консоль PowerShell с повышенными привилегиями (с правами администратора) и перейдите к каталогу, в который вы ранее извлекли файлы. Откройте новое окно, чтобы избежать проблем с неверными модулями PowerShell, уже установленными в системе.
@@ -150,7 +159,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="deploysqlproviderps1-parameters"></a>Параметры DeploySqlProvider.ps1
 Эти параметры можно указать в командной строке. Если вы не зададите нужные параметры или их значения не пройдут проверку, вам будет предложено указать необходимые данные.
 
-| Имя параметра | Описание | Комментарий или значение по умолчанию |
+| Имя параметра | ОПИСАНИЕ | Комментарий или значение по умолчанию |
 | --- | --- | --- |
 | **CloudAdminCredential** | Учетные данные администратора облака, необходимые для доступа к привилегированной конечной точке. | _обязательный параметр_ |
 | **AzCredential** | Укажите учетные данные для записи администратора службы Azure Stack. Используйте те же учетные данные, которые вы указали при развертывании Azure Stack. | _обязательный параметр_ |
@@ -160,8 +169,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **DefaultSSLCertificatePassword** | Пароль для PFX-файла сертификата. | _обязательный параметр_ |
 | **MaxRetryCount** | Укажите, сколько раз нужно повторять каждую операцию в случае сбоя.| 2 |
 | **RetryDuration** | Укажите время ожидания между повторными попытками в секундах. | 120 |
-| **Удаление** | Удаление поставщика ресурсов и всех связанных с ним ресурсов (см. примечания ниже) | Нет |
-| **DebugMode** | Отключает автоматическую очистку в случае ошибки. | Нет |
+| **Удаление** | Удаление поставщика ресурсов и всех связанных с ним ресурсов (см. примечания ниже) | Нет  |
+| **DebugMode** | Отключает автоматическую очистку в случае ошибки. | Нет  |
 | **AcceptLicense** | Пропуск запроса на принятие условий лицензии GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html). | |
 
 
@@ -257,6 +266,73 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ![Обновление пароля администратора](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
+## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Обновление адаптера поставщика ресурсов MySQL (только с несколькими узлами, сборка 1710 и более поздние версии)
+При обновлении сборки Azure Stack будет выпущен новый адаптер поставщика ресурсов MySQL. Хотя имеющийся адаптер может продолжать работать, рекомендуется как можно быстрее обновить его до последней сборки после обновления Azure Stack. Процесс обновления очень похож на процесс установки, описанный выше. Будет создана виртуальная машина с последним RP-кодом. Параметры будут перенесены в этот новый экземпляр, включая базу данных и сведения о размещении сервера, а также необходимую запись DNS.
+
+Используйте сценарий UpdateMySQLProvider.ps1 с аргументами, описанными выше. Здесь также необходимо указать сертификат.
+
+> [!NOTE]
+> Обновление поддерживается только в системах с несколькими узлами.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
+  -AcceptLicense
+ ```
+
+### <a name="updatemysqlproviderps1-parameters"></a>Параметры UpdateMySQLProvider.ps1
+Эти параметры можно указать в командной строке. Если вы не зададите нужные параметры или их значения не пройдут проверку, вам будет предложено указать необходимые данные.
+
+| Имя параметра | ОПИСАНИЕ | Комментарий или значение по умолчанию |
+| --- | --- | --- |
+| **CloudAdminCredential** | Учетные данные администратора облака, необходимые для доступа к привилегированной конечной точке. | _обязательный параметр_ |
+| **AzCredential** | Укажите учетные данные для записи администратора службы Azure Stack. Используйте те же учетные данные, которые вы указали при развертывании Azure Stack. | _обязательный параметр_ |
+| **VMLocalCredential** | Укажите учетные данные локального администратора на виртуальной машине поставщика ресурсов SQL. | _обязательный параметр_ |
+| **PrivilegedEndpoint** | Укажите IP-адрес или DNS-имя привилегированной конечной точки. |  _обязательный параметр_ |
+| **DependencyFilesLocalPath** | В этот каталог нужно поместить и PFX-файл сертификата. | _необязательно_ (_обязательно_, если в системе несколько узлов) |
+| **DefaultSSLCertificatePassword** | Пароль для PFX-файла сертификата. | _обязательный параметр_ |
+| **MaxRetryCount** | Укажите, сколько раз нужно повторять каждую операцию в случае сбоя.| 2 |
+| **RetryDuration** | Укажите время ожидания между повторными попытками в секундах. | 120 |
+| **Удаление** | Удаление поставщика ресурсов и всех связанных с ним ресурсов (см. примечания ниже) | Нет  |
+| **DebugMode** | Отключает автоматическую очистку в случае ошибки. | Нет  |
+| **AcceptLicense** | Пропуск запроса на принятие условий лицензии GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html). | |
+
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>Удаление адаптера поставщика ресурсов MySQL
 
 Чтобы удалить поставщик ресурсов, сначала нужно удалить все его зависимости.
@@ -278,6 +354,6 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Изучите другие [услуги PaaS](azure-stack-tools-paas-services.md), такие как [поставщик ресурсов SQL Server](azure-stack-sql-resource-provider-deploy.md) или [поставщик ресурсов службы приложений](azure-stack-app-service-overview.md).

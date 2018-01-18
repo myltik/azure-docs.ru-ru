@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 12/14/2017
+ms.date: 01/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 6bc8979eebb2b727d0cae02fe7ca4e95cb32dc36
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 13641b190c3c157f5b302314f88a42a160a1f2e0
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Ограничения ресурсов базы данных SQL Azure
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 01/03/2018
 Длительность всего процесса вертикального масштабирования зависит от размера и уровня службы базы данных до и после изменения. Например, если база данных размером 250 ГБ переводится с уровня службы "Стандартный", на этот уровень или в его пределах, процесс должен завершиться в течение шести часов. Если уровень производительности базы данных того же размера меняется в пределах уровня службы "Премиум", то увеличение масштаба должно завершиться в течение трех часов.
 
 > [!TIP]
-> Для наблюдения за операциями в процессом, см.: [Управление операциями с использованием API-интерфейса REST SQL](/rest/api/sql/Operations/List), [Управление операциями с использованием интерфейса CLI](/cli/azure/sql/db/op), [отслеживать операции с помощью T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) и эти два Команды PowerShell: [Get AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) и [Stop AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
+> Чтобы отслеживать выполняемые операции см. статью [Operations — List](/rest/api/sql/Operations/List) (Список операций), [az sql db op](/cli/azure/sql/db/op), [sys.dm_operation_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) (sys.dm_operation_status (база данных SQL Azure)) и эти две команды PowerShell: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) и [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 * При переходе к более высокому уровню служб или производительности максимальный размер базы данных не увеличивается, если явно не указать для него большее значение (maxsize).
 * При понижении уровня базы данных используемое ею пространство не должно превышать максимальный допустимый размер целевых уровня служб и уровня производительности. 
@@ -139,11 +139,11 @@ ms.lasthandoff: 01/03/2018
 - Повышение уровня служб или уровня производительности базы данных или эластичного пула. Ознакомьтесь с разделами [Отдельная база данных: изменение размера хранилища](#single-database-change-storage-size), [Отдельная база данных: изменение числа DTU](#single-database-change-dtus), [Эластичный пул: изменение размера хранилища](#elastic-pool-change-storage-size) и [Эластичный пул: изменение числа eDTU](#elastic-pool-change-edtus).
 - Оптимизация запросов для сокращения использования ресурсов, необходимых каждому запросу, если причиной повышенного использования рабочих ролей является состязание за вычислительные ресурсы. Дополнительные сведения см. в разделе [Настройка запросов и указания на них](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Сведения об уровнях служб см. в разделе [Доступные параметры производительности базы данных SQL Azure](sql-database-service-tiers.md).
 - Сведения об отдельных базах данных см. в разделе [Ограничения ресурсов базы данных SQL Azure](sql-database-resource-limits.md).
 - Сведения об эластичных пулах см. в разделе [Эластичные пулы помогают управлять несколькими базами данных SQL и масштабировать их](sql-database-elastic-pool.md).
 - Сведения об общих ограничениях Azure см. в разделе [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
 - Сведения о DTU и eDTU см. в разделе [Общие сведения об обычных единицах передачи данных (DTU) и единицах передачи данных в эластичной базе данных (eDTU)](sql-database-what-is-a-dtu.md).
-- Сведения об ограничениях на размер базы данных tempdb см. в разделе https://docs.microsoft.com/en-us/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.
+- Сведения об ограничениях на размер базы данных tempdb см. в разделе "База данных tempdb в базе данных SQL" (https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
