@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 78e7b2ddb2c024770a779d097395d6f7a6484f44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66c53b84e1e820178083b3ae703e0a1feada187f
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-reporting"></a>Отчеты Azure Active Directory
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 12/11/2017
 Кроме пользовательского интерфейса отчеты Azure Active Directory также предоставляют [программный доступ](active-directory-reporting-api-getting-started-azure-portal.md) для данных отчетов. Данные этих отчетов могут быть очень полезными для приложений, например систем SIEM, а также инструментов аудита и бизнес-аналитики. Интерфейсы API отчетов Azure AD предоставляют программный доступ к данным с помощью набора интерфейсов API на базе REST. Эти интерфейсы API можно вызвать, используя различные языки и инструменты программирования. 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Если вы хотите получить дополнительные сведения о различных типах отчетов в Azure Active Directory, ознакомьтесь со следующими разделами:
 
