@@ -24,6 +24,8 @@
       href: tutorial-deploy-machine-learning.md
     - name: Развертывание решения "Функции Azure"
       href: tutorial-deploy-function.md
+    - name: Создание развертывания IoT Edge с помощью расширения IoT для Azure CLI 2.0
+      href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: Практические руководства
   items:
     - name: Создание шлюзов

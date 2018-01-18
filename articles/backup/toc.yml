@@ -83,7 +83,7 @@
       items:
         - name: Подготовка виртуальной машины
           items:
-            - name: 'Подготовка виртуальных машин, развернутых с помощью Resource Manager'
+            - name: 'Подготовка виртуальных машин, развернутых с помощью Azure Resource Manager'
               href: backup-azure-arm-vms-prepare.md
             - name: Согласованные с приложениями резервные копии виртуальных машин Linux
               href: backup-azure-linux-app-consistent.md
@@ -93,7 +93,7 @@
               href: backup-azure-vms-introduction.md
         - name: Резервное копирование виртуальных машин
           items:
-            - name: Архивация виртуальных машин Azure в хранилище служб восстановления
+            - name: Резервное копирование виртуальных машин Azure в хранилище служб восстановления
               href: backup-azure-arm-vms.md
             - name: Резервное копирование зашифрованных виртуальных машин
               href: backup-azure-vms-encryption.md
@@ -101,13 +101,13 @@
           items:
             - name: Управление резервным копированием виртуальных машин Azure на портале Azure
               href: backup-azure-manage-vms.md
-            - name: Мониторинг оповещений о резервных копиях виртуальных машин Azure на портале Azure
+            - name: Мониторинг оповещений о резервных копиях виртуальных машин Azure
               href: backup-azure-monitor-vms.md
         - name: Восстановление данных с виртуальных машин
           items:
             - name: Восстановление файлов из резервных копий виртуальных машин Azure
               href: backup-azure-restore-files-from-vm.md
-            - name: 'Восстановление виртуальных машин, развернутых с помощью Azure Resource Manager, на портале Azure'
+            - name: Восстановление виртуальных машин на портале Azure
               href: backup-azure-arm-restore-vms.md
             - name: Восстановление зашифрованных виртуальных машин
               href: backup-azure-vms-encryption.md
@@ -125,7 +125,7 @@
       items:
         - name: Подготовка рабочих нагрузок DPM на портале Azure
           href: backup-azure-dpm-introduction.md
-        - name: Резервное копирование Exchange Server с помощью System Center DPM
+        - name: Резервное копирование Exchange Server с помощью DPM
           href: backup-azure-backup-exchange-server.md
         - name: Восстановление данных на альтернативный сервер DPM
           href: backup-azure-alternate-dpm-server.md
@@ -141,7 +141,7 @@
           href: backup-dpm-automation.md
         - name: Windows Server на портале Azure
           href: backup-client-automation.md
-    - name: База данных SQL Azure
+    - name: Базы данных SQL Azure
       items:
         - name: Настройка долгосрочного хранения резервных копий
           href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json

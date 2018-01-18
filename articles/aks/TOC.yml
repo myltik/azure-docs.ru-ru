@@ -29,6 +29,10 @@
       href: tutorial-kubernetes-monitor.md
     - name: 8. Обновление кластера
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: Основные понятия
+  items:
+    - name: Квоты и региональные ограничения
+      href: container-service-quotas.md
 - name: Практические руководства
   items:
     - name: Масштабирование кластера AKS
@@ -49,11 +53,13 @@
       href: kubernetes-service-principal.md
     - name: Конфигурирование томов данных
       items:
+        - name: "Диски Azure\_— постоянные тома"
+          href: azure-disks-dynamic-pv.md
         - name: "Файлы Azure\_— постоянные тома"
           href: azure-files-dynamic-pv.md
         - name: "Файлы Azure\_— тома"
           href: azure-files.md
-- name: Ссылка
+- name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure
       href: /cli/azure/aks

@@ -233,7 +233,7 @@
               href: azure-stack-supported-os.md
             - name: Добавление пользовательского образа виртуальной машины
               href: azure-stack-add-vm-image.md
-            - name: Добавление масштабируемых наборов виртуальных машин
+            - name: Добавление масштабируемого набора виртуальных машин
               href: azure-stack-compute-add-scalesets.md
             - name: Развертывание виртуальных машин Linux
               href: azure-stack-linux.md

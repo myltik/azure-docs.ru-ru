@@ -44,7 +44,12 @@
 ## Устранение неполадок
 ### [Часто задаваемые вопросы](active-directory-ds-faqs.md)
 ### [Руководство по устранению неполадок](active-directory-ds-troubleshooting.md)
+### [Устранение неполадок: предупреждения](active-directory-ds-troubleshoot-alerts.md)
+#### [Исправление неработающей конфигурации NSG](active-directory-ds-troubleshoot-nsg.md)
+#### [Восстановление отсутствующих субъектов-служб](active-directory-ds-troubleshoot-service-principals.md)
+#### [Ошибки защищенного протокола LDAP](active-directory-ds-troubleshoot-ldaps.md)
 ### [Устранение ошибок несоответствия клиента](active-directory-ds-mismatched-tenant-error.md)
+
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)

@@ -202,7 +202,7 @@
 ### [Windows PowerShell для командлетов StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 
-# Диспетчер данных StorSimple (личная предварительная версия)
+# Диспетчер данных StorSimple
 
 ## Обзор
 ### [Что из себя представляет это решение?](storsimple-data-manager-overview.md)

@@ -54,7 +54,10 @@
 ### [Разработка в .NET](search-howto-dotnet-sdk.md)
 ### [Разработка в Node.js](search-get-started-nodejs.md)
 ### [Разработка в Java](search-get-started-java.md)
-### [Обновление пакета SDK](search-dotnet-sdk-migration.md)
+### Обновление пакета SDK
+#### [Пакет SDK для .NET версии 3.0](search-dotnet-sdk-migration.md)
+#### [Пакет SDK для .NET версии 1.1](search-dotnet-sdk-migration-version-1.md)
+#### [Пакет SDK управления для .NET](search-dotnet-mgmt-sdk-migration.md)
 ### [Обновление REST API](search-api-migration.md)
 ### [Моделирование сложных типов данных](search-howto-complex-data-types.md)
 ### [Обработка одновременных обновлений](search-howto-concurrency.md)
@@ -94,7 +97,7 @@
 ### [Мониторинг использования и статистика](search-monitor-usage.md)
 ### [Поиск в аналитике трафика](search-traffic-analytics.md)
 
-# Ссылка
+# Справочные материалы
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (управление)](/dotnet/api/?term=microsoft.azure.management.search)
