@@ -265,11 +265,13 @@
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
+        - name: Аналитика использования
+          href: app-insights-usage-troubleshoot.md
 - name: Примеры
   items:
     - name: Примеры кода
       href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
-- name: Ссылка
+- name: Справочные материалы
   items:
     - name: Язык запросов Analytics
       href: 'https://docs.loganalytics.io/'

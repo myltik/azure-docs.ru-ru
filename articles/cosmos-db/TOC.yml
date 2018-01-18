@@ -235,8 +235,6 @@
               items:
                 - name: Памятка по грамматике SQL
                   href: sql-api-sql-query-cheat-sheet.md
-                - name: Переполнение стека
-                  href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Видеоролики
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Обновления службы
@@ -382,7 +380,7 @@
           href: odbc-driver.md
         - name: Использование начального приложения Spring Boot с API-интерфейсами SQL
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Ссылка
+- name: Справочные материалы
   items:
     - name: Примеры кода
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
@@ -430,7 +428,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: Часто задаваемые вопросы
       href: faq.md
-    - name: Переполнение стека
-      href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
     - name: Объяснение согласованности данных на примере игры в бейсбол
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'

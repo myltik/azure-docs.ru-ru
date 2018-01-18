@@ -118,6 +118,11 @@
           href: copy-activity-overview.md
         - name: Средство копирования данных
           href: copy-data-tool.md
+          items:
+            - name: Загрузка Data Lake Store
+              href: load-azure-data-lake-store.md
+            - name: Загрузка хранилища данных SQL Azure
+              href: load-azure-sql-data-warehouse.md
         - name: Чтение или запись секционированных данных
           href: how-to-read-write-partitioned-data.md
         - name: Соединители
@@ -134,9 +139,6 @@
               href: connector-azure-cosmos-db.md
             - name: Хранилище озера данных Azure
               href: connector-azure-data-lake-store.md
-              items:
-                - name: Загрузка Data Lake Store
-                  href: load-azure-data-lake-store.md
             - name: База данных Azure для MySQL
               href: connector-azure-database-for-mysql.md
             - name: База данных Azure для PostgreSQL
@@ -149,9 +151,6 @@
               href: connector-azure-sql-database.md
             - name: "Хранилище данных SQL\_Azure"
               href: connector-azure-sql-data-warehouse.md
-              items:
-                - name: Загрузка хранилища данных SQL Azure
-                  href: load-azure-sql-data-warehouse.md
             - name: Хранилище таблиц Azure
               href: connector-azure-table-storage.md
             - name: Cassandra

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 0ac6226b1e5773b1212b70172e2c13a0a5c925a8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Что такое Azure IoT Suite?
 
@@ -62,7 +62,7 @@ Azure IoT Suite представляет собой набор *предвари
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Удаленный мониторинг](iot-suite-remote-monitoring-explore.md)  |Yes |Yes |Yes |-   |Yes |Yes |-   |
 | [Диагностическое обслуживание](iot-suite-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
-| [Подключенная фабрика](iot-suite-connected-factory-overview.md) |Yes |Yes |Yes |Yes |Yes |Yes |-   |
+| [Подключенная фабрика](iot-suite-connected-factory-overview.md) |Yes |- |- |Yes |Yes |Yes |-   |
 
 * *Прием данных*: прием данных в облако в нужном масштабе.
 * *Удостоверения устройств*: управление уникальными удостоверениями устройств и контроль доступа устройств к решению.
@@ -83,11 +83,11 @@ Azure IoT Suite представляет собой набор *предвари
 | Центр Интернета вещей              | Yes                |                        | Yes               |
 | Концентраторы событий           |                    | Yes                    |                   |
 | Time Series Insights |                    |                        | Yes               |
-| Службы контейнеров   | Yes                |                        | Yes               |
+| Службы контейнеров   | Yes                |                        |                   |
 | Stream Analytics     |                    | Yes                    |                   |
 | Веб-приложения             | Yes                | Yes                    | Yes               |
-| База данных Cosmos            | Yes                | Yes                    | Yes               |
-| Таблицы Azure         |                    | Yes                    | Yes               |
+| База данных Cosmos            | Yes                | Yes                    |                    |
+| Хранилище Azure         |                    | Yes                    | Yes               |
 
 > [!NOTE]
 > Дополнительные сведения о ресурсах, развернутых в предварительно настроенном решении для удаленного мониторинга см. в этой [статье](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) на сайте GitHub.

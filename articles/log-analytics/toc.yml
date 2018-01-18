@@ -113,6 +113,8 @@
           href: log-analytics-computer-groups.md
         - name: Соединитель для Microsoft Flow
           href: log-analytics-flow-tutorial.md
+        - name: API поиска по журналам
+          href: 'https://dev.loganalytics.io/'
     - name: Поиск по журналам прежних версий
       items:
         - name: Обзор поиска по журналу
@@ -122,6 +124,11 @@
           items:
             - name: Регулярные выражения
               href: log-analytics-log-searches-regex.md
+        - name: API поиска по журналам
+          href: log-analytics-log-search-api.md
+          items:
+            - name: Python
+              href: log-analytics-log-search-api-python.md
     - name: Анализ данных
       items:
         - name: Панели мониторинга
@@ -258,14 +265,9 @@
           href: log-analytics-powershell-workspace-configuration.md
         - name: Шаблоны диспетчера ресурсов
           href: log-analytics-template-workspace-configuration.md
-        - name: API поиска по журналам
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
         - name: API оповещений
           href: log-analytics-api-alerts.md
-- name: Ссылка
+- name: Справочные материалы
   items:
     - name: Справочник по языку
       href: 'https://docs.loganalytics.io/docs/Language-Reference'
