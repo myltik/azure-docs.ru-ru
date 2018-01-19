@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 32e33d5fe99d884801e451b8f7e7989f979074e3
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 0a87f8572af2620420faa0e3c2e575aa8add42ab
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-azure-files-with-linux"></a>Использование файлов Azure в Linux
-[Файлы Azure](storage-files-introduction.md) — это простая в использовании облачная файловая система от Майкрософт. Можно подключить Azure файловых ресурсов в ОС Linux с помощью [CIFS ядра клиента](https://wiki.samba.org/index.php/LinuxCIFS). В этой статье описаны два способа подключения общей папки Azure: по запросу с помощью команды `mount` и при загрузке путем создания записи в `/etc/fstab`.
+[Файлы Azure](storage-files-introduction.md) — это простая в использовании облачная файловая система от Майкрософт. Общие папки Azure можно подключить в дистрибутивах Linux с помощью [CIFS-клиента в ядре](https://wiki.samba.org/index.php/LinuxCIFS). В этой статье описаны два способа подключения общей папки Azure: по запросу с помощью команды `mount` и при загрузке путем создания записи в `/etc/fstab`.
 
 > [!NOTE]  
 > Чтобы подключить общую папку Azure за пределами региона Azure, в котором она размещается, например локально или в другом регионе Azure, операционная система должна поддерживать протокол функций шифрования SMB 3.0. Функция шифрования протокола SMB 3.0 для Linux появилась в ядре версии 4.11. Эта функция позволяет подключать общую папку файлов Azure из локальной среды или другого региона Azure. На момент публикации этой статьи функция была добавлена в дистрибутивы Ubuntu 16.04 и более поздних версий.
@@ -97,8 +97,11 @@ ms.lasthandoff: 12/20/2017
 3. **Используйте следующую команду, чтобы добавить следующую строку в `/etc/fstab`**. Не забудьте заменить значения `<storage-account-name>`, `<share-name>` и `<storage-account-key>` соответствующим образом.
 
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs nofail,vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
+
+> [!Note]  
+> Убедитесь, что параметр `nofail` добавлен в запись `/etc/fstab`, иначе виртуальная машина может зависнуть при загрузке в случае неправильной настройки или другой ошибки при подключении общей папки Azure.
 
 > [!Note]  
 > Вместо перезагрузки можно использовать `sudo mount -a`, чтобы подключить общую папку после изменения `/etc/fstab`.
@@ -108,7 +111,7 @@ ms.lasthandoff: 12/20/2017
 
 Файлы Azure для группы пользователей Linux включают форум, на котором можно поделиться своим мнением и опытом адаптации хранилища файлов в Linux. Чтобы вступить в группу пользователей, отправьте электронное письмо в группу [Пользователи файлов Azure в Linux](mailto:azurefileslinuxusers@microsoft.com).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительную информацию о службе файлов Azure см. по следующим ссылкам.
 * [Справочник по REST API службы файлов](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 * [Перенос данных с помощью AzCopy для Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)

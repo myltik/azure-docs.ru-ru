@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 06e8d99aa2ad4eb11e594a729c6dab39d5cd1eb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac57894e4f180f42f80479d2031f4dd5ddfdb1be
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-storsimple-device-manager-service-from-classic-to-azure-portal-frequently-asked-questions-faq"></a>Перемещение службы диспетчера устройств StorSimple с классического портала на портал Azure. Часто задаваемые вопросы
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="once-i-have-moved-to-azure-portal-can-i-still-create-a-storsimple-manager-service-in-the-classic-portal"></a>После перехода на портал Azure можно ли все еще создать службу диспетчера StorSimple на классическом портале?
 
-Нет. После переноса службы диспетчера StorSimple на портал Azure создать новую службу на классическом портале нельзя. Кроме того, устройством нельзя управлять с помощью классического портала. Дополнительные сведения см. в разделе [Перемещение службы на портал Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Нет. После переноса службы диспетчера StorSimple на портал Azure создать новую службу на классическом портале нельзя. Кроме того, [классический портал будет недоступен с 8 января 2018 года](https://azure.microsoft.com/updates/azure-portal-updates-for-classic-portal-users). 
 
 ### <a name="i-have-multiple-storsimple-managers-running-in-the-classic-portal-can-i-choose-which-ones-to-move-to-the-azure-portal"></a>У меня есть несколько диспетчеров StorSimple, работающих на классическом портале. Можно ли выбрать какие из них следует переместить на портал Azure?
 
@@ -67,14 +67,14 @@ ms.lasthandoff: 10/11/2017
 
 При создании модели облачного устройства StorSimple Cloud 8010/8020, работающей под управлением версии 3.0 или более поздней, вы не подвержены влиянию службы, перемещаемой на новый портал Azure. Вы можете полностью управлять облачными устройствами без каких-либо проблем. 
 
-При наличии на классическом портале облачных устройств под управлением версий более ранних, чем обновление 3.0, возможности облака будут ограничены. Дополнительные сведения см. в разделе [Перемещение службы на портал Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+При наличии на классическом портале облачных устройств под управлением версий более ранних, чем обновление 3.0, возможности облака будут ограничены. Дополнительные сведения см. в разделе [Перемещение службы на портал Azure](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Вы не можете обновить облачное устройство. Используйте последнюю версию программного обеспечения для создания облачного устройства, а затем выполните отработку отказа в созданное облачное устройство. Дополнительные сведения см. в разделе [Отработка отказа на облачное устройство](storsimple-8000-cloud-appliance-u2.md#fail-over-to-the-cloud-appliance).
 
 
 ### <a name="my-storsimple-8000-series-device-is-running-update-20-i-migrated-my-service-to-new-azure-portal-my-device-connected-successfully-but-it-seems-that-i-am-not-able-to-fully-manage-my-device-how-do-i-resolve-this-behavior"></a>Мое устройство серии StorSimple 8000 выполняется с обновлением 2.0. Я перенес свою службу на портал Azure. Мое устройство успешно подключено, но похоже, что я не могу полностью управлять им. Есть ли способ решения этой проблемы?
 
-На новом портале Azure поддерживаются только устройства StorSimple с обновлениями 3.0 и более поздних версий. Если устройство выполнялось с обновлением 2.0, для этого устройства будут доступны только ограниченные функции. Дополнительные сведения см. в разделе [Перемещение службы на портал Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+На новом портале Azure поддерживаются только устройства StorSimple с обновлениями 3.0 и более поздних версий. Если устройство выполнялось с обновлением 2.0, для этого устройства будут доступны только ограниченные функции. Дополнительные сведения см. в разделе [Перемещение службы на портал Azure](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Чтобы полностью управлять устройством, установите последнее обновление на нем. Дополнительные сведения см. в статье [Установка обновления 5 на устройство StorSimple](storsimple-8000-install-update-5.md).
 
@@ -130,11 +130,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="moving-storsimple-data-manager-service"></a>Перемещение службы диспетчера данных StorSimple
 
-### <a name="i-am-using-storsimple-data-manager-service-how-should-i-proceed-with-this-move"></a>Я использую службу диспетчера данных StorSimple. Как мне следует продолжать перенос?
+### <a name="i-am-using-storsimple-data-manager-service-in-classic-azure-portal-how-should-i-proceed-with-this-move"></a>Я использую службу диспетчера данных StorSimple на классическом портале Azure. Как мне следует продолжать перенос?
 
-При использовании службы диспетчера данных StorSimple сначала необходимо переместить их на портал Azure. После завершения перемещения создайте новые диспетчеры данных StorSimple на портале Azure. Диспетчеры данных StorSimple, созданные до перемещения, не работают.
-
-Дополнительные сведения о миграции службы диспетчера устройств StorSimple см. в разделе [Перемещение службы на портал Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal). Дополнительные сведения о создании диспетчера данных StorSimple см. в статье [Использование пользовательского интерфейса для службы диспетчера данных StorSimple (закрытая предварительная версия)](storsimple-data-manager-ui.md).
+Если используется служба диспетчера данных StorSimple, вы будете автоматически перемещены на портал Azure.
 
 ## <a name="miscellaneous"></a>Разное
 
@@ -146,9 +144,9 @@ ms.lasthandoff: 10/11/2017
 
 Нет. Устройства, тома, контейнеры томов или политики резервного копирования нельзя переименовать на портале Azure.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-Дополнительные сведения о [перемещении службы диспетчера устройств StorSimple на портал Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Узнайте подробнее о [поддерживаемых операциях на устройствах под управлением версий, предшествующих обновлению 5.0](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 
 
 

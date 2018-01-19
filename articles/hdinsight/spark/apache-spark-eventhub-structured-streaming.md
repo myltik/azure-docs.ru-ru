@@ -4,7 +4,7 @@ description: "Сведения о разработке примера прило
 keywords: "потоковая передача apache spark, потоковая передача spark, пример приложения spark, пример приложения потоковой передачи apache spark, пример концентратора событий azure, пример приложения spark"
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: a542295e91a641289fa4261920a08eddbad6a217
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: jgao
+ms.openlocfilehash: e0486d2c5f78da1d1e4a12703f120eccef43c305
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>Структурированная потоковая передача Apache Spark в HDInsight для обработки событий из концентраторов событий
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/01/2017
 1. На локальной рабочей станции скомпилируйте и запустите пример приложения "Создатель событий", создающего события для отправки концентраторам событий.
 2. Для определения и запуска простого приложения структурированной потоковой передачи Spark используйте [оболочку Spark](apache-spark-shell.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Необходимые компоненты
 
-* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](apache-spark-jupyter-spark-sql.md).
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 12/01/2017
 
 5. Создаваемым приложениям требуется пакет концентраторов событий потоковой передачи Spark. Чтобы запустить оболочку Spark, которая должна автоматически получить эту зависимость из [центрального репозитория Maven](https://search.maven.org), убедитесь, что поддержка замены пакетов координируется с Maven следующим образом:
 
-        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.0"
+        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.5"
 
 6. После загрузки оболочки Spark вы должны увидеть следующее:
 
@@ -92,10 +92,10 @@ ms.lasthandoff: 12/01/2017
             ____              __
             / __/__  ___ _____/ /__
             _\ \/ _ \/ _ `/ __/  '_/
-        /___/ .__/\_,_/_/ /_/\_\   version 2.1.0.2.6.0.10-29
+        /___/ .__/\_,_/_/ /_/\_\   version 2.1.1.2.6.2.3-1
             /_/
                 
-        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_131)
+        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
         Type in expressions to have them evaluated.
         Type :help for more information.
 
@@ -113,8 +113,12 @@ ms.lasthandoff: 12/01/2017
             "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
             "eventhubs.sql.containsProperties" -> "true"
             )
+            
+8. Если представить конечную точку, совместимую с EventHub, в следующей форме, то компонент, считывающий `iothub-xxxxxxxxxx`, — это имя пространства имен, совместимое с EventHub, которое может использоваться для `eventhubs.namespace`. Поле `SharedAccessKeyName` может использоваться для `eventhubs.policyname`, а поле `SharedAccessKey` — для `eventhubs.policykey`: 
 
-8. Вставьте измененный фрагмент в ожидающую командную строку scala> и нажмите кнопку возврата. Должен отобразиться примерно такой результат:
+        Endpoint=sb://iothub-xxxxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx 
+
+9. Вставьте измененный фрагмент в ожидающую командную строку scala> и нажмите кнопку возврата. Должен отобразиться примерно такой результат:
 
         scala> val eventhubParameters = Map[String, String] (
             |       "eventhubs.policyname" -> "RootManageSharedAccessKey",
@@ -128,31 +132,31 @@ ms.lasthandoff: 12/01/2017
             |     )
         eventhubParameters: scala.collection.immutable.Map[String,String] = Map(eventhubs.sql.containsProperties -> true, eventhubs.name -> hub1, eventhubs.consumergroup -> $Default, eventhubs.partition.count -> 2, eventhubs.progressTrackingDir -> /eventhubs/progress, eventhubs.policykey -> 2P1Q17Wd1rdLP1OZQYn6dD2S13Bb3nF3h2XZD9hvyyU, eventhubs.namespace -> hdiz-docs-eventhubs, eventhubs.policyname -> RootManageSharedAccessKey)
 
-9. Затем начните создавать структурированную потоковою передачу Spark, указав источник запроса. Вставьте следующий код в оболочку Spark и нажмите клавишу возврата.
+10. Затем начните создавать структурированную потоковою передачу Spark, указав источник запроса. Вставьте следующий код в оболочку Spark и нажмите клавишу возврата.
 
         val inputStream = spark.readStream.
         format("eventhubs").
         options(eventhubParameters).
         load()
 
-10. Должен отобразиться примерно такой результат:
+11. Должен отобразиться примерно такой результат:
 
         inputStream: org.apache.spark.sql.DataFrame = [body: binary, offset: bigint ... 5 more fields]
 
-11. Затем создайте запрос, записывающий выходные данные в консоль. Для этого вставьте следующий код в окно оболочки Spark и нажмите кнопку возврата.
+12. Затем создайте запрос, записывающий выходные данные в консоль. Для этого вставьте следующий код в окно оболочки Spark и нажмите кнопку возврата.
 
         val streamingQuery1 = inputStream.writeStream.
         outputMode("append").
         format("console").start().awaitTermination()
 
-12. Вы должны увидеть, что некоторые пакеты начинаются с вывода, аналогичного следующему.
+13. Вы должны увидеть, что некоторые пакеты начинаются с вывода, аналогичного следующему.
 
         -------------------------------------------
         Batch: 0
         -------------------------------------------
         [Stage 0:>                                                          (0 + 2) / 2]
 
-13. За этим следуют выходные результаты обработки каждого микропакета событий. 
+14. За этим следуют выходные результаты обработки каждого микропакета событий. 
 
         -------------------------------------------
         Batch: 0
@@ -184,8 +188,8 @@ ms.lasthandoff: 12/01/2017
         +--------------------+------+---------+------------+---------+------------+----------+
         only showing top 20 rows
 
-14. По мере поступления новых событий из приложения "Создатель событий" они обрабатываются запросом структурированный потоковой передачи.
-15. Не забудьте удалить кластер HDInsight после выполнения этого примера.
+15. По мере поступления новых событий из приложения "Создатель событий" они обрабатываются запросом структурированный потоковой передачи.
+16. Не забудьте удалить кластер HDInsight после выполнения этого примера.
 
 
 

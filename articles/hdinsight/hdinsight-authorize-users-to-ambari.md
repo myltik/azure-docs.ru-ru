@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
 ms.openlocfilehash: 02761b0e4a25e9aa2312d66bb8c6ab861fb0c3cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Разрешение пользователям доступа к Ambari Views
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 12/13/2017
 
 ![Пользователь с ролью "Cluster User" (Пользователь кластера)](./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Настройка политик Hive в присоединенном к домену кластере HDInsight (предварительная версия)](./domain-joined/apache-domain-joined-run-hive.md)
 * [Управление присоединенными к домену кластерами HDInsight](./domain-joined/apache-domain-joined-manage.md)

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Хранилище ключей Azure .NET 2.0. Руководство по миграции и заметки о выпуске
 Следующие примечания и инструкции предназначены для разработчиков, использующих библиотеки .NET и C# при работе с Azure Key Vault. Переходная версия между 1.0 и 2.0 включает ряд таких обновлений, как реализация поддержки **сертификатов хранилища ключей**. Чтобы воспользоваться новыми возможностями и улучшениями, необходимо программным образом выполнить перенос.
@@ -36,8 +36,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="net-support"></a>Поддержка .NET
 
-* **.NET 4.0** не поддерживается в версии 2.0 библиотеки .NET и C# для хранилища ключей Azure.
-* **.NET Core** поддерживается в версии 2.0 библиотеки .NET и C# для хранилища ключей Azure.
+* **.NET 4.0** не поддерживается в версии 2.0 библиотеки .NET для хранилища ключей Azure.
+* **.NET Framework 4.5.2** поддерживается в версии 2.0 библиотеки .NET для хранилища ключей Azure.
+* **.NET Standard 1.4** поддерживается в версии 2.0 библиотеки .NET для хранилища ключей Azure.
 
 ## <a name="namespaces"></a>Пространства имен
 

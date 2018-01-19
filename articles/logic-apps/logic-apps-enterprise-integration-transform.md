@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Интеграция Enterprise с преобразованием данных XML
 ## <a name="overview"></a>Обзор
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/15/2017
 
 **Ниже приведены указания по использованию преобразования**.
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Необходимые компоненты
 
 * Создание учетной записи интеграции и добавление карты в нее  
 
@@ -72,6 +72,28 @@ ms.lasthandoff: 11/15/2017
 * Используйте функцию тестирования сопоставления, чтобы добавить пример XML-сообщения. Тогда одним щелчком вы сможете протестировать созданное сопоставление и увидеть полученный результат.  
 * Передача существующих карт  
 * Включена поддержка формата XML.
+
+## <a name="adanced-features"></a>Дополнительные функции
+Доступ к следующим функциям можно получить только в представлении кода.
+
+### <a name="byte-order-mark"></a>Метка порядка байтов
+По умолчанию ответ при преобразовании будет начинаться с метки порядка байтов. Чтобы отключить эту функцию, укажите `disableByteOrderMark` для свойства `transformOptions`:
+
+````json
+"Transform_XML": {
+    "inputs": {
+        "content": "@{triggerBody()}",
+        "integrationAccount": {
+            "map": {
+                "name": "TestMap"
+            }
+        },
+        "transformOptions": "disableByteOrderMark"
+    },
+    "runAfter": {},
+    "type": "Xslt"
+}
+````
 
 ## <a name="learn-more"></a>Подробнее
 * [Обзор пакета интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise")  

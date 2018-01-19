@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: functions
-ms.date: 04/11/2017
+ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8c2f0cb27e6e06f70018b7acae7ea5ff7f728d98
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: ebeec7a9e88cd1c654128da2c197589aaf7c1b5e
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-cli-samples"></a>Примеры Azure CLI
 
@@ -36,10 +36,15 @@ ms.lasthandoff: 01/02/2018
 | [Создание приложения-функции и подключение к учетной записи хранения](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Создает приложение-функцию и подключает его к учетной записи хранения. |
 | [Создание приложения-функции и подключение к Azure Cosmos DB](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Создает приложение-функцию и подключает его к Azure Cosmos DB. |
 | | |
+|**Непрерывное развертывание**||
+| [Развертывание из GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Создает приложение-функцию для развертывания из репозитория GitHub.  |
+| [Развертывание из VSTS](scripts/functions-cli-create-function-app-vsts-continuous.md) | Создает приложение-функцию для развертывания из репозитория Visual Studio Team Services (VSTS).  |
+| | |
 |**Настройка приложения**||
 | [Сопоставление личного домена с приложением-функцией](scripts/functions-cli-configure-custom-domain.md) | Определяет личный домен для функций.  |
 | [Привязка SSL-сертификата к приложению-функции](scripts/functions-cli-configure-ssl-certificate.md)  |  Оправляет SSL-сертификаты для функций в личном домене. |
-<!--
+
+<!---
 
 |**Scale app**||
 

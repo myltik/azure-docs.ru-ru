@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 2112d332faba194285ac35cf936000b399cd3e83
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
-ms.translationtype: MT
+ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Устранение неполадок службы Azure Backup: проблемы с агентом и/или расширением
 
@@ -28,13 +28,20 @@ ms.lasthandoff: 01/03/2018
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Агенту виртуальной машины не удается установить связь со службой Azure Backup
+
+> [!NOTE]
+> Если на ваших виртуальных машинах Azure под управлением Linux резервное копирование завершалось сбоем и возникала эта ошибка 4 января 2018 г. или позднее, выполните указанную ниже команду на затронутых виртуальных машинах и повторите попытку резервного копирования.
+
+    sudo rm -f /var/lib/waagent/*.[0-9]*.xml
+
 После регистрации виртуальной машины в службе Azure Backup и добавления ее в расписание служба архивации инициирует задание, взаимодействуя с агентом виртуальной машины, чтобы создать моментальный снимок. Любое из следующих условий может помешать активации создания моментального снимка, что может привести к сбою службы Backup. Выполните инструкции по устранению неполадок в указанном порядке и повторите операцию.
+
 ##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Причина 1. [У виртуальной машины нет доступа к Интернету](#the-vm-has-no-internet-access)
 ##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Причина 2. [Агент установлен на виртуальной машине, но не отвечает (для виртуальных машин Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Причина 3. [Устарел агент, установленный на виртуальной машине (для виртуальных машин Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Причина 4. [Не удалось получить состояние моментального снимка или создать моментальный снимок](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Причина 5. [Не удалось обновить или загрузить расширение резервного копирования](#the-backup-extension-fails-to-update-or-load)
-##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>Причина 6: [классические ВМ Azure может потребоваться дополнительный шаг для завершения регистрации](#azure-classic-vms-may-require-additional-step-to-complete-registration)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>Причина 6. [Классическим виртуальным машинам Azure может потребоваться дополнительный шаг для завершения регистрации](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Сбой операции моментального снимка, отсутствует сетевое подключение у виртуальной машины
 После регистрации виртуальной машины в службе архивации Azure и добавления ее в расписание служба архивации инициирует задание, взаимодействуя с расширением виртуальной машины, чтобы создать моментальный снимок. Любое из следующих условий может помешать активации создания моментального снимка, что может привести к сбою службы Backup. Выполните инструкции по устранению неполадок в указанном порядке и повторите операцию.
@@ -66,7 +73,7 @@ ms.lasthandoff: 01/03/2018
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Причина 3. [Устарел агент, установленный на виртуальной машине (для виртуальных машин Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Причина 4. [Не удалось получить состояние моментального снимка или создать моментальный снимок](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Причина 5. [Не удалось обновить или загрузить расширение резервного копирования](#the-backup-extension-fails-to-update-or-load)
-##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Причина 6: [службы резервного копирования не имеет разрешения на удаление старых точек восстановления из-за блокировки группы ресурсов](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
+##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Причина 6. [Служба Backup не имеет разрешения на удаление старых точек восстановления из-за блокировки группы ресурсов](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Указанная конфигурация диска не поддерживается
 
@@ -186,48 +193,48 @@ ms.lasthandoff: 01/03/2018
 
 После этого расширение будет повторно установлено при следующей архивации.
 
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Для классических ВМ Azure может потребоваться дополнительный шаг для завершения регистрации
-Агент на виртуальных машинах Azure классические должен быть зарегистрирован для установки подключения к службе резервного копирования и начните резервное копирование
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Классическим виртуальным машинам Azure может потребоваться дополнительный шаг для завершения регистрации
+Агент на классической виртуальной машине Azure должен быть зарегистрирован для установки подключения к службе резервного копирования и начала резервного копирования.
 
 #### <a name="solution"></a>Решение
 
-После установки агент гостевой виртуальной Машины, запустите Azure PowerShell <br>
-1. Имя входа в учетную запись Azure с помощью <br>
+После установки агента гостевой виртуальной машины запустите Azure PowerShell. <br>
+1. Войдите в учетную запись Azure с помощью <br>
        `Login-AzureAsAccount`<br>
-2. Проверьте, если Виртуальной машины ProvisionGuestAgent задано значение True, с помощью следующих команд <br>
+2. С помощью следующих команд проверьте, установлено ли для свойства ProvisionGuestAgent виртуальной машины значение True: <br>
         `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
         `$vm.VM.ProvisionGuestAgent`<br>
-3. Если свойство имеет значение FALSE, следуйте ниже команды, чтобы присвоено значение TRUE.<br>
+3. Если свойство имеет значение FALSE, выполните команды ниже, чтобы присвоить ему значение TRUE:<br>
         `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
         `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. Затем выполните следующую команду для обновления виртуальной Машины <br>
+4. Чтобы обновить виртуальную машину, выполните следующую команду: <br>
         `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. Повторите запуск резервного копирования. <br>
+5. Попробуйте запустить резервное копирование. <br>
 
-### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Служба резервного копирования не имеет разрешения на удаление старых точек восстановления из-за блокировки группы ресурсов
-Эта проблема специфична для управляемых виртуальных машин, где пользователь блокирует группу ресурсов и службы резервного копирования не может удалять старые точки восстановления. В связи с появлением новых резервных копий начинаются сбои как ограничено максимальное число 18 точек восстановления, установленные с внутреннего сервера.
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Служба Backup не имеет разрешения на удаление старых точек восстановления из-за блокировки группы ресурсов
+Эта проблема характерна для управляемых виртуальных машин, где пользователь блокирует группу ресурсов и служба Backup не может удалить устаревшие точки восстановления. Из-за этого новые операций резервного копирования завершаются сбоем, так как серверная часть ограничивает максимальное число точек восстановления до 18.
 
 #### <a name="solution"></a>Решение
 
 Чтобы устранить проблему, используйте следующие шаги для удаления коллекции точек восстановления: <br>
  
-1. Удаление группы ресурсов блокировки, в которой размещается эта виртуальная машина 
+1. Удалите блокировку группы ресурсов, в которой размещается виртуальная машина. 
      
-2. Установите ARMClient, с помощью Chocolatey <br>
+2. Установите ARMClient с помощью Chocolatey: <br>
    https://github.com/projectkudu/ARMClient
      
-3. Имя входа для ARMClient <br>
+3. Войдите в ARMClient <br>
              `.\armclient.exe login`
          
-4. Точка восстановления Get коллекции, соответствующий виртуальной машины <br>
+4. Получите коллекцию точек восстановления, соответствующую виртуальной машине. <br>
     `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
     Пример: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
              
-5. Удалить коллекцию точек восстановления <br>
+5. Удалите коллекцию точек восстановления. <br>
             `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
  
-6. Коллекция точек восстановления и новые точки восстановления, автоматически создаст следующего запланированного резервного копирования 
+6. Следующее запланированное резервное копирование автоматически создаст коллекцию точек восстановления и новые точки восстановления. 
  
-7. Снова появиться проблемы при блокировке группы ресурсов снова как ограничено только 18 точек восстановления, после которого резервные копии начинаются сбои 
+7. Проблема снова появится, если вы повторно заблокируете группу ресурсов, так как есть только 18 точек восстановления. После этого резервное копирование снова будет завершаться сбоем. 
 

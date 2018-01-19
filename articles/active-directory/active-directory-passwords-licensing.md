@@ -1,5 +1,5 @@
 ---
-title: "Лицензирование: Azure AD SSPR | Документация Майкрософт"
+title: "Azure Active Directory: лицензирование самостоятельного сброса пароля"
 description: "Требования к лицензированию самостоятельного сброса пароля в Azure AD"
 services: active-directory
 keywords: 
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 45cecbf1334d4d708f1578d1512627bc0ead3a04
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 2ff9f80cfe9991000fdee45421fc74e662a4dfd1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Требования к лицензированию самостоятельного сброса пароля в Azure AD
 
 Для работы функции сброса пароля Azure Active Directory (Azure AD) *в вашей организации должна быть назначена по крайней мере одна лицензия*. Лицензирование каждого пользователя для сброса пароля необязательно. Для соблюдения лицензионного соглашения Майкрософт вам необходимо назначить лицензии для всех пользователей, которые используют функции уровня "Премиум".
 
 * **Полностью облачные пользователи**. Любой платный номер SKU Office 365 или Azure AD Basic.
-* **Облачные** или **локальные пользователи**. Azure AD Premium P1 или P2, Enterprise Mobility + Security (EMS) или Secure Productive Enterprise (SPE).
+* **Облачные** или **локальные пользователи**. Azure AD Premium P1 или P2, Enterprise Mobility + Security (EMS) или Microsoft 365
 
 ## <a name="licenses-required-for-password-writeback"></a>Лицензии, необходимые для компонента обратной записи паролей
 
@@ -42,6 +42,7 @@ ms.lasthandoff: 12/11/2017
 
 > [!WARNING]
 > Автономные планы лицензирования Office 365 *не поддерживают компонент обратной записи паролей*. Для работы этой функции необходим один из указанных выше планов.
+>
 
 Дополнительные сведения о лицензировании, включая расходы, можно найти на следующих страницах:
 
@@ -56,7 +57,7 @@ Azure AD теперь поддерживает групповое лицензи
 
 Некоторые службы Майкрософт недоступны во всех расположениях. Прежде чем назначать лицензию, администратор должен указать для пользователя свойство **Место использования**. Назначить лицензию можно на портале Azure в разделе **Пользователь** > **Профиль** > **Параметры**. *Если лицензии назначаются группам, все пользователи, для которых не указано расположение, наследуют расположение каталога.*
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Как развернуть самостоятельный сброс пароля?](active-directory-passwords-best-practices.md)
 * [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
@@ -69,4 +70,3 @@ Azure AD теперь поддерживает групповое лицензи
 * [Обзор всех параметров SSPR и их значение](active-directory-passwords-how-it-works.md)
 * [Как устранить неполадки самостоятельного сброса пароля](active-directory-passwords-troubleshoot.md)
 * [Вопросы, не вошедшие в другие статьи](active-directory-passwords-faq.md)
-

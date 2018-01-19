@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Настройка брандмауэров службы хранилища Azure и виртуальных сетей (предварительная версия)
 Служба хранилища Azure предоставляет модель многоуровневой безопасности, которая обеспечивает безопасность учетных записей хранения, открывая к ним доступ только по определенным разрешенным сетям.  При настройке правил сети к учетной записи хранения могут получать доступ только приложения из разрешенных сетей.  Однако и из разрешенной сети доступ к учетной записи хранения имеют только приложения с надлежащим уровнем авторизации (допустимый ключ доступа или токен SAS).
@@ -39,6 +39,10 @@ ms.lasthandoff: 12/11/2017
 После этого правила сети применяются ко всем запросам.  Токены SAS, позволяющие получить доступ к конкретной службе IP-адресов, **ограничивают** доступ владельца токена, но не предоставляют доступ к каким-либо новым ресурсам, не указанным в настроенных сетевых правилах. 
 
 Правила сети **не** распространяются на трафик дисков виртуальной машины (включая операции подключения и отключения, а также дисковые операции ввода-вывода).  Сетевые правила обеспечивают безопасность во время доступа REST к страничным BLOB-объектам.
+
+> [!NOTE]
+> Резервное копирование и восстановление виртуальных машин с помощью неуправляемых дисков в учетных записях хранения с применением правил сети сейчас не поддерживается.  Дополнительные сведения см. в разделе [Ограничения при резервном копировании и восстановлении виртуальной машины](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
+>
 
 Классические учетные записи хранения **не** поддерживают брандмауэры и виртуальные сети.
 
@@ -298,7 +302,6 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 |Концентраторы событий Azure|Microsoft.EventHub|Архивация данных с помощью записи концентраторов событий.  [Подробнее](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|
 |Azure HDInsight|Microsoft.HDInsight|Подготовка и установка кластеров.  [Узнайте больше](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Сеть Azure|Microsoft.Networking|Хранение и анализ журналов сетевого трафика.  [Узнайте больше](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Служба архивации Azure|Microsoft.RecoveryServices|Архивация и восстановление неуправляемых дисков.  [Узнайте больше](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Доступ к данным аналитики хранилища
@@ -356,7 +359,7 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 > Настройте для [правила по умолчанию](#change-the-default-network-access-rule) запрет. В противном случае удаление исключений не подействует.
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о конечных точках службы сети Azure см. в статье [Virtual Network Service Endpoints (Preview)](/azure/virtual-network/virtual-network-service-endpoints-overview) (Конечные точки виртуальной сети (предварительная версия)).
 
 Более подробную информацию о безопасности службы хранилища Azure см. в статье [Руководство по безопасности службы хранилища Azure](storage-security-guide.md).

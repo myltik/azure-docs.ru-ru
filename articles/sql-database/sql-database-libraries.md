@@ -1,6 +1,6 @@
 ---
 title: "Библиотеки подключений для базы данных SQL | Документация Майкрософт"
-description: "Ссылки для загрузки модулей, которые разрешают соединение с SQL Server и базы данных SQL с различными языками программирования клиента."
+description: "В этой статье содержатся ссылки для скачивания модулей, которые обеспечивают подключение к SQL Server и базе данных SQL с использованием разных языков программирования на стороне клиента."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -15,29 +15,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: 012acd2b53fc9205511530d3cc30803dceef88a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: a45393804aa5398bc0c40ca3f3cb6c97b106b81c
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Библиотек подключений и платформы для SQL Server
+# <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Библиотеки подключений и платформы для SQL Server
 
-Извлечение нашей [получить руководства по работы](http://aka.ms/sqldev) быстро приступить к языки программирования типа C#, Java, Node.js, PHP и Python. Выполните сборку приложения с помощью SQL Server в Linux или Windows или Docker на macOS.
+Ознакомьтесь с нашими [руководствами по началу работы](http://aka.ms/sqldev), чтобы быстро приступить к программированию на таких языках, как C#, Java, Node.js, PHP и Python. Затем создайте приложение с помощью SQL Server в Linux или Windows либо Docker в macOS.
 
-В следующей таблице перечислены библиотек подключений или *драйверы* , клиентские приложения можно использовать из множества языков для подключения и использовать SQL Server, работающий локально или в облаке. Можно использовать их в Linux, Windows или Docker и использовать их для подключения к базе данных SQL Azure и хранилище данных SQL Azure. 
+В следующей таблице перечислены библиотеки подключений или *драйверы*, которые клиентские приложения могут применять с помощью различных языков для подключения и использования сервера SQL Server, работающего локально или в облаке. Эти библиотеки и драйверы можно использовать в среде Linux, Windows или Docker, а также при подключении к базе данных SQL Azure и хранилищу данных SQL Azure. 
 
 | Язык | платформа | Дополнительные ресурсы | Загрузка | Начало работы |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET для SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Загрузить](https://www.microsoft.com/net/download/) | [Начало работы](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Драйвер Microsoft JDBC для SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Загрузить](https://go.microsoft.com/fwlink/?linkid=852460) |  [Начало работы](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [Драйвера PHP SQL для SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Операционная система: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Начало работы](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
-| Node.js | Windows, Linux, macOS | [Драйвер node.js для SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Установка](https://msdn.microsoft.com/library/mt652094.aspx) |  [Начало работы](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
+| Java | Windows, Linux, macOS | [Microsoft JDBC Driver для SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Загрузить](https://go.microsoft.com/fwlink/?linkid=852460) |  [Начало работы](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [Драйвер PHP SQL для SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Операционная система: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=55642) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Начало работы](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
+| Node.js | Windows, Linux, macOS | [Драйвер Node.js для SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Установка](https://msdn.microsoft.com/library/mt652094.aspx) |  [Начало работы](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, macOS | [Драйвер Python SQL](http://msdn.microsoft.com/library/mt652092.aspx) | Варианты установки: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Начало работы](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, macOS | [Драйвер Ruby для SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Установка](https://msdn.microsoft.com/library/mt711041.aspx) | [Начало работы](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
-| C++ | Windows, Linux, macOS | [Драйвер Microsoft ODBC для SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Загрузить](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
+| C++ | Windows, Linux, macOS | [Microsoft ODBC Driver for SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Загрузить](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
 
-В следующей таблице перечислены примеры платформ объектно реляционного сопоставления (ORM) и веб-платформ, клиентские приложения могут использовать с SQL Server, работающий локально или в облаке. Можно использовать платформы в Linux, Windows или Docker и использовать их для подключения к базе данных SQL и хранилищем данных SQL. 
+В следующей таблице перечислены примеры платформ объектно-реляционного сопоставления и веб-платформ, которые клиентские приложения могут использовать с сервером SQL Server, работающим локально или в облаке. Эти платформы можно использовать в Linux, Windows или Docker, а также при подключении к базе данных SQL и хранилищу данных SQL. 
 
 | Язык | платформа | Платформы ORM |
 | :-- | :-- | :-- |
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/11/2017
 ||||
 
 ## <a name="related-links"></a>Связанные ссылки
-- [Драйверы для SQL Server](http://msdn.microsoft.com/library/mt654049.aspx) , которые используются для подключения из клиентских приложений
+- [Драйверы SQL Server](http://msdn.microsoft.com/library/mt654049.aspx), которые используются для подключения из клиентских приложений
 - Подключение к базе данных SQL:
     - [Подключение к базе данных SQL с помощью .NET (C#)](sql-database-connect-query-dotnet.md)
     - [Подключение к Базе данных SQL с помощью PHP](sql-database-connect-query-php.md)

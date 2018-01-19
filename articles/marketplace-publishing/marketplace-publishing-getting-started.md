@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 5e8a410206f8c48affe171fb77b1a9555818953e
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 > [!NOTE]
-> В этой документации больше не являются текущими и не является точным. Вместо этого перейдите в Azure Marketplace [руководство продавца](https://docs.microsoft.com/en-us/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) инструкции по публикации предложения в Azure Marketplace.
+> Этот документ больше не актуален и не содержит надежные сведения. С инструкциями по публикации предложений в Microsoft Azure Marketplace можно ознакомиться в [руководстве по Microsoft Azure Marketplace для продавца](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide).
 
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Публикация предложения и управление им в Azure Marketplace
 Эта статья поможет разработчикам создать и развернуть решения, а также управлять ими в Azure Marketplace, чтобы их могли приобрести и использовать другие клиенты и партнеры Azure.
@@ -96,9 +96,9 @@ ms.lasthandoff: 12/15/2017
 * [Обновление нетехнических сведений о предложении или номере SKU](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
 * [Добавление нового SKU во внесенное в список предложение](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
 * [Изменение числа дисков данных для внесенного в список номера SKU](marketplace-publishing-vm-image-post-publishing.md#change-the-data-disk-count-for-a-listed-sku)
-* [Удаляет предложение, перечисленных в Marketplace](marketplace-publishing-vm-image-post-publishing.md)
-* [Удалить указанные SKU из Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
-* [Удаление текущей версии перечисленных SKU из Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
+* [Удаление внесенного в список предложения из Microsoft Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md)
+* [Удаление внесенного в список номера SKU из Microsoft Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
+* [Удаление текущей версии внесенного в список номера SKU из Microsoft Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
 * [Возврат рабочих значений цен для внесенных в список элементов](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
 * [Возврат рабочих значений для модели выставления счетов](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [Возврат рабочего значения параметра видимости для внесенного в список номера SKU](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)

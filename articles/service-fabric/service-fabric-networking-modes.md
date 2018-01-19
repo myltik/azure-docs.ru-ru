@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Сетевые режимы контейнеров Service Fabric
 
@@ -221,7 +221,17 @@ ms.lasthandoff: 12/08/2017
     >В кластерах Linux использование разных сетевых режимов для разных служб не поддерживается. 
     >
 
-## <a name="next-steps"></a>Дальнейшие действия
+5. При выборе **открытого** режима определение **конечной точки** манифеста службы должно явно указывать на пакет кода, соответствующий этой конечной точке, даже если пакет службы содержит только один пакет кода. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
+
+## <a name="next-steps"></a>Дополнительная информация
 * [Моделирование приложения в Service Fabric](service-fabric-application-model.md)
 * [Указание ресурсов в манифесте службы](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources) для Service Fabric
 * [Развертывание контейнера Windows в Service Fabric на платформе Windows Server 2016](service-fabric-get-started-containers.md)

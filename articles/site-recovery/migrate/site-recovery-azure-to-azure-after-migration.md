@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: ponatara
 ms.openlocfilehash: 2943d33744a29da7ffd1f1544fc81696195ecce1
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Репликация виртуальных машин Azure в другой регион после миграции в Azure с помощью Azure Site Recovery
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/29/2017
 | **Операция** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Установка агента виртуальной машины |Скачайте и установите [MSI-файл агента](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Чтобы выполнить установку, необходимо иметь права администратора. |Установите последнюю версию [агента Linux](../../virtual-machines/linux/agent-user-guide.md). Чтобы выполнить установку, необходимо иметь права администратора. Мы советуем устанавливать агент из репозитория дистрибутива. Мы *не советуем* устанавливать агент виртуальной машины Linux непосредственно из Github.  |
-| Проверка установки агента виртуальной машины |1. На виртуальной машине Azure просмотрите папку C:\WindowsAzure\Packages. В ней должен находиться файл WaAppAgent.exe. <br>2) Щелкните правой кнопкой мыши этот файл, выберите пункт **Свойства** и перейдите на вкладку **Подробно**. В поле **Версия продукта** должно отображаться значение 2.6.1198.718 или выше. |Недоступно |
+| Проверка установки агента виртуальной машины |1. На виртуальной машине Azure просмотрите папку C:\WindowsAzure\Packages. В ней должен находиться файл WaAppAgent.exe. <br>2. Щелкните правой кнопкой мыши этот файл, выберите пункт **Свойства** и перейдите на вкладку **Подробно**. В поле **Версия продукта** должно отображаться значение 2.6.1198.718 или выше. |Недоступно |
 
 
 ### <a name="step-3-remove-the-mobility-service-from-the-migrated-virtual-machine"></a>Шаг 3. Удалите службу Mobility Service из перенесенной виртуальной машины.
@@ -100,6 +100,6 @@ ms.lasthandoff: 11/29/2017
 После удаления службы Mobility Service перезапустите виртуальную машину перед настройкой репликации в другой регион Azure.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Включите защиту рабочих нагрузок, [выполнив репликацию виртуальных машин Azure](../azure-to-azure-quickstart.md).
 - Ознакомьтесь со статьей [Руководство по организации сети для репликации виртуальных машин Azure](../site-recovery-azure-to-azure-networking-guidance.md).

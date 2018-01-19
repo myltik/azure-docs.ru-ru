@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2170ac7df3b894c8d19b432abdcfef5c7fd75ff4
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 81d08e047a3689d110195f2325b52c6c0457e644
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Создание API RESTful Node.js и его развертывание в приложении API в Azure
 
 В этом кратком руководстве объясняется, как создать REST API, написанный с использованием Node.js [Express](http://expressjs.com/) с помощью определения [Swagger](http://swagger.io/), а затем развернуть его в Azure. Вы научитесь создавать приложения, используя программы командной строки, настраивать ресурсы в [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) и развертывать приложения с помощью Git.  Завершив работу, вы получите рабочий образец REST API в Azure.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>Необходимые компоненты
 
 * [Git.](https://git-scm.com/)
 * [Node.js и NPM](https://nodejs.org/)
@@ -84,7 +84,7 @@ yo swaggerize --apiPath api.json --framework express
 1. Скопируйте папку *lib* в папку *ContactList*, созданную с помощью `yo swaggerize`, затем перейдите в каталог *ContactList*.
 
     ```bash
-    cp -r lib/ ContactList/
+    cp -r lib ContactList/
     cd ContactList
     ```
 
@@ -246,14 +246,22 @@ yo swaggerize --apiPath api.json --framework express
     node_modules/
     ```
     Подтвердите, что папка `node_modules` должна игнорироваться `git status`.
+    
+4. Добавьте в `package.json` следующие строки. Код, написанный с помощью Swaggerize, не указывает версию модуля Node.js. Если версия не указана, Azure использует версию `0.10.18` по умолчанию, которая не совместима с созданным кодом.
 
-4. Зафиксируйте изменения в репозитории.
+    ```javascript
+    "engines": {
+        "node": "~0.10.22"
+    },
+    ```
+
+5. Зафиксируйте изменения в репозитории.
     ```bash
     git add .
     git commit -m "initial version"
     ```
 
-5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
+6. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
 ## <a name="test-the-api--in-azure"></a>Тестирование API в Azure
 

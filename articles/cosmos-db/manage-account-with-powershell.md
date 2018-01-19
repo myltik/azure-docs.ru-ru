@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
 ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Создание учетной записи Azure Cosmos DB с помощью PowerShell
 
@@ -192,7 +192,7 @@ ms.lasthandoff: 12/14/2017
     $failoverPolicies = @(@{"locationName"="East US"; "failoverPriority"=0},@{"locationName"="West US"; "failoverPriority"=1})
     Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"failoverPolicies"=$failoverPolicies}
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения см. в статье о [подключении и создании запросов с помощью .NET](create-sql-api-dotnet.md).
 * Дополнительные сведения см. в статье о [подключении и создании запросов с помощью Node.js и приложения MongoDB](create-mongodb-nodejs.md).
