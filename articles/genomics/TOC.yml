@@ -21,6 +21,8 @@
   items:
     - name: Часто задаваемые вопросы
       href: frequently-asked-questions-genomics.md
+    - name: Журнал выпуска версий
+      href: version-release-history-genomics.md
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: Цены

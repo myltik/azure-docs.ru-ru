@@ -77,6 +77,8 @@
       href: use-hsm-with-sdk.md
     - name: Управление доступом к службе подготовки
       href: how-to-control-access.md
+    - name: Управление службой подготовки устройств с помощью Azure CLI
+      href: how-to-manage-dps-with-cli.md
 - name: Справочные материалы
   items:
     - name: REST

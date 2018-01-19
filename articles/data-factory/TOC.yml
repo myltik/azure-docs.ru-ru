@@ -9,29 +9,27 @@
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Создание фабрики данных
-      items:
-        - name: Пользовательский интерфейс
-          href: quickstart-create-data-factory-portal.md
-        - name: Средство копирования данных
-          href: quickstart-create-data-factory-copy-data-tool.md
-        - name: PowerShell
-          href: quickstart-create-data-factory-powershell.md
-        - name: .NET
-          href: quickstart-create-data-factory-dot-net.md
-        - name: Python
-          href: quickstart-create-data-factory-python.md
-        - name: REST
-          href: quickstart-create-data-factory-rest-api.md
-        - name: Шаблон Resource Manager
-          href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Создание фабрики данных с помощью пользовательского интерфейса
+      href: quickstart-create-data-factory-portal.md
+    - name: "Создание фабрики данных\_— средство копирования данных"
+      href: quickstart-create-data-factory-copy-data-tool.md
+    - name: Создание фабрики данных с помощью Microsoft Azure PowerShell
+      href: quickstart-create-data-factory-powershell.md
+    - name: Создание фабрики данных с помощью .NET
+      href: quickstart-create-data-factory-dot-net.md
+    - name: Создание фабрики данных с помощью Python
+      href: quickstart-create-data-factory-python.md
+    - name: Создание фабрики данных с помощью REST
+      href: quickstart-create-data-factory-rest-api.md
+    - name: Создание фабрики данных с помощью шаблона Resource Manager
+      href: quickstart-create-data-factory-resource-manager-template.md
 - name: Учебники
   items:
     - name: 1. Развертывание пакетов служб SSIS в Azure
       items:
         - name: Пользовательский интерфейс
           href: tutorial-create-azure-ssis-runtime-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure.md
     - name: 2. Копирование данных в облако
       items:
@@ -39,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Пользовательский интерфейс
           href: tutorial-copy-data-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-copy-data-dot-net.md
     - name: 3. Копирование локальных данных в облако
       items:
@@ -47,13 +45,13 @@
           href: tutorial-hybrid-copy-data-tool.md
         - name: Пользовательский интерфейс
           href: tutorial-hybrid-copy-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-hybrid-copy-powershell.md
     - name: 4. Копирование данных в пакетном режиме
       items:
         - name: Пользовательский интерфейс
           href: tutorial-bulk-copy-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-bulk-copy.md
     - name: 5. Добавочное копирование данных
       href: tutorial-incremental-copy-overview.md
@@ -62,41 +60,41 @@
           items:
             - name: Пользовательский интерфейс
               href: tutorial-incremental-copy-portal.md
-            - name: PowerShell
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-powershell.md
         - name: 5.2. Копирование из нескольких таблиц
           items:
-            - name: PowerShell
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3. Использование функции отслеживания изменений
           items:
             - name: Пользовательский интерфейс
               href: tutorial-incremental-copy-change-tracking-feature-portal.md
-            - name: PowerShell
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6. Преобразование данных в облаке
       items:
         - name: Пользовательский интерфейс
           href: tutorial-transform-data-spark-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-transform-data-spark-powershell.md
     - name: 7. Преобразование данных в виртуальной сети
       items:
         - name: Пользовательский интерфейс
           href: tutorial-transform-data-hive-virtual-network-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-transform-data-hive-virtual-network.md
     - name: 8. Управление потоками
       items:
         - name: Пользовательский интерфейс
           href: tutorial-control-flow-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-control-flow.md
 - name: Примеры
   items:
     - name: Примеры кода
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
-    - name: PowerShell
+    - name: Azure PowerShell
       href: samples-powershell.md
 - name: Основные понятия
   items:
