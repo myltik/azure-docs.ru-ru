@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 75be5be0bef4dd07c8560076f47055105a70ee05
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f80e682a89dcf6b5d3d5d6f2f15c4eeab2046e7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: создание базы данных графа с помощью PHP и портала Azure
 
@@ -137,7 +137,9 @@ Azure Cosmos DB — это глобально распределенная мн
     ]);
     ```
 
-3. Измените параметр `username` в объекте подключения, указав имена вашей базы данных и графа. Если использовались рекомендуемые значения `sample-database` и `sample-graph`, он должен выглядеть следующим образом:
+3. Если учетная запись базы данных графа создана 20 декабря 2017 г. или позже, измените `graphs.azure.com` в имени узла на `gremlin.cosmosdb.azure.com`.
+
+4. Измените параметр `username` в объекте подключения, указав имена вашей базы данных и графа. Если использовались рекомендуемые значения `sample-database` и `sample-graph`, он должен выглядеть следующим образом:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -155,7 +157,7 @@ Azure Cosmos DB — это глобально распределенная мн
     ]);
     ```
 
-4. На портале Azure с помощью кнопки "Копировать" скопируйте первичный ключ и вставить его вместо `your_primary_key` в параметр пароля (password).
+5. На портале Azure с помощью кнопки "Копировать" скопируйте первичный ключ и вставить его вместо `your_primary_key` в параметр пароля (password).
 
     Инициализация объекта подключения теперь должна выглядеть так:
 
@@ -171,7 +173,7 @@ Azure Cosmos DB — это глобально распределенная мн
     ]);
     ```
 
-5. Сохраните файл `connect.php`.
+6. Сохраните файл `connect.php`.
 
 ## <a name="run-the-console-app"></a>Запуск консольного приложения
 

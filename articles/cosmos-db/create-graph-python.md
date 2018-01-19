@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b5160aec6504dfa924279286d9676a97716f5a6c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 68cc1a3b69e3e2d59a791a9241a1a8b4b3062673
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: создание базы данных графа с помощью Python и портала Azure
 
@@ -135,28 +135,30 @@ Azure Cosmos DB — это глобально распределенная мн
         password="<YOUR_PASSWORD>")
     ```
 
-3. Измените второй параметр объекта `client`, чтобы заменить строки `<YOUR_DATABASE>` и `<YOUR_COLLECTION_OR_GRAPH>`. Если вы использовали предложенные значения, параметр должен выглядеть следующим образом:
+3. Измените `graphs.azure.com` в имени клиента на `gremlin.cosmosdb.azure.com`. (Если учетная запись базы данных графа создана до 20 декабря 2017 г., оставьте все без изменений и перейдите к следующему шагу.)
+
+4. Измените второй параметр объекта `client`, чтобы заменить строки `<YOUR_DATABASE>` и `<YOUR_COLLECTION_OR_GRAPH>`. Если вы использовали предложенные значения, параметр должен выглядеть следующим образом:
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
     Весь объект `client` теперь должен выглядеть следующим образом:
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="<YOUR_PASSWORD>")
     ```
 
-4. На портале Azure с помощью кнопки "Копировать" скопируйте первичный ключ и вставьте его вместо `<YOUR_PASSWORD>` в параметр `password=<YOUR_PASSWORD>`.
+5. На портале Azure с помощью кнопки "Копировать" скопируйте первичный ключ и вставьте его вместо `<YOUR_PASSWORD>` в параметр `password=<YOUR_PASSWORD>`.
 
     Теперь все определение объекта `client` должно выглядеть следующим образом:
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="asdb13Fadsf14FASc22Ggkr662ifxz2Mg==")
     ```
 
-5. Сохраните файл `connect.py`.
+6. Сохраните файл `connect.py`.
 
 ## <a name="run-the-console-app"></a>Запуск консольного приложения
 

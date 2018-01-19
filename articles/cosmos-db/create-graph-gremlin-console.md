@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: fa2a5f1599fb0d95c89d848860ba9b32139a3dd2
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 2729ad97b49e7284022adae06c5b5f006647849c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB. Создание, запрос и просмотр в консоли Gremlin
 
@@ -51,7 +51,7 @@ Azure Cosmos DB — это глобально распределенная мн
 
     Параметр|Рекомендуемое значение|ОПИСАНИЕ
     ---|---|---
-    Узлы|[***.graphs.azure.com]|Просмотрите указанный ниже снимок экрана. Это значение Gremlin URI на странице обзора портала Azure, заключенное в квадратные скобки и без окончания 443/.<br><br>Его также можно получить на вкладке "Ключи" с помощью значения URI, удалив https://, изменив документы на диаграммы и удалив окончание 443/.
+    Узлы|[***.gremlin.cosmosdb.azure.com] или [***.graphs.azure.com] для учетных записей, созданных до 20 декабря 2017 г.|Просмотрите указанный ниже снимок экрана. Это значение Gremlin URI на странице обзора портала Azure, заключенное в квадратные скобки и без окончания 443/.<br><br>Его также можно получить на вкладке "Ключи" с помощью значения URI, удалив https://, изменив документы на графы или gremlin.cosmosdb и удалив окончание 443/.
     порт|443|Задайте значение 443.
     Имя пользователя|*Имя пользователя*|Ресурс в формате `/dbs/<db>/colls/<coll>`, где `<db>` — это имя базы данных, а `<coll>` — имя коллекции.
     password|*Значение первичного ключа*| Просмотрите второй снимок экрана ниже. Это первичный ключ, который можно получить на странице "Ключи" на портале Azure в поле "Первичный ключ". Скопируйте значение с помощью кнопки копирования в левой части поля.
@@ -65,7 +65,7 @@ Azure Cosmos DB — это глобально распределенная мн
 Файл remote-secure.yaml должен выглядеть следующим образом:
 
 ```
-hosts: [your_database_server.graphs.azure.com]
+hosts: [your_database_server.gremlin.cosmosdb.azure.com]
 port: 443
 username: /dbs/your_database_account/colls/your_collection
 password: your_primary_key

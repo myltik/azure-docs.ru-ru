@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e90879c70e47d2bc5034b4fbf2b0ed7172fe131e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b28300c4ed0a0c6f35bf49808b8ed12d4e180610
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: создание графовой базы данных с помощью Java и портала Azure
 
@@ -129,13 +129,19 @@ Azure Cosmos DB — это глобально распределенная мн
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. На портале Azure используйте кнопку "Копировать", чтобы скопировать первичный ключ и вставить его вместо `$masterKey$` в `password: $masterKey$`.
+3. В значении `endpoint` измените `graphs` на `gremlin.cosmosdb`. (Если учетная запись базы данных графа создана до 20 декабря 2017 г., оставьте значение конечной точки без изменений и перейдите к следующему шагу.)
+
+    Значение конечной точки должно выглядеть так:
+
+    `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"`
+
+4. На портале Azure используйте кнопку "Копировать", чтобы скопировать первичный ключ и вставить его вместо `$masterKey$` в `password: $masterKey$`.
 
     Теперь строка 4 в remote.yaml будет выглядеть примерно так: 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-4. Измените строку 3 файла remote.yaml. Внесите вместо
+5. Измените строку 3 файла remote.yaml. Внесите вместо
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -143,7 +149,7 @@ Azure Cosmos DB — это глобально распределенная мн
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-5. Сохраните файл remote.yaml.
+6. Сохраните файл remote.yaml.
 
 ## <a name="run-the-console-app"></a>Запуск консольного приложения
 

@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 01e539856adbdcf02dc4e49087a3ab71b328db5a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-container-instances"></a>Экземпляры контейнеров Azure
 
@@ -43,7 +43,9 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="linux-and-windows-containers"></a>Контейнеры Linux и Windows
 
-Служба "Экземпляры контейнеров Azure" позволяет задать расписание контейнеров Windows и Linux в одном и том же API. Просто укажите базовый тип операционной системы, а все остальные действия идентичны.
+Служба "Экземпляры контейнеров Azure" позволяет задать расписание контейнеров Windows и Linux в одном и том же API. Просто укажите тип операционной системы при создании [группы контейнеров](container-instances-container-groups.md).
+
+Некоторые функции сейчас ограничены контейнерами Linux. Мы работаем над тем, чтобы обеспечить все функции для контейнеров Windows, но для текущей платформы есть отличия в [квотах и доступности регионов для службы "Экземпляры контейнеров Azure"](container-instances-quotas.md).
 
 ## <a name="co-scheduled-groups"></a>Общее расписание для групп
 

@@ -2,24 +2,24 @@
 title: "Создание приложения-контейнера Azure Service Fabric в Linux | Документация Майкрософт"
 description: "Создание первого приложения-контейнера Linux в Azure Service Fabric.  Создание образа Docker с приложением, отправка образа в реестр контейнеров, сборка и развертывание приложения-контейнера Service Fabric."
 services: service-fabric
-documentationcenter: .net
-author: rwike77
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
-ms.author: ryanwi
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a3fa592e08ab05dfc56cf0c0c13eb6a64a7e2052
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Развертывание приложения-контейнера Azure Service Fabric для Linux в Azure
 Azure Service Fabric — это платформа распределенных систем для развертывания масштабируемых надежных микрослужб и контейнеров и управления ими. 
@@ -66,23 +66,34 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 > Служба веб-интерфейса ожидает передачи данных через порт 80 для входящего трафика. Убедитесь, что порт открыт в кластере. При использовании кластера сообщества этот порт открыт.
 >
 
-### <a name="deploy-the-application-manifests"></a>Развертывание манифестов приложения 
+### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Установка интерфейса командной строки Service Fabric и подключение к кластеру
 Установка [интерфейса командной строки Service Fabric (sfctl)](service-fabric-cli.md) в среде CLI
 
 ```azurecli-interactive
 pip3 install --user sfctl 
 export PATH=$PATH:~/.local/bin
 ```
+
 Подключитесь к кластеру Service Fabric в Azure с помощью Azure CLI. Конечная точка — это конечная точка управления кластера. Например: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 ```azurecli-interactive
 sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
+### <a name="deploy-the-service-fabric-application"></a>Развертывание приложения Service Fabric 
+Приложения-контейнеры Service Fabric можно развернуть с помощью описанного пакета приложений Service Fabric или Docker Compose. 
+
+#### <a name="deploy-using-service-fabric-application-package"></a>Развертывание с помощью пакета приложений Service Fabric
 С помощью скрипта установки скопируйте определения приложения для голосования в кластер, зарегистрируйте тип приложения и создайте экземпляр приложения.
 
 ```azurecli-interactive
 ./install.sh
+```
+
+#### <a name="deploy-the-application-using-docker-compose"></a>Развертывание приложения с помощью Docker Compose
+Разверните и установите приложение в кластере Service Fabric с помощью Docker Compose, выполнив следующую команду.
+```azurecli-interactive
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 
 Откройте браузер и перейдите к обозревателю Service Fabric Explorer по адресу http://\<URL-адрес_моего_кластера_Azure_Service_Fabric>:19080/Explorer. Например: `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Разверните узел приложения, чтобы увидеть запись для типа приложения голосования и созданный вами экземпляр.
@@ -133,7 +144,7 @@ sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:190
 ./uninstall.sh
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Из этого руководства вы узнали, как выполнить следующие действия:
 > [!div class="checklist"]
 > * Развертывание приложения-контейнера Linux в Azure
