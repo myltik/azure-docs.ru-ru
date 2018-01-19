@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Фильтрация сетевого трафика с помощью групп безопасности сети и приложений (предварительная версия)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/04/2017
 Эта статья содержит инструкции по созданию групп безопасности сети с использованием модели развертывания Resource Manager. Мы рекомендуем использовать эту модель при создании групп безопасности сети. Если вам требуется создать группу безопасности сети в классической модели, см. статью [Как создать группы безопасности сети (классические)](virtual-networks-create-nsg-classic-ps.md). Если вы не знакомы с моделями развертывания Azure, см. статью [Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!NOTE]
-> В этом руководстве используются компоненты группы безопасности сети, которые доступны в предварительной версии. Для функций предварительной версии не обеспечивается такой же уровень доступности и надежности, как для общедоступного выпуска. В режиме предварительной версии эти функции доступны только в следующем регионе: центрально-западная часть США. Если вы хотите развернуть группы безопасности сети с помощью компонентов только общедоступного выпуска, см. статью [Создание группы безопасности сети](virtual-networks-create-nsg-arm-pportal.md). 
+> В этом руководстве используются компоненты группы безопасности сети, которые доступны в предварительной версии. Для функций предварительной версии не обеспечивается такой же уровень доступности и надежности, как для общедоступного выпуска. Если вы хотите развернуть группы безопасности сети с помощью компонентов только общедоступного выпуска, см. статью [Создание группы безопасности сети](virtual-networks-create-nsg-arm-pportal.md). 
 
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
 
@@ -42,14 +42,14 @@ ms.lasthandoff: 11/04/2017
 3. Войдите в Azure с помощью команды `az login`.
 4. Зарегистрируйтесь для использования предварительной версии, выполнив следующие команды:
     
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     az provider register --namespace Microsoft.Network
     ``` 
 
 5. Убедитесь, что регистрация прошла успешно, выполнив следующую команду:
 
-    ```azurecli-interactive
+    ```azurecli
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/04/2017
 
 6. Выполните следующий сценарий bash, чтобы создать группу ресурсов:
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
     
     az group create \
@@ -68,7 +68,7 @@ ms.lasthandoff: 11/04/2017
 
 7. Создайте три группы безопасности приложений, по одной для каждого типа сервера:
 
-    ```azurecli-interactive
+    ```azurecli
     az network asg create \
       --resource-group myResourceGroup \
       --name WebServers \
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/04/2017
 
 8. Создайте группу безопасности сети:
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg create \
       --resource-group myResourceGroup \
       --name myNsg \
@@ -96,7 +96,7 @@ ms.lasthandoff: 11/04/2017
 
 9. Создайте правила безопасности в NSG, настроив группы безопасности приложений в качестве цели:
     
-    ```azurecli-interactive    
+    ```azurecli    
     az network nsg rule create \
       --resource-group myResourceGroup \
       --nsg-name myNsg \
@@ -136,7 +136,7 @@ ms.lasthandoff: 11/04/2017
 
 10. Создайте виртуальную сеть: 
     
-    ```azurecli-interactive
+    ```azurecli
     az network vnet create \
       --name myVnet \
       --resource-group myResourceGroup \
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/04/2017
 
 11. Свяжите группу безопасности сети с подсетью в виртуальной сети:
 
-    ```azurecli-interactive
+    ```azurecli
     az network vnet subnet update \
       --name mySubnet \
       --resource-group myResourceGroup \
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/04/2017
     
 12. Создайте три сетевых интерфейса, по одному для каждого типа сервера: 
 
-    ```azurecli-interactive
+    ```azurecli
     az network nic create \
       --resource-group myResourceGroup \
       --name myNic1 \
@@ -183,11 +183,11 @@ ms.lasthandoff: 11/04/2017
       --application-security-groups "DatabaseServers"
     ```
 
-    Только соответствующее правило безопасности, созданное на шаге 9, применяется к сетевому интерфейсу в зависимости от группы безопасности приложений, в которую он входит. Например, только правило *WebRule* действует для *myNic1*, так как сетевой интерфейс является членом группы безопасности приложений *WebServers*, и правило указывает группу *WebServers* в качестве места назначения. Правила *AppRule* и *DatabaseRule* не применяются к *myNic1*, так как сетевой интерфейс не является членом групп безопасности приложений *AppServers* и *DatabaseServers*.
+    Только соответствующее правило безопасности, созданное на шаге 9, применяется к сетевому интерфейсу в зависимости от группы безопасности приложений, в которую он входит. Например, для *myNic2* действует только правило *AppRule*, так как сетевой интерфейс входит в группу безопасности приложений *AppServers* и правило указывает группу *AppServers* в качестве места назначения. Правила *WebRule* и *DatabaseRule* не применяются к *myNic2*, так как сетевой интерфейс не входит в группы безопасности приложений *WebServers* и *DatabaseServers*. Но для *myNic1* действуют правила *WebRule* и *AppRule*, потому что сетевой интерфейс *myNic1* входит в группы безопасности приложений *WebServers* и *AppServers* и правила указывают группы *WebServers* и *AppServers* в качестве мест назначения. 
 
 13. Создайте одну виртуальную машину для каждого типа сервера, подключив соответствующий сетевой интерфейс к каждой виртуальной машине. В этом примере мы создаем виртуальные машины Windows, однако можно заменить *win2016datacenter* на *UbuntuLTS*, чтобы создать виртуальные машины Linux.
 
-    ```azurecli-interactive
+    ```azurecli
     # Update for your admin password
     AdminPassword=ChangeYourAdminPassword1
 
@@ -198,7 +198,8 @@ ms.lasthandoff: 11/04/2017
       --nics myNic1 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -207,7 +208,8 @@ ms.lasthandoff: 11/04/2017
       --nics myNic2 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -281,8 +283,8 @@ ms.lasthandoff: 11/04/2017
       -SourceAddressPrefix Internet `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $webAsg.id `
-      -DestinationPortRange 80  
-
+      -DestinationPortRange 80
+    
     $appRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "AppRule" `
       -Access Allow `
@@ -292,8 +294,8 @@ ms.lasthandoff: 11/04/2017
       -SourceApplicationSecurityGroupId $webAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $appAsg.id `
-      -DestinationPortRange 443 
-
+      -DestinationPortRange 443
+      
     $databaseRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "DatabaseRule" `
       -Access Allow `
@@ -303,7 +305,7 @@ ms.lasthandoff: 11/04/2017
       -SourceApplicationSecurityGroupId $appAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $databaseAsg.id `
-      -DestinationPortRange 1336    
+      -DestinationPortRange 1336
     ``` 
 
 9. Создайте группу безопасности сети:
@@ -361,7 +363,7 @@ ms.lasthandoff: 11/04/2017
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Только соответствующее правило безопасности, созданное на шаге 8, применяется к сетевому интерфейсу в зависимости от группы безопасности приложений, в которую он входит. Например, только правило *WebRule* действует для *myNic1*, так как сетевой интерфейс является членом группы безопасности приложений *WebServers*, и правило указывает группу *WebServers* в качестве места назначения. Правила *AppRule* и *DatabaseRule* не применяются к *myNic1*, так как сетевой интерфейс не является членом групп безопасности приложений *AppServers* и *DatabaseServers*.
+    Только соответствующее правило безопасности, созданное на шаге 8, применяется к сетевому интерфейсу в зависимости от группы безопасности приложений, в которую он входит. Например, для *myNic2* действует только правило *AppRule*, так как сетевой интерфейс входит в группу безопасности приложений *AppServers* и правило указывает группу *AppServers* в качестве места назначения. Правила *WebRule* и *DatabaseRule* не применяются к *myNic2*, так как сетевой интерфейс не входит в группы безопасности приложений *WebServers* и *DatabaseServers*. Но для *myNic1* действуют правила *WebRule* и *AppRule*, потому что сетевой интерфейс *myNic1* входит в группы безопасности приложений *WebServers* и *AppServers* и правила указывают группы *WebServers* и *AppServers* в качестве мест назначения. 
 
 13. Создайте одну виртуальную машину для каждого типа сервера, подключив соответствующий сетевой интерфейс к каждой виртуальной машине. В этом примере создаются виртуальные машины Windows, однако перед выполнением сценария можно изменить *-Windows* на *-Linux*, *MicrosoftWindowsServer* на *Canonical*, *WindowsServer* на *UbuntuServer* и *2016-Datacenter* на *14.04.2-LTS*, чтобы создать виртуальные машины Linux.
 
@@ -429,6 +431,33 @@ ms.lasthandoff: 11/04/2017
 
 14. **Необязательно.** Удалите ресурсы, созданные в этом руководстве, с помощью шагов, описанных в разделе [Удаление ресурсов](#delete-cli).
 
+## <a name="remove-a-nic-from-an-asg"></a>Удаление сетевого адаптера из группы безопасности приложений
+Если сетевой интерфейс удален из группы безопасности приложений, к нему не применяется ни одно из правил, указывающих группу безопасности приложений.
+
+### <a name="azure-cli"></a>Инфраструктура CLI Azure
+
+Чтобы удалить *myNic3* из всех групп безопасности приложений, введите следующую команду:
+
+```azurecli
+az network nic update \
+  --name myNic3 \
+  --resource-group myResourceGroup \
+  --remove ipConfigurations[0].applicationSecurityGroups
+```
+
+### <a name="powershell"></a>PowerShell
+
+Чтобы удалить *myNic3* из всех групп безопасности приложений, введите следующие команды:
+
+```powershell
+$nic=Get-AzureRmNetworkInterface `
+  -Name myNic3 `
+  -ResourceGroupName myResourceGroup
+
+$nic.IpConfigurations[0].ApplicationSecurityGroups = $null
+$nic | Set-AzureRmNetworkInterface 
+```
+
 ## <a name="delete"></a>Удаление ресурсов
 
 По завершении работы с этим руководством может потребоваться удалить созданные ресурсы, чтобы за их использование не взималась плата: При удалении группы ресурсов будут также удалены все ресурсы, содержащиеся в ней.
@@ -443,7 +472,7 @@ ms.lasthandoff: 11/04/2017
 
 В окне сеанса интерфейса командной строки введите следующую команду:
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

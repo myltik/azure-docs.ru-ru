@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 12/09/2017
-ms.openlocfilehash: e16982e4e57ba9f2f11e9ee59f88f24b3fe3fe3f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.date: 01/11/2018
+ms.openlocfilehash: f0f9a10f987f19d8ae77a07038cffe23446856fd
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="limitations-in-azure-database-for-mysql"></a>Ограничения в базе данных Azure для MySQL
-Служба базы данных Azure для MySQL работает в режиме общедоступной предварительной версии. В следующих разделах описаны емкости, поддержки подсистемы хранения, поддержка прав доступа, поддержка инструкции обработки данных и функциональные ограничения в базе данных службы. Кроме того, ознакомьтесь с [общими ограничениями](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html), применимыми к ядру СУБД базы данных MySQL.
+# <a name="limitations-in-azure-database-for-mysql"></a>Ограничения в службе "База данных Azure для MySQL"
+Служба базы данных Azure для MySQL работает в режиме общедоступной предварительной версии. В следующих разделах приводятся ограничения, касающиеся емкости, поддерживаемых подсистем хранилища, поддерживаемых разрешений, поддерживаемых инструкций языка обработки данных и функциональных возможностей в службе базы данных. Кроме того, ознакомьтесь с [общими ограничениями](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html), применимыми к ядру СУБД базы данных MySQL.
 
 ## <a name="service-tier-maximums"></a>Максимальные показатели уровней служб
 База данных Azure для MySQL имеет несколько уровней служб, которые можно выбрать при создании сервера. Дополнительные сведения см. в статье [Уровни служб в базе данных Azure для MySQL](concepts-service-tiers.md).  
@@ -42,31 +42,31 @@ ms.lasthandoff: 01/03/2018
 Когда число подключений превышается, может появиться следующая ошибка:
 > ОШИБКА 1040 (08004): Слишком много подключений
 
-## <a name="storage-engine-support"></a>Поддержка подсистемы хранилища
+## <a name="storage-engine-support"></a>Поддержка подсистем хранилища
 
 ### <a name="supported"></a>Поддерживаются
-- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
-- [ПАМЯТЬ](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html);
+- [MEMORY](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html).
 
 ### <a name="unsupported"></a>Не поддерживается
-- [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
-- [BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
-- [АРХИВ](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
-- [ФЕДЕРАТИВНЫЕ](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
+- [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html);
+- [BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html);
+- [ARCHIVE](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html);
+- [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html).
 
-## <a name="privilege-support"></a>Поддержка прав доступа
+## <a name="privilege-support"></a>Поддержка разрешений
 
 ### <a name="unsupported"></a>Не поддерживается
-- Администратор базы данных роли многие sever параметров и параметров можно случайно снижают производительность сервера или отрицательный свойства ACID СУБД. Таким образом для поддержания нашей службы целостность и соглашения об уровне ОБСЛУЖИВАНИЯ на уровне продукта не представляйте роли администратора базы данных для клиентов. Учетная запись пользователя по умолчанию, который создается при создании нового экземпляра базы данных, позволяет пользователям выполнять большинство инструкций DDL и DML в экземпляре управляемую базу данных. 
-- SUPER право доступа аналогично [прав СУПЕРПОЛЬЗОВАТЕЛЯ](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) также ограничен.
+- Роль DBA. Большое количество параметров и настроек может случайно снизить производительность сервера или отключить свойства ACID СУБД. Поэтому, чтобы обеспечить целостность данных службы и соблюсти соглашение об уровне обслуживания на уровне продукта, мы не предоставляем клиентам роль DBA. Учетная запись по умолчанию, которая создается при создании экземпляра базы данных, позволяет клиентам выполнять большинство инструкций языка описания данных (DDL) и языка обработки данных (DML) в управляемом экземпляре базы данных. 
+- Разрешение SUPER. Аналогичным образом ограничено и [разрешение SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super).
 
-## <a name="data-manipulation-statement-support"></a>Поддержка инструкции обработки данных
+## <a name="data-manipulation-statement-support"></a>Поддержка инструкций языка обработки данных
 
 ### <a name="supported"></a>Поддерживаются
-- Загрузка данных INFILE - поддерживается, но необходимо указать параметр [LOCAL], который направляется в формате UNC (хранилища Azure, подключенных через XSMB).
+- LOAD DATA INFILE — поддерживается, но необходимо указать параметр [LOCAL], который выполняет перенаправление по UNC-пути (хранилище Azure, подключенное через XSMB).
 
 ### <a name="unsupported"></a>Не поддерживается
-- ВЫБЕРИТЕ... В OUTFILE
+- SELECT ... INTO OUTFILE
 
 ## <a name="preview-functional-limitations"></a>Ограничения функциональных возможностей предварительной версии
 
@@ -87,9 +87,9 @@ ms.lasthandoff: 01/03/2018
 ### <a name="subscription-management"></a>Управление подпиской
 - В настоящее время динамическое перемещение предварительно созданных серверов между подпиской и группой ресурсов не поддерживается.
 
-## <a name="current-known-issues"></a>Текущие известные проблемы:
-- Экземпляр сервера MySQL отображает версию неправильный сервер после установки подключения. Чтобы получить правильный сервер экземпляр управления версиями, используйте выберите либо; команда в командной строке MySQL.
+## <a name="current-known-issues"></a>Известные на данный момент проблемы
+- После установки подключения для экземпляра сервера MySQL отображается неправильная версия сервера. Чтобы узнать правильную версию экземпляра сервера, используйте команду select version(); в командной строке MySQL.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Параметры и производительность базы данных Azure для MySQL: возможности разных ценовых категорий](concepts-service-tiers.md)
 - [Поддерживаемые версии базы данных PostgreSQL](concepts-supported-versions.md)

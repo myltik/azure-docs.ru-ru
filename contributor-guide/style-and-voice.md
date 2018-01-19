@@ -1,5 +1,5 @@
-# <a name="writing-azure-documentation---style-and-voice-cheat-sheet"></a>Написание документации Azure - стиль и залог Памятка
+# <a name="writing-azure-documentation---style-and-voice-cheat-sheet"></a>Написание документации Azure: памятка по стилю
 
-В этом руководстве перемещен в docs.microsoft.com внутренней руководства участника.
+Теперь это руководство внутреннего участника размещено сайте docs.microsoft.com.
 
-В разделе [https://aka.ms/style-guidance](https://aka.ms/style-guidance).
+Перейдите по ссылке [https://aka.ms/style-guidance](https://aka.ms/style-guidance).

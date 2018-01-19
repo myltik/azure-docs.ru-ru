@@ -1,6 +1,6 @@
 ---
 title: "Справочник разработчика скриптов C# по функциям Azure"
-description: "Понять, как разрабатывать функции Azure с помощью скрипта C#."
+description: "Узнайте, как разрабатывать функции Azure с помощью скрипта C#."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 855a03c504667b7141b51ce0470b66a5297c0583
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5a4fc57606b0cf09f8d20710e3c83637283014ba
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="azure-functions-c-script-csx-developer-reference"></a>Справочник разработчика Azure функции C# сценарий (.csx)
+# <a name="azure-functions-c-script-csx-developer-reference"></a>Справочник разработчика скрипта C# (CSX) по решению "Функции Azure"
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Эта статья предназначена введение в разработку функций Azure с помощью скрипта C# (*.csx*).
+В этой статье содержатся общие сведения о разработке функций Azure с помощью скрипта C# (*CSX*).
 
-Функции Azure поддерживает C# и C# сценария языков программирования. Если вы ищете рекомендации [с помощью C# в проект библиотеки классов Visual Studio](functions-develop-vs.md), в разделе [Справочник разработчика C#](functions-dotnet-class-library.md).
+Решение "Функции Azure" поддерживает языки программирования C# и скрипт C#. Рекомендации по [использованию C# в проекте библиотеки классов Visual Studio](functions-develop-vs.md) см. в [справочнике разработчика C#](functions-dotnet-class-library.md).
 
-В этой статье предполагается, что вы прочитали [руководство для разработчиков Azure функции](functions-reference.md).
+В этой статье предполагается, что вы уже прочли [руководство для разработчиков по решению "Функции Azure"](functions-reference.md).
 
 ## <a name="how-csx-works"></a>Как работает формат CSX
 
-Процесс скрипта C# для функций Azure основан на [SDK веб-заданий Azure](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). Данные поступают в функцию C# через аргументы метода. Указанные имена аргументов в `function.json` файла и существует предопределены для доступа к вещей, как функция ведения журнала и токены отмены.
+Интерфейс скрипта C# для решения "Функции Azure" основан на [пакете SDK для веб-заданий Azure](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). Данные поступают в функцию C# через аргументы метода. Имена аргументов указываются в файле `function.json`. Есть предварительно определенные имена для доступа к таким объектам, как средство ведения журнала функций и маркеры отмены.
 
-*.Csx* формат позволяет писать менее «стандартный» и уделить внимание написанию только функции C#. а затем вместо помещения всего кода в пространство имен и класс просто определите метод `Run`. Как обычно, укажите ссылки на необходимые сборки и пространства имен в начале файла,
+Формат *CSX* позволяет писать меньше стандартного кода и сосредоточиться на написании только функции C#. а затем вместо помещения всего кода в пространство имен и класс просто определите метод `Run`. Как обычно, укажите ссылки на необходимые сборки и пространства имен в начале файла,
 
-Функции приложения *.csx* файлы компилируются при инициализации экземпляра. Этот шаг компиляции означает, например, холодный запуск может занять больше времени для функций скрипта C#, по сравнению с библиотеки классов C#. Этот шаг компиляции можно также почему функции скрипта C# являются для редактирования на портале Azure, а не являются библиотеки классов C#.
+Файлы *CSX* приложения-функции компилируются при инициализации экземпляра. Этот этап компиляции означает, что такие операции, как холодный запуск, могут занимать больше времени при использовании функций скрипта C#, по сравнению с библиотеками классов C#. Кроме того, благодаря этому этапу компиляции функции скрипта C# доступны для редактирования на портале Azure, в отличие от библиотек классов C#.
 
 ## <a name="binding-to-arguments"></a>Привязка к аргументам
 
-Входной или выходной данные будут привязаны к C# сценарий параметра функции через `name` свойство в *function.json* файла конфигурации. В следующем примере показан *function.json* файла и *run.csx* файла для функции активации очереди. Имя параметра, который получает данные из очереди сообщения `myQueueItem` , имеет значение `name` свойства.
+Входные или выходные данные привязываются к параметру функции скрипта C# прпи помощи свойства `name` в файле конфигурации *function.json*. В следующем примере представлены файлы *function.json* и *run.csx* для функции, срабатывающей по запросу. Параметр для получения данных из сообщения очереди называется `myQueueItem`, так как это значение свойства `name`.
 
 ```json
 {
@@ -70,19 +70,19 @@ public static void Run(CloudQueueMessage myQueueItem, TraceWriter log)
 }
 ```
 
-`#r` Инструкции описан [далее в этой статье](#referencing-external-assemblies).
+Оператор `#r` описан [далее в этой статье](#referencing-external-assemblies).
 
-## <a name="supported-types-for-bindings"></a>Поддерживаемые типы для привязки
+## <a name="supported-types-for-bindings"></a>Поддерживаемые типы для привязок
 
-Каждая привязка имеет свой собственный поддерживаемые типы; для экземпляра триггер больших двоичных объектов может использоваться с строковый параметр, параметр POCO, `CloudBlockBlob` параметр или любого из некоторых других поддерживаемых типов. [Статье привязки для привязки больших двоичных объектов](functions-bindings-storage-blob.md#trigger---usage) список всех поддерживаемых типов параметров для больших двоичных объектов триггеров. Дополнительные сведения см. в разделе [триггеры и привязки](functions-triggers-bindings.md) и [docs ссылки привязки для каждого типа привязки](functions-triggers-bindings.md#next-steps).
+Для каждой привязки есть собственные поддерживаемые типы. Например, триггер больших двоичных объектов можно использовать со строковым параметром, параметрами POCO, `CloudBlockBlob` или любым из нескольких других поддерживаемых типов. В [справочной статье о привязках для больших двоичных объектов](functions-bindings-storage-blob.md#trigger---usage) содержится список всех поддерживаемых типов параметров для триггеров больших двоичных объектов. Дополнительные сведения см. в статье о [триггерах и привязках](functions-triggers-bindings.md) и в [справочной документации по каждому типу привязки](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-## <a name="referencing-custom-classes"></a>Создание ссылок на пользовательские классы
+## <a name="referencing-custom-classes"></a>Ссылки на пользовательские классы
 
-Если вам нужно использовать пользовательский класс простых старых объектов POCO (CLR), можно включить в определении класса внутри того же файла или поместить его в отдельном файле.
+Если нужно использовать пользовательский класс простых старых объектов CLR (POCO), вы можете включить определении класса в тот же файл или поместить его в отдельный файл.
 
-В следующем примере показан *run.csx* пример, включающий определение класса POCO.
+В следующем примере показан пример файла *run.csx*, содержащего определение класса POCO.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -97,7 +97,7 @@ public class MyClass
 }
 ```
 
-Класс POCO должен иметь метод считывания и метод задания, определенные для каждого свойства.
+Для каждого свойства класса POCO нужно определить методы получения и задания.
 
 ## <a name="reusing-csx-code"></a>Повторное использование кода CSX
 
@@ -124,7 +124,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-С помощью общего *.csx* файл — это общий шаблон для строгой типизации thet данных между функциями с помощью объекта POCO. В указанном ниже упрощенном примере триггер HTTP и очереди совместно используют объект POCO с именем `Order` для задания строго типизированных данных о заказах.
+Обычно для задания строго типизированных данных, передаваемых между функциями с использованием объекта POCO, применяется общий файл с расширением *CSX*. В указанном ниже упрощенном примере триггер HTTP и очереди совместно используют объект POCO с именем `Order` для задания строго типизированных данных о заказах.
 
 Пример файла *run.csx* для триггера HTTP:
 
@@ -195,7 +195,7 @@ public class Order
 * `#load "loadedfiles\mylogger.csx"` загружает файл, расположенный в папке, которая содержится в папке функции.
 * `#load "..\shared\mylogger.csx"` загружает файл, расположенный в папке на том же уровне, что и папка функции, то есть непосредственно в разделе *wwwroot*.
 
-`#load` Директива работает только с *.csx* файлы, не с *.cs* файлов.
+Директива `#load` работает только с *CSX*-файлами, но не с *CS*-файлами.
 
 ## <a name="binding-to-method-return-value"></a>Привязка к возвращаемому значению метода
 
@@ -246,7 +246,7 @@ public static void Run(string myBlob, TraceWriter log)
 ```
 
 > [!NOTE]
-> Сведения о новой framework ведения журнала, который можно использовать вместо `TraceWriter`, в разделе [записи журналов в C# функции](functions-monitoring.md#write-logs-in-c-functions) в **монитор функции Azure** статьи.
+> Сведения о новой платформе ведения журналов, которую можно использовать вместо `TraceWriter`, см. в разделе [Запись журналов в функциях C#](functions-monitoring.md#write-logs-in-c-functions) статьи **Мониторинг Функций Azure**.
 
 ## <a name="async"></a>Асинхронный режим
 
@@ -264,7 +264,7 @@ public async static Task ProcessQueueMessageAsync(
 
 ## <a name="cancellation-tokens"></a>Токены отмены
 
-Для некоторых операций необходимо выполнить нормальное завершение работы. Когда всегда лучше написать код, который может обрабатывать аварийное завершение работы, с в случаях, когда необходимо обработать определить запросов закрытия [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) типом аргумента.  В случае завершения работы узла будет предоставлен маркер `CancellationToken`.
+Для некоторых операций необходимо выполнить нормальное завершение работы. Всегда лучше написать код, который может обрабатывать сбои. Но в случаях когда нужно обрабатывать запросы на завершение работы, можно определить аргумент с типом [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx).  В случае завершения работы узла будет предоставлен маркер `CancellationToken`.
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -339,9 +339,9 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 Чтобы указать ссылку на пользовательские сборки, можно использовать *общую* или *закрытую* сборку.
 - Общие сборки совместно используют все функции в приложении-функции. Чтобы указать ссылку на пользовательские сборки, отправьте сборку в приложение-функцию, например как в папке `bin` в корне приложения-функции. 
-- Закрытые сборки входят в контекст указанной функции и поддерживают загрузку неопубликованных приложений разных версий. Закрытые сборки необходимо отправить в папку `bin` в каталоге функции. Ссылки на сборки, используя имя файла, например `#r "MyAssembly.dll"`. 
+- Закрытые сборки входят в контекст указанной функции и поддерживают загрузку неопубликованных приложений разных версий. Закрытые сборки необходимо отправить в папку `bin` в каталоге функции. Укажите ссылки на сборки, используя имя файла, например `#r "MyAssembly.dll"`. 
 
-Сведения о том, как отправить файлы в папку функция разделе [пакета управления](#using-nuget-packages).
+Дополнительные сведения о передаче файлов в папку функции см. в разделе об [управлении пакетами](#using-nuget-packages).
 
 ### <a name="watched-directories"></a>Каталоги отслеживания
 
@@ -363,11 +363,11 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 }
 ```
 
-В Azure функции 1.x, поддерживается только в .NET Framework 4.6, поэтому убедитесь, что ваш *project.json* файл определяет `net46` как показано ниже.
+В решении"Функции Azure" 1.x поддерживается только версия платформы .NET Framework 4.6. Поэтому убедитесь, что ваш файл *project.json* определяет `net46`, как показано ниже.
 
-При отправке файла *project.json* среда выполнения получает пакеты и автоматически добавляет ссылки на сборки пакетов. Добавлять директивы `#r "AssemblyName"` не нужно. Чтобы использовать типы, определенные в пакетах NuGet; просто добавьте необходимые `using` инструкции, чтобы ваш *run.csx* файла. 
+При отправке файла *project.json* среда выполнения получает пакеты и автоматически добавляет ссылки на сборки пакетов. Добавлять директивы `#r "AssemblyName"` не нужно. Для использования типов, определенных в пакетах NuGet, просто добавьте необходимые инструкции `using` в файл *run.csx*. 
 
-В среде выполнения функций восстановление NuGet работает путем сравнения `project.json` и `project.lock.json`. Если метки даты и времени файлов **не** совпадают, выполняется восстановление NuGet и скачиваются обновленные пакеты. Однако если дата и время создания файлов **совпадают**, NuGet не выполняет восстановление. Таким образом `project.lock.json` следует развертывать, как он вызывает пропустить восстановление пакета NuGet. Чтобы предотвратить развертывание блокирующего файла, добавьте `project.lock.json` в файл `.gitignore`.
+В среде выполнения функций восстановление NuGet работает путем сравнения `project.json` и `project.lock.json`. Если метки даты и времени файлов **не** совпадают, выполняется восстановление NuGet и скачиваются обновленные пакеты. Однако если дата и время создания файлов **совпадают**, NuGet не выполняет восстановление. Поэтому не следует развертывать `project.lock.json`, так как в результате NuGet пропустит восстановление пакета. Чтобы предотвратить развертывание блокирующего файла, добавьте `project.lock.json` в файл `.gitignore`.
 
 Чтобы использовать настраиваемые веб-каналы NuGet, укажите веб-канал в файле *Nuget.Config* в корне приложения-функции. Дополнительные сведения см. в статье [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior) (Настройка поведения NuGet).
 
@@ -417,7 +417,7 @@ public static string GetEnvironmentVariable(string name)
 
 ## <a name="binding-at-runtime"></a>Привязка во время выполнения
 
-Для C# и других языков .NET можно использовать шаблон [императивной](https://en.wikipedia.org/wiki/Imperative_programming) привязки, которая отличается от [*декларативной*](https://en.wikipedia.org/wiki/Declarative_programming) привязки в файле *function.json*. Императивную привязку удобно использовать, когда параметры привязки должны вычисляться не при проектировании, а во время выполнения. С этим шаблоном можно привязать к поддерживаемой входные и выходные данные привязки на лету в коде функции.
+Для C# и других языков .NET можно использовать шаблон [императивной](https://en.wikipedia.org/wiki/Imperative_programming) привязки, которая отличается от [*декларативной*](https://en.wikipedia.org/wiki/Declarative_programming) привязки в файле *function.json*. Императивную привязку удобно использовать, когда параметры привязки должны вычисляться не при проектировании, а во время выполнения. С использованием такого шаблона можно моментально выполнить привязку к поддерживаемым входным и выходным привязкам в коде функции.
 
 Определите принудительную привязку следующим образом.
 
@@ -432,11 +432,11 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`является атрибутом .NET, который определяет пользовательскую привязку, и `T` является типом ввода-вывода, который поддерживается этим типом привязки. `T`не может быть `out` тип параметра (например, `out JObject`). Например, выходная привязка таблицы мобильных приложений поддерживает [шесть выходных типов](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), но для `T` можно использовать только [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) или [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs).
+где `BindingTypeAttribute` — атрибут .NET, определяющий пользовательскую привязку, а `T` — входной или выходной тип, поддерживаемый этим типом привязки. `T` не может быть параметром типа `out` (например, `out JObject`). Например, выходная привязка таблицы мобильных приложений поддерживает [шесть выходных типов](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), но для `T` можно использовать только [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) или [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs).
 
-### <a name="single-attribute-example"></a>Пример одного атрибута
+### <a name="single-attribute-example"></a>Пример с одним атрибутом
 
-В следующем примере кода создается [выходная привязка большого двоичного объекта службы хранилища](functions-bindings-storage-blob.md#input--output) с путем к большому двоичному объекту, определенному во время выполнения, а затем записывается строка в большой двоичный объект.
+В следующем примере кода создается [выходная привязка большого двоичного объекта службы хранилища](functions-bindings-storage-blob.md#output) с путем к большому двоичному объекту, определенному во время выполнения, а затем записывается строка в большой двоичный объект.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -453,9 +453,9 @@ public static async Task Run(string input, Binder binder)
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) определяет входную или выходную привязку [большого двоичного объекта службы хранилища](functions-bindings-storage-blob.md), а [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) представляет собой поддерживаемый тип выходной привязки.
 
-### <a name="multiple-attribute-example"></a>Пример нескольких атрибута
+### <a name="multiple-attribute-example"></a>Пример с несколькими атрибутами
 
-Предыдущий пример возвращает параметр приложения для приложения функции основного хранилища строка подключения для учетной записи (который является `AzureWebJobsStorage`). Вы можете указать пользовательский параметр приложения, который следует использовать для учетной записи хранения. Для этого добавьте [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) и передайте массив атрибутов в `BindAsync<T>()`. Используйте `Binder` параметра, не `IBinder`.  Например: 
+В предыдущем примере код получает параметр приложения для строки подключения основной учетной записи хранения приложения-функции (т. е. `AzureWebJobsStorage`). Вы можете указать пользовательский параметр приложения, который следует использовать для учетной записи хранения. Для этого добавьте [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) и передайте массив атрибутов в `BindAsync<T>()`. Используйте параметр `Binder`, а не `IBinder`.  Например: 
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -491,10 +491,10 @@ public static async Task Run(string input, Binder binder)
 | Таблица службы хранилища | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
-> [Дополнительные сведения о триггерах и привязки](functions-triggers-bindings.md)
+> [Дополнительные сведения о триггерах и привязках](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Дополнительные сведения о рекомендациях для функций Azure](functions-best-practices.md)
+> [Дополнительные сведения о рекомендациях по решению "Функции Azure"](functions-best-practices.md)

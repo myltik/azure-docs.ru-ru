@@ -1,7 +1,7 @@
 
 
-# <a name="metadata-for-azure-technical-articles"></a>Метаданные для Azure технические статьи
+# <a name="metadata-for-azure-technical-articles"></a>Метаданные для технических статей Azure
 
-В этом руководстве перемещен в docs.microsoft.com внутренней руководства участника.
+Теперь это руководство внутреннего участника размещено сайте docs.microsoft.com.
 
-В разделе [https://aka.ms/azure-docs-metadata](https://aka.ms/azure-docs-metadata)
+См. раздел [https://aka.ms/azure-docs-metadata](https://aka.ms/azure-docs-metadata)

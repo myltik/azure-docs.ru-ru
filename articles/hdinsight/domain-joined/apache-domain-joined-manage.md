@@ -14,16 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/25/2016
+ms.date: 01/11/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0fc32960fc2f1ae69315dbfd6bfb8c34c4adc0fa
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Управление присоединенными к домену кластерами HDInsight
 Узнайте, что такое пользователи и роли в кластерах HDInsight, присоединенных к домену, и как управлять присоединенными к домену кластерами HDInsight.
+
+## <a name="access-the-clusters-with-enterprise-security-package"></a>Получите доступ к кластерам с помощью пакета безопасности предприятия.
+
+Пакет безопасности предприятия (прежнее название — HDInsight Premium) обеспечивает многопользовательский доступ к кластеру, где выполняется аутентификация Active Directory, а также авторизация с использованием Apache Ranger и ACL ADLS. Авторизация обеспечивает безопасное разделение пользователей, разрешая только привилегированным лицам доступ к данным на основе политик авторизации.
+
+Обеспечение безопасности и изоляция пользователей важны для кластера HDInsight с пакетом безопасности предприятия. Для выполнения этих требований SSH-доступ к кластеру с пакетом безопасности предприятия блокируется. В следующей таблице описаны способы доступа, рекомендуемые для каждого типа кластера:
+
+|Рабочая нагрузка|Сценарий|Способ доступа к данным|
+|--------|--------|-------------|
+|Hadoop|Hive — интерактивные задания и запросы |<ul><li>[Beeline](#beeline)</li><li>[Представление Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Инструменты Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Интерактивные задания и запросы, интерактивные задания PySpark|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin с Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Представление Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Инструменты Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Сценарии пакетной службы — отправка Spark, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Интерактивный запрос (LLAP)|Interactive|<ul><li>[Beeline](#beeline)</li><li>[Представление Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Инструменты Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Любой|Установка пользовательского приложения|<ul><li>[Действия сценариев](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+
+
+Использование стандартных API помогает обеспечить безопасность. Кроме того, вы получаете такие преимущества:
+
+1.  **Управление** — вы можете управлять кодом и заданиями автоматизации с помощью стандартных API — Livy, HS2 и т. д.
+2.  **Аудит** — используя SSH, вы не можете выполнять проверять, какие пользователи получили SSH-доступ к кластеру. Этого можно избежать, создавая задания через стандартные конечные точки, так как они будут выполняться в контексте пользователя. 
+
+
+
+### <a name="beeline"></a>Использование Beeline 
+Установите Beeline на компьютер подключитесь через общедоступный сегмент Интернета, используя следующие параметры: 
+
+```
+- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Cluster login name: -n admin
+- Cluster login password -p 'password'
+```
+
+Если Beeline установлен локально и подключение устанавливается через виртуальную сеть Azure, используйте следующие параметры: 
+
+```
+- Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+Чтобы найти полное доменное имя головного узла, используйте сведения из руководства по получению полного доменного имени для узлов кластера.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## <a name="users-of-domain-joined-hdinsight-clusters"></a>Пользователи в присоединенном к домену кластере HDInsight.
 Кластер HDInsight, который находится вне домена, имеет две учетные записи пользователя, которые создаются вместе с кластером.
@@ -63,8 +115,9 @@ ms.lasthandoff: 12/01/2017
     ![Роли в присоединенном к домену кластере HDInsight](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## <a name="open-the-ambari-management-ui"></a>Вход в пользовательский интерфейс управления Ambari
+
 1. Выполните вход на [портал Azure](https://portal.azure.com).
-2. Откройте колонку для кластера HDInsight. См. раздел [Отображение кластеров](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+2. Откройте кластер HDInsight. См. раздел [Отображение кластеров](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
 3. В меню сверху щелкните **Панель мониторинга**, чтобы открыть Ambari.
 4. Войдите в Ambari, используя имя пользователя и пароль пользователя домена и администратора кластера.
 5. Щелкните раскрывающееся меню **Администратор** в правом верхнем углу, затем нажмите кнопку **Управление Ambari**.
@@ -106,7 +159,7 @@ ms.lasthandoff: 12/01/2017
 2. В меню слева щелкните **Роли**.
 3. Щелкните **Добавить пользователя** или **Добавить группу**, чтобы назначить роли для пользователей и групп.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Сведения о настройке присоединенного к домену кластера HDInsight см. в [этой статье](apache-domain-joined-configure.md).
 * Сведения о настройке политик Hive и выполнении запросов Hive для присоединенного к домену кластера HDInsight см. [здесь](apache-domain-joined-run-hive.md).
 * Сведения о выполнении запросов Hive с помощью SSH в присоединенных к домену кластерах HDInsight см. в статье [Подключение к HDInsight (Hadoop) с помощью SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

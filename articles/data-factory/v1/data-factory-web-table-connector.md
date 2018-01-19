@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17ebb1d61f3fff85580fe4f616477c5084d1537a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Перемещение данных из источника веб-таблицы с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,6 +35,23 @@ ms.lasthandoff: 11/03/2017
 
 > [!IMPORTANT]
 > Сейчас этот веб-соединитель поддерживает только извлечение содержимого таблицы из HTML-страницы. Чтобы извлечь данные из конечной точки HTTP (HTTPS), используйте [соединитель HTTP](data-factory-http-connector.md).
+
+## <a name="prerequisites"></a>Необходимые компоненты
+
+Чтобы использовать этот соединитель веб-таблицы, необходимо настроить локальную среду выполнения интеграции (шлюз управления данными) и сконфигурировать свойство `gatewayName` в связанной службе приемника. Например, чтобы скопировать из веб-таблицы в хранилище BLOB-объектов Azure, настройте связанную службу хранилища Azure следующим образом:
+
+```json
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
+    }
+  }
+}
+```
 
 ## <a name="getting-started"></a>Приступая к работе
 Вы можете создать конвейер с действием копирования, которое перемещает данные из локального хранилища данных Cassandra, с помощью разных инструментов и интерфейсов API. 
@@ -55,11 +72,11 @@ ms.lasthandoff: 11/03/2017
 ## <a name="linked-service-properties"></a>Свойства связанной службы
 В приведенной далее таблице содержится описание элементов JSON, которые относятся к связанной веб-службе.
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 | --- | --- | --- |
-| type |Для свойства type необходимо задать значение **Web** |Да |
-| URL-адрес |URL-адрес источника Web |Да |
-| authenticationType |Анонимная. |Да |
+| Тип |Для свойства type необходимо задать значение **Web** |Yes |
+| URL-адрес |URL-адрес источника Web |Yes |
+| authenticationType |Анонимная. |Yes |
 
 ### <a name="using-anonymous-authentication"></a>Использовать анонимную проверку подлинности
 
@@ -83,13 +100,13 @@ ms.lasthandoff: 11/03/2017
 
 Раздел **typeProperties** во всех типах наборов данных разный. В нем содержатся сведения о расположении данных в хранилище данных. Раздел typeProperties набора данных типа **WebTable** содержит следующие свойства.
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
-| type |Тип набора данных. Необходимо задать значение **WebTable** |Да |
+| Тип |Тип набора данных. Необходимо задать значение **WebTable** |Yes |
 | path |Относительный URL-адрес ресурса, который содержит таблицу. |Нет. Если путь не задан, используется только URL-адрес, указанный в определении связанной службы. |
-| index |Индекс таблицы в ресурсе. Дополнительные сведения см. в разделе [Получение индекса таблицы на HTML-странице](#get-index-of-a-table-in-an-html-page). |Да |
+| index |Индекс таблицы в ресурсе. Дополнительные сведения см. в разделе [Получение индекса таблицы на HTML-странице](#get-index-of-a-table-in-an-html-page). |Yes |
 
-**Пример**
+**Пример.**
 
 ```json
 {
@@ -156,7 +173,8 @@ ms.lasthandoff: 11/03/2017
   "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
     }
   }
 }
@@ -293,7 +311,7 @@ ms.lasthandoff: 11/03/2017
 Если вы работаете с Excel 2013, используйте [Microsoft Power Query для Excel](https://www.microsoft.com/download/details.aspx?id=39379), чтобы получить индекс. Дополнительные сведения см. в статье [Подключение к веб-странице](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8). Точно так же можно использовать [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 > [!NOTE]
-> Сведения о сопоставлении столбцов в наборе данных, используемом в качестве источника, со столбцами в приемнике см. в разделе [Сопоставление столбцов исходного набора данных со столбцами целевого набора данных](data-factory-map-columns.md).
+> Сведения о сопоставлении столбцов в наборе данных, используемом в качестве источника, со столбцами в приемнике см. в [этой статье](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Производительность и настройка
 Ознакомьтесь со статьей [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.

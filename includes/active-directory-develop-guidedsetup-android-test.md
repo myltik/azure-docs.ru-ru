@@ -1,30 +1,30 @@
 ## <a name="test-your-code"></a>Тестирование кода
 
 1. Разверните код на своем устройстве или эмуляторе.
-2. Когда вы будете готовы тестировать приложение, используйте для входа в учетную запись Microsoft Azure Active Directory (рабочая или учебная учетная запись) или учетной записи Майкрософт (live.com, outlook.com). 
+2. Когда вы будете готовы для тестирования приложения, войдите в учетную запись Microsoft Azure Active Directory (рабочую или учебную) или в учетную запись Майкрософт (live.com, outlook.com). 
 
     ![Тестирование приложения](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
     <br/><br/>
     ![Введите имя пользователя и пароль](media/active-directory-develop-guidedsetup-android-test/usernameandpassword.png)
 
-### <a name="provide-consent-for-application-access"></a>Предоставить разрешения для доступа к приложениям
-При первом входе в приложение, появится запрос на подтверждение, чтобы разрешить приложению получить доступ к профиль и вход в систему: 
+### <a name="provide-consent-for-application-access"></a>Предоставление разрешения на доступ к приложению
+После первого входа в приложение предоставьте ему разрешение на использование данных вашего профиля для входа: 
 
-![Предоставить разрешения пользователя для доступа к приложениям](media/active-directory-develop-guidedsetup-android-test/androidconsent.png)
+![Предоставление разрешения на доступ к приложению](media/active-directory-develop-guidedsetup-android-test/androidconsent.png)
 
 
 ### <a name="view-application-results"></a>Просмотр результатов приложения
-После входа вы увидите результатов, возвращаемых вызовом Microsoft Graph API. Вызов API-Интерфейс Microsoft Graph **мне** конечная точка возвращает https://graph.microsoft.com/v1.0/me профиля пользователя. Список общих конечных точек Microsoft Graph см. в разделе [документации для разработчиков Microsoft Graph API](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
+После входа можно увидеть результаты, полученные после вызова API Microsoft Graph. Вызов конечной точки API Microsoft Graph **me** возвращает профиль пользователя по адресу https://graph.microsoft.com/v1.0/me. Список общих конечных точек Microsoft Graph см. в [документации разработчика API Microsoft Graph](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Дополнительные сведения об областях и делегированных разрешениях
 
-Требуется Microsoft Graph API **user.read** область чтение профиля пользователя. Эта область автоматически добавляется в каждое приложение, регистрируется на портал регистрации по умолчанию. Другие интерфейсы API для Microsoft Graph, а также пользовательские интерфейсы API для вашего внутреннего сервера могут потребоваться дополнительные области. Требуется Microsoft Graph API **Calendars.Read** область, чтобы вывести список календарей пользователя.
+Для чтения профиля пользователя API Microsoft Graph требуется область **user.read**. По умолчанию эта область автоматически добавляется в каждое приложение, зарегистрированное на портале регистрации. Для других API Microsoft Graph, а также для пользовательских API вашего внутреннего сервера, могут потребоваться дополнительные области. Для отображения списка календарей пользователя API Microsoft Graph требуется область **Calendars.Read**.
 
-Чтобы получить доступ к пользовательским календарям в контексте приложения, добавьте **Calendars.Read** делегировать разрешения на сведения о регистрации приложения. Затем добавьте **Calendars.Read** выборку по **acquireTokenSilent** вызова. 
+Чтобы из контекста приложения получить доступ к календарям пользователя, добавьте делегированное разрешение **Calendars.Read** в сведения о регистрации приложения. Затем добавьте область **Calendars.Read** в вызов **acquireTokenSilent**. 
 
 >[!NOTE]
->При увеличении количества областей, пользователю может быть предложено для дополнительных согласие.
+>При увеличении количества областей от пользователя могут потребоваться дополнительные согласия.
 
 <!--end-collapse-->
 

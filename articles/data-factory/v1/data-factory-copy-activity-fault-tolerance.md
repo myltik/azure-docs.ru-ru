@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5c32d4ac2c1179a83a82bd5deb41047b82e43b7e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Обеспечение отказоустойчивости для действия копирования с помощью пропуска несовместимых строк
 > [!NOTE]
@@ -44,7 +44,10 @@ ms.lasthandoff: 11/02/2017
 
     Пример. Выполняется копирование данных из SQL Server в базу данных SQL. Определен первичный ключ в базе данных SQL приемников, но такой первичный ключ не определен на исходном сервере SQL Server. Повторяющиеся строки, которые существуют в источнике, не удается скопировать в приемник. Действие копирования копирует только первую строку из источника данных в приемник. Последующие строки в источнике, которые содержат повторяющиеся значения первичного ключа, определяются как несовместимые и пропускаются.
 
-## <a name="configuration"></a>Конфигурация
+>[!NOTE]
+>Эта функция не применяется, если действие копирования вызывает механизм загрузки внешних данных, включая [PolyBase хранилища данных SQL Azure](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) или [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Чтобы загрузить данные в хранилище данных SQL с помощью PolyBase, воспользуйтесь встроенной в PolyBase поддержкой отказоустойчивости, указав [polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink) в действии копирования.
+
+## <a name="configuration"></a>Параметр Configuration
 В следующем примере приводится определение JSON для настройки пропуска несовместимых строк в действии копирования:
 
 ```json
@@ -63,12 +66,12 @@ ms.lasthandoff: 11/02/2017
 }
 ```
 
-| Свойство | Описание | Допустимые значения | Обязательно |
+| Свойство | ОПИСАНИЕ | Допустимые значения | Обязательное значение |
 | --- | --- | --- | --- |
-| **enableSkipIncompatibleRow** | Включить или отключить пропуск несовместимых строк во время копирования. | Да<br/>False (по умолчанию) | Нет |
-| **redirectIncompatibleRowSettings** | Группа свойств, которые можно указать, если вы хотите записать несовместимые строки в журнал. | &nbsp; | Нет |
-| **linkedServiceName (имя связанной службы)** | Связанная служба хранилища Azure, в которой будет храниться журнал, содержащий пропущенные строки. | Имя связанной службы [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) или [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), которая будет ссылаться на экземпляр хранилища, используемый для хранения файла журнала. | Нет |
-| **path** | Путь к файлу журнала, который содержит пропущенные строки. | Укажите путь к хранилищу BLOB-объектов, в котором будут храниться несовместимые данные. Если путь не указан, служба создаст контейнер самостоятельно. | Нет |
+| **enableSkipIncompatibleRow** | Включить или отключить пропуск несовместимых строк во время копирования. | Истина<br/>False (по умолчанию) | Нет  |
+| **redirectIncompatibleRowSettings** | Группа свойств, которые можно указать, если вы хотите записать несовместимые строки в журнал. | &nbsp; | Нет  |
+| **linkedServiceName (имя связанной службы)** | Связанная служба хранилища Azure, в которой будет храниться журнал, содержащий пропущенные строки. | Имя связанной службы [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) или [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), которая будет ссылаться на экземпляр хранилища, используемый для хранения файла журнала. | Нет  |
+| **path** | Путь к файлу журнала, который содержит пропущенные строки. | Укажите путь к хранилищу BLOB-объектов, в котором будут храниться несовместимые данные. Если путь не указан, служба создаст контейнер самостоятельно. | Нет  |
 
 ## <a name="monitoring"></a>Мониторинг
 Когда действие копирования будет завершено, вы увидите число пропущенных строк в разделе мониторинга:
@@ -83,5 +86,5 @@ data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an inval
 data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о действии копирования фабрики данных Azure см. в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md).

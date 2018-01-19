@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2017
+ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Создание файла решения по управлению в Operations Management Suite (OMS) (предварительная версия)
 > [!NOTE]
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="structure"></a>structure
-Базовая структура файла решения для управления аналогична структуре [шаблона Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format) и выглядит следующим образом.  В следующих разделах описаны элементы верхнего уровня и их содержимое в решении.  
+Базовая структура файла решения для управления аналогична структуре [шаблона Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format) и выглядит следующим образом.  В последующих разделах описаны элементы верхнего уровня и их содержимое в решении.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -69,12 +69,12 @@ ms.lasthandoff: 10/11/2017
 
 В следующей таблице описываются атрибуты параметра.
 
-| Атрибут | Description (Описание) |
+| Атрибут | ОПИСАНИЕ |
 |:--- |:--- |
-| type |Тип данных для параметра. Элемент управления вводом, отображаемый для пользователя, зависит от типа данных.<br><br>bool — раскрывающийся список<br>string — текстовое поле<br>int — текстовое поле<br>securestring — поле для ввода пароля<br> |
+| Тип |Тип данных для параметра. Элемент управления вводом, отображаемый для пользователя, зависит от типа данных.<br><br>bool — раскрывающийся список<br>string — текстовое поле<br>int — текстовое поле<br>securestring — поле для ввода пароля<br> |
 | category |Необязательная категория для параметра.  Параметры одной категории группируются. |
 | control |Дополнительная функция для строковых параметров.<br><br>datetime — отображается элемент управления для даты и времени.<br>guid — значение GUID создается автоматически и параметр не отображается. |
-| Описание |Необязательное описание параметра.  Отображается в информационном всплывающем предупреждении возле параметра. |
+| description |Необязательное описание параметра.  Отображается в информационном всплывающем предупреждении возле параметра. |
 
 ### <a name="standard-parameters"></a>Стандартные параметры
 В следующей таблице перечислены стандартные параметры для всех решений для управления.  Эти значения заполняются автоматически, а не предлагаются для заполнения пользователем при установке решения из Azure Marketplace или с помощью шаблонов быстрого запуска.  Пользователь должен указать значения для стандартных параметров, если решение устанавливается другим способом.
@@ -84,10 +84,10 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-| Параметр | Тип | Description (Описание) |
+| Параметр | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |
 | accountName |строка |Учетная запись службы автоматизации Azure. |
-| pricingTier |string |Ценовая категория рабочей области Log Analytics и учетной записи службы автоматизации Azure. |
+| pricingTier |строка |Ценовая категория рабочей области Log Analytics и учетной записи службы автоматизации Azure. |
 | regionId |строка |Регион службы автоматизации Azure. |
 | solutionName |строка |Имя решения.  При развертывании решения с использованием шаблонов быстрого запуска следует указать solutionName как параметр, чтобы можно было определить строку и не требовалось, чтобы ее указывал пользователь. |
 | workspaceName |строка |Имя рабочей области Log Analytics. |
@@ -176,7 +176,7 @@ ms.lasthandoff: 10/11/2017
 
 
     {
-      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspacename'), ']')]",
+      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspaceName'), ']')]",
       "location": "[parameters('workspaceRegionId')]",
       "tags": { },
       "type": "Microsoft.OperationsManagement/solutions",
@@ -185,7 +185,7 @@ ms.lasthandoff: 10/11/2017
         <list-of-resources>
       ],
       "properties": {
-        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
+        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
         "referencedResources": [
             <list-of-referenced-resources>
         ],
@@ -208,10 +208,10 @@ ms.lasthandoff: 10/11/2017
 ### <a name="dependencies"></a>Зависимости
 Ресурс решения должен содержать [зависимость](../azure-resource-manager/resource-group-define-dependencies.md) от всех ресурсов решения, так как их нужно создать до решения.  Это можно сделать, добавив запись для каждого ресурса в элемент **dependsOn**.
 
-### <a name="properties"></a>Свойства
+### <a name="properties"></a>properties
 У ресурса решения есть свойства, приведенные в таблице ниже.  Сюда входят ресурсы, на которые решение ссылается и которые оно содержит. Это и определяет, как будет осуществляться управление ресурсом после установки решения.  Каждый ресурс в решении должен быть указан в одном из свойств: **referencedResources** или **containedResources**.
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 |:--- |:--- |
 | workspaceResourceId |Идентификатор рабочей области Log Analytics в формате *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<имя_рабочей_области\>*. |
 | referencedResources |Список ресурсов решения, которые не будут удалены при удалении решения. |
@@ -222,7 +222,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="plan"></a>План
 Свойства сущности **plan** ресурса решения приведены в таблице ниже.
 
-| Свойство | Description (Описание) |
+| Свойство | ОПИСАНИЕ |
 |:--- |:--- |
 | name |Имя решения. |
 | версия |Версия решения, указанная разработчиком. |
@@ -234,11 +234,11 @@ ms.lasthandoff: 10/11/2017
 ## <a name="sample"></a>Образец
 Примеры файлов решения с ресурсом решения см. в следующих статьях.
 
-- [Automation resources](operations-management-suite-solutions-resources-automation.md#sample) (Ресурсы службы автоматизации)
+- [Ресурсы службы автоматизации](operations-management-suite-solutions-resources-automation.md#sample)
 - [Сохраненные поиски и оповещения Log Analytics в решениях OMS (предварительная версия)](operations-management-suite-solutions-resources-searches-alerts.md#sample)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Добавьте сохраненные поиски и оповещения](operations-management-suite-solutions-resources-searches-alerts.md) в решение для управления.
 * [Добавьте представления](operations-management-suite-solutions-resources-views.md) в решение для управления.
 * [Добавьте модули Runbook и другие ресурсы службы автоматизации](operations-management-suite-solutions-resources-automation.md) в решение по управлению.

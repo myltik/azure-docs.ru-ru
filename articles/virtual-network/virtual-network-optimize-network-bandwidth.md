@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: d424eae90d82c7306b4ef948dbc793d867c8b26f
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 998956d00ae6d3be605163b566f5667a3bb95f38
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Оптимизации пропускной способности сети для виртуальной машины Azure
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 01/03/2018
 
 ## <a name="windows-vm"></a>Виртуальная машина Windows
 
-Если ВМ Windows поддерживает [Accelerated сети](create-vm-accelerated-networking-powershell.md), включение этой функции будет оптимальную конфигурацию для пропускной способности. Остальные виртуальные машины Windows, использующие масштабирование размера приема (RSS), могут иметь большую максимальную пропускную способность, чем виртуальная машина без RSS. По умолчанию функция RSS может быть отключена на виртуальной машине Windows. Чтобы определить, включена RSS и включите его в настоящее время отключена, выполните следующие действия:
+Если виртуальная машина Windows поддерживает [ускорение работы в сети](create-vm-accelerated-networking-powershell.md), включив эту функцию, можно оптимизировать конфигурацию для пропускной способности. Остальные виртуальные машины Windows, использующие масштабирование размера приема (RSS), могут иметь большую максимальную пропускную способность, чем виртуальная машина без RSS. По умолчанию функция RSS может быть отключена на виртуальной машине Windows. Чтобы определить, включена ли функция RSS, и при необходимости включить ее, выполните следующие действия:
 
-1. Включен ли RSS для сетевого адаптера с `Get-NetAdapterRss` команды PowerShell. В следующем примере показаны результаты выполнения команды `Get-NetAdapterRss`, когда функция RSS не включена.
+1. Определите, включена ли функция RSS для сетевого адаптера при помощи команды PowerShell `Get-NetAdapterRss`. В следующем примере показаны результаты выполнения команды `Get-NetAdapterRss`, когда функция RSS не включена.
 
     ```powershell
     Name                    : Ethernet
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/03/2018
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : True
+    Enabled                  : True
     ```
 
 ## <a name="linux-vm"></a>Виртуальная машина Linux
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/03/2018
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu для новых развертываний
 
-Ядро Ubuntu Azure обеспечивает самую высокую производительность сети в Azure. С 21 сентября 2017 г. оно используется по умолчанию. Чтобы получить этот ядра, сначала установите последнюю поддерживаемую версию 16.04-LTS, следующим образом:
+Ядро Ubuntu Azure обеспечивает самую высокую производительность сети в Azure. С 21 сентября 2017 г. оно используется по умолчанию. Чтобы получить это ядро, сначала установите последнюю поддерживаемую версию 16.04-LTS, как описано ниже:
 
 ```json
 "Publisher": "Canonical",
@@ -98,7 +98,7 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-Если ВМ не имеет Azure ядра, номер версии обычно начинается с «4.4.» Если ВМ не имеет Azure ядра, выполните следующие команды, как корень:
+Если на виртуальной машине нет ядра Azure, номер версии обычно начинается с цифр 4.4. Если на виртуальной машине нет ядра Azure, выполните следующие команды как корневые:
 
 ```bash
 #run as root or preface with sudo
@@ -152,6 +152,7 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 
 Дополнительные сведения о версии 4.2 служб интеграции Linux (LIS) для Hyper-V см. на [странице скачивания](https://www.microsoft.com/download/details.aspx?id=55106).
 
-## <a name="next-steps"></a>Дальнейшие действия
-* Просмотреть оптимизированного результат с [пропускной способности и пропускной способности тестирования виртуальной Машины Azure](virtual-network-bandwidth-testing.md) для вашего сценария.
+## <a name="next-steps"></a>Дополнительная информация
+* Просмотрите оптимизированные результаты для своего сценария, используя сведения в статье [Проверка пропускной способности (NTTTCP)](virtual-network-bandwidth-testing.md).
+* Узнайте, как [выделяется пропускная способность для виртуальных машин] (virtual-machine-network-throughput.md).
 * Дополнительные сведения см. в статье [Виртуальная сеть Azure: часто задаваемые вопросы](virtual-networks-faq.md).

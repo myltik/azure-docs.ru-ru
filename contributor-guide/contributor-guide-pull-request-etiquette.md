@@ -1,5 +1,5 @@
-# <a name="pull-request-etiquette-and-best-practices-for-microsoft-contributors-to-azure-documentation"></a>По запросу тоном запроса и рекомендации для участников Microsoft документации Azure
+# <a name="pull-request-etiquette-and-best-practices-for-microsoft-contributors-to-azure-documentation"></a>Запрос на вытягивание: правила и рекомендации для участников Microsoft документации Azure
 
-В этом руководстве перемещен в docs.microsoft.com внутренней руководства участника.
+Теперь это руководство внутреннего участника размещено сайте docs.microsoft.com.
 
-[https://AKA.MS/PR-Best-Practices](https://aka.ms/pr-best-practices)
+[https://aka.ms/pr-best-practices](https://aka.ms/pr-best-practices)

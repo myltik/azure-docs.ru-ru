@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Отслеживание пользовательских операций с помощью пакета SDK Application Insights для .NET
 
@@ -40,14 +40,14 @@ ms.lasthandoff: 12/06/2017
 
 Другой пример, в котором требуется настраиваемое отслеживание, — это рабочая роль, которая получает элементы из очереди. Для некоторых очередей вызов для добавления сообщения в эту очередь отслеживается как зависимость. Однако операции высокого уровня, описывающие обработку сообщения, не собираются автоматически.
 
-Давайте посмотрим, как можно отслеживать такие операции.
+Посмотрим, как можно отследить эти операции.
 
 На высоком уровне задачей является создание `RequestTelemetry` и настройка известных свойств. После завершения этой операции можно отслеживать данные телеметрии. Эта задача показана в следующем примере.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>HTTP-запрос в резидентном приложении Owin
-В этом примере мы следуем [протоколу HTTP для корреляции](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Следует ожидать заголовки, которые в нем описаны.
+В этом примере контекст трассировки распространяется согласно [протоколу HTTP для корреляции](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Следует ожидать заголовки, которые в нем описаны.
 
-``` C#
+```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
     private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
@@ -121,16 +121,18 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 Протокол HTTP для корреляции также объявляет заголовок `Correlation-Context`. Однако здесь он опускается для простоты.
 
 ## <a name="queue-instrumentation"></a>Инструментирование очереди
-Для HTTP-подключений мы создали протокол для передачи данных корреляции. Одни протоколы очереди позволяют передавать дополнительные метаданные вместе с сообщением, а другие — нет.
+Пока есть [протокол HTTP для корреляции](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md), который передает сведения о корреляции с помощью HTTP-запроса, каждый протокол очереди должен определить, как одни и те же сведения передаются вместе с сообщением очереди. Некоторые протоколы очереди (например, AMQP) разрешают передавать дополнительные метаданные. Другим протоколам (например, очереди службы хранилища Azure) требуется контекст для кодирования в полезных данных сообщения.
 
 ### <a name="service-bus-queue"></a>Очередь служебной шины
-С помощью [очереди служебной шины](../service-bus-messaging/index.md) Azure вместе с сообщением можно передать контейнер свойств. Мы используем его для передачи идентификатора корреляции.
+Application Insights отслеживает вызовы обмена сообщениями в службе "Служебная шина" с новым [клиентом службы "Служебная шина Microsoft Azure" для .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) версии 3.0.0 и выше.
+Если вы используете [шаблон обработчика сообщений](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) для обработки, больше ничего делать не нужно: все вызовы служебной шины, выполненные вашей службой, автоматически отслеживаются и связываются с другими элементами телеметрии. Если вы обрабатываете сообщения вручную, см. статью о [трассировке клиента служебной шины с помощью Microsoft Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md).
 
-Очередь служебной шины использует протоколы на основе TCP. Application Insights не предусматривает автоматическое отслеживание операций с очередями, поэтому мы отслеживаем их вручную. Операция вывода из очереди представляет собой API отправки и не поддерживает отслеживание.
+Если вы используете пакет [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/), продолжайте читать эту статью. Следующие примеры демонстрируют, как отслеживать (и коррелировать) вызовы в служебную шину, если очередь служебной шины использует протокол AMQP и Application Insights не отслеживает операции очереди автоматически.
+Идентификаторы корреляции передаются в свойствах сообщения.
 
 #### <a name="enqueue"></a>Постановка в очередь
 
-```C#
+```csharp
 public async Task Enqueue(string payload)
 {
     // StartOperation is a helper method that initializes the telemetry item
@@ -168,7 +170,7 @@ public async Task Enqueue(string payload)
 ```
 
 #### <a name="process"></a>Process
-```C#
+```csharp
 public async Task Process(BrokeredMessage message)
 {
     // After the message is taken from the queue, create RequestTelemetry to track its processing.
@@ -208,7 +210,7 @@ public async Task Process(BrokeredMessage message)
 
 При настройке ApplicationInsights вручную убедитесь, что вы создали и инициализировали `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` так же, как указано ниже.
  
-``` C#
+```csharp
 DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
 
 // You can prevent correlation header injection to some domains by adding it to the excluded list.
@@ -224,14 +226,14 @@ module.Initialize(TelemetryConfiguration.Active);
 #### <a name="enqueue"></a>Постановка в очередь
 Так как очереди службы хранилища Azure поддерживают API HTTP, все операции с очередью автоматически отслеживаются Application Insights. Во многих случаях этого инструментария должно быть достаточно. Однако для сопоставления трассировок на стороне потребителя с трассировками производителя необходимо передать некоторый контекст корреляции, точно так же, как мы сделали это для протокола HTTP для корреляции. 
 
-В этом примере мы отслеживаем необязательную операцию `Enqueue`. Вы можете:
+В этом примере показано, как отслеживать операцию `Enqueue`. Вы можете:
 
  - **Сопоставить повторные попытки (если таковые имеются)**: все они имеют одну общую родительскую операцию, `Enqueue`. В противном случае они отслеживаются как дочерние элементы входящего запроса. В случае нескольких логических запросов к очереди может оказаться затруднительным определить, какой вызов совершался повторно.
  - **Сопоставить журналы службы хранилища Azure (при необходимости)**: они сопоставляются с данными телеметрии Application Insights.
 
 Операция `Enqueue` является дочерним элементом родительской операции (например, входящего HTTP-запроса). Вызовов зависимости HTTP является дочерним элементом операции `Enqueue` и внучатым элементом входящего запроса.
 
-```C#
+```csharp
 public async Task Enqueue(CloudQueue queue, string message)
 {
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queue.Name);
@@ -285,7 +287,7 @@ public async Task Enqueue(CloudQueue queue, string message)
 
 Зачастую может быть удобно сопоставить HTTP-запрос с очередью и другими трассировками. В следующем примере показано, как это сделать.
 
-``` C#
+```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
 {
     var telemetry = new DependencyTelemetry
@@ -334,9 +336,9 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 
 #### <a name="process"></a>Process
 
-В следующем примере мы отслеживаем входящее сообщение таким же образом, как мы выполняли трассировку входящего HTTP-запроса.
+В следующем примере мы отслеживаем входящее сообщение так же, как выполняем трассировку входящего HTTP-запроса.
 
-```C#
+```csharp
 public async Task Process(MessagePayload message)
 {
     // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
@@ -366,7 +368,7 @@ public async Task Process(MessagePayload message)
 
 Другие операции очереди также можно инструментировать. Операцию заглядывания следует инструментировать так же, как операцию выведения из очереди. Инструментировать операции управления очередью необязательно. Application Insights отслеживает такие операции, как HTTP, и в большинстве случаев этого достаточно.
 
-При инструментировании удаления сообщения убедитесь в том, что заданы идентификаторы операции (корреляция). Кроме того, можно использовать API `Activity`. Это не требует задания идентификаторов операций для элементов телеметрии, так как Application Insights делает это автоматически.
+При инструментировании удаления сообщения убедитесь в том, что заданы идентификаторы операции (корреляция). Кроме того, можно использовать API `Activity`. Вам не нужно задавать идентификаторы операций для элементов телеметрии, так как пакет SDK для Application Insights делает это автоматически.
 
 - Получив элемент из очереди, создайте `Activity`.
 - Используйте `Activity.SetParentId(message.ParentId)` для сопоставления журналов потребителя и производителя.
@@ -383,7 +385,7 @@ public async Task Process(MessagePayload message)
 ## <a name="long-running-background-tasks"></a>Длительные фоновые задачи
 Некоторые приложения запускают длительные операции, которые могут быть вызваны запросами пользователей. С точки зрения трассировки и инструментирования это ничем не отличается от инструментирования запроса или зависимости. 
 
-``` C#
+```csharp
 async Task BackgroundTask()
 {
     var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
@@ -411,7 +413,7 @@ async Task BackgroundTask()
 }
 ```
 
-В этом примере мы используем `telemetryClient.StartOperation` для создания `RequestTelemetry` и заполнения контекста корреляции. Предположим, имеется родительская операция, которая была создана входящими запросами, запланировавшими эту операцию. Так как `BackgroundTask` запускается в том же асинхронном потоке управления, что и входящий запрос, он сопоставляется с этой родительской операцией. `BackgroundTask` и все вложенные элементы телеметрии автоматически сопоставляются с запросом, вызвавшим ее, даже после завершения запроса.
+В этом примере `telemetryClient.StartOperation` создает `RequestTelemetry` и заполняет контекст корреляции. Предположим, имеется родительская операция, которая была создана входящими запросами, запланировавшими эту операцию. Так как `BackgroundTask` запускается в том же асинхронном потоке управления, что и входящий запрос, он сопоставляется с этой родительской операцией. `BackgroundTask` и все вложенные элементы телеметрии автоматически сопоставляются с запросом, вызвавшим ее, даже после завершения запроса.
 
 Если задача запущена из фонового потока, с которым не связана ни одна операция (`Activity`), у задачи `BackgroundTask` отсутствуют какие-либо родительские элементы. Тем не менее у нее могут быть вложенные операции. Все элементы телеметрии, полученные от этой задачи, сопоставляются с элементом `RequestTelemetry`, созданным в `BackgroundTask`.
 
@@ -428,9 +430,33 @@ async Task BackgroundTask()
 - Остановите операцию после завершения с помощью `StopOperation`.
 - Выполните обработку исключений.
 
+```csharp
+public async Task RunMyTaskAsync()
+{
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1"))
+    {
+        try 
+        {
+            var myTask = await StartMyTaskAsync();
+            // Update status code and success as appropriate.
+        }
+        catch(...) 
+        {
+            // Update status code and success as appropriate.
+        }
+    }
+}
+```
+
+Если операция удаляется, обработка останавливается. Поэтому вы можете удалить операцию вместо того, чтобы вызывать метод `StopOperation`.
+
+*Предупреждение.* В некоторых случаях необработанное исключение может [помешать](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) вызову `finally`. Поэтому операции могут не отслеживаться.
+
+### <a name="parallel-operations-processing-and-tracking"></a>Обработка и отслеживание параллельных операций
+
 `StopOperation` останавливает только операцию, которая была запущена. Если текущая выполняемая операция не совпадает с операцией, которую нужно остановить, то `StopOperation` не выполняет никаких действий. Это может произойти в случае, если в одном и том же контексте выполнения параллельно запущено несколько операций.
 
-```C#
+```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstTask = RunMyTaskAsync();
@@ -440,35 +466,35 @@ var secondTask = RunMyTaskAsync();
 
 await firstTask;
 
-// This will do nothing and will not report telemetry for the first operation
+// FAILURE!!! This will do nothing and will not report telemetry for the first operation
 // as currently secondOperation is active.
 telemetryClient.StopOperation(firstOperation); 
 
 await secondTask;
 ```
 
-Всегда необходимо убедиться в том, что выполнен вызов `StartOperation` и задача выполняется в своем собственном контексте.
-```C#
-public async Task RunMyTaskAsync()
+Всегда вызывайте метод `StartOperation` и обрабатывайте операцию в том же методе **async**, чтобы изолировать параллельные операции. Если операция является синхронной (или не асинхронной), создайте оболочку для процесса и отслеживайте его с помощью команды `Task.Run`:
+
+```csharp
+public void RunMyTask(string name)
 {
-    var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
-    try 
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>(name))
     {
-        var myTask = await StartMyTaskAsync();
+        Process();
         // Update status code and success as appropriate.
     }
-    catch(...) 
-    {
-        // Update status code and success as appropriate.
-    }
-    finally 
-    {
-        telemetryClient.StopOperation(operation);
-    }
+}
+
+public async Task RunAllTasks()
+{
+    var task1 = Task.Run(() => RunMyTask("task 1"));
+    var task2 = Task.Run(() => RunMyTask("task 2"));
+    
+    await Task.WhenAll(task1, task2);
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Изучите основы [корреляции данных телеметрии](application-insights-correlation.md) в Application Insights.
 - В [этой статье](application-insights-data-model.md) представлены типы данных и модель данных для Application Insights.

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Веб-перехватчики для оповещений журнала действий Azure
 В определении группы действий можно настроить конечные точки веб-перехватчика для получения уведомлений об оповещениях журнала действий. С помощью веб-перехватчика можно направлять эти уведомления в другие системы для последующей обработки или выполнения настраиваемых действий. В этой статье показано, как выглядят полезные данные HTTP POST для webhook.
@@ -131,7 +131,7 @@ ms.lasthandoff: 11/16/2017
 
 Сведения о схеме для остальных оповещений журнала действий см. в статье [Мониторинг действий подписки с помощью журнала действий Azure](monitoring-overview-activity-logs.md).
 
-| Имя элемента | Описание |
+| Имя элемента | ОПИСАНИЕ |
 | --- | --- |
 | status |Используется для оповещений на основе метрик. Всегда имеет значение activated для оповещений журнала действий. |
 | context |Контекст события. |
@@ -139,10 +139,10 @@ ms.lasthandoff: 11/16/2017
 | conditionType |Всегда имеет значение Event. |
 | name |Имя правила генерации оповещений. |
 | id |Идентификатор ресурса для оповещения. |
-| Описание |Описание оповещения, которое задается при его создании. |
+| description |Описание оповещения, которое задается при его создании. |
 | subscriptionId |Идентификатор подписки Azure. |
-| Timestamp |Время создания события службой Azure, которая обработала запрос. |
-| resourceId |Идентификатор ресурса для затронутого ресурса. |
+| timestamp |Время создания события службой Azure, которая обработала запрос. |
+| ResourceId |Идентификатор ресурса для затронутого ресурса. |
 | имя_группы_ресурсов |Имя группы ресурсов для затронутого ресурса. |
 | properties |Набор пар `<Key, Value>` (например, `Dictionary<String, String>`), содержащий сведения о событии. |
 | event |Элемент, содержащий метаданные о событии. |
@@ -154,14 +154,14 @@ ms.lasthandoff: 11/16/2017
 | eventDataId |Уникальный идентификатор события. |
 | eventSource |Имя инфраструктуры или службы Azure, которая создала событие. |
 | httpRequest |Обычно запрос содержит clientRequestId, clientIpAddress и method (метод HTTP, например PUT). |
-| level |Одно из следующих значений: Critical, Error, Warning, Informational или Verbose. |
+| level |Одно из таких значений: Critical, Error, Warning, Informational. |
 | operationId |Обычно события, относящиеся к одной операции, совместно используют один GUID. |
 | operationName |Имя операции. |
 | properties |Свойства события. |
 | status |Строка. Состояние операции. Обычные значения: Started, In Progress, Succeeded, Failed, Active, Resolved. |
 | subStatus |Обычно содержит код состояния HTTP для соответствующего вызова REST. Может также включать другие строки, описывающие подсостояние. Обычные значения подсостояния: OK (код состояния HTTP: 200), Created (код состояния HTTP: 201), Accepted (код состояния HTTP: 202), No Content (код состояния HTTP: 204), Bad Request (код состояния HTTP: 400), Not Found (код состояния HTTP: 404), Conflict (код состояния HTTP: 409), Internal Server Error (код состояния HTTP: 500), Service Unavailable (код состояния HTTP: 503), Gateway Timeout (код состояния HTTP: 504). |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Мониторинг действий подписки с помощью журнала действий Azure](monitoring-overview-activity-logs.md).
 * [Using Azure Automation to take action on Azure Alerts](http://go.microsoft.com/fwlink/?LinkId=627081) (Использование службы автоматизации Azure для выполнения действий по уведомлениям Azure).
 * [Logic app that sends a text message when an alert fires](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) (Приложение логики, которое отправляет текстовое сообщение при возникновении предупреждения). Это пример для оповещений на основе метрик, но его можно изменить для работы с оповещениями журнала действий.

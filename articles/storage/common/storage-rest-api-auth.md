@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Использование REST API службы хранилища Azure
 
 В этой статье показано, как использовать интерфейсы API REST хранилища BLOB-объектов и способы аутентификации вызова службы. Статья написана с точки зрения разработчика, который ничего не знает о REST и не знает, как сделать вызов REST. Мы рассмотрим справочную документацию по вызову REST и посмотрим, с помощью каких полей можно сделать реальный вызов REST. Изучив, как настроить вызов REST, вы сможете использовать эти знания для использования любых других интерфейсов API REST службы хранения.
 
-## <a name="prerequisites"></a>Предварительные требования 
+## <a name="prerequisites"></a>Необходимые компоненты 
 
 Приложение перечисляет контейнеры в хранилище BLOB-объектов учетной записи хранения. Чтобы выполнить код, описанный в этой статье, необходимо следующее. 
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/28/2017
 
 * Подписка Azure. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-* Учетная запись хранения общего назначения. Если учетных записей хранения нет в наличии, их можно создать с помощью [портала Azure](https://portal.azure.com), оболочки [PowerShell](storage-quickstart-create-storage-account-powershell.md) или [Azure CLI](storage-quickstart-create-storage-account-cli.md).
+* Учетная запись хранения общего назначения. Если у вас еще нет учетной записи хранения Azure, [создайте ее](storage-quickstart-create-account.md).
 
 * Пример в этой статье показывает, как перечислять контейнеры в учетной записи хранения. Для просмотра выходных данных перед началом работы добавьте несколько контейнеров в хранилище BLOB-объектов в учетной записи хранения.
 
@@ -566,7 +566,7 @@ Content-Length: 1135
 
 В этой статье вы узнали, как создать запрос к API REST хранилища BLOB-объектов, чтобы получить список контейнеров или список BLOB-объектов в контейнере. Вы также узнали, как создать подпись авторизации для вызова REST API, как использовать ее в запросе REST и как проверить ответ.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API-интерфейс REST службы BLOB-объектов)
 * [File Service REST API](/rest/api/storageservices/file-service-rest-api) (API-интерфейс REST файловой службы)

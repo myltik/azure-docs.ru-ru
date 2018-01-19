@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 6cbdda98c079d25c9cce1342c79dea6e66aec3ad
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 7e6e37c0f5c8447b0e6d147a297b460d323b8894
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Аутентификация в Data Lake Store с помощью Azure Active Directory
 
@@ -44,11 +44,11 @@ Azure Data Lake Store использует Azure Active Directory для аут�
 |Аутентификация между службами (с помощью сертификата клиента) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
 <i>* Щелкните символ <b>✔\*</b>. Это ссылка.</i><br>
-<i>** MFA — это Многофакторная идентификация.</i>
+<i>** MFA — многофакторная идентификация (Multi-Factor Authentication).</i>
 
 Дополнительные сведения об использовании Azure Active Directory для аутентификации см. в статье [Сценарии аутентификации в Azure Active Directory](../active-directory/develop/active-directory-authentication-scenarios.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Аутентификация пользователей](data-lake-store-end-user-authenticate-using-active-directory.md)
 * [Аутентификация между службами](data-lake-store-service-to-service-authenticate-using-active-directory.md)

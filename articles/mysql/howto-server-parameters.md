@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: 22e19ca3377b623ae15a28a109cb5de419247ba4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: f3b32c1f6b33bc60b50f1496414a300db468dc92
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Как настроить параметры сервера в базе данных Azure для MySQL с помощью портала Azure
 
@@ -32,8 +32,7 @@ ms.lasthandoff: 12/19/2017
 Список поддерживаемых параметров постоянно растет. Вы можете использовать вкладку параметров сервера на портале Azure, чтобы получить определение и настроить параметры сервера на основе требований своего приложения. 
 
 ## <a name="nonconfigurable-server-parameters"></a>Ненастраиваемые параметры сервера
-
-Далее представлены ненастраиваемые параметры, привязанные к вашей [ценовой категории](concepts-service-tiers.md). 
+Буферный пул InnoDB и максимальное число подключений не подлежат настройке и привязаны к [ценовой категории](concepts-service-tiers.md). 
 
 | **Ценовая категория** | **Буферный пул InnoDB** | **Максимальное число подключений** |
 | :------------------------ | :-------- | :----------- |
@@ -44,9 +43,13 @@ ms.lasthandoff: 12/19/2017
 | Стандартный, 400 | 10240 | 800 | 
 | Стандартный, 800 | 20480 | 1600 |
 
- Innodb_file_per_table в базовый уровень: OFF
+Эти дополнительные параметры сервера нельзя настроить в системе: <br>
+ innodb_file_per_table для уровня "Базовый": OFF;<br>
+ innodb_flush_log_at_trx_commit=1;<br>
+ sync_binlog=1;<br>
+ innodb_log_file_size=512MB.<br>
  
-Для остальных параметров сервера, которые не перечислены в предыдущей таблице, устанавливаются значения по умолчанию для версий [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) и [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Для остальных параметров сервера, которые не перечислены выше, устанавливаются значения MySQL по умолчанию для версий [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) и [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Библиотеки подключений для базы данных Azure для MySQL](concepts-connection-libraries.md).

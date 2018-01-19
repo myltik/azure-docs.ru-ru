@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 37f6049f2fc39bfa93135ce7c0d0013d7e37217c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: dcb52e9de98d881474007410f3db599682e151ce
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Назначение пользователю ролей администратора в Azure Active Directory
 В этой статье описывается назначение роли администратора пользователю в Azure Active Directory (Azure AD). Сведения о добавлении новых пользователей в организации см. в статье [Добавление пользователей из других каталогов или организаций-партнеров в предварительной версии Azure Active Directory](active-directory-users-create-azure-portal.md). По умолчанию добавленные пользователи не имеют прав администратора, но вы можете назначать им роли в любое время.
@@ -30,17 +30,17 @@ ms.lasthandoff: 12/11/2017
 
    ![Открытие страницы "Управление пользователями"](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 3. Выберите **Все пользователи**.
-
-   ![Открытие группы "Все пользователи"](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
-1. Выберите пользователя из списка.
-2. Для выбранного пользователя щелкните **Роль каталога**, после чего назначьте пользователя роли из списка **Роль каталога**. Дополнительные сведения о ролях пользователей и администраторов см. в статье [Назначение ролей администратора в Azure AD](active-directory-assign-admin-roles-azure-portal.md).
+  
+  ![Открытие группы "Все пользователи"](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
+4. Выберите пользователя из списка.
+5. Для выбранного пользователя щелкните **Роль каталога**, после чего назначьте пользователя роли из списка **Роль каталога**. Дополнительные сведения о ролях пользователей и администраторов см. в статье [Назначение ролей администратора в Azure AD](active-directory-assign-admin-roles-azure-portal.md).
 
       ![Назначение пользователя для роли](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. Щелкните **Сохранить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
-* [Добавление пользователей](active-directory-users-create-azure-portal.md)
-* [Сброс пароля пользователя на новом портале Azure](active-directory-users-reset-password-azure-portal.md)
-* [Изменение сведений о работе пользователя](active-directory-users-work-info-azure-portal.md)
+## <a name="next-steps"></a>Дополнительная информация
+* [Краткое руководство по добавлению новых пользователей в Azure Active Directory](add-users-azure-active-directory.md)
 * [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
-* [Удаление пользователя из Azure AD](active-directory-users-delete-user-azure-portal.md)
+* [Добавление гостевых пользователей из другого каталога](active-directory-b2b-what-is-azure-ad-b2b.md) 
+* [Назначение пользователей в предварительной версии Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Восстановление удаленного пользователя](active-directory-users-restore.md)

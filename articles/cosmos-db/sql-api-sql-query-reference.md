@@ -1,8 +1,8 @@
 ---
-title: "Azure Cosmos DB: Справочник по синтаксису запроса SQL | Документы Microsoft"
-description: "Справочная документация для языка запросов SQL базы данных Azure Cosmos."
+title: "Azure Cosmos DB. Справочник по синтаксису запроса SQL | Документация Майкрософт"
+description: "Справочная документация по языку SQL-запросов в Azure Cosmos DB."
 services: cosmos-db
-author: mimig1
+author: LalithaMV
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
-ms.author: mimig
-ms.openlocfilehash: 64c5e1284cd8a0413ebc73b1659822078f62d2ef
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.author: laviswa
+ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="azure-cosmos-db-sql-syntax-reference"></a>Справочник по синтаксису Azure Cosmos DB SQL
+# <a name="azure-cosmos-db-sql-syntax-reference"></a>Справочник по синтаксису SQL в Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Azure поддерживает Cosmos DB запроса документов с помощью знакомого языка SQL (языка структурированных запросов) как грамматики иерархическим документам JSON, не требуя явной схемы или создания вторичных индексов. Этот раздел содержит справочную документацию по языку запросов SQL, совместимый с API-Интерфейсы SQL учетных записей.
+Azure Cosmos DB позволяет выполнять запросы к документам с помощью знакомой грамматики SQL, например к иерархическим файлам JSON, без использования явных схем или создания вторичных индексов. В этой статье содержится справочная документация по языку SQL-запросов, совместимому с учетными записями API SQL.
 
-Пошаговые инструкции языка запросов SQL см. в разделе [запросов SQL на Azure Cosmos DB](sql-api-sql-query.md).  
+Пошаговое руководство по языку SQL-запросов см. в статье об [SQL-запросах в Azure Cosmos DB](sql-api-sql-query.md).  
   
 Мы также предлагаем вам посетить сайт [Query Playground](http://www.documentdb.com/sql/demo), где вы можете испытать базу данных Azure Cosmos DB в действии и выполнить запросы SQL к нашему набору данных.  
   
@@ -665,7 +665,7 @@ ORDER BY <sort_specification>
   
      **Соглашения о синтаксисе**  
   
-     Следующая таблица описывает соглашения, используемые для описания синтаксиса в следующую ссылку на SQL.  
+     В таблице ниже указаны соглашения, используемые для описания синтаксиса в следующем справочнике по SQL.  
   
     |**Соглашение**|**Область использования**|  
     |-|-|    
@@ -2791,7 +2791,7 @@ SELECT ST_ISVALIDDETAILED({
 }]  
 ```  
   
-## <a name="next-steps"></a>Дальнейшие действия  
+## <a name="next-steps"></a>Дополнительная информация  
  [SQL-запросы и синтаксис SQL в Azure Cosmos DB](sql-api-sql-query.md)   
  [Документация по базе данных Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/)  
   

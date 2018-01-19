@@ -1,5 +1,5 @@
-# <a name="create-tables-in-markdown"></a>Создание таблиц в формате markdown
+# <a name="create-tables-in-markdown"></a>Создание таблиц на языке разметки Markdown
 
-В этом руководстве перемещен в docs.microsoft.com внутренней руководства участника.
+Теперь это руководство внутреннего участника размещено сайте docs.microsoft.com.
 
-В разделе [https://aka.ms/markdown-tables](https://aka.ms/markdown-tables)
+См. раздел [https://aka.ms/markdown-tables](https://aka.ms/markdown-tables)

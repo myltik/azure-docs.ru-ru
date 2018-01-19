@@ -1,5 +1,5 @@
-# <a name="create-images-in-markdown"></a>Создание изображений в разметке
+# <a name="create-images-in-markdown"></a>Создание изображений на языке разметки Markdown
 
-В этом руководстве перемещен в docs.microsoft.com внутренней руководства участника.
+Теперь это руководство внутреннего участника размещено сайте docs.microsoft.com.
 
-[https://AKA.MS/ART-Guidance](https://aka.ms/art-guidance)
+[https://aka.ms/art-guidance](https://aka.ms/art-guidance)

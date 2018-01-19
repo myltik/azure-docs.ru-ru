@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 54bf10acfb885042278c4457a70ec86248c96c1c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C. Добавление Google+ в качестве поставщика удостоверений OAuth2 с помощью пользовательских политик
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 В этой статье описывается, как включить возможность входа для пользователей из учетной записи Google+ с помощью [пользовательских политик](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>Необходимые компоненты
 
 Выполните шаги, описанные в статье [Azure Active Directory B2C. Приступая к работе с настраиваемыми политиками](active-directory-b2c-get-started-custom.md).
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 12/11/2017
 1.  Откройте базовый файл политики (например, TrustFrameworkBase.xml).
 2.  Найдите элемент `<UserJourneys>` и скопируйте все содержимое узла `<UserJourneys>`.
 3.  Откройте файл расширения (например, TrustFrameworkExtensions.xml) и найдите элемент `<UserJourneys>`. Если элемент не существует, добавьте его.
-4.  Вставьте весь скопированный узел `<UserJournesy>` как дочерний узел элемента `<UserJourneys>`.
+4.  Вставьте весь скопированный узел `<UserJourney>` как дочерний узел элемента `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Отображение кнопки
 Элемент `<ClaimsProviderSelections>` определяет список параметров выбора поставщика утверждений и их порядок.  Элемент `<ClaimsProviderSelection>` является аналогом кнопки поставщика удостоверений на странице регистрации или входа. Если вы добавите для учетной записи Google+ элемент `<ClaimsProviderSelection>`, при переходе пользователя на страницу отобразится новая кнопка. Для этого:
@@ -243,6 +243,14 @@ ms.lasthandoff: 12/11/2017
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
+### <a name="upload-the-policy-to-your-tenant"></a>Отправка политики в клиент
+1.  На [портале Azure](https://portal.azure.com) переключитесь в [контекст клиента Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) и откройте колонку **Azure AD B2C**.
+2.  Выберите **Инфраструктура процедур идентификации**.
+3.  Откройте колонку **Все политики**.
+4.  Щелкните **Отправить политику**.
+5.  Установите флажок **Перезаписать политику, если она существует**.
+6.  **Отправьте** файл TrustFrameworkExtensions.xml и убедитесь, что он успешно прошел проверку.
 
 ### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Тестирование пользовательской политики изменения профиля с помощью команды "Запустить сейчас"
 

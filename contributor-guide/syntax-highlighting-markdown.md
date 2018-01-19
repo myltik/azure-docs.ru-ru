@@ -1,5 +1,5 @@
-# <a name="syntax-highlighting-for-code-snippets-in-markdown"></a>Выделение синтаксиса для фрагментов кода в разметке
+# <a name="syntax-highlighting-for-code-snippets-in-markdown"></a>Выделение синтаксиса для фрагментов кода на языке разметки Markdown
 
-В этом руководстве перемещен в docs.microsoft.com внутренней руководства участника.
+Теперь это руководство внутреннего участника размещено сайте docs.microsoft.com.
 
-В разделе [https://aka.ms/code-highlighting](https://aka.ms/code-highlighting)
+См. раздел [https://aka.ms/code-highlighting](https://aka.ms/code-highlighting)

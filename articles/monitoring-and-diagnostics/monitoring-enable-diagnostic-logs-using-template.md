@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: johnkem
-ms.openlocfilehash: ee9f4d8846f7549d0a4cd0be1d6f726293716a69
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 6355433dab7bac910dd89a50b74df13d6cf1b8fc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Автоматическое включение параметров диагностики при создании ресурса из шаблона Resource Manager
 В этой статье мы покажем, как применить [шаблон Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) для настройки параметров диагностики при создании ресурса. Это позволит автоматически запускать потоковую передачу журналов диагностики и метрик в концентраторы событий, архивировать их в учетной записи хранения ли отправлять в Log Analytics при создании ресурса.
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/22/2017
 ## <a name="non-compute-resource-template"></a>Шаблон для невычислительных ресурсов
 Для невычислительных ресурсов выполните два действия.
 
-1. Добавление параметров в большой двоичный объект параметров для имени учетной записи хранения, ИД правила авторизации концентратора событий и/или идентификатор рабочей области аналитики журналов OMS (Включение архивации журналы диагностики в учетную запись хранилища, потоковая передача журналов для концентраторов событий или отправляя журналы журнала Аналитика).
+1. Добавьте в большой двоичный объект параметров параметры имени учетной записи хранения, идентификатора правила авторизации концентратора событий и (или) идентификатор рабочей области OMS Log Analytics. Это позволит архивировать журналы диагностики в учетной записи хранения, передавать поток журналов в концентраторы событий и (или) отправлять журналы в Log Analytics.
    
     ```json
     "settingName": {
@@ -116,7 +116,7 @@ ms.lasthandoff: 12/22/2017
     ]
     ```
 
-Свойства большого двоичного объекта для параметров диагностики соответствуют [формату, который описан в этой статье](https://docs.microsoft.com/en-us/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Добавление свойства `metrics` позволит также передавать метрики ресурса в эти же выходные данные, если [этот ресурс поддерживает метрики Azure Monitor](monitoring-supported-metrics.md).
+Свойства большого двоичного объекта для параметров диагностики соответствуют [формату, который описан в этой статье](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Добавление свойства `metrics` позволит также передавать метрики ресурса в эти же выходные данные, если [этот ресурс поддерживает метрики Azure Monitor](monitoring-supported-metrics.md).
 
 Ниже приведен полный пример, в котором создается приложение логики, а также включается потоковая передача в концентраторы событий и хранение в учетной записи хранения.
 
@@ -265,7 +265,7 @@ ms.lasthandoff: 12/22/2017
 
 Весь процесса описан [в этом документе](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)с примерами.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * [Дополнительные сведения о журналах диагностики Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Потоковая передача журналов диагностики Azure в концентраторы событий](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

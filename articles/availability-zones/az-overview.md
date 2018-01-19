@@ -8,7 +8,7 @@ manager: carmonm
 editor: 
 tags: 
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: b3618207c1d4d2b8d3c0eaf83408b4813cd3da2d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: c3a1758ab965d22eabfe44a410e9f72420e0148b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Общие сведения о зонах доступности в Azure (предварительная версия)
 
@@ -47,16 +47,16 @@ ms.lasthandoff: 01/04/2018
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Начало работы с предварительной версией зон доступности
 
-Предварительный просмотр зон доступности доступен в восточная часть США 2, Западной Европе и Франции центральном регионах для определенных служб Azure. 
+Предварительная версия зон доступности предлагается для определенных служб Azure в таких регионах: восточная часть США 2, западная Европа и центральная Франция. 
 
 1. [Зарегистрируйтесь для использования предварительной версии зон доступности](http://aka.ms/azenroll). 
 2. Войдите в свою подписку Azure.
 3. Выберите регион с поддержкой зон доступности.
 4. Перейдите по одной из следующих ссылок, чтобы начать использовать зоны доступности со своей службой. 
     - [Создание виртуальной машины](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Создание набора масштабирования виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
+    - [Создание масштабируемого набора виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [Добавление управляемого диска с помощью PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Подсистема балансировки нагрузки](../load-balancer/load-balancer-standard-overview.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Шаблоны быстрого запуска](http://aka.ms/azqs)

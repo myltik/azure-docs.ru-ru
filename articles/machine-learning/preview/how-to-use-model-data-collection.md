@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Сбор данных модели с помощью функции сбора данных
 
-Функция сбора данных модели в Azure Machine Learning Workbench позволяет архивировать входные данные и прогнозы модели из веб-службы.
+Функция сбора данных модели в службе "Машинное обучение Azure" позволяет архивировать входные данные и прогнозы модели из веб-службы.
 
 ## <a name="install-the-data-collection-package"></a>Установка пакета сбора данных
 Библиотеку сбора данных можно изначально установить на компьютере с Linux и Windows.
@@ -37,6 +37,12 @@ ms.lasthandoff: 12/08/2017
 Затем выполните следующую команду.
 
     pip install azureml.datacollector
+
+## <a name="set-environment-variables"></a>Настройка переменных среды
+
+Сбор данных в модели зависит от двух переменных среды. Для AML_MODEL_DC_STORAGE_ENABLED нужно установить значение **true** (прописными буквами), а для AML_MODEL_DC_STORAGE необходимо задать строку подключения для учетной записи хранения Azure, в котором вы планируете хранить данные.
+
+Если веб-служба работает в кластере в Azure, эти переменные среды уже заданы. Если вы работаете на локальном компьютере, нужно установить их самостоятельно. Если вы используете Docker, примените параметр -e в команде docker run, чтобы передать переменные среды.
 
 ## <a name="collect-data"></a>Сбор данных
 

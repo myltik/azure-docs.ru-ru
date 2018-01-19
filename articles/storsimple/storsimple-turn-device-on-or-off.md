@@ -4,7 +4,7 @@ description: "В этой статье объясняется, как включ
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Включение и отключение устройства StorSimple серии 8000
 
@@ -147,16 +147,16 @@ ms.lasthandoff: 11/07/2017
 * [Устройство с корпусом EBOD](#8600a)
 
 ### <a name="device-with-primary-enclosure-a-name8100a"></a>Устройство с основным корпусом <a name="8100a">
-Чтобы завершить работу устройства, следуя правильной и контролируемой процедуре, можно воспользоваться классическим порталом Azure или Windows PowerShell для StorSimple. 
+Чтобы завершить работу устройства, следуя правильной и контролируемой процедуре, можно воспользоваться порталом Azure или Windows PowerShell для StorSimple. 
 
 > [!IMPORTANT]
 > Не отключайте работающее устройство с помощью кнопки питания, расположенной на задней панели.
 > 
-> Прежде чем завершить работу устройства, убедитесь, что все его компоненты работоспособны. На классическом портале Azure выберите **Устройства** > **Обслуживание** > **Состояние оборудования** и убедитесь, что индикаторы состояния всех компонентов горят зеленым. Это относится только к работоспособной системе. Если вы завершаете работу системы, чтобы заменить неисправный компонент, на панели **Состояние оборудования**отобразится состояние сбоя (красный индикатор) или ограниченной функциональности (желтый индикатор) для соответствующих компонентов.
+> Прежде чем завершить работу устройства, убедитесь, что все его компоненты работоспособны. На портале Azure выберите **Устройства** > **Мониторинг** > **Работоспособность оборудования** и убедитесь, что индикаторы состояния для всех компонентов зеленого цвета. Это относится только к работоспособной системе. Если вы завершаете работу системы, чтобы заменить неисправный компонент, на панели **Состояние оборудования**отобразится состояние сбоя (красный индикатор) или ограниченной функциональности (желтый индикатор) для соответствующих компонентов.
 > 
 > 
 
-В Windows PowerShell для StorSimple или на классическом портале Azure выполните действия, описанные в разделе [Завершение работы устройства StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
+В Windows PowerShell для StorSimple или на портале Azure выполните действия, описанные в статье о [завершении работы устройства StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>Устройство с корпусом EBOD <a name="8600a">
 > [!IMPORTANT]
@@ -171,6 +171,6 @@ ms.lasthandoff: 11/07/2017
 > [!NOTE]
 > Кабели SAS, которые используются для подключения корпуса EBOD к основному корпусу, не следует отсоединять до завершения работы системы.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) .
 

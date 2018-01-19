@@ -1,6 +1,6 @@
 ---
-title: "Построение проекта в Azure с помощью Jenkins и экземпляров контейнера Azure"
-description: "Сведения об использовании для построения проекта в Azure с экземплярами Azure контейнера подключаемый модуль агента контейнера Azure для Jenkins"
+title: "Создание проекта в Azure с использованием Jenkins и службы \"Экземпляры контейнеров Azure\""
+description: "Узнайте, как использовать подключаемый модуль агента контейнеров Azure для Jenkins, чтобы выполнить сборку проекта в Azure с помощью службы \"Экземпляры контейнеров Azure\""
 services: multiple
 documentationcenter: 
 author: tomarcher
@@ -14,82 +14,82 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 269e936cb79ba4138285f5dbd326413d70d5924d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Построение проекта в Azure с помощью Jenkins и экземпляров контейнера Azure
+# <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Создание проекта в Azure с использованием Jenkins и службы "Экземпляры контейнеров Azure"
 
-Экземпляры контейнером Azure позволяет легко получения и выполнение без подготовки виртуальных машин и применять более высокого уровня службы. Экземпляры контейнером Azure предоставляет секунду выставления счетов на основе мощности, что нужно; сделать привлекательным вариантом для временных рабочих нагрузок, например выполнение сборки.
+Служба "Экземпляры контейнеров Azure" упрощает работу, избавляя от необходимости подготавливать виртуальные машины или применять службу более высокого уровня. Счета за использование этой службы выставляются на основе посекундной тарификации в зависимости от требуемой емкости. Поэтому она является лучшим вариантом для временных рабочих нагрузок, таких как выполнение сборки.
 
 Вы узнаете, как выполнять следующие задачи:
 > [!div class="checklist"]
-> * Установка и настройка сервера Jenkins в Azure
-> * Установка и настройка агентов контейнера Azure подключаемый модуль для Jenkins
-> * Использовать для создания экземпляров контейнера Azure [Spring PetClinic примера приложения](https://github.com/spring-projects/spring-petclinic)
+> * Установить и настроить сервер Jenkins в Azure.
+> * Установить и настроить подключаемый модуль агентов контейнеров Azure для Jenkins.
+> * Использовать службу "Экземпляры контейнеров Azure" для создания [примера приложения Spring PetClinic](https://github.com/spring-projects/spring-petclinic).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>Необходимые компоненты
 
-- **Подписка Azure** : чтобы получить сведения о вариантах приобретения Azure см. в разделе [приобретение Azure](https://azure.microsoft.com/pricing/purchase-options/) или [бесплатной пробной версии один месяц](https://azure.microsoft.com/pricing/free-trial/).
+- **Подписка Azure**. Дополнительные сведения о вариантах приобретения Azure см. на страницах [Как приобрести Azure](https://azure.microsoft.com/pricing/purchase-options/) и [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Azure CLI 2.0 или Azure облачной оболочку** -установить один из следующих продуктов, в который необходимо вводить команды Azure:
+- **Azure CLI 2.0 или Azure Cloud Shell**. Установите один из следующих продуктов, в котором вы будете выполнять команды Azure:
 
-    - [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) -позволяет выполнять команды Azure из команды или окно терминала.
-    - [Azure облачной оболочки](/azure/cloud-shell/quickstart.md) — на основе браузера оболочки взаимодействия. Cloud Shell предоставляет доступ к браузерному интерфейсу командной строки, созданному с учетом задач управления Azure.
+    - [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest). Позволяет выполнять команды Azure из окна командной строки или окна терминала.
+    - [Azure Cloud Shell](/azure/cloud-shell/quickstart.md). Оболочка на основе браузера. Cloud Shell предоставляет доступ к браузерному интерфейсу командной строки, созданному с учетом задач управления Azure.
 
-## <a name="install-a-jenkins-server-on-azure-using-the-jenkins-marketplace-image"></a>Установка сервера Jenkins на Azure с помощью образа Jenkins Marketplace
+## <a name="install-a-jenkins-server-on-azure-using-the-jenkins-marketplace-image"></a>Установка сервера Jenkins в Azure с помощью образа Jenkins из Marketplace
 
-Jenkins поддерживает модели, где Jenkins, сервер делегирует работу одного или нескольких агентов один Jenkins установки для размещения большом количестве проектов или для предоставления различных средах, необходимые для построения или тесты. В этом разделе представлены инструкции по установке и настройке сервера Jenkins в Azure.
+Jenkins поддерживает модель, в которой делегаты сервера Jenkins работают с одним или несколькими агентами, чтобы позволить одной установке Jenkins размещать большое количество проектов или предоставлять различные среды, необходимые для сборки или тестирования. Шаги, представленные в этом разделе, помогут вам установить и настроить сервер Jenkins в Azure.
 
 [!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
-## <a name="connect-to-the-jenkins-server-running-on-azure"></a>Подключиться к серверу Jenkins, работающих в Azure
+## <a name="connect-to-the-jenkins-server-running-on-azure"></a>Подключение к серверу Jenkins, работающем в Azure
 
-После установки Jenkins в Azure, необходимо подключиться к Jenkins. Следующие шаги содержат пошаговые инструкции по настройке SSH-подключения к виртуальной машине Jenkins, работающих в Azure. 
+Когда вы установите сервер Jenkins в Azure, необходимо подключиться к нему. Ниже приведены шаги по настройке SSH-подключения к виртуальной машине Jenkins, работающей в Azure. 
 
 [!INCLUDE [jenkins-connect-to-jenkins-server-running-on-azure](../../includes/jenkins-connect-to-jenkins-server-running-on-azure.md)]
 
-## <a name="update-jenkins-dns"></a>Обновление DNS Jenkins
+## <a name="update-jenkins-dns"></a>Обновление службы доменных имен (DNS) Jenkins
 
-Jenkins должен знать свой URL-адрес при создании ссылок, указывающих обратно на себя. Например URL-адрес должен использоваться при Jenkins отправляет сообщения электронной почты, содержащее прямые ссылки на результаты построения. 
+Jenkins должен знать собственный URL-адрес, когда он создает указывающие на него ссылки. Например, Jenkins нужно использовать URL-адрес, когда он отправляет сообщения электронной почты, содержащие прямые ссылки на результаты сборки. 
 
-В этом разделе описывается задание Jenkins URL-адреса.
+В этом разделе описывается настройка URL-адреса Jenkins.
 
-1. В браузере перейдите к панели мониторинга Jenkins на `http://localhost:8080`.
+1. В браузере перейдите на панель мониторинга Jenkins по адресу `http://localhost:8080`.
 
-1. Выберите **управления Jenkins**.
+1. Выберите **Manage Jenkins** (Управление Jenkins).
 
-    ![Управление параметрами Jenkins на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
+    ![Параметры управления Jenkins на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
 
-1. Выберите **настройки системы**.
+1. Выберите **Configure System** (Настройка системы).
 
-    ![Управление Jenkins подключаемых модулей параметр на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
+    ![Параметр управления подключаемыми модулями на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
 
-1. В разделе **Jenkins расположение**, введите URL-адрес сервера Jenkins.
-
-1. Щелкните **Сохранить**.
-
-## <a name="update-jenkins-to-allow-java-network-launch-protocol-jnlp"></a>Обновление Jenkins, чтобы разрешить протокол запуска сети Java (JNLP)
-
-Jenkins агент подключается к серверу Jenkins через Java сети запуска протокола (JNLP). В этом разделе описывается Указание порта для JNLP агентов, используемых при взаимодействии с сервера Jenkins.
-
-1. Выберите в панели мониторинга Jenkins **управления Jenkins**.
-
-    ![Управление параметрами Jenkins на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
-
-1. Выберите **Настройка глобальных безопасности**.
-
-    ![Настройка глобальных безопасности в панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-global-security.png)
-
-1. В разделе **агенты**выберите **Fixed**и введите порт. На снимке экрана показано значение порта 12345 в качестве примера. Следует указать порт, который подходит для вашей среды.
-
-    ![Обновить параметры безопасности глобального Jenkins, чтобы разрешить JNLP](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-set-jnlp.png)
+1. В разделе **Jenkins Location** (Расположение Jenkins) введите URL-адрес сервера Jenkins.
 
 1. Щелкните **Сохранить**.
 
-1. С помощью Azure CLI 2.0 или оболочки облака, введите следующую команду, чтобы создать правило для вашей группе безопасности сети Jenkins:
+## <a name="update-jenkins-to-allow-java-network-launch-protocol-jnlp"></a>Обновление Jenkins с целью разрешить протокол JNLP
+
+Агент Jenkins подключается к серверу Jenkins через протокол Java Network Launch Protocol (JNLP). В этом разделе объясняется, как указать порт, используемый агентами JNLP при взаимодействии с сервером Jenkins.
+
+1. На панели мониторинга Jenkins выберите **Manage Jenkins** (Управление Jenkins).
+
+    ![Параметры управления Jenkins на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
+
+1. Выберите **Configure Global Security** (Настройка глобальной безопасности).
+
+    ![Параметр настройки глобальной безопасности на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-global-security.png)
+
+1. В разделе **Agents** (Агенты) выберите **Fixed** (Фиксированный) и введите номер порта. На снимке экрана в качестве примера показано значение порта 12345. Вам нужно указать порт, который подходит для вашей среды.
+
+    ![Обновление параметров глобальной безопасности Jenkins с целью разрешить протокол JNLP](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-set-jnlp.png)
+
+1. Щелкните **Сохранить**.
+
+1. Чтобы создать правило входящих подключений для вашей группы безопасности сети Jenkins, введите следующую команду в Azure CLI 2.0 или Azure Cloud Shell:
 
     ```azurecli
     az network nsg rule create  \
@@ -107,56 +107,56 @@ Jenkins агент подключается к серверу Jenkins через
     --destination-port-range "12345"
     ```
 
-## <a name="create-and-add-an-azure-service-principal-to-the-jenkins-credentials"></a>Создание и Добавление участника службы Azure Jenkins учетные данные
+## <a name="create-and-add-an-azure-service-principal-to-the-jenkins-credentials"></a>Создание и добавление субъекта-службы Azure в учетные данные Jenkins
 
-Для развертывания в Azure требуется субъект-служба Azure. Следующие шаги описывают процесс создания участника службы (если у вас еще нет один) и обновление Jenkins с субъектом-службой.
+Для развертывания в Azure требуется субъект-служба Azure. Ниже приведены шаги по созданию субъекта-службы (если у вас его еще нет) и добавления его для Jenkins.
 
-1. Если уже имеется участника службы (и знать идентификатор подписки, клиента, appId и пароль), этот шаг можно пропустить. Если необходимо создать субъект безопасности, обратитесь к статье [создании субъекта-службы Azure с помощью Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). При создании основного сервера, запишите значения для идентификатора подписки, клиента, appId и пароль.
+1. Если у вас уже имеется субъект-служба (и вы знаете его идентификатор подписки, приложения, клиент и пароль), этот шаг можно пропустить. Сведения о создании субъекта безопасности см. в статье [Создание субъекта-службы Azure с помощью Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). При создании субъекта запишите следующие значения: идентификатор подписки, клиент, идентификатор приложения и пароль.
 
-1. Выберите **учетные данные**.
+1. Выберите **Credentials** (Учетные данные).
 
-    ![Управление параметр учетные данные на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials.png)
+    ![Параметр управления учетными данными на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials.png)
 
-1. В разделе **учетные данные**выберите **системы**.
+1. В разделе **Credentials** (Учетные данные) выберите **System** (Система).
 
-    ![Управление системный параметр учетные данные на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-system.png)
+    ![Параметр управления системными учетными данными на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-system.png)
 
-1. Выберите **глобальные учетные данные (без ограничений)**.
+1. Выберите **Global credentials (unrestricted)** (Глобальные учетные данные (неограниченные)).
 
-    ![Управление глобальной системе параметр учетные данные на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-global.png)
+    ![Параметр управления глобальными системными учетными данными на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-global.png)
 
-1. Выберите **Добавление некоторые учетные данные**.
+1. Выберите **Adding some credentials** (Добавление учетных данных).
 
-    ![Добавьте учетные данные на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-adding-credentials.png)
+    ![Добавление учетных данных на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-adding-credentials.png)
 
-1. В **вид** раскрывающегося списка выберите **субъекта-службы Microsoft Azure** заставить страница для отображения поля, присущие Добавление участника службы. Затем укажите необходимые значения следующим образом:
+1. Чтобы на странице отобразились поля для добавления субъекта-службы, в раскрывающемся списке **Kind** (Вид) выберите **Microsoft Azure Service Principal** (Субъект-служба Microsoft Azure). Затем укажите необходимые значения следующим образом:
 
-    - **Область** -выберите параметр для **Global (Jenkins, узлы, элементы, все дочерние элементы и т. д.)** .
-    - **Идентификатор подписки** -использовать идентификатор подписки Azure, указанной при запуске `az account set`.
-    - **Идентификатор клиента** -используйте `appId` значение, возвращенное `az ad sp create-for-rbac`.
-    - **Секрет клиента** -используйте `password` значение, возвращенное `az ad sp create-for-rbac`.
-    - **Идентификатор клиента** -используйте `tenant` значение, возвращенное `az ad sp create-for-rbac`.
-    - **Среду Azure** — выберите `Azure`.
-    - **Идентификатор** -введите `myTestSp`. Это значение используется позже в этом учебнике.
-    - **Описание** (необязательно) введите описание значение для этого участника.
+    - **Scope** (Область). Выберите параметр **Global (Jenkins, nodes, items, all child items, etc.)** (Глобальная (Jenkins, узлы, элементы, все дочерние элементы и т. д.)).
+    - **Subscription ID** (Идентификатор подписки). Введите идентификатор подписки Azure, указанной при запуске `az account set`.
+    - **Client ID** (Идентификатор клиента). Укажите значение `appId`, полученное от `az ad sp create-for-rbac`.
+    - **Client Secret** (Секрет клиента). Укажите значение `password`, полученное от `az ad sp create-for-rbac`.
+    - **Tenant ID** (Идентификатор клиента). Укажите значение `tenant`, полученное от `az ad sp create-for-rbac`.
+    - **Azure Environment** (Среда Azure). Выберите `Azure`.
+    - **ID** (Идентификатор). Укажите `myTestSp`. Это значение позже еще раз будет использовано в данном руководстве.
+    - **Description** (Описание). (Необязательно.) Введите описание для этого субъекта.
 
-    ![Укажите новые свойства участника службы на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-principal-properties.png)
+    ![Указание новых свойств субъекта-службы на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-principal-properties.png)
 
-1. После ввода сведения, указывающие основного сервера, при необходимости можно выбрать **проверить участника-службы** чтобы убедиться, что все работает правильно. Если участника службы к правильно определен, появится сообщение о том, «успешно проверена субъекта-службы Microsoft Azure.» ниже **описание** поля.
+1. Когда вы введете информацию, определяющую субъект-службу, можно выбрать пункт **Verify Service Principal** (Проверить субъект-службу), чтобы убедиться, что все работает правильно. Если субъект-служба определена правильно, появится сообщение Successfully verified the Microsoft Azure Service Principal (Субъект-служба Microsoft Azure успешно проверена) под полем **Description** (Описание).
 
-1. Когда вы закончите, выберите **ОК** для добавления участника к Jenkins. На панели мониторинга Jenkins отображается вновь добавленный участника на **учетные данные глобального** страницы.
+1. После этого нажмите кнопку **ОК**, чтобы добавить субъект в Jenkins. На панели мониторинга Jenkins добавленный субъект отобразится на странице **Global Credentials** (Глобальные учетные данные).
 
-## <a name="create-an-azure-resource-group-for-your-azure-container-instances"></a>Создание группы ресурсов Azure для экземпляров контейнера Azure
+## <a name="create-an-azure-resource-group-for-your-azure-container-instances"></a>Создание группы ресурсов Azure для экземпляров контейнеров Azure
 
-Экземпляры контейнером Azure должны находиться в группе ресурсов Azure. Группа ресурсов Azure — это контейнер, содержащий связанные ресурсы для решения Azure.
+Экземпляры контейнеров Azure должны находиться в группе ресурсов Azure. Группа ресурсов Azure — это контейнер, содержащий связанные ресурсы для решения Azure.
 
-С помощью Azure CLI 2.0 или оболочки облака, введите следующую команду, чтобы создать группу ресурсов под названием `JenkinsAciResourceGroup` в расположении `eastus`:
+Чтобы создать группу ресурсов с именем `JenkinsAciResourceGroup` в расположении `eastus`, введите следующую команду в Azure CLI 2.0 или Cloud Shell:
 
 ```azurecli
 az group create --name JenkinsAciResourceGroup --location eastus
 ```
 
-После завершения `az group create` команда отображает результаты, аналогичные следующему примеру:
+После этого команда `az group create` выведет результаты, подобные следующим:
 
 ```JSON
 {
@@ -171,162 +171,162 @@ az group create --name JenkinsAciResourceGroup --location eastus
 }
 ```
 
-## <a name="install-the-azure-container-agents-plugin-for-jenkins"></a>Установите агенты Azure контейнера подключаемый модуль для Jenkins
+## <a name="install-the-azure-container-agents-plugin-for-jenkins"></a>Установка подключаемого модуля агентов контейнеров Azure для Jenkins
 
-Если подключаемый модуль агенты контейнера Azure уже установлены, этот раздел можно пропустить.
+Если вы уже установили подключаемый модуль агентов контейнеров Azure, этот раздел можно пропустить.
 
-При наличии группы ресурсов Azure, созданные для агента Jenkins, ниже показано, как установить подключаемый модуль Azure контейнера агенты:
+После создания группы ресурсов Azure для агента Jenkins установите подключаемый модуль агентов контейнеров Azure, как показано ниже:
 
-1. Выберите в панели мониторинга Jenkins **управления Jenkins**.
+1. На панели мониторинга Jenkins выберите **Manage Jenkins** (Управление Jenkins).
 
-    ![Управление параметрами Jenkins на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
+    ![Параметры управления Jenkins на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
 
-1. Выберите **управление подключаемыми модулями**.
+1. Выберите **Manage Plugins** (Управление подключаемыми модулями).
 
-    ![Управление Jenkins подключаемых модулей параметр на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-plugins.png)
+    ![Параметр управления подключаемыми модулями на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-plugins.png)
 
-1. Выберите **доступных**.
+1. Выберите **Available** (Доступно).
 
-    ![Просмотр доступных параметров Jenkins подключаемых модулей в панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-view-available-plugins.png)
+    ![Параметр просмотра доступных подключаемых модулей Jenkins на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-view-available-plugins.png)
 
-1. Введите `Azure Container Agents` в **фильтра** текстовое поле. (Список фильтров при вводе текста).
+1. Введите `Azure Container Agents` в текстовое поле **Filter** (Фильтр). (Список фильтруется по мере ввода текста.)
 
-    ![Фильтрация доступных подключаемых модулей Jenkins, на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-filter-available-plugins.png)
+    ![Фильтрация доступных подключаемых модулей Jenkins на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-filter-available-plugins.png)
 
-1. Установите флажок рядом с **агенты контейнера Azure** подключаемого модуля и один из параметров установки. В целях этой демонстрации я выбрал **установка без перезапуска** параметр.
+1. Установите флажок рядом с подключаемым модулем **Azure Container Agents** (Агенты контейнеров Azure) и одним из параметров установки. Для этого демонстрационного проекта мы выбрали параметр **Install without restart** (Установка без перезагрузки).
 
-    ![Установка подключаемых модулей агентов контейнера Azure с помощью панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-install-aks-agent-plugin.png)
+    ![Установка подключаемых модулей агентов контейнеров Azure на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-install-aks-agent-plugin.png)
 
-1.  Выбрав параметр для установки требуемой подключаемые модули, панели мониторинга Jenkins отображает страницу с подробным описанием состояния выполняется установка.
+1.  После выбора параметра для установки нужного подключаемого модуля на панели мониторинга Jenkins отобразится страница с описанием состояния установки.
 
-    ![Состояние установки установки подключаемых модулей агентов контейнера Azure из панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-install-aks-agent-plugin-confirmation.png)
+    ![Состояние установки подключаемых модулей агентов контейнера Azure на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-install-aks-agent-plugin-confirmation.png)
 
-    Чтобы вернуться на главную страницу панели мониторинга Jenkins, выберите **вернитесь на страницу верхнего**.
+    Чтобы вернуться на главную страницу панели мониторинга Jenkins, выберите **Go back to the top page** (Вернуться на главную страницу).
 
-## <a name="configure-the-azure-container-agents-plugin"></a>Настроить подключаемый модуль Azure контейнера агентов
+## <a name="configure-the-azure-container-agents-plugin"></a>Настройка подключаемого модуля агентов контейнеров Azure
 
-После установки агентов Azure контейнер подключаемого модуля в этом разделе поможет настроить подключаемый модуль в пределах панели мониторинга Jenkins.
+После установки подключаемого модуля агентов контейнеров Azure настройте подключаемый модуль на панели мониторинга Jenkins, как показано в этом разделе.
 
-1. Выберите в панели мониторинга Jenkins **управления Jenkins**.
+1. На панели мониторинга Jenkins выберите **Manage Jenkins** (Управление Jenkins).
 
-    ![Управление параметрами Jenkins на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
+    ![Параметры управления Jenkins на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
 
-1. Выберите **настройки системы**.
+1. Выберите **Configure System** (Настройка системы).
 
-    ![Управление Jenkins подключаемых модулей параметр на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
+    ![Параметр управления подключаемыми модулями на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
 
-1. Найдите **облака** раздел в нижней части страницы, а также из **Добавление нового облака** раскрывающегося списка выберите **экземпляр контейнера Azure**.
+1. В нижней части страницы найдите раздел **Cloud**(Облако). Затем в раскрывающемся списке **Add a new cloud** (Добавить новое облако) выберите **Azure Container Instance** (Экземпляр контейнера Azure).
 
-    ![Добавить новый поставщик облака на информационной панели Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-cloud-provider.png)
+    ![Добавление нового поставщика облачных служб на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-cloud-provider.png)
 
-1. В **экземпляр контейнера Azure** статьи, укажите следующие значения:
+1. В разделе **Azure Container Instance** (Экземпляр контейнера Azure) укажите следующие значения:
 
-    - **Имя облака** (необязательно, как это значение по умолчанию для автоматически создаваемого имени.) Укажите имя для данного экземпляра. 
-    - **Учетных данных Azure** — щелкните стрелку раскрывающегося списка, а затем выберите `myTestSp` запись, которая идентифицирует участника службы Azure было создано ранее.
-    - **Группа ресурсов** — щелкните стрелку раскрывающегося списка, а затем выберите `JenkinsAciResourceGroup` запись, которая идентифицирует группу ресурсов экземпляр контейнера Azure было создано ранее.
+    - **Cloud name** (Имя облака). (Необязательно, так как по умолчанию это значение создается автоматически.) Укажите имя для этого экземпляра. 
+    - **Azure Credential** (Учетные данные Azure). Щелкните стрелку раскрывающегося списка, а затем выберите запись `myTestSp`, которая идентифицирует субъект-службу Azure, которую вы создали ранее.
+    - **Resource Group** (Группа ресурсов). Щелкните стрелку раскрывающегося списка, а затем выберите запись `JenkinsAciResourceGroup`, которая идентифицирует группу ресурсов экземпляра контейнера Azure, созданную ранее.
 
-    ![Определение свойств экземпляр контейнера Azure](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-properties.png)
+    ![Определение свойств экземпляра контейнера Azure](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-properties.png)
 
-1. Выберите **Добавление шаблона контейнера** стрелку раскрывающегося списка и выберите **Aci контейнера шаблона**.
+1. Щелкните стрелку раскрывающегося списка **Add Container Template** (Добавить шаблон контейнера), а затем выберите **Aci Container Template** (Шаблон контейнера ACI).
 
-1. В **Aci контейнера шаблона** статьи, укажите следующие значения:
+1. В разделе **Aci container Template** (Шаблон контейнера ACI) укажите следующие значения:
 
-    - **Имя** -введите `ACI-container`.
-    - **Метки** -введите `ACI-container`.
-    - **Образ docker** -ввод`cloudbees/jnlp-slave-with-java-build-tools`
+    - **Name** (Имя). Введите `ACI-container`.
+    - **Labels** (Метки). Введите `ACI-container`.
+    - **Docker Image** (Образ Docker). Введите `cloudbees/jnlp-slave-with-java-build-tools`.
 
-    ![Определение свойств изображения экземпляр контейнера Azure](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-image-properties.png)
+    ![Определение свойств образа экземпляра контейнера Azure](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-image-properties.png)
 
 1. Нажмите кнопку **Advanced** (Дополнительно).
 
-1. Выберите **стратегии хранения** стрелку раскрывающегося списка и выберите **стратегии хранения простоя контейнер**. При выборе этого параметра, Jenkins сохраняет агент резервного копирования до нового задания не выполняется на агенте и по истечении указанного времени простоя.
+1. Щелкните стрелку раскрывающегося списка **Retention Strategy** (Стратегия удержания) и выберите **Container Idle Retention Strategy** (Стратегия удержания при простое контейнера). Если выбрать этот параметр, Jenkins поддерживает работу агента до тех пор, пока на нем не будет выполнено новое задание или не истечет указанное время простоя.
 
-    ![Определение стратегии хранения экземпляр контейнера Azure](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-retention-strategy.png)
+    ![Определение стратегии удержания для экземпляра контейнера Azure](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-retention-strategy.png)
 
 1. Щелкните **Сохранить**.
 
-## <a name="create-the-spring-petclinic-application-job-in-jenkins"></a>Создать задание приложения PetClinic Spring в Jenkins
+## <a name="create-the-spring-petclinic-application-job-in-jenkins"></a>Создание задания приложения PetClinic Spring в Jenkins
 
-Следующие шаги пошаговый процесс создания задание Jenkins — как проект свободном стиле — для построения приложения PetClinic Spring.
+Ниже приведены шаги по созданию задания Jenkins (в качестве универсального проекта), чтобы выполнить сборку приложения Spring PetClinic.
 
-1. Выберите в панели мониторинга Jenkins **новый элемент**.
+1. На панели мониторинга Jenkins выберите **New Item**(Создать элемент).
 
-    ![Новый параметр элемента меню в панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-item.png)
+    ![Пункт меню создания элемента на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-item.png)
 
-1. Введите `myPetClinicProject` имя элемента, а затем выберите **проекта в свободном стиле**.
+1. В поле имени элемента введите `myPetClinicProject` и выберите **Freestyle project** (Универсальный проект).
 
-    ![Новый проект в свободном стиле, в панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-freestyle-project.png)
+    ![Создание универсального проекта на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-freestyle-project.png)
 
 1. Нажмите кнопку **ОК**.
 
-1. Выберите **Общие** и укажите следующие значения:
+1. На вкладке **General**(Общие) укажите следующие значения:
 
-    - **Ограничения, где проект может работать** -выберите этот параметр.
-    - **Метка выражение** -введите `ACI-container`. При выходе из поля, отображается сообщение, подтверждающее, что метка обслуживается конфигурации облака, созданные на предыдущем шаге.
+    - **Restrict where project can be run** (Ограничить выполнение проекта). Выберите этот параметр.
+    - **Label Expression** (Выражение метки). Введите `ACI-container`. Когда вы выйдете из поля, появится сообщение, подтверждающее обработку метки конфигурацией облака, созданной на предыдущем шаге.
 
-    ![Общие параметры для нового проекта в свободном стиле на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-freestyle-project-general.png)
+    ![Общие параметры для нового универсального проекта на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-freestyle-project-general.png)
 
-1. Выберите **управление исходным кодом** и укажите следующие значения:
+1. Перейдите на вкладку **Source Code Management** (Управление исходным кодом) и укажите следующие значения:
 
-    - **Исходный код управления** — выберите **Git**.
-    - **URL-адрес репозитория** -введите следующий URL-адрес для Spring PetClinic образца приложения в репозитории GitHub: `https://github.com/spring-projects/spring-petclinic.git`.
+    - **Source Code Management** (Управление исходным кодом). Выберите **Git**.
+    - **Repository URL** (URL-адрес репозитория). Введите следующий URL-адрес репозитория GitHub для примера приложения Spring PetClinic: `https://github.com/spring-projects/spring-petclinic.git`.
 
-1. Выберите **построения** вкладку, а также выполнять следующие задачи:
+1. Перейдите на вкладку **Build** (Сборка) и выполните следующие задачи:
 
-    - Выберите **добавить шаг сборки** стрелку раскрывающегося списка и выберите **вызова целевых объектов верхнего уровня Maven**.
+    - Щелкните стрелку раскрывающегося списка **Add build step** (Добавить этап сборки) и выберите **Invoke top-level Maven targets** (Вызов целей верхнего уровня Maven).
 
-    - Для **целей**, введите `package`.
+    - В поле **Goals** (Цели) укажите `package`.
 
-1. Выберите **Сохранить** сохранить новое определение проекта.
+1. Чтобы сохранить определение нового проекта, выберите **Save** (Сохранить).
 
-## <a name="build-the-spring-petclinic-application-job-in-jenkins"></a>Задание приложения PetClinic Spring в Jenkins сборки
+## <a name="build-the-spring-petclinic-application-job-in-jenkins"></a>Создание задания приложения PetClinic Spring в Jenkins
 
-Пора выполнить сборку проекта! В этом разделе объясняется, как сборка проекта с помощью панели мониторинга Jenkins.
+Пора выполнить сборку проекта! В этом разделе объясняется, как создать проект на панели мониторинга Jenkins.
 
-1. В панели мониторинга Jenkins выберите `myPetClinicProject`.
+1. На панели мониторинга Jenkins выберите `myPetClinicProject`.
 
-    ![Выберите проект для сборки с помощью панели мониторинга Jenkins.](./media/azure-container-agents-plugin-run-container-as-an-agent/select-project-to-build.png)
+    ![Выберите проект для создания на панели мониторинга Jenkins.](./media/azure-container-agents-plugin-run-container-as-an-agent/select-project-to-build.png)
 
-1. Выберите **сборки теперь**. 
+1. Выберите **Build now** (Собрать). 
 
-    ![Постройте проект с помощью панели мониторинга Jenkins.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-project.png)
+    ![Создание проекта на панели мониторинга Jenkins](./media/azure-container-agents-plugin-run-container-as-an-agent/build-project.png)
 
-1. При запуске сборки в Jenkins сборка помещается в очередь. В случае использования агента контейнера Azure сборки нельзя выполнить до работы и перевести в оперативный режим агент контейнера Azure. До тех пор появится сообщение, указывающее имя агента и тот факт, что ожидается сборки. (Этот процесс занимает около пяти минут, но необходим только при первом использовании агента для сборки. Последующие построения будут гораздо быстрее, так как агент находится в оперативном режиме на данный момент.)
+1. При запуске сборки в Jenkins она помещается в очередь. Если вы используете агент контейнера Azure, сборка не может быть запущена до тех пор, пока агент не будет запущен и подключен. Если это не будет выполнено, вы увидите сообщение с именем агента и информацией о том, что сборка находится в ожидании. (Этот процесс занимает около пяти минут, однако он необходим только при первом использовании агента для сборки. Последующие сборки будут выполняться гораздо быстрее, так как на тот момент агент будет подключен.)
 
-    ![Построение помещается в очередь, пока агент будет создана и перевести в оперативный режим.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-pending.png)
+    ![Пока агент не создан и не подключен, сборка помещается в очередь.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-pending.png)
 
-    После начала построения, этот компонент полюса индикатор указывает на выполнение построения:
+    После запуска сборки появится индикатор выполнения, указывающий, что сборка выполняется:
 
-    ![Как только вы увидите этот компонент полюса индикатор выполнение построения.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-running.png)
+    ![Если появился индикатор выполнения, значит сборка выполняется.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-running.png)
 
-1. Когда исчезнет индикатор выполнения полюса этот компонент, щелкните стрелку рядом с номером сборки. В контекстном меню выберите **вывод на консоль**.
+1. Когда индикатор выполнения исчезнет, щелкните стрелку рядом с номером сборки. В контекстном меню выберите пункт **Console output** (Выходные данные консоли).
 
-    ![Пункт меню журнала консоли для просмотра сведений о сборке.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-log-menu.png)
+    ![Чтобы просмотреть сведения о сборке, выберите пункт меню Console Log (Журнал консоли).](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-log-menu.png)
 
-1. Сведения журнала консоли, создаваемые в процессе построения. Чтобы просмотреть все сведения о сборке (включая сведения о построении выполняется удаленно на агенте Azure, вы создали), выберите **полного журнала**.
+1. Сведения журнала консоли создаются в процессе сборки. Чтобы просмотреть все сведения о сборке (включая сведения о выполнении сборки удаленно на созданном агенте Azure), выберите **Full log** (Полный журнал).
 
-    ![Щелкните ссылку переполнения журнала, чтобы просмотреть более подробные сведения о сборке.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-log.png)
+    ![Щелкните ссылку Full log (Полный журнал), чтобы просмотреть более подробные сведения о сборке.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-log.png)
 
-    Полный журнал отображаются более подробные сведения о сборке:
+    В полном журнале содержатся более подробные сведения о сборке:
 
-    ![Переполнения журнала отображаются более подробные сведения о сборке.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-log-full.png)
+    ![В полном журнале содержатся более подробные сведения о сборке.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-log-full.png)
     
-1. Чтобы просмотреть расположения сборки, прокрутите вниз журнала.
+1. Чтобы просмотреть расположение сборки, прокрутите до нижней части журнала.
 
-    ![Отображает расположение сборки в нижней части журнала построения.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-disposition.png)
+    ![Расположение сборки отображается в нижней части журнала сборки.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-disposition.png)
 
 ## <a name="clean-up-azure-resources"></a>Очистка ресурсов Azure
 
-В этом учебнике вы создали ресурсы, содержащиеся в две группы ресурсов Azure: 
-    - `JenkinsResourceGroup`— Содержит ресурсы Azure для сервера Jenkins.
-    - `JenkinsAciResourceGroup`— Содержит ресурсы Azure для агента Jenkins.
+Следуя указаниям в этом руководстве, вы создали ресурсы, содержащиеся в двух группах ресурсов Azure: 
+    - `JenkinsResourceGroup` — ресурсы Azure для сервера Jenkins.
+    - `JenkinsAciResourceGroup` — ресурсы Azure для агента Jenkins.
     
-Если больше не нужно использовать какие-либо ресурсы в группе ресурсов Azure, можно удалить группу ресурсов с помощью `az group delete` следующим образом (замена &lt;группа ресурсов > заполнитель с именем для группы ресурсов DELETE):
+Если вам больше не нужно использовать ресурсы в группе ресурсов Azure, вы можете удалить группу ресурсов с помощью команды `az group delete` следующим образом (замените заполнитель &lt;resourceGroup> на имя группы ресурсов, которую нужно удалить):
 
 ```azurecli
 az group delete -n <resourceGroup>
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 > [!div class="nextstepaction"]
-> [Посетите Jenkins в центр Azure, чтобы увидеть последние статьи и образцы](https://docs.microsoft.com/en-us/azure/jenkins/)
+> [Jenkins в Azure](https://docs.microsoft.com/azure/jenkins/)

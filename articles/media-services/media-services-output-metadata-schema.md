@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8792535eeeb71e7233c42bd9ea2a446a1c4d43c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="output-metadata"></a>Выходные метаданные
 ## <a name="overview"></a>Обзор
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 Коллекция записей AssetFile для задания кодирования.  
 
 ### <a name="child-elements"></a>Дочерние элементы
-| Имя | Описание |
+| ИМЯ | ОПИСАНИЕ |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |[Элемент AssetFile](media-services-output-metadata-schema.md), который является частью коллекции AssetFiles. |
 
@@ -45,17 +45,17 @@ ms.lasthandoff: 10/11/2017
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Атрибуты
-| Имя | Тип | Описание |
+| ИМЯ | type | ОПИСАНИЕ |
 | --- | --- | --- |
-| **Имя**<br/><br/> Обязательно |**xs:string** |Имя файла ресурса мультимедиа. |
-| **Размер**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:long** |Размер файла ресурса-контейнера в байтах. |
-| **Duration**<br/><br/> Обязательно |**xs:duration** |Длительность воспроизведения содержимого. |
+| **Имя**<br/><br/> Обязательное значение |**xs:string** |Имя файла ресурса мультимедиа. |
+| **Размер**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:long** |Размер файла ресурса-контейнера в байтах. |
+| **Duration**<br/><br/> Обязательное значение |**xs:duration** |Длительность воспроизведения содержимого. |
 
 ### <a name="child-elements"></a>Дочерние элементы
-| Имя | Описание |
+| ИМЯ | ОПИСАНИЕ |
 | --- | --- |
 | **Источники** |Коллекция входных и исходных файлов мультимедиа, которая обрабатывалась для создания AssetFile. Дополнительные сведения см. в разделе [Элемент Source](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Каждый физический файл ресурса-контейнера может содержать ноль или более видеодорожек, чередуемых в соответствующем формате ресурса-контейнера. Это коллекция всех видеодорожек. Дополнительные сведения см. в разделе [Элемент VideoTracks](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Каждый физический файл ресурса может содержать ноль или более видеодорожек, чередуемых в соответствующем формате ресурса-контейнера. Дополнительные сведения см. в разделе [Элемент VideoTracks](media-services-output-metadata-schema.md). |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Каждый физический файл ресурса-контейнера может содержать ноль или более звуковых дорожек, чередуемых в соответствующем формате ресурса-контейнера. Это коллекция всех звуковых дорожек. Дополнительные сведения см. в разделе [Элемент AudioTracks](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a> Элемент Sources
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Дочерние элементы
-| Имя | Описание |
+| ИМЯ | ОПИСАНИЕ |
 | --- | --- |
 | **Источник**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Входной или исходный файл, используемый при создании этого ресурса. Дополнительные сведения см. в разделе [Элемент Source](media-services-output-metadata-schema.md). |
 
@@ -74,17 +74,17 @@ ms.lasthandoff: 10/11/2017
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Атрибуты
-| Имя | Тип | Описание |
+| ИМЯ | type | ОПИСАНИЕ |
 | --- | --- | --- |
-| **Имя**<br/><br/> Обязательно |**xs:string** |Имя входного исходного файла. |
+| **Имя**<br/><br/> Обязательное значение |**xs:string** |Имя входного исходного файла. |
 
 ## <a name="VideoTracks "></a> Элемент VideoTracks
-Каждый физический файл ресурса-контейнера может содержать ноль или более видеодорожек, чередуемых в соответствующем формате ресурса-контейнера. Это коллекция всех видеодорожек.  
+Каждый физический файл ресурса может содержать ноль или более видеодорожек, чередуемых в соответствующем формате ресурса-контейнера. Элемент **VideoTracks** — это коллекция всех видеодорожек.  
 
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Дочерние элементы
-| Имя | Описание |
+| ИМЯ | ОПИСАНИЕ |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Конкретная видеодорожка в родительском элементе AssetFile. Дополнительные сведения см. в разделе [Элемент VideoTrack](media-services-output-metadata-schema.md#VideoTrack). |
 
@@ -94,29 +94,29 @@ ms.lasthandoff: 10/11/2017
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Атрибуты
-| Имя | Тип | Описание |
+| ИМЯ | type | ОПИСАНИЕ |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:int** |Отсчитываемый от нуля индекс видеодорожки. **Примечание.** MP4-файл необязательно должен содержать идентификатор дорожки. |
-| **FourCC**<br/><br/> Обязательно |**xs:string** |Код FourCC видеокодека. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:int** |Отсчитываемый от нуля индекс видеодорожки. **Примечание.** Этот **идентификатор** не обязательно является TrackID, как используемый в файле MP4. |
+| **FourCC**<br/><br/> Обязательное значение |**xs:string** |Код FourCC видеокодека. |
 | **Профиль** |**xs:string** |Профиль H264 (применим только для кодека H264). |
 | **Level** |**xs:string** |Уровень H264 (применим только для кодека H264). |
-| **Width**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:int** |Ширина закодированного видео в пикселях. |
-| **Height**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:int** |Высота закодированного видео в пикселях. |
-| **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:double** |Числитель пропорции отображения видео. |
-| **DisplayAspectRatioDenominator**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:double** |Знаменатель пропорции отображения видео. |
-| **Framerate**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:decimal** |Измеренная частота видеокадров в формате 3F. |
-| **TargetFramerate**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:decimal** |Предустановленная частота кадров целевого видео в формате 3F. |
-| **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:int** |Средняя скорость аудиопотока в килобитах в секунду, вычисленная на основе файла ресурса-контейнера. Подсчитываются только полезные данные элементарного потока, издержки на упаковку не включаются. |
-| **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:int** |Целевая средняя скорость для данной видеодорожки в килобитах в секунду, запрошенная на основе предустановки кодирования. |
+| **Width**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:int** |Ширина закодированного видео в пикселях. |
+| **Height**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:int** |Высота закодированного видео в пикселях. |
+| **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:double** |Числитель пропорции отображения видео. |
+| **DisplayAspectRatioDenominator**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:double** |Знаменатель пропорции отображения видео. |
+| **Framerate**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:decimal** |Измеренная частота видеокадров в формате 3F. |
+| **TargetFramerate**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:decimal** |Предустановленная частота кадров целевого видео в формате 3F. |
+| **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:int** |Средняя скорость аудиопотока в килобитах в секунду, вычисленная на основе файла ресурса-контейнера. Подсчитываются только полезные данные элементарного потока, издержки на упаковку не включаются. |
+| **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:int** |Целевая средняя скорость для данной видеодорожки в килобитах в секунду, запрошенная на основе предустановки кодирования. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Максимальная средняя скорость группы изображений (GOP) для данной видеодорожки в килобитах в секунду. |
 
 ## <a name="AudioTracks "></a> Элемент AudioTracks
-Каждый физический файл ресурса-контейнера может содержать ноль или более звуковых дорожек, чередуемых в соответствующем формате ресурса-контейнера. Это коллекция всех звуковых дорожек.  
+Каждый физический файл ресурса-контейнера может содержать ноль или более звуковых дорожек, чередуемых в соответствующем формате ресурса-контейнера. Элемент **AudioTracks** — это коллекция всех аудиодорожек.  
 
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Дочерние элементы
-| Имя | Описание |
+| ИМЯ | ОПИСАНИЕ |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Конкретная звуковая дорожка в родительском элементе AssetFile. Дополнительные сведения см. в разделе [Элемент AudioTrack](media-services-output-metadata-schema.md). |
 
@@ -126,18 +126,18 @@ ms.lasthandoff: 10/11/2017
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Атрибуты
-| Имя | Тип | Описание |
+| ИМЯ | type | ОПИСАНИЕ |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:int** |Отсчитываемый от нуля индекс звуковой дорожки. **Примечание.** MP4-файл необязательно должен содержать идентификатор дорожки. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:int** |Отсчитываемый от нуля индекс звуковой дорожки. **Примечание.** MP4-файл необязательно должен содержать идентификатор дорожки. |
 | **Codec** |**xs:string** |Строка кодека звуковой дорожки. |
 | **EncoderVersion** |**xs:string** |Дополнительная строка версии кодировщика, требуемая для EAC3. |
-| **Channels**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:int** |Число аудиоканалов. |
-| **SamplingRate**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:int** |Частота аудиовыборки: выборок/с или Гц. |
-| **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:int** |Средняя скорость аудиопотока в битах в секунду, вычисленная на основе файла ресурса-контейнера. Подсчитываются только полезные данные элементарного потока, издержки на упаковку не включаются. |
-| **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:int** |Битов на выборку для формата wFormatTag. |
+| **Channels**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:int** |Число аудиоканалов. |
+| **SamplingRate**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:int** |Частота аудиовыборки: выборок/с или Гц. |
+| **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:int** |Средняя скорость аудиопотока в битах в секунду, вычисленная на основе файла ресурса-контейнера. Подсчитываются только полезные данные элементарного потока, издержки на упаковку не включаются. |
+| **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Обязательное значение |**xs:int** |Битов на выборку для формата wFormatTag. |
 
 ### <a name="child-elements"></a>Дочерние элементы
-| Имя | Описание |
+| ИМЯ | ОПИСАНИЕ |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Параметры результата измерения громкости. Дополнительные сведения см. в разделе [Элемент LoudnessMeteringResultParameter](media-services-output-metadata-schema.md). |
 
@@ -147,18 +147,18 @@ ms.lasthandoff: 10/11/2017
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Атрибуты
-| Имя | Тип | Описание |
+| ИМЯ | type | ОПИСАНИЕ |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |Версия комплекта разработчика **Dolby** Professional Loudness Metering (DPLM). |
-| **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Обязательно |**xs:int** |DialogNormalization, созданный с помощью DPLM, необходим при установке LoudnessMetering. |
-| **IntegratedLoudness**<br/><br/> minInclusive="-70" maxInclusive="10"<br/><br/> Обязательно |**xs: float** |Интегрированная громкость |
-| **IntegratedLoudnessUnit**<br/><br/> Обязательно |**xs:string** |Единица измерения интегрированной громкости. |
-| **IntegratedLoudnessGatingMethod**<br/><br/> Обязательно |**xs:string** |Идентификатор стробирования |
+| **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Обязательное значение |**xs:int** |DialogNormalization, созданный с помощью DPLM, необходим при установке LoudnessMetering. |
+| **IntegratedLoudness**<br/><br/> minInclusive="-70" maxInclusive="10"<br/><br/> Обязательное значение |**xs: float** |Интегрированная громкость |
+| **IntegratedLoudnessUnit**<br/><br/> Обязательное значение |**xs:string** |Единица измерения интегрированной громкости. |
+| **IntegratedLoudnessGatingMethod**<br/><br/> Обязательное значение |**xs:string** |Идентификатор стробирования |
 | **IntegratedLoudnessSpeechPercentage**<br/><br/> minInclusive ="0" maxInclusive="100" |**xs: float** |Речевое содержимое в программе в процентах. |
-| **SamplePeak**<br/><br/> Обязательно |**xs: float** |Пиковое абсолютное опорное значение в канале после сброса или последней очистки.  Единицы измерения — dBFS. |
-| **SamplePeakUnit**<br/><br/> fixed="dBFS"<br/><br/> Обязательно |**xs:anySimpleType** |Единица измерения пикового опорного значения. |
-| **TruePeak**<br/><br/> Обязательно |**xs: float** |Наибольшее абсолютное пиковое значение в канале, соответствующее ITU-R BS.1770-2, после сброса или последней очистки. Единицы измерения — dBTP. |
-| **TruePeakUnit**<br/><br/> fixed="dBTP"<br/><br/> Обязательно |**xs:anySimpleType** |Единица измерения наибольшего абсолютного опорного значения. |
+| **SamplePeak**<br/><br/> Обязательное значение |**xs: float** |Пиковое абсолютное опорное значение в канале после сброса или последней очистки.  Единицы измерения — dBFS. |
+| **SamplePeakUnit**<br/><br/> fixed="dBFS"<br/><br/> Обязательное значение |**xs:anySimpleType** |Единица измерения пикового опорного значения. |
+| **TruePeak**<br/><br/> Обязательное значение |**xs: float** |Наибольшее абсолютное пиковое значение в канале, соответствующее ITU-R BS.1770-2, после сброса или последней очистки. Единицы измерения — dBTP. |
+| **TruePeakUnit**<br/><br/> fixed="dBTP"<br/><br/> Обязательное значение |**xs:anySimpleType** |Единица измерения наибольшего абсолютного опорного значения. |
 
 ## <a name="schema-code"></a>Код схемы
     <?xml version="1.0" encoding="utf-8"?>  
@@ -510,7 +510,8 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="xml"></a> Пример XML-файла
- Ниже приведен пример файла выходных метаданных.  
+
+Ниже приведен пример XML-файла выходных метаданных.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  
@@ -598,7 +599,7 @@ ms.lasthandoff: 10/11/2017
       </AssetFile>  
     </AssetFiles>  
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Отзывы

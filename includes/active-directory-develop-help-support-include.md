@@ -1,6 +1,6 @@
 ## <a name="help-and-support"></a>Справка и поддержка
 
-Если требуется справки, чтобы сообщить о проблеме или хотят узнать больше о вариантах поддержки, см. в следующей статье:
+Если вам нужна помощь, вы хотите сообщить о проблеме или узнать больше о вариантах поддержки, см. следующую статью:
 
 > [!div class="nextstepaction"]
-> [Справка и поддержка для разработчиков](../articles/active-directory/develop/active-directory-develop-help-support.md)
+> [Support and help options for developers](../articles/active-directory/develop/active-directory-develop-help-support.md) (Справка и поддержка для разработчиков)

@@ -1,26 +1,23 @@
 ---
 title: "Настройка аутентификации Azure Active Directory для SQL | Документация Майкрософт"
-description: "Сведения о подключении к Базе данных SQL и хранилищу данных SQL с использованием аутентификации Azure Active Directory."
+description: "Сведения о подключении к службе \"База данных SQL\" и хранилищу данных SQL с использованием аутентификации Azure Active Directory после настройки Azure AD."
 services: sql-database
-documentationcenter: 
-author: BYHAM
-manager: jhubbard
-editor: 
-tags: 
+author: GithubMirek
+manager: johammer
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: Active
-ms.date: 07/10/2017
-ms.author: rickbyh
-ms.openlocfilehash: f0c9578217beff22b4a322b363c7499943311d88
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 01/09/2018
+ms.author: mireks
+ms.openlocfilehash: 93fb39770a0b0c63011c05505be411c7470fea0a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Настройка аутентификации Azure Active Directory и управление ею с использованием базы данных SQL или хранилища данных SQL
 
@@ -32,33 +29,14 @@ ms.lasthandoff: 11/14/2017
 ## <a name="create-and-populate-an-azure-ad"></a>Создание и заполнение каталога Azure AD
 Создайте каталог Azure AD и заполните его пользователями и группами. Azure AD может быть исходным управляемым доменом Azure AD. Azure AD может также быть локальной доменной службой Active Directory, объединенной в федерацию с Azure AD.
 
-Дополнительные сведения см. в статьях [Интеграция локальных удостоверений с Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Добавление имени личного домена в Azure Active Directory](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory), [Управление каталогом Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure Active Directory Cmdlets](/powershell/azure/overview?view=azureadps-2.0) (Командлеты для Azure Active Directory) и [Порты и протоколы, необходимые для гибридной идентификации](../active-directory/active-directory-aadconnect-ports.md).
+Дополнительные сведения см. в статьях [Интеграция локальных удостоверений с Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Добавление имени личного домена в Azure Active Directory](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory), [Управление каталогом Azure AD](../active-directory/active-directory-administer.md), [Azure Active Directory Cmdlets](/powershell/azure/overview?view=azureadps-2.0) (Командлеты для Azure Active Directory) и [Порты и протоколы, необходимые для гибридной идентификации](..//active-directory/connect/active-directory-aadconnect-ports.md).
 
-## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>Связывание каталога Active Directory с подпиской Azure или изменение каталога, который сейчас связан с этой подпиской (этот шаг можно пропустить)
-Чтобы связать базу данных с каталогом Azure AD для вашей организации, сделайте каталог доверенным для подписки Azure, в которой размещена база данных. Дополнительные сведения см. в статье [Связь между подписками Azure и службой Azure Active Directory](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Связывание подписки Azure с Azure Active Directory или добавление ее в службу
 
-**Дополнительные сведения.** Каждая подписка Azure связана отношением доверия с экземпляром Azure AD. Это означает, что она доверяет каталогу проверять подлинность пользователей, служб и устройств. Несколько подписок могут доверять одному и тому же каталогу, но одна конкретная подписка доверяет только одному каталогу. На вкладке **Параметры** на сайте [https://manage.windowsazure.com/](https://manage.windowsazure.com/) можно проверить, какой каталог является доверенным для вашей подписки. Данное отношение доверия, которое подписка имеет с каталогом, отличается от отношения, которую подписка имеет со всеми другими ресурсами в Azure (веб-сайтами, базами данных и т. д.), которые больше похожи на дочерние ресурсы подписки. Если срок действия подписки истекает, доступ к другим ресурсам, связанным с этой подпиской, также прекращается. Однако каталог останется в Azure, вы можете связать другую подписку с этим каталогом и продолжать управлять пользователями каталога. Дополнительные сведения о ресурсах см. в статье, посвященной [доступу к ресурсам в Azure](https://msdn.microsoft.com/library/azure/dn584083.aspx).
+1. Свяжите свою подписку Azure с Azure Active Directory, сделав каталог доверенным для подписки Azure, в которой размещена база данных. Дополнительные сведения см. в статье о [связи между подписками Azure и Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+2. Используйте переключатель каталогов на портале Azure, чтобы перейти к подписке, связанной с предметной областью.
 
-Ниже описаны действия по изменению связанного каталога для заданной подписки.
-1. Подключитесь к [классическому порталу Azure](https://manage.windowsazure.com/) с помощью учетной записи администратора подписки Azure.
-2. В области слева выберите элемент **ПАРАМЕТРЫ**.
-3. Ваши подписки отобразятся в окне параметров. Если нужная подписка не отображается, в верхней части окна щелкните **Подписки**, в раскрывающемся списке **Фильтровать по каталогу** выберите каталог, содержащий подписки, и щелкните **Применить**.
-   
-    ![выбрать подписку][4]
-4. В области **Параметры** выберите подписку и внизу страницы щелкните **Изменить каталог**.
-   
-    ![ad-settings-portal][5]
-5. В окне **Изменить каталог** выберите службу Azure Active Directory, связанную с сервером SQL Server или хранилищем данных SQL, и нажмите кнопку со стрелкой, чтобы перейти к следующему шагу.
-   
-    ![edit-directory-select][6]
-6. В диалоговом окне **Подтвердить сопоставление каталога** убедитесь, что отображается текст **Все соадминистраторы будут удалены**.
-   
-    ![edit-directory-confirm][7]
-7. Нажмите на кнопку с галочкой, чтобы перезагрузить портал.
-
-   > [!NOTE]
-   > После изменения каталога доступ ко всем соадминистраторам, пользователям и группам Azure AD, а также пользователям ресурсов на основе каталогов будет запрещен. Указанные пользователи не смогут больше получить доступ к этой подписке или ее ресурсам. Доступ субъектов на основе нового каталога сможет настроить только администратор службы. Применение этих изменений ко всем ресурсам может занять значительное время. В случае изменения каталога также изменяется администратор Azure AD для Базы данных SQL и хранилища данных SQL, а доступ всех существующих пользователей Azure AD к Базе данных SQL запрещается. Необходимо будет повторно указать администратора Azure AD (как описано ниже) и создать новых пользователей Azure AD.
-   >  
+   **Дополнительные сведения.** Каждая подписка Azure связана отношением доверия с экземпляром Azure AD. Это означает, что она доверяет каталогу проверять подлинность пользователей, служб и устройств. Несколько подписок могут доверять одному и тому же каталогу, но одна конкретная подписка доверяет только одному каталогу. Данное отношение доверия, которое подписка имеет с каталогом, отличается от отношения, которую подписка имеет со всеми другими ресурсами в Azure (веб-сайтами, базами данных и т. д.), которые больше похожи на дочерние ресурсы подписки. Если срок действия подписки истекает, доступ к другим ресурсам, связанным с этой подпиской, также прекращается. Однако каталог останется в Azure, вы можете связать другую подписку с этим каталогом и продолжать управлять пользователями каталога. Дополнительные сведения о ресурсах см. в статье, посвященной [доступу к ресурсам в Azure](../active-directory/active-directory-b2b-admin-add-users.md). Дополнительные сведения об этих отношениях доверия см. в статье о [связывании подписки Azure с Azure Active Directory или добавлении ее в службу](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Создание администратора Azure AD для сервера Azure SQL Server
 Каждый сервер Azure SQL Server (на котором размещена база данных SQL или хранилище данных SQL) сначала имеет одну учетную запись администратора сервера, который является администратором всего сервера Azure SQL Server. Необходимо создать второго администратора SQL Server, то есть учетную запись Azure AD. Этот участник создается как пользователь автономной базы данных в базе данных master. Администраторы с учетными записями администратора сервера являются членами роли **db_owner** в каждой пользовательской базе данных. Они входят в каждую такую базу данных как пользователи **dbo**. Дополнительные сведения о ролях администратора базы данных см. в статье [Предоставление доступа к базе данных и управление им](sql-database-manage-logins.md).
@@ -106,7 +84,7 @@ ms.lasthandoff: 11/14/2017
 
 Командлеты, используемые для подготовки администратора Azure AD и управления им:
 
-| Имя командлета | Описание |
+| Имя командлета | ОПИСАНИЕ |
 | --- | --- |
 | [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Выполняет подготовку учетной записи администратора Azure Active Directory для сервера Azure SQL Server или хранилища данных SQL Azure. (должен входить в текущую подписку). |
 | [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Удаляет учетную запись администратора Azure Active Directory для сервера Azure SQL Server или хранилища данных SQL Azure. |
@@ -154,7 +132,7 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 
 ### <a name="cli"></a>Интерфейс командной строки  
 Можно также подготовить администратора Azure AD с помощью следующих команд CLI:
-| Команда | Описание |
+| Get-Help | ОПИСАНИЕ |
 | --- | --- |
 |[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) |Выполняет подготовку учетной записи администратора Azure Active Directory для сервера Azure SQL Server или хранилища данных SQL Azure. (должен входить в текущую подписку). |
 |[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) |Удаляет учетную запись администратора Azure Active Directory для сервера Azure SQL Server или хранилища данных SQL Azure. |
@@ -324,7 +302,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Общие сведения о доступе к базе данных SQL и управлении ею см. в статье [Контроль доступа к базе данных SQL Azure](sql-database-control-access.md).
 - Общие сведения об именах для входа, пользователях и ролях базы данных в базе данных SQL см. в статье [Предоставление доступа к базе данных и управление им](sql-database-manage-logins.md).
 - Дополнительные сведения о субъектах базы данных см. в [этой статье](https://msdn.microsoft.com/library/ms181127.aspx).

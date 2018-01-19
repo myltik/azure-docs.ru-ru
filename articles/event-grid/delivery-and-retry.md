@@ -6,13 +6,13 @@ author: djrosanova
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/10/2018
 ms.author: darosa
-ms.openlocfilehash: 4eacb37d6e19b4b69d604aa84fd404479dead1ea
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Доставка и повторные попытки доставки сообщений сетки событий 
 
@@ -64,31 +64,8 @@ ms.lasthandoff: 01/05/2018
 
 В предварительной версии сетка событий Azure завершает срок действия любых событий, которые не были доставлены в течение двух часов.
 
-## <a name="monitoring"></a>Мониторинг
+## <a name="next-steps"></a>Дополнительная информация
 
-Портал можно использовать для просмотра состояния доставки событий.
-
-Чтобы просмотреть метрики для подписки на события, поиск **подписки на события** в доступных служб и выберите его.
-
-![Поиск подписки на события](./media/delivery-and-retry/select-event-subscriptions.png)
-
-Фильтрация по типу события, подписки и расположения. Выберите **метрики** для подписки для просмотра.
-
-![Фильтр подписки на события](./media/delivery-and-retry/filter-events.png)
-
-Просмотр метрик для событий статьи и подписки.
-
-![Представление событий метрики](./media/delivery-and-retry/subscription-metrics.png)
-
-При публикации пользовательский раздел можно просмотреть метрики для него. Выберите группу ресурсов, содержащую раздел и выберите раздел.
-
-![Выберите пользовательский раздел](./media/delivery-and-retry/select-custom-topic.png)
-
-Просмотр метрик для раздела пользовательского события.
-
-![Представление событий метрики](./media/delivery-and-retry/custom-topic-metrics.png)
-
-## <a name="next-steps"></a>Дальнейшие действия
-
+* Сведения о том, как просмотреть состояние доставки событий, см. в статье [Мониторинг доставки сообщений Сетки событий](monitor-event-delivery.md).
 * Общие сведения о службе "Сетка событий" см. в разделе [Общие сведения о службе "Сетка событий Azure"](overview.md).
 * Сведения о том, как быстро приступить к использованию службы "Сетка событий", см. в разделе [Создание и перенаправление пользовательского события со службой "Сетка событий Azure"](custom-event-quickstart.md).

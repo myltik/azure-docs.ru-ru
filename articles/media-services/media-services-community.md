@@ -14,23 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: ef77ed3a4efee7ebcdd716376be78db38ce46f8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96bd97abf598414ebc88e955437c02873ff43ca8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-media-services-community"></a>Сообщество служб мультимедиа Azure
-На этой странице сообщества служб мультимедиа Azure (AMS) описаны различные возможности для получения новых сведений об AMS, ознакомления с новыми видеороликами и подкастами, а также для обратной связи, с помощью которой вы можете задавать вопросы и отправлять отзывы.   
+На этой странице сообщества служб мультимедиа Azure (AMS) описаны разные способы получения новых сведений об AMS. Вы можете просматривать видео и прослушивать подкасты, а также задавать вопросы и отправлять отзывы.   
 
 ## <a name="videos-and-podcasts"></a>Видео и подкасты
-| Серия | Докладчик | Дата |
-| --- | --- | --- |
-| [Защита мультимедийного содержимого с помощью DRM](https://azure.microsoft.com/documentation/videos/azurefridayprotectingyourmediacontentdrm/) |Мингфей Янг (Mingfei Yang) |19.02.2016 |
-| [Защита мультимедийного содержимого при помощи шифрования AES](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) |Мингфей Янг (Mingfei Yang) |19.02.2016 |
-| [Подробный обзор служб мультимедиа Azure для разработчиков](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) |Мингфей Янг (Mingfei Yang) |27.04.2015 |
-| [Индексатор мультимедийных данных Azure автоматически создает запись ваших мультимедийных данных](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/) |Адарш Соланки (Adarsh Solanki) |09.07.2015 |
-| [Microsoft Hyperlapse в службах мультимедиа Azure с Адаршем Соланки (Adarsh Solanki)](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/) |Адарш Соланки (Adarsh Solanki) |07.10.2015 |
+
+- [Защита мультимедийного содержимого с помощью DRM](https://azure.microsoft.com/documentation/videos/azurefridayprotectingyourmediacontentdrm/) 
+- [Защита мультимедийного содержимого при помощи шифрования AES](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) 
+- [Подробный обзор служб мультимедиа Azure для разработчиков](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) 
+- [Индексатор мультимедийных данных Azure автоматически создает запись ваших мультимедийных данных](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)  
+- [Microsoft Hyperlapse в службах мультимедиа Azure с Адаршем Соланки (Adarsh Solanki)](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/) 
 
 ## <a name="provide-feedback-and-make-suggestions"></a>Отзывы и предложения
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

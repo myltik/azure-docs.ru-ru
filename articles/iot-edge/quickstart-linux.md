@@ -6,27 +6,31 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Краткое руководство. Развертывание первого модуля IoT Edge на устройстве Linux с помощью портала Azure (предварительная версия)
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Краткое руководство. Развертывание первого модуля IoT Edge на устройстве Linux или Mac (предварительная версия)
 
 Azure IoT Edge переносит мощь облака на ваши устройства Интернета вещей. Из этой статьи вы узнаете, как использовать облачный интерфейс для удаленного развертывания готового кода на устройстве IoT Edge.
 
 Если у вас еще нет подписки Azure, перед началом работы [создайте бесплатную учетную запись Azure][lnk-account].
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Необходимые компоненты
 
-Для целей нашего руководства вам потребуется использовать свой компьютер или виртуальную машину для имитации работы устройства Интернета вещей. Для успешного развертывания устройства IoT Edge необходимы следующие службы:
+При работе с этим кратким руководством ваш компьютер или виртуальная машина используется как устройство Интернета вещей. Чтобы преобразовать компьютер в устройство IoT Edge, требуются следующие службы:
 
-- [Установите среду Docker для Linux][lnk-docker-ubuntu] и убедитесь, что она выполняется. 
-- Большинство дистрибутивов Linux, включая Ubuntu, уже содержат установленный пакет Python 2.7. С помощью команды `sudo apt-get install python-pip` убедитесь, что у вас установлена система pip.
+* PIP на Python для установки среды выполнения IoT Edge.
+   * Для Linux — `sudo apt-get install python-pip`.
+   * Для MacOS — `sudo easy_install pip`.
+* Docker для запуска модулей IoT Edge.
+   * [Установите среду Docker для Linux][lnk-docker-ubuntu] и убедитесь, что она работает. 
+   * [Установите среду Docker для Mac][lnk-docker-mac] и убедитесь, что она работает. 
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>Создание Центра Интернета вещей с помощью Azure CLI
 
@@ -121,9 +125,9 @@ sudo docker logs -f tempSensor
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-Вы узнали, как развернуть модуль IoT Edge на устройстве IoT Edge. Теперь потренируйтесь развертывать как модули службы Azure других типов, чтобы получить возможность анализировать данные на пограничных устройствах. 
+Вы узнали, как развернуть модуль IoT Edge на устройстве IoT Edge. Теперь потренируйтесь развертывать службы Azure разных типов как модули, чтобы анализировать данные пограничного устройства: 
 
 * [Развертывание собственного кода в качестве модуля](tutorial-csharp-module.md)
 * [Развертывание функции Azure в качестве модуля](tutorial-deploy-function.md)
@@ -135,6 +139,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com

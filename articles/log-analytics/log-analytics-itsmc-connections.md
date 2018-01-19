@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Подключение продуктов и служб ITSM с помощью соединителя управления ИТ-службами (предварительная версия)
 В этой статье приведены сведения о подключении продуктов и служб ITSM к соединителю управления ИТ-службами (ITSMC) в OMS для централизованного управления рабочими элементами. Дополнительные сведения об ITSMC см. в [этом обзоре](log-analytics-itsmc-overview.md).
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/16/2017
 
 В разделах ниже приведены сведения о подключении продукта System Center Service Manager к ITSMC в OMS.
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Необходимые компоненты
 
 Выполните указанные ниже предварительные требования.
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 11/16/2017
 
 3. Войдите с помощью учетных данных Azure и выберите подписку, в которой было создано гибридное подключение.
 
-4. Щелкните **Сохранить**.
+4. Выберите команду **Сохранить**.
 
 Гибридное подключение успешно установлено.
 
@@ -170,18 +170,22 @@ ms.lasthandoff: 11/16/2017
 
 В разделах ниже приведены сведения о подключении экземпляра ServiceNow к ITSMC в OMS.
 
-### <a name="prerequisites"></a>Предварительные требования
-
+### <a name="prerequisites"></a>Необходимые компоненты
 Выполните указанные ниже предварительные требования.
-
 - ITSMC установлен. Дополнительные сведения см. в разделе [Добавление соединителя управления ИТ-службами](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Поддерживаемые версии ServiceNow — Fuji, Geneva, Helsinki.
+- Установлена поддерживаемая версия ServiceNow: Jakarta, Istanbul, Helsinki, Geneva
 
-Администраторы ServiceNow должны выполнить в экземплярах ServiceNow следующие действия:
-- Создать идентификатор и секрет клиента для продукта ServiceNow. Дополнительные сведения о том, как создать идентификатор и секрет клиента, см. на странице [настройки OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
-- Установить приложения для пользователя (ServiceNow) для интеграции Microsoft OMS. [Подробнее](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+**Администраторы ServiceNow должны выполнить в экземплярах ServiceNow следующие действия:**
+- Создать идентификатор и секрет клиента для продукта ServiceNow. Дополнительные сведения о том, как создать идентификатор и секрет клиента, см. в соответствующих разделах:
+
+    - [Настройка OAuth для версии Jakarta](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Настройка OAuth для версии Istanbul](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Настройка OAuth для версии Helsinki](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Настройка OAuth для версии Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+
+
+- Установить приложения для пользователя (ServiceNow) для интеграции Microsoft OMS. [Узнайте больше](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1).
 - Создать роль пользователя для интеграции в установленном приложении для пользователя. Дополнительные сведения о создании роли пользователя для интеграции см. [здесь](#create-integration-user-role-in-servicenow-app).
-
 
 ### <a name="connection-procedure"></a>**Процедура подключения**
 Используйте следующую процедуру, чтобы создать подключение ServiceNow:
@@ -263,7 +267,7 @@ ms.lasthandoff: 11/16/2017
 В разделах ниже приведены сведения о подключении экземпляра Provance к ITSMC в OMS.
 
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Необходимые компоненты
 
 Выполните указанные ниже предварительные требования.
 
@@ -309,7 +313,7 @@ ms.lasthandoff: 11/16/2017
 
 В разделах ниже приведены сведения о подключении экземпляра Cherwell к ITSMC в OMS.
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Необходимые компоненты
 
 Выполните указанные ниже предварительные требования.
 
@@ -361,7 +365,7 @@ ms.lasthandoff: 11/16/2017
     ![Идентификатор пользователя Cherwell](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
  - [Создание рабочих элементов ITSM для оповещений OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)
  - [Создание рабочих элементов ITSM из журналов OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
  - [Создание рабочих элементов ITSM из оповещений Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

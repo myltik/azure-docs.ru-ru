@@ -1,5 +1,5 @@
-# <a name="technical-content-channel-guidance"></a>Руководство по канала технического содержимого
+# <a name="technical-content-channel-guidance"></a>Руководство по каналу технической документации
 
-В этом руководстве перемещен в docs.microsoft.com внутренней руководства участника.
+Теперь это руководство внутреннего участника размещено сайте docs.microsoft.com.
 
-В разделе [https://aka.ms/content-channel-guidance](https://aka.ms/content-channel-guidance)
+См. раздел [https://aka.ms/content-channel-guidance](https://aka.ms/content-channel-guidance)

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 89ddbaff88584d83a109b68707f9a9b3accb8e70
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>Сброс пароля к рабочей или учебной учетной записи
 
@@ -127,7 +127,7 @@ ms.lasthandoff: 12/11/2017
 | После ввода идентификатора пользователя я вижу ошибку "Для вашей учетной записи запрещен сброс пароля". | Для вашей учетной записи запрещен сброс пароля. <br> <br> К сожалению, ИТ-специалисты не настроили использование этой службы для вашей учетной записи. <br> <br> Если хотите, мы можем обратиться к администратору вашей организации для сброса вашего пароля. | Вы видите это сообщение, так как ИТ-специалисты запретили сбрасывать пароль на странице "Не удается получить доступ к своей учетной записи" всем пользователям вашей организации или вам лично. <br> <br> Чтобы сбросить пароль, щелкните ссылку связи с администратором и отправьте ИТ-специалистам своей компании сообщение по электронной почте. Сообщите им о желании сбросить пароль, и они предоставят вам такую возможность. |
 | После ввода идентификатора пользователя я вижу ошибку "Не удалось проверить вашу учетную запись". | Не удалось проверить учетную запись. <br> <br> Если хотите, мы можем обратиться к администратору вашей организации для сброса вашего пароля. | Вы видите это сообщение в том случае, если вам разрешено сбрасывать пароль, но вы не прошли регистрацию для использования этой службы. Регистрацию для сброса пароля вы можете пройти на странице http://aka.ms/ssprsetup после того, как восстановите доступ к своей учетной записи. <br> <br> Чтобы сбросить пароль, щелкните ссылку для связи с администратором и отправьте ИТ-специалистам вашей компании сообщение по электронной почте. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Register for self-service password reset](active-directory-passwords-reset-register.md) (Регистрация для самостоятельного сброса пароля)
 * [Страница регистрации для сброса пароля](http://aka.ms/ssprsetup)
@@ -141,4 +141,3 @@ ms.lasthandoff: 12/11/2017
 [LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Ссылка для сброса пароля на экране входа Windows 10 Fall Creators Update"
 [ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Проверка данных аутентификации"
 [ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Изменение пароля"
-

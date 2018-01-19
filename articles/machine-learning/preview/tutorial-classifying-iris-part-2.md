@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: f3b4b41593e0956e98f05c7f8d1c71632a489e56
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 7e489526fd1b6a7d38172d147df1f30d74119e95
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Часть 2. Классификация цветков ириса: создание модели
 Служба "Машинное обучение Azure" (предварительная версия) — это полнофункциональное интегрированное аналитическое решение для специалистов по обработке и анализу данных. Оно помогает подготавливать данные, разрабатывать эксперименты и развертывать модели в масштабе облака.
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/03/2018
 
 В этом руководстве используется классический [набор данных "Ирисы Фишера"](https://en.wikipedia.org/wiki/Iris_flower_data_set). Снимки экрана представляют среду Windows, но для Mac OS все процедуры практически идентичны.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>Необходимые компоненты
 Выполните инструкции из первой части этой серии руководств. Прежде чем начинать работу с этим руководством, выполните инструкции из руководства по [подготовке данных](tutorial-classifying-iris-part-1.md), чтобы создать ресурсы службы "Машинное обучение Azure" и установить приложение Azure Machine Learning Workbench.
 
 Кроме того, можно попробовать выполнить скрипты с использованием локального контейнера Docker. Для этого установите и запустите подсистему Docker (достаточно выпуска Community Edition) локально на компьютере с Windows или Mac OS. Дополнительные сведения см. в [инструкциях по установке Docker](https://docs.docker.com/engine/installation/).
@@ -345,7 +345,8 @@ ms.lasthandoff: 01/03/2018
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Выполнение скрипта в кластере HDInsight
 Этот скрипт также можно выполнить в кластере HDInsight. См. дополнительные сведения о [создании кластера HDInsight Spark в Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
 
->![ПРИМЕЧАНИЕ] Кластер HDInsight должен использовать большие двоичные объекты Azure в качестве основного хранилища. Использование хранилища Azure Data Lake еще не поддерживается.
+>[!NOTE] 
+>Кластер HDInsight должен использовать в качестве основного хранилища хранилище BLOB-объектов Azure. Использование хранилища Azure Data Lake еще не поддерживается.
 
 1. Если у вас есть доступ к Spark для кластера Azure HDInsight, создайте команду конфигурации запуска HDInsight, как показано ниже. Укажите в качестве параметров имя кластера HDInsight, имя пользователя HDInsight и пароль. Используйте следующую команду:
 
@@ -373,7 +374,7 @@ ms.lasthandoff: 01/03/2018
    >Выполняя скрипт в удаленном кластере HDI, вы можете просмотреть подробные сведения о выполнении задания Yet Another Resource Negotiator (YARN) в `https://<cluster_name>.azurehdinsight.net/yarnui` с помощью учетной записи `admin`.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Из второй части серии руководств, состоящей из трех частей, вы узнали, как с помощью службы "Машинное обучение Azure" выполнять следующие задачи:
 > [!div class="checklist"]
 > * использование Azure Machine Learning Workbench;

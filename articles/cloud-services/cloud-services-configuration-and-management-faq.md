@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 7a1dc5d755303d12aa070308a19ab81ef2b911fb
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Проблемы конфигурации и управления для облачных служб Azure. Вопросы и ответы (FAQ)
 
@@ -29,56 +29,56 @@ ms.lasthandoff: 12/21/2017
 
 **Certificates**
 
-- [Почему неполон цепочки сертификатов my сертификат SSL облачные службы](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
-- [Что такое назначение «Windows Azure Tools шифрования для расширения сертификатов»](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
-- [Как создать подписи сертификата запроса (CSR) без «RDP-ing» в экземпляре?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
-- [Истекает срок действия сертификата управления My облачной службы. Как обновлять его?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
-- [Как автоматизировать установку основной сертификат SSL (PFX) и промежуточный certificate(.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [Почему у моего SSL-сертификата облачной службы неполная цепочка сертификатов?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
+- [Для чего нужен сертификат шифрования Microsoft Azure Tools для расширений?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
+- [Как создать запрос на подпись сертификата (CSR) без обращения к экземпляру с использованием RDP?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
+- [Истекает срок действия сертификата управления моей облачной службы. Как его обновить?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
+- [Как автоматизировать установку основного SSL- сертификата (PFX) и промежуточного сертификата (P7B)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
 
-**Мониторинг и запись**
+**Мониторинг и ведение журнала**
 
-- [Каковы возможности предстоящих облачной службы на портале Azure, что может помочь управление и наблюдение за приложениями?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
-- [Почему IIS остановить запись в каталог журнала?](#why-does-iis-stop-writing-to-the-log-directory)
+- [Какие будущие возможности облачной службы на портале Azure помогут наблюдать за приложениями и управлять ими?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
+- [Почему IIS останавливает запись в каталог журналов?](#why-does-iis-stop-writing-to-the-log-directory)
 
 **Конфигурация сети**
 
 - [Как задать время ожидания простоя для подсистемы балансировки нагрузки Azure?](#how-do-i-set-the-idle-timeout-for-azure-load-balancer)
-- [Как связать статический IP-адрес моей облачную службу?](#how-do-i-associate-a-static-ip-address-to-my-cloud-service)
-- [Каковы функции и возможности, предоставляемые Azure basic IP-адресов и Идентификаторы и DDOS?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
-- [Как включить HTTP/2 на виртуальной Машине облачных служб?](#how-to-enable-http2-on-cloud-services-vm)
+- [Как привязать статический IP-адрес к облачной службе?](#how-do-i-associate-a-static-ip-address-to-my-cloud-service)
+- [Какие функции и возможности предоставляют базовые IPS/IDS и DDOS Azure?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
+- [Как включить HTTP/2 на виртуальной машине облачных служб?](#how-to-enable-http2-on-cloud-services-vm)
 
 **Разрешения**
 
-- [Можно внутренней инженеров удаленного рабочего стола Майкрософт для облачной службы экземпляры без разрешения?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [Не удается выполнить удаленный рабочий стол для облачной службы ВМ с помощью RDP-файл. Я получить следующая ошибка: ошибка проверки подлинности (код: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [Могут ли инженеры Майкрософт без моего разрешения использовать удаленный рабочий стол для доступа к экземплярам облачной службы?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
+- [Я не могу подключиться к виртуальной машине облачной службы через удаленный рабочий стол с помощью RDP-файла. Я вижу сообщение "Произошла ошибка проверки подлинности (код: 0x80004005)".](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Масштабирование**
 
-- [Я не может использовать более чем X экземпляров](#i-cannot-scale-beyond-x-instances)
-- [Как настроить Автомасштабирование на основе памяти](#how-can-i-configure-auto-scale-based-on-memory-metrics)
+- [При масштабировании я не могу создать более X экземпляров](#i-cannot-scale-beyond-x-instances)
+- [Как мне настроить автомасштабирование по метрикам памяти?](#how-can-i-configure-auto-scale-based-on-memory-metrics)
 
-**Универсальный**
+**Общие вопросы**
 
-- [Как добавить «nosniff» на веб-сайте?](#how-do-i-add-nosniff-to-my-website)
-- [Настройка IIS для веб-роли](#how-do-i-customize-iis-for-a-web-role)
-- [Что такое предельную квоту для облака в службе](#what-is-the-quota-limit-for-my-cloud-service)
-- [Почему диск на моей Виртуальной облачной службы определяет очень мало свободного места на диске](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
-- [Как добавить расширение защиты от вредоносных программ для моей облачных служб автоматической?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
-- [Как включить указание имени сервера (SNI) для облачных служб?](#how-to-enable-server-name-indication-sni-for-cloud-services)
-- [Как добавить теги в облачной службе Azure?](#how-can-i-add-tags-to-my-azure-cloud-service)
-- [Портал Azure не отображает версию пакета SDK для моей облачной службы. Каким образом, можно получить?](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
-- [Требуется завершение работы облачной службы для нескольких месяцев. Как сократить стоимость выставления счетов для облачной службы без потери IP-адрес?](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
+- [Как добавить на веб-сайт запрет на сканирование?](#how-do-i-add-nosniff-to-my-website)
+- [Как настроить IIS для веб-роли?](#how-do-i-customize-iis-for-a-web-role)
+- [Что такое квота для облачной службы?](#what-is-the-quota-limit-for-my-cloud-service)
+- [Почему на диске виртуальной машины облачной службы отображается очень мало свободного места?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
+- [Как автоматизировать добавление антивредоносного расширения для облачных служб?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [Как включить указание имени сервера для облачных служб?](#how-to-enable-server-name-indication-sni-for-cloud-services)
+- [Как мне добавить теги к облачной службе Azure?](#how-can-i-add-tags-to-my-azure-cloud-service)
+- [Портал Azure не отображает версию пакета SDK для моей облачной службы. Как узнать ее?](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
+- [Я хочу приостановить работу облачной службы на несколько месяцев. Как снизить расходы на обслуживание облачной службы, не теряя при этом IP-адрес?](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
 
 
 ## <a name="certificates"></a>Сертификаты
 
-### <a name="why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete"></a>Почему неполон цепочки сертификатов my сертификат SSL облачные службы
+### <a name="why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete"></a>Почему у моего SSL-сертификата облачной службы неполная цепочка сертификатов?
     
 Корпорация Майкрософт рекомендует пользователям установить полную цепочку сертификатов (конечный сертификат, промежуточные сертификаты и корневой сертификат) вместо только конечного сертификата. При установке только конечного сертификата вы зависите от того, как Windows построит цепочку сертификатов, проходя список доверия сертификатов. Если при попытке Windows проверить сертификат происходит перебой в сети или проблема DNS, сертификат может посчитаться недействительным. Установив полную цепочку сертификатов, можно избежать этой проблемы. В публикации в блоге [Как установить связанный в цепочку SSL-сертификат](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) показано, как это сделать.
 
 ### <a name="what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions"></a>В чем заключается цель сертификата шифрования Microsoft Azure Tools для расширений?
 
-Эти сертификаты создаются автоматически при добавлении расширения к облачной службе. Чаще всего это расширение WAD или RDP, но может быть и другое расширение, например антивредоносное ПО или сборщик журналируемых данных. Эти сертификаты используются только для шифрования и расшифровки закрытой конфигурации расширения. Дата окончания срока действия никогда не проверяется, поэтому истечение срока действия сертификата не имеет значения. 
+Эти сертификаты автоматически создаются каждый раз при добавлении расширения в облачную службу. Чаще всего это расширение WAD или RDP, но может быть и другое расширение, например антивредоносное ПО или сборщик журналируемых данных. Эти сертификаты используются только для шифрования и расшифровки закрытой конфигурации расширения. Дата окончания срока действия никогда не проверяется, поэтому истечение срока действия сертификата не имеет значения. 
 
 Эти сертификаты можно игнорировать. Если вы хотите очистить сертификаты, можно попробовать удалить их все. Azure будет выдавать ошибку при попытке удалить сертификат, который используется.
 
@@ -88,29 +88,29 @@ ms.lasthandoff: 12/21/2017
 
 [Получение сертификата для использования с веб-сайтами Microsoft Azure (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
 
-CSR является в текстовый файл. Необязательно должен быть создан из компьютера сертификат будет в конечном счете использования. Хотя этот документ был написан для службы приложений, создание CSR является универсальным и подходит также для облачных служб.
+CSR-файл имеет простой текстовый формат. Его не обязательно создавать на том компьютере, на котором будет использоваться этот сертификат. Хотя этот документ был написан для службы приложений, создание CSR является универсальным и подходит также для облачных служб.
 
-### <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>Истекает срок действия сертификата управления My облачной службы. Как обновлять его?
+### <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>Истекает срок действия сертификата управления моей облачной службы. Как его обновить?
 
-Можно использовать следующие команды PowerShell для обновления сертификатов управления:
+Вы можете обновить сертификаты управления с помощью следующих команд PowerShell:
 
     Add-AzureAccount
     Select-AzureSubscription -Current -SubscriptionName <your subscription name>
     Get-AzurePublishSettingsFile
 
-**Get-AzurePublishSettingsFile** создаст новый сертификат управления в **подписки** > **сертификаты управления** на портале Azure. Имя нового сертификата выглядит как «YourSubscriptionNam]-[CurrentDate] - учетные данные».
+**Get-AzurePublishSettingsFile** создает новый сертификат управления в разделе **Подписки** > **Сертификаты управления** на портале Azure. Новый сертификат получает имя в формате "[имя_подписки]-[текущая_дата]-credentials".
 
-### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Как автоматизировать установку основной сертификат SSL (PFX) и промежуточный certificate(.p7b)?
+### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Как автоматизировать установку основного SSL- сертификата (PFX) и промежуточного сертификата (P7B)?
 
-Можно автоматизировать эту задачу с помощью скрипта запуска (пакета или cmd и PowerShell) и зарегистрировать этот скрипт запуска в файле определения службы. Добавьте скрипт запуска и сертификат (.p7b файл) в папке проекта том же каталоге, скрипта запуска.
+Эту задачу можно автоматизировать с помощью скрипта запуска (пакетный файл, командный файл или скрипт PowerShell), зарегистрировав этот скрипт в файле определения службы. Сам скрипт запуска и сертификат для него (P7B-файл) нужно разместить в папке проекта в том же каталоге, что и скрипт запуска.
 
 Дополнительные сведения см. в следующих статьях:
-- [Настройка и выполнение задач запуска для облачной службы](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
-- [Общие задачи запуска облачной службы](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
+- [Как настроить и выполнить задачи запуска для облачной службы](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
+- [Стандартные задачи запуска в облачной службе](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
 ## <a name="monitoring-and-logging"></a>Мониторинг и ведение журнала
 
-### <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Каковы возможности предстоящих облачной службы на портале Azure, что может помочь управление и наблюдение за приложениями?
+### <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Какие будущие возможности облачной службы на портале Azure помогут наблюдать за приложениями и управлять ими?
 
 В ближайшее время появится возможность создавать новый сертификат для удаленного рабочего стола (RDP). Также можно выполнить этот скрипт:
 
@@ -131,7 +131,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 
 Дополнительные сведения см. в следующих документах:
 * [Хранение и просмотр диагностических данных в службе хранилища Azure](cloud-services-dotnet-diagnostics-storage.md)
-* [Журналы IIS остановить запись в облачной службе](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/) (Журналы IIS прекращают запись в облачной службе)
 
 ## <a name="network-configuration"></a>Конфигурация сети
 
@@ -156,18 +156,18 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 ```
 Дополнительные сведения см. в статье [Новое: настраиваемое время ожидания простоя для Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/).
 
-### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Как связать статический IP-адрес моей облачную службу?
-Чтобы настроить статический IP-адрес, необходимо создать зарезервированный IP-адрес. Этот зарезервированный IP-адрес может быть связан с новой облачной службой или к существующему развертыванию. Дополнительные сведения см. в следующих документах.
+### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Как привязать статический IP-адрес к облачной службе?
+Чтобы настроить статический IP-адрес, необходимо создать зарезервированный IP-адрес. Этот зарезервированный IP-адрес можно привязать к новой облачной службе или к существующему развертыванию. Дополнительные сведения см. в следующих документах.
 * [Как создать зарезервированный IP-адрес](../virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
-* [Зарезервированный IP-адрес существующей облачной службы](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-* [Связать зарезервированный IP-адрес для новой облачной службы](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
+* [Резервирование IP-адреса существующей облачной службы](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
+* [Связывание зарезервированного IP-адреса с новой облачной службой](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
 * [Связывание зарезервированного IP-адреса с работающей развернутой системой](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
-* [Связать зарезервированный IP-адрес облачной службы с помощью файла конфигурации службы](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+* [Связывание зарезервированного IP-адреса с облачной службой с помощью файла конфигурации службы](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Каковы функции и возможности, предоставляемые базовыми IPS/IDS и DDOS Azure?
 Azure имеет IPS/IDS на физических серверах в центре обработки данных для защиты от угроз. Кроме того, клиенты могут разворачивать сторонние решения по обеспечению безопасности, такие как брандмауэры приложений, сетевые брандмауэры, антивредоносное ПО, системы обнаружения вторжений, системы предотвращения (IDS/IPS) и многое другое. Дополнительные сведения см. в разделе [Защита данных и ресурсов и соответствие глобальным стандартам безопасности](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
 
-Корпорация Майкрософт осуществляет постоянный мониторинг серверов, сетей и приложений для обнаружения угроз. Комплексный подход к управлению угрозами в Azure использует системы обнаружения вторжений, предотвращения распределенных атак типа "отказ в обслуживании" (DDoS), тесты на проникновение, поведенческую аналитику, обнаружение аномалий и машинное обучение для постоянного усиления защиты и снижения рисков. Microsoft Antimalware для Azure защищает облачных служб Azure и виртуальных машин. Вы можете разворачивать сторонние решения по обеспечению безопасности, такие как брандмауэры приложений, сетевые брандмауэры, антивредоносное ПО, системы обнаружения вторжений, системы предотвращения (IDS/IPS) и многое другое.
+Корпорация Майкрософт осуществляет постоянный мониторинг серверов, сетей и приложений для обнаружения угроз. Комплексный подход к управлению угрозами в Azure использует системы обнаружения вторжений, предотвращения распределенных атак типа "отказ в обслуживании" (DDoS), тесты на проникновение, поведенческую аналитику, обнаружение аномалий и машинное обучение для постоянного усиления защиты и снижения рисков. Антивредоносное ПО Майкрософт для Azure защищает облачные службы и виртуальные машины Azure. Вы можете разворачивать сторонние решения по обеспечению безопасности, такие как брандмауэры приложений, сетевые брандмауэры, антивредоносное ПО, системы обнаружения вторжений, системы предотвращения (IDS/IPS) и многое другое.
 
 ### <a name="how-to-enable-http2-on-cloud-services-vm"></a>Как включить HTTP/2 на виртуальной машине облачных служб?
 
@@ -186,7 +186,7 @@ Windows 10 и Windows Server 2016 в стандартной конфигурац
 - [Video: HTTP/2 in Windows 10: Browser, Apps and Web Server](https://channel9.msdn.com/Events/Build/2015/3-88) (Видео: HTTP/2 в Windows 10 для браузера, приложений и веб-сервера)
          
 
-Эти действия можно автоматизировать через задачу запуска, чтобы каждый раз, когда создается новый экземпляр PaaS, он может сделать изменения выше в системном реестре. Дополнительные сведения см. в разделе [способы настройки и запуска задачи запуска для облачной службы](cloud-services-startup-tasks.md).
+Эти шаги можно автоматизировать через задачу запуска, чтобы описанные выше изменения в системном реестре применялись при каждом создании нового экземпляра PaaS. Дополнительные сведения см. в статье [Как настроить и выполнить задачи запуска для облачной службы](cloud-services-startup-tasks.md).
 
  
 Когда все будет готово, проверьте наличие HTTP/2 с помощью одного из следующих методов.
@@ -205,34 +205,34 @@ Windows 10 и Windows Server 2016 в стандартной конфигурац
 
 ## <a name="remote-desktop"></a>Удаленный рабочий стол
 
-### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Можно внутренней инженеров удаленного рабочего стола Майкрософт для облачной службы экземпляры без разрешения?
-Майкрософт следует strict процесс, который будет не позволяется внутренней удаленного рабочего стола в облачной службе без письменного разрешения (адрес электронной почты или других переписки) от владельца или она их.
+### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Могут ли инженеры Майкрософт без моего разрешения использовать удаленный рабочий стол для доступа к экземплярам облачной службы?
+Корпорация Майкрософт придерживается строгого правила, которое не позволит нашим инженерам осуществлять удаленный доступ к облачной службе без письменного разрешения (электронного письма или другого сообщения в письменной форме) от владельца или его уполномоченного лица.
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Не удается выполнить удаленный рабочий стол для облачной службы ВМ с помощью RDP-файл. Я получить следующая ошибка: ошибка проверки подлинности (код: 0x80004005)
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Я не могу подключиться к виртуальной машине облачной службы через удаленный рабочий стол с помощью RDP-файла. Я вижу сообщение "Произошла ошибка проверки подлинности (код: 0x80004005)".
 
-Эта ошибка может возникать при использовании RDP-файл с компьютера, присоединенного к Azure Active Directory. Чтобы устранить эту проблему, выполните следующие действия.
+Эта ошибка может возникать, если вы используете RDP-файл с компьютера, присоединенного к Azure Active Directory. Проблему можно устранить следующим способом.
 
-1. Щелкните правой кнопкой мыши загруженный RDP-файл, а затем выберите **изменить**.
-2. Добавьте «&#92;» как префикс перед имя пользователя. Например, использовать **. \username** вместо **username**.
+1. Щелкните правой кнопкой мыши скачанный RDP-файл и выберите действие **Изменить**.
+2. Добавьте префикс "\" перед именем пользователя. Например, укажите **.\username** вместо **username**.
 
 ## <a name="scaling"></a>Масштабирование
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>Не удается выполнить масштабирование на более чем X экземпляров
-В вашей подписке Azure есть ограничение на количество используемых ядер. При использовании всех доступных ядер масштабирование не сработает. Например если имеется ограничение в 100 ядер, это означает имеется 100 экземпляров A1 размера виртуальной машины для облачной службы или 50 A2 размера экземпляров виртуальных машин.
+В вашей подписке Azure есть ограничение на количество используемых ядер. При использовании всех доступных ядер масштабирование не сработает. Например, если установлено ограничение в 100 ядер, это означает, что в облачной службе можно создать 100 экземпляров виртуальной машины размера A1 или 50 экземпляров виртуальной машины размера A2.
 
-### <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Как настроить Автомасштабирование на основе памяти
+### <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Как мне настроить автомасштабирование по метрикам памяти?
 
-Автомасштабирование на основе памяти для облачных служб в настоящее время не поддерживается. 
+Автомасштабирование на основе метрик памяти в настоящее время не поддерживается для облачных служб. 
 
-Чтобы обойти эту проблему, можно использовать Application Insights. Автоматическое масштабирование приложения полезные сведения, как источник метрики и можно масштабировать число экземпляров роли, в зависимости от метрики виртуальной машине, как «Память».  Необходимо настроить Application Insights в файле пакета проекта облачной службы (*.cspkg) и включить расширение диагностики Azure в службе для реализации которого это было сделано.
+Чтобы обойти эту проблему, используйте Application Insights. Автомасштабирование поддерживает Application Insights в качестве источника метрик и позволяет изменять число экземпляров роли по любой гостевой метрике, в том числе "Память".  Чтобы реализовать такой механизм, настройте параметры для Application Insights в файле пакета для проекта облачной службы (CSPKG) и включите для службы расширение диагностики Azure.
 
-Дополнительные сведения о том, как использовать пользовательские метрики через Application Insights, чтобы настроить автоматическое масштабирование в облачных службах см. в разделе [Приступая к работе с автоматическое масштабирование по метрике пользовательских в Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+Дополнительные сведения о применении пользовательских метрик Application Insights для автомасштабирования облачных служб вы найдете в статье [Get started with auto scale by custom metric in Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) (Начало работы с автомасштабированием в Azure по пользовательским метрикам).
 
-Дополнительные сведения о том, как интегрировать диагностики Azure с помощью Application Insights для облачных служб см. в разделе [отправки облачной службы, виртуальную машину или Service Fabric диагностических данных в Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+Дополнительные сведения о том, как интегрировать систему диагностики Azure с Application Insights для облачных служб, см. в статье [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) (Отправка в Application Insights диагностических данных облачной службы, виртуальной машины или Service Fabric).
 
-Дополнительные сведения об включить Application Insights для облачных служб см. в разделе [Application Insights для облачных служб Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+Дополнительные сведения о том, как включить Application Insights для облачных служб, см. в статье [Application Insights для облачных служб Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices).
 
-Дополнительные сведения о том, как включить ведение журнала диагностики Azure для облачных служб см. в разделе [Настройка диагностики для облачных служб Azure и виртуальных машин](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+Дополнительные сведения о том, как включить ведение журнала диагностики Azure для облачных служб, см. в разделе [Включение диагностики в проектах облачных служб перед их развертыванием](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them).
 
 ## <a name="generic"></a>Универсальный
 
@@ -260,11 +260,11 @@ Windows 10 и Windows Server 2016 в стандартной конфигурац
 ### <a name="how-do-i-customize-iis-for-a-web-role"></a>Как настроить IIS для веб-роли?
 Используйте сценарий запуска IIS из статьи [Распространенные задачи запуска](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe).
 
-### <a name="what-is-the-quota-limit-for-my-cloud-service"></a>Что такое предельную квоту для облака в службе
+### <a name="what-is-the-quota-limit-for-my-cloud-service"></a>Что такое квота для облачной службы?
 См. раздел [Ограничения определенных служб](../azure-subscription-service-limits.md#subscription-limits).
 
-### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Почему диск на моей Виртуальной облачной службы определяет очень мало свободного места на диске
-Это ожидаемое поведение, и оно не должно приводить к проблемам с вашим приложением. Ведение журнала включено для дисков % approot % на виртуальных машинах Azure PaaS, который фактически использует double объем пространства, файлы обычно занимают. Однако существует несколько моментов, которые следует учитывать, чтобы это не стало проблемой.
+### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Почему на диске виртуальной машины облачной службы отображается очень мало свободного места?
+Это ожидаемое поведение, и оно не должно приводить к проблемам с вашим приложением. Для диска %uproot% в виртуальных машинах PaaS Azure включено ведение журнала, что фактически вдвое увеличивает размер файлов. Однако существует несколько моментов, которые следует учитывать, чтобы это не стало проблемой.
 
 Размер диска %approot% вычисляется как <размер .cspkg + максимальный размер журнала + запас свободного пространства> или 1,5 ГБ, в зависимости от того, какое значение больше. Размер вашей ВМ никак не влияет на этот расчет. (Размер виртуальной машины влияет на размер временного диска C.) 
 
@@ -287,9 +287,9 @@ Azure ничего не будет записывать на диск %approot%.
 
 Указание имени сервера в облачных службах можно включить, используя один из следующих методов.
 
-**Метод 1: Использование PowerShell**
+**Метод 1. Использование PowerShell**
 
-Привязка сетевого Адаптера можно настроить с помощью командлета PowerShell **New WebBinding** в задачу запуска для экземпляра роли облачной службы, как показано ниже:
+Указание имени сервера можно настроить с помощью командлета PowerShell **New-WebBinding**, включив его в задачу запуска для экземпляра роли облачной службы, как показано ниже:
     
     New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
     
@@ -321,19 +321,19 @@ Azure ничего не будет записывать на диск %approot%.
 
 Облачная служба представляет собой классический ресурс. Теги поддерживаются только ресурсами, созданными с использованием Azure Resource Manager. К классическим ресурсам, в том числе к облачной службе, теги применить нельзя. 
 
-### <a name="the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that"></a>Портал Azure не отображает версию пакета SDK для моей облачной службы. Каким образом, можно получить?
+### <a name="the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that"></a>Портал Azure не отображает версию пакета SDK для моей облачной службы. Как узнать ее?
 
-Мы работаем над перевод этот компонент на портале Azure. В то же время можно использовать следующие команды PowerShell получить версию пакета SDK:
+Мы работаем над тем, чтобы реализовать эту возможность на портале Azure. Пока вы можете узнать версию пакета SDK с помощью этих команд PowerShell:
 
     Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
 
-### <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Требуется завершение работы облачной службы для нескольких месяцев. Как сократить стоимость выставления счетов для облачной службы без потери IP-адрес?
+### <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Я хочу приостановить работу облачной службы на несколько месяцев. Как снизить расходы на обслуживание облачной службы, не теряя при этом IP-адрес?
 
-Облачную службу уже развернутых возвращает плата за вычислений и хранения, он использует. Поэтому даже при выключении виртуальной Машины Azure, вы по-прежнему получить плата за хранилище. 
+Любая развернутая облачная служба оплачивается по объему ресурсов вычисления и хранения, которые для нее выделены. Это означает, что вам придется оплачивать хранилище виртуальной машины Azure, даже если она отключена. 
 
-Вот, что делать, чтобы уменьшить расчетной без потери IP-адрес для службы.
+Чтобы снизить затраты, не теряя выделенный для вашей службы IP-адрес, выполните следующие действия.
 
-1. [Зарезервировать IP-адрес](../virtual-network/virtual-networks-reserved-public-ip.md) перед удалением развертываний.  Только выставляется для этого IP-адреса. Дополнительные сведения о выставлении счетов IP адрес см. в разделе [цены IP-адреса](https://azure.microsoft.com/pricing/details/ip-addresses/).
-2. Удаление развертывания. Не удаляйте xxx.cloudapp.net, которые можно использовать на будущее.
-3. Если вы хотите повторно развернуть облачную службу с помощью того же зарезервированный IP-адрес, зарезервированным в подписке см. в разделе [зарезервированные IP-адреса для облачных служб и виртуальных машин](https://azure.microsoft.com/blog/reserved-ip-addresses/).
+1. [Зарезервируйте IP-адрес](../virtual-network/virtual-networks-reserved-public-ip.md), а затем удалите развертывание.  Теперь вы будете оплачивать только IP-адрес. Дополнительные сведения о выставлении счетов за IP-адреса вы найдете на странице [Цены на IP-адреса](https://azure.microsoft.com/pricing/details/ip-addresses/).
+2. Удалите развертывание. Не удаляйте домен xxx.cloudapp.net, чтобы его можно было использовать в будущем.
+3. Когда вы решите повторно развернуть облачную службу, применив для нее зарезервированный в подписке IP-адрес, воспользуйтесь инструкциями из статьи [Reserved IP addresses for Cloud Services and Virtual Machines](https://azure.microsoft.com/blog/reserved-ip-addresses/) (Зарезервированные IP-адреса для облачных служб и виртуальных машин).
 

@@ -1,5 +1,5 @@
-# <a name="git-commands-for-creating-a-new-article-or-updating-an-existing-article"></a>Команды Git для создания или обновления существующей статьи
+# <a name="git-commands-for-creating-a-new-article-or-updating-an-existing-article"></a>Команды Git для создания новой статьи или обновления существующей статьи
 
-В этом руководстве перемещен в docs.microsoft.com внутренней руководства участника.
+Теперь это руководство внутреннего участника размещено сайте docs.microsoft.com.
 
-[https://AKA.MS/git-Commands-master](https://aka.ms/git-commands-master)
+[https://aka.ms/git-commands-master](https://aka.ms/git-commands-master)

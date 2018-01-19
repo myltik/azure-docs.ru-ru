@@ -1,5 +1,5 @@
-# <a name="install-and-set-up-tools-for-authoring-in-github"></a>Установка и настройка средства для создания в GitHub
+# <a name="install-and-set-up-tools-for-authoring-in-github"></a>Установка и настройка средств для создания статей на GitHub
 
-В этом руководстве перемещен в docs.microsoft.com внутренней руководства участника.
+Теперь это руководство внутреннего участника размещено сайте docs.microsoft.com.
 
-В разделе [https://aka.ms/tools-and-setup](https://aka.ms/tools-and-setup)
+См. раздел [https://aka.ms/tools-and-setup](https://aka.ms/tools-and-setup)

@@ -1,5 +1,5 @@
 ---
-title: "Заметки о выпуске обозревателя службы хранилища Microsoft Azure (предварительная версия) | Документация Майкрософт"
+title: "Заметки о выпуске обозревателя службы хранилища Microsoft Azure (предварительная версия)"
 description: "Заметки о выпуске обозревателя службы хранилища Microsoft Azure (предварительная версия)."
 services: storage
 documentationcenter: na
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: c709be1a509ce9ad6b6b494dea80419b3ea126c4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Заметки о выпуске обозревателя службы хранилища Microsoft Azure (предварительная версия)
 
-Эта статья содержит выпуска выпуске заметки обозреватель хранилищ Azure 0.9.3 (Предварительная версия), а также заметки о выпуске для предыдущих версий.
+Эта статья содержит заметки о выпуске обозревателя службы хранилища Azure 0.9.3 (предварительная версия), а также заметки о выпусках предыдущих версий.
 
 [Microsoft Azure Storage Explorer (предварительная версия)](./vs-azure-tools-storage-manage-with-storage-explorer.md) — это изолированное приложение, позволяющее легко работать с данными из службы хранилища Azure на платформе Windows, macOS и Linux.
 
 ## <a name="version-093"></a>Версия 0.9.3
-12/08/2017
+08.12.2017
 
-### <a name="download-azure-storage-explorer-093-preview"></a>Загрузка обозревателя хранилищ Azure 0.9.3 (Предварительная версия)
-- [Обозреватель хранилища Azure 0.9.3 (Предварительная версия) для Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Обозреватель хранилища Azure 0.9.3 (Предварительная версия) для Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Обозреватель хранилища Azure 0.9.3 (Предварительная версия) для Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-093-preview"></a>Скачивание обозревателя службы хранилища Azure 0.9.3 (предварительная версия)
+- [Обозреватель службы хранилища Azure 0.9.3 (предварительная версия) для Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Обозреватель службы хранилища Azure 0.9.3 (предварительная версия) для Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Обозреватель службы хранилища Azure 0.9.3 (предварительная версия) для Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Создать
-* В существующем окне обозревателя хранилищ будет повторно использоваться при:
-    * При открытии прямых ссылок, созданных в обозревателе хранилищ.
-    * Открытие обозревателя хранилищ из портала.
-    * Открытие обозревателя хранилищ из расширения VS Code хранилища Azure (ожидается в ближайшее время).
-* Добавлена возможность открывать новое окно обозревателя хранилищ из в обозреватель хранилищ.
-    * Для Windows имеется параметр «Новое окно» в меню "файл" и в контекстном меню на панели задач.
-    * Для Mac имеется параметр «Новое окно» в меню приложения.
+* Существующее окно обозревателя службы хранилища будет повторно использоваться в таких случаях:
+    * при открытии прямых ссылок, созданных в обозревателе службы хранилища;
+    * при открытии обозревателя службы хранилища с портала;
+    * при открытии обозревателя службы хранилища из расширения VS Code для службы хранилища Azure (ожидается в ближайшее время).
+* Добавлена возможность открывать новое окно обозревателя службы хранилища из обозревателя.
+    * В Windows параметр "Новое окно" есть в меню "Файл" и в контекстном меню на панели задач.
+    * В Mac параметр New Window (Новое окно) включен в меню приложения.
 
 ### <a name="fixes"></a>Исправления
-* Старый действия были не соответствующим образом выполняется очистка. Это влияет на производительность длительных заданий. Они являются теперь выполняется очистка правильно.
-* Действия, включающие большое число файлов и каталогов иногда вызовет обозреватель хранилищ для закрепления. Запросы в Azure для файловых ресурсов теперь являются trottled, чтобы ограничить использование системных ресурсов.
+* Устаревшие действия удалялись неправильно. Это влияло на производительность длительных заданий. Теперь они удаляются правильно.
+* Действия с большим количеством файлов и каталогов иногда приводили к "зависанию" обозревателя службы хранилища. Теперь можно регулировать запросы в Azure для файловых ресурсов, чтобы ограничить использование системных ресурсов.
 
 ### <a name="known-issues"></a>Известные проблемы
 * Обозреватель хранилищ не поддерживает учетные записи AD FS.
@@ -79,9 +79,9 @@ ms.lasthandoff: 01/02/2018
 11/01/2017
 
 ### <a name="download-azure-storage-explorer-092-preview"></a>Скачивание обозревателя службы хранилища Azure 0.9.2 (предварительная версия)
-* [Загрузка обозревателя хранилищ Azure 0.9.2 (Предварительная версия) для Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Загрузка обозревателя хранилищ Azure 0.9.2 (Предварительная версия) для Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Загрузка обозревателя хранилищ Azure 0.9.2 (Предварительная версия) для Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
+* [Скачивание обозревателя службы хранилища Azure 0.9.2 (предварительная версия) для Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Скачивание обозревателя службы хранилища Azure 0.9.2 (предварительная версия) для Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Скачивание обозревателя службы хранилища Azure 0.9.2 (предварительная версия) для Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 01/02/2018
 
 ## <a name="previous-releases"></a>Предыдущие выпуски
 
-* [Версия 0.9.1 / 0.9.0](#version-091)
+* [Версия 0.9.1, 0.9.0](#version-091)
 * [Версия 0.8.16](#version-0816)
 * [Версия 0.8.14](#version-0814)
 * [Версия 0.8.13](#version-0813)
@@ -372,9 +372,9 @@ ms.lasthandoff: 01/02/2018
 ### <a name="version-089--088"></a>Версия 0.8.9, 0.8.8
 23.02.2017
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R6gonK3cYAc?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
 #### <a name="new"></a>Создать
@@ -405,7 +405,7 @@ ms.lasthandoff: 01/02/2018
 12/16/2016
 ### <a name="version-087"></a>Версия 0.8.7
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
 #### <a name="new"></a>Создать
 
@@ -493,7 +493,7 @@ ms.lasthandoff: 01/02/2018
 12.09.2016
 ### <a name="version-084"></a>Версия 0.8.4
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
 #### <a name="new"></a>Создать
 
@@ -514,7 +514,7 @@ ms.lasthandoff: 01/02/2018
 08/03/2016
 ### <a name="version-083"></a>Версия 0.8.3
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1]
 
 #### <a name="new"></a>Создать
 
@@ -540,7 +540,7 @@ ms.lasthandoff: 01/02/2018
 07.07.2016
 ### <a name="version-082"></a>Версия 0.8.2
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
 #### <a name="new"></a>Создать
 
@@ -563,11 +563,11 @@ ms.lasthandoff: 01/02/2018
 15.06.2016
 ### <a name="version-080"></a>Версия 0.8.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ycfQhKztSIY?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/ycfQhKztSIY?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
 #### <a name="new"></a>Создать
 
@@ -608,10 +608,9 @@ ms.lasthandoff: 01/02/2018
 
 ### <a name="version-07201603250"></a>Версия 0.7.20160325.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/imbgBRHX65A?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/imbgBRHX65A?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
-
+>[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
 #### <a name="new"></a>Создать
 

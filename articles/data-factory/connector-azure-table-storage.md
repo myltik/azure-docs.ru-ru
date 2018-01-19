@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 0275a7b3965a7691ae396c9dbb2f164a9a47a3d4
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9aa0a1ed7bb07609e087e82d64f5f1c80bb590d9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Копирование данных в таблицу Azure и из нее с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,8 @@ ms.lasthandoff: 01/05/2018
 В частности, соединитель таблиц Azure поддерживает копирование данных с использованием проверки подлинности на основе **ключа учетной записи** и **службы SAS**.
 
 ## <a name="get-started"></a>Начало работы
-Вы можете создать конвейер с помощью операции копирования, используя пакет SDK для .NET, пакет SDK для Python, Azure PowerShell, API REST или шаблон Azure Resource Manager. Пошаговые инструкции по созданию конвейера с действием копирования см. в [руководстве по действию копирования](quickstart-create-data-factory-dot-net.md).
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, относящихся к хранилищу таблиц Azure.
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 01/05/2018
 
 Вы можете создать связанную службу хранилища Azure с помощью ключа учетной записи, предоставляющего фабрике данных глобальный доступ к службе хранилища Azure. Поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Требуется |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **AzureStorage** |Yes |
 | connectionString | В свойстве connectionString указываются сведения, необходимые для подключения к службе хранилища Azure. Пометьте это поле в качестве SecureString. |Yes |
@@ -83,12 +84,12 @@ ms.lasthandoff: 01/05/2018
 > Теперь фабрика данных Azure поддерживает только **SAS службы**, а не SAS учетной записи. Сведения об этих двух типах и способах их создания см. в разделе [Типы подписанных URL-адресов](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). URL-адрес SAS, который можно создать на портале Azure или в обозревателе хранилищ, является учетной записью SAS, которая не поддерживается в фабрике данных.
 
 > [!TIP]
-> Можно выполнить ниже команды PowerShell для создания SAS службы для учетной записи (замены месте владельцев и предоставьте необходимые разрешения):`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
+> Чтобы сгенерировать подписанный URL-адрес службы для учетной записи хранения, выполните такие команды PowerShell, предварительно заменив заполнители и предоставив необходимые разрешения: `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`.
 
 При использовании проверки подлинности на основе подписанного URL-адреса уровня службы поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Требуется |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **AzureStorage** |Yes |
 | sasUri | Укажите URI подписанного URL-адреса к ресурсам хранилища Azure, например BLOB-объектам, контейнерам или таблицам. Пометьте это поле в качестве SecureString. |Yes |
@@ -127,7 +128,7 @@ ms.lasthandoff: 01/05/2018
 
 Чтобы скопировать данные из таблицы Azure, установите тип свойства набора данных **AzureTable**. Поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Требуется |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
 | Тип | Свойство type для набора данных должно иметь значение: **AzureTable**. |Yes |
 | tableName |Имя таблицы в экземпляре базы данных таблиц Azure, на которое ссылается связанная служба. |Yes |
@@ -168,7 +169,7 @@ ms.lasthandoff: 01/05/2018
 
 Чтобы копировать данные из таблицы Azure, установите тип источника **AzureTableSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Требуется |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **AzureTableSource**. |Yes |
 | AzureTableSourceQuery |Используйте пользовательский запрос таблицы Azure для чтения данных. Примеры приведены в следующем разделе. |Нет  |
@@ -194,7 +195,7 @@ ms.lasthandoff: 01/05/2018
 
 Чтобы копировать данные в таблицу Azure, установите тип приемника **AzureTableSink** в действии копирования. В разделе **sink** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Требуется |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
 | Тип | Свойство type приемника действия копирования должно иметь значение **AzureTableSink**. |Yes |
 | azureTableDefaultPartitionKeyValue |Значение ключа раздела по умолчанию, которое может использоваться приемником. |Нет  |
@@ -276,5 +277,5 @@ DivisionID указывается в качестве ключа секции.
 | Edm.Int64 |Int64 |64-битное целое число. |
 | Edm.String |Строка |Значение в кодировке UTF-16. Размер строкового значения не должен превышать 64 КБ. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В таблице [Поддерживаемые хранилища данных](copy-activity-overview.md#supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования в фабрике данных Azure.

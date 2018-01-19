@@ -9,11 +9,11 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Структура определения службы "Политика Azure"
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/29/2017
 
 Все примеры шаблонов политик Azure [доступны здесь](json-samples.md).
 
-## <a name="mode"></a>Режим
+## <a name="mode"></a>Mode
 
 Мы рекомендуем задать для `mode` значение `all`, чтобы назначенная политика оценивала все группы ресурсов и типы. С примером определения политики, применяющей теги к группе ресурсов, можно ознакомиться в разделе [Разрешение использования пользовательского образа виртуальной машины из группы ресурсов](scripts/allow-custom-vm-image.md).
 
@@ -200,7 +200,6 @@ ms.lasthandoff: 11/29/2017
 * **Append** добавляет в запрос некоторый набор полей;
 * **AuditIfNotExists** включает аудит, если ресурс не существует;
 * **DeployIfNotExists** развертывает ресурс, если он еще не существует. Сейчас этот эффект поддерживается только с помощью встроенных политик.
-* **DenyIfNotExists** запрещает создание ресурса, если он не существует.
 
 Для типа **append**необходимо указать следующие сведения:
 
@@ -216,7 +215,7 @@ ms.lasthandoff: 11/29/2017
 
 Значением может быть строка или объект формата JSON.
 
-С помощью параметров **AuditIfNotExists**, **DeployIfNotExists** и **DenyIfNotExists** можно проверить существование дочернего ресурса и применить правило и соответствующее действие, если этот ресурс не существует. Например, можно потребовать, чтобы служба "Наблюдатель за сетями" была развернута для всех виртуальных сетей.
+С помощью параметров **AuditIfNotExists** и **DeployIfNotExists** можно проверить существование дочернего ресурса и применить правило и соответствующее действие, если такой ресурс не существует. Например, можно потребовать, чтобы служба "Наблюдатель за сетями" была развернута для всех виртуальных сетей.
 Пример аудита наличия развернутого расширения для виртуальных машин приведен в разделе [Проверка наличия расширения](scripts/audit-ext-not-exist.md).
 
 
@@ -226,7 +225,7 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Cache/Redis**
 
-| Alias | Описание |
+| Alias | ОПИСАНИЕ |
 | ----- | ----------- |
 | Microsoft.Cache/Redis/enableNonSslPort | Указывает, включен ли на сервере Redis порт без поддержки SSL (6379). |
 | Microsoft.Cache/Redis/shardCount | Задает число сегментов, создаваемых в кэше кластера уровня "Премиум".  |
@@ -236,13 +235,13 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Cdn/profiles**
 
-| Alias | Описание |
+| Alias | ОПИСАНИЕ |
 | ----- | ----------- |
 | Microsoft.CDN/profiles/sku.name | Задает имя ценовой категории. |
 
 **Microsoft.Compute/disks**
 
-| Alias | Описание |
+| Alias | ОПИСАНИЕ |
 | ----- | ----------- |
 | Microsoft.Compute/imageOffer | Задает предложение образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
 | Microsoft.Compute/imagePublisher | Задает издатель образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
@@ -252,7 +251,7 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Compute/virtualMachines**
 
-| Alias | Описание |
+| Alias | ОПИСАНИЕ |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | Задайте идентификатор образа, используемого для создания виртуальной машины. |
 | Microsoft.Compute/imageOffer | Задает предложение образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
@@ -269,7 +268,7 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Compute/virtualMachines/extensions**
 
-| Alias | Описание |
+| Alias | ОПИСАНИЕ |
 | ----- | ----------- |
 | Microsoft.Compute/virtualMachines/extensions/publisher | Задает имя издателя расширения. |
 | Microsoft.Compute/virtualMachines/extensions/type | Задает тип расширения. |
@@ -277,7 +276,7 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Compute/virtualMachineScaleSets**
 
-| Alias | Описание |
+| Alias | ОПИСАНИЕ |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | Задайте идентификатор образа, используемого для создания виртуальной машины. |
 | Microsoft.Compute/imageOffer | Задает предложение образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
@@ -293,26 +292,26 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Network/applicationGateways**
 
-| Alias | Описание |
+| Alias | ОПИСАНИЕ |
 | ----- | ----------- |
 | Microsoft.Network/applicationGateways/sku.name | Задает размер шлюза. |
 
 **Microsoft.Network/virtualNetworkGateways**
 
-| Alias | Описание |
+| Alias | ОПИСАНИЕ |
 | ----- | ----------- |
 | Microsoft.Network/virtualNetworkGateways/gatewayType | Задает тип шлюза виртуальной сети. |
 | Microsoft.Network/virtualNetworkGateways/sku.name | Задает номера SKU шлюза. |
 
 **Microsoft.Sql/servers**
 
-| Alias | Описание |
+| Alias | ОПИСАНИЕ |
 | ----- | ----------- |
 | Microsoft.Sql/servers/version | Задает версию сервера. |
 
 **Microsoft.Sql/databases**
 
-| Alias | Описание |
+| Alias | ОПИСАНИЕ |
 | ----- | ----------- |
 | Microsoft.Sql/servers/databases/edition | Задает выпуск базы данных. |
 | Microsoft.Sql/servers/databases/elasticPoolName | Задает имя эластичного пула, в котором размещена база данных. |
@@ -321,14 +320,14 @@ ms.lasthandoff: 11/29/2017
 
 **Microsoft.Sql/elasticpools**
 
-| Alias | Описание |
+| Alias | ОПИСАНИЕ |
 | ----- | ----------- |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Задает совокупное число общих единиц DTU для эластичного пула базы данных. |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Задает выпуск эластичного пула. |
 
 **Microsoft.Storage/storageAccounts**
 
-| Alias | Описание |
+| Alias | ОПИСАНИЕ |
 | ----- | ----------- |
 | Microsoft.Storage/storageAccounts/accessTier | Задает уровень доступа, используемый для выставления счетов. |
 | Microsoft.Storage/storageAccounts/accountType | Задает имя SKU. |
@@ -417,6 +416,6 @@ ms.lasthandoff: 11/29/2017
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Ознакомьтесь с примерами шаблонов политик Azure [здесь](json-samples.md).

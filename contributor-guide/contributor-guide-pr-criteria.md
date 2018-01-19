@@ -1,5 +1,5 @@
-# <a name="quality-criteria-for-pull-request-review"></a>Просмотрите критериям качества для запроса на включение внесенных изменений
+# <a name="quality-criteria-for-pull-request-review"></a>Критерии качества для рассмотрения запросов на вытягивание
 
-В этом руководстве перемещен в docs.microsoft.com внутренней руководства участника.
+Теперь это руководство внутреннего участника размещено сайте docs.microsoft.com.
 
-[https://AKA.MS/PR-Review-Criteria](https://aka.ms/pr-review-criteria)
+[https://aka.ms/pr-review-criteria](https://aka.ms/pr-review-criteria)

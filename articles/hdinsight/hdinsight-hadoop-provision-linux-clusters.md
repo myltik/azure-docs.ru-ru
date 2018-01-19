@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: 052e65b72cc382168296dc1a4965000107d08881
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Установка кластеров в HDInsight с использованием Hadoop, Spark, Kafka и других технологий
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/19/2017
 ## <a name="quick-create-basic-cluster-setup"></a>Быстрое создание: установка базового кластера
 В этой статье приводятся пошаговые инструкции по выполнению установки на [портале Azure](https://portal.azure.com), где можно создать кластер HDInsight, выбрав *Быстрое создание* или *Пользовательский*. 
 
-![параметры, настраиваемые быстрое создание создания hdinsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-options.png)
+![hdinsight create options custom quick create](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-options.png)
 
 Чтобы установить базовый кластер, следуйте инструкциям на экране. Ниже приведены сведения для следующих элементов:
 
@@ -90,13 +90,13 @@ ms.lasthandoff: 12/19/2017
 ### <a name="hdinsight-version"></a>Версия HDInsight
 Выберите версию HDInsight для этого кластера. Дополнительные сведения см. в разделе [Поддерживаемые версии HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-### <a name="enterprise-security-package"></a>Пакет безопасности предприятия
+### <a name="enterprise-security-package"></a>Пакет безопасности корпоративного уровня
 
-Для типов кластера Hadoop, Spark и интерактивных запросов, можно включить **пакет безопасности предприятия**. Этот пакет содержит параметр, чтобы надежнее настройка кластера с помощью Apache круг и интеграции с Azure Active в папку. Дополнительные сведения см. в разделе [пакет безопасности предприятия в Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+Для кластеров типа Hadoop, Spark и Interactive Query вы можете включить **пакет безопасности предприятия**. Этот пакет содержит параметр для более безопасной настройки кластера с помощью Apache Ranger и интеграции с Azure Active Direcotry. Дополнительные сведения см. в статье о [пакете безопасности предприятия в Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
 
-![Параметры создания hdinsight выберите пакет безопасности предприятия](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
+![hdinsight create options choose enterprise security package](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
 
-Дополнительные сведения о создании присоединенных к домену HDInsight кластера см. в разделе [домену среда "песочницы" HDInsight Create](./domain-joined/apache-domain-joined-configure.md).
+Дополнительные сведения о создании присоединенного к домену кластера HDInsight см. в статье о [создании присоединенной к домену среды песочницы HDInsight](./domain-joined/apache-domain-joined-configure.md).
 
 
 ## <a name="cluster-login-and-ssh-user-name"></a>Имя входа в кластер и имя пользователя SSH
@@ -105,7 +105,7 @@ ms.lasthandoff: 12/19/2017
 * Пользователь HTTP: имя пользователя HTTP по умолчанию — *admin*. Эта учетная запись использует базовую конфигурацию на портале Azure. Иногда его называют "пользователем кластера".
 * Пользователь SSH (кластеры Linux): используется для подключения к кластеру через SSH. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Пакет безопасности предприятия позволяет интегрировать HDInsight с Active Directory и Apache круг. Несколько пользователей могут создаваться с помощью пакета безопасности предприятия.
+Пакет безопасности предприятия позволяет интегрировать HDInsight с Active Directory и Apache Ranger. При помощи пакета безопасности предприятия можно создать нескольких пользователей.
 
 ## <a name="location"></a>Расположение (регионы) для кластеров и хранилища
 
@@ -248,13 +248,13 @@ ms.lasthandoff: 12/19/2017
 
 Подробные сведения об использовании виртуальных сетей Azure в HDInsight см. в статье [Расширение возможностей HDInsight с помощью виртуальной сети Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-Пример использования двух типов кластера в виртуальной сети Azure см. в статье об [анализе данных с датчиков с использованием Storm и HBase](storm/apache-storm-sensor-data-analysis.md). Дополнительные сведения об использовании HDInsight в виртуальной сети, включая требования к конфигурации виртуальной сети, см. в статье [Расширение возможностей HDInsight с помощью виртуальной сети Azure](hdinsight-extend-hadoop-virtual-network.md).
+Пример использования двух типов кластера в виртуальной сети Azure см. в статье об [использовании структурированного потока Spark при помощи Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Дополнительные сведения об использовании HDInsight в виртуальной сети, включая требования к конфигурации виртуальной сети, см. в статье [Расширение возможностей HDInsight с помощью виртуальной сети Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="troubleshoot-access-control-issues"></a>Устранение неполадок управления доступом
 
 Если при создании кластеров HDInsight возникли проблемы, см. раздел [Создание кластеров](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Общие сведения об Azure HDInsight, технологической платформе Hadoop и кластерах Hadoop](hadoop/apache-hadoop-introduction.md)
 - [Руководство по Hadoop. Приступая к работе с Hadoop в HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

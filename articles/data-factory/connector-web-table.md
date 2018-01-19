@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 7271dc071c6a370ed15f5a1f6ea0f119716dd2c6
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 8e2b886f7e12791a6aab9feec67adfa30ac3bad1
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Копирование данных из Веб-таблицы с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -26,9 +26,8 @@ ms.lasthandoff: 11/10/2017
 
 В этой статье описывается, как с помощью действия копирования в фабрике данных Azure копировать данные из базы данных веб-таблиц. Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
 
-
 > [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если вы используете службу фабрики данных версии 1, которая является общедоступной, ознакомьтесь со статьей [Move data from a Web table source using Azure Data Factory](v1/data-factory-web-table-connector.md) (Перемещение данных из источника веб-таблиц с использованием фабрики данных Azure).
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете службу фабрики данных версии 1, которая является общедоступной, ознакомьтесь со статьей [Move data from a Web table source using Azure Data Factory](v1/data-factory-web-table-connector.md) (Перемещение данных из источника веб-таблиц с использованием фабрики данных Azure).
 
 ## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
@@ -36,8 +35,13 @@ ms.lasthandoff: 11/10/2017
 
 Сейчас этот соединитель веб-таблиц поддерживает только **извлечение содержимого таблицы из HTML-страницы**. Чтобы извлечь данные из конечной точки HTTP (HTTPS), используйте [соединитель HTTP](connector-http.md).
 
+## <a name="prerequisites"></a>Необходимые компоненты
+
+Для использования этого соединителя веб-таблиц нужно настроить локальную среду выполнения интеграции. Дополнительные сведения см. в статье [Создание и настройка локальной среды выполнения интеграции](create-self-hosted-integration-runtime.md).
+
 ## <a name="getting-started"></a>Приступая к работе
-Вы можете создать конвейер с помощью операции копирования, используя пакет SDK для .NET, пакет SDK для Python, Azure PowerShell, API REST или шаблон Azure Resource Manager. Пошаговые инструкции по созданию конвейера с действием копирования см. в [руководстве по действию копирования](create-self-hosted-integration-runtime.md).
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, относящихся к соединителю веб-таблиц.
 
@@ -45,14 +49,14 @@ ms.lasthandoff: 11/10/2017
 
 Для связанной службы веб-таблиц поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
-| type | Для свойства type необходимо задать значение **Web** |Да |
-| url | URL-адрес источника Web |Да |
-| authenticationType | Допустимое значение: **Anonymous**. |Да |
-| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать среду выполнения интеграции Azure или локальную среду IR (если хранилище данных расположено в частной сети). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет |
+| Тип | Для свойства type необходимо задать значение **Web** |Yes |
+| URL-адрес | URL-адрес источника Web |Yes |
+| authenticationType | Допустимое значение: **Anonymous**. |Yes |
+| connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Требуется локальная среда IR, как упоминалось в разделе [Предварительные требования](#prerequisites). |Yes |
 
-**Пример**
+**Пример.**
 
 ```json
 {
@@ -62,6 +66,10 @@ ms.lasthandoff: 11/10/2017
         "typeProperties": {
             "url" : "https://en.wikipedia.org/wiki/",
             "authenticationType": "Anonymous"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -73,13 +81,13 @@ ms.lasthandoff: 11/10/2017
 
 Чтобы скопировать данные из веб-таблиц, задайте для свойства type набора данных значение **RelationalTable**. Поддерживаются следующие свойства:
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
-| type | Свойство type для набора данных должно иметь значение **WebTable**. | Да |
+| Тип | Свойство type для набора данных должно иметь значение **WebTable**. | Yes |
 | path |Относительный URL-адрес ресурса, который содержит таблицу. |Нет. Если путь не задан, используется только URL-адрес, указанный в определении связанной службы. |
-| index |Индекс таблицы в ресурсе. Дополнительные сведения см. в разделе [Получение индекса таблицы на HTML-странице](#get-index-of-a-table-in-an-html-page). |Да |
+| index |Индекс таблицы в ресурсе. Дополнительные сведения см. в разделе [Получение индекса таблицы на HTML-странице](#get-index-of-a-table-in-an-html-page). |Yes |
 
-**Пример**
+**Пример.**
 
 ```json
 {
@@ -103,7 +111,7 @@ ms.lasthandoff: 11/10/2017
 
 Чтобы скопировать данные из веб-таблицы, задайте тип источника **WebSource** в действии копирования, дополнительные свойства не поддерживаются.
 
-**Пример**
+**Пример.**
 
 ```json
 "activities":[
@@ -161,5 +169,5 @@ ms.lasthandoff: 11/10/2017
 Если вы работаете с Excel 2013, используйте [Microsoft Power Query для Excel](https://www.microsoft.com/download/details.aspx?id=39379), чтобы получить индекс. Дополнительные сведения см. в статье [Подключение к веб-странице](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8). Точно так же можно использовать [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В таблице [Поддерживаемые хранилища данных](copy-activity-overview.md#supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования в фабрике данных Azure.

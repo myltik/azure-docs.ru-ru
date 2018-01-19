@@ -1,5 +1,5 @@
 ---
-title: "Просмотр журналов действий Azure с помощью Log Analytics | Документация Майкрософт"
+title: "Сбор и анализ журналов действий Azure в Log Analytics | Документация Майкрософт"
 description: "Решение \"Журналы действий Azure\" можно использовать для анализа таких журналов во всех подписках Azure и поиска в них необходимых данных."
 services: log-analytics
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="view-azure-activity-logs"></a>Просмотр журналов действий Azure
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Сбор и анализ журналов действий Azure в Log Analytics
 
 ![Символ журналов действий Azure](./media/log-analytics-activity/activity-log-analytics.png)
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/13/2017
 | [Группы управления SCOM](log-analytics-om-agents.md) | Нет  | Решение не собирает сведения из агентов в подключенной группе управления SCOM. |
 | [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет  | Решение не собирает сведения из службы хранилища Azure. |
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>Необходимые компоненты
 
 - Для доступа к сведениям журнала действий Azure необходимо наличие подписки Azure.
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 12/13/2017
 
 ![Панель мониторинга "Журналы действий Azure"](./media/log-analytics-activity/activity-log-dash.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Создание [оповещения](log-analytics-alerts-creating.md) о выполнении определенного действия.
 - Использование [поиска по журналам](log-analytics-log-searches.md) для просмотра подробных сведений из журналов действий.

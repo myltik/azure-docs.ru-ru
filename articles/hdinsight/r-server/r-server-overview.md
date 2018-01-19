@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 247cc4175b70e31c9496df7037d45e8c7e2c7494
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Основные сведения об R Server и возможностях открытого кода R в HDInsight
 
@@ -98,9 +98,9 @@ R Server в HDInsight предоставляет новейшие возможн
 Наконец, доступ к консоли R Server на граничном узле можно получить, просто введя **R** в командной строке Linux после подключения с помощью SSH или PuTY. При работе с консолью будет удобнее, если вы откроете текстовый редактор для разработки скрипта R в другом окне и будете вырезать и вставлять необходимые фрагменты скрипта в консоль R.
 
 ## <a name="learn-about-pricing"></a>Информация о ценах
-Кластер HDInsight с R Server оплачивается по такой же схеме, что и стандартные кластеры HDInsight. Стоимость кластера зависит от размера основной виртуальной машины на разных узлах имен, узлах данных и граничных узлах, а также от наценки за ядро-час в кластере. Дополнительные сведения о ценах на HDInsight разделе [цены на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+Кластер HDInsight с R Server оплачивается по такой же схеме, что и стандартные кластеры HDInsight. Стоимость кластера зависит от размера основной виртуальной машины на разных узлах имен, узлах данных и граничных узлах, а также от наценки за ядро-час в кластере. Подробные сведения о ценах на HDInsight см. [здесь](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения об использовании R Server для работы с кластерами HDInsight см. в следующих статьях:
 
 * [Приступая к работе с R Server в HDInsight (предварительная версия)](r-server-get-started.md)

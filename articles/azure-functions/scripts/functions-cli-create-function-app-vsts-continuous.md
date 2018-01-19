@@ -1,32 +1,32 @@
 ---
-title: "Создание приложения-функции и развертывание кода функции из Visual Studio Team Services | Документация Майкрософт"
+title: "Создание в Azure приложения-функции, которое развертывается из Visual Studio Team Services | Документация Майкрософт"
 description: "Создание приложения-функции и развертывание кода функции из Visual Studio Team Services."
 services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/28/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 15d4001e656c456c2fbe3b3d63cdd094498940c8
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>Создание службы приложений
+# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Создание в Azure приложения-функции, которое развертывается из Visual Studio Team Services
 
-В этом сценарии вы узнаете, как создание функции приложения, использующего [плана потребления](../functions-scale.md#consumption-plan) и настроить непрерывное развертывание из Visual Studio Team Services (VSTS) репозитория. Для этого примера вам потребуются следующие компоненты:
+В этом разделе показано, как при помощи решения "Функции Azure" создать [бессерверное](https://azure.microsoft.com/overview/serverless-computing/) приложение-функцию с использованием [плана потребления](../functions-scale.md#consumption-plan). Приложение-функция, которая представляет собой контейнер для функций, непрерывно развертывается из репозитория Visual Studio Team Services (VSTS). Для работы с этой статьей требуется:
 
-* Репозиторий VSTS с кодом функции, для которого у вас есть права администратора.
-* [Личный маркер доступа](https://help.github.com/articles/creating-an-access-token-for-command-line-use) для учетной записи GitHub.
+* репозиторий VSTS с проектом приложения-функции и права администратора на доступ к такому репозиторию;
+* [личный маркер доступа](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) для доступа к репозиторию VSTS.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать локально CLI, необходимо использовать Azure CLI версии 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Если вы решили использовать Azure CLI локально, установите версию 2.0 или более позднюю. Чтобы определить версию Azure CLI, выполните `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Пример скрипта
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="script-explanation"></a>Описание скрипта
 
-Для создания группы ресурсов, веб-приложений, DocumentDB и всех связанных ресурсов этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
+Для создания группы ресурсов, учетной записи хранения, приложения-функции и всех связанных ресурсов в этом скрипте используются приведенные ниже команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
 | Get-Help | Заметки |
 |---|---|
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/08/2018
 | [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
 | [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Связывает приложение-функцию с репозиторием Git или Mercurial. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

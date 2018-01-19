@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/09/2018
 ms.author: v-craic
-ms.openlocfilehash: ce854024df5c6974873cf3574bf2de282946f6d0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: dc315bcc625ea98244bb5804ce6ff1c13d0ec7b1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Создание пользовательского образа из виртуальной машины
 
@@ -30,25 +30,30 @@ ms.lasthandoff: 01/02/2018
 
 1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Щелкните **Другие службы**, а затем выберите в списке **DevTest Labs**.
+1. Щелкните **Все службы** и выберите в списке **DevTest Labs**.
 
 1. Из списка лабораторий выберите нужную лабораторию.  
 
-1. В колонке лаборатории выберите **My virtual machines**(Мои виртуальные машины).
+1. На главной странице лаборатории выберите **Мои виртуальные машины**.
  
-1. В колонке **My virtual machines** (Мои виртуальные машины) выберите виртуальную машину, на основе которой будет создан пользовательский образ.
+1. На панели **Мои виртуальные машины** выберите виртуальную машину, на основе которой будет создан пользовательский образ.
 
-1. В колонке виртуальной машины выберите **Create custom image (VHD)**(Создать пользовательский образ (VHD)).
+1. На панели управления виртуальной машины выберите **Create custom image (VHD)** (Создать пользовательский образ (VHD)).
 
     ![Пункт меню "Создание пользовательского образа"](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. В колонке **Create image** (Создание образа) введите имя и описание нового пользовательского образа. Эти данные отображаются в списке базовых образов при создании виртуальной машины.
+1. На панели **Пользовательский образ** введите имя и описание нового пользовательского образа. Эти данные отображаются в списке базовых образов при создании виртуальной машины.
 
-    ![Колонка "Создание пользовательского образа"](./media/devtest-lab-create-template/create-custom-image-blade.png)
+    ![Панель создания пользовательского образа](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
 1. Укажите, была ли выполнена на виртуальной машине программа sysprep. Если программа sysprep не была запущена на виртуальной машине, укажите, нужно ли ее запускать при создании виртуальной машины из этого пользовательского образа.
 
 1. Нажмите кнопку **ОК** , чтобы создать пользовательский образ.
+
+Через несколько минут пользовательский образ создается и сохраняется в учетной записи хранения лаборатории. Когда пользователь лаборатории создает новую виртуальную машину, этот образ доступен в списке базовых.
+
+![Пользовательский образ в списке базовых образов](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -57,6 +62,6 @@ ms.lasthandoff: 01/02/2018
 - [Custom images or formulas? (Пользовательские изображения или формулы?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Copying Custom Images between Azure DevTest Labs (Копирование пользовательских образов между лабораториями для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Добавление виртуальной машины с артефактами в лабораторию в Azure DevTest Labs](devtest-lab-add-vm.md)

@@ -1,6 +1,6 @@
 ---
 title: "Настройка политики авторизации ключей содержимого с помощью REST в Azure | Документация Майкрософт"
-description: "Узнайте, как настроить политику авторизации для ключа содержимого с помощью API REST служб мультимедиа."
+description: "Узнайте, как настроить политику авторизации для ключа содержимого с помощью REST API служб мультимедиа."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,50 +14,50 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: d3388643a3d7c38104a4c61f94a8b68a86168846
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 3f3972232a4342bfb7d8579d747d0cc4250963bc
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Динамическое шифрование: настройка политики авторизации ключа содержимого
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Динамическое шифрование: настройка политики для авторизации ключа содержимого
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Обзор
-Службы мультимедиа Microsoft Azure позволяют доставлять содержимое, динамически зашифрованное с помощью AES (с использованием 128-разрядных ключей шифрования), а также PlayReady или Widevine DRM. Они также обеспечивают службу доставки ключей и лицензий PlayReady или Widevine авторизованным клиентам.
+ С помощью служб мультимедиа Azure можно доставлять содержимое, динамически шифруемое с помощью AES (с использованием 128-разрядных ключей шифрования), а также технологии управления цифровыми правами (DRM) PlayReady или Widevine. Они также обеспечивают службу доставки ключей и лицензий PlayReady или Widevine авторизованным клиентам.
 
-Если вы хотите, чтобы службы мультимедиа зашифровали ресурс-контейнер, свяжите ключ шифрования (**CommonEncryption** или **EnvelopeEncryption**) с этим ресурсом (как описано [здесь](media-services-rest-create-contentkey.md)) и настройте политики авторизации для ключа (следуя инструкциям в этой статье).
+Если требуется, чтобы службы мультимедиа зашифровали ресурс, необходимо связать ключ шифрования (CommonEncryption или EnvelopeEncryption) с ресурсом. Дополнительные сведения см. в статье [Создание ключей содержимого с помощью REST](media-services-rest-create-contentkey.md). Также потребуется настроить политики авторизации для ключа (как описано в этой статье).
 
-Когда поток запрашивается проигрыватель, службы мультимедиа используют указанный ключ для динамического шифрования содержимого с помощью шифрования AES или PlayReady. Чтобы расшифровать поток, проигрыватель запросит ключ у службы доставки ключей. Чтобы определить, есть ли у пользователя право на получение ключа, служба оценивает политики авторизации, заданные для ключа.
+Когда поток запрашивается проигрывателем, службы мультимедиа используют указанный ключ для динамического шифрования содержимого с помощью алгоритма AES или PlayReady. Чтобы расшифровать поток, проигрыватель запросит ключ у службы доставки ключей. Чтобы определить, есть ли у пользователя право на получение ключа, служба оценивает политики авторизации, заданные для ключа.
 
-Службы мультимедиа поддерживают несколько способов аутентификации пользователей, которые запрашивают ключи. Для политики авторизации ключа содержимого можно задать одно или несколько ограничений: **открытая** авторизация или авторизация с помощью **маркера**. При ограничении по маркеру к политике должен прилагаться маркер, выданный службой маркеров безопасности (STS). Службы мультимедиа поддерживают маркеры в формате **простого веб-маркера** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) и формате **JSON Web Token** (JWT).
+Службы мультимедиа поддерживают несколько способов аутентификации пользователей, которые запрашивают ключи. Для политики авторизации ключа содержимого можно задать одно или несколько ограничений: открытая авторизация или авторизация с помощью маркера. При ограничении с помощью маркера к политике должен прилагаться маркер, выданный службой маркеров безопасности (STS). Службы мультимедиа поддерживают маркеры в форматах простого веб-маркера ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) и JSON Web Token (JWT).
 
-Службы мультимедиа не предоставляют службы маркеров безопасности. Можно создать настраиваемую STS или использовать Azure Active Directory (AAD) выдачи токенов. Чтобы создать маркер, подписанный указанным ключом, и получить утверждения, указанные в конфигурации ограничения по маркерам, должна быть настроена служба маркеров безопасности (как описано в этой статье). Служба доставки ключей для служб мультимедиа возвращает клиенту ключ шифрования, если маркер является допустимым и утверждения маркера соответствуют утверждениям, настроенным для ключа содержимого.
+Службы мультимедиа не предоставляют службу маркеров безопасности. Можно создать настраиваемую службу STS или использовать для выдачи маркеров Azure Active Directory (Azure AD). Чтобы создать маркер, подписанный указанным ключом, и получить утверждения, указанные в конфигурации ограничения по маркерам, должна быть настроена служба маркеров безопасности (как описано в этой статье). Если маркер является допустимым и утверждения маркера соответствуют утверждениям, настроенным для ключа содержимого, служба доставки ключей для служб мультимедиа возвращает клиенту ключ шифрования.
 
 Дополнительные сведения см. в следующих статьях:
 - [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/) (Аутентификация токена JWT в службах мультимедиа Azure и динамическое шифрование)
 - [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) (Интеграция приложения на основе OWIN MVC служб мультимедиа Azure с Azure Active Directory и ограничение доставки ключей содержимого на основе утверждений JWT)
 
 ### <a name="some-considerations-apply"></a>Важные особенности
-* Чтобы использовать динамическую упаковку и динамическое шифрование, убедитесь, что конечная точка потоковой передачи, из которой нужно передавать содержимое потоком, находится в состоянии **Выполняется**.
-* Ресурс должен содержать набор MP4-файлов или файлов Smooth Streaming с переменной скоростью. Дополнительные сведения см. в статье о [кодировании ресурсов](media-services-encode-asset.md).
-* Отправляйте и кодируйте ресурсы с помощью параметра **AssetCreationOptions.StorageEncrypted** .
+* Чтобы использовать динамическую упаковку и динамическое шифрование, убедитесь, что конечная точка потоковой передачи, из которой нужно передавать потоковое содержимое, находится в состоянии "Выполняется".
+* Ресурс должен содержать набор MP4-файлов с адаптивной скоростью или файлов Smooth Streaming с адаптивной скоростью. Дополнительные сведения см. в статье о [кодировании ресурсов](media-services-encode-asset.md).
+* Отправляйте и кодируйте ресурсы с помощью параметра AssetCreationOptions.StorageEncrypted.
 * Если вы планируете использовать несколько ключей содержимого, для которых требуется одинаковая конфигурация политики, рекомендуем создать единую политику авторизации и повторно использовать ее с несколькими ключами содержимого.
-* Служба доставки ключей кэширует политику ContentKeyAuthorizationPolicy и связанные с ней объекты (параметры и ограничения политики) за 15 минут.  Если создать политику ContentKeyAuthorizationPolicy и указать использование ограничения «Token», то при проверке и потом обновить политику, задав ограничение «Open», примерно 15 минут, прежде чем политика переключится на версию «Open» политики.
-* При добавлении или обновлении политики доставки ресурсов необходимо удалить существующий указатель (если он есть) и создать новый.
-* В настоящее время невозможно шифровать последовательно скачиваемые данные.
-* Конечная точка потоковой передачи AMS задает значение CORS-заголовка Access-Control-Allow-Origin в предварительном ответе как подстановочный знак "\*". Это хорошо подходит для большинства проигрыватели, включая Azure Media Player, Roku и JW и др. Но некоторые проигрыватели, в которых используется dashjs, при таком сценарии не работают. Если для режима учетных данных установлено значение include, запрос XMLHttpRequest в dashjs не допускает использования подстановочного знака "\*" в качестве значения Access-Control-Allow-Origin. Можно обойти это ограничение в dashjs. Если вы размещаете клиент из одного домена, в службах мультимедиа Azure этот домен можно указать в заголовке предварительного ответа. Чтобы получить доступ, подайте запрос в службу поддержки на портале Azure.
+* Служба доставки ключей кэширует политику ContentKeyAuthorizationPolicy и связанные с ней объекты (параметры и ограничения политики) за 15 минут. Можно создать ContentKeyAuthorizationPolicy и указать ограничение авторизации по маркеру, протестировать его, а затем обновить политику, задав открытое ограничение. Этот процесс занимает примерно 15 минут, после чего политика переключается на открытую версию.
+* При добавлении или обновлении политики доставки ресурсов необходимо удалить все существующие указатели и создать новый.
+* Сейчас невозможно шифровать последовательно скачиваемые данные.
+* Конечная точка потоковой передачи служб мультимедиа задает значение CORS-заголовка Access-Control-Allow-Origin в предварительном ответе как подстановочный знак "\*". Это значение подходит для большинства проигрывателей, включая Проигрыватель мультимедиа Azure, Roku, JWPlayer и др. Но некоторые проигрыватели, в которых используется dash.js, при таком сценарии не работают. Если для режима учетных данных установлено значение include, запрос XMLHttpRequest в dash.js не допускает использования подстановочного знака "\*" в качестве значения Access-Control-Allow-Origin. Это ограничение в dash.js можно обойти. Если вы размещаете клиент из одного домена, в службах мультимедиа Azure этот домен можно указать в заголовке предварительного ответа. Для получения помощи отправьте запрос в службу поддержки через портал Azure.
 
 ## <a name="aes-128-dynamic-encryption"></a>Динамическое шифрование AES-128
 > [!NOTE]
-> При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
+> При работе с REST API служб мультимедиа руководствуйтесь следующими рекомендациями.
 > 
 > При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в статье [Обзор интерфейса REST API служб мультимедиа](media-services-rest-how-to-use.md).
 > 
 > 
 > 
 
-### <a name="open-restriction"></a>Ограничение "открытая"
+### <a name="open-restriction"></a>Ограничение открытого типа
 Ограничение открытого типа означает, что система доставляет ключ всем, кто подает на него запрос. Это ограничение подходит для тестирования.
 
 В следующем примере создается политика авторизации типа "открытая", которая затем добавляется в ключ содержимого.
@@ -176,13 +176,13 @@ ms.lasthandoff: 12/08/2017
 
     HTTP/1.1 204 No Content
 
-### <a name="token-restriction"></a>Ограничение "по маркеру"
-В этом разделе рассказывается о том, как создать политику авторизации ключа содержимого и связать ее с ключом содержимого. Политика авторизации определяет, какие требования авторизации должны быть удовлетворены, чтобы у пользователя было право на получения ключа (например, должен ли список ключей проверки содержать ключ, с помощью которого был подписан маркер).
+### <a name="token-restriction"></a>Ограничение по маркеру
+В этом разделе рассказывается о том, как создать политику авторизации ключа содержимого и связать ее с ключом содержимого. Политика авторизации определяет, какие требования авторизации должны быть соблюдены, чтобы у пользователя было право на получение ключа. Например, должен ли список ключей проверки содержать ключ, с помощью которого был подписан маркер?
 
 Чтобы настроить параметр ограничения маркера, необходимо использовать XML для описания требований к авторизации маркера. XML-файл конфигурации ограничений по маркеру должен соответствовать следующей схеме XML:
 
 
-#### <a id="schema"></a>Схема ограничения «по токену»
+#### <a id="schema"></a>Схема ограничения по маркеру
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -230,12 +230,12 @@ ms.lasthandoff: 12/08/2017
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-При настройке политики ограничения по **маркеру** необходимо задать такие параметры, как основной **ключ проверки**, **издатель** и **аудитория**. Основной **ключ проверки** содержит ключ, которым подписан маркер, а **издатель** — это служба маркеров безопасности, которая выдает маркер. **Аудитория** (иногда называется **областью**) описывает назначение маркера или ресурс, доступ к которому обеспечивает маркер. Служба доставки ключей служб мультимедиа проверяет, соответствуют ли эти значения в маркере значениям в шаблоне.
+При настройке политики ограничения по маркеру необходимо задать такие параметры, как основной ключ проверки, издатель и аудитория. Основной ключ проверки содержит ключ, которым был подписан маркер. Издателем является служба STS, которая выдала маркер. Аудитория (иногда называется областью) описывает назначение маркера или ресурс, доступ к которому обеспечивает маркер. Служба доставки ключей служб мультимедиа проверяет, соответствуют ли эти значения в маркере значениям в шаблоне.
 
-В следующем примере создается политика авторизации с ограничением "по маркеру". В этом примере клиенту нужно будет предоставить маркер, в котором содержатся: ключ подписывания (VerificationKey), поставщик маркера и требуемые утверждения.
+В следующем примере создается политика авторизации с ограничением "по маркеру". В этом примере клиент должен предоставить маркер, в котором содержатся: ключ подписывания (VerificationKey), поставщик маркера и требуемые утверждения.
 
 ### <a name="create-contentkeyauthorizationpolicies"></a>Создание ContentKeyAuthorizationPolicies
-Создайте "политику ограничения по маркеру", как показано [здесь](#ContentKeyAuthorizationPolicies).
+Создайте политику ограничения по маркеру, как показано в разделе [Создание ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies).
 
 ### <a name="create-contentkeyauthorizationpolicyoptions"></a>Создание ContentKeyAuthorizationPolicyOptions
 Запрос:
@@ -273,18 +273,18 @@ ms.lasthandoff: 12/08/2017
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:e1ef6145-46e8-4ee6-9756-b1cf96328c23","Name":"Token option for HLS","KeyDeliveryType":2,"KeyDeliveryConfiguration":null,"Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1\"><AlternateVerificationKeys><TokenVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>BklyAFiPTQsuJNKriQJBZHYaKM2CkCTDQX2bw9sMYuvEC9sjW0W7GUIBygQL/+POEeUqCYPnmEU2g0o1GW2Oqg==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testacs.com/</Issuer><PrimaryVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>E5BUHiN4vBdzUzdP0IWaHFMMU3D1uRZgF16TOhSfwwHGSw+Kbf0XqsHzEIYk11M372viB9vbiacsdcQksA0ftw==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil=\"true\" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
-#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Привязка ContentKeyAuthorizationPolicies к Options
-Привяжите ContentKeyAuthorizationPolicies к Options, как показано [здесь](#ContentKeyAuthorizationPolicies).
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Связывание ContentKeyAuthorizationPolicies с параметрами
+Свяжите ContentKeyAuthorizationPolicies с параметрами, как показано в разделе [Создание ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies).
 
-#### <a name="add-authorization-policy-to-the-content-key"></a>Добавление политики авторизации для ключа содержимого
-Добавьте AuthorizationPolicy в ContentKey, как показано [здесь](#AddAuthorizationPolicyToKey).
+#### <a name="add-an-authorization-policy-to-the-content-key"></a>Добавление политики авторизации для ключа содержимого
+Добавьте AuthorizationPolicy для ContentKey, как показано в разделе [Добавление политики авторизации для ключа содержимого](#AddAuthorizationPolicyToKey).
 
-## <a name="playready-dynamic-encryption"></a>Динамическое шифрование на основе PlayReady
-Службы мультимедиа позволяют настраивать права и ограничения, которые должны применяться в среде выполнения PlayReady DRM при попытке пользователя воспроизвести защищенное содержимое. 
+## <a name="playready-dynamic-encryption"></a>Динамическое шифрование PlayReady
+С помощью служб мультимедиа можно настроить права и ограничения, которые должны применяться в среде выполнения PlayReady DRM при попытке пользователя воспроизвести защищенное содержимое. 
 
-При защите содержимого с помощью PlayReady, среди прочего, в политике авторизации необходимо указать XML-строку, определяющую [шаблон лицензии PlayReady](media-services-playready-license-template-overview.md). 
+При защите содержимого с помощью PlayReady в политике авторизации среди прочего необходимо указать XML-строку, определяющую [шаблон лицензии PlayReady](media-services-playready-license-template-overview.md). 
 
-### <a name="open-restriction"></a>Ограничение "открытая"
+### <a name="open-restriction"></a>Ограничение открытого типа
 Ограничение открытого типа означает, что система доставляет ключ всем, кто подает на него запрос. Это ограничение подходит для тестирования.
 
 В следующем примере создается политика авторизации типа "открытая", которая затем добавляется в ключ содержимого.
@@ -362,17 +362,17 @@ ms.lasthandoff: 12/08/2017
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:1052308c-4df7-4fdb-8d21-4d2141fc2be0","Name":"","KeyDeliveryType":1,"KeyDeliveryConfiguration":"<PlayReadyLicenseResponseTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1\"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>false</AllowTestDevices><ContentKey i:type=\"ContentEncryptionKeyFromHeader\" /><LicenseType>Nonpersistent</LicenseType><PlayRight /></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>","Restrictions":[{"Name":"Open","KeyRestrictionType":0,"Requirements":null}]}
 
-#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Привязка ContentKeyAuthorizationPolicies к Options
-Привяжите ContentKeyAuthorizationPolicies к Options, как показано [здесь](#ContentKeyAuthorizationPolicies).
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Связывание ContentKeyAuthorizationPolicies с параметрами
+Свяжите ContentKeyAuthorizationPolicies с параметрами, как показано в разделе [Создание ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies).
 
-#### <a name="add-authorization-policy-to-the-content-key"></a>Добавление политики авторизации для ключа содержимого
-Добавьте AuthorizationPolicy в ContentKey, как показано [здесь](#AddAuthorizationPolicyToKey).
+#### <a name="add-an-authorization-policy-to-the-content-key"></a>Добавление политики авторизации для ключа содержимого
+Добавьте AuthorizationPolicy для ContentKey, как показано в разделе [Добавление политики авторизации для ключа содержимого](#AddAuthorizationPolicyToKey).
 
-### <a name="token-restriction"></a>Ограничение "по маркеру"
-Чтобы настроить параметр ограничения маркера, необходимо использовать XML для описания требований к авторизации маркера. XML-файл конфигурации ограничений по токену должен соответствовать схеме XML, показанной в [этом](#schema) разделе.
+### <a name="token-restriction"></a>Ограничение по маркеру
+Чтобы настроить параметр ограничения маркера, необходимо использовать XML для описания требований к авторизации маркера. XML-файл конфигурации ограничений по маркеру должен соответствовать схеме XML, показанной в разделе [Схема ограничения по маркеру](#schema).
 
 #### <a name="create-contentkeyauthorizationpolicies"></a>Создание ContentKeyAuthorizationPolicies
-Создайте ContentKeyAuthorizationPolicies, как показано [здесь](#ContentKeyAuthorizationPolicies2).
+Создайте ContentKeyAuthorizationPolicies, как показано в разделе [Создание ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies2).
 
 #### <a name="create-contentkeyauthorizationpolicyoptions"></a>Создание ContentKeyAuthorizationPolicyOptions
 Запрос:
@@ -410,11 +410,11 @@ ms.lasthandoff: 12/08/2017
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:e42bbeae-de42-4077-90e9-a844f297ef70","Name":"Token option","KeyDeliveryType":1,"KeyDeliveryConfiguration":"<PlayReadyLicenseResponseTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1\"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>false</AllowTestDevices><ContentKey i:type=\"ContentEncryptionKeyFromHeader\" /><LicenseType>Nonpersistent</LicenseType><PlayRight /></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>","Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1\"><AlternateVerificationKeys><TokenVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>w52OyHVqXT8aaupGxuJ3NGt8M6opHDOtx132p4r6q4hLI6ffnLusgEGie1kedUewVoIe1tqDkVE6xsIV7O91KA==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testacs.com/</Issuer><PrimaryVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>dYwLKIEMBljLeY9VM7vWdlhps31Fbt0XXhqP5VyjQa33bJXleBtkzQ6dF5AtwI9gDcdM2dV2TvYNhCilBKjMCg==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil=\"true\" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
-#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Привязка ContentKeyAuthorizationPolicies к Options
-Привяжите ContentKeyAuthorizationPolicies к Options, как показано [здесь](#ContentKeyAuthorizationPolicies).
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Связывание ContentKeyAuthorizationPolicies с параметрами
+Свяжите ContentKeyAuthorizationPolicies с параметрами, как показано в разделе [Создание ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies).
 
-#### <a name="add-authorization-policy-to-the-content-key"></a>Добавление политики авторизации для ключа содержимого
-Добавьте AuthorizationPolicy в ContentKey, как показано [здесь](#AddAuthorizationPolicyToKey).
+#### <a name="add-an-authorization-policy-to-the-content-key"></a>Добавление политики авторизации для ключа содержимого
+Добавьте AuthorizationPolicy для ContentKey, как показано в разделе [Добавление политики авторизации для ключа содержимого](#AddAuthorizationPolicyToKey).
 
 ## <a id="types"></a>Типы, используемые при определении ContentKeyAuthorizationPolicy
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
@@ -446,6 +446,6 @@ ms.lasthandoff: 12/08/2017
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Следующие шаги
-Теперь, после настройки политики авторизации ключа содержимого, перейдите к [Настройка политики доставки активов](media-services-rest-configure-asset-delivery-policy.md) статьи.
+## <a name="next-steps"></a>Дополнительная информация
+Теперь, когда политика авторизации для ключа содержимого настроена, перейдите к статье о [настройке политики для доставки ресурсов](media-services-rest-configure-asset-delivery-policy.md).
 

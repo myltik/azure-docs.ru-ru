@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: 104c7465968f9dd063561dec011b8fd50f3ebaa8
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Язык запросов Центра Интернета вещей для двойников устройств, заданий и маршрутизации сообщений
 
@@ -150,10 +150,10 @@ GROUP BY properties.reported.telemetryConfig.status
 ]
 ```
 
-Проекции запросов позволяют разработчикам только свойства, которые их возвращают. Например чтобы получить время последнего действия всех отключен устройств используйте следующий запрос:
+Запросы проекции позволяют разработчикам настроить возврат только требуемых свойств. Например, чтобы узнать время последнего действия всех отключенных устройств, используйте следующий запрос:
 
 ```sql
-SELECT LastActivityTime FROM devices WHERE ConnectionState = 'Disconnected'
+SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 ```
 
 ### <a name="c-example"></a>Пример C#
@@ -531,7 +531,7 @@ GROUP BY <group_by_element>
 | ENDS_WITH(x, y) | Возвращает значение логического типа, указывающее, заканчивается ли первое строковое выражение вторым. |
 | CONTAINS(x,y) | Возвращает значение логического типа, указывающее, содержит ли первое строковое выражение второе. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте, как выполнять запросы в своих приложениях с помощью [пакетов SDK для Azure IoT][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause

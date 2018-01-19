@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>Использование связанных шаблонов в при развертывании ресурсов Azure
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Использование связанных и вложенных шаблонов при развертывании ресурсов Azure
 
-Для развертывания решения можно использовать отдельный шаблон или основной шаблон с несколькими связанными шаблонами. Для небольших и средних решений отдельный шаблон проще в понимании и обслуживании. Все ресурсы и значения можно увидеть в отдельном файле. Для более сложных сценариев связанные шаблоны позволяют разбить решение на целевые компоненты и повторно использовать шаблоны.
+Для развертывания решения можно использовать отдельный шаблон или основной шаблон с несколькими связанными шаблонами. Связанный шаблон может быть отдельным файлом, связанным с основным шаблоном или шаблоном, который вложен в основной шаблон.
+
+Для небольших и средних решений отдельный шаблон проще в понимании и обслуживании. Все ресурсы и значения можно увидеть в отдельном файле. Для более сложных сценариев связанные шаблоны позволяют разбить решение на целевые компоненты и повторно использовать шаблоны.
 
 При использовании связанного шаблона вы создаете основной шаблон, который получает значения параметра во время развертывания. Основной шаблон содержит все связанные шаблоны и при необходимости передает значения в эти шаблоны.
 
 ![Связанные шаблоны](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>Создание связи с шаблоном
+## <a name="link-or-nest-a-template"></a>Связывание или вложение шаблона
 
 Чтобы создать связь между двумя шаблонами, добавьте ресурс **развертывания** в основной шаблон.
 
@@ -40,17 +42,17 @@ ms.lasthandoff: 12/13/2017
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-Свойства, указанные для ресурса развертывания, зависят от того, создаете ли вы связь с внешним шаблоном или внедряете встроенный шаблон в основной.
+Свойства, указанные для ресурса развертывания, зависят от того, создаете ли вы связь с внешним шаблоном или вкладываете встроенный шаблон в основной.
 
-### <a name="inline-template"></a>Встроенный шаблон
+### <a name="nested-template"></a>Вложенный шаблон
 
-Чтобы внедрить связанный шаблон, задайте свойство **template** и добавьте шаблон.
+Чтобы вложить шаблон в основной, используйте свойство **template** и укажите синтаксис шаблона.
 
 ```json
 "resources": [
@@ -63,8 +65,6 @@ ms.lasthandoff: 12/13/2017
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -76,12 +76,13 @@ ms.lasthandoff: 12/13/2017
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+При вложении шаблона вы не можете использовать параметры или переменные, определенные во вложенном шаблоне. Можно использовать параметры и переменные из основного шаблона. В приведенном выше примере `[variables('storageName')]` извлекает значение из основного, а не из вложенного шаблона. Это ограничение не распространяется на внешние шаблоны.
 
 ### <a name="external-template-and-external-parameters"></a>Внешний шаблон и внешние параметры
 
@@ -176,7 +177,7 @@ ms.lasthandoff: 12/13/2017
 }
 ```
 
-Родительский шаблон развертывает связанный шаблон и возвращает значение. Обратите внимание, что он ссылается на ресурс развертывания по имени и использует имя свойства, возвращенное связанным шаблоном.
+Основной шаблон развертывает связанный шаблон и возвращает значение. Обратите внимание, что он ссылается на ресурс развертывания по имени и использует имя свойства, возвращенное связанным шаблоном.
 
 ```json
 {
@@ -309,9 +310,9 @@ ms.lasthandoff: 12/13/2017
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>Связанные шаблоны в журнале развертывания
+## <a name="linked-and-nested-templates-in-deployment-history"></a>Связанные и вложенные шаблоны в журнале развертывания
 
-Resource Manager обрабатывает каждый связанный шаблон как отдельное развертывание в журнале развертывания. Таким образом родительский шаблон с тремя связанными шаблонами отображается в журнале развертывания следующим образом.
+Resource Manager обрабатывает каждый шаблон как отдельное развертывание в журнале развертывания. Поэтому основной шаблон с тремя связанными и вложенными шаблонами отображается в журнале развертывания следующим образом.
 
 ![Журнал развертывания](./media/resource-group-linked-templates/deployment-history.png)
 
@@ -478,15 +479,15 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="example-templates"></a>Образцы шаблонов
 
-В следующих примерах наиболее частые способы использования связанных шаблонов.
+В следующих примерах показаны наиболее частые способы использования связанных шаблонов.
 
-|Основной шаблон  |Связанного шаблона |ОПИСАНИЕ  |
+|Основной шаблон  |Связанный шаблон |ОПИСАНИЕ  |
 |---------|---------| ---------|
-|[Привет, мир!](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[связанного шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Возвращает строку, из связанного шаблона. |
-|[Подсистема балансировки нагрузки с общедоступный IP-адрес](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[связанного шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Возвращает общий IP-адрес из связанного шаблона и задает это значение в подсистему балансировки нагрузки. |
-|[Несколько IP-адресов](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [связанного шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Создает несколько общих IP-адресов в связанного шаблона.  |
+|[Привет, мир!](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[связанный шаблон](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Возвращает строку из связанного шаблона. |
+|[Подсистема балансировки нагрузки с общедоступным IP-адресом](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[связанный шаблон](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Возвращает общедоступный IP-адрес из связанного шаблона и задает это значение в подсистеме балансировки нагрузки. |
+|[Несколько IP-адресов](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [связанный шаблон](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Создает несколько общедоступных IP-адресов в связанном шаблоне.  |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Сведения о том, как определить порядок развертывания ресурсов, см. в статье [Определение порядка развертывания ресурсов в шаблонах Azure Resource Manager](resource-group-define-dependencies.md).
 * Сведения о том, как определить один ресурс и создать несколько экземпляров, см. в статье [Развертывание нескольких экземпляров ресурса или свойства в шаблонах Azure Resource Manager](resource-group-create-multiple.md).

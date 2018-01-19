@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: a8d0cf5e50fdc31aef110c359713be32fc09c8a7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Копирование данных в базу данных Azure Cosmos DB или из нее с помощью фабрики данных Azure
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 > * [Версия 1 — общедоступная](v1/data-factory-azure-documentdb-connector.md)
 > * [Версия 2 — предварительная](connector-azure-cosmos-db.md)
 
-В этой статье описаны способы использования действия копирования в фабрике данных Azure для копирования данных из и в базу данных Cosmos Azure (SQL API). Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
+Из этой статьи вы узнаете, как с помощью действия копирования в фабрике данных Azure копировать данные в базу данных Azure Cosmos DB и из нее (API SQL). Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
 
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Move data to and from Azure Cosmos DB using Azure Data Factory](v1/data-factory-azure-documentdb-connector.md) (Перемещение данных в базу данных Azure Cosmos DB или из нее с помощью фабрики данных Azure).
@@ -36,13 +36,14 @@ ms.lasthandoff: 12/11/2017
 
 В частности, Azure Cosmos DB поддерживает:
 
-- Cosmos DB [API-Интерфейсы SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- [API SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction) для Cosmos DB.
 - Импорт и экспорт документов JSON "как есть", копирование данных в набор табличных данных и из него, например базу данных SQL, CSV-файлы и т. д.
 
 Сведения о копировании документов "как есть" в JSON-файлы или другую коллекцию Cosmos DB либо из них см. в разделе [Импорт и экспорт документов JSON](#importexport-json-documents).
 
 ## <a name="getting-started"></a>Приступая к работе
-Вы можете создать конвейер с помощью операции копирования, используя пакет SDK для .NET, пакет SDK для Python, Azure PowerShell, API REST или шаблон Azure Resource Manager. Пошаговые инструкции по созданию конвейера с действием копирования см. в [руководстве по действию копирования](quickstart-create-data-factory-dot-net.md).
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, характерных для службы Azure Cosmos DB.
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 12/11/2017
 
 Для связанной службы Azure Cosmos DB поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Требуется |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение: **CosmosDb**. | Yes |
 | connectionString |Укажите сведения, необходимые для подключения к базе данных Azure Cosmos DB. Обратите внимание, что необходимо указать сведения о базе данных в строке подключения, как показано в примере ниже. Пометьте это поле в качестве SecureString. |Yes |
@@ -83,7 +84,7 @@ ms.lasthandoff: 12/11/2017
 
 Чтобы скопировать данные в базу данных Azure Cosmos DB или из нее, задайте тип свойства набора данных **DocumentDbCollection**. Поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Требуется |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
 | Тип | Свойство type должно иметь значение **DocumentDbCollection**. |Yes |
 | collectionName |Имя коллекции документов Cosmos DB. |Yes |
@@ -121,7 +122,7 @@ ms.lasthandoff: 12/11/2017
 
 Чтобы скопировать данные из Azure Cosmos DB, в действии копирования задайте тип источника **DocumentDbCollectionSource**. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Требуется |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **DocumentDbCollectionSource**. |Yes |
 | query |Укажите запрос Cosmos DB для чтения данных.<br/><br/>Пример: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Нет  <br/><br/>Если не указано, то выполняется инструкция SQL `select <columns defined in structure> from mycollection`. |
@@ -163,7 +164,7 @@ ms.lasthandoff: 12/11/2017
 
 Чтобы скопировать данные из Azure Cosmos DB, в действии копирования задайте тип приемника **DocumentDbCollectionSink**. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Требуется |
+| Свойство | ОПИСАНИЕ | Обязательное значение |
 |:--- |:--- |:--- |
 | Тип | Свойство type приемника действия копирования должно иметь значение **DocumentDbCollectionSink**. |Yes |
 | nestingSeparator |Такой специальный символ в имени исходного столбца, который указывает, что нужен вложенный документ. <br/><br/>Например, `Name.First` в выходной структуре набора данных создает следующую структуру JSON в документе Cosmos DB: `"Name": {"First": "[value maps to this column from source]"}`, в которой nestedSeparator является точкой. |Нет (значение по умолчанию — точка `.`) |
@@ -213,5 +214,5 @@ ms.lasthandoff: 12/11/2017
 - Не указывайте раздел structure в наборах данных Cosmos DB, а свойство nestingSeparator — для источника или приемника Cosmos DB в действии копирования.
 - При импорте в файлы JSON или экспорте из них в соответствующем наборе данных хранилища файлов укажите тип формата JsonFormat и свойство filePattern (дополнительные сведения см. в разделе о [формате JSON](supported-file-formats-and-compression-codecs.md#json-format)), не указывайте раздел structure и пропустите остальные параметры формата.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В таблице [Поддерживаемые хранилища данных](copy-activity-overview.md##supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования в фабрике данных Azure.

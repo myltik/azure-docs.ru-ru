@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: ecb70b88f6548e4730bcc1578de2f748cda33b0a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Создание образов контейнеров для Service Fabric
 
-Это руководство представляет собой первую часть цикла руководств, посвященного использованию контейнеров в кластере Service Fabric на платформе Linux. В этом руководстве выполняется подготовка многоконтейнерного приложения к использованию в Service Fabric. В последующих руководствах созданные образы используются как часть приложения Service Fabric. Из этого руководства вы узнаете, как выполнить следующие задачи: 
+Это руководство представляет собой первую часть цикла руководств, посвященного использованию контейнеров в кластере Service Fabric на платформе Linux. В этом руководстве выполняется подготовка многоконтейнерного приложения к использованию в Service Fabric. В последующих руководствах созданные образы используются как часть приложения Service Fabric. Из этого руководства вы узнали, как выполнять такие задачи: 
 
 > [!div class="checklist"]
 > * клонирование источника приложения из GitHub;  
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/01/2017
 > * [создание и развертывание приложения Service Fabric с использованием контейнеров](service-fabric-tutorial-package-containers.md);
 > * [отработка отказа и масштабирование в Service Fabric](service-fabric-tutorial-containers-failover.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Необходимые компоненты
 
 - Настроенная среда разработки Linux для Service Fabric. Следуйте [этим](service-fabric-get-started-linux.md) инструкциям по настройке среды Linux. 
 - Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
@@ -58,44 +58,40 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-Каталог container-tutorial содержит папку azure-vote. Папка azure-vote содержит исходный код внешнего интерфейса и файл Dockerfile для создания внешнего интерфейса. Каталог container-tutorial содержит каталог redis с файлом Dockerfile для сборки образа Redis. Эти каталоги содержат необходимые ресурсы для данного руководства. 
+Решение содержит две папки и файл docker-compose.yml. В папке azure-vote содержится интерфейсная служба Python и файл Dockerfile, используемый для создания образа. В каталоге Voting содержится пакет приложения Service Fabric, который развертывается в кластер. Эти каталоги содержат необходимые ресурсы для текущего руководства.  
 
 ## <a name="create-container-images"></a>Создание образов контейнеров
 
-Выполните следующую команду в каталоге azure-vote, чтобы создать образ для компонента веб-интерфейса. Эта команда использует файл Dockerfile, расположенный в этом каталоге, для создания образа. 
+Выполните указанную ниже команду в каталоге **azure-vote**, чтобы создать образ для веб-компонента интерфейсной части. Эта команда использует файл Dockerfile, расположенный в этом каталоге, для создания образа. 
 
 ```bash
 docker build -t azure-vote-front .
 ```
 
-Выполните приведенную ниже команду в каталоге redis, чтобы создать образ для серверной части Redis. Эта команда использует файл Dockerfile, расположенный в этом каталоге, для создания образа. 
-
-```bash
-docker build -t azure-vote-back .
-```
-
-После завершения выполните команду [docker images](https://docs.docker.com/engine/reference/commandline/images/), чтобы увидеть созданные образы.
+Для выполнения этой команды может потребоваться некоторое время, так как нужно извлечь все необходимые зависимости из Docker Hub. После завершения выполните команду [docker images](https://docs.docker.com/engine/reference/commandline/images/), чтобы увидеть созданные образы.
 
 ```bash
 docker images
 ```
 
-Вы увидите, что были скачаны или созданы четыре образа. Образ *azure-vote-front* содержит приложение. Он является производным от образа *python* из Docker Hub. Образ Redis был скачан из Docker Hub.
+Вы увидите, что были скачаны или созданы два образа. Образ *azure-vote-front* содержит приложение. Он является производным от образа *python* из Docker Hub.
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 
 ```
 
 ## <a name="deploy-azure-container-registry"></a>Развертывание реестра контейнеров Azure
 
-Сначала выполните команду [az login](/cli/azure/login), чтобы войти с учетной записью Azure. 
+Сначала выполните команду **az login**, чтобы войти с учетной записью Azure. 
 
-Затем введите команду [az account](/cli/azure/account#set), чтобы выбрать подписку для создания реестра контейнеров Azure. 
+```bash
+az login
+```
+
+Затем введите команду **az account**, чтобы выбрать подписку для создания реестра контейнеров Azure. Вместо <subscription_id> нужно указать идентификатор подписки Azure. 
 
 ```bash
 az account set --subscription <subscription_id>
@@ -103,23 +99,23 @@ az account set --subscription <subscription_id>
 
 При развертывании реестра контейнеров Azure сначала необходимо создать группу ресурсов. Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими.
 
-Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В этом примере создается группа ресурсов *myResourceGroup* в регионе *westus*. Выберите группу ресурсов в ближайшем к вам регионе. 
+Создайте группу ресурсов с помощью команды **az group create**. В этом примере создается группа ресурсов *myResourceGroup* в регионе *westus*.
 
 ```bash
-az group create --name myResourceGroup --location westus
+az group create --name <myResourceGroup> --location westus
 ```
 
-Создайте реестр контейнеров Azure с помощью команды[az acr create](/cli/azure/acr#create). Имя контейнера реестра **должно быть уникальным**.
+Создайте реестр контейнеров Azure с помощью команды**az acr create**. Замените \<acrName > именем реестра контейнеров, который нужно создать в подписке. Это имя может включать только буквы и цифры и должно быть уникальным. 
 
 ```bash
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-В остальной части этого руководства acrname будет заменять в примерах имя контейнера реестра.
+В остальной части этого руководства acrName будет заменять в примерах имя реестра контейнеров. Запишите это значение. 
 
 ## <a name="log-in-to-your-container-registry"></a>Вход в реестр контейнеров
 
-Войдите в свой экземпляр реестра контейнеров Azure, прежде чем отправлять в него образы. Используйте команду [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login), чтобы выполнить операцию. Укажите уникальное имя реестра контейнеров, заданное при его создании.
+Войдите в свой экземпляр реестра контейнеров Azure, прежде чем отправлять в него образы. Используйте команду **az acr login**, чтобы выполнить операцию. Укажите уникальное имя реестра контейнеров, заданное при его создании.
 
 ```bash
 az acr login --name <acrName>
@@ -141,9 +137,7 @@ docker images
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 ```
 
@@ -153,16 +147,18 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Теперь пометьте образ *azure-vote-front* с помощью тега loginServer реестра контейнеров. Кроме того, добавьте `:v1` в конец имени образа. Этот тег обозначает номер версии образа.
+Эта команда выводит таблицу с приведенными ниже результатами. Этот результат будет использоваться для добавления тега к образу **azure-vote-front**, прежде чем он будет отправлен в реестр контейнеров на следующем шаге.
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
+Result
+------------------
+<acrName>.azurecr.io
 ```
 
-Далее пометьте образ *azure-vote-back* с помощью тега loginServer реестра контейнеров. Кроме того, добавьте `:v1` в конец имени образа. Этот тег обозначает номер версии образа.
+Теперь добавьте к образу *azure-vote-front* тег loginServer реестра контейнеров. Кроме того, добавьте `:v1` в конец имени образа. Этот тег обозначает номер версии образа.
 
 ```bash
-docker tag azure-vote-back <acrLoginServer>/azure-vote-back:v1
+docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 После пометки выполните команду docker images для проверки операции.
@@ -172,11 +168,8 @@ docker tag azure-vote-back <acrLoginServer>/azure-vote-back:v1
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-back                        latest              bf9a858a9269        22 minutes ago      107MB
-<acrName>.azurecr.io/azure-vote-back    v1                  bf9a858a9269        22 minutes ago      107MB
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
-<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf        23 minutes ago      708MB
-redis                                  latest              9813a7e8fcc0        2 days ago          107MB
+<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
 tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
 
 ```
@@ -188,15 +181,7 @@ tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5
 Используйте следующий пример, заменив в нем имя loginServer ACR именем loginServer своей среды.
 
 ```bash
-docker push <acrLoginServer>/azure-vote-front:v1
-```
-
-Отправьте образ *azure-vote-back* в реестр. 
-
-Используйте следующий пример, заменив в нем имя loginServer ACR именем loginServer своей среды.
-
-```bash
-docker push <acrLoginServer>/azure-vote-back:v1
+docker push <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Выполнение команд docker push может занять несколько минут.
@@ -214,13 +199,12 @@ az acr repository list --name <acrName> --output table
 ```bash
 Result
 ----------------
-azure-vote-back
 azure-vote-front
 ```
 
 По завершении работы с этим руководством образ контейнера будет сохранен в частном экземпляре реестра контейнеров Azure. В следующих руководствах мы развернем этот образ из ACR в кластер Service Fabric.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве приложение было извлечено из Github, а также были созданы образы контейнеров, которые затем были помещены в реестр. Были выполнены следующие действия:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: saurinsh
-ms.openlocfilehash: cf8532334f03f72691fa09e8dbdd02b78072cf38
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Настройка присоединенных к домену кластеров HDInsight с помощью доменных служб Azure Active Directory
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/11/2017
 Есть три способа настройки контроллера домена, к которому может подключиться присоединенный к домену кластер HDInsight:
 
 - доменные службы Azure Active Directory (Azure AD DS);
-- локальная служба Active Directory;
+- Локальная служба Active Directory
 - контроллер домена Active Directory на виртуальных машинах Azure IaaS.
 
 Из этой статьи вы узнаете, как настроить кластер HDInsight, присоединенный к домену, с использованием доменных служб Azure Active Directory.
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/11/2017
 > [!NOTE]
 > Только администраторы клиентов имеют разрешения на создание доменных служб. 
 
-После подготовки доменной службы необходимо создать учетную запись службы в группе **администраторов контроллера домена Azure AD** для создания кластера HDInsight. Учетная запись службы должна принадлежать глобальному администратору в Azure AD.
+После подготовки доменной службы необходимо создать учетную запись службы в группе **администраторов контроллера домена Azure AD** для создания кластера HDInsight. У учетной записи службы должны быть права глобального администратора Azure AD.
 
 ## <a name="create-a-domain-joined-hdinsight-cluster"></a>Создание присоединенного к домену кластера HDInsight
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/11/2017
 ![Конфигурация доменных служб Active Directory в присоединенном к домену кластере Azure HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Сведения о настройке политик Hive и выполнении запросов Hive для присоединенного к домену кластера HDInsight см. [здесь](apache-domain-joined-run-hive.md).
 * Сведения о подключении к присоединенным к домену кластерам HDInsight с использованием SSH см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

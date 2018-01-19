@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c7cfd156faf6e4cd56f2b9094c3d63515f86cfde
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 7ae89241c67655fbcaa747c4cac224b898947f39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Построение Многофакторной идентификации в пользовательских приложениях (SDK)
 
@@ -38,7 +38,7 @@ API-интерфейсы в пакете SDK для многофакторной
 
 
 ## <a name="download-the-sdk"></a>Скачивание пакета SDK
-Для скачивания пакета SDK для Azure Multi-Factor Authentication требуется [поставщик Azure Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md).  Для этого нужна полная версия подписки Azure, даже если у вас уже есть лицензии Azure MFA, AAD Premium или Enterprise Mobility Suite. Общедоступные методы скачивания этого пакета SDK больше не предоставляются, так как он больше не рекомендуется к использованию. Если вам нужно скачать этот пакет SDK, отправьте обращение в службу поддержки Майкрософт.
+Для скачивания пакета SDK для Azure Multi-Factor Authentication требуется [поставщик Azure Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md).  Для этого нужна полная версия подписки Azure, даже если у вас уже есть лицензии Azure MFA, AAD Premium или Enterprise Mobility Suite. Общедоступные методы скачивания этого пакета SDK больше не предоставляются, так как он не рекомендуется к использованию. Если вам нужно скачать этот пакет SDK, отправьте обращение в службу поддержки Майкрософт. Пакет SDK предоставляется только клиентам, которые уже используют пакет SDK. Для новых клиенты эта возможность не предусмотрена.
 
 ## <a name="whats-in-the-sdk"></a>Что включает в себя пакет SDK
 Пакет SDK содержит следующие элементы:

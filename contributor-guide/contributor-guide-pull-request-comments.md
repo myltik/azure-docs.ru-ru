@@ -1,5 +1,5 @@
-# <a name="pull-request-comment-automation"></a>Автоматизация комментарий запроса по запросу
+# <a name="pull-request-comment-automation"></a>Автоматизация комментариев к запросам на вытягивание
 
-В этом руководстве перемещен в docs.microsoft.com внутренней руководства участника.
+Теперь это руководство внутреннего участника размещено сайте docs.microsoft.com.
 
-[https://AKA.MS/PR-Comments](https://aka.ms/pr-comments)
+[https://aka.ms/pr-comments](https://aka.ms/pr-comments)

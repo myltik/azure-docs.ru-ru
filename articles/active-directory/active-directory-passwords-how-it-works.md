@@ -1,5 +1,5 @@
 ---
-title: "Самостоятельный сброс паролей в Azure AD | Документация Майкрософт"
+title: "Azure Active Directory: как работает самостоятельный сброс пароля"
 description: "Руководство по самостоятельному сбросу пароля в Azure AD."
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ad1735d618856fb13ec2846f1da4fdaec1c4e614
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 56a57960fc4804c7a1711d8c47b37ec28798357d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Руководство по самостоятельному сбросу пароля в Azure AD
 
@@ -246,7 +246,7 @@ ms.lasthandoff: 12/11/2017
 > [!NOTE]
 > Учетные записи Майкрософт, которым предоставлен гостевой доступ к вашему клиенту Azure AD, например адреса из Hotmail.com, Outlook.com или другие личные адреса электронной почты, не могут использовать SSPR в Azure AD. Им потребуется сбросить свой пароль, как описано в статье [Не удается войти в учетную запись Майкрософт](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о сбросе пароля с помощью Azure AD см. в следующих статьях:
 

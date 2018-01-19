@@ -1,49 +1,49 @@
 ## <a name="test-your-code"></a>Тестирование кода
 
-### <a name="test-with-visual-studio"></a>Тестирование с помощью Visual Studio
-Если вы используете Visual Studio, нажмите клавишу **F5** для запуска проекта. Откроется браузер http://<span></span>localhost: {port} расположение отобразится **вызова API Graph Microsoft** кнопки.
+### <a name="test-with-visual-studio"></a>Тестирование кода в Visual Studio
+Если вы используете Visual Studio, то для запуска проекта нажмите клавишу **F5**. В браузере откроется адрес http://<span></span>localhost:{port}, где можно увидеть кнопку **Call Microsoft Graph API** (Вызов Microsoft Graph API).
 
 <p/><!-- --> 
 
-### <a name="test-with-python-or-other-web-server"></a>Тестирование с помощью Python или других веб-сервера
-Если вы не используете Visual Studio, убедитесь, что веб-сервера запущена. Настройка сервера для прослушивания TCP-порт, который основан на расположение вашей **index.html** файла. Для Python начало прослушивает порт, выполнив терминалов командной строки из папки приложения.
+### <a name="test-with-python-or-other-web-server"></a>Тестирование кода с помощью Python или других веб-серверов
+Если вы не используете Visual Studio, убедитесь, что веб-сервер запущен. Настройте для сервера ожидание передачи данных через TCP-порт на основе расположения файла **index.html**. При использовании Python начните передавать данные через порт, запустив терминал командной строки из папки приложения:
  
 ```bash
 python -m http.server 8080
 ```
-Откройте браузер и введите http://<span></span>localhost: 8080 или http://<span></span>localhost: {port} где **порт** — это порт, слушать веб-сервера. Вы увидите содержимое файла index.html и **вызова API Graph Microsoft** кнопки.
+Откройте браузер и введите http://<span></span>localhost:8080 или http://<span></span>localhost:{port}, где **port** соответствует порту, с которого веб-сервер ожидает передачи данных. Появится содержимое файла index.html с кнопкой **Call Microsoft Graph API** (Вызвать Microsoft Graph API).
 
 ## <a name="test-your-application"></a>Тестирование приложения
 
-После загрузки файла index.html обозревателя выберите **вызова API Graph Microsoft**. При первом запуске приложения, браузер перенаправляет v2.0 конечной точки Microsoft Azure Active Directory (Azure AD) и будет предложено войти в:
+После загрузки файла index.html в браузере выберите **Call Microsoft Graph API** (Вызов API Microsoft Graph). При первом запуске приложения браузер перенаправит вас к конечной точке Microsoft Azure Active Directory (Azure AD) версии 2.0, где вам будет предложено войти:
  
-![Войдите учетную запись JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
+![Вход в учетную запись JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
 
-### <a name="provide-consent-for-application-access"></a>Предоставить разрешения для доступа к приложениям
+### <a name="provide-consent-for-application-access"></a>Предоставление разрешения на доступ к приложению
 
-При первом входе в приложение, появится запрос на подтверждение, чтобы разрешить приложению получить доступ к профиль и вход в систему:
+После первого входа в приложение предоставьте ему разрешение на использование данных вашего профиля для входа:
 
-![Предоставить разрешения пользователя для доступа к приложениям](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
+![Предоставление разрешения на доступ к приложению](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Просмотр результатов приложения
-После входа вы увидите данные профиля пользователя в **ответ вызова API Graph** поле.
+После входа информация о профиле пользователя должна отобразиться в поле **Graph API Call Response** (Ответ на вызов API Graph).
  
-![Ожидаемые результаты из вызова API-Интерфейс Microsoft Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
+![Ожидаемые результаты после вызова Microsoft Graph API](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
 
-Вы также увидите основные сведения о маркере, который был получен в **токена доступа** и **идентификатор токена утверждений** поля.
+Должны отобразиться основные сведения о маркере, полученные с помощью полей **Маркер доступа** и **ID Token Claims** (Утверждения маркера идентификатора).
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Дополнительные сведения об областях и делегированных разрешениях
 
-Требуется Microsoft Graph API **user.read** область чтение профиля пользователя. Эта область автоматически добавляется в каждое приложение, регистрируется на портал регистрации по умолчанию. Другие интерфейсы API для Microsoft Graph, а также пользовательские интерфейсы API для вашего внутреннего сервера могут потребоваться дополнительные области. Требуется Microsoft Graph API **Calendars.Read** область, чтобы вывести список календарей пользователя.
+Для чтения профиля пользователя API Microsoft Graph требуется область **user.read**. По умолчанию эта область автоматически добавляется в каждое приложение, зарегистрированное на портале регистрации. Для других API Microsoft Graph, а также для пользовательских API вашего внутреннего сервера, могут потребоваться дополнительные области. Для отображения списка календарей пользователя API Microsoft Graph требуется область **Calendars.Read**.
 
-Чтобы получить доступ к пользовательским календарям в контексте приложения, добавьте **Calendars.Read** делегировать разрешения на сведения о регистрации приложения. Затем добавьте **Calendars.Read** выборку по **acquireTokenSilent** вызова. 
+Чтобы из контекста приложения получить доступ к календарям пользователя, добавьте делегированное разрешение **Calendars.Read** в сведения о регистрации приложения. Затем добавьте область **Calendars.Read** в вызов **acquireTokenSilent**. 
 
 >[!NOTE]
->При увеличении количества областей, пользователю может быть предложено для дополнительных согласие.
+>При увеличении количества областей от пользователя могут потребоваться дополнительные согласия.
 
-Если API внутреннего сервера не требует область (не рекомендуется), можно использовать **clientId** область, что в **acquireTokenSilent** и **acquireTokenRedirect** вызовов.
+Если серверный API не требует области (что не рекомендуется), в качестве области можно использовать **clientId** в вызовах **acquireTokenSilent** и **acquireTokenRedirect**.
 
 <!--end-collapse-->
 

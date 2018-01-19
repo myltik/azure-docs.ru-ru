@@ -13,20 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/23/2017
+ms.date: 01/08/2018
 ms.author: sasubram
-ms.openlocfilehash: fecfb7217434a93fd5d44f1f07709009de7710fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.reviewer: sasubram
+ms.openlocfilehash: 4c43082281cbc95ae75b65a2aefadbbab6d7cd30
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B
 
 Эти вопросы о службе совместной работы Azure Active Directory (Azure AD) B2B периодически обновляются для добавления новых разделов.
-
-### <a name="is-azure-ad-b2b-collaboration-available-in-the-azure-classic-portal"></a>Доступна ли служба совместной работы Azure AD B2B на классическом портале Azure?
-Нет. Функции службы совместной работы Azure AD B2B доступны только на [портале Azure](https://portal.azure.com) и на [панели доступа](https://myapps.microsoft.com/). 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Можно ли настроить более интуитивно понятную страницу входа для гостевых пользователей службы совместной работы B2B?
 Конечно. Ознакомьтесь с [записью блога об этой функции](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Дополнительные сведения о настройке страницы входа вашей организации см. в статье [Добавление фирменной символики на страницу входа и панели доступа](customize-branding.md).
@@ -115,7 +113,7 @@ Azure AD имеет единые требования в отношении фи
 Если у партнера есть клиент Azure AD, включенный в федерацию с инфраструктурой локальной проверки подлинности, локальный единый вход будет выполняться автоматически. Если у партнера нет клиента Azure AD, для новых пользователей создается учетная запись Azure AD. 
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Действительно ли служба Azure AD B2B не поддерживает электронные адреса gmail.com и outlook.com, ведь для этих типов учетных записей используется служба B2C?
-Мы удаляем различия между B2B и совместной работы (B2C) бизнес потребитель, с учетом поддерживаются удостоверения. Используемое удостоверение не является веской причиной в пользу выбора B2B или B2C. Дополнительные сведения о выборе варианта совместной работы см. в статье [Сравнение службы совместной работы B2B и B2C в Azure Active Directory](active-directory-b2b-compare-b2c.md).
+Мы устраняем различия между службами совместной работы B2B и B2C в поддерживаемых удостоверениях. Используемое удостоверение не является веской причиной в пользу выбора B2B или B2C. Дополнительные сведения о выборе варианта совместной работы см. в статье [Сравнение службы совместной работы B2B и B2C в Azure Active Directory](active-directory-b2b-compare-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Какие приложения и службы поддерживают гостевых пользователей Azure B2B?
 Все приложения, интегрированные с Azure AD, поддерживают гостевых пользователей Azure B2B. 
@@ -129,7 +127,7 @@ Azure AD имеет единые требования в отношении фи
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>Какие лицензии необходимо использовать в Azure AD B2B?
 Дополнительные сведения о лицензиях, необходимых вашей организации для использования Azure AD B2B, см. в статье [Руководство по лицензированию службы совместной работы Azure Active Directory B2B](active-directory-b2b-licensing.md).
 
-### <a name="next-steps"></a>Дальнейшие действия
+### <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B:
 

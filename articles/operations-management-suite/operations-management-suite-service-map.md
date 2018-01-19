@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Использование решения схемы услуги в Operations Management Suite
 Служба схемы услуги автоматически обнаруживает компоненты приложений в системах Windows и Linux и сопоставляет взаимодействие между службами. Схема услуги позволяет рассматривать серверы как взаимосвязанные системы, предоставляющие важные услуги. Схема услуги отображает сведения о подключениях между серверами, процессами и портами в любой подключенной по протоколу TCP архитектуре без дополнительной настройки. Пользователям требуется только установить агент.
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/19/2017
 
 ![Обзор схемы услуги](media/oms-service-map/service-map-overview.png)
 
-Машины можно развернуть в карту для показа выполнения обработки группы и процессы с активных сетевых подключений во время выбранного диапазона времени. При развертывании карты для удаленного компьютера с агентом схемы услуги отображаются только те процессы, которые взаимодействуют с целевым компьютером. Сведения о количестве подключенных к целевому компьютеру внешних компьютеров, на которых не установлены агенты, указаны слева от процессов, к которым они подключены. Если целевой компьютер подключается к внутреннему компьютеру без агента, этот внутренний сервер включается в группу портов сервера вместе с другими подключениями к порту с таким же номером.
+Чтобы получить сведения о выполняющихся группах процессов и процессах с активными сетевыми подключениями в течение определенного диапазона времени, компьютеры можно развернуть в представлении карты. При развертывании карты для удаленного компьютера с агентом схемы услуги отображаются только те процессы, которые взаимодействуют с целевым компьютером. Сведения о количестве подключенных к целевому компьютеру внешних компьютеров, на которых не установлены агенты, указаны слева от процессов, к которым они подключены. Если целевой компьютер подключается к внутреннему компьютеру без агента, этот внутренний сервер включается в группу портов сервера вместе с другими подключениями к порту с таким же номером.
 
 По умолчанию на картах сопоставления служб представлены сведения о зависимостях за последние 30 минут. С помощью элементов управления временем, расположенных в левом верхнем углу, на картах можно запрашивать сведения максимум за 1 час. Так вы можете получать представление о зависимостях в прошлом (например, во время инцидента или перед изменением). В платных рабочих областях данные схемы услуги хранятся 30 дней, а в бесплатных — 7.
 
@@ -60,8 +60,8 @@ ms.lasthandoff: 12/19/2017
 
 ![Значки состояния](media/oms-service-map/status-badges.png)
 
-## <a name="process-groups"></a>Групп процессов
-Групп процессов объединения процессов, которые связаны с такого продукта или службы в группу процесса.  При разворачивании узла компьютера будет отображаться автономные процессы и групп процессов.  Если все входящие и исходящие подключения к процессу в группе процесса затем произошел сбой подключения отображается как сбойный для всего процесса группы.
+## <a name="process-groups"></a>Группы процессов
+Группы процессов позволяют объединять процессы, связанные с общим продуктом или службой, в группы.  При развертывании узла компьютера будут отображаться автономные процессы и группы процессов.  Если произойдет сбой какого-либо входящего или исходящего подключения к процессу в группе, будет считаться, что подключение завершилось с ошибкой для всей группы процессов.
 
 ## <a name="machine-groups"></a>Группы компьютеров
 Группы компьютеров позволяют просматривать карты для набора серверов, а не отдельного сервера, благодаря чему можно отображать на одной карте все элементы многоуровневого приложения или кластера серверов.
@@ -333,34 +333,34 @@ Linux:
 ## <a name="sample-log-searches"></a>Пример поисков журналов
 
 ### <a name="list-all-known-machines"></a>Список всех известных компьютеров
-Type=ServiceMapComputer_CL | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Вывод сведений об объеме физической памяти для всех управляемых компьютеров
-Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Список сведений об имени компьютера, DNS-имени, IP-адресе и ОС
-Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Поиск всех процессов с sql в командной строке
-Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Поиск компьютера (самой последней записи) по имени ресурса
-Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Поиск компьютера (самой последней записи) по IP-адресу
-Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Вывод списка всех известных процессов на определенном компьютере
-Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>Вывод списка всех компьютеров, на которых выполняется SQL
-Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Вывод списка всех уникальных версий продукта cURL в центре обработки данных
-Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Создание группы, объединяющей все компьютеры, на которых выполняется CentOS
-Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 
 ## <a name="rest-api"></a>ИНТЕРФЕЙС REST API
@@ -373,7 +373,7 @@ Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct Com
 Дополнительные сведения о сборе и использовании данных см. в [заявлении о конфиденциальности служб Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше о [поиске по журналам](../log-analytics/log-analytics-log-searches.md) в Log Analytics для получения данных, собранных с помощью схемы услуги.
 
 

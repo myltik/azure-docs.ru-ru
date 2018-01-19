@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 58f7f71fd619eea2865ed42d2808fe6ae3e75c1f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 3133b0166689142a635926077bdb4e0abeba287c
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="api-management-policy-expressions"></a>Выражения политики в службе управления API
 В выражениях политики используется синтаксис C# 6.0. У каждого выражения есть доступ к неявно заданной переменной [контекста](api-management-policy-expressions.md#ContextVariables) и разрешенному [подмножеству](api-management-policy-expressions.md#CLRTypes) типов .NET Framework.  
@@ -28,11 +28,11 @@ ms.lasthandoff: 12/04/2017
 >   
 >  Пример настройки политик с помощью выражений см. в видео [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Облачное покрытие, серия 177. Дополнительные возможности службы управления API с Владом Виноградским). В этом видео приведены следующие примеры использования выражений политики.  
 >   
->  -   10:30 — применение политики на уровне API для предоставления контекстной информации для серверной службы с помощью политик [настройки параметра строки запроса](api-management-transformation-policies.md#SetQueryStringParameter) и [настройки HTTP-заголовка](api-management-transformation-policies.md#SetHTTPheader). На отметке времени 12:10 демонстрируется вызов операции на портале разработчика, где можно просмотреть эти политики в действии.  
-> -   13:50 — использование политики [проверки JWT](api-management-access-restriction-policies.md#ValidateJWT) для предварительной авторизации доступа к операциям на основе утверждений маркеров. Перемотайте вперед до отметки времени 15:00, чтобы просмотреть политики, настроенные в редакторе политик, и до 18:50, чтобы просмотреть демонстрацию вызова операции с портала разработчика с обязательным маркером авторизации и без него.  
-> -   21:00 — сведения об использовании трассировки с помощью [инспектора API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) для оценки политик, а также результаты этой оценки.  
-> -   25:25 — сведения об использовании выражений с политиками [получения из кэша](api-management-caching-policies.md#GetFromCache) и [сохранения в кэш](api-management-caching-policies.md#StoreToCache) для настройки в службе управления API периода хранения ответов в кэше, соответствующего длительности кэширования ответа в серверной службе, которая задается директивой `Cache-Control` серверной службы.  
-> -   34:30 — сведения о том, как отфильтровать содержимое путем удаления элементов данных из ответа, полученного из внутренней службы с помощью политик [потока управления](api-management-advanced-policies.md#choose) и [задания текста](api-management-transformation-policies.md#SetBody). Начните с отметки времени 31:50, чтобы узнать общие сведения о [прогнозном API Dark Sky](https://developer.forecast.io/), используемом для этого примера.  
+>  -   10:30 — способы передачи сведений о контексте во внутреннюю службу. Используйте политики [настройки параметра строки запроса](api-management-transformation-policies.md#SetQueryStringParameter) и [настройки HTTP-заголовка](api-management-transformation-policies.md#SetHTTPheader), чтобы передать эти сведения. На отметке времени 12:10 демонстрируется вызов операции на портале разработчика, где можно просмотреть эти политики в действии.  
+> -   13:50 — использование политики [проверки JWT](api-management-access-restriction-policies.md#ValidateJWT) для предварительной авторизации доступа к операциям на основе утверждений маркеров. Перемотайте вперед на отметку 15:00, чтобы увидеть, как настроить политики в редакторе политик. На отметке времени 18:50 демонстрируется вызов операции с портала разработчика с использованием маркера авторизации и без него.  
+> -   21:00 — использование трассировки с помощью [инспектора API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) для оценки политик, а также вывод результатов этой оценки.  
+> -   25:25 — использование выражений с политиками [получения из кэша](api-management-caching-policies.md#GetFromCache) и [хранения в кэше](api-management-caching-policies.md#StoreToCache) для настройки кэширования ответа службы управления API. Установите такую же длительность, как и для кэширования ответа во внутренней службе, которая задается директивой `Cache-Control` на сервере.  
+> -   34:30 — сведения о том, как отфильтровать содержимое. Удалите элементы данных из ответа, полученного из внутренней службы с помощью политик [потока управления](api-management-advanced-policies.md#choose) и [задания текста](api-management-transformation-policies.md#SetBody). Начните с отметки времени 31:50, чтобы узнать общие сведения о [прогнозном API Dark Sky](https://developer.forecast.io/), используемом для этого примера.  
 > -   Чтобы скачать инструкции политики, используемые в этом видеоролике, перейдите к репозиторию GitHub [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).  
   
   
@@ -68,10 +68,10 @@ ms.lasthandoff: 12/04/2017
 ```  
   
 ##  <a name="PolicyExpressionsUsage"></a> Использование  
- Выражения можно использовать в качестве значений атрибутов или текстовых значений в любой [политике](api-management-policies.md) управления API, если в справочнике по политике не указано иное.  
+ Выражения можно использовать в качестве значений атрибутов или текстовых значений в любой [политике](api-management-policies.md) службы управления API, если в справочнике по политике не указано иное.  
   
 > [!IMPORTANT]
->  Обратите внимание, что при использовании выражений политики выполняется только ограниченная проверка выражений политики во время ее определения. Так как выражения выполняются шлюзом во время выполнения во входящем или исходящем конвейере, любое исключение выполнения, создаваемое выражениями политики, приведет к ошибке среды выполнения в вызове API.  
+>  При использовании выражений политики выполняется только ограниченная проверка выражений политики во время ее определения. Выражения выполняет шлюз во время выполнения. Все исключения, создаваемые выражениями политики, приводят к ошибке среды выполнения.  
   
 ##  <a name="CLRTypes"></a> Типы .NET Framework, допустимые в выражениях политики  
  В следующей таблице перечислены типы .NET Framework и их члены, допустимые в выражениях политики.  
@@ -140,7 +140,7 @@ ms.lasthandoff: 12/04/2017
 |System.Text.RegularExpressions.Group|Captures, Success|  
 |System.Text.RegularExpressions.GroupCollection|Count, Item|  
 |System.Text.RegularExpressions.Match|Empty, Groups, Result|  
-|System.Text.RegularExpressions.Regex|.ctor, IsMatch, Match, Matches, Replace|  
+|System.Text.RegularExpressions.Regex|(Конструктор) IsMatch, Match, Matches, Replace|  
 |System.Text.RegularExpressions.RegexOptions|Compiled, IgnoreCase, IgnorePatternWhitespace, Multiline, None, RightToLeft, Singleline|  
 |System.TimeSpan|Все|  
 |System.Tuple|Все|  
@@ -173,7 +173,7 @@ ms.lasthandoff: 12/04/2017
 |Переменная контекста|Допустимые методы, свойства и значения параметров|  
 |----------------------|-------------------------------------------------------|  
 |context|Api: IApi<br /><br /> Развертывание<br /><br /> LastError<br /><br /> Операция<br /><br /> Продукт<br /><br /> Запрос<br /><br /> RequestId: Guid<br /><br /> Ответ<br /><br /> Подписка<br /><br /> Tracing: логическое значение<br /><br /> Пользователь<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: строка)|  
-|context.Api|Id: строка<br /><br /> Name: строка<br /><br /> Path: строка<br /><br /> ServiceUrl: IUrl|  
+|context.Api|Id: строка<br /><br /> IsRevisionCurrent: логическое значение<br /><br />  Name: строка<br /><br /> Path: строка<br /><br /> Revision: строка<br /><br /> ServiceUrl: IUrl<br /><br /> Version: строка |  
 |context.Deployment|Region: строка<br /><br /> ServiceName: строка<br /><br /> Certificates: IReadOnlyDictionary<строка, X509Certificate2>|  
 |context.LastError|Source: строка<br /><br /> Reason: строка<br /><br /> Message: строка<br /><br /> Scope: строка<br /><br /> Section: строка<br /><br /> Path: строка<br /><br /> PolicyId: строка<br /><br /> Дополнительные сведения о переменной context.LastError см. в разделе [Error handling](api-management-error-handling-policies.md) (Обработка ошибок).|  
 |context.Operation|Id: строка<br /><br /> Method: строка<br /><br /> Name: строка<br /><br /> UrlTemplate: строка|  
@@ -193,7 +193,7 @@ ms.lasthandoff: 12/04/2017
 |string IUrl.Query.GetValueOrDefault(queryParameterName: строка, defaultValue: строка)|queryParameterName: строка<br /><br /> defaultValue: строка<br /><br /> Возвращает разделенные запятыми значения параметров запроса или значение `defaultValue`, если параметр не найден.|  
 |T context.Variables.GetValueOrDefault<T\>(variableName: строка, defaultValue: T)|variableName: строка<br /><br /> defaultValue: T<br /><br /> Возвращает значение переменной, приведенное к типу `T` или `defaultValue`, если переменная не найдена.<br /><br /> Этот метод выдает исключение, если указанный тип не соответствует фактическому типу возвращаемой переменной.|  
 |BasicAuthCredentials AsBasic(input: this string)|input: строка<br /><br /> Если входной параметр содержит допустимое значение заголовка запроса авторизации для обычной проверки подлинности HTTP, метод возвращает объект типа `BasicAuthCredentials`; в противном случае метод возвращает значение NULL.|  
-|bool TryParseBasic(input: this string, result: out BasicAuthCredentials)|input: строка<br /><br /> result: выходное значение BasicAuthCredentials<br /><br /> Если входной параметр содержит допустимое значение заголовка запроса авторизации для обычной проверки подлинности HTTP, метод возвращает значение `true`, а параметр результата содержит значение типа `BasicAuthCredentials`; в противном случае метод возвращает значение `false`.|  
+|bool TryParseBasic(input: this string, result: out BasicAuthCredentials)|input: строка<br /><br /> result: выходное значение BasicAuthCredentials<br /><br /> Если входной параметр содержит допустимое значение заголовка запроса авторизации для обычной проверки подлинности и HTTP, метод возвращает значение `true`, а параметр результата содержит значение типа `BasicAuthCredentials`. В противном случае метод возвращает значение `false`.|  
 |BasicAuthCredentials|Password: строка<br /><br /> UserId: строка|  
 |Jwt AsJwt(input: this string)|input: строка<br /><br /> Если входной параметр содержит допустимое значение маркера JWT, метод возвращает объект типа `Jwt`; в противном случае метод возвращает значение `null`.|  
 |bool TryParseJwt(input: this string, result: out Jwt)|input: строка<br /><br /> result: выходное значение типа Jwt<br /><br /> Если входной параметр содержит допустимое значение маркера JWT, метод возвращает значение `true`, а параметр результата содержит значение типа `Jwt`; в противном случае метод возвращает значение `false`.|  
@@ -210,7 +210,7 @@ ms.lasthandoff: 12/04/2017
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
 >
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о работе с политиками см. в следующих статьях:
 
