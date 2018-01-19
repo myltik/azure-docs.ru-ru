@@ -12,7 +12,7 @@
 
 # Практическое руководство
 ## Загрузка и перемещение данных
-### [Использование фабрики данных Azure](../data-factory/connector-azure-data-lake-store.md)
+### [Использование фабрики данных Azure](../data-factory/load-azure-data-lake-store.md)
 ### [С помощью AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [С помощью DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Использование Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -66,7 +66,7 @@
 ### [Доступ с виртуальных машин в виртуальной сети Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Использование с Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Использование концентраторов событий Azure](data-lake-store-archive-eventhub-capture.md)
-### [Использование с фабрикой данных](../data-factory/connector-azure-data-lake-store.md)
+### [Использование с фабрикой данных](../data-factory/load-azure-data-lake-store.md)
 ### [Использование со Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Использование с Power BI](data-lake-store-power-bi.md)
 ### [Использование с каталогом данных](data-lake-store-with-data-catalog.md)

@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Создание многоуровневого приложения служебной шины](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Практическое руководство
 ## Планирование и проектирование
@@ -29,6 +28,7 @@
 ### [Управление доступом на основе ролей (предварительная версия)](service-bus-role-based-access-control.md)
 ### [Обмен сообщениями: уровень "Премиум"](service-bus-premium-messaging.md)
 ### [Сравнение очередей Azure и очередей служебной шины](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+### [Создание многоуровневого приложения служебной шины](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Оптимизация производительности](service-bus-performance-improvements.md)
 ### [Аварийное восстановление и георепликация](service-bus-geo-dr.md)
 ### [Асинхронный обмен сообщениями и высокий уровень доступности](service-bus-async-messaging.md)
@@ -79,7 +79,7 @@
 #### 
 ### [Подготовка сущностей с помощью Azure PowerShell](service-bus-manage-with-ps.md)
 
-# Ссылка
+# Справочные материалы
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)

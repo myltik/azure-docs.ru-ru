@@ -1,12 +1,12 @@
 # Обзор
 ## [Что такое Data Lake Analytics?](data-lake-analytics-overview.md)
 
-# Приступая к работе
+# Начало работы
 ## [Портал Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Интерфейс командной строки Azure](data-lake-analytics-get-started-cli2.md)
+## [интерфейс командной строки Azure](data-lake-analytics-get-started-cli2.md)
 
 # Практическое руководство
 
@@ -61,3 +61,4 @@
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)
