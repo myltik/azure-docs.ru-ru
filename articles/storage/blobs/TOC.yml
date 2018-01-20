@@ -190,8 +190,6 @@
           href: storage-how-to-use-blobs-powershell.md
         - name: "Azure CLI\_2.0"
           href: storage-how-to-use-blobs-cli.md
-        - name: REST
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: управление
       items:
         - name: PowerShell для службы хранилища Azure
@@ -317,7 +315,7 @@
               href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Миграция хранилища: часто задаваемые вопросы'
           href: ../common/storage-migration-faq.md
-- name: Ссылка
+- name: Справочные материалы
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage

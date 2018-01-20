@@ -22,7 +22,7 @@
       href: storage-how-to-use-files-portal.md
 - name: Практическое руководство
   items:
-    - name: планирование и разработка
+    - name: Планирование и проектирование
       items:
         - name: Параметры учетной записи хранения
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -66,9 +66,7 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Настройте строки подключения
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Использование REST API службы хранилища Azure
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Управление
+    - name: управление
       items:
         - name: PowerShell для службы файлов Azure
           href: storage-how-to-use-files-powershell.md

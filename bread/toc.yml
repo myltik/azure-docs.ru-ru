@@ -74,7 +74,7 @@
     - name: Управление затратами
       tocHref: /azure/cost-management/
       topicHref: /azure/cost-management/
-    - name: Функции
+    - name: Functions
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
     - name: Azure Government
@@ -104,7 +104,7 @@
     - name: Архивация
       tocHref: /azure/backup/
       topicHref: /azure/backup/
-    - name: Пакетная служба
+    - name: пакетная служба;
       tocHref: /azure/batch/
       topicHref: /azure/batch/
     - name: Искусственный интеллект пакетной службы
@@ -187,10 +187,10 @@
     - name: Фабрика данных
       tocHref: /azure/data-factory/
       topicHref: /azure/data-factory/
-    - name: Аналитика озера данных
+    - name: Data Lake Analytics
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
-    - name: Хранилище озера данных
+    - name: Data Lake Store
       tocHref: /azure/data-lake-store/
       topicHref: /azure/data-lake-store/
     - name: DevTest Lab
@@ -218,7 +218,7 @@
         - name: Hadoop
           tocHref: /azure/hdinsight/hadoop
           topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
-        - name: HBase
+        - name: hbase
           tocHref: /azure/hdinsight/hbase
           topicHref: /azure/hdinsight/hbase/apache-hbase-overview
         - name: Interactive Query
@@ -239,6 +239,9 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
+    - name: IoT Edge
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
     - name: Центр Интернета вещей
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
@@ -248,13 +251,13 @@
     - name: хранилище ключей;
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
-    - name: Балансировщик нагрузки
+    - name: Подсистема балансировки нагрузки
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
     - name: Служба Log Analytics
       tocHref: /azure/log-analytics/
       topicHref: /azure/log-analytics/
-    - name: Приложения логики
+    - name: приложения логики;
       tocHref: /azure/logic-apps/
       topicHref: /azure/logic-apps/
     - name: Машинное обучение
@@ -279,7 +282,7 @@
     - name: Публикация в Marketplace
       tocHref: /azure/marketplace-publishing/
       topicHref: /azure/marketplace-publishing/
-    - name: Службы носителей
+    - name: Службы мультимедиа
       tocHref: /azure/media-services/
       topicHref: /azure/media-services/
     - name: Службы мобильного взаимодействия
@@ -347,7 +350,7 @@
     - name: Коллекции рабочих областей Power BI
       tocHref: /azure/power-bi-workspace-collections/
       topicHref: /azure/power-bi-workspace-collections/
-    - name: Кэш Redis
+    - name: кэш Redis;
       tocHref: /azure/redis-cache/
       topicHref: /azure/redis-cache/
     - name: Удаленное приложение RemoteApp
@@ -362,7 +365,7 @@
     - name: Планировщик
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: Поиск
+    - name: поиска
       tocHref: /azure/search/
       topicHref: /azure/search/
     - name: Безопасность
@@ -386,7 +389,7 @@
     - name: Site Recovery
       tocHref: /azure/site-recovery/
       topicHref: /azure/site-recovery/
-    - name: Хранилище данных SQL
+    - name: Хранилище данных SQL.
       tocHref: /azure/sql-data-warehouse/
       topicHref: /azure/sql-data-warehouse/
     - name: База данных SQL
