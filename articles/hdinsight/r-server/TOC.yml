@@ -44,6 +44,8 @@
         - name: Инструменты для VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Отправка заданий из расширения "Инструменты R для Visual Studio"
+          href: r-server-submit-jobs-r-tools-vs.md
     - name: Расширение кластеров
       items:
         - name: Настройка кластеров с использованием Bootstrap
@@ -269,7 +271,7 @@
         - name: Мониторинг производительности кластера
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Ссылка
+- name: Справочные материалы
   items:
     - name: Примеры кода
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

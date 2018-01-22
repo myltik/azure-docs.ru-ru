@@ -11,11 +11,11 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a23835f341bf02f8e662782984d95bfe194030b
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 1a979bde37d247da5c630547924cadbd79c4a6a4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="compare-azure-iot-options"></a>Сравнение вариантов Интернета вещей Azure
 
@@ -27,9 +27,9 @@ ms.lasthandoff: 11/29/2017
 
 Для реализации этой архитектуры Центр Интернета вещей предлагает несколько вариантов, каждый из которых подходит для различных наборов требований клиента:
 
-* [Azure IoT Suite](index.md) — это коллекция [предварительно настроенных решений](iot-suite-what-are-preconfigured-solutions.md) корпоративного уровня, созданных на платформе как услуге Azure, которые позволяют ускорить разработку пользовательских решений Интернета вещей.
+* [Azure IoT Suite](index.md) — это коллекция [предварительно настроенных решений](iot-suite-what-are-preconfigured-solutions.md) корпоративного уровня, созданных на базе платформы как услуги (PaaS) Azure, которые позволяют ускорить разработку пользовательских решений Интернета вещей.
 
-* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) — это решение SaaS, которое использует подход на основе модели для создания решений Интернета вещей корпоративного уровня, не требуя опыта в разработке облачных решений.
+* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) — это программное обеспечение как услуга (SaaS), которое использует подход на основе модели для создания решений Интернета вещей корпоративного уровня, не требуя опыта в разработке облачных решений.
 
 ## <a name="azure-iot-hub"></a>Центр Интернета вещей Azure
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/29/2017
 * типа создаваемого решения;
 * набора навыков вашей команды по созданию и обслуживанию решения в долгосрочной перспективе.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 На основе выбранного продукта и подхода предлагаются следующие шаги:
 

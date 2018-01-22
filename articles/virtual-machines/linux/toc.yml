@@ -369,6 +369,8 @@
           href: copy-files-to-linux-vm-using-scp.md
         - name: Миграция в хранилище класса Premium с помощью Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Обнаружение неприсоединенных дисков
+          href: find-unattached-disks.md
         - name: Использование хранилища файлов
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Развертывание дисков с помощью шаблона

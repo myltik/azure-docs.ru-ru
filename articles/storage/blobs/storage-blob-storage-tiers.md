@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Хранилище BLOB-объектов Azure: "горячий", "холодный" и архивный уровни
 
@@ -113,7 +113,7 @@ BLOB-объекты всех трех уровней хранилища могу
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Изменение уровня доступа по умолчанию для учетной записи GPv2 или учетной записи хранилища BLOB-объектов
 
-1. Выполните вход на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 
 2. Чтобы перейти к вашей учетной записи хранения, выберите "Все ресурсы", а затем — необходимую учетную запись хранения.
 
@@ -125,7 +125,7 @@ BLOB-объекты всех трех уровней хранилища могу
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Измените уровень большого двоичного объекта в учетной записи GPv2 или учетной записи хранилища BLOB-объектов.
 
-1. Выполните вход на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 
 2. Чтобы перейти к большому двоичному объекту в своей учетной записи хранения, выберите "Все ресурсы". Затем последовательно выберите учетную запись хранения, контейнер и большой двоичный объект.
 
@@ -187,9 +187,9 @@ BLOB-объекты всех трех уровней хранилища могу
 
 Хранилище данных и другие ограничения устанавливаются на уровне учетной записи, а не на уровне хранилища. Таким образом можно использовать все ограничения для одного уровня или для всех трех. Дополнительные сведения см. в статье [Целевые показатели масштабируемости и производительности службы хранилища Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-### <a name="evaluate-hot-cool-and-archvie-in-gpv2-blob-storage-accounts"></a>Оцените "горячие", "холодные" и архивные уровни в учетной записи хранилища BLOB-объектов GPv2
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Оценка "горячих", "холодных" и архивных уровней в учетной записи хранилища BLOB-объектов GPv2
 
 [Доступность продуктов по регионам](https://azure.microsoft.com/regions/#services)
 

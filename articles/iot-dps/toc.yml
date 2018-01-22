@@ -52,9 +52,15 @@
     - name: 2. Настройка устройства
       href: tutorial-set-up-device.md
     - name: 3. Подготовка устройства для центра Интернета вещей
-      href: tutorial-provision-device-to-hub.md
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
     - name: 4. Подготовка устройств для нескольких центров
       href: tutorial-provision-multiple-hubs.md
+    - name: 5. Подготовка групповых регистраций
+      href: tutorial-group-enrollments.md
 - name: Основные понятия
   items:
     - name: Основные понятия устройства
@@ -73,6 +79,8 @@
           href: how-to-manage-enrollments-sdks.md
     - name: Отмена доступа к устройству
       href: how-to-revoke-device-access-portal.md
+    - name: Отмена подготовки устройств
+      href: how-to-unprovision-devices.md
     - name: Использование HSM с пакетом SDK
       href: use-hsm-with-sdk.md
     - name: Управление доступом к службе подготовки

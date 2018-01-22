@@ -131,10 +131,10 @@
       items:
         - name: Коллекция Runbook
           href: automation-runbook-gallery.md
+        - name: Запуск модуля runbook с помощью оповещений Azure
+          href: automation-create-alert-triggered-runbook.md
         - name: Создание виртуальной машины Amazon Web Service
           href: automation-scenario-aws-deployment.md
-        - name: Исправление неполадок с помощью оповещения о виртуальной машине Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Запуск и остановка виртуальной машины с помощью тегов JSON
           href: automation-scenario-start-stop-vm-wjson-tags.md
         - name: Удаление группы ресурсов
@@ -163,7 +163,7 @@
           href: automation-vm-inventory.md
         - name: Запуск и остановка виртуальных машин в нерабочее время
           href: automation-solution-vm-management.md
-    - name: Монитор
+    - name: Мониторинг
       items:
         - name: Пересылка данных задания службы автоматизации Azure в Log Analytics
           href: automation-manage-send-joblogs-log-analytics.md

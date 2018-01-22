@@ -43,6 +43,11 @@
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: Использование пакета REST SDK для Phoenix Query Server
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+    - name: Анализ больших данных
+      items:
+        - name: Чтение и запись данных в HBase с помощью Spark
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
     - name: Расширение кластеров
       items:
         - name: Настройка кластеров с использованием Bootstrap
@@ -233,7 +238,7 @@
         - name: Мониторинг производительности кластера
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Ссылка
+- name: Справочные материалы
   items:
     - name: Примеры кода
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

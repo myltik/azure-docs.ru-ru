@@ -45,6 +45,10 @@
           maintainContext: true
     - name: Разработка
       items:
+        - name: Использование API производителя и потребителя Kafka
+          href: apache-kafka-producer-consumer-api.md
+        - name: Использование API потоков Kafka
+          href: apache-kafka-streams-api.md
         - name: Использование пустых граничных узлов
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true

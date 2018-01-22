@@ -115,6 +115,9 @@
           href: apache-spark-microsoft-cognitive-toolkit.md
     - name: Анализ больших данных
       items:
+        - name: Чтение и запись данных в HBase с помощью Spark
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
         - name: Анализ журналов телеметрии Application Insights
           href: apache-spark-analyze-application-insight-logs.md
     - name: Расширение кластеров
@@ -178,6 +181,8 @@
           maintainContext: true
     - name: управление
       items:
+        - name: Оптимизация заданий Spark
+          href: apache-spark-perf.md
         - name: Планирование загрузки кластера
           href: ../hdinsight-capacity-planning.md
           maintainContext: true

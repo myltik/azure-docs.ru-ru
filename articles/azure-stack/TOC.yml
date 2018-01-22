@@ -128,6 +128,8 @@
           href: azure-stack-manage-storage-shares.md
         - name: Управление виртуальными машинами Windows Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
+        - name: Запуск и остановка Azure Stack
+          href: azure-stack-start-and-stop.md
         - name: Замена оборудования
           items:
             - name: Действия с узлами

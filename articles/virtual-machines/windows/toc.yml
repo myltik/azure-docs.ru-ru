@@ -286,6 +286,8 @@
           href: convert-disk-storage.md
         - name: Миграция в хранилище класса Premium с помощью Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Обнаружение неприсоединенных дисков
+          href: find-unattached-disks.md
         - name: Использование хранилища файлов
           href: mount-azure-file-storage.md
         - name: Развертывание дисков с помощью шаблона
@@ -418,7 +420,7 @@
           href: performance-diagnostics-vm-extension.md
         - name: Использование вложенной виртуализации
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Ссылка
+- name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure
       href: /cli/azure/vm
