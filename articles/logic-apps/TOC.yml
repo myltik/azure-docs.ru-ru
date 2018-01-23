@@ -91,80 +91,6 @@
               href: logic-apps-custom-api-host-deploy-call.md
         - name: Устранение неполадок
           href: logic-apps-diagnosing-failures.md
-    - name: управление
-      items:
-        - name: Управление приложениями логики — Visual Studio
-          href: logic-apps-manage-from-vs.md
-        - name: Управление учетными записями интеграции
-          href: logic-apps-enterprise-integration-accounts.md
-    - name: 'Соединители: подробные сведения'
-      items:
-        - name: AS2
-          href: logic-apps-enterprise-integration-as2.md
-        - name: Хранилище больших двоичных объектов Azure
-          href: ../connectors/connectors-create-api-azureblobstorage.md
-        - name: Функции Azure
-          href: logic-apps-azure-functions.md
-        - name: Azure Logic Apps
-          href: logic-apps-http-endpoint.md
-        - name: Базы данных SQL Azure
-          href: ../connectors/connectors-create-api-sqlazure.md
-        - name: Настраиваемые API-интерфейсы и веб-приложения
-          href: logic-apps-create-api-app.md
-        - name: DB2
-          href: ../connectors/connectors-create-api-db2.md
-        - name: "Dynamics\_365 CRM Online"
-          href: ../connectors/connectors-create-api-crmonline.md
-        - name: EDIFACT
-          href: logic-apps-enterprise-integration-edifact.md
-        - name: Концентраторы событий
-          href: ../connectors/connectors-create-api-azure-event-hubs.md
-        - name: Файловая система
-          href: logic-apps-using-file-connector.md
-        - name: Неструктурированный файл
-          href: logic-apps-enterprise-integration-flatfile.md
-        - name: FTP
-          href: ../connectors/connectors-create-api-ftp.md
-        - name: HTTP
-          href: ../connectors/connectors-native-http.md
-        - name: HTTP + Swagger
-          href: ../connectors/connectors-native-http-swagger.md
-        - name: HTTP Webhook
-          href: ../connectors/connectors-native-webhook.md
-        - name: Informix
-          href: ../connectors/connectors-create-api-informix.md
-        - name: Учетная запись интеграции
-          href: logic-apps-enterprise-integration-metadata.md
-        - name: Магический квадрант
-          href: ../connectors/connectors-create-api-mq.md
-        - name: Office 365 Outlook
-          href: ../connectors/connectors-create-api-office365-outlook.md
-        - name: База данных Oracle
-          href: ../connectors/connectors-create-api-oracledatabase.md
-        - name: Запрос и ответ
-          href: ../connectors/connectors-native-reqres.md
-        - name: Salesforce
-          href: ../connectors/connectors-create-api-salesforce.md
-        - name: SAP
-          href: logic-apps-using-sap-connector.md
-        - name: Расписание
-          href: ../connectors/connectors-native-recurrence.md
-        - name: Служебная шина
-          href: ../connectors/connectors-create-api-servicebus.md
-        - name: SharePoint Online
-          href: ../connectors/connectors-create-api-sharepointonline.md
-        - name: SharePoint Server
-          href: ../connectors/connectors-create-api-sharepointserver.md
-        - name: SQL Server;
-          href: ../connectors/connectors-create-api-sqlazure.md
-        - name: Преобразование XML
-          href: logic-apps-enterprise-integration-transform.md
-        - name: Twitter
-          href: ../connectors/connectors-create-api-twitter.md
-        - name: X12
-          href: logic-apps-enterprise-integration-x12.md
-        - name: Проверка XML
-          href: logic-apps-enterprise-integration-xml-validation.md
     - name: Разработка для сценариев B2B
       items:
         - name: Создание учетной записи интеграции
@@ -226,6 +152,80 @@
           href: logic-apps-gateway-install.md
         - name: Подключение к локальным данным
           href: logic-apps-gateway-connection.md
+    - name: 'Соединители: подробные сведения'
+      items:
+        - name: AS2
+          href: logic-apps-enterprise-integration-as2.md
+        - name: Хранилище больших двоичных объектов Azure
+          href: ../connectors/connectors-create-api-azureblobstorage.md
+        - name: Функции Azure
+          href: logic-apps-azure-functions.md
+        - name: Azure Logic Apps
+          href: logic-apps-http-endpoint.md
+        - name: Базы данных SQL Azure
+          href: ../connectors/connectors-create-api-sqlazure.md
+        - name: Настраиваемые API-интерфейсы и веб-приложения
+          href: logic-apps-create-api-app.md
+        - name: DB2
+          href: ../connectors/connectors-create-api-db2.md
+        - name: "Dynamics\_365 CRM Online"
+          href: ../connectors/connectors-create-api-crmonline.md
+        - name: EDIFACT
+          href: logic-apps-enterprise-integration-edifact.md
+        - name: Концентраторы событий
+          href: ../connectors/connectors-create-api-azure-event-hubs.md
+        - name: Файловая система
+          href: logic-apps-using-file-connector.md
+        - name: Неструктурированный файл
+          href: logic-apps-enterprise-integration-flatfile.md
+        - name: FTP
+          href: ../connectors/connectors-create-api-ftp.md
+        - name: HTTP
+          href: ../connectors/connectors-native-http.md
+        - name: HTTP + Swagger
+          href: ../connectors/connectors-native-http-swagger.md
+        - name: HTTP Webhook
+          href: ../connectors/connectors-native-webhook.md
+        - name: Informix
+          href: ../connectors/connectors-create-api-informix.md
+        - name: Учетная запись интеграции
+          href: logic-apps-enterprise-integration-metadata.md
+        - name: Магический квадрант
+          href: ../connectors/connectors-create-api-mq.md
+        - name: Office 365 Outlook
+          href: ../connectors/connectors-create-api-office365-outlook.md
+        - name: База данных Oracle
+          href: ../connectors/connectors-create-api-oracledatabase.md
+        - name: Запрос и ответ
+          href: ../connectors/connectors-native-reqres.md
+        - name: Salesforce
+          href: ../connectors/connectors-create-api-salesforce.md
+        - name: SAP
+          href: logic-apps-using-sap-connector.md
+        - name: Расписание
+          href: ../connectors/connectors-native-recurrence.md
+        - name: Azure Service Bus
+          href: ../connectors/connectors-create-api-servicebus.md
+        - name: SharePoint Online
+          href: ../connectors/connectors-create-api-sharepointonline.md
+        - name: SharePoint Server
+          href: ../connectors/connectors-create-api-sharepointserver.md
+        - name: SQL Server;
+          href: ../connectors/connectors-create-api-sqlazure.md
+        - name: Преобразование XML
+          href: logic-apps-enterprise-integration-transform.md
+        - name: Twitter
+          href: ../connectors/connectors-create-api-twitter.md
+        - name: X12
+          href: logic-apps-enterprise-integration-x12.md
+        - name: Проверка XML
+          href: logic-apps-enterprise-integration-xml-validation.md
+    - name: управление
+      items:
+        - name: Управление приложениями логики — Visual Studio
+          href: logic-apps-manage-from-vs.md
+        - name: Управление учетными записями интеграции
+          href: logic-apps-enterprise-integration-accounts.md
     - name: Развертывание
       items:
         - name: Создание шаблонов для автоматического развертывания

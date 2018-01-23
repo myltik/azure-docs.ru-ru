@@ -113,6 +113,8 @@
           href: apache-spark-deep-learning-caffe.md
         - name: Использование набора средств Microsoft Cognitive Toolkit
           href: apache-spark-microsoft-cognitive-toolkit.md
+        - name: Создание конвейера машинного обучения Spark
+          href: apache-spark-creating-ml-pipelines.md
     - name: Анализ больших данных
       items:
         - name: Чтение и запись данных в HBase с помощью Spark

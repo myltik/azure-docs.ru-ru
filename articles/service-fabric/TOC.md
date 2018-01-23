@@ -311,6 +311,7 @@
 ### Мониторинг производительности
 #### [Мониторинг производительности с помощью WAD](service-fabric-diagnostics-perf-wad.md)
 
+
 # Справочные материалы
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
@@ -328,6 +329,7 @@
 ### [sfctl service](service-fabric-sfctl-service.md)
 ### [sfctl store](service-fabric-sfctl-store.md)
 ## [API Java](/java/api/overview/azure/servicefabric)
+### [API клиента Java REST](service-fabric-java-rest-api-usage.md)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Схема XML для модели службы](service-fabric-service-model-schema.md)

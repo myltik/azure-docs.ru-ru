@@ -4,6 +4,9 @@
   items:
     - name: Обзор
       href: apache-hadoop-introduction.md
+    - name: Архитектура Hadoop в HDInsight
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
     - name: Компоненты Hadoop в HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
@@ -153,6 +156,12 @@
           maintainContext: true
         - name: Расширенная аналитика для HDInsight
           href: apache-hadoop-deep-dive-advanced-analytics.md
+        - name: Машинное обучение в HDInsight
+          href: ../hdinsight-machine-learning-overview.md
+          maintainContext: true
+        - name: Потоковая передача в нужном масштабе в HDInsight
+          href: ../hdinsight-streaming-at-scale-overview.md
+          maintainContext: true
     - name: Расширение кластеров
       items:
         - name: Настройка кластеров с использованием Bootstrap

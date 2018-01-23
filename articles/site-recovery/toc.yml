@@ -265,7 +265,7 @@
           href: site-recovery-manage-registration-and-protection.md
         - name: Удаление хранилища
           href: delete-vault.md
-    - name: Устранение неполадок
+    - name: Мониторинг и устранение неполадок
       items:
         - name: "Проблемы с репликацией из Azure\_в Azure"
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
@@ -275,8 +275,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Проблемы с отработкой отказа в Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
-        - name: Сбор журналов и устранение неполадок в локальной среде
-          href: site-recovery-monitoring-and-troubleshooting.md
+        - name: Мониторинг Azure Site Recovery
+          href: site-recovery-monitor-and-troubleshoot.md
 - name: Справочные материалы
   items:
     - name: Azure PowerShell
