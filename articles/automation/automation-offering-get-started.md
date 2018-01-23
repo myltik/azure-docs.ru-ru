@@ -157,7 +157,7 @@ ms.lasthandoff: 01/10/2018
 
 2. Нажмите кнопку **Создать**.<br><br> ![Выбор пункта "Создать" на портале Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
-3. Выполните поиск по запросу **Автоматизация** и в поле результатов поиска выберите **Автоматизация и управление***.<br><br> ![Поиск и выбор элемента "Автоматизация и управление" в Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png)<br>   
+3. Выполните поиск по запросу **Автоматизация** и в поле результатов поиска выберите **Автоматизация и управление**.<br><br> ![Поиск и выбор элемента "Автоматизация и управление" в Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png)<br>   
 
 4. Прочитав описание предложения, щелкните **Создать**.  
 

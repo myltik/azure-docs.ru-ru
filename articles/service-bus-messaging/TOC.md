@@ -28,13 +28,13 @@
 ### [Управление доступом на основе ролей (предварительная версия)](service-bus-role-based-access-control.md)
 ### [Обмен сообщениями: уровень "Премиум"](service-bus-premium-messaging.md)
 ### [Сравнение очередей Azure и очередей служебной шины](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-### [Создание многоуровневого приложения служебной шины](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Оптимизация производительности](service-bus-performance-improvements.md)
 ### [Аварийное восстановление и георепликация](service-bus-geo-dr.md)
 ### [Асинхронный обмен сообщениями и высокий уровень доступности](service-bus-async-messaging.md)
 ### [Обработка сбоев и аварийных ситуаций](service-bus-outages-disasters.md)
 
 ## Разработка
+### [Создание многоуровневого приложения служебной шины](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Обработка сообщений
 #### [Очереди, разделы и подписки](service-bus-queues-topics-subscriptions.md)
 #### [Сообщения, полезные данные и сериализация](service-bus-messages-payloads.md)

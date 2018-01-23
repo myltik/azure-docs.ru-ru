@@ -341,7 +341,7 @@
         - name: Управление ключами и согласованность
           href: manage-account.md
         - name: обозреватель хранилищ Azure
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: Безопасность
           items:
             - name: Шифрование при хранении
