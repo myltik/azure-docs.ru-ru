@@ -5,14 +5,14 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/16/2018
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: 0d15252079b62f6a74a1279309fb9b1b3ed5711e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Интеграция центра обработки данных Azure Stack. Публикация конечных точек
 
@@ -37,19 +37,19 @@ Azure Stack настраивает несколько разных конечн�
 
 |Конечная точка (виртуальный IP-адрес)|Запись A на узле DNS|Протокол|порты;|
 |---------|---------|---------|---------|
-|AD FS|`Adfs.[Region].[External FQDN]`|HTTPS|443|
-|Портал (для администратора)|`Adminportal.[Region].[External FQDN]`|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
-|Azure Resource Manager (для администратора)|`Adminmanagement.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Портал (для пользователя)|`Portal. [Region].[External FQDN]`|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (для пользователя)|`Management.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|График|`Graph.[Region].[External FQDN]`|HTTPS|443|
-|Список отзыва сертификатов|`Crl.[Region].[External FQDN]`|HTTP|80|
-|DNS|`*.[Region].[External FQDN]`|TCP или UDP|53|
-|Хранилище ключей (для пользователя)|`*.vault.[Region].[External FQDN]`|TCP|443|
-|Хранилище ключей (для администратора)|`*.adminvault.[Region].[External FQDN]`|TCP|443|
-|Очередь службы хранилища|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Таблица службы хранилища|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Большой двоичный объект хранилища|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
+|AD FS|Adfs.*&lt;регион>.&lt;полное доменное имя>*|HTTPS|443|
+|Портал (для администратора)|Adminportal.*&lt;регион>.&lt;полное доменное имя>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
+|Azure Resource Manager (для администратора)|Adminmanagement.*&lt;регион>.&lt;полное доменное имя>*|HTTPS|443<br>30024|
+|Портал (для пользователя)|Portal.*&lt;регион>.&lt;полное доменное имя>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
+|Azure Resource Manager (для пользователя)|Management.*&lt;регион>.&lt;полное доменное имя>*|HTTPS|443<br>30024|
+|График|Graph.*&lt;регион>.&lt;полное доменное имя>*|HTTPS|443|
+|Список отзыва сертификатов|Crl.*&lt;регион>.&lt;полное доменное имя>*|HTTP|80|
+|DNS|&#42;.*&lt;регион>.&lt;полное доменное имя>*|TCP или UDP|53|
+|Хранилище ключей (для пользователя)|*.vault.*&lt;регион>.&lt;полное доменное имя>*|TCP|443|
+|Хранилище ключей (для администратора)|&#42;.adminvault.*&lt;регион>.&lt;полное доменное имя>*|TCP|443|
+|Очередь службы хранилища|&#42;.queue.*&lt;регион>.&lt;полное доменное имя>*|HTTP<br>HTTPS|80<br>443|
+|Таблица службы хранилища|&#42;.table.*&lt;регион>.&lt;полное доменное имя>*|HTTP<br>HTTPS|80<br>443|
+|Большой двоичный объект хранилища|&#42;.blob.*&lt;регион>.&lt;полное доменное имя>*|HTTP<br>HTTPS|80<br>443|
 
 ## <a name="ports-and-urls-outbound"></a>Порты и URL-адреса (исходящие)
 
@@ -58,11 +58,11 @@ Azure Stack настраивает несколько разных конечн�
 
 |Назначение|URL-адрес|Протокол|порты;|
 |---------|---------|---------|---------|
-|Удостоверение|`login.windows.net`<br>`login.microsoftonline.com`<br>`graph.windows.net`|HTTP<br>HTTPS|80<br>443|
-|Синдикация Marketplace|`https://management.azure.com`<br>`https://*.blob.core.windows.net`<br>`https://*.azureedge.net`<br>`https://*.microsoftazurestack.com`|HTTPS|443|
-|Обновления и исправления|`https://*.azureedge.net`|HTTPS|443|
-|Регистрация|`https://management.azure.com`|HTTPS|443|
-|Использование|`https://*.microsoftazurestack.com`<br>`https://*.trafficmanager.com`|HTTPS|443|
+|Удостоверение|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net|HTTP<br>HTTPS|80<br>443|
+|Синдикация Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
+|Обновления и исправления|https://&#42;.azureedge.net|HTTPS|443|
+|Регистрация|https://management.azure.com|HTTPS|443|
+|Использование|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
 ## <a name="firewall-publishing"></a>Публикация брандмауэра
 
@@ -107,6 +107,6 @@ Azure Stack настраивает несколько разных конечн�
 - Для гибридных облачных сценариев с Azure следует учитывать, что Azure не поддерживает настройку VPN-туннеля к конечной точке, использующей NAT.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Интеграция центра обработки данных Azure Stack. Безопасность](azure-stack-integrate-security.md)

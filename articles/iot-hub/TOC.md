@@ -75,10 +75,12 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### Отправка сообщений из облака на устройство
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### Передача файлов с устройств
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -88,11 +90,13 @@
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-getstarted.md)
 #### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java: серверный компонент и устройство](iot-hub-java-java-twin-getstarted.md)
+#### [Серверная часть и устройство Python](iot-hub-python-twin-getstarted.md)
 ### Использование прямых методов
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-direct-methods.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-direct-methods.md)
 #### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java: серверный компонент и устройство](iot-hub-java-java-direct-methods.md)
+#### [Серверная часть и устройство Python](iot-hub-python-python-direct-methods.md)
 ### Начало работы с управлением устройствами
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-device-management-get-started.md)

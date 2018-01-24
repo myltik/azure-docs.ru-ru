@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: JeffGo
-ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Использование баз данных MySQL в Microsoft Azure Stack
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/05/2018
 
 Вы можете развернуть поставщик ресурсов MySQL в Azure Stack. После этого вы можете создать серверы и базы данных MySQL, используя шаблоны развертывания Azure Resource Manager, а затем предоставить эти базы данных как услуги. Базы данных MySQL, которые обычно используются на веб-сайтах, поддерживают множество сайтовых платформ. В качестве примера после развертывания поставщика ресурсов вы можете создать веб-сайты WordPress с помощью надстройки PaaS веб-приложений Azure для Azure Stack.
 
-Чтобы развернуть поставщик MySQL в системе без доступа к Интернету, скопируйте файл [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) в локальный общий ресурс. Затем введите имя этого общего ресурса при появлении запроса. Необходимо также установить модули PowerShell для Azure и Azure Stack.
+Чтобы развернуть поставщик MySQL в системе без доступа к Интернету, скопируйте файл [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) в локальный общий ресурс. Затем введите имя этого общего ресурса при появлении запроса. Необходимо также установить модули PowerShell для Azure и Azure Stack.
 
 
 ## <a name="mysql-server-resource-provider-adapter-architecture"></a>Архитектура адаптера поставщика ресурсов MySQL Server
@@ -71,10 +71,9 @@ ms.lasthandoff: 01/05/2018
 
     | Сборка Azure Stack | Установщик MySQL RP |
     | --- | --- |
-    | 1.0.180102.3 | **Подождите, пока не появится дополнительная информация. После обновления Azure Stack вы не сможете установить текущие сборки, но они будут продолжать работать на нескольких узлах.** |
-    | 1.0.171122.1 | [MySQL RP версии 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 или 1.0.180106.1 (несколько узлов) | [MySQL RP версии 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [MySQL RP версии 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [MySQL RP версии 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
-    | 1.0.170928.3 | [MySQL RP версии 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Корневой сертификат Azure Stack можно получить из привилегированной конечной точки. Для ASDK в рамках этого процесса создается самозаверяющий сертификат. Для системы с несколькими узлами вам нужно предоставить подходящий сертификат.
 
@@ -165,7 +164,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **AzCredential** | Укажите учетные данные для записи администратора службы Azure Stack. Используйте те же учетные данные, которые вы указали при развертывании Azure Stack. | _обязательный параметр_ |
 | **VMLocalCredential** | Укажите учетные данные локального администратора на виртуальной машине поставщика ресурсов MySQL. | _обязательный параметр_ |
 | **PrivilegedEndpoint** | Укажите IP-адрес или DNS-имя привилегированной конечной точки. |  _обязательный параметр_ |
-| **DependencyFilesLocalPath** | Путь к локальному общему ресурсу, где содержится файл [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). Если вы указали его, в этот каталог нужно поместить и файл сертификата. | _необязательно_ (_обязательно_, если в системе несколько узлов) |
+| **DependencyFilesLocalPath** | Путь к локальному общему ресурсу, где содержится файл [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Если вы указали его, в этот каталог нужно поместить и файл сертификата. | _необязательно_ (_обязательно_, если в системе несколько узлов) |
 | **DefaultSSLCertificatePassword** | Пароль для PFX-файла сертификата. | _обязательный параметр_ |
 | **MaxRetryCount** | Укажите, сколько раз нужно повторять каждую операцию в случае сбоя.| 2 |
 | **RetryDuration** | Укажите время ожидания между повторными попытками в секундах. | 120 |

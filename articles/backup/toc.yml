@@ -97,6 +97,8 @@
               href: backup-azure-arm-vms.md
             - name: Резервное копирование зашифрованных виртуальных машин
               href: backup-azure-vms-encryption.md
+            - name: Включение резервного копирования виртуальной машины во время ее создания
+              href: backup-during-vm-creation.md
         - name: Контроль и мониторинг виртуальных машин
           items:
             - name: Управление резервным копированием виртуальных машин Azure на портале Azure

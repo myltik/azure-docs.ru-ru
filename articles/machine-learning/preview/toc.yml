@@ -108,7 +108,7 @@
           href: scenario-document-collection-analysis.md
         - name: Сопоставление вопросов и ответов
           href: scenario-qna-matching.md
-        - name: Диагностическое обслуживание
+        - name: диагностическое обслуживание;
           href: scenario-predictive-maintenance.md
         - name: Классификация изображений аэрофотосъемки
           href: scenario-aerial-image-classification.md
@@ -182,6 +182,8 @@
           href: release-notes-sprint-2.md
         - name: Исправление QFE для Sprint 2 — декабрь 2017 г.
           href: release-notes-sprint-2.1.md
+        - name: Спринт 3 — январь 2018 г.
+          href: release-notes-sprint-3.md
 - name: Ресурсы
   items:
     - name: Часто задаваемые вопросы

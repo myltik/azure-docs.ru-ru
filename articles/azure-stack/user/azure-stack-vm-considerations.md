@@ -3,7 +3,7 @@ title: "Важные особенности виртуальных машин в
 description: "Сведения об особенностях виртуальных машин в Azure Stack и рекомендации по работе с ними."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: mabrigg
-ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 11/17/2018
+ms.author: brenduns
+ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Рекомендации по работе с виртуальными машинами в Azure Stack
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 12/11/2017
 |Группы доступности виртуальных машин|Несколько доменов сбоя (2 или 3 в каждом регионе)<br>Несколько доменов обновления<br>Поддержка управляемых дисков|Один домен сбоя<br>Один домен обновления<br>Без поддержки управляемых дисков|
 |наборы для масштабирования виртуальных машин|Автомасштабирование поддерживается|Автомасштабирование не поддерживается<br>В масштабируемый набор можно добавить дополнительные экземпляры с помощью портала, шаблонов Resource Manager или PowerShell.
 
-## <a name="virtual-machine-sizes"></a>Размер виртуальных машин 
+## <a name="virtual-machine-sizes"></a>Размер виртуальных машин
 
-Пакет SDK для Azure Stack поддерживает следующие размеры: 
+Azure Stack поддерживает следующие размеры:
 
-| Тип | Размер | Диапазон поддерживаемых размеров |
+| type | Размер | Диапазон поддерживаемых размеров |
 | --- | --- | --- |
 |Универсальные |Basic A|A0–A4|
 |Универсальные |Standard A|A0–A7|
@@ -55,33 +55,33 @@ ms.lasthandoff: 12/11/2017
 |Оптимизированные для памяти|Серия DS|DS11–DS14|
 |Оптимизированные для памяти |Серия DSv2|DS11_v2–DS14_v2|
 
-Размеры виртуальных машин и объемы связанных с ними ресурсов в Azure Stack и Azure полностью совпадают. Сюда, например, входит объем памяти, количество ядер, количество и размеры создаваемых дисков данных. Однако фактическая производительность виртуальных машин зависит от базовых характеристик конкретной среды Azure Stack.
+Размеры виртуальных машин и объемы связанных с ними ресурсов в Azure Stack и Azure полностью совпадают. Это, например, включает объем памяти, число ядер, число и размеры создаваемых дисков данных. Однако фактическая производительность виртуальных машин зависит от базовых характеристик конкретной среды Azure Stack.
 
-## <a name="virtual-machine-extensions"></a>Расширения виртуальных машин 
+## <a name="virtual-machine-extensions"></a>Расширения виртуальных машин
 
- Пакет SDK для Azure Stack поддерживает следующие версии расширений для виртуальных машин:
+ Azure Stack поддерживает следующие версии расширений для виртуальных машин:
 
 ![Расширения виртуальных машин](media/azure-stack-vm-considerations/vm-extensions.png)
 
 Используйте следующий скрипт PowerShell, чтобы получить список расширений виртуальной машины, доступных в вашей среде Azure Stack:
 
-```powershell 
+```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
   Get-AzureRmVMExtensionImage | `
   Select Type, Version | `
-  Format-Table -Property * -AutoSize 
+  Format-Table -Property * -AutoSize
 ```
 
-## <a name="api-versions"></a>Версии API 
+## <a name="api-versions"></a>Версии API
 
-Компоненты виртуальных машин в пакете SDK для Azure Stack поддерживают следующие версии API:
+Компоненты виртуальных машин в Azure Stack поддерживают следующие версии API:
 
 ![Типы ресурсов виртуальных машин](media/azure-stack-vm-considerations/vm-resoource-types.png)
 
 Используйте следующий скрипт PowerShell, чтобы получить список версий API для компонентов виртуальной машины, доступных в вашей среде Azure Stack:
 
-```powershell 
+```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `
@@ -90,6 +90,6 @@ Get-AzureRmResourceProvider | `
 ```
 Список поддерживаемых типов ресурсов и версий API может измениться, если оператор облака обновит среду Azure Stack до более новой версии.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Создание виртуальной машины Windows с помощью PowerShell в Azure Stack](azure-stack-quick-create-vm-windows-powershell.md)

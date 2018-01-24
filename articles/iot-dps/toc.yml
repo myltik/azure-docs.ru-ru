@@ -87,6 +87,8 @@
       href: how-to-control-access.md
     - name: Управление службой подготовки устройств с помощью Azure CLI
       href: how-to-manage-dps-with-cli.md
+    - name: Разработка с помощью инструментов пакета SDK
+      href: how-to-use-sdk-tools.md
 - name: Справочные материалы
   items:
     - name: REST
