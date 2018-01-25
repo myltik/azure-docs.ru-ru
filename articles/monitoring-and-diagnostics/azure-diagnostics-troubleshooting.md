@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae99085a37162a883d18976181be198a2f21a60c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Устранение неполадок с помощью системы диагностики Azure
 Данная статья содержит сведения об устранении неполадок, относящихся к средствами диагностики Azure. Дополнительные сведения о системе диагностики Azure см. в [обзоре системы диагностики Azure](azure-diagnostics.md).
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 Если идентификатор ресурса неверный, необходимо проверить правильность его значения. Для этого выберите **Diagnostics** **Configuration** (Конфигурация диагностики)  > **Метрики** > **ResourceId**.
 
 Если нет данных для конкретной метрики, необходимо проверить, включена ли метрика (счетчик производительности). Для этого выберите **Diagnostics Configuration** (Конфигурация диагностики)  > **PerformanceCounter**. Следующие счетчики включены по умолчанию.
-- \Processor(_Total)\% Загруженность процессора
+- \Процессор (_общий объем ресурсов)\% загруженности процессора
 - \Память\доступные байты
 - \ASP.NET Applications(__Total__)\Requests/Sec
 - \ASP.NET Applications(__Total__)\Errors Total/Sec
@@ -154,7 +154,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 ## <a name="diagnostics-data-tables-not-found"></a>Таблицы данных диагностики не найдены
 Таблицы в службе хранилища Azure, содержащие события трассировки событий Windows, именуются с помощью следующего кода:
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -165,7 +165,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
             tableName = "WAD" + eventDestination;
 ```
 
-Пример:
+Вот пример: 
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -228,7 +228,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Коды выхода подключаемого модуля системы диагностики Azure
 Подключаемый модуль возвращает следующие коды выхода:
 
-| Код выхода | Описание |
+| Код выхода | ОПИСАНИЕ |
 | --- | --- |
 | 0 |Успешно. |
 | -1 |Общая ошибка. |

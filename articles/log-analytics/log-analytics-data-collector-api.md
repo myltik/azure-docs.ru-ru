@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5b4b31b58c7a4bcb93277333502bc082da2062ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Отправка данных в Log Analytics c помощью API сборщика данных HTTP (общедоступная предварительная версия)
 В этой статье показано, как с помощью API сборщика данных HTTP отправить данные в Log Analytics из клиента REST API.  Здесь также описано, как отформатировать данные, собранные сценарием или приложением, добавить их в запрос и авторизовать этот запрос в Log Analytics.  В этой статье приведены примеры для PowerShell, C# и Python.
@@ -47,14 +47,14 @@ API сборщика данных HTTP можно использовать, чт
 | Тип содержимого |приложение/json |
 
 ### <a name="request-uri-parameters"></a>Параметры URI запроса
-| Параметр | Описание |
+| Параметр | ОПИСАНИЕ |
 |:--- |:--- |
 | CustomerID |Уникальный идентификатор для рабочей области Microsoft Operations Management Suite. |
 | Ресурс |Имя ресурса API: /api/logs. |
 | Версия API |Версия API для использования с этим запросом. В настоящее время это версия 2016-04-01. |
 
 ### <a name="request-headers"></a>Заголовки запросов
-| Заголовок | Описание |
+| Заголовок | ОПИСАНИЕ |
 |:--- |:--- |
 | Авторизация |Подпись авторизации. Далее в этой статье вы найдете сведения о том, как создать заголовок HMAC-SHA256. |
 | Log-Type |Укажите тип записи для отправляемых данных. Сейчас для указания типа журнала можно использовать только буквы. Цифры и специальные символы не поддерживаются. |
@@ -135,7 +135,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 | Тип данных свойства | Суффикс |
 |:--- |:--- |
 | Строка |_s |
-| Логический |_b |
+| Логическое |_b |
 | Double |_d |
 | Дата и время |_t |
 | GUID |_g |
@@ -173,7 +173,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 
 В этой таблице представлен полный набор кодов состояний, которые может возвращать служба:
 
-| Код | Состояние | Код ошибки | Описание |
+| Код | Status | Код ошибки | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
 | 200 |ОК | |Запрос был успешно принят. |
 | 400 |Недопустимый запрос |InactiveCustomer |Рабочая область закрыта. |
@@ -260,7 +260,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -291,7 +291,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### <a name="c-sample"></a>Пример на языке C#
@@ -463,5 +463,5 @@ def post_data(customer_id, shared_key, body, log_type):
 post_data(customer_id, shared_key, body, log_type)
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Чтобы получить данные из репозитория Log Analytics, используйте [API поиска по журналам](log-analytics-log-search-api.md).

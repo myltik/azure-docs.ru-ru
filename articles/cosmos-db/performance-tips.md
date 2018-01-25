@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: 84a1913bd218d512f7f2818291f59d98628a7272
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 242ec5bfbe33acd4731809efed9b70897b7a9608
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -60,7 +60,7 @@ Azure Cosmos DB — быстрая и гибкая распределенная
 
      Режим подключения настраивается с помощью параметра ConnectionPolicy во время создания экземпляра DocumentClient. При использовании режима прямого подключения протокол также можно определить в параметре ConnectionPolicy.
 
-    ```C#
+    ```csharp
     var serviceEndpoint = new Uri("https://contoso.documents.net");
     var authKey = new "your authKey from the Azure portal";
     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
@@ -158,7 +158,7 @@ Azure Cosmos DB — быстрая и гибкая распределенная
 
     Политика индексирования Cosmos DB также позволяет добавлять пути к документам или исключать их из индексирования. Для этого используется параметр Indexing Paths (IndexingPolicy.IncludedPaths и IndexingPolicy.ExcludedPaths). Возможность управления путями индексирования позволяет оптимизировать производительность записи и снизить затраты на хранение индекса для сценариев с заранее определенными шаблонами запросов. Это связано с тем, что затраты на индексирование непосредственно зависят от количества уникальных путей индексирования.  Например, в приведенном ниже коде показано, как исключить из индексации целый раздел документов (так называемое поддерево) с помощью подстановочного знака "*".
 
-    ```C#
+    ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
     collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
@@ -180,7 +180,7 @@ Azure Cosmos DB — быстрая и гибкая распределенная
 
     Для оценки расходов на каждую операцию (создание, обновление или удаление) выберите заголовок [x-ms-request-charge](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) (или эквивалентное свойство RequestCharge на вкладке ResourceResponse<T> или FeedResponse<T> в пакете SDK для .NET), чтобы измерить число единиц запроса, используемых такими операциями.
 
-    ```C#
+    ```csharp
     // Measure the performance (request units) of writes
     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
     Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);

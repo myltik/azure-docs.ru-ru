@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: f124748434be1b8f0c4704fe6ffba70414c47916
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 963e5cfd929f57b34dcb045df82b64f870e897e2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-data-into-analytics"></a>Импорт данных в инструмент аналитики
 
@@ -196,7 +196,7 @@ ms.lasthandoff: 11/01/2017
 
 ### <a name="classes"></a>Классы
 
-```C#
+```csharp
 namespace IngestionClient 
 { 
     using System; 
@@ -355,7 +355,7 @@ namespace IngestionClient
 
 Используйте этот код для каждого большого двоичного объекта. 
 
-```C#
+```csharp
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
    var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 
@@ -363,7 +363,7 @@ namespace IngestionClient
    bool success = await client.RequestBlobIngestion(ingestionRequest);
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Знакомство с аналитикой в Application Insights](app-insights-analytics-tour.md)
 * Если вы используете Logstash, используйте [подключаемый модуль Logstash для отправки данных в Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

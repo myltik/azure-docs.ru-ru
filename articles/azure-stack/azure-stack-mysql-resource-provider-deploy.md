@@ -3,7 +3,7 @@ title: "Использование баз данных MySQL как PaaS в Azur
 description: "Узнайте, как развернуть поставщик ресурсов MySQL и предоставить базы данных MySQL как услугу в Azure Stack"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: 
 ms.service: azure-stack
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
-ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.author: mabrigg
+ms.openlocfilehash: 97344009ffb42d99824d053652594546f9f53374
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Использование баз данных MySQL в Microsoft Azure Stack
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 01/10/2018
 
 6. [Установите Azure PowerShell версии 1.2.11](azure-stack-powershell-install.md).
 
-7. Запустите скрипт DeploySqlProvider.ps1.
+7. Выполните скрипт `DeployMySqlProvider.ps1`.
 
 Этот скрипт выполняет следующие действия:
 
@@ -155,7 +155,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>Параметры DeploySqlProvider.ps1
+### <a name="deploymysqlproviderps1-parameters"></a>Параметры DeployMySqlProvider.ps1
 Эти параметры можно указать в командной строке. Если вы не зададите нужные параметры или их значения не пройдут проверку, вам будет предложено указать необходимые данные.
 
 | Имя параметра | ОПИСАНИЕ | Комментарий или значение по умолчанию |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: bbf357b902474a1812eb7a5a2c914d0c8b91934b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Механизм безопасности. Управление исключениями | Устранение угроз 
 | Продукт или служба | Статья |
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="example"></a>Пример
 Для управления кодом состояния, возвращенным API, можно использовать `HttpResponseException`, как показано ниже. 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -89,7 +89,7 @@ public Product GetProduct(int id)
 
 ### <a name="example"></a>Пример
 Для дальнейшего управления ответом исключения можно использовать класс `HttpResponseMessage`, как показано ниже. 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -109,7 +109,7 @@ public Product GetProduct(int id)
 
 ### <a name="example"></a>Пример
 Ниже приведен фильтр, который преобразует исключения `NotImplementedException` в код состояния HTTP `501, Not Implemented`. 
-```C#
+```csharp
 namespace ProductStore.Filters
 {
     using System;
@@ -137,7 +137,7 @@ namespace ProductStore.Filters
 
 ### <a name="example"></a>Пример
 Чтобы применить фильтр к определенному действию, добавьте его в качестве атрибута в действие: 
-```C#
+```csharp
 public class ProductsController : ApiController
 {
     [NotImplExceptionFilter]
@@ -150,7 +150,7 @@ public class ProductsController : ApiController
 ### <a name="example"></a>Пример
 Чтобы применить фильтр ко всем действиям в `controller`, добавьте его в качестве атрибута в класс `controller`: 
 
-```C#
+```csharp
 [NotImplExceptionFilter]
 public class ProductsController : ApiController
 {
@@ -160,14 +160,14 @@ public class ProductsController : ApiController
 
 ### <a name="example"></a>Пример
 Чтобы применить фильтр ко всем контроллерам веб-API глобально, добавьте экземпляр фильтра в коллекцию `GlobalConfiguration.Configuration.Filters`. В этой коллекции фильтры исключений применяются к любому действию контроллера веб-API. 
-```C#
+```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### <a name="example"></a>Пример
 Для проверки модели можно настроить передачу состояния модели методу CreateErrorResponse, как показано ниже. 
-```C#
+```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
     if (!ModelState.IsValid)
@@ -225,7 +225,7 @@ public HttpResponseMessage PostProduct(Product item)
 | **Действия** | Приложение должно безопасно обрабатывать ошибки. Любой метод, возвращающий логическое значение, в зависимости от принятого решения, должен содержать тщательно созданный блок исключений. Существует множество логических ошибок, из-за которых возникают проблемы с безопасностью, например при наличии небрежно созданного блока исключений.|
 
 ### <a name="example"></a>Пример
-```C#
+```csharp
         public static bool ValidateDomain(string pathToValidate, Uri currentUrl)
         {
             try

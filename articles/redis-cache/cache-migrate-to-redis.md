@@ -3,8 +3,8 @@ title: "Перенос приложений управляемой службы 
 description: "Узнайте, как перенести приложения управляемой службы кэша и приложения кэша роли в кэш Redis для Azure."
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/30/2017
-ms.author: sdanie
-ms.openlocfilehash: 0fbfb945c66926794721f2ce8cc183dac51ecb27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 0d52454ae1c2159814d4601d07259aba319e8598
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Перенос из управляемой службы кэша в кэш Redis для Azure
 Перенести приложения, которые используют управляемую службу кэша Azure, в кэш Redis для Azure можно, не внося в приложения существенных изменений. Объем изменений зависит от того, какие функции управляемой службы кэша использует ваше приложение кэширования. Хотя интерфейсы API не идентичны, они похожи, поэтому большую часть вашего кода, использующего управляемую службу кэша для доступа к кэшу, можно использовать повторно с минимальными изменениями. В этой статье показано, как внести необходимые изменения в конфигурацию и приложения, чтобы перенести приложения управляемой службы кэша для использования кэша Redis для Azure. Здесь также объясняется, как с помощью некоторых функций кэша Redis для Azure реализовать функции кэша управляемой службы кэша.
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
   * Удаление конфигурации управляемой службы кэша
   * Настройка клиента кэша с помощью пакета NuGet для StackExchange.Redis.
 * Перенос кода управляемой службы кэша.
-  * Подключение к кэшу с помощью класса ConnectionMultiplexer.
+  * Подключение к кэшу с помощью класса ConnectionMultiplexer
   * Доступ к несложным типам данных в кэше.
   * Работа с объектами .NET в кэше
 * Перенос состояний сеансов ASP.NET и кэширование выводимых данных в кэш Redis для Azure. 
@@ -125,7 +125,7 @@ ms.lasthandoff: 10/11/2017
 
 Добавьте следующий оператор using в начало любого файла, из которого вы хотите получить доступ к кэшу.
 
-```c#
+```csharp
 using StackExchange.Redis
 ```
 
@@ -138,7 +138,7 @@ using StackExchange.Redis
 
 Чтобы подключиться к экземпляру кэша Redis для Azure, вызовите статический метод `ConnectionMultiplexer.Connect` и передайте конечную точку и ключ. Один из способов совместного использования экземпляра `ConnectionMultiplexer` в приложении предполагает наличие статического свойства, которое возвращает подключенный экземпляр (как в приведенном ниже примере). Это помогает потокобезопасно инициализировать только один подключенный экземпляр `ConnectionMultiplexer` . В этих примерах для параметра `abortConnect` задано значение False, что указывает на безопасное завершение вызова, даже если подключение к кэшу не установлено. Одна из ключевых особенностей `ConnectionMultiplexer` заключается в том, что этот параметр автоматически восстанавливает соединение с кэшем, когда устраняется проблема с сетью или другие проблемы.
 
-```c#
+```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 {
     return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
@@ -155,9 +155,9 @@ public static ConnectionMultiplexer Connection
 
 Конечная точка кэша, ключи и порты указаны в колонке **Кэш Redis** вашего экземпляра кэша. Дополнительные сведения см. в разделе [Свойства кэша Redis](cache-configure.md#properties).
 
-Создав подключение, верните ссылку на базу данных кэша Redis с помощью метода `ConnectionMultiplexer.GetDatabase` . Объект, возвращенный из метода `GetDatabase` , – это упрощенный передаваемый объект, не требующий сохранения.
+Создав подключение, верните ссылку на базу данных кэша Redis с помощью метода `ConnectionMultiplexer.GetDatabase` . Объект, возвращенный из метода `GetDatabase`, – это упрощенный передаваемый объект, не требующий сохранения.
 
-```c#
+```csharp
 IDatabase cache = Connection.GetDatabase();
 
 // Perform cache operations using the cache object...
@@ -178,7 +178,7 @@ int key2 = (int)cache.StringGet("key2");
 
 Чтобы указать срок действия объекта в кэше, используйте параметр `TimeSpan` метода `StringSet`.
 
-```c#
+```csharp
 cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 ```
 
@@ -187,6 +187,6 @@ cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 ## <a name="migrate-aspnet-session-state-and-output-caching-to-azure-redis-cache"></a>Перенос состояний сеансов ASP.NET и кэширование выводимых данных в кэш Redis для Azure.
 В кэше Redis для Azure есть поставщики состояния сеанса ASP.NET и кэширования вывода страниц. Чтобы перенести приложение, использующее те версии поставщиков, которые предназначены для управляемой службы кэша, сначала нужно удалить существующие разделы из файла web.config, а затем — настроить версии поставщиков, которые использует кэш Redis для Azure. Инструкции по использованию поставщиков ASP.NET кэша Redis для Azure см. в статьях [Поставщик состояний сеансов ASP.NET для кэша Redis для Azure](cache-aspnet-session-state-provider.md) и [Поставщик кэша вывода ASP.NET для кэша Redis для Azure](cache-aspnet-output-cache-provider.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Ознакомьтесь с руководствами, образцами и видеозаписями в [документации по кэшу Redis для Azure](https://azure.microsoft.com/documentation/services/cache/) .
 

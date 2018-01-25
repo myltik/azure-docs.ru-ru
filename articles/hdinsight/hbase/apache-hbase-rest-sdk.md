@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 2175a009f084b07c10ca3a32d43c2df216cd3c2f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 083150fe5f8787ba791d3d692db73c5156f11e55
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-hbase-net-sdk"></a>Использование пакета SDK для .NET HBase
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/12/2018
 
 Чтобы использовать пакет SDK, создайте экземпляр объекта `HBaseClient`, передав в него данные `ClusterCredentials`, которые включают `Uri` вашего кластера, а также имя пользователя и пароль Hadoop.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
 client = new HBaseClient(credentials);
 ```
@@ -53,7 +53,7 @@ client = new HBaseClient(credentials);
 
 Чтобы создать новую таблицу, укажите `TableSchema` и столбцы. Следующий код проверяет, существует ли таблица RestSDKTable. Если нет, она создается.
 
-```c#
+```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 {
     // Create the table
@@ -71,7 +71,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 
 Чтобы удалить таблицу, выполните следующую команду:
 
-```c#
+```csharp
 await client.DeleteTableAsync("RestSDKTable");
 ```
 
@@ -79,7 +79,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 Для вставки данных укажите уникальный ключ строки в качестве ее идентификатора. Все данные хранятся в массиве `byte[]`. Следующий код позволяет определить и добавить столбцы `title`, `director` и `release_date` в семейство столбцов t1, так как к ним наиболее часто осуществляется доступ. Столбцы `description` и `tagline` добавляются в семейство столбцов t2. При необходимости можно разделить данные на семейства столбцов.
 
-```c#
+```csharp
 var key = "fifth_element";
 var row = new CellSet.Row { key = Encoding.UTF8.GetBytes(key) };
 var value = new Cell
@@ -127,7 +127,7 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 Для чтения данных из таблицы HBase передайте имя таблицы и ключ строки в метод `GetCellsAsync`, который возвращает `CellSet`.
 
-```c#
+```csharp
 var key = "fifth_element";
 
 var cells = await client.GetCellsAsync("RestSDKTable", key);
@@ -141,7 +141,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 
 В этом случае код возвращает только первую совпадающую строку, так как уникальному ключу должна соответствовать только одна строка. Возвращаемое значение преобразуется в формат `string` из массива `byte[]`. Также это значение можно преобразовать в другие типы, например целочисленный для даты выпуска фильма:
 
-```c#
+```csharp
 var releaseDateField = cells.rows[0].values
     .Find(c => Encoding.UTF8.GetString(c.column) == "t1:release_date");
 int releaseDate = 0;
@@ -158,7 +158,7 @@ Console.WriteLine(releaseDate);
 
 В HBase используется `scan` для получения одной или нескольких строк. В этом примере запрашивается множество строк пакетами по 10 и возвращаются данные, значения ключей которых находятся в диапазоне от 25 до 35. После получения всех строк удалите сканер для освобождения ресурсов.
 
-```c#
+```csharp
 var tableName = "mytablename";
 
 // Assume the table has integer keys and we want data between keys 25 and 35

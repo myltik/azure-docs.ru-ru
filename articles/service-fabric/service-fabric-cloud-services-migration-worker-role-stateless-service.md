@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d6dc1cddd6228d2841e1e77b6f2800f788e5e1bb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Руководство по преобразованию рабочих ролей и веб-ролей в службы без отслеживания состояния Service Fabric
 В этой статье описано, как переносить рабочие роли и веб-роли облачных служб в службы без отслеживания состояния Service Fabric. Это самый простой способ переноса из облачных служб в службы Service Fabric при работе с приложениями, общая архитектура которых почти не изменяется.
@@ -40,10 +40,10 @@ ms.lasthandoff: 11/04/2017
 
 | **Приложения** | **Поддерживаются** | **Путь перехода** |
 | --- | --- | --- |
-| Веб-формы ASP.NET |Нет |Преобразование в ASP.NET Core 1 MVC |
+| Веб-формы ASP.NET |Нет  |Преобразование в ASP.NET Core 1 MVC |
 | ASP.NET MVC 3 |С переносом |Обновление до ASP.NET Core 1 MVC |
 | Веб-API ASP.NET |С переносом |Использование автономно размещаемого сервера или компонента ASP.NET Core 1 |
-| ASP.NET Core 1 |Да |Недоступно |
+| ASP.NET Core 1 |Yes |Недоступно |
 
 ## <a name="entry-point-api-and-lifecycle"></a>Жизненный цикл и интерфейс API точки входа
 Рабочая роль и интерфейсы API службы Service Fabric дают возможность использовать похожие точки входа. 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/04/2017
 | Открытие прослушивателя для запросов клиентов |Недоступно |<ul><li> `CreateServiceInstanceListener()` для служб без отслеживания состояния</li><li>`CreateServiceReplicaListener()` для служб с отслеживанием состояния</li></ul> |
 
 ### <a name="worker-role"></a>Рабочая роль
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -81,7 +81,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Служба без отслеживания состояния Service Fabric
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -107,7 +107,7 @@ namespace Stateless1
 
 И роль, и служба имеют основной компонент переопределения Run, с которого и начинается обработка. Службы Service Fabric объединяют `Run`, `Start` и `Stop` в одну точку входа, `RunAsync`. Ваша служба должна начать работу после запуска `RunAsync`. Она должна завершить работу, когда маркер CancellationToken метода `RunAsync` получает оповещение. 
 
-Существует несколько ключевых различий между жизненным циклом и временем существования рабочих ролей и служб Service Fabric.
+Существует несколько ключевых различий между жизненным циклом и временем существования рабочих ролей и служб Service Fabric:
 
 * **Жизненный цикл:** главное отличие заключается в том, что рабочая роль — это виртуальная машина, поэтому ее жизненный цикл привязан к виртуальной машине (например, в нем учитываются события запуска и остановки виртуальной машины). Жизненный цикл службы Service Fabric отделен от жизненного цикла виртуальной машины и поэтому не включает в себя события запуска и остановки (основной) виртуальной машины.
 * **Время существования**: если метод `Run` завершает работу, выполняется повторный запуск экземпляра рабочей роли. Тем не менее метод `RunAsync` в службе Service Fabric может выполняться столько, сколько нужно, и экземпляр службы выключаться не будет. 
@@ -138,7 +138,7 @@ namespace Stateless1
 #### <a name="cloud-services"></a>Облачные службы
 Доступ к параметрам конфигурации из файла ServiceConfiguration.*.cscfg можно получить с помощью атрибута `RoleEnvironment`. Эти параметры доступны глобально всем экземплярам ролей в одном развертывании облачной службы.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -149,7 +149,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
 Доступ к параметрам конфигурации можно получить в пределах каждого экземпляра службы через атрибут `CodePackageActivationContext`службы.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -170,7 +170,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### <a name="cloud-services"></a>Облачные службы
 Событие `RoleEnvironment.Changed` оповещает все экземпляры ролей, когда в среде происходит изменение, например изменение конфигурации. Это позволяет интегрировать обновления конфигурации без перезапуска экземпляров ролей и рабочих процессов.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -191,7 +191,7 @@ foreach (var settingChange in settingChanges)
 
 Эти события позволяют интегрировать изменения, которые содержит пакет обновления, без перезапуска экземпляра службы.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
@@ -251,7 +251,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="a-note-about-development-environment"></a>Примечание о среде разработки
 Облачные службы и платформа Service Fabric интегрированы с шаблонами проектов в Visual Studio и поддерживают (локально и в Azure) отладку, настройку и развертывание. Кроме того, облачные службы и платформа Service Fabric дают возможность пользоваться локальной средой выполнения разработки. Различие заключается в том, что среда выполнения разработки облачных служб эмулирует среду Azure, в которой она запущена, тогда как платформа Service Fabric использует не эмулятор, а полноценную среду Service Fabric. Среда Service Fabric, в которой вы работаете на компьютере локальной разработки, — это та же среда, которая используется как рабочая.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Чтобы узнать, как эффективно пользоваться всеми функциями Service Fabric, ознакомьтесь с дополнительными сведениями о службах Reliable Services платформы Service Fabric и фундаментальных различиях между облачными службами и архитектурой приложений Service Fabric.
 
 * [Начало работы со службами Reliable Services в Service Fabric](service-fabric-reliable-services-quick-start.md)

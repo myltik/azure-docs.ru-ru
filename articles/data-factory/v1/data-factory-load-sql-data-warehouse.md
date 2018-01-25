@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8398a261ca33060b7709d818cb64bb1e8e2058b1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Загрузка 1 ТБ в хранилище данных SQL Azure с помощью фабрики данных менее чем за 15 минут
 > [!NOTE]
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/02/2017
 >
 >
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Хранилище BLOB-объектов Azure: в этом эксперименте хранилище BLOB-объектов Azure (GRS) используется для хранения тестового набора данных TPC-H.  Если у вас нет учетной записи хранения Azure, узнайте, как [создать учетную запись хранения](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * Данные [TPC-H](http://www.tpc.org/tpch/): в качестве тестового набора данных мы будем использовать TPC-H.  Для этого необходимо использовать `dbgen` из набора средств TPC-H. Это поможет создать набор данных.  Можно скачать исходный код `dbgen` из [инструментов TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) и скомпилировать его или скачать скомпилированный двоичный файл с сайта [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Выполните dbgen.exe с приведенными ниже командами, чтобы создать неструктурированный файл размером в 1 ТБ для таблицы `lineitem`, распределенной на 10 файлов.
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 11/02/2017
       2. выберите **Создать** и введите имя для группы ресурсов.
    4. Укажите **расположение** фабрики данных.
    5. Установите флажок **Закрепить на панели мониторинга** в нижней части колонки.  
-   6. Щелкните **Создать**.
+   6. Нажмите кнопку **Создать**.
 4. После создания вы увидите колонку **Фабрика данных**, как показано на рисунке ниже.
 
    ![Домашняя страница фабрики данных](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/02/2017
 
 1. В качестве **имени задачи** введите **CopyFromBlobToAzureSqlDataWarehouse**.
 2. Выберите параметр **Run once now** (Запустить сейчас один раз).   
-3. Щелкните **Далее**.  
+3. Нажмите кнопку **Далее**.  
 
     ![Мастер копирования — страница "Свойства"](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/02/2017
 
 ## <a name="step-4-performance-settings"></a>Шаг 4. Настройки производительности
 
-Флажок **Allow polybase** (Разрешить использование PolyBase) установлен по умолчанию.  Щелкните **Далее**.
+Флажок **Allow polybase** (Разрешить использование PolyBase) установлен по умолчанию.  Нажмите кнопку **Далее**.
 
 ![Мастер копирования — страница сопоставления столбцов](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
@@ -214,6 +214,6 @@ ms.lasthandoff: 11/02/2017
 
 Дополнительные сведения см. в разделе [Рекомендации по использованию хранилища данных SQL Azure](../../sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Мастер копирования фабрики данных](data-factory-copy-wizard.md). В этой статье приведены сведения о мастере копирования.
 * [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md). Эта статья содержит эталонные измерения производительности и руководство по настройке.

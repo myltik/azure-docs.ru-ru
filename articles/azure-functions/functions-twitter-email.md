@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8137892c4360a6b55cfe48d62226c2421a791d5e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Создание функции, интегрируемой с Azure Logic Apps
 
@@ -288,5 +288,5 @@ API-интерфейсы Cognitive Services доступны как отдель
 > [!div class="nextstepaction"] 
 > [Создание бессерверного API с помощью Функций Azure](functions-create-serverless-api.md)
 
-Дополнительные сведения об Azure Logic Apps см. в [этой статье](../logic-apps/logic-apps-what-are-logic-apps.md).
+Дополнительные сведения об Azure Logic Apps см. в [этой статье](../logic-apps/logic-apps-overview.md).
 

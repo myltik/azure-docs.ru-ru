@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: d9eb4407e537d6a6d45c2fb685c3dcd37bd511a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: d73bb33b4b330df803e140145ed63319af4a6733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Запуск модулей runbook в гибридной рабочей роли Runbook 
 В структуре модулей Runbook, которые работают в службе автоматизации Azure, отсутствует разница между ними и теми модулями, которые работают в гибридном компоненте Runbook Worker. Модули runbook, которые используются в каждом из этих вариантов, скорее всего, будут значительно различаться. Причина — модули runbook для гибридной рабочей роли Runbook обычно управляют ресурсами на самом локальном компьютере или ресурсами в локальной среде, в которой они развернуты, а модули runbook в службе автоматизации Azure, как правило, управляют ресурсами в облаке Azure.
@@ -144,7 +144,7 @@ ms.lasthandoff: 12/14/2017
     Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
 
     # List automation accounts to confirm Azure Resource Manager calls are working
-    Get-AzureRmAutomationAccount | Select AutomationAccountName
+    Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 
 Сохраните модуль runbook *Export-RunAsCertificateToHybridWorker* на компьютер с расширением `.ps1`.  Импортируйте модуль runbook в учетную запись автоматизации и замените значение переменной `$Password` своим паролем.  Опубликуйте и запустите модуль runbook для группы гибридных рабочих ролей, в которой для запуска и аутентификации модулей runbook применяется учетная запись запуска от имени.  Поток заданий сообщает о попытке импортировать сертификат в хранилище локального компьютера, а затем передает несколько строк с сообщениями в зависимости от числа учетных записей автоматизации, которые определены в подписке, и успешности аутентификации.  
 
@@ -155,6 +155,6 @@ ms.lasthandoff: 12/14/2017
 
 Если ваши модули runbook выполняются с ошибками, а сводка о задании отображает состояние **Приостановлено**, изучите инструкции по устранению неполадок в статье [Гибридная рабочая роль Runbook. Задание Runbook завершается с состоянием "Приостановлено"](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).   
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о разных методах запуска модуля см. в статье [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md).  
 * Описание разных методов работы с модулями Runbook PowerShell и рабочими процессами PowerShell в службе автоматизации Azure с использованием текстового редактора см. в статье [Изменение текстовых модулей Runbook в службе автоматизации Azure](automation-edit-textual-runbook.md).

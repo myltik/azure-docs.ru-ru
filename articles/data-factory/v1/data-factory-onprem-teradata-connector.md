@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 860d32f26616c1e1a92254ef288df2e3367fdf1c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2f4ae056dfa1bf6b2faabcb100ac82b38da9e361
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Перемещение данных из Teradata с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,11 +29,11 @@ ms.lasthandoff: 11/03/2017
 > [!NOTE]
 > Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, см. статью [Copy data from Teradata using Azure Data Factory](../connector-teradata.md) (Копирование данных из Teradata с помощью фабрики данных Azure).
 
-В этой статье рассказывается, как с помощью действия копирования в фабрике данных Azure перемещать данные из локальной базы данных Teradata. Это продолжение статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования.
+В этой статье рассказывается, как с помощью действия копирования в фабрике данных Azure перемещать данные из локальной базы данных Teradata. Этот документ является продолжением статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования.
 
 Вы можете скопировать данные из локального хранилища данных Teradata в любой поддерживаемый приемник данных. Список хранилищ данных, которые поддерживаются в качестве приемников для действия копирования, приведен в таблице [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Сейчас фабрика данных поддерживает только перемещение данных из локального хранилища данных Teradata в другие хранилища данных, но не наоборот. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Фабрика данных поддерживает подключение к локальным источникам Teradata с помощью шлюза управления данными. В статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md) приведены сведения о шлюзе управления данными и пошаговые инструкции по его настройке.
 
 Шлюз является обязательным, даже если база данных Teradata размещается на виртуальной машине (ВМ) Azure IaaS. Шлюз можно установить на той же ВМ IaaS, на которой размещается хранилище данных, или на другой ВМ. Важно, чтобы шлюз мог подключиться к базе данных.
@@ -63,14 +63,14 @@ ms.lasthandoff: 11/03/2017
 ## <a name="linked-service-properties"></a>Свойства связанной службы
 В следующей таблице содержится описание элементов JSON, которые относятся к связанной службе Teradata.
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательно |
 | --- | --- | --- |
-| type |Для свойства type необходимо задать значение **OnPremisesTeradata** |Да |
-| server |Имя сервера Teradata. |Да |
-| authenticationType |Тип проверки подлинности, используемый для подключения к базе данных Teradata. Возможными значениями являются: анонимная, обычная и Windows. |Да |
-| Имя пользователя |При использовании обычной проверки подлинности или проверки подлинности Windows укажите имя пользователя. |Нет |
-| пароль |Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. |Нет |
-| gatewayName |Имя шлюза, который следует использовать службе фабрики данных для подключения к локальной базе данных Teradata. |Да |
+| Тип |Для свойства type необходимо задать значение **OnPremisesTeradata** |Yes |
+| server |Имя сервера Teradata. |Yes |
+| authenticationType |Тип проверки подлинности, используемый для подключения к базе данных Teradata. Возможными значениями являются: анонимная, обычная и Windows. |Yes |
+| Имя пользователя |При использовании обычной проверки подлинности или проверки подлинности Windows укажите имя пользователя. |Нет  |
+| password |Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. |Нет  |
+| gatewayName |Имя шлюза, который следует использовать службе фабрики данных для подключения к локальной базе данных Teradata. |Yes |
 
 ## <a name="dataset-properties"></a>Свойства набора данных
 Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
@@ -84,9 +84,9 @@ ms.lasthandoff: 11/03/2017
 
 Если источник относится к типу **RelationalSource** (который содержит Teradata), то в разделе **typeProperties** доступны следующие свойства:
 
-| Свойство | Описание | Допустимые значения | Обязательно |
+| Свойство | ОПИСАНИЕ | Допустимые значения | Обязательно |
 | --- | --- | --- | --- |
-| query |Используйте пользовательский запрос для чтения данных. |Строка запроса SQL. Например, select * from MyTable. |Да |
+| query |Используйте пользовательский запрос для чтения данных. |Строка запроса SQL. Например, select * from MyTable. |Yes |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>Пример JSON. Копирование данных из Teradata в большой двоичный объект Azure
 Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Вы узнаете, как копировать данные из Teradata в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приемников. Это делается с помощью действия копирования в фабрике данных Azure.   
@@ -298,24 +298,24 @@ ms.lasthandoff: 11/03/2017
 | ByteInt |Int16 |
 | Decimal |Decimal |
 | Double |Double |
-| Число |Int32 |
-| Число |Double |
+| Целое число  |Int32 |
+| Number |Double |
 | SmallInt |Int16 |
-| Дата |DateTime |
-| Время |TimeSpan |
+| Дата |Datetime |
+| Время |Интервал времени |
 | Time With Time Zone |Строка |
-| Timestamp |DateTime |
+| Timestamp |Datetime |
 | Timestamp With Time Zone |DateTimeOffset |
-| Interval Day |TimeSpan |
-| Interval Day To Hour |TimeSpan |
-| Interval Day To Minute |TimeSpan |
-| Interval Day To Second |TimeSpan |
-| Interval Hour |TimeSpan |
-| Interval Hour To Minute |TimeSpan |
-| Interval Hour To Second |TimeSpan |
-| Interval Minute |TimeSpan |
-| Interval Minute To Second |TimeSpan |
-| Interval Second |TimeSpan |
+| Interval Day |Интервал времени |
+| Interval Day To Hour |Интервал времени |
+| Interval Day To Minute |Интервал времени |
+| Interval Day To Second |Интервал времени |
+| Interval Hour |Интервал времени |
+| Interval Hour To Minute |Интервал времени |
+| Interval Hour To Second |Интервал времени |
+| Interval Minute |Интервал времени |
+| Interval Minute To Second |Интервал времени |
+| Interval Second |Интервал времени |
 | Interval Year |Строка |
 | Interval Year To Month |Строка |
 | Interval Month |Строка |
@@ -324,7 +324,7 @@ ms.lasthandoff: 11/03/2017
 | Period(Time With Time Zone) |Строка |
 | Period(Timestamp) |Строка |
 | Period(Timestamp With Time Zone) |Строка |
-| Xml |Строка |
+| xml |Строка |
 
 ## <a name="map-source-to-sink-columns"></a>Сопоставление столбцов источника и приемника
 Дополнительные сведения о сопоставлении столбцов в наборе данных, используемом в качестве источника, со столбцами в приемнике см. в [этой статье](data-factory-map-columns.md).

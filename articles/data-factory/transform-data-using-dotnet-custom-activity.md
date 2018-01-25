@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 2674b431ba610bccb92f6b209970af1fab110f48
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Использование настраиваемых действий в конвейере фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,7 +105,7 @@ ms.lasthandoff: 01/12/2018
 
 В следующей таблице описаны имена и описания свойств, относящихся к этому действию. 
 
-| Свойство              | ОПИСАНИЕ                              | Обязательное значение |
+| Свойство              | ОПИСАНИЕ                              | Обязательно |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | Имя действия в конвейере.     | Yes      |
 | description           | Описание действия.  | Нет        |
@@ -202,7 +202,7 @@ ms.lasthandoff: 01/12/2018
 
 В следующем примере кода показано, как SampleApp.exe может получить доступ к необходимой информации в JSON-файлах. 
 
-```C#
+```csharp
 using Newtonsoft.Json;
 using System;
 using System.IO;

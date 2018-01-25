@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: f3b29db2dd74e6b3c0c066045d05cb853d1541f8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f57260b2ee280aa0f49f42cd145477205926cb0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="phoenix-query-server-rest-sdk"></a>Пакет REST SDK для Phoenix Query Server
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/12/2018
 
 Чтобы начать использовать библиотеку, создайте новый экземпляр объекта `PhoenixClient`, передав в него данные `ClusterCredentials`, содержащие `Uri` вашего кластера, а также имя пользователя и пароль Hadoop.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
@@ -50,7 +50,7 @@ client = new PhoenixClient(credentials);
 
 Чтобы отправить один или несколько запросов к PQS, необходимо добавить уникальный идентификатор подключения для связывания запросов с подключением.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 ```
 
@@ -60,7 +60,7 @@ string connId = Guid.NewGuid().ToString();
 
 Для вызова `ConnectionSyncRequestAsync` передайте объект `ConnectionProperties`.
 
-```c#
+```csharp
 ConnectionProperties connProperties = new ConnectionProperties
 {
     HasAutoCommit = true,
@@ -102,7 +102,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 В этом и всех последующих примерах используется экземпляр объекта `PhoenixClient`, описанный в разделе [Создание экземпляра объекта PhoenixClient](#instantiate-new-phoenixclient-object).
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 
@@ -172,13 +172,13 @@ finally
 
 В этом примере показана отдельная вставка данных, ссылающаяся на коллекцию `List<string>` сокращений штатов и территорий США:
 
-```c#
+```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
 Значение столбца `StateProvince` таблицы будет использоваться в последующей операции выбора.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -289,7 +289,7 @@ finally
 
 Следующий код почти идентичен коду для вставки данных по отдельности. В этом примере используется объект `UpdateBatch` при вызове `ExecuteBatchRequestAsync` вместо повторяющегося вызова `ExecuteRequestAsync` с подготовленной инструкцией.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -407,7 +407,7 @@ finally
 2. Используйте инструкцию select с полным подсчетом строк для получения единичного скалярного результата.
 3. Выполните инструкцию select, которая возвращает общее количество клиентов по каждому штату или территории.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: fe02adafbf96df22462683c69813b05c182d3106
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Настройка Application Insights: отслеживание зависимостей
 *Зависимость* – это внешний компонент, который вызывается приложением. Как правило, это служба, вызываемая с использованием HTTP, база данных или файловая система. [Application Insights](app-insights-overview.md) измеряет время, в течение которого приложение ожидает зависимости, и определяет, как часто происходит сбой вызова зависимости. Можно изучить определенные вызовы и установить их взаимосвязь с теми или иными запросами и исключениями.
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="set-up-dependency-monitoring"></a>Настройка мониторинга зависимостей
 Неполные сведения о зависимостях собираются автоматически [пакетом SDK для Application Insights](app-insights-asp-net.md). Чтобы получить полные данные, установите соответствующий агент для сервера узла.
 
-| платформа | Установить |
+| платформа | Install |
 | --- | --- |
 | Сервер IIS |[Установите монитор состояний на сервере](app-insights-monitor-performance-live-website-now.md) или [обновите свое приложение до .NET Framework 4.6 или более поздней версии](http://go.microsoft.com/fwlink/?LinkId=528259) и установите в нем [пакет SDK для Application Insights](app-insights-asp-net.md). |
 | Веб-приложение Azure |На панели управления веб-приложения [откройте колонку "Application Insights"](app-insights-azure-web-apps.md) и при появлении соответствующего запроса выберите "Установить". |
@@ -62,7 +62,7 @@ ms.lasthandoff: 11/01/2017
 * **Из полей перейдите** к соответствующей зависимости и другим диаграммам.
 * **Закрепите схему сопоставления** на [панели мониторинга](app-insights-dashboards.md), где она будет полностью функциональной.
 
-[Подробнее](app-insights-app-map.md).
+[Узнайте больше](app-insights-app-map.md).
 
 ## <a name="performance-and-failure-blades"></a>Колонки "Производительность" и "Сбой"
 В колонке "Производительность" отображается длительность вызовов зависимостей, выполненных серверным приложением. Она содержит сводную диаграмму и таблицу, разбитую по вызовам.
@@ -178,7 +178,7 @@ ms.lasthandoff: 11/01/2017
 
 Например, формируя код на основе готовой сборки, можно назначить время для всех вызовов этого кода и таким образом выяснить, как он влияет на время отклика вашей системы. Чтобы эти данные отображались в диаграммах зависимостей в Application Insights, используйте для их отправки командлет `TrackDependency`.
 
-```C#
+```csharp
 
             var startTime = DateTime.UtcNow;
             var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -208,7 +208,7 @@ ms.lasthandoff: 11/01/2017
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Исключения](app-insights-asp-net-exceptions.md)
 * [Данные пользователей и страниц](app-insights-javascript.md)
 * [Доступность](app-insights-monitor-web-app-availability.md)
