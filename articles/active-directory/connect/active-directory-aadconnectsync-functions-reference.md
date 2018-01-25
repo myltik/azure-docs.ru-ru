@@ -1,4 +1,4 @@
----
+﻿---
 title: "Синхронизация Azure AD Connect: справочник по функциям | Документация Майкрософт"
 description: "Общие сведения о выражениях декларативной подготовки в Azure AD Connect Sync"
 services: active-directory
