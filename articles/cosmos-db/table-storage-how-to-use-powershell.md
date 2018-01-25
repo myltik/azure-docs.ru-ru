@@ -1,24 +1,24 @@
 ---
 title: "Выполнение операций в хранилище таблиц Azure с помощью PowerShell | Документация Майкрософт"
 description: "Выполнение операций в хранилище таблиц Azure с помощью PowerShell"
-services: storage
+services: cosmos-db
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: 
-ms.service: storage
-ms.workload: storage
+ms.service: cosmos-db
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 0174b6fe02008a1c22a165b077c694af7e8618ab
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Выполнение операций в хранилище таблиц Azure с помощью Azure PowerShell 
 
@@ -137,7 +137,7 @@ Get-AzureStorageTable –Context $Ctx | select Name
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом практическом руководстве описаны распространенные операции в хранилище таблиц Azure, выполняемые с помощью PowerShell, в частности: 
 

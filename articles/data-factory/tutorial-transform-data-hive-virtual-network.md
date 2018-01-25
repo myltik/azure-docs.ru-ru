@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: c15d723efdcf273c86f54ddce04904ce1a274631
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 30456a30c12d39ceb14dec6cd60015916cb7ae27
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Преобразование данных в виртуальной сети Azure с помощью действия Hive в фабрике данных Azure
 В этом руководстве с помощью Azure PowerShell вы создадите конвейер фабрики данных, который преобразует данные, используя действие Hive в кластере HDInsight, находящемся в виртуальной сети Azure (VNet). В этом руководстве вы выполните следующие шаги:
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/06/2017
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 - **Учетная запись хранения Azure.** Создайте скрипт Hive и отправьте его в хранилище Azure. Выходные данные скрипта Hive хранятся в этой учетной записи хранения. В этом примере кластер HDInsight использует эту учетную запись хранения Azure в качестве основного хранилища. 
 - **Виртуальная сеть Azure.** Если у вас нет виртуальной сети Azure, создайте ее, выполнив [эти инструкции](../virtual-network/virtual-network-get-started-vnet-subnet.md). В этом примере HDInsight находится в виртуальной сети Azure. Ниже приведен образец конфигурации виртуальной сети Azure. 
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/06/2017
 
  
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 
 
 1. Укажите имя группы ресурсов. В этом руководстве вы создадите группу ресурсов. Но при необходимости можно использовать существующую группу ресурсов. 
@@ -293,7 +293,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
 
 ## <a name="start-the-pipeline"></a>Запуск конвейера 
 
-1. Запустите конвейер. Эта команда также запишет идентификатор выполнения конвейера для будущего мониторинга.
+1. Запуск конвейера. Эта команда также запишет идентификатор выполнения конвейера для будущего мониторинга.
 
     ```powershell
     $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
@@ -394,7 +394,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
    246 en-US SCH-i500 District Of Columbia
    ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом руководстве вы выполнили следующие шаги: 
 
 > [!div class="checklist"]

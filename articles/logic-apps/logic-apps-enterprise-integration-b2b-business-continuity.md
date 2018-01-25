@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Межрегиональное аварийное восстановление Logic Apps B2B
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Выбор параметров проверки дублирования](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Создайте [приложение логики](../logic-apps/logic-apps-create-a-logic-app.md) в дополнительном регионе.    
+1. Создайте [приложение логики](../logic-apps/quickstart-create-first-logic-app-workflow.md) в дополнительном регионе.    
 
 2. Выполните поиск **X12** и выберите **X12 — при изменении контрольного номера**.   
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Выбор параметров проверки дублирования](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Создайте [приложение логики](../logic-apps/logic-apps-create-a-logic-app.md) в дополнительном регионе.    
+1. Создайте [приложение логики](../logic-apps/quickstart-create-first-logic-app-workflow.md) в дополнительном регионе.    
 
 2. Выполните поиск **EDIFACT** и выберите **EDIFACT — при изменении контрольного номера**.
 
@@ -199,7 +199,7 @@ ms.lasthandoff: 10/11/2017
 > [!TIP]
 > Чтобы создать приложения логики, вы также можете использовать [шаблон быстрого запуска AS2](https://github.com/Azure/azure-quickstart-templates/pull/3302). Для использования этого шаблона необходимо создать учетные записи интеграции для основного и дополнительного регионов. Шаблон позволяет создать приложение логики с триггером и действием. Приложение логики создает подключение от триггера к учетной записи интеграции для основного региона и подключение от действия к учетной записи интеграции для дополнительного региона.
 
-1. Создайте [приложение логики](../logic-apps/logic-apps-create-a-logic-app.md) в дополнительном регионе.  
+1. Создайте [приложение логики](../logic-apps/quickstart-create-first-logic-app-workflow.md) в дополнительном регионе.  
 
 2. Выполните поиск **AS2** и выберите **AS2 — When a MIC value is created** (AS2 — При создании значения MIC).   
 
@@ -243,7 +243,7 @@ ms.lasthandoff: 10/11/2017
 
 В зависимости от интервала времени дополнительное состояние о среде выполнения реплицируется из основного региона в дополнительный. Во время аварийного события, когда основной регион является недоступным, перенаправьте трафик к дополнительному региону для обеспечения непрерывности бизнес-процессов. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Мониторинг сообщений B2B](logic-apps-monitor-b2b-message.md)
 

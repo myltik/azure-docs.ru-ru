@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a90ac77cd605a41f1fc7d0958662a7e752e3849
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Краткое руководство. Запуск задания Spark в Azure Databricks с помощью портала Azure
 
@@ -38,10 +38,7 @@ ms.lasthandoff: 12/05/2017
 
 2. В разделе **Azure Databricks (предварительная версия)** выберите **Создать**.
 
-    > [!NOTE]
-    > Сейчас Azure Databricks находится в ограниченной предварительной версии. Если вы хотите, чтобы ваша подписка Azure учитывалась при создании списка разрешений для предварительной версии, необходимо заполнить [форму регистрации](https://databricks.azurewebsites.net/).
-
-2. В разделе **службы Azure Databricks** укажите следующие значения:
+3. В разделе **службы Azure Databricks** укажите следующие значения:
 
     ![Создание рабочей области Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
@@ -50,7 +47,7 @@ ms.lasthandoff: 12/05/2017
     * Для параметра **Группа ресурсов** укажите, хотите ли вы создать группу ресурсов или использовать имеющуюся. Группа ресурсов — это контейнер, содержащий связанные ресурсы для решения Azure. Дополнительные сведения см. в [обзоре группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md).
     * Для параметра **Расположение** выберите **Восточная часть США 2**. Другие доступные регионы см. в статье о [доступности служб Azure по регионам](https://azure.microsoft.com/regions/services/).
 
-3. Щелкните **Создать**.
+4. Нажмите кнопку **Создать**.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Создание кластера Spark в Databricks
 
@@ -89,7 +86,7 @@ ms.lasthandoff: 12/05/2017
 
     ![Создание записной книжки в Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Create notebook in Databricks")
 
-    Щелкните **Создать**.
+    Нажмите кнопку **Создать**.
 
 3. В указанном ниже фрагменте кода замените `{YOUR STORAGE ACCOUNT NAME}` именем созданной учетной записи хранения Azure, а `{YOUR STORAGE ACCOUNT ACCESS KEY}` — ключом доступа учетной записи хранения. Вставьте фрагмент кода в пустую ячейку в записной книжке и нажмите сочетание клавиш SHIFT + ВВОД, чтобы запустить ячейку кода. В этом фрагменте кода настраивается записная книжка для считывания данных из хранилища BLOB-объектов Azure.
 
@@ -155,7 +152,7 @@ ms.lasthandoff: 12/05/2017
 
 ![Завершение работы кластера Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Terminate Databricks cluster")
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этой статье вы создали кластер Spark в Azure Databricks и запустили задание Spark, используя данные в хранилище Azure. Вы также можете просмотреть [источники данных Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html), чтобы узнать, как импортировать данные из источников данных в Azure Databricks. Перейдите к следующей статье, чтобы узнать, как использовать Azure Data Lake Store с Azure Databricks.
 

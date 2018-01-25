@@ -3,8 +3,8 @@ title: "Импорт и экспорт данных в кэше Redis для Azu
 description: "Вы можете узнать, как импортировать данные в хранилище BLOB-объектов и экспортировать их оттуда с использованием экземпляров кэша Redis для Azure категории \"Премиум\""
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 4a68ac38-87af-4075-adab-569d37d7cc9e
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
-ms.author: sdanie
-ms.openlocfilehash: 22cdf9f596d8a6057a2c847ea5bb4fc485db8637
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.author: wesmc
+ms.openlocfilehash: db488f759752880a47a78dfeec13b14f65bd503c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Импорт и экспорт данных в кэше Redis для Azure
 Импорта и экспорт являются операциями управления данными в кэше Redis для Azure, которые позволяют импортировать данные в кэш Redis для Azure или экспортировать их оттуда путем импорта и экспорта моментального снимка базы данных кэша Redis (RDB) из кэша уровня "Премиум" в большой двоичный объект в учетной записи хранения Azure. 
@@ -157,7 +157,7 @@ ms.lasthandoff: 12/20/2017
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>При экспорте данных в хранилище BLOB-объектов возникает ошибка. Что произошло?
 Функция экспорта работает только с RDB-файлами, сохраненными в виде страничных BLOB-объектов. Другие типы больших двоичных объектов пока не поддерживаются, включая учетные записи хранилища BLOB-объектов с "горячим" и "холодным" уровнями. Дополнительные сведения см. в разделе [Учетные записи хранения BLOB-объектов](../storage/common/storage-account-options.md#blob-storage-accounts).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте, как использовать расширенные функции кэша.
 
 * [Знакомство с кэшем Redis для Azure уровня Премиум](cache-premium-tier-intro.md)    

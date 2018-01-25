@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 7dc149f55c2caf4c3ab3a4782fd71affde0694ca
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a55d6dc212da05d7c14679579258e28921fecdc8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Использование нескольких входных файлов и свойств компонентов в кодировщике Premium
 ## <a name="overview"></a>Обзор
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/07/2017
 
 Ниже приведен код C#, который считывает XML-файл конфигурации, обновляет его, добавляя правильное имя видеофайла, и передает его в задачу в задании.
 
-```c#
+```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
 // Declare a new job.
@@ -415,7 +415,7 @@ XML-файл со списком клипов можно указать в ра�
 
 При использовании пакета SDK для .NET для создания и запуска задачи эти XML-данные необходимо передать в качестве строки конфигурации.
 
-```c#
+```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 
@@ -464,7 +464,7 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 
 * Закодированный ресурс будет содержать звуковые дорожки на нескольких языках, которые будут доступны для выбора в Проигрывателе мультимедиа Azure.
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Знакомство со Службой кодирования категории "Премиум" в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Использование Службы кодирования категории "Премиум" в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Обзор и сравнение кодировщиков мультимедиа Azure по запросу](media-services-encode-asset.md#media-encoder-premium-workflow)

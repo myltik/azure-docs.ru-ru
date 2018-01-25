@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b734a76545dbcbddac3c7ad7beae60d662a9129
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Руководство. Копирование данных из локальной базы данных SQL Server в хранилище BLOB-объектов Azure
 В этом руководстве вы создадите конвейер фабрики данных, в котором данные из локальной базы данных SQL Server копируются в хранилище BLOB-объектов Azure, с помощью пользовательского интерфейса службы "Фабрика данных Azure". Вы создадите и будете использовать локальную среду выполнения интеграции, которая перемещает данные между локальным и облачным хранилищами данных. 
@@ -191,7 +191,7 @@ ms.lasthandoff: 01/18/2018
 11. В окне **Экспресс-установка Integration Runtime (Self-hosted)** щелкните **Закрыть**. 
 
    ![Настройка среды выполнения интеграции — успешное завершение](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. В окне веб-браузера **Integration Runtime Setup** (Настройка среды выполнения интеграции) нажмите кнопку **Готово**. Теперь вы вернетесь к окну **New Linked Service** (Новая связанная служба).
+12. В окне веб-браузера **Integration Runtime Setup** (Настройка среды выполнения интеграции) нажмите кнопку **Готово**. 
 
    ![Настройка среды выполнения интеграции — завершение](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 13. В окне **New Linked Service** (Новая связанная служба) выполните следующие действия:

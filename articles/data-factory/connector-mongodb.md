@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ddbd27bd832c6fc3c7a0274095d6d203ecf1092a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Копирование данных из MongoDB с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/11/2018
 - MongoDB **версии 2.4, 2.6, 3.0 и 3.2**.
 - Копирование данных с использованием **базовой** или **анонимной** проверки подлинности.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы копировать данные из базы данных MongoDB, которая не является общедоступной, необходимо настроить локальную среду выполнения интеграции. Дополнительные сведения см. в статье [Создание и настройка локальной среды выполнения интеграции](create-self-hosted-integration-runtime.md). Среда выполнения интеграции предоставляет встроенный драйвер MongoDB, поэтому при копировании данных из MongoDB вам не потребуется устанавливать драйвер вручную.
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы MongoDB поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип |Для свойства type необходимо задать значение **MongoDB** |Yes |
 | server |IP-адрес или имя узла сервера MongoDB |Yes |
@@ -96,7 +96,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные из MongoDB, установите свойство типа набора данных **MongoDbCollection**. Поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type должно иметь значение **MongoDbCollection**. | Yes |
 | collectionName |Имя коллекции в базе данных MongoDB |Yes |
@@ -127,7 +127,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы копировать данные из MongoDB, установите тип источника **MongoDbSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **MongoDbSource**. | Yes |
 | query |Используйте пользовательский запрос SQL-92 для чтения данных. Например, select * from MyTable. |Нет (если в наборе данных указано значение collectionName). |

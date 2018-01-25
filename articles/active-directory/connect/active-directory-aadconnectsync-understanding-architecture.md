@@ -3,7 +3,7 @@ title: "Синхронизация Azure AD Connect: общие сведения
 description: "В этой статье описывается архитектура синхронизации Azure AD Connect и объясняются используемые термины."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: cc6c772f8f5cc86f8b975ac7835ffff85ef3435c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 6a6150dca80a137e9787d943bfe9abb4224e6fe6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Синхронизация Azure AD Connect: общие сведения об архитектуре
 В этой статье описана базовая архитектура для синхронизации Azure AD Connect. Она во многом похожа на своих предшественниц MIIS 2003, ILM 2007 и FIM 2010. Синхронизация Azure AD Connect представляет собой следующую ступень развития этих технологий. Если вы знакомы с любой из этих более ранних технологий, содержимое этой статьи будет вам также знакомо. Если вы не знакомы с синхронизацией, вы найдете здесь все необходимые сведения. Тем не менее, чтобы успешно настроить синхронизацию Azure AD Connect (называемую здесь модулем синхронизации), не обязательно знать все подробности, содержащиеся в этой статье.
@@ -253,7 +253,7 @@ ms.lasthandoff: 12/11/2017
 
 Например, если модуль синхронизации экспортирует атрибут C со значением 5 в подключенный источник данных, он сохраняет значение C=5 в памяти состояний экспорта. При каждом дополнительном экспорте для этого объекта выполняется попытка экспортировать значение C=5 в подключенный источник данных, так как модуль синхронизации предполагает, что это значение не применялось к объекту на регулярной основе (то есть, если другое значение не было недавно импортировано из подключенного источника данных). Память экспорта очищается при получении значения C=5 во время импорта в объекте.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

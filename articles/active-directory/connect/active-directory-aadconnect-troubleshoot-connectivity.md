@@ -3,7 +3,7 @@ title: "Azure AD Connect: устранение неполадок подключ
 description: "Сведения об устранении неполадок подключения в Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Устранение неполадок подключения в Azure AD Connect
 В этой статье рассказывается, как работает подключение между Azure AD Connect и Azure AD и как устранять неполадки подключения. Как правило, проблемы возникают в среде с прокси-сервером.
@@ -197,5 +197,5 @@ Azure AD Connect использует для аутентификации сов
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 * Если конфигурация выглядит нормально, выполните действия, описанные в разделе [Проверка подключения прокси-сервера](#verify-proxy-connectivity) , и убедитесь в том, что проблема возникает не только в мастере.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

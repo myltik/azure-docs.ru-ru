@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 3a282c8b2c2ba2749de6a2d3688bd57d75703b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux: сбой, ошибка или отклонение
 При попытке подключения к виртуальной машине Azure под управлением Linux ошибка, сбой или отклонение подключения Secure Shell (SSH) может возникнуть по нескольким причинам. В этой статье вы узнаете, как их выявить и устранить. Для устранения неполадок и решения проблем с подключением можно воспользоваться порталом Azure, Azure CLI или расширением для доступа к виртуальной машине для Linux.
@@ -234,7 +234,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 * Повторно разверните виртуальную машину на новом узле Azure. Сведения о повторном развертывании виртуальной машины на новом узле Azure см. [здесь](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Обратите внимание, что после этой операции будут потеряны данные на временном диске, а также изменятся динамические IP-адреса, связанные с виртуальной машиной.
-* Следуйте указаниям в статье о [сбросе пароля или ключа SSH в виртуальных машинах Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json), чтобы сделать следующее:
+* Следуйте указаниям в статье о [сбросе пароля или ключа SSH в виртуальных машинах Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json), чтобы сделать следующее:
   
   * сбросить пароль или ключ SSH;
   * Создайте учетную запись пользователя *sudo*.
@@ -245,5 +245,5 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * Если вам по-прежнему не удается выполнить SSH-подключение к виртуальной машине, см. [дополнительные действия по устранению неполадок](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), которые позволят просмотреть дополнительные шаги по устранению проблемы.
 * Дополнительные сведения об устранении неполадок с доступом к приложению см. в статье [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Дополнительные сведения об устранении неполадок на виртуальных машинах, созданных с помощью классической модели развертывания, см. в статье о [сбросе пароля или ключа SSH в виртуальных машинах Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Дополнительные сведения об устранении неполадок на виртуальных машинах, созданных с помощью классической модели развертывания, см. в статье о [сбросе пароля или ключа SSH в виртуальных машинах Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

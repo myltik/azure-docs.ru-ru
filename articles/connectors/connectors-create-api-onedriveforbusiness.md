@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 783d6a640d9626508bcabc5f991dc5b6fc22eaf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bd447b59e8fd3573dad26ae6600e4b5c9cb7a7e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Начало работы с соединителем OneDrive для бизнеса
 Подключитесь к OneDrive для бизнеса, чтобы управлять файлами. Вы можете выполнять различные действия, такие как отправка, обновление, получение и удаление файлов.
 
-Для начала можно создать приложение логики, как описано [здесь](../logic-apps/logic-apps-create-a-logic-app.md).
+Для начала можно создать приложение логики, как описано [здесь](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-onedrive-for-business"></a>Создание подключения к OneDrive для бизнеса
 Для создания приложений логики с помощью OneDrive для бизнеса необходимо создать **подключение**, а затем указать данные для приведенных ниже свойств.
 
-| Свойство | Обязательно | Description (Описание) |
+| Свойство | Обязательно | ОПИСАНИЕ |
 | --- | --- | --- |
-| Маркер |Да |Укажите учетные данные OneDrive для бизнеса |
+| по маркеру |Yes |Укажите учетные данные OneDrive для бизнеса |
 
 Созданное подключение можно использовать для выполнения действий и прослушивания триггеров, описанных в этой статье.
 

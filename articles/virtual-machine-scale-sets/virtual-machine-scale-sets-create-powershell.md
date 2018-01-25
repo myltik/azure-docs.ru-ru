@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 1a4c69427e0fa38e9206e2720c4746c97d922df1
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c5ca90ae303d62c4ad453971f84da78866b0c599
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-azure-powershell"></a>Создание масштабируемого набора виртуальных машин с помощью Azure PowerShell
 Масштабируемый набор виртуальных машин обеспечивает развертывание и администрирование набора идентичных автомасштабируемых виртуальных машин. Вы можете вручную изменить число виртуальных машин в масштабируемом наборе или определить правила для автоматического масштабирования на основе использования ЦП, объема памяти или сетевого трафика. Следуя инструкциям в этой статье, вы создадите масштабируемый набор виртуальных машин с помощью Azure PowerShell. Вы также можете создать масштабируемый набор с помощью [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) или [портала Azure](virtual-machine-scale-sets-create-portal.md).
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/21/2017
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Если вы решили установить и использовать PowerShell локально, то для работы с этим руководством вам понадобится модуль Azure PowerShell 4.4.1 или более поздней версии. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
+Чтобы установить и использовать PowerShell локально, для работы с этим руководством вам понадобится модуль Azure PowerShell 4.4.1 или более поздней версии. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
 
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
@@ -120,7 +120,7 @@ $ipConfig = New-AzureRmVmssIpConfig `
 
 
 ## <a name="create-a-scale-set"></a>Создание масштабируемого набора
-Теперь создайте масштабируемый набор виртуальных машин с помощью командлета [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). В следующем примере создается масштабируемый набор с именем *myScaleSet*, использующий образ платформы *Windows Server 2016 Datacenter*. Объект *vmssConfig* создает два экземпляра виртуальной машины в регионе "Восточная часть США" с учетными данными, которые указаны в переменных *adminUsername* и *securePassword*. Укажите собственные учетные данные и создайте масштабируемый набор, как показано ниже:
+Теперь создайте масштабируемый набор виртуальных машин с помощью командлета [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). В следующем примере создается масштабируемый набор с именем *myScaleSet*, использующий образ платформы *Windows Server 2016 Datacenter*. Объект *vmssConfig* создает два экземпляра виртуальной машины в регионе "Восточная часть США" с учетными данными, которые указаны в переменных *adminUsername* и *securePassword*. Укажите собственные учетные данные и создайте масштабируемый набор, как показано ниже:
 
 ```azurepowershell-interactive
 # Provide your own secure password for use with the VM instances

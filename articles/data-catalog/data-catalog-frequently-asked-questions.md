@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/13/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: d1fd6b0bd47188570553e0e3ad1de527a35e98f6
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 1f69912e654ac243a0c4f30426d17ce4199e498f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Часто задаваемые вопросы о каталоге данных Azure
 Эта статья содержит ответы на часто задаваемые вопросы, связанные со службой каталога данных Azure.

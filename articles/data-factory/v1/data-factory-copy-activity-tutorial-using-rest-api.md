@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: fbf538383a96fc1789f54994c1c4a1c1d9f96bec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 74f96d2712c28c8b49e0b92ee88e560193428836
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Руководство по созданию конвейера фабрики данных Azure для копирования данных с использованием REST API 
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
-> * [Портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Шаблон Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-> * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [API для .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/18/2017
 >  
 > В этом руководстве конвейер данных копирует данные из исходного хранилища данных в целевое. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [руководстве по созданию конвейера для преобразования данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Прочтите [обзор руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования** .
 * Установите на компьютер программу [curl](https://curl.haxx.se/dlwiz/) . Она будет использоваться с командами REST для создания фабрики данных. 
 * Следуя инструкциям в [этой статье](../../azure-resource-manager/resource-group-create-service-principal-portal.md) , выполните следующее: 
@@ -176,10 +176,10 @@ ms.lasthandoff: 12/18/2017
 
 В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 |:--- |:--- |
-| type | Для свойства типа задано значение **AzureBlob**, так как данные хранятся в хранилище BLOB-объектов Azure. |
-| linkedServiceName (имя связанной службы) | Ссылается на созданную ранее службу **AzureStorageLinkedService**. |
+| Тип | Для свойства типа задано значение **AzureBlob**, так как данные хранятся в хранилище BLOB-объектов Azure. |
+| linkedServiceName | Ссылается на созданную ранее службу **AzureStorageLinkedService**. |
 | folderPath | Определяет **контейнер** больших двоичных объектов и **папку**, которая содержит входные большие двоичные объекты. В этом руководстве adftutorial — это контейнер больших двоичных объектов, а созданная папка является корневой. | 
 | fileName | Это необязательное свойство. Если это свойство не указано, выбираются все файлы из папки folderPath. В этом руководстве для свойства fileName указывается значение **emp.txt**, чтобы обрабатывался только этот файл. |
 | format -> type |Входной файл имеет текстовый формат, поэтому укажите значение **TextFormat**. |
@@ -219,10 +219,10 @@ ms.lasthandoff: 12/18/2017
 ```
 В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 |:--- |:--- |
-| type | Свойство type имеет значение **AzureSqlTable**, так как данные копируются в таблицу в базе данных SQL Azure. |
-| linkedServiceName (имя связанной службы) | Ссылается на созданную ранее службу **AzureSqlLinkedService**. |
+| Тип | Свойство type имеет значение **AzureSqlTable**, так как данные копируются в таблицу в базе данных SQL Azure. |
+| linkedServiceName | Ссылается на созданную ранее службу **AzureSqlLinkedService**. |
 | tableName | Указывает **таблицу**, в которую копируются данные. | 
 | frequency и interval | Для свойства frequency задано значение **Hour**, а для interval — **1**. Это означает, что срезы выходных данных создаются **каждый час** в пределах времени начала и времени окончания для конвейера, но не перед этим периодом или после него.  |
 
@@ -356,7 +356,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
   2. В первой команде, где переменной **$cmd** присваивается значение, замените ADFCopyTutorialDF на новое имя и выполните команду. 
   3. Выполните следующие две команды, чтобы вызвать REST API для создания фабрики данных и вывода результатов операции. 
      
-     Ознакомьтесь со статьей [Фабрика данных Azure — правила именования](data-factory-naming-rules.md) , чтобы узнать о правилах именования артефактов фабрики данных.
+     Ознакомьтесь с разделом [Фабрика данных — правила именования](data-factory-naming-rules.md) , чтобы узнать о правилах именования артефактов фабрики данных.
 * Чтобы создать экземпляры фабрики данных, вы должны быть администратором или участником подписки Azure.
 * В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.
 * Если появится сообщение об ошибке**Подписка не зарегистрирована для использования пространства имен Microsoft.DataFactory**, выполните одно из следующих действий и повторите попытку публикации. 
@@ -528,7 +528,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 3. Создание **наборов данных**, описывающих входные и выходные данные для конвейеров.
 4. Создание **конвейера** с BlobSource в качестве источника и SqlSink в качестве приемника с помощью действия копирования. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом руководстве в ходе операции копирования вы использовали хранилище BLOB-объектов Azure как исходное хранилище данных, а базу данных SQL Azure — как целевое хранилище данных. В следующей таблице приведен список хранилищ данных, которые поддерживаются в качестве источников и целевых расположений для действия копирования. 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

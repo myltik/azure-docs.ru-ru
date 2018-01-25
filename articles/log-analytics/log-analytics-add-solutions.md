@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Добавление решений для управления Azure Log Analytics в рабочую область
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
     ![Колонка "Мониторинг и управление"](./media/log-analytics-add-solutions/management-solutions.png)  
 6. В колонке решения для управления просмотрите сведения о решении, затем щелкните **Создать**.
 7. В колонке *имя решения для управления* выберите рабочую область, в которую нужно добавить решение для управления.
-8. При необходимости измените параметры подписки Azure, группы ресурсов и расположения для рабочей области. Можно также выбрать **параметры службы автоматизации**. Щелкните **Создать**.  
+8. При необходимости измените параметры подписки Azure, группы ресурсов и расположения для рабочей области. Можно также выбрать **параметры службы автоматизации**. Нажмите кнопку **Создать**.  
     ![Рабочая область решения](./media/log-analytics-add-solutions/solution-workspace.png)  
 9. Чтобы начать использовать решение для управления, добавленное в рабочую область, выберите **Log Analytics** > **Подписки** > ***имя рабочей области*** > **Обзор**. Появится новый элемент для вашего решения для управления. Щелкните этот элемент, чтобы открыть его и начать использовать решение после сбора данных для него.
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 В таблице также указаны ценовые категории, доступные для каждого для решения управления.
 Все решения в приведенной таблице доступны на портале Azure и в коллекции решений на портале Log Analytics.
 
-| Решение для управления                                                                       | ПРЕДЛОЖЕНИЕ                                                                     | Ценовые категории<sup>1</sup>                                                 | Примечания |
+| Решение для управления                                                                       | ПРЕДЛОЖЕНИЕ                                                                     | Ценовые категории<sup>1</sup>                                                 | Заметки |
 | ---                                                                                       | ---                                                                       | ---                                                                                                       | ---   |
 | [Анализ журнала действий](log-analytics-activity.md)                                                                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>   | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)   | 90 дней данные доступны бесплатно.<br>Для данных не действует ограничение уровня "Бесплатный". |
 | [Оценка AD](log-analytics-ad-assessment.md)                                           | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>   | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)   | |
@@ -89,7 +89,7 @@ ms.lasthandoff: 10/11/2017
 | [Емкость и производительность (предварительная версия)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>   | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)   | |
 | [Отслеживание изменений](log-analytics-change-tracking.md)                                       | <ul><li>Automation and Control</li></ul>                                  | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                         | Требуется рабочая область Log Analytics, которую нужно привязать к учетной записи службы автоматизации. |
 | [Контейнеры](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>   | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)   | |
-| [Соединитель управления ИТ-службами (предварительная версия)](log-analytics-itsmc-overview.md)                                              | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>   | Free<br> На&nbsp;узел&nbsp;(OMS)     | |
+| [Соединитель управления ИТ-службами](log-analytics-itsmc-overview.md)                                                | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>   | Free<br> На&nbsp;узел&nbsp;(OMS)     | |
 | HDInsight HBase Monitoring <br>(предварительная версия)                                                  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>   | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)   | |
 | [Анализ хранилища ключей](log-analytics-azure-key-vault.md)                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>   | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)   | |
 | [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>   | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)   | Добавление с портала Azure или Marketplace недоступно. |
@@ -116,7 +116,7 @@ ms.lasthandoff: 10/11/2017
 
 Предоставляемые сообществом решения можно получить из [коллекции шаблонов Azure](https://azure.microsoft.com/resources/templates/?term=Per&nbsp;Node&nbsp;(OMS)) и непосредственно у авторов.
 
-| Решение для управления               | ПРЕДЛОЖЕНИЕ                                                                     | Ценовые категории                         | Примечания |
+| Решение для управления               | ПРЕДЛОЖЕНИЕ                                                                     | Ценовые категории                         | Заметки |
 | ---                               | ---                                                                       | ---                                   | ---   |
 | Все решения от сообщества  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>   | Free<br> На&nbsp;узел&nbsp;(OMS)     |   Требуется рабочая область Log Analytics, которую нужно привязать к учетной записи службы автоматизации. |
 
@@ -137,20 +137,20 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="insight--analytics--log-analytics"></a>Insight and Analytics и Log Analytics
 
-| Решение для управления | Платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
+| Решение для управления | платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Анализ журнала действий | Таблицы Azure |   |   |   |   |   | при уведомлении |
 | Оценка AD |Windows |&#8226; |&#8226; |  |  |&#8226; |7 дней |
 | Состояние репликации AD |Windows |&#8226; |&#8226; |  |  |&#8226; |5 дней |
 | Работоспособность агента | Windows и Linux | &#8226; | &#8226; |   |   | &#8226; | 1 минута |
-| Управление оповещениями (Nagios) |Linux |&#8226; |  |  |  |  |при получении |
+| Управление оповещениями (Nagios) |Linux |&#8226; |  |  |  |  |При получении |
 | Управление оповещениями (Zabbix) |Linux |&#8226; |  |  |  |  |1 минута |
 | Управление оповещениями (Operations Manager) |Windows |  |&#8226; |  |&#8226; |&#8226; |3 минуты |
 | Соединитель Application Insights (предварительная версия) | Таблицы Azure |   |   |   |   |   | при уведомлении |
 | Анализ шлюзов приложений Azure | Таблицы Azure |   |   |   |   |   | при уведомлении |
 | Анализ групп безопасности сети Azure | Таблицы Azure |   |   |   |   |   | при уведомлении |
 | Службы анализа SQL Azure (предварительная версия) |Windows |  |  |  |  |  | 10 минут |
-| Управление емкостью; |Windows |&#8226; |&#8226; |  |  |&#8226; |при получении |
+| Управление емкостью; |Windows |&#8226; |&#8226; |  |  |&#8226; |При получении |
 | Контейнеры | Windows и Linux | &#8226; | &#8226; |   |   |   | 3 минуты |
 | анализ хранилища ключей. |Windows |  |  |  |  |  |при уведомлении |
 | Монитор производительности сети | Windows | &#8226; | &#8226; |   |   |   | Подтверждения TCP выполняются каждые 5 секунд, данные отправляются каждые 3 минуты |
@@ -158,7 +158,7 @@ ms.lasthandoff: 10/11/2017
 | Анализ Service Fabric |Windows |  |  |&#8226; |  |  |5 мин |
 | Схема услуги | Windows и Linux | &#8226; | &#8226; |   |   |   | 15 секунд |
 | Оценка SQL |Windows |&#8226; |&#8226; |  |  |&#8226; |7 дней |
-| SurfaceHub |Windows |&#8226; |  |  |  |  |при получении |
+| SurfaceHub |Windows |&#8226; |  |  |  |  |При получении |
 | Оценка System Center Operations Manager (предварительная версия) | Windows | &#8226; | &#8226; |   |   | &#8226; | 7 дней |
 | Анализ обновлений (предварительная версия) | Windows | &#8226; |   |   |   |   | 2 дня |
 | Мониторинг VMware (предварительная версия) | Linux | &#8226; |   |   |   |   | 3 минуты |
@@ -167,18 +167,18 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="automation--control"></a>Автоматизация и контроль
 
-| Решение для управления | Платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
+| Решение для управления | платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Гибридная рабочая роль службы автоматизации | Windows | &#8226; | &#8226; |   |   |   | Недоступно |
-| Отслеживание изменений |Windows |&#8226; |&#8226; |  |  |&#8226; |ежечасно |
-| Отслеживание изменений |Linux |&#8226; |  |  |  |  |ежечасно |
+| Отслеживание изменений |Windows |&#8226; |&#8226; |  |  |&#8226; |Ежечасно |
+| Отслеживание изменений |Linux |&#8226; |  |  |  |  |Ежечасно |
 | управление обновлениями; | Windows |&#8226; |&#8226; |  |  |&#8226; |не меньше 2 раз в день и через 15 минут после установки обновления |
 
 ### <a name="security--compliance"></a>Безопасность и соответствие требованиям
 
-| Решение для управления | Платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
+| Решение для управления | платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Оценка защиты от вредоносных программ |Windows |&#8226; |&#8226; |  |  |&#8226; |ежечасно |
+| Оценка защиты от вредоносных программ |Windows |&#8226; |&#8226; |  |  |&#8226; |Ежечасно |
 | Безопасность и аудит <sup>1</sup> | Windows и Linux | Частично | Частично | Частично |   | Частично | Различная |
 
 <sup>1</sup> Решение для защиты и аудита может собирать журналы от агентов Windows, Linux и Operations Manager. Сведения о сборе данных приведены в разделе [Источники данных](#data-sources).
@@ -192,7 +192,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="protection--recovery"></a>Защита и восстановление
 
-| Решение для управления | Платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
+| Решение для управления | платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Архивация | Таблицы Azure |   |   |   |   |   | Недоступно |
 | Azure Site Recovery | Таблицы Azure |   |   |   |   |   | Недоступно |
@@ -201,7 +201,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="data-sources"></a>Источники данных
 
 
-| Источник данных | Платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
+| Источник данных | платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | журналы действий Azure; |Windows |  |  |  |  |  |при уведомлении |
 | Журналы диагностики Azure |Windows |  |  |  |  |  |при уведомлении |
@@ -212,7 +212,7 @@ ms.lasthandoff: 10/11/2017
 | Счетчики производительности |Linux |&#8226; |  |  |  |  |по расписанию, не менее 10 секунд |
 | syslog |Linux |&#8226; |  |  |  |  |Из хранилища Azure — 10 минут, из агента — при получении |
 | Журналы событий безопасности Windows |Windows |&#8226; |&#8226; |&#8226; |  |  |для хранилища Azure — 10 мин, для агента — при получении |
-| Журналы брандмауэра Windows |Windows |&#8226; |&#8226; |  |  |  |при получении |
+| Журналы брандмауэра Windows |Windows |&#8226; |&#8226; |  |  |  |При получении |
 | Журналы событий Windows |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; |для хранилища Azure — 10 мин, для агента — при получении |
 
 
@@ -278,5 +278,5 @@ ms.lasthandoff: 10/11/2017
 * Данные о регистрации опубликованы в Twitter [msopsmgmt](https://twitter.com/msopsmgmt)
 * Данные о регистрации распространяются на общественных мероприятиях — ищите нас на собраниях, конференциях и в онлайн-сообществах.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Выполните [поиск по журналам](log-analytics-log-searches.md) для просмотра подробных сведений, собранных решениями для управления.

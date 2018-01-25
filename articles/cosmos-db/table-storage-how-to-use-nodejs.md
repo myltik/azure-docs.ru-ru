@@ -8,17 +8,17 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 03cd5088b55e37b2ada78e0f531702705d45a4c0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b412be8b93e1f871c09b7a4452141ac334d53ae
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Использование табличного хранилища Azure из Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -91,7 +91,7 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 function handle (requestOptions, next)
 ```
 
-Выполнив предварительную обработку параметров запроса, метод должен вызвать next, передавая функцию обратного вызова со следующей сигнатурой:
+Выполнив предварительную обработку параметров запроса, метод должен вызвать next, передав ему обратный вызов со следующей сигнатурой:
 
 ```nodejs
 function (returnObject, finalCallback, next)
@@ -189,7 +189,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > По умолчанию обновление сущности не проверяет, были ли обновляемые данные ранее изменены другим процессом. Поддержка одновременных обновлений:
 >
 > 1. Получите ETag обновляемого объекта. Он возвращается в составе `response` для всех операций с сущностями и может быть извлечен с помощью `response['.metadata'].etag`.
-> 2. При выполнении операции обновления с сущностью предварительно добавьте информацию ETag, извлеченную для новой сущности. Например:
+> 2. При выполнении операции обновления с сущностью предварительно добавьте информацию ETag, извлеченную для новой сущности. Например: 
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. Выполните операцию обновления. Если сущность была изменена с момента получения значения ETag, например, другим экземпляром вашего приложения, будет возвращена ошибка `error` , указывающая, что определенное в запросе условие обновления не выполнено.
@@ -443,10 +443,10 @@ if(!error){
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Для получения дополнительных сведений см. следующие ресурсы.
 
 * [Обозреватель хранилищ Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) — это бесплатное автономное приложение от корпорации Майкрософт, позволяющее визуализировать данные из службы хранилища Azure на платформе Windows, macOS и Linux.
 * [Пакет SDK службы хранилища Azure для Node](https://github.com/Azure/azure-storage-node) на веб-сайте GitHub.
-* [центре разработчиков Node.js](/develop/nodejs/)
+* [Центр разработчика Node.js](/develop/nodejs/)
 * [Создание приложения Node.js и его развертывание на веб-сайт Azure](../app-service/app-service-web-get-started-nodejs.md)

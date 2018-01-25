@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7612eda8e40cb0ff2b205c2dfe11c2bba1b05b6a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c309debf53cc22d102de740ffd2907257b9821d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Преобразование данных с помощью действия Pig в фабрике данных Azure
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -82,17 +82,17 @@ ms.lasthandoff: 11/03/2017
 }
 ```
 ## <a name="syntax-details"></a>Сведения о синтаксисе
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательно |
 | --- | --- | --- |
-| name |Имя действия. |Да |
-| Описание |Текст, описывающий, для чего используется действие |Нет |
-| type |HDinsightPig |Да |
-| inputs |Входные данные, используемые действием Pig. |Нет |
-| outputs |Выходные данные, создаваемые действием Pig. |Да |
-| linkedServiceName (имя связанной службы) |Ссылка на кластер HDInsight, зарегистрированный в качестве связанной службы в фабрике данных. |Да |
-| script |Указывается встроенный сценарий Pig. |Нет |
-| script path |Путь к файлу сценария Pig в хранилище BLOB-объектов Azure. Можно использовать либо свойство script, либо свойство scriptPath, но не оба сразу. В имени файла учитывается регистр знаков. |Нет |
-| defines |Параметры в виде пары "ключ — значение", ссылки на которые указываются в сценарии Pig. |Нет |
+| name |Имя действия. |Yes |
+| description |Текст, описывающий, для чего используется действие |Нет  |
+| Тип |HDinsightPig |Yes |
+| inputs |Входные данные, используемые действием Pig. |Нет  |
+| outputs |Выходные данные, создаваемые действием Pig. |Yes |
+| linkedServiceName |Ссылка на кластер HDInsight, зарегистрированный в качестве связанной службы в фабрике данных. |Yes |
+| script |Указывается встроенный сценарий Pig. |Нет  |
+| script path |Путь к файлу сценария Pig в хранилище BLOB-объектов Azure. Можно использовать либо свойство script, либо свойство scriptPath, но не оба сразу. В имени файла учитывается регистр знаков. |Нет  |
+| defines |Параметры в виде пары "ключ — значение", ссылки на которые указываются в сценарии Pig. |Нет  |
 
 ## <a name="example"></a>Пример
 Рассмотрим пример с аналитикой игровых журналов. Предположим, вы хотите определить время, которое игроки проводят за игрой, выпущенной вашей компанией.

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Создание поисков по журналам в Azure Log Analytics с помощью портала поиска по журналам
 
@@ -30,18 +30,18 @@ ms.lasthandoff: 12/13/2017
 
 Чтобы создать поиски на портале расширенной аналитики, а не на портале поиска по журналам, ознакомьтесь со статьей [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856587) (Начало работы с порталом аналитики).  Оба портала используют тот же язык запросов для доступа к одним и тем же данным в рабочей области Log Analytics.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Это руководство предполагает наличие рабочей области Log Analytics с хотя бы одним подключенным источником, который генерирует данные для анализа запросов.  
 
 - Если у вас нет рабочей области, вы можете создать ее бесплатно, выполнив действия, описанные в статье [Начало работы с рабочей областью Log Analytics](log-analytics-get-started.md).
 - Подключите хотя бы один агент [Windows](log-analytics-windows-agent.md) или [Linux](log-analytics-linux-agents.md) к рабочей области.  
 
 ## <a name="open-the-log-search-portal"></a>Открытие портала поиска по журналам
-Откройте портал поиска по журналам, используя  портал Azure или портал OMS.
+Откройте портал поиска по журналам, используя 
 
 1. Перейдите на портал Azure.
 2. Перейдите к Log Analytics и выберите рабочую область.
-3. Выберите **Поиск по журналу**, чтобы остаться на портале Azure или запустите портал OMS, выбрав **Портал OMS** и нажав кнопку "Поиск по журналу".
+3. Выберите **Поиск по журналам**.
 
 ![Кнопка поиска по журналу](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
@@ -160,7 +160,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![График](media/log-analytics-log-search-log-search-portal/log-search-portal-14.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Дополнительные сведения о языке запросов Log Analytics см. в статье [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856079) (Начало работы с порталом аналитики).
 - Изучите пошаговое руководство по использованию [портала расширенной аналитики](https://go.microsoft.com/fwlink/?linkid=856587), который позволяет выполнять те же запросы и получать доступ к тем же данным, что и портал поиска по журналам.

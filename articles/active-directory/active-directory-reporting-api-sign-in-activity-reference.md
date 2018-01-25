@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e213e6fcf10e98cb8e4344692475eb8d41d1afb5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Справочник по API отчета о действиях при входе Azure Active Directory
 Эта статья входит в серию статей об API отчетов Azure Active Directory.  
@@ -46,7 +46,7 @@ $role = Get-MsolRole | ? Name -eq "Security Reader"
 Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal -RoleMemberObjectId $servicePrincipal.ObjectId
 ```
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Для доступа к этому отчету с помощью API отчетов нужно:
 
 * установить [Azure Active Directory Premium P1 или P2](active-directory-editions.md)
@@ -186,7 +186,7 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 Существует два варианта для параметра loginStatus: 0 — успех, 1 — сбой
 
 - - -
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Хотите увидеть примеры отфильтрованных действий при входе? Просмотрите [примеры для API отчета о действиях при входе Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Хотите узнать больше об API отчетов Azure AD? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 

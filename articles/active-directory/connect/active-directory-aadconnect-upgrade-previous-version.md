@@ -3,7 +3,7 @@ title: "Azure AD Connect: обновление до последней верс�
 description: "В этой статье описаны различные способы обновления Azure Active Directory Connect до последней версии, включая обновление на месте и обновление со сменой сервера."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: acce2e8f0c875d0211f132efab5f55d77a0def67
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 4d431a9e0fab8d46b244fd40178ede594c095893
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: обновление до последней версии
 В этой статье описываются различные варианты обновления установленного экземпляра Azure Active Directory (Azure AD) Connect до последней версии. Мы рекомендуем устанавливать все новые выпуски Azure AD Connect. Действия, описанные в разделе [Обновление со сменой сервера](#swing-migration), можно также использовать при значительных изменениях конфигурации.
@@ -129,5 +129,5 @@ ms.lasthandoff: 12/11/2017
 
 Чтобы добавить переопределения для полного импорта и полной синхронизации на произвольном соединителе, выполните следующий командлет: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения об интеграции локальных удостоверений см. в статье [Подключение Active Directory к Azure Active Directory](active-directory-aadconnect.md).

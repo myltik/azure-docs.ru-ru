@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 29f4c5e8998331cc48dac694512766a5b3cd4a30
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Перемещение данных из Salesforce с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="supported-versions"></a>Поддерживаемые версии
 Этот соединитель поддерживает следующие выпуски Salesforce: Developer Edition, Professional Edition, Enterprise Edition или Unlimited Edition. Он также поддерживает копирование из рабочей среды Salesforce, песочницы и пользовательского домена.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Требуется включить разрешения API. Дополнительные сведения о включении доступа к API в Salesforce с помощью набора разрешений см. [здесь](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/).
 * Чтобы скопировать данные из Salesforce в локальное хранилище данных, в локальной среде необходимо установить шлюз управления данными версии не ниже 2.0.
 
@@ -69,20 +69,20 @@ ms.lasthandoff: 11/03/2017
 ## <a name="linked-service-properties"></a>Свойства связанной службы
 В таблице ниже приведены описания элементов JSON, которые относятся к связанной службе Salesforce.
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательно |
 | --- | --- | --- |
-| type |Для свойства type нужно задать значение **Salesforce**. |Да |
-| environmentUrl | Укажите URL-адрес экземпляра Salesforce. <br><br> — URL-адрес по умолчанию — https://login.salesforce.com. <br> — Чтобы скопировать данные из песочницы, укажите URL-адрес https://test.salesforce.com. <br> — Чтобы скопировать данные из пользовательского домена, укажите URL-адрес, например https://[домен].my.salesforce.com. |Нет |
-| Имя пользователя |Укажите имя пользователя для учетной записи пользователя. |Да |
-| password |Укажите пароль для учетной записи пользователя. |Да |
-| securityToken |Укажите маркер безопасности для учетной записи пользователя. Инструкции по получению и сбросу маркера безопасности см. в статье [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности). Общие сведения о маркере безопасности см. в статье [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Безопасность и API). |Да |
+| Тип |Для свойства type нужно задать значение **Salesforce**. |Yes |
+| environmentUrl | Укажите URL-адрес экземпляра Salesforce. <br><br> — URL-адрес по умолчанию — https://login.salesforce.com. <br> — Чтобы скопировать данные из песочницы, укажите URL-адрес https://test.salesforce.com. <br> — Чтобы скопировать данные из пользовательского домена, укажите URL-адрес, например https://[домен].my.salesforce.com. |Нет  |
+| Имя пользователя |Укажите имя пользователя для учетной записи пользователя. |Yes |
+| password |Укажите пароль для учетной записи пользователя. |Yes |
+| securityToken |Укажите маркер безопасности для учетной записи пользователя. Инструкции по получению и сбросу маркера безопасности см. в статье [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности). Общие сведения о маркере безопасности см. в статье [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Безопасность и API). |Yes |
 
 ## <a name="dataset-properties"></a>Свойства набора данных
 Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных в фабрике данных Azure](data-factory-create-datasets.md). Разделы structure, availability и policy JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
 
 Раздел **typeProperties** во всех типах наборов данных разный. В нем содержатся сведения о расположении данных в хранилище данных. Раздел typeProperties для набора данных типа **RelationalTable** содержит следующие свойства.
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательно |
 | --- | --- | --- |
 | tableName |Имя таблицы в Salesforce |Нет (если для свойства **RelationalSource** задано значение **query**). |
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 11/03/2017
 
 В случае действия копирования, если источник относится к типу **RelationalSource** (который содержит Salesforce), в разделе typeProperties доступны следующие свойства.
 
-| Свойство | Описание | Допустимые значения | Обязательно |
+| Свойство | ОПИСАНИЕ | Допустимые значения | Обязательно |
 | --- | --- | --- | --- |
 | query |Используйте пользовательский запрос для чтения данных. |Запрос SQL-92 или запрос, написанный на [объектно-ориентированном языке запросов Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Пример: `select * from MyTable__c`. |Нет (если для свойства **tableName** задано значение **dataset**). |
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 11/03/2017
 
 ## <a name="query-tips"></a>Советы по запросам
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Получение данных с использованием предложения WHERE в столбце даты и времени
-При указании запроса SOQL или SQL обратите внимание на различие в формате даты и времени. Например:
+При указании запроса SOQL или SQL обратите внимание на различие в формате даты и времени. Например: 
 
 * **Пример SOQL**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **Пример SQL**:
@@ -288,10 +288,10 @@ ms.lasthandoff: 11/03/2017
 | Тип данных Salesforce | Тип на основе .NET |
 | --- | --- |
 | Автонумерация |Строка |
-| Флажок |Логический |
+| Флажок |Логическое |
 | Валюта |Double |
-| Дата |DateTime |
-| Дата и время |DateTime |
+| Дата |Datetime |
+| Дата и время |Datetime |
 | Email |Строка |
 | Идентификатор |Строка |
 | Связь для подстановки |Строка |
@@ -308,7 +308,7 @@ ms.lasthandoff: 11/03/2017
 | URL-адрес |Строка |
 
 > [!NOTE]
-> Сведения о сопоставлении столбцов в наборе данных, используемом в качестве источника, со столбцами в приемнике см. в разделе [Сопоставление столбцов исходного набора данных со столбцами целевого набора данных](data-factory-map-columns.md).
+> Сведения о сопоставлении столбцов в наборе данных, используемом в качестве источника, со столбцами в приемнике см. в [этой статье](data-factory-map-columns.md).
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

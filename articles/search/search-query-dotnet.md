@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
-ms.openlocfilehash: 52bd0fd4cf70401dcf881c7f28d5cd91397bb059
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3c22b83346269cf3c0327fe3fb98510a6266733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Отправка запросов в индекс службы поиска Azure с помощью пакета SDK для .NET
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 Поиск с помощью пакета SDK для .NET сводится к вызову метода `Documents.Search` для класса `SearchIndexClient`. Этот метод принимает несколько параметров, включая текст поиска и объект `SearchParameters` , с помощью которого можно уточнить запрос.
 
 #### <a name="types-of-queries"></a>Типы запросов
-Два основных [типа запросов](search-query-overview.md#types-of-queries), которые вы будете использовать, — это `search` и `filter`. Запрос `search` выполняет поиск по одному или нескольким условиям во всех *поддерживающих поиск* полях индекса. Запрос `filter` оценивает логическое выражение во всех *фильтруемых* полях индекса.
+Два основных [типа запросов](search-query-overview.md#types-of-queries), которые вы будете использовать, — это `search` и `filter`. Запрос `search` выполняет поиск по одному или нескольким условиям во всех *поддерживающих поиск* полях индекса. Запрос `filter` оценивает логическое выражение во всех *фильтруемых* полях индекса. Запросы этих двух типов можно использовать вместе или по отдельности.
 
 Поиск и фильтрация выполняются с помощью метода `Documents.Search` . Поисковый запрос можно передать в параметре `searchText`, а выражение фильтра — в свойстве `Filter` класса `SearchParameters`. Чтобы выполнить фильтрацию и при этом не выполнять поиск, в качестве значения параметра `searchText` укажите `"*"`. Чтобы выполнить поиск, не прибегая к фильтрации, не задавайте значение свойства `Filter` или вообще не передавайте его в экземпляр `SearchParameters`.
 

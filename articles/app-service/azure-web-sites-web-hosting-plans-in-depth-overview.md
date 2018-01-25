@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 268844eae8dc06937529e79d52515cad2f6da3f4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Обзор планов службы приложений Azure
 
@@ -54,7 +54,7 @@ _Ценовая категория_ плана службы приложений
 > - средний (два ядра ЦП, 7 Гиб памяти); 
 > - большой (четыре ядра ЦП, 14 Гиб памяти).  
 >
-> Дополнительные сведения о категории **Премиум V2** см. на странице [цен на службу приложений](/pricing/details/app-service/).
+> Дополнительные сведения о категории **Премиум V2** см. на странице [цен на службу приложений](https://azure.microsoft.com/pricing/details/app-service/).
 >
 > Чтобы приступить к работе с новой ценовой категорией **Премиум V2**, см. статью [Configure PremiumV2 tier for Azure App Service](app-service-configure-premium-tier.md) (Настройка ценовой категории Премиум V2 для службы приложений).
 

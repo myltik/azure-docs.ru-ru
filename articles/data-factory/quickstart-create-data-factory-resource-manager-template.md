@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/28/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 944310b802dafa15612fe92f4115a2e819436a6a
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 5008d8f0ce36f09ff26bf10fadbf14da6b474ea9
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Руководство. Создание фабрики данных Azure с помощью шаблона Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,11 +59,12 @@ ms.lasthandoff: 12/07/2017
             "type": "string",
             "allowedValues": [
                 "East US",
-                "East US 2"
+                "East US 2",
+                "West Europe"
             ],
             "defaultValue": "East US",
             "metadata": {
-                "description": "Location of the data factory. Currently, only East US and East US 2 are supported. "
+                "description": "Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
             }
         },
         "storageAccountName": {
@@ -495,7 +496,7 @@ DeploymentDebugLogLevel :
 Для connectionString используются параметры storageAccountName и storageAccountKey. Значения для этих параметров передаются с помощью файла конфигурации. В этом определении также используются переменные azureStroageLinkedService и dataFactoryName, заданные в шаблоне. 
 
 #### <a name="azure-blob-input-dataset"></a>Входной набор данных большого двоичного объекта Azure
-Связанная служба хранилища Azure указывает строку подключения, которую фабрика данных использует во время выполнения, чтобы подключиться к учетной записи хранения Azure. В определении набора данных большого двоичного объекта Azure укажите имена контейнера больших двоичных объектов, папки и файла, содержащего входные данные. Подробные сведения о свойствах JSON, которые используются для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](connector-azure-blob-storage.md#dataset-properties). 
+Связанная служба хранилища Azure указывает строку подключения, которую фабрика данных использует во время выполнения, чтобы подключиться к учетной записи хранения Azure. В определении набора данных большого двоичного объекта Azure укажите имена контейнера больших двоичных объектов, папки и файла, содержащего входные данные. Подробные сведения о свойствах JSON, которые используюся для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](connector-azure-blob-storage.md#dataset-properties). 
 
 ```json
 {
@@ -522,7 +523,7 @@ DeploymentDebugLogLevel :
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Выходной набор данных BLOB-объекта Azure
-Укажите имя папки в хранилище BLOB-объектов Azure, которая содержит скопированные данные из входной папки. Подробные сведения о свойствах JSON, которые используются для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](connector-azure-blob-storage.md#dataset-properties). 
+Укажите имя папки в хранилище BLOB-объектов Azure, которая содержит скопированные данные из входной папки. Подробные сведения о свойствах JSON, которые используюся для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](connector-azure-blob-storage.md#dataset-properties). 
 
 ```json
 {
@@ -646,5 +647,5 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 Шаблон можно снова использовать для выполнения повторяющихся задач. Например, создайте несколько фабрик данных с одним или с несколькими конвейерами, которые реализуют одинаковую логику, но чтобы каждая фабрика данных использовала разные учетные записи хранения Azure. В этом сценарии для создания фабрик данных используется один шаблон в той же среде (разработки, тестирования или рабочей) с различными файлами параметров. 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом примере конвейер копирует данные из одного расположения в другое в хранилище BLOB-объектов Azure. Перейдите к [руководствам](tutorial-copy-data-dot-net.md), чтобы узнать об использовании фабрики данных в различных сценариях. 

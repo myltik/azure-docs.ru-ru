@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 9236198338fc66697942463e350a0f9732ea217b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: aa81f9d163da8d9236470c0b797f5430163ed39d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Копирование данных из Xero с помощью фабрики данных Azure (бета-версия)
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="getting-started"></a>Приступая к работе
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, относящихся к соединителю Xero.
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы Xero поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **Xero**. | Yes |
 | host | Конечная точка сервера Xero (это api.xero.com).  | Yes |
@@ -106,7 +106,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы копировать данные из HTTP, установите тип источника **XeroSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **XeroSource**. | Yes |
 | query | Используйте пользовательский SQL-запрос для чтения данных. Например, `"SELECT * FROM Contacts"`. | Yes |

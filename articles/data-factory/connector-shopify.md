@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: b99a6d907b2061251079e566cd05d9e4d7c3b069
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 3b4a1465d53f2a5a542e6a89ef98c588fd805155
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-beta"></a>Копирование данных из Shopify с помощью фабрики данных Azure (бета-версия)
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="getting-started"></a>Приступая к работе
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, относящихся к соединителю Shopify.
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы Shopify поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **Shopify**. | Yes |
 | host | Конечная точка сервера Shopify (mystore.myshopify.com).  | Yes |
@@ -101,7 +101,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные из Shopify, задайте для типа источника в действии копирования значение **ShopifySource**. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **ShopifySource**. | Yes |
 | query | Используйте пользовательский SQL-запрос для чтения данных. Например, `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Yes |

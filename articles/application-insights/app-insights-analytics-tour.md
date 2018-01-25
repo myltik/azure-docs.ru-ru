@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Знакомство с аналитикой в Application Insights
 [Аналитика](app-insights-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов Log Analytics.
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/13/2017
 
 ![](./media/app-insights-analytics-tour/change-time-range.png)
 
-Для этого в предложении where в запросе следует указать `timestamp`. Например:
+Для этого в предложении where в запросе следует указать `timestamp`. Например: 
 
 ```AIQL
 
@@ -502,7 +502,7 @@ requests
 ```
 
 
-### <a name="functions"></a>Функции
+### <a name="functions"></a>Functions
 
 Используйте *Let* для определения функции.
 
@@ -538,7 +538,7 @@ requests
 
 Например, если приложение включает в себя:
 
-```C#
+```csharp
 
     var dimensions = new Dictionary<string, string>
                      {{"p1", "v1"},{"p2", "v2"}};
@@ -611,7 +611,7 @@ requests
 
 Рассмотрим пример, в котором код вашего приложения содержит следующие строки.
 
-```C#
+```csharp
 
     telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},
@@ -629,7 +629,7 @@ requests
 ![Частота отображения пользовательских событий](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>Таблица настраиваемых метрик
-Если вы используете [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) для отправки своих собственных значений метрик, то вы найдете полученные результаты в потоке **customMetrics**. Например:  
+Если вы используете [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) для отправки своих собственных значений метрик, то вы найдете полученные результаты в потоке **customMetrics**. Например:   
 
 ![Настраиваемые метрики в аналитике Application Insights](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 
@@ -709,7 +709,7 @@ requests
 > [!VIDEO https://channel9.msdn.com/Events/Build/2016/P591/player]
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Справочные материалы по аналитике](app-insights-analytics-reference.md)
 * [Памятка для пользователей SQL](https://aka.ms/sql-analytics) содержит сопоставление наиболее распространенных идиом.
 

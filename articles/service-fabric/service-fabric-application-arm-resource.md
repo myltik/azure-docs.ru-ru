@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: d6cda201e4cf16549f296bf9873b1085effd3a45
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca11199e51774e766113309150d8a260427cb4b4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Управление приложениями и службами как ресурсами Azure Resource Manager
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/07/2017
 1. Подготовьте шаблон Resource Manager кластера для развертывания. Дополнительные сведения об этом приведены в разделе [Создание кластера Service Fabric в Azure с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 2. Подумайте, какие приложения планируется развернуть в кластере. Возможно, среди них есть приложения, которые будут всегда работать, и другие приложения будут зависеть от них? Планируется ли развертывание систем управления кластером или приложений установки? Такими приложениями лучше всего управлять с помощью шаблона Resource Manager, как описано выше. 
 3. Выяснив, какие приложения должны быть развернуты таким способом, эти приложения нужно упаковать, заархивировать в формате ZIP и поместить в файловый ресурс. Этот файловый ресурс должен быть доступен через конечную точку REST, чтобы Azure Resource Manager мог использовать его во время развертывания.
-4. В шаблоне Resource Manager под объявлением кластера опишите свойства каждого приложения. Эти свойства включают в себя количество реплик или экземпляров, а также все цепочки зависимостей между ресурсами (другие приложения или службы). Полный список свойств приведен в [спецификации REST API Swagger](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json). Обратите внимание на то, что это не заменяет манифесты приложений или служб. Просто часть их содержимого указывается в шаблоне Resource Manager кластера. Ниже приведен пример шаблона, который включает в себя развертывание службы без отслеживания состояния *Service1* и службы с отслеживанием состояния *Service2* в качестве части приложения *Application1*.
+4. В шаблоне Resource Manager под объявлением кластера опишите свойства каждого приложения. Эти свойства включают в себя количество реплик или экземпляров, а также все цепочки зависимостей между ресурсами (другие приложения или службы). Полный список свойств приведен в [спецификации REST API Swagger](https://aka.ms/sfrpswaggerspec). Обратите внимание на то, что это не заменяет манифесты приложений или служб. Просто часть их содержимого указывается в шаблоне Resource Manager кластера. Ниже приведен пример шаблона, который включает в себя развертывание службы без отслеживания состояния *Service1* и службы с отслеживанием состояния *Service2* в качестве части приложения *Application1*.
 
   ```json
   {
@@ -77,62 +77,62 @@ ms.lasthandoff: 12/07/2017
         "type": "string",
         "defaultValue": "Cluster",
         "metadata": {
-          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
+          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only."
         }
       },
       "applicationTypeName": {
         "type": "string",
         "defaultValue": "ApplicationType",
         "metadata": {
-          "description": "The application type name"
+          "description": "The application type name."
         }
       },
       "applicationTypeVersion": {
         "type": "string",
         "defaultValue": "1",
         "metadata": {
-          "description": "The application type version"
+          "description": "The application type version."
         }
       },
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package sfpkg file"
+          "description": "The URL to the application package sfpkg file."
         }
       },
       "applicationName": {
         "type": "string",
         "defaultValue": "Application1",
         "metadata": {
-          "description": "The application name"
+          "description": "The name of the application resource."
         }
       },
       "serviceName": {
         "type": "string",
         "defaultValue": "Service1",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName": {
         "type": "string",
         "defaultValue": "Service1Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       },
       "serviceName2": {
         "type": "string",
         "defaultValue": "Service2",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName2": {
         "type": "string",
         "defaultValue": "Service2Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       }
     },
@@ -263,7 +263,7 @@ ms.lasthandoff: 12/07/2017
 Если кластер уже запущен и в нем развернуто несколько приложений, которыми требуется управлять как ресурсами Resource Manager, то вместо удаления этих приложений и их повторного развертывания можно использовать вызов PUT с использованием тех же интерфейсов API, чтобы эти приложения были подтверждены как ресурсы Resource Manager. 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Используйте [интерфейс командной строки Service Fabric](service-fabric-cli.md) или [PowerShell](service-fabric-deploy-remove-applications.md) для развертывания других приложений в кластере. 
 * [Обновите кластер Service Fabric](service-fabric-cluster-upgrade.md).

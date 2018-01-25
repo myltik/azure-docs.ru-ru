@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Проверьте свои шаблоны для Azure Stack с помощью средства проверки шаблонов
 
-*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
+*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
 
 С помощью средства проверки шаблонов вы можете убедиться, что [шаблоны](azure-stack-arm-templates.md) Azure Resource Manager готовы к развертыванию в Azure Stack. Средство проверки шаблона предоставляется в составе средств Azure Stack. Чтобы скачать средства Azure Stack с GitHub, выполните действия, описанные в [этой статье](azure-stack-powershell-download.md). 
 
@@ -58,15 +58,15 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Описание | Обязательно |
+| Параметр | ОПИСАНИЕ | Обязательно |
 | ----- | -----| ----- |
-| TemplatePath | Указывает путь для рекурсивного поиска шаблонов Resource Manager. | Да | 
-| TemplatePattern | Задает шаблон имени, по которому выбираются файлы. | Нет |
-| CapabilitiesPath | Указывает путь к JSON-файлу возможностей облака | Да | 
-| IncludeComputeCapabilities | Включает оценку ресурсов IaaS, например размеров и расширений виртуальных машин. | Нет |
-| IncludeStorageCapabilities | Включает оценку ресурсов хранения, например типов SKU. | Нет |
-| Отчет | Указывает имя создаваемого HTML-отчета. | Нет |
-| Подробная информация | Выводит ошибки и предупреждения в консоль. | Нет|
+| TemplatePath | Указывает путь для рекурсивного поиска шаблонов Resource Manager. | Yes | 
+| TemplatePattern | Задает шаблон имени, по которому выбираются файлы. | Нет  |
+| CapabilitiesPath | Указывает путь к JSON-файлу возможностей облака | Yes | 
+| IncludeComputeCapabilities | Включает оценку ресурсов IaaS, например размеров и расширений виртуальных машин. | Нет  |
+| IncludeStorageCapabilities | Включает оценку ресурсов хранения, например типов SKU. | Нет  |
+| Отчет | Указывает имя создаваемого HTML-отчета. | Нет  |
+| Подробная информация | Выводит ошибки и предупреждения в консоль. | Нет |
 
 
 ### <a name="examples"></a>Примеры
@@ -93,11 +93,11 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 3.  С помощью командлета Get-CloudCapabilities получите версии служб и создайте JSON-файл облачных возможностей:
 
     ```PowerShell
-    Get-AzureRMCloudCapabilities -Location 'local' -Verbose
+    Get-AzureRMCloudCapability -Location 'local' -Verbose
     ```             
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
  - [Use Azure Resource Manager templates in Azure Stack](azure-stack-arm-templates.md) (Использование шаблонов Resource Manager в Azure Stack)
  - [Разработка шаблонов для Azure Stack](azure-stack-develop-templates.md)
 

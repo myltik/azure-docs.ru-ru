@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4241aedebd388f24834e573fac7a8a61371e728a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e72cdee5b164fcd4944f4f1f95ff22bb5ceba6a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---samples"></a>Фабрика данных Azure — примеры
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="samples-on-github"></a>Примеры на GitHub
 В [репозитории GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) предлагается несколько примеров, которые помогут вам быстро приступить к работе со службой фабрики данных Azure или настроить сценарии для использования в собственном приложении. Папка Samples\JSON содержит фрагменты JSON для распространенных сценариев.
 
-| Образец | Описание |
+| Образец | ОПИСАНИЕ |
 |:--- |:--- |
 | [Пошаговое руководство по ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Этот пример представляет собой сквозное руководство по обработке файлов журналов с помощью фабрики данных Azure для преобразования данных из файлов журналов в аналитические данные. <br/><br/>В этом руководстве конвейер фабрики данных собирает примеры журналов, обрабатывает и дополняет их эталонными данными из журналов, а также преобразует сведения, чтобы оценить эффективность недавно запущенной маркетинговой кампании. |
 | [Примеры JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |В этой выборке представлены примеры кода JSON для распространенных сценариев. |
@@ -46,10 +46,10 @@ ms.lasthandoff: 11/03/2017
 | [Пример входного файла U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |Это пример файла, который используется действием U-SQL. |
 | [Удаление файла большого двоичного объекта](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity) | В этом примере демонстрируется файл C#, который можно использовать как часть настраиваемого действия .NET ADF для удаления файлов из исходного расположения больших двоичных объектов Azure после копирования файлов.|
 
-## <a name="azure-resource-manager-templates"></a>Шаблоны диспетчера ресурсов Azure
+## <a name="azure-resource-manager-templates"></a>Шаблоны Azure Resource Manager
 Следующие шаблоны Azure Resource Manager для фабрики данных можно найти на портале GitHub.
 
-| Шаблон | Description (Описание) |
+| Шаблон | ОПИСАНИЕ |
 | --- | --- |
 | [Копирование из хранилища BLOB-объектов Azure в базу данных SQL Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Развертывание этого шаблона создает фабрику данных Azure с конвейером, который копирует данные из указанного хранилища BLOB-объектов Azure в базу данных SQL Azure. |
 | [Копирование из Salesforce в хранилище BLOB-объектов Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Развертывание этого шаблона создает фабрику данных Azure с конвейером, который копирует данные из указанной учетной записи Salesforce в хранилище BLOB-объектов Azure. |
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/03/2017
     ![Колонка "Фабрика данных"](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Примеры в Visual Studio
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 На вашем компьютере должны быть установлены следующие компоненты:
 
 * Visual Studio 2013 или Visual Studio 2015.
@@ -93,7 +93,7 @@ ms.lasthandoff: 11/03/2017
    2. В правой области выберите **Шаблоны фабрики данных** .
    3. Введите **имя** проекта.
    4. Выберите **расположение** для проекта.
-   5. Нажмите кнопку **ОК**.
+   5. Последовательно выберите **ОК**.
 
       ![Диалоговое окно "Новый проект"](./media/data-factory-samples/vs-new-project-adf-templates.png)
 3. В диалоговом окне **Шаблоны фабрики данных** выберите пример шаблона в разделе **Use-Case Templates** (Примеры использования шаблонов) и нажмите кнопку **Далее**. Далее приводится описание процедуры использования шаблона **Профилирование клиентов** . Действия аналогичны действиям в других примерах.
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/03/2017
    3. Выберите **подписку Azure** , в рамках которой вы хотите создать фабрику данных.
    4. Выберите **группу ресурсов** для фабрики данных.
    5. В качестве **региона** выберите **западную часть США**, **восточную часть США** или **Северную Европу**.
-   6. Щелкните **Далее**.
+   6. Нажмите кнопку **Далее**.
 6. На странице **Configure data stores** (Настройка хранилищ данных) укажите существующую **базу данных SQL Azure** и **учетную запись хранения Azure** (или создайте новые), а затем нажмите кнопку "Далее".
 7. На странице **Настройка вычислений** выберите значения по умолчанию и нажмите кнопку **Далее**.
 8. На странице **Сводка** проверьте все параметры и нажмите кнопку **Далее**.

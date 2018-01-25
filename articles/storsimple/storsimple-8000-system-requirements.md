@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 1a9cdf31c5924d22d968cd99383417ba371cd1c3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Программное обеспечение StorSimple серии 8000, высокий уровень доступности и требования к сети
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/08/2018
 
 Устройство StorSimple является защищенным. Однако для разрешения использования iSCSI, облака и трафика управления необходимо открыть порты. В следующей таблице перечислены порты, которые необходимо открыть в брандмауэре. В этой таблице значение *входящий* относится к *направлению*, из которого клиент запрашивает доступ к вашему устройству. Значение *исходящий* указывает на *направление*, в котором устройство StorSimple отправляет данные за пределами развертывания, например в Интернет.
 
-| Порт № <sup>1, 2</sup> | Входящий или исходящий | Область порта | Обязательное значение | Заметки |
+| Порт № <sup>1, 2</sup> | Входящий или исходящий | Область порта | Обязательно | Заметки |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |Исходящий |WAN |Нет  |<ul><li>Исходящий порт используется для доступа к Интернету и извлечения обновлений.</li><li>Пользователи могут настраивать исходящий веб-прокси.</li><li>Чтобы разрешить выполнение обновлений системы, этот порт также должен быть открыт для фиксированных IP-адресов контроллера.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |Исходящий |WAN |Yes |<ul><li>Исходящий порт используется для доступа к данным в облаке.</li><li>Пользователи могут настраивать исходящий веб-прокси.</li><li>Чтобы разрешить выполнение обновлений системы, этот порт также должен быть открыт для фиксированных IP-адресов контроллера.</li><li>Этот порт также используется обоими контроллерами для сборки мусора.</li></ul> |
@@ -107,7 +107,7 @@ ms.lasthandoff: 01/08/2018
 
 | Шаблон URL-адреса | Компонент или функция | IP-адреса устройств |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |Служба диспетчера устройств StorSimple<br>Служба контроля доступа<br>Azure Service Bus<br>Служба проверки подлинности |Сетевые интерфейсы с поддержкой облака |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Служба диспетчера устройств StorSimple<br>Служба контроля доступа<br>Azure Service Bus<br>Служба проверки подлинности |Сетевые интерфейсы с поддержкой облака |
 | `https://*.backup.windowsazure.us` |Регистрация устройства |Только DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Отзыв сертификатов |Сетевые интерфейсы с поддержкой облака |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Учетные записи хранения Azure и мониторинг |Сетевые интерфейсы с поддержкой облака |

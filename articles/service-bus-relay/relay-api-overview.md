@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 60413bd110fd4021b070f94d6338a50e1b321dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc6db8aba887b186961da9b12e7c5f32afa4355b
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="available-relay-apis"></a>Доступные интерфейсы API ретранслятора
 
@@ -37,9 +37,11 @@ ms.lasthandoff: 10/11/2017
 ### <a name="additional-information"></a>Дополнительная информация
 
 #### <a name="net"></a>.NET
+
 В экосистеме .NET существует несколько сред выполнения, поэтому для концентраторов событий используется несколько библиотек .NET. Библиотеку .NET Standard можно запустить с помощью .NET Core или .NET Framework, а библиотеку .NET Framework можно запустить только в среде .NET Framework. Дополнительные сведения о версиях платформы .NET Framework см. в разделе [Версии платформ](/dotnet/articles/standard/frameworks#framework-versions).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
+
 Дополнительные сведения о ретрансляторе Azure доступны по следующим ссылкам:
 * [Что такое ретранслятор Azure?](relay-what-is-it.md)
 * [Вопросы и ответы по ретранслятору](relay-faq.md)

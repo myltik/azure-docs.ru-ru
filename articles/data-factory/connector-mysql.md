@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: fa5259427b232c641b6155ea9c4d9b4440f9ca5f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d90b3c6b0ac899bede210d48cd97210ccbe5cc57
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Копирование данных из MySQL с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 01/11/2018
 
 В частности, этот соединитель MySQL поддерживает MySQL **версии 5.1 и более поздних версий**.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы использовать этот соединитель MySQL, сделайте следующее:
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы MySQL поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **MySql** | Yes |
 | server | Имя сервера MySQL. | Yes |
@@ -95,7 +95,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные из MySQL, установите свойство типа набора данных **RelationalTable**. Поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type для набора данных должно иметь значение **RelationalTable**. | Yes |
 | tableName | Имя таблицы в базе данных MySQL. | Нет (если свойство query указано в источнике действия) |
@@ -125,7 +125,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы копировать данные из MySQL, установите тип источника в действии копирования **RelationalSource**. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **RelationalSource**. | Yes |
 | query | Используйте пользовательский SQL-запрос для чтения данных. Например, `"SELECT * FROM MyTable"`. | Нет (если для набора данных задано свойство tableName) |

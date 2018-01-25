@@ -3,8 +3,8 @@ title: "Настройка постоянного хранения для кэш
 description: "Узнайте, как настроить постоянное хранение и управлять им для экземпляров кэша Redis для Azure уровня Премиум"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
-ms.author: sdanie
-ms.openlocfilehash: 638f0154d3a4fd091197a2da86374a053b31c4c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 270158bbf85a58a48a367a091ad2b09a9d114b2b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Настройка постоянного хранения для кэша Redis для Azure уровня Премиум
 Кэш Redis для Azure предлагает разные варианты кэша, которые обеспечивают гибкость в выборе размера и функций кэша, включая функции уровня "Премиум", такие как кластеризация, постоянное хранение данных и поддержка виртуальной сети. В этой статье описывается настройка постоянного хранения в экземпляре кэша Redis для Azure уровня Премиум.
@@ -179,7 +179,7 @@ ms.lasthandoff: 10/11/2017
 После перезаписи в хранилище создается два набора файлов AOF. Операции перезаписи выполняются в фоновом режиме и добавляются к первому набору файлов, а операции над множеством, которые отправляются в кэш во время перезаписи, добавляются ко второму набору. Во время перезаписи на случай сбоя временно сохраняется резервная копия, которая сразу же удаляется после завершения перезаписи.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте, как использовать расширенные функции кэша.
 
 * [Знакомство с кэшем Redis для Azure уровня Премиум](cache-premium-tier-intro.md)

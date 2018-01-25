@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4b0af784ad8f18e7dba49a32320dd6a6a7c5ad99
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: fb2b534955a2cd0e1294df5425550ac6958ff3c2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Перемещение данных из Amazon Simple Storage Service с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/18/2017
 
 В этой статье описано, как с помощью действия копирования в фабрике данных Azure перемещать данные из службы хранения Amazon Simple Storage Service (S3). Это продолжение статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования.
 
-Данные из Amazon S3 можно скопировать в любое хранилище данных, поддерживаемое в качестве приемника. Список хранилищ данных, которые поддерживаются в качестве приемников для действия копирования, см. в таблице [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Сейчас фабрика данных поддерживает только перемещение данных из Amazon S3 в другие хранилища данных, но не наоборот.
+Данные из Amazon S3 можно скопировать в любое хранилище данных, поддерживаемое в качестве приемника. Список хранилищ данных, которые поддерживаются в качестве приемников для действия копирования, приведен в таблице [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Сейчас фабрика данных поддерживает только перемещение данных из Amazon S3 в другие хранилища данных, но не наоборот.
 
 ## <a name="required-permissions"></a>Необходимые разрешения
 Чтобы скопировать данные из Amazon S3, убедитесь, что вы предоставили следующие разрешения:
@@ -64,16 +64,16 @@ ms.lasthandoff: 10/18/2017
 ## <a name="linked-service-properties"></a>Свойства связанной службы
 Связанная служба привязывает хранилище данных к фабрике данных. Для связи хранилища данных Amazon S3 с фабрикой данных следует создать связанную службу типа **AwsAccessKey**. В таблице ниже приведено описание элементов JSON, которые относятся к связанной службе Amazon S3 (AwsAccessKey).
 
-| Свойство | Описание | Допустимые значения | Обязательно |
+| Свойство | ОПИСАНИЕ | Допустимые значения | Обязательно |
 | --- | --- | --- | --- |
-| accessKeyID |Идентификатор секретного ключа доступа. |string |Да |
-| secretAccessKey |Сам секретный ключ доступа. |Зашифрованная строка секрета |Да |
+| accessKeyID |Идентификатор секретного ключа доступа. |строка |Yes |
+| secretAccessKey |Сам секретный ключ доступа. |Зашифрованная строка секрета |Yes |
 
 >[!NOTE]
 >Для этого соединителя требуются ключи доступа к учетной записи IAM для копирования данных из Amazon S3. [Временные учетные данные безопасности](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) не поддерживаются.
 >
 
-Пример:
+Вот пример: 
 
 ```json
 {
@@ -93,14 +93,14 @@ ms.lasthandoff: 10/18/2017
 
 Разделы structure, availability и policy одинаковы для всех типов наборов данных (таких как базы данных SQL, большие двоичные объекты Azure и таблицы Azure). Раздел **typeProperties** во всех типах наборов данных разный. Он содержит сведения о расположении данных в хранилище данных. Раздел **typeProperties** набора данных типа **AmazonS3** (который включает в себя набор данных Amazon S3) содержит следующие свойства:
 
-| Свойство | Описание | Допустимые значения | Обязательно |
+| Свойство | ОПИСАНИЕ | Допустимые значения | Обязательно |
 | --- | --- | --- | --- |
-| bucketName |Имя контейнера S3. |string |Да |
-| key |Ключ объекта S3. |string |Нет |
-| prefix |Префикс для ключа объекта S3. Выбираются объекты, ключи которых начинаются с этого префикса. Применяется, только если ключ пустой. |string |Нет |
-| версия |Версия объекта S3, если включено управление версиями S3. |string |Нет |
-| свойства | Поддерживаются следующие типы формата: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Свойству **type** в разделе format необходимо присвоить одно из этих значений. Дополнительные сведения см. в разделах о [текстовом формате](data-factory-supported-file-and-compression-formats.md#text-format), [формате JSON](data-factory-supported-file-and-compression-formats.md#json-format), [формате Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [формате Orc](data-factory-supported-file-and-compression-formats.md#orc-format) и [формате Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Если требуется скопировать файлы между файловыми хранилищами как есть (двоичное копирование), можно пропустить раздел форматирования в определениях входного и выходного наборов данных. |Нет | |
-| compression | Укажите тип и уровень сжатия данных. Поддерживаемые типы: **GZip**, **Deflate**, **BZip2** и **ZipDeflate**. Поддерживаемые уровни: **Optimal** (Оптимальный) и **Fastest** (Самый быстрый). См. дополнительные сведения о [форматах файлов и сжатия данных в фабрике данных Azure](data-factory-supported-file-and-compression-formats.md#compression-support). |Нет | |
+| bucketName |Имя контейнера S3. |Строка |Yes |
+| key |Ключ объекта S3. |Строка |Нет  |
+| prefix |Префикс для ключа объекта S3. Выбираются объекты, ключи которых начинаются с этого префикса. Применяется, только если ключ пустой. |Строка |Нет  |
+| версия |Версия объекта S3, если включено управление версиями S3. |Строка |Нет  |
+| свойства | Поддерживаются следующие типы формата: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Свойству **type** в разделе format необходимо присвоить одно из этих значений. Дополнительные сведения см. в разделах о [текстовом формате](data-factory-supported-file-and-compression-formats.md#text-format), [формате JSON](data-factory-supported-file-and-compression-formats.md#json-format), [формате Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [формате Orc](data-factory-supported-file-and-compression-formats.md#orc-format) и [формате Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Если требуется скопировать файлы между файловыми хранилищами как есть (двоичное копирование), можно пропустить раздел форматирования в определениях входного и выходного наборов данных. |Нет  | |
+| compression | Укажите тип и уровень сжатия данных. Поддерживаемые типы: **GZip**, **Deflate**, **BZip2** и **ZipDeflate**. Поддерживаемые уровни: **Optimal** (Оптимальный) и **Fastest** (Самый быстрый). См. дополнительные сведения о [форматах файлов и сжатия данных в фабрике данных Azure](data-factory-supported-file-and-compression-formats.md#compression-support). |Нет  | |
 
 
 > [!NOTE]
@@ -174,9 +174,9 @@ ms.lasthandoff: 10/18/2017
 ## <a name="copy-activity-properties"></a>Свойства действия копирования
 Полный список разделов и свойств, доступных для определения действий, см. в разделе [Конвейеры и действия в фабрике данных Azure](data-factory-create-pipelines.md). Свойства (такие как имя, описание, входные и выходные таблицы, политики и т. д.) доступны для всех типов действий. Свойства, доступные в разделе **typeProperties** действия, зависят от конкретного типа действия. Для действия копирования свойства различаются в зависимости от типов источников и приемников. Когда источник действия копирования имеет тип **FileSystemSource** (который включает в себя Amazon S3), в разделе **typeProperties** доступно приведенное ниже свойство.
 
-| Свойство | Описание | Допустимые значения | Обязательно |
+| Свойство | ОПИСАНИЕ | Допустимые значения | Обязательно |
 | --- | --- | --- | --- |
-| recursive |Указывает, следует ли отображать рекурсивный список объектов S3 в каталоге. |True или false |Нет |
+| recursive |Указывает, следует ли отображать рекурсивный список объектов S3 в каталоге. |True или false |Нет  |
 
 ## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>Пример JSON. Копирование данных из Amazon S3 в хранилище BLOB-объектов Azure
 В этом примере показано, как скопировать данные из Amazon S3 в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать непосредственно в [любой из поддерживаемых приемников](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Для этого применяется действие копирования в фабрике данных.
@@ -361,7 +361,7 @@ ms.lasthandoff: 10/18/2017
 > Сведения о сопоставлении столбцов в наборе данных, используемом в качестве источника, со столбцами в приемнике см. в статье [Сопоставление столбцов набора данных в фабрике данных Azure](data-factory-map-columns.md).
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Ознакомьтесь со следующими статьями:
 
 * Сведения о ключевых факторах, влияющих на производительность перемещения данных (действие копирования) в фабрике данных, и различных способах оптимизации этого процесса см. в [руководстве по настройке производительности действия копирования](data-factory-copy-activity-performance.md).

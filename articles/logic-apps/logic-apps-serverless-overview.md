@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6803e22a78e27c15ff4fec301cd5bdd55aacd3e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Обзор бессерверных компонентов Azure с функциями и Logic Apps
 
@@ -41,13 +41,13 @@ ms.lasthandoff: 10/11/2017
 
 Служба Azure Logic Apps позволяет упростить и реализовать масштабируемые рабочие процессы и сценарии интеграции в облаке. Это визуальный конструктор для моделирования и автоматизации процессов в виде ряда операций, которые называются рабочим процессом.  Для облачных и локальных служб предусмотрено [много соединителей](../connectors/apis-list.md) для быстрого подключения бессерверного приложения к другим API.  Приложение логики запускается при срабатывании триггера (например, When an account is added to Dynamics CRM (При добавлении учетной записи в Dynamics CRM)), после чего могут выполняться разные комбинации действий, преобразования и условная логика.  Служба Logic Apps удобна при оркестрации различных функций Azure в процессе, особенно в том случае, если процесс требует взаимодействия с внешней системой или API.
 
-Чтобы приступить к работе с Logic Apps, начните с [создания первого приложения логики](logic-apps-create-a-logic-app.md).  Дополнительные технические сведения о Logic Apps см. в [справочнике разработчика](logic-apps-workflow-actions-triggers.md).
+Чтобы приступить к работе с Logic Apps, начните с [создания первого приложения логики](quickstart-create-first-logic-app-workflow.md).  Дополнительные технические сведения о Logic Apps см. в [справочнике разработчика](logic-apps-workflow-actions-triggers.md).
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Как создавать и развертывать бессерверные приложения в Azure?
 
 Azure предоставляет широкий набор средств для разработки, развертывания бессерверных приложений и управления ими.  Приложения можно создавать непосредственно на портале Azure или с помощью [инструментов из Visual Studio](logic-apps-serverless-get-started-vs.md).  После разработки приложение можно [развернуть мгновенно](logic-apps-create-deploy-template.md).  Azure также обеспечивает мониторинг бессерверных приложений.  Мониторинг может осуществляться из портала Azure, через API или SDK или с помощью интегрированных инструментов для OMS и Application Insights.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Создание первого бессерверного приложения в Visual Studio](logic-apps-serverless-get-started-vs.md)
 * [Создание панели мониторинга Customer Insights с помощью бессерверного решения](logic-apps-scenario-social-serverless.md)

@@ -3,7 +3,7 @@ title: "Использование Azure AD Connect при наличии сущ
 description: "В этом разделе описывается использование Connect при наличии существующего клиента Azure AD."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b3efcdd8c3f7173711c005e0fe4d7080bd902663
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: если имеется существующий клиент
 В большинстве разделов об использовании Azure AD Connect предполагается, что вы начинаете с нового клиента Azure AD, в котором отсутствуют какие-либо пользователи или другие объекты. Но если вы начали с клиента Azure AD, заполнили его пользователями и другими объектами, а теперь хотите использовать Connect, то этот раздел предназначен именно для вас.
@@ -58,5 +58,5 @@ ms.lasthandoff: 12/11/2017
 
 Если единственная причина, по которой планируется добавить локальную среду AD, это поддержка бизнес-приложений, то вам следует рассмотреть возможность использования [доменных служб Azure AD](../../active-directory-domain-services/index.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

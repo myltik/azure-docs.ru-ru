@@ -251,8 +251,6 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: управление
       items:
-        - name: Переход в хранилище служб восстановления
-          href: upgrade-site-recovery-vaults.md
         - name: Управление серверами обработки в Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: Управление сервером конфигурации

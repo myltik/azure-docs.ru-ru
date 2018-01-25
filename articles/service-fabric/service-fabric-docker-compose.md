@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: subramar
-ms.openlocfilehash: 92d1951de8c8c80f7b47033dc751cd65a63c43f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6275cee87455bf8a226a51a6b2093b67c3159d0
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Поддержка развертывания Docker Compose в Azure Service Fabric (предварительная версия)
 
@@ -91,13 +91,13 @@ sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 
 Чтобы начать обновление развертывания Compose, выполните следующую команду.
 
-```powershell
+```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
 После согласия на обновление ход его выполнения можно отслеживать с помощью следующей команды.
 
-```powershell
+```azurecli
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
@@ -139,7 +139,7 @@ sfctl compose upgrade-status --deployment-name TestContainerApp
 
 Хотя эта модель обеспечивает гибкость, мы также планируем поддерживать более простую модель развертывания на основе экземпляра, в которой типы будут извлекаться из файла манифеста. В этой модели каждое приложение получает собственный независимый манифест. Мы предварительно рассматриваем это действие, добавляя поддержку docker-compose.yml, в котором используется формат развертывания на основе экземпляра.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Ознакомьтесь со статьей [Моделирование приложения в структуре службы](service-fabric-application-model.md).
 * [Azure Service Fabric command line](service-fabric-cli.md) (Интерфейс командной строки Azure Service Fabric)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d7506afbc51338973322e4fcb27cbb4352fd513
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 221af59c211cc6ce0471718908db1544ca2d75ed
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Руководство. Копирование данных из локальной базы данных SQL Server в хранилище BLOB-объектов Azure
 В этом руководстве для создания конвейера фабрики данных, который копирует данные из локальной базы данных SQL Server в хранилище BLOB-объектов Azure, будет использоваться Azure PowerShell. Вы создадите и будете использовать локальную среду выполнения интеграции, которая перемещает данные между локальным и облачным хранилищами данных. 
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/15/2017
 > * Запуск конвейера.
 > * Выполнение мониторинга выполнения конвейера.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 ### <a name="azure-subscription"></a>Подписка Azure.
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 12/15/2017
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
-#### <a name="install-azure-powershell"></a>Установка Azure PowerShell
+#### <a name="install-azure-powershell"></a>Установите Azure PowerShell
 Установите последнюю версию среды Azure PowerShell, если она не установлена на компьютере. 
 
 1. Перейдите на страницу [скачивания пакетов Azure SDK](https://azure.microsoft.com/downloads/). 
@@ -142,7 +142,7 @@ ms.lasthandoff: 12/15/2017
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
     ```
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 
 1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) (заключенное в двойные кавычки, например `"adfrg"`), а затем выполните команду. 
    
@@ -297,9 +297,9 @@ ms.lasthandoff: 12/15/2017
 
     ![Вкладка «Диагностика»](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)   
 
-    а. В окне **Configuration Manager** перейдите на вкладку **Диагностика**.
+    a. В окне **Configuration Manager** перейдите на вкладку **Диагностика**.
 
-    b. В поле **Тип источника данных** выберите **SqlServer**.
+    Б. В поле **Тип источника данных** выберите **SqlServer**.
 
     c. Введите имя сервера.
 
@@ -666,7 +666,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
     ![Выходной файл](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом примере конвейер копирует данные из одного расположения в другое в хранилище BLOB-объектов Azure. Вы научились выполнять следующие задачи:
 
 > [!div class="checklist"]

@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: fc5fc128efe01bd0727e3ff30d8938918e89ac3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Начало работы с соединителем Slack
 Slack — это средство для организации взаимодействия между группами пользователей, которое объединяет все сообщения в одном месте, поддерживает возможности мгновенного поиска и доступно в любом месте. 
 
-Для начала создайте приложение логики, как описано [здесь](../logic-apps/logic-apps-create-a-logic-app.md).
+Для начала создайте приложение логики, как описано [здесь](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-slack"></a>Создание подключения к Slack
 Чтобы использовать соединитель Slack, сначала нужно создать **подключение** , а затем указать данные для приведенных ниже свойств. 
 
-| Свойство | Обязательно | Description (Описание) |
+| Свойство | Обязательно | ОПИСАНИЕ |
 | --- | --- | --- |
-| Маркер |Да |Указание учетных данных Slack |
+| по маркеру |Yes |Указание учетных данных Slack |
 
 Войдите в Slack и настройте в приложении логики **подключение** к Slack, выполнив следующие действия:
 

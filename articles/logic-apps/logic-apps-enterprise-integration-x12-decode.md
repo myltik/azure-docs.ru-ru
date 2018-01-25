@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 9605fc3a1096d053bfeffb2544499935601b2c0f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bc2e5c2b351fb87cb763459a9e24368a422ada1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Декодирование сообщений X12 для Azure Logic Apps с помощью пакета интеграции Enterprise
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="decode-x12-messages"></a>Декодирование сообщений X12
 
-1. [Создание приложения логики](logic-apps-create-a-logic-app.md).
+1. [Создание приложения логики](quickstart-create-first-logic-app-workflow.md).
 
 2. В соединителе для декодирования сообщений X12 нет триггеров, поэтому вам придется добавить триггер, чтобы запустить приложение логики (например, триггер запроса). В конструкторе приложений логики добавьте триггер, а затем добавьте действие в приложение логики.
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 11/15/2017
 
     ![создано подключение к учетной записи интеграции](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
-    Например:
+    Например: 
 
     ![Выбор неструктурированного файла сообщения X12 для декодирования](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
@@ -107,6 +107,6 @@ ms.lasthandoff: 11/15/2017
 ## <a name="view-the-swagger"></a>Просмотр Swagger
 Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/x12/). 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Обзор пакета интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise") 
 

@@ -3,8 +3,8 @@ title: "Как настроить кэш Redis для Azure | Документа
 description: "Обзор конфигурации Redis по умолчанию для кэша Redis для Azure и описание способов настройки экземпляров кэша Redis для Azure"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: sdanie
-ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Настройка кэша Redis для Azure
 В этом разделе рассказывается, как просмотреть и обновить конфигурацию экземпляров кэша Redis для Azure, и приводится конфигурация сервера Redis по умолчанию для экземпляров кэша Redis для Azure.
@@ -241,7 +241,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-![Планирование обновлений](./media/cache-configure/redis-schedule-updates.png)
+![запланировать обновления](./media/cache-configure/redis-schedule-updates.png)
 
 Чтобы задать период обслуживания, отметьте необходимые дни и укажите, когда будет начинаться период обслуживания в каждый из дней, а затем нажмите кнопку **ОК**. Обратите внимание, что время периода обслуживания указывается в формате UTC. 
 
@@ -282,7 +282,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-### <a name="properties"></a>Свойства
+### <a name="properties"></a>properties
 Щелкните **Свойства** , чтобы отобразить сведения о кэше, включая конечную точку и порты кэша.
 
 ![Свойства кэша Redis](./media/cache-configure/redis-cache-properties.png)
@@ -346,7 +346,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="redis-metrics"></a>Метрики Redis
 Щелкните **Метрики Redis**, чтобы [просмотреть метрики](cache-how-to-monitor.md#view-cache-metrics) кэша.
 
-### <a name="alert-rules"></a>Правила оповещения
+### <a name="alert-rules"></a>правила оповещений.
 
 Щелкните **Правила оповещения**, чтобы настроить оповещения на основе метрик кэша Redis. Дополнительные сведения см. в статье [Как отслеживать кэш Redis для Azure](cache-how-to-monitor.md#alerts).
 
@@ -394,7 +394,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-| Настройка | Значение по умолчанию | Описание |
+| Параметр | Значение по умолчанию | ОПИСАНИЕ |
 | --- | --- | --- |
 | `databases` |16 |Количество баз данных по умолчанию — 16. Тем не менее можно указать другое количество в зависимости от ценовой категории<sup>1</sup>. По умолчанию используется база данных DB 0. Вы можете выбрать другую базу данных для отдельных подключений с помощью `connection.GetDatabase(dbid)`, где `dbid` — это число от `0` до `databases - 1`. |
 | `maxclients` |Зависит от ценовой категории.<sup>2</sup> |Это максимально допустимое количество одновременно подключенных клиентов. После достижения предела Redis закрывает все новые подключения, возвращая сообщение об ошибке "max number of clients reached" (достигнуто максимальное количество клиентов). |
@@ -512,6 +512,6 @@ shard1>get myKey
 
 Сведения о перемещении ресурсов из одной группы ресурсов в другую, а также из одной подписки в другую см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](../azure-resource-manager/resource-group-move-resources.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о работе с командами Redis см. в разделе [Как выполнять команды Redis?](cache-faq.md#how-can-i-run-redis-commands)
 

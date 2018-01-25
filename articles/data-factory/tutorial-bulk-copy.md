@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 182cf11061aff41ce5008294e58a7ff2b21c2541
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 9971eb9e069d9fe1148c293c3459a8b11d931c2a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Копирование нескольких таблиц в пакетном режиме с помощью фабрики данных Azure
 В этом руководстве показано **копирование нескольких таблиц из базы данных SQL Azure в хранилище данных SQL Azure**. Этот подход можно применить и в других сценариях. Например, копирование таблиц из SQL Server или Oracle в базу данных SQL Azure, хранилище данных или большой двоичный объект Azure, копирование различных путей из большого двоичного объекта в таблицы базы данных SQL Azure.
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/19/2017
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Azure PowerShell**. Следуйте инструкциям по [установке и настройке Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * **Учетная запись хранения Azure.** Учетная запись хранения Azure используется в качестве промежуточного хранилища больших двоичных объектов в операции массового копирования. 
@@ -74,7 +74,7 @@ ms.lasthandoff: 12/19/2017
 2. Выберите сервер и щелкните **Брандмауэр** в разделе **Параметры**.
 3. На странице **Параметры брандмауэра** щелкните **ВКЛ** для параметра **Разрешить доступ к службам Azure**.
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 
 1. Запустите **PowerShell**. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
 
@@ -583,7 +583,7 @@ ms.lasthandoff: 12/19/2017
 
 3. Подключитесь к хранилищу данных-приемнику SQL Azure и подтвердите, что данные из базы данных SQL Azure скопированы надлежащим образом.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом руководстве вы выполнили следующие шаги: 
 
 > [!div class="checklist"]

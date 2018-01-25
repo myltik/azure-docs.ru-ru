@@ -15,20 +15,20 @@ ms.topic: hero-article
 ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 2a6b52f56647a8bc018c4cf56e996877c1c0d2e6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4caff18728f2f0f1246f4a05ac121cecdaaeaf04
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Руководство. Создание первой фабрики данных Azure с помощью REST API фабрики данных
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-build-your-first-pipeline.md)
-> * [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 >
 >
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/18/2017
 > Конвейер может содержать сразу несколько действий. Два действия можно объединить в цепочку (выполнить одно действие вслед за другим), настроив выходной набор данных одного действия как входной набор данных другого действия. Дополнительные сведения см. в разделе [Несколько действий в конвейере](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования** .
 * Установите на компьютер программу [curl](https://curl.haxx.se/dlwiz/) . Она будет использоваться с командами REST для создания фабрики данных.
 * Следуя инструкциям в [этой статье](../../azure-resource-manager/resource-group-create-service-principal-portal.md) , выполните следующее:
@@ -121,10 +121,10 @@ ms.lasthandoff: 12/18/2017
 
 В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 |:--- |:--- |
 | ClusterSize (размер кластера) |Размер кластера HDInsight. |
-| TimeToLive (срок жизни) |Указывает, сколько времени может простаивать кластер HDInsight, прежде чем он будет удален. |
+| TimeToLive |Указывает, сколько времени может простаивать кластер HDInsight, прежде чем он будет удален. |
 | linkedServiceName (имя связанной службы) |Указывает имя учетной записи хранения, в которой будут храниться журналы, создаваемые HDInsight. |
 
 Обратите внимание на следующие моменты.
@@ -167,12 +167,12 @@ ms.lasthandoff: 12/18/2017
 
 В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
-| Свойство | Описание |
+| Свойство | ОПИСАНИЕ |
 |:--- |:--- |
-| type |Для свойства типа задано значение AzureBlob, так как данные хранятся в хранилище BLOB-объектов Azure. |
-| linkedServiceName (имя связанной службы) |Ссылается на созданную ранее службу StorageLinkedService. |
+| Тип |Для свойства типа задано значение AzureBlob, так как данные хранятся в хранилище BLOB-объектов Azure. |
+| linkedServiceName |Ссылается на созданную ранее службу StorageLinkedService. |
 | fileName |Это необязательное свойство. Если это свойство не указано, выбираются все файлы из папки folderPath. В этом случае обрабатывается только файл input.log. |
-| type |Файлы журнала представлены в текстовом формате, поэтому мы используем значение TextFormat. |
+| Тип |Файлы журнала представлены в текстовом формате, поэтому мы используем значение TextFormat. |
 | columnDelimiter |Столбцы в файлах журнала разделяются запятыми (,). |
 | frequency и interval |Для свойства frequency задано значение Month, а для свойства interval — значение 1. Это означает, что срезы входных данных доступны ежемесячно. |
 | external |Это свойство имеет значение true, если входные данные не создаются службой фабрики данных. |
@@ -472,7 +472,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 >
 >
 
-Для отслеживания срезов и устранения возникших проблем можно использовать портал Azure. Дополнительные сведения см. в разделе [Отслеживание конвейера](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline).
+Для отслеживания срезов и устранения возникших проблем можно использовать портал Azure. Дополнительные сведения см. в разделе [Отслеживание конвейера](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline).
 
 ## <a name="summary"></a>Сводка
 Следуя инструкциям из этого руководства, вы создали фабрику данных Azure для обработки данных путем выполнения сценария Hive в кластере Hadoop HDInsight. Вы использовали редактор фабрики данных на портале Azure для выполнения следующих действий:
@@ -484,11 +484,11 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 3. Создание двух **наборов данных**, которые описывают входные и выходные данные для действия HDInsight Hive в конвейере.
 4. Создание **конвейера** с действием **HDInsight Hive**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этой статье описывается создание конвейера с помощью действия преобразования (действие HDInsight), которое по требованию выполняет сценарий Hive в кластере Azure HDInsight. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в статье [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>См. также
-| Раздел | Описание |
+| Раздел | ОПИСАНИЕ |
 |:--- |:--- |
 | [Справочник по REST API фабрики данных](/rest/api/datafactory/) |См. полную документацию по командлетам фабрики данных. |
 | [Конвейеры](data-factory-create-pipelines.md) |Эта статья поможет вам понять сущность конвейеров и действий в фабрике данных Azure, а также научиться с их помощью создавать комплексные рабочие процессы, управляемые данными, для конкретных бизнес-сценариев. |

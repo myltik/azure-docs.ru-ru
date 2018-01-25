@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dde5bc4733af1aba34199f332379d2faf566725
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Создание определений рабочих процессов для приложений логики с помощью JSON
 
-Вы можете создать определения рабочих процессов для [Azure Logic Apps](logic-apps-what-are-logic-apps.md), используя простой декларативный язык JSON. Сначала ознакомьтесь со статьей [Создание нового приложения логики, подключающего службы SaaS](logic-apps-create-a-logic-app.md), если вы этого еще не сделали. Вы также можете просмотреть [полные справочные материалы по языку определения рабочего процесса](http://aka.ms/logicappsdocs).
+Вы можете создать определения рабочих процессов для [Azure Logic Apps](logic-apps-overview.md), используя простой декларативный язык JSON. Сначала ознакомьтесь со статьей [Создание нового приложения логики, подключающего службы SaaS](quickstart-create-first-logic-app-workflow.md), если вы этого еще не сделали. Вы также можете просмотреть [полные справочные материалы по языку определения рабочего процесса](http://aka.ms/logicappsdocs).
 
 ## <a name="repeat-steps-over-a-list"></a>Повторение шагов по списку
 

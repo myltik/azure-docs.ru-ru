@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 63081e2e5a2c792c8e688e7b8aaff0eca40e48a1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Копирование данных в индекс службы "Поиск Azure" с использованием фабрики данных Azure
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="getting-started"></a>Приступая к работе
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, относящихся к соединителю службы "Поиск Azure".
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы "Поиск Azure" поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **AzureSearch**. | Yes |
 | URL-адрес | URL-адрес службы Поиска Azure. | Yes |
@@ -82,7 +82,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные в службу "Поиск Azure", присвойте свойству type набора данных значение **RelationalTable**. Поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type для набора данных должно иметь значение: **AzureSearchIndex**. | Yes |
 | indexName | Имя индекса Поиска Azure. Фабрика данных не создает индекс. Индекс должен существовать в Поиске Azure. | Yes |
@@ -113,7 +113,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные в службу "Поиск Azure", в действии копирования задайте тип источника **AzureSearchIndexSink**. В разделе **sink** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **AzureSearchIndexSink**. | Yes |
 | writeBehavior | Указывает действие (объединение или замена), выполняемое, если документ уже существует в индексе. Ознакомьтесь с разделом [Свойство WriteBehavior](#writebehavior-property).<br/><br/>Допустимые значения: **Объединить** (по умолчанию) и **Отправить**. | Нет  |

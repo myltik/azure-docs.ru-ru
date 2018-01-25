@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 01/18/2018
 ms.author: spelluru
-ms.openlocfilehash: bda20280e755c69f3d76e5c7dad345b313bd1cc5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9688cb7bf15aec4a3506939b165ac579377d3e9a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-catalog-developer-samples"></a>Примеры каталога данных для разработчиков
 Приступите к разработке приложений каталога данных с помощью REST API каталога данных. REST API каталога данных — это API на основе REST, который предоставляет программный доступ к ресурсам каталога данных для регистрации, аннотирования и поиска ресурсов-контейнеров данных программными средствами.

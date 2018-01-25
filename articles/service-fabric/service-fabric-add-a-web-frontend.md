@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d4f78c63117e5c54eb855178c75d6c294957f2a1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Создание внешнего интерфейса веб-службы для приложения с помощью ASP.NET Core
 По умолчанию службы Azure Service Fabric не предоставляют общедоступный интерфейс для веб-служб. Чтобы сделать свое приложение функциональным для клиентов HTTP, вам нужно создать веб-проект, который будет работать в качестве точки входа и обмениваться данными с отдельными службами.
@@ -91,7 +91,7 @@ Service Fabric позволяет пользователям самим опре
 
 4. В библиотеке классов создайте интерфейс с помощью одиночного метода `GetCountAsync`и выполните расширение интерфейса из `Microsoft.ServiceFabric.Services.Remoting.IService`. Интерфейс удаленного доступа должен быть производным от этого интерфейса для указания, что он является интерфейсом удаленного взаимодействия со службой.
    
-    ```c#
+    ```csharp
     using Microsoft.ServiceFabric.Services.Remoting;
     using System.Threading.Tasks;
         
@@ -114,7 +114,7 @@ Service Fabric позволяет пользователям самим опре
     ![Добавление ссылки на проект библиотеки классов в службе с отслеживанием состояния][vs-add-class-library-reference]
 2. Найдите класс, который наследуется от `StatefulService`, например `MyStatefulService`, и выполните его расширение для реализации интерфейса `ICounter`.
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
    
     ...
@@ -126,7 +126,7 @@ Service Fabric позволяет пользователям самим опре
     ```
 3. Теперь реализуйте одиночный метод `GetCountAsync`, определенный в интерфейсе `ICounter`.
    
-    ```c#
+    ```csharp
     public async Task<long> GetCountAsync()
     {
         var myDictionary = 
@@ -150,7 +150,7 @@ Service Fabric позволяет пользователям самим опре
 
 Метод расширения `CreateServiceRemotingListener` в интерфейсе `IService` позволяет легко создавать `ServiceRemotingListener` со всеми параметрами по умолчанию. Чтобы использовать этот метод расширения, обязательно импортируйте пространство имен `Microsoft.ServiceFabric.Services.Remoting.Runtime`. 
 
-```c#
+```csharp
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
@@ -176,7 +176,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 4. В папке **Контроллеры** откройте класс `ValuesController`. Обратите внимание, что сейчас метод `Get` просто возвращает жестко запрограммированный строковый массив значений value1 и value2, соответствующих тем, которые мы видели ранее в браузере. Замените эту реализацию следующим кодом:
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
@@ -223,7 +223,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 Дополнительные сведения о настройке разных значений для разных сред см. в статье [Управление параметрами приложения для нескольких сред](service-fabric-manage-multiple-environment-app-configuration.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы настроили веб-интерфейс для приложения с помощью ASP.NET Core, получите дополнительные сведения о работе ASP.NET Core с Service Fabric в статье о [ASP.NET Core в Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md).
 
 Далее [узнайте больше о взаимодействии со службами](service-fabric-connect-and-communicate-with-services.md) в целом, чтобы понять, как взаимодействуют службы в Service Fabric.

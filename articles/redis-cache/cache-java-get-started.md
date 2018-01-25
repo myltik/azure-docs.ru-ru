@@ -3,8 +3,8 @@ title: "Как использовать кэш Redis для Azure с Java | Д�
 description: "Приступая к работе с кэшем Redis для Azure с использованием Java"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/31/2017
-ms.author: sdanie
-ms.openlocfilehash: b433eecb0424db85b616c40c5f0cdfc88692cef1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: a93dbf78c9cb94f6c20c8569a69e068ceb3b98bc
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-azure-redis-cache-with-java"></a>Использование кэша Redis для Azure с Java
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 
 В этом разделе показано, как приступить к работе с кэшем Redis для Azure, используя Java.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 [Jedis](https://github.com/xetorthio/jedis) — Java-клиент для Redis
 
 В этом учебнике используется Jedis, но можно использовать любой клиент Java из перечисленных на сайте [http://redis.io/clients](http://redis.io/clients).
@@ -78,7 +78,7 @@ ms.lasthandoff: 12/18/2017
     }
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Включите диагностику кэша](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics), чтобы можно было [наблюдать](https://msdn.microsoft.com/library/azure/dn763945.aspx) за работоспособностью кэша.
 * Прочитайте официальную [документацию Redis](http://redis.io/documentation).
 * Узнайте, [как настроить приложение Spring Initializr для использования кэша Redis](cache-java-spring-boot-initializer-with-redis-cache.md).

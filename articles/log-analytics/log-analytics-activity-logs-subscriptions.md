@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d8c970b322be7f735e51c7b246b2421589c91813
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Получение журналов действий Azure в службе Log Analytics в разных подписках
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/09/2018
 
 ## <a name="overview"></a>Обзор
 
-Стратегия, используемая в этом сценарии, заключается в том, чтобы журнал действий Azure отправлял события в [концентратор событий](../event-hubs/event-hubs-what-is-event-hubs.md), в котором [приложение логики](../logic-apps/logic-apps-what-are-logic-apps.md) отправляет их в рабочее пространство Log Analytics. 
+Стратегия, используемая в этом сценарии, заключается в том, чтобы журнал действий Azure отправлял события в [концентратор событий](../event-hubs/event-hubs-what-is-event-hubs.md), в котором [приложение логики](../logic-apps/logic-apps-overview.md) отправляет их в рабочее пространство Log Analytics. 
 
 ![изображение потока данных из журнала действий в Log Analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 01/09/2018
 
 В конструкторе Logic Apps теперь отображаются доступные соединители и их триггеры, которые используются для запуска рабочего процесса приложения логики.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### <a name="add-event-hub-trigger"></a>Добавление триггера концентратора событий
 

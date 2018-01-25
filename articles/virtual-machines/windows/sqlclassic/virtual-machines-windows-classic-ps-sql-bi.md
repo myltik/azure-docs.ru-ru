@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Бизнес-аналитика SQL Server на виртуальных машинах Azure
 > [!IMPORTANT] 
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../../../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
 
 Коллекция виртуальных машин Microsoft Azure включает в себя образы, содержащие установки SQL Server. Выпуски SQL Server, поддерживаемые в образах коллекции, представляют сбой те же файлы установки, которые можно установить на локальных компьютерах и виртуальных машинах. В этом разделе приведены сводные данные об установленных в образах компонентах бизнес-аналитики SQL Server, а также о настройке, необходимой после подготовки виртуальной машины. Кроме того, в этом разделе описаны поддерживаемые топологии развертывания для компонентов бизнес-аналитики и рекомендации.
 
@@ -75,13 +75,13 @@ ms.lasthandoff: 10/11/2017
 * SQL Server 2012 SP3 Enterprise
 * SQL Server 2012 SP3 Standard
 
-| Компонент бизнес-аналитики SQL Server | Установлен в образе коллекции | Примечания |
+| Компонент бизнес-аналитики SQL Server | Установлен в образе коллекции | Заметки |
 | --- | --- | --- |
-| **Собственный режим служб Reporting Services** |Да |Установлен, но требует настройки, включая URL-адрес диспетчера отчетов. См. раздел [Настройка служб Reporting Services](#configure-reporting-services). |
-| **Режим SharePoint служб Reporting Services** |Нет |Образ коллекции виртуальных машин Microsoft Azure не включает в себя SharePoint или файлы установки SharePoint. <sup>1</sup> |
-| **Многомерный и интеллектуальный анализ данных в службах Analysis Services (OLAP)** |Да |Установлен и настроен в качестве экземпляра служб Analysis Services по умолчанию. |
-| **Табличный режим служб Analysis Services** |Нет |Поддерживается в образах SQL Server 2012, 2014 и 2016, но не устанавливается по умолчанию. Установите другой экземпляр служб Analysis Services. Ознакомьтесь с подразделом "Установка других служб и компонентов SQL Server" этого раздела. |
-| **Power Pivot служб Analysis Services для SharePoint** |Нет |Образ коллекции виртуальных машин Microsoft Azure не включает в себя SharePoint или файлы установки SharePoint. <sup>1</sup> |
+| **Собственный режим служб Reporting Services** |Yes |Установлен, но требует настройки, включая URL-адрес диспетчера отчетов. См. раздел [Настройка служб Reporting Services](#configure-reporting-services). |
+| **Режим SharePoint служб Reporting Services** |Нет  |Образ коллекции виртуальных машин Microsoft Azure не включает в себя SharePoint или файлы установки SharePoint. <sup>1</sup> |
+| **Многомерный и интеллектуальный анализ данных в службах Analysis Services (OLAP)** |Yes |Установлен и настроен в качестве экземпляра служб Analysis Services по умолчанию. |
+| **Табличный режим служб Analysis Services** |Нет  |Поддерживается в образах SQL Server 2012, 2014 и 2016, но не устанавливается по умолчанию. Установите другой экземпляр служб Analysis Services. Ознакомьтесь с подразделом "Установка других служб и компонентов SQL Server" этого раздела. |
+| **Power Pivot служб Analysis Services для SharePoint** |Нет  |Образ коллекции виртуальных машин Microsoft Azure не включает в себя SharePoint или файлы установки SharePoint. <sup>1</sup> |
 
 <sup>1</sup> Дополнительные сведения о SharePoint и виртуальных машинах Azure см. в статьях [Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) и [Развертывание SharePoint на виртуальных машинах Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=34598).
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 10/11/2017
   * Политика кэширования диска для диска по умолчанию **C:**не является оптимальным выбором для работы с данными.
   * **D:**— это временный диск, который используется в основном для файла подкачки. Диск **D:**не является сохраняемым и не сохраняется в хранилище BLOB-объектов. Задачи управления, такие как изменение размера виртуальной машины, приводят к сбросу диска **D:**. **НЕ** рекомендуется использовать диск **D:** для файлов базы данных, включая tempdb.
     
-    Дополнительные сведения о создании и подключении дисков см. в разделе [Подключение диска данных к виртуальной машине](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Дополнительные сведения о создании и подключении дисков см. в разделе [Подключение диска данных к виртуальной машине](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Остановите или удалите службы, которые не планируете использовать. Например, если виртуальная машина используется только для служб Reporting Services, остановите или удалите службы Analysis Services и службы SQL Server Integration Services. На рисунке приведен пример служб, которые запускаются по умолчанию.
   
     ![Службы SQL Server](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -223,7 +223,7 @@ ms.lasthandoff: 10/11/2017
 
 1. Создайте конечную точку для виртуальной машины через TCP-порт 80. Дополнительные сведения см. в разделе [Конечные точки виртуальной машины и порты брандмауэра](#virtual-machine-endpoints-and-firewall-ports) этого документа.
 2. Откройте порт 80 в брандмауэре виртуальной машины.
-3. Перейдите к веб-порталу или диспетчеру отчетов, используя **DNS-имя** виртуальной машины Azure в качестве имени сервера в URL-адресе. Например:
+3. Перейдите к веб-порталу или диспетчеру отчетов, используя **DNS-имя** виртуальной машины Azure в качестве имени сервера в URL-адресе. Например: 
    
     **Сервер отчетов**: http://uebi.cloudapp.net/reportserver  **Веб-портал**: http://uebi.cloudapp.net/reports
    
@@ -316,7 +316,7 @@ ms.lasthandoff: 10/11/2017
   * Создайте конечные точки виртуальной машины для указанных портов (*).
 * Если виртуальная машина присоединена к домену с помощью VPN-туннеля, такого как виртуальная сеть Azure, конечные точки не требуются. Однако следует открыть порты в брандмауэре на виртуальной машине.
   
-  | Порт | Тип | Описание |
+  | Порт | type | ОПИСАНИЕ |
   | --- | --- | --- |
   | **80** |TCP |Удаленный доступ к серверу отчетов (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |
@@ -339,7 +339,7 @@ ms.lasthandoff: 10/11/2017
 * [Обзор. SQL Server на виртуальных машинах Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Виртуальные машины](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Подготовка виртуальной машины SQL Server в Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Подключение диска с данными к виртуальной машине](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Подключение диска с данными к виртуальной машине](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Миграция базы данных в SQL Server на виртуальной машине Azure](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Определение режима работы сервера экземпляра служб Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Многомерное моделирование (руководство по Adventure Works)](https://technet.microsoft.com/library/ms170208.aspx)

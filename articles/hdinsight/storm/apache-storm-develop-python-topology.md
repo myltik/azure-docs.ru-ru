@@ -14,13 +14,13 @@ ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: be2db4e413426be3a5e2dece43d74270e3636909
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1da38ebbe3354bbb36f68d1243b30bf2f4c5633f
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Разработка топологий Apache Storm с помощью Python в HDInsight
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/03/2017
 
 Код для этого проекта доступен здесь: [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Python 2.7 или выше;
 
@@ -149,7 +149,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 > * нажмите кнопку **Kill** (Завершить) в пользовательском интерфейсе Storm.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Чтобы узнать о других способах использования Python с HDInsight, см. следующие документы.
 

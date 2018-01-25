@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: rest-api
 ms.topic: hero-article
-ms.date: 09/26/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5535bc0438c650fdf0e03229359bc8bf4a1f6990
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 9c12c5e016e6bfa5dceab6dc77086fe018c43f59
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Создание фабрики данных Azure и конвейера с помощью REST API
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/04/2017
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Подписка Azure**. Если у вас нет подписки, вы можете [создать бесплатную пробную учетную запись](http://azure.microsoft.com/pricing/free-trial/).
 * **Учетная запись хранения Azure.** Хранилище BLOB-объектов используется как хранилище данных **источник** и **приемник**. Если у вас нет учетной записи хранения Azure, ознакомьтесь с разделом [Создание учетной записи хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -87,7 +87,7 @@ $authHeader = @{
 } 
 ```
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 
 Чтобы создать фабрику данных, выполните следующие команды:
 
@@ -451,5 +451,5 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 Remove-AzureRmDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом примере конвейер копирует данные из одного расположения в другое в хранилище BLOB-объектов Azure. Перейдите к [руководствам](tutorial-copy-data-dot-net.md), чтобы узнать об использовании фабрики данных в различных сценариях. 

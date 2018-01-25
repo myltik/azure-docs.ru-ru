@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 3ff06ea07fcf5e391783575adf9dd5d99255eced
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 460d37b13a17eaf20d77ad4b1059e0461fb0181f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Действие Wait в фабрике данных Azure
 Если в конвейере используется действие Wait, он приостанавливает обработку на указанный период, прежде чем возобновить выполнение последующих действий. 
@@ -40,11 +40,11 @@ ms.lasthandoff: 11/09/2017
 
 ## <a name="type-properties"></a>Свойства типа
 
-Свойство | Описание | Допустимые значения | Обязательно
+Свойство | ОПИСАНИЕ | Допустимые значения | Обязательно
 -------- | ----------- | -------------- | --------
-name | Имя действия `Wait`. | Строка | Да
-type | Для этого свойства необходимо задать значение **Wait**. | Строка | Да
-waitTimeInSeconds | Период ожидания в секундах перед возобновлением обработки в конвейере. | Целое число  | Да
+name | Имя действия `Wait`. | Строка | Yes
+Тип | Для этого свойства необходимо задать значение **Wait**. | Строка | Yes
+waitTimeInSeconds | Период ожидания в секундах перед возобновлением обработки в конвейере. | Целое число  | Yes
 
 ## <a name="example"></a>Пример
 
@@ -102,10 +102,10 @@ waitTimeInSeconds | Период ожидания в секундах перед
 
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Ознакомьтесь с другими действиями потока управления, которые поддерживаются фабрикой данных: 
 
-- [действие условия If](control-flow-if-condition-activity.md);
+- [Действие условия If](control-flow-if-condition-activity.md)
 - [Действие выполнения конвейера](control-flow-execute-pipeline-activity.md)
 - [Действие ForEach](control-flow-for-each-activity.md)
 - [Действие получения метаданных](control-flow-get-metadata-activity.md)

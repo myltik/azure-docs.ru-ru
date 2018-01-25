@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: baac97db61b84000557e7150a64ffb64d81ce00c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 33ff6cfcacd1632dc49b448e70361e1cb2ce1176
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-azure-powershell"></a>Управление защитой от атак DDoS Azure уровня "Стандартный" с помощью Azure PowerShell
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/16/2017
 Login-AzureRmAccount
 ```
 
-## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Включение защиты от атак DDoS уровня "Стандартный". Создание новой виртуальной сети
+## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Включение защиты от атак DDoS уровня "Стандартный" путем создания новой виртуальной сети
 
 Чтобы создать виртуальную сеть с включенной защитой от атак DDoS, выполните следующую команду:
 
@@ -127,13 +127,13 @@ $vnetProps
     Get-AzureRmAlertRule -Name myMetricRuleWithEmail -ResourceGroup myresourcegroup -DetailedOutput 
     ```
 
-Для создания оповещений вы также можете ознакомиться с дополнительными сведениями о [настройке веб-перехватчиков](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) и [приложениях логики](../logic-apps/logic-apps-what-are-logic-apps.md).
+Для создания оповещений вы также можете ознакомиться с дополнительными сведениями о [настройке веб-перехватчиков](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) и [приложениях логики](../logic-apps/logic-apps-overview.md).
 
 ## <a name="configure-logging-on-ddos-protection-metrics"></a>Настройка ведения журналов для метрик защиты от атак DDoS
 
 Чтобы получить помощь по включению и настройке ведения журналов диагностики Azure в PowerShell, обратитесь к [примерам для PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Дополнительные сведения о журналах диагностики Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Сбор журналов и метрик для служб Azure для использования в Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

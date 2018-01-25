@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: bde1629504c97cf6706b42219570ffa6243073dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e55519bd329812d2e8ad35c9d774dcbe382d68aa
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-outlookcom-connector"></a>Начало работы с соединителем Outlook.com
 Соединитель Outlook.com позволяет управлять электронной почтой, календарями и контактами. С его помощью можно выполнять различные действия, такие как отправка сообщения электронной почты, планирование встреч, добавление контактов и т. д.
 
-Для начала можно создать приложение логики, как описано [здесь](../logic-apps/logic-apps-create-a-logic-app.md).
+Для начала можно создать приложение логики, как описано [здесь](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-outlookcom"></a>Создание подключения к Outlook.com
 Для создания приложений логики с помощью Outlook.com необходимо создать **подключение**, а затем указать данные для приведенных ниже свойств.
 
-| Свойство | Обязательно | Description (Описание) |
+| Свойство | Обязательно | ОПИСАНИЕ |
 | --- | --- | --- |
-| Маркер |Да |Укажите учетные данные Outlook.com |
+| по маркеру |Yes |Укажите учетные данные Outlook.com |
 
 Созданное подключение можно использовать для выполнения действий и прослушивания триггеров, описанных в этой статье.
 

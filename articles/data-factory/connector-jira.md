@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: c92b4ce8827087e5e978d7fb43165ba93e1956d9
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 74b5a792fcc94c4a9ae45b07604e1b392b8df7d1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-beta"></a>Копирование данных из Jira с помощью фабрики данных Azure (бета-версия)
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="getting-started"></a>Приступая к работе
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Следующие разделы содержат сведения о свойствах JSON для определения сущностей фабрики данных, относящихся к соединителю Jira.
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы Jira поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **Jira**. | Yes |
 | host | IP-адрес или имя узла службы Jira (например, jira.example.com).  | Yes |
@@ -105,7 +105,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы копировать данные из Jira, установите тип источника **JiraSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type для источника действия копирования должно иметь значение **JiraSource**. | Yes |
 | query | Используйте пользовательский SQL-запрос для чтения данных. Например, `"SELECT * FROM MyTable"`. | Yes |

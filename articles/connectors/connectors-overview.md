@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f7d8f99bfa09847c01831a06efa8b94c1c0a89a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Использование соединителей в приложении логики
 Соединители обеспечивают быстрый доступ к событиям, данным и действиям в службах, протоколах и на платформах.  Полный список соединителей, которые поддерживают приложения логики, можно найти [здесь](apis-list.md).  Соединители можно использовать в качестве триггера или действия в приложении логики. Для их работы может потребоваться настроенное *подключение* (например, авторизация учетной записи Twitter для доступа или публикации от вашего имени).
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 Просматривать подключения, а также управлять ими можно в Azure, щелкнув **Обзор** и выбрав **Подключения API**.  В ресурсе подключений API можно просматривать, изменять, обновлять и повторно авторизовать все созданные подключения.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Создание приложения логики](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Примеры приложений логики и распространенные сценарии](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Начало работы с триггерами и действиями интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md)
 

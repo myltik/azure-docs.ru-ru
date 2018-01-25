@@ -4,7 +4,7 @@ description: "В этом разделе приведены рекомендац
 services: active-directory
 keywords: "корзина AD, случайное удаление, привязка к источнику"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 36a9b5a50a18b73626b0c6e03ed258e387d5c20b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 45bff0585eb6f1990a7300ae3d16632eab78a83c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Синхронизация Azure AD Connect: включение корзины AD
 Для локальных каталогов Active Directory, которые синхронизируются с Azure AD, рекомендуется включить функцию корзины AD. 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/11/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 **Обзорные статьи**
 
 * [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)

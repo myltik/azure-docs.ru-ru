@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 7a30cca215dad6ca71a31bd1f775b85dd2f8ea00
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: b0cc1bca6035104aba655bdb6fc63a1a66483f0c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-beta"></a>Копирование данных из PayPal с помощью фабрики данных Azure (бета-версия)
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="getting-started"></a>Приступая к работе
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, относящихся к соединителю PayPal.
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы PayPal поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **PayPal**. | Yes |
 | host | URL-адрес экземпляра PayPal (api.sandbox.paypal.com).  | Yes |
@@ -103,7 +103,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы копировать данные из PayPal, задайте для типа источника в действии копирования значение **PayPalSource**. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **PayPalSource**. | Yes |
 | query | Используйте пользовательский SQL-запрос для чтения данных. Например, `"SELECT * FROM Payment_Experience"`. | Yes |

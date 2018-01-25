@@ -3,7 +3,7 @@ title: "Синхронизация Azure AD Connect: общие сведения
 description: "Общие сведения о пользователях, группах и контактах в службе синхронизации Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: billmath
 manager: mtillman
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi;andkjell
-ms.openlocfilehash: a08e3f3593e1ec04ebf65fef2880c965e02775d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 7f4bc51630653bfe341bfcb5c11699020053585a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Синхронизация Azure AD Connect: общие сведения о пользователях, группах и контактах
 Существует несколько разных причин, по которым нужно иметь несколько лесов Active Directory. Кроме того, существует несколько разных топологий развертывания. Распространенные модели включают развертывание ресурсов учетной записи и лесов с синхронизированным глобальным списком адресов после слияния и поглощения. Но даже при наличии чистых моделей гибридные модели не менее часто используются. Конфигурация по умолчанию в службе синхронизации Azure AD Connect не предполагает какой-то конкретной модели. Тем не менее, в зависимости от выбора сопоставления пользователей в руководстве по установке, можно наблюдать разное поведение.

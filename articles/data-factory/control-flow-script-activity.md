@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 143e2a29be18771c6d4f7ce5d1711fa8c9b52e07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35ce1d9cedd70aa92bf39d5b6dd5d469f95b3d5c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="script-activity-in-azure-data-factory"></a>Действие скрипта в фабрике данных Azure
 
 > [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, см. статью [Introduction to Azure Data Factory](v1/data-factory-introduction.md) (Введение в фабрику данных Azure).
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, см. статью [Introduction to Azure Data Factory](v1/data-factory-introduction.md) (Введение в фабрику данных Azure).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Ознакомьтесь с другими действиями потока управления, которые поддерживаются фабрикой данных: 
 
 - [Действие выполнения конвейера](control-flow-execute-pipeline-activity.md)

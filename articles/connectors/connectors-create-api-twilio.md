@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/19/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a790ac51b0fea7e3fa379d20e0e094e7ce0d7696
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50361a3342a0d14ae02b2cb478bbb0f74b61bba0
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Начало работы с соединителем Twilio
 Подключитесь к Twilio для отправки и получения глобальных SMS-, MMS- и IP-сообщений. С помощью Twilio вы можете:
@@ -27,15 +27,15 @@ ms.lasthandoff: 10/11/2017
 * формировать бизнес-процессы на основе данных, получаемых из Twilio; 
 * использовать действия для получения сообщений, вывода списка сообщений и выполнения многих других задач. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, новое полученное сообщение Twilio можно использовать в рабочем процессе служебной шины. 
 
-Для начала создайте приложение логики, как описано [здесь](../logic-apps/logic-apps-create-a-logic-app.md).
+Для начала создайте приложение логики, как описано [здесь](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-twilio"></a>Создание подключения к Twilio
 При добавлении этого соединителя в приложения логики введите указанные ниже значения Twilio:
 
-| Свойство | Обязательно | Описание |
+| Свойство | Обязательно | ОПИСАНИЕ |
 | --- | --- | --- |
-| Идентификатор учетной записи |Да |Введите идентификатор своей учетной записи Twilio |
-| Маркер доступа |Да |Введите свой маркер доступа Twilio |
+| Идентификатор учетной записи |Yes |Введите идентификатор своей учетной записи Twilio |
+| Маркер доступа |Yes |Введите свой маркер доступа Twilio |
 
 > [!INCLUDE [Steps to create a connection to Twilio](../../includes/connectors-create-api-twilio.md)]
 > 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Защита внутренней службы веб-API с помощью Azure Active Directory и управления API
 На следующих видео показано, как собрать внутреннюю службу веб-API и защитить ее, используя протокол OAuth 2.0 с Azure Active Directory и управлением API.  Эта статья содержит обзор инструкций на видео и дополнительные сведения к ним. Посмотрев этот 24-минутный ролик, вы познакомитесь со следующими темами.
@@ -81,13 +81,13 @@ ms.lasthandoff: 12/04/2017
 
 Добавьте следующий оператор `using` в верхнюю часть файла `CalcInput.cs`:
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 Замените созданный класс следующим кодом:
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -104,7 +104,7 @@ public class CalcInput
 
 Добавьте следующий оператор `using` в верхнюю часть файла `CalcController.cs`:
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -112,7 +112,7 @@ using APIMAADDemo.Models;
 
 Замените созданный контроллер следующим кодом: Этот код реализует операции `Add`, `Subtract`, `Multiply` и `Divide` простого API «Калькулятор».
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {
@@ -336,7 +336,7 @@ public class CalcController : ApiController
 }
 ```
 
-Чтобы импортировать API калькулятора, щелкните **API** в расположенном слева меню **Управление API**, а затем выберите **Импорт API**.
+Чтобы импортировать API калькулятора, щелкните **API** в расположенном слева меню **Управление API**, а затем выберите **Импортировать API**.
 
 ![Кнопка импорта API][api-management-import-api]
 
@@ -356,11 +356,11 @@ public class CalcController : ApiController
 
 Выберите **Портал разработчика** справа вверху на портале издателя.
 
-![Портал разработчика][api-management-developer-portal-menu]
+![Developer portal][api-management-developer-portal-menu]
 
 Щелкните **Интерфейсы API** и выберите API **Калькулятор**.
 
-![Портал разработчика][api-management-dev-portal-apis]
+![Developer portal][api-management-dev-portal-apis]
 
 Щелкните **Попробовать**.
 
@@ -436,7 +436,7 @@ public class CalcController : ApiController
 
 Чтобы получить **секрет клиента**, щелкните раскрывающийся список **Выбрать длительность** в разделе **Ключи** и укажите интервал. В данном примере используется интервал 1 год.
 
-![идентификатор клиента][api-management-aad-client-id]
+![Идентификатор клиента][api-management-aad-client-id]
 
 Нажмите кнопку **Сохранить** , чтобы сохранить конфигурацию и отобразить ключ. 
 
@@ -510,7 +510,7 @@ public class CalcController : ApiController
 
 Другой пример настройки и использования этой политики см. в видео [Облачное покрытие, эпизод 177: другие функции управления API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) с отметки времени 13:50. Перемотайте вперед до отметки времени 15:00, чтобы просмотреть политики, настроенные в редакторе политик, и до 18:50, чтобы просмотреть демонстрацию вызова операции с портала разработчика с обязательным маркером авторизации и без него.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * См. другие [видео](https://azure.microsoft.com/documentation/videos/index/?services=api-management) об управлении API.
 * Другие способы защиты внутренней службы см. в разделе [Взаимная аутентификация на основе сертификатов](api-management-howto-mutual-certificates.md).
 

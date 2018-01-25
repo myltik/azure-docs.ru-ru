@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Источники данных, поддерживаемые в каталоге данных Azure
 
@@ -39,41 +39,41 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>Каталог Azure Data Lake Store</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Файл Azure Data Lake Store</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Хранилище больших двоичных объектов Azure</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Каталог службы хранилища Azure</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Таблица служба хранилища Azure</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td>
         <font size="2">
       </td>
@@ -83,96 +83,96 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>Каталог HDFS</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Файл HDFS</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Таблица Hive</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
     </tr>
     <tr>
       <td>Представление Hive</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
     </tr>
     <tr>
       <td>Таблица MySQL</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Представление MySQL</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Таблица базы данных Oracle</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Представление базы данных Oracle</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Другие (универсальный ресурс)</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Таблица хранилища данных SQL Azure</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
     </tr>
     <tr>
       <td>Представление хранилища данных SQL</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
     </tr>
     <tr>
       <td>Размерность SQL Server Analysis Services</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -180,94 +180,94 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Ключевые показатели эффективности SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Измерение SQL Server Analysis Services</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Таблица SQL Server Analysis Services</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Отчет для служб SQL Server Reporting Services</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>"Обзор"</td>
       <td>Только серверы в основном режиме. Режим SharePoint не поддерживается.</td>
     </tr>
     <tr>
       <td>Таблица SQL Server</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
     </tr>
     <tr>
       <td>Представление SQL Server</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
     </tr>
     <tr>
       <td>Таблица Teradata</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
     </tr>
     <tr>
       <td>Представление Teradata</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
     </tr>
     <tr>
       <td>Представление SAP Hana</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Таблица DB2</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Представление DB2</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Файл файловой системы</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -275,23 +275,23 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>Каталог FTP</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Файл FTP</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Отчет HTTP</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -299,7 +299,7 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>Конечная точка HTTP</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -307,7 +307,7 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>Файл HTTP</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>Набор сущностей OData</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -323,7 +323,7 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>Функция OData</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -331,23 +331,23 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>Таблица PostgreSQL</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Представление PostgreSQL</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Представление SAP Hana</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -355,15 +355,15 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td> Объект SalesForce</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Список SharePoint </td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -371,79 +371,79 @@ ms.lasthandoff: 11/15/2017
     </tr>
     <tr>
       <td>Коллекция Azure Cosmos DB</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Универсальная таблица ODBC</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Универсальное представление ODBC</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Таблица Cassandra</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Публикация в качестве универсального ресурса ODBC</td>
     </tr>
     <tr>
       <td>Представление Cassandra</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Публикация в качестве универсального ресурса ODBC</td>
     </tr>
     <tr>
       <td>Таблица Sybase</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Представление Sybase</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Таблица MongoDB</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Публикация в качестве универсального ресурса ODBC</td>
     </tr>
     <tr>
       <td>Представление MongoDB</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Публикация в качестве универсального ресурса ODBC</td>
     </tr>
 </table>
 
-Если вам нужна поддержка определенного источника данных, предложите свой вариант (или проголосуйте за него, если он уже указан) на [форумах обратной связи каталога данных Azure](https://feedback.azure.com/forums/906052-data-catalog).
+Если вам нужна поддержка определенного источника данных, предложите свой вариант (или проголосуйте за него, если он уже указан) на [форумах обратной связи в разделе каталога данных Azure](https://feedback.azure.com/forums/906052-data-catalog).
 
 
 ## <a name="data-source-reference-specification"></a>Спецификация ссылки на источник данных

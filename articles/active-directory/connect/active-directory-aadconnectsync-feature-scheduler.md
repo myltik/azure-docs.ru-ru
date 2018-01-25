@@ -3,7 +3,7 @@ title: "Синхронизация Azure AD Connect: планировщик | Д
 description: "В этом разделе описывается встроенная функция планировщика синхронизации Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 418dcf67844bff7352b63db31ddfa3be3f7f29e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: df7b16157ccb47a5463570c3ed58b9c44f0b67d0
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Синхронизация Azure AD Connect: планировщик
 В этом разделе описывается встроенный планировщик синхронизации Azure AD Connect (модуль синхронизации).
@@ -168,7 +168,7 @@ Get-ADSyncConnectorRunStatus
 ## <a name="scheduler-and-installation-wizard"></a>Планировщик и мастер установки
 При запуске мастера установки планировщик приостанавливается. Это связано с тем, что вы можете внести изменения в конфигурацию, а во время активной работы модуля синхронизации их нельзя будет применить. Пока мастер установки открыт, модуль синхронизации не выполняет никаких действий по синхронизации.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

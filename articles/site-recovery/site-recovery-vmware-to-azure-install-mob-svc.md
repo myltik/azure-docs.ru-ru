@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 10/30/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Установка службы Mobility Service (из виртуальных машин VMware или физических серверов в Azure)
 Служба Mobility Service Azure Site Recovery фиксирует операции записи данных, выполняемые на компьютере, и передает их на сервер обработки. Разверните службу Mobility Service на каждом компьютере (виртуальная машина или физический сервер VMware), который требуется реплицировать в Azure. Службы Mobility Service можно развернуть на серверах, которые необходимо защитить, следующими способами:
@@ -34,7 +29,7 @@ ms.lasthandoff: 10/30/2017
 >[!IMPORTANT]
 > Начиная с версии 9.7.0.0, установщик службы Mobility Service также устанавливает последнюю доступную версию [агента виртуальных машин Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent) на виртуальных машинах Windows. Если при отработке отказа компьютер переходит в Azure, выполняется предварительное требование агента, связанное с использованием любого расширения виртуальной машины.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Перед установкой службы Mobility Service вручную на сервере выполните следующие обязательные действия:
 1. Войдите на сервер конфигурации и откройте окно командной строки с правами администратора.
 2. Измените каталог на папку bin и создайте файл с парольной фразой.
@@ -48,7 +43,7 @@ ms.lasthandoff: 10/30/2017
 
 ### <a name="mobility-service-installer-to-operating-system-mapping"></a>Сопоставление установщика Mobility Service с операционной системой
 
-| Имя шаблона файла установщика| операционная система |
+| Имя шаблона файла установщика| Операционная система |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 с пакетом обновления 1 (64-разрядная версия) </br> Windows Server 2012 (64-разрядная версия) </br> Windows Server 2012 R2 (64-разрядная версия) </br> Windows Server 2016 (64-разрядная версия) |
 |Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (только 64-разрядная версия) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (только 64-разрядная версия) |
@@ -92,7 +87,7 @@ ms.lasthandoff: 10/30/2017
 ## <a name="update-mobility-service"></a>Обновляет службу Mobility Service.
 
 > [!WARNING]
-> Убедитесь, что сервер конфигурации, серверы обработки масштабирования и все главные целевые серверы, которые являются частью развертывания, обновлены, прежде чем начать обновление службы Mobility Service на защищенных серверах. Дополнительные сведения см. в разделах [Обновление сервера конфигурации](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) и [Обновление сервера обработки масштабирования](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server).
+> Убедитесь, что сервер конфигурации, серверы обработки масштабирования и все главные целевые серверы, которые являются частью развертывания, обновлены, прежде чем начать обновление службы Mobility Service на защищенных серверах.
 
 1. На портале Azure перейдите к представлению <Your Vault> > "Реплицированные элементы".
 2. Если **сервер конфигурации** уже обновлен до последней версии, то вы увидите уведомление *Доступно обновление для агента репликации Site Recovery. Щелкните, чтобы установить его.*

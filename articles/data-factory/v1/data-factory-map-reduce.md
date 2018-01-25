@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5fd49c6b269b5f247440c2bc91680fc77fc296c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5961395f5ca4e9a6efb019a77dbdf5db5ff1ee38
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Вызов программы MapReduce из фабрики данных
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -183,15 +183,15 @@ ms.lasthandoff: 11/02/2017
 ### <a name="pipeline"></a>Конвейер
 Конвейер в этом примере имеет только одно действие с типом HDInsightMapReduce. Ниже приведены некоторые важные свойства в JSON. 
 
-| Свойство | Примечания |
+| Свойство | Заметки |
 |:--- |:--- |
-| type |Должен быть задан тип **HDInsightMapReduce**. |
+| Тип |Должен быть задан тип **HDInsightMapReduce**. |
 | className |Имя класса: **wordcount** |
 | jarFilePath |Путь к JAR-файлу, содержащему этот класс. Если вы копируете и вставляете приведенный код, не забудьте изменить имя кластера. |
 | jarLinkedService |Служба, связанная со службой хранилища Azure, содержащая JAR-файл. Эта связанная служба ссылается на хранилище, связанное с кластером HDInsight. |
 | arguments |Программа подсчета слов принимает два аргумента, входной и выходной. Входной файл — davinci.txt. |
 | frequency и interval |Значения этих свойств соответствуют результирующему набору данных. |
-| linkedServiceName (имя связанной службы) |Указывает связанную службу HDInsight, созданную ранее. |
+| linkedServiceName |Указывает связанную службу HDInsight, созданную ранее. |
 
 ```JSON
 {

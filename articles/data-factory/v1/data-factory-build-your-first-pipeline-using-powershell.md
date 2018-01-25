@@ -12,23 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c5bc299e6efee2e74529b08b58fd913c6b329b06
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: cc26d314eb6406e14ab4267416cf7d7ec6bf4bbd
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Руководство. Создание первой фабрики данных Azure с помощью Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-build-your-first-pipeline.md)
-> * [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 >
 >
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 12/18/2017
 В этом руководстве конвейеру доступно одно действие — **действие Hive HDInsight**. Это действие запускает сценарий Hive в кластере HDInsight Azure, который преобразует входные данные в выходные. Конвейер запускается раз в месяц по расписанию. Время начала и окончания запуска также указаны. 
 
 > [!NOTE]
-> В этом руководстве конвейер данных преобразовывает входные данные в выходные. Он не копирует данные из исходного хранилища данных в целевое. Инструкции по копированию данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных Azure см. в [этой статье](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Описанный в этом руководстве конвейер данных преобразовывает входные данные в выходные. Он не копирует данные из исходного хранилища данных в целевое. Инструкции по копированию данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных Azure см. в [этой статье](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > Конвейер может содержать сразу несколько действий. Два действия можно объединить в цепочку (выполнить одно действие вслед за другим), настроив выходной набор данных одного действия как входной набор данных другого действия. Дополнительные сведения см. в разделе [Несколько действий в конвейере](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования** .
 * Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview) .
 * В этой статье рассматриваются не все командлеты фабрики данных (необязательный раздел). Полную документацию по командлетам фабрики данных см. в [этом справочнике](/powershell/module/azurerm.datafactories).
@@ -159,10 +159,10 @@ ms.lasthandoff: 12/18/2017
     ```
     В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
-   | Свойство | Описание |
+   | Свойство | ОПИСАНИЕ |
    |:--- |:--- |
    | ClusterSize (размер кластера) |Указывает размер кластера HDInsight. |
-   | TimeToLive (срок жизни) |Указывает, сколько времени может простаивать кластер HDInsight, прежде чем он будет удален. |
+   | TimeToLive |Указывает, сколько времени может простаивать кластер HDInsight, прежде чем он будет удален. |
    | linkedServiceName (имя связанной службы) |Указывает имя учетной записи хранения, в которой будут храниться журналы, создаваемые HDInsight. |
 
     Обратите внимание на следующие моменты.
@@ -213,12 +213,12 @@ ms.lasthandoff: 12/18/2017
 
     В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
-   | Свойство | Описание |
+   | Свойство | ОПИСАНИЕ |
    |:--- |:--- |
-   | type |Для свойства типа задано значение AzureBlob, так как данные хранятся в хранилище BLOB-объектов Azure. |
-   | linkedServiceName (имя связанной службы) |Ссылается на созданную ранее службу StorageLinkedService. |
+   | Тип |Для свойства типа задано значение AzureBlob, так как данные хранятся в хранилище BLOB-объектов Azure. |
+   | linkedServiceName |Ссылается на созданную ранее службу StorageLinkedService. |
    | fileName |Это необязательное свойство. Если это свойство не указано, выбираются все файлы из папки folderPath. В этом случае обрабатывается только файл input.log. |
-   | type |Файлы журнала представлены в текстовом формате, поэтому мы используем значение TextFormat. |
+   | Тип |Файлы журнала представлены в текстовом формате, поэтому мы используем значение TextFormat. |
    | columnDelimiter |Столбцы в файлах журнала разделяются запятыми (,). |
    | frequency и interval |Для свойства frequency задано значение Month, а для свойства interval — значение 1. Это означает, что срезы входных данных доступны ежемесячно. |
    | external |Это свойство имеет значение true, если входные данные не создаются службой фабрики данных. |
@@ -409,11 +409,11 @@ ms.lasthandoff: 12/18/2017
 3. Создание двух **наборов данных**, которые описывают входные и выходные данные для действия HDInsight Hive в конвейере.
 4. Создание **конвейера** с действием **HDInsight Hive**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этой статье описывается создание конвейера с помощью действия преобразования (действие HDInsight), которое по требованию выполняет сценарий Hive в кластере Azure HDInsight. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в статье [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>См. также
-| Раздел | Описание |
+| Раздел | ОПИСАНИЕ |
 |:--- |:--- |
 | [Справочник по командлетам фабрики данных](/powershell/module/azurerm.datafactories) |См. полную документацию по командлетам фабрики данных. |
 | [Конвейеры](data-factory-create-pipelines.md) |Эта статья поможет вам понять сущность конвейеров и действий в фабрике данных Azure, а также научиться с их помощью создавать комплексные рабочие процессы, управляемые данными, для конкретных бизнес-сценариев. |

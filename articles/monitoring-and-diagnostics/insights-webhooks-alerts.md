@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06ec1263046f7878871de628b6a0ac25682b2f83
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Настройка объектов webhook для оповещений на основе метрик Azure
 Объекты webhook позволяют направлять уведомления об оповещениях Azure в другие системы для постобработки или выполнения настраиваемых действий. Объект webhook можно использовать, чтобы направить оповещение к службам, которые отправляют SMS, ведут журналы об ошибках, уведомляют членов команды в чате или службах обмена сообщениями либо выполняют другие действия. В этой статье описывается, как настроить объект webhook для оповещений на основе метрик Azure и как выглядят полезные данные запроса HTTP POST к webhook. Дополнительные сведения о настройке и схема для оповещений журнала действий Azure приведены [здесь](insights-auditlog-to-webhook-email.md).
@@ -40,43 +40,46 @@ ms.lasthandoff: 10/11/2017
 
 ```JSON
 {
-"status": "Activated",
-"context": {
+    "WebhookName": "Alert1515515157799",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
             "timestamp": "2015-08-14T22:26:41.9975398Z",
             "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
             "name": "ruleName1",
             "description": "some description",
             "conditionType": "Metric",
             "condition": {
-                        "metricName": "Requests",
-                        "metricUnit": "Count",
-                        "metricValue": "10",
-                        "threshold": "10",
-                        "windowSize": "15",
-                        "timeAggregation": "Average",
-                        "operator": "GreaterThanOrEqual"
-                },
+                "metricName": "Requests",
+                "metricUnit": "Count",
+                "metricValue": "10",
+                "threshold": "10",
+                "windowSize": "15",
+                "timeAggregation": "Average",
+                "operator": "GreaterThanOrEqual"
+            },
             "subscriptionId": "s1",
-            "resourceGroupName": "useast",                                
+            "resourceGroupName": "useast",
             "resourceName": "mysite1",
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
             "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
-},
-"properties": {
-              "key1": "value1",
-              "key2": "value2"
-              }
+        },
+        "properties": {
+            "key1": "value1",
+            "key2": "value2"
+        }
+    }
 }
 ```
 
 
-| Поле | Обязательно | Фиксированный набор значений | Примечания |
+| Поле | Обязательно | Фиксированный набор значений | Заметки |
 |:--- |:--- |:--- |:--- |
 | status |Да |Activated, Resolved |Состояние оповещения на основе заданных условий. |
 | context |Да | |Контекст оповещения. |
-| Timestamp |Да | |Время активации оповещения |
+| timestamp |Да | |Время активации оповещения |
 | id |Да | |Каждое правило оповещения имеет уникальный идентификатор. |
 | name |Да | |Имя оповещения. |
 | description |Да | |Описание оповещения. |
@@ -93,7 +96,7 @@ ms.lasthandoff: 10/11/2017
 | имя_группы_ресурсов |Да | |Имя группы ресурсов для затронутого ресурса. |
 | resourceName |Да | |Имя затронутого ресурса. |
 | тип_ресурса |Да | |Тип затронутого ресурса. |
-| resourceId |Да | |Идентификатор ресурса для затронутого ресурса. |
+| ResourceId |Да | |Идентификатор ресурса для затронутого ресурса. |
 | resourceRegion |Да | |Регион или расположение затронутого ресурса. |
 | portalLink |Да | |Прямая ссылка на страницу сводки по ресурсу на портале. |
 | properties |Нет |Необязательно |Набор пар `<Key, Value>` (например, `Dictionary<String, String>`), содержащий сведения о событии. Поле свойства не является обязательным. В настраиваемом пользовательском интерфейсе или в рабочем процессе на основе приложения логики пользователи могут вводить пары "ключ — значение" для передачи в виде полезных сведений. Еще один способ передачи пользовательских свойств в веб-перехватчик — через сам универсальный код ресурса (URI) веб-перехватчика (в виде параметров запросов). |
@@ -103,7 +106,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения об оповещениях Azure и объектах webhook см. в видео, посвященном [интеграции оповещений Azure с PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
 * [Выполнение скриптов службы автоматизации Azure (Runbooks) на основе оповещений Azure](http://go.microsoft.com/fwlink/?LinkId=627081)
 * [Использование приложения логики для отправки SMS с помощью Twilio из оповещения Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)

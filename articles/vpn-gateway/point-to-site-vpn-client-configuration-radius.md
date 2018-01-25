@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Создание и установка файлов конфигурации VPN-клиента для аутентификации при подключениях типа "точка — сеть" с использованием RADIUS (предварительная версия)
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Создание и установка файлов конфигурации VPN-клиента для аутентификации при подключениях типа "точка — сеть" с использованием RADIUS
 
 Файлы конфигурации VPN-клиента содержатся в ZIP-файле. Эти файлы содержат параметры, требуемые при подключениях типа "точка — сеть" между собственным VPN-клиентом IKEv2 Windows или Mac и виртуальной сетью. Сервер RADIUS предоставляет разные способы аутентификации. Конфигурация VPN-клиента зависит от выбранного варианта.
 
@@ -95,7 +95,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 5. При установке профиля вы можете указать имя пользователя и пароль, которые используются для аутентификации VPN. Эти сведения вводить не обязательно, но если вы их укажете, они сохранятся и будут автоматически подставляться при установке подключения. Щелкните **Install** (Установить), чтобы продолжить.
 
   ![Параметры](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
-6. Введите имя пользователя и пароль, чтобы получить необходимые разрешения для установки профиля на компьютере. Нажмите кнопку **ОК**.
+6. Введите имя пользователя и пароль, чтобы получить необходимые разрешения для установки профиля на компьютере. Последовательно выберите **ОК**.
 
   ![Имя пользователя и пароль](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
 7. Установленный профиль отображается в диалоговом окне **Profiles** (Профили). Это диалоговое окно также можно открыть позже в разделе **System Preferences** (Системные настройки).
@@ -205,6 +205,6 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
   * Routes — маршруты, которые нужно настроить в профиле, чтобы через P2S-туннель отправлялся только трафик виртуальной сети Azure.
   * Кроме того, папка GenenericDevice содержит CER-файл с именем VpnServerRoot. В этом файле содержится корневой сертификат, который требуется для проверки VPN-шлюза Azure при установке подключения типа "точка — сеть". Установите сертификат на всех устройствах, которые будут подключаться к виртуальной сети Azure. 
  
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Вернитесь к статье, чтобы [завершить настройку подключения типа "точка — сеть"](point-to-site-how-to-radius-ps.md).

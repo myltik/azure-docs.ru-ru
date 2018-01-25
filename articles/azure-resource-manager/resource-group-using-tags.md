@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: d18f5f9e75cd815b7f9622498f16624cf375d6bd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 31477cbf478d2d836c2d7c3472e3a53f13831480
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Использование тегов для организации ресурсов в Azure
 
@@ -133,7 +133,7 @@ done
 
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
-## <a name="rest-api"></a>Интерфейс REST API
+## <a name="rest-api"></a>ИНТЕРФЕЙС REST API
 
 Портал Azure и PowerShell используют [интерфейс REST API диспетчера ресурсов Resource Manager](https://docs.microsoft.com/rest/api/resources/). Если вам нужно интегрировать теги в другую среду, их можно получить с помощью метода **GET** по идентификатору ресурса и обновить набор тегов с помощью вызова метода **PATCH**.
 
@@ -147,7 +147,7 @@ done
 
 ![См. сведения об использовании тегов при выставлении счетов.](./media/resource-group-using-tags/billing_csv.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * В подписку можно добавить ограничения и соглашения, используя настраиваемые политики. Некоторые политики могут требовать, чтобы для всех ресурсов было задано значение определенного тега. Дополнительные сведения см. в статье [Что такое служба "Политика Azure"](../azure-policy/azure-policy-introduction.md).
 * Общие сведения об использовании Azure PowerShell для развертывания ресурсов см. в статье [Управление ресурсами с помощью Azure PowerShell и Resource Manager](powershell-azure-resource-manager.md).

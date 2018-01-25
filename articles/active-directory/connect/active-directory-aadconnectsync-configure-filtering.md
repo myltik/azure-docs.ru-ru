@@ -3,7 +3,7 @@ title: "Синхронизация Azure AD Connect: настройка филь
 description: "В этой статье объясняется, как настроить фильтрацию в службах синхронизации Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: cbcf448ccff22219adb8c7d3652e7698ef4d231e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5af82e889a80994dd47d4fc3b89f8eece2201355
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Синхронизация Azure AD Connect: настройка фильтрации
 Возможность фильтрации позволяет управлять тем, какие объекты локального каталога будут синхронизированы с Azure Active Directory (Azure AD). При конфигурации по умолчанию это все объекты во всех доменах настроенных лесов. Эта конфигурация является рекомендуемой в большинстве случаев. Пользователи системы Office 365, будь-то Exchange Online или Skype для бизнеса, могут использовать глобальный список адресов для отправки сообщений электронной почты и осуществления звонков по всем адресам. Использование конфигурации по умолчанию позволяет им работать так же, как и с локальным экземпляром Exchange или Lync.
@@ -305,6 +305,6 @@ Azure AD Connect удаляет только те объекты, которые
 * У пользователя в одном лесу имеется соответствующий почтовый контакт в другом лесу. Кроме того, вы настроили Azure AD Connect, чтобы связать данного пользователя с эти почтовым контактом. На оба объекта должна распространяться фильтрация на основе групп. В противном случае пользователь не будет синхронизирован с Azure AD.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Сведения о настройке службы синхронизации Azure AD Connect см. в [этой статье](active-directory-aadconnectsync-whatis.md).
 - Сведения об интеграции локальных удостоверений с Azure Active Directory см. в [этой статье](active-directory-aadconnect.md).

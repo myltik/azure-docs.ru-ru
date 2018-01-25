@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ce3d50c4c111c2a47b2732cb3a39bf0dfc28853e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 65b1ae76794c812f9fcf2955d09e023195ef6342
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Уязвимости, обнаруживаемые защитой идентификации Azure Active Directory
 Уязвимости — это слабые стороны среды, которыми могут воспользоваться злоумышленники. Мы рекомендуем устранить эти уязвимости, чтобы улучшить систему безопасности своей организации и предотвратить использование уязвимостей злоумышленниками.

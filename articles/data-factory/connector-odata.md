@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ab3044b46c37a2a50d271fa8e8a6b924da1e131b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Копирование данных из источника OData с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы OData поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **OData** |Yes |
 | URL-адрес | Корневой URL-адрес службы OData. |Yes |
@@ -130,7 +130,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные из OData, установите свойство type набора данных **ODataResource**. Поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type для набора данных должно иметь значение **ODataResource**. | Yes |
 | path | Путь к ресурсу OData. | Нет  |
@@ -163,7 +163,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы копировать данные из OData, установите тип источника **RelationalSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **RelationalSource**. | Yes |
 | query | Параметры запроса OData для фильтрации данных. Пример: ?$select=Name,Description&$top=5.<br/><br/>Обратите внимание, что соединитель OData копирует данные из объединенного URL-адреса: `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. См. статью о [компонентах URL-адреса OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Нет  |

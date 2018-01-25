@@ -3,7 +3,7 @@ title: "Перенос из пакета SDK для Java в Maven — обно�
 description: "Обновите старые приложения Java, которые используют пакет SDK для Java Service Fabric, чтобы получить зависимости Java в Service Fabric из Maven. По завершении этой настройки ваши старые приложения Java смогут выполнять сборку."
 services: service-fabric
 documentationcenter: java
-author: sayantancs
+author: rapatchi
 manager: timlt
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
@@ -13,17 +13,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
-ms.author: saysa
-ms.openlocfilehash: 2123c5f26d77045bd22af56a844fdbf222930e7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rapatchi
+ms.openlocfilehash: 229a2cd7c0bb355006349e80b12b0142de6b5cda
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Обновление старого приложения Java в Service Fabric для получения библиотек Java из Maven
 Мы недавно разместили двоичные файлы Java Service Fabric из пакета SDK для Java Service Fabric в Maven. Теперь вы можете использовать **mavencentral** для получения последних зависимостей Service Fabric Java. С помощью этого краткого руководства вы обновите существующие приложения Java, созданные ранее для использования с пакетом SDK для Java Service Fabric. Чтобы обеспечить совместимость со сборкой Maven, будет использован шаблон Yeoman или Eclipse.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 1. Сначала удалите существующий пакет SDK для Java.
 
   ```bash
@@ -472,7 +472,7 @@ task copyDeps<< {
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Создание первого Java-приложения Service Fabric в Linux](service-fabric-create-your-first-linux-application-with-java.md)
 * [Подключаемый модуль Service Fabric для разработки приложений Eclipse на Java](service-fabric-get-started-eclipse.md)

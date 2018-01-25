@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: 8bd9382ed5a855368533c6bf2305682861c109c0
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: c2ec6706c92f229bb05ad9a19246c6ffe5f615c9
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Преобразование данных в облаке с помощью действия Spark в фабрике данных Azure
 В этом руководстве вы с помощью портала Azure создадите конвейер фабрики данных, который преобразовывает данные с помощью действия Spark и связанной службы HDInsight по запросу. В этом руководстве вы выполните следующие шаги:
@@ -115,7 +115,7 @@ ms.lasthandoff: 01/16/2018
 
 ### <a name="create-an-azure-storage-linked-service"></a>Создание связанной службы хранилища Azure
 
-1. На странице **начала работы** перейдите на вкладку **Изменить** в левой панели, как показано на следующем рисунке: 
+1. На странице **начала работы** откройте вкладку **Изменить** на панели слева, как показано на следующем рисунке: 
 
     ![Плитка создания конвейера](./media/tutorial-transform-data-spark-portal/get-started-page.png)
 
@@ -180,6 +180,8 @@ ms.lasthandoff: 01/16/2018
     
     ![Кнопка проверки](./media/tutorial-transform-data-spark-portal/validate-button.png)
 7. Щелкните **Опубликовать**. Пользовательский интерфейс фабрики данных опубликует сущности (связанные службы и конвейер) в службе фабрики данных Azure. 
+    
+    ![Кнопка "Опубликовать"](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Активация выполнения конвейера
 Щелкните **Триггер** на панели инструментов, а затем **Trigger Now** (Активировать сейчас). 

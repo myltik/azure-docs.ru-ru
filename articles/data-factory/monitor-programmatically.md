@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 376bc64bee85fbc073b6ea4a39ecd013c23e791f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 8d47ebe5ad40aee8289420e8424ec4d745baf2df
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Отслеживание фабрики данных Azure с помощью программных средств
 В этой статье описывается как отслеживать конвейер в фабрике данных с помощью различных пакетов средств разработки программного обеспечения (пакетов SDK). 
@@ -79,7 +79,7 @@ print_activity_run_details(activity_runs_paged[0])
 
 Полная документация по пакету SDK для Python приведена в [справочнике по пакету SDK для Python для фабрики данных](/python/api/overview/azure/datafactory?view=azure-python).
 
-## <a name="rest-api"></a>Интерфейс REST API
+## <a name="rest-api"></a>ИНТЕРФЕЙС REST API
 Полное пошаговое руководство по созданию и отслеживанию конвейера с помощью REST API приведено в разделе [Создание фабрики данных Azure и конвейера с помощью REST API](quickstart-create-data-factory-rest-api.md).
  
 1. Запустите следующий скрипт, чтобы проверять состояние выполнения, пока не закончится копирование данных.
@@ -146,6 +146,6 @@ print_activity_run_details(activity_runs_paged[0])
 
 Полная документация по командлетам PowerShell приведена в [справочнике по командлетам PowerShell для фабрики данных](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения об использовании Azure Monitor для отслеживания конвейеров фабрики данных см. в статье [Monitor data factories using Azure Monitor](monitor-using-azure-monitor.md) (Отслеживание фабрик данных с помощью Azure Monitor). 
 

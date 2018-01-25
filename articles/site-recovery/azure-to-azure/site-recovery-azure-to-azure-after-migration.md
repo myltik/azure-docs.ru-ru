@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
-ms.openlocfilehash: 7658bedc0bd5c4a289f3271504a006ba54c783b6
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 559e64ae3c16ed21bc09ac0c044281aa0a6e43df
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Репликация виртуальных машин Azure в другой регион после миграции в Azure с помощью Azure Site Recovery
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/18/2018
 2. При **завершении миграции** завершается перенос виртуальной машины, удаляется репликация и прекращается выставление счетов за использование Site Recovery для этой машины.
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>Шаг 2. Установка агента виртуальной машины Azure на виртуальной машине
-Чтобы обеспечить защиту вирутальной машины и работоспособность расширения Site Recovery, на ней нужно установить [агент виртуальной машины](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) Azure.
+Чтобы обеспечить защиту вирутальной машины и работоспособность расширения Site Recovery, на ней нужно установить [агент виртуальной машины](../../virtual-machines/windows/agent-user-guide.md) Azure.
 
 >[!IMPORTANT]
 >Начиная с версии 9.7.0.0, установщик службы Mobility Service также устанавливает последнюю доступную версию агента виртуальных машин Azure на виртуальных машинах Windows. При миграции виртуальная машина соответствует предварительным требованиям установки агента для использования любого расширения виртуальной машины, включая расширение Site Recovery. Агент виртуальной машины Azure необходимо устанавливать вручную, только если служба Mobility Service, установленная на перенесенном компьютере, имеет версию 9.6 или более раннюю.

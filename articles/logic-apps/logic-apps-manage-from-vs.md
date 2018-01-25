@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ce65ec272c9fe5be8f95371179de092c5df2f3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>Управление приложениями логики с помощью Visual Studio Cloud Explorer
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы иметь доступ к приложениям логики в Visual Studio и управлять ими, установите и настройте перечисленные ниже инструменты Visual Studio для Azure Logic Apps. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * [Visual Studio 2015 или Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * [пакет Azure SDK последней версии](https://azure.microsoft.com/downloads/) (версия 2.9.1 или выше);
@@ -83,9 +83,9 @@ ms.lasthandoff: 10/11/2017
 
 ![Результаты в журнале выполнения, входные и выходные данные по шагам](./media/logic-apps-manage-from-vs/history.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-* [Создание приложения логики](logic-apps-create-a-logic-app.md)
+* [Создание приложения логики](quickstart-create-first-logic-app-workflow.md)
 * [Создание и развертывание приложений логики Azure в Visual Studio](logic-apps-deploy-from-vs.md).
 * [Примеры приложений логики и распространенные сценарии](logic-apps-examples-and-scenarios.md)
 * [Видео. Автоматизация бизнес-процессов с помощью Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)

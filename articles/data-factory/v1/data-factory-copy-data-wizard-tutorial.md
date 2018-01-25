@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: a6cf954c57f653c031d8f3bee9a84cd57ad3ecc5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f6fc7e0597176e2c23bc82581c86b951542fbc23
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
-> * [Портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Шаблон Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-> * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [API для .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
 > Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, прочитайте [руководство по действиям копирования в версии 2](../quickstart-create-data-factory-dot-net.md). 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/18/2017
 
 В этом руководстве показано, как создать фабрику данных Azure, запустить мастер копирования и выполнить шаги, чтобы предоставить сведения о сценарии приема и перемещения данных. После завершения работы в мастере он автоматически создаст конвейер с действием копирования, позволяющим перенести данные из хранилища BLOB-объектов Azure в базу данных SQL Azure. Дополнительные сведения о действии копирования см. в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Прежде чем начать работу с этим руководством, выполните необходимые действия, перечисленные в [этой обзорной статье](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 ## <a name="create-data-factory"></a>Создание фабрики данных
@@ -67,7 +67,7 @@ ms.lasthandoff: 12/18/2017
         Некоторые действия, описанные в этом руководстве, предполагают, что для группы ресурсов используется имя **ADFTutorialResourceGroup**. Сведения о группах ресурсов см. в статье, где описывается [использование групп ресурсов для управления ресурсами Azure](../../azure-resource-manager/resource-group-overview.md).
    4. Укажите **расположение** фабрики данных.
    5. Установите флажок **Закрепить на панели мониторинга** в нижней части колонки.  
-   6. Щелкните **Создать**.
+   6. Нажмите кнопку **Создать**.
       
        ![Создать колонку "Фабрика данных"](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
 3. После создания вы увидите колонку **Фабрика данных**, как показано на рисунке ниже.
@@ -84,7 +84,7 @@ ms.lasthandoff: 12/18/2017
    1. В качестве **имени задачи** введите **CopyFromBlobToAzureSql**.
    2. Введите **описание** (необязательно).
    3. Измените **дату и время начала** и **дату и время завершения** таким образом, чтобы датой завершения был сегодняшний день, а дата начала была на пять дней раньше.  
-   4. Щелкните **Далее**.  
+   4. Нажмите кнопку **Далее**.  
       
       ![Средство копирования — страница "Свойства"](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
 3. На странице **Source data store** (Хранилище данных источников) щелкните плитку **Хранилище BLOB-объектов Azure**. На этой странице можно указать хранилище данных источников для задачи копирования. 
@@ -120,7 +120,7 @@ ms.lasthandoff: 12/18/2017
    3. Выберите свою **подписку Azure**.  
    4. Выберите **имя сервера** и **базу данных**.
    5. Введите **имя пользователя** и **пароль**.
-   6. Щелкните **Далее**.  
+   6. Нажмите кнопку **Далее**.  
       
       ![Средство копирования — указание базы данных SQL Azure](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. На странице **Сопоставление таблицы** выберите **emp** в поле **Назначение** раскрывающегося списка, щелкните **стрелку вниз** (необязательно), чтобы отобразить схему и просмотреть данные.
@@ -152,7 +152,7 @@ ms.lasthandoff: 12/18/2017
 
     Дополнительные сведения об использовании этого приложения см. в статье [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью приложения для мониторинга и управления](data-factory-monitor-manage-app.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом руководстве в ходе операции копирования вы использовали хранилище BLOB-объектов Azure как исходное хранилище данных, а базу данных SQL Azure — как целевое хранилище данных. В следующей таблице приведен список хранилищ данных, которые поддерживаются в качестве источников и целевых расположений для действия копирования. 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

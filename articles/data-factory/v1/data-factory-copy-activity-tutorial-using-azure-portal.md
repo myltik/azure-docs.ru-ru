@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 1ff1206296103f1bc4710c857c648b100c37f17e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 6b22e06cc569ff58f4e988a014d39c90245bf260
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Руководство по создания конвейера фабрики данных для копирования данных с помощью портала Azure 
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
-> * [Портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Шаблон Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-> * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [API для .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 
 > [!NOTE]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 > [!NOTE] 
 > В этом руководстве конвейер данных копирует данные из исходного хранилища данных в целевое. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [руководстве по созданию конвейера для преобразования данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Прежде чем начать работу, выполните предварительные требования, перечисленные в [этом руководстве](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="steps"></a>Действия
@@ -82,7 +82,7 @@ ms.lasthandoff: 12/18/2017
       
          ![Создать колонку "Фабрика данных"](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
       
-       Имя фабрики данных Azure должно быть **глобально уникальным**. При возникновении указанной ниже ошибки измените имя фабрики данных (например, на ваше_имя_ADFTutorialDataFactory) и попробуйте создать фабрику данных снова. Ознакомьтесь со статьей [Фабрика данных Azure — правила именования](data-factory-naming-rules.md) , чтобы узнать о правилах именования артефактов фабрики данных.
+       Имя фабрики данных Azure должно быть **глобально уникальным**. При возникновении указанной ниже ошибки измените имя фабрики данных (например, на ваше_имя_ADFTutorialDataFactory) и попробуйте создать фабрику данных снова. Ознакомьтесь с разделом [Фабрика данных — правила именования](data-factory-naming-rules.md) , чтобы узнать о правилах именования артефактов фабрики данных.
       
            Data factory name “ADFTutorialDataFactory” is not available  
       
@@ -96,7 +96,7 @@ ms.lasthandoff: 12/18/2017
           Некоторые действия, описанные в этом руководстве, предполагают, что для группы ресурсов используется имя **ADFTutorialResourceGroup**. Сведения о группах ресурсов см. в статье, где описывается [использование групп ресурсов для управления ресурсами Azure](../../azure-resource-manager/resource-group-overview.md).  
    4. Укажите **расположение** фабрики данных. В раскрывающемся списке отображаются только те регионы, которые поддерживаются службой фабрики данных.
    5. Кроме того, установите флажок **Закрепить на панели мониторинга**.     
-   6. Щелкните **Создать**.
+   6. Нажмите кнопку **Создать**.
       
       > [!IMPORTANT]
       > Создавать экземпляры фабрики данных может пользователь с ролью [Участник фабрики данных](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.
@@ -201,10 +201,10 @@ ms.lasthandoff: 12/18/2017
 
     В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
-    | Свойство | Описание |
+    | Свойство | ОПИСАНИЕ |
     |:--- |:--- |
-    | type | Для свойства типа задано значение **AzureBlob**, так как данные хранятся в хранилище BLOB-объектов Azure. |
-    | linkedServiceName (имя связанной службы) | Ссылается на созданную ранее службу **AzureStorageLinkedService**. |
+    | Тип | Для свойства типа задано значение **AzureBlob**, так как данные хранятся в хранилище BLOB-объектов Azure. |
+    | linkedServiceName | Ссылается на созданную ранее службу **AzureStorageLinkedService**. |
     | folderPath | Определяет **контейнер** больших двоичных объектов и **папку**, которая содержит входные большие двоичные объекты. В этом руководстве adftutorial — это контейнер больших двоичных объектов, а созданная папка является корневой. | 
     | fileName | Это необязательное свойство. Если это свойство не указано, выбираются все файлы из папки folderPath. В этом руководстве для свойства fileName указывается значение **emp.txt**, чтобы обрабатывался только этот файл. |
     | format -> type |Входной файл имеет текстовый формат, поэтому укажите значение **TextFormat**. |
@@ -250,10 +250,10 @@ ms.lasthandoff: 12/18/2017
 
     В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
-    | Свойство | Описание |
+    | Свойство | ОПИСАНИЕ |
     |:--- |:--- |
-    | type | Свойство type имеет значение **AzureSqlTable**, так как данные копируются в таблицу в базе данных SQL Azure. |
-    | linkedServiceName (имя связанной службы) | Ссылается на созданную ранее службу **AzureSqlLinkedService**. |
+    | Тип | Свойство type имеет значение **AzureSqlTable**, так как данные копируются в таблицу в базе данных SQL Azure. |
+    | linkedServiceName | Ссылается на созданную ранее службу **AzureSqlLinkedService**. |
     | tableName | Указывает **таблицу**, в которую копируются данные. | 
     | frequency и interval | Для свойства frequency задано значение **Hour**, а для interval — **1**. Это означает, что срезы выходных данных создаются **каждый час** в пределах времени начала и времени окончания для конвейера, но не перед этим периодом или после него.  |
 
@@ -409,7 +409,7 @@ ms.lasthandoff: 12/18/2017
 3. Создание **наборов данных** , которые описывают входные и выходные данные для конвейеров.
 4. Создание **конвейера** с **BlobSource** в качестве источника и **SqlSink** в качестве приемника с помощью **действия копирования**.  
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом руководстве в ходе операции копирования вы использовали хранилище BLOB-объектов Azure как исходное хранилище данных, а базу данных SQL Azure — как целевое хранилище данных. В следующей таблице приведен список хранилищ данных, которые поддерживаются в качестве источников и целевых расположений для действия копирования. 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

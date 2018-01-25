@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Перенос данных из локального SQL Server в SQL Azure с фабрикой данных Azure
 Здесь показано, как перенести данные из базы данных локального SQL Server в базу данных SQL Azure через хранилище BLOB-объектов Azure с помощью фабрики данных Azure (ADF).
@@ -67,7 +67,7 @@ ADF позволяет выполнять планирование и отсле
 Вы можете либо адаптировать описанные здесь процедуры к собственному набору данных, либо выполнить описанные действия с набором данных о такси Нью-Йорка. Для передачи набора данных о поездках в такси Нью-Йорка в локальную базу данных SQL Server выполните процедуру, описанную в разделе [Выполните массовый импорт данных в базу данных SQL Server](sql-walkthrough.md#dbload). Эти инструкции предназначены для SQL Server на виртуальной машине Azure. Процедура передачи для локального SQL Server идентична.
 
 ## <a name="create-adf"></a> Создание фабрики данных Azure
-Инструкции по созданию фабрики данных Azure и группы ресурсов на [портале Azure](https://portal.azure.com/) представлены [здесь](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Задайте имя *adfdsp* для нового экземпляра ADF и имя *adfdsprg* для созданной группы ресурсов.
+Инструкции по созданию фабрики данных Azure и группы ресурсов на [портале Azure](https://portal.azure.com/) представлены [здесь](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Задайте имя *adfdsp* для нового экземпляра ADF и имя *adfdsprg* для созданной группы ресурсов.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Установка и настройка шлюза управления данными
 Чтобы конвейеры фабрики данных Azure могли работать с локальным SQL Server, необходимо добавить его в качестве связанной службы фабрики данных. Чтобы создать связанную службу для локального SQL Server, выполните следующие действия:

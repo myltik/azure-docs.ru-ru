@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Решение Wire Data 2.0 (предварительная версия) в Log Analytics
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 12/13/2017
 
 При использовании Direct Agent необходимо настроить агент OMS для подключения к Log Analytics или шлюзу OMS. Шлюз OMS можно скачать в [Центре загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Требуется предложение решения [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing).
 - Если вы используете предыдущую версию решения "Данные передачи", сначала необходимо ее удалить. Тем не менее все данные, зафиксированные с помощью исходного решения "Данные передачи", по-прежнему будут доступны в Wire Data 2.0 и для поиска по журналам.
@@ -375,9 +375,6 @@ rpm -e dependency-agent dependency-agent-connector
 
 После установки агентов и решения в вашей рабочей области отобразится плитка Wire Data 2.0.
 
-> [!NOTE]
-> В настоящее время для просмотра данных передачи необходимо использовать портал OMS. Эти данные нельзя просмотреть на портале Azure.
-
 ![Плитка "Данные передачи"](./media/log-analytics-wire-data/wire-data-tile.png)
 
 ## <a name="using-the-wire-data-20-solution"></a>Использование решения Wire Data 2.0
@@ -451,6 +448,6 @@ rpm -e dependency-agent dependency-agent-connector
 | RemoteIPLatitude | Значение широты IP |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [поиск в журналах](log-analytics-log-searches.md) , чтобы просмотреть подробные записи поиска данных передачи.

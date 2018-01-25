@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 12/14/2017
 ms.author: anvang;barbkess;kevin
-ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 804d91d309fcce42f0ac50ac98dbad9c5648b4eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Подключение к хранилищу данных SQL Azure
 Эта статья поможет вам установить первое подключение к хранилищу данных SQL.
@@ -43,12 +43,12 @@ ms.lasthandoff: 12/15/2017
 > 
 
 ### <a name="adonet-connection-string-example"></a>Пример строки подключения ADO.NET
-```C#
+```csharp
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ### <a name="odbc-connection-string-example"></a>Пример строки подключения ODBC
-```C#
+```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
@@ -72,7 +72,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 | [DATEFORMAT][DATEFORMAT] |мдг |
 | [DATEFIRST][DATEFIRST] |7 |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Чтобы подключиться и отправить запрос с помощью Visual Studio, см. инструкции в статье [Подключение к хранилищу данных SQL с помощью Visual Studio и SSDT][Query with Visual Studio]. Подробные сведения о способах проверки подлинности см. в статье [Проверка подлинности в хранилище данных SQL Azure][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 248e9cb521975e9c982684668a68214ce5a1c827
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Подключение Azure Stack к Azure с помощью ExpressRoute
 
@@ -88,20 +88,20 @@ ms.lasthandoff: 10/11/2017
 
    |Поле  |Значение  |
    |---------|---------|
-   |Имя     |Tenant1VNet1         |
+   |ИМЯ     |Tenant1VNet1         |
    |Пространство адресов     |10.1.0.0/16|
    |Имя подсети     |Tenant1-Sub1|
    |Диапазон адресов подсети     |10.1.1.0/24|
 
 6. В поле **Подписка** должна появиться созданная ранее подписка.
 
-    а. Создайте группу ресурсов или используйте имеющуюся, щелкнув **Использовать существующий**.
+    a. Создайте группу ресурсов или используйте имеющуюся, щелкнув **Использовать существующий**.
 
-    b. Проверьте значение расположения по умолчанию.
+    Б. Проверьте значение расположения по умолчанию.
 
     c. Щелкните **Закрепить на панели мониторинга**.
 
-    d. Щелкните **Создать**.
+    d. Нажмите кнопку **Создать**.
 
 
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 10/11/2017
 7. В поле **Имя** введите **GW1-PiP** и нажмите кнопку **ОК**.
 8. Для параметра **Тип VPN** должно быть установлено значение **Route-based** (На основе маршрутов) по умолчанию.
     Не изменяйте значение этого параметра.
-9. Убедитесь, что для параметров **Подписка** и **Расположение** выбраны правильные значения. При необходимости ресурс можно закрепить на панели мониторинга. Щелкните **Создать**.
+9. Убедитесь, что для параметров **Подписка** и **Расположение** выбраны правильные значения. При необходимости ресурс можно закрепить на панели мониторинга. Нажмите кнопку **Создать**.
 
 #### <a name="create-the-local-network-gateway"></a>Создание шлюза локальной сети
 
@@ -172,7 +172,7 @@ ms.lasthandoff: 10/11/2017
 5. Введите допустимое имя пользователя и пароль. Эта учетная запись будет использоваться для входа в виртуальную машину после ее создания.
 6. Заполните поля **Подписка**, **Группа ресурсов** и **Расположение** и нажмите кнопку **ОК**.
 7. В разделе **Размер** выберите размер этого экземпляра виртуальной машины, а затем нажмите кнопку **Выбрать**.
-8. В разделе **Параметры** можно принять значения по умолчанию. Проверьте, выбрана ли виртуальная сеть **Tenant1VNet1** и задано ли для подсети значение **10.1.1.0/24**. Нажмите кнопку **ОК**.
+8. В разделе **Параметры** можно принять значения по умолчанию. Проверьте, выбрана ли виртуальная сеть **Tenant1VNet1** и задано ли для подсети значение **10.1.1.0/24**. Последовательно выберите **ОК**.
 9. Просмотрите параметры в разделе **Сводка**, а затем нажмите кнопку **ОК**.
 
 Повторите действия из раздела **Создание виртуальной сети и подсети виртуальной машины** вплоть до раздела **Создание виртуальной машины** для каждого клиента виртуальной сети.
@@ -205,19 +205,22 @@ ms.lasthandoff: 10/11/2017
    На схемах выше *адрес EBGP* имеет значение 10.10.0.62, а *внутренний IP-адрес* — 192.168.102.1.
 
    ```
+   $ExtBgpNat = '<External BGPNAT address>'
+   $IntBgpNat = '<Internal IP address>'
+
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
       -PortEnd 4501}
    # create a static NAT mapping to map the external address to the Gateway
@@ -227,8 +230,8 @@ ms.lasthandoff: 10/11/2017
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
       -InternalPort 500}
    # Finally, configure NAT traversal which uses port 4500 to
@@ -238,8 +241,8 @@ ms.lasthandoff: 10/11/2017
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
    ```
@@ -564,5 +567,5 @@ route-map VNET-ONLY permit 10
 
    ![Входящие и выходящие данные](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
-[Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md) (Развертывание приложений в Azure и Azure Stack)
+## <a name="next-steps"></a>Дополнительная информация
+[Развертывание приложений в Azure и Azure Stack](azure-stack-solution-pipeline.md)

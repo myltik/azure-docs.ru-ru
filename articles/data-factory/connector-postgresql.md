@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a16c932aa82eab3083408c2b1d0f94eb788751c
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d78b0dbd3fd124e660b2b2a2cf0cb20f92153508
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Копирование данных из PostgreSQL с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/11/2018
 
 В частности, этот соединитель PostgreSQL поддерживает PostgreSQL **версии 7.4 и более поздних**.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы использовать этот соединитель PostgreSQL, выполните следующее:
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы PostgreSQL поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **PostgreSql** | Yes |
 | server | Имя сервера, PostgreSQL. |Yes |
@@ -93,7 +93,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные из PostgreSQL, установите свойство type набора данных **RelationalTable**. Поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type для набора данных должно иметь значение **RelationalTable**. | Yes |
 | tableName | Имя таблицы в базе данных PostgreSQL. | Нет (если свойство query указано в источнике действия) |
@@ -123,7 +123,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы копировать данные из PostgreSQL, установите тип источника **RelationalSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **RelationalSource**. | Yes |
 | query | Используйте пользовательский SQL-запрос для чтения данных. Например, `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Нет (если для набора данных задано свойство tableName) |

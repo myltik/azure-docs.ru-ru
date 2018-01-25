@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 8e2b886f7e12791a6aab9feec67adfa30ac3bad1
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c5d2fdb3ed3c00114437b0be9759bf8bea2521b7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Копирование данных из Веб-таблицы с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,13 +35,13 @@ ms.lasthandoff: 01/11/2018
 
 Сейчас этот соединитель веб-таблиц поддерживает только **извлечение содержимого таблицы из HTML-страницы**. Чтобы извлечь данные из конечной точки HTTP (HTTPS), используйте [соединитель HTTP](connector-http.md).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для использования этого соединителя веб-таблиц нужно настроить локальную среду выполнения интеграции. Дополнительные сведения см. в статье [Создание и настройка локальной среды выполнения интеграции](create-self-hosted-integration-runtime.md).
 
 ## <a name="getting-started"></a>Приступая к работе
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, относящихся к соединителю веб-таблиц.
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы веб-таблиц поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **Web** |Yes |
 | URL-адрес | URL-адрес источника Web |Yes |
@@ -81,7 +81,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные из веб-таблиц, задайте для свойства type набора данных значение **RelationalTable**. Поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type для набора данных должно иметь значение **WebTable**. | Yes |
 | path |Относительный URL-адрес ресурса, который содержит таблицу. |Нет. Если путь не задан, используется только URL-адрес, указанный в определении связанной службы. |

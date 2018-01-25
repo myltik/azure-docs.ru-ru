@@ -3,8 +3,8 @@ title: "Использование кэша Redis для Azure с Node.js | До
 description: "Начните работу с кэшем Redis для Azure с использованием Node.js и node_redis."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: v-lincan
 ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
-ms.author: sdanie
-ms.openlocfilehash: f2c448af24e180db58f3ef3d39e90036dda3f7eb
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: e8b4818ad2b876ce4d55cf8aa2aa0e0162dea963
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-azure-redis-cache-with-nodejs"></a>Использование кэша Redis для Azure с Node.js
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 
 В этой статье показано, как приступить к работе с кэшем Redis для Azure, используя Node.js. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Установите [node_redis](https://github.com/mranney/node_redis).
 
     npm install redis
@@ -82,7 +82,7 @@ ms.lasthandoff: 12/18/2017
     value
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Включите диагностику кэша](cache-how-to-monitor.md#enable-cache-diagnostics), чтобы можно было [наблюдать](cache-how-to-monitor.md) за работоспособностью кэша.
 * Прочитайте официальную [документацию Redis](http://redis.io/documentation).
 

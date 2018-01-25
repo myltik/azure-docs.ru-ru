@@ -3,8 +3,8 @@ title: "Настройка виртуальной сети для кэша Redis
 description: "Узнайте, как настроить поддержку виртуальной сети и управлять ей для экземпляров кэша Redis для Azure уровня Премиум"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: sdanie
-ms.openlocfilehash: 59d46990e02c0719d2b4df01e216a97fd649c509
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 74ec104bebec2004a8b7116865c2394c02b12638
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Настройка поддержки виртуальной сети для кэша Redis для Azure уровня Премиум
 Кэш Redis для Azure предлагает разные варианты кэша, которые обеспечивают гибкость в выборе размера и функций кэша, включая функции уровня "Премиум", такие как кластеризация, постоянное хранение данных и поддержка виртуальной сети. Виртуальная сеть — это частная сеть в облаке. В случае настройки экземпляра кэша Redis для Azure в виртуальной сети он не является общедоступным, а доступен только для виртуальных машин и приложений в этой виртуальной сети. В этой статье описана настройка поддержки виртуальной сети для экземпляра кэша Redis для Azure уровня "Премиум".
@@ -154,7 +154,7 @@ ms.lasthandoff: 10/11/2017
 
 - [Перезагрузите](cache-administration.md#reboot) все узлы кэша. Если не установить все необходимые зависимости кэша (как описано в разделах [Обязательные порты для входящего трафика](cache-how-to-premium-vnet.md#inbound-port-requirements) и [Обязательные порты для исходящего трафика](cache-how-to-premium-vnet.md#outbound-port-requirements)), то кэш не сможет перезапускаться.
 - После перезапуска узлов кэша (по данным о состоянии кэша на портале Azure) можно выполнить следующие поверки:
-  - проверить связь с конечной точкой кэша (через порт 6380) с компьютера, который находится с кэшем в одной виртуальной сети, используя инструмент [tcping](https://www.elifulkerson.com/projects/tcping.php). Например:
+  - проверить связь с конечной точкой кэша (через порт 6380) с компьютера, который находится с кэшем в одной виртуальной сети, используя инструмент [tcping](https://www.elifulkerson.com/projects/tcping.php). Например: 
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -210,7 +210,7 @@ Azure резервирует некоторые IP-адреса в каждой 
 
 Дополнительные сведения об ExpressRoute см. в статье [Технический обзор ExpressRoute](../expressroute/expressroute-introduction.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте, как использовать расширенные функции кэша.
 
 * [Знакомство с кэшем Redis для Azure уровня Премиум](cache-premium-tier-intro.md)

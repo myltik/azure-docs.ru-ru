@@ -15,23 +15,23 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614e07ad9fcbe9ad3684ed977f7ffa36e727dddc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Проектирование, создание и развертывание приложений логики Azure в Visual Studio
 
 Хотя [портал Azure](https://portal.azure.com/) позволяет легко создавать и администрировать приложения логики с помощью службы Azure Logic Apps, вы также можете использовать Visual Studio для проектирования, создания и развертывания приложений логики. Расширенные средства Visual Studio, такие как конструктор приложений логики, позволяют создавать приложения логики, настраивать шаблоны развертывания и автоматизации, а также развертывать приложения в любой среде. 
 
-Если вы еще не знакомы с Azure Logic Apps, то см. статью [Создание нового приложения логики, подключающего службы SaaS](logic-apps-create-a-logic-app.md).
+Если вы еще не знакомы с Azure Logic Apps, то см. статью [Создание нового приложения логики, подключающего службы SaaS](quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="installation-steps"></a>Шаги установки
 
 Ниже описаны действия по установке и настройке средств Visual Studio для Azure Logic Apps.
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) или Visual Studio 2015.
 * [пакет Azure SDK последней версии](https://azure.microsoft.com/downloads/) (версия 2.9.1 или выше);

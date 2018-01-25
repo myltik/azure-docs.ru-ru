@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2415850491018f4e27c5ec930b688026cc12b41a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d8848f93518392333df16c9c7bf07bd0b2529034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Передача данных в индекс Поиска Azure с использованием фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,20 +57,20 @@ ms.lasthandoff: 11/02/2017
 
 В таблице ниже приведены описания элементов JSON, которые относятся к связанной службе Поиска Azure.
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательно |
 | -------- | ----------- | -------- |
-| type | Для свойства type необходимо задать значение **AzureSearch**. | Да |
-| URL-адрес | URL-адрес службы Поиска Azure. | Да |
-| key | Ключ администратора службы Поиска Azure. | Да |
+| Тип | Для свойства type необходимо задать значение **AzureSearch**. | Yes |
+| URL-адрес | URL-адрес службы Поиска Azure. | Yes |
+| key | Ключ администратора службы Поиска Azure. | Yes |
 
 ## <a name="dataset-properties"></a>Свойства набора данных
 
 Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных в фабрике данных Azure](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных. Разделы **typeProperties** для каждого типа набора данных отличаются. Раздел typeProperties для набора данных типа **AzureSearchIndex** содержит следующие свойства.
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательно |
 | -------- | ----------- | -------- |
-| type | Для свойства type необходимо задать значение **AzureSearchIndex**| Да |
-| indexName | Имя индекса Поиска Azure. Фабрика данных не создает индекс. Индекс должен существовать в Поиске Azure. | Да |
+| Тип | Для свойства type необходимо задать значение **AzureSearchIndex**| Yes |
+| indexName | Имя индекса Поиска Azure. Фабрика данных не создает индекс. Индекс должен существовать в Поиске Azure. | Yes |
 
 
 ## <a name="copy-activity-properties"></a>Свойства действия копирования
@@ -78,10 +78,10 @@ ms.lasthandoff: 11/02/2017
 
 Для действия копирования, когда приемник относится к типу **AzureSearchIndexSink**, в разделе typeProperties доступны указанные ниже свойства.
 
-| Свойство | Описание | Допустимые значения | Обязательно |
+| Свойство | ОПИСАНИЕ | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Указывает действие (объединение или замена), выполняемое, если документ уже существует в индексе. Ознакомьтесь с разделом [Свойство WriteBehavior](#writebehavior-property).| Merge (по умолчанию)<br/>Отправить| Нет |
-| WriteBatchSize | Передает данные в индекс Поиска Azure, когда размер буфера достигает значения writeBatchSize. Ознакомьтесь с разделом [Свойство WriteBatchSize](#writebatchsize-property). | 1–1000. Значение по умолчанию — 1000. | Нет |
+| WriteBehavior | Указывает действие (объединение или замена), выполняемое, если документ уже существует в индексе. Ознакомьтесь с разделом [Свойство WriteBehavior](#writebehavior-property).| Merge (по умолчанию)<br/>Передать| Нет  |
+| WriteBatchSize | Передает данные в индекс Поиска Azure, когда размер буфера достигает значения writeBatchSize. Ознакомьтесь с разделом [Свойство WriteBatchSize](#writebatchsize-property). | 1–1000. Значение по умолчанию — 1000. | Нет  |
 
 ### <a name="writebehavior-property"></a>Свойство WriteBehavior
 При записи данных AzureSearchSink выполняет операцию upsert. Другими словами, если при создании документа ключ документа уже существует в индексе Поиска Azure, Поиск Azure обновляет существующий документ, а не создает исключения из-за конфликта.
@@ -105,7 +105,7 @@ AzureSearchSink проявляет два типа поведения upsert (с
 | Int32 | Да |
 | Int64 | Да |
 | Double | Да |
-| Логический | Да |
+| Логическое | Да |
 | DataTimeOffset | Да |
 | Массив строк | Нет |
 | GeographyPoint | Нет |
@@ -292,7 +292,7 @@ AzureSearchSink проявляет два типа поведения upsert (с
 ## <a name="performance-and-tuning"></a>Производительность и настройка  
 Сведения о ключевых факторах, влияющих на производительность перемещения данных (действие копирования), и различных способах оптимизации этого процесса см. в статье [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Ознакомьтесь со следующими статьями:
 
 * [руководстве по действию копирования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: e4977edd19d77b78f08163a6c0ff750fdbefcb3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 8ee3b523baf562b06bd5f7d652a431e1d4553d5c
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Устранение неполадок параметров Enterprise State Roaming в Azure Active Directory
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 12/11/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - На форуме [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/158658-enterprise-state-roaming) можно оставить свои отзывы о работе службы Enterprise State Roaming или предложения по ее улучшению.
 

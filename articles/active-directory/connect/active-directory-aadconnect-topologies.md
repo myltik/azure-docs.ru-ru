@@ -3,7 +3,7 @@ title: "Azure AD Connect: поддерживаемые топологии | До
 description: "В этой статье подробно описываются поддерживаемые и неподдерживаемые топологии Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 152cb9daa8338da6cc85ffda6feb3bd7b4f1bc92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Топологии Azure AD Connect.
 В этой статье описываются различные локальные топологии и топологии Active Directory Azure (Azure AD), в которых служба синхронизации Azure AD Connect используется в качестве основного решения интеграции. Здесь описываются и поддерживаемые, и неподдерживаемые конфигурации.
@@ -178,7 +178,7 @@ Azure AD Connect поддерживает установку второго се
 
 Для синхронизации пользователей (с помощью GALSync) между двумя организациями Exchange можно локально использовать FIM 2010 или MIM 2016. Пользователи из одной организации будут отображаться в другой организации как внешние пользователи или контакты. Затем эти локальные экземпляры Active Directory можно синхронизировать с их собственными клиентами Azure AD.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Больше об установке Azure AD Connect для этих сценариев можно узнать в статье [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

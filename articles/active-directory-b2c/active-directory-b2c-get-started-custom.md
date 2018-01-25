@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 826211dca59128a8b87ace44348dd5e2764bc0c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: начало работы с настраиваемыми политиками
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 После выполнения действий, описанных в этой статье, настраиваемая политика будет поддерживать регистрацию и вход с помощью локальной учетной записи с использованием адреса электронной почты и пароля. Кроме того, будет подготовлена среда для добавления поставщиков удостоверений (например, Facebook или Azure Active Directory). Мы рекомендуем выполнить эти действия перед знакомством с другими вариантами использования инфраструктуры процедур идентификации Azure AD B2C.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Прежде чем продолжить, убедитесь, что у вас есть клиент Azure AD B2C, который является контейнером для всех пользователей, приложений, политик и т. д. Если у вас еще нет клиента Azure AD B2C, его необходимо [создать](active-directory-b2c-get-started.md). Прежде чем продолжить, мы настоятельно советуем всем разработчикам ознакомиться с руководствами по работе с внедренными политиками Azure AD B2C и настроить приложения на основе этих политик. Ваши приложения будут поддерживать оба типа политик. Вы можете немного изменить имя политики, чтобы вызвать настраиваемую политику.
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 12/11/2017
 2. Замените оба экземпляра `IdentityExperienceFrameworkAppId` идентификатором созданного ранее приложения инфраструктуры процедур идентификации. Вот пример: 
 
    ```xml
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+   <Item Key="IdTokenAudience">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 3. Замените оба экземпляра `ProxyIdentityExperienceFrameworkAppId` идентификатором созданного ранее приложения прокси инфраструктуры процедур идентификации.
 4. Сохраните файл расширений.
@@ -196,7 +196,7 @@ ms.lasthandoff: 12/11/2017
 >Часто причина ошибки при входе заключается в неправильной настройке приложения IdentityExperienceFramework.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 ### <a name="add-facebook-as-an-identity-provider"></a>Добавление Facebook в качестве поставщика удостоверений
 Чтобы настроить Facebook, сделайте следующее.

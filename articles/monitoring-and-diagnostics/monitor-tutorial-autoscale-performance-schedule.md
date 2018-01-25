@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Создание параметра автомасштабирования для ресурсов Azure на основе данных о производительности или расписания
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/07/2017
 
 Подготовка ресурсов закончится через несколько минут. Используйте веб-приложение и соответствующий план службы приложений в оставшейся части этого руководства.
 
-    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+   ![Создание службы приложений на портале](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>Переход к параметрам автомасштабирования
 1. В левой области навигации выберите **Монитор**. После загрузки страницы откройте вкладку **Автомасштабирование**.
@@ -172,7 +172,7 @@ ms.lasthandoff: 11/07/2017
 
 4. Подтвердите удаление, введя **да** в текстовом поле, а затем щелкните **Удалить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы научились:  
 > [!div class="checklist"]

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Переход от служб BizTalk к службе Logic Apps
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/21/2017
 
 В следующей таблице приведено сопоставление возможностей служб BizTalk и Logic Apps.
 
-| Службы BizTalk   | Приложения логики            | Назначение                  |
+| Службы BizTalk   | приложения логики;            | Назначение                  |
 | ------------------ | --------------------- | ---------------------------- |
 | Соединитель          | Соединитель             | Отправка и получение данных   |
 | Мост             | приложение логики;             | Обработчик конвейера           |
@@ -126,6 +126,6 @@ ms.lasthandoff: 10/21/2017
 Для достижения высокой доступности (HA) в службах BizTalk используется более одного экземпляра в данном регионе для распределения нагрузки обработки. В приложениях логики высокая доступность в регионе обеспечивается как встроенная функция (и не требует отдельной оплаты). Для аварийного восстановления за пределами региона для обработки B2B в службах BizTalk необходимо реализовать процессы резервного копирования и восстановления. В службе Logic Apps предоставляется [возможность активного/пассивного аварийного восстановления](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) в разных регионах; что позволяет выполнять синхронизацию данных B2B в учетных записях интеграции в разных регионах для обеспечения непрерывности бизнеса.
 
 ## <a name="next"></a>Далее
-* Прочтите статью [Что такое приложения логики?](logic-apps-what-are-logic-apps.md)
-* [Создайте свое первое приложение логики](logic-apps-create-a-logic-app.md) или приступите к работе, используя [готовый шаблон](logic-apps-create-logic-apps-from-templates.md).  
+* Прочтите статью [Что такое приложения логики?](logic-apps-overview.md)
+* [Создайте свое первое приложение логики](quickstart-create-first-logic-app-workflow.md) или приступите к работе, используя [готовый шаблон](logic-apps-create-logic-apps-from-templates.md).  
 * [Просмотрите список всех доступных соединителей](../connectors/apis-list.md), которые можно использовать в приложении логики.

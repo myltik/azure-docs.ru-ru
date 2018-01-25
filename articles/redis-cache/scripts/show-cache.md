@@ -3,8 +3,8 @@ title: "Пример сценария Azure CLI. Получение сведен
 description: "Пример сценария Azure CLI. Получение сведений о кэше Redis для Azure"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: 155924e6-00d5-4a8c-ba99-5189f300464a
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
-ms.author: sdanie
-ms.openlocfilehash: 0927508117bda67b62a188f89a2d2e151fe02a5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 21db3c9d02c275ec8827062de5135631ed900da8
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-details-of-an-azure-redis-cache"></a>Получение сведений о кэше Redis для Azure
 
@@ -35,12 +35,12 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы получить сведения об экземпляре кэша Redis для Azure, в этом сценарии используются приведенные ниже команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
 | [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Извлекает сведения об экземпляре кэша Redis для Azure. |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

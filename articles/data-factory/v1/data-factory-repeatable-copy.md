@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dbe2f7cb1d843c5e4ec7bc00a7e7dc5a49b31896
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7a9023253b87d97d874dbcf1ade97bf32e1f0639
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Повторяющаяся операция копирования в фабрике данных Azure
 
@@ -148,9 +148,9 @@ ID    Product        Quantity    ModifiedDate
 
 Как и при использовании первого механизма, действие копирования сначала автоматически удаляет из целевой таблицы SQL данные для заданного среза. После этого данные из источника вставляются в целевую таблицу. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 См. следующие статьи о соединителях, где есть полные примеры JSON: 
 
-- [База данных SQL Azure;](data-factory-azure-sql-connector.md)
+- [база данных SQL Azure;](data-factory-azure-sql-connector.md)
 - [Хранилище данных SQL Azure](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

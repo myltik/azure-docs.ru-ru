@@ -1,5 +1,5 @@
 ## <a name="create-a-ruby-application"></a>Создание приложения Ruby
-Инструкции см. в разделе [Создание приложения Ruby в Azure](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Инструкции см. в разделе [Создание приложения Ruby в Azure](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Настройка приложения для использования служебной шины
 Для использования служебной шины скачайте и используйте пакет Azure Ruby, который содержит набор библиотек, взаимодействующих со службами REST хранилища.

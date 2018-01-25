@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 6cc61144b9e2f776c9039022d32300fd06b67bbd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: e3ffaca0eab20c973df4969b22dbf56300d0b1ed
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Проверка возможности подключения с помощью службы "Наблюдатель за сетями Azure" в PowerShell
 
@@ -37,33 +37,8 @@ ms.lasthandoff: 12/21/2017
 
 * виртуальные машины, возможность подключения к которым необходимо проверить.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 > [!IMPORTANT]
 > Для проверки возможности подключения требуется расширение виртуальной машины `AzureNetworkWatcherExtension`. Информацию об установке расширения для виртуальной машины Windows см. в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Windows](../virtual-machines/windows/extensions-nwa.md), а для виртуальной машины Linux — в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## <a name="register-the-preview-capability"></a>Регистрация возможностей предварительной версии
-
-Возможность подключения сейчас поддерживается в общедоступной предварительной версии. Для использования этой функции компонент необходимо зарегистрировать. Для этого выполните следующие командлеты PowerShell.
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Чтобы проверить, была ли регистрация успешно завершена, выполните приведенный ниже командлет PowerShell.
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-Если компонент был правильно зарегистрирован, выходные данные должны выглядеть следующим образом.
-
-```
-FeatureName         ProviderName      RegistrationState
------------         ------------      -----------------
-AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
-```
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Проверка возможности подключения к виртуальной машине
 
@@ -330,7 +305,7 @@ Hops             : [
                    ]
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Сведения о состоянии (разрешен или запрещен) входящего и исходящего трафика виртуальной машины см. в статье, посвященной [проверке потока IP-адресов](network-watcher-check-ip-flow-verify-portal.md).
 

@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 899110992cc52ca5edf1706320fd5570473de784
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3657955ca4280fecd3a0fb1ea64b90e0a5c5c765
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Начало работы с соединителем Wunderlist
 Wunderlist — это приложение для ведения списка дел и управления задачами, помогающее справляться с делами.  Wunderlist позволяет легко составлять и вести списки дел, а также предоставлять к ним доступ, будь то отправка списка покупок, работа над проектом или планирование отпуска. Wunderlist мгновенно синхронизируется между телефоном, планшетом и компьютером, обеспечивая доступ к задачам из любой точки мира.
 
-Для начала создайте приложение логики, как описано [здесь](../logic-apps/logic-apps-create-a-logic-app.md).
+Для начала создайте приложение логики, как описано [здесь](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-wunderlist"></a>Создание подключения к Wunderlist
 Для создания приложений логики с помощью Wunderlist необходимо создать **подключение**, а затем указать данные для приведенных ниже свойств.
 
-| Свойство | Обязательно | Description (Описание) |
+| Свойство | Обязательно | ОПИСАНИЕ |
 | --- | --- | --- |
-| Маркер |Да |Учетные данные Wunderlist |
+| по маркеру |Yes |Учетные данные Wunderlist |
 
 Созданное подключение можно использовать для выполнения действий и прослушивания триггеров.
 

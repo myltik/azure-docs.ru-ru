@@ -3,7 +3,7 @@ title: "Синхронизация Azure AD Connect: изменение конф
 description: "В этой статье приведены рекомендации по изменению стандартной конфигурации служб синхронизации Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 86b9af69063ded2740ac353b863442725104c071
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 384794849eb0bf2cb2f4dd056b0c95ab84d77b6e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Службы синхронизации Azure AD Connect: рекомендации по изменению конфигурации по умолчанию
 В этой статье описываются поддерживаемые и неподдерживаемые изменения в службах синхронизации Azure AD Connect.
@@ -65,7 +65,7 @@ ms.lasthandoff: 12/11/2017
 
 В этом клонированном правиле выполните необходимые изменения в области, объединении и преобразованиях.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 **Обзорные статьи**
 
 * [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)

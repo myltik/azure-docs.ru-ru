@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b03be0df05f85ec9ecd1fca4042e87c838022c7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a6dad8242c709240b57b8a47acc44c5ddfdaa755
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Перемещение данных из источника HTTP с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,11 +48,11 @@ ms.lasthandoff: 11/02/2017
 ## <a name="linked-service-properties"></a>Свойства связанной службы
 В следующей таблице содержится описание элементов JSON, которые относятся к связанной службе HTTP.
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательно |
 | --- | --- | --- |
-| type | Задайте для этого свойства значение `Http`. | Да |
-| url | Базовый URL-адрес веб-сервера. | Да |
-| authenticationType | Указывает тип проверки подлинности. Допустимые значения: **Anonymous**, **Basic**, **Digest**, **Windows** и **ClientCertificate**. <br><br> В разделах ниже описываются дополнительные свойства и приведены примеры JSON для поддерживаемых типов проверки подлинности. | Да |
+| Тип | Задайте для этого свойства значение `Http`. | Yes |
+| URL-адрес | Базовый URL-адрес веб-сервера. | Yes |
+| authenticationType | Указывает тип проверки подлинности. Допустимые значения: **Anonymous**, **Basic**, **Digest**, **Windows** и **ClientCertificate**. <br><br> В разделах ниже описываются дополнительные свойства и приведены примеры JSON для поддерживаемых типов проверки подлинности. | Yes |
 | enableServerCertificateValidation | Укажите, следует ли включать проверку SSL-сертификата на сервере, если источником является веб-сервер HTTPS. | Нет. Значение по умолчанию — true. |
 | gatewayName | Имя шлюза управления данными для подключения к локальному источнику HTTP. | Да, если копирование выполняется из локального источника HTTP. |
 | encryptedCredential | Зашифрованные учетные данные для доступа к конечной точке HTTP. При настройке сведений для проверки подлинности в мастере копирования или всплывающем диалоговом окне ClickOnce создаются автоматически. | Нет. Применимо, только когда копирование данных выполняется с локального HTTP-сервера. |
@@ -63,10 +63,10 @@ ms.lasthandoff: 11/02/2017
 
 Задайте для свойства `authenticationType` значения `Basic`, `Digest` или `Windows` и укажите следующие свойства помимо универсальных свойств соединителя HTTP, приведенных выше.
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательно |
 | --- | --- | --- |
-| Имя пользователя | Имя пользователя для доступа к конечной точке HTTP. | Да |
-| password | Пароль пользователя, указанного в свойстве имя пользователя. | Да |
+| Имя пользователя | Имя пользователя для доступа к конечной точке HTTP. | Yes |
+| password | Пароль пользователя, указанного в свойстве имя пользователя. | Yes |
 
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>Пример: использование типов проверки подлинности Basic, Digest или Windows
 
@@ -91,11 +91,11 @@ ms.lasthandoff: 11/02/2017
 
 Чтобы использовать базовую проверку подлинности, задайте для `authenticationType` значение `ClientCertificate` и укажите приведенные ниже свойства помимо универсальных свойств соединителя HTTP, которые описаны выше.
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательно |
 | --- | --- | --- |
 | embeddedCertData | Содержимое двоичных данных файла обмена личной информацией (PFX-файла) с кодировкой Base64. | Должно быть указано одно из свойств: `embeddedCertData` или `certThumbprint`. |
 | certThumbprint | Отпечаток сертификата, который был установлен в хранилище сертификатов на компьютере шлюза. Применимо, только когда копирование данных выполняется из локального источника HTTP. | Должно быть указано одно из свойств: `embeddedCertData` или `certThumbprint`. |
-| password | Пароль, связанный с сертификатом. | Нет |
+| password | Пароль, связанный с сертификатом. | Нет  |
 
 Если вы используете свойство `certThumbprint` для проверки подлинности, а сертификат установлен в личном хранилище локального компьютера, вам необходимо предоставить службе шлюза разрешение на чтение.
 
@@ -150,15 +150,15 @@ ms.lasthandoff: 11/02/2017
 
 Раздел **typeProperties** во всех типах наборов данных разный. В нем содержатся сведения о расположении данных в хранилище данных. Раздел typeProperties для набора данных типа **Http** имеет следующие свойства.
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
-| type | Тип набора данных. Нужно задать значение `Http`. | Да |
-| relativeUrl | Относительный URL-адрес ресурса, который содержит данные. Если путь не задан, используется только URL-адрес, указанный в определении связанной службы. <br><br> Чтобы создать динамический URL-адрес, можно использовать [функции и системные переменные фабрики данных](data-factory-functions-variables.md). Пример: "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)". | Нет |
+| Тип | Тип набора данных. Нужно задать значение `Http`. | Yes |
+| relativeUrl | Относительный URL-адрес ресурса, который содержит данные. Если путь не задан, используется только URL-адрес, указанный в определении связанной службы. <br><br> Чтобы создать динамический URL-адрес, можно использовать [функции и системные переменные фабрики данных](data-factory-functions-variables.md). Пример: "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)". | Нет  |
 | requestMethod | Метод HTTP. Допустимые значения: **GET** или **POST**. | Нет. Значение по умолчанию — `GET`. |
-| additionalHeaders | Дополнительные заголовки HTTP-запроса. | Нет |
-| requestBody | Текст HTTP-запроса. | Нет |
-| свойства | Если вы хотите просто **извлечь данные из конечной точки HTTP "как есть"** — без анализа, пропустите параметры форматирования. <br><br> Поддерживаемые форматы для выполнения анализа содержимого ответа HTTP в процессе выполнения операции копирования: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** и **ParquetFormat**. Дополнительные сведения см. в разделах о [текстовом формате](data-factory-supported-file-and-compression-formats.md#text-format), [формате Json](data-factory-supported-file-and-compression-formats.md#json-format), [формате Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [формате Orc](data-factory-supported-file-and-compression-formats.md#orc-format) и [ формате Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Нет |
-| compression | Укажите тип и уровень сжатия данных. Поддерживаемые типы: **GZip**, **Deflate**, **BZip2** и **ZipDeflate**. Поддерживаемые уровни: **Optimal** и **Fastest**. См. дополнительные сведения о [форматах файлов и сжатия данных в фабрике данных Azure](data-factory-supported-file-and-compression-formats.md#compression-support). |Нет |
+| additionalHeaders | Дополнительные заголовки HTTP-запроса. | Нет  |
+| requestBody | Текст HTTP-запроса. | Нет  |
+| свойства | Если вы хотите просто **извлечь данные из конечной точки HTTP "как есть"** — без анализа, пропустите параметры форматирования. <br><br> Поддерживаемые форматы для выполнения анализа содержимого ответа HTTP в процессе выполнения операции копирования: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** и **ParquetFormat**. Дополнительные сведения см. в разделах о [текстовом формате](data-factory-supported-file-and-compression-formats.md#text-format), [формате Json](data-factory-supported-file-and-compression-formats.md#json-format), [формате Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [формате Orc](data-factory-supported-file-and-compression-formats.md#orc-format) и [ формате Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Нет  |
+| compression | Укажите тип и уровень сжатия данных. Поддерживаемые типы: **GZip**, **Deflate**, **BZip2** и **ZipDeflate**. Поддерживаемые уровни: **Optimal** и **Fastest**. Узнайте больше о [форматах файлов и сжатия данных в фабрике данных Azure](data-factory-supported-file-and-compression-formats.md#compression-support). |Нет  |
 
 ### <a name="example-using-the-get-default-method"></a>Пример: использование метода GET (по умолчанию)
 
@@ -210,14 +210,14 @@ ms.lasthandoff: 11/02/2017
 
 В настоящее время, если источник в действии копирования относится к типу **HttpSource**, то поддерживаются следующие свойства.
 
-| Свойство | Описание | Обязательно |
+| Свойство | ОПИСАНИЕ | Обязательно |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | Время ожидания ответа для HTTP-запроса. Это интервал времени для получения ответа, а не считывания данных ответа. | Нет. Значение по умолчанию  — 00:01:40. |
 
 ## <a name="supported-file-and-compression-formats"></a>Поддерживаемые форматы файлов и сжатия
 Дополнительные сведения см. в статье [Форматы файлов и сжатия данных, поддерживаемые фабрикой данных Azure](data-factory-supported-file-and-compression-formats.md).
 
-## <a name="json-examples"></a>Примеры определений JSON
+## <a name="json-examples"></a>Примеры JSON
 Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Вы узнаете, как копировать данные из источника HTTP в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать **непосредственно** из любых источников в любой указанный [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приемник. Это делается с помощью действия копирования в фабрике данных Azure.
 
 ### <a name="example-copy-data-from-http-source-to-azure-blob-storage"></a>Пример: копирование данных из источника HTTP в хранилище BLOB-объектов Azure

@@ -3,7 +3,7 @@ title: "Синхронизация удостоверений и устойчи�
 description: "Из этой статьи вы узнаете о новом поведении, которое имеет место при обработке объектов, содержащих конфликты имени участника-пользователя или ProxyAddress, во время синхронизации каталогов с Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 1ceb2cbe728d2b3bf21f441a595b7ed8e91e3795
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 975abed469a78573553c0879b33181d2a58ec48c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Синхронизация удостоверений и устойчивость повторяющихся атрибутов
 Устойчивость повторяющихся атрибутов — это компонент Azure Active Directory, устраняющий проблемы из-за конфликтов атрибутов **UserPrincipalName** и **ProxyAddress** при запуске средств синхронизации Майкрософт.

@@ -3,7 +3,7 @@ title: "Синхронизация Azure AD Connect: общие сведения
 description: "В этой статье описываются принципы работы и настройка служб синхронизации Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: c3f5d469850cf06d21821bd2f642666dc5c48644
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 20614aaabc05513e93eb001c1676a73f85003947
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка
 Службы синхронизации Azure Active Directory Connect (службы синхронизации Azure AD Connect) являются основным компонентом Azure AD Connect. Они отвечают за все операции, относящиеся к синхронизации идентификационных данных между локальной средой и Azure AD. Служба синхронизации Azure AD Connect — это преемник таких решений, как DirSync, Azure AD Sync и Forefront Identity Manager с настроенным соединителем Azure Active Directory.

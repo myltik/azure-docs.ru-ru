@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 8259c1bd52cfd0641148dc09404debaf59640b45
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ветвления и создание цепочки действий в конвейере фабрики данных
 В этом руководстве создается конвейер фабрики данных, который демонстрирует некоторые функции потока управления. Этот конвейер просто копирует данные из контейнера в хранилище BLOB-объектов Azure в другой контейнер в той же учетной записи хранения. Если действие копирования завершается успешно, нужно отправить подробную информацию об успешной операции копирования (например, количество записанных данных) по электронной почте. Если произошел сбой действия копирования, необходимо отправить данные об ошибке копирования (например, сообщение об ошибке) по электронной почте. В этом руководстве вы научитесь передавать параметры.
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/15/2017
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Учетная запись хранения Azure.** В этом руководстве в качестве **источника** будет использоваться хранилище BLOB-объектов. Если у вас нет учетной записи хранения Azure, ознакомьтесь с разделом [Создание учетной записи хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * **База данных SQL Azure**. Используйте базу данных как хранилище данных-**приемник**. Если у вас нет базы данных SQL Azure, вы можете создать ее, выполнив шаги из статьи [Создание базы данных SQL Azure на портале Azure](../sql-database/sql-database-get-started-portal.md).
@@ -140,7 +140,7 @@ ms.lasthandoff: 12/15/2017
     var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
     ```
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 Создайте функцию CreateOrUpdateDataFactory в файле Program.cs:
 
 ```csharp
@@ -292,7 +292,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetNa
     }
 ```
 ## <a name="create-email-workflow-endpoints"></a>Создание конечных точек рабочего процесса электронной почты
-Чтобы инициировать отправку сообщения электронной почты, используйте [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) для определения рабочего процесса. Сведения о создании рабочего процесса приложения логики см. в статье [Создание первого рабочего процесса приложения логики для автоматизации процессов между облачными приложениями и облачными службами](../logic-apps/logic-apps-create-a-logic-app.md). 
+Чтобы инициировать отправку сообщения электронной почты, используйте [Logic Apps](../logic-apps/logic-apps-overview.md) для определения рабочего процесса. Сведения о создании рабочего процесса приложения логики см. в статье [Создание первого рабочего процесса приложения логики для автоматизации процессов между облачными приложениями и облачными службами](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Рабочий процесс успешной отправки сообщения электронной почты 
 Создайте рабочий процесс приложения логики с именем `CopySuccessEmail`. Определите триггер рабочего процесса `When an HTTP request is received` и добавьте действие `Office 365 Outlook – Send an email`.
@@ -326,7 +326,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetNa
 
 ![Запрос в окне конструктора приложений логики](media/tutorial-control-flow/logic-app-designer-request.png)
 
-Для действия **Отправка электронного сообщения** настройте способ форматирования электронного сообщения, используя свойства, переданные в схеме запроса текста JSON. Пример:
+Для действия **Отправка электронного сообщения** настройте способ форматирования электронного сообщения, используя свойства, переданные в схеме запроса текста JSON. Вот пример: 
 
 ![Конструктор приложения логики. Действие отправки электронной почты](media/tutorial-control-flow/send-email-action.png)
 
@@ -338,7 +338,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ## <a name="fail-email-workflow"></a>Рабочий процесс сбоя отправки сообщения электронной почты 
-Клонируйте действие **CopySuccessEmail** и создайте еще один рабочий процесс Logic Apps **CopyFailEmail**. В триггере запроса действие `Request Body JSON schema` такое же. Просто измените формат электронной почты, например `Subject`, чтобы настроить процесс сбоя отправки сообщения электронной почты. Пример:
+Клонируйте действие **CopySuccessEmail** и создайте еще один рабочий процесс Logic Apps **CopyFailEmail**. В триггере запроса действие `Request Body JSON schema` такое же. Просто измените формат электронной почты, например `Subject`, чтобы настроить процесс сбоя отправки сообщения электронной почты. Вот пример: 
 
 ![Конструктор приложения логики. Рабочий процесс сбоя отправки сообщения электронной почты](media/tutorial-control-flow/fail-email-workflow.png)
 
@@ -735,7 +735,7 @@ Checking copy activity run details...
 Press any key to exit...
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом руководстве вы выполнили следующие шаги: 
 
 > [!div class="checklist"]

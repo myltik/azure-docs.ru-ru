@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: a8d0cf5e50fdc31aef110c359713be32fc09c8a7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1114fd272bd16d17fbeb382b0f374a69dc74916a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Копирование данных в базу данных Azure Cosmos DB или из нее с помощью фабрики данных Azure
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы Azure Cosmos DB поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение: **CosmosDb**. | Yes |
 | connectionString |Укажите сведения, необходимые для подключения к базе данных Azure Cosmos DB. Обратите внимание, что необходимо указать сведения о базе данных в строке подключения, как показано в примере ниже. Пометьте это поле в качестве SecureString. |Yes |
@@ -84,7 +84,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные в базу данных Azure Cosmos DB или из нее, задайте тип свойства набора данных **DocumentDbCollection**. Поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type должно иметь значение **DocumentDbCollection**. |Yes |
 | collectionName |Имя коллекции документов Cosmos DB. |Yes |
@@ -122,7 +122,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные из Azure Cosmos DB, в действии копирования задайте тип источника **DocumentDbCollectionSource**. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **DocumentDbCollectionSource**. |Yes |
 | query |Укажите запрос Cosmos DB для чтения данных.<br/><br/>Пример: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Нет  <br/><br/>Если не указано, то выполняется инструкция SQL `select <columns defined in structure> from mycollection`. |
@@ -164,7 +164,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные из Azure Cosmos DB, в действии копирования задайте тип приемника **DocumentDbCollectionSink**. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type приемника действия копирования должно иметь значение **DocumentDbCollectionSink**. |Yes |
 | nestingSeparator |Такой специальный символ в имени исходного столбца, который указывает, что нужен вложенный документ. <br/><br/>Например, `Name.First` в выходной структуре набора данных создает следующую структуру JSON в документе Cosmos DB: `"Name": {"First": "[value maps to this column from source]"}`, в которой nestedSeparator является точкой. |Нет (значение по умолчанию — точка `.`) |

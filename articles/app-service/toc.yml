@@ -31,6 +31,8 @@
   items:
     - name: 1. Приложение с базой данных
       items:
+        - name: .NET Core с базой данных SQL
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: .NET с базой данных SQL
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP с MySQL
@@ -173,7 +175,7 @@
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
-    - name: Интерфейс REST API
+    - name: ИНТЕРФЕЙС REST API
       href: /rest/api/appservice/
 - name: Ресурсы
   items:

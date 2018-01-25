@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Копирование данных из Dynamics CRM или Dynamics 365 и обратно с помощью фабрики данных Azure
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="getting-started"></a>Приступая к работе
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, характерных для Dynamics.
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/11/2018
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 и Dynamics CRM Online
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **Dynamics**. | Yes |
 | deploymentType | Тип развертывания для экземпляра Dynamics. Должен иметь значение **Online** для Dynamics Online. | Yes |
@@ -107,7 +107,7 @@ ms.lasthandoff: 01/11/2018
 
 *hostName и port являются дополнительными свойствами по сравнению с Dyanmics Online.*
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **Dynamics**. | Yes |
 | deploymentType | Тип развертывания для экземпляра Dynamics. Для Dynamics (локальная версия) с IFD должно иметь значение **OnPremisesWithIfd**.| Yes |
@@ -160,7 +160,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы копировать данные из Dynamics или обратно, задайте для свойства типа набора данных значение **DynamicsEntity**. Поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type для набора данных должно иметь значение **DynamicsEntity**. |Yes |
 | entityName | Логическое имя сущности, которое требуется получить. | "Нет" для источника (если свойство query указано в источнике действия), "Да" для приемника |
@@ -213,7 +213,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы копировать данные из Dynamics, установите тип источника **DynamicsSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **DynamicsSource**  | Yes |
 | query  | FetchXML — это защищаемый язык запросов, используемый в Microsoft Dynamics (Online, локальная версия). Узнайте больше о [создании запросов с помощью FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx), ознакомившись со следующим примером. | Нет (если для набора данных задано свойство entityName)  |
@@ -274,7 +274,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы копировать данные в Dynamics, установите тип приемника **DynamicsSink** в действии копирования. В разделе **sink** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type приемника действия копирования должно иметь значение **DynamicsSink**  | Yes |
 | writeBehavior | Поведение операции при записи.<br/>Допустимое значение: **Upsert**. | Yes |

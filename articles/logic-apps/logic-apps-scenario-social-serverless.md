@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
-ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e07b8d7194d83e3ba3986177170edff21e1d7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Создание панели мониторинга сведений о клиентах в режиме реального времени с помощью Функций Azure и Azure Logic Apps.
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Создание приложения логики, которое будет запускаться при получении клиентских данных
 
-После [создания приложения логики](logic-apps-create-a-logic-app.md) в Visual Studio или на портале Azure:
+После [создания приложения логики](quickstart-create-first-logic-app-workflow.md) в Visual Studio или на портале Azure:
 
 1. Добавьте триггер, который будет активироваться при размещении **новых твитов** в Twitter.
 2. Настройте триггер для прослушивания твитов по ключевому слову или хэш-тегу.
@@ -99,7 +99,7 @@ ms.lasthandoff: 10/11/2017
 
 Функции Azure также могут быть включены в шаблон развертывания таким образом, чтобы всем решением вместе со всеми зависимостями можно было управлять как одним шаблоном.  Пример шаблона развертывания функции можно найти в [репозитории шаблонов быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Примеры и распространенные сценарии для Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 * [Пошаговое видеоруководство по созданию этого решения](http://aka.ms/logicappsdemo)

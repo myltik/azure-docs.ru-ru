@@ -3,8 +3,8 @@ title: "Управление кэшем Redis для Azure с помощью Azu
 description: "Узнайте, как установить Azure CLI на любой платформе, как его использовать для подключения к учетной записи Azure и как с его помощью создать кэш Redis и управлять им."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.author: wesmc
+ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Как создать кэш Redis для Azure и управлять им с помощью интерфейса командной строки Azure (Azure CLI)
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/21/2017
 > 
 > 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Для создания экземпляров кэша Redis для Azure и управления ими с помощью Azure CLI необходимо выполнить следующие действия.
 
 * Необходимо иметь учетную запись Azure. Если ее нет, можно создать [бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/) всего за пару минут.

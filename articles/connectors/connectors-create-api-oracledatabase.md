@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Начало работы с соединителем базы данных Oracle
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 В этой статье показано, как использовать соединитель базы данных Oracle в приложении логики.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Поддерживаемые версии Oracle: 
     * Oracle 9 и более поздних версий;
@@ -133,5 +133,5 @@ ms.lasthandoff: 10/11/2017
 Вы можете улучшить Logic Apps и соединители, внеся свои предложения или проголосовав за уже внесенные на сайте [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
-[Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md) и узнайте, какие еще соединители доступны в Logic Apps, с помощью [списка интерфейсов API](apis-list.md).
+## <a name="next-steps"></a>Дополнительная информация
+[Создайте приложение логики](../logic-apps/quickstart-create-first-logic-app-workflow.md) и узнайте, какие еще соединители доступны в Logic Apps, с помощью [списка интерфейсов API](apis-list.md).

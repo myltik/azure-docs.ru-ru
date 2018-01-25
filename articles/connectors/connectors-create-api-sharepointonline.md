@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/19/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 96fc1347604c0c6cc2c2463a5dbd83b560183a16
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdda380360cd2a7595fa05dfe3fc6504e76255b5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sharepoint-online-connector"></a>Приступая к работе с соединителем SharePoint Online
 Соединитель SharePoint Online можно использовать для управления списками SharePoint.  
 
-Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
+Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-sharepoint-online"></a>Подключение к SharePoint Online
 Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [соединение](connectors-overview.md) между приложением логики и другой службой.  
@@ -34,13 +34,13 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="use-a-sharepoint-online-trigger"></a>Использование триггера SharePoint Online
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a SharePoint Online trigger](../../includes/connectors-create-api-sharepointonline-trigger.md)]
 
 
 ## <a name="use-a-sharepoint-online-action"></a>Использование действия SharePoint Online
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a SharePoint Online action](../../includes/connectors-create-api-sharepointonline-action.md)]
 
@@ -50,5 +50,5 @@ ms.lasthandoff: 10/11/2017
 Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/sharepoint/).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
+[Создайте приложение логики](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

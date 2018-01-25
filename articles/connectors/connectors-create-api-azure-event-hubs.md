@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Мониторинг, получение и отправка событий с помощью соединителя концентратора событий
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 * Вам потребуется [пространство имен концентраторов событий и концентратор событий](../event-hubs/event-hubs-create.md) в Azure. Узнайте, как [создать пространство имен концентраторов событий и концентратор событий](../event-hubs/event-hubs-create.md). 
 
-* Прежде чем добавлять в приложение логики [соединители](https://docs.microsoft.com/azure/connectors/apis-list), нужно сначала создать само приложение логики. Узнайте, как [создать приложение логики](../logic-apps/logic-apps-create-a-logic-app.md).
+* Прежде чем добавлять в приложение логики [соединители](https://docs.microsoft.com/azure/connectors/apis-list), нужно сначала создать само приложение логики. Узнайте, как [создать приложение логики](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Проверка разрешений для пространства имен концентраторов событий и определение строки подключения
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Запуск рабочего процесса при получении новых событий от концентратора событий
 
-[*Триггер*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) — это событие, которое запускает рабочий процесс приложения логики. Чтобы рабочий процесс запускался при отправке нового события в концентратор событий, добавьте триггер для обнаружения событий, сделав следующее.
+[*Триггер*](../logic-apps/logic-apps-overview.md#logic-app-concepts) — это событие, которое запускает рабочий процесс приложения логики. Чтобы рабочий процесс запускался при отправке нового события в концентратор событий, добавьте триггер для обнаружения событий, сделав следующее.
 
 1.  На [портале Azure](https://portal.azure.com "портал Azure ") перейдите к существующему приложению логики или создайте пустое приложение логики.
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>Отправка событий в концентратор событий из приложения логики
 
-[*Действие*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) — это задание, выполняемое рабочим процессом приложения логики. После добавления триггера в приложение логики вы можете добавить действие, выполняющее операции с данными, созданными этим триггером. Чтобы отправлять события в концентратор событий из приложения логики, сделайте следующее.
+[*Действие*](../logic-apps/logic-apps-overview.md#logic-app-concepts) — это задание, выполняемое рабочим процессом приложения логики. После добавления триггера в приложение логики вы можете добавить действие, выполняющее операции с данными, созданными этим триггером. Чтобы отправлять события в концентратор событий из приложения логики, сделайте следующее.
 
 1.  В конструкторе Logic App выберите для созданного триггера приложения логики пункты **Новый шаг** > **Добавить действие**.
 
@@ -131,6 +131,6 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы улучшить Logic Apps и соединители, голосуйте за идеи или предлагайте собственные на [сайте обратной связи Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 *  Изучите [список соединителей](./apis-list.md) для приложений логики в Azure Logic Apps.

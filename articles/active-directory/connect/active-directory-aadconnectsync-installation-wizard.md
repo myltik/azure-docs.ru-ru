@@ -4,7 +4,7 @@ description: "Объясняется, как работает мастер ус�
 keywords: "При повторном запуске мастера установки Azure AD Connect он позволяет настроить параметры обслуживания."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a5688175f5277139b09b648bedbedd7e91e1478f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: a5a55b15bbffbcfa18e07e251180820e3d9cb6d8
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Синхронизация Azure AD Connect sync: повторный запуск мастера установки
 При первом запуске мастера установки Azure AD Connect выполняется пошаговая настройка установки. При повторном запуске мастера установки предлагается настроить параметры обслуживания.
@@ -83,7 +83,7 @@ ms.lasthandoff: 12/11/2017
 
 Дополнительные сведения о входе пользователя см. [здесь](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о модели конфигурации, используемой в синхронизации Azure AD Connect, см. в статье о [принципах декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 **Обзорные статьи**

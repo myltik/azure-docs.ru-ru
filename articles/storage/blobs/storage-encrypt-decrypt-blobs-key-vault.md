@@ -2,23 +2,17 @@
 title: "Руководство. Шифрование и расшифровка больших двоичных объектов в службе хранилища Azure с помощью Azure Key Vault | Документация Майкрософт"
 description: "Как выполнять шифрование и расшифровку большого двоичного объекта путем шифрования на стороне клиента для службы хранилища Microsoft Azure с помощью Azure Key Vault."
 services: storage
-documentationcenter: 
-author: adhurwit
-manager: jasonsav
-editor: tysonn
-ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
+author: tamram
+manager: jeconnoc
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: fc4286b39ade5558a9dabd5832be05a7a0d6f0c7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Шифрование и расшифровка BLOB-объектов в хранилище Microsoft Azure с помощью хранилища ключей Azure
 ## <a name="introduction"></a>Введение
@@ -30,7 +24,7 @@ ms.lasthandoff: 10/21/2017
 
 Общие сведения о шифровании на стороне клиента для службы хранилища Azure см. в статье [Шифрование на стороне клиента для службы хранилища Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Для работы с этим учебником требуется:
 
 * Учетная запись хранения Azure
@@ -168,10 +162,6 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
-Ниже приведен снимок экрана с [классического портала Azure](https://manage.windowsazure.com) для большого двоичного объекта, зашифрованного с помощью шифрования на стороне клиента с ключом, хранящимся в хранилище ключей. Свойство **KeyId** представляет собой URI данного ключа в хранилище ключей, которое выступает в качестве ключа шифрования ключей. Свойство **EncryptedKey** содержит зашифрованную версию ключа шифрования столбца.
-
-![Снимок экрана, показывающий метаданные большого двоичного объекта, содержащие метаданные шифрования](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
-
 > [!NOTE]
 > Если вы рассмотрите конструктор BlobEncryptionPolicy, вы увидите, что он может принимать ключ и (или) сопоставитель. Необходимо помнить, что сейчас сопоставитель нельзя использовать для шифрования, так как он не поддерживает ключ по умолчанию.
 > 
@@ -231,7 +221,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 ```
 Вот и все. Так просто!
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения об использовании службы хранилища Microsoft Azure с C# см. в статье [Клиентская библиотека службы хранилища Microsoft Azure для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Дополнительные сведения о REST API для больших двоичных объектов см. в статье [REST API службы BLOB-объектов](https://msdn.microsoft.com/library/azure/dd135733.aspx).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: 20cac53847f9f93805f8064bd8ad5c682b5a8452
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: dc4e8b8682e686abc77f43427615c7069585f327
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-beta"></a>Копирование данных из Marketo с помощью фабрики данных Azure (бета-версия)
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/11/2018
 > Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Move data by using Copy Activity](v1/data-factory-data-movement-activities.md) (Перемещение данных с помощью действия копирования).
 
 > [!IMPORTANT]
-> Сейчас этот соединитель доступен в бета-версии. Опробуйте его и оставьте свой отзыв. Не используйте его в рабочих средах.
+> Сейчас этот соединитель доступен в бета-версии. Попробуйте поработать с ним и оставьте свой отзыв. Не используйте его в рабочих средах.
 
 ## <a name="supported-capabilities"></a>Поддерживаемые возможности
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="getting-started"></a>Приступая к работе
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Следующие разделы содержат сведения о свойствах, используемых для определения сущностей фабрики данных, относящихся к соединителю Marketo.
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы Marketo поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **Marketo** | Yes |
 | endpoint | Конечная точка сервера Marketo. (т. е. 123-ABC-321.mktorest.com)  | Yes |
@@ -103,7 +103,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы копировать данные из Marketo, установите тип источника **MarketoSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **MarketoSource** | Yes |
 | query | Используйте пользовательский SQL-запрос для чтения данных. Например, `"SELECT * FROM Activitiy_Types"`. | Yes |

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 016cd8ac8dc4b65117bf8c07e8d8d4c74c8d9623
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Действие условия If в фабрике данных Azure
 Действие условия If предоставляет те же функциональные возможности, что и инструкция if в языках программирования. Оно определяет набор действий, если условие принимает значение `true`, и другой набор действий, если условие принимает значение `false`. 
@@ -68,13 +68,13 @@ ms.lasthandoff: 11/08/2017
 
 ## <a name="type-properties"></a>Свойства типа
 
-Свойство | Описание | Допустимые значения | Обязательно
+Свойство | ОПИСАНИЕ | Допустимые значения | Обязательно
 -------- | ----------- | -------------- | --------
-name | Имя действия условия If. | Строка | Да
-type | Для этого свойства необходимо задать значение **IfCondition**. | Строка | Да
-expression | Выражение, для которого возвращается значение true или false. | Да
-ifTrueActivities | Набор действий, которые выполняются, если выражение получает значение `true`. | Да
-ifFalseActivities | Набор действий, которые выполняются, если выражение получает значение `false`. | Да
+name | Имя действия условия If. | Строка | Yes
+Тип | Для этого свойства необходимо задать значение **IfCondition**. | Строка | Yes
+expression | Выражение, для которого возвращается значение true или false. | Yes
+ifTrueActivities | Набор действий, которые выполняются, если выражение получает значение `true`. | Yes
+ifFalseActivities | Набор действий, которые выполняются, если выражение получает значение `false`. | Yes
 
 ## <a name="example"></a>Пример
 В этом примере конвейер копирует данные из входной папки в выходную папку. Выходная папка определяется значением параметра конвейера routeSelection. Если значение routeSelection — true, данные копируются в outputPath1, а если значение routeSelection — false, данные копируются в outputPath2. 
@@ -290,7 +290,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Ознакомьтесь с другими действиями потока управления, которые поддерживаются фабрикой данных: 
 
 - [Действие выполнения конвейера](control-flow-execute-pipeline-activity.md)

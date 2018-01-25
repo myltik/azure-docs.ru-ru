@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f31487c5b5d8b888c7eb58aea2e42199b1614af8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Начало работы с условным доступом в Azure Active Directory
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 Во многих организациях общим требованием является обязательная многофакторная идентификация для доступа к приложениям, который выполняется не из корпоративной интрасети. Вы легко можете реализовать это с помощью Azure Active Directory, настроив политику условного доступа на основе расположения. В этой статье вы найдете подробные инструкции по настройке соответствующей политики. С помощью [надежных IP-адресов](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) политика отличает попытки доступа из корпоративной интрасети от попыток доступа из остальных расположений.
 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 В сценарии из этой статьи предполагается, что вы знакомы с основными понятиями, описанными в статье об [условном доступе Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
@@ -156,7 +156,7 @@ ms.lasthandoff: 12/11/2017
 Многофакторная идентификация должна требоваться только во время попытки подключения с устройства, IP-адрес которого не входит в диапазон настроенных надежных IP-адресов. 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения см. в статье об [условном доступе в Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 

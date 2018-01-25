@@ -14,16 +14,16 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Интеграция обмена утверждениями REST API в путях взаимодействия пользователей Azure AD B2C как проверка входных данных
 С помощью инфраструктуры процедур идентификации, лежащей в основе Azure Active Directory B2C (Azure AD B2C), можно выполнять интеграцию с RESTful API в пути взаимодействия пользователя. В этом пошаговом руководстве вы узнаете, как Azure AD B2C взаимодействует со службами RESTful (веб-API) .NET Framework.
 
-## <a name="introduction"></a>Общие сведения
+## <a name="introduction"></a>Введение
 Azure AD B2C позволяет добавлять собственную бизнес-логику в пути взаимодействия пользователя с помощью вызова службы RESTful. Инфраструктура процедур идентификации отправляет данные в службу RESTful в коллекции *входящих утверждений* и получает данные из RESTful в коллекции *исходящих утверждений*. Благодаря интеграции со службой RESTful вы можете:
 
 * **Проверять входные данные пользователя.** Это действие позволяет предотвратить сохранение в Azure AD неправильно сформированных данных. Если значение, полученное от пользователя, является недопустимым, служба RESTful возвращает сообщение об ошибке, которое инструктирует пользователя предоставить запись. Например, вы можете проверить, что адрес электронной почты, предоставленный пользователем, существует в базе данных ваших клиентов.
@@ -53,7 +53,7 @@ Azure AD B2C позволяет добавлять собственную биз
 * обратная отправка номера лояльности; 
 * добавление номера лояльности в JSON Web Token (JWT).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Выполните шаги, описанные в статье [Azure Active Directory B2C. Приступая к работе с настраиваемыми политиками](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Шаг 1. Создание веб-API ASP.NET
@@ -88,7 +88,7 @@ Azure AD B2C позволяет добавлять собственную биз
 
 3. Назовите класс `InputClaimsModel`, а затем добавьте следующие свойства в класс `InputClaimsModel`.
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class InputClaimsModel
@@ -102,7 +102,7 @@ Azure AD B2C позволяет добавлять собственную биз
 
 4. Создайте модель `OutputClaimsModel`, а затем добавьте следующие свойства в класс `OutputClaimsModel`.
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class OutputClaimsModel
@@ -114,7 +114,7 @@ Azure AD B2C позволяет добавлять собственную биз
 
 5. Создайте еще одну модель `B2CResponseContent`, которую вы используете для передачи сообщений об ошибках проверки входных данных. Добавьте следующие свойства в класс `B2CResponseContent`, укажите отсутствующие ссылки и сохраните файл.
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class B2CResponseContent
@@ -152,7 +152,7 @@ Azure AD B2C позволяет добавлять собственную биз
 
 4. Если файл *IdentityController.cs* еще не открыт, дважды щелкните его, а затем замените содержимое этого файла приведенным ниже кодом.
 
-    ```C#
+    ```csharp
     using Contoso.AADB2C.API.Models;
     using Newtonsoft.Json;
     using System;
@@ -382,6 +382,6 @@ Azure AD B2C позволяет добавлять собственную биз
 * После того как вы ознакомитесь с [пошаговым руководством по началу работы с пользовательскими политиками](active-directory-b2c-get-started-custom.md), рекомендуем создать свой сценарий, используя собственные файлы пользовательской политики. Для справки мы предоставили [образцы файлов политики](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw).
 * Вы можете загрузить полный код из примера решения Visual Studio [отсюда](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
     
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Azure Active Directory B2C: Secure your RESTful services using HTTP basic authentication](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) (Azure Active Directory B2C: защита служб RESTful с использованием обычной проверки подлинности HTTP)
 * [Azure Active Directory B2C. Защита служб RESTful с помощью сертификатов клиента](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

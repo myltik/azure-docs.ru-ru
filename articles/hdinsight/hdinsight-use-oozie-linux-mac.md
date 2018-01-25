@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f341b550316b44f7b6677bf59f323b568007700
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Использование Oozie с Hadoop для определения и запуска рабочих процессов в Azure HDInsight под управлением Linux
 
@@ -41,12 +41,12 @@ ms.lasthandoff: 11/03/2017
 > [!IMPORTANT]
 > Диспетчер Oozie не включен в присоединенном к домену кластере HDInsight.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Кластер HDInsight**: ознакомьтесь с [началом работы с HDInsight в Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="example-workflow"></a>Пример рабочего процесса
 
@@ -505,7 +505,7 @@ Oozie REST API позволяет создавать собственные ут
 
 * **URI.** Вы можете получить доступ к REST API из-за пределов кластера по адресу `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Аутентификация.** Для аутентификации используйте API, учетную запись кластера HTTP (администратор) и пароль. Например:
+* **Аутентификация.** Для аутентификации используйте API, учетную запись кластера HTTP (администратор) и пароль. Например: 
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -519,7 +519,7 @@ Oozie REST API позволяет создавать собственные ут
 
    * Состояние задания
    * определение задания;
-   * Конфигурация
+   * Параметр Configuration
    * диаграмму действий задания;
    * журналы задания.
 
@@ -731,7 +731,7 @@ Oozie REST API позволяет создавать собственные ут
     <archive>sqljdbc41.jar</archive>
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого руководства вы узнали, как задать рабочий процесс Oozie и как запустить задание Oozie. Дополнительные сведения о работе с HDInsight приведены в следующих статьях:
 

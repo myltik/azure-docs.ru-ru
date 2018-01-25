@@ -3,8 +3,8 @@ title: "Azure AD Connect: устранение ошибок синхрониза
 description: "В этой статье объясняется, как устранить ошибки, возникшие во время синхронизации с Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: karavar
-manager: samueld
+author: billmath
+manager: mtillman
 editor: curtand
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 5a319de69c4e142414ab8f2be980a6576acbf8bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Устранение ошибок синхронизации
 При синхронизации данных удостоверений Windows Server Active Directory (AD DS) с Azure Active Directory (Azure AD) могут возникать ошибки. В этой статье предоставляются общие сведения о различных типах ошибок синхронизации, некоторые возможные сценарии возникновения этих ошибок, а также возможные способы их устранения. Здесь содержатся сведения о распространенных типах ошибок, возможно, рассматриваются не все возможные ошибки.
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="data-mismatch-errors"></a>Ошибки несовпадения данных
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
-#### <a name="description"></a>Description (Описание)
+#### <a name="description"></a>ОПИСАНИЕ
 * Когда \(модуль синхронизации\) Azure AD Connect указывает Azure AD добавить или обновить объекты, Azure AD сопоставляет входящий объект, используя атрибут **sourceAnchor**, с атрибутом **immutableId** объектов в Azure AD. Это сопоставление называется **жестким**.
 * Если перед подготовкой нового объекта **не удалось найти** объект, соответствующий атрибуту **immutableId** и атрибуту **sourceAnchor** входящего объекта, для поиска соответствия Azure AD использует атрибуты proxyAddresses и userPrincipalName. Такое сопоставление называется **мягким**. Мягкое сопоставление предназначено для имеющихся в Azure AD объектов (происходящих их Azure AD) с новыми объектами, добавленными или обновленными при синхронизации, которые представляют ту же сущность (пользователей, группы) в локальной среде.
 * Ошибка **InvalidSoftMatch** возникает, если при жестком сопоставлении не удалось найти соответствующий объект, **А** при мягком сопоставлении он найден, но при этом значение *immutableId* этого объекта и *sourceAnchor* входящего объекта отличаются, предполагая что совпадающий объект синхронизирован с другим объектом из локального каталога AD.
@@ -107,7 +107,7 @@ ms.lasthandoff: 10/11/2017
 * [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/en-us/kb/2647098) (Запрет синхронизации службы каталогов в Office 365 из-за повторяющихся или недопустимых атрибутов)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
-#### <a name="description"></a>Description (Описание)
+#### <a name="description"></a>ОПИСАНИЕ
 При попытке Azure AD мягко сопоставить два объекта может возникнуть ситуация, когда у двух объектов разных типов (пользователя, группы, контакта и т. п.) одинаковые значения атрибутов, используемых в этом процессе. Так как повторение этих атрибутов не допускается в Azure AD, операция может завершиться ошибкой синхронизации ObjectTypeMismatch.
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>Примеры сценариев ошибки ObjectTypeMismatch
@@ -128,7 +128,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="duplicate-attributes"></a>Повторяющиеся атрибуты
 ### <a name="attributevaluemustbeunique"></a>AttributeValueMustBeUnique
-#### <a name="description"></a>Description (Описание)
+#### <a name="description"></a>ОПИСАНИЕ
 В схеме Azure Active Directory запрещено использовать для нескольких объектов одинаковые значения следующих атрибутов. Это значит, что у каждого объекта в Azure AD должно быть уникальное значение для этих атрибутов в заданном экземпляре.
 
 * ProxyAddresses
@@ -166,21 +166,21 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="data-validation-failures"></a>Сбой проверки данных
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
-#### <a name="description"></a>Description (Описание)
+#### <a name="description"></a>ОПИСАНИЕ
 Перед записью данных в каталог Azure AD применяет к ним разные ограничения. Это улучшает работу пользователей с приложениями, которые зависят от этих данных.
 
 #### <a name="scenarios"></a>Сценарии
-а. Значение атрибута userPrincipalName содержит недопустимые или неподдерживаемые символы.
-b. Атрибут userPrincipalName не соответствует требуемому формату.
+a. Значение атрибута userPrincipalName содержит недопустимые или неподдерживаемые символы.
+Б. Атрибут userPrincipalName не соответствует требуемому формату.
 
 #### <a name="how-to-fix-identitydatavalidationfailed-error"></a>Как устранить ошибку IdentityDataValidationFailed
-а. Убедитесь, что для значения атрибута userPrincipalName указаны поддерживаемые символы и значение соответствует требуемому формату.
+a. Убедитесь, что для значения атрибута userPrincipalName указаны поддерживаемые символы и значение соответствует требуемому формату.
 
 #### <a name="related-articles"></a>Связанные статьи
 * [Подготовка пользователей к работе путем синхронизации каталогов с Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>Ошибка FederatedDomainChangeError
-#### <a name="description"></a>Описание
+#### <a name="description"></a>ОПИСАНИЕ
 Ошибка синхронизации **FederatedDomainChangeError** возникает в конкретном случае, когда суффикс атрибута userPrincipalName пользователя изменяется при переходе из одного федеративного домена в другой.
 
 #### <a name="scenarios"></a>Сценарии
@@ -202,7 +202,7 @@ b. Атрибут userPrincipalName не соответствует требуе
 * [Изменения не синхронизируются с помощью инструмента синхронизации Azure Active Directory после изменения имени участника-пользователя или учетной записи пользователя для использования другого федеративного домена](https://support.microsoft.com/en-us/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject
-### <a name="description"></a>Описание
+### <a name="description"></a>ОПИСАНИЕ
 Если атрибут превышает установленное в схеме Azure AD значение размера, длины и количества, то во время синхронизации возникнет ошибка **LargeObject** или **ExceededAllowedLength**. Как правило, эта ошибка возникает для следующих атрибутов:
 
 * userCertificate

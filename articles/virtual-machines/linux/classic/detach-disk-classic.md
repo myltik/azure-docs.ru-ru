@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: e9589084062e4cefa661aaf2bc1630fa9eee8bd7
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 3b9678e7b1cfbff1ba83ae6cf881546335ab3e12
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>Отсоединение диска от виртуальной машины Linux
 > [!IMPORTANT] 
@@ -31,6 +31,6 @@ ms.lasthandoff: 01/08/2018
 ## <a name="next-steps"></a>Дополнительная информация
 Узнать больше об использовании виртуальной машины Linux можно в следующих статьях.
 
-* [Подключение диска данных к виртуальной машине Linux](attach-disk.md)
+* [Подключение диска данных к виртуальной машине Linux](attach-disk-classic.md)
 * [Команды Azure CLI в режиме управления службами Azure (ASM)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 

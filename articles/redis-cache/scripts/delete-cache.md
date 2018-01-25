@@ -3,8 +3,8 @@ title: "Пример скрипта Azure CLI. Удаление кэша Redis �
 description: "Пример скрипта Azure CLI. Удаление кэша Redis для Azure"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: 7beded7a-d2c9-43a6-b3b4-b8079c11de4a
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
-ms.author: sdanie
-ms.openlocfilehash: 11d228cc633fee8c6a2984e2eb23690a43d4c0fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 59736b2f932efc13ece5c5e3b5db8708af0abe14
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="delete-an-azure-redis-cache"></a>Удаление кэша Redis для Azure
 
@@ -37,12 +37,12 @@ ms.lasthandoff: 10/11/2017
 
 В этом сценарии используются следующие команды для удаления экземпляра кэша Redis для Azure. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
 | [az redis delete](https://docs.microsoft.com/cli/azure/redis#az_redis_delete) | Удаляет экземпляр кэша Redis. |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c2e2efd356382df9404f5c4ed54f24758b2cd22b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bb865924191418c12b9fea37edfbfb282f334eb
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Начало работы с соединителем Salesforce
 Соединитель Salesforce предоставляет API для работы с объектами Salesforce.
 
-Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
+Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-salesforce-connector"></a>Подключение к соединителю Salesforce
 Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [соединение](connectors-overview.md) между приложением логики и другой службой.  
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="use-a-salesforce-connector-trigger"></a>Использование триггера соединителя Salesforce
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 > [!INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
 > 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="use-a-salesforce-connector-action"></a>Использование действия соединителя Salesforce
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 > [!INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
 > 
@@ -57,6 +57,6 @@ ms.lasthandoff: 10/11/2017
 
 Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/salesforce/). 
 
-## <a name="next-steps"></a>Дальнейшие действия
-[Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
+## <a name="next-steps"></a>Дополнительная информация
+[Создайте приложение логики](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

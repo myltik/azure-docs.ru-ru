@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fcba76555902fb393830f352e6274b3ecd2fba38
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3a3c9c1d483ece71ecc38c7eaa364c35464d80f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-case---customer-profiling"></a>Вариант использования: профилирование клиентов
 Фабрика данных Azure — одна из многочисленных служб, используемых для внедрения набора аналитических инструментов Cortana Intelligence Suite для ускорителей решений.  Дополнительные сведения см. на сайте [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). В этом документе описан простой вариант использования, позволяющий понять, как фабрика данных Azure помогает решать типичные проблемы аналитики.

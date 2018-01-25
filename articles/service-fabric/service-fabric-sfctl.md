@@ -9,22 +9,22 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2dd30470ee0f6c038a8601bfca73fc97091de2fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 23adc7fa6ee53d1c5edd10b2772f8825dbcef2a8
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl"></a>sfctl 
 Команды для управления кластерами и сущностями Service Fabric. Эта версия совместима со средой выполнения Service Fabric 6.0. Команды следуют схеме "глагол-существительное". Чтобы узнать больше, ознакомьтесь с приведенными ниже подгруппами.
 
 ## <a name="subgroups"></a>Подгруппы
-|Подгруппа|Описание|
+|Подгруппа|ОПИСАНИЕ|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md)| Создание и удаление приложений и типов приложений, а также управление ими.|
 | [chaos](service-fabric-sfctl-chaos.md)   | Запуск и остановка службы хаотического тестирования, а также вывод отчета о ее работе.|
@@ -38,6 +38,6 @@ ms.lasthandoff: 10/11/2017
 | [service](service-fabric-sfctl-service.md) | Создание и удаление служб, типов служб и пакетов службы, а также управление ими.|
 | [store](service-fabric-sfctl-store.md)   | Выполнение базовых операций на уровне файла с хранилищем образов кластера.|
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Настройте](service-fabric-cli.md) интерфейс командной строки Service Fabric.
 - Узнайте, как использовать интерфейс командной строки Service Fabric, с помощью [примеров сценариев](/azure/service-fabric/scripts/sfctl-upgrade-application).

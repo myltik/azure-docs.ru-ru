@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Настройка полной смены ключей и аудита в хранилище ключей
 ## <a name="introduction"></a>Введение
@@ -416,7 +416,7 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 ### <a name="azure-logic-app"></a>Приложение логики Azure
 Сейчас вам нужно создать приложение логики Azure, которое будет получать события, отправленные функцией в очередь служебной шины, анализировать их содержимое и отправлять сообщения электронной почты при выполнении заданного условия.
 
-Чтобы [создать приложение логики](../logic-apps/logic-apps-create-a-logic-app.md), последовательно выберите **Создать -> Приложение логики**.
+Чтобы [создать приложение логики](../logic-apps/quickstart-create-first-logic-app-workflow.md), последовательно выберите **Создать -> Приложение логики**.
 
 Создав приложение логики, перейдите к нему и выберите команду **Изменить**. Чтобы подключить приложение к очереди, в редакторе приложения логики выберите **Очередь служебной шины** и введите учетные данные служебной шины.
 

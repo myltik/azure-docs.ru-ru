@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f633e76ea7c0df456bff41c450eb136809de12a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 0e227d6e15789b29b40197a9ff71b2116312da78
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Параметры реестра Cloud App Discovery для прокси-служб
 В этом разделе описаны действия для установки требуемого порта на компьютере, на котором запущен агент Cloud App Discovery. По умолчанию агент Cloud App Discovery настроен на использование только портов 80 и 443. Если вы планируете установить Cloud App Discovery в среде с прокси-сервером, который использует другой порт (не 80 или 443), необходимо настроить агенты на использование этого порта. Конфигурация основана на разделе реестра.
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/11/2017
    ![Редактирование мультистроки](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy03.png)
 6. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Редактирование мультистроки**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Как обнаруживать несанкционированные облачные приложения, которые используются в моей организации](active-directory-cloudappdiscovery-whatis.md) 
 

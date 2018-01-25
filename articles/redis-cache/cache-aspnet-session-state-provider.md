@@ -3,8 +3,8 @@ title: "Поставщик состояний сеансов ASP.NET кэша | 
 description: "Информация о хранении состояния сеанса ASP.NET с помощью кэша Redis для Azure."
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 192f384c-836a-479a-bb65-8c3e6d6522bb
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
-ms.author: sdanie
-ms.openlocfilehash: 0f3683939ac9646565a0669e19b4c82811d621fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 485375f2f2ffb83b7d0fdeef8daab5880a8bbc27
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Поставщик состояний сеансов ASP.NET для кэша Redis для Azure
 Кэш Redis для Azure предоставляет поставщик состояний сеансов, который вы можете использовать для сохранения состояния сеансов в кэше, а не в памяти или базе данных SQL Server. Для использования поставщика состояний сеансов с кэшированием сначала настройте кэш, а затем настройте приложение ASP.NET для использования кэша, используя пакет Redis NuGet для состояний сеансов.
@@ -117,6 +117,6 @@ Install-Package Microsoft.Web.RedisSessionStateProvider
 
 Дополнительные сведения о состоянии сеанса и другие рекомендации см. в статье [Рекомендации по веб-разработке (создание реальных облачных приложений с помощью Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Ознакомьтесь со статьей [Поставщик кэша вывода ASP.NET для кэша Redis для Azure](cache-aspnet-output-cache-provider.md).
 

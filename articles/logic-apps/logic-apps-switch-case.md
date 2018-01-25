@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Выполнение различных действий в приложениях логики с помощью оператора switch
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 10/11/2017
 > Как и в других языках программирования, операторы switch поддерживают только операторы равенства. Если вам нужны другие операторы сравнения (к примеру, оператор greater than), используйте выражение условия.
 > Чтобы выполнение было детерминированным, варианты должны содержать уникальные статические значения, а не динамические маркеры или выражения.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Активная подписка Azure. Если у вас еще нет активной подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/) или [попробуйте бесплатную версию Logic Apps](https://tryappservice.azure.com/).
-- [Базовые сведения о приложениях логики](logic-apps-what-are-logic-apps.md)
+- [Базовые сведения о приложениях логики](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Добавление оператора switch для рабочего процесса
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы улучшить Azure Logic Apps и соединители, голосуйте за идеи или предлагайте собственные на [сайте обратной связи Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Инструкции по [добавлению условий](logic-apps-use-logic-app-features.md)
 - Узнайте, как [обрабатываются ошибки и исключения в Logic Apps](logic-apps-exception-handling.md).

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 298102fedc766d362d1b3c525293212825eef5c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 8bcd814ee7b7bfc158e62ad26e6cc23781f5352d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="unlicensed-usage-report"></a>Отчет о нелицензированном использовании
 Отчет о нелицензированном использовании помогает выявить пользователей, которые используют платные функции Azure AD без лицензии. Благодаря этому вы сможете эффективнее использовать приобретенные лицензии и вовремя узнавать о необходимости купить новые. 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 4127123ffcf8eb2ae18c8b9833b2235d7ac219e7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 9c3a725d0d0c5091a280c3fb99279757f1e014f1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>Копирование данных из QuickBooks с помощью фабрики данных Azure (бета-версия)
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="getting-started"></a>Приступая к работе
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Следующие разделы содержат сведения о свойствах, которые используются для определения сущностей фабрики данных, относящихся к соединителю QuickBooks.
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы QuickBooks поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства type необходимо задать значение **QuickBooks**. | Yes |
 | endpoint | Конечная точка сервера QuickBooks (это quickbooks.api.intuit.com).  | Yes |
@@ -109,7 +109,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы копировать данные из QuickBooks, установите тип источника **QuickBooksSource** в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **QuickBooksSource**. | Yes |
 | query | Используйте пользовательский SQL-запрос для чтения данных. Например, `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Yes |

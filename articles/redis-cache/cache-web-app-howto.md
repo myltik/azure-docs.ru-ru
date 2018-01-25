@@ -3,8 +3,8 @@ title: "Как создать веб-приложение с использов�
 description: "Узнайте, как создать веб-приложение с использованием кэша Redis"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
-ms.author: sdanie
-ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Как создать веб-приложение с использованием кэша Redis
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/18/2017
 * как подготовить ресурсы Azure к работе для приложения с помощью шаблона Resource Manager;
 * как опубликовать приложение в Azure с помощью Visual Studio.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Для работы с этим руководством необходимо следующее:
 
 * [Учетная запись Azure](#azure-account)
@@ -102,7 +102,7 @@ ms.lasthandoff: 12/18/2017
     ![Добавление класса модели][cache-model-add-class-dialog]
 3. В начале файла `Team.cs` замените операторы `using` следующими операторами `using`:
 
-    ```c#
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -112,7 +112,7 @@ ms.lasthandoff: 12/18/2017
 
 1. Замените определение класса `Team` приведенным ниже фрагментом кода с обновлением определения класса `Team`, а также некоторыми другими вспомогательными классами Entity Framework. Для дополнительных сведений о подходе Code First в Entity Framework, использованном в этом руководстве, см. видео в статье [Использование Code First для создания базы данных](https://msdn.microsoft.com/data/jj193542).
 
-    ```c#
+    ```csharp
     public class Team
     {
         public int ID { get; set; }
@@ -226,7 +226,7 @@ ms.lasthandoff: 12/18/2017
     ![Global.asax.cs][cache-global-asax]
 6. В начале файла добавьте следующие два оператора `using` после остальных операторов `using`.
 
-    ```c#
+    ```csharp
     using System.Data.Entity;
     using ContosoTeamStats.Models;
     ```
@@ -234,7 +234,7 @@ ms.lasthandoff: 12/18/2017
 
 1. В конце метода `Application_Start` добавьте следующую строку кода:
 
-    ```c#
+    ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
     ```
 
@@ -244,7 +244,7 @@ ms.lasthandoff: 12/18/2017
     ![RouteConfig.cs.][cache-RouteConfig-cs]
 2. В приведенном ниже коде в методе `RegisterRoutes` замените `controller = "Home"` на `controller = "Teams"`, как показано в следующем примере.
 
-    ```c#
+    ```csharp
     routes.MapRoute(
         name: "Default",
         url: "{controller}/{action}/{id}",
@@ -296,14 +296,14 @@ ms.lasthandoff: 12/18/2017
     ![Контроллер команд][cache-teamscontroller]
 4. Добавьте в файл **TeamsController.cs** следующие два оператора `using`:
 
-    ```c#   
+    ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
 5. Добавьте в класс `TeamsController` следующие два свойства:
 
-    ```c#   
+    ```csharp   
     // Redis Connection string info
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -351,14 +351,14 @@ ms.lasthandoff: 12/18/2017
 
 1. В начале файла `TeamsController.cs` добавьте следующие операторы `using` к остальным операторам `using`:
 
-    ```c#   
+    ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
 2. Замените текущую реализацию метода `public ActionResult Index()` следующей реализацией:
 
-    ```c#
+    ```csharp
     // GET: Teams
     public ActionResult Index(string actionType, string resultType)
     {
@@ -417,7 +417,7 @@ ms.lasthandoff: 12/18/2017
    
     Метод `PlayGames` обновляет статистику команды, имитируя сезон игр, сохраняет результаты в базу данных и удаляет устаревшие данные из кэша.
 
-    ```c#
+    ```csharp
     void PlayGames()
     {
         ViewBag.msg += "Updating team statistics. ";
@@ -436,7 +436,7 @@ ms.lasthandoff: 12/18/2017
 
     Метод `RebuildDB` повторно инициализирует базу данных с набором команд по умолчанию, создает для них статистику и удаляет устаревшие данные из кэша.
 
-    ```c#
+    ```csharp
     void RebuildDB()
     {
         ViewBag.msg += "Rebuilding DB. ";
@@ -451,7 +451,7 @@ ms.lasthandoff: 12/18/2017
 
     Метод `ClearCachedTeams` удаляет всю кэшированную статистику команды из кэша.
 
-    ```c#
+    ```csharp
     void ClearCachedTeams()
     {
         IDatabase cache = Connection.GetDatabase();
@@ -466,7 +466,7 @@ ms.lasthandoff: 12/18/2017
    
     Метод `GetFromDB` считывает статистику команды из базы данных.
    
-    ```c#
+    ```csharp
     List<Team> GetFromDB()
     {
         ViewBag.msg += "Results read from DB. ";
@@ -480,7 +480,7 @@ ms.lasthandoff: 12/18/2017
 
     Метод `GetFromList` считывает статистику команды из кэша в качестве сериализованного элемента `List<Team>`. В случае промаха кэша статистика команды считывается из базы данных и сохраняется в кэше для последующего использования. В этом примере мы сериализуем объекты .NET из кэша и в кэш, используя сериализацию JSON.NET. Дополнительные сведения см. в разделе [Работа с объектами .NET в кэше](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
-    ```c#
+    ```csharp
     List<Team> GetFromList()
     {
         List<Team> teams = null;
@@ -508,7 +508,7 @@ ms.lasthandoff: 12/18/2017
 
     Метод `GetFromSortedSet` считывает статистику команды из кэшированного отсортированного набора. В случае промаха кэша статистика команды считывается из базы данных и сохраняется в кэше в качестве отсортированного набора.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSet()
     {
         List<Team> teams = null;
@@ -545,7 +545,7 @@ ms.lasthandoff: 12/18/2017
 
     Метод `GetFromSortedSetTop5` считывает 5 лучших команд из кэшированного отсортированного набора. Сначала проверяется наличие ключа `teamsSortedSet` в кэше. Если этот ключ не указан, вызывается метод `GetFromSortedSet` для считывания статистики команды и ее сохранения в кэше. Затем в кэшированном отсортированном наборе запрашивается 5 первых команд, которые возвращаются.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSetTop5()
     {
         List<Team> teams = null;
@@ -578,7 +578,7 @@ ms.lasthandoff: 12/18/2017
 
 1. Перейдите к методу `Create(Team team)` в классе `TeamsController`. Добавьте вызов в метод `ClearCachedTeams` , как показано в следующем примере.
 
-    ```c#
+    ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -603,7 +603,7 @@ ms.lasthandoff: 12/18/2017
 
 1. Перейдите к методу `Edit(Team team)` в классе `TeamsController`. Добавьте вызов в метод `ClearCachedTeams` , как показано в следующем примере.
 
-    ```c#
+    ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -627,7 +627,7 @@ ms.lasthandoff: 12/18/2017
 
 1. Перейдите к методу `DeleteConfirmed(int id)` в классе `TeamsController`. Добавьте вызов в метод `ClearCachedTeams` , как показано в следующем примере.
 
-    ```c#
+    ```csharp
     // POST: Teams/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
@@ -733,7 +733,7 @@ ms.lasthandoff: 12/18/2017
 
 Состояние развертывания можно просмотреть в колонке **Microsoft.Template** .
 
-![Deploy to Azure][cache-deploy-to-azure-step-3]
+![Развернуть в Azure][cache-deploy-to-azure-step-3]
 
 После завершения подготовки к работе можно опубликовать приложение Azure из Visual Studio.
 
@@ -760,7 +760,7 @@ ms.lasthandoff: 12/18/2017
 
 В следующей таблице описана каждая ссылка на действие из примера приложения.
 
-| Действие | Описание |
+| Действие | ОПИСАНИЕ |
 | --- | --- |
 | Создать |Создание команды. |
 | Воспроизвести сезон |Воспроизведение сезона игр, обновление статистики команды и удаление всех устаревших данных из кэша команды. |
@@ -820,7 +820,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о [начале работы с ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) можно получить на сайте [ASP.NET](http://asp.net/).
 * Дополнительные примеры создания веб-приложения ASP.NET в службе приложений см. в статье [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Создание и развертывание веб-приложения ASP.NET в службе приложений Azure), описывающей [демоверсию](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect.
   * Дополнительные инструкции по быстрому началу работы с помощью средств разработчика Azure из демонстрационного проекта HealthClinic.biz см. [здесь](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).

@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: d4681e2f2552589e310f80cbf763bd453c0eba84
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7ac85285b036aec7d0e3e1b23b8cec26886f1e3c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Руководство. Создание фабрики данных Azure с помощью шаблона диспетчера ресурсов Azure
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-build-your-first-pipeline.md)
-> * [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -39,17 +39,17 @@ ms.lasthandoff: 12/18/2017
 В этом руководстве конвейеру доступно одно действие — **действие Hive HDInsight**. Это действие запускает сценарий Hive в кластере HDInsight Azure, который преобразует входные данные в выходные. Конвейер запускается раз в месяц по расписанию. Время начала и окончания запуска также указаны. 
 
 > [!NOTE]
-> В этом руководстве конвейер данных преобразовывает входные данные в выходные. Инструкции по копированию данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных Azure см. в [этой статье](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Описанный в этом руководстве конвейер данных преобразовывает входные данные в выходные. Инструкции по копированию данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных Azure см. в [этой статье](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > В этом руководстве конвейеру доступно только одно действие типа — HDInsightHive. Конвейер может содержать сразу несколько действий. Два действия можно объединить в цепочку (выполнить одно действие вслед за другим), настроив выходной набор данных одного действия как входной набор данных другого действия. Дополнительные сведения см. в разделе [Несколько действий в конвейере](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования** .
 * Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview) .
 * Сведения о шаблонах Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
 
 ## <a name="in-this-tutorial"></a>В этом учебнике рассматриваются следующие темы:
-| Сущность | Описание |
+| Сущность | ОПИСАНИЕ |
 | --- | --- |
 | Связанная служба хранения Azure |Связывает учетную запись хранения Azure с фабрикой данных. В этом примере учетная запись хранения Azure содержит входные и выходные данные для конвейера. |
 | Связанная служба кластера HDInsight по запросу |Связывает кластер HDInsight по запросу с фабрикой данных. Кластер создается автоматически для обработки данных и удаляется после ее завершения. |
@@ -443,7 +443,7 @@ ms.lasthandoff: 12/18/2017
 Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
 #### <a name="azure-blob-input-dataset"></a>Входной набор данных большого двоичного объекта Azure
-Укажите имя контейнера больших двоичных объектов, папку и файл, который содержит входные данные. Подробные сведения о свойствах JSON, которые используются для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](data-factory-azure-blob-connector.md#dataset-properties). 
+Укажите имя контейнера больших двоичных объектов, папку и файл, который содержит входные данные. Подробные сведения о свойствах JSON, которые используюся для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](data-factory-azure-blob-connector.md#dataset-properties). 
 
 ```json
 {
@@ -476,7 +476,7 @@ ms.lasthandoff: 12/18/2017
 В этом определении используются следующие параметры, заданные в шаблоне параметров: blobContainer, outputBlobFolder и inputBlobName. 
 
 #### <a name="azure-blob-output-dataset"></a>Выходной набор данных BLOB-объекта Azure
-Укажите имя контейнера больших двоичных объектов и папку, которая содержит выходные данные. Подробные сведения о свойствах JSON, которые используются для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](data-factory-azure-blob-connector.md#dataset-properties).  
+Укажите имя контейнера больших двоичных объектов и папку, которая содержит выходные данные. Подробные сведения о свойствах JSON, которые используюся для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](data-factory-azure-blob-connector.md#dataset-properties).  
 
 ```json
 {
@@ -618,7 +618,7 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 Этот шаблон создает фабрику данных с именем GatewayUsingArmDF и шлюз с именем GatewayUsingARM. 
 
 ## <a name="see-also"></a>См. также
-| Раздел | Описание |
+| Раздел | ОПИСАНИЕ |
 |:--- |:--- |
 | [Конвейеры](data-factory-create-pipelines.md) |Эта статья поможет вам понять сущность конвейеров и действий в фабрике данных Azure, а также научиться с их помощью создавать комплексные рабочие процессы, управляемые данными, для конкретных бизнес-сценариев. |
 | [Наборы данных](data-factory-create-datasets.md) |Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure. |

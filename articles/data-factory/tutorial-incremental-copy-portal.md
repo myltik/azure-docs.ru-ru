@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: af01fac2c552e038377f5b394fecbe3ad9fd3acc
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Пошаговая загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure
 В этом руководстве вы создадите фабрику данных Azure с конвейером, который загружает разностные данные из таблицы в базе данных SQL Azure в хранилище BLOB-объектов Azure. 
@@ -282,8 +282,8 @@ END
     ![Целевой набор данных — новое подключение](./media/tutorial-incremental-copy-portal/sink-dataset-new-connection.png)
 26. В окне **New Linked Service** (Новая связанная служба) выполните следующие действия: 
 
-    1. Введите **AzureStorageLinkedService** в поле **Имя**. 
-    2. Выберите учетную запись хранения в списке **Имя учетной записи хранения**.
+    1. Введите **AzureStorageLinkedService** в поле **имени**. 
+    2. Выберите учетную запись хранения в списке **Storage account name** (Имя учетной записи хранения).
     3. Выберите команду **Сохранить**. 
 
         ![Связанная служба хранилища Azure — параметры](./media/tutorial-incremental-copy-portal/azure-storage-linked-service-settings.png)
@@ -311,7 +311,7 @@ END
 
         | ИМЯ | type | Значение | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue |
+        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Строка | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Действие хранимой процедуры — параметры хранимой процедуры](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
@@ -322,7 +322,7 @@ END
 
     ![Кнопка "Опубликовать"](./media/tutorial-incremental-copy-portal/publish-button.png)
 
-## <a name="trigger-a-pipeline-run"></a>Запуск выполнения конвейера
+## <a name="trigger-a-pipeline-run"></a>Активация выполнения конвейера
 Щелкните **Триггер** на панели инструментов, а затем нажмите кнопку **Trigger Now** (Запустить сейчас). 
 
 ![Кнопка "Запустить сейчас"](./media/tutorial-incremental-copy-portal/trigger-now.png)
@@ -446,7 +446,7 @@ PersonID | Name | LastModifytime
 В этом руководстве с помощью конвейера мы скопировали данные из одной таблицы в базе данных SQL в хранилище BLOB-объектов. Перейдите к следующему руководству, чтобы узнать о копировании данных из нескольких таблиц в локальной базе данных SQL Server в базу данных SQL. 
 
 > [!div class="nextstepaction"]
->[Добавочная загрузка данных из нескольких таблиц в SQL Server в базу данных SQL Azure](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Добавочная загрузка данных из нескольких таблиц в SQL Server в базу данных SQL Azure](tutorial-incremental-copy-multiple-tables-portal.md)
 
 
 

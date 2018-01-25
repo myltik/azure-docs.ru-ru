@@ -1,6 +1,6 @@
 ---
 title: "Резервное копирование для Azure Stack | Документация Майкрософт"
-description: "Выполните резервное копирование по требованию для Azure Stack с помощью резервного копирования."
+description: "Выполните резервное копирование по требованию для Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -14,25 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: df1f4c6fadd08b17a1a1eb8bbe41ab71ae4729fc
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 955b286967ca2bc8450e8988ec16c6a5c352aa8a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="back-up-azure-stack"></a>Резервное копирование для Azure Stack
 
 *Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
 
-Выполните резервное копирование по требованию для Azure Stack с помощью резервного копирования. Если необходимо включить службу резервного копирования инфраструктуры, см. инструкции по [включению резервного копирования для Azure Stack на портале администрирования](azure-stack-backup-enable-backup-console.md).
+Выполните резервное копирование по требованию для Azure Stack. Если необходимо включить службу резервного копирования инфраструктуры, см. инструкции по [включению резервного копирования для Azure Stack на портале администрирования](azure-stack-backup-enable-backup-console.md).
+
+> [!Note]  
+>  Средства Azure Stack содержат командлет **Start-AzSBackup**. Инструкции по установке средств см. в статье [Начало работы с PowerShell в Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
 
 ## <a name="start-azure-stack-backup"></a>Запуск резервного копирования Azure Stack
 
-Откройте Windows PowerShell из командной строки с повышенными привилегиями и выполните следующие команды:
+Откройте Windows PowerShell из командной строки с повышенными привилегиями в среде управления для оператора и выполните следующие команды:
 
-   ```powershell
-   Start-AzSBackup -Location $location
-   ```
+```powershell
+    cd C:\tools\AzureStack-Tools-master\Connect
+    Import-Module .\AzureStack.Connect.psm1
+
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+    
+    Start-AzSBackup -Location $location.Name
+```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>Подтверждение завершения резервного копирования на портале администрирования
 

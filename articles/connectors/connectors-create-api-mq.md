@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Подключение к серверу IBM MQ из приложения логики с помощью соединителя MQ 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 -   Получать пакет сообщений с сервера IBM MQ и удалять сообщения с сервера.
 -   Отправлять отдельные сообщения на сервер IBM MQ. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Если используется локальный сервер MQ, то [установите локальный шлюз данных](../logic-apps/logic-apps-gateway-install.md) на сервере в пределах сети. Если сервер MQ является общедоступным или доступным в пределах Azure, то установка шлюза данных не требуется, так как он не используется.
 
@@ -122,5 +122,5 @@ ms.lasthandoff: 10/11/2017
 
 Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/mq/).
 
-## <a name="next-steps"></a>Дальнейшие действия
-[Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).
+## <a name="next-steps"></a>Дополнительная информация
+[Создание приложения логики](../logic-apps/quickstart-create-first-logic-app-workflow.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).

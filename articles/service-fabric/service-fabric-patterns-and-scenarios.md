@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7808493ca984277a939f04098799dbbd8287cc0c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d0b385c10df61e9719d95b29b60e0f92766b2637
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Шаблоны и сценарии использования Service Fabric
 Если вам требуется создать крупномасштабные микрослужбы с помощью Azure Service Fabric, воспользуйтесь опытом специалистов, которые разработали и создали эту платформу как услугу (PaaS). Начните с правильной архитектуры, а затем узнайте, как оптимизировать ресурсы для приложения. Курс [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) (Шаблоны Service Fabric и практические рекомендации) содержит ответы на самые распространенные вопросы, задаваемые реальными пользователями о сценариях использования и областях применения Service Fabric.
@@ -97,5 +97,5 @@ ms.lasthandoff: 11/14/2017
 </a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">Контейнеры и поддержка Linux</a></td></tr>
 </table>
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы изучили шаблоны и сценарии использования Service Fabric, узнайте больше о [создании кластеров и управлении ими](service-fabric-deploy-anywhere.md), [переносе приложений облачных служб в Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [настройке непрерывной доставки](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) и [развертывании контейнеров](service-fabric-containers-overview.md).

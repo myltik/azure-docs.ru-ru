@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Средства диагностики Azure Stack
 
@@ -135,7 +135,7 @@ if($s)
    | WAS                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>Сбор журналов с помощью графического пользовательского интерфейса
+### <a name="bkmk_gui"></a>Сбор журналов с помощью графического пользовательского интерфейса
 Вместо того, чтобы указывать обязательные параметры командлета Get-AzureStackLog для получения журналов Azure Stack, можно также использовать доступные инструменты Azure Stack с открытым кодом, размещенные в главном репозитории GitHub инструментов Azure Stack по адресу http://aka.ms/AzureStackTools.
 
 Сценарий PowerShell **ERCS_AzureStackLogs.ps1** хранится в репозитории GitHub инструментов и регулярно обновляется. Чтобы обеспечить наличие самой последней доступной версии, необходимо скачать ее по адресу http://aka.ms/ERCS. Если запустить его из сеанса администратора PowerShell, этот сценарий подключается к привилегированной конечной точке и выполняет командлет Get-AzureStackLog с указанными параметрами. Если параметры не указаны, скрипт по умолчанию ожидает ввода параметров через графический пользовательский интерфейс.
@@ -159,3 +159,4 @@ if($s)
 
 ## <a name="next-steps"></a>Дополнительная информация
 [Microsoft Azure Stack troubleshooting (Устранение неполадок, связанных с Microsoft Azure Stack)](azure-stack-troubleshooting.md)
+

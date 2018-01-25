@@ -6,19 +6,18 @@ documentationcenter:
 author: brjohnstmsft
 manager: pablocas
 editor: 
-ms.assetid: 0458053a-164e-4682-a802-00097ecde981
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/11/2017
+ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 4b4cb2d168676d52a90942a116905e6669b16639
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a7f5b9c53d3258e5f8eda40401c61a85971d8c7
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="api-versions-in-azure-search"></a>Версии API в службе поиска Azure
 Служба поиска Azure развертывает обновления компонентов на регулярной основе. Иногда (но не всегда) для сохранения обратной совместимости после таких обновлений нам приходится публиковать новые версии API. Публикация новой версии позволяет вам выбирать, когда и как интегрировать обновления службы поиска в код.
@@ -33,13 +32,13 @@ ms.lasthandoff: 11/03/2017
 ## <a name="snapshot-of-current-versions"></a>Текущие версии
 В следующей таблице перечислены текущие версии всех интерфейсов программирования в службе поиска Azure.
 
-| Интерфейсы | Последняя основная версия | Состояние |
+| Интерфейсы | Последняя основная версия | Status |
 | --- | --- | --- |
-| [Пакет SDK для .NET](https://aka.ms/search-sdk) |3.0 |Общедоступная версия, выпущенная в ноябре 2016 г. |
+| [ПАКЕТ SDK .NET](https://aka.ms/search-sdk) |3.0 |Общедоступная версия, выпущенная в ноябре 2016 г. |
 | [Предварительная версия пакета SDK для .NET](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Предварительная версия, выпущенная в мае 2017 г. |
 | [API REST службы](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Общедоступная версия |
 | [Предварительная версия API REST службы](search-api-2016-09-01-preview.md) |2016-09-01-Preview |Предварительный просмотр |
-| [Пакет SDK управления для .NET](https://aka.ms/search-mgmt-sdk) |2015-08-19 |Общедоступная версия |
+| [Пакет SDK управления для .NET](https://aka.ms/search-mgmt-sdk) |2,0 |Общедоступная версия |
 | [Интерфейс API REST для управления.](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Общедоступная версия |
 
 Для REST API в каждый вызов необходимо добавить `api-version` . Это позволяет указать на конкретную версию, например, на предварительную версию API. В следующем примере демонстрируется, как указывать параметр `api-version` .

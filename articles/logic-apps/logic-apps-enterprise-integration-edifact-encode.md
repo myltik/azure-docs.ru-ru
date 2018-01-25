@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: b8d577326d23ec45cb4a9ec0e450ebf7afd945f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 799d444632b67788520be8a777ec656076022583
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Кодирование сообщений EDIFACT для Azure Logic Apps с помощью пакета интеграции Enterprise
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="encode-edifact-messages"></a>Кодирование сообщений EDIFACT
 
-1. [Создание приложения логики](logic-apps-create-a-logic-app.md).
+1. [Создание приложения логики](quickstart-create-first-logic-app-workflow.md).
 
 2. В соединителе для кодирования сообщений EDIFACT нет триггеров, поэтому вам придется добавить триггер, чтобы запустить приложение логики (например, триггер запроса). В конструкторе приложений логики добавьте триггер, а затем добавьте действие в приложение логики.
 
@@ -96,6 +96,6 @@ ms.lasthandoff: 10/11/2017
 ## <a name="view-swagger-file"></a>Просмотр файла Swagger
 Дополнительные сведения о Swagger для соединителя EDIFACT см.в [этой статье](/connectors/edifact/).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Обзор пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise") 
 

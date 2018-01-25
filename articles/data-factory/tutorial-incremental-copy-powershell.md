@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 5317e2426111a813960db462ac6d6ab3980d0e00
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 545228196a0d510571b2982a836b23acc976ffbf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Пошаговая загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure
 В этом руководстве вы создадите фабрику данных Azure с конвейером, который загружает разностные данные из таблицы в базе данных SQL Azure в хранилище BLOB-объектов Azure. 
@@ -62,7 +62,7 @@ ms.lasthandoff: 12/15/2017
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * **База данных SQL Azure**. Используйте базу данных как исходное хранилище данных. Если у вас нет базы данных SQL, создайте ее, следуя указаниям в статье [Создание базы данных SQL Azure на портале Azure](../sql-database/sql-database-get-started-portal.md).
 * **Хранилище Azure.** В этом руководстве в качестве приемника будет использоваться хранилище BLOB-объектов. Если у вас нет учетной записи хранения, создайте ее, следуя действиям в разделе [Создание учетной записи хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account). Создайте контейнер с именем adftutorial. 
 * **Azure PowerShell**. Следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -148,7 +148,7 @@ WHERE [TableName] = @TableName
 END
 ```
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) в двойных кавычках, а затем выполните команду. Например, `"adfrg"`. 
    
      ```powershell
@@ -726,14 +726,14 @@ END
     data_source_table | 2017-09-07 09:01:00.000
 
      
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом руководстве вы выполнили следующие шаги: 
 
 > [!div class="checklist"]
 > * Подготовите хранилище данных для хранения значений предела. 
 > * Создадите фабрику данных.
 > * создание связанных служб. 
-> * Создали наборы данных источника, приемника и предела.
+> * Создание наборов данных источника, приемника и предела.
 > * Создали конвейер.
 > * Запустили конвейер.
 > * Выполнение мониторинга выполнения конвейера. 

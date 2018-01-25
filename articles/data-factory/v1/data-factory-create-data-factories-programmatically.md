@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 72def45d7f5085c6aa68c5236a8a274501e470ce
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 35041e148e52e5c567601c53dffac05c88d45ed5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета SDK фабрики данных Azure для .NET
 > [!NOTE]
@@ -31,10 +31,10 @@ ms.lasthandoff: 11/02/2017
 > [!NOTE]
 > В этой статье рассматриваются не все API-интерфейсы .NET фабрики данных. Полную документацию по API .NET для фабрики данных см. в [справочнике по API .NET фабрики данных](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1). 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Visual Studio 2012, 2013 или 2015
 * Скачанный и установленный [пакет SDK для Azure .NET](http://azure.microsoft.com/downloads/).
-* Azure PowerShell. Далее, чтобы установить Azure PowerShell на локальном компьютере, следуйте указаниям в разделе [Установка и настройка Azure PowerShell](/powershell/azure/overview) . С помощью Azure PowerShell вы создадите приложение Azure Active Directory.
+* Установите Azure PowerShell. Далее, чтобы установить Azure PowerShell на локальном компьютере, следуйте указаниям в разделе [Установка и настройка Azure PowerShell](/powershell/azure/overview) . С помощью Azure PowerShell вы создадите приложение Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Создание приложения в Azure Active Directory
 Вы создадите приложение Azure Active Directory и субъект-службу для приложения, а затем назначите роль **Участник Data Factory** .
@@ -499,7 +499,7 @@ do
 while (response != null);
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Ниже приведен пример создания конвейера с использованием пакета SDK для .NET, который копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure. 
 
 - [Руководство. Создание конвейера с действием копирования с помощью API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)

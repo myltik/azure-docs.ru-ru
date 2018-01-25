@@ -3,7 +3,7 @@ title: "Azure AD Connect: выражения декларативной подг
 description: "Описание выражений декларативной подготовки."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 83fe949468a67318c766f0070498c35300af4deb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 797c0949aceea415652a72df5ee23ef9888ab975
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Служба синхронизации Azure AD Connect: общие сведения о выражениях декларативной подготовки
 Служба синхронизации Azure AD Connect основана на принципах декларативной подготовки, впервые представленной в Forefront Identity Manager 2010. Эта функция позволяет реализовать бизнес-логику интеграции идентификации без необходимости написания компилируемого кода.
@@ -84,7 +84,7 @@ ms.lasthandoff: 12/11/2017
 `Word([proxyAddresses],1,"@") & "@contoso.com"` Для каждого значения со знаком @-sign замените домен @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Найдите SIP-адрес и удалите его из значений.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о модели конфигурации, см. в статье о [принципах декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Примеры стандартного использования декларативной подготовки см. в статье [Службы синхронизации Azure AD Connect: рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-understanding-default-configuration.md).
 * Инструкции по практическим изменениям с помощью декларативной подготовки см. в статье [Службы синхронизации Azure AD Connect: изменение конфигурации по умолчанию](active-directory-aadconnectsync-change-the-configuration.md).

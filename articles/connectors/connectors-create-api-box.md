@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 9ad07f1760b69385a2ab9070d212e03381aa22be
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-box-connector"></a>Начало работы с соединителем Box
 Подключение к Box позволяет создавать и удалять файлы, а также выполнять многие другие действия. С помощью Box можно:
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/16/2018
 * использовать триггеры при создании или обновлении файла;
 * использовать действия по копированию, удалению файлов и т. д. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, при изменении файла в Box можно отправить измененный файл по электронной почте с помощью Office 365.
 
-Для начала можно создать приложение логики, как описано [здесь](../logic-apps/logic-apps-create-a-logic-app.md).
+Для начала можно создать приложение логики, как описано [здесь](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connector-specific-details"></a>Сведения о соединителях
 

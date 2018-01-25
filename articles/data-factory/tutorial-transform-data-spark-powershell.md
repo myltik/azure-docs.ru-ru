@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: 74bff33edd738642ea88ca9b3430aac0ff32bc6f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: af5e19b212fdebe5220e49eeaa6ec9fc56b1da1c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Преобразование данных в облаке с помощью действия Spark в фабрике данных Azure
 В этом руководстве вы используете Azure PowerShell для создания конвейера фабрики данных, который преобразовывает данные с помощью действия Spark и служба, связанная по запросу HDInsight. В этом руководстве вы выполните следующие шаги:
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/06/2017
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * **Учетная запись хранения Azure.** Нужно создать входной файл и скрипт Python и передать их в хранилище Azure. Выходные данные программы Spark хранятся в этой учетной записи хранения. Кластер Spark по запросу использует ту же учетную запись хранения, что и его основное хранилище.  
 * **Azure PowerShell**. Следуйте инструкциям по [установке и настройке Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -183,7 +183,7 @@ ms.lasthandoff: 12/06/2017
 - entryFilePath указывает на файл WordCount_Spark.py во вложенной папке скрипта папки spark. 
 
 
-## <a name="create-a-data-factory"></a>Создать фабрику данных 
+## <a name="create-a-data-factory"></a>Создание фабрики данных 
 Вы создали связанную службу и определения конвейера в файлах JSON. Теперь нужно создать фабрику данных и развернуть связанную службу и конвейер файлов JSON с помощью командлетов PowerShell. Последовательно выполните следующие команды PowerShell: 
 
 1. По очереди задайте переменные.
@@ -333,7 +333,7 @@ ms.lasthandoff: 12/06/2017
 4. Убедитесь, что папка с именем `outputfiles` создана в папке `spark` контейнера adftutorial с выходными данными программы Spark. 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом примере конвейер копирует данные из одного расположения в другое в хранилище BLOB-объектов Azure. Вы научились выполнять следующие задачи: 
 
 > [!div class="checklist"]

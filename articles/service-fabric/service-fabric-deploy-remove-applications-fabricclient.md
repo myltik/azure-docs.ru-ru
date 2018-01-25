@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/05/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6fdf65ac87273502edb1548ed6c1cf5c7bc25649
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 39d768f08305b8dcc18146b119f5bdc83a8d35d4
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Развертывание и удаление приложений с помощью FabricClient
 > [!div class="op_single_selector"]
@@ -330,7 +330,7 @@ static void Main(string[] args)
 
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
 
 [Общие сведения о работоспособности Service Fabric](service-fabric-health-introduction.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5d56e74c6344580760f55506d7d90dac3e90721d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 65f25e2496065ca1aaba443a9d6b3e29239e0218
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-an-mvc-web-api"></a>Безопасность веб-API MVC
 Используя конечную точку Azure Active Directory версии 2.0, вы можете защитить веб-API с помощью маркеров доступа [OAuth 2.0](active-directory-v2-protocols.md) и позволить пользователям входить в систему с помощью личной, рабочей или учебной учетной записи Майкрософт для безопасного доступа к веб-API.
@@ -69,7 +69,7 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 * Добавьте класс OWIN Startup в проект TodoListService под именем `Startup.cs`.  Щелкните правой кнопкой мыши проект, выберите в контекстном меню пункты **Добавить** --> **Новый элемент** и найдите OWIN.  При запуске вашего приложения промежуточный слой OWIN вызовет метод `Configuration(…)` .
 * Замените объявление класса на `public partial class Startup` — часть этого класса уже была реализована в другом файле.  В методе `Configuration(…)` добавьте вызов ConfgureAuth(...), чтобы настроить проверку подлинности для веб-приложения.
 
-```C#
+```csharp
 public partial class Startup
 {
     public void Configuration(IAppBuilder app)
@@ -81,7 +81,7 @@ public partial class Startup
 
 * Откройте файл `App_Start\Startup.Auth.cs` и реализуйте метод `ConfigureAuth(…)`, который настраивает веб-API для приема маркеров доступа из конечной точки версии 2.0.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
         var tvps = new TokenValidationParameters
@@ -118,7 +118,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 * Теперь можно использовать атрибуты `[Authorize]` для защиты контроллеров и действий с помощью аутентификации OAuth 2.0.  Снабдите класс `Controllers\TodoListController.cs` тегом авторизации.  Пользователь будет вынужден войти в систему, прежде чем сможет обратиться к этой странице.
 
-```C#
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -126,7 +126,7 @@ public class TodoListController : ApiController
 
 * Когда авторизованный вызывающий объект успешно вызывает один из интерфейсов API `TodoListController` , может потребоваться доступ к сведениям о вызывающем объекте.  OWIN предоставляет доступ к утверждениям внутри маркера защиты посредством объекта `ClaimsPrincipal` .  
 
-```C#
+```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the
@@ -156,7 +156,7 @@ public IEnumerable<TodoItem> Get()
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь можно приступить к изучению других разделов.  Можно попробовать:
 
 [Вызов веб-API из веб-приложения >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)

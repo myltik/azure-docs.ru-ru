@@ -8,17 +8,17 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 5ae7fb32814c8eb607d7a3aa33963deb4621a997
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 0019858e1142c1f7e7b6fedea5c2ec97518548c9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Приступая к работе с хранилищем таблиц Azure с помощью .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/06/2017
 ### <a name="about-this-tutorial"></a>О данном учебнике
 В этом руководстве объясняется, как использовать [клиентскую библиотеку хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) в распространенных сценариях хранилища таблиц Azure. Эти сценарии представлены с помощью примеров C# для создания и удаления таблиц, а также вставки, обновления, удаления и запроса данных таблицы.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством требуются следующие компоненты.
 
@@ -60,7 +60,7 @@ using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 ```
 
-### <a name="parse-the-connection-string"></a>Анализ строки подключения
+### <a name="parse-the-connection-string"></a>Проанализируйте строку подключения
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-table-service-client"></a>Создание клиента службы таблиц
@@ -460,7 +460,7 @@ do
 } while(continuationToken != null);
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Вы изучили основные сведения о табличном хранилище. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
 * [Обозреватель хранилищ Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) — это бесплатное автономное приложение от корпорации Майкрософт, позволяющее визуализировать данные из службы хранилища Azure на платформе Windows, macOS и Linux.

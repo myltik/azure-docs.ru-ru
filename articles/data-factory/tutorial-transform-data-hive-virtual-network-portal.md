@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: 0414ee0f93b71446992bb5687795b75cd2e32386
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4b8f7a66f220b57ac914a9f5475c680679b8bf03
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Преобразование данных в виртуальной сети Azure с помощью действия Hive в фабрике данных Azure
 В этом руководстве с помощью портала Azure вы создадите конвейер фабрики данных, который преобразует данные, используя действие Hive в кластере HDInsight, находящемся в виртуальной сети Azure (VNet). В этом руководстве вы выполните следующие шаги:
@@ -78,7 +78,7 @@ ms.lasthandoff: 01/16/2018
       
      ![Страница "Новая фабрика данных"](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-azure-data-factory.png)
  
-   Имя фабрики данных Azure должно быть **глобально уникальным**. Если вы получите указанную ниже ошибку, введите другое имя фабрики данных (например, ваше_имя_MyAzureSsisDataFactory) и попробуйте создать фабрику данных снова. Ознакомьтесь со статьей [Фабрика данных Azure — правила именования](naming-rules.md), чтобы узнать правила именования для артефактов фабрики данных.
+   Имя фабрики данных Azure должно быть **глобально уникальным**. Если вы получите указанную ниже ошибку, введите другое имя фабрики данных (например, ваше_имя_MyAzureSsisDataFactory) и попробуйте создать фабрику данных снова. Ознакомьтесь со статьей [Фабрика данных Azure — правила именования](naming-rules.md), чтобы узнать правила именования для артефактов службы "Фабрика данных".
   
        `Data factory name “MyAzureSsisDataFactory” is not available`
 3. Выберите **подписку** Azure, в рамках которой вы хотите создать фабрику данных. 
@@ -95,7 +95,7 @@ ms.lasthandoff: 01/16/2018
 8. На панели мониторинга вы увидите приведенный ниже элемент с состоянием **Deploying data factory** (Развертывание фабрики данных). 
 
     ![Элемент Deploying data factory (Развертывание фабрики данных)](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
-9. Когда завершится создание, вы увидите страницу **Фабрика данных**, как показано на рисунке ниже.
+9. Когда завершится создание, откроется страница **Фабрика данных**, как показано на рисунке ниже.
    
    ![Домашняя страница фабрики данных](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Щелкните **Создание и мониторинг**, чтобы открыть на отдельной вкладке пользовательский интерфейс фабрики данных.
@@ -232,7 +232,7 @@ ms.lasthandoff: 01/16/2018
 
     ![Опубликовать](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
-## <a name="trigger-a-pipeline-run"></a>Запуск выполнения конвейера
+## <a name="trigger-a-pipeline-run"></a>Активация выполнения конвейера
 
 1. Прежде всего проверьте работу конвейера, нажав кнопку **Проверить** на панели инструментов. Закройте окно **Pipeline Validation Output** (Выходные данные проверки конвейера) щелкнув **стрелку вправо (>>)**. 
 
@@ -243,7 +243,7 @@ ms.lasthandoff: 01/16/2018
 
 ## <a name="monitor-the-pipeline-run"></a>Выполнили мониторинг конвейера.
 
-1. Переключитесь на вкладку **Мониторинг** слева. Вы увидите, что запуск конвейера появится в списке **Pipeline Runs** (Запуски конвейера). 
+1. Перейдите на вкладку **Мониторинг** слева. Вы увидите, что запуск конвейера появится в списке **Pipeline Runs** (Запуски конвейера). 
 
     ![Мониторинг выполнений конвейера](./media/tutorial-transform-data-using-hive-in-vnet-portal/monitor-pipeline-runs.png)
 2. Щелкните **Refresh** (Обновить), чтобы обновить этот список.
@@ -272,7 +272,7 @@ ms.lasthandoff: 01/16/2018
 Перейдите к следующему руководству, чтобы узнать о преобразовании данных с помощью кластера Spark в Azure:
 
 > [!div class="nextstepaction"]
->[Branching and chaining activities in a Data Factory pipeline](tutorial-control-flow.md) (Ветвление и создание цепного потока управления фабрики данных)
+>[Branching and chaining activities in a Data Factory pipeline](tutorial-control-flow-portal.md) (Ветвление и создание цепного потока управления фабрики данных)
 
 
 

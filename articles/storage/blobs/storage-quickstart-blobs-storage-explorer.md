@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/04/2017
 ms.author: gwallace
-ms.openlocfilehash: 92a3a772a4bc561dfd0a5a825e3c4207520ee23a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: c500ab59fad5fd59ca1b99b5ebc75d4902f78845
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью обозревателя службы хранилища Azure
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/13/2017
 
 ![Обозреватель службы хранилища Microsoft Azure — окно подключения](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-После подключения загружается обозреватель службы хранилища Azure с вкладкой **Обозреватель**. В этом представлении вы можете просматривать сведения обо всех учетных записях хранения Azure, а также о локальном хранилище, настроенном с помощью учетных записей [эмулятора службы хранилища Azure](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) или сред [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+После подключения загружается обозреватель службы хранилища Azure с вкладкой **Обозреватель**. В этом представлении вы можете просматривать сведения обо всех учетных записях хранения Azure, а также о локальном хранилище, настроенном с помощью учетных записей [эмулятора службы хранилища Azure](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) или сред [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ![Обозреватель службы хранилища Microsoft Azure — окно подключения](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 12/13/2017
 
 ![Обозреватель службы хранилища Microsoft Azure — список больших двоичных объектов в контейнере](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого краткого руководства вы узнали, как передавать файлы между локальным диском и хранилищем BLOB-объектов Azure с помощью **обозревателя службы хранилища Azure**. Дополнительные сведения о работе с хранилищем BLOB-объектов см. в соответствующем практическом руководстве.
 

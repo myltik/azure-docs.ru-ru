@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5857a0286dce92493c4d538f79ef9f47012bc0a2
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Вопросы безопасности при перемещении данных в фабрике данных Azure
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/28/2017
 #### <a name="azure-sql-data-warehouse"></a>Хранилище данных SQL Azure
 Прозрачное шифрование данных хранилища данных SQL Azure помогает защититься от вредоносных атак благодаря шифрованию и расшифровке неактивных данных в реальном времени. Этот процесс является прозрачным для клиента. Дополнительные сведения см. в статье [Защита базы данных в хранилище данных SQL](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>База данных SQL Azure
+#### <a name="azure-sql-database"></a>Базы данных SQL Azure
 База данных SQL Azure также поддерживает прозрачное шифрование данных, которое помогает защититься от угрозы вредоносных атак за счет шифрования и расшифровки данных в реальном времени, не внося изменения в само приложение. Этот процесс является прозрачным для клиента. Дополнительные сведения см. в статье [Transparent Data Encryption with Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) (Прозрачное шифрование данных в базе данных SQL Azure). 
 
 #### <a name="azure-data-lake-store"></a>Хранилище озера данных Azure
@@ -149,7 +149,7 @@ SalesForce поддерживает шифрование Shield Platform Encrypt
 
 В таблице ниже представлены **исходящий порт** и требования к домену для **корпоративного брандмауэра**.
 
-| Имена доменов | Исходящие порты | Описание |
+| Имена доменов | Исходящие порты | ОПИСАНИЕ |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Требуется шлюзу для подключения к службам перемещения данных в фабрике данных. |
 | `*.core.windows.net` | 443 | Используется шлюзом для подключения к учетной записи хранения Azure при помощи функции [промежуточного копирования](data-factory-copy-activity-performance.md#staged-copy). | 
@@ -162,7 +162,7 @@ SalesForce поддерживает шифрование Shield Platform Encrypt
 
 В следующей таблице представлены требования к **входящему порту** для **брандмауэра Windows**.
 
-| Входящие порты | Описание | 
+| Входящие порты | ОПИСАНИЕ | 
 | ------------- | ----------- | 
 | 8050 (TCP) | Требуется диспетчером учетных данных для их безопасной настройки для локальных хранилищ данных шлюза. | 
 
@@ -173,10 +173,10 @@ SalesForce поддерживает шифрование Shield Platform Encrypt
 
 Ниже перечислены облачные хранилища данных, которым необходим разрешенный IP-адрес компьютера шлюза. Некоторым из них по умолчанию это может не требоваться. 
 
-- [База данных SQL Azure;](../../sql-database/sql-database-firewall-configure.md) 
+- [база данных SQL Azure;](../../sql-database/sql-database-firewall-configure.md) 
 - [Хранилище данных Azure SQL](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Хранилище озера данных Azure](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
+- [База данных Azure Cosmos](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
@@ -190,7 +190,7 @@ SalesForce поддерживает шифрование Shield Platform Encrypt
 **Вопрос**. Каковы требования сертификата к шлюзу?
 **Ответ**. Текущий шлюз требует сертификат, который будет использоваться диспетчером учетных данных для безопасной настройки учетных данных хранилища данных. Этот сертификат является самозаверяющим, созданным и настроенным во время установки шлюза. Вместо этого сертификата вы можете использовать собственный сертификат TLS или SSL. Дополнительные сведения см. в разделе о [диспетчере учетных данных ClickOnce-приложения](#click-once-credentials-manager-app). 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о производительности действия копирования см. в [руководстве о производительности действия копирования и его настройке](data-factory-copy-activity-performance.md).
 
  
