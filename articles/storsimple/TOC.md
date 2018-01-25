@@ -2,7 +2,6 @@
 
 ## Обзор
 ### [Что из себя представляет это решение?](storsimple-ova-overview.md)
-### [Регионы доступности](storsimple-regions.md)
 
 ## Начало работы
 ### План
@@ -13,6 +12,7 @@
 ### Развертывание
 #### [Подготовка к развертыванию](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Развертывание службы StorSimple Manager](storsimple-virtual-array-manage-service.md)
+##### [Настройка параметров аутентификации](storsimple-virtual-array-aad-registration-key.md)
 #### [Подготовка в Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Подготовка в VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Настройка в качестве файлового сервера](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -79,6 +79,7 @@
 
 ### Развертывание
 #### [Служба диспетчера устройств StorSimple](storsimple-8000-manage-service.md)
+#### [Настройка параметров аутентификации для службы](storsimple-8000-aad-registration-key.md)
 #### [Физическое устройство в Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Физическое устройство на портале управления](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Облачное устройство в Azure](storsimple-8000-cloud-appliance-u2.md)

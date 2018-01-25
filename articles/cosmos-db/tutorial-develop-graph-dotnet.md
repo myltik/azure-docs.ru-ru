@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos DB. Разработка с помощью API Graph на .NET | Документация Майкрософт"
-description: "Дополнительные сведения о разработке с помощью API Azure Cosmos DB SQL, с помощью .NET"
+description: "Сведения о разработке с помощью API SQL службы Azure Cosmos DB на языке .NET"
 services: cosmos-db
 documentationcenter: 
 author: luisbosquez
@@ -16,15 +16,15 @@ ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
 ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB. Разработка с помощью API Graph на .NET
 Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете быстро создавать и запрашивать документы, пары "ключ — значение" и базы данных графов, используя преимущества возможностей глобального распределения и горизонтального масштабирования базы данных Azure Cosmos DB. 
 
-В этом руководстве показано, как создать учетную запись базы данных Azure Cosmos DB на портале Azure, а также базу данных графа и контейнер. Затем приложение создает простой социальных сетей с четырьмя пользователями [Graph API](graph-sdk-dotnet.md), затем проходит через и запросы с помощью Gremlin граф.
+В этом руководстве показано, как создать учетную запись базы данных Azure Cosmos DB на портале Azure, а также базу данных графа и контейнер. Потом приложение создает обычную социальную сеть с четырьмя пользователями с помощью [API Graph](graph-sdk-dotnet.md), а затем обходит и запрашивает граф с использованием Gremlin.
 
 В рамках этого руководства рассматриваются следующие задачи:
 
@@ -40,11 +40,11 @@ Azure Cosmos DB — это глобально распределенная мн
 
 Gremlin — это функциональный язык программирования, поддерживающий операции записи (DML) и операции запросов и обхода. В этой статье мы рассмотрим несколько примеров, чтобы приступить к работе с Gremlin. Подробное пошаговое руководство о возможностях Gremlin, доступных в базе данных Azure Cosmos DB, см. в статье [Azure Cosmos DB Gremlin graph support](gremlin-support.md) (Поддержка графа Gremlin в базе данных Azure Cosmos DB). 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Убедитесь, что у вас есть указанные ниже компоненты.
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
-    * Кроме того, можно использовать [локальный эмулятор](local-emulator.md) для этого учебника.
+    * Кроме того, в этом руководстве можно использовать [локальный эмулятор](local-emulator.md).
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-database-account"></a>Создание учетной записи базы данных
@@ -96,7 +96,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Создание базы данных 
 
-Теперь создайте Azure Cosmos DB [базы данных](sql-api-resources.md#databases) с помощью [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) метода или [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) метод  **DocumentClient** класса из [SQL .NET SDK](sql-api-sdk-dotnet.md).  
+Теперь создайте [базу данных](sql-api-resources.md#databases) Azure Cosmos DB с помощью метода [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) или [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) класса **DocumentClient** из [пакета SDK .NET для SQL](sql-api-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 
@@ -270,7 +270,7 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
 1. В меню слева на портале Azure щелкните **Группы ресурсов**, а затем выберите имя созданного ресурса. 
 2. На странице группы ресурсов щелкните **Удалить**, в текстовом поле введите имя ресурса для удаления и щелкните **Удалить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы выполнили следующее:
 

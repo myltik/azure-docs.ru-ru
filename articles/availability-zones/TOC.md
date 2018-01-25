@@ -33,6 +33,9 @@
 #### [Создание общедоступного IP-адреса в зоне доступности с помощью PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [Создание общедоступного IP-адреса в зоне доступности с помощью интерфейса командной строки](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### Хранилище
+#### [Хранилище, избыточное в пределах зоны](../storage/common/storage-redundancy.md#zone-redundant-storage)
+
 # Аварийное восстановление
 ## [Использование Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
 

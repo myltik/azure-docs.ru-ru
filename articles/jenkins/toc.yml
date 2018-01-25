@@ -40,6 +40,9 @@
       maintainContext: true
     - name: Использование Jenkins с VSTS
       href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
+    - name: Развертывание приложений Service Fabric
+      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      maintainContext: true
 - name: Примеры
   items:
     - name: Примеры заданий и скриптов
@@ -50,6 +53,8 @@
       items:
         - name: Подключаемый модуль службы приложений Azure
           href: 'https://plugins.jenkins.io/azure-app-service'
+        - name: Подключаемый модуль AAD
+          href: 'https://plugins.jenkins.io/azure-ad'
         - name: Подключаемый модуль агентов контейнеров Azure
           href: 'https://plugins.jenkins.io/azure-container-agents'
         - name: Подключаемый модуль Службы контейнеров Azure
@@ -58,10 +63,14 @@
           href: 'https://plugins.jenkins.io/azure-credentials'
         - name: Подключаемый модуль функций Azure
           href: 'https://plugins.jenkins.io/azure-function'
+        - name: Подключаемый модуль Microsoft Azure Service Fabric
+          href: 'https://plugins.jenkins.io/service-fabric'
         - name: Подключаемый модуль для службы хранилища Azure
           href: 'https://plugins.jenkins.io/windows-azure-storage'
         - name: Подключаемый модуль агентов виртуальных машин Azure
           href: 'https://plugins.jenkins.io/azure-vm-agents'
+        - name: Подключаемый модуль масштабируемого набора виртуальных машин Azure
+          href: 'https://plugins.jenkins.io/azure-vmss'
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Домашняя страница Jenkins

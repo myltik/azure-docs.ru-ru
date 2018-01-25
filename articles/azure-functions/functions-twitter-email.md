@@ -17,10 +17,10 @@ ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Создание функции, интегрируемой с Azure Logic Apps
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/14/2017
 > * Подключение приложения логики к функции.
 > * Отправка электронного сообщения в зависимости от ответа из функции.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 + Активная учетная запись [Twitter](https://twitter.com/). 
 + Учетная запись [Outlook.com](https://outlook.com/) (для отправки уведомлений).
@@ -74,27 +74,27 @@ API-интерфейсы Cognitive Services доступны как отдель
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## <a name="create-the-function-app"></a>Создание приложения-функция
+## <a name="create-the-function-app"></a>Создание приложения-функции
 
 Функции предоставляют отличный способ разгрузки задач обработки в рабочем процессе приложений логики. В этом руководстве для обработки оценок мнений, выраженных в твитах, из Cognitive Services и возвращения значения категории используется функция, активируемая HTTP.  
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-an-http-triggered-function"></a>Создание функции активации HTTP  
+## <a name="create-an-http-triggered-function"></a>Создание функции, активируемой HTTP  
 
 1. Разверните приложение-функцию и нажмите кнопку **+** рядом с элементом **Функции**. Если это первая функция в приложении-функции, выберите **Пользовательская функция**. Откроется полный набор шаблонов функций.
 
     ![Страница быстрого начала работы с функциями на портале Azure](media/functions-twitter-email/add-first-function.png)
 
-2. В поле поиска введите `http` и выберите **C#** шаблона триггера HTTP. 
+2. В поле поиска введите `http` и выберите **C#** для шаблона триггера HTTP. 
 
-    ![Выберите триггер HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
+    ![Выбор триггера HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
 
-3. Введите **имя** функции, выберите `Function` для  **[уровень проверки подлинности](functions-bindings-http-webhook.md#http-auth)**, а затем выберите **создать**. 
+3. Введите **имя** функции, выберите `Function` в качестве **[уровня проверки подлинности](functions-bindings-http-webhook.md#http-auth)**, а затем нажмите кнопку **Создать**. 
 
-    ![Создание функции активации HTTP](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+    ![Создание функции, активируемой HTTP](./media/functions-twitter-email/select-http-trigger-portal-2.png)
 
-    Это создает функцию скрипта C# с помощью шаблона триггера HTTP. Ваш код откроется в новом окне как `run.csx`.
+    В результате будет создана функция скрипта C# с использованием шаблона триггера HTTP. Код появится в виде файла `run.csx` в новом окне.
 
 4. Замените содержимое файла `run.csx` следующим кодом и нажмите кнопку **Сохранить**:
 
@@ -271,7 +271,7 @@ API-интерфейсы Cognitive Services доступны как отдель
 
 ![Журналы функций](media/functions-twitter-email/disable-logic-app.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого руководства вы узнали, как выполнить следующие задачи:
 

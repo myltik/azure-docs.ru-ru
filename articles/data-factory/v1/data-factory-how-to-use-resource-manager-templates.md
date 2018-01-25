@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: e0f4a284a46ba56ba4e3229a72e99efef0cf9dc2
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Создание сущностей фабрики данных Azure с помощью шаблонов
 > [!NOTE]
@@ -231,7 +231,7 @@ ms.lasthandoff: 12/15/2017
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Параметризация шаблона фабрики данных
-Рекомендации о параметризации см. в разделе [советы и рекомендации по созданию шаблонов диспетчера ресурсов Azure](../../azure-resource-manager/resource-manager-template-best-practices.md). Как правило, следует использовать как можно меньше параметров, особенно если вместо них можно использовать переменные. Предоставляйте параметры только в следующих сценариях:
+Рекомендации по параметризации см. в статье [Описание структуры и синтаксиса шаблонов Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). Как правило, следует использовать как можно меньше параметров, особенно если вместо них можно использовать переменные. Предоставляйте параметры только в следующих сценариях:
 
 * параметры различаются в зависимости от среды (например, среда разработки, тестирования и рабочая среда);
 * секретов (например, паролей);
