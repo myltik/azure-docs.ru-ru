@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 29e78bbb8e3d4d4feb3f7d32cf0a5ef1b02a6268
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Создание определения OpenAPI функции
 Интерфейсы REST API часто описываются с помощью определения OpenAPI (ранее известное как файл [Swagger](http://swagger.io/)). Это определение содержит сведения о доступных операция в API и о том, как необходимо структурировать данные запросов и ответов для API.
@@ -48,21 +48,21 @@ ms.lasthandoff: 12/18/2017
 
 В этом руководстве используется функция, активируемая HTTP, которая принимает два параметра: предполагаемое время ремонта турбин (в часах) и производительность турбин (в киловаттах). Затем функция вычисляет стоимость ремонта и доход от турбины за 24 часа.
 
-1. Разверните приложения функции и выберите  **+**  рядом с **функции**. Если это первая функция в приложении-функции, выберите **Пользовательская функция**. Откроется полный набор шаблонов функций. 
+1. Разверните приложение-функцию и нажмите кнопку **+** рядом с элементом **Функции**. Если это первая функция в приложении-функции, выберите **Пользовательская функция**. Откроется полный набор шаблонов функций. 
 
     ![Страница быстрого начала работы с функциями на портале Azure](media/functions-openapi-definition/add-first-function.png)
 
-2. В поле поиска введите `http` и выберите **C#** шаблона триггера HTTP. 
+2. В поле поиска введите `http` и выберите **C#** для шаблона триггера HTTP. 
  
-    ![Выберите триггер HTTP](./media/functions-openapi-definition/select-http-trigger-portal.png)
+    ![Выбор триггера HTTP](./media/functions-openapi-definition/select-http-trigger-portal.png)
 
-3. Тип `TurbineRepair` для функции **имя**, выберите `Function` для  **[уровень проверки подлинности](functions-bindings-http-webhook.md#http-auth)**, а затем выберите **создать**.  
+3. Введите `TurbineRepair` для **имени** функции, выберите `Function` в качестве **[уровня аутентификации](functions-bindings-http-webhook.md#http-auth)**, а затем нажмите кнопку **Создать**.  
 
-    ![Создание функции активации HTTP](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
+    ![Создание функции, активируемой HTTP](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Замените содержимое файла run.csx следующим кодом и нажмите кнопку **Сохранить**:
 
-    ```c#
+    ```csharp
     using System.Net;
 
     const double revenuePerkW = 0.12; 
@@ -125,7 +125,7 @@ ms.lasthandoff: 12/18/2017
 
     1. На вкладке **Интегрировать** новой функции триггера HTTP замените значение **Разрешенные методы HTTP** на **Выбранные методы**.
 
-    1. В **выбран HTTP-методов**, снимите флажок каждого за исключением **POST**, нажмите кнопку **Сохранить**.
+    1. Для параметра **Выбранные методы HTTP** снимите все флажки (кроме **POST**) и щелкните **Сохранить**.
 
         ![Выбранные методы HTTP](media/functions-openapi-definition/selected-http-methods.png)
         
@@ -272,7 +272,7 @@ securityDefinitions:
 
 1. Вернитесь к определению API:**function-demo-energy** > **Функции платформы** > **Определение API**.
 
-1. В области справа щелкните **Authenticate**, введите ключ API, которые скопированы и нажмите кнопку **Authenticate**.
+1. В области справа щелкните **Аутентификация**, введите скопированный ключ API и выберите **Выполнить аутентификацию**.
 
     ![Аутентификация с помощью ключа API](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -286,11 +286,11 @@ securityDefinitions:
 
     Обратите внимание на то, как пользовательский интерфейс использует описания определения API.
 
-1. Нажмите кнопку **запроса на отправку**, нажмите кнопку **довольно** вкладку для просмотра выходных данных.
+1. Выберите **Отправить запрос**, а затем перейдите на вкладку **Структурировано**, чтобы просмотреть выходные данные.
 
     ![Отправка запроса](media/functions-openapi-definition/send-request.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого руководства вы узнали, как выполнить следующие задачи:
 

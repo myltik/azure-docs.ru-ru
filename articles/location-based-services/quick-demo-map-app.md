@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Запуск демонстрационной версии службы поиска на карте с помощью Azure Location Based Services (предварительная версия)
 
@@ -38,13 +38,13 @@ ms.lasthandoff: 12/14/2017
 
     ![Создание учетной записи Location Based Services на портале](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. После успешного создания учетной записи откройте ее и перейдите на ее страницу **Параметры**. Щелкните **Ключи**, чтобы получить первичный и вторичный ключи подписки для своей учетной записи. Скопируйте значение **Первичный ключ** в локальный буфер обмена, чтобы использовать его в следующем разделе. 
+5. После успешного создания учетной записи откройте ее и перейдите на ее страницу **Параметры**. Щелкните **Ключи**, чтобы получить первичный и вторичный ключи для своей учетной записи Azure Location Based Services. Скопируйте значение **Первичный ключ** в локальный буфер обмена, чтобы использовать его в следующем разделе. 
 
 ## <a name="download-the-demo-application-for-azure-maps"></a>Скачивание демонстрационной версии приложения для службы карт Azure
 
 1. Скачайте файл [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html) или скопируйте его содержимое.
 2. Сохраните его локально как файл **AzureMapDemo.html** и откройте в текстовом редакторе.
-3. Найдите строку **&#60;insert-key&#62;** и замените ее значением **первичного ключа**, полученным в предыдущем разделе. 
+3. Найдите строку `<insert-key>` и замените ее значением **первичного ключа**, полученным в предыдущем разделе. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Запуск демонстрационной версии приложения для службы карт Azure
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/14/2017
 1. Закройте браузер, в котором выполняется веб-приложение **AzureMapDemo.html**.
 2. В меню слева на портале Azure щелкните **Все ресурсы** и выберите свою учетную запись LBS. В верхней части колонки **Все ресурсы** щелкните **Удалить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом кратком руководстве вы создали учетную запись Azure LBS и запустили демонстрационную версию приложения с ее помощью. Чтобы узнать, как создать собственное приложение с использованием интерфейсов API Azure Location Based Services, перейдите к следующему руководству.
 

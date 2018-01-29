@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 12/06/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ce1c16a3f7d5b52a3fcb47213618eb75183149
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: eaf935c1060e53673351936111083d8bb44f05e7
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Создание реестра контейнеров на портале Azure
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/08/2017
 
 * сервер входа;
 * Имя пользователя
-* пароль
+* password
 
 Эти значения мы будем использовать на дальнейших этапах работы с реестром с помощью Docker CLI.
 
@@ -110,9 +110,9 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 
 ![Создание реестра контейнеров на портале Azure][qs-portal-08]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-В этом кратком руководстве вы создали реестр контейнеров Azure с помощью Azure CLI. Если вы хотите использовать реестр контейнеров Azure со службой "Экземпляры контейнеров Azure", перейдите к соответствующему руководству.
+В этом кратком руководстве вы создали реестр контейнеров Azure с помощью портала Azure. Если вы хотите использовать реестр контейнеров Azure со службой "Экземпляры контейнеров Azure", перейдите к соответствующему руководству.
 
 > [!div class="nextstepaction"]
 > [Руководства по использованию службы "Экземпляры контейнеров Azure"][container-instances-tutorial-prepare-app]

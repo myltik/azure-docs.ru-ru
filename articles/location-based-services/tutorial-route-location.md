@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 7303347444952d9c09dc6c04eea5b962e18729b4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Поиск маршрута к объекту с помощью Azure Location Based Services.
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 > * Получение координат адреса.
 > * Отправка запроса к службе построения маршрутов поиска маршрута к объекту.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Прежде чем продолжить, убедитесь, что [учетная запись Azure Location Based Services создана](./tutorial-search-location.md#createaccount) и у вас есть [ключ подписки для учетной записи](./tutorial-search-location.md#getkey). Вы можете также узнать, как использовать интерфейсы API Map Control и службы поиска, из руководства [Поиск ближайшего объекта с помощью Azure Location Based Services](./tutorial-search-location.md).
 
@@ -77,13 +77,13 @@ ms.lasthandoff: 12/14/2017
     ```
     Обратите внимание на то, как заголовок HTML внедряет расположения ресурсов для CSS-файлов и файлов JavaScript из библиотеки Azure Location Based Services. Кроме того, обратите внимание на сегмент *script* в блоке body HTML-файла, предназначенный для внутреннего кода JavaScript, используемого для доступа к интерфейсам API Azure Location Based Services.
 
-3. Добавьте следующий код JavaScript в блок *script* HTML-файла. Замените заполнитель *<insert-key>* первичным ключом учетной записи Location Based Services.
+3. Добавьте следующий код JavaScript в блок *script* HTML-файла. Используйте первичный ключ из учетной записи Location Based Services в скрипте.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     **atlas.Map** предоставляет элемент управления для визуальной интерактивной веб-карты и является компонентом API Azure Map Control.
@@ -179,21 +179,21 @@ ms.lasthandoff: 12/14/2017
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    В запросе выше показаны обязательные параметры. Это ключ подписки вашей учетной записи и координаты начальной и конечной точек (в заданном порядке). 
+    В запросе выше показаны обязательные параметры. Это ключ вашей учетной записи и координаты начальной и конечной точек (в заданном порядке). 
 
 3. Сохраните файл **MapRoute.html** на локальном компьютере, а затем откройте его в веб-браузере по своему усмотрению и просмотрите результаты. Для успешного подключения к интерфейсам API Location Based Services должна использоваться карта следующего вида. 
 
     ![Azure Map Control и служба построения маршрутов](./media/tutorial-route-location/lbs-map-route.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]

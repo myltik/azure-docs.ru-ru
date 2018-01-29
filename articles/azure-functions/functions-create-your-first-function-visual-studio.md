@@ -14,60 +14,52 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 401230c6d7ef522a6a607fd03f798483f942a226
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e8a43febdb2958f58ecb8d82f9f42b39c591522d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Создание первой функции с помощью Visual Studio
 
 Решение "Функции Azure" позволяет выполнять код в [бессерверной](https://azure.microsoft.com/overview/serverless-computing/) среде без необходимости создавать виртуальную машину или публиковать веб-приложение.
 
-Изучив эту статью, вы научитесь использовать инструменты Visual Studio 2017 для Функций Azure и локально тестировать функцию hello world. Затем вы опубликуете код функции в Azure. Эти средства доступны как часть рабочей нагрузки Azure для разработки в Visual Studio 2017 версии 15.3 или более поздней.
+Изучив эту статью, вы научитесь использовать инструменты Visual Studio 2017 для службы "Функции Azure" и локально тестировать функцию hello world. Затем вы опубликуете код функции в Azure. Эти средства доступны как часть рабочей нагрузки Azure для разработки в Visual Studio 2017.
 
 ![Код функций Azure в проекте Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
-При желании вместо этого можно [просмотреть видео](#watch-the-video).
+В этом разделе содержится [видео](#watch-the-video), демонстрирующее те же основные действия.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
-Для работы с этим руководством установите следующие компоненты.
+Для работы с этим руководством:
 
-* [Visual Studio 2017 15.4](https://www.visualstudio.com/vs/) или более поздней версии, в том числе рабочая нагрузка **разработки в Azure**.
+* Установите [Visual Studio 2017 15.4](https://www.visualstudio.com/vs/) или более поздней версии, а также рабочую нагрузку **разработки в Azure**.
 
     ![Установка Visual Studio 2017 с рабочей нагрузкой разработки в Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+* Убедитесь, что установлены служба "Функции Azure" и средства работы с веб-заданиями самой последней версии. Это можно сделать в разделе **Updates** (Обновления)  > **Visual Studio Marketplace** в пункте **Extensions and Updates** (Расширения и обновления).
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
-## <a name="create-an-azure-functions-project-in-visual-studio"></a>Создание проекта функций Azure в Visual Studio
+## <a name="create-a-function-app-project"></a>Создание проекта приложения-функции
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-После создания проекта можно приступать к созданию первой функции.
+Visual Studio создает проект и класс в нем, содержащий стандартный код для выбранного типа функции. Атрибут метода **FunctionName** задает имя функции. Атрибут **HttpTrigger** указывает, что функция вызывается HTTP-запросом. Стандартный код отправляет HTTP-ответ, включающий в себя значение из текста или строки запроса. Вы можете добавить выходные привязки данных к функции, применив для метода соответствующие атрибуты. Дополнительные сведения см. в разделе [Триггеры и привязки](functions-dotnet-class-library.md#triggers-and-bindings) в статье [Справочник разработчика C# по функциям Azure](functions-dotnet-class-library.md).
 
-## <a name="create-the-function"></a>Создание функции
+![Файл кода функции](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
-1. Щелкните правой кнопкой мыши узел проекта в **обозревателе решений** и выберите **Добавить** > **Новый элемент**. Выберите **Функция Azure**, введите `HttpTriggerCSharp.cs` в поле **Имя** и нажмите кнопку **Добавить**.
-
-2. Выберите **HttpTrigger**, выберите для параметра **Права доступа** значение **Анонимно** и нажмите кнопку **ОК**. Созданная функция доступна для HTTP-запроса из любого клиента. 
-
-    ![Создание функции Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
-
-    Файл кода добавляется в проект, который содержит класс, реализующий код функции. Этот код основан на шаблоне, который получает значение имени и выводит сведения о нем. Атрибут **FunctionName** задает имя функции. Атрибут **HttpTrigger** указывает сообщение, которое активирует функцию. 
-
-    ![Файл кода функции](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
-
-Созданную функцию, активируемую HTTP, можно протестировать на локальном компьютере.
+Созданный проект функции и функцию, активируемую HTTP, можно протестировать на локальном компьютере.
 
 ## <a name="test-the-function-locally"></a>Локальное тестирование функции
 
-Основные инструменты службы Функции Azure позволяют запускать проекты функций Azure на локальном компьютере разработчика. Вам будет предложено установить эти инструменты при первом запуске функции из Visual Studio.  
+Основные инструменты службы "Функции Azure" позволяют запускать проекты функций Azure на локальном компьютере разработчика. Вам будет предложено установить эти инструменты при первом запуске функции из Visual Studio.  
 
-1. Чтобы проверить работу функции, нажмите клавишу F5. Если будет предложено, примите запрос от Visual Studio на скачивание и установку основных инструментов службы Функции Azure (CLI).  Кроме того, вам может понадобиться включить исключение брандмауэра, чтобы инструменты могли обрабатывать HTTP-запросы.
+1. Чтобы проверить работу функции, нажмите клавишу F5. Если будет предложено, примите запрос от Visual Studio на скачивание и установку основных инструментов службы Функции Azure (CLI). Кроме того, вам может понадобиться включить исключение брандмауэра, чтобы инструменты могли обрабатывать HTTP-запросы.
 
 2. Скопируйте URL-адрес функции из выходных данных среды выполнения функций Azure.  
 
@@ -91,7 +83,7 @@ ms.lasthandoff: 12/11/2017
 
 1. Скопируйте базовый URL-адрес приложения-функции на странице профиля публикации. Замените часть `localhost:port` URL-адреса, который использовался при локальной проверке функции новым базовым URL-адресом. Как и ранее, добавьте строку запроса `?name=<yourname>` в этот URL-адрес и выполните запрос.
 
-    URL-адрес, который вызывает функцию, активируемую HTTP, выглядит так:
+    URL-адрес, вызывающий функцию, активирующую HTTP, должен быть в следующем формате:
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 
@@ -103,7 +95,7 @@ ms.lasthandoff: 12/11/2017
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 С помощью Visual Studio вы создали приложение-функцию C# с простой функцией, активируемой HTTP. 
 

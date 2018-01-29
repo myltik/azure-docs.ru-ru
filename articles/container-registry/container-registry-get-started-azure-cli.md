@@ -5,23 +5,23 @@ services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 12/07/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f31f4e5e2b3fe5db85873894a7f2fa9c415392c1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: a74a1ce5c9401d6445f5feec4af8d5cb771d2c64
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Создание реестра контейнеров с помощью Azure CLI
 
 Реестр контейнеров Azure — это управляемая служба реестра контейнеров Docker, используемая для хранения частных образов контейнеров Docker. В этом руководстве рассматривается создание экземпляра реестра контейнеров Azure с помощью Azure CLI.
 
-Это краткое руководство требует, что вы используете Azure CLI версии 2.0.21 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам нужно установить или обновить см. в разделе [установить CLI Azure 2.0][azure-cli].
+Для этого руководства требуется Azure CLI 2.0.25 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0][azure-cli].
 
-Также необходим локально установленный модуль Docker. Docker содержит пакеты, которые легко настроить Docker для какого-либо [Mac][docker-mac], [Windows][docker-windows], или [Linux] [ docker-linux] системы.
+Также необходим локально установленный модуль Docker. Docker предоставляет пакеты, которые позволяют быстро настроить Docker в любой системе [Mac][docker-mac], [Windows][docker-windows] или [Linux][docker-linux].
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
@@ -35,13 +35,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>Создание реестра контейнеров
 
-В этом кратком руководстве мы создадим реестр уровня *Базовый*. Реестр контейнеров Azure доступен в нескольких номерах SKU, которые кратко описаны в следующей таблице. Расширенные сведения о каждом разделе [контейнер реестра SKU][container-registry-skus].
+В этом кратком руководстве мы создадим реестр уровня *Базовый*. Реестр контейнеров Azure доступен в нескольких номерах SKU, которые кратко описаны в следующей таблице. См. дополнительные сведения о [номерах SKU реестра контейнеров][container-registry-skus].
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-Создание экземпляров контроля доступа с помощью [создать az acr] [ az-acr-create] команды.
+Создайте экземпляр ACR с помощью команды [az acr create][az-acr-create].
 
-Имя реестра **должно быть уникальным**. В следующем примере используется имя *myContainerRegistry007*. Замените его уникальным значением.
+Имя реестра должно быть уникальным в пределах Azure и содержать от 5 до 50 буквенно-цифровых символов. В следующем примере используется имя *myContainerRegistry007*. Замените его уникальным значением.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -74,7 +74,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry007 --s
 
 ## <a name="log-in-to-acr"></a>Вход в ACR
 
-Перед отправкой и извлечением образов контейнеров необходимо войти в экземпляр ACR. Чтобы сделать это, используйте [входа acr az] [ az-acr-login] команды.
+Перед отправкой и извлечением образов контейнеров необходимо войти в экземпляр ACR. Чтобы сделать это, используйте команду [az acr login][az-acr-login].
 
 ```azurecli
 az acr login --name <acrName>
@@ -84,25 +84,25 @@ az acr login --name <acrName>
 
 ## <a name="push-image-to-acr"></a>Отправка образа в ACR
 
-Чтобы отправить образ в реестр контейнеров Azure, сначала нужно получить этот образ. Если у вас еще нет локальной контейнера изображений, выполните следующую команду для извлечения существующий образ из Docker Hub.
+Чтобы отправить образ в реестр контейнеров Azure, сначала нужно получить этот образ. Если у вас еще нет образов локального контейнера, используйте следующую команду, чтобы извлечь существующий образ из Docker Hub.
 
 ```bash
 docker pull microsoft/aci-helloworld
 ```
 
-Прежде чем можно отправить изображение в системный реестр, должна быть помечена с полным именем входа сервера контроля доступа. Выполните следующую команду для получения имени сервера полного имени входа экземпляра контроля доступа.
+Прежде чем отправить образ в реестр, нужно добавить в него тег с полным именем сервера входа для ACR. Выполните следующую команду, чтобы получить полное имя сервера входа для экземпляра ACR.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Тег изображения с помощью [тега docker] [ docker-tag] команды. Замените `<acrLoginServer>` с именем входа сервера, экземпляра контроля доступа.
+Присвойте образу тег с помощью команды [docker tag][docker-tag]. Замените значение `<acrLoginServer>` именем сервера входа для экземпляра ACR.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Наконец, используйте [отправки в docker] [ docker-push] для принудительной отправки образа экземпляра контроля доступа. Замените `<acrLoginServer>` с именем входа сервера, экземпляра контроля доступа.
+Наконец, воспользуйтесь командой [docker push][docker-push] для принудительной отправки образа в экземпляр ACR. Замените значение `<acrLoginServer>` именем сервера входа для экземпляра ACR.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -140,18 +140,18 @@ v1
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Если больше не нужны, можно использовать [удаление группы az] [ az-group-delete] команду, чтобы удалить группу ресурсов, экземпляр контроля доступа и все образы контейнеров.
+Ненужные группу ресурсов, экземпляр ACR и все образы контейнеров можно удалить с помощью команды [az group delete][az-group-delete].
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом кратком руководстве вы создали реестр контейнеров Azure с помощью Azure CLI. Если вы хотите использовать реестр контейнеров Azure со службой "Экземпляры контейнеров Azure", перейдите к соответствующему руководству.
 
 > [!div class="nextstepaction"]
-> [Учебник по Azure экземпляры контейнером][container-instances-tutorial-prepare-app]
+> [Руководство по использованию службы "Экземпляры контейнеров Azure"][container-instances-tutorial-prepare-app]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

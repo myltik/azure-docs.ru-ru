@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Добавление образа виртуальной машины Windows Server 2016 в Azure Stack Marketplace
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="add-the-image-by-using-powershell"></a>Добавление образа с помощью PowerShell
 
-### <a name="prerequisites"></a>Необходимые компоненты 
+### <a name="prerequisites"></a>предварительным требованиям 
 
 Выполните следующие предварительные требования с помощью либо [пакета средств разработки](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), либо внешнего клиента на базе Windows (при [подключении через VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)).
 
@@ -135,19 +135,23 @@ ms.lasthandoff: 01/10/2018
 
 Чтобы убедиться, что образ виртуальной машины Windows Server 2016 имеет последний накопительный пакет обновления, укажите параметр `IncludeLatestCU` при выполнении командлета `New-AzsServer2016VMImage`. Дополнительные сведения о разрешенных параметрах для командлета  см. в `New-AzsServer2016VMImage` [этом разделе](#parameters). Публикация образа в Azure Stack Marketplace займет около часа. 
 
-## <a name="parameters"></a>Параметры
+## <a name="parameters-for-new-azsserver2016vmimage"></a>Параметры для New-AzsServer2016VMImage
 
-|Параметры New-AzsServer2016VMImage|Обязательное значение|ОПИСАНИЕ|
-|-----|-----|------|
-|ISOPath|Yes|Полный путь к скачанному образу ISO Windows Server 2016.|
-|Net35|Нет |Устанавливает среду выполнения .NET 3.5 в образе Windows Server 2016. По умолчанию установлено значение **true**.|
-|Version (версия)|Нет |Указывает образы Windows Server 2016 **Базовый**, **Полный** или **Оба**. По умолчанию установлено значение **Полный**.|
-|VHDSizeInMB|Нет |Задает размер (в МБ) образа VHD для добавления в среду Azure Stack. По умолчанию установлено значение 40 960 МБ.|
-|CreateGalleryItem|Нет |Указывает, следует ли создать элемент Marketplace для образа Windows Server 2016. По умолчанию установлено значение **true**.|
-|location |Нет  |Указывает расположение, в которое должны публиковаться образы Windows Server 2016.|
-|IncludeLatestCU|Нет |Применяет последнее накопительное обновление Windows Server 2016 для нового виртуального жесткого диска (проверьте скрипт, чтобы убедиться, что он указывает на последнее текущее обновление, или воспользуйтесь одним из следующих вариантов). |
-|CUUri |Нет  |Задает запуск накопительного обновления Windows Server 2016 из указанного URI. |
-|CUPath |Нет  |Задает запуск накопительного обновления Windows Server 2016 из локального пути. Этот вариант целесообразно использовать, если экземпляр Azure Stack развернут в отключенной среде.|
+### <a name="new-azsserver2016vmimage"></a>New-AzsServer2016VMImage 
+
+Этот командлет позволяет создать и отправить образ основных серверных компонентов для Windows Server 2016 и (или) полный образ, а также создать для него элемент Marketplace.
+
+| Параметры | Обязательно | Пример | ОПИСАНИЕ |
+|-----|-----|------|---- |
+|ISOPath|Yes| N:\ISO\en_windows_16_x64_dvd | Полный путь к скачанному образу ISO Windows Server 2016.|
+|Net35|Нет | Истина | Устанавливает среду выполнения .NET 3.5 в образе Windows Server 2016. По умолчанию установлено значение **true**.|
+|Version (версия)|Нет | Полное |  Указывает образы Windows Server 2016 **Базовый**, **Полный** или **Оба**. По умолчанию установлено значение **Полный**.|
+|VHDSizeInMB|Нет | 40 960 | Задает размер (в МБ) образа VHD для добавления в среду Azure Stack. По умолчанию установлено значение 40 960 МБ.|
+|CreateGalleryItem|Нет | Истина | Указывает, следует ли создать элемент Marketplace для образа Windows Server 2016. По умолчанию установлено значение **true**.|
+|location |Нет  | D:\ | Указывает расположение, в которое должны публиковаться образы Windows Server 2016.|
+|IncludeLatestCU|Нет | Ложь | Применяет последнее накопительное обновление Windows Server 2016 для нового виртуального жесткого диска. Проверьте скрипт. Он должен указывать на последнее текущее обновление. Или воспользуйтесь одним из следующих вариантов. |
+|CUUri |Нет  | https://yourupdateserver/winservupdate2016 | Задает запуск накопительного обновления Windows Server 2016 из указанного URI. |
+|CUPath |Нет  | C:\winservupdate2016 | Задает запуск накопительного обновления Windows Server 2016 из локального пути. Этот вариант целесообразно использовать, если экземпляр Azure Stack развернут в отключенной среде.|
 
 ## <a name="next-steps"></a>Дополнительная информация
 

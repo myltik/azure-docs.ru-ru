@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Начало работы с Поиском Azure в Java
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/18/2017
 5. Скопируйте URL-адрес службы и ключ администратора. Все эти элементы потребуются вам позже, при добавлении их в файл **config.properties** .
 
 ## <a name="download-the-sample-files"></a>Загрузка примеров файлов
-1. Перейдите в раздел [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) на портале GitHub.
+1. Перейдите в раздел [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) на портале GitHub.
 2. Нажмите кнопку **Загрузить ZIP-файл**, сохраните ZIP-файл на диск, после чего извлеките все содержащиеся в нем файлы. Вы можете извлечь файлы в рабочую область Java, чтобы облегчить поиск проекта в дальнейшем.
 3. Примеры файлов доступны только для чтения. Щелкните правой кнопкой мыши папку, откройте ее свойства и снимите атрибут только для чтения.
 
@@ -159,7 +159,7 @@ ms.lasthandoff: 12/18/2017
 * Пемброк
 * гусь +мыс
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Это первый учебник по Поиску Azure на базе Java и набора данных USGS. Мы будем постепенно расширять это руководство, чтобы рассказать о дополнительных функциях поиска, которые вы можете использовать в собственных решениях.
 
 Если у вас уже есть опыт работы со службой поиска Azure, вы можете использовать этот пример как фундамент для дальнейших исследований, таких как улучшение [страницы поиска](search-pagination-page-layout.md) или внедрение [фасетной навигации](search-faceted-navigation.md). Вы также можете улучшить страницу результатов поиска, добавив счетчики и пакетную обработку документов, чтобы пользователи могли просматривать результаты постранично.

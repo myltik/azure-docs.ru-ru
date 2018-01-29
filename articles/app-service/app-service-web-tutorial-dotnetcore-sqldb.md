@@ -1,31 +1,30 @@
 ---
-title: "Создание веб-приложения .NET Core с базой данных SQL в службе приложений Azure в Linux | Документация Майкрософт"
-description: "Узнайте, как создать приложение .NET Core, работающее в службе приложений Azure в Linux, с подключением к базе данных SQL."
+title: "Создание веб-приложения .NET Core с базой данных SQL в службе приложений Azure | Документация Майкрософт"
+description: "Узнайте, как создать приложение .NET Core, работающее в службе приложений Azure, с подключением к базе данных SQL."
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
 manager: syntaxc4
 editor: 
-ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/10/2017
+ms.date: 01/23/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1418914b2886ce3f896e62b5b4a3da573655e274
+ms.openlocfilehash: 4701d19cf3b10dc42a5df7cbcb82c0d458894247
 ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/24/2018
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Создание веб-приложения .NET Core с базой данных SQL в службе приложений Azure в Linux
+# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Создание веб-приложения .NET Core с базой данных SQL в службе приложений Azure
 
-[Служба приложений на платформе Linux](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом руководстве показано, как создать веб-приложение .NET Core и подключить его к базе данных SQL. После выполнения всех действий у вас будет приложение .NET Core MVC, работающее в службе приложений в Linux.
+[Служба приложений](app-service-web-overview.md) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости в Azure. В этом руководстве показано, как создать веб-приложение .NET Core и подключить его к базе данных SQL. После выполнения всех действий у вас будет приложение .NET Core MVC, работающее в службе приложений.
 
-![Приложение, работающее в службе приложений в Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![Приложение, работающее в службе приложений](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
 Вы узнаете, как выполнять следующие задачи:
 
@@ -44,7 +43,7 @@ ms.lasthandoff: 01/24/2018
 1. [установите Git](https://git-scm.com/);
 1. [установите пакет SDK для .NET Core 1.1.2](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-local-net-core-app"></a>Создание локального приложения .NET Core
 
@@ -75,11 +74,11 @@ dotnet run
 
 Откройте браузер и перейдите по адресу `http://localhost:5000`. Щелкните ссылку **Создать**, чтобы создать несколько элементов _списка дел_.
 
-![Успешное подключение к базе данных SQL](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
+![Успешное подключение к базе данных SQL](./media/app-service-web-tutorial-dotnetcore-sqldb/local-app-in-browser.png)
 
 Чтобы остановить приложение .NET Core в любое время, нажмите `Ctrl+C` в окне терминала.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-production-sql-database"></a>Создание рабочей базы данных SQL
 
@@ -89,7 +88,7 @@ dotnet run
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
 ### <a name="create-a-sql-database-logical-server"></a>Создание логического сервера базы данных SQL
 
@@ -124,7 +123,7 @@ az sql server create --name <server_name> --resource-group myResourceGroup --loc
 
 ### <a name="configure-a-server-firewall-rule"></a>Настройка правил брандмауэра сервера
 
-Создайте [правило брандмауэра на уровне сервера базы данных Azure SQL](../../sql-database/sql-database-firewall-configure.md) с помощью команды [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Если для начального и конечного IP-адресов задано значение 0.0.0.0, брандмауэр открыт только для других ресурсов Azure. 
+Создайте [правило брандмауэра на уровне сервера базы данных Azure SQL](../sql-database/sql-database-firewall-configure.md) с помощью команды [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Если для начального и конечного IP-адресов задано значение 0.0.0.0, брандмауэр открыт только для других ресурсов Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +131,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Создание базы данных
 
-Создайте на сервере базу данных с [уровнем производительности S0](../../sql-database/sql-database-service-tiers.md) с помощью команды [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
+Создайте на сервере базу данных с [уровнем производительности S0](../sql-database/sql-database-service-tiers.md) с помощью команды [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -150,19 +149,19 @@ Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persis
 
 ## <a name="deploy-app-to-azure"></a>Развертывание приложения в Azure
 
-На этом шаге вы развернете приложение .NET Core, подключенное к базе данных SQL, в службе приложений в Linux.
+На этом шаге вы развернете приложение .NET Core, подключенное к базе данных SQL, в службе приложений.
 
 ### <a name="configure-local-git-deployment"></a>Настройка локального развертывания Git
 
-[!INCLUDE [Configure a deployment user](../../../includes/configure-deployment-user-no-h.md)]
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="create-an-app-service-plan"></a>Создание плана службы приложений
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 ### <a name="create-a-web-app"></a>Создание веб-приложения
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)] 
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>Настройка переменной среды
 
@@ -172,7 +171,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persis
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-Затем задайте для параметра приложения `ASPNETCORE_ENVIRONMENT` значение _Production_. Этого параметр позволяет определить, выполняется ли приложение в Azure, так как SQLite применяется для локальной среды разработки, а база данных SQL — для среды Azure.
+Затем задайте для параметра приложения `ASPNETCORE_ENVIRONMENT` значение _Production_. Этот параметр позволяет определить, выполняется ли приложение в Azure, так как SQLite применяется для локальной среды разработки, а база данных SQL — для среды Azure.
 
 В следующем примере настраивается параметр приложения `ASPNETCORE_ENVIRONMENT` в веб-приложении Azure. Замените заполнитель *\<app_name>* собственным значением.
 
@@ -216,7 +215,7 @@ git commit -am "connect to SQLDB in Azure"
 
 ### <a name="push-to-azure-from-git"></a>Публикация в Azure из Git
 
-[!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash
 Counting objects: 98, done.
@@ -254,9 +253,9 @@ http://<app_name>.azurewebsites.net
 
 Добавьте несколько элементов списка дел.
 
-![Приложение, работающее в службе приложений в Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![Приложение, работающее в службе приложений](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
-**Поздравляем!** Вы запустили приложение .NET Core на основе данных в службе приложений в Linux.
+**Поздравляем!** Вы запустили приложение .NET Core на основе данных в службе приложений.
 
 ## <a name="update-locally-and-redeploy"></a>Обновление на локальном компьютере и повторное развертывание
 
@@ -343,14 +342,13 @@ dotnet run
 ### <a name="publish-changes-to-azure"></a>Публикация изменений в Azure
 
 ```bash
-
 git commit -am "added done field"
 git push azure master
 ```
 
 После окончания `git push` перейдите в веб-приложение Azure и проверьте новые функции.
 
-![Веб-приложение Azure после включения Code First Migrations](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
+![Веб-приложение Azure после включения Code First Migrations](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 Все имеющиеся элементы списка дел по-прежнему отображаются. При повторной публикации приложения .NET Core существующие данные в базе данных SQL не теряются. Кроме того, Entity Framework Core Migrations изменяет только схему данных, оставляя существующие данные нетронутыми.
 
@@ -360,13 +358,13 @@ git push azure master
 
 В меню слева выберите **Службы приложений**, а затем щелкните имя своего веб-приложения Azure.
 
-![Переход к веб-приложению Azure на портале](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
+![Переход к веб-приложению Azure на портале](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
 По умолчанию на портале отображается страница **Обзор** веб-приложения. Здесь вы можете наблюдать за работой приложения. Вы также можете выполнять базовые задачи управления: обзор, завершение, запуск, перезагрузку и удаление. На вкладках в левой части страницы отображаются различные страницы конфигурации, которые можно открыть.
 
-![Страница службы приложений на портале Azure](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
+![Страница службы приложений на портале Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
 ## <a name="next-steps"></a>Дополнительная информация
@@ -384,4 +382,4 @@ git push azure master
 Перейдите к следующему руководству, чтобы научиться сопоставлять пользовательские DNS-имена с веб-приложением.
 
 > [!div class="nextstepaction"]
-> [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](../app-service-web-tutorial-custom-domain.md)
+> [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](app-service-web-tutorial-custom-domain.md)

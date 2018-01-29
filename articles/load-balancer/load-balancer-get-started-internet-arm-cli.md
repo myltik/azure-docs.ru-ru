@@ -1,6 +1,6 @@
 ---
-title: "Создание доступной в Интернете подсистемы балансировки нагрузки с помощью Azure CLI | Документация Майкрософт"
-description: "Узнайте, как создать балансировщик нагрузки для Интернета в диспетчере ресурсов с помощью интерфейса командной строки Azure."
+title: "Создание общедоступной подсистемы балансировки нагрузки с помощью Azure CLI | Документация Майкрософт"
+description: "Узнайте, как создать общедоступную подсистему балансировки нагрузки с помощью Azure CLI."
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8baf065a7aac0a38624197f8f6a1f6a84aaab2a8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8c2703a1b43834e1c82e0776e2dee807bb3192
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Создание балансировщика нагрузки для Интернета с помощью Azure CLI
+# <a name="creating-a-public-load-balancer-using-the-azure-cli"></a>Создание общедоступной подсистемы балансировки нагрузки с помощью Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Портал](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -34,13 +34,13 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета, используя классическое развертывание](load-balancer-get-started-internet-classic-portal.md)
+В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [узнать, как создать общедоступную подсистему балансировки нагрузки, используя классическое развертывание](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="deploying-the-solution-using-the-azure-cli"></a>Развертывание решения с помощью интерфейса командной строки Azure (Azure CLI)
 
-Ниже описана процедура создания балансировщика нагрузки для Интернета с помощью Azure Resource Manager и интерфейса командной строки. Azure Resource Manager позволяет по отдельности создавать и настраивать ресурсы, после чего на их основе создается единый ресурс.
+Ниже описано, как создать общедоступную подсистему балансировки нагрузки с помощью Azure Resource Manager и интерфейса командной строки. Azure Resource Manager позволяет по отдельности создавать и настраивать ресурсы, после чего на их основе создается единый ресурс.
 
 Чтобы развернуть балансировщик нагрузки, необходимо создать и настроить следующие объекты.
 
@@ -304,7 +304,7 @@ azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrul
 azure network lb delete --resource-group nrprg --name nrplb
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-cli.md)
 
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)

@@ -1,6 +1,6 @@
 ---
-title: "Создание доступной в Интернете внутренней подсистемы балансировки нагрузки Azure с помощью PowerShell | Документация Майкрософт"
-description: "Узнайте, как создать балансировщик нагрузки для Интернета в Resource Manager с помощью PowerShell."
+title: "Создание общедоступной подсистемы балансировки нагрузки с помощью PowerShell | Документация Майкрософт"
+description: "Узнайте, как создать общедоступную подсистему балансировки нагрузки в Resource Manager с помощью PowerShell"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d11ad8ff7f3d3357d1af276a9643b7a74e6c3f6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="get-started"></a>Создание балансировщика нагрузки для Интернета в Resource Manager с помощью PowerShell
+# <a name="get-started"></a>Создание общедоступной подсистемы балансировки нагрузки в Resource Manager с помощью PowerShell
 
 > [!div class="op_single_selector"]
 > * [Портал](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>Развертывание решения с помощью Azure PowerShell
 
-Ниже описана процедура создания балансировщика нагрузки для Интернета с помощью Azure Resource Manager и PowerShell. Azure Resource Manager позволяет по отдельности создавать и настраивать ресурсы, после чего на их основе создается балансировщик нагрузки.
+Ниже описано, как создать общедоступную подсистему балансировки нагрузки с помощью Azure Resource Manager и PowerShell. Azure Resource Manager позволяет по отдельности создавать и настраивать ресурсы, после чего на их основе создается балансировщик нагрузки.
 
 Чтобы развернуть балансировщик нагрузки, необходимо создать и настроить следующие объекты.
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/18/2017
     Get-AzureRmSubscription
     ```
 
-3. Выберите подписку Azure.
+3. Выберите, какие подписки Azure будут использоваться.
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
@@ -306,7 +306,7 @@ Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 > [!NOTE]
 > Чтобы пропустить подтверждение удаления, можно использовать необязательный переключатель **-Force** .
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
 

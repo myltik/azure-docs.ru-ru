@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: b50d3b091848776feb33c042c2cddfcf2a598fc9
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Развертывание реестра контейнеров Azure и его использование
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-В [с предыдущим учебником][aks-tutorial-prepare-app], образ контейнера был создан для простого приложения Azure с правом голоса. Если вы не создали образа приложения Azure с правом голоса, вернуться к [учебник 1 – Создание образов контейнеров][aks-tutorial-prepare-app].
+В [предыдущей части руководства][aks-tutorial-prepare-app] мы создали образ контейнера для простого приложения Azure для голосования. Если вы еще не создали образ приложения Azure для голосования, выполните инструкции из статьи [Подготовка приложения для Службы контейнеров Azure (AKS)][aks-tutorial-prepare-app].
 
 Для этого руководства требуется Azure CLI 2.0.21 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0][azure-cli-install].
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 az group create --name myResourceGroup --location eastus
 ```
 
-Создание контейнера Azure реестр с помощью [создать az acr] [ az-acr-create] команды. Имя контейнера реестра **должно быть уникальным**.
+Создайте реестр контейнеров Azure с помощью команды[az acr create][az-acr-create]. Имя реестра должно быть уникальным в пределах Azure и содержать от 5 до 50 буквенно-цифровых символов.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -52,7 +52,7 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 
 ## <a name="container-registry-login"></a>Вход в реестр контейнеров
 
-Используйте [входа acr az] [ az-acr-login] команду, чтобы подключиться к экземпляру контроля доступа. Укажите уникальное имя реестра контейнеров, заданное для него при создании.
+Выполните команду [az acr login][az-acr-login], чтобы войти в экземпляр ACR. Укажите уникальное имя реестра контейнеров, заданное для него при создании.
 
 ```azurecli
 az acr login --name <acrName>
@@ -62,7 +62,7 @@ az acr login --name <acrName>
 
 ## <a name="tag-container-images"></a>Присвоение тегов образам контейнеров
 
-Чтобы просмотреть список текущего изображения, используйте [образов docker] [ docker-images] команды.
+Чтобы просмотреть список сохраненных образов, используйте команду [docker images][docker-images].
 
 ```console
 docker images
@@ -91,7 +91,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Запустить после тегов, [образов docker] [ docker-images] Чтобы проверить работу.
+Добавив тег, выполните команду [docker images][docker-images] для проверки операции.
 
 ```console
 docker images
@@ -121,7 +121,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v1
 
 ## <a name="list-images-in-registry"></a>Перечисление образов в реестре
 
-Чтобы получить список образов, которые передаются в системный реестр контейнера Azure пользователя [списка репозитория acr az] [ az-acr-repository-list] команды. Укажите в команде имя нужного экземпляра ACR.
+Чтобы получить список образов, отправленных в реестр контейнеров Azure, используйте команду [az acr repository list][az-acr-repository-list]. Укажите в команде имя нужного экземпляра ACR.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -135,7 +135,7 @@ Result
 azure-vote-front
 ```
 
-И затем, чтобы увидеть теги для конкретных образа, использовать [acr репозитория az show теги] [ az-acr-repository-show-tags] команды.
+Чтобы увидеть теги для конкретного образа, используйте команду [az acr repository show-tags][az-acr-repository-show-tags].
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -151,7 +151,7 @@ redis-v1
 
 По завершении работы с этим руководством образ контейнера будет сохранен в частном экземпляре реестра контейнеров Azure. В следующих частях руководства мы развернем этот образ из ACR в кластер Kubernetes.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы подготовили реестр контейнеров Azure для использования в кластере AKS. Были выполнены следующие действия:
 
