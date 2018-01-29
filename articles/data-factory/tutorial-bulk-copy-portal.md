@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2100b5d1804f81f7c5a9dacfbb133e8d14dee39e
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Копирование нескольких таблиц в пакетном режиме с помощью фабрики данных Azure
 В этом руководстве показано **копирование нескольких таблиц из базы данных SQL Azure в хранилище данных SQL Azure**. Этот подход можно применить и в других сценариях. Например, копирование таблиц из SQL Server или Oracle в базу данных SQL Azure, хранилище данных или большой двоичный объект Azure, копирование различных путей из большого двоичного объекта в таблицы базы данных SQL Azure.
@@ -195,7 +195,7 @@ ms.lasthandoff: 01/16/2018
 5. Перейдите на вкладку **Параметры** и щелкните **+ Создать**
 
     ![Страница подключения к исходному набору данных](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Введите **DWTableName** в качестве имени параметра. 
+6. Введите **DWTableName** в качестве имени параметра. Если вы копируете и вставляете имя **DWTableName** со страницы, убедитесь в отсутствии **пробела** в конце имени. 
 7. В разделе **Parameterized properties** (Параметризованные свойства) введите `@{dataset().DWTableName}` в качестве значения для свойства **tableName**. В свойстве **TableName** для набора данных укажите значение, которое передается в качестве аргумента для параметра **DWTableName**. Действие ForEach последовательно перебирает список таблиц и по одной передает их действию копирования. 
    
     ![Имя параметра](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)
@@ -326,12 +326,12 @@ ms.lasthandoff: 01/16/2018
 
     ![Кнопка "Опубликовать"](./media/tutorial-bulk-copy-portal/publish.png)
 
-## <a name="trigger-a-pipeline-run"></a>Запуск выполнения конвейера
+## <a name="trigger-a-pipeline-run"></a>Активация выполнения конвейера
 
 1. Убедитесь, что активна вкладка **GetTableListAndTriggerCopyData**. 
 2. Щелкните **Триггер**, а затем — **Trigger Now** (Запустить сейчас). 
 
-    ![Запустить сейчас](./media/tutorial-bulk-copy-portal/trigger-now.png)
+    ![Trigger Now (Активировать сейчас)](./media/tutorial-bulk-copy-portal/trigger-now.png)
 
 ## <a name="monitor-the-pipeline-run"></a>Выполнили мониторинг конвейера.
 

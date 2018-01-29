@@ -8,13 +8,13 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 12/7/2017
-ms.author: v-ruogun
-ms.openlocfilehash: 3b0bc01047b9aa7459cf6cc33f004cf7506e5826
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 01/18/2018
+ms.author: seguler
+ms.openlocfilehash: 649099f045639c8c506fb4a4be65736626044fe6
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>Передача объектов в хранилище BLOB-объектов Azure и из него с помощью Ruby
 Из этого краткого руководства вы узнаете, как использовать Ruby для передачи, скачивания и перечисления блочных BLOB-объектов в контейнере в хранилище BLOB-объектов Azure. 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/12/2018
 * Установите [библиотеку службы хранилища Azure для Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) с помощью пакета rubygem. 
 
 ```
-gem install azure-storage
+gem install azure-storage-blob
 ```
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
@@ -45,10 +45,13 @@ git clone https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git
 Эта команда клонирует репозиторий в локальную папку git. Чтобы открыть пример приложения Ruby, найдите папку storage-blobs-ruby-quickstart и откройте файл example.rb.  
 
 ## <a name="configure-your-storage-connection-string"></a>Настройка строки подключения хранилища
-В приложении нужно указать имя и ключ учетной записи хранения, чтобы создать экземпляр `Client` для вашего приложения. Откройте файл `example.rb` с помощью обозревателя решений в IDE. Замените строки **accountname** и **accountkey** фактическими значениями имени и ключа учетной записи. 
+В приложении нужно указать имя и ключ учетной записи хранения, чтобы создать экземпляр `BlobService` для вашего приложения. Откройте файл `example.rb` с помощью обозревателя решений в IDE. Замените строки **accountname** и **accountkey** фактическими значениями имени и ключа учетной записи. 
 
 ```ruby 
-client = Azure::Storage.client(storage_account_name: account_name, storage_access_key: account_key)
+blob_client = Azure::Storage::Blob::BlobService.create(
+            storage_account_name: account_name,
+            storage_access_key: account_key
+          )
 ```
 
 ## <a name="run-the-sample"></a>Запуск примера
@@ -57,6 +60,8 @@ client = Azure::Storage.client(storage_account_name: account_name, storage_acces
 Запустите пример. Ниже представлен пример выходных данных, которые возвращаются при выполнении этого приложения.
   
 ```
+Creating a container: quickstartblobs7b278be3-a0dd-438b-b9cc-473401f0c0e8
+
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
 
 Uploading to Blob storage as blobQuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
@@ -79,8 +84,7 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 ### <a name="get-references-to-the-storage-objects"></a>Получение ссылок на объекты хранилища
 Сначала необходимо создать ссылки на объекты, используемые для доступа к хранилищу BLOB-объектов и управлению им. Эти объекты зависят друг от друга, и каждый из них используется следующим в списке объектом.
 
-* Создайте экземпляр объекта **Client** службы хранилища Azure, чтобы настроить учетные данные для подключения. 
-* Создайте объект **BlobService**, указывающий на службу BLOB-объектов в вашей учетной записи хранения. 
+* Создайте экземпляр объекта **BlobService** службы хранилища Azure, чтобы настроить учетные данные для подключения. 
 * Создайте объект **Container**, представляющий контейнер, к которому осуществляется доступ. Контейнеры используются для организации BLOB-объектов аналогично папкам для упорядочения файлов на компьютере.
 
 Теперь у вас есть облачный контейнер BLOB-объектов. Вы можете создать **блочный** BLOB-объект, который указывает на конкретный интересующий вас BLOB-объект, и выполнять с ним различные операции: отправку, скачивание или копирование.
@@ -91,18 +95,18 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 В этом разделе вы настроите экземпляр клиента службы хранилища Azure, создадите экземпляр объекта службы BLOB-объектов и контейнер, а затем зададите для контейнера разрешения на общий доступ к BLOB-объектам. Контейнер называется **quickstartblobs**. 
 
 ```ruby 
-# Setup a specific instance of an Azure::Storage::Client
-client = Azure::Storage.client(storage_account_name: account_name, storage_access_key: account_key)
-
-# Create the BlobService that represents the Blob service for the storage account
-blob_service = client.blob_client
+# Create a BlobService object
+blob_client = Azure::Storage::Blob::BlobService.create(
+    storage_account_name: account_name,
+    storage_access_key: account_key
+    )
 
 # Create a container called 'quickstartblobs'.
-container_name ='quickstartblobs'
-container = blob_service.create_container(container_name)   
+container_name ='quickstartblobs' + SecureRandom.uuid
+container = blob_client.create_container(container_name)   
 
 # Set the permission so the blobs are public.
-blob_service.set_container_acl(container_name, "container")
+blob_client.set_container_acl(container_name, "container")
 ```
 
 ### <a name="upload-blobs-to-the-container"></a>Отправка BLOB-объектов в контейнер
@@ -128,7 +132,7 @@ puts "Temp file = " + full_path_to_file
 puts "\nUploading to Blob storage as blob" + local_file_name
 
 # Upload the created file, using local_file_name for the blob name
-blob_service.create_block_blob(container.name, local_file_name, full_path_to_file)
+blob_client.create_block_blob(container.name, local_file_name, full_path_to_file)
 ```
 
 Чтобы выполнить частичное обновление содержимого блочного BLOB-объекта, используйте метод **create\_block\_list()**. Блочные BLOB-объекты могут иметь размер 4,7 ТБ и представлять собой любые объекты, начиная от электронных таблиц Excel до больших видеофайлов. Страничные BLOB-объекты в основном используются для файлов виртуального жесткого диска, применяемых для поддержки виртуальных машин IaaS. Добавочные BLOB-объекты используются для ведения журнала, например если требуется выполнить запись в файл и затем добавлять дополнительные сведения. Добавочные BLOB-объекты должны использоваться в модели с одним средством записи. Большинство объектов, находящихся в хранилище BLOB-объектов, представляют собой блочные BLOB-объекты.
@@ -139,11 +143,15 @@ blob_service.create_block_blob(container.name, local_file_name, full_path_to_fil
 
 ```ruby
 # List the blobs in the container
-puts "\n List blobs in the container"
-blobs = blob_service.list_blobs(container_name)
-blobs.each do |blob|
-    puts "\t Blob name #{blob.name}"   
-end  
+nextMarker = nil
+loop do
+    blobs = blob_client.list_blobs(container_name, { marker: nextMarker })
+    blobs.each do |blob|
+        puts "\tBlob name #{blob.name}"
+    end
+    nextMarker = blobs.continuation_token
+    break unless nextMarker && !nextMarker.empty?
+end
 ```
 
 ### <a name="download-the-blobs"></a>Скачивание больших двоичных объектов
@@ -156,7 +164,7 @@ end
 full_path_to_file2 = File.join(local_path, local_file_name.gsub('.txt', '_DOWNLOADED.txt'))
 
 puts "\n Downloading blob to " + full_path_to_file2
-blob, content = blob_service.get_blob(container_name,local_file_name)
+blob, content = blob_client.get_blob(container_name,local_file_name)
 File.open(full_path_to_file2,"wb") {|f| f.write(content)}
 ```
 
@@ -165,7 +173,7 @@ File.open(full_path_to_file2,"wb") {|f| f.write(content)}
 
 ```ruby
 # Clean up resources. This includes the container and the temp files
-blob_service.delete_container(container_name)
+blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
 File.delete(full_path_to_file2)    
 ```

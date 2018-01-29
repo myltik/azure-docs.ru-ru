@@ -17,11 +17,11 @@ ms.date: 12/13/2017
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: fef35e8c100bb6a9e96f16b81fe44e9ae9e504d0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Функции службы базы данных SQL Azure 
 
@@ -156,10 +156,10 @@ ms.lasthandoff: 12/14/2017
 - [StackExchange для администраторов баз данных:](https://dba.stackexchange.com/questions/tagged/sql-server) вопросы по администрированию баз данных
 - [Переполнение стека:](http://stackoverflow.com/questions/tagged/sql-server) вопросы по разработке
 - [Форумы MSDN:](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver) технические вопросы
-- [Microsoft Connect:](https://connect.microsoft.com/SQLServer/Feedback) информирование об ошибках и подача заявок на функции
+- [Отзывы:](http://aka.ms/sqlfeedback) информирование об ошибках и подача запросов
 - [Reddit:](https://www.reddit.com/r/SQLServer/) обсуждение SQL Server
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Сравнение цен и калькуляторы для отдельных баз данных и пулов эластичных баз данных см. на [странице расценок](https://azure.microsoft.com/pricing/details/sql-database/).
 

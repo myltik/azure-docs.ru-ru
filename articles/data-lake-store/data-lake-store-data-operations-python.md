@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ffb691b5c04457e5781934b18304fac7b3c43cbb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 19e41cb0bb22bf27db4581954f1f6e68b8a941c2
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>Операции файловой системы в Azure Data Lake Store с использованием REST API
+# <a name="filesystem-operations-on-azure-data-lake-store-using-python"></a>Операции файловой системы в Azure Data Lake Store с использованием Python
 > [!div class="op_single_selector"]
 > * [ПАКЕТ SDK .NET](data-lake-store-data-operations-net-sdk.md)
 > * [Пакет SDK для Java](data-lake-store-get-started-java-sdk.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 В этой статье содержатся сведения об использовании пакета SDK для Python для выполнения операций файловой системы в Azure Data Lake Store. Дополнительные сведения о том, как выполнять операции управления учетными записями в Data Lake Store с помощью Python, см. в статье [Начало работы с Azure Data Lake Store с помощью Python](data-lake-store-get-started-python.md).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Python**. Скачать Python можно [здесь](https://www.python.org/downloads/). В этой статье используется версия Python 3.6.2.
 
