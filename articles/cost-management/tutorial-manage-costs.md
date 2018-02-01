@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>Управление затратами с помощью службы "Управление затратами Azure"
 
@@ -112,9 +112,9 @@ ms.lasthandoff: 11/23/2017
 Если необходимо предоставить данные моментального снимка другим командам, вы можете экспортировать любой отчет в формате CSV или PDF.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * использование пользовательских тегов для распределения затрат;

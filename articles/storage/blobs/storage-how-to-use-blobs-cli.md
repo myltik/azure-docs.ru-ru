@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d47d85af7412def342437aedf35c3d129662451d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Выполнение операций в хранилище BLOB-объектов с помощью Azure CLI
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/11/2018
 
 Контейнеры аналогичны каталогам на компьютере. Они позволяют структурировать группы больших двоичных объектов в контейнере подобно упорядочиванию файлов в каталоге. Учетная запись хранения может содержать любое количество контейнеров. Вы можете хранить в контейнере до 500 ТБ данных больших двоичных объектов. Это максимальный объем данных в учетной записи хранения.
 
-Создайте контейнер для хранения больших двоичных объектов с помощью команды [az storage container create](/cli/azure/storage/container#create).
+Создайте контейнер для хранения больших двоичных объектов с помощью команды [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -64,7 +64,7 @@ az storage container create --name mystoragecontainer
 
 Если задать общий доступ к `blob` или `container`, вы предоставите доступ только на чтение любому пользователю в Интернете. Например, если вы хотите отобразить изображения, хранимые в виде больших двоичных объектов на веб-сайте, необходимо включить общий доступ на чтение. Если вы хотите разрешить доступ на чтение и запись, необходимо использовать [подписанный URL-адрес (SAS)](#create-a-shared-access-signature-sas).
 
-Активируйте общий доступ на чтение для контейнера с помощью команды [az storage container set-permission](/cli/azure/storage/container#create).
+Активируйте общий доступ на чтение для контейнера с помощью команды [az storage container set-permission](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container set-permission \
@@ -76,7 +76,7 @@ az storage container set-permission \
 
 Хранилище BLOB-объектов поддерживает блочные, добавочные и страничные BLOB-объекты. Блочные BLOB-объекты — это наиболее распространенный тип больших двоичных объектов в службе хранилища Azure. Добавочные BLOB-объекты используются, когда данные необходимо добавить в имеющийся большой двоичный объект без изменения его текущего содержимого, например для ведения журнала. Страничные BLOB-объекты содержат файлы VHD виртуальных машин IaaS.
 
-В этом примере мы отправим большой двоичный объект в контейнер, созданный на последнем шаге, с помощью команды [az storage blob upload](/cli/azure/storage/blob#upload).
+В этом примере мы отправим большой двоичный объект в контейнер, созданный на последнем шаге, с помощью команды [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -89,7 +89,7 @@ az storage blob upload \
 
 ## <a name="list-the-blobs-in-a-container"></a>Перечисление BLOB-объектов в контейнере
 
-Выведите список больших двоичных объектов в контейнере, выполнив команду [az storage blob list](/cli/azure/storage/blob#list).
+Выведите список больших двоичных объектов в контейнере, выполнив команду [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
 
 ```azurecli-interactive
 az storage blob list \
@@ -111,7 +111,7 @@ dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:3
 
 ## <a name="download-a-blob"></a>Загрузка BLOB-объектов
 
-Загрузите большой двоичный объект, который вы отправили на предыдущем шаге, выполнив команду [az storage blob download](/cli/azure/storage/blob#download).
+Загрузите большой двоичный объект, который вы отправили на предыдущем шаге, выполнив команду [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download).
 
 ```azurecli-interactive
 az storage blob download \
@@ -155,7 +155,7 @@ az storage blob copy start \
 
 ## <a name="delete-a-blob"></a>Удаление большого двоичного объекта
 
-Удалите большой двоичный объект из контейнера с помощью команды [az storage blob delete](/cli/azure/storage/blob#delete).
+Удалите большой двоичный объект из контейнера с помощью команды [az storage blob delete](/cli/azure/storage/blob#az_storage_blob_delete).
 
 ```azurecli-interactive
 az storage blob delete \
@@ -177,9 +177,9 @@ az storage blob update
 
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>отображение и изменение свойств большого двоичного объекта и метаданных;
 
-Каждый большой двоичный объект имеет несколько определяемых службой свойств (в том числе имя, тип, длину и другие свойства), которые можно отобразить с помощью команды [az storage blob show](/cli/azure/storage/blob#show). Вы можете также настроить большой двоичный объект, задав для него свойства и их значения по своему усмотрению. Для этого используйте команду [az storage blob metadata update](/cli/azure/storage/blob/metadata#update).
+Каждый большой двоичный объект имеет несколько определяемых службой свойств (в том числе имя, тип, длину и другие свойства), которые можно отобразить с помощью команды [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show). Вы можете также настроить большой двоичный объект, задав для него свойства и их значения по своему усмотрению. Для этого используйте команду [az storage blob metadata update](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_update).
 
-В этом примере мы сначала отобразим определяемые службой свойства большого двоичного объекта, а затем обновим его, добавив несколько свойств метаданных по своему усмотрению. В итоге с помощью команды [az storage blob metadata show](/cli/azure/storage/blob/metadata#show) мы получим свойства метаданных большого двоичного объекта и их значения.
+В этом примере мы сначала отобразим определяемые службой свойства большого двоичного объекта, а затем обновим его, добавив несколько свойств метаданных по своему усмотрению. В итоге с помощью команды [az storage blob metadata show](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_show) мы получим свойства метаданных большого двоичного объекта и их значения.
 
 ```azurecli-interactive
 # Show properties of a blob
@@ -218,7 +218,7 @@ az storage container set-permission \
 
 ### <a name="verify-private-access"></a>Проверка закрытого доступа
 
-Чтобы проверить, что к контейнеру отсутствует общий доступ на чтение больших двоичных объектов, необходимо получить URL-адрес одного из больших двоичных объектов. Для этого используйте команду [az storage blob url](/cli/azure/storage/blob#url).
+Чтобы проверить, что к контейнеру отсутствует общий доступ на чтение больших двоичных объектов, необходимо получить URL-адрес одного из больших двоичных объектов. Для этого используйте команду [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url).
 
 ```azurecli-interactive
 az storage blob url \
@@ -231,7 +231,7 @@ az storage blob url \
 
 ### <a name="create-a-sas-uri"></a>Создание универсального кода ресурса SAS
 
-Теперь мы создадим универсальный код ресурса SAS для получения доступа к большому двоичному объекту. В примере ниже для одной переменной мы используем URL-адрес большого двоичного объекта, который получим с помощью команды [az storage blob url](/cli/azure/storage/blob#url), а для другой переменной — маркер SAS, который получим с помощью команды [az storage blob generate-sas](/cli/azure/storage/blob#generate-sas). В итоге, объединив эти два значения, отделенных с помощью разделителя строки запроса `?`, мы получим полный универсальный код ресурса маркера SAS для большого двоичного объекта.
+Теперь мы создадим универсальный код ресурса SAS для получения доступа к большому двоичному объекту. В примере ниже для одной переменной мы используем URL-адрес большого двоичного объекта, который получим с помощью команды [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url), а для другой переменной — маркер SAS, который получим с помощью команды [az storage blob generate-sas](/cli/azure/storage/blob#az_storage_blob_generate_sas). В итоге, объединив эти два значения, отделенных с помощью разделителя строки запроса `?`, мы получим полный универсальный код ресурса маркера SAS для большого двоичного объекта.
 
 ```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
@@ -266,7 +266,7 @@ echo $blob_url?$sas_token
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Если вам больше не нужны какие-либо ресурсы в группе ресурсов, включая созданную учетную запись хранения и большие двоичные объекты, загруженные в рамках примеров в этой статье, удалите группу ресурсов с помощью команды [az group delete](/cli/azure/group#delete).
+Если вам больше не нужны какие-либо ресурсы в группе ресурсов, включая созданную учетную запись хранения и большие двоичные объекты, загруженные в рамках примеров в этой статье, удалите группу ресурсов с помощью команды [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

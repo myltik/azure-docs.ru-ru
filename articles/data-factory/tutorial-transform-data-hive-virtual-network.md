@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: 30456a30c12d39ceb14dec6cd60015916cb7ae27
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 04323e5f6b729cdadf5ede748a1178dfa9460cd2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Преобразование данных в виртуальной сети Azure с помощью действия Hive в фабрике данных Azure
 В этом руководстве с помощью Azure PowerShell вы создадите конвейер фабрики данных, который преобразует данные, используя действие Hive в кластере HDInsight, находящемся в виртуальной сети Azure (VNet). В этом руководстве вы выполните следующие шаги:
 
 > [!div class="checklist"]
-> * Создадите фабрику данных. 
+> * создадите фабрику данных; 
 > * Создали и настроили среду выполнения интеграции с самостоятельным размещением.
 > * Создали и развернули эти связанные службы.
 > * Создали и развернули конвейер, который содержит действие Hive.
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 - **Учетная запись хранения Azure.** Создайте скрипт Hive и отправьте его в хранилище Azure. Выходные данные скрипта Hive хранятся в этой учетной записи хранения. В этом примере кластер HDInsight использует эту учетную запись хранения Azure в качестве основного хранилища. 
-- **Виртуальная сеть Azure.** Если у вас нет виртуальной сети Azure, создайте ее, выполнив [эти инструкции](../virtual-network/virtual-network-get-started-vnet-subnet.md). В этом примере HDInsight находится в виртуальной сети Azure. Ниже приведен образец конфигурации виртуальной сети Azure. 
+- **Виртуальная сеть Azure.** Если у вас нет виртуальной сети Azure, создайте ее, выполнив [эти инструкции](../virtual-network/quick-create-portal.md). В этом примере HDInsight находится в виртуальной сети Azure. Ниже приведен образец конфигурации виртуальной сети Azure. 
 
     ![Создание виртуальной сети](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
 - **Кластер HDInsight.** Создайте кластер HDInsight и присоедините его к виртуальной сети, созданной на предыдущем шаге, следуя указаниям в статье [Расширение возможностей HDInsight с помощью виртуальной сети Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Ниже приведен образец конфигурации HDInsight в виртуальной сети. 
@@ -70,7 +70,7 @@ ms.lasthandoff: 01/23/2018
 
  
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных
+## <a name="create-a-data-factory"></a>Создать фабрику данных
 
 
 1. Укажите имя группы ресурсов. В этом руководстве вы создадите группу ресурсов. Но при необходимости можно использовать существующую группу ресурсов. 
@@ -150,7 +150,7 @@ ms.lasthandoff: 01/23/2018
    }
    ```
     Запишите значение **AuthKey1** без кавычек. 
-3. Создайте виртуальную машину Azure и присоедините ее к той же виртуальной сети, которая содержит кластер HDInsight. Дополнительные сведения см. в разделе [Создание виртуальных машин](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms). Присоедините их к виртуальной сети Azure. 
+3. Создайте виртуальную машину Azure и присоедините ее к той же виртуальной сети, которая содержит кластер HDInsight. Дополнительные сведения см. в разделе [Создание виртуальных машин](../virtual-network/quick-create-portal.md#create-virtual-machines). Присоедините их к виртуальной сети Azure. 
 4. На виртуальной машине Azure скачайте [локальную среду выполнения интеграции](https://www.microsoft.com/download/details.aspx?id=39717). Используйте ключ проверки подлинности, полученный на предыдущем шаге, чтобы вручную зарегистрировать локальную среду выполнения интеграции. 
 
    ![Регистрация среды выполнения интеграции](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)
@@ -398,7 +398,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
 В этом руководстве вы выполнили следующие шаги: 
 
 > [!div class="checklist"]
-> * Создадите фабрику данных. 
+> * создадите фабрику данных; 
 > * Создали и настроили среду выполнения интеграции с самостоятельным размещением.
 > * Создали и развернули эти связанные службы.
 > * Создали и развернули конвейер, который содержит действие Hive.

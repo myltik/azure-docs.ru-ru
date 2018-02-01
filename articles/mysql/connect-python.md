@@ -6,23 +6,23 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 40108e0c60a60da412ab521d467a07b8f0540140
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0daf8b48f9cc767b0e6cf5339eff2e4e371c23fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>База данных Azure для MySQL: подключение и запрос данных с помощью Python
 Это краткое руководство демонстрирует, как использовать [Python](https://python.org) для подключения к базе данных Azure для MySQL. Здесь используются инструкции SQL для запроса, вставки, обновления и удаления данных в базе данных из платформ Windows, Mac OS и Ubuntu Linux. В этой статье предполагается, что у вас уже есть опыт разработки на языке Python и вы только начали работу с базой данных Azure для MySQL.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 В качестве отправной точки в этом кратком руководстве используются ресурсы, созданные в соответствии со следующими материалами:
-- [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Создание сервера базы данных Azure для MySQL с помощью портала Azure)
+- [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Создание базы данных Azure для сервера MySQL с помощью портала Azure)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Создание сервера базы данных Azure для MySQL с помощью Azure CLI)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Установка Python и соединителя MySQL
@@ -265,6 +265,6 @@ else:
   print("Done.")
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 > [!div class="nextstepaction"]
 > [Перенос базы данных с помощью экспорта и импорта](./concepts-migrate-import-export.md)

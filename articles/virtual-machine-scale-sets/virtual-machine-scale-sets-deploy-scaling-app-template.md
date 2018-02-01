@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 614c7c82aabab212753529a21d7a770b7a02027e
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 201b752c2a79362f2e049d2e0f0b953d77aaedfe
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Создание масштабируемого набора виртуальных машин с помощью Azure CLI 2.0
 Масштабируемый набор виртуальных машин обеспечивает развертывание и администрирование набора идентичных автомасштабируемых виртуальных машин. Вы можете вручную изменить число виртуальных машин в масштабируемом наборе или определить правила для автоматического масштабирования на основе использования ЦП, объема памяти или сетевого трафика. В этом руководстве по началу работы описано, как создадать масштабируемый набор виртуальных машин с помощью шаблона Azure Resource Manager. Вы также можете создать масштабируемый набор с помощью [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) или [портала Azure](virtual-machine-scale-sets-create-portal.md).
@@ -32,14 +32,14 @@ ms.lasthandoff: 12/21/2017
 
 
 ## <a name="define-a-scale-set"></a>Определение масштабируемого набора
-Шаблон определяет конфигурацию для каждого типа ресурсов. Тип ресурса масштабируемого набора виртуальных машин такой же, как и у отдельной виртуальной машины. Ниже перечислены основные элементы и типы ресурсов для масштабируемого набора виртуальных машин.
+Шаблон определяет конфигурацию для каждого типа ресурсов. Тип ресурса для масштабируемого набора виртуальных машин тот же, что и для отдельной виртуальной машины. Ниже перечислены основные элементы и типы ресурсов для масштабируемого набора виртуальных машин.
 
 | Свойство                     | Описание свойства                                  | Пример значения в шаблоне                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | Тип                         | Создаваемый тип ресурса Azure                            | Microsoft.Compute/virtualMachineScaleSets; |
 | name                         | Имя масштабируемого набора                                       | myScaleSet                                |
 | location                     | Расположение для создания масштабируемого набора                     | Восток США                                   |
-| sku.name                     | Размер виртуальной машины для каждого экземпляра масштабируемого набора                  | Standard_A1                               |
+| sku.name                     | Размер виртуальной машины для каждого экземпляра в масштабируемом наборе                  | Standard_A1                               |
 | sku.capacity                 | Количество экземпляров виртуальных машин, которое требуется изначально создать           | 2                                         |
 | upgradePolicy.mode           | Режим обновления экземпляра виртуальной машины при внесении изменений              | Автоматический                                 |
 | imageReference               | Платформа или пользовательский образ, используемые для экземпляров виртуальных машин | Сервер Canonical Ubuntu 16.04-LTS         |
@@ -175,7 +175,7 @@ az group deployment create \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
 
-Чтобы просмотреть, как работает приложение, получите общедоступный IP-адрес подсистемы балансировки нагрузки с помощью команды [az network public-ip list](/cli/azure/network/public-ip#show):
+Чтобы просмотреть, как работает приложение, получите общедоступный IP-адрес подсистемы балансировки нагрузки с помощью команды [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show):
 
 ```azurecli-interactive
 az network public-ip list \
@@ -213,7 +213,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
-Вы можете удалить ненужную группу ресурсов, масштабируемый набор и все связанные ресурсы с помощью команды [az group delete](/cli/azure/group#delete), как показано ниже.
+Вы можете удалить ненужную группу ресурсов, масштабируемый набор и все связанные ресурсы с помощью команды [az group delete](/cli/azure/group#az_group_delete), как показано ниже.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

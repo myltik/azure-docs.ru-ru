@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Сравнение фабрики данных Azure версий 1 и 2
 В этой статье сравниваются версии 1 и 2 фабрики данных Azure. Дополнительные сведения о фабрике данных Azure версии 1 см. в статье [Введение в фабрику данных Azure](v1/data-factory-introduction.md). Дополнительные сведения о фабрике данных Azure версии 2 см. в [этой статье](introduction.md).
@@ -86,7 +86,7 @@ ms.lasthandoff: 01/25/2018
 
 Среда выполнения интеграции Azure SSIS — это полностью управляемый кластер виртуальных машин (узлов) Azure, выделенных для выполнения пакетов служб SSIS в облаке. Подготовив среду выполнения интеграции Azure SSIS, вы сможете использовать те же средства, с которыми вы работали при развертывании пакетов служб SSIS для служб SSIS в локальной среде. 
 
-Например, вы можете использовать SQL Server Data Tools ​​или SQL Server Management Studio для развертывания пакетов служб SSIS в этой среде выполнения в Azure. Пошаговые инструкции см. в руководстве [Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure](tutorial-deploy-ssis-packages-azure.md). 
+Например, вы можете использовать SQL Server Data Tools ​​или SQL Server Management Studio для развертывания пакетов служб SSIS в этой среде выполнения в Azure. Пошаговые инструкции см. в руководстве [Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="flexible-scheduling"></a>Гибкое планирование
 В фабрике данных версии 2 вам не нужно определять расписание обеспечения доступности для наборов данных. Вы можете определить ресурс триггера, который будет планировать работу конвейеров, используя парадигму планировщика часов. Вы также можете передавать параметры в конвейеры из триггера для использования гибкой модели планирования и выполнения. 

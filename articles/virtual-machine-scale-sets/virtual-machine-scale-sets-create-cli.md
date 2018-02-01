@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 222bfa1c3070fa4634cf5c48d934a6387c48a4b0
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 8794ea7d998293e7ea88ba780f67ef8a021f2298
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Создание масштабируемого набора виртуальных машин с помощью Azure CLI 2.0
 Масштабируемый набор виртуальных машин обеспечивает развертывание и администрирование набора идентичных автомасштабируемых виртуальных машин. Вы можете вручную изменить число виртуальных машин в масштабируемом наборе или определить правила для автоматического масштабирования на основе использования ЦП, объема памяти или сетевого трафика. В этой статье по началу работы вы создадите масштабируемый набор виртуальных машин с помощью Azure CLI 2.0. Вы также можете создать масштабируемый набор с помощью [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) или [портала Azure](virtual-machine-scale-sets-create-portal.md).
@@ -32,13 +32,13 @@ ms.lasthandoff: 12/21/2017
 
 
 ## <a name="create-a-scale-set"></a>Создание масштабируемого набора
-Прежде чем создать масштабируемый набор, выполните команду [az group create](/cli/azure/group#create) для создания группы ресурсов. В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
+Прежде чем создать масштабируемый набор, выполните команду [az group create](/cli/azure/group#az_group_create) для создания группы ресурсов. В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Создайте масштабируемый набор виртуальных машин с помощью команды [az vmss create](/cli/azure/vmss#create). В следующем примере создаются масштабируемый набор *myScaleSet* и ключи SSH, если они еще не созданы.
+Создайте масштабируемый набор виртуальных машин с помощью команды [az vmss create](/cli/azure/vmss#az_vmss_create). В следующем примере создаются масштабируемый набор *myScaleSet* и ключи SSH, если они еще не созданы.
 
 ```azurecli-interactive 
 az vmss create \
@@ -70,7 +70,7 @@ az vmss extension set \
 
 
 ## <a name="allow-web-traffic"></a>Разрешение веб-трафика
-Чтобы разрешить передачу трафика в веб-сервер, создайте правило подсистемы балансировки нагрузки с помощью команды [az network lb rule create](/cli/azure/network/lb/rule#create). В следующем примере создается правило *myLoadBalancerRuleWeb*.
+Чтобы разрешить передачу трафика в веб-сервер, создайте правило подсистемы балансировки нагрузки с помощью команды [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). В следующем примере создается правило *myLoadBalancerRuleWeb*.
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -86,7 +86,7 @@ az network lb rule create \
 
 
 ## <a name="test-your-web-server"></a>Тестирование веб-сервера
-Чтобы посмотреть, как работает веб-сервер, получите общедоступный IP-адрес подсистемы балансировки нагрузки с помощью команды [az network public-ip show](/cli/azure/network/public-ip#show). Следующий пример получает IP-адрес для *myScaleSetLBPublicIP*, созданного ранее вместе с масштабируемым набором.
+Чтобы посмотреть, как работает веб-сервер, получите общедоступный IP-адрес подсистемы балансировки нагрузки с помощью команды [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Следующий пример получает IP-адрес для *myScaleSetLBPublicIP*, созданного ранее вместе с масштабируемым набором.
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -102,7 +102,7 @@ az network public-ip show \
 
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
-Вы можете удалить ненужную группу ресурсов, масштабируемый набор и все связанные ресурсы с помощью команды [az group delete](/cli/azure/group#delete), как показано ниже.
+Вы можете удалить ненужную группу ресурсов, масштабируемый набор и все связанные ресурсы с помощью команды [az group delete](/cli/azure/group#az_group_delete), как показано ниже.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c9c8ad6dfd6df0e99f9e41eaf1da12ebeb2a2da6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 9d5486b3ac7ca0ef0f5824660ee8278de3f6fe80
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Развертывание реестра контейнеров Azure и его использование
 
@@ -38,13 +38,13 @@ ms.lasthandoff: 12/08/2017
 
 При развертывании реестра контейнеров Azure сначала необходимо создать группу ресурсов. Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими.
 
-Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В этом примере создается группа ресурсов `myResourceGroup` в регионе `westeurope`.
+Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create). В этом примере создается группа ресурсов `myResourceGroup` в регионе `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Создайте реестр контейнеров Azure с помощью команды[az acr create](/cli/azure/acr#create). Имя контейнера реестра **должно быть уникальным**.
+Создайте реестр контейнеров Azure с помощью команды[az acr create](/cli/azure/acr#az_acr_create). Имя контейнера реестра **должно быть уникальным**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -123,7 +123,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v1
 
 ## <a name="list-images-in-registry"></a>Перечисление образов в реестре
 
-Чтобы получить список образов, отправленных в реестр контейнеров Azure, выполните команду [az acr repository list](/cli/azure/acr/repository#list). Укажите в команде имя нужного экземпляра ACR.
+Чтобы получить список образов, отправленных в реестр контейнеров Azure, выполните команду [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Укажите в команде имя нужного экземпляра ACR.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -153,7 +153,7 @@ redis-v1
 
 По завершении работы с этим руководством образ контейнера будет сохранен в частном экземпляре реестра контейнеров Azure. В следующих частях руководства мы развернем этот образ из ACR в кластер Kubernetes.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы подготовили реестр контейнеров Azure для использования в кластере Kubernetes ACS. Были выполнены следующие действия:
 

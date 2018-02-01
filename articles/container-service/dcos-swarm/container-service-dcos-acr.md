@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4a3213c28f24e9d1dfc309c6d34771ccc062dae4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 90d449de19022b3b427e3d89d5beb18bbd36c6b4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Использование ACR в кластере DC/OS для развертывания приложения
 
@@ -27,13 +27,13 @@ ms.lasthandoff: 12/06/2017
 
 Для выполнения действий, описанных в этом руководстве, потребуется кластер ACS DC/OS. При необходимости его можно создать с помощью следующего [примера сценария](./../kubernetes/scripts/container-service-cli-deploy-dcos.md).
 
-Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-azure-container-registry"></a>Развертывание реестра контейнеров Azure
 
-При необходимости создайте реестр контейнеров Azure с помощью команды [az acr create](/cli/azure/acr#create). 
+При необходимости создайте реестр контейнеров Azure с помощью команды [az acr create](/cli/azure/acr#az_acr_create). 
 
 В следующем примере создается реестр со случайно созданным именем. При этом он настраивается с учетной записью администратора с помощью аргумента `--admin-enabled`.
 
@@ -190,7 +190,7 @@ docker push mycontainerregistry30678.azurecr.io/dcos-demo
 dcos marathon app add acrDemo.json
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы настроили кластер DC/OS для использования с реестром контейнеров Azure, в частности выполнили следующие задачи:
 

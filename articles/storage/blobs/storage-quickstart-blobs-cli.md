@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: 7313df35baadf7aa6d476f44b113dc60e6845f4b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1bb55c75c9929d995fc3ac0795fd1777d7fe4c5f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Отправка объектов в хранилище BLOB-объектов Azure и обратно с помощью Azure CLI
 
@@ -37,7 +37,7 @@ Azure CLI используется для создания ресурсов Azur
 
 Большие двоичные объекты всегда отправляются в контейнер. Вы можете упорядочивать группы больших двоичных объектов аналогично организации файлов в папках на компьютере.
 
-Создайте контейнер для хранения больших двоичных объектов с помощью команды [az storage container create](/cli/azure/storage/container#create).
+Создайте контейнер для хранения больших двоичных объектов с помощью команды [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -50,7 +50,7 @@ az storage container create --name mystoragecontainer
 Сначала создайте файл для передачи большого двоичного объекта.
 Если вы используете Azure Cloud Shell, создайте файл, выполнив следующие инструкции: введите `vi helloworld` при открытии файла, нажмите клавишу **INSERT**, введите "Hello world", а затем нажмите клавишу **ESC**, введите `:x` и нажмите клавишу **ВВОД**.
 
-В этом примере большой двоичный объект отправляется в контейнер, созданный на последнем шаге, с помощью команды [az storage blob upload](/cli/azure/storage/blob#upload).
+В этом примере большой двоичный объект отправляется в контейнер, созданный на последнем шаге, с помощью команды [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -70,11 +70,11 @@ az storage blob upload \
 
 С помощью этой операции создается большой двоичный объект, если он не был создан ранее, или же, если он имеется, происходит его замещение. Прежде чем продолжить, отправьте нужное количество файлов.
 
-Чтобы одновременно отправить несколько файлов, используйте команду [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch).
+Чтобы одновременно отправить несколько файлов, используйте команду [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch).
 
 ## <a name="list-the-blobs-in-a-container"></a>Перечисление BLOB-объектов в контейнере
 
-Выведите список больших двоичных объектов в контейнере, выполнив команду [az storage blob list](/cli/azure/storage/blob#list).
+Выведите список больших двоичных объектов в контейнере, выполнив команду [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
 
 ```azurecli-interactive
 az storage blob list \
@@ -84,7 +84,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Загрузка BLOB-объектов
 
-Выполните команду [az storage blob download](/cli/azure/storage/blob#download), чтобы скачать отправленный ранее большой двоичный объект.
+Выполните команду [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download), чтобы скачать отправленный ранее большой двоичный объект.
 
 ```azurecli-interactive
 az storage blob download \
@@ -109,7 +109,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Если вам больше не нужны какие-либо ресурсы в группе ресурсов, включая учетную запись хранения, созданную в рамках этого краткого руководства, удалите группу ресурсов с помощью команды [az group delete](/cli/azure/group#delete).
+Если вам больше не нужны какие-либо ресурсы в группе ресурсов, включая учетную запись хранения, созданную в рамках этого краткого руководства, удалите группу ресурсов с помощью команды [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

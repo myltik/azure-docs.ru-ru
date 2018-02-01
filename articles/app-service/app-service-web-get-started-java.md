@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d44fff1e59198d662356c4d7739c05e538ba57b9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: de72b97051daef675ceae7c7af08fb04e21cf849
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Создание первого веб-приложения Java в Azure
 
@@ -29,14 +29,14 @@ ms.lasthandoff: 11/22/2017
 
 !["Hello Azure!" Пример веб-приложения](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## <a name="prerequisites"></a>Предварительные требования
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим кратким руководством установите:
 
 * Бесплатную <a href="http://www.eclipse.org/downloads/" target="_blank">интегрированную среду разработки Eclipse для разработчиков Java EE</a>. В этом кратком руководстве используется Eclipse Neon.
 * <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Набор средств Azure для Eclipse</a>.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Создание динамических веб-проектов в Eclipse
 
@@ -197,7 +197,7 @@ Select the **JDK** tab. Keep the default, and then select **Create**.
 
 [!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Сопоставление пользовательского домена](app-service-web-tutorial-custom-domain.md)

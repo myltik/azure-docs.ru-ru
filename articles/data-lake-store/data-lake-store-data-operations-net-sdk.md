@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: a5d446986f810993d65c7e73eb95eeb2283c39a3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2b4c6128d9b50f200a40c8d96faede1e80fbee9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Операции файловой системы в Azure Data Lake Store с использованием SDK для .NET
 > [!div class="op_single_selector"]
@@ -32,10 +32,10 @@ ms.lasthandoff: 12/18/2017
 
 Дополнительные сведения о том, как выполнять операции управления учетными записями в Data Lake Store с помощью Python, см. в статье [Начало работы с Azure Data Lake Store с помощью пакета SDK .NET](data-lake-store-get-started-net-sdk.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * **Visual Studio 2013, 2015 или 2017**. В инструкциях ниже используется Visual Studio 2017.
 
-* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Учетная запись хранилища озера данных Azure**. Инструкции по созданию учетной записи см. в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/18/2017
    | --- | --- |
    | Категория |Templates/Visual C#/Windows |
    | Шаблон |Консольное приложение |
-   | Имя |CreateADLApplication |
+   | ИМЯ |CreateADLApplication |
 
 4. Нажмите кнопку **ОК** , чтобы создать проект.
 
@@ -85,13 +85,13 @@ ms.lasthandoff: 12/18/2017
         {
             class Program
             {
-                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; //Replace this value with the name of your existing Data Lake Store account.        
+                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net";        
             }
         }
 
 В остальных разделах статьи рассматривается использование доступных методов .NET при выполнении таких операций, как проверка подлинности, отправка файла и т. д.
 
-## <a name="authentication"></a>Аутентификация
+## <a name="authentication"></a>Authentication
 
 * Дополнительные сведения о проверке подлинности пользователей в приложении см. в статье [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md) (Аутентификация пользователей в Data Lake Store с использованием пакета SDK для .NET).
 * Дополнительные сведения о проверке подлинности между службами в приложении см. в статье [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md) (Аутентификация между службами в Data Lake Store с использованием пакета SDK для .NET).
@@ -179,5 +179,5 @@ ms.lasthandoff: 12/18/2017
 * [Начало работы с Azure Data Lake Store с помощью пакета SDK для .NET](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Store .NET Reference (Справочник по пакету SDK .NET для Data Lake Store)](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)

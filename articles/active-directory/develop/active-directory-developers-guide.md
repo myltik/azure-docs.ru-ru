@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 89a232af6387f6403e6e341cced16d06e9979dae
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: e1f9fbf6cb80065ea796e2d53d09f48fe57b207b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory для разработчиков
 Azure Active Directory (Azure AD) — это облачная служба идентификации, с помощью которой разработчики обеспечивают безопасный вход пользователей с рабочей или учебной учетной записью Майкрософт. В этом документе показано, как с помощью стандартных отраслевых протоколов OAuth 2.0 и OpenID Connect добавить поддержку Azure AD в ваше приложение.
@@ -64,4 +64,4 @@ Azure Active Directory (Azure AD) — это облачная служба ид�
 > Если вам нужно войти в личные учетные записи Майкрософт, рекомендуем использовать [конечную точку Azure AD версии 2.0](active-directory-appmodel-v2-overview.md). Конечная точка Azure AD версии 2.0 — это объединение личных учетных записей Майкрософт и рабочих учетных записей Майкрософт (от Azure AD) в единую систему аутентификации.
 
 
-[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 926b78bbe1ec8efaf6529a084af47747325f6096
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-storage-account"></a>Создайте учетную запись хранения.
 
@@ -120,7 +120,7 @@ $location = "westus"
 
 # <a name="azure-clitabazure-cli"></a>[интерфейс командной строки Azure](#tab/azure-cli)
 
-Чтобы создать группу ресурсов с помощью Azure CLI, используйте команду [az group create](/cli/azure/group#create). 
+Чтобы создать группу ресурсов с помощью Azure CLI, используйте команду [az group create](/cli/azure/group#az_group_create). 
 
 ```azurecli-interactive
 az group create \
@@ -128,7 +128,7 @@ az group create \
     --location westus
 ```
 
-Если вы не уверены, какой регион необходимо задать для параметра `--location`, вы можете получить список поддерживаемых регионов для своей подписки, выполнив команду [az account list-locations](/cli/azure/account#list).
+Если вы не уверены, какой регион необходимо задать для параметра `--location`, вы можете получить список поддерживаемых регионов для своей подписки, выполнив команду [az account list-locations](/cli/azure/account#az_account_list).
 
 ```azurecli-interactive
 az account list-locations \
@@ -196,7 +196,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 # <a name="azure-clitabazure-cli"></a>[интерфейс командной строки Azure](#tab/azure-cli)
 
-Чтобы создать учетную запись хранения общего назначения версии 2 с локально избыточным хранилищем с помощью Azure CLI, примените команду [az storage account create](/cli/azure/storage/account#create).
+Чтобы создать учетную запись хранения общего назначения версии 2 с локально избыточным хранилищем с помощью Azure CLI, примените команду [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
@@ -222,7 +222,7 @@ az storage account create \
 > Предварительная версия [хранилища, избыточного в пределах зоны](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/), доступна только в следующих расположениях:
 >    - Восточная часть США 2
 >    - Центральная часть США
->    - Центральная Франция (В настоящее время в этом регионе доступна предварительная версия. Для запроса доступа см. [Microsoft Azure preview with Azure Availability Zones now open in France ](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) (Предварительные версии Microsoft Azure и зоны доступности Azure во Франции).)
+>    - Центральная Франция (Сейчас в этом регионе доступна предварительная версия. Для запроса доступа см. [Microsoft Azure preview with Azure Availability Zones now open in France ](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) (Предварительные версии Microsoft Azure и зоны доступности Azure во Франции).)
     
 Дополнительные сведения о доступных типах репликации см. статье [Azure Storage replication](storage-redundancy.md) (Репликация службы хранилища Azure).
 
@@ -248,7 +248,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 # <a name="azure-clitabazure-cli"></a>[интерфейс командной строки Azure](#tab/azure-cli)
 
-Чтобы удалить группу ресурсов и связанные с ней ресурсы, включая новую учетную запись хранения, используйте команду [az group delete](/cli/azure/group#delete).
+Чтобы удалить группу ресурсов и связанные с ней ресурсы, включая новую учетную запись хранения, используйте команду [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2018
+ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f4b3c766ee46233cd4ec2d195e39d0b68516952f
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 467abe321fba166f1b862ae9f254c4943ba9e488
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Создание и развертывание приложения с интерфейсной службой веб-API ASP.NET Core и серверной службой с отслеживанием состояния
 Это руководство представляет первую часть цикла.  Здесь описывается, как создать приложение Azure Service Fabric с интерфейсной службой веб-API ASP.NET Core и серверной службой с отслеживанием состояния для хранения данных. После завершения этого руководства вы получите приложение для голосования с клиентской частью в виде веб-приложения ASP.NET Core, которое сохраняет результаты голосования во внутренней службе с отслеживанием состояния в кластере. Если вы не хотите вручную создавать приложение для голосования, вы можете [скачать исходный код](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) для завершенного приложения и сразу перейти к [описанию примера приложения для голосования](#walkthrough_anchor).
@@ -376,11 +376,6 @@ Service Fabric позволяет согласованно и надежно х�
 В проекте **VotingData** щелкните правой кнопкой мыши папку **Контроллеры**, а затем выберите **Добавить -> Новый элемент -> Класс**. Назовите файл VoteDataController.cs и нажмите кнопку **Добавить**. Замените содержимое файла следующим образом, а затем сохраните изменения.
 
 ```csharp
-// ------------------------------------------------------------
-//  Copyright (c) Microsoft Corporation.  All rights reserved.
-//  Licensed under the MIT License (MIT). See License.txt in the repo root for license information.
-// ------------------------------------------------------------
-
 namespace VotingData.Controllers
 {
     using System.Collections.Generic;
@@ -410,9 +405,9 @@ namespace VotingData.Controllers
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
-                IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
+                Microsoft.ServiceFabric.Data.IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
 
-                IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
+                Microsoft.ServiceFabric.Data.IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
 
                 List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
 

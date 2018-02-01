@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4114093802d7e56eaeb64c0998d3fc675d9baa87
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Настройка субъекта-службы Azure AD для кластера Kubernetes в Службе контейнеров
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 12/06/2017
 [Субъект-служба Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md) используется кластером Kubernetes в Службе контейнеров Azure для обеспечения взаимодействия с API-интерфейсами Azure. Субъект-служба используется для динамического управления ресурсами, например [определяемыми пользователем маршрутами](../../virtual-network/virtual-networks-udr-overview.md) и [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) уровня 4.
 
 
-В этой статье показано, как настроить субъект-службу для кластера Kubernetes. Например, если вы установили и настроили [Azure CLI 2.0](/cli/azure/install-az-cli2), выполните команду [`az acs create`](/cli/azure/acs#create), чтобы одновременно создать кластер Kubernetes и субъект-службу.
+В этой статье показано, как настроить субъект-службу для кластера Kubernetes. Например, если вы установили и настроили [Azure CLI 2.0](/cli/azure/install-az-cli2), выполните команду [`az acs create`](/cli/azure/acs#az_acs_create), чтобы одновременно создать кластер Kubernetes и субъект-службу.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Требования для субъекта-службы
@@ -95,7 +95,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Вариант 2. Создание субъекта-службы при создании кластера с помощью `az acs create`
 
-При создании кластера Kubernetes с использованием команды [`az acs create`](/cli/azure/acs#create) вы можете создать субъект-службу автоматически.
+При создании кластера Kubernetes с использованием команды [`az acs create`](/cli/azure/acs#az_acs_create) вы можете создать субъект-службу автоматически.
 
 Как и в случае с другими вариантами создания кластера Kubernetes, выполняя команду `az acs create`, вы можете указать параметры для существующего субъекта-службы. Но даже если вы не настроите эти параметры, Azure CLI создаст субъект-службу автоматически, который будет использоваться в Службе контейнеров. Субъект-служба создается открытым образом во время развертывания.
 
@@ -121,7 +121,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * На главной виртуальной машине и виртуальной машине агента в кластере Kubernetes учетные данные субъекта-службы хранятся в файле `/etc/kubernetes/azure.json`.
 
-* Если вы используете команду `az acs create`, чтобы автоматически создать субъект-службу, его учетные данные записываются в файл `~/.azure/acsServicePrincipal.json` на компьютере, с которого выполняется команда.
+* Если вы используете команду `az acs create`, чтобы автоматически создать субъект-службу, учетные данные субъекта-службы записываются в файл `~/.azure/acsServicePrincipal.json` на компьютере, с которого выполняется команда.
 
 * При автоматическом создании субъекта-службы с использованием команды `az acs create` субъект-служба также позволяет проверять подлинность с помощью [реестра контейнеров Azure](../../container-registry/container-registry-intro.md), созданного в той же подписке.
 
@@ -164,7 +164,7 @@ az ad sp reset-credentials --name <appId>
 
 Затем обновите учетные данные в файле `/etc/kubernetes/azure.json` на всех узлах кластера и перезапустите узлы.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Узнайте, как [начать работу с Kubernetes](container-service-kubernetes-walkthrough.md) в кластере службы контейнеров.
 

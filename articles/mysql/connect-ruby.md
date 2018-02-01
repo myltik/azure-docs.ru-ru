@@ -6,23 +6,23 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 10f774262015cb19e158a687138b4618ce50063b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 821138f2f80d985a400c3148eeb348c06f97ee4a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>База данных Azure для MySQL: подключение и запрос данных с помощью Ruby
 В этом кратком руководстве объясняется, как подключиться к базе данных Azure для MySQL с помощью приложения [Ruby](https://www.ruby-lang.org) и пакета [Mysql2](https://rubygems.org/gems/mysql2) на платформе Windows, Ubuntu Linux и Mac. Здесь также показано, как использовать инструкции SQL для запроса, вставки, обновления и удаления данных в базе данных. В этой статье предполагается, что у вас уже есть опыт разработки на Ruby и вы только начали работу с базой данных Azure для MySQL.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 В качестве отправной точки в этом кратком руководстве используются ресурсы, созданные в соответствии со следующими материалами:
-- [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Создание сервера базы данных Azure для MySQL с помощью портала Azure)
+- [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Создание базы данных Azure для сервера MySQL с помощью портала Azure)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Создание базы данных Azure для сервера MySQL с помощью Azure CLI)
 
 ## <a name="install-ruby"></a>Установка Ruby
@@ -224,6 +224,6 @@ ensure
 end
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 > [!div class="nextstepaction"]
 > [Перенос базы данных с помощью экспорта и импорта](./concepts-migrate-import-export.md)

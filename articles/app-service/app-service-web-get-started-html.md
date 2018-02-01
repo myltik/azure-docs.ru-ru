@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ee3b53f9e68a739a39478045debbb45dff9d7ed9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: bca5757c971f15279ed6ee9b41f415cd347d91b3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Создание статического веб-приложения HTML в Azure
 
@@ -29,13 +29,13 @@ ms.lasthandoff: 11/22/2017
 
 Выполните действия, приведенные ниже, с помощью компьютера Mac, Windows или Linux. После установки необходимых компонентов для выполнения этих шагов потребуется около пяти минут.
 
-## <a name="prerequisites"></a>Предварительные требования
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим кратким руководством сделайте следующее:
 
 - <a href="https://git-scm.com/" target="_blank">установите Git</a>;
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Скачивание примера приложения
 
@@ -138,7 +138,7 @@ git push azure master
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Сопоставление пользовательского домена](app-service-web-tutorial-custom-domain.md)

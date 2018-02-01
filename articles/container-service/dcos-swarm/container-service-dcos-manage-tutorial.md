@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c58bd764cf0fdacd55675f8343c6e7481a11823
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 04b5d158c636668a726e046e4f471b452e31ff0d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Учебник по службе контейнеров Azure — управление DC/OS
 
@@ -29,11 +29,11 @@ DC/OS предоставляет распределенную платформу
 > * Базовое управление DC/OS
 > * Удаление кластера DC/OS
 
-Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-dcos-cluster"></a>Создание кластера DC/OS
 
-Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. 
+Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. 
 
 В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *westeurope*.
 
@@ -41,7 +41,7 @@ DC/OS предоставляет распределенную платформу
 az group create --name myResourceGroup --location westeurope
 ```
 
-Затем создайте кластер DC/OS с помощью команды [az acs create](/cli/azure/acs#create).
+Затем создайте кластер DC/OS с помощью команды [az acs create](/cli/azure/acs#az_acs_create).
 
 В следующем примере создается кластер DC/OS с именем *myDCOSCluster* и ключи SSH, если они еще не существуют. Чтобы использовать определенный набор ключей, используйте параметр `--ssh-key-value`.  
 
@@ -239,13 +239,13 @@ az network public-ip list --resource-group myResourceGroup --query "[?contains(n
 
 В предыдущих примерах приложение масштабировалось до нескольких экземпляров. Инфраструктуру DC/OS также можно масштабировать для обеспечения большей или меньшей вычислительной мощности. Это делается с помощью команды [az acs scale](). 
 
-Чтобы просмотреть текущее число агентов DC/OS, используйте команду [az acs show](/cli/azure/acs#show).
+Чтобы просмотреть текущее число агентов DC/OS, используйте команду [az acs show](/cli/azure/acs#az_acs_show).
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-Чтобы увеличить число до 5, используйте команду [az acs scale](/cli/azure/acs#scale). 
+Чтобы увеличить число до 5, используйте команду [az acs scale](/cli/azure/acs#az_acs_scale). 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -253,13 +253,13 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## <a name="delete-dcos-cluster"></a>Удаление кластера DC/OS
 
-Вы можете удалить ставшие ненужными группу ресурсов, кластер DC/OS и все связанные с ним ресурсы, выполнив команду [az group delete](/cli/azure/group#delete).
+Вы можете удалить ставшие ненужными группу ресурсов, кластер DC/OS и все связанные с ним ресурсы, выполнив команду [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом учебнике изучались базовые задачи управления DC/OS, включая следующие. 
 

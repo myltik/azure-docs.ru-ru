@@ -6,16 +6,16 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.custom: mvc
-ms.openlocfilehash: 2d23c37688ab7f19beba920f7ddd4043cd117503
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 5f323086ce66a504188c1834d20873a52a990311
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Проектирование первой базы данных Azure для MySQL
 
@@ -170,7 +170,7 @@ az mysql server restore --resource-group mycliresource --name mycliserver-restor
 
 Выполните предыдущую команду и восстановите сервер до [точки во времени](./howto-restore-server-portal.md) перед удалением таблицы. Восстановление сервера до точки во времени создает копию сервера, где расположен исходный сервер, с состоянием на момент указанной точки во времени (в пределах срока хранения, установленного для вашего [уровня служб](./concepts-service-tiers.md)).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 Из этого руководства вы узнали, как выполнять следующие операции:
 > [!div class="checklist"]
 > * создание базы данных Azure для MySQL;

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: 4b8f7a66f220b57ac914a9f5475c680679b8bf03
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c1dfa969f8665fc06d365bdb91d57382ee04c315
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Преобразование данных в виртуальной сети Azure с помощью действия Hive в фабрике данных Azure
 В этом руководстве с помощью портала Azure вы создадите конвейер фабрики данных, который преобразует данные, используя действие Hive в кластере HDInsight, находящемся в виртуальной сети Azure (VNet). В этом руководстве вы выполните следующие шаги:
 
 > [!div class="checklist"]
-> * Создадите фабрику данных. 
+> * создадите фабрику данных; 
 > * Создание локальной среды выполнения интеграции
 > * Создание связанных службы хранилища Azure и службы Azure HDInsight.
 > * Создание конвейера с действием Hive.
@@ -38,14 +38,14 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 - **Учетная запись хранения Azure.** Создайте скрипт Hive и отправьте его в хранилище Azure. Выходные данные скрипта Hive хранятся в этой учетной записи хранения. В этом примере кластер HDInsight использует эту учетную запись хранения Azure в качестве основного хранилища. 
-- **Виртуальная сеть Azure.** Если у вас нет виртуальной сети Azure, создайте ее, выполнив [эти инструкции](../virtual-network/virtual-network-get-started-vnet-subnet.md). В этом примере HDInsight находится в виртуальной сети Azure. Ниже приведен образец конфигурации виртуальной сети Azure. 
+- **Виртуальная сеть Azure.** Если у вас нет виртуальной сети Azure, создайте ее, выполнив [эти инструкции](../virtual-network/quick-create-portal.md). В этом примере HDInsight находится в виртуальной сети Azure. Ниже приведен образец конфигурации виртуальной сети Azure. 
 
     ![Создание виртуальной сети](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
 - **Кластер HDInsight.** Создайте кластер HDInsight и присоедините его к виртуальной сети, созданной на предыдущем шаге, следуя указаниям в статье [Расширение возможностей HDInsight с помощью виртуальной сети Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Ниже приведен образец конфигурации HDInsight в виртуальной сети. 
 
     ![HDInsight в виртуальной сети](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
 - **Azure PowerShell**. Следуйте инструкциям по [установке и настройке Azure PowerShell](/powershell/azure/install-azurerm-ps).
-- **Виртуальная машина**. Создайте виртуальную машину Azure и присоедините ее к той же виртуальной сети, которая содержит кластер HDInsight. Дополнительные сведения см. в разделе [Создание виртуальных машин](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms). 
+- **Виртуальная машина**. Создайте виртуальную машину Azure и присоедините ее к той же виртуальной сети, которая содержит кластер HDInsight. Дополнительные сведения см. в разделе [Создание виртуальных машин](../virtual-network/quick-create-portal.md#create-virtual-machines). 
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Отправка скрипта Hive в вашу учетную запись хранилища BLOB-объектов
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 01/23/2018
 3. Создайте папку с именем **hivescripts**.
 4. Отправьте файл **hivescript.hql** во вложенную папку **hivescripts**.
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных
+## <a name="create-a-data-factory"></a>Создать фабрику данных
 1. Войдите на [портал Azure](https://portal.azure.com/).    
 2. В меню слева щелкните **Создать**, выберите **Данные+аналитика** и щелкните **Фабрика данных**. 
    
@@ -261,7 +261,7 @@ ms.lasthandoff: 01/23/2018
 В этом руководстве вы выполнили следующие шаги: 
 
 > [!div class="checklist"]
-> * Создадите фабрику данных. 
+> * создадите фабрику данных; 
 > * Создание локальной среды выполнения интеграции
 > * Создание связанных службы хранилища Azure и службы Azure HDInsight.
 > * Создание конвейера с действием Hive.

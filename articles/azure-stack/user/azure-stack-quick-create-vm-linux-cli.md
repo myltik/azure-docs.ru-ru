@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: ea0bc72c03c7c51f79b838493eb2f6d3efe4f8f7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 160893f5b2e9c78bd62355782c279fb08f7f6b48
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Создание виртуальной машины Linux с помощью Azure CLI в Azure Stack
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure CLI используется для создания ресурсов Azure Stack и управления ими из командной строки. В этом кратком руководстве подробно описано использование Azure CLI для создания виртуальной машины Linux в Azure Stack.  После создания виртуальной машины устанавливается веб-сервер и открывается порт 80, чтобы разрешить веб-трафик.
 
-## <a name="prerequisites"></a>Предварительные требования 
+## <a name="prerequisites"></a>предварительным требованиям 
 
 * Убедитесь в том, что оператор Azure Stack добавил образ Ubuntu Server 16.04 LTS в Azure Stack Marketplace. 
 
@@ -37,7 +37,7 @@ Azure CLI используется для создания ресурсов Azur
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Группа ресурсов — это логический контейнер, в котором выполняется развертывание и администрирование ресурсов Azure Stack. Из пакета средств разработки или интегрированной системы Azure Stack выполните команду [az group create](/cli/azure/group#create), чтобы создать группу ресурсов. В этом документе мы присвоили значения всем переменным. Вы можете использовать их как есть или присвоить другое значение. В следующем примере создается группа ресурсов с именем myResourceGroup в локальном расположении.
+Группа ресурсов — это логический контейнер, в котором выполняется развертывание и администрирование ресурсов Azure Stack. Из пакета средств разработки или интегрированной системы Azure Stack выполните команду [az group create](/cli/azure/group#az_group_create), чтобы создать группу ресурсов. В этом документе мы присвоили значения всем переменным. Вы можете использовать их как есть или присвоить другое значение. В следующем примере создается группа ресурсов с именем myResourceGroup в локальном расположении.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Создание виртуальной машины
 
-Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#create). В следующем примере создаются виртуальная машина с именем myVM В этом примере используются имя администратора Demouser и пароль Demouser@123. Измените эти значения в соответствии со своей средой. Эти значения требуются при подключении к виртуальной машине.
+Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#az_vm_create). В следующем примере создаются виртуальная машина с именем myVM В этом примере используются имя администратора Demouser и пароль Demouser@123. Измените эти значения в соответствии со своей средой. Эти значения требуются при подключении к виртуальной машине.
 
 ```cli
 az vm create \
@@ -94,17 +94,17 @@ apt-get -y install nginx
 
 Установив nginx и открыв через Интернет порт 80 на виртуальной машине, вы можете просмотреть страницу приветствия nginx по умолчанию в любом браузере. Чтобы перейти на страницу по умолчанию, используйте значение *publicIpAddress*, записанное ранее. 
 
-![Сайт nginx по умолчанию](./media/azure-stack-quick-create-vm-linux-cli/nginx.png) 
+![Сайт NGINX по умолчанию](./media/azure-stack-quick-create-vm-linux-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Вы можете удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, выполнив команду [az group delete](/cli/azure/group#delete).
+Вы можете удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, выполнив команду [az group delete](/cli/azure/group#az_group_delete).
 
 ```cli
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом кратком руководстве вы развернули простую виртуальную машину Linux. Дополнительные сведения о виртуальных машинах Azure Stack см. в [рекомендациях по работе с виртуальными машинами в Azure Stack](azure-stack-vm-considerations.md).
 

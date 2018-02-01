@@ -8,7 +8,7 @@
 ### [Рекомендации по обеспечению сетевой безопасности](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Сетевые виртуальные модули высокой доступности](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Объединение методов балансировки нагрузки](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
-## планирование и разработка
+## Планирование и проектирование
 ### [Виртуальные сети](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Фильтрация трафика](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Возможность распределенного подключения через VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -24,7 +24,7 @@
 ### [Выделенное подключение к локальной среде](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Начало работы
-## [Создание первой собственной виртуальной сети](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Создание первой собственной виртуальной сети](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Практическое руководство
 ## Подключение к Интернету
@@ -49,7 +49,7 @@
 ### [Проверка IP-потоков для виртуальной машины](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Примеры сценариев
-### [Интерфейс командной строки Azure](cli-samples.md)
+### [интерфейс командной строки Azure](cli-samples.md)
 ### [Azure PowerShell](powershell-samples.md)
 
 ## Учебники
@@ -57,7 +57,7 @@
 ### [Подключение компьютера к виртуальной сети](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Справочные материалы
-## [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/network)
+## [интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/network)
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
 ## [Node.js](https://azure.microsoft.com/develop/nodejs/#azure-sdk)

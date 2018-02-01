@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 48bd7c0bb7b5d13586267cac202de41c25c1fc7b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: b9e62611e21450885b20d0e0b261777e13820626
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Развертывание кластера Kubernetes для контейнеров Linux
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов Azure — это логическая группа, в которой выполняется развертывание и администрирование ресурсов Azure. 
+Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create). Группа ресурсов Azure — это логическая группа, в которой выполняется развертывание и администрирование ресурсов Azure. 
 
 В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *westeurope*.
 
@@ -60,13 +60,13 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-kubernetes-cluster"></a>Создание кластера Kubernetes
 
-Создание кластера Kubernetes в Службе контейнеров Azure с помощью команды [az acs create](/cli/azure/acs#create). В следующем примере создается кластер *myK8sCluster* при помощи одного главного узла Linux и трех узлов агентов Linux.
+Создание кластера Kubernetes в Службе контейнеров Azure с помощью команды [az acs create](/cli/azure/acs#az_acs_create). В следующем примере создается кластер с именем *myK8sCluster* при помощи одного главного узла Linux и трех узлов-агентов Linux.
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
 ```
 
-В некоторых случаях, например при использовании ограниченной пробной версии, доступ подписки Azure к ресурсам Azure ограничен. Если происходит сбой развертывания из-за ограничения доступных ядер, уменьшите количество агентов по умолчанию, добавив `--agent-count 1` в команду [az acs create](/cli/azure/acs#create). 
+В некоторых случаях, например при использовании ограниченной пробной версии, доступ подписки Azure к ресурсам Azure ограничен. Если происходит сбой развертывания из-за ограничения доступных ядер, уменьшите количество агентов по умолчанию, добавив `--agent-count 1` в команду [az acs create](/cli/azure/acs#az_acs_create). 
 
 Через несколько минут выполнение команды завершается, и отображаются сведения о кластере в формате JSON. 
 
@@ -202,7 +202,7 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ![Изображение перехода к приложению Azure для голосования](media/container-service-kubernetes-walkthrough/azure-vote.png)  
 
 ## <a name="delete-cluster"></a>Удаление кластера
-Чтобы удалить ненужные кластер, группу ресурсов, службу контейнеров и все связанные с ней ресурсы, выполните команду [az group delete](/cli/azure/group#delete).
+Чтобы удалить ненужные кластер, группу ресурсов, службу контейнеров и все связанные с ней ресурсы, выполните команду [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes --no-wait
@@ -214,7 +214,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом кратком руководстве мы развернули кластер Kubernetes, а затем развернули в нем многоконтейнерное приложение. 
 

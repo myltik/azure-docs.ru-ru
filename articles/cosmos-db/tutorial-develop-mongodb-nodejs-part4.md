@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 60154b9f0a27b1255022f455453cbc88bec63baf
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: e1d96fe8cb06be08863bbcd1885080aaca8fbd61
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Создание приложения MongoDB с помощью Angular и Azure Cosmos DB. Часть 4. Создание учетной записи Azure Cosmos DB с помощью Azure CLI
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/05/2017
 
 > [!VIDEO https://www.youtube.com/embed/hfUM-AbOh94]
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Перед переходом к этой части руководства убедитесь, что выполнены все задачи из [части 3](tutorial-develop-mongodb-nodejs-part3.md). 
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="create-an-azure-cosmos-db-account"></a>создание учетной записи Azure Cosmos DB;
 
-Создайте учетную запись Azure Cosmos DB с помощью команды [`az cosmosdb create`](/cli/azure/cosmosdb#create).
+Создайте учетную запись Azure Cosmos DB с помощью команды [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create).
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -74,7 +74,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 
     ![Новая учетная запись Azure Cosmos DB на портале Azure](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этой части руководства мы выполнили следующую задачу:
 

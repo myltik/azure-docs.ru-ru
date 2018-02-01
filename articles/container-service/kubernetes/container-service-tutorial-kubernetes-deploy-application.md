@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c763d6867deb76f5b9d197c7062ee07d7ed6d865
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 46274241841d3fec475a9fb6172e68daaa1f6303
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-applications-in-kubernetes"></a>Запуск приложений в Kubernetes
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/08/2017
 
 В этом руководстве для хранения образа контейнера использовался реестр контейнеров Azure (ACR). Перед запуском приложения необходимо обновить имя сервера входа ACR в файле манифеста Kubernetes.
 
-Получите имя сервера входа ACR, выполнив команду [az acr list](/cli/azure/acr#list).
+Получите имя сервера входа ACR, выполнив команду [az acr list](/cli/azure/acr#az_acr_list).
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -103,7 +103,7 @@ azure-vote-front   10.0.42.158   52.179.23.131 80:31873/TCP   2m
 
 ![Схема кластера Kubernetes в Аzure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве приложение Vote Azure было развернуто в кластере Kubernetes Службы контейнеров Azure. Вы выполнили следующие задачи:  
 

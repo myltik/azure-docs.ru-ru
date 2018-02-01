@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b4cde427115df5bb7cd80acd676c6788ff3a379e
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 6ce5d49fe4e58b3c89c09ef80d563d001a4abb41
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Создание веб-приложения ASP.NET Framework в Azure
 
@@ -29,7 +29,9 @@ ms.lasthandoff: 12/05/2017
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
-## <a name="prerequisites"></a>Предварительные требования
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством:
 
@@ -38,8 +40,6 @@ ms.lasthandoff: 12/05/2017
     - **разработка Azure.**
 
     ![ASP.NET и веб-разработка, разработка Azure (в разделе Web & Cloud (Сеть и облако))](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-aspnet-web-app"></a>Создание веб-приложения ASP.NET
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 12/05/2017
 
 ![Создание плана службы приложений](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
-| Настройка | Рекомендуемое значение | Описание |
+| Параметр | Рекомендуемое значение | ОПИСАНИЕ |
 |-|-|-|
 |План обслуживания приложения| myAppServicePlan | Имя плана службы приложений. |
 | Расположение | Западная Европа | Центр обработки данных, где размещается веб-приложение. |
@@ -163,7 +163,7 @@ ms.lasthandoff: 12/05/2017
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Создание приложения ASP.NET в Azure с подключением к базе данных SQL](app-service-web-tutorial-dotnet-sqldatabase.md)

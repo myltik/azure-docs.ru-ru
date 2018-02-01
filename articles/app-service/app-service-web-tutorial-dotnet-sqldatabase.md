@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: db3be8068ef9e560614daa0e7f0dcf62467fd338
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Создание приложения ASP.NET в Azure с подключением к базе данных SQL
 
@@ -37,7 +37,9 @@ ms.lasthandoff: 10/27/2017
 > * Потоковая передача журналов из Azure в окно терминала.
 > * Управление приложением на портале Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством:
 
@@ -46,8 +48,6 @@ ms.lasthandoff: 10/27/2017
   - **разработка Azure.**
 
   ![ASP.NET и веб-разработка, разработка Azure (в разделе Web & Cloud (Сеть и облако))](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Скачивание примера приложения
 
@@ -118,10 +118,10 @@ ms.lasthandoff: 10/27/2017
 
 ![Создание плана службы приложений](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
-| Настройка  | Рекомендуемое значение | Дополнительные сведения |
+| Параметр  | Рекомендуемое значение | Дополнительные сведения |
 | ----------------- | ------------ | ----|
 |**План службы приложений**| myAppServicePlan | [Планы службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
-|**Расположение**| Западная Европа | [Регионы Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**Местоположение.**| Западная Европа | [Регионы Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**Размер**| Free | [Ценовые категории](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-sql-server-instance"></a>Создание экземпляра SQL Server
@@ -146,7 +146,7 @@ ms.lasthandoff: 10/27/2017
 
 ![Создание экземпляра SQL Server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-Нажмите кнопку **ОК**. Пока не закрывайте диалоговое окно **Настроить базу данных SQL**.
+Последовательно выберите **ОК**. Пока не закрывайте диалоговое окно **Настроить базу данных SQL**.
 
 ### <a name="create-a-sql-database"></a>Создание базы данных SQL
 
@@ -158,7 +158,7 @@ ms.lasthandoff: 10/27/2017
 
 ![Настройка базы данных SQL](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-В диалоговом окне **Создать службу приложений** отобразятся созданные ресурсы. Щелкните **Создать**. 
+В диалоговом окне **Создать службу приложений** отобразятся созданные ресурсы. Нажмите кнопку **Создать**. 
 
 ![Созданные ресурсы](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -367,7 +367,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 Снова щелкните веб-приложение правой кнопкой мыши и выберите **Просмотр параметров**.
 
-В раскрывающемся списке **Ведение журнала приложения (файловая система)** выберите **Подробно**. Щелкните **Сохранить**.
+В раскрывающемся списке **Ведение журнала приложения (файловая система)** выберите **Подробно**. Выберите команду **Сохранить**.
 
 ![Измените уровень трассировки на "Подробно"](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -413,9 +413,9 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * Создание базы данных SQL в Azure.

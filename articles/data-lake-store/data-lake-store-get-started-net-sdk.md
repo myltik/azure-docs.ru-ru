@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 682e8c9fc9e7f16d6b69cd73535c76e6c53c6b49
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: cb44fb1cbc279f12f970237f1498a570a63544bd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Операции управления учетными записями в Azure Data Lake Store с использованием пакета SDK для .NET
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/10/2018
 
 Дополнительные сведения о том, как выполнять операции управления данными в Data Lake Store с помощью Python, см. в статье [Filesystem operations on Azure Data Lake Store using .NET SDK](data-lake-store-data-operations-net-sdk.md) (Операции файловой системы в Azure Data Lake Store с использованием пакета SDK для .NET).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 * **Visual Studio 2013, 2015 или 2017**. В инструкциях ниже используется Visual Studio 2017.
 
 * **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -90,7 +90,7 @@ ms.lasthandoff: 01/10/2018
 
                 private static void Main(string[] args)
                 {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; 
+                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net"; 
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; 
                     _location = "East US 2";
                     _subId = "<SUBSCRIPTION-ID>";                    

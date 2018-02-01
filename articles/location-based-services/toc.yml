@@ -31,7 +31,7 @@
       href: how-to-use-map-control.md
     - name: Поиск адреса
       href: how-to-search-for-address.md
-- name: Ссылка
+- name: Справочные материалы
   items:
     - name: API функций
       href: 'https://docs.microsoft.com/rest/api/location-based-services/'
@@ -46,7 +46,7 @@
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Форум MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Цены
       href: 'https://azure.microsoft.com/pricing/details/location-based-services'
     - name: Калькулятор цен

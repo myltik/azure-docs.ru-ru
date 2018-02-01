@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 36930cc38b6c1933b58651f6c63e7d5d453c447d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ea972db9ce3488d9a46a7d059714c8bbe820d47d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Создание виртуальной машины Windows в Azure Stack с помощью Azure CLI
 
 Azure CLI используется для создания ресурсов Azure Stack и управления ими из командной строки. В этом руководстве объясняется, как с помощью Azure CLI создать виртуальную машину под управлением Windows Server 2016 в Azure Stack. После создания виртуальной машины вы сможете подключиться к удаленному рабочему столу, установить IIS и увидеть веб-сайт по умолчанию. 
 
-## <a name="prerequisites"></a>Предварительные требования 
+## <a name="prerequisites"></a>предварительным требованиям 
 
 * Убедитесь, что оператор Azure Stack добавил образ Windows Server 2016 в Azure Stack Marketplace.  
 
@@ -33,7 +33,7 @@ Azure CLI используется для создания ресурсов Azur
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Группа ресурсов — это логический контейнер, в котором выполняется развертывание и администрирование ресурсов Azure Stack. Из пакета средств разработки или интегрированной системы Azure Stack выполните команду [az group create](/cli/azure/group#create), чтобы создать группу ресурсов. В этом документе мы присвоили значения всем переменным. Вы можете использовать их как есть или присвоить другое значение. В следующем примере создается группа ресурсов с именем myResourceGroup в локальном расположении.
+Группа ресурсов — это логический контейнер, в котором выполняется развертывание и администрирование ресурсов Azure Stack. Из пакета средств разработки или интегрированной системы Azure Stack выполните команду [az group create](/cli/azure/group#az_group_create), чтобы создать группу ресурсов. В этом документе мы присвоили значения всем переменным. Вы можете использовать их как есть или присвоить другое значение. В следующем примере создается группа ресурсов с именем myResourceGroup в локальном расположении.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Создание виртуальной машины
 
-Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#create). В следующем примере создаются виртуальная машина с именем myVM В этом примере используются имя администратора Demouser и пароль Demouser@123. Измените эти значения в соответствии со своей средой. Эти значения требуются при подключении к виртуальной машине.
+Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#az_vm_create). В следующем примере создаются виртуальная машина с именем myVM В этом примере используются имя администратора Demouser и пароль Demouser@123. Измените эти значения в соответствии со своей средой. Эти значения требуются при подключении к виртуальной машине.
 
 ```cli
 az vm create \
@@ -88,12 +88,12 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Вы можете удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, выполнив команду [az group delete](/cli/azure/group#delete).
+Вы можете удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, выполнив команду [az group delete](/cli/azure/group#az_group_delete).
 
 ```cli
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом кратком руководстве вы развернули простую виртуальную машину Windows. Дополнительные сведения о виртуальных машинах Azure Stack см. в [рекомендациях по работе с виртуальными машинами в Azure Stack](azure-stack-vm-considerations.md).

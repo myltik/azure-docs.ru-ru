@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Развертывание приложения .NET в контейнере Windows в Azure Service Fabric
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/20/2017
 > * Помещение имеющегося приложения в контейнер
 > * Настройка непрерывной интеграции с Visual Studio и VSTS
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 1. Установите [Docker CE для Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description), чтобы иметь возможность запускать контейнеры в Windows 10.
 2. Ознакомьтесь с [кратким руководством по работе с контейнерами в Windows 10][link-container-quickstart].
@@ -209,9 +209,9 @@ Edge откроет страницу запуска определенного �
 
 Теперь, когда решение центра обработки вызовов Fabrikam помещено в контейнер и развернуто, можно открыть [портал Azure][link-azure-portal], чтобы увидеть выполнение приложения в Service Fabric. Чтобы протестировать приложение, откройте браузер и перейдите по URL-адресу кластера Service Fabric.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * Создание проекта Docker в Visual Studio

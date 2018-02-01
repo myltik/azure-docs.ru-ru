@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c6193c63e6efaa4b6472b7de1a042dc4f58b42d3
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: ba0a0c336fbdab91121f5c4bff00b24c1088bd8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>Создание виртуальной машины Windows с помощью PowerShell
 
@@ -52,7 +52,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```azurepowershell-interactive
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
-    -Name "myVM" `
+    -Name "myVM$(Get-Random)" `
     -Location "East US" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
@@ -99,7 +99,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого краткого руководства вы узнали о том, как развернуть простую виртуальную машину, о правилах группы безопасности сети и об установке веб-сервера. Дополнительные сведения о виртуальных машинах Azure см. в руководстве по работе с виртуальными машинами Windows.
 

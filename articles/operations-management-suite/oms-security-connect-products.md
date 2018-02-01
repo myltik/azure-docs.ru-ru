@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f95ee94d1b86b6409fc5ecce14ed3e068a635b3d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Подключение средств обеспечения безопасности к решению для защиты и аудита Operations Management Suite (OMS) 
 Этот документ поможет вам подключить свои средства обеспечения безопасности к решению для защиты и аудита OMS. Поддерживаются следующие источники:
@@ -95,7 +95,7 @@ CEF — это отраслевой стандартный формат на о
 
 ## <a name="reviewing-collected-security-events"></a>Просмотр собранных событий безопасности
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 После завершения конфигурации решение для защиты OMS начнет принимать события безопасности. Чтобы визуализировать эти события, откройте поиск по журналам, введите в поле поиска команду *Type=CommonSecurityLog* и нажмите клавишу ВВОД. В следующем примере показан результат выполнения этой команды. Обратите внимание, что в этом случае решение для защиты OMS уже приняло журналы безопасности от нескольких поставщиков:
    
@@ -106,7 +106,7 @@ CEF — это отраслевой стандартный формат на о
 ### <a name="accessing-computers-missing-baseline-assessment"></a>Просмотр сведений о компьютерах с отсутствующей базовой оценкой
 OMS поддерживает профиль базовых показателей участника домена в Windows Server от версии 2008 R2 до 2012 R2. Эта возможность для Windows Server 2016 находится на этапе разработки и будет добавлена после публикации. Остальные операционные системы, проверенные в ходе оценки базовых показателей решением для защиты и аудита OMS, приведены в разделе **Компьютеры с отсутствующей базовой оценкой**.
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 В этом документе вы узнали, как подключить решение CEF к OMS. Дополнительные сведения о функциях безопасности OMS см. в следующих статьях.
 
 * [Общие сведения об Operations Management Suite (OMS)](operations-management-suite-overview.md)

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 7f978ecd128115e5f2fe562da46d8b29324e3d04
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 1cb6fbc82c493e17815dc60ddcff183a47513bc6
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>Начало работы с Центрами уведомлений для приложений Xamarin.Android
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/12/2018
 
 Полный код для этого руководства можно найти на портале GitHub [здесь][GitHub].
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 Для работы с данным учебником требуется следующее:
 
 * [Visual Studio с Xamarin] на компьютере Windows или [Visual Studio для Mac] на компьютере OS X.
@@ -208,7 +208,7 @@ ms.lasthandoff: 01/12/2018
     ```csharp
         [Service]
         [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
-        public class MyFirebaseIIDService : FirebaseMessagingService
+        public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
     
 14. Добавьте следующий код в **MyFirebaseMessagingService.cs**:

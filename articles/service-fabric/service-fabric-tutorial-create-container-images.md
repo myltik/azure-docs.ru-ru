@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: e1d110aea526c4632219ef8fd2a9681b1b6c330f
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: eb7a357369b605464b9986123f3c026fd1595a6f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Создание образов контейнеров для Service Fabric
 
@@ -188,7 +188,7 @@ docker push <acrName>.azurecr.io/azure-vote-front:v1
 
 ## <a name="list-images-in-registry"></a>Перечисление образов в реестре
 
-Чтобы получить список образов, отправленных в реестр контейнеров Azure, выполните команду [az acr repository list](/cli/azure/acr/repository#list). Укажите в команде имя нужного экземпляра ACR.
+Чтобы получить список образов, отправленных в реестр контейнеров Azure, выполните команду [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Укажите в команде имя нужного экземпляра ACR.
 
 ```bash
 az acr repository list --name <acrName> --output table
