@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a987247d2c8a76161f9c8a5a027e34b3a8e25b30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>Руководство по интеграции Azure Active Directory с vxMaintain
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Учебник. Интеграция Azure Active Directory с vxMaintain
 
 В этом учебнике описано, как интегрировать vxMaintain с Azure Active Directory (Azure AD).
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 
 Чтобы узнать больше об интеграции приложений SaaS с Azure AD, прочитайте статью [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с vxMaintain, вам потребуется:
 
@@ -195,7 +195,7 @@ ms.lasthandoff: 12/11/2017
 
 Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Список руководств по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)

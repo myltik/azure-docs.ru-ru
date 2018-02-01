@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Установка расширения устойчивых функций и примеров (Функции Azure)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/08/2017
 
 Сейчас Visual Studio обеспечивает максимальное удобство разработки приложений с использованием устойчивых функций.  Функции можно выполнять локально, а также публиковать в Azure. Можно начать с пустого проекта или набора примеров функций.
 
-### <a name="prerequisites"></a>Технические условия
+### <a name="prerequisites"></a>предварительным требованиям
 
 * Установите [последнюю версию Visual Studio](https://www.visualstudio.com/downloads/) (15.3 или выше). Включите рабочую нагрузку **разработки Azure** в параметрах установки.
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/08/2017
 
 Visual Studio Code поддерживает процесс локальной разработки на всех основных платформах: Windows, macOS и Linux.  Функции можно выполнять локально, а также публиковать в Azure. Можно начать с пустого проекта или набора примеров функций.
 
-### <a name="prerequisites"></a>Технические условия
+### <a name="prerequisites"></a>предварительным требованиям
 
 * Установите [последнюю версию Visual Studio Code](https://code.visualstudio.com/Download). 
 
@@ -123,7 +123,7 @@ Visual Studio Code поддерживает процесс локальной р
 
 1. Создайте приложение-функцию на сайте [functions.azure.com](https://functions.azure.com/signin).
 
-2. Настройте в приложении-функции [использование среды выполнения версии 2.0](functions-versions.md).
+2. Настройте в приложении-функции [использование среды выполнения версии 2.0](set-runtime-version.md).
 
 3. Создайте новую функцию, выбрав действие **Создайте настраиваемую функцию**.
 
@@ -175,7 +175,7 @@ Visual Studio Code поддерживает процесс локальной р
 
 Поздравляем! Ваша устойчивая функция создана и успешно работает на портале Azure!
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Запуск примера создания цепочки функций](durable-functions-sequence.md)

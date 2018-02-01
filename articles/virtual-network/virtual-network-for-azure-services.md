@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 2c3ffb8432fae41b376cc71bb600a0b1c490f345
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15a5ede13aebb039c1d17f118ee1acdcf9031d50
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Интеграция виртуальной сети для служб Azure
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 - [Шлюз приложений (внешний)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Обработчик Службы контейнеров Azure](../container-service/container-service-intro.md?toc=%2fazure%2fvirtual-network%2ftoc.json): служба контейнера Azure создает виртуальную сеть по умолчанию. Вы можете создать собственную виртуальную сеть с [обработчиком Службы контейнеров Azure](https://github.com/Azure/acs-engine/tree/master/examples/vnet).
 - [Доменные службы Azure Active Directory](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): только виртуальная сеть (классическая).
-- [Пакетная служба Azure](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration): только виртуальная сеть (классическая).
+- [Пакетная служба Azure](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Облачные службы](https://msdn.microsoft.com/library/azure/jj156091): только виртуальная сеть (классическая).
 
 Вы можете развернуть [внутренний Azure Load Balancer ](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), чтобы балансировать нагрузку приведенных выше ресурсов. В некоторых случаях служба автоматически создает и развертывает подсистему балансировки нагрузки при создании ресурса.

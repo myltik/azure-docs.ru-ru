@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Выбор между службами обмена сообщениями Azure
 
@@ -38,7 +38,7 @@ Azure предлагает три службы, с помощью которых
 
 ## <a name="comparison-of-services"></a>Сравнение служб
 
-| служба | Назначение | Тип | Сценарии использования |
+| Service | Назначение | type | Сценарии использования |
 | ------- | ------- | ---- | ----------- |
 | Служба "Сетка событий Azure" | Реактивное программирование | Распространение событий | Ответ на изменение состояния |
 | Концентраторы событий | Конвейер больших данных | Потоковая передача событий | Потоковая передача данных телеметрии и распределенных данных |
@@ -84,7 +84,7 @@ Azure предлагает три службы, с помощью которых
 
 ![Обзор процесса потоковой передачи данных](./media/compare-messaging-services/overview.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения о службах обмена сообщениями Azure см. в записи блога [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) (События, точки данных и сообщения: выбор оптимальной службы обмена сообщениями Azure для данных).
 * Общие сведения о службе "Сетка событий" см. в разделе [Общие сведения о службе "Сетка событий Azure"](overview.md).

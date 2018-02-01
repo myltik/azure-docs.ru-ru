@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 65a9e4267c8883db5c8d8bfc5e0167577cd969d3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 9f3b6425f3c13080985fb168f46ea1f6be5d18ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Присоединение виртуальной машины CentOS к управляемому домену
 Из этой статьи вы узнаете, как присоединить виртуальную машину CentOS в Azure к управляемому домену доменных служб Azure AD.
@@ -82,11 +82,11 @@ sudo vi /etc/hosts
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE]
-      > **Устранение неполадок.** Если команда *realm discover* не может найти управляемый домен, сделайте следующее:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
+    > [!NOTE]
+    > **Устранение неполадок.** Если команда *realm discover* не может найти управляемый домен, сделайте следующее:  
+      * Проверьте подключение между доменом и виртуальной машиной (с помощью команды ping).  
+      * Убедитесь, что виртуальная машина развернута в одной виртуальной сети с управляемым доменом. 
+      * Проверьте, обновлены ли параметры DNS-сервера для виртуальной сети — должны быть указаны контроллеры управляемого домена.  
       >
 
 2. Инициализируйте Kerberos. В окне терминала SSH введите следующую команду:

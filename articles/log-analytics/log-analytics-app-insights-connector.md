@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Решение "Соединитель Application Insights" (предварительная версия) в Operations Management Suite (OMS)
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/13/2017
 | [Группы управления SCOM](log-analytics-om-agents.md) | Нет  | Решение не собирает сведения из агентов в подключенной группе управления SCOM. |
 | [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет  | Решение не собирает сведения из службы хранилища Azure. |
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Для доступа к сведениям о соединителе Application Insights необходима подписка Azure.
 - Необходимо иметь хотя бы один настроенный ресурс Application Insights.
@@ -84,7 +84,7 @@ ms.lasthandoff: 12/13/2017
 
 Панель мониторинга содержит колонки, приведенные в таблице. В каждой колонке содержится максимум 10 элементов, соответствующих таким указанным критериям, как область действия и диапазон времени. Вы можете выполнить поиск по журналам, в результате которого возвращаются все записи, если щелкнуть заголовок колонки или **Показать все** в ее нижней части.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Столбец** | **Описание** |
 | --- | --- |
@@ -261,6 +261,6 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 
 В этом решении нет примеров запросов поиска по журналам, отображаемых на панели мониторинга. Тем не менее пример запросов поиска по журналам с описаниями можно найти в разделе [Просмотр сведений о соединителе Application Insights](#view-application-insights-connector-information).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Используйте [поиск по журналам](log-analytics-log-searches.md), чтобы просматривать подробные сведения о приложениях Application Insights.

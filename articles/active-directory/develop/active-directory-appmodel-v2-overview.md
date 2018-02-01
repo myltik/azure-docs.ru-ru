@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 446e39f57448cbc0cd9a6f93a388159d7eca5863
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 18319ad461500fac13b3f6ac1117a52b94e695e7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Настройка входа пользователей с помощью учетной записи Майкрософт и Azure Active Directory в одном приложении
 Раньше разработчикам приложений, чтобы реализовать поддержку как личных учетных записей Майкрософт, так и рабочих учетных записей Azure Active Directory, необходимо было обеспечивать интеграцию с двумя отдельными системами. Конечная точка Azure Active Directory (Azure AD) версии 2.0 предлагает новую версию API аутентификации, которая упрощает этот процесс. Конечная точка Azure AD 2.0 обеспечивает вход из обоих типов учетных записей с применением интеграции. Приложения, использующие конечную точку Azure AD 2.0, также могут использовать интерфейсы REST API из [API Microsoft Graph](https://graph.microsoft.io) с помощью учетной записи любого из этих типов.
@@ -51,4 +51,4 @@ ms.lasthandoff: 12/11/2017
 > [!NOTE]
 > Если вам нужно использовать вход только с рабочими или учебными учетными записями из Azure Active Directory, начните изучение с [руководства разработчика Azure AD](active-directory-developers-guide.md). Конечная точка Azure AD версии 2.0 предназначена для разработчиков, которым необходимо выполнять вход с использованием личных учетных записей Майкрософт.
 
-[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

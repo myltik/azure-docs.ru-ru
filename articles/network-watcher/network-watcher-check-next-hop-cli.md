@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fb4a24fd758ad4b7231364f3ee7d56a9a2dbccb1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: aa77b1db03dc03f2b4fa1006a0fae823bb113615
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Определите тип следующего прыжка, используя возможность определения следующего прыжка в Наблюдателе за сетями Azure в Azure CLI 2.0.
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/21/2017
 
 Чтобы получить следующий прыжок, вызовите командлет `az network watcher show-next-hop`. Мы передаем в командлет группу ресурсов Наблюдателя за сетями, Наблюдатель за сетями, идентификатор виртуальной машины, IP-адрес источника и места назначения. В этом примере в качестве IP-адреса места назначения используется IP-адрес виртуальной машины в другой виртуальной сети. Между двумя виртуальными сетями находится шлюз виртуальной сети.
 
-Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) (если вы еще этого не сделали), а затем войдите с использованием учетной записи Azure, выполнив команду [az login](/cli/azure/#login). Затем выполните следующую команду.
+Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) (если вы еще этого не сделали), а затем войдите с использованием учетной записи Azure, выполнив команду [az login](/cli/azure/#az_login). Затем выполните следующую команду.
 
 ```azurecli
 az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>
@@ -60,7 +60,7 @@ az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNa
 > [!NOTE]
 Если в виртуальной машине есть несколько сетевых карт и на любой из них включена IP-пересылка, нужно указать параметр сетевой карты (-i nic-id). В противном случае этот параметр является необязательным.
 
-## <a name="review-results"></a>Просмотр результатов
+## <a name="review-results"></a>просмотрите результаты;
 
 По завершении выводятся результаты. Возвращается IP-адрес следующего прыжка и тип ресурса.
 
@@ -82,8 +82,8 @@ az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNa
 * VnetLocal
 * HyperNetGateway
 * VnetPeering
-* Нет
+* None
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Узнайте, как просмотреть параметры группы безопасности сети программным образом, в статье [NSG Auditing with Network Watcher](network-watcher-nsg-auditing-powershell.md) (Выполнение аудита групп безопасности сети с помощью Наблюдателя за сетями).

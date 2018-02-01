@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Создание, изменение или удаление виртуальной сети
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 Прежде чем перейти к задачам, приведенным в этой статье, выполните следующие условия.
 
-- Если вы впервые работаете с виртуальными сетями, рекомендуется просмотреть упражнения в руководстве [Создание первой собственной виртуальной сети](virtual-network-get-started-vnet-subnet.md). Это руководство поможет вам ознакомиться с принципами работы виртуальных сетей.
+- Если вы впервые работаете с виртуальными сетями, рекомендуется просмотреть упражнения в руководстве [Создание первой собственной виртуальной сети](quick-create-portal.md). Это руководство поможет вам ознакомиться с принципами работы виртуальных сетей.
 - Сведения об ограничениях для виртуальных сетей cм. в разделе [ограничений Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Войдите на портал Azure, в программу командной строки Azure (Azure CLI) или Azure PowerShell с помощью учетной записи Azure. Если у вас нет учетной записи Azure, зарегистрируйтесь, чтобы получить [бесплатную пробную учетную запись](https://azure.microsoft.com/free).
 - Если вы планируете использовать команды PowerShell для выполнения задач в этой статье, сначала необходимо [установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Убедитесь, что у вас установлена последняя версия командлетов Azure PowerShell. Чтобы получить справку по командам PowerShell в этих примерах, введите `get-help <command> -full`.
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 
 **Команды**
 
-|Средство|Команда|
+|Средство|Get-Help|
 |---|---|
 |Инфраструктура CLI Azure|[az network vnet create](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 |PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -113,7 +113,7 @@ ms.lasthandoff: 10/11/2017
 
 **Команды**
 
-|Средство|Команда|
+|Средство|Get-Help|
 |---|---|
 |Инфраструктура CLI Azure|[az network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
 |PowerShell|[Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -138,11 +138,11 @@ ms.lasthandoff: 10/11/2017
 5. В колонке адресных пространств выполните одно из следующих действий:
     - **Add an address space** (Добавить адресное пространство). Введите новое адресное пространство. Адресное пространство не может перекрываться с существующим пространством, определенным для виртуальной сети.
     - **Remove an address space** (Удалить адресное пространство). Щелкните адресное пространство правой кнопкой мыши, а затем выберите пункт **Удалить**. Если в адресном пространстве существует подсеть, это адресное пространство невозможно удалить. Чтобы удалить адресное пространство, сначала удалите все подсети, которые в нем существуют (и все ресурсы, подключенные к этим подсетям).
-6. Щелкните **Сохранить**.
+6. Выберите команду **Сохранить**.
 
 **Команды**
 
-|Средство|Команда|
+|Средство|Get-Help|
 |---|---|
 |Инфраструктура CLI Azure|Только для Resource Manager|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -162,12 +162,12 @@ ms.lasthandoff: 10/11/2017
         - **Remove an address** (Удалить адрес). Щелкните **X** рядом с именем сервера, который требуется удалить. В этом случае сервер будет удален только из списка этой виртуальной сети. DNS-сервер остается зарегистрированным в Azure и может использоваться в других виртуальных сетях.
         - **Reorder DNS server addresses** (Упорядочить адреса DNS-серверов). При указании DNS-серверов важно убедиться, что они размещены в списке в правильном порядке для вашей среды. Списки DNS-серверов используются в том порядке, в котором они указаны. Они не используются по принципу циклического перебора. Если первый DNS-сервер в списке доступен, клиент будет использовать его вне зависимости от того, правильно ли работает этот DNS-сервер. Удалите все DNS-серверы в списке, а затем добавьте их обратно в требуемом порядке.
         - **Change an address** (Изменить адрес). Выделите DNS-сервер в списке и введите новое имя.
-6. Щелкните **Сохранить**.
+6. Выберите команду **Сохранить**.
 7. Перезапустите виртуальные машины, подключенные к виртуальной сети, чтобы назначить им новые параметры DNS-сервера. Виртуальные машины продолжают использовать свои текущие параметры DNS, пока они не будут перезагружены.
 
 **Команды**
 
-|Средство|Команда|
+|Средство|Get-Help|
 |---|---|
 |Инфраструктура CLI Azure|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -186,7 +186,7 @@ ms.lasthandoff: 10/11/2017
 
 **Команды**
 
-|Средство|Команда|
+|Средство|Get-Help|
 |---|---|
 |Инфраструктура CLI Azure|[azure network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
 |PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -194,7 +194,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- Сведения о том, как создать виртуальную машину и подключить ее к виртуальной сети, см. в статье [Создание первой собственной виртуальной сети](virtual-network-get-started-vnet-subnet.md#create-vms).
+- Сведения о том, как создать виртуальную машину и подключить ее к виртуальной сети, см. в статье [Создание первой собственной виртуальной сети](quick-create-portal.md#create-virtual-machines).
 - Сведения о фильтрации сетевого трафика между подсетями в виртуальной сети см. статью [Создание групп безопасности сети с помощью портала Azure](virtual-networks-create-nsg-arm-pportal.md).
 - Сведения о том, как настроить пиринговую связь между виртуальными сетями, см. в статье [Create a virtual network peering](virtual-network-create-peering.md#portal) (Создание пиринговой связи между виртуальными сетями).
 - Чтобы узнать о способах подключения виртуальной сети к локальной сети, см. статью [Основные сведения о VPN-шлюзах Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

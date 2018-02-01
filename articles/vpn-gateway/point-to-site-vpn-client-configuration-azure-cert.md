@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2017
+ms.date: 01/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7fe8d5e473e2c8281b1d6c8d7d5423294c428678
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: efe5d3db16db83568bb844894198b59a6b39f626
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Создание и установка файлов конфигурации VPN-клиента для настройки подключений типа "точка — сеть" с использованием собственной аутентификации Azure на основе сертификата
 
 Файлы конфигурации VPN-клиента содержатся в ZIP-файле. Эти файлы содержат параметры, требуемые при подключениях типа "точка — сеть" между собственным VPN-клиентом IKEv2 Windows или Mac и виртуальной сетью с использованием собственной аутентификации Azure на основе сертификата.
-
->[!NOTE]
->Протокол IKEv2 для подключений типа "точка — сеть" сейчас доступен в предварительной версии.
->
 
 ### <a name="workflow"></a>Рабочий процесс установки подключения типа "точка — сеть"
 

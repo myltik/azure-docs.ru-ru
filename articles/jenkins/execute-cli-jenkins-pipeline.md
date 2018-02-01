@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 2b568bd22858a42178e2821e0e97a3b4ebdfccd5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Развертывание в службу приложений Azure с помощью Jenkins и Azure CLI
 Для развертывания веб-приложения Java в Azure можно использовать Azure CLI в [конвейере Jenkins](https://jenkins.io/doc/book/pipeline/). В этом учебнике мы создадим конвейер CI/CD на виртуальной машине Azure, включая следующие задачи:
@@ -62,7 +62,7 @@ sudo apt-get install -y maven
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Создание службы приложений Azure для развертывания веб-приложения Java
 
-Создайте план службы приложений Azure с ценовой категорией **Бесплатный** с помощью команды CLI [az appservice plan create](/cli/azure/appservice/plan#create). От плана службы приложений зависят физические ресурсы, используемые для размещения приложений. Все приложения, назначенные плану службы приложений, совместно используют ресурсы, которые позволяют сэкономить при размещении нескольких приложений. 
+Создайте план службы приложений Azure с ценовой категорией **Бесплатный** с помощью команды CLI [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create). От плана службы приложений зависят физические ресурсы, используемые для размещения приложений. Все приложения, назначенные плану службы приложений, совместно используют ресурсы, которые позволяют сэкономить при размещении нескольких приложений. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -121,7 +121,7 @@ az webapp create \
 
 ### <a name="configure-java"></a>Настройка Java 
 
-Настройте конфигурацию среды выполнения Java, необходимую для работы приложения, с помощью команды [az appservice web config update](/cli/azure/appservice/web/config#update).
+Настройте конфигурацию среды выполнения Java, необходимую для работы приложения, с помощью команды [az appservice web config update](/cli/azure/appservice/web/config#az_appservice_web_config_update).
 
 Следующая команда настраивает веб-приложение для запуска в Java 8 JDK и [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -221,7 +221,7 @@ withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 
     Перейдите по адресу: http://&lt;имя_приложени>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (замените &lt;x> и &lt;y> любыми числами) для получения суммы x и y.
     
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом руководстве вы настроили конвейер Jenkins, который извлекает исходный код в репозитории GitHub. Он запускает Maven для построения WAR-файла, а затем использует Azure CLI для развертывания в службу приложений Azure. Вы научились выполнять следующие задачи:
 
 > [!div class="checklist"]

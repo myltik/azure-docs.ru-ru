@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: de65d820f2d9eea49b58185c81d815675fd76740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ce89f3aa84b7639b0367ba91304d97ae2754aba
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Создание сети для многоуровневых приложений
 
@@ -47,19 +47,19 @@ az group delete --name MyResourceGroup --yes
 
 Для создания группы ресурсов, виртуальной сети и групп безопасности сети этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
-| Команда | Примечания |
+| Get-Help | Заметки |
 |---|---|
-| [az group create](/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az network vnet create](/cli/azure/network/vnet#create) | Создает виртуальную сеть Azure и интерфейсную подсеть. |
-| [az network subnet create](/cli/azure/network/vnet/subnet#create) | Создает внутреннюю подсеть. |
-| [az network public-ip create](/cli/azure/network/public-ip#create) | Создает общедоступный IP-адрес для доступа к виртуальной машине из Интернета. |
-| [az network nic create](/cli/azure/network/nic#create) | Создает виртуальные сетевые интерфейсы и присоединяет их к интерфейсной и внутренней подсети виртуальной сети. |
-| [az network nsg create](/cli/azure/network/nsg#create) | Создает группы безопасности сети (NSG), которые связаны с интерфейсной и внутренней подсетями. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#create) |Создает правила групп безопасности сети, которые разрешают или блокируют определенные порты для конкретных подсетей. |
-| [az vm create](/cli/azure/vm#create) | Создает виртуальные машины и присоединяет сетевой адаптер к каждой из них. Эта команда также указывает образ виртуальной машины и учетные данные администратора. |
-| [az group delete](/cli/azure/group#delete) | Удаляет группу ресурсов и все содержащиеся в ней ресурсы. |
+| [az group create](/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Создает виртуальную сеть Azure и интерфейсную подсеть. |
+| [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Создает внутреннюю подсеть. |
+| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Создает общедоступный IP-адрес для доступа к виртуальной машине из Интернета. |
+| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Создает виртуальные сетевые интерфейсы и присоединяет их к интерфейсной и внутренней подсети виртуальной сети. |
+| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Создает группы безопасности сети (NSG), которые связаны с интерфейсной и внутренней подсетями. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |Создает правила групп безопасности сети, которые разрешают или блокируют определенные порты для конкретных подсетей. |
+| [az vm create](/cli/azure/vm#az_vm_create) | Создает виртуальные машины и присоединяет сетевой адаптер к каждой из них. Эта команда также указывает образ виртуальной машины и учетные данные администратора. |
+| [az group delete](/cli/azure/group#az_group_delete) | Удаляет группу ресурсов и все содержащиеся в ней ресурсы. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](/cli/azure/overview).
 

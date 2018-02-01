@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: f166b420dcd424b38f89275e1befd42a505b5785
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Средства переменных в службе автоматизации Azure
 
@@ -51,20 +51,20 @@ ms.lasthandoff: 01/03/2018
 * Логическое
 * Null
 
-## <a name="scripting-the-creation-and-management-of-variables"></a>Написание скриптов для создания переменных и управления ими
+## <a name="azurerm-powershell-cmdlets"></a>Командлеты PowerShell для AzureRM
+Для AzureRM командлеты, представленные в следующей таблице, используются для создания ресурсов учетных данных службы автоматизации и управления ими с помощью Windows PowerShell.  Они входят в состав [модуля AzureRM.Automation](/powershell/azure/overview), доступного в модулях Runbook и конфигурациях DSC службы автоматизации.
 
-Командлеты, представленные в следующей таблице, используются для создания переменных и управления ими с помощью Windows PowerShell в службе автоматизации Azure. Они входят в состав [модуля Azure PowerShell](../powershell-install-configure.md) , доступного в модулях Runbook и конфигурации DSC службы автоматизации.
-
-|Командлеты|ОПИСАНИЕ|
+| Командлеты | ОПИСАНИЕ |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Получает значение существующей переменной.|
 |[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Создает новую переменную и устанавливает ее значение.|
 |[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Удаляет существующую переменную.|
 |[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Получает значение существующей переменной.|
 
-Действия рабочего процесса в следующей таблице используются для доступа к переменным автоматизации в модуле Runbook. Они доступны для использования в модуле Runbook или конфигурации DSC и не поставляются вместе с модулем Azure PowerShell.
+## <a name="activities"></a>Действия
+Действия в следующей таблице используются для доступа к учетным данным в модуле Runbook и конфигурациях DSC.
 
-|Действия рабочего процесса|ОПИСАНИЕ|
+| Действия | ОПИСАНИЕ |
 |:---|:---|
 |Get-AutomationVariable|Получает значение существующей переменной.|
 |Set-AutomationVariable|Получает значение существующей переменной.|
@@ -201,8 +201,7 @@ ms.lasthandoff: 01/03/2018
 
 ![Задание простой переменной](media/automation-variables/runbook-set-simple-variable.png)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о соединении действий в графической разработке см. в разделе [Использование связей при создании графических модулей](automation-graphical-authoring-intro.md#links-and-workflow).
 * Чтобы начать работу с графическими модулями Runbook, см. инструкции в статье [Первый графический Runbook](automation-first-runbook-graphical.md). 
-

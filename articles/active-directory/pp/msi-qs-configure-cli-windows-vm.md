@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4b6f4e2b0e42724276448fd4726c8326de8ea6ee
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 98683af2ca35b687f918647602a561d37dd42b11
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Настройка назначаемого пользователем управляемого удостоверения службы (MSI) для виртуальной машины с помощью Azure CLI
 
@@ -28,14 +28,14 @@ ms.lasthandoff: 01/09/2018
 
 Из этой статьи вы узнаете, как включить и удалить назначаемое пользователем MSI для виртуальных машин Azure с помощью Azure CLI.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 Запустить примеры сценариев CLI в этом руководстве можно двумя способами:
 
-- Использовать [Azure Cloud Shell](~/articles/cloud-shell/overview.md) на портале Azure или с помощью кнопки "Попробовать", расположенной в правом верхнем углу каждого блока кода.
-- [Установить последнюю версию интерфейса командной строки (CLI) 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 или более позднюю версию), если вы предпочитаете использовать локальную консоль CLI. Затем войдите в Azure с помощью команды [az login](/cli/azure/#login). Используйте учетную запись, которая связана с подпиской Azure, с помощью которой нужно развернуть назначаемое пользователем MSI и виртуальную машину:
+- использовать службу [Azure Cloud Shell](~/articles/cloud-shell/overview.md) на портале Azure или с помощью кнопки "Попробовать", расположенной в правом верхнем углу каждого блока кода;
+- [Установить последнюю версию интерфейса командной строки (CLI) 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 или более позднюю версию), если вы предпочитаете использовать локальную консоль CLI. Затем войдите в Azure с помощью команды [az login](/cli/azure/#az_login). Используйте учетную запись, которая связана с подпиской Azure, с помощью которой нужно развернуть назначаемое пользователем MSI и виртуальную машину:
 
    ```azurecli
    az login
@@ -45,13 +45,13 @@ ms.lasthandoff: 01/09/2018
 
 В этом разделе описывается создание виртуальной машины и присвоение ей назначаемого пользователем MSI. Если у вас уже есть виртуальная машина, которую можно использовать, пропустите этот раздел и перейдите к следующему.
 
-1. Если вы уже создали группу ресурсов, которую можно использовать, этот шаг можно пропустить. Создайте [группу ресурсов](~/articles/azure-resource-manager/resource-group-overview.md#terminology) для хранения и развертывания MSI, используя команду [az group create](/cli/azure/group/#create). Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<LOCATION>` собственными. :
+1. Если вы уже создали группу ресурсов, которую можно использовать, этот шаг можно пропустить. Создайте [группу ресурсов](~/articles/azure-resource-manager/resource-group-overview.md#terminology) для хранения и развертывания MSI, используя команду [az group create](/cli/azure/group/#az_group_create). Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<LOCATION>` собственными. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Создайте назначаемое пользователем MSI с помощью команды [az identity create](/cli/azure/identity#az_identity_create).  Параметр `-g` указывает группу ресурсов, в которой создается MSI, а параметр `-n` указывает его имя. Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<MSI NAME>` собственными:
+2. Создайте назначаемое пользователем MSI с помощью команды [az identity create](/cli/azure/identity#az_identity_create).  Параметр `-g` указывает группу ресурсов, в которой создается удостоверение MSI, а параметр `-n` — его имя. Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<MSI NAME>` собственными:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
@@ -73,7 +73,7 @@ ms.lasthandoff: 01/09/2018
    }
    ```
 
-3. Создайте виртуальную машину, выполнив команду [az vm create](/cli/azure/vm/#create). В следующем примере создается виртуальная машина, связанная с новым назначаемым пользователем MSI, в соответствии с параметром `--assign-identity`. Обязательно замените свойства `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` и `<`MSI ID>` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id`, созданные на предыдущем шаге: 
+3. Создайте виртуальную машину, выполнив команду [az vm create](/cli/azure/vm/#az_vm_create). В следующем примере создается виртуальная машина, связанная с новым назначаемым пользователем MSI, в соответствии с параметром `--assign-identity`. Обязательно замените свойства `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` и `<`MSI ID>` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id`, созданные на предыдущем шаге: 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
@@ -81,7 +81,7 @@ ms.lasthandoff: 01/09/2018
 
 ## <a name="enable-msi-on-an-existing-azure-vm"></a>Включение MSI на имеющейся виртуальной машине Azure
 
-1. Создайте назначаемое пользователем MSI с помощью команды [az identity create](/cli/azure/identity#az_identity_create).  Параметр `-g` указывает группу ресурсов, в которой создается MSI, а параметр `-n` указывает его имя. Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<MSI NAME>` собственными:
+1. Создайте назначаемое пользователем MSI с помощью команды [az identity create](/cli/azure/identity#az_identity_create).  Параметр `-g` указывает группу ресурсов, в которой создается удостоверение MSI, а параметр `-n` — его имя. Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<MSI NAME>` собственными:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Указатель статей по управлению приложениями в Azure Active Directory
 В этой статье представлен полный список всех статей о различных функциях приложений в Azure Active Directory (Azure AD).
@@ -137,7 +137,7 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 | Дополнительные сведения о принципах работы и ответы на часто задаваемые вопросы |[Автоматическая подготовка пользователей и ее отзыв для приложений SaaS](active-directory-saas-app-provisioning.md) |
 | Настройка способов сопоставления сведений между Azure AD и приложением SaaS |[Настройка сопоставлений атрибутов](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Запись выражений для сопоставления атрибутов](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Включение автоматической подготовки в любом приложении, которое поддерживает протокол SCIM |[Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM](active-directory-scim-provisioning.md) |
-| Составление отчетов о подготовке пользователей и устранение неполадок |[Отчеты об автоматической подготовке пользователей](active-directory-saas-provisioning-reporting.md)<br><br>[Уведомления о подготовке](active-directory-saas-account-provisioning-notifications.md)<br><br>[Устранение неполадок при подготовке пользователей](active-directory-application-provisioning-content-map.md) |
+| Составление отчетов о подготовке пользователей и устранение неполадок |[Отчеты об автоматической подготовке пользователей](active-directory-saas-provisioning-reporting.md)<br><br>[Устранение неполадок при подготовке пользователей](active-directory-application-provisioning-content-map.md) |
 | Ограничение количества пользователей, которые будут подготовлены для работы с приложением, на основе значений их атрибутов |[Подготовка приложений на основе атрибутов с использованием фильтров области](active-directory-saas-scoping-filters.md) |
 
 Автоматическая подготовка пользователей доступна для всех выпусков Azure AD, и ее можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), вы можете [использовать группы для управления отбором пользователей для подготовки](#managing-access-to-applications).

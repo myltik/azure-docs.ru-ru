@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Потоковая передача данных из большого двоичного объекта службы хранилища Azure в хранилище озера данных с помощью Azure Stream Analytics
 Из этой статьи вы узнаете, как использовать хранилище озера данных Azure в качестве источника выходных данных для задания Azure Stream Analytics. В этой статье показан простой сценарий, в котором данные считываются из большого двоичного объекта службы хранилища Azure (входные данные) и записываются в хранилище озера данных (выходные данные).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Перед началом работы с этим учебником необходимо иметь следующее:
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -65,7 +65,7 @@ ms.lasthandoff: 11/03/2017
     * **Разделитель** — выберите **Табуляция**.
     * **Кодировка** — выберите **UTF-8**.
 
-    Щелкните **Создать**. Портал добавит входные данные и проверит подключение к ним.
+    Нажмите кнопку **Создать**. Портал добавит входные данные и проверит подключение к ним.
 
 
 ## <a name="create-a-data-lake-store-output-for-the-job"></a>Создание выходных данных хранилища озера данных для задания
@@ -94,7 +94,7 @@ ms.lasthandoff: 11/03/2017
     * **Разделитель** — выберите **Табуляция**.
     * **Кодировка** — выберите **UTF-8**.
     
-    Щелкните **Создать**. Портал добавит выходные данные и проверит подключение к ним.
+    Нажмите кнопку **Создать**. Портал добавит выходные данные и проверит подключение к ним.
     
 ## <a name="run-the-stream-analytics-job"></a>Выполнение задания Stream Analytics
 
@@ -120,5 +120,5 @@ ms.lasthandoff: 11/03/2017
 
     В области обозревателя данных можно увидеть, что выходные данные записаны в папку, указанную в параметрах выходных данных Data Lake Store (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Создание кластера HDInsight для работы с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)

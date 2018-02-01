@@ -47,4 +47,4 @@ python -m http.server 8080
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

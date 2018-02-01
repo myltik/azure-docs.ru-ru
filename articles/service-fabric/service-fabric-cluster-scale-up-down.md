@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Масштабирование кластера Service Fabric с помощью правил автомасштабирования
 Наборы масштабирования виртуальных машин относятся к вычислительным ресурсам Azure. Их можно использовать для развертывания коллекции виртуальных машин и управления ею как набором. Каждый тип узла, определенный в кластере Service Fabric, настроен как отдельный масштабируемый набор виртуальных машин. Каждый тип узла поддерживает возможность независимого масштабирования, имеет разные наборы открытых портов и собственные метрики емкости. Дополнительные сведения о типах узлов Service Fabric см. в этом [документе](service-fabric-cluster-nodetypes.md). Так как типы узлов Service Fabric в вашем кластере состоят из масштабируемых наборов виртуальных машин на сервере, для каждого типа узлов или масштабируемого набора необходимо настроить правила автомасштабирования.
@@ -91,7 +91,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 4. При необходимости повторите шаги 1–3, но никогда не следует уменьшать число экземпляров в типах первичных узлов до значения меньше гарантируемого уровнем надежности. Ознакомьтесь с дополнительными сведениями об уровнях надежности [здесь](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Возможные варианты поведения в обозревателе Service Fabric
-При вертикальном масштабировании кластера в Service Fabric Explorer отражается число узлов (экземпляров масштабируемых наборов виртуальных машин), которые входят в кластер.  Тем не менее при уменьшении масштаба кластера удаленный узел или экземпляр виртуальной машины будет отображаться как неработоспособный, если не вызвать [командлет Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx) с именем соответствующего узла.   
+При вертикальном масштабировании кластера в Service Fabric Explorer отражается число узлов (экземпляров масштабируемых наборов виртуальных машин), которые входят в кластер.  Тем не менее при уменьшении масштаба кластера удаленный узел или экземпляр виртуальной машины будет отображаться как неработоспособный, если не вызвать [командлет Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) с именем соответствующего узла.   
 
 Вот как объясняется это поведение.
 
@@ -109,7 +109,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о планировании емкости кластера, обновлении кластера и секционировании служб см. в следующих статьях:
 
 * [Планирование емкости кластера](service-fabric-cluster-capacity.md)

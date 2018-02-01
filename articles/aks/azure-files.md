@@ -10,10 +10,10 @@ ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: b6267dd2bc1b29229b2e8016e2429ed88b7bf676
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Использование службы файлов Azure с Kubernetes
 
@@ -117,7 +117,7 @@ kubectl apply -f azure-files-pod.yaml
 
 Теперь у вас есть работающий контейнер с общим ресурсом службы файлов Azure, подключенным к каталогу `/mnt/azure`. Подключенный том можно увидеть, изучив pod с помощью команды `kubectl describe pod azure-files-pod`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Узнайте больше о томах Kubernetes, использующих службу файлов Azure.
 

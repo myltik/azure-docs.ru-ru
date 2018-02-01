@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: a0dd7388b3fa7517b97f4dd66eb121ebfd98d4a4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: a2477b0a7c9c76f8ce4a183f4d699ddf4c291023
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Создание списка рекомендуемых фильмов с помощью Apache Mahout и Hadoop в HDInsight (PowerShell)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/06/2017
 
 Узнайте, как использовать библиотеку машинного обучения [Apache Mahout](http://mahout.apache.org) для создания списка рекомендуемых к просмотру фильмов с помощью Azure HDInsight. В примере в этом документе для запуска заданий Mahout используется Azure PowerShell.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Кластер HDInsight под управлением Linux. Дополнительные сведения о создании кластера см. в статье [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][getstarted].
 
@@ -210,7 +210,7 @@ foreach($blob in $blobs)
 
 Для запуска заданий, использующих указанные классы, подключитесь к кластеру HDInsight по протоколу SSH и запустите их, используя командную строку. Например, сведения об использовании SSH для выполнения заданий Mahout см. в статье [Создание списка рекомендуемых фильмов с помощью Apache Mahout и Hadoop в HDInsight на платформе Linux](hadoop/apache-hadoop-mahout-linux-mac.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Теперь, когда вы узнали, как использовать Mahout, откройте для себя другие способы работы с данными в HDInsight:
 

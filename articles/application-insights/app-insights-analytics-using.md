@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
 ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-analytics-in-application-insights"></a>Использование аналитики в Application Insights
 [Аналитика](app-insights-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов Log Analytics.
@@ -99,7 +99,7 @@ IntelliSense подскажет вам операторы и элементы в
 
     Тем не менее можно изменить фильтр диапазона времени, воспользовавшись раскрывающимся меню.
 
-    Или можно переопределить автоматический диапазон, добавив в запрос собственное [предложение `where  ... timestamp ...`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator). Например:
+    Или можно переопределить автоматический диапазон, добавив в запрос собственное [предложение `where  ... timestamp ...`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator). Например: 
 
     `requests | where timestamp > ago('2d')`
 
@@ -133,7 +133,7 @@ IntelliSense подскажет вам операторы и элементы в
 
 ![Диагностика аналитики](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
-## <a name="pin-to-dashboard"></a>Закрепление на панели мониторинга
+## <a name="pin-to-dashboard"></a>Закрепить на панели мониторинга
 Вы можете закрепить диаграмму или таблицу на одной из [общих панелей мониторинга](app-insights-dashboards.md). Для этого просто щелкните значок булавки. 
 
 ![Щелкните значок булавки](./media/app-insights-analytics-using/pin-01.png)

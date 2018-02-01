@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Основные понятия в службе "Сетка событий Azure"
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/28/2017
 
 Если служба "Сетка событий" не может подтвердить, что событие было получено конечной точкой подписчика, она отправляет его повторно. Дополнительные сведения см. в разделе [Доставка и повторные попытки доставки сообщений сетки событий](delivery-and-retry.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Общие сведения о службе "Сетка событий" см. в разделе [Общие сведения о службе "Сетка событий Azure"](overview.md).
 * Сведения о том, как быстро приступить к использованию службы "Сетка событий", см. в разделе [Создание и перенаправление пользовательского события со службой "Сетка событий Azure"](custom-event-quickstart.md).

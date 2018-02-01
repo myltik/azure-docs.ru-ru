@@ -2,17 +2,17 @@
 title: "Подготовка пула пакетной службы Azure в виртуальной сети | Документация Майкрософт"
 description: "Вы можете создать в виртуальной сети пул пакетной службы, чтобы вычислительные узлы безопасно взаимодействовали с другими виртуальными машинами в сети, например с файловым сервером."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: v-dotren
-ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: danlep
+ms.openlocfilehash: 647a123e403b0ed6458bc26e7b26a73f3c1f8e91
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Создание пула пакетной службы Azure в виртуальной сети
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/03/2017
 
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Проверка подлинности**. Для использования виртуальной сети Azure API клиента пакетной службы должен использовать проверку подлинности Azure Active Directory (AD). Поддержка Azure AD пакетной службой Azure описана в статье [Аутентификация решений пакетной службы с помощью Active Directory](batch-aad-auth.md). 
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/03/2017
 
 ![определяемый пользователем маршрут;](./media/batch-virtual-network/user-defined-route.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Исчерпывающий обзор пакетной службы см. в статье [Разработка решений для крупномасштабных параллельных вычислений с использованием пакетной службы](batch-api-basics.md).
 - Дополнительные сведения о создании определяемого пользователем маршрута см. в разделе [Создание определяемого пользователем маршрута с помощью портала Azure](../virtual-network/create-user-defined-route-portal.md).

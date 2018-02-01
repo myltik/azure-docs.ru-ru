@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 749deb6549e0ac90da4b44424026c897108a4bb7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Вызов пакета SSIS с помощью действия хранимой процедуры в фабрике данных Azure
 В этой статье описывается, как вызвать пакет SSIS из конвейера фабрики данных Azure, используя действие хранимой процедуры. 
@@ -31,12 +31,12 @@ ms.lasthandoff: 01/19/2018
 В этих пошаговых инструкциях используется база данных SQL Azure, в которой размещен каталог SSIS. Вы также можете использовать управляемый экземпляр SQL Azure (закрытая предварительная версия).
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Создание среды выполнения интеграции Azure SSIS.
-Создайте среду выполнения интеграции Azure SSIS, если у вас ее нет. Для этого выполните пошаговую инструкцию в статье [Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure](tutorial-deploy-ssis-packages-azure.md).
+Создайте среду выполнения интеграции Azure SSIS, если у вас ее нет. Для этого выполните пошаговую инструкцию в статье [Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Пользовательский интерфейс фабрики данных (портал Azure)
 В этом разделе для создания конвейера с действием хранимой процедуры, которая вызывает пакет SSIS, используется пользовательский интерфейс фабрики данных.
 
-### <a name="create-a-data-factory"></a>Создание фабрики данных
+### <a name="create-a-data-factory"></a>Создать фабрику данных
 Сначала нужно создать фабрику данных с помощью портала Azure. 
 
 1. Перейдите на [портал Azure](https://portal.azure.com). 
@@ -140,7 +140,7 @@ ms.lasthandoff: 01/19/2018
 
 Чтобы установить модули Azure PowerShell, выполните инструкции из статьи [Установка и настройка Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-### <a name="create-a-data-factory"></a>Создание фабрики данных
+### <a name="create-a-data-factory"></a>Создать фабрику данных
 Вы можете использовать ту же фабрику данных, в которой есть среда выполнения интеграции Azure SSIS, или создать отдельную. В следующей процедуре представлены шаги для создания фабрики данных. Вы создадите конвейер с действием хранимой процедуры в фабрике данных. Действие хранимой процедуры выполняет хранимую процедуру в базе данных SSISDB для запуска вашего пакета SSIS. 
 
 1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) в двойных кавычках, а затем выполните команду. Например, `"adfrg"`. 

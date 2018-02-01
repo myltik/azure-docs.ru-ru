@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: dc46e3987f3710bc73ef13a2c195b68f78bd104d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: db10e6f2cc06e493fd3269c6ac7c7ef8213fb1ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Создание кластера HDInsight с Data Lake Store (как дополнительное хранилище) с помощью Azure PowerShell
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/21/2017
 * создание кластера HDInsight с проверкой подлинности в хранилище озера данных;
 * выполнение тестового задания в кластере.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Перед началом работы с этим учебником необходимо иметь следующее:
 
 * **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).

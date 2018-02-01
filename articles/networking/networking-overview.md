@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-networking"></a>Сети Azure
 
@@ -157,8 +157,8 @@ Azure предоставляет следующие средства монит�
 
 Некоторые сетевые службы Azure тарифицируются, а другие предоставляются бесплатно. Дополнительные сведения см. на страницах цен на [виртуальную сеть](https://azure.microsoft.com/pricing/details/virtual-network), [VPN-шлюз](https://azure.microsoft.com/pricing/details/vpn-gateway), [шлюз приложений](https://azure.microsoft.com/en-us/pricing/details/application-gateway/), [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer), [Наблюдатель за сетями](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [диспетчер трафика](https://azure.microsoft.com/pricing/details/traffic-manager) и [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-- Создайте первую виртуальную сеть и подключите к ней несколько виртуальных машин, выполнив действия, описанные в [этой статье](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- Создайте первую виртуальную сеть и подключите к ней несколько виртуальных машин, выполнив действия, описанные в [этой статье](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Подключите свой компьютер к виртуальной сети, выполнив действия, описанные в статье [Настройка подключения типа "точка — сеть" к виртуальной сети с помощью портала Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Реализуйте балансировку интернет-трафика на общедоступные серверы, выполнив действия, описанные в статье [Создание подсистемы балансировки нагрузки для Интернета на портале Azure](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).

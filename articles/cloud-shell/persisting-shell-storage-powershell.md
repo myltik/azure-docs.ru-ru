@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/30/2018
 ms.author: damaerte
-ms.openlocfilehash: d0bc16bc951fce17235d8070012de44ebab89888
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 74488b85ec524e4ad4c06a639a16ddbfd54b3154
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Как PowerShell работает в Azure Cloud Shell (предварительная версия)
 PowerShell в Cloud Shell (предварительная версия) позволяет сохранять файлы с помощью приведенного ниже метода. 
@@ -36,9 +36,9 @@ PowerShell в Cloud Shell (предварительная версия) позв
 Команда `Dismount-CloudDrive` отключает файловый ресурс Azure в текущей учетной записи хранения. Отключение облачного диска приводит к завершению текущего сеанса. Пользователю будет предложено создать и подключить файловый ресурс Azure во время следующего сеанса.
 ![Выполнение Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
-[!include [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Краткое руководство по PowerShell](quickstart-powershell.md) <br>
 [Введение в хранилище Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Использование тегов для организации ресурсов в Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

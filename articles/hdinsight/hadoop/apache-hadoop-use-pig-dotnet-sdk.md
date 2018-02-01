@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: c828a7b63e70669ed38ecea898442a3978e67ba7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5510d64b518e4694caa8e35140907b55c01ecd8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Выполнение заданий Pig с помощью пакета SDK для .NET для Hadoop в HDInsight
 
@@ -30,14 +30,14 @@ ms.lasthandoff: 11/09/2017
 
 Пакет SDK для HDInsight .NET предоставляет клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Pig позволяет создавать операции MapReduce путем моделирования ряда преобразований данных. В этом документе вы узнаете, как отправлять задания Pig в кластер HDInsight с помощью базового приложения C#.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Visual Studio 2012, 2013, 2015 или 2017.
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/09/2017
    | ------ | ------ |
    | Категория | Templates/Visual C#/Windows |
    | Шаблон | Консольное приложение |
-   | Имя | SubmitPigJob |
+   | ИМЯ | SubmitPigJob |
 
 3. Нажмите кнопку **ОК** , чтобы создать проект.
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 11/09/2017
     using Microsoft.Azure.Management.HDInsight.Job.Models;
     using Hyak.Common;
 
-    namespace SubmitHDInsightJobDotNet
+    namespace SubmitPigJob
     {
         class Program
         {
@@ -122,7 +122,7 @@ ms.lasthandoff: 11/09/2017
 
 8. Чтобы завершить работу приложения, нажмите клавишу **ВВОД**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Сведения о Pig в HDInsight см. в разделе [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md).
 

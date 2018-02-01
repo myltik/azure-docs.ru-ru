@@ -64,4 +64,4 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 #### <a name="use-a-custom-method-to-validate-issuers"></a>Используйте пользовательский метод для проверки издателей
 Пользовательский метод можно реализовать для проверки издателей с помощью параметра **IssuerValidator**. Дополнительные сведения о том, как использовать этот параметр, см. в статье [TokenValidationParameters Class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) (Класс TokenValidationParameters) на MSDN.
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

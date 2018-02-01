@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3f0add4cf48ebcb4235fb05aa8bfa0b5365848c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Обзор службы приложений в Azure Stack
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 Служба приложений Azure в Azure Stack— это предложение Microsoft Azure в формате PaaS (платформа как услуга) для Microsoft Azure Stack. Эта служба позволяет внутренним и внешним клиентам создавать веб-приложения, приложения API и Функций Azure для любых платформ и устройств. Клиенты получают возможность интегрировать свои приложения с приложениями в локальной среде и автоматизировать бизнес-процессы. Операторы Azure Stack могут запускать клиентские приложения на полностью управляемых виртуальных машинах, в том числе на общих ресурсах для виртуальных машин или на выделенных виртуальных машинах.
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 12/08/2017
 
 Служба приложений в Azure Stack имеет такой же пользовательский интерфейс и такую же серверную часть, как и служба приложений Azure. Некоторые компоненты в Azure Stack отключены, то есть не могут использоваться. Это связано с тем, что задачи или службы Azure, для которых применяются эти компоненты, пока недоступны в Azure Stack.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 
 - [Подготовка к работе со службой приложений в Azure Stack](azure-stack-app-service-before-you-get-started.md)

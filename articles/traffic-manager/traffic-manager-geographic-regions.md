@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Иерархия стран и регионов, используемая диспетчером трафика Azure для географической маршрутизации трафика
 
@@ -65,14 +65,6 @@ ms.lasthandoff: 10/11/2017
         - FR (Франция)
 
         - GB (Соединенное Королевство)
-
-            - GB-ENG (Англия)
-
-            - GB-NIR (Северная Ирландия)
-
-            - GB-SCT (Шотландия)
-
-            - GB-WLS (Уэльс)
 
         - GG (Гернси)
 
@@ -190,7 +182,7 @@ ms.lasthandoff: 10/11/2017
 
         - BM (Бермуды)
 
-        - BQ (Бонайре)
+        - BQ (Бонэйр)
 
         - BS (Багамы)
 
@@ -698,6 +690,6 @@ ms.lasthandoff: 10/11/2017
 
         - WS (Самоа)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Узнайте больше о [методе географической маршрутизации трафика в диспетчере трафика Azure](traffic-manager-routing-methods.md#geographic).

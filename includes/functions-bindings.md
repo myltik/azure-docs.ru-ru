@@ -1,9 +1,10 @@
 В следующей таблице показаны привязки, которые поддерживаются в двух основных версиях среды выполнения службы "Функции Azure".
 
-| Тип | 1.x | 2.x | Триггер | Входные данные | Выходные данные |  
+| type | 1.x | 2.x | Триггер | Входные данные | Выходные данные |  
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Хранилище BLOB-объектов](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|  
 | [База данных Cosmos](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔<sup>1</sup>|✔|✔|✔|  
+| [Сетка событий](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| | |  
 | [Концентраторы событий](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|  
 | [Внешний файл](../articles/azure-functions/functions-bindings-external-file.md)<sup>2</sup>    |✔|| |✔|✔|  
 | [Внешняя таблица](../articles/azure-functions/functions-bindings-external-table.md)<sup>2</sup>  |✔|| |✔|✔|  

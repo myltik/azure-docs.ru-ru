@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 5f325cf19afd5a5a42c09b49486c0c1d9ee15e5d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: c2cf81729a0556484bb0eb6c93ea57f0a6208cb0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-docker-ce-cluster"></a>Развертывание кластера Docker CE
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/13/2017
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов Azure — это логическая группа, в которой выполняется развертывание и администрирование ресурсов Azure.
+Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create). Группа ресурсов Azure — это логическая группа, в которой выполняется развертывание и администрирование ресурсов Azure.
 
 В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *ukwest*.
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroup --location ukwest
 
 ## <a name="create-docker-swarm-cluster"></a>Создание кластера Docker Swarm
 
-Создайте кластер Docker CE в службе контейнеров Azure с помощью команды [az acs create](/cli/azure/acs#create). 
+Создайте кластер Docker CE в службе контейнеров Azure с помощью команды [az acs create](/cli/azure/acs#az_acs_create). 
 
 В следующем примере создается кластер *mySwarmCluster* с одним главным узлом Linux и тремя узлами агентов Linux.
 
@@ -60,7 +60,7 @@ az group create --name myResourceGroup --location ukwest
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-В некоторых случаях, например при использовании ограниченной пробной версии, доступ подписки Azure к ресурсам Azure ограничен. Если происходит сбой развертывания из-за ограничения доступных ядер, уменьшите количество агентов по умолчанию, добавив `--agent-count 1` в команду [az acs create](/cli/azure/acs#create). 
+В некоторых случаях, например при использовании ограниченной пробной версии, доступ подписки Azure к ресурсам Azure ограничен. Если происходит сбой развертывания из-за ограничения доступных ядер, уменьшите количество агентов по умолчанию, добавив `--agent-count 1` в команду [az acs create](/cli/azure/acs#az_acs_create). 
 
 Через несколько минут выполнение команды завершается и отображаются сведения о кластере в формате JSON.
 
@@ -152,7 +152,7 @@ lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                
 ![Изображение перехода к приложению Azure для голосования](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Удаление кластера
-Чтобы удалить ненужные кластер, группу ресурсов, службу контейнеров и все связанные с ней ресурсы, выполните команду [az group delete](/cli/azure/group#delete).
+Чтобы удалить ненужные кластер, группу ресурсов, службу контейнеров и все связанные с ней ресурсы, выполните команду [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -164,7 +164,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом кратком руководстве мы развернули кластер Docker Swarm, а затем развернули в нем многоконтейнерное приложение.
 

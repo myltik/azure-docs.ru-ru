@@ -12,27 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Использование службы импорта и экспорта Azure для автономного копирования данных в Data Lake Store
 В этой статье вы узнаете о том, как скопировать огромные наборы данных (> 200 ГБ) в Azure Data Lake Store, используя методы автономного копирования, такие как [служба импорта и экспорта Azure](../storage/common/storage-import-export-service.md). В частности, в качестве примера в этой статье используется файл размером 339 420 860 416 байт, т. е. 319 ГБ на диске. Давайте назовем этот файл 319GB.tsv.
 
 Служба импорта и экспорта Azure позволяет безопасно переносить большие объемы данных в хранилище BLOB-объектов Azure, отправляя жесткие диски в центр обработки данных Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Перед началом работы убедитесь, что у вас есть такие компоненты.
 
-* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Учетная запись хранения Azure.**
 * **Учетная запись Azure Data Lake Store.** Инструкции по созданию учетной записи см. в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).
 
 ## <a name="preparing-the-data"></a>Подготовка данных
+
 Перед использованием службы импорта и экспорта необходимо разделить передаваемый файл данных на **копии, размер которых не превышает 200 ГБ**. Это нужно сделать, так как инструмент для импорта не работает с файлами, размер которых превышает 200 ГБ. В этом руководстве мы разделим файл на блоки по 100 ГБ. Это можно сделать с помощью [Cygwin](https://cygwin.com/install.html). Это средство поддерживает команды Linux. Воспользуйтесь следующей командой:
 
     split -b 100m 319GB.tsv
@@ -207,7 +208,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv”
 ````
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 * [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)

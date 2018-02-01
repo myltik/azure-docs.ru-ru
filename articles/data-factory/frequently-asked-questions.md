@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Часто задаваемые вопросы о фабрике данных Azure
 Эта статья относится к версии 2 службы фабрики данных Azure. Она содержит ответы на часто задаваемые вопросы о фабрике данных.  
@@ -68,7 +68,7 @@ ms.lasthandoff: 01/23/2018
 Дополнительные сведения см. в статье [Ветвления и создание цепочки действий в конвейере фабрики данных](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Развертывание пакетов служб SSIS в Azure 
-Если вы хотите перемещать рабочие нагрузки служб SSIS, то создайте фабрику данных версии 2 и подготовьте среду выполнения интеграции Azure SSIS. Среда выполнения интеграции Azure SSIS — это полностью управляемый кластер виртуальных машин (узлов) Azure, выделенный для выполнения пакетов служб SSIS в облаке. Пошаговые инструкции см. в руководстве [Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure](tutorial-deploy-ssis-packages-azure.md). 
+Если вы хотите перемещать рабочие нагрузки служб SSIS, то создайте фабрику данных версии 2 и подготовьте среду выполнения интеграции Azure SSIS. Среда выполнения интеграции Azure SSIS — это полностью управляемый кластер виртуальных машин (узлов) Azure, выделенный для выполнения пакетов служб SSIS в облаке. Пошаговые инструкции см. в руководстве [Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure](tutorial-create-azure-ssis-runtime-portal.md). 
  
 
 ### <a name="sdks"></a>Пакеты SDK

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Экспорт шаблонов Azure Resource Manager с помощью Azure CLI
 
@@ -44,7 +44,7 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Сохранение шаблона из журнала развертываний
 
-Шаблон можно извлечь из журнала развертываний с помощью команды [az group deployment export](/cli/azure/group/deployment#export). В следующем примере сохраняется шаблон, который вы ранее развернули:
+Шаблон можно извлечь из журнала развертываний с помощью команды [az group deployment export](/cli/azure/group/deployment#az_group_deployment_export). В следующем примере сохраняется шаблон, который вы ранее развернули:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -55,7 +55,7 @@ az group deployment export --name NewStorage --resource-group ExampleGroup
 
 ## <a name="export-resource-group-as-template"></a>Экспорт группы ресурсов в виде шаблона
 
-Вместо извлечения шаблона из журнала развертываний можно получить шаблон, который представляет текущее состояние группы ресурсов. Для этого используйте команду [az group export](/cli/azure/group#export). Эта команда используется, когда в группе ресурсов внесено много изменений и ни один из существующих шаблонов не содержит всех изменений.
+Вместо извлечения шаблона из журнала развертываний можно получить шаблон, который представляет текущее состояние группы ресурсов. Для этого используйте команду [az group export](/cli/azure/group#az_group_export). Эта команда используется, когда в группе ресурсов внесено много изменений и ни один из существующих шаблонов не содержит всех изменений.
 
 ```azurecli
 az group export --name ExampleGroup
@@ -203,7 +203,7 @@ az group deployment create --name NewStorage --resource-group ExampleGroup \
 
 Повторно разверните измененный шаблон.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения об экспорте шаблона с помощью портала см. в статье [Экспорт шаблона Azure Resource Manager из существующих ресурсов](resource-manager-export-template.md).
 * Сведения об определении параметров в шаблоне см. в разделе [Создание шаблонов](resource-group-authoring-templates.md#parameters).
 * Советы по устранению распространенных ошибок развертывания см. в разделе [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).

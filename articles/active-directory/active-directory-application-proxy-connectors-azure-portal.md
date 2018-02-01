@@ -3,7 +3,7 @@ title: "Публикация приложений в отдельных сетя
 description: "Этот раздел описывает создание групп соединителей в прокси приложения Azure AD и управление ими."
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
-ms.author: daveba
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 7c409e5419a2bd393cb5c7ec265e44310f7e9027
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 58886fc8d1b713207d8cd2c5547d2f99420ba6eb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/05/2018
 >[!TIP] 
 >При наличии большого развертывания прокси приложения не назначайте какие-либо приложения в группу соединителей по умолчанию. Таким образом новые соединители не будут принимать текущий трафик, пока вы не добавите их в активную группу соединителей. Такая конфигурация позволяет переводить соединители в режим простоя, перемещая их в группу по умолчанию, чтобы можно было выполнить обслуживание без ущерба для работы пользователей.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Чтобы сгруппировать соединители, необходимо убедиться, что вы [установили несколько соединителей](active-directory-application-proxy-enable.md). При установке нового соединителя он автоматически присоединяется к группе соединителей **по умолчанию** .
 
 ## <a name="create-connector-groups"></a>Создание групп соединителей
@@ -123,7 +123,7 @@ ms.lasthandoff: 01/05/2018
 
 ![Azure AD без групп соединителей](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Сведения о соединителях прокси приложения Azure AD](application-proxy-understand-connectors.md)
 * [Включение единого входа](application-proxy-sso-overview.md)

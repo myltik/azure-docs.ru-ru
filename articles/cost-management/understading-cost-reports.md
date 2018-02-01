@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/27/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: df2108a6e2a01195340a09eacf1c56f9d738c923
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understanding-cost-reports"></a>Интерпретация отчетов о затратах
 
@@ -132,6 +132,6 @@ ms.lasthandoff: 11/28/2017
 
     Используйте элемент Actions (Действия), чтобы сохранить, экспортировать или запланировать отчет.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Если вы еще не завершили первое руководство по службе "Управление затратами", ознакомьтесь с ним в статье [Просмотр сведений об использовании и затратах](tutorial-review-usage.md).

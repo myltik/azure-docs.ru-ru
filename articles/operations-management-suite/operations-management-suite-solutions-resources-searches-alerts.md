@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Добавление сохраненных поисковых запросов и оповещений Log Analytics в решении по управлению OMS (предварительная версия)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/17/2018
 
 
 ## <a name="log-analytics-workspace"></a>Рабочая область Log Analytics
-Все ресурсы в Log Analytics размещаются в [рабочей области](../log-analytics/log-analytics-manage-access.md).  Как описано в разделе [Рабочая область OMS и учетная запись службы автоматизации](operations-management-suite-solutions.md#oms-workspace-and-automation-account), рабочая область не включается в решение по управлению и ее нужно отдельно создать перед установкой решения.  Если она недоступна, установка решения завершается сбоем.
+Все ресурсы в Log Analytics размещаются в [рабочей области](../log-analytics/log-analytics-manage-access.md).  Как описано в разделе [Рабочая область OMS и учетная запись службы автоматизации](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), рабочая область не включается в решение по управлению и ее нужно отдельно создать перед установкой решения.  Если она недоступна, установка решения завершается сбоем.
 
 Имя рабочей области указывается в имени каждого ресурса Log Analytics.  Для этого в решении используется параметр **workspace**, как показано в следующем примере ресурса savedsearch.
 

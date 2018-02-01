@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: c97a9d96dbe6d9bc9eaa189384acad7579365e82
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Приступая к работе с аудитом базы данных SQL
 Аудит базы данных SQL Azure позволяет отслеживать события базы данных и записывать их в журнал аудита в учетной записи хранения Azure. Аудит также дает следующие возможности:
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/31/2017
     <a id="storage-screenshot"></a> ![Область навигации][4]
 6. Настроить события аудита можно с помощью PowerShell или REST API. 
 7. После настройки параметров аудита можно включить новую функцию обнаружения угроз и настроить адреса электронной почты для получения предупреждений системы безопасности. Использование функции обнаружения угроз позволяет настроить упреждающие оповещения об аномальной активности в базах данных, которая может указывать на потенциальные угрозы безопасности. Дополнительные сведения см. в статье [Обнаружение угроз для базы данных SQL](sql-database-threat-detection-get-started.md).
-8. Щелкните **Сохранить**.
+8. Выберите команду **Сохранить**.
 
 
 
@@ -175,8 +175,6 @@ ms.lasthandoff: 10/31/2017
 
    * [Get-AzureRMSqlDatabaseAuditing][101]
    * [Get-AzureRMSqlServerAuditing][102]
-   * [Remove-AzureRMSqlDatabaseAuditing][103]
-   * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditing][105]
    * [Set-AzureRMSqlServerAuditing][106]
 

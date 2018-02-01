@@ -14,16 +14,16 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: af5de1c262bc55b1aa7513ca91b68eb50b44dbb7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Добавление модулей Runbook службы автоматизации Azure в планы восстановления
 В этой статье описывается, как Azure Site Recovery интегрируется со службой автоматизации Azure для обеспечения расширяемости планов восстановления. Планы восстановления могут управлять восстановлением виртуальных машин, защищенных с помощью Azure Site Recovery. Планы восстановления подходят как для репликации во вторичное облако, так и для репликации в Azure. Они также помогают реализовать **точное**, **воспроизводимое** и **автоматическое** восстановление. Если выполняется отработка отказа с переносом виртуальных машин в Azure, интеграция со службой автоматизации Azure позволяет расширить планы восстановления и предоставляет возможность выполнять Runbook, а это, в свою очередь, позволяет значительно облегчить выполнение задач автоматизации.
 
-Если вы еще не знакомы со службой автоматизации Azure, зарегистрируйтесь [здесь](https://azure.microsoft.com/services/automation/) и скачайте примеры сценариев [здесь](https://azure.microsoft.com/documentation/scripts/). Дополнительные сведения об Azure Site Recovery и о том, как управлять восстановлением в Azure с помощью [планов восстановления](https://azure.microsoft.com/blog/?p=166264), см. [здесь](https://azure.microsoft.com/services/site-recovery/).
+Если вы еще не знакомы со службой автоматизации Azure, зарегистрируйтесь [здесь](https://azure.microsoft.com/services/automation/) и скачайте примеры сценариев [здесь](https://azure.microsoft.com/documentation/scripts/). Дополнительные сведения об Azure Site Recovery и о том, как управлять восстановлением в Azure с помощью [планов восстановления](./site-recovery-create-recovery-plans.md), см. [здесь](https://azure.microsoft.com/services/site-recovery/).
 
 В этой статье мы описываем, как интегрировать модули Runbook службы автоматизации Azure в планы восстановления. Мы используем примеры автоматизации простых задач, которые ранее требовалось выполнять вручную, и узнаем, как преобразовать многоэтапный процесс восстановления в действие восстановления, запускаемое одним щелчком мыши.
 
@@ -256,8 +256,10 @@ workflow AddPublicIPAndNSG {
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-* [Учетная запись запуска от имени службы автоматизации Azure](../automation/automation-sec-configure-azure-runas-account.md)
+* [Учетная запись запуска от имени службы автоматизации Azure](../automation/automation-create-runas-account.md)
 * [Обзор службы автоматизации Azure](http://msdn.microsoft.com/library/azure/dn643629.aspx "Обзор службы автоматизации Azure")
 * [Примеры сценариев службы автоматизации Azure](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Примеры сценариев службы автоматизации Azure")
+
+## <a name="next-steps"></a>Дополнительная информация
+[Дополнительные сведения](site-recovery-failover.md) о выполнении отработки отказа.

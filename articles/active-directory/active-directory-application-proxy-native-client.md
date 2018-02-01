@@ -3,7 +3,7 @@ title: "Публикация собственных клиентских при�
 description: "В этой статье описано, как включить собственные клиентские приложения для взаимодействия с соединителем прокси приложений Azure AD, чтобы обеспечить безопасный удаленный доступ к локальным приложениям."
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: daveba
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2be62c00d144e47cef8ea4df5aa82554f2bbcc18
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 0753db5c5accf67411a9968f56aa9ad2158bad89
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Включение собственных клиентских приложений для взаимодействия с приложениями прокси
 
@@ -93,7 +93,7 @@ HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >"
 
 После изменения этих параметров в ADAL ваши пользователи смогут выполнять проверку подлинности в собственных клиентских приложениях за пределами корпоративной сети. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о блок-схеме собственного приложения см. в разделе [Из нативного приложения к веб-интерфейсу API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api).
 

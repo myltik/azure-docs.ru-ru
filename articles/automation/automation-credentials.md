@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: ac253fda413718ded815c9a990ae61473a5d8870
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 12a7d00f9e0721fc4cf2668598515fd769c8a728
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ресурсы учетных данных в службе автоматизации Azure
 В ресурсе-контейнере учетных данных службы автоматизации хранится объект [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential), содержащий учетные данные безопасности, например имя пользователя и пароль. Модули Runbook и конфигурации DSC могут использовать командлеты, которые принимают объект PSCredential для проверки подлинности или извлекать имя пользователя и пароль объекта PSCredential, чтобы предоставить их каким-либо приложениям или службам, требующим проверку подлинности. Свойства для учетных данных безопасно хранятся в службе автоматизации Azure. К ним можно получить доступ в модуле Runbook или конфигурации DSC с помощью действия [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx).
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/04/2018
 | [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Удаляет учетные данные службы автоматизации. |
 | [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Задает свойства для существующих учетных данных службы автоматизации. |
 
-## <a name="runbook-activities"></a>Действия Runbook
+## <a name="activities"></a>Действия
 Действия в следующей таблице используются для доступа к учетным данным в модуле Runbook и конфигурациях DSC.
 
 | Действия | ОПИСАНИЕ |
@@ -117,7 +117,7 @@ ms.lasthandoff: 01/04/2018
     print cred["username"]
     print cred["password"]
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о графической разработке см. в разделе [Связи и рабочий процесс](automation-graphical-authoring-intro.md#links-and-workflow).
 * Сведения о различных методах аутентификации в службе автоматизации см. в статье [Обеспечение безопасности в службе автоматизации Azure](automation-security-overview.md).
 * Чтобы начать работу с графическими модулями Runbook, см. инструкции в статье [Первый графический Runbook](automation-first-runbook-graphical.md).

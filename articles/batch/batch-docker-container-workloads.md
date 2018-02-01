@@ -2,19 +2,19 @@
 title: "Рабочие нагрузки контейнера в пакетной службе Azure | Документация Майкрософт"
 description: "Выполнение приложения из образов контейнеров в пакетной службе Azure."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 12/01/2017
-ms.author: v-dotren
-ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: danlep
+ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Выполнение контейнерных приложений в пакетной службе Azure
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/04/2017
 В этой статье предполагается, что вы уже знакомы с основными понятиями контейнера Docker и тем, как создавать пул и задания пакетной службы с помощью пакета SDK для .NET. Фрагменты кода предназначены для использования в клиентском приложении аналогично [примеру DotNetTutorial](batch-dotnet-get-started.md). Они необходимы для поддержки в контейнерных приложениях в пакетной службе.
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Версии SDK. Пакеты SDK пакетной службы поддерживают образы контейнеров в таких версиях:
     * REST API пакетной службы версии 2017-09-01.6.0;
@@ -237,7 +237,7 @@ CloudTask containerTask = new CloudTask (
 ```
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Исчерпывающий обзор пакетной службы см. в статье [Разработка решений для крупномасштабных параллельных вычислений с использованием пакетной службы](batch-api-basics.md).
 

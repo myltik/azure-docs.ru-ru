@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/23/2017
 ms.author: sutalasi
-ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Репликация многоуровневого приложения SharePoint для аварийного восстановления с помощью Azure Site Recovery | Документы Майкрософт
 
@@ -40,7 +40,7 @@ Microsoft SharePoint — это эффективное приложение, к�
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Прежде чем продолжить, ознакомьтесь со следующими статьями:
 
@@ -68,9 +68,10 @@ SharePoint можно развертывать на одном или неско
 
 **Сценарий** | **На дополнительный сайт** | **В Azure**
 --- | --- | ---
-**Hyper-V** | Да | Да
-**VMware** | Да | Да
-**Физический сервер** | Да | Да
+**Hyper-V** | Yes | Yes
+**VMware** | Yes | Yes
+**Физический сервер** | Yes | Yes
+**Таблицы Azure** | Нет данных | Yes
 
 ### <a name="sharepoint-versions"></a>Версии SharePoint
 Поддерживаются следующие версии SharePoint Server.
@@ -211,5 +212,5 @@ SharePoint можно развертывать на одном или неско
 3.  Щелкните "Отработка отказа".
 4.  Выберите точку восстановления, чтобы запустить отработку отказа.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Вы можете больше узнать о [репликации других приложений](site-recovery-workload.md) с помощью Site Recovery.

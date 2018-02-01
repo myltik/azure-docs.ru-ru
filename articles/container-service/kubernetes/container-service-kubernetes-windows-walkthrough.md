@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: ed6e4ec438cc445645d55514c2bd51596d566af8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: a7bb330657d14ac42cddf2e20fbb2e5a5b2a589b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Кластер Azure Kubernetes для Windows | Документация Майкрософт
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 12/06/2017
 
 Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью скриптов. В этом руководстве рассматривается развертывание кластера [Kubernetes](https://kubernetes.io/docs/home/) с помощью Azure CLI в [Службе контейнеров Azure](../container-service-intro.md). К развернутому кластеру можно подключиться с помощью средства командной строки Kubernetes `kubectl` и развернуть первый контейнер Windows.
 
-Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , прежде чем начинать работу.
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -33,7 +33,7 @@ Azure CLI используется для создания ресурсов Azur
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов Azure — это логическая группа, в которой выполняется развертывание и администрирование ресурсов Azure. 
+Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create). Группа ресурсов Azure — это логическая группа, в которой выполняется развертывание и администрирование ресурсов Azure. 
 
 В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-kubernetes-cluster"></a>Создание кластера Kubernetes
-Создание кластера Kubernetes в Службе контейнеров Azure с помощью команды [az acs create](/cli/azure/acs#create). 
+Создание кластера Kubernetes в Службе контейнеров Azure с помощью команды [az acs create](/cli/azure/acs#az_acs_create). 
 
 В следующем примере создается кластер с именем *myK8sCluster* с помощью одного главного узла Linux и двух узлов агентов Windows. В этом примере создаются ключи SSH, необходимые для подключения к главному узлу Linux. В этом примере используются имя администратора *azureuser* и его пароль *myPassword12* на узлах Windows. Измените эти значения в соответствии со своей средой. 
 
@@ -183,14 +183,14 @@ iis          10.0.111.25    13.64.158.233   80/TCP         22m
 
 
 ## <a name="delete-cluster"></a>Удаление кластера
-Чтобы удалить ненужные кластер, группу ресурсов, службу контейнеров и все связанные с ней ресурсы, выполните команду [az group delete](/cli/azure/group#delete).
+Чтобы удалить ненужные кластер, группу ресурсов, службу контейнеров и все связанные с ней ресурсы, выполните команду [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом кратком руководстве описано, как развертывать подключенный к `kubectl` кластер Kubernetes и группу контейнеров с контейнером IIS. Дополнительные сведения о Службе контейнеров Azure см. в руководстве по Kubernetes.
 

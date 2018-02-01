@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: bryanla
-ms.openlocfilehash: 7d817a90277a1320ccc028822032916c98cae4b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 15a7d43da7b5a700ae84a42d59a7f01f1711c5cd
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Назначение доступа на основе управляемого удостоверения службы (MSI) для ресурса с помощью Azure CLI
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 После настройки MSI для ресурса Azure можно предоставить доступ на основе MSI другому ресурсу, как и любому субъекту безопасности. В этом примере показано, как предоставить виртуальной машине Azure доступ на основе MSI к учетной записи хранения Azure с помощью Azure CLI.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -41,13 +41,13 @@ ms.lasthandoff: 12/11/2017
 
 После включения MSI для ресурса Azure, [например виртуальной машины Azure](msi-qs-configure-cli-windows-vm.md): 
 
-1. Если вы используете Azure CLI в локальной консоли, сначала выполните вход в Azure с помощью команды [az login](/cli/azure/#login). Используйте учетную запись, которая связана с подпиской Azure, с помощью которой нужно развернуть виртуальную машину.
+1. Если вы используете Azure CLI в локальной консоли, сначала выполните вход в Azure с помощью команды [az login](/cli/azure/#az_login). Используйте учетную запись, которая связана с подпиской Azure, с помощью которой нужно развернуть виртуальную машину.
 
    ```azurecli-interactive
    az login
    ```
 
-2. В этом примере мы предоставляем виртуальной машине Azure доступ к учетной записи хранения. Сначала с помощью команды [az resource list](/cli/azure/resource/#list) мы получаем субъект-службу для виртуальной машины myVM, который был создан при включении MSI для виртуальной машины.
+2. В этом примере мы предоставляем виртуальной машине Azure доступ к учетной записи хранения. Сначала с помощью команды [az resource list](/cli/azure/resource/#az_resource_list) мы получаем субъект-службу для виртуальной машины myVM, который был создан при включении MSI для виртуальной машины.
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)

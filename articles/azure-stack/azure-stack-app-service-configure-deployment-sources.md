@@ -12,15 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-deployment-sources"></a>Настройка источников развертывания
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
+
 
 Служба приложений в Azure Stack поддерживает развертывание по требованию из систем управления версиями разных поставщиков. Эта возможность позволяет разработчикам развертывать приложения напрямую из репозиториев систем управления версиями. Если пользователям необходимо настроить службу приложений для подключения к своим репозиториям, оператор облака должен сначала настроить интеграцию между службой приложений в Azure Stack и поставщиком системы управления версиями.  
 
@@ -55,7 +57,7 @@ ms.lasthandoff: 12/08/2017
 8.  Перейдите в раздел **Resource Providers** (Поставщики ресурсов) и выберите элемент **App Service Resource Provider Admin** (Администрирование поставщика ресурсов службы приложений).
 9. Щелкните **Source control configuration** (Настройка системы управления версиями).
 10. Скопируйте и вставьте **идентификатор клиента** и **секрет клиента** для GitHub в соответствующие поля ввода.
-11. Щелкните **Сохранить**.
+11. Выберите команду **Сохранить**.
 
 ## <a name="configure-bitbucket"></a>Настройка Bitbucket
 
@@ -72,13 +74,13 @@ ms.lasthandoff: 12/08/2017
 7. В поле **Permissions** (Разрешения) необходимо выбрать:
     - **Repositories** (Репозитории): *Read* (Чтение).
     - **Webhooks** (Веб-перехватчики): *Read and write* (Чтение и запись).
-8. Щелкните **Сохранить**.  Вы увидите новое зарегистрированное приложение, а также значения **Key** (Ключ) и **Secret** (Секрет) для него в разделе **OAuth consumers** (Потребители OAuth).
+8. Выберите команду **Сохранить**.  Вы увидите новое зарегистрированное приложение, а также значения **Key** (Ключ) и **Secret** (Секрет) для него в разделе **OAuth consumers** (Потребители OAuth).
     ![Список приложений в Bitbucket][9]
 9.  В новой вкладке или новом окне браузера войдите на портал администрирования Azure Stack (https://adminportal.local.azurestack.external) с учетной записью администратора служб.
 10.  Перейдите в раздел **Resource Providers** (Поставщики ресурсов) и выберите элемент **App Service Resource Provider Admin** (Администрирование поставщика ресурсов службы приложений).
 11. Щелкните **Source control configuration** (Настройка системы управления версиями).
 12. Скопируйте и вставьте **ключ** для Bitbucket в поле ввода **Client Id** (Идентификатор клиента), а **секрет** — в поле **Client Secret** (Секрет клиента).
-13. Щелкните **Сохранить**.
+13. Выберите команду **Сохранить**.
 
 
 ## <a name="configure-onedrive"></a>Настройка OneDrive
@@ -100,12 +102,12 @@ ms.lasthandoff: 12/08/2017
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
       ![Разрешения Graph для приложения OneDrive][13]
-9. Щелкните **Сохранить**.
+9. Выберите команду **Сохранить**.
 10.  В новой вкладке или новом окне браузера войдите на портал администрирования Azure Stack (https://adminportal.local.azurestack.external) с учетной записью администратора служб.
 11.  Перейдите в раздел **Resource Providers** (Поставщики ресурсов) и выберите элемент **App Service Resource Provider Admin** (Администрирование поставщика ресурсов службы приложений).
 12. Щелкните **Source control configuration** (Настройка системы управления версиями).
 13. Скопируйте и вставьте **идентификатор приложения** для OneDrive в поле ввода **Client Id** (Идентификатор клиента), а **пароль** — в поле **Client Secret** (Секрет клиента).
-14. Щелкните **Сохранить**.
+14. Выберите команду **Сохранить**.
 
 ## <a name="configure-dropbox"></a>Настройка Dropbox
 
@@ -129,7 +131,7 @@ ms.lasthandoff: 12/08/2017
 10.  Перейдите в раздел **Resource Providers** (Поставщики ресурсов) и выберите элемент **App Service Resource Provider Admin** (Администрирование поставщика ресурсов службы приложений).
 11. Щелкните **Source control configuration** (Настройка системы управления версиями).
 12. Скопируйте и вставьте **ключ приложения** для Dropbox в поле ввода **Client Id** (Идентификатор клиента), а **секрет приложения** — в поле **Client Secret** (Секрет клиента).
-13. Щелкните **Сохранить**.
+13. Выберите команду **Сохранить**.
 
 
 <!--Image references-->
@@ -150,6 +152,6 @@ ms.lasthandoff: 12/08/2017
 [15]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-registration.png
 [16]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-configuration.png
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Теперь пользователи могут использовать источники развертывания для таких операций, как [непрерывное развертывание](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [локальное развертывание Git](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git) и [синхронизация облачных папок](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

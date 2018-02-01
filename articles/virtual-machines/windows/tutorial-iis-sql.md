@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/24/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6f7ef46d9c40138c211427845423783fefde5dc3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6533ab205e07243e2f757ea0a66028e1d140c52b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>Установка стека для SQL, IIS и .NET в Azure
 
@@ -29,10 +29,12 @@ ms.lasthandoff: 10/31/2017
 > [!div class="checklist"]
 > * Создание виртуальной машины с помощью командлета New-AzVM
 > * Установка пакетов SDK для IIS и .NET Core на виртуальной машине
-> * Создание виртуальной машины с SQL Server
-> * Установка расширения SQL Server
+> * создание виртуальной машины с SQL Server;
+> * установка расширения SQL Server.
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
+Если вы решили установить и использовать PowerShell локально, то для работы с этим руководством вам понадобится модуль Azure PowerShell версии 5.1.1 или более поздней. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure.
 
 ## <a name="create-a-iis-vm"></a>Создание виртуальной машины с IIS 
 
@@ -41,9 +43,10 @@ ms.lasthandoff: 10/31/2017
 Нажмите кнопку **Попробовать** в правом верхнем углу блока кода, чтобы запустить Cloud Shell в этом окне. Вам будет предложено указать учетные данные для виртуальной машины в командной строке.
 
 ```azurepowershell-interactive
+$vmName = "IISVM$(Get-Random)"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
 ```
 
 Установите IIS и .NET Framework, используя расширение пользовательского скрипта.
@@ -52,7 +55,7 @@ New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vN
 
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
-    -VMName myIISVM `
+    -VMName $vmName `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
@@ -109,13 +112,13 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location eastus -VM $vmConfig
 Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLVM -name "SQLExtension"
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы установили стек для SQL, IIS и .NET с помощью Azure PowerShell. Вы научились выполнять следующие задачи:
 
 > [!div class="checklist"]
 > * создание виртуальной машины с помощью командлета New-AzVM;
-> * установка пакетов SDK для IIS и .NET Core на виртуальной машине;
+> * Установка пакетов SDK для IIS и .NET Core на виртуальной машине
 > * создание виртуальной машины с SQL Server;
 > * установка расширения SQL Server.
 

@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Как использовать управляемое удостоверение службы Azure (общедоступная предварительная версия) в службе приложений и Функциях Azure
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/06/2017
 
 3. Выберите **Managed service identity** (Управляемое удостоверение службы).
 
-4. Установите для параметра **Register with Azure Active Directory** (Регистрация с помощью Azure Active Directory) значение **Вкл.** Щелкните **Сохранить**.
+4. Установите для параметра **Register with Azure Active Directory** (Регистрация с помощью Azure Active Directory) значение **Вкл.** Выберите команду **Сохранить**.
 
 ![Управляемое удостоверение службы в службе приложений](media/app-service-managed-service-identity/msi-blade.png)
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/06/2017
 
 Ниже описаны действия по созданию веб-приложения и присвоению удостоверения ему с помощью CLI:
 
-1. Если вы используете Azure CLI в локальной консоли, сначала выполните вход в Azure с помощью команды [az login](/cli/azure/#login). Используйте учетную запись, связанную с подпиской Azure, с помощью которой нужно развернуть приложение.
+1. Если вы используете Azure CLI в локальной консоли, сначала выполните вход в Azure с помощью команды [az login](/cli/azure/#az_login). Используйте учетную запись, связанную с подпиской Azure, с помощью которой нужно развернуть приложение.
 
     ```azurecli-interactive
     az login
@@ -159,7 +159,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 **MSI_ENDPOINT** — это локальный URL-адрес, из которого приложение может запрашивать маркеры. Чтобы получить маркер для ресурса, отправьте запрос HTTP GET к этой конечной точке, задав следующие параметры:
 
 > [!div class="mx-tdBreakAll"]
-> |Имя параметра|В|Описание|
+> |Имя параметра|В|ОПИСАНИЕ|
 > |-----|-----|-----|
 > |resource|Запрос|Универсальный код ресурса (URI) AAD, для которого нужно получить маркер.|
 > |api-version|Запрос|Версия API маркеров, которая будет использоваться. Сейчас поддерживается только одна версия: 2017-09-01.|
@@ -169,7 +169,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 Успешный ответ 200 — OK включает текст JSON со следующими свойствами:
 
 > [!div class="mx-tdBreakAll"]
-> |Имя свойства|Описание|
+> |Имя свойства|ОПИСАНИЕ|
 > |-------------|----------|
 > |access_token|Запрашиваемый маркер доступа. Вызывающая веб-служба может использовать этот маркер для проверки подлинности принимающей веб-службы.|
 > |expires_on|Время истечения срока действия маркера доступа. Дата представляется как количество секунд с 1970-01-01T0:0:0Z в формате UTC до истечения срока действия. Это значение используется для определения времени существования кэшированных маркеров.|

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Настройка аварийного восстановления в Azure для локальных физических серверов
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/02/2017
 > * Создание политики репликации
 > * Включение репликации для сервера.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством:
 
@@ -62,9 +62,9 @@ ms.lasthandoff: 11/02/2017
 
 
 
-### <a name="set-up-an-azure-network"></a>Настроить сеть Azure
+### <a name="set-up-an-azure-network"></a>Настроить сеть
 
-Настройте [сеть Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Настройте [сеть Azure](../virtual-network/quick-create-portal.md).
 
 - Виртуальные машины Azure будут размещаться в этой сети при создании после отработки отказа.
 - Сеть должна располагаться в том же регионе, что и хранилище служб восстановления.
@@ -181,6 +181,6 @@ ms.lasthandoff: 11/02/2017
 
 Для мониторинга добавляемых серверов можно проверить последнее время обнаружения, выбрав **Серверы конфигурации** > **Последний контакт в**. Чтобы добавить компьютеры, не дожидаясь запланированного времени обнаружения, выделите сервер конфигурации (не щелкая его) и щелкните **Обновить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Run a disaster recovery drill to Azure](tutorial-dr-drill-azure.md) (Выполнение отработки аварийного восстановления в Azure)

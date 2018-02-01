@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: nepeters
-ms.openlocfilehash: 133e36179a500dc65c3a543266a7afcf9988b87d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 915f90fd5d969d5544d56e5bec754b799f349015
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Использование веб-перехватчиков реестра контейнеров Azure
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 12/02/2017
 
 Дополнительные сведения о запросах веб-перехватчика см. в [справочнике по схеме веб-перехватчика реестра контейнеров Azure](container-registry-webhook-reference.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Реестр контейнеров Azure. Создайте реестр контейнеров в своей подписке Azure. Это можно сделать на [портале Azure](container-registry-get-started-portal.md) или с помощью [Azure CLI](container-registry-get-started-azure-cli.md).
 * Интерфейс командной строки Docker (Docker CLI). Установите [подсистему Docker](https://docs.docker.com/engine/installation/), чтобы настроить локальный компьютер в качестве узла Docker и получить доступ к командам Docker CLI.
@@ -33,13 +33,13 @@ ms.lasthandoff: 12/02/2017
 1. Щелкните **Добавить** на панели инструментов веб-перехватчика.
 1. Заполните форму *Создать веб-перехватчик* следующими данными:
 
-| Значение | Описание |
+| Значение | ОПИСАНИЕ |
 |---|---|
-| Имя | Имя, назначаемое веб-перехватчику. Оно может содержать только строчные буквы и цифры (всего 5–50 символов). |
+| ИМЯ | Имя, назначаемое веб-перехватчику. Оно может содержать только строчные буквы и цифры (всего 5–50 символов). |
 | URI службы | Универсальный код ресурса (URI) для отправки веб-перехватчиком уведомлений POST. |
 | Настраиваемые заголовки | Заголовки, которые требуется передавать вместе с запросом POST. Они должны быть в формате "ключ: значение". |
 | "Trigger actions" (Активирующие действия) | Действия, которые активируют веб-перехватчик. Сейчас веб-перехватчики могут быть активированы действиями отправки и (или) удаления образа. |
-| Состояние | Состояние веб-перехватчика после его создания. По умолчанию он включен. |
+| Status | Состояние веб-перехватчика после его создания. По умолчанию он включен. |
 | Область | Область действия веб-перехватчика. По умолчанию это все события в реестре. Можно также указать определенный репозиторий или тег, используя формат "репозиторий:тег". |
 
 Пример формы для веб-перехватчика приведен ниже.
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/02/2017
 
 ## <a name="create-webhook-azure-cli"></a>Создание веб-перехватчика с помощью Azure CLI
 
-Чтобы создать веб-перехватчик с помощью Azure CLI, используйте команду [az acr webhook create](/cli/azure/acr/webhook#create).
+Чтобы создать веб-перехватчик с помощью Azure CLI, используйте команду [az acr webhook create](/cli/azure/acr/webhook#az_acr_webhook_create).
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -68,7 +68,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-cli"></a>Инфраструктура CLI Azure
 
-Чтобы протестировать веб-перехватчик ACR с помощью Azure CLI, используйте команду [az acr webhook ping](/cli/azure/acr/webhook#ping).
+Чтобы протестировать веб-перехватчик ACR с помощью Azure CLI, используйте команду [az acr webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping).
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
@@ -92,6 +92,6 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Azure Container Registry webhook schema reference](container-registry-webhook-reference.md) (Справочник по схеме реестра контейнеров Azure)

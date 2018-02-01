@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e3cdb4aa3af3067b27b6a85212e2a3d27542cc3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Перенос хранилища данных в хранилище класса Premium
 В хранилище данных SQL Azure недавно реализована возможность использовать [хранилище класса Premium, чтобы обеспечить более предсказуемую производительность][premium storage for greater performance predictability]. Теперь хранилища данных, расположенные в хранилище класса Standard, можно перенести в хранилище класса Premium. Такой перенос будет выполнен автоматически. Также вы можете выполнить его самостоятельно, если предпочитаете выбрать точное время для переноса (необходимо учитывать время простоя).
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 4. Удалите хранилище данных MyDW_BeforeMigration. **Если не выполнить этот шаг, с вас будет взиматься плата за оба хранилища данных.**
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 После перехода в хранилище класса Premium базовая архитектура хранилища данных будет поддерживать большее число файлов больших двоичных объектов базы данных. Чтобы максимально эффективно использовать это изменение, перестройте кластеризованные индексы columnstore с помощью приведенного ниже скрипта. Этот скрипт принудительно переносит часть существующих данных в дополнительные большие двоичные объекты. Если не предпринимать никаких действий, данные будут перераспределяться постепенно, по мере сохранения новых данных в таблицы хранилища данных.
 
 **Предварительные требования:**
@@ -170,7 +170,7 @@ go
 [create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Azure paired region]: best-practices-availability-paired-regions.md
 [main documentation site]: services/sql-data-warehouse.md
-[Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
+[Pause]: sql-data-warehouse-manage-compute-portal.md
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
 [scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power

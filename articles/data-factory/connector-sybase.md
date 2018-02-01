@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 47aabaf8512a7fffc189255212010efb5389f38a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4d9a87f244501b91c60a895f0e16d0c979163444
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Копирование данных из Sybase с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,6 @@ ms.lasthandoff: 01/23/2018
 | Тип | Для свойства type необходимо задать значение **Sybase**. | Yes |
 | server | Имя сервера Sybase. |Yes |
 | database | Имя базы данных Sybase. |Yes |
-| schema | Имя схемы в базе данных. |Нет  |
 | authenticationType | Тип проверки подлинности, используемый для подключения к базе данных Sybase.<br/>Допустимые значения: **Basic** и **Windows**. |Yes |
 | Имя пользователя | Укажите имя пользователя для подключения к базе данных Sybase. |Yes |
 | password | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. Пометьте это поле в качестве SecureString. |Yes |
