@@ -1,5 +1,5 @@
 ---
-title: "Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory ― определение требований к контролю доступа | Документация Майкрософт"
+title: "Проектирование гибридных удостоверений: требования к управлению доступом в Azure | Документация Майкрософт"
 description: "Описание ключевых компонентов идентификации и определение требований доступа к ресурсам для пользователей в гибридной среде."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 069c83a0bbbb21ba85aea07375c186fe0b11c781
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Определение требований к контролю доступа для решения гибридной идентификации
 При проектировании решения для гибридной идентификации организация может пересмотреть требования доступа к ресурсам, которые планируется сделать доступными для пользователей. Доступ к данным объединяет все четыре ключевых компонента идентификации, к которым относятся:
@@ -74,7 +75,7 @@ ms.lasthandoff: 12/11/2017
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Определение требований по реагированию на инциденты](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## <a name="see-also"></a>См. также

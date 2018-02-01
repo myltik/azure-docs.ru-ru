@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 8/20/2017
+ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: e1fd3cf826915b128039e3d9fe20c309f20ad2c6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 6ad3b294e1d53d03f6ceb61048c8f657d8b471c0
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Как развернуть Windows 10 в Azure с правами на мультитенантное размещение 
 Клиентам, использующим Windows 10 Корпоративная E3 или Windows 10 Корпоративная E5 для каждого пользователя, либо Windows VDA для каждого пользователя (лицензии на подписку пользователя или дополнительные лицензии на подписку пользователя), права на мультитенантное размещение для Windows 10 позволяют перенести лицензии Windows 10 в облако и запустить виртуальные машины Windows 10 в Azure без необходимости платить за другую лицензию. Дополнительные сведения см. в [этом разделе](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> В этой статье показано, как реализовать преимущество лицензирования для образов рабочего стола Windows 10. Дополнительные сведения см. в статье [Преимущества гибридного использования Azure для сервера Windows Server и клиента Windows](hybrid-use-benefit-licensing.md).
+> В этой статье показано, как реализовать преимущество лицензирования для образов рабочего стола Windows 10 Pro в Azure Marketplace.
+> - При использовании образов Windows 7, 8.1 и 10 Корпоративная (x64) в Azure Marketplace для подписок MSDN см. статью [Использование клиента Windows в Azure для сценариев разработки и тестирования](client-images.md).
+> - Чтобы воспользоваться преимуществами лицензирования Windows Server, см. статью [Преимущество гибридного использования Azure для Windows Server](hybrid-use-benefit-licensing.md).
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Развертывание образа Windows 10 из Azure Marketplace 
@@ -34,6 +36,8 @@ ms.lasthandoff: 12/08/2017
 |:----------|:-------------:|:------|:------|
 | Windows 10 Профессиональная    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
+| Windows 10 Профессиональная    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Загрузка виртуального жесткого диска Windows 10 в Azure
 Если вы отправляете обобщенный виртуальный жесткий диск (VHD) Windows 10, учтите, что в Windows 10 встроенная учетная запись администратора не включена по умолчанию. Чтобы включить ее, добавьте следующую команду в качестве элемента расширения пользовательского скрипта.
@@ -107,7 +111,7 @@ LicenseType              :
 >
 >
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 - Узнайте больше о [настройке VDA для Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation).
 - Узнайте больше о [правах на мультитенантное размещение для Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 

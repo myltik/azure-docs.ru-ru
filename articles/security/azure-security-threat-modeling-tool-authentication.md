@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: e547469dc61eddd1d772571ab0919532ac91f128
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authentication--mitigations"></a>Механизм безопасности. Проверка подлинности | Устранение рисков 
 | Продукт или служба | Статья |
@@ -374,7 +374,7 @@ ms.lasthandoff: 10/11/2017
 | **Действия** | <p>Свойство TokenReplayCache позволяет разработчикам определять кэш воспроизведения маркеров, хранилище, которое можно использовать для сохранения маркеров, чтобы предотвратить использование повторяющихся маркеров.</p><p>Эта мера защиты от распространенных атак с использованием воспроизведения маркеров. Злоумышленник, который перехватывает маркер, отправленный при входе в систему, может попытаться снова отправить его в приложение ("воспроизвести" его), чтобы создать новый сеанс. Например, в потоке предоставления кода OIDC после успешной проверки подлинности пользователя запрос к конечной точке "/signin-oidc" проверяющей стороны выполняется с параметрами "id_token", "code" и "state".</p><p>Проверяющая сторона проверяет запрос и создает новый сеанс. Если злоумышленник перехватил и воспроизвел этот запрос, он может успешно создать сеанс, выдав себя за пользователя. Наличие специального утверждения в OpenID Connect может ограничить, но не полностью исключить подобные атаки. Чтобы защитить свои приложения, разработчики могут реализовать интерфейс ITokenReplayCache и присвоить экземпляр свойству TokenReplayCache.</p>|
 
 ### <a name="example"></a>Пример
-```C#
+```csharp
 // ITokenReplayCache defined in ADAL
 public interface ITokenReplayCache
 {
@@ -385,7 +385,7 @@ bool TryFind(string securityToken);
 
 ### <a name="example"></a>Пример
 Ниже приведен пример реализации интерфейса ITokenReplayCache. (Выполните соответствующие настройки и реализуйте платформу кэширования конкретного проекта.)
-```C#
+```csharp
 public class TokenReplayCache : ITokenReplayCache
 {
     private readonly ICacheProvider cache; // Your project-specific cache provider
@@ -409,7 +409,7 @@ public class TokenReplayCache : ITokenReplayCache
 }
 ```
 Ссылку на реализованный кэш нужно добавить в параметрах OIDC с помощью свойства TokenValidationParameters следующим образом.
-```C#
+```csharp
 OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 {
     AutomaticAuthenticate = true,
@@ -457,7 +457,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **Действия** | <ul><li>**Универсальное.** Выполняйте проверку подлинности устройства с использованием протокола TLS или IPSec. Инфраструктура должна поддерживать общие ключи для тех устройств, которые не выполняют полное асимметричное шифрование. Используйте Azure AD, OAuth.</li><li>**C#.** При создании экземпляра DeviceClient по умолчанию метод Create создает экземпляр DeviceClient, который использует протокол AMQP для связи с Центром Интернета вещей. Для использования протокола HTTPS используйте переопределение метода Create, чтобы указать протокол. Если вы используете протокол HTTPS, вам также следует добавить в свой проект пакет NuGet `Microsoft.AspNet.WebApi.Client`, чтобы включить пространство имен `System.Net.Http.Formatting`.</li></ul>|
 
 ### <a name="example"></a>Пример
-```C#
+```csharp
 static DeviceClient deviceClient;
 
 static string deviceKey = "{device key}";

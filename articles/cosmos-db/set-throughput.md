@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: cf6eadbae328b1551da861fb5a11930ee830d415
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Настройка пропускной способности для коллекций Azure Cosmos DB
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/03/2018
         <tr>
             <td valign="top"><p>Минимальная пропускная способность</p></td>
             <td valign="top"><p>400 единиц запроса в секунду</p></td>
-            <td valign="top"><p>1 000 единиц запросов в секунду</p></td>
+            <td valign="top"><p>1000 единиц запроса в секунду</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Максимальная пропускная способность</p></td>
@@ -51,15 +51,15 @@ ms.lasthandoff: 01/03/2018
 1. В новом окне откройте [портал Azure](https://portal.azure.com).
 2. На панели слева щелкните **Azure Cosmos DB** или выберите внизу пункт **Больше служб**, перейдите к разделу **Базы данных** и выберите **Azure Cosmos DB**.
 3. Выберите учетную запись Cosmos DB.
-4. В новом окне нажмите кнопку **обозреватель данных** в меню переходов.
+4. В новом окне в меню навигации щелкните **Обозреватель данных**.
 5. В новом окне разверните узел базы данных и контейнера и щелкните **Scale & Settings** (Параметры масштабирования).
 6. В новом окне в поле **Пропускная способность** введите новое значение пропускной способности, а затем щелкните **Сохранить**.
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>Чтобы настроить пропускную способность с помощью API-Интерфейсы SQL для .NET
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>Настройка пропускной способности с помощью API SQL для .NET
 
-```C#
+```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -75,9 +75,9 @@ await client.ReplaceOfferAsync(offer);
 
 <a id="set-throughput-java"></a>
 
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Чтобы настроить пропускную способность с помощью API-Интерфейсы SQL для Java
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Настройка пропускной способности с помощью API SQL для Java
 
-Этот фрагмент кода взят из файла OfferCrudSamples.java [azure documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) репозитория. 
+Этот фрагмент кода взят из файла OfferCrudSamples.java в репозитории [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java). 
 
 ```Java
 // find offer associated with this collection
@@ -99,12 +99,12 @@ client.replaceOffer(offer);
 
 **Можно ли задать значение пропускной способности ниже 400 ЕЗ/с?**
 
-400 единиц Запросов в секунду имеет минимальную производительность в контейнерах одной секции Cosmos DB (минимальным для секционированных контейнеров является 1 000 единиц Запросов в секунду). Единицы запроса можно задать с интервалом в 100 ЕЗ/с, но невозможно задать значение пропускной способности равное 100 ЕЗ/с или любое значение менее 400 ЕЗ/с. Чтобы определить экономически эффективный метод разработки и тестирования в Cosmos DB, можно воспользоваться бесплатным [эмулятором Azure Cosmos DB](local-emulator.md), который развертывается локально и без дополнительных затрат. 
+400 ЕЗ/с — это минимальное значение пропускной способности, доступное для односекционных контейнеров Cosmos DB (минимальное значение для секционированных контейнеров — 1000 ЕЗ/с). Единицы запроса можно задать с интервалом в 100 ЕЗ/с, но невозможно задать значение пропускной способности равное 100 ЕЗ/с или любое значение менее 400 ЕЗ/с. Чтобы определить экономически эффективный метод разработки и тестирования в Cosmos DB, можно воспользоваться бесплатным [эмулятором Azure Cosmos DB](local-emulator.md), который развертывается локально и без дополнительных затрат. 
 
 **Как настроить пропускную способность с использованием API MongoDB?**
 
-Для настройки пропускной способности нет расширения API MongoDB. Рекомендуется использовать API-Интерфейсы SQL, как показано в [задание пропускную способность с помощью API-Интерфейсы SQL для .NET](#set-throughput-sdk).
+Для настройки пропускной способности нет расширения API MongoDB. Рекомендуем использовать API SQL в соответствии с инструкциями в разделе о [настройке пропускной способности с помощью API SQL для .NET](#set-throughput-sdk).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о подготовке и глобальном масштабировании с помощью Cosmos DB см. в статье [Секционирование в базе данных Azure Cosmos DB с помощью API DocumentDB](partition-data.md).

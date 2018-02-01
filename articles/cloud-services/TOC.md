@@ -44,12 +44,12 @@
 ### [Подключение к пользовательскому контроллеру домена](cloud-services-connect-to-custom-domain.md)
 
 ## Управление службой
-### [Устранение уязвимостей, связанных со спекулятивным выполнением команд](mitigate-se.md}
 ### [Общие задачи управления](cloud-services-how-to-manage-portal.md)
 ### [Настройка облачной службы](cloud-services-how-to-configure-portal.md)
 ### [Управление облачной службой с помощью службы автоматизации Azure](automation-manage-cloud-services.md)
 ### [Настройка автоматического масштабирования](cloud-services-how-to-scale-portal.md)
 ### [Использование языка Python для управления ресурсами Azure](cloud-services-python-how-to-use-service-management.md)
+### [Устранение уязвимостей, связанных со спекулятивным выполнением команд](mitigate-se.md)
 
 ### [Исправления гостевой ОС](cloud-services-guestos-msrc-releases.md)
 ### Прекращение использования гостевой ОС

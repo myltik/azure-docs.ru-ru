@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 5e4de47de554f36e7797b7994faee4e90c3a8186
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9e5719cd81408f6732826c90505a3ce8aa10f8ed
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Устранение неполадок репликации виртуальных машин из Azure в Azure
 
@@ -109,13 +109,13 @@ ms.lasthandoff: 11/22/2017
 
 **Код ошибки** | **Возможные причины** | **рекомендации**;
 --- | --- | ---
-150039<br></br>**Сообщение**: диск данных Azure (имя_диска) (URI_диска) с логическим номером устройства (LUN) (значение_LUN) не был сопоставлен с соответствующим диском из виртуальной машины, о котором сообщается, что он имеет то же значение LUN. | Новый диск с данными был подключен к виртуальной машине, но не был инициализирован.</br></br>Диск с данными в виртуальной машине неправильно сообщает значение LUN, с использованием которого он был подключен к виртуальной машине.| Убедитесь, что диски с данными инициализированы, а затем повторите операцию.</br></br>Для Windows. [Вариант 1. Подключение и инициализация нового диска](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Для Linux. [Инициализация нового диска данных в Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+150039<br></br>**Сообщение**: диск данных Azure (имя_диска) (URI_диска) с логическим номером устройства (LUN) (значение_LUN) не был сопоставлен с соответствующим диском из виртуальной машины, о котором сообщается, что он имеет то же значение LUN. | Новый диск с данными был подключен к виртуальной машине, но не был инициализирован.</br></br>Диск с данными в виртуальной машине неправильно сообщает значение LUN, с использованием которого он был подключен к виртуальной машине.| Убедитесь, что диски с данными инициализированы, а затем повторите операцию.</br></br>Для Windows. [Вариант 1. Подключение и инициализация нового диска](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Для Linux. [Инициализация нового диска данных в Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ### <a name="fix-the-problem"></a>Устранение проблемы
 Убедитесь, что диски с данными инициализированы, а затем повторите операцию.
 
-- Для Windows. [Вариант 1. Подключение и инициализация нового диска](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).
-- Для Linux. [Инициализация нового диска данных в Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+- Для Windows. [Вариант 1. Подключение и инициализация нового диска](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- Для Linux: [добавьте новый диск данных в Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Если проблема не исчезнет, обратитесь в службу поддержки.
 
@@ -132,5 +132,5 @@ ms.lasthandoff: 11/22/2017
 Вы можете использовать [скрипт для удаления устаревшей конфигурации ASR](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) и удалить устаревшую конфигурацию Site Recovery на виртуальной машине Azure. После удаления устаревшей конфигурации вы увидите виртуальную машину на шаге [включения репликации](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines).
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Репликация виртуальных машин Azure](site-recovery-replicate-azure-to-azure.md)

@@ -4,7 +4,7 @@ description: "Объясняется, как настроить устройст
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff76884f020a0fb8a1b48bd371c419bd65e85fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Удаленное подключение к устройству StorSimple серии 8000
 
@@ -84,7 +84,10 @@ ms.lasthandoff: 10/11/2017
 Для включения удаленного управления выполните следующие действия в клиенте.
 
 #### <a name="to-prepare-the-client-for-remote-connection"></a>Подготовка клиента для удаленного подключения
-1. Запустите сеанс Windows PowerShell от имени администратора.
+1. Запустите сеанс Windows PowerShell от имени администратора. Если вы используете клиент Windows 10, по умолчанию служба удаленного управления Windows работает в ручном режиме. Чтобы запустить службу, введите этот командлет:
+
+    `Start-Service WinRM`
+    
 2. Введите следующую команду, чтобы добавить IP-адрес устройства StorSimple в список доверенных узлов клиента:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -212,7 +215,10 @@ ms.lasthandoff: 10/11/2017
 Выполните следующую процедуру на компьютере, с которого будет выполняться удаленное подключение Windows PowerShell.
 
 #### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Создание сеанса SSAdmin на устройстве с помощью Windows PowerShell и SSL
-1. Запустите сеанс Windows PowerShell от имени администратора.
+1. Запустите сеанс Windows PowerShell от имени администратора. Если вы используете клиент Windows 10, по умолчанию служба удаленного управления Windows работает в ручном режиме. Чтобы запустить службу, введите этот командлет:
+
+    `Start-Service WinRM`
+
 2. Добавьте IP-адрес устройства в доверенные узлы клиента, набрав:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -237,7 +243,7 @@ ms.lasthandoff: 10/11/2017
    
     ![Удаленное взаимодействие PowerShell через HTTPS и SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Узнайте больше об [использовании Windows PowerShell для администрирования устройства StorSimple](storsimple-8000-windows-powershell-administration.md).
 * Узнайте больше об [использовании службы диспетчера устройств StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).

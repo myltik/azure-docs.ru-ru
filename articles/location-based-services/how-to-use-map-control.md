@@ -9,17 +9,17 @@ ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 06743640aae5e06d0160105458d9a3cfa35d5040
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 494a8308a5ed4ae37ed9561d051155e7433e6193
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Использование Azure Location Based Services Map Control
 Клиентская библиотека Javascript службы Map Control позволяет отображать карты и встроенные функциональные возможности Azure Location Based Services в вашем мобильном или веб-приложении. 
 
-## <a name="prerequisites"></a>Технические условия
-Вам потребуется ключ подписки и учетная запись Azure Location Based Services. Дополнительные сведения о создании учетной записи и получении ключа подписки см. в статье [Управление ключами и учетной записью Azure Location Based Services](how-to-manage-account-keys.md). 
+## <a name="prerequisites"></a>предварительным требованиям
+Ключ и учетная запись Azure Location Based Services. Дополнительные сведения о создании учетной записи и получении ключа см. в статье об [управлении ключами и учетной записью Azure Location Based Services](how-to-manage-account-keys.md). 
 
 ## <a name="create-a-new-map-in-a-web-page-using-the-map-control-api"></a>Создание карты на веб-странице с помощью API Map Control
 Вы можете встроить карту в веб-страницу с помощью клиентской библиотеки Javascript службы Map Control.
@@ -42,19 +42,19 @@ ms.lasthandoff: 01/03/2018
             }
     ``` 
     
-4. Для инициализации элемента управления карты определите новый раздел в тексте html и создайте сценарий. Используйте личный ключ подписки учетной записи Azure Location Based Services. 
+4. Для инициализации элемента управления карты определите новый раздел в тексте html и создайте сценарий. Используйте в скрипте собственный ключ учетной записи Azure Location Based Services. 
 
     ```html
     <div id="map">
         <script>
-            var subscriptionKey = "<_subscriptionKey_>";
+            var LBSAccountKey = "<_your account key_>";
             var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey,
+                "subscription-key": LBSAccountKey,
                 center: [47.59093,-122.33263],
                 zoom: 12
             });
-        <script>
-    <div>
+        </script>
+    </div>
     ```
     
 5. Откройте файл в веб-браузере и вы увидите готовую для просмотра карту.

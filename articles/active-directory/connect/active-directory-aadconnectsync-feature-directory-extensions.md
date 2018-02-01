@@ -3,7 +3,7 @@ title: "Синхронизация Azure AD Connect: расширения кат
 description: "В этой статье описывается функция расширений каталогов в Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 3ab8b02ad30315de23e5d8e7370cc385a53ecf3a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 9abd035b13a0d51c534eb8cac50c045012399a69
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Синхронизация Azure AD Connect: расширения каталогов
 Расширения каталогов позволяет расширять схему в Azure AD с помощью собственных атрибутов из локального каталога Active Directory. Эта функция позволяет создавать бизнес-приложения, использующие атрибуты, которыми вы по-прежнему можете управлять локально. Эти атрибуты могут быть использованы через [расширения каталогов Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) или [Microsoft Graph](https://graph.microsoft.io/). Просмотреть доступные атрибуты можно с помощью [проводника Azure AD Graph](https://graphexplorer.azurewebsites.net/) и [проводника Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer) соответственно.
@@ -44,12 +44,22 @@ ms.lasthandoff: 12/11/2017
 Во время установки Azure AD Connect приложение регистрируется при условии наличия этих атрибутов. Это приложение отображается на портале Azure.  
 ![Приложение расширения схемы](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
 
-Теперь эти атрибуты доступны в Graph:   
-![График](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
-
 Атрибуты имеют префикс extension\_{AppClientId}\_. AppClientId имеет одно значение для всех атрибутов в вашем клиенте Azure AD.
 
-## <a name="next-steps"></a>Дальнейшие действия
+Теперь эти атрибуты доступны с помощью **Azure AD Graph**.
+
+Azure AD Graph можно запросить через обозреватель Azure AD Graph: [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/).
+
+![График](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
+
+Или **API-интерфейс Microsoft Graph**:
+
+API-интерфейс Microsoft Graph можно запросить через обозреватель Microsoft Graph: [https://developer.microsoft.com/en-us/graph/graph-explorer#](https://developer.microsoft.com/en-us/graph/graph-explorer#).
+
+>[!NOTE]
+> Необходимо явно запросить возврат атрибута. Это можно сделать, явно выбрав такие атрибуты, как https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. Дополнительные сведения см. в разделе об [использовании параметров запроса](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter).
+
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

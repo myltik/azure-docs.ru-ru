@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 341ab32ad0ec691285fbf1537ee298ab30156a5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08467aed4e1601b32598fc42515d9c38b601a9d4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Вызов webhook для оповещений журнала действий Azure
 Объекты webhook позволяют направлять уведомления об оповещениях Azure в другие системы для постобработки или выполнения настраиваемых действий. Объект webhook можно использовать, чтобы направить оповещение к службам, которые отправляют SMS, ведут журналы об ошибках, уведомляют членов команды в чате или службах обмена сообщениями либо выполняют другие действия. В этой статье описывается, как настроить webhook, вызываемый при активации оповещения журнала действий Azure. В ней также показывается, как выглядят полезные данные HTTP POST для webhook. Дополнительные сведения о настройке и схему оповещений, связанных с метриками Azure см. [здесь](insights-webhooks-alerts.md). Можно также настроить отправку сообщения электронной почты при активации оповещения журнала действий.
@@ -39,85 +39,99 @@ ms.lasthandoff: 10/11/2017
 ## <a name="payload-schema"></a>Схема полезных данных
 Операция POST содержит следующие полезные данные и схему JSON для всех оповещений, связанных с журналом действий. Эта схема аналогична той, которая используется оповещениями, связанными с метриками.
 
-```
+```json
 {
-        "status": "Activated",
-        "context": {
-                "resourceProviderName": "Microsoft.Web",
-                "event": {
-                        "$type": "Microsoft.WindowsAzure.Management.Monitoring.Automation.Notifications.GenericNotifications.Datacontracts.InstanceEventContext, Microsoft.WindowsAzure.Management.Mon.Automation",
-                        "authorization": {
-                                "action": "Microsoft.Web/sites/start/action",
-                                "scope": "/subscriptions/s1/resourcegroups/rg1/providers/Microsoft.Web/sites/leoalerttest"
-                        },
-                        "eventDataId": "327caaca-08d7-41b1-86d8-27d0a7adb92d",
-                        "category": "Administrative",
-                        "caller": "myname@mycompany.com",
-                        "httpRequest": {
-                                "clientRequestId": "f58cead8-c9ed-43af-8710-55e64def208d",
-                                "clientIpAddress": "104.43.166.155",
-                                "method": "POST"
-                        },
-                        "status": "Succeeded",
-                        "subStatus": "OK",
-                        "level": "Informational",
-                        "correlationId": "4a40beaa-6a63-4d92-85c4-923a25abb590",
-                        "eventDescription": "",
-                        "operationName": "Microsoft.Web/sites/start/action",
-                        "operationId": "4a40beaa-6a63-4d92-85c4-923a25abb590",
-                        "properties": {
-                                "$type": "Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage",
-                                "statusCode": "OK",
-                                "serviceRequestId": "f7716681-496a-4f5c-8d14-d564bcf54714"
-                        }
-                },
-                "timestamp": "Friday, March 11, 2016 9:13:23 PM",
-                "id": "/subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/alertonevent2",
-                "name": "alertonevent2",
-                "description": "test alert on event start",
-                "conditionType": "Event",
-                "subscriptionId": "s1",
-                "resourceId": "/subscriptions/s1/resourcegroups/rg1/providers/Microsoft.Web/sites/leoalerttest",
-                "resourceGroupName": "rg1"
-        },
-        "properties": {
-                "key1": "value1",
-                "key2": "value2"
+    "WebhookName": "Alert1515526229589",
+    "RequestBody": {
+        "schemaId": "Microsoft.Insights/activityLogs",
+        "data": {
+            "status": "Activated",
+            "context": {
+                "activityLog": {
+                    "authorization": {
+                        "action": "Microsoft.Compute/virtualMachines/deallocate/action",
+                        "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1"
+                    },
+                    "channels": "Operation",
+                    "claims": {
+                        "aud": "https://management.core.windows.net/",
+                        "iss": "https://sts.windows.net/00000000-0000-0000-0000-000000000000/",
+                        "iat": "1234567890",
+                        "nbf": "1234567890",
+                        "exp": "1234567890",
+                        "aio": "Y2NgYBD8ZLlhu27JU6WZsXemMIvVAAA=",
+                        "appid": "00000000-0000-0000-0000-000000000000",
+                        "appidacr": "2",
+                        "e_exp": "262800",
+                        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/00000000-0000-0000-0000-000000000000/",
+                        "http://schemas.microsoft.com/identity/claims/objectidentifier": "00000000-0000-0000-0000-000000000000",
+                        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "00000000-0000-0000-0000-000000000000",
+                        "http://schemas.microsoft.com/identity/claims/tenantid": "00000000-0000-0000-0000-000000000000",
+                        "uti": "XnCk46TrDkOQXwo49Y8fAA",
+                        "ver": "1.0"
+                    },
+                    "caller": "00000000-0000-0000-0000-000000000000",
+                    "correlationId": "00000000-0000-0000-0000-000000000000",
+                    "description": "",
+                    "eventSource": "Administrative",
+                    "eventTimestamp": "2018-01-09T20:11:25.8410967+00:00",
+                    "eventDataId": "00000000-0000-0000-0000-000000000000",
+                    "level": "Informational",
+                    "operationName": "Microsoft.Compute/virtualMachines/deallocate/action",
+                    "operationId": "00000000-0000-0000-0000-000000000000",
+                    "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+                    "resourceGroupName": "ContosoVM",
+                    "resourceProviderName": "Microsoft.Compute",
+                    "status": "Succeeded",
+                    "subStatus": "",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "submissionTimestamp": "2018-01-09T20:11:40.2986126+00:00",
+                    "resourceType": "Microsoft.Compute/virtualMachines"
+                }
+            },
+            "properties": {}
         }
+    },
+    "RequestHeader": {
+        "Expect": "100-continue",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "IcMBroadcaster/1.0",
+        "X-CorrelationContext": "RkkKACgAAAACAAAAEADlBbM7x86VTrHdQ2JlmlxoAQAQALwazYvJ/INPskb8S5QzgDk=",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
 }
 ```
 
-| Имя элемента | Описание |
+| Имя элемента | ОПИСАНИЕ |
 | --- | --- |
 | status |Используется для оповещений на основе метрик. Всегда имеет значение activated для оповещений журнала действий. |
 | context |Контекст события. |
-| resourceProviderName |Поставщик ресурсов для затронутого ресурса. |
-| conditionType |Всегда имеет значение Event. |
-| name |Имя правила генерации оповещений. |
-| id |Идентификатор ресурса для оповещения. |
-| Описание |Описание оповещения, заданное во время создания оповещения. |
-| subscriptionId |Идентификатор подписки Azure. |
-| Timestamp |Время создания события службой Azure, которая обработала запрос. |
-| resourceId |Идентификатор ресурса для затронутого ресурса. |
-| имя_группы_ресурсов |Имя группы ресурсов для затронутого ресурса. |
-| properties |Набор пар `<Key, Value>` (например, `Dictionary<String, String>`), содержащий сведения о событии. |
-| event |Элемент, содержащий метаданные о событии. |
+| activityLog | Свойства журнала для события.|
 | authorization |Свойства RBAC события. Обычно к ним относятся action, role и scope. |
-| category |Категория события. Поддерживаются следующие значения: Administrative, Alert, Security, ServiceHealth, Recommendation. |
-| caller |Адрес электронной почты пользователя, который выполнил операцию, утверждение имени субъекта-службы или имени участника-пользователя в зависимости от доступности. Может иметь значение NULL для определенных системных вызовов. |
+| action | Действие, зафиксированное в оповещении. |
+| scope | Область оповещения (т. е. ресурс).|
+| каналов | Операция |
+| claims | Коллекция данных, которые относятся к утверждениям. |
+| caller |GUID или имя пользователя, который выполнил операцию, утверждение имени субъекта-службы или имени участника-пользователя в зависимости от доступности. Может иметь значение NULL для определенных системных вызовов. |
 | correlationId |Обычно GUID в строковом формате. События с correlationId относятся к одному крупному действию и обычно совместно используют correlationId. |
-| eventDescription |Статическое описание события в текстовом виде. |
-| eventDataId |Уникальный идентификатор события. |
+| description |Описание оповещения, заданное во время создания оповещения. |
 | eventSource |Имя инфраструктуры или службы Azure, которая создала событие. |
-| httpRequest |Обычно включает "clientRequestId", "clientIpAddress" и "method" (метод HTTP, например PUT). |
+| eventTimestamp |Время, когда произошло событие. |
+| eventDataId |Уникальный идентификатор события. |
 | level |Одно из следующих значений: Critical, Error, Warning, Informational или Verbose. |
-| operationId |Обычно события, относящиеся к одной операции, совместно используют один GUID. |
 | operationName |Имя операции. |
-| properties |Свойства события. |
+| operationId |Обычно события, относящиеся к одной операции, совместно используют один GUID. |
+| ResourceId |Идентификатор ресурса для затронутого ресурса. |
+| имя_группы_ресурсов |Имя группы ресурсов для затронутого ресурса. |
+| resourceProviderName |Поставщик ресурсов для затронутого ресурса. |
 | status |Строка. Состояние операции. Обычные значения: Started, In Progress, Succeeded, Failed, Active, Resolved. |
 | subStatus |Обычно содержит код состояния HTTP для соответствующего вызова REST. Может также включать другие строки, описывающие подсостояние. Обычные значения подсостояния: OK (код состояния HTTP: 200), Created (код состояния HTTP: 201), Accepted (код состояния HTTP: 202), No Content (код состояния HTTP: 204), Bad Request (код состояния HTTP: 400), Not Found (код состояния HTTP: 404), Conflict (код состояния HTTP: 409), Internal Server Error (код состояния HTTP: 500), Service Unavailable (код состояния HTTP: 503), Gateway Timeout (код состояния HTTP: 504). |
+| subscriptionId |Идентификатор подписки Azure. |
+| submissionTimestamp |Время создания события службой Azure, которая обработала запрос. |
+| тип_ресурса | Тип ресурса, в котором было создано событие.|
+| properties |Набор пар `<Key, Value>` (например, `Dictionary<String, String>`), содержащий сведения о событии. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [См. дополнительные сведения о журнале действий](monitoring-overview-activity-logs.md)
 * [Выполнение скриптов службы автоматизации Azure (Runbooks) на основе оповещений Azure](http://go.microsoft.com/fwlink/?LinkId=627081)
 * [Использование приложения логики для отправки SMS с помощью Twilio из оповещения Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Это пример для оповещений на основе метрик, но его можно изменить для работы с оповещениями журнала действий.

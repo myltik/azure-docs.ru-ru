@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 114666d0c173786373e3bdd025027eb217922749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f3de9ba6615a9b2232cca237a822b308d89426d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Механизм безопасности. Управление конфигурацией | Устранение угроз 
 | Продукт или служба | Статья |
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="example"></a>Пример
 Пример политики: 
-```C#
+```csharp
 Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
 ```
 Эта политика позволяет скачивать скрипты только с сервера веб-приложения и сервера Google Analytics. Все остальные скрипты отклоняются. Если на веб-сайте включена политика CSP, некоторые функции отключаются автоматически (см. ниже). Это позволяет предотвратить выполнение межсайтовых сценариев. 
@@ -111,7 +111,7 @@ Example: var str="alert(1)"; eval(str);
 
 ### <a name="example"></a>Пример
 Заголовок X-FRAME-OPTIONS можно задать в файле IIS web.config. Фрагмент кода web.config для сайтов, не использующих фреймы, выглядит следующим образом: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -123,7 +123,7 @@ Example: var str="alert(1)"; eval(str);
 
 ### <a name="example"></a>Пример
 Код web.config для сайтов, использующих фреймы только на страницах, расположенных в одном и том же домене, выглядит следующим образом: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -158,7 +158,7 @@ Example: var str="alert(1)"; eval(str);
 
 ### <a name="example"></a>Пример
 Если доступ к файлу web.config отсутствует, спецификацию CORS можно настроить, добавив следующий код CSharp: 
-```C#
+```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
 ```
 
@@ -226,7 +226,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 
 ### <a name="example"></a>Пример
 Добавьте заголовок в глобальной функции Application\_BeginRequest. 
-```C#
+```csharp
 void Application_BeginRequest(object sender, EventArgs e)
 {
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
@@ -235,7 +235,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### <a name="example"></a>Пример
 Внедрите пользовательский HTTP-модуль. 
-```C#
+```csharp
 public class XContentTypeOptionsModule : IHttpModule
 {
 #region IHttpModule Members
@@ -262,7 +262,7 @@ application.Response.Headers.Add("X-Content-Type-Options ", "nosniff");
 ### <a name="example"></a>Пример
 Чтобы включить требуемый заголовок только для определенных страниц, добавьте его в отдельные ответы: 
 
-```C#
+```csharp
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 ```
 
@@ -301,7 +301,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### <a name="example"></a>Пример
 Откройте файл App_Start/WebApiConfig.cs и добавьте в метод WebApiConfig.Register следующий код: 
-```C#
+```csharp
 using System.Web.Http;
 namespace WebService
 {
@@ -325,7 +325,7 @@ namespace WebService
 ### <a name="example"></a>Пример
 Атрибут EnableCors можно применить к методам действий в контроллере следующим образом: 
 
-```C#
+```csharp
 public class ResourcesController : ApiController
 {
   [EnableCors("http://localhost:55912", // Origin
@@ -365,7 +365,7 @@ public class ResourcesController : ApiController
 
 ### <a name="example"></a>Пример
 Чтобы отключить CORS в определенном методе класса, добавьте атрибут DisableCors следующим образом: 
-```C#
+```csharp
 [EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
@@ -399,7 +399,7 @@ public class ResourcesController : ApiController
 
 ### <a name="example"></a>Пример
 Первый способ — вызвать UseCors с помощью лямбда-выражения. Лямбда-выражение принимает объект CorsPolicyBuilder: 
-```C#
+```csharp
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
@@ -411,7 +411,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="example"></a>Пример
 Второй способ — определить одну или несколько именованных политик CORS, а затем выбрать политику по имени во время выполнения. 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddCors(options =>
@@ -434,7 +434,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="example"></a>Пример
 Чтобы указать политику CORS для определенного действия, добавьте в действие атрибут [EnableCors]. Введите имя политики. 
-```C#
+```csharp
 public class HomeController : Controller
 {
     [EnableCors("AllowSpecificOrigin")] 
@@ -446,7 +446,7 @@ public class HomeController : Controller
 
 ### <a name="example"></a>Пример
 Для контроллера: 
-```C#
+```csharp
 [EnableCors("AllowSpecificOrigin")]
 public class HomeController : Controller
 {
@@ -454,7 +454,7 @@ public class HomeController : Controller
 
 ### <a name="example"></a>Пример
 Глобально: 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
@@ -468,7 +468,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="example"></a>Пример
 Чтобы отключить CORS для контроллера или действия, используйте атрибут [DisableCors]. 
-```C#
+```csharp
 [DisableCors]
     public IActionResult About()
     {

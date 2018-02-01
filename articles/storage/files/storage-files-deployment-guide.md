@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>Как развернуть службу файлов Azure
 [Служба файлов Azure](storage-files-introduction.md) предлагает полностью управляемые общие файловые ресурсы в облаке, доступ к которым можно получить с помощью стандартного отраслевого протокола SMB. В этой статье демонстрируется практическое развертывание службы файлов Azure в вашей организации.
 
 Перед выполнением действий в этой статье настоятельно рекомендуется прочесть статью [Planning for an Azure Files deployment](storage-files-planning.md) (Планирование развертывания службы файлов Azure).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 В данной статье предполагается, что вы уже выполнили следующие действия:
 
 - Создали учетную запись хранения Azure с необходимыми параметрами устойчивости шифрования в нужном регионе. Пошаговые инструкции по созданию учетной записи хранения см. в разделе о [создании учетной записи хранения](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 Вы можете перенести существующие файловые ресурсы, например хранящиеся локально, в новый файловый ресурс Azure. В этом разделе будет показано, как переместить данные в файловый ресурс Azure, используя распространенные способы, приведенные в [руководстве по планированию](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync-preview"></a>Служба "Синхронизация файлов Azure" (предварительная версия)
-Служба "Синхронизация файлов Azure" (предварительная версия) позволяет централизовано хранить файловые ресурсы организации в службе файлов Azure, обеспечивая гибкость, производительность и совместимость локального файлового сервера. Это достигается путем преобразования серверов Windows Server в быстрый кэш общего файлового ресурса Azure. Для локального доступа к данным вы можете использовать любой протокол (в том числе SMB, NFS и FTPS), доступный в Windows Server. Кроме того, вы можете создать любое количество кэшей в любом регионе.
+Служба "Синхронизация файлов Azure" (предварительная версия) позволяет централизовано хранить файловые ресурсы организации в службе файлов Azure, обеспечивая гибкость, производительность и совместимость локального файлового сервера. Это достигается путем преобразования серверов Windows Server в быстрый кэш общего файлового ресурса Azure. Для локального доступа к данным вы можете использовать любой протокол (в том числе SMB, NFS и FTPS), доступный в Windows Server. Кроме того, вы можете создать любое число кэшей в любом регионе.
 
 Службу "Синхронизация файлов Azure" можно использовать для переноса данных в файловый ресурс Azure, даже если для долгосрочного использования не требуется механизм синхронизации. Дополнительные сведения об использовании службы "Синхронизация файлов Azure" для передачи данных в общий файловый ресурс Azure можно найти в статьях [Планирование развертывания службы синхронизации файлов Azure (предварительная версия)](storage-sync-files-planning.md) и [Как развернуть службу синхронизации файлов Azure (предварительная версия)](storage-sync-files-deployment-guide.md).
 
@@ -145,15 +145,15 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 Простой скрипт bash в сочетании с SSH может дать тот же результат, как показано в следующем примере. Переменная `$computer` оставляется для заполнения пользователем:
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Планирование развертывания службы синхронизации файлов Azure](storage-sync-files-planning.md)
 - [Устранение неполадок хранилища файлов Azure в Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Устранение неполадок в работе хранилища файлов Azure в Linux](storage-troubleshoot-linux-file-connection-problems.md)

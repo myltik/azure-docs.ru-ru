@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2C | Документация Майкрософт"
+title: "Аутентификация, регистрация и сброс пароля в Azure Active Directory B2C для ASP.NET"
 description: "Сведения по созданию веб-приложений, позволяющих пользователям выполнять вход, изменять профиль, регистрироваться и сбрасывать пароль с помощью Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: .net
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.openlocfilehash: e7a10ab2e523a98bd8762e209d0f4a13b12ef187
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: ffc46f4348a2ac3cae51c859a24c609756a710fe
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Создание веб-приложения ASP.NET с возможностями регистрации, входа, редактирования профиля и сброса пароля Azure Active Directory B2C
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 > * Регистрация веб-приложения в каталоге Azure AD B2C
 > * Создание политики регистрации, входа, изменения профиля и сброса пароля пользователя для веб-приложения
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Подключите клиент B2C к учетной записи Azure. Вы можете создать бесплатную учетную запись Azure [здесь](https://azure.microsoft.com/en-us/).
 - Вам требуется [Microsoft Visual Studio](https://www.visualstudio.com/) или аналогичная программа для просмотра и изменения примера кода.

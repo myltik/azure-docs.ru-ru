@@ -13,37 +13,39 @@
 ## [WebSocket](application-gateway-websocket.md)
 ## [Ограничения служб](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Начало работы
-## Создание шлюза приложений
-### [Портал Azure](application-gateway-create-gateway-portal.md)
-### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-### [Шаблон Resource Manager](application-gateway-create-gateway-arm-template.md)
-### [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
+## [портал Azure](application-gateway-create-gateway-portal.md)
+## [Azure PowerShell](application-gateway-create-gateway-arm.md)
+## [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
 # Практическое руководство
+## Создание шлюза приложений с помощью VMSS
+### [Azure PowerShell](tutorial-create-vmss-powershell.md)
+### [интерфейс командной строки Azure](tutorial-create-vmss-cli.md)
+## [Использование шаблона](application-gateway-create-gateway-arm-template.md)
 ## Настройка брандмауэра веб-приложения
-### [Портал Azure](application-gateway-web-application-firewall-portal.md)
+### [портал Azure](application-gateway-web-application-firewall-portal.md)
 ### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
-### [Интерфейс командной строки Azure](application-gateway-web-application-firewall-cli.md)
+### [интерфейс командной строки Azure](application-gateway-web-application-firewall-cli.md)
 ## Настройка правил брандмауэра веб-приложения
-### [Портал Azure](application-gateway-customize-waf-rules-portal.md)
-### [Интерфейс командной строки Azure](application-gateway-customize-waf-rules-cli.md)
+### [портал Azure](application-gateway-customize-waf-rules-portal.md)
+### [интерфейс командной строки Azure](application-gateway-customize-waf-rules-cli.md)
 ## Настройка SSL
-### [Портал Azure](application-gateway-ssl-portal.md)
+### [портал Azure](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
-### [Интерфейс командной строки Azure](application-gateway-ssl-cli.md)
+### [интерфейс командной строки Azure](application-gateway-ssl-cli.md)
 ### [Политика SSL](application-gateway-configure-ssl-policy-powershell.md)
-## Настройка маршрутизации на основе URL-путей
-### [Портал Azure](application-gateway-create-url-route-portal.md)
+## Настройка маршрутизации на основе путей URL-адресов
+### [портал Azure](application-gateway-create-url-route-portal.md)
 ### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
-### [Интерфейс командной строки Azure](application-gateway-create-url-route-cli.md)
+### [интерфейс командной строки Azure](application-gateway-create-url-route-cli.md)
 ## Настройка размещения нескольких сайтов
-### [Портал Azure](application-gateway-create-multisite-portal.md)
+### [портал Azure](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Настройка перенаправления
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Настройка веб-приложений в качестве элементов серверного пула
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Настройка проб работоспособности
-### [Портал Azure](application-gateway-create-probe-portal.md)
+### [портал Azure](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Интеграция центра безопасности Azure](application-gateway-integration-security-center.md)
 ## [Комбинирование служб балансировки нагрузки](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
@@ -53,7 +55,7 @@
 ### [Проблемы сходства сеансов шлюза приложения](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # Справочные материалы
 ## [Azure PowerShell](/powershell/azure/overview)
-## [Интерфейс командной строки Azure](/cli/azure/network/application-gateway)
+## [интерфейс командной строки Azure](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
@@ -73,5 +75,5 @@
 ## [Цены](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=application-gateway)
-## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla/)
+## [Соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

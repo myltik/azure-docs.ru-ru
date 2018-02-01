@@ -17,19 +17,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Использование средств визуализации данных с помощью Apache Spark BI в Azure HDInsight
 
 Узнайте, как использовать [Microsoft Power BI](http://powerbi.microsoft.com) и [Tableau](http://www.tableau.com) для визуализации данных в кластере Apache Spark в Azure HDInsight.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
-* **Выполните инструкции из руководства [Выполнение интерактивных запросов в кластерах Spark в HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Выполните инструкции из статьи [Выполнение интерактивных запросов в кластерах Spark в HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Для Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) и [пробная подписка Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (необязательно).
 * **Для Tableau**: [Tableau Desktop](http://www.tableau.com/products/desktop) и [драйвер Microsoft Spark ODBC](http://go.microsoft.com/fwlink/?LinkId=616229).
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 12/05/2017
 
     ![Имя пользователя и пароль для кластера Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Имя пользователя и пароль для кластера Spark")
 
-    Теперь в Power BI Desktop есть все сведения, необходимые для подключения к кластеру Spark и загрузки данных из таблицы `hvac`. Таблица и ее столбцы отображаются в области **Fields** (Поля).  Экран должен выглядеть следующим образом.
+    Теперь в Power BI Desktop есть все сведения, необходимые для подключения к кластеру Spark и загрузки данных из таблицы `hvac`. Таблица и ее столбцы отображаются в области **Fields** (Поля).  Экран должен выглядеть так:
 
 6. Отобразите расхождения между целевой температурой и фактической температурой для каждого здания: 
 
@@ -225,7 +225,7 @@ ms.lasthandoff: 12/05/2017
     ![Выходные данные Tableau для визуализации данных Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Выходные данные Tableau для визуализации данных Spark")
 9. Щелкните **Сохранить** для сохранения рабочего листа. Можно создать панели мониторинга и добавить на них один или несколько листов.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этой статьи вы узнали, как создать кластер, как создать кадры данных Spark для запроса данных и как получить доступ к этим данным из средств бизнес-аналитики. Теперь вы можете просмотреть инструкции по управлению ресурсами кластера и отладке заданий, запущенных в кластере Spark в HDInsight.
 

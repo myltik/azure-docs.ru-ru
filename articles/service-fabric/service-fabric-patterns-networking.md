@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f655becfac05acfacfeef12edd68b37835420bf
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Схемы сетевых подключений Service Fabric
 Кластер Azure Service Fabric можно интегрировать с другими сетевыми компонентами Azure. В этой статье показано, как создавать кластеры, использующие следующие компоненты:
@@ -36,7 +36,7 @@ Service Fabric выполняется в стандартном масштаби
 
 ## <a name="templates"></a>Шаблоны
 
-Все шаблоны Service Fabric находятся в [одном загружаемом файле](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). Вы можете развертывать эти шаблоны "как есть", используя следующие команды PowerShell. В случае развертывания шаблона существующей виртуальной сети Azure или шаблона статического общедоступного IP-адреса необходимо сначала ознакомиться с разделом [Начальная настройка](#initialsetup) этой статьи.
+Все шаблоны Service Fabric можно найти в репозитории [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). Вы можете развертывать эти шаблоны "как есть", используя следующие команды PowerShell. В случае развертывания шаблона существующей виртуальной сети Azure или шаблона статического общедоступного IP-адреса необходимо сначала ознакомиться с разделом [Начальная настройка](#initialsetup) этой статьи.
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>Начальная настройка
@@ -73,7 +73,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Шаблон Service Fabric
 
-В примерах в этой статье мы используем шаблон Service Fabric template.json. Этот шаблон можно скачать с портала перед созданием кластера с помощью стандартного мастера портала. Можно также использовать один из шаблонов из [коллекции шаблонов](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), например шаблон [кластера Service Fabric с пятью узлами](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+В примерах в этой статье мы используем шаблон Service Fabric template.json. Этот шаблон можно скачать с портала перед созданием кластера с помощью стандартного мастера портала. Можно также использовать один из [примеров шаблонов](https://github.com/Azure-Samples/service-fabric-cluster-templates), например шаблон [кластера Service Fabric с пятью узлами](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Существующая виртуальная сеть или подсеть
@@ -596,5 +596,5 @@ DnsSettings              : {
 
 После развертывания вы увидите две подсистемы балансировки нагрузки в группе ресурсов. Изучив их подробнее, вы увидите общедоступный IP-адрес и конечные точки управления (порты 19000 и 19080), назначенные общедоступному IP-адресу. А также можно увидеть статический внутренний IP-адрес и конечную точку приложения (порт 80), назначенные внутренней подсистеме балансировки нагрузки. При этом обе подсистемы балансировки нагрузки используют один внутренний пул масштабируемого набора виртуальных машин.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Создание кластера](service-fabric-cluster-creation-via-arm.md)

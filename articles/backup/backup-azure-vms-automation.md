@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: e2eda7cee90d307d646ff68e104750c3057dcb06
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Архивация виртуальных машин с помощью командлетов AzureRM.RecoveryServices.Backup
 
@@ -80,7 +80,7 @@ Cmdlet          Unregister-AzureRmRecoveryServicesBackupContainer  1.4.0      Az
 Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
 Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
 ```
-3. При входе в Azure учетной записи с помощью **AzureRmAccount входа**. Этот командлет можно открыть веб-страницу запрашивает учетные данные учетной записи: 
+3. Чтобы войти в учетную запись Azure, используйте командлет **Login-AzureRmAccount**. Откроется веб-станица, на которой пользователю предлагается ввести данные для входа в учетную запись: 
     - Кроме того, учетные данные можно добавить в качестве параметра в командлет **Login-AzureRmAccount**, используя параметр **-Credential**.
     - Если вы — партнер-поставщик облачных услуг, работающий от имени клиента, вам потребуется указать заказчика в качестве клиента. Для этого нужно ввести идентификатор или основное доменное имя клиента. Например: **Login-AzureRmAccount -Tenant "fabrikam.com"**.
 4. Свяжите подписку, которую вы собираетесь использовать, с учетной записью, которая может иметь несколько подписок:
@@ -96,12 +96,12 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ```
 
-6. Вы можете проверить, успешно зарегистрированных поставщиков с помощью следующих команд:
+6. Вы можете проверить, зарегистрированы ли поставщики, выполнив следующие команды:
     ```
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ``` 
-В выводе команды **RegistrationState** должно равно **зарегистрированные**. Если нет, просто повторно запустить  **[регистра AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  командлета, показанном выше.
+В выходных данных команды для **RegistrationState** должно быть установлено значение **Registered**. Если это не так, просто повторно выполните командлет **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**, представленный выше.
 
 С помощью PowerShell можно автоматизировать следующие задачи:
 
@@ -284,7 +284,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 >
 >
 
-Чтобы создать виртуальную машину с диска, см. сведения в разделе [Создание виртуальной машины с хранимых дисков](backup-azure-vms-automation.md#create-a-vm-from-stored-disks). Ниже перечислены основные шаги для восстановления виртуальной машины Azure.
+Чтобы создать виртуальную машину с диска, см. раздел [Создание виртуальной машины с восстановленного диска](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). Ниже перечислены основные шаги для восстановления виртуальной машины Azure.
 
 * Выбор виртуальной машины.
 * Выбор точки восстановления
@@ -589,5 +589,5 @@ PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 ```
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Если вы предпочитаете использовать PowerShell для взаимодействия с ресурсами Azure, см. статью [Развертывание резервного копирования в Azure для Windows Server или клиента Windows и управление им с помощью PowerShell](backup-client-automation.md). Сведения об управлении резервными копиями DPM см. в статье [Развертывание службы архивации для DPM и управление ею](backup-dpm-automation.md). Обе эти статьи имеют две версии — для развертывания с помощью Resource Manager и для классической модели развертывания.  

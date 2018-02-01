@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Xamarin Приступая к работе | Документы Microsoft"
+title: "Начало работы с Xamarin и Azure AD | Документация Майкрософт"
 description: "Создание приложений Xamarin, которые интегрируются с Azure AD для входа в систему и вызывают программные интерфейсы, защищенные Azure AD, с помощью OAuth."
 services: active-directory
 documentationcenter: xamarin
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e3d0a07323189599cb86dd2bf1347c2107efa842
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 94a7d35115420d455fe94e1173abf76622172f6f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin Приступая к работе
+# <a name="azure-ad-xamarin-getting-started"></a>Начало работы с Xamarin и Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -98,7 +98,7 @@ ms.lasthandoff: 12/20/2017
 
 1. Откройте файл DirectorySearcher.cs, а затем добавьте новый параметр в метод `SearchByAlias(...)`. `IPlatformParameters` — это контекстный параметр, инкапсулирующий специфические для платформы объекты, которые нужны ADAL для проверки подлинности.
 
-    ```C#
+    ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
     {
     ```
@@ -107,7 +107,7 @@ ms.lasthandoff: 12/20/2017
 Это действие отправляет в библиотеку ADAL координаты, которые требуются ей для взаимодействия с Azure AD.
 3. Вызовите метод `AcquireTokenAsync(...)`, который принимает объект `IPlatformParameters` и будет вызывать последовательность проверки подлинности, необходимую для возврата маркера в приложение.
 
-    ```C#
+    ```csharp
     ...
         AuthenticationResult authResult = null;
         try
@@ -126,7 +126,7 @@ ms.lasthandoff: 12/20/2017
     `AcquireTokenAsync(...)` сначала попытается вернуть маркер для запрошенного ресурса (в данном случае API Graph) и не будет предлагать пользователю вводить учетные данные (путем кэширования или обновления старых маркеров). При необходимости перед получением запрошенного маркера для пользователя отображается страница входа в Azure AD.
 4. Присоедините маркер доступа к запросу API Graph в заголовке **авторизации**:
 
-    ```C#
+    ```csharp
     ...
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
     ...
@@ -137,12 +137,12 @@ ms.lasthandoff: 12/20/2017
 ### <a name="android"></a>Android
 1. В файле MainActivity.cs добавьте вызов в `SearchByAlias(...)` в обработчике нажатия кнопки:
 
-    ```C#
+    ```csharp
     List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
     ```
 2. Переопределите метод жизненного цикла `OnActivityResult` для пересылки операций перенаправления проверки подлинности обратно в соответствующий метод. Для этого ADAL предоставляет вспомогательный метод в Android:
 
-    ```C#
+    ```csharp
     ...
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
     {
@@ -155,7 +155,7 @@ ms.lasthandoff: 12/20/2017
 ### <a name="windows-desktop"></a>Классические приложения
 В файле MainWindow.xaml.cs отправьте вызов в `SearchByAlias(...)`, передав `WindowInteropHelper` в объекте `PlatformParameters` классического приложения:
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -164,7 +164,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 #### <a name="ios"></a>iOS
 В файле DirSearchClient_iOSViewController.cs объект iOS `PlatformParameters` принимает ссылку на контроллер представления:
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -173,7 +173,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 ### <a name="windows-universal"></a>Windows Universal
 В универсальной платформе Windows откройте файл MainPage.xaml.cs, а затем реализуйте метод `Search`. Этот метод использует вспомогательный метод в общем проекте, чтобы обновлять пользовательский интерфейс при необходимости.
 
-```C#
+```csharp
 ...
 List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(SearchTermText.Text, new PlatformParameters(PromptBehavior.Auto, false));
 ...

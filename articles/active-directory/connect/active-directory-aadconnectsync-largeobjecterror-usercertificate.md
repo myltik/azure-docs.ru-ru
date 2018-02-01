@@ -1,9 +1,9 @@
 ---
-title: "Синхронизация Azure AD Connect: обработка ошибок LargeObject, вызванных атрибутом userCertificate | Документация Майкрософт"
+title: "Azure AD Connect. Обработка ошибок LargeObject, вызванных атрибутом userCertificate | Документация Майкрософт"
 description: "В этой статье представлены инструкции по устранению ошибок LargeObject, вызванных атрибутом userCertificate."
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Синхронизация Azure AD Connect: обработка ошибок LargeObject, вызванных атрибутом userCertificate
 
@@ -177,6 +178,6 @@ ms.lasthandoff: 12/11/2017
 > [!Note]
 > Описанные выше шаги применимы только к более новым версиям (1.1.xxx.x) Azure AD Connect со встроенным планировщиком. Если вы используете более ранние версии (1.0.xxx.x) Azure AD Connect с планировщиком заданий Windows или собственный нестандартный пользовательский планировщик для запуска периодической синхронизации, необходимо отключить их соответствующим образом.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 

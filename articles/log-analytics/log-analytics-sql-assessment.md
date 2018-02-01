@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/19/2018
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Оптимизация среды SQL Server с помощью решения проверки работоспособности SQL Server в Log Analytics
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/13/2017
 
 ![изображение панели мониторинга "Проверка работоспособности SQL"](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Для решения проверки работоспособности SQL на каждом компьютере с агентом Microsoft Monitoring Agent (MMA) должна быть установлена поддерживаемая версия платформы .NET Framework 4.  Агент MMA используется решением System Center 2016 Operations Manager и Operations Manager 2012 R2, а также службами Log Analytics.  
 * Решение поддерживает SQL Server версий 2012, 2014 и 2016.
@@ -165,14 +165,14 @@ Log Analytics использует агент Operations Manager и группу
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Просмотр рекомендаций для приоритетной области и выполнение действий по исправлению
 1. Войдите на портал Azure по адресу [https://portal.azure.com](https://portal.azure.com). 
 2. На портале Azure щелкните **Другие службы** в нижнем левом углу. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.
-3. В области подписок Log Analytics выберите рабочую область, а затем выберите плитку **Портал OMS**.  
+3. В области подписок Log Analytics выберите рабочую область, а затем выберите плитку **Обзор**.  
 4. На странице **Обзор** щелкните плитку **Проверка работоспособности SQL**. 
 5. На странице **Проверка работоспособности** просмотрите сводные данные в одной из колонок приоритетной области, а затем щелкните ее, чтобы ознакомиться с рекомендациями для этой приоритетной области.
 6. На всех страницах интересующей области можно просматривать приоритетные рекомендации для вашей среды. Щелкните рекомендацию в разделе **Затронутые объекты** , чтобы просмотреть сведения о причинах возникновения этой рекомендации.<br><br> ![Экран с рекомендациями по проверке работоспособности SQL](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. В разделе **Предложенные действия**представлены действия по исправлению, которые вы можете предпринять. Когда проблема с этим элементом будет устранена, последующие оценки будут указывать, что рекомендованные действия были выполнены, и тогда оценка соответствия возрастет. Исправленные элементы отображаются как **Прошедшие проверку объекты**.
 
 ## <a name="ignore-recommendations"></a>Игнорирование рекомендаций
-Если вы хотите проигнорировать какие-то рекомендации, создайте текстовый файл, который OMS будет использовать для того, чтобы убрать рекомендации из результатов оценки.
+Если нужно проигнорировать определенные рекомендации, создайте текстовый файл, при помощи которого рекомендации будут удалены из результатов оценки в Log Analytics.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -265,5 +265,5 @@ Log Analytics использует агент Operations Manager и группу
 
 * Да. См. раздел [Игнорирование рекомендаций](#ignore-recommendations) выше в этой статье.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Воспользуйтесь функцией [поиска по журналам](log-analytics-log-searches.md), чтобы научиться анализировать подробные данные и рекомендации для проверки работоспособности SQL.

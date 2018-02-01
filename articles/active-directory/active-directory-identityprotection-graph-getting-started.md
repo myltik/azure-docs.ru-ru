@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с защитой идентификации Azure Active Directory и Microsoft Graph | Документация Майкрософт"
-description: "Дополнительные сведения о Microsoft Graph запрашивать список событий риска и связанные данные из Azure Active Directory."
+title: "Использование Microsoft Graph для защиты идентификации Azure Active Directory | Документация Майкрософт"
+description: "Узнайте, как выполнять запросы к Microsoft Graph для получения списка событий риска и связанных сведений из Azure Active Directory."
 services: active-directory
 keywords: "защита идентификации azure active directory, события риска, уязвимость, политика безопасности, Microsoft Graph"
 documentationcenter: 
@@ -15,20 +15,21 @@ ms.topic: article
 ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: fafad74f46baaf56a8220dab05028781b2f2258e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: df0d89fc93f1b9c19d669c29306398a8b25ee425
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Начало работы с защитой идентификации Azure Active Directory и Microsoft Graph
 Microsoft Graph — это конечная точка Unified API (Майкрософт) и источник интерфейсов API [защиты идентификации Azure Active Directory](active-directory-identityprotection.md). Первый API, **identityRiskEvents**, позволяет запрашивать у Microsoft Graph список [событий риска](active-directory-identityprotection-risk-events-types.md) и связанные с ними сведения. В статье описывается, как выполнять запросы к этому API. Дополнительные сведения, полную документацию и доступ к Graph Explorer можно получить на [сайте Microsoft Graph](https://graph.microsoft.io/).
 
 
-Существует четыре шага, чтобы доступ к данным защиту учетных данных через Microsoft Graph.
+Получить доступ к данным защиты идентификации с помощью Microsoft Graph можно в четыре этапа:
 
-1. Получить имя домена.
-2. Создание новой записи регистрации приложения. 
+1. Получение имени домена.
+2. Создание регистрации приложения. 
 2. Использование этого секрета и других данных для прохождения проверки подлинности в Microsoft Graph и получения маркера проверки подлинности. 
 3. Использование полученного маркера для отправки запросов к конечной точке API и получения данных защиты идентификации.
 
@@ -38,16 +39,16 @@ Microsoft Graph — это конечная точка Unified API (Майкро
 * имя домена клиента (например, contoso.onmicrosoft.com).
 
 
-## <a name="retrieve-your-domain-name"></a>Получить имя домена 
+## <a name="retrieve-your-domain-name"></a>Получение имени домена 
 
-1. [Войдите в](https://portal.azure.com) на портал Azure с правами администратора. 
+1. [Войдите](https://portal.azure.com) на портал Azure с учетной записью администратора. 
 
-2. В области навигации слева выберите **Active Directory**. 
+2. В области навигации слева щелкните **Active Directory**. 
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/41.png)
 
 
-3. В **управление** щелкните **свойства**.
+3. В разделе **Управление** щелкните **Свойства**.
 
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/42.png)
 
@@ -56,7 +57,7 @@ Microsoft Graph — это конечная точка Unified API (Майкро
 
 ## <a name="create-a-new-app-registration"></a>Создание регистрации приложения
 
-1. На **Active Directory** страницы в **управление** щелкните **регистрации приложения**.
+1. На странице **Active Directory** в разделе **Управление** щелкните **Регистрация приложений**.
 
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/42.png)
 
@@ -65,7 +66,7 @@ Microsoft Graph — это конечная точка Unified API (Майкро
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/43.png)
 
-3. На **создать** выполните следующие действия:
+3. На странице **Создание** выполните следующие действия.
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/44.png)
 
@@ -77,42 +78,42 @@ Microsoft Graph — это конечная точка Unified API (Майкро
 
     d. Нажмите кнопку **Создать**.
 
-4. Чтобы открыть **параметры** в списке приложений щелкните регистрацию созданного приложения. 
+4. Чтобы открыть страницу **Параметры**, в списке приложений щелкните только что созданную регистрацию приложения. 
 
-5. Копировать **идентификатор приложения**.
+5. Скопируйте **идентификатор приложения**.
 
 
 ## <a name="grant-your-application-permission-to-use-the-api"></a>Предоставление приложению разрешения на использование API
 
-1. На **параметры** щелкните **требуемые разрешения**.
+1. На странице **Параметры** щелкните **Необходимые разрешения**.
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/15.png)
 
-2. На **разрешения, необходимые** в верхней части панели инструментов нажмите **добавить**.
+2. На странице **Необходимые разрешения** на панели инструментов вверху нажмите кнопку **Добавить**.
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/16.png)
    
-3. На **доступ к API, добавьте** щелкните **выберите API**.
+3. На странице **Добавить доступ через API** щелкните **Выбор API**.
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/17.png)
 
-4. На **выберите API** выберите **Microsoft Graph**, а затем нажмите кнопку **выберите**.
+4. На странице **Выбор API** выберите **Microsoft Graph**, а затем нажмите кнопку **Выбор**.
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/18.png)
 
-5. На **доступ к API, добавьте** щелкните **разрешений Select**.
+5. На странице **Добавить доступ через API** щелкните **Выбрать разрешения**.
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/19.png)
 
-6. На **включить доступ** нажмите кнопку **чтение информации обо всех идентификаторов риск**, а затем нажмите кнопку **выберите**.
+6. На странице **Включение доступа** щелкните **Read all identity risk information** (Прочитать все сведения о рисках идентификаторов), а затем щелкните **Выбор**.
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/20.png)
 
-7. На **доступ к API, добавьте** щелкните **сделать**.
+7. На странице **Добавить доступ через API** щелкните **Готово**.
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/21.png)
 
-8. На **требуемые разрешения** щелкните **GRANT, предоставление разрешений**, а затем нажмите кнопку **Да**.
+8. На странице **Требуемые разрешения** щелкните **Предоставить разрешения** и **Да**.
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/22.png)
 
@@ -120,21 +121,21 @@ Microsoft Graph — это конечная точка Unified API (Майкро
 
 ## <a name="get-an-access-key"></a>Получение ключа доступа
 
-1. На **параметры** щелкните **ключей**.
+1. На странице **Параметры** щелкните **Ключи**.
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/23.png)
 
-2. На **ключей** выполните следующие действия:
+2. На странице **Ключи** выполните следующие действия.
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/24.png)
 
-    a. В **ключа описание** текстовое поле, введите описание (например, *события риска AADIP*).
+    a. В текстовом поле **Описание ключа** введите описание (например, *Событие риска AADIP*).
     
-    Б. Как **длительность**выберите **в 1 год**.
+    Б. Для параметра **Длительность** выберите значение **Через один год**.
 
     c. Выберите команду **Сохранить**.
    
-    d. Скопируйте значение ключа и вставьте его в безопасном месте.   
+    d. Скопируйте значение ключа и вставьте его в безопасное место.   
    
    > [!NOTE]
    > Если ключ будет утерян, вам нужно будет вернуться в этот раздел и создать новый ключ. Не предоставляйте этот ключ никому: с его помощью кто угодно может получить доступ к вашим данным.
@@ -144,11 +145,11 @@ Microsoft Graph — это конечная точка Unified API (Майкро
 ## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Проверка подлинности в Microsoft Graph и выполнение запросов с помощью API рисковых событий идентификации
 На этом этапе вам понадобятся:
 
-- имя домена клиента.
+- имя домена клиента;
 
-- Идентификатор клиента 
+- идентификатор клиента; 
 
-- Ключ 
+- ключ. 
 
 
 Чтобы выполнить проверку подлинности, отправьте запрос POST по адресу `https://login.microsoft.com` со следующими параметрами в тексте:
@@ -157,9 +158,9 @@ Microsoft Graph — это конечная точка Unified API (Майкро
 
 -  resource: “**https://graph.microsoft.com**”
 
-- client_id: \<ИД клиента\>
+- client_id: \<ваш идентификатор клиента\>;
 
-- client_secret: \<ключа\>
+- client_secret: \<ваш ключ\>.
 
 
 В случае успешного выполнения этот метод возвращает маркер проверки подлинности.  
@@ -172,10 +173,10 @@ Microsoft Graph — это конечная точка Unified API (Майкро
 
 Отправьте этот заголовок как запрос по следующему URL-адресу API: `https://graph.microsoft.com/beta/identityRiskEvents`
 
-Ответ, в случае успешного выполнения — это совокупность идентификаторов событий риска и связанные данные в формате OData JSON, который можно проанализировать и обрабатывать по своему усмотрению.
+В случае успеха в ответ вы получите коллекцию событий риска идентификаторов и связанных данных в формате OData JSON. Эти данные можно проанализировать и обработать по своему усмотрению.
 
-Ниже приведен пример кода для проверки подлинности и вызова API, с помощью PowerShell.  
-Просто добавьте ИД клиента, секретный код и домен клиента.
+Ниже приведен пример кода для аутентификации и вызова API с помощью PowerShell.  
+Просто добавьте свои идентификатор клиента, секретный ключ и домен клиента.
 
     $ClientID       = "<your client ID here>"        # Should be a ~36 hex character string; insert your info here
     $ClientSecret   = "<your client secret here>"    # Should be a ~44 character string; insert your info here
@@ -206,14 +207,14 @@ Microsoft Graph — это конечная точка Unified API (Майкро
     } 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Поздравляем, вы только что выполнили первый вызов Microsoft Graph.  
 Теперь вы можете запрашивать рисковые события идентификации и использовать данные по своему усмотрению.
 
 Дополнительные сведения о Microsoft Graph и инструкции по созданию приложения с помощью API Graph см. в [документации](https://graph.microsoft.io/docs), а также на [веб-сайте Microsoft Graph](https://graph.microsoft.io/). Кроме того, сохраните в закладки страницу, посвященную [API защиты идентификации Azure AD](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root). Она содержит список всех доступных в Graph интерфейсов API защиты идентификации. Мы будем добавлять на эту страницу новые способы работы с защитой идентификации через API, поэтому следите за новостями.
 
-Дополнительные сведения см. в разделе:
+Связанные сведения:
 
 -  [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
 

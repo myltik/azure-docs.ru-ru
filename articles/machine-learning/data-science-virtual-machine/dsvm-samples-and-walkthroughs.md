@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Примеры для виртуальных машин для обработки и анализа данных
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > Обратитесь к разделу [Доступ к Jupyter](#access-jupyter), чтобы включить записные книжки Jupyter на виртуальной машине для обработки и анализа данных.
 
 ## <a name="quick-reference-of-samples"></a>Краткий справочник примеров
-| Категории примеров | Описание | Расположения |
+| Категории примеров | ОПИСАНИЕ | Расположения |
 | ------------- | ------------- | ------------- |
 | Язык **R**  | Примеры на **R**, которые рассматривают такие сценарии, как подключение к облачным хранилищам данных Azure, сравнение моделей эксплуатации R и Microsoft R с открытым исходным кодом в Microsoft R Server и SQL Server. <br/> [Снимок экрана](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Язык **Python**  | Примеры на **Python**, которые рассматривают такие сценарии, как подключение к облачным хранилищам данных Azure и работу с **Машинным обучением Azure**.  <br/> [Снимок экрана](#python-language) | <br/>`~notebooks` <br/><br/>|

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Представления в Operations Management Suite (OMS) (предварительная версия)
 > [!NOTE]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 В этой статье предполагается, что вы уже знаете, как [создать решение для управления](operations-management-suite-solutions-creating.md) и структуру файла решения.
 
 ## <a name="overview"></a>Обзор
@@ -75,11 +75,10 @@ ms.lasthandoff: 10/11/2017
 
 Добавьте следующие переменные в элемент variables файла решения и замените значения соответствующими значениями для своего решения.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 Обратите внимание, что можно скопировать весь ресурс представления из экспортированного файла представления. Однако для этого в решение необходимо внести следующие изменения.  
 
@@ -89,6 +88,18 @@ ms.lasthandoff: 10/11/2017
 * В представление нужно добавить свойство **DisplayName**.  Значения свойств **Id**, **Name** и **DisplayName** должны совпадать.
 * Имена параметров необходимо изменить в соответствии с необходимым набором параметров.
 * Переменные нужно определить в решении и использовать в соответствующих свойствах.
+
+### <a name="log-analytics-api-version"></a>Версия API Log Analytics
+Все ресурсы Log Analytics, определенные в шаблоне Resource Manager, имеют свойство **apiVersion**. В нем указывается версия API, которую должен использовать этот ресурс.  Для представлений с запросами, использующими [устаревший и обновленный язык запросов](../log-analytics/log-analytics-log-search-upgrade.md), версии будут разными.  
+
+ В следующей таблице перечислены версии API Log Analytics для представлений в устаревших и обновленных рабочих областях. 
+
+| Версия рабочей области | Версия API | Запрос |
+|:---|:---|:---|
+| v1 (прежняя версия)   | 2015-11-01-preview | Устаревший формат.<br> Пример: Type=Event EventLevelName = Error  |
+| v2 (обновленная версия) | 2015-11-01-preview | Устаревший формат.  Преобразовывается в обновленный формат при установке.<br> Пример: Type=Event EventLevelName = Error<br>Преобразовывается в: Event &#124; where EventLevelName == "Error"  |
+| v2 (обновленная версия) | 2017-03-03-preview | Обновленный формат. <br>Пример: Event &#124; where EventLevelName == "Error"  |
+
 
 ## <a name="add-the-view-details"></a>Добавление сведений о представлении
 Ресурс представления в экспортированном файле представления будет содержать два элемента в элементе **properties** с именем **Dashboard** и **OverviewTile**, включающие подробную конфигурацию представления.  Скопируйте эти два элемента и их содержимое в элемент **properties** ресурса представления в файле решения.
@@ -176,6 +187,6 @@ ms.lasthandoff: 10/11/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте подробнее о создании [решений для управления](operations-management-suite-solutions-creating.md).
 * Добавьте [модули Runbook службы автоматизации в решение для управления](operations-management-suite-solutions-resources-automation.md).

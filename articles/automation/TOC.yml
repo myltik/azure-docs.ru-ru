@@ -67,6 +67,14 @@
           href: automation-runbook-types.md
         - name: Создание и импорт модулей runbook
           href: automation-creating-importing-runbook.md
+        - name: Создание графического модуля runbook
+          href: automation-first-runbook-graphical.md
+        - name: Создание модуля runbook в PowerShell
+          href: automation-first-runbook-textual-powershell.md
+        - name: Создание модуля runbook рабочего процесса в PowerShell
+          href: automation-first-runbook-textual.md
+        - name: Создание модуля runbook в Python
+          href: automation-first-runbook-textual-python2.md
         - name: Изменение текстовых модулей runbook
           href: automation-edit-textual-runbook.md
         - name: Изменение графических модулей runbook

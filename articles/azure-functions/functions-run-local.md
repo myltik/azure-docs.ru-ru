@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 081da55bb956db2879d7f2c5c91d25f5c36d5507
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 3fd392a3f5b48d6b8d19af530c949d91cd461099
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Как программировать и тестировать Функции Azure в локальной среде
 
@@ -132,7 +132,7 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 | **Значения** | Коллекция параметров приложения, используемых при локальном выполнении. **AzureWebJobsStorage** и **AzureWebJobsDashboard** являются примерами. Полный список см. в разделе [Справочник по параметрам приложения](functions-app-settings.md).  |
 | **Host** | Параметры в этом разделе служат для настройки хост-процесса Функций при выполнении в локальной среде. | 
 | **LocalHttpPort** | Задает порт по умолчанию, используемый при выполнении локального узла Функций (`func host start` и `func run`). Параметр командной строки `--port` имеет приоритет над этим значением. |
-| **CORS** | Определяет источники, для которых разрешен [общий доступ к ресурсам независимо от источника (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Источники указываются в виде разделенного запятыми списка без пробелов. Использование подстановочного знака (\*) поддерживается, который разрешает запросы из любого источника. |
+| **CORS** | Определяет источники, для которых разрешен [общий доступ к ресурсам независимо от источника (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Источники указываются в виде разделенного запятыми списка без пробелов. Допускается подстановочное значение (\*), разрешающее запросы из любого источника. |
 | **ConnectionStrings** | Содержит строки подключения к базе данных для функций. Строки подключения, содержащиеся в этом объекте, добавляются в среду с типом поставщика **System.Data.SqlClient**.  | 
 
 Большинство триггеров и привязок имеют свойство **Connection**, которое сопоставляется с именем переменной среды или параметра приложения. Для каждого свойства подключения должен быть определен параметр в файле local.settings.json. 
@@ -216,7 +216,7 @@ func host start
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
-ob host started
+Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
@@ -337,7 +337,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=beta   
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Основные инструменты службы "Функции Azure" [имеют открытый код и размещаются на GitHub](https://github.com/azure/azure-functions-cli).  
 Чтобы зарегистрировать ошибку или отправить запрос на функцию, [откройте вопрос на GitHub](https://github.com/azure/azure-functions-cli/issues). 

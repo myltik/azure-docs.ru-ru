@@ -4,20 +4,21 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: a93b771a-9bc3-444a-bdc0-457f8bb7e780
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/1/2017
+ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a4d3ee4790d3ae57f1a5ce2efc5371fa840e5fa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Руководство по интеграции Azure Active Directory с Nexonia
 
@@ -27,11 +28,11 @@ ms.lasthandoff: 12/11/2017
 
 - С помощью Azure AD вы можете контролировать доступ к Nexonia.
 - Вы можете включить автоматический вход пользователей в Nexonia (единый вход) с учетной записью Azure AD.
-- Вы можете управлять учетными записями централизованно — через портал Azure.
+- Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Nexonia, вам потребуется:
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 12/11/2017
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не используйте рабочую среду без необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
@@ -59,25 +60,22 @@ ms.lasthandoff: 12/11/2017
 
 1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Кнопка "Azure Active Directory"][1]
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![ПРИЛОЖЕНИЯ][2]
+    ![Колонка "Корпоративные приложения"][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![ПРИЛОЖЕНИЯ][3]
+    ![Кнопка "Новое приложение"][3]
 
-4. В поле поиска введите **Nexonia**.
+4. В поле поиска введите **Nexonia**, на панели результатов выберите **Nexonia** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_search.png)
+    ![Nexonia в списке результатов](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_addfromgallery.png)
 
-5. На панели результатов выберите **Nexonia** и нажмите кнопку **Добавить**, чтобы добавить приложение.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>настройка и проверка единого входа в Azure AD.
 В этом разделе описана настройка и проверка единого входа Azure AD в Nexonia с использованием тестового пользователя Britta Simon.
 
 Чтобы настроить единый вход Azure AD, необходимо знать, какой пользователь в Nexonia соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Nexonia.
@@ -86,107 +84,98 @@ ms.lasthandoff: 12/11/2017
 
 Чтобы настроить и проверить единый вход Azure AD в Nexonia, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа в Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Nexonia](#creating-a-nexonia-test-user)** требуется для создания в Nexonia пользователя Britta Simon, связанного с представлением этого же пользователя в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя приложения Nexonia](#create-a-nexonia-test-user)** требуется для того, чтобы в Nexonia существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 
 В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Nexonia.
 
->[!Note]
->Если при интеграции возникают проблемы, воспользуйтесь этой [ссылкой](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?WT.mc_id=UI_AAD_Enterprise_Apps_SupportOrTroubleshooting) для ознакомления с руководством по устранению неполадок. Если вам по-прежнему не удается найти решение, направьте запрос в службу поддержки через портал Azure.
+  > [!Note]
+   > Если при интеграции возникают проблемы, воспользуйтесь этой [ссылкой](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery) для ознакомления с руководством по устранению неполадок. Если вам по-прежнему не удается найти решение, направьте запрос в службу поддержки через портал Azure.
 
 **Чтобы настроить единый вход Azure AD в Nexonia, выполните следующие действия:**
 
 1. На портале Azure на странице интеграции с приложением **Nexonia** щелкните **Единый вход**.
 
-    ![Настройка единого входа][4]
+    ![Ссылка "Настройка единого входа"][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
  
-    ![Настройка единого входа](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_samlbase.png)
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_samlbase.png)
 
 3. В разделе **Домены и URL-адреса приложения Nexonia** сделайте следующее:
 
-    ![Настройка единого входа](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_url.png)
+    ![Сведения о домене и URL-адресах единого входа для приложения Nexonia](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_url.png)
 
-    В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`.
+    a. В текстовом поле **Идентификатор** введите значение: `Nexonia`
+
+    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`.
 
     > [!NOTE] 
-    > Это значение приведено для справки. Вместо него нужно указать фактический URL-адрес ответа. Чтобы получить это значение, обратитесь в [службу поддержки Nexonia](https://nexonia.zendesk.com/hc/requests/new). 
-
-
+    > Значение URL-адреса ответа приведено для примера. Вместо него нужно указать фактический URL-адрес ответа. Чтобы получить это значение, обратитесь к [группе поддержки Nexonia](https://nexonia.zendesk.com/hc/requests/new).
+ 
 4. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
 
-    ![Настройка единого входа](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_certificate.png) 
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_certificate.png) 
 
 5. Нажмите кнопку **Сохранить** .
 
-    ![Настройка единого входа](./media/active-directory-saas-nexonia-tutorial/tutorial_general_400.png)
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-nexonia-tutorial/tutorial_general_400.png)
 
 6. В разделе **Конфигурация Nexonia** щелкните **Настроить Nexonia**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
-    ![Настройка единого входа](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
+    ![Конфигурация Nexonia](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
 
-7. Чтобы настроить единый вход для своего приложения, обратитесь в [службу поддержки Nexonia](https://nexonia.zendesk.com/hc/requests/new) и предоставьте следующие сведения:
-
-    • скачанный **сертификат**
-
-    • **идентификатор сущности SAML**;
-
-    • **URL-адрес службы единого входа SAML**;
-
-    • **URL-адрес выхода**.
+7. Чтобы настроить единый вход на стороне **Nexonia**, нужно отправить скачанный **сертификат (Base64), URL-адрес выхода, идентификатор сущности SAML, URL-адрес службы единого входа SAML** и **идентификатор сущности SAML** [группе поддержки Nexonia](https://nexonia.zendesk.com/hc/requests/new). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
 
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-![Создание пользователя Azure AD][100]
+   ![Создание тестового пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+1. На портале Azure в области слева нажмите кнопку **Azure Active Directory**.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nexonia-tutorial/create_aaduser_01.png) 
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-nexonia-tutorial/create_aaduser_01.png)
 
-2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
-    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nexonia-tutorial/create_aaduser_02.png) 
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
 
-3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
- 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nexonia-tutorial/create_aaduser_03.png) 
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-nexonia-tutorial/create_aaduser_02.png)
 
-4. На странице диалогового окна **Пользователь** выполните следующие действия.
- 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nexonia-tutorial/create_aaduser_04.png) 
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
 
-    a. В текстовом поле **Имя** введите **BrittaSimon**.
+    ![Кнопка "Добавить"](./media/active-directory-saas-nexonia-tutorial/create_aaduser_03.png)
 
-    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+4. В диалоговом окне **Пользователь** сделайте следующее.
 
-    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-nexonia-tutorial/create_aaduser_04.png)
+
+    a. В поле **Имя** введите **BrittaSimon**.
+
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+
+    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
     d. Нажмите кнопку **Создать**.
- 
-### <a name="creating-a-nexonia-test-user"></a>Создание тестового пользователя Nexonia
+  
+### <a name="create-a-nexonia-test-user"></a>Создание тестового пользователя Nexonia
 
 В этом разделе описано, как создать пользователя Britta Simon в приложении Nexonia. Обратитесь в [службу поддержки Nexonia](https://nexonia.zendesk.com/hc/requests/new), чтобы добавить пользователей на платформу Nexonia. Перед использованием единого входа необходимо создать и активировать пользователей.
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
 В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к Nexonia.
 
-![Назначение пользователя][200] 
+![Назначение роли пользователя][200] 
 
 **Чтобы назначить пользователя Britta Simon в Nexonia, выполните следующие действия:**
 
@@ -196,15 +185,15 @@ ms.lasthandoff: 12/11/2017
 
 2. В списке приложений выберите **Nexonia**.
 
-    ![Настройка единого входа](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_app.png) 
+    ![Ссылка на Nexonia в списке "Приложения"](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_app.png)  
 
 3. В меню слева выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][202] 
+    ![Ссылка "Пользователи и группы"][202]
 
 4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][203]
+    ![Область "Добавление назначения"][203]
 
 5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
 
@@ -212,12 +201,12 @@ ms.lasthandoff: 12/11/2017
 
 7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
     
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув плитку Nexonia на панели доступа, вы автоматически войдете в приложение Nexonia.
-Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 

@@ -1,7 +1,7 @@
 ---
-title: "Использование MongoChef c Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте, как использовать MongoChef с учетной записью API для MongoDB в Azure Cosmos DB"
-keywords: MongoChef
+title: "Использование Studio 3T (MongoChef) c Azure Cosmos DB | Документация Майкрософт"
+description: "Узнайте, как использовать Studio 3T с учетной записью API MongoDB в Azure Cosmos DB."
+keywords: mongochef, studio 3T
 services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
@@ -13,58 +13,58 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 01/18/2018
 ms.author: anhoh
-ms.openlocfilehash: 54c9799bd646b827f602e2ea2f9a15a4fc853f00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0341fbf668bbbc8f02e78bc1f6c7a00ecc939cc2
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Использование MongoChef с учетной записью API для MongoDB в Azure Cosmos DB
+# <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>Azure Cosmos DB: использование Studio 3T с учетной записью API MongoDB
 
-Чтобы подключиться к учетной записи API для MongoDB в Azure Cosmos DB, необходимо:
+Чтобы подключиться к учетной записи API MongoDB в Azure Cosmos DB, необходимо:
 
-* скачать и установить [MongoChef](http://3t.io/mongochef)
-* Подготовить сведения о [строке подключения](connect-mongodb-account.md) для учетной записи API для MongoDB в Azure Cosmos DB.
+* скачать и установить [Studio 3T](https://studio3t.com/) (прежнее название — MongoChef);
+* подготовить сведения о [строке подключения](connect-mongodb-account.md) для учетной записи MongoDB в Azure Cosmos DB.
 
-## <a name="create-the-connection-in-mongochef"></a>создать подключение в MongoChef.
-Чтобы добавить в диспетчер подключений MongoChef учетную запись API для MongoDB в Azure Cosmos DB, выполните следующие действия.
+## <a name="create-the-connection-in-studio-3t"></a>Создание подключения в Studio 3T
+Чтобы добавить в диспетчер подключений Studio 3T учетную запись Azure Cosmos DB, сделайте следующее:
 
-1. Извлеките сведения о подключении API для MongoDB в Azure Cosmos DB. Ознакомьтесь с инструкциями [здесь](connect-mongodb-account.md).
+1. Получите сведения о подключении Azure Cosmos DB для учетной записи API MongoDB, следуя инструкциям из статьи [Подключение приложения MongoDB к Azure Cosmos DB](connect-mongodb-account.md).
 
-    ![Снимок экрана, колонка строки подключения](./media/mongodb-mongochef/ConnectionStringBlade.png)
+    ![Снимок экрана со страницей строки подключения](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Щелкните **Connect** (Подключиться), чтобы открыть диспетчер подключений, и нажмите кнопку **New Connection** (Новое подключение).
 
-    ![Снимок экрана диспетчера подключений MongoChef](./media/mongodb-mongochef/ConnectionManager.png)
-3. В окне **Новое подключение** на вкладке **Сервер** введите узел (полное доменное имя) учетной записи API для MongoDB в Azure Cosmos DB.
+    ![Снимок экрана диспетчера подключений Studio 3T](./media/mongodb-mongochef/ConnectionManager.png)
+3. В окне **New Connection** (Новое подключение) на вкладке **Server** (Сервер) укажите узел (полное доменное имя) учетной записи Azure Cosmos DB и порт.
 
-    ![Снимок экрана диспетчера подключений MongoChef, вкладка серверов](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
-4. В окне **New Connection** (Новое подключение) на вкладке **Authentication** (Аутентификация) выберите режим аутентификации **Standard (MONGODB-CR or SCARM-SHA-1)** (Стандартная (MONGODB CR или SCARM-SHA-1)), а также введите имя пользователя и пароль.  Подтвердите базу данных по умолчанию для проверки подлинности (admin) или укажите другое значение.
+    ![Снимок экрана с вкладкой Server (Сервер) диспетчера подключений Studio 3T](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
+4. В окне **New Connection** (Новое подключение) на вкладке **Authentication** (Аутентификация) выберите режим аутентификации **Basic (MONGODB-CR or SCARM-SHA-1)** (Базовая (MONGODB CR или SCARM-SHA-1)), а также введите имя пользователя и пароль.  Подтвердите базу данных по умолчанию для проверки подлинности (admin) или укажите другое значение.
 
-    ![Снимок экрана диспетчера подключений MongoChef, вкладка проверки подлинности](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
+    ![Снимок экрана с вкладкой аутентификации диспетчера подключений Studio 3T](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 5. В окне **New Connection** (Новое подключение) на вкладке **SSL** установите флажок **Use SSL protocol to connect** (Использовать для подключения протокол SSL) и переключатель **Accept server self-signed SSL certificates** (Принимать самозаверяющие SSL-сертификаты сервера).
 
-    ![Снимок экрана диспетчера подключений MongoChef, вкладка SSL](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
+    ![Снимок экрана с вкладкой SSL диспетчера подключений Studio 3T](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. Нажмите кнопку **Test Connection** (Проверить подключение), чтобы проверить сведения о подключении. Затем нажмите кнопку **ОК**, чтобы вернуться в окно "New Connection" (Новое подключение), а затем нажмите кнопку **Save** (Сохранить).
 
-    ![Снимок экрана окна тестового подключения MongoChef](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Снимок экрана окна тестового подключения Studio 3T](./media/mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>Использование MongoChef для создания базы данных, коллекции и документов
-Чтобы создать базу данных, коллекцию и документы с помощью MongoChef, выполните следующие действия.
+## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Использование Studio 3T для создания базы данных, коллекции и документов
+Чтобы создать базу данных, коллекцию и документы с помощью Studio 3T, выполните следующие действия.
 
 1. В **диспетчере подключений** выделите нужное подключение и щелкните **Connect** (Подключиться).
 
-    ![Снимок экрана диспетчера подключений MongoChef](./media/mongodb-mongochef/ConnectToAccount.png)
-2. Щелкните узел правой кнопкой мыши и выберите **Добавить базу данных**.  Укажите имя базы данных и нажмите кнопку **ОК**.
+    ![Снимок экрана диспетчера подключений Studio 3T](./media/mongodb-mongochef/ConnectToAccount.png)
+2. Щелкните узел правой кнопкой мыши и выберите **Add Database** (Добавить базу данных).  Укажите имя базы данных и нажмите кнопку **ОК**.
 
-    ![Снимок экрана MongoChef, параметр "Добавление базы данных"](./media/mongodb-mongochef/AddDatabase1.png)
-3. Щелкните правой кнопкой мыши базу данных и выберите **Добавить коллекцию**.  Укажите имя коллекции и нажмите кнопку **Создать**.
+    ![Снимок экрана Studio 3T, параметр добавления базы данных](./media/mongodb-mongochef/AddDatabase1.png)
+3. Щелкните правой кнопкой мыши базу данных и выберите **Add Collection** (Добавить коллекцию).  Укажите имя коллекции и нажмите кнопку **Создать**.
 
-    ![Снимок экрана MongoChef, параметр "Добавление коллекции"](./media/mongodb-mongochef/AddCollection.png)
+    ![Снимок экрана Studio 3T, параметр добавления коллекции](./media/mongodb-mongochef/AddCollection.png)
 4. Щелкните пункт меню **Collection** (Коллекция), затем щелкните **Add Document** (Добавить документ).
 
-    ![Снимок экрана MongoChef, элемент меню "Добавление документа"](./media/mongodb-mongochef/AddDocument1.png)
+    ![Снимок экрана Studio 3T, пункт меню для добавления документа](./media/mongodb-mongochef/AddDocument1.png)
 5. В диалоговом окне "Добавление документа" вставьте следующий текст и щелкните **Добавить документ**.
 
         {
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
         }
-6. Добавьте еще один документ со следующим содержимым.
+6. Добавьте еще один документ со следующим содержимым:
 
         {
         "_id": "WakefieldFamily",
@@ -114,5 +114,5 @@ ms.lasthandoff: 10/11/2017
 
     ![Снимок экрана Mongo Chef, результаты запроса](./media/mongodb-mongochef/QueryDocument1.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
-* Ознакомьтесь с [примерами](mongodb-samples.md) API для MongoDB в Azure Cosmos DB.
+## <a name="next-steps"></a>Дополнительная информация
+* Ознакомьтесь с [примерами](mongodb-samples.md) API MongoDB в Azure Cosmos DB.

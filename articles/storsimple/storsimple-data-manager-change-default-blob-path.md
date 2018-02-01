@@ -1,10 +1,10 @@
 ---
 title: "Изменение пути к большому двоичному объекту по умолчанию | Документация Майкрософт"
-description: "Узнайте, как настроить функцию Azure для переименования пути к файлу большого двоичного объекта (закрытая предварительная версия)"
+description: "Узнайте, как настроить функцию Azure для переименования пути к файлу большого двоичного объекта"
 services: storsimple
 documentationcenter: NA
-author: vidarmsft
-manager: syadav
+author: alkohli
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,231 +12,216 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/16/2017
-ms.author: vidarmsft
-ms.openlocfilehash: 057d4d7370207859617eb63238bf425bfa6d3e16
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/16/2018
+ms.author: alkohli
+ms.openlocfilehash: f73d9dcedee5165af752b9e10fb70de860e8e98b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="change-a-blob-path-from-the-default-path-private-preview"></a>Изменение пути к большому двоичному объекту по умолчанию (закрытая предварительная версия)
+# <a name="change-a-blob-path-from-the-default-path"></a>Изменение пути к большому двоичному объекту по умолчанию
 
-В этой статье описывается настройка функции Azure для переименования пути к файлу большого двоичного объекта по умолчанию. 
+При преобразовании данных в службе диспетчера данных StorSimple по умолчанию преобразованные большие двоичные объекты помещаются в контейнер хранилища, указанный во время создания целевого репозитория. Пока большие двоичные объекты поступают в текущее расположение, может возникнуть необходимость переместить их в другое расположение. В этой статье описывается настройка функции Azure для переименования пути к файлу большого двоичного объекта по умолчанию и вытекающее отсюда перемещение больших двоичных объектов в другое расположение.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
-Убедитесь в наличии определения задания, которое правильно настроено в гибридном ресурсе данных в группе ресурсов.
+Убедитесь, что определение задания в службе диспетчера данных StorSimple настроено правильно.
 
 ## <a name="create-an-azure-function"></a>Создание функции Azure
 
-Чтобы создать функцию Azure, выполните следующие действия:
+Для создания функции Azure выполните следующие действия:
 
 1. Перейдите на [портал Azure](http://portal.azure.com/).
 
-2. В верхней части левой области щелкните **Создать**. 
+2. Щелкните **+ Create a resource** (+ Создать ресурс). В поле **Поиск** введите **приложение-функция** и нажмите клавишу **ВВОД**. В появившемся списке приложений выберите и щелкните **Приложение-функция**.
 
-3. В поле **поиска** введите **Приложение-функция** и нажмите клавишу ВВОД.
+    ![Введение "Приложение-функция" поле поиска](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
-    ![Введение "Приложение-функция" поле поиска](./media/storsimple-data-manager-change-default-blob-path/goto-function-app-resource.png)
+3. Нажмите кнопку **Создать**.
 
-4. В списке **Результаты** щелкните **Приложение-функция**.
+    ![Кнопка "Создать" в окне "Приложение-функция"](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
 
-    ![Выбор ресурса приложения-функции в списке результатов](./media/storsimple-data-manager-change-default-blob-path/select-function-app-resource.png)
+4. В колонке настройки **Приложение-функция** выполните следующие действия:
 
-    Откроется окно **Приложение-функция**.
+    1. Укажите уникальное **имя приложения**.
+    2. В раскрывающемся списке выберите **Подписка**. Эта подписка должна быть такой же, как и та, что связана со службой диспетчера данных StorSimple.
+    3. Выберите **Создание** для группы ресурсов.
+    4. В раскрывающемся списке **План размещения** выберите **План потребления**.
+    5. Укажите расположение выполняемой функции. Используйте тот же регион, в котором находятся служба диспетчера данных StorSimple и учетная запись хранения, связанная с определением задания.
+    6. Выберите существующую учетную запись хранения или параметр «Создать новую учетную запись хранения». Учетная запись хранения используется внутренне для функции.
 
-5. Щелкните **Создать**.
+        ![Введение данных конфигурации нового приложения-функции](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
-    ![Кнопка "Создать" в окне "Приложение-функция"](./media/storsimple-data-manager-change-default-blob-path/create-new-function-app.png)
+    7. Нажмите кнопку **Создать**. Приложение-функция создано.
+     
+        ![Созданное приложение-функция](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
 
-6. В колонке настройки **Приложение-функция** выполните следующие действия:
+5. Выберите **Функции** и щелкните **+ New function** (+ Создать функцию).
 
-    а. В поле **Имя приложения** введите имя приложения.
+    ![Щелкните + New function (+ Создать функцию)](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
+
+6. В качестве языка выберите **C#**. В массиве элементов шаблонов выберите язык **C#** в элементе**QueueTrigger-CSharp**.
+
+7. В окне **Queue trigger** (Триггер очередей):
+
+    1. Введите **имя** функции.
+    2. В поле **Имя очереди** введите имя определения задания преобразования данных.
+    3. В разделе **Подключение к учетной записи хранения** щелкните **Создать**. В списке учетных записей хранения выберите учетную запись, связанную с определением задания. Запишите имя подключения (выделено). Оно понадобится позже в функции Azure.
+
+        ![Создание функции C#](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
+
+    4. Нажмите кнопку **Создать**. **Функция** создана.
+
+     
+10. В окне функции выполните файл _CSX_.
+
+    ![Создание функции C#](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
-    b. В поле **Подписка** введите имя подписки.
+    Выполните следующие действия.
 
-    c. В разделе **Группа ресурсов** щелкните **Создать**, а затем введите имя группы ресурсов.
+    1. Вставьте следующий код:
 
-    d. В поле **План размещения** укажите **План потребления**.
+        ```
+        using System;
+        using System.Configuration;
+        using Microsoft.WindowsAzure.Storage.Blob;
+        using Microsoft.WindowsAzure.Storage.Queue;
+        using Microsoft.WindowsAzure.Storage;
+        using System.Collections.Generic;
+        using System.Linq;
 
-    д. В поле **Расположение** укажите расположение.
-
-    f. В разделе **Учетная запись хранения** выберите существующую учетную запись хранения или создайте новую. Учетная запись хранения используется внутренне для функции.
-
-    ![Введение данных конфигурации нового приложения-функции](./media/storsimple-data-manager-change-default-blob-path/enter-new-funcion-app-data.png)
-
-7. Щелкните **Создать**.  
-    Приложение-функция создано.
-
-8. В левой области щелкните **Больше служб**, а затем выполните следующие действия:
-    
-    а. В поле **Фильтр** введите **Службы приложений**.
-    
-    b. Щелкните **Службы приложений**. 
-
-    ![Ссылка "Больше служб" в левой области](./media/storsimple-data-manager-change-default-blob-path/more-services.png)
-
-9. В списке служб приложений щелкните имя приложения-функции.  
-    Откроется страница этого приложения-функции.
-
-10. В левой области щелкните **Новая функция**, а затем выполните следующие действия: 
-
-    а. В списке **Язык** выберите **C#**.
-    
-    b. В массиве элементов выберите шаблон **QueueTrigger-CSharp**.
-
-    c. В поле **Присвойте функции имя** введите имя для своей функции.
-
-    d. В поле **Имя очереди** введите имя определения задания преобразования данных.
-
-    д. В разделе **Подключение к учетной записи хранения** щелкните **создать**и выберите учетную запись, соответствующую заданию преобразования данных.  
-        Запишите это имя подключения. Оно понадобится позже в функции Azure.
-
-       ![Создание функции C#](./media/storsimple-data-manager-change-default-blob-path/create-new-csharp-function.png)
-
-    f. Щелкните **Создать**.  
-    Откроется окно **Функция**.
-
-11. В окне **Функция** выполните _CSX_-файл, а затем выполните следующие действия:
-
-    а. Вставьте следующий код:
-
-    ```
-    using System;
-    using System.Configuration;
-    using Microsoft.WindowsAzure.Storage.Blob;
-    using Microsoft.WindowsAzure.Storage.Queue;
-    using Microsoft.WindowsAzure.Storage;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    public static void Run(QueueItem myQueueItem, TraceWriter log)
-    {
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["STORAGE_CONNECTIONNAME"]);
-
-        string storageAccUriEndswith = "windows.net/";
-        string uri = myQueueItem.TargetLocation.Replace("%20", " ");
-        log.Info($"Blob Uri: {uri}");
-
-        // Remove storage account uri string
-        uri = uri.Substring(uri.IndexOf(storageAccUriEndswith) + storageAccUriEndswith.Length);
-
-        string containerName = uri.Substring(0, uri.IndexOf("/")); 
-
-        // Remove container name string
-        uri = uri.Substring(containerName.Length + 1);
-
-        // Current blob path
-        string blobName = uri; 
-
-        string volumeName = uri.Substring(containerName.Length + 1);
-        volumeName = uri.Substring(0, uri.IndexOf("/"));
-
-        // Remove volume name string
-        uri = uri.Substring(volumeName.Length + 1);
-
-        string newContainerName = uri.Substring(0, uri.IndexOf("/")).ToLower();
-        string newBlobName = uri.Substring(newContainerName.Length + 1);
-
-        log.Info($"Container name: {containerName}");
-        log.Info($"Volume name: {volumeName}");
-        log.Info($"New container name: {newContainerName}");
-
-        log.Info($"Blob name: {blobName}");
-        log.Info($"New blob name: {newBlobName}");
-
-        // Create the blob client.
-        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-        // Container reference
-        CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-        CloudBlobContainer newContainer = blobClient.GetContainerReference(newContainerName);
-        newContainer.CreateIfNotExists();
-
-        if(!container.Exists())
+        public static void Run(QueueItem myQueueItem, TraceWriter log)
         {
-            log.Info($"Container - {containerName} not exists");
-            return;
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["STORAGE_CONNECTIONNAME"]);
+
+            string storageAccUriEndswith = "windows.net/";
+            string uri = myQueueItem.TargetLocation.Replace("%20", " ");
+            log.Info($"Blob Uri: {uri}");
+
+            // Remove storage account uri string
+            uri = uri.Substring(uri.IndexOf(storageAccUriEndswith) + storageAccUriEndswith.Length);
+
+            string containerName = uri.Substring(0, uri.IndexOf("/")); 
+
+            // Remove container name string
+            uri = uri.Substring(containerName.Length + 1);
+
+            // Current blob path
+            string blobName = uri; 
+
+            string volumeName = uri.Substring(containerName.Length + 1);
+            volumeName = uri.Substring(0, uri.IndexOf("/"));
+
+            // Remove volume name string
+            uri = uri.Substring(volumeName.Length + 1);
+
+            string newContainerName = uri.Substring(0, uri.IndexOf("/")).ToLower();
+            string newBlobName = uri.Substring(newContainerName.Length + 1);
+
+            log.Info($"Container name: {containerName}");
+            log.Info($"Volume name: {volumeName}");
+            log.Info($"New container name: {newContainerName}");
+
+            log.Info($"Blob name: {blobName}");
+            log.Info($"New blob name: {newBlobName}");
+
+            // Create the blob client.
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+            // Container reference
+            CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+            CloudBlobContainer newContainer = blobClient.GetContainerReference(newContainerName);
+            newContainer.CreateIfNotExists();
+
+            if(!container.Exists())
+            {
+                log.Info($"Container - {containerName} not exists");
+                return;
+            }
+
+            if(!newContainer.Exists())
+            {
+                log.Info($"Container - {newContainerName} not exists");
+                return;
+            }
+
+            CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
+            if (!blob.Exists())
+            {
+                // Skip to copy the blob to new container, if source blob doesn't exist
+                log.Info($"The specified blob does not exist.");
+                log.Info($"Blob Uri: {blob.Uri}");
+                return;
+            }
+
+            CloudBlockBlob blobCopy = newContainer.GetBlockBlobReference(newBlobName);
+            if (!blobCopy.Exists())
+            {
+                blobCopy.StartCopy(blob);
+                // Delete old blob, after copy to new container
+                blob.DeleteIfExists();
+                log.Info($"Blob file path renamed completed successfully");
+            }
+            else
+            {
+                log.Info($"Blob file path renamed already done");
+                // Delete old blob, if already exists.
+                blob.DeleteIfExists();
+            }
         }
 
-        if(!newContainer.Exists())
+        public class QueueItem
         {
-            log.Info($"Container - {newContainerName} not exists");
-            return;
+            public string SourceLocation {get;set;}
+            public long SizeInBytes {get;set;}
+            public string Status {get;set;}
+            public string JobID {get;set;}
+            public string TargetLocation {get; set;}
         }
 
-        CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
-        if (!blob.Exists())
-        {
-            // Skip to copy the blob to new container, if source blob doesn't exist
-            log.Info($"The specified blob does not exist.");
-            log.Info($"Blob Uri: {blob.Uri}");
-            return;
-        }
+        ```
 
-        CloudBlockBlob blobCopy = newContainer.GetBlockBlobReference(newBlobName);
-        if (!blobCopy.Exists())
-        {
-            blobCopy.StartCopy(blob);
-            // Delete old blob, after copy to new container
-            blob.DeleteIfExists();
-            log.Info($"Blob file path renamed completed successfully");
-        }
-        else
-        {
-            log.Info($"Blob file path renamed already done");
-            // Delete old blob, if already exists.
-            blob.DeleteIfExists();
-        }
-    }
+    2. В строке 11 замените имя **STORAGE_CONNECTIONNAME** именем подключения к учетной записи хранения (см. шаг 7в).
 
-    public class QueueItem
-    {
-        public string SourceLocation {get;set;}
-        public long SizeInBytes {get;set;}
-        public string Status {get;set;}
-        public string JobID {get;set;}
-        public string TargetLocation {get; set;}
-    }
+        ![Копирование имени подключения к хранилищу](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
 
-    ```
+    3. **Сохраните** функцию.
 
-    b. Замените имя **STORAGE_CONNECTIONNAME** в строке 11 именем подключения к учетной записи хранения (см. пункт 8c).
+        ![Сохранение функции](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
 
-    c. В верхней левом углу нажмите кнопку **Сохранить**.
+12. Чтобы завершить создание функции, добавьте еще один файл, сделав следующее:
 
-    ![Сохранение функции](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
-
-12. Чтобы завершить создание функции, добавьте еще один файл, выполнив следующие действия:
-
-    а. Щелкните **Просмотреть файлы**.
+    1. Щелкните **Просмотреть файлы**.
 
        ![Ссылка "Просмотреть файлы"](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
 
-    b. Щелкните **Добавить**.
+    2. Щелкните **+ Добавить**.
+        
+        ![Ссылка "Просмотреть файлы"](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    c. Введите **project.json** и нажмите клавишу ВВОД.
-    
-    d. В файле **project.json** скопируйте следующий код:
+    3. Введите **project.json** и нажмите клавишу **ВВОД**. В файле **project.json** скопируйте следующий код:
 
-    ```
-    {
-    "frameworks": {
-        "net46":{
-        "dependencies": {
-            "windowsazure.storage": "8.1.1"
+        ```
+        {
+        "frameworks": {
+            "net46":{
+            "dependencies": {
+                "windowsazure.storage": "8.1.1"
+            }
+            }
         }
         }
-    }
-    }
 
-    ```
+        ```
 
-    д. Щелкните **Сохранить**.
+    
+    4. Выберите команду **Сохранить**.
+
+        ![Ссылка "Просмотреть файлы"](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
 Вы создали функцию Azure. Эта функция запускается каждый раз, когда задание преобразования данных создает большой двоичный объект.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Использование пользовательского интерфейса для службы диспетчера данных StorSimple (закрытая предварительная версия)](storsimple-data-manager-ui.md)

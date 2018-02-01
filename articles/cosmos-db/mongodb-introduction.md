@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: anhoh
-ms.openlocfilehash: 9acc3268bc6a043852cadfafa40c0a54ecc66e59
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.openlocfilehash: d39ca60438ce5f49ed411eded22583438706dc8c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Знакомство с API для MongoDB в Azure Cosmos DB
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/09/2017
 
 **Корпоративный класс.** Azure Cosmos DB поддерживает несколько локальных реплик, гарантируя высокий уровень доступности (99,99 %) и защиту данных в случае локальных и региональных сбоев. Azure Cosmos DB имеет [сертификаты соответствия требованиям](https://www.microsoft.com/trustcenter) и функции обеспечения безопасности корпоративного класса. 
 
-Дополнительные сведения в этом видео с Azure Cosmos DB старший руководитель программы, Aleksey Savateyev.
+Дополнительные сведения см. в этом видео со старшим программистом Azure Cosmos DB Алексеем Саватеевым.
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
 > 
@@ -58,12 +58,12 @@ ms.lasthandoff: 12/09/2017
 * [Создание веб-приложения API MongoDB с использованием языка .NET и портала Azure](create-mongodb-dotnet.md)
 * [Создание консольного приложения API MongoDB с использованием языка Java и портала Azure](create-mongodb-java.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Материалы по API для MongoDB в Azure Cosmos DB интегрированы в общую документацию по Azure Cosmos DB, но ниже приводится несколько ссылок, которые помогут вам приступить к работе.
 
 * Инструкции по получению сведений о строке подключения для учетной записи MongoDB см. в [этом руководстве](connect-mongodb-account.md).
-* Сведения о создании подключения между базой данных Azure Cosmos DB и приложением MongoDB в MongoChef см. в [этом руководстве](mongodb-mongochef.md).
+* Сведения о создании подключения между базой данных Azure Cosmos DB и приложением MongoDB в Studio 3T см. в статье [Использование Studio 3T (MongoChef) с Azure Cosmos DB](mongodb-mongochef.md).
 * При импорте данных в API для базы данных MongoDB следуйте инструкциям в статье [Перенос данных в DocumentDB с помощью mongoimport и mongorestore](mongodb-migrate.md).
 * Подключитесь к учетной записи API для MongoDB с помощью [Robomongo](mongodb-robomongo.md).
 * С помощью [команды GetLastRequestStatistics и метрик портала Azure](request-units.md#GetLastRequestStatistics) узнайте, сколько единиц запроса (ЕЗ) используют ваши операции.

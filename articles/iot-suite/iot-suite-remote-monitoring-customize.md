@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 886a4412ac348869563a03d697f4363cb3dea8f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>Настройка предварительно настроенного решения для удаленного мониторинга
 
@@ -24,6 +24,10 @@ ms.lasthandoff: 11/10/2017
 
 * Репозитории GitHub с исходным кодом и ресурсы для микрослужб, формирующих предварительно настроенное решение.
 * Общие сценарии настройки, такие как добавление нового типа устройств.
+
+В следующем видео представлен обзор возможностей настройки предварительно настроенного решения для удаленного мониторинга:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## <a name="project-overview"></a>Обзор проекта
 
@@ -42,11 +46,11 @@ ms.lasthandoff: 11/10/2017
 
 <!-- please add links for each of the repos in the table, you can find them here https://github.com/Azure/azure-iot-pcs-team/wiki/Repositories-->
 
-| Микрослужба      | Описание | Java | .NET |
+| Микрослужба      | ОПИСАНИЕ | Java | .NET |
 | ----------------- | ----------- | ---- | ---- |
 | Веб-интерфейс            | Веб-приложение для решения удаленного мониторинга. Реализация пользовательского интерфейса с использованием платформы React.js. | [Недоступно (React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [Недоступно (React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
 | Диспетчер Центра Интернета вещей   | Взаимодействие с Центром Интернета вещей.        | [Доступно](https://github.com/Azure/iothub-manager-java) | [Доступно](https://github.com/Azure/iothub-manager-dotnet)   |
-| Аутентификация    |  Управление интеграцией с Azure Active Directory.  | Пока недоступно | [Доступно](https://github.com/Azure/pcs-auth-dotnet)   |
+| Authentication    |  Управление интеграцией с Azure Active Directory.  | Пока недоступно | [Доступно](https://github.com/Azure/pcs-auth-dotnet)   |
 | Виртуальное устройство | Управление пулом виртуальных устройств. | Пока недоступно | [Доступно](https://github.com/Azure/device-simulation-dotnet)   |
 | Телеметрия         | Предоставление доступа к телеметрии устройства в пользовательском интерфейсе. | [Доступно](https://github.com/Azure/device-telemetry-java) | [Доступно](https://github.com/Azure/device-telemetry-dotnet)   |
 | Агент телеметрии   | Анализ потока телеметрии, хранение сообщений из Центра Интернета вещей Azure и создание предупреждений в соответствии с определенными правилами.  | [Доступно](https://github.com/Azure/telemetry-agent-java) | [Доступно](https://github.com/Azure/telemetry-agent-dotnet)   |
@@ -78,7 +82,7 @@ ms.lasthandoff: 11/10/2017
     CONTOSO: 'Contoso',
     ```
 
-1. Замените `Contoso` именем компании. Например:
+1. Замените `Contoso` именем компании. Например: 
 
     ```js
     CONTOSO: 'YourCo',
@@ -96,7 +100,7 @@ ms.lasthandoff: 11/10/2017
     import ContosoIcon from '../../../assets/icons/Contoso.svg';
     ```
 
-1. Замените `Contoso.svg` именем своего файла логотипа. Например:
+1. Замените `Contoso.svg` именем своего файла логотипа. Например: 
 
     ```js
     import ContosoIcon from '../../../assets/icons/YourCo.svg';
@@ -108,7 +112,7 @@ ms.lasthandoff: 11/10/2017
     alt="ContosoIcon"
     ```
 
-1. Замените имя репозитория `ContosoIcon` своим альтернативным текстом (`alt`). Например:
+1. Замените имя репозитория `ContosoIcon` своим альтернативным текстом (`alt`). Например: 
 
     ```js
     alt="YourCoIcon"
@@ -249,7 +253,7 @@ The default storage service for logs is Cosmos DB. See the [Customize log storag
 * [адаптер хранения (.NET)](https://github.com/Azure/pcs-storage-adapter-dotnet);
 * [адаптер хранения (Java)](https://github.com/Azure/pcs-storage-adapter-java).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из статьи вы узнали о ресурсах, которые могут помочь вам при настройке предварительно настроенного решения.
 

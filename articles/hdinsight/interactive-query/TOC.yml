@@ -148,6 +148,21 @@
             - name: Публикация приложений HDInsight в Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: "Установка опубликованного приложения\_— Cask Data Application Platform (CDAP)"
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: "Установка опубликованного приложения\_— Dataiku"
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: "Установка опубликованного приложения\_— Datameer"
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: "Установка опубликованного приложения\_— H2O"
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: "Установка опубликованного приложения\_— Streamsets"
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Безопасность
       items:
         - name: Использование SSH с HDInsight
@@ -328,7 +343,7 @@
         - name: Мониторинг производительности кластера
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Ссылка
+- name: Справочные материалы
   items:
     - name: Примеры кода
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

@@ -11,13 +11,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 01/22/2018
 ms.author: nitinme
-ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: b56253e7b9c9ab144ebc4006511631756de4f89b
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Часто задаваемые вопросы об Azure Databricks
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/08/2017
 
 Здесь описаны несколько проблем, которые могут возникнуть при работе с Databricks.
 
-### <a name="this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Подписка не зарегистрирована для использования пространства имен Microsoft.Databricks
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Проблема. Эта подписка не зарегистрирована для использования пространства имен Microsoft.Databricks
 
 #### <a name="error-message"></a>Сообщение об ошибке
 
@@ -55,7 +55,7 @@ This subscription is not registered to use the namespace ‘Microsoft.Databricks
 3. В списке поставщиков ресурсов выберите действие **Зарегистрировать** рядом с элементом **Microsoft.Databricks**. Чтобы зарегистрировать поставщика ресурсов, нужно иметь в подписке роль участника или владельца.
 
 
-### <a name="your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Для вашей учетной записи не назначена роль владельца или участника в ресурсе рабочей области Databricks на портале Azure
+### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Проблема. Для вашей учетной записи {email} не назначена роль владельца или участника в ресурсе рабочей области Databricks на портале Azure
 
 #### <a name="error-message"></a>Сообщение об ошибке
 
@@ -71,7 +71,7 @@ This subscription is not registered to use the namespace ‘Microsoft.Databricks
 
     a. На портале Azure перейдите к Azure AD. Выберите **Пользователи и группы**, а затем —  > **Добавить пользователя**.
 
-    Б. Добавьте пользователя с адресом электронной почты в формате `@<tenant_name>.onmicrosoft.com` вместо `@<your_domain>`. Эти данные можно найти в списке **пользовательские домены** в разделе Azure AD на портале Azure.
+    Б. Добавьте пользователя с адресом электронной почты в формате `@<tenant_name>.onmicrosoft.com` вместо `@<your_domain>`. Этот параметр можно найти в списке **Пользовательские домены** в разделе Azure AD на портале Azure.
     
     c. Назначьте новому пользователю роль **участника** для ресурса рабочей области Databricks.
     
@@ -80,13 +80,13 @@ This subscription is not registered to use the namespace ‘Microsoft.Databricks
     д. Запустите рабочую область Databricks от имени этого пользователя.
 
 
-### <a name="your-account-email-has-not-been-registered-in-databricks"></a>Ваша учетная запись {адрес электронной почты} не зарегистрирована в Databricks 
+### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Проблема. Ваша учетная запись {адрес электронной почты} не зарегистрирована в Databricks 
 
 #### <a name="solution"></a>Решение
 
 Если вы не создавали эту рабочую область, вас нужно добавить в качестве пользователя. Для этого обратитесь к создателю рабочей области. Попросите добавить вас с помощью консоли администрирования Azure Databricks. Эта процедура описана в статье [Adding and managing users](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html) (Добавление пользователей и управление ими). Если вы получаете такое сообщение, когда сами создавали эту рабочую область, попробуйте еще раз выполнить действие **Инициализация рабочей области** на портале Azure.
 
-### <a name="cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Сбой запуска поставщика облачных служб при настройке кластера
+### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Проблема. Сбой запуска поставщика облачных служб при настройке кластера (PublicIPCountLimitReached)
 
 #### <a name="error-message"></a>Сообщение об ошибке
 
@@ -96,7 +96,7 @@ This subscription is not registered to use the namespace ‘Microsoft.Databricks
 
 Кластер Databricks использует один общедоступный IP-адрес на каждый узел. Если для подписки уже использованы все общедоступные IP-адреса, отправьте нам [запрос на увеличение квоты](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Выберите значение **Квоты** для параметра **Тип проблемы** и значение **Сети: ARM** для параметра **Тип квоты**. В области **Сведения** сформулируйте просьбу увеличить квоту на общедоступные IP-адреса. Например, если установлен лимит 60, а вам нужно создать кластер на 100 узлов, попросите увеличить лимит до 160.
 
-### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Второй тип сбоя запуска поставщика облачных служб при настройке кластера
+### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Проблема. Второй тип сбоя запуска поставщика облачных служб при настройке кластера (MissingSubscriptionRegistration)
 
 #### <a name="error-message"></a>Сообщение об ошибке
 
@@ -111,7 +111,17 @@ This subscription is not registered to use the namespace ‘Microsoft.Databricks
 
 Подробные инструкции см. в статье [Поставщики и типы ресурсов](../azure-resource-manager/resource-manager-supported-services.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Проблема. Azure Databricks требуются разрешения на доступ к ресурсам в вашей организации, которые может предоставить только администратор
+
+#### <a name="background"></a>Фоновый
+
+Azure Databricks интегрируется с Azure AD. Это позволяет задать разрешения в Azure Databricks (например, для записных книжек или кластеров), указав пользователей из Azure AD. Чтобы в Azure Databricks можно было вывести список имен пользователей из Azure AD, требуется разрешение на чтение этих данных. Для этого необходимо согласие. Если оно недоступно, возникнет ошибка.
+
+#### <a name="solution"></a>Решение
+
+Войдите на портал Azure как глобальный администратор. В разделе Azure Active Directory перейдите на вкладку **Параметры пользователей** и задайте для параметра **Пользователи могут разрешать приложениям доступ к корпоративным данным от своего имени** значение **Да**.
+
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Краткое руководство по началу работы с Azure Databricks](quickstart-create-databricks-workspace-portal.md).
 - [What is Azure Databricks?](what-is-azure-databricks.md) (Что такое Azure Databricks).

@@ -4,7 +4,7 @@ description: "Узнайте, как установить и настроить 
 services: hdinsight
 documentationcenter: 
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 01/24/2018
 ms.author: saurinsh
-ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Настройка среды с присоединенной к домену песочницей HDInsight
 
@@ -29,7 +29,6 @@ ms.lasthandoff: 01/12/2018
 
 -   изолированной службы Active Directory, выполняемой в Azure IaaS;
 -   Azure Active Directory;
--   Active Directory, выполняемой в локальной среде клиента.
 
 В этой статье описано использование изолированной службы Active Directory, выполняемой в Azure IaaS. Это простейшая архитектура, которой может следовать клиент, чтобы обеспечить многопользовательскую поддержку в HDInsight. В данной статье рассматриваются два подхода к этой конфигурации:
 
@@ -71,9 +70,10 @@ ms.lasthandoff: 01/12/2018
     - **Имя администратора**. Введите имя администратора домена.
     - **Пароль администратора**. Введите пароль администратора домена.
     - **Имя домена**. Имя по умолчанию — *contoso.com*.  Если вы измените доменное имя, необходимо также обновить поля **Сертификат защищенного LDAP** и **Organizational Unit DN** (Доменное имя подразделения).
+    - **Префикс DNS.** Введите префикс DNS для общедоступного IP-адреса, используемого подсистемой балансировки нагрузки.
     - **Имя кластера**. Введите имя кластера HDInsight.
     - **Тип кластера**. Не меняйте это значение. Если вы хотите изменить тип кластера, используйте специальный шаблон на последнем шаге.
-
+    - **Пароль сертификата защищенного протокола LDAP.** Используйте значение по умолчанию, пока не измените поле сертификата "защищенный протокол LDAP".
     Некоторые значения жестко закодированы в шаблоне. Например, число экземпляров рабочих ролей узла равно двум.  Чтобы изменить жестко закодированные значения, щелкните **Изменить шаблон**.
 
     ![Присоединенный к домену кластер HDInsight: изменение шаблона](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)

@@ -12,22 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2016
+ms.date: 01/06/2016
 ms.author: cephalin;dariac
-ms.openlocfilehash: e3ac2f2156719ad975049b0c2b4cbca81d88e779
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fcd079306a8968505349bb3f4a805f203a5c9999
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Развертывание приложения в службе приложений Azure с помощью FTP или FTPS
 
 В этой статье показано, как с помощью FTP или FTPS развернуть веб-приложение, серверную частью мобильного приложения или приложение API в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 Конечная точка FTP или FTPS для приложения уже активна. Чтобы обеспечить развертывание через FTP или FTPS, не требуется никаких настроек.
-
-> [!IMPORTANT]
-> Мы постоянно работаем над улучшением безопасности платформы Microsoft Azure. В ходе этой работы планируется обновление веб-приложений в регионе "Центральная Германия" и "Северо-восточная Германия". В это время веб-приложения не смогут использовать протокол FTP обычного текста для развертываний. Рекомендуем своим клиентам использовать для развертывания FTPS. Во время обновления, которое запланировано на 5 сентября, никаких нарушений в работе вашей службы не предвидится. Благодарим за вашу помощь!
 
 <a name="step1"></a>
 ## <a name="step-1-set-deployment-credentials"></a>Шаг 1. Настройка учетных данных развертывания
@@ -38,13 +35,13 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="step-2-get-ftp-connection-information"></a>Шаг 2. Получение информации о подключении по FTP
 
-1. Откройте [колонку ресурсов](../azure-resource-manager/resource-group-portal.md#manage-resources) приложения на [портале Azure](https://portal.azure.com).
+1. На [портале Azure](https://portal.azure.com) откройте [страницу ресурсов](../azure-resource-manager/resource-group-portal.md#manage-resources) приложения.
 2. Выберите **Обзор** в левом меню и запишите значения **Пользователь FTP или развертывания**, **Имя узла FTP** и **Имя узла FTPS**. 
 
     ![Информация о подключении по FTP](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
 
     > [!NOTE]
-    > Значение параметра **Пользователь FTP или развертывания** отображается на портале Azure, включая имя приложения, чтобы обеспечить правильный контекст для FTP-сервера.
+    > Значение параметра **Пользователь FTP или развертывания** отображается на портале Azure с именем приложения, чтобы обеспечить правильный контекст для FTP-сервера.
     > Эти же сведения можно отобразить, выбрав **Свойства** в левом меню. 
     >
     > Кроме того, пароль развертывания никогда не отображается. Если вы забыли пароль развертывания, вернитесь к [шагу 1](#step1) и сбросьте его.
@@ -53,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="step-3-deploy-files-to-azure"></a>Шаг 3. Развертывание файлов в Azure
 
-1. Подключитесь к приложению из клиента FTP ([Visual Studio](https://www.visualstudio.com/vs/community/), [FileZilla](https://filezilla-project.org/download.php?type=client) и т. п.), используя полученные сведения.
+1. Подключитесь к приложению из клиента FTP (например, [Visual Studio](https://www.visualstudio.com/vs/community/) или [FileZilla](https://filezilla-project.org/download.php?type=client)), используя полученные сведения.
 3. Скопируйте файлы и соответствующую им структуру каталогов в Azure в каталог [**/site/wwwroot**](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (или в каталог веб-заданий **/site/wwwroot/App_Data/Jobs/**).
 4. Перейдите по URL-адресу приложения, чтобы убедиться, что приложение работает правильно. 
 
@@ -64,11 +61,11 @@ ms.lasthandoff: 10/11/2017
 > - компиляция двоичных файлов .NET;
 > - создание файла Web.config (вот [пример для Node.js](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps)).
 > 
-> Необходимо вручную выполнить восстановление, сборку и создание этих необходимых файлов на локальном компьютере, а затем развернуть их вместе с приложением.
+> Создайте эти необходимые файлы вручную или на локальном компьютере, а затем разверните их вместе с приложением.
 >
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Чтобы изучить более сложные сценарии развертывания, ознакомьтесь с [развертыванием в Azure с помощью Git](app-service-deploy-local-git.md). Развертывание в Azure на основе Git обеспечивает систему управления версиями, восстановление пакета, MSBuild и многое другое.
 

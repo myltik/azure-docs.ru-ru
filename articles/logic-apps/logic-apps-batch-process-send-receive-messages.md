@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Отправка, получение и пакетная обработка сообщений в приложениях логики
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/14/2017
 
 * Подписка Azure. Если у вас нет подписки, вы можете [создать бесплатную пробную версию учетной записи Azure](https://azure.microsoft.com/free/). В противном случае вы можете [зарегистрироваться на получение подписки с оплатой по мере использования](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Базовые знания [создания приложений логики](../logic-apps/logic-apps-create-a-logic-app.md). 
+* Базовые знания [создания приложений логики](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 * Учетная запись электронной почты любого [поставщика электронной почты, поддерживаемого Azure Logic Apps](../connectors/apis-list.md).
 
@@ -85,11 +85,11 @@ ms.lasthandoff: 10/14/2017
 
    3. Выберите это действие для соединителя: **{*поставщик электронной почты*} - Отправить электронное письмо**
 
-      Например:
+      Например: 
 
       ![Выбор действия "Отправить электронное письмо" для поставщика электронной почты](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. Если вы еще не создали подключение для поставщика электронной почты, то укажите учетные данные электронной почты для аутентификации при появлении соответствующего запроса. Дополнительные сведения об аутентификации учетных данных электронной почты см. в [этой статье](../logic-apps/logic-apps-create-a-logic-app.md).
+5. Если вы еще не создали подключение для поставщика электронной почты, то укажите учетные данные электронной почты для аутентификации при появлении соответствующего запроса. Дополнительные сведения об аутентификации учетных данных электронной почты см. в [этой статье](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Задайте свойства для только что добавленного действия.
 
@@ -200,7 +200,7 @@ ms.lasthandoff: 10/14/2017
 > [!IMPORTANT]
 > После выполнения проверки убедитесь, что приложение логики BatchSender отключено, чтобы оно прекратило отправлять сообщения и не перегружало папку "Входящие".
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Создание определений рабочих процессов для приложений логики с помощью JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Создание бессерверного приложения в Visual Studio с использованием приложений логики и функций](../logic-apps/logic-apps-serverless-get-started-vs.md)

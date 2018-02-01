@@ -6,6 +6,10 @@
 # Быстрое начало работы
 
 ## [Создание подключения (портал)](create-data-warehouse-portal.md)
+## Остановка и возобновление вычислений
+### [Портал](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+
 
 # Учебники
 ## [1. Загрузка данных из BLOB-объекта](load-data-from-azure-blob-storage-using-polybase.md)

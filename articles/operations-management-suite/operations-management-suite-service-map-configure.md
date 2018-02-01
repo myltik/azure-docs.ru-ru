@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
-ms.translationtype: MT
+ms.openlocfilehash: e23173fb6708104c39071145595e4eec3454ee76
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Настройка схемы услуги в Operations Management Suite
 Служба схемы услуги автоматически обнаруживает компоненты приложений в системах Windows и Linux и сопоставляет взаимодействие между службами. Она позволяет рассматривать серверы как взаимосвязанные системы, предоставляющие важные службы. Схема услуги отображает сведения о подключениях между серверами, процессами и портами в любой подключенной по протоколу TCP архитектуре без дополнительной настройки. Пользователям требуется только установить агент.
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Расширение виртуальной машины Azure
-Можно легко развернуть агент зависимостей на виртуальных машинах Azure с помощью [расширений виртуальной машины Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Расширение виртуальной машины Azure позволяет развернуть агент зависимостей на виртуальных машинах с помощью сценария PowerShell или шаблона виртуальной машины Azure Resource Manager.  Расширение доступно для Windows (DependencyAgentWindows) и Linux (DependencyAgentLinux).  При развертывании с помощью расширения виртуальных машин Azure агенты могут быть автоматически обновлены до последних версий.
+Можно легко развернуть агент зависимостей на виртуальных машинах Azure с помощью [расширений виртуальной машины Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Расширение виртуальной машины Azure позволяет развернуть агент зависимостей на виртуальных машинах с помощью сценария PowerShell или шаблона виртуальной машины Azure Resource Manager.  Расширение доступно для Windows (DependencyAgentWindows) и Linux (DependencyAgentLinux).  При развертывании с помощью расширения виртуальных машин Azure агенты могут быть автоматически обновлены до последних версий.
 
 Чтобы развернуть расширение виртуальной машины Azure с помощью PowerShell, можно использовать приведенный ниже пример.
 ```PowerShell
@@ -262,8 +262,8 @@ sudo dpkg --purge dependency-agent
 #### <a name="server-doesnt-appear-in-service-map"></a>Сервер не отображается в службе схемы услуги
 Если агент зависимостей успешно установлен, но в решении "Схема услуги" не отображается сервер, ответьте на следующие вопросы:
 * Успешно ли установлен агент зависимостей? Для этого проверьте, установлена и запущена ли служба.<br><br>
-**Windows**: поиск службы с именем «Агент зависимостей Microsoft».<br>
-**Linux**: найдите выполнения обработки «microsoft зависимостей агент».
+**Windows**: найдите службу с именем "Агент зависимостей (Майкрософт)".<br>
+**Linux**: найдите выполняющийся процесс microsoft-dependency-agent.
 
 * Используете ли вы [ценовую категорию "Бесплатный" Operations Management Suite и Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? План "Бесплатный" предусматривает использование пяти уникальных серверов решения "Схема услуги". Все последующие серверы не будут отображаться в решении "Схема услуги", даже если предыдущие пять больше не отправляют данные.
 
@@ -387,5 +387,5 @@ sudo dpkg --purge dependency-agent
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Узнайте, как [использовать схему услуги](operations-management-suite-service-map.md) после ее развертывания и настройки.

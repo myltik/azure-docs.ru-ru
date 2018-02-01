@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Руководство по интеграции Azure Active Directory с Amazon Web Services
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/09/2018
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Amazon Web Services, вам потребуется следующее:
 
@@ -131,6 +131,8 @@ ms.lasthandoff: 01/09/2018
     Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
 
     c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
+
+    d. В текстовом поле **Пространство имен** введите значение пространства имен, показанное для этой строки.
     
     d. Нажмите кнопку **ОК**.
 
@@ -218,7 +220,7 @@ ms.lasthandoff: 01/09/2018
 
 21. Используйте учетные данные службы AWS для получения ролей из учетной записи AWS при подготовке пользователя Azure AD. Для этого откройте главную страницу консоли AWS.
 
-22. Щелкните **Services (Службы)** -> **Security,Identity & Compliance (Безопасность, удостоверения и соответствие требованиям)** -> **IAM**.
+22. Щелкните **Services (Службы)** -> **Security, Identity & Compliance (Безопасность, удостоверения и соответствие требованиям)** -> **IAM**.
 
     ![Получение ролей из учетной записи AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
@@ -230,19 +232,13 @@ ms.lasthandoff: 01/09/2018
 
     ![Создание новой политики](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Создайте собственную политику для получения всех ролей из учетных записей AWS. В разделе **Create your own policy** (Создание собственной политики) нажмите кнопку **Select** (Выбрать).
-    
+25. Создайте собственную политику для получения всех ролей из учетных записей AWS, выполнив следующие действия.
+
     ![Создание новой политики](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. Определите новую политику, выполнив следующие действия.
+    a. В разделе **Создание политики** щелкните вкладку **JSON**.
 
-    ![Определение новой политики](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
-
-    a. В поле **Policy Name** (Имя политики) введите **AzureAD_SSOUserRole_Policy**.
-
-    Б. Укажите описание политики в поле **Description**: **Эта политика позволит получать роли из учетных записей AWS**.
-    
-    c. Добавьте приведенный ниже код JSON в документ политики.
+    Б. Добавьте приведенный ниже код JSON в документ политики.
     
     ```
     
@@ -271,13 +267,21 @@ ms.lasthandoff: 01/09/2018
     }
     
     ```
+
+    c. Нажмите кнопку **Просмотр политики**, чтобы проверить политику.
+
+    ![Определение новой политики](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+
+26. Определите **новую политику**, выполнив следующие действия.
+
+    ![Определение новой политики](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+    a. В поле **Policy Name** (Имя политики) введите **AzureAD_SSOUserRole_Policy**.
+
+    Б. Укажите описание политики в поле **Description**: **Эта политика позволит получать роли из учетных записей AWS**.
     
-    d. Убедитесь, что установлен флажок **Use autoformatting for policy editing** (Использовать автоматическое форматирование для редактирования политики).
-    
-    д. Нажмите кнопку **Validate Policy** (Проверить политику) внизу.
-    
-    f. После успешной проверки политики можно нажать кнопку **Create Policy** (Создать политику).
-    
+    c. Нажмите кнопку **Создать политику**.
+        
 27. Создайте новую учетную запись пользователя в службе AWS IAM, выполнив следующие действия.
 
     a. Щелкните пункт **Users** (Пользователи) в области навигации консоли AWS IAM.

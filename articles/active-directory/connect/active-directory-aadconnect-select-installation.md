@@ -3,7 +3,7 @@ title: "Выбор типа установки Azure AD Connect | Докумен
 description: "В этом разделе описывается, как выбрать тип установки для Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99b97de182ddbfa8b490c15b2a6a38cc69421283
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Выбор типа установки для Azure AD Connect
 При новой установке Azure AD Connect есть два типа установки: экспресс и пользовательская. Этот раздел поможет вам выбрать оптимальный вариант установки.
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/11/2017
 
 Когда еще можно использовать экспресс-установку:
 
-- Если вы не хотите синхронизировать все подразделения, то можно по-прежнему использовать экспресс-установку, но на последней странице снимите флажок **Запустить синхронизацию сразу...***. Затем снова запустите мастер установки, измените подразделения в [параметрах конфигурации](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) и включите запланированную синхронизацию.
+- Если вы не хотите синхронизировать все подразделения, то можно по-прежнему использовать экспресс-установку, но на последней странице снимите флажок **Start the synchronization process…*** (Запустить синхронизацию сразу…). Затем снова запустите мастер установки, измените подразделения в [параметрах конфигурации](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) и включите запланированную синхронизацию.
 - Когда вы хотите включить один из компонентов службы Azure AD уровня "Премиум", например компонент обратной записи паролей. Сначала пройдите процесс экспресс-установки, чтобы завершить первоначальную установку. Затем снова запустите мастер установки и измените [параметры конфигурации](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Пользовательская
@@ -71,5 +71,5 @@ ms.lasthandoff: 12/11/2017
 ## <a name="migrate-from-fim2010-or-mim2016"></a>Миграция с FIM2010 или MIM2016
 Если вы используете Forefront Identity Manager 2010 или Microsoft Identity Manager 2016 с соединителем Azure AD, то единственным вариантом является миграция. Выполните действия, описанные в разделе [Swing migration](active-directory-aadconnect-upgrade-previous-version.md#swing-migration) (Обновление со сменой сервера). При выполнении этих действий замените все упоминания Azure AD Sync на FIM2010 или MIM2016.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В зависимости от выбранного варианта используйте оглавление слева, чтобы найти статью с необходимым вам описанием действий.

@@ -1,5 +1,5 @@
 ---
-title: "Azure AD веб-API Node.js Приступая к работе | Документы Microsoft"
+title: "Приступая к работе с веб-API Node.js для Azure AD | Документация Майкрософт"
 description: "Практическое руководство по созданию на основе Node.js веб-интерфейса REST API, который интегрируется с Azure AD для аутентификации."
 services: active-directory
 documentationcenter: nodejs
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: 411f646574af2f86621cbb3cd7175b6a9478972a
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 2ed0874b79601976e0d5a73fe82c7c03331d9bea
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD веб-API Node.js Приступая к работе
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Приступая к работе с веб-API Node.js для Azure AD
 
 В этой статье показано, как защитить конечную точку API [Restify](http://restify.com/) с [Passport](http://passportjs.org/) с помощью модуля [passport azure ad](https://github.com/AzureAD/passport-azure-ad) для обработки взаимодействия с Azure Active Directory (AAD). 
 
@@ -129,13 +129,18 @@ const
 
 ```JavaScript
 const authenticationStrategy = new BearerStrategy(config.credentials, (token, done) => {
-    let userToken = authenticatedUserTokens.find((user) => user.sub === token.sub);
+    let currentUser = null;
+
+    let userToken = authenticatedUserTokens.find((user) => {
+        currentUser = user;
+        user.sub === token.sub;
+    });
 
     if(!userToken) {
         authenticatedUserTokens.push(token);
     }
 
-    return done(null, user, token);
+    return done(null, currentUser, token);
 });
 ```
 Эта реализация использует автоматическую регистрацию, добавляя маркеры проверки подлинности в массив `authenticatedUserTokens`, если они еще не созданы.
@@ -234,7 +239,7 @@ Unauthorized
 ```
 После создания безопасного API можно реализовать клиент, который может передавать маркеры проверки подлинности в API.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Как указано во введении, нужно реализовать аналог клиента для подключения к серверу, который обрабатывает вход, выход и управление маркерами. Для получения примеров, основанных на коде, можно просмотреть клиентские приложения в [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) и [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Пошаговое руководство см. в следующей статье:
 
 > [!div class="nextstepaction"]

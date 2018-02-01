@@ -4,7 +4,7 @@ description: "Узнайте, как настроить единый вход м
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 9deb4c9bd6719e7cf86883fba1306c435de0ebb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: e4bb050e96d3e8d9da4666f5418ac3e444f6212d
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Руководство по интеграции Azure Active Directory с Grovo
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Grovo, вам потребуется:
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/11/2017
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Пункт "Корпоративные приложения"][2]
+    ![Колонка "Корпоративные приложения"][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 12/11/2017
 
 Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Grovo.
 
-Чтобы настроить и проверить единый вход Azure AD в Grovo, вам потребуется выполнить действия в следующих стандартных блоках:
+Чтобы настроить и проверить единый вход Azure AD в Grovo, вам потребуется выполнить действия в следующих стандартных блоках.
 
 1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
@@ -112,7 +112,7 @@ ms.lasthandoff: 12/11/2017
 
     Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`.
 
-4.  Установите флажок **Показать дополнительные параметры URL-адресов** и выполните следующие действия:  
+4. Установите флажок **Показывать дополнительные параметры URL-адреса** и выполните следующие действия:
 
     ![Сведения о домене и URL-адресах единого входа для приложения Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url1.png)
 
@@ -121,13 +121,13 @@ ms.lasthandoff: 12/11/2017
     Б. Если вы хотите настроить приложение в **режиме, инициированном поставщиком услуг**, выполните следующие действия.
 
     ![Сведения о домене и URL-адресах единого входа для приложения Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
-
+    
     В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`.
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим идентификатором, URL-адресом ответа, URL-адресом для входа и состоянием ретранслятора. Чтобы получить эти значения, обратитесь в [службу поддержки Grovo](https://www.grovo.com/contact-us).
  
-5. Приложение Grovo ожидает утверждения SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно в разделе **Атрибуты пользователя** на странице интеграции приложения. На следующем снимке экрана приведен пример.
+5. Приложение Grovo ожидает утверждения SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно в разделе **Атрибуты пользователя** на странице интеграции приложения. Необходимо сопоставить **идентификатор пользователя** с **user.mail** и настроить другие атрибуты, как показано в приведенном ниже снимке экрана.
     
     ![Настройка атрибута единого входа](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
     
@@ -135,20 +135,24 @@ ms.lasthandoff: 12/11/2017
     
     | Имя атрибута | Значение атрибута |
     | ------------------- | -------------------- |    
-    | Имя              | user.givenname |
-    | Фамилия               | user.surname |
+    | Имя          | user.givenname |
+    | Фамилия           | user.surname |
+    | Электронная почта       | user.mail    |
+    | employeeID          | user.employeeid |
 
     a. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
 
-    ![Настройка атрибута единого входа](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
+    ![Добавление атрибута для настройки единого входа](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
 
-    ![Настройка атрибута единого входа](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
+    ![Добавление атрибута для настройки единого входа](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
 
     Б. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
 
     c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
+
+    d. Оставьте пустым поле **Пространство имен**.
     
-    d. Нажмите кнопку **ОК**.
+    д. Нажмите кнопку **ОК**.
 
 
 7. В разделе **Сертификат подписи SAML** щелкните **Сертификат (Base64)**, а затем сохраните файл сертификата на компьютере.
@@ -163,9 +167,9 @@ ms.lasthandoff: 12/11/2017
 
     ![Конфигурация Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_configure.png) 
 
-10. В другом окне веб-браузера войдите в свой экземпляр Grovo в качестве администратора.
+10. В другом окне браузера войдите в свой экземпляр Grovo в качестве администратора.
 
-11. Выберите пункты **АДМИНИСТРАТОР** > **Интеграции**.
+11. Выберите **Администратор** > **Интеграции**.
  
     ![Конфигурация Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_admin.png) 
 
@@ -173,13 +177,13 @@ ms.lasthandoff: 12/11/2017
 
     ![Конфигурация Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_setup.png)
 
-13. Во всплывающем окне **SP Initiated SAML 2.0** (SAML 2.0, инициируемый поставщиком услуг) выполните следующие действия:
+13. Во всплывающем окне **SP Initiated SAML 2.0** (SAML 2.0, инициируемый поставщиком услуг) выполните следующие действия.
 
     ![Конфигурация Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_saml.png)
 
-    a. В текстовое поле **Идентификатор сущности** вставьте значение **идентификатора сущности SAML**, скопированное на портале Azure.
+    a. В текстовое поле **Entity id** (Идентификатор сущности) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
 
-    Б. В текстовое поле **Single sign on service endpoint** (Конечная точка службы единого входа) вставьте значение **URL-адреса службы единого входа SAML**, скопированное на портале Azure.
+    Б. В текстовое поле **Single sign on service endpoint** (Конечная точка службы единого входа) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
 
     c. Выберите для **привязки конечной точки службы единого входа** это значение: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
     

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Настройка гибридных устройств, присоединенных к Azure Active Directory
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/05/2018
 
 Прежде чем настраивать в среде гибридные устройства, присоединенные к Azure AD, ознакомьтесь с ограничениями и поддерживаемыми сценариями.  
 
-При использовании полного [средство подготовки системы (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), убедитесь, что создание изображений из установки Windows, который не был еще зарегистрирован в Azure AD.
+При использовании [средства Sysprep](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)) убедитесь, что создаются образы на основе экземпляра Windows, который еще не зарегистрирован в Azure AD.
 
 Чтобы упростить описания, в этой статье используются следующие термины. 
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="windows-current-devices"></a>Текущие устройства Windows
 
-- Для настольных устройств под управлением ОС Windows мы рекомендуем использовать юбилейное обновление Windows 10 (версия 1607) или более позднюю версию. 
+- Для устройств под управлением Windows Desktop поддерживается юбилейное обновление Windows 10 (версия 1607) или более поздняя версия. 
 - Регистрация текущих устройств Windows **поддерживается** в средах, не являющихся федеративными, например в конфигурациях с синхронизацией хэша паролей.  
 
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 01/05/2018
 
 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Прежде чем настраивать в организации гибридные устройства, присоединенные к Azure AD, обязательно убедитесь в том, что вы используете последнюю версию Azure AD Connect.
 
@@ -67,15 +67,15 @@ Azure AD Connect выполняет следующие функции:
 - Отслеживает связи между учетными записями на компьютерах в локальной среде Active Directory (AD) и объектами устройств в Azure AD. 
 - Поддерживает другие функции, связанные с устройствами, например Windows Hello для бизнеса.
 
-Убедитесь, что следующие URL-адреса доступны из компьютеров в сети организации для регистрации компьютеров в Azure AD:
+Убедитесь, что следующие URL-адреса доступны с компьютеров в сети организации для регистрации компьютеров в Azure AD:
 
-- https://enterpriseregistration.Windows.NET
+- https://enterpriseregistration.windows.net
 
 - https://login.microsoftonline.com
 
-- https://Device.Login.microsoftonline.com
+- https://device.login.microsoftonline.com
 
-Если организации требуется доступ к Интернету через исходящего прокси-сервера, необходимо реализовать автоматическое обнаружение прокси-сервера веб-(WPAD) для включения компьютеров Windows 10, чтобы выполнить регистрацию в Azure AD.
+Если организациям требуется доступ к Интернету через исходящий прокси-сервер, необходимо реализовать автоматическое обнаружение веб-прокси (WPAD), чтобы компьютеры Windows 10 можно было зарегистрировать в Azure AD.
 
 
 ## <a name="configuration-steps"></a>Этапы настройки
@@ -584,7 +584,7 @@ Azure AD Connect выполняет следующие функции:
 
 В выходных данных командлета отображаются устройства, которые зарегистрированы и присоединены к Azure AD. Чтобы получить полный список устройств, используйте параметр **-All**. Устройства затем можно отфильтровать по свойству **deviceTrustType**. У присоединенных к домену устройств оно имеет значение **Domain Joined**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Общие сведения об управлении устройствами в Azure Active Directory](device-management-introduction.md)
 

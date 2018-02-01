@@ -1,5 +1,5 @@
 ---
-title: "Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory | Документация Майкрософт"
+title: "Настройка локального условного доступа в Azure Active Directory | Документация Майкрософт"
 description: "Пошаговое руководство по включению условного доступа к локальным приложениям с помощью служб федерации Active Directory (AD FS) в Windows Server 2012 R2."
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory
 Когда требуется, чтобы пользователи присоединяли свои личные устройства к рабочей области в службе регистрации устройств Azure Active Directory (Azure AD), эти устройства можно помечать как известные организации. Ниже приведено пошаговое руководство по включению условного доступа к локальным приложениям с помощью служб федерации Active Directory (AD FS) в Windows Server 2012 R2.
@@ -102,11 +103,11 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Интеграция Azure Active Directory с локальной службой Active Directory
 
-**См.:**
+**См. следующие документы.**
 
-- [Интеграция локальных каталогов с Azure Active Directory](./connect/active-directory-aadconnect.md) -, чтобы просмотреть общие сведения.
+- Статья [Интеграция локальных каталогов с Azure Active Directory](./connect/active-directory-aadconnect.md) содержит дополнительные понятийные сведения.
 
-- [Пользовательские установки Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) — инструкции по установке.
+- Статья [Выборочная установка Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) содержит инструкции по установке.
 
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Обновление схемы доменных служб Active Directory

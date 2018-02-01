@@ -11,18 +11,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 1587243bcd5f2b9af98b8b529c152ba49ef676be
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: f377e1aadc126934fb47f6371f12435d2742efa6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API
 В службе управления API группы используются для управления видимостью продуктов для разработчиков. Продукты сначала делаются видимыми для групп, а затем разработчики в таких группах могут просматривать и подписываться на продукты, которые связаны с группами. 
 
-Служба управления API имеет несколько неизменяемых системных групп.
+Служба управления API включает несколько неизменяемых системных групп.
 
 * **Администраторы** — члены этой группы являются администраторами подписок Azure. Администраторы управляют экземплярами службы управления API, созданием API, операциями и продуктами, которые используются разработчиками.
 * **Разработчики** — в эту группу входят пользователи портала разработчиков, прошедшие проверку подлинности. Разработчики — это клиенты, которые создают приложения с использованием API. Разработчикам предоставляется доступ к порталу разработчика, и они могут создавать приложения, вызывающие операции этого API.
@@ -32,77 +32,69 @@ ms.lasthandoff: 12/04/2017
 
 В этом руководстве показано, как администраторы экземпляра службы управления API могут добавлять новые группы и связывать их с продуктами и разработчиками.
 
-> [!NOTE]
-> Помимо создания групп и управления ими на портале издателя, это можно делать с помощью сущности [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) REST API интерфейса API управления.
-> 
-> 
+Помимо создания групп и управления ими на портале издателя, это можно делать с помощью сущности [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) REST API интерфейса API управления.
+
+## <a name="prerequisites"></a>предварительным требованиям
+
+Выполните задачи из статьи [Создание экземпляра службы управления API Azure](get-started-create-service-instance.md).
+
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-group"> </a>Создание группы
-Чтобы создать группу, щелкните на портале Azure **Publisher portal** (Портал издателя) для службы управления API. Будет открыт портал издателя службы управления API.
 
-![Портал издателя][api-management-management-console]
+В этом разделе показано, как добавить новую группу к учетной записи службы управления API.
 
-> Если экземпляр службы управления API еще не создан, выполните инструкции в статье [Создание экземпляра службы управления API Azure][Create an API Management service instance].
-> 
-> 
+1. В левой части экрана выберите вкладку **Группы**.
+2. Щелкните **+Добавить**.
+3. Введите уникальное имя для группы и описание (необязательно).
+4. Нажмите кнопку **Создать**.
 
-Щелкните **Группы** в расположенном слева меню **Управление API**, а затем — **Добавить группу**.
+    ![Добавление новой группы](./media/api-management-howto-create-groups/groups001.png)
 
-![Добавление новой группы][api-management-add-group]
-
-Введите уникальное имя для группы и необязательное описание, а затем щелкните **Сохранить**.
-
-![Добавление новой группы][api-management-add-group-window]
-
-Новая группа отображается на вкладке групп. Чтобы изменить **имя** или **описание** группы, щелкните имя группы в списке. Чтобы удалить группу, щелкните **Удалить**.
-
-![Группа добавлена][api-management-new-group]
+После создания группа будет добавлена в список **Группы**. <br/>Чтобы изменить **имя** или **описание** группы, щелкните имя группы, а затем — **Параметры**.<br/>Чтобы удалить группу, щелкните имя группы и нажмите кнопку **Удалить**.
 
 Теперь, когда группа создана, ее можно связать с продуктами и разработчиками.
 
 ## <a name="associate-group-product"> </a>Связывание группы с продуктом
-Чтобы связать группу с продуктом, щелкните **Продукты** в расположенном слева меню **Управление API**, а затем щелкните имя нужного продукта.
 
-![Настройка видимости][api-management-add-group-to-product]
+1. Слева выберите вкладку **Продукты**.
+2. Щелкните имя нужного продукта.
+3. Щелкните **Контроль доступа**.
+4. Щелкните **+ Добавить группу**.
 
-Для добавления и удаления групп, а также просмотра текущих групп для продукта перейдите на вкладку **Видимость** . Для добавления или удаления групп установите или снимите флажки для требуемых групп и щелкните **Сохранить**.
+    ![Добавление новой группы](./media/api-management-howto-create-groups/groups002.png)
+5. Выберите группу, которую нужно добавить.
 
-![Настройка видимости][api-management-add-group-to-product-visibility]
+    ![Добавление новой группы](./media/api-management-howto-create-groups/groups003.png)
 
-> [!NOTE]
-> Дополнительную информацию о добавлении групп Azure Active Directory см. в статье [Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure](api-management-howto-aad.md).
-> 
-> Для настройки групп на вкладке **Видимость** для продукта щелкните **Управление группами**.
-> 
-> 
+    Чтобы удалить группу из продукта, нажмите кнопку **Удалить**.
+
+    ![Удаление группы](./media/api-management-howto-create-groups/groups004.png)
 
 После установления связи между продуктом и группой разработчики в данной группе могут просматривать продукт и подписаться на него.
 
+> [!NOTE]
+> Дополнительную информацию о добавлении групп Azure Active Directory см. в статье [Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure](api-management-howto-aad.md).
+
 ## <a name="associate-group-developer"> </a>Связывание групп с разработчиками
-Чтобы связать группы с разработчиками, щелкните **Пользователи** в расположенном слева меню **Управление API**, а затем установите флажок рядом с разработчиками, которых необходимо связать с группой.
 
-![Добавление разработчика в группу][api-management-add-group-to-developer]
+В этом разделе показано, как связать группы с их элементами.
 
-После выбора требуемых разработчиков щелкните требуемую группу в раскрывающемся списке **Добавить в группу** . Для удаления разработчиков из групп используйте раскрывающийся список **Удалить из группы** . 
+1. В левой части экрана выберите вкладку **Группы**.
+2. Выберите **Элементы**.
 
-![Разработчики][api-management-add-group-to-developer-saved]
+    ![Добавление элементов](./media/api-management-howto-create-groups/groups005.png)
+3. Нажмите кнопку **+ Добавить** и выберите элемент.
+
+    ![Добавление членов](./media/api-management-howto-create-groups/groups006.png)
+4. Нажмите кнопку **Выбрать**.
+
 
 После добавления связи между разработчиком и группой ее можно просмотреть на вкладке **Пользователи** .
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 * После добавления  в группу разработчик может просматривать связанные с данной группой продукты и подписываться на них. Дополнительные сведения см. в статье [Создание и публикация продукта в службе управления API Azure][How create and publish a product in Azure API Management].
 * Помимо создания групп и управления ими на портале издателя, это можно делать с помощью сущности [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) REST API интерфейса API управления.
-
-[api-management-management-console]: ./media/api-management-howto-create-groups/api-management-management-console.png
-[api-management-add-group]: ./media/api-management-howto-create-groups/api-management-add-group.png
-[api-management-add-group-window]: ./media/api-management-howto-create-groups/api-management-add-group-window.png
-[api-management-new-group]: ./media/api-management-howto-create-groups/api-management-new-group.png
-[api-management-add-group-to-product]: ./media/api-management-howto-create-groups/api-management-add-group-to-product.png
-[api-management-add-group-to-product-visibility]: ./media/api-management-howto-create-groups/api-management-add-group-to-product-visibility.png
-[api-management-add-group-to-developer]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer.png
-[api-management-add-group-to-developer-saved]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer-saved.png
-
-[api-management-]: ./media/api-management-howto-create-groups/api-management-.png
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product
@@ -113,4 +105,4 @@ ms.lasthandoff: 12/04/2017
 
 [Get started with Azure API Management]: get-started-create-service-instance.md
 [Create an API Management service instance]: get-started-create-service-instance.md
-[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
+[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md

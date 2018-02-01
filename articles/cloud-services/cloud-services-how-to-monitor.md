@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 01/23/2018
 ms.author: adegeo
-ms.openlocfilehash: c63a49c65f2d8261caa534308477888c752a89da
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 3ffbdb121aa558d69547db294cad83b5d11e3f56
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Введение в мониторинг облачных служб
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="advanced-monitoring"></a>Расширенный мониторинг
 
-Для расширенного мониторинга требуется использовать расширение системы диагностики Azure (или пакет SDK для Application Insights) для тех ролей, которые вы хотите отслеживать. Расширение диагностики использует файл конфигурации (отдельный для каждой роли) с именем **diagnostics.wadcfgx**, в котором можно настроить собираемые метрики диагностики. Данные, собираемые расширением системы диагностики Azure, сохраняются в учетной записи хранения Azure, указанной в файлах **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) и [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Это означает, что расширенный мониторинг потребует дополнительных расходов.
+Для расширенного мониторинга требуется использовать расширение **системы диагностики Azure** (а также, при необходимости, пакет SDK для Application Insights) для тех ролей, которые вы хотите отслеживать. Расширение диагностики использует файл конфигурации (отдельный для каждой роли) с именем **diagnostics.wadcfgx**, в котором можно настроить собираемые метрики диагностики. Данные, собираемые расширением системы диагностики Azure, сохраняются в учетной записи хранения Azure, указанной в файлах **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) и [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Это означает, что расширенный мониторинг потребует дополнительных расходов.
 
 При создании каждой роли Visual Studio добавляет в нее расширение системы диагностики Azure. Это расширение может собирать данные следующих типов:
 
@@ -52,22 +52,24 @@ ms.lasthandoff: 01/10/2018
 * Аварийные дампы
 * пользовательские журналы ошибок.
 
-Все эти данные собираются в учетной записи хранения, но портал не предлагает стандартных средств для их визуализации. Для анализа и отображения данных можно использовать другую службу, например Application Insights.
+> [!IMPORTANT]
+> Все эти данные собираются в учетной записи хранения, но портал **не** содержит встроенных средств для их визуализации. Настоятельно рекомендуем интегрировать в приложение другую службу, например Application Insights.
 
 ### <a name="use-application-insights"></a>Использование Application Insights
 
-Когда вы публикуете облачную службу из Visual Studio, вы можете настроить для нее отправку данных диагностики в Application Insights. Можно отправить данные в уже существующий ресурс Application Insights или создать новый ресурс в рамках процесса публикации. Application Insights может отслеживать для облачной службы статистику доступности, производительности, сбоев и использования. Также в Application Insights можно добавлять пользовательские диаграммы, чтобы контролировать по ним самые важные данные. Чтобы получить данные об экземпляре роли, добавьте в проект облачной службы пакет SDK для Application Insights. Дополнительные сведения об интеграции с Application Insights см. в статье [Application Insights для облачных служб Azure](../application-insights/app-insights-cloudservices.md).
+Когда вы публикуете облачную службу из Visual Studio, вы можете настроить для нее отправку данных диагностики в Application Insights. Можно отправить данные в уже существующий ресурс Application Insights или создать новый ресурс Azure в рамках процесса публикации. Application Insights может отслеживать для облачной службы статистику доступности, производительности, сбоев и использования. Также в Application Insights можно добавлять пользовательские диаграммы, чтобы контролировать по ним самые важные данные. Чтобы получить данные об экземпляре роли, добавьте в проект облачной службы пакет SDK для Application Insights. Дополнительные сведения об интеграции с Application Insights см. в статье [Application Insights для облачных служб Azure](../application-insights/app-insights-cloudservices.md).
 
 Обратите внимание, что Application Insights может отображать счетчики производительности (и другие параметры), настроенные в расширении службы диагностики Azure для Windows, но по-настоящему широкие возможности вы получите только при интеграции пакета SDK для Application Insights в рабочие роли и веб-роли.
 
-
-## <a name="add-advanced-monitoring"></a>Расширенный мониторинг
+## <a name="setup-diagnostics-extension"></a>Настройка расширения системы диагностики
 
 Если у вас еще нет **классической** учетной записи хранения, [создайте ее](../storage/common/storage-create-storage-account.md#create-a-storage-account). Для создания учетной записи хранения обязательно используйте **классическую модель развертывания**.
 
 Затем перейдите к ресурсу **Учетная запись хранения (классика)**. Выберите **Параметры** > **Ключи доступа** и скопируйте значение **Основная строка подключения**. Это значение вы примените для облачной службы. 
 
-Чтобы активировать расширенную диагностику, необходимо внести изменения в два файла конфигурации: **ServiceDefinition.csdef** и **ServiceConfiguration.cscfg**. Скорее всего, у вас есть два файла **.cscfg**. Один из них (с именем **ServiceConfiguration.cloud.cscfg**) используется для развертывания в Azure, а второй (с именем **ServiceConfiguration.local.cscfg**) — для локальной отладки. Измените оба этих файла.
+Чтобы активировать расширенную диагностику, необходимо внести изменения в два файла конфигурации: **ServiceDefinition.csdef** и **ServiceConfiguration.cscfg**.
+
+### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
 Добавьте в файл **ServiceDefinition.csdef** новый параметр `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` для каждой роли, которая использует расширенную диагностику. Visual Studio автоматически добавляет это значение в файл при создании нового проекта. Если же оно отсутствует, добавьте его прямо сейчас. 
 
@@ -78,7 +80,9 @@ ms.lasthandoff: 01/10/2018
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-Значение определяет новый параметр, который должен быть добавлен в каждый файл **ServiceConfiguration.cscfg**. Откройте для редактирования каждый файл **.cscfg**. Добавьте в них параметр с именем `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Присвойте ему значение **основной строки подключения** к классической учетной записи хранения. Если вам нужно использовать на компьютере разработки локальное хранилище, укажите здесь значение `UseDevelopmentStorage=true`.
+Значение определяет новый параметр, который должен быть добавлен в каждый файл **ServiceConfiguration.cscfg**. 
+
+Скорее всего, у вас есть два **CSCFG**-файла. Один из них (с именем **ServiceConfiguration.cloud.cscfg**) используется для развертывания в Azure, а другой (с именем **ServiceConfiguration.local.cscfg**) — для локальных развертываний в эмулированной среде. Откройте для редактирования каждый файл **.cscfg**. Добавьте в них параметр с именем `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Задайте значение любой **основной строки подключения** классической учетной записи хранения. Если вы хотите использовать локальное хранилище на компьютере разработки, используйте значение `UseDevelopmentStorage=true`.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
@@ -86,10 +90,10 @@ ms.lasthandoff: 01/10/2018
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mystorage;AccountKey=KWwkdfmskOIS240jnBOeeXVGHT9QgKS4kIQ3wWVKzOYkfjdsjfkjdsaf+sddfwwfw+sdffsdafda/w==" />
-
-<!-- or use the local development machine for storage
+      
+      <!-- or use the local development machine for storage
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
--->
+      -->
 ```
 
 ## <a name="next-steps"></a>Дополнительная информация

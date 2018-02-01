@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 05fa692f9331cf6b5178c3e9dca60ad2598dc609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Добавление push-уведомлений в приложение Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -79,6 +79,7 @@ ms.lasthandoff: 01/04/2018
 
 2. Щелкните стрелку рядом с источником установки.
 3. В поле **SENDER_ID** добавьте числовой идентификатор проекта Google Developer Console, если он уже есть. В противном случае введите значение заполнителя, например 777777.  Если планируется использовать устройство Android, это значение можно позже обновить в файле config.xml.
+     Обратите внимание, что из версии 2.0.0 SENDER_ID удалено время установки (в последующих выпусках его тоже не будет) и что в корневой папке проекта должен быть установлен файл google-services.json.  См. дополнительные сведения [здесь](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md).
 4. Щелкните **Добавить**.
 
 Теперь подключаемый модуль push-уведомлений установлен.
@@ -194,7 +195,7 @@ ms.lasthandoff: 01/04/2018
 #### <a name="install-google-play-services"></a>Установка служб Google Play
 Подключаемый модуль push-уведомлений передает push-уведомления через службы Google Play Android.
 
-1. В Visual Studio щелкните **средства** > **Android** > **диспетчер Android SDK Manager**, разверните **дополнения** папки и установите флажок, чтобы убедиться в том, что каждый из следующих пакетов SDK установлен.
+1. В Visual Studio щелкните **Инструменты** > **Android** > **Диспетчер пакетов SDK для Android**, разверните папку **Дополнения** и установите соответствующие флажки, чтобы установить все следующие пакеты SDK.
 
    * Android 2.3 или более поздней версии.
    * Репозиторий Google версии 27 или более поздней.

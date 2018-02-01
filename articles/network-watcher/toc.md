@@ -7,7 +7,7 @@
 ## [Представление группы безопасности](network-watcher-security-group-view-overview.md)
 ## [Следующий прыжок](network-watcher-next-hop-overview.md)
 ## [Устранение неполадок VPN-подключения](network-watcher-troubleshoot-overview.md)
-## [Проверка подключения](network-watcher-connectivity-overview.md)
+## [Устранение неполадок подключения](network-watcher-connectivity-overview.md)
 ## [Ограничения служб](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # Начало работы
@@ -46,7 +46,7 @@
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [интерфейс командной строки Azure](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## Проверка подключения
+## Устранение неполадок подключений
 ### [портал Azure](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [интерфейс командной строки Azure](network-watcher-connectivity-cli.md)

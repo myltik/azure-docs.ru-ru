@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: e1ab6a2f52fa56f1e04c6c327796587daf43596e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Масштабирование емкости Power BI Embedded
 
@@ -26,7 +26,8 @@ ms.lasthandoff: 10/11/2017
 
 При этом подразумевается, что емкость Power BI Embedded уже создана. Если нет, см. статью [Создание емкости Power BI Embedded на портале Azure](create-capacity.md).
 
-Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
+> [!NOTE]
+> Операция масштабирования может длиться около минуты. В это время емкость будет недоступна. Может не получиться загрузить встроенное содержимое.
 
 ## <a name="scale-a-capacity"></a>Масштабирование емкости
 
@@ -58,10 +59,10 @@ ms.lasthandoff: 10/11/2017
 
     ![Подтверждение текущей категории](media/scale-capacity/azure-portal-confirm-tier.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Чтобы приостановить или запустить емкость, см. статью [Приостановка и запуск емкости Power BI Embedded на портале Azure](pause-start.md).
 
 Чтобы начать внедрение содержимого Power BI в приложение, см. статью [Внедрение панелей мониторинга, отчетов и плиток Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/).
 
-У вас имеются и другие вопросы? [Попробуйте задать их в сообществе Power BI](http://community.powerbi.com/)
+У вас имеются и другие вопросы? [Задайте их в сообществе Power BI](http://community.powerbi.com/).

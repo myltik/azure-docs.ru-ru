@@ -3,7 +3,7 @@ title: "Управляемое удостоверение службы (MSI) д�
 description: "Обзор применения управляемого удостоверения службы (MSI) для ресурсов Azure."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/19/2017
-ms.author: bryanla
-ms.openlocfilehash: a2a42f13c81a6f6bb34a8e6aafabf380f3d220e1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.author: skwan
+ms.openlocfilehash: 07610b178bde6de9eb8d890edc060458fc3b07ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Управляемое удостоверение службы (MSI) для ресурсов Azure
 
@@ -63,6 +63,7 @@ ms.lasthandoff: 12/22/2017
 |                    | [Получение доступа к ресурсу, размещенному не в Azure AD, с помощью управляемого удостоверения службы виртуальной машины Linux и Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
 | Служба приложений Azure  | [Использование управляемого удостоверения службы со службой приложений Azure или службой "Функции Azure"](/azure/app-service/app-service-managed-service-identity) |
 | функции Azure;     | [Использование управляемого удостоверения службы со службой приложений Azure или службой "Функции Azure"](/azure/app-service/app-service-managed-service-identity) |
+| Azure Service Bus  | [Использование удостоверения управляемой службы со служебной шиной Azure](../service-bus-messaging/service-bus-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Какие службы Azure поддерживают управляемое удостоверение службы?
 
@@ -77,7 +78,7 @@ ms.lasthandoff: 12/22/2017
 | Виртуальные машины Azure | Предварительный просмотр | Сентябрь 2017 г. | [портал Azure](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[интерфейс командной строки Azure](msi-qs-configure-cli-windows-vm.md)<br>[Шаблоны диспетчера ресурсов Azure](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[GO](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
 | Служба приложений Azure | Предварительный просмотр | Сентябрь 2017 г. | [портал Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Шаблон Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Функции Azure | Предварительный просмотр | Сентябрь 2017 г. | [портал Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Шаблон Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Фабрика данных Azure версии 2 | Предварительный просмотр | Ноябрь 2017 г. | [портал Azure](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[Пакет SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
+| Фабрика данных Azure версии 2 | Предварительный просмотр | Ноябрь 2017 г. | [портал Azure](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[Пакет SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Службы Azure, поддерживающие аутентификацию Azure AD
 
@@ -89,8 +90,8 @@ ms.lasthandoff: 12/22/2017
 | Хранилище ключей Azure | https://vault.azure.net/ | Доступна | Сентябрь 2017 г. | |
 | Azure Data Lake; | https://datalake.azure.net/ | Доступна | Сентябрь 2017 г. | |
 | Azure SQL | https://database.windows.net/ | Доступна | Октябрь 2017 г. | |
-| Концентраторы событий Azure | https://eventhubs.Azure.NET/ | Доступна | Декабрь 2017 г. | |
-| Azure Service Bus | https://servicebus.Azure.NET/ | Доступна | Декабрь 2017 г. | |
+| Концентраторы событий Azure | https://eventhubs.azure.net/ | Доступна | Декабрь 2017 г. | |
+| Azure Service Bus | https://servicebus.azure.net/ | Доступна | Декабрь 2017 г. | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Сколько стоит использование управляемого удостоверения службы?
 

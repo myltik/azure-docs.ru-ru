@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 3133b0166689142a635926077bdb4e0abeba287c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="api-management-policy-expressions"></a>Выражения политики в службе управления API
 В выражениях политики используется синтаксис C# 6.0. У каждого выражения есть доступ к неявно заданной переменной [контекста](api-management-policy-expressions.md#ContextVariables) и разрешенному [подмножеству](api-management-policy-expressions.md#CLRTypes) типов .NET Framework.  
@@ -172,7 +172,7 @@ ms.lasthandoff: 01/12/2018
   
 |Переменная контекста|Допустимые методы, свойства и значения параметров|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> Развертывание<br /><br /> LastError<br /><br /> Операция<br /><br /> Продукт<br /><br /> Запрос<br /><br /> RequestId: Guid<br /><br /> Ответ<br /><br /> Подписка<br /><br /> Tracing: логическое значение<br /><br /> Пользователь<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: строка)|  
+|context|Api: IApi<br /><br /> Развертывание<br /><br /> Elapsed: TimeSpan — интервал времени между значением Timestamp и текущим временем<br /><br /> LastError<br /><br /> Операция<br /><br /> Продукт<br /><br /> Запрос<br /><br /> RequestId: Guid — уникальный идентификатор запроса<br /><br /> Ответ<br /><br /> Подписка<br /><br /> Timestamp: DateTime — время получения запроса<br /><br /> Tracing: логическое значение — указывает, включена ли трассировка <br /><br /> Пользователь<br /><br /> Variables:IReadOnlyDictionary<строка, объект><br /><br /> void Trace(message: строка)|  
 |context.Api|Id: строка<br /><br /> IsRevisionCurrent: логическое значение<br /><br />  Name: строка<br /><br /> Path: строка<br /><br /> Revision: строка<br /><br /> ServiceUrl: IUrl<br /><br /> Version: строка |  
 |context.Deployment|Region: строка<br /><br /> ServiceName: строка<br /><br /> Certificates: IReadOnlyDictionary<строка, X509Certificate2>|  
 |context.LastError|Source: строка<br /><br /> Reason: строка<br /><br /> Message: строка<br /><br /> Scope: строка<br /><br /> Section: строка<br /><br /> Path: строка<br /><br /> PolicyId: строка<br /><br /> Дополнительные сведения о переменной context.LastError см. в разделе [Error handling](api-management-error-handling-policies.md) (Обработка ошибок).|  

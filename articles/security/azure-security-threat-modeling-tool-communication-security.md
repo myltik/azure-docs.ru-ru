@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 68bf128824a40afb25b3e088965f38a4cb4d1332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Механизм безопасности. Безопасность обмена данными | Устранение угроз 
 | Продукт или служба | Статья |
@@ -214,7 +214,7 @@ ms.lasthandoff: 10/11/2017
 | **Действия** | <p>Привязка сертификата защищает от атак "злоумышленник в середине". Этот процесс заключается в привязке узла к ожидаемому сертификату X509 или открытому ключу. После добавления сертификата или открытого ключа для узла их необходимо привязать к нему. </p><p>Таким образом, если при попытке выполнить атаку "злоумышленник в середине" во время инициализации подтверждения SSL ключ с сервера злоумышленника будет отличаться от прикрепленного ключа сертификата, запрос игнорируется, тем самым предотвращая атаку. Сертификат можно привязать с помощью делегата `ServerCertificateValidationCallback` класса ServicePointManager.</p>|
 
 ### <a name="example"></a>Пример
-```C#
+```csharp
 using System;
 using System.Net;
 using System.Net.Security;
@@ -343,7 +343,7 @@ string GetData(int value);
 
 ### <a name="example"></a>Пример 
 В следующем коде показан фильтр проверки подлинности веб-интерфейса API, проверяющий SSL-подключения. 
-```C#
+```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
 {
     public override void OnAuthorization(HttpActionContext actionContext)
@@ -363,7 +363,7 @@ public class RequireHttpsAttribute : AuthorizationFilterAttribute
 }
 ```
 Добавьте этот фильтр в любое действие веб-интерфейса API, для которого требуется SSL: 
-```C#
+```csharp
 public class ValuesController : ApiController
 {
     [RequireHttps]

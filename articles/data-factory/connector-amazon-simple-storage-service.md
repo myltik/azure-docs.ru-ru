@@ -8,13 +8,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6f4d958779b709c6fa1c8e632224b073db382ba5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6df7d74d572a59c83105905fbe0a9e218aadc28f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Копирование данных из Amazon Simple Storage Service с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/11/2018
 
 Для связанной службы Amazon S3 поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Для свойства типа необходимо задать значение **AmazonS3**. | Yes |
 | accessKeyId | Идентификатор секретного ключа доступа. |Yes |
@@ -90,7 +90,7 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные из Amazon S3, установите свойство типа набора данных **AmazonS3Object**. Поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство типа для набора данных должно быть: **AmazonS3Object**. |Yes |
 | bucketName | Имя контейнера S3. |Yes |
@@ -168,10 +168,10 @@ ms.lasthandoff: 01/11/2018
 
 Чтобы скопировать данные из Amazon S3, задайте тип источника **FileSystemSource** (включающий Amazon S3) в действии копирования. В разделе **source** действия копирования поддерживаются следующие свойства:
 
-| Свойство | ОПИСАНИЕ | Обязательное значение |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип | Свойство type источника действия копирования должно иметь значение **FileSystemSource**. |Yes |
-| recursive | Указывает, следует ли читать данные рекурсивно из вложенных папок или только из указанной папки.<br/>Допустимые значения: **true** (по умолчанию), **false**. | Нет  |
+| recursive | Указывает, следует ли читать данные рекурсивно из вложенных папок или только из указанной папки. Обратите внимание, что если для свойства recursive задано значение true, а приемником является файловое хранилище, в приемнике не будут создаваться пустые папки и вложенные папки.<br/>Допустимые значения: **true** (по умолчанию), **false**. | Нет  |
 
 **Пример.**
 

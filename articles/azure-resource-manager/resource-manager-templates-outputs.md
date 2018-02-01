@@ -1,6 +1,6 @@
 ---
-title: "Выводит шаблона Azure Resource Manager | Документы Microsoft"
-description: "Описание способов определения выходов для шаблонов диспетчера ресурсов Azure, с помощью декларативного синтаксиса JSON."
+title: "Выходные данные шаблона Azure Resource Manager | Документация Майкрософт"
+description: "В этой статье объясняется, как определить выходные данные шаблонов Azure Resource Manager с помощью декларативного синтаксиса JSON."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: 485a3eb5c5d04d1540482245d088c48645704465
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 64d7a0ea72b2f629160f31e4bc1fb4a90f10653d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="outputs-section-in-azure-resource-manager-templates"></a>Выходные данные раздела шаблоны Azure Resource Manager
+# <a name="outputs-section-in-azure-resource-manager-templates"></a>Раздел выходных данных в шаблонах Azure Resource Manager
 В разделе выходных данных следует указать значения, которые возвращаются после развертывания. Например, можно возвращать URI для доступа к развернутому ресурсу.
 
 ## <a name="define-and-use-output-values"></a>Определение и использование выходных значений
 
-Приведенный ниже показано, как получить идентификатор ресурса для общедоступного IP-адреса:
+В следующем примере показано, как вернуть идентификатор ресурса для общедоступного IP-адреса.
 
 ```json
 "outputs": {
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/15/2017
 }
 ```
 
-После развертывания можно извлечь значение со скриптом. Для PowerShell используйте команду:
+После развертывания вы можете извлечь значение с помощью скрипта. Для PowerShell используйте команду:
 
 ```powershell
 (Get-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
@@ -47,15 +47,17 @@ ms.lasthandoff: 12/15/2017
 az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
 ```
 
-Выходное значение можно получить из связанного шаблона с помощью [ссылки](resource-group-template-functions-resource.md#reference) функции. Чтобы получить выходные значения из связанного шаблона, извлеките значение свойства с синтаксисом, например: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+Вы можете получить выходное значение из связанного шаблона с помощью функции [reference](resource-group-template-functions-resource.md#reference). Чтобы получить выходные значения из связанного шаблона, извлеките значение свойства с синтаксисом, например: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
 
-Например можно задать IP-адреса в подсистеме балансировки нагрузки, получая значение из связанного шаблона.
+Например, можно задать IP-адрес в подсистеме балансировки нагрузки, получив значение из связанного шаблона.
 
 ```json
 "publicIPAddress": {
     "id": "[reference('linkedTemplate').outputs.resourceID.value]"
 }
 ```
+
+Вы не можете использовать функцию `reference` в разделе выходных данных [вложенного шаблона](resource-group-linked-templates.md#link-or-nest-a-template). Чтобы извлечь значения для развернутого ресурса во вложенном шаблоне, преобразуйте этот шаблон в связанный.
 
 ## <a name="available-properties"></a>Доступные свойства
 
@@ -70,7 +72,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 }
 ```
 
-| Имя элемента | Требуется | ОПИСАНИЕ |
+| Имя элемента | Обязательно | ОПИСАНИЕ |
 |:--- |:--- |:--- |
 | outputName |Yes |Имя выходного значения. Должно быть допустимым идентификатором JavaScript. |
 | Тип |Yes |Тип выходного значения. Выходные значения поддерживает те же типы, что и входные параметры шаблона. |
@@ -78,7 +80,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 
 ## <a name="recommendations"></a>Рекомендации
 
-При использовании шаблона для создания общих IP-адресов включите раздел выходные данные, для извлечения сведений о IP-адрес и полное доменное имя (FQDN). С помощью этих выходных данных можно легко получить сведения об общедоступных IP-адресах и полных доменных именах после развертывания.
+Если вы используете шаблон, чтобы создать общедоступные IP-адреса, добавьте раздел outputs, который возвращает сведения об IP-адресах и полное доменное имя (FQDN). С помощью этих выходных данных можно легко получить сведения об общедоступных IP-адресах и полных доменных именах после развертывания.
 
 ```json
 "outputs": {
@@ -98,12 +100,12 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 
 |Шаблон  |ОПИСАНИЕ  |
 |---------|---------|
-|[Переменные Копировать](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Создает комплексное переменные и выводит эти значения. Развертывает все ресурсы. |
-|[Общедоступный IP-адрес](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Создает общий IP-адрес и выводит его идентификатором ресурса. |
-|[Подсистема балансировки нагрузки](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Ссылки на шаблон выше. При создании подсистемы балансировки нагрузки по идентификатору ресурса в выходных данных. |
+|[Копирование переменных](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Позволяет создать сложные переменные и вывести эти значения. Не используется для развертывания ресурсов. |
+|[Общедоступный IP-адрес](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Позволяет создать общедоступный IP-адрес и вывести идентификатор ресурса. |
+|[Подсистема балансировки нагрузки](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Позволяет создать ссылку на предыдущий шаблон. При создании подсистемы балансировки нагрузки использует идентификатор ресурса в выходных данных. |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Полные шаблоны для различных типов решений доступны на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/).
 * Дополнительные сведения о функциях, которые можно использовать в шаблонах, см. в статье [Функции шаблонов Azure Resource Manager](resource-group-template-functions.md).
 * Инструкции по объединению нескольких шаблонов при развертывании см. в статье [Использование связанных шаблонов в Azure Resource Manager](resource-group-linked-templates.md).

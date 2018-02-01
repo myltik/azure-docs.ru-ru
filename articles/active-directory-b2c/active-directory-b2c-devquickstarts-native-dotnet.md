@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2C | Документация Майкрософт"
+title: "Аутентификация, регистрация и изменение профиля с помощью Azure Active Directory B2C для .NET | Документация Майкрософт"
 description: "Инструкции по созданию приложений Windows, позволяющих пользователям выполнять вход, регистрироваться и управлять профилем, с помощью Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: .net
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 7b6bd5c95c909cf4ed4c67cd33d09170f670c275
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 5d4664e87ca0a45d59d976f6415fce858bc51dcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: создание классического приложения Windows
 Azure Active Directory (Azure AD) B2C позволяет добавлять в приложения мощные функции для самостоятельного управления удостоверениями. Это можно сделать, выполнив несколько простых действий. В этой статье описывается, как создать приложение .NET WPF "Список дел", которое предусматривает регистрацию и вход пользователя, а также управление профилем. Приложение будет поддерживать регистрацию и вход в систему по имени пользователя или адресу электронной почты, а также по учетной записи в социальной сети, такой как Facebook или Google.
@@ -71,7 +72,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ### <a name="enter-your-b2c-details"></a>Ввод данных B2C
 Откройте файл `Globals.cs` и замените все значения свойств собственными. Этот класс применяется для создания ссылки на часто используемые значения во всем проекте `TaskClient` .
 
-```C#
+```csharp
 public static class Globals
 {
     ...
@@ -92,7 +93,7 @@ public static class Globals
 ### <a name="create-the-publicclientapplication"></a>Создание PublicClientApplication
 Основной класс MSAL — это `PublicClientApplication`. Этот класс представляет приложение в системе Azure AD B2C. При запуске приложения создайте экземпляр `PublicClientApplication` в `MainWindow.xaml.cs`. Его можно использовать для выполнения всех действий в этом окне.
 
-```C#
+```csharp
 protected async override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -110,7 +111,7 @@ protected async override void OnInitialized(EventArgs e)
 ### <a name="initiate-a-sign-up-flow"></a>Запуск потока регистрации
 Нам нужно, чтобы, когда пользователь нажимал кнопку регистрации, инициировался созданный нами поток регистрации. Для этого требуется только вызов метода `pca.AcquireTokenAsync(...)`с помощью MSAL. Параметры, передаваемые в метод `AcquireTokenAsync(...)` , определяют, какой маркер вы получите, какая политика будет использована в запросе проверки подлинности, а также другие данные.
 
-```C#
+```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -161,7 +162,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ### <a name="initiate-a-sign-in-flow"></a>Инициация потока входа
 Поток входа инициируется таким же образом, как и поток регистрации. При входе пользователя будет выполнен тот же вызов в MSAL, но на этот раз с использованием политики входа:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
     AuthenticationResult result = null;
@@ -176,7 +177,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ### <a name="initiate-an-edit-profile-flow"></a>Инициирование потока изменения профиля
 Политика редактирования профиля реализуется аналогично.
 
-```C#
+```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -192,7 +193,7 @@ private async void EditProfile(object sender, RoutedEventArgs e)
 ### <a name="check-for-tokens-on-app-start"></a>Проверка наличия маркеров при запуске приложения
 MSAL также можно использовать, чтобы отслеживать состояние входа пользователя.  В этом приложении мы хотим, чтобы пользователь оставался в системе даже после закрытия и повторного открытия приложения.  В переопределении `OnInitialized` используйте метод `AcquireTokenSilent` MSAL, чтобы проверить наличие кэшированных маркеров:
 
-```C#
+```csharp
 AuthenticationResult result = null;
 try
 {
@@ -231,7 +232,7 @@ catch (MsalException ex)
 ## <a name="call-the-task-api"></a>Вызов API задачи
 С помощью MSAL вы выполнили политики и получили маркеры.  Если вы хотите использовать один из этих маркеров для вызова API задачи, можно снова использовать метод `AcquireTokenSilent` MSAL для проверки наличия кэшированных маркеров:
 
-```C#
+```csharp
 private async void GetTodoList()
 {
     AuthenticationResult result = null;
@@ -276,7 +277,7 @@ private async void GetTodoList()
 
 Если вызов `AcquireTokenSilentAsync(...)` завершается успешно, а в кэше есть маркер, можно добавить этот маркер в заголовок `Authorization` HTTP-запроса. Веб-API задачи будет использовать этот заголовок для проверки подлинности запроса на чтение списка дел пользователя:
 
-```C#
+```csharp
     ...
     // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
@@ -289,7 +290,7 @@ private async void GetTodoList()
 ## <a name="sign-the-user-out"></a>Выход пользователя
 Также MSAL можно использовать для завершения сеанса пользователя в приложении, когда пользователь нажимает кнопку **Выход**.  Для этого нужно удалить все маркеры из соответствующего кэша с помощью MSAL:
 
-```C#
+```csharp
 private void SignOut(object sender, RoutedEventArgs e)
 {
     // Clear any remnants of the user's session.

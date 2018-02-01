@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: b23ee0629720676b76de17c81f90b33a4fd4d8a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий
 База данных SQL предоставляет такие варианты восстановления базы данных с помощью [создаваемых автоматически резервных копий баз данных](sql-database-automated-backups.md) и [резервных копий в хранилище с включенной функцией долгосрочного хранения](sql-database-long-term-retention.md) Вы можете восстановить из резервной копии базы данных следующее:
@@ -90,7 +90,7 @@ ms.lasthandoff: 12/08/2017
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>Восстановление удаленной базы данных
-Вы можете восстановить удаленную базу данных до момента удаления на том же логическом сервере с помощью портала Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) или [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Вы можете восстановить удаленную базу данных до момента удаления на том же логическом сервере с помощью портала Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) или [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). Удаленную базу данных можно восстановить до предшествующей точки во времени при хранении с помощью [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
 > [!TIP]
 > Пример сценария PowerShell, показывающий, как восстановить удаленную базу данных, приведен в разделе [Восстановление базы данных SQL с помощью PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -152,7 +152,7 @@ ms.lasthandoff: 12/08/2017
 ## <a name="summary"></a>Сводка
 Создаваемые автоматически резервные копии позволяют защитить базы данных от ошибок пользователей и приложений, случайного удаления базы данных и длительных простоев. Эта встроенная возможность доступна для всех уровней служб и уровней производительности. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
 * Чтобы узнать об автоматически создаваемых резервных копиях базы данных SQL Azure, ознакомьтесь со статьей [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md).
 * Дополнительные сведения о долгосрочном хранении резервных копий см. в статье о [долгосрочном хранении резервных копий](sql-database-long-term-retention.md).

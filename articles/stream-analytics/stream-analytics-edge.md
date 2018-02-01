@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2017
+ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: f1ff8d6f64a04ab03c8170fd2b6a7c881227da2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics в IoT Edge (предварительная версия)
 
@@ -51,13 +51,18 @@ ASA развертывает задания Edge на устройства с п
 
 ### <a name="installation-instructions"></a>Инструкции по установке
 В следующей таблице приведены основные действия. Дополнительные сведения см. в следующих разделах.
-|      |Шаг   | Место     | Примечания   |
+|      |Шаг   | Место     | Заметки   |
 | ---   | ---   | ---       |  ---      |
 | 1   | **Создание задания Edge ASA**   | Портал Azure      |  Создайте новое задание, выберите **Edge** в качестве **среды размещения**. <br> Создание этих заданий и управление ими осуществляется из облака, а выполняются они на ваших устройствах IoT Edge.     |
 | 2   | **Создание контейнера хранилища**   | Портал Azure       | Контейнеры хранилища используются для сохранения определения задания, доступ к которому можно получить с устройств IoT. <br>  Любой имеющийся контейнер хранилища можно использовать повторно.     |
 | 3   | **Настройка среды IoT Edge на ваших устройствах**   | Устройства      | Инструкции для [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) или [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| 4   | **Развертывание ASA на ваших устройствах IoT Edge**   | Портал Azure      |  Определение задания ASA экспортируется в контейнер хранилища, созданный ранее.       |
-Вы можете выполнить инструкции из [этого пошагового руководства](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics), чтобы развернуть свое первое задание ASA в IoT Edge.
+| 4.   | **Развертывание ASA на ваших устройствах IoT Edge**   | Портал Azure      |  Определение задания ASA экспортируется в контейнер хранилища, созданный ранее.       |
+Вы можете выполнить инструкции из [этого пошагового руководства](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics), чтобы развернуть свое первое задание ASA в IoT Edge. Следующее видео поможет вам понять процесс выполнения задания Stream Analytics на устройстве IoT Edge:  
+
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
+
+
 
 #### <a name="create-an-asa-edge-job"></a>Создание задания Edge ASA
 1. На портале Azure создайте "задание Stream Analytics". [Прямая ссылка для создания задания ASA](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
@@ -205,7 +210,7 @@ ASA в IoT Edge доступна в качестве образов Windows и L
 За дополнительной помощью обращайтесь на [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Что такое Azure IoT Edge (предварительная версия)](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [Deploy Azure Stream Analytics as an IoT Edge module - preview](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) (Развертывание Azure Stream Analytics в качестве модуля IoT Edge (предварительная версия))

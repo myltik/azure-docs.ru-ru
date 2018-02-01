@@ -1,5 +1,5 @@
 ---
-title: "Azure AD .NET веб-API Приступая к работе | Документы Microsoft"
+title: "Приступая к работе с веб-API .NET для Azure AD | Документация Майкрософт"
 description: "Практическое руководство по созданию веб-API для .NET MVC, который интегрируется с Azure AD для аутентификации и авторизации."
 services: active-directory
 documentationcenter: .net
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 4c4cf11b26402747ef58e4fa3fbbe2154876dfae
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET веб-API Приступая к работе
+# <a name="azure-ad-net-web-api-getting-started"></a>Приступая к работе с Azure AD для веб-API .NET
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Если вы создаете приложение, которое предоставляет доступ к конфиденциальным ресурсам, то необходимо знать, как предотвратить несанкционированный доступ к этим ресурсам.
@@ -73,7 +73,7 @@ Azure Active Directory (Azure AD) упрощает для разработчик
 
 3. Замените объявление класса `public partial class Startup`. Часть этого класса уже была реализована в другом файле. В методе `Configuration(…)` отправьте вызов в `ConfgureAuth(…)`, чтобы настроить аутентификацию для веб-приложения.
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -85,7 +85,7 @@ Azure Active Directory (Azure AD) упрощает для разработчик
 
 4. Откройте файл `App_Start\Startup.Auth.cs` и реализуйте метод `ConfigureAuth(…)`. Параметры, указанные в `WindowsAzureActiveDirectoryBearerAuthenticationOptions`, будут служить координатами приложения для взаимодействия с Azure AD.
 
-    ```C#
+    ```csharp
     public void ConfigureAuth(IAppBuilder app)
     {
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
@@ -99,7 +99,7 @@ Azure Active Directory (Azure AD) упрощает для разработчик
 
 5. Теперь можно использовать атрибуты `[Authorize]` для защиты контроллеров и действий с помощью аутентификации носителей JSON Web Token (JWT). Снабдите класс `Controllers\TodoListController.cs` тегом авторизации. Пользователь будет вынужден войти в систему, прежде чем сможет обратиться к этой странице.
 
-    ```C#
+    ```csharp
     [Authorize]
     public class TodoListController : ApiController
     {
@@ -109,7 +109,7 @@ Azure Active Directory (Azure AD) упрощает для разработчик
 
 6. Общим требованием для веб-API является проверка областей (scope) в токене. Это гарантирует, что пользователь предоставил разрешения, необходимые для доступа к службе списка дел.
 
-    ```C#
+    ```csharp
     public IEnumerable<TodoItem> Get()
     {
         // user_impersonation is the default permission exposed by applications in Azure AD
@@ -147,7 +147,7 @@ Azure Active Directory (Azure AD) упрощает для разработчик
   * `ida:ClientId` — это идентификатор приложения, скопированный с портала Azure.
   * `todo:TodoListResourceId` — это URI идентификатора приложения службы списка дел, введенный на портале Azure.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Наконец, выполните очистку и сборку, а затем запустите каждый из проектов. Если вы еще этого не сделали, создайте нового пользователя в своем клиенте с доменом *.onmicrosoft.com. Войдите в клиент списка дел от имени данного пользователя и добавьте несколько задач в его список дел.
 
 Готовый пример (для которого лишь осталось задать конфигурацию) можно найти в [репозитории GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Теперь можно приступить к другим сценариям идентификации.

@@ -3,7 +3,7 @@ title: "Настройка присоединенных к домену клас
 description: "Узнайте, как установить и настроить кластеры HDInsight, присоединенные к домену, с помощью доменных служб Azure Active Directory."
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -13,21 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
-ms.author: saurinsh
-ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Настройка присоединенных к домену кластеров HDInsight с помощью доменных служб Azure Active Directory
 
 Присоединенные к домену кластеры обеспечивают функциональные возможности безопасности многопользовательского предприятия в HDInsight. Присоединенные к домену кластеры HDInsight подключаются к доменам Active Directory. Таким образом, пользователи домена могут использовать свои учетные данные домена для аутентификации в кластерах и выполнения заданий по обработке больших объемов данных. 
 
-Есть три способа настройки контроллера домена, к которому может подключиться присоединенный к домену кластер HDInsight:
+Контроллер домена, к которому может подключиться присоединенный к домену кластер HDInsight, можно настроить двумя способами:
 
 - доменные службы Azure Active Directory (Azure AD DS);
-- Локальная служба Active Directory
 - контроллер домена Active Directory на виртуальных машинах Azure IaaS.
 
 Из этой статьи вы узнаете, как настроить кластер HDInsight, присоединенный к домену, с использованием доменных служб Azure Active Directory.
@@ -37,7 +36,7 @@ ms.lasthandoff: 01/12/2018
 Перед созданием кластера HDInsight необходимо создать службу Azure AD DS. Дополнительные сведения о создании службы Azure AD DS см. в статье [Включение доменных служб Azure Active Directory с помощью портала Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Только администраторы клиентов имеют разрешения на создание доменных служб. 
+> Только администраторы клиентов имеют разрешения на создание доменных служб. Если вы используете Хранилище Azure Data Lake (ADLS) в качестве стандартного хранилища для HDInsight, убедитесь, что стандартный клиент Azure AD для ADLS совпадает с доменом для кластера HDInsight. 
 
 После подготовки доменной службы необходимо создать учетную запись службы в группе **администраторов контроллера домена Azure AD** для создания кластера HDInsight. У учетной записи службы должны быть права глобального администратора Azure AD.
 

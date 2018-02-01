@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 022b6340a8d2748624ba292fb4a28a956d28c6f9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Активация лицензированных образов в лаборатории в Azure DevTest Labs
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/02/2018
 
 1. Войдите на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Щелкните **Другие службы**, а затем выберите в списке **DevTest Labs**.
+1. Щелкните **Все службы** и выберите в списке **DevTest Labs**.
 
 1. Из списка лабораторий выберите нужную лабораторию.  
 
@@ -53,12 +53,14 @@ ms.lasthandoff: 01/02/2018
 
 Выполните следующие действия, чтобы включить программное развертывание для лицензированных образов:
 
-1. На [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) в списке **образов Marketplace** определите лицензированный образ, к которому пользователи должны иметь доступ, но условия которого не приняты. Например, вы можете видеть виртуальную машину для обработки и анализа данных, для которой отображается состояние **Terms accepted** (Условия приняты) или **Terms review needed** (Требуется проверка условий).
+1. На [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) перейдите к списку **образов Marketplace**.
+
+1. Определите лицензированный образ, к которому пользователи должны иметь доступ, но условия которого не приняты. Например, вы можете видеть виртуальную машину для обработки и анализа данных, для которой отображается состояние **Terms accepted** (Условия приняты) или **Terms review needed** (Требуется проверка условий).
 
     ![Настройка окна программного развертывания](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > Виртуальные машины обработки и анализа данных — это образы виртуальных машин Azure, которые предварительно установлены, настроены и протестированы с помощью нескольких популярных инструментов, которые обычно используются для анализа данных, машинного обучения и обучения ИИ. Дополнительные сведения о виртуальных машинах для обработки и анализа данных см. в статье [Общие сведения о виртуальных машинах Linux и Windows для обработки и анализа данных](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview).
+   > Виртуальные машины обработки и анализа данных — это образы виртуальных машин Azure, которые предварительно установлены, настроены и протестированы с помощью нескольких популярных инструментов, обычно используемых для анализа данных, машинного обучения и обучения ИИ. Дополнительные сведения о виртуальных машинах для обработки и анализа данных см. в статье [Общие сведения о виртуальных машинах Linux и Windows для обработки и анализа данных](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview).
    >
    >
 
@@ -74,13 +76,23 @@ ms.lasthandoff: 01/02/2018
    >
 
 
-1. Щелкните **Сохранить**. В списке образов Marketplace образ имеет состояние **Terms accepted** (Условия приняты) и доступен для создания виртуальных машин пользователями.
+1. Щелкните **Сохранить**. 
+
+    В списке образов Marketplace образ имеет состояние **Terms accepted** (Условия приняты) и доступен для создания виртуальных машин пользователями.
+
+> [!NOTE]
+> Из лицензированного образа пользователи могут создать пользовательский образ. Дополнительные сведения см. в статье [Создание пользовательского образа из VHD-файла](devtest-lab-create-template.md).
+>
+>
+
 
 ## <a name="related-blog-posts"></a>Связанные записи в блогах
 
 - [Custom images or formulas? (Пользовательские изображения или формулы?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Copying Custom Images between Azure DevTest Labs (Копирование пользовательских образов между лабораториями для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
+- [Создание пользовательского образа из виртуальной машины](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Создание пользовательского образа из VHD-файла](devtest-lab-create-template.md)
 - [Добавление виртуальной машины с артефактами в лабораторию в Azure DevTest Labs](devtest-lab-add-vm.md)

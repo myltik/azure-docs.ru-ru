@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/17/2018
 ms.author: jeedes
-ms.openlocfilehash: fc0d7223cdc15cd7f17a4983d2c2ac46c5d1669b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Руководство по настройке Workplace by Facebook для подготовки пользователей
 
 Цель этого руководства — показать, как в Workplace by Facebook и Azure AD настроить автоматическую подготовку и отзыв учетных записей пользователей из Azure AD в Workplace by Facebook.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Workplace by Facebook, вам потребуется:
 
@@ -75,7 +75,7 @@ Azure AD поддерживает автоматическую синхрони�
 
     ![Подготовка](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. В разделе **Учетные данные администратора** введите секретный токен и URL-адрес клиента администратора Workplace by Facebook.
+5. В разделе **Учетные данные администратора** введите секретный токен администратора Workplace by Facebook и укажите URL-адрес клиента, `https://www.facebook.com/scim/v1/`.
 
 6. На портале Azure щелкните **Проверить подключение** и убедитесь, что Azure AD может подключиться к приложению Workplace by Facebook. Если подключение отсутствует, убедитесь, что у учетной записи Workplace by Facebook есть разрешения администратора команды.
 
@@ -100,4 +100,3 @@ Azure AD поддерживает автоматическую синхрони�
 * [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Настройка единого входа](active-directory-saas-workplacebyfacebook-tutorial.md)
-

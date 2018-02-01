@@ -1,6 +1,6 @@
 ---
-title: "Решение для управления оповещениями в Operations Management Suite (OMS) | Документация Майкрософт"
-description: "Решение для управления оповещениями в Log Analytics помогает анализировать все оповещения в вашей среде.  Помимо консолидации оповещений, созданных в OMS, оно импортирует в Log Analytics оповещения из подключенных групп управления System Center Operations Manager."
+title: "Решение \"Управление оповещениями\" в Azure Log Analytics | Документация Майкрософт"
+description: "Решение для управления оповещениями в Log Analytics помогает анализировать все оповещения в вашей среде.  Помимо консолидации оповещений, созданных в Log Analytics, оно позволяет импортировать в Log Analytics оповещения из подключенных групп управления System Center Operations Manager."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Решение управления оповещениями в Operations Management Suite (OMS)
+# <a name="alert-management-solution-in-azure-log-analytics"></a>Решение "Управление оповещениями" в Azure Log Analytics
 
 ![Значок "Управление оповещениями"](media/log-analytics-solution-alert-management/icon.png)
 
 Решение для управления оповещениями помогает анализировать все оповещения в репозитории Log Analytics.  Эти оповещения могут поступать из различных источников, например [созданных службой Log Analytics](log-analytics-alerts.md) или [импортированных из Nagios или Zabbix](log-analytics-linux-agents.md).  Это решение также импортирует оповещения из всех [подключенных групп управления System Center Operations Manager](log-analytics-om-agents.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Решение работает с любыми записями в репозитории Log Analytics, имеющими тип **Alert** (Оповещение), поэтому необходимо выполнить настройку, которая требуется для сбора этих записей.
 
 - Для оповещений Log Analytics [создайте правила генерации оповещений](log-analytics-alerts.md), чтобы записи оповещений создавались непосредственно в репозитории.
@@ -34,10 +34,10 @@ ms.lasthandoff: 12/13/2017
 - Для оповещений System Center Operations Manager [подключите группу управления Operations Manager к рабочей области Log Analytics](log-analytics-om-agents.md).  Все оповещения, созданные в System Center Operations Manager, импортируются в Log Analytics.  
 
 ## <a name="configuration"></a>Параметр Configuration
-Добавьте решение управления оповещениями в рабочую область OMS, как описано в статье [Добавление решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
+Добавьте решение "Управление оповещениями" в рабочую область Log Analytics в соответствии с инструкциями по [добавлению решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
 
 ## <a name="management-packs"></a>Пакеты управления
-Если группа управления System Center Operations Manager подключена к рабочей области OMS, то при добавлении этого решения в System Center Operations Manager будут установлены следующие пакеты.  Для этих пакетов управления не требуются настройка или обслуживание.  
+Если группа управления System Center Operations Manager подключена к рабочей области Log Analytics, то при добавлении этого решения в System Center Operations Manager будут установлены указанные ниже пакеты.  Для этих пакетов управления не требуются настройка или обслуживание.  
 
 * Управление оповещениями Microsoft System Center Advisor (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/13/2017
 - Данные оповещений отправляются в Log Analytics из группы управления System Center Operations Manager каждые 3 минуты.  
 
 ## <a name="using-the-solution"></a>Использование решения
-Когда вы добавите решение по управлению оповещениями в рабочую область OMS, на панели мониторинга OMS появится плитка **Управление оповещениями**.  Она отображает число (и соответствующее графическое представление) активных оповещений, созданных за последние 24 часа.  Этот диапазон времени нельзя изменить.
+Когда вы добавите решение "Управление оповещениями" в рабочую область Log Analytics, на панели мониторинга появится плитка **Управление оповещениями**.  Она отображает число (и соответствующее графическое представление) активных оповещений, созданных за последние 24 часа.  Этот диапазон времени нельзя изменить.
 
 ![Плитка "Управление оповещениями"](media/log-analytics-solution-alert-management/tile.png)
 
@@ -133,5 +133,5 @@ ms.lasthandoff: 12/13/2017
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; sort by RepeatCount desc |Оповещения, созданные за последние 1 день и сгруппированные по числу повторений. |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о генерации оповещений из Log Analytics см. в статье [Оповещения в Log Analytics](log-analytics-alerts.md).

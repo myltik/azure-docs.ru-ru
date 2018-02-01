@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: cc29a8ac6369560d37466d69fad272cef2337732
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Оценка приложений и микрослужб Azure Service Fabric на портале Azure
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/21/2017
 Чтобы начать работу с решением, необходимо подключить кластер Service Fabric к рабочей области Log Analytics. Рассмотрим три важных сценария.
 
 1. Если кластер Service Fabric не развернут, выполните действия, описанные в разделе ***Развертывание кластера Service Fabric, подключенного к рабочей области Log Analytics***. Так вы сможете развернуть новый кластер и настроить в нем функцию отчетности для Log Analytics.
-2. Если необходимо собрать счетчики производительности с узлов для использования других решений OMS (включая решение по обеспечению безопасности в кластере Service Fabric), выполните действия, описанные в разделе ***Развертывание кластера Service Fabric, подключенного к рабочей области Log Analytics с установленным расширением виртуальной машины***.
+2. Если необходимо собрать счетчики производительности с узлов для использования других решений по управлению (включая решение по обеспечению безопасности в кластере Service Fabric), выполните действия, описанные в разделе, в котором объясняется, как ***развернуть кластер Service Fabric, подключенный к рабочей области Log Analytics с установленным расширением виртуальной машины***.
 3. Если кластер Service Fabric уже развернут и его нужно подключить к Log Analytics, выполните действия, описанные в разделе ***Добавление существующей учетной записи хранения в Log Analytics***.
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Развертывание кластера Service Fabric, подключенного к рабочей области Log Analytics
@@ -161,6 +161,6 @@ ms.lasthandoff: 12/21/2017
 >
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Подробные сведения о данных событий Service Fabric см. в статье [Поиск по журналам в Log Analytics](log-analytics-log-searches.md).

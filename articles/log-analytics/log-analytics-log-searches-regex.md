@@ -1,5 +1,5 @@
 ---
-title: "Регулярные выражения при поиске по журналам Log Analytics OMS | Документация Майкрософт"
+title: "Регулярные выражения при поиске по журналам Azure Log Analytics | Документация Майкрософт"
 description: "Для фильтрации результатов в соответствии с регулярным выражением вы можете использовать ключевое слово RegEx при поиске по журналам Log Analytics.  В этой статье содержатся сведения о синтаксисе для этих выражений с несколькими примерами."
 services: log-analytics
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 28b2402cefa38ef3bfca68f2ff70e56b649c72f5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8915e0e35951871ff10fd84453d55bd5102e97df
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Фильтрование поиска по журналам в Log Analytics с помощью регулярных выражений
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/16/2017
 > В этой статье описаны регулярные выражения с использованием устаревшего языка запросов в Log Analytics.  Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), ознакомьтесь с [разделом о регулярных выражениях в документации по языкам](https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax).
 
 
-[Поиск по журналам](log-analytics-log-searches.md) позволяет извлекать сведения из репозитория Log Analytics.  [Выражения фильтра](log-analytics-search-reference.md#filter-expressions) позволяют фильтровать результаты поиска в соответствии с определенными критериями.  Ключевое слово **RegEx** позволяет указать регулярное выражение для фильтра.  
+[Поиск по журналам](log-analytics-log-searches.md) позволяет извлекать сведения из рабочей области Log Analytics.  [Выражения фильтра](log-analytics-search-reference.md#filter-expressions) позволяют фильтровать результаты поиска в соответствии с определенными критериями.  Ключевое слово **RegEx** позволяет указать регулярное выражение для фильтра.  
 
 Эта статья содержит сведения о синтаксисе регулярных выражений, используемых службой Log Analytics.
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/16/2017
 ## <a name="characters"></a>Знаки
 Укажите различные знаки.
 
-| Character | Описание | Пример | Пример совпадений |
+| Character | ОПИСАНИЕ | Пример | Пример совпадений |
 |:--|:--|:--|:--|
 | a | Одно вхождение знака. | Computer=RegEx("srv01.contoso.com") | Srv01.contoso.com |
 | . | Любой отдельный знак. | Computer=RegEx("srv...contoso.com") | Srv01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/16/2017
 ## <a name="multiple-occurences-of-character"></a>Несколько вхождений знака
 Укажите несколько вхождений определенных знаков.
 
-| Character | Описание | Пример | Пример совпадений |
+| Character | ОПИСАНИЕ | Пример | Пример совпадений |
 |:--|:--|:--|:--|
 | a{n} |  *n* вхождений знака. | Computer=RegEx("bw-win-sc01{3}.bwren.lab") | bw-win-sc0111.bwren.lab |
 | a{n,} |  *n* или больше вхождений знака. | Computer=RegEx("bw-win-sc01{3,}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab<br>bw-win-sc0111111.bwren.lab |
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/16/2017
 ## <a name="logical-expressions"></a>Логические выражения
 Выберите из нескольких значений.
 
-| Character | Описание | Пример | Пример совпадений |
+| Character | ОПИСАНИЕ | Пример | Пример совпадений |
 |:--|:--|:--|:--|
 | &#124; | Логический оператор OR.  Возвращает результат, если есть совпадение в любом из выражений. | Type=Alert AlertSeverity=RegEx("Warning&#124;Error") | Предупреждение<br>Ошибка |
 | & | Логический оператор AND.  Возвращает результат, если есть совпадение в обоих выражениях. | EventData=regex("(Security.\*&.\*success.\*)") | Аудит системы безопасности успешно выполнен |
@@ -94,11 +94,11 @@ ms.lasthandoff: 10/16/2017
 ## <a name="literals"></a>Литералы
 Преобразуйте специальные знаки в литеральные.  Сюда входят знаки, предоставляющие возможности для регулярных выражений: ?, -, \*, ^, \[\], {}, \(\), +, \|, ., &.
 
-| Character | Описание | Пример | Пример совпадений |
+| Character | ОПИСАНИЕ | Пример | Пример совпадений |
 |:--|:--|:--|:--|
 | \\ | Преобразовывает специальный знак в литерал. | Status_CF=\\[Error\\]@<br>Status_CF=Error\\-@ | [Error] Файл не найден.<br>Error. Файл не найден. |
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Ознакомьтесь с [поиском по журналу](log-analytics-log-searches.md), чтобы просматривать и анализировать данные в репозитории Log Analytics.
+* Ознакомьтесь с [поиском по журналам](log-analytics-log-searches.md), чтобы просматривать и анализировать данные в рабочей области Log Analytics.

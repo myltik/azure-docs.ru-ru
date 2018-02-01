@@ -1,10 +1,10 @@
 ---
-title: "Визуализация кластера с помощью Service Fabric Explorer | Документация Майкрософт"
-description: "Обозреватель Service Fabric — это веб-средство для изучения облачных приложений и узлов в кластере Microsoft Azure Service Fabric и управления ими."
+title: "Визуализация кластера с помощью Azure Service Fabric Explorer | Документация Майкрософт"
+description: "Service Fabric Explorer — это приложение для изучения облачных приложений и узлов в кластере Microsoft Azure Service Fabric и управления ими."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: mikkelhegn
+manager: msfussell
 editor: 
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
@@ -12,25 +12,58 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
-ms.author: ryanwi
-ms.openlocfilehash: 965ffc0f8cec26cccbe6e6459731afc234111f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/08/2018
+ms.author: mikhegn
+ms.openlocfilehash: 34e00058591bc5a0a02bc408cfc3fcc11010f17c
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Визуализация кластера с помощью обозревателя Service Fabric
-Обозреватель Service Fabric — это веб-средство для изучения приложений и узлов в кластере Azure Service Fabric и управления ими. Обозреватель Service Fabric размещается непосредственно в кластере, поэтому он доступен всегда, независимо от того, где запущен кластер.
+
+Service Fabric Explorer (SFX) — это инструмент с открытым кодом, предназначенный для проверки кластеров Azure Service Fabric и управления ими. Service Fabric Explorer — это классическое приложение для Windows и Linux. Добавление поддержки MacOS ожидается в ближайшее время.
+
+## <a name="service-fabric-explorer-download"></a>Скачивание Service Fabric Explorer
+
+Используйте следующие ссылки для скачивания Service Fabric Explorer в виде классического приложения:
+
+- Windows
+  - https://aka.ms/sfx-windows
+
+- Linux
+  - https://aka.ms/sfx-linux-x86
+  - https://aka.ms/sfx-linux-x64
+
+> [!NOTE]
+> Классическая версия Service Fabric Explorer может иметь больше или меньше функций по сравнению с функциями, поддерживаемыми кластером. Можно выполнить откат до версии Service Fabric Explorer, развернутой в кластере, чтобы обеспечить полную совместимость функций.
+>
+>
+
+### <a name="running-service-fabric-explorer-from-the-cluster"></a>Выполнение Service Fabric Explorer из кластера
+
+Service Fabric Explorer также размещается в конечной точке управления HTTP кластера Service Fabric. Чтобы запустить SFX через браузер, найдите конечную точку управления HTTP кластера в любом браузере (например, https://clusterFQDN:19080).
+
+Для конфигурации рабочей станции разработки можно запустить Service Fabric Explorer на локальном кластере, перейдя по адресу http://localhost:19080/Explorer. Подготовка среды разработки описывается в [этой статье](service-fabric-get-started.md).
+
+## <a name="connect-to-a-service-fabric-cluster"></a>Подключение к кластеру Service Fabric
+Для подключения к кластеру Service Fabric требуется его конечная точка управления (полное доменное имя или IP-адрес) и порт конечной точки управления HTTP (по умолчанию — 19080). Например, https://mysfcluster.westus.cloudapp.azure.com:19080. Используйте флажок "Подключение к localhost", чтобы подключиться к локальному кластеру на рабочей станции.
+
+### <a name="connect-to-a-secure-cluster"></a>Безопасное подключение к кластеру
+Вы можете управлять клиентским доступом к кластеру Service Fabric с помощью сертификатов или Azure Active Directory (AAD).
+
+При попытке подключиться к защищенному кластеру вам понадобится либо представить сертификат клиента, либо войти с помощью AAD (в зависимости от конфигурации кластера).
 
 ## <a name="video-tutorial"></a>Видеоруководство
 
 Посмотрите следующий видеоролик от Академии Microsoft Virtual Academy, в котором показано, как использовать Service Fabric Explorer:
 
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
+> [!NOTE]
+> В этом видео показан инструмент Service Fabric Explorer, размещенный в кластере Service Fabric (не классическая версия).
+>
+>
 
-## <a name="connect-to-service-fabric-explorer"></a>Подключение к обозревателю Service Fabric
-Если вы следовали указаниям по [подготовке среды разработки](service-fabric-get-started.md), вы можете запустить Service Fabric Explorer на локальном кластере, перейдя по адресу http://localhost:19080/Explorer.
+[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Основные сведения о структуре обозревателя Service Fabric
 Перейти к обозревателю Service Fabric можно с помощью дерева в левой части окна. В корне дерева на панели мониторинга кластера представлены общие сведения о кластере, включая общие сведения о приложении и работоспособности узла кластера.
@@ -68,25 +101,6 @@ ms.lasthandoff: 10/11/2017
 > [!TIP]
 > Те же действия можно выполнить, щелкнув знак многоточия (...) рядом с каждым элементом.
 >
->
-
-В следующей таблице перечислены действия, доступные для каждой сущности.
-
-| **Сущность** | **Действие** | **Описание** |
-| --- | --- | --- |
-| Тип приложения |Отмена подготовки типа |Удаление пакета приложения из хранилища образов кластера. Сначала должны быть удалены все приложения этого типа. |
-| Приложение |Удалить приложение |Удаление приложения, включая все его службы и их состояния (при наличии). |
-| служба |Удаление службы |Удаление службы и ее состояния (при наличии). |
-| Узел |Активировать |Активация узла. |
-| Узел | Деактивация (пауза) | Приостановка узла в его текущем состоянии. Службы продолжают работу, но Service Fabric заранее не перемещает какие-либо объекты в узел или из него, если это не требуется для предотвращения несоответствия данных или сбоя. Обычно это действие используется для включения отладки служб на определенном узле для предотвращения их перемещения во время проверки. | |
-| Узел | Деактивация (перезапуск) | Безопасное перемещение всех служб в памяти за пределы узла и закрытие постоянных служб. Обычно используется, когда процессы узла или компьютеры необходимо перезапустить. | |
-| Узел | Деактивация (удаление данных) | Безопасное закрытие всех служб, запущенных на узле после создания достаточного количества запасных реплик. Обычно используется, когда узел (или хотя бы его хранилище) окончательно выводится из эксплуатации. | |
-| Узел | Удаление состояния узла | Удаление сведений о репликах узла из кластера. Обычно используется, когда узел, вышедший из строя, уже нельзя восстановить. | |
-| Узел | Перезагрузить | Моделирование сбоя узла путем перезапуска узла. Дополнительные сведения см. [здесь](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps). | |
-
-Так как многие действия являются необратимыми, вам будет предложено подтвердить свое намерение перед выполнением действия.
-
-> [!TIP]
 > Каждое действие, которое может быть выполнено с помощью обозревателя Service Fabric, также можно выполнить с помощью PowerShell или API REST, дающего выполнить автоматизацию.
 >
 >
@@ -96,27 +110,11 @@ ms.lasthandoff: 10/11/2017
 ![Создание экземпляра приложения в Service Fabric Explorer][sfx-create-app-instance]
 
 > [!NOTE]
-> В настоящее время экземпляры приложения, созданные с помощью Service Fabric Explorer, не могут быть параметризованы. При их создании используются значения параметров по умолчанию.
+> Service Fabric Explorer не поддерживает параметры при создании экземпляров приложения. Экземпляры приложения используют значения параметров по умолчанию.
 >
 >
 
-## <a name="connect-to-a-remote-service-fabric-cluster"></a>Подключение к удаленному кластеру Service Fabric
-Если вы знаете конечную точку кластера и имеете достаточно разрешений, вы можете получить доступ к Service Fabric Explorer из любого браузера. Так происходит потому, что Service Fabric Explorer — это просто еще одна служба, которая выполняется в кластере.
-
-### <a name="discover-the-service-fabric-explorer-endpoint-for-a-remote-cluster"></a>Обнаружение конечной точки обозревателя Service Fabric для удаленного кластера
-Чтобы подключиться к Service Fabric Explorer для заданного кластера, просто перейдите в браузере по адресу:
-
-http://&lt;конечная_точка_кластера&gt;:19080/Explorer.
-
-Полный URL-адрес для кластеров Azure доступен также на панели основных компонентов кластера портала Azure.
-
-### <a name="connect-to-a-secure-cluster"></a>Безопасное подключение к кластеру
-Вы можете управлять клиентским доступом к кластеру Service Fabric с помощью сертификатов или Azure Active Directory (AAD).
-
-При попытке подключиться к Service Fabric Explorer в защищенном кластере вам понадобится либо представить сертификат клиента, либо войти с помощью AAD (в зависимости от конфигурации кластера).
-
-## <a name="next-steps"></a>Дальнейшие действия
-* [Обзор Testability](service-fabric-testability-overview.md)
+## <a name="next-steps"></a>Дополнительная информация
 * [Управление приложениями Service Fabric в Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Развертывание приложений Service Fabric с помощью PowerShell](service-fabric-deploy-remove-applications.md)
 

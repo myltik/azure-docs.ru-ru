@@ -2,18 +2,18 @@
 title: "Настройка среды выполнения интеграции Azure-SSIS для высокой производительности | Документы Microsoft"
 description: "Узнайте, как настроить свойства среды выполнения интеграции Azure-SSIS для высокой производительности"
 services: data-factory
-ms.date: 11/29/2017
+ms.date: 01/10/2018
 ms.topic: article
 ms.service: data-factory
 ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 4eb17466713aed93209e585c27fd6bb7220a97d9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 7d0e75ad85731b10f9a993c2fa62f30c0142ed05
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Настройка среды выполнения интеграции Azure-SSIS для высокой производительности
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/06/2017
 
 В следующей части сценария конфигурации приведены свойства, которые можно настроить при создании среды выполнения интеграции Azure-SSIS. Полный сценарий и описание PowerShell см. в статье [Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure](tutorial-deploy-ssis-packages-azure.md).
 
-```
+```powershell
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -39,10 +39,10 @@ $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
 # In public preview, only EastUS, NorthEurope, and WestEurope are supported.
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_A4_v2"
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -62,7 +62,7 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 -   Standard\_A4\_v2;
 -   Standard\_A8\_v2;
 -   Standard\_D1\_v2;
--   Standard\_D2\_v2;
+-   Standard\_D2\_v2
 -   Standard\_D3\_v2;
 -   Standard\_D4\_v2.
 
@@ -90,15 +90,16 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Если вы уже используете мощный рабочий узел для запуска пакетов, увеличение значения **AzureSSISMaxParallelExecutionsPerNode** может повысить общую пропускную способность среды выполнения интеграции. Вы можете определить подходящее значение на основе стоимости пакета и следующих конфигураций для рабочих узлов. Дополнительные сведения см. в статье [Размеры виртуальных машин общего назначения](../virtual-machines/windows/sizes-general.md).
+Если вы уже используете мощный рабочий узел для запуска пакетов, увеличение значения **AzureSSISMaxParallelExecutionsPerNode** может повысить общую пропускную способность среды выполнения интеграции. Для узлов Standard_D1_v2 поддерживаются 1–4 параллельных выполнения на каждом узле. На остальных узлах поддерживаются 1–8 параллельных выполнений.
+Вы можете определить подходящее значение на основе стоимости пакета и следующих конфигураций для рабочих узлов. Дополнительные сведения см. в статье [Размеры виртуальных машин общего назначения](../virtual-machines/windows/sizes-general.md).
 
 | Размер             | vCPU | Память, ГиБ | Временное хранилище (SSD): ГиБ | Максимальная пропускная способность временного хранилища: операций ввода-вывода в секунду / чтение Мбит/с / запись Мбит/с | Макс. число дисков данных / пропускная способность: операций ввода-вывода в секунду | Максимальное число сетевых адаптеров и ожидаемая производительность сети (Мбит/с) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standard\_D1\_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 2 / 2x500                         | 2 / 750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4x500                         | 2 / 1500                                       |
-| Standard\_D3\_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 8 / 8x500                         | 4 / 3000                                       |
+| Standard\_D3\_v2 | 4.    | 14          | 200                    | 12000 / 187 / 93                                           | 8 / 8x500                         | 4 / 3000                                       |
 | Standard\_D4\_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 16 / 16x500                       | 8 / 6000                                       |
-| Standard\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8x500                         | 4 / 1000                                       |
+| Standard\_A4\_v2 | 4.    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8x500                         | 4 / 1000                                       |
 | Standard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16x500                       | 8 / 2000                                       |
 
 Ниже приведены рекомендации по настройке правильного значения для свойства **AzureSSISMaxParallelExecutionsPerNode**. 
@@ -120,5 +121,5 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 ## <a name="design-for-high-performance"></a>Проектирование для обеспечения высокой производительности
 Проектирование пакета SSIS для запуска в Azure отличается от проектирования пакета для локального выполнения. Для более эффективного выполнения в Azure SSIS IR вместо объединения нескольких независимых задач в том же пакете разделите их на несколько пакетов. Создайте выполнение для каждого пакета, чтобы не приходилось ожидать выполнения каждого из них. Такой подход обеспечивает масштабируемость среды выполнения интеграции Azure-SSIS и улучшает общую пропускную способность.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше о среде выполнения интеграции Azure-SSIS в [этом разделе](concepts-integration-runtime.md#azure-ssis-integration-runtime).

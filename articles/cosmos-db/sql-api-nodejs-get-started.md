@@ -1,6 +1,6 @@
 ---
-title: "Учебник по node.js для API-Интерфейсы SQL для Azure Cosmos DB | Документы Microsoft"
-description: "Node.js учебник, в котором создается с помощью API SQL Cosmos DB."
+title: "Руководство по Node.js для API SQL в Azure Cosmos DB | Документация Майкрософт"
+description: "В этом руководстве по Node.js создается база данных Cosmos DB с помощью API SQL."
 keywords: "node.js, руководство, база данных node"
 services: cosmos-db
 documentationcenter: node.js
@@ -15,13 +15,13 @@ ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
-ms.openlocfilehash: 3b3dc3675c495d9558ccb135f3177491d2aaf527
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 3cfea11e70309c56f991f5d563649741c675c907
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Учебник по node.js: использовать API-Интерфейсы SQL в базе данных Azure Cosmos для создания консольного приложения Node.js
+# <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Руководство по Node.js: использование API SQL в Azure Cosmos DB для создания консольного приложения Node.js
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -336,7 +336,7 @@ ms.lasthandoff: 12/18/2017
         console.log(`Getting document:\n${document.id}\n`);
 
         return new Promise((resolve, reject) => {
-            client.readDocument(documentUrl, { partitionKey: document.district }, (err, result) => {
+            client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
                         client.createDocument(collectionUrl, document, (err, created) => {
@@ -624,7 +624,7 @@ Azure Cosmos DB поддерживает удаление документов J
 
 Теперь все готово. Выполните сборку и начинайте работу с решением. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Требуется более сложный пример Node.js? См. статью о [создании веб-приложения Node.js с использованием Azure Cosmos DB](sql-api-nodejs-application.md).
 * Узнайте, как выполнять [мониторинг учетной записи Azure Cosmos DB](monitor-accounts.md).
 * Отправьте запросы образцу набора данных в [Площадке для запросов](https://www.documentdb.com/sql/demo).

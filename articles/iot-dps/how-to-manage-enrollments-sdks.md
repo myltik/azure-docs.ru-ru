@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14e353af82342bc7a580e1a0a02b8b4e29514fb9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Как управлять регистрациями устройств с помощью пакетов SDK службы подготовки устройств Azure
 При *регистрации устройства* создается запись одного устройства или группы устройств, которые можно в будущем зарегистрировать с помощью службы подготовки устройств. Запись регистрации содержит необходимую начальную конфигурацию устройств как часть регистрации, включая нужный Центр Интернета вещей. В этой статье показано, как управлять регистрацией устройств для подготовки службы программным способом с помощью пакетов SDK службы подготовки Интернета вещей Azure.  Пакеты SDK доступны в GitHub в том же хранилище, что и пакет SDK Интернета вещей Azure.
@@ -25,8 +25,9 @@ ms.lasthandoff: 01/12/2018
 В этой статье рассматриваются основные понятия верхнего уровня управления регистрацией устройств программным способом для службы подготовки с помощью пакетов SDK службы подготовки Интернета вещей Azure.  Точные вызовы API могут отличаться из-за различия языков.  Ознакомьтесь с примерами, которые мы представили на GitHub, чтобы получить подробные сведения:
 * [Samples for the Azure Provisioning Clients SDK for Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples) (Примеры для пакета SDK клиента службы подготовки Azure для Java).
 * [Samples for the Azure IoT Device Provisioning Service SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples) (Примеры для пакета SDK службы подготовки Интернета вещей Azure для Node.js).
+* [Примеры для службы подготовки Azure для .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 * Строка подключения экземпляра службы подготовки устройств
 * Артефакты безопасности устройств:
     * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):

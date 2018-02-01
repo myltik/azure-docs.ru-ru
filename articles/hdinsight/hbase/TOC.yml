@@ -72,6 +72,21 @@
             - name: Публикация приложений HDInsight в Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: "Установка опубликованного приложения\_— Cask Data Application Platform (CDAP)"
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: "Установка опубликованного приложения\_— Dataiku"
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: "Установка опубликованного приложения\_— Datameer"
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: "Установка опубликованного приложения\_— H2O"
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: "Установка опубликованного приложения\_— Streamsets"
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Безопасность
       items:
         - name: Использование SSH с HDInsight
@@ -165,6 +180,8 @@
         - name: Установка новой версии кластера HDInsight
           href: ../hdinsight-upgrade-cluster.md
           maintainContext: true
+        - name: Переход к использованию более новой версии кластера HBase
+          href: apache-hbase-migrate-new-version.md
         - name: Обновление ОС путем частичной замены для кластера HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
@@ -227,11 +244,15 @@
           href: apache-hbase-provision-vnet.md
         - name: Репликация кластера HBase в виртуальной сети Azure
           href: apache-hbase-replication.md
+        - name: Настройка резервного копирования и репликации для HBase и Phoenix
+          href: apache-hbase-backup-replication.md
     - name: Мониторинг с помощью OMS
       items:
         - name: Использование Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
           maintainContext: true
+        - name: Мониторинг HBase с помощью OMS
+          href: apache-hbase-monitor-with-oms.md
         - name: Панели мониторинга для кластеров
           href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
@@ -241,6 +262,8 @@
         - name: Мониторинг производительности кластера
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+        - name: Рекомендации по оптимизации производительности Phoenix
+          href: apache-hbase-phoenix-performance.md
 - name: Справочные материалы
   items:
     - name: Примеры кода

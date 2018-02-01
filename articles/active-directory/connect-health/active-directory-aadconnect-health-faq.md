@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8cbe60ad3eb26aa1152f8eec3bdc36b8006cf242
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Часто задаваемые вопросы об Azure AD Connect Health
 Эта статья содержит ответы на часто задаваемые вопросы о расширении Azure Active Directory (Azure AD) Connect Health. Здесь представлены сведения об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке.
@@ -45,6 +45,7 @@ ms.lasthandoff: 12/11/2017
 * Для первого агента Connect Health требуется по крайней мере одна лицензия Azure AD Premium.
 * Для каждого дополнительного регистрируемого агента нужно еще 25 лицензий Azure AD Premium.
 * Количество агентов означает общее число агентов, зарегистрированных во всех отслеживаемых ролях (AD FS, Azure AD Connect и (или) AD DS).
+* Условия лицензирования AAD Connect Health не требуют назначения лицензии для определенных пользователей. Требуется только необходимое число действительных лицензий.
 
 Сведения о лицензировании также приведены на [странице Azure AD](https://aka.ms/aadpricing).
 

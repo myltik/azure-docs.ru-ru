@@ -4,7 +4,7 @@ description: "В этой статье описывается назначени
 services: active-directory
 keywords: "учетная запись службы синхронизации Azure AD, пароль"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e4f143779a33bc2511974884fa16894611050f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Изменение пароля учетной записи Azure AD Connect Sync
 Если вы измените пароль учетной записи для Azure AD Connect Sync, служба синхронизации не сможет правильно запуститься, пока вы не сбросите ключ шифрования и не выполните повторную инициализацию пароля учетной записи для Azure AD Connect. 
@@ -43,7 +43,7 @@ Azure AD Connect входит в состав служб синхронизац
 Вы этом случае вы увидите такие ошибки.
 
 - Если попытаться запустить службу синхронизации, которая не может получить ключ шифрования, в диспетчере управления службами Windows возникает ошибка "**Windows не может запустить синхронизацию Microsoft Azure AD на локальном компьютере. Дополнительные сведения см. в журнале системных событий. Если это не служба корпорации Майкрософт, обратитесь к разработчику и укажите код ошибки для этой службы **-21451857952****".
-- В средстве просмотра событий Windows журнал системных событий содержит ошибку с **идентификатором 6028** и сообщением*"**Невозможно получить ключ шифрования сервера**".*
+- В средстве просмотра событий Windows журнал системных событий содержит ошибку с **идентификатором 6028** и сообщением *"**Невозможно получить ключ шифрования сервера**"*.
 
 Чтобы избежать появления этих ошибок, при изменении пароля выполните процедуры, описанные в разделе [Сброс ключа шифрования в службе синхронизации Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key).
  
@@ -107,7 +107,7 @@ Azure AD Connect входит в состав служб синхронизац
 1. Перейдите к диспетчеру управления службами Windows ("Пуск" → "Службы").
 2. Выберите **службу синхронизации Microsoft Azure AD** и нажмите кнопку "Перезапустить".
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 **Обзорные статьи**
 
 * [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 06/05/2017
+ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 26cb1a5dd9b290366307e4026686e65f7afc0523
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 81f96c223fb5ad2c37bd0679743f14980a5885b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Архитектура подключений к базе данных SQL Azure 
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 12/08/2017
 | Центральный регион США | 23.99.160.139 | 13.67.215.62 |
 | Восточная Азия | 191.234.2.139 | 52.175.33.150 |
 | Восточная часть США 1 | 191.238.6.43 | 40.121.158.30 |
-| Восток США 2 | 191.239.224.107 | 40.79.84.180 |
+| Восток США 2 | 191.239.224.107 | 40.79.84.180 * |
 | Центральная Индия | 104.211.96.159  | |
 | Южная Индия | 104.211.224.146  | |
 | Западная Индия | 104.211.160.80 | |
@@ -92,6 +92,8 @@ ms.lasthandoff: 12/08/2017
 | Западная часть США 1 | 23.99.34.75 | 104.42.238.205 |
 | Западный регион США 2 | 13.66.226.202  | |
 ||||
+
+\***Примечание.** В регионе *Восточная часть США 2* также доступны третичные IP-адреса `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Изменение политики подключения для базы данных SQL Azure
 
@@ -183,7 +185,7 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Сведения о том, как изменить политику подключения базы данных SQL Azure для сервера базы данных SQL Azure, см. в разделе [Create or Update Server Connection Policy](https://msdn.microsoft.com/library/azure/mt604439.aspx) (Создание или изменение политики подключения сервера).
 - Сведения о поведении подключения к базе данных SQL Azure клиентов, использующих ADO.NET 4.5 или более поздней версии, см. в разделе [Порты для ADO.NET 4.5, отличные от порта 1433](sql-database-develop-direct-route-ports-adonet-v12.md).

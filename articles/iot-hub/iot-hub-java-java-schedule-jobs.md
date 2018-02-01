@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 9009afc83b40064c6dbf10100f514c681af9b96b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54f446f8735bc46b87fe19aaf7845c5fbfce2744
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Планирование и трансляция заданий (Java)
 
@@ -50,9 +50,9 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Статья [Общие сведения о пакетах SDK для Azure IoT и их использование](iot-hub-devguide-sdks.md) содержит сведения о разных пакетах SDK для Интернета вещей Azure, с помощью которых можно создать приложения для устройств и внутренние приложения.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
-Для работы с этим руководством необходимы указанные ниже компоненты.
+Для работы с этим учебником необходимы указанные ниже компоненты.
 
 * Последняя версия [пакета SDK для Java SE 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Если требуется создать удостоверение устройства программным способом, см. соответствующий раздел в разделе [Подключение устройства к Центру Интернета вещей с помощью Java](iot-hub-java-java-getstarted.md#create-a-device-identity). Можно также использовать средство [iothub-explorer](https://github.com/Azure/iothub-explorer) для добавления устройства к Центру Интернета вещей.
+Если требуется создать удостоверение устройства программным способом, см. соответствующий раздел в разделе [Подключение устройства к Центру Интернета вещей с помощью Java](iot-hub-java-java-getstarted.md#create-a-device-identity). Для добавления устройства в Центр Интернета вещей можно также использовать [расширение Интернета вещей для Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="create-the-service-app"></a>Создание приложения службы
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 10/11/2017
     import java.util.UUID;
     ```
 
-1. Добавьте в класс **App** . Замените `{youriothubconnectionstring}` строкой подключения к вашему Центру Интернета вещей, которую вы записали, выполняя инструкции в разделе *Создание Центра Интернета вещей*:
+1. Добавьте в класс **App** . Замените `{youriothubconnectionstring}` строкой подключения к вашему центру Интернета вещей, которую вы записали, выполняя инструкции в разделе *Создание центра Интернета вещей*:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -285,7 +285,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-device-app"></a>Создание приложения устройства
 
-В этом разделе вы создадите консольное приложение Java, которое обрабатывает требуемые свойства, отправленные из Центра Изменения вещей реализует непосредственный вызов методов.
+В этом разделе вы создадите консольное приложение Java, которое обрабатывает требуемые свойства, отправленные из Центр Интернета вещей реализует непосредственный вызов методов.
 
 1. В папке `iot-java-schedule-jobs` создайте проект Maven с именем **simulated-device**, выполнив в командной строке следующую команду. Обратите внимание, что это одна длинная команда.
 
@@ -477,7 +477,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Клиент устройства реагирует на изменения](media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве мы настроили новый Центр Интернета вещей на портале Azure и создали удостоверение устройства в реестре удостоверений Центра Интернета вещей. Вы создали серверное приложения для запуска двух заданий. Первое приложение устанавливает значения требуемых свойств, а второе вызывает прямой метод.
 

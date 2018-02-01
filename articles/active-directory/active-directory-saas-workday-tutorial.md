@@ -4,20 +4,21 @@ description: "Узнайте, как настроить единый вход Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 01/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 5e4d46f9a3954698fbbe3c80fd8a95f4cd87465b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 1dfe319e708e6a4e815413da1a7bf635f4d0a53d
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Руководство. Интеграция Azure Active Directory с Workday
 
@@ -27,11 +28,11 @@ ms.lasthandoff: 12/11/2017
 
 - С помощью Azure AD вы можете контролировать доступ к Workday.
 - Вы можете включить автоматический вход пользователей в Workday (единый вход) с учетной записью Azure AD.
-- Вы можете управлять учетными записями централизованно — через портал Azure.
+- Вы можете управлять учетными записями централизованно — на портале Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с приложением Workday, вам потребуется:
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 12/11/2017
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не используйте рабочую среду без необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух стандартных блоков.
@@ -59,40 +60,37 @@ ms.lasthandoff: 12/11/2017
 
 1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Кнопка "Azure Active Directory"][1]
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![ПРИЛОЖЕНИЯ][2]
+    ![Колонка "Корпоративные приложения"][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![ПРИЛОЖЕНИЯ][3]
+    ![Кнопка "Новое приложение"][3]
 
-4. В поле поиска введите **Workday**.
+4. В поле поиска введите **Workday**, выберите **Workday** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-workday-tutorial/tutorial_workday_search.png)
+    ![Workday в списке результатов](./media/active-directory-saas-workday-tutorial/tutorial_workday_addfromgallery.png)
 
-5. На панели результатов выберите **Workday** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-workday-tutorial/tutorial_workday_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>настройка и проверка единого входа в Azure AD.
 В этом разделе описана настройка и проверка единого входа Azure AD в Workday с использованием тестового пользователя Britta Simon.
 
 Чтобы единый вход работал, Azure AD необходима информация о том, какой пользователь в Workday соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Workday.
 
-Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Workday.
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Workday.
 
 Чтобы настроить и проверить единый вход Azure AD в Workday, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа в Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Workday](#creating-a-workday-test-user)** требуется для того, чтобы в Workday существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Workday](#create-a-workday-test-user)** требуется для того, чтобы в Workday существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 
 В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Workday.
 
@@ -100,51 +98,48 @@ ms.lasthandoff: 12/11/2017
 
 1. На портале Azure на странице интеграции с приложением **Workday** щелкните **Единый вход**.
 
-    ![Настройка единого входа][4]
+    ![Ссылка "Настройка единого входа"][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
  
-    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/tutorial_workday_samlbase.png)
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-workday-tutorial/tutorial_workday_samlbase.png)
 
 3. В разделе **Домены и URL-адреса приложения Workday** сделайте следующее.
 
-    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/tutorial_workday_url.png)
+    ![Сведения о домене и URL-адресах для единого входа для приложения Workday](./media/active-directory-saas-workday-tutorial/tutorial_workday_url.png)
 
-    a. В текстовом поле **URL-адрес для входа** введите значение `https://impl.workday.com/<tenant>/login-saml2.htmld`.
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    Б. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://impl.workday.com/<tenant>/login-saml.htmld`.
+    Б. В текстовом поле **Идентификатор** введите URL-адрес: `http://www.workday.com`
 
+4. Установите флажок **Показывать дополнительные параметры URL-адреса** и выполните следующие действия.
+
+    ![Сведения о домене и URL-адресах для единого входа для приложения Workday](./media/active-directory-saas-workday-tutorial/tutorial_workday_url1.png)
+
+    В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://impl.workday.com/<tenant>/login-saml.htmld`.
+     
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените их фактическими значениями URL-адреса входа и URL-адреса ответа. URL-адрес ответа должен содержать поддомен (например, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Можно указать адрес вида *http://www.myworkday.com*, но формат *http://myworkday.com* не поддерживается. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов Workday](https://www.workday.com/en-us/partners-services/services/support.html). 
- 
+    > Эти значения приведены в качестве примера. Замените их фактическими значениями URL-адреса входа и URL-адреса ответа. URL-адрес ответа должен содержать поддомен (например, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Можно указать адрес вида *http://www.myworkday.com*, но формат *http://myworkday.com* не поддерживается. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов Workday](https://www.workday.com/en-us/partners-services/services/support.html).  
 
-4. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
+5. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
 
-    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/tutorial_workday_certificate.png) 
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-workday-tutorial/tutorial_workday_certificate.png) 
 
-5. Нажмите кнопку **Сохранить** .
+6. Нажмите кнопку **Сохранить** .
 
-    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/tutorial_general_400.png)
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-workday-tutorial/tutorial_general_400.png)
+    
+7. В разделе **Конфигурация Workday** щелкните **Настроить Workday**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
-6. В разделе **Конфигурация Workday** щелкните **Настроить Workday**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+    ![Конфигурация Workday](./media/active-directory-saas-workday-tutorial/tutorial_workday_configure.png) 
 
-    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/tutorial_workday_configure.png) 
-<CS>
-7. В другом окне веб-браузера войдите на свой корпоративный сайт Workday в качестве администратора.
+8. В другом окне веб-браузера войдите на свой корпоративный сайт Workday в качестве администратора.
 
-8. Выберите **меню \> Workbench**.
-   
-    ![Workbench](./media/active-directory-saas-workday-tutorial/IC782923.png "Workbench")
-
-9. Перейдите в раздел **Администрирование учетной записи**.
-   
-    ![Администрирование учетной записи](./media/active-directory-saas-workday-tutorial/IC782924.png "Администрирование учетной записи")
-
-10. Выберите **Изменение настройки клиента — безопасность**.
+9. В **поле поиска** выполните поиск **Edit Tenant Setup – Security** в верхней левой части домашней страницы.
    
     ![Изменение параметров безопасности клиента](./media/active-directory-saas-workday-tutorial/IC782925.png "Изменение параметров безопасности клиента")
 
-11. В разделе **URL-адреса перенаправления** выполните следующие действия.
+10. В разделе **URL-адреса перенаправления** выполните следующие действия.
    
     ![URL-адреса перенаправления](./media/active-directory-saas-workday-tutorial/IC7829581.png "URL-адреса перенаправления")
    
@@ -153,15 +148,15 @@ ms.lasthandoff: 12/11/2017
     Б. В текстовых полях **Login Redirect URL** (URL-адрес перенаправления для входа) и **Mobile Redirect URL** (URL-адрес перенаправления для мобильных устройств) введите **URL-адрес выхода**, который был введен в разделе **Домены и URL-адреса приложения Workday** на портале Azure.
    
     c. На портале Azure в окне **Настройка единого входа** скопируйте значение **URL-адрес выхода** и вставьте его в текстовое поле **Logout Redirect URL** (URL-адрес перенаправления для выхода).
-   
-    d.  В текстовом поле **Среда** введите имя среды.  
+
+    d. В текстовом поле **Used for Environments** (Используется для сред) выберите имя среды.  
 
     >[!NOTE]
     > Значение атрибута "Среда" привязано к значению URL-адреса клиента.  
     >Если URL-адрес имени домена клиента Workday начинается с impl (например: *https://impl.workday.com/\<клиент\>/login-saml2.htmld*), атрибуту **Environment** должно быть присвоено значение Implementation.  
     >Если имя домена начинается с другого значения, следует обратиться к [группе поддержки клиентов Workday](https://www.workday.com/en-us/partners-services/services/support.html), чтобы получить соответствующее значение атрибута **Environment**.
 
-12. В разделе **Настройка SAML** выполните следующие действия.
+11. В разделе **Настройка SAML** выполните следующие действия.
    
     ![Настройка SAML](./media/active-directory-saas-workday-tutorial/IC782926.png "Настройка SAML")
    
@@ -169,28 +164,33 @@ ms.lasthandoff: 12/11/2017
    
     Б.  Нажмите кнопку **Добавить строку**.
 
-13. В разделе Поставщики удостоверений SAML" выполните следующие действия.
+12. В разделе **SAML Identity Providers** (Поставщики удостоверений SAML) выполните следующие действия.
    
     ![Поставщики удостоверений SAML](./media/active-directory-saas-workday-tutorial/IC7829271.png "Поставщики удостоверений SAML")
    
-    a. В текстовое поле "Имя поставщика удостоверений" введите имя поставщика (например, *SPInitiatedSSO*).
+    a. В текстовом поле **Имя поставщика удостоверений** введите имя поставщика (например, *SPInitiatedSSO*).
    
     Б. На портале Azure в окне **Настройка единого входа** скопируйте значение **SAML Entity ID** (Идентификатор сущности SAML) и вставьте его в текстовое поле **Issuer** (Издатель).
+
+    ![Поставщики удостоверений SAML](./media/active-directory-saas-workday-tutorial/IC7829271(1).png "Поставщики удостоверений SAML")
    
     c. Установите флажок **Enable Workday Initiated Logout** (Включить выход, инициируемый Workday).
    
-    d. На портале Azure в окне **Настройка единого входа** скопируйте значение **URL-адрес выхода** и вставьте его в текстовое поле **Logout Request URL** (URL-адрес запроса выхода).
+    d. На портале Azure в окне **Настройка единого входа** скопируйте значение **URL-адрес выхода** и вставьте его в текстовое поле **Logout Response URL** (URL-адрес ответа выхода).
 
-    д. Щелкните **Identity Provider Public Key Certificate** (Сертификат открытого ключа поставщика удостоверений), а затем нажмите кнопку **Создать**. 
+    д. На портале Azure в окне **Настройка единого входа** скопируйте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML) и вставьте его в текстовое поле **IdP SSO Service URL** (URL-адрес службы единого входа IdP).
+
+    f. В текстовом поле **Used for Environments** (Используется для сред) выберите имя среды.
+
+    ж. Щелкните **Identity Provider Public Key Certificate** (Сертификат открытого ключа поставщика удостоверений), а затем нажмите кнопку **Создать**. 
 
     ![Создание](./media/active-directory-saas-workday-tutorial/IC782928.png "Создание")
 
-    f. Щелкните **Create x509 Public Key**(Создать открытый ключ x509). 
+    h. Щелкните **Create x509 Public Key**(Создать открытый ключ x509). 
 
     ![Создание](./media/active-directory-saas-workday-tutorial/IC782929.png "Создание")
 
-
-14. В разделе **View x509 Public Key** (Просмотр открытого ключа x509) сделайте следующее. 
+13. В разделе **View x509 Public Key** (Просмотр открытого ключа x509) сделайте следующее. 
    
     ![Просмотр открытого ключа x509](./media/active-directory-saas-workday-tutorial/IC782930.png "Просмотр открытого ключа x509") 
    
@@ -211,74 +211,66 @@ ms.lasthandoff: 12/11/2017
    
     f.  Последовательно выберите **ОК**.
 
-15. Выполните следующие действия: 
+14. Выполните следующие действия: 
    
     ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/WorkdaySSOConfiguratio.png "Настройка единого входа")
    
-    a.  Установите флажок **Пара закрытых ключей x509**.
+    a.  В текстовом поле **Идентификатор поставщика службы** введите **http://www.workday.com**.
    
-    Б.  В текстовом поле **Идентификатор поставщика службы** введите **http://www.workday.com**.
+    Б. Выберите параметр **Не отклонять запрос проверки подлинности, инициированный поставщиком услуг**.
    
-    c.  Установите флажок **Включить проверку подлинности SAML, инициированную поставщиком услуг**.
-   
-    d.  На портале Azure в окне **Настройка единого входа** скопируйте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML) и вставьте его в текстовое поле **IdP SSO Service URL** (URL-адрес службы единого входа IdP).
-   
-    д. Выберите параметр **Не отклонять запрос проверки подлинности, инициированный поставщиком услуг**.
-   
-    f. Для параметра **Authentication Request Signature Method** (Метод подписи запроса аутентификации) выберите значение **SHA256**. 
+    c. Для параметра **Authentication Request Signature Method** (Метод подписи запроса аутентификации) выберите значение **SHA256**. 
    
     ![Метод подписи запроса аутентификации](./media/active-directory-saas-workday-tutorial/WorkdaySSOConfiguration.png "Метод подписи запроса аутентификации") 
    
-    ж. Последовательно выберите **ОК**. 
+    d. Последовательно выберите **ОК**. 
    
     ![ОК](./media/active-directory-saas-workday-tutorial/IC782933.png "ОК")
-<CE>
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
->
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-![Создание пользователя Azure AD][100]
+   ![Создание тестового пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+1. На портале Azure в области слева нажмите кнопку **Azure Active Directory**.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-workday-tutorial/create_aaduser_01.png) 
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-workday-tutorial/create_aaduser_01.png)
 
-2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
-    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-workday-tutorial/create_aaduser_02.png) 
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
 
-3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
- 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-workday-tutorial/create_aaduser_03.png) 
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-workday-tutorial/create_aaduser_02.png)
 
-4. На странице диалогового окна **Пользователь** выполните следующие действия.
- 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-workday-tutorial/create_aaduser_04.png) 
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
 
-    a. В текстовом поле **Имя** введите **BrittaSimon**.
+    ![Кнопка "Добавить"](./media/active-directory-saas-workday-tutorial/create_aaduser_03.png)
 
-    Б. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+4. В диалоговом окне **Пользователь** сделайте следующее.
 
-    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-workday-tutorial/create_aaduser_04.png)
+
+    a. В поле **Имя** введите **BrittaSimon**.
+
+    Б. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+
+    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
 
     d. Нажмите кнопку **Создать**.
  
-### <a name="creating-a-workday-test-user"></a>Создание тестового пользователя Workday
+### <a name="create-a-workday-test-user"></a>Создание тестового пользователя Workday
 
-Чтобы подготовить тестового пользователя в Workday, обратитесь к [группе поддержки клиентов Workday](https://www.workday.com/en-us/partners-services/services/support.html).
-[Группа поддержки клиентов Workday](https://www.workday.com/en-us/partners-services/services/support.html) создаст пользователя для вас.
+В этом разделе описано, как создать пользователя Britta Simon в приложении Workday. Обратитесь к [группе поддержки клиентов Workday](https://www.workday.com/en-us/partners-services/services/support.html), чтобы добавить пользователей на платформу Workday. Перед использованием единого входа необходимо создать и активировать пользователей. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
 В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к Workday.
 
-![Назначение пользователя][200] 
+![Назначение роли пользователя][200] 
 
 **Чтобы назначить пользователя Britta Simon в Workday, выполните следующие действия.**
 
@@ -288,15 +280,15 @@ ms.lasthandoff: 12/11/2017
 
 2. Из списка приложений выберите **Workday**.
 
-    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/tutorial_workday_app.png) 
+    ![Ссылка на Workday в списке "Приложения"](./media/active-directory-saas-workday-tutorial/tutorial_workday_app.png)  
 
 3. В меню слева выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][202] 
+    ![Ссылка "Пользователи и группы"][202]
 
 4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][203]
+    ![Область "Добавление назначения"][203]
 
 5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
 
@@ -304,15 +296,17 @@ ms.lasthandoff: 12/11/2017
 
 7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
     
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув элемент "Workday" на панели доступа, вы автоматически войдете в приложение Workday.
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Руководство по настройке Google Apps для автоматической подготовки пользователей](active-directory-saas-workday-inbound-tutorial.md)
 
 
 

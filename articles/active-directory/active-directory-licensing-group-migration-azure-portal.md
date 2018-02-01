@@ -1,5 +1,5 @@
 ---
-title: "Как перевести отдельных лицензированных пользователей в группу в Azure Active Directory | Документация Майкрософт"
+title: "Переход с отдельных пользовательских лицензий на групповое лицензирование в Azure Active Directory | Документация Майкрософт"
 description: "Как перейти с отдельных пользовательских лицензий на групповое лицензирование с помощью Azure Active Directory"
 services: active-directory
 keywords: "Лицензирование Azure AD"
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 01/14/2018
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08bcde92ecc3c834d4c6a36e73a720c170b8fcf2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 47d7bf5a41c140c6d6769b549163a3dadfa5ef1c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Как добавить лицензированных пользователей в групповое лицензирование в Azure Active Directory
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 12/11/2017
   ![Назначенные напрямую лицензии удалены](media/active-directory-licensing-group-migration-azure-portal/direct-licenses-removed.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о других сценариях управления лицензиями с помощью групп см. по ссылкам ниже.
 

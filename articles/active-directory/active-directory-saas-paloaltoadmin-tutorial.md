@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Руководство по интеграции Azure Active Directory с Palo Alto Networks (пользовательский интерфейс администратора)
 
@@ -32,12 +32,12 @@ ms.lasthandoff: 12/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Palo Alto Networks (пользовательский интерфейс администратора), вам потребуется:
 
 - подписка Azure AD;
-- подписка Palo Alto Networks (пользовательский интерфейс администратора) с поддержкой единого входа.
+- Брандмауэр следующего поколения Palo Alto Networks или Panorama Palo Alto Networks (централизованная система управления брандмауэрами)
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/11/2017
 
 4. В поле поиска введите **Palo Alto Networks (пользовательский интерфейс администратора)** и выберите **Palo Alto Networks (пользовательский интерфейс администратора)** на панели результатов, а затем нажмите кнопку **Добавить**, чтобы добавить приложение.
 
-    ![Palo Alto Networks (пользовательский интерфейс администратора) в списке результатов](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_addfromgallery.png)
+    ![Palo Alto Networks (пользовательский интерфейс администратора) в списке результатов](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
@@ -108,9 +108,9 @@ ms.lasthandoff: 12/11/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Palo Alto Networks (пользовательский интерфейс администратора)](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
 
-    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<Customer Firewall URL>/php/login.php`
+    a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<Customer Firewall FQDN>/php/login.php`
 
-    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<Customer Firewall URL>/SAML20/SP`
+    Б. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<Customer Firewall FQDN>/SAML20/SP`
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки Palo Alto Networks (пользовательский интерфейс администратора)](https://support.paloaltonetworks.com/support). 
@@ -151,7 +151,7 @@ ms.lasthandoff: 12/11/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-8. В другом окне браузера откройте сайт Palo Alto с правами администратора.
+8. В другом окне браузера откройте пользовательский интерфейс администратора брандмауэров Palo Alto с правами администратора.
 
 9. Щелкните **Device** (Устройство).
 

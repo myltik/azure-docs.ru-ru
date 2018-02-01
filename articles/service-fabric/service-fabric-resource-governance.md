@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: ada26a303013139f182721360aaf125ac5b94310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 974fb5bfa8b10cb5497220825b2a83ca96161b0c
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="resource-governance"></a>управление ресурсами; 
 
@@ -115,8 +115,7 @@ ms.lasthandoff: 10/11/2017
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
-  <Parameters>
-  </Parameters>
+
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
   In this case, Service Fabric sums the limits on code packages and uses the sum as 
@@ -137,6 +136,54 @@ ms.lasthandoff: 10/11/2017
 Таким образом в этом примере CodeA1 получает две трети ядра, а CodeA2 — одну треть (и соответствующие мягкие гарантии резервирования). Если параметр CpuShares не указан для пакетов кода, Service Fabric делит ядра между ними поровну.
 
 Ограничения по памяти абсолютны, так что оба пакета кода ограничены 1024 МБ (и имеют соответствующие мягкие гарантии резервирования). Пакеты кода (контейнеры или процессы) не могут выделить больше памяти, чем задано ограничением, а при попытке сделать это возникнет исключение из-за нехватки памяти. Чтобы принудительное ограничение ресурсов работало, для всех пакетов кода в пакете службы должны быть указаны ограничения по памяти.
+
+### <a name="using-application-parameters"></a>Использование параметров приложения
+
+При указании системы управления ресурсами можно использовать [параметры приложения](service-fabric-manage-multiple-environment-app-configuration.md), чтобы управлять несколькими конфигурациями приложений. Ниже приведен пример с использованием параметров приложения.
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="4" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="2048" />
+    <Parameter Name="MemoryB" DefaultValue="2048" />
+  </Parameters>
+
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
+    <Policies>
+      <ServicePackageResourceGovernancePolicy CpuCores="[CpuCores]"/>
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="[CpuSharesA]" MemoryInMB="[MemoryA]" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="[CpuSharesB]" MemoryInMB="[MemoryB]" />
+    </Policies>
+  </ServiceManifestImport>
+```
+
+В этом примере задаются значения параметров по умолчанию для рабочей среды, в которой каждому пакету службы выделяются 4 ядра и 2 ГБ памяти. Значения по умолчанию можно изменить с помощью файлов параметров приложения. В этом примере один файл параметров может использоваться для тестирования приложения в локальной среде, в которой ему предоставляется меньше ресурсов, чем в рабочей среде. 
+
+```xml
+<!-- ApplicationParameters\Local.xml -->
+
+<Application Name="fabric:/TestApplication1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="2" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="1024" />
+    <Parameter Name="MemoryB" DefaultValue="1024" />
+  </Parameters>
+</Application>
+```
+
+> [!IMPORTANT] 
+> Указание системы управления ресурсами с помощью параметров приложения доступно, начиная с Service Fabric версии 6.1.<br> 
+>
+> Если параметры приложения используются для указания системы управления ресурсами, то невозможно перейти на использование версии Service Fabric, более ранней, чем версия 6.1. 
+
 
 ## <a name="other-resources-for-containers"></a>Другие ресурсы для контейнеров
 Помимо ограничений ресурсов ЦП и памяти можно указать другие ограничения ресурсов для контейнеров. Эти ограничения указываются на уровне пакета кода и будут применены при запуске контейнера. В отличие от ограничений ресурсов ЦП и памяти, диспетчер кластерных ресурсов не будет учитывать эти ресурсы и не будет выполнять проверки емкости или балансировку нагрузки для них. 
@@ -160,6 +207,6 @@ ms.lasthandoff: 10/11/2017
     </ServiceManifestImport>
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о диспетчере кластерных ресурсов см. в статье [Общие сведения о диспетчере кластерных ресурсов Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
 * Дополнительные сведения о модели приложения, пакетах служб и пакетах кода см. в статье [Моделирование приложения в структуре службы](service-fabric-application-model.md).

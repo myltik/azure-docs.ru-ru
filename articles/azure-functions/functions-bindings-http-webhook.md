@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Привязки HTTP и webhook в функциях Azure
 
@@ -42,13 +42,13 @@ ms.lasthandoff: 01/02/2018
 Языковой пример см. в разделах:
 
 * [C#](#trigger---c-example)
-* [Скрипт C# (.csx)](#trigger---c-script-example)
+* [Скрипт C# (CSX)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Пример C# в триггере
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) , выполняющее поиск `name` параметр в строке запроса или тексте HTTP-запроса.
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), выполняющая поиск параметра `name` в строке запроса или в тексте HTTP-запроса.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -236,13 +236,13 @@ module.exports = function(context, req) {
 Языковой пример см. в разделах:
 
 * [C#](#webhook---c-example)
-* [Скрипт C# (.csx)](#webhook---c-script-example)
+* [Скрипт C# (CSX)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Пример веб-перехватчика в C#
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) HTTP 200, отправляет в ответ на запрос универсального JSON.
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая отправляет HTTP 200 в ответ на универсальный запрос JSON.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Атрибуты триггера
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) атрибута, определенного в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 В параметрах конструктора атрибута можно задать уровень авторизации и допустимые методы HTTP. Имеются свойства для типа веб-перехватчика и шаблона пути. Дополнительные сведения об этих параметрах см. в разделе [Конфигурация триггера](#trigger---configuration). Вот как выглядит атрибут `HttpTrigger` в сигнатуре метода:
 
@@ -377,7 +377,7 @@ public static HttpResponseMessage Run(
 }
  ```
 
-Полный пример см. в разделе [триггер - пример на C#](#trigger---c-example).
+Полный пример см. в разделе [Пример C# в триггере](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Конфигурация триггера
 
@@ -528,6 +528,10 @@ module.exports = function (context, req) {
 - **В строке запроса**: поставщик передает имя ключа в параметре `clientid` строки запроса, например `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
 - **В заголовке запроса**: поставщик передает имя ключа в заголовке `x-functions-clientid`.
 
+## <a name="trigger---limits"></a>Триггер — ограничения
+
+Длина HTTP-запроса ограничена 100 КБ (102 400 байт), а длина URL-адреса — 4 КБ (4096 байт). Эти ограничения задает элемент `httpRuntime` [файла Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) среды выполнения.
+
 ## <a name="trigger---hostjson-properties"></a>Свойства host.json в триггере
 
 В файле [host.json](functions-host-json.md) содержатся параметры, управляющие поведением триггера HTTP.
@@ -540,7 +544,7 @@ module.exports = function (context, req) {
 
 ## <a name="output---configuration"></a>Выходная конфигурация
 
-Для C# библиотеки классов нет выходных данных конкретных привязку свойств конфигурации. Чтобы отправить HTTP-ответ, измените тип возвращаемого значения функции на `HttpResponseMessage` или `Task<HttpResponseMessage>`.
+Для библиотек класса C# не предусмотрены свойства конфигурации привязки для выходных данных. Чтобы отправить HTTP-ответ, измените тип возвращаемого значения функции на `HttpResponseMessage` или `Task<HttpResponseMessage>`.
 
 Для других языков выходная привязка HTTP определяется как объект JSON в массиве `bindings` файла function.json, как показано в следующем примере.
 
@@ -564,7 +568,7 @@ module.exports = function (context, req) {
 
 Используйте параметр вывода для ответа отправителю запроса HTTP или веб-перехватчика. Вы также можете использовать шаблоны ответов языкового стандарта. Примеры ответов см. в разделе с [примером триггера](#trigger---example) и [примером веб-перехватчика](#trigger---webhook-example).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

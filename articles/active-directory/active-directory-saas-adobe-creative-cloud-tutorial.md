@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 892055728ccc35690b19edf708997e9f104f75b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: c34d6bddb733c5979bc2006738e950cf7a185c4e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Руководство по интеграции Azure Active Directory с Adobe Creative Cloud
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с приложением Adobe Creative Cloud, вам потребуется:
 
@@ -157,11 +157,11 @@ ms.lasthandoff: 12/11/2017
 
     ![Настройка Adobe Creative Cloud](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
     
-10. В другом окне веб-браузера войдите в свой клиент Adobe Creative Cloud с правами администратора.
+10. В другом окне веб-браузера войдите в [консоль администрирования Adobe](https://adminconsole.adobe.com) от имени администратора.
 
-11. Выберите пункты **Identity** (Идентификация) на панели навигации слева и щелкните свой домен. В разделе **Single Sign On Configuration Required** (Обязательная конфигурация единого входа) выполните следующие действия.
+11. На панели навигации вверху выберите **Параметры**, а затем щелкните **Удостоверение**. Откроется список доменов. Щелкните ссылку **Настройка** для вашего домена. В разделе **Single Sign On Configuration Required** (Обязательная конфигурация единого входа) выполните следующие действия. Дополнительные сведения см. в статье о [настройке домена](https://helpx.adobe.com/enterprise/using/set-up-domain.html).
 
-    ![Параметры](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "Параметры")
+    ![Параметры](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "Параметры")
     
     a. Щелкните **Browse** (Просмотр), чтобы найти и передать сертификат, загруженный из Azure AD, в качестве **сертификата поставщика удостоверений**.
     
@@ -176,8 +176,6 @@ ms.lasthandoff: 12/11/2017
     f. Нажмите кнопку **Сохранить** .
 
 12. Теперь на панели мониторинга отобразится XML-файл **Download Metadata** (Загрузить метаданные). Он содержит URL-адреса компании Adobe для описания сущности (EntityDescriptor) и URL-адреса службы утверждений (AssertionConsumerService). Откройте этот файл и перенесите настройки в приложение Azure AD.
-
-    ![Настройка единого входа на стороне приложения](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
 
     ![Настройка единого входа на стороне приложения](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
@@ -226,11 +224,9 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Чтобы подготовить учетные записи пользователей, выполните следующие действия.
 
-1. Выполните вход на корпоративный сайт Adobe Creative Cloud с правами администратора.
+1. Войдите на сайт [консоли администрирования Adobe](https://adminconsole.adobe.com) от имени администратора.
 
-2. Добавьте пользователя в консоль Adobe с помощью федеративного идентификатора и назначьте его группе для получения прав.
-
-    ![Ссылка на Adobe Creative Cloud в списке приложений](./media/active-directory-saas-adobe-creative-cloud-tutorial/users.png)  
+2. Добавьте пользователя в консоль Adobe с помощью федеративного идентификатора и назначьте его профилю продукта. Подробные сведения о добавлении пользователей см. в статье, посвященной [добавлению пользователей в консоль администрирования Adobe](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. На этом этапе введите свой адрес электронной почты или имя участника-пользователя в форму регистрации Adobe, нажмите клавишу TAB, и вы должны попасть обратно в Azure AD через федеративные отношения:
     * Веб-доступ: www.adobe.com > "Вход"
@@ -278,6 +274,8 @@ ms.lasthandoff: 12/11/2017
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Настройка домена (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+* [Настройка Azure для использования с единым входом Adobe (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
 <!--Image references-->
 

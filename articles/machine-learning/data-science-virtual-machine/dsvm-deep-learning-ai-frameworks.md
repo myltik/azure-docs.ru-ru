@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Платформы глубокого обучения и искусственного интеллекта
 [Виртуальная машина для обработки и анализа данных](http://aka.ms/dsvm) (DSVM) и [виртуальная машина для глубокого обучения](http://aka.ms/dsvm/deeplearning) поддерживают несколько платформ глубокого обучения для создания приложений искусственного интеллекта (AI) с прогнозной аналитикой и когнитивными возможностями, например понимание изображений и языка. 
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 | Поддерживаемые выпуски виртуальных машин для обработки и анализа данных (DSVM)      | Windows, Linux     |
 | Настройка и установка на DSVM  | Keras устанавливается в среде Python 2.7 (_корневая среда_), а также в Python 3.5 (_py35_).   |
 | Ссылки на примеры      | https://github.com/fchollet/keras/tree/master/examples      |
-| Дополнительные средства на виртуальной машине для обработки и анализа данных      | Microsoft Cognitive Toolkit, TensorLlow, Theano      |
+| Дополнительные средства на виртуальной машине для обработки и анализа данных      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
 | Запуск и использование    | Загрузите примеры из расположения Github, скопируйте их в каталог ~/notebooks и откройте в Jupyter   |
 
 

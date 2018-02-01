@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: 55cfba5e9730b123bba20dfdc5d10c1157352a35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Устранение проблемы подключения VPN типа "сеть — сеть" Azure
 
@@ -87,12 +87,12 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Шаг 6. Проверка полного соответствия подсетей (шлюзов на основе политик Azure)
 
--   Для виртуальной сети Azure подсети между виртуальной сетью Azure и локальными определениями должны полностью совпадать.
+-   Адресные пространства виртуальной сети между виртуальной сетью Azure и локальными определениями должны полностью совпадать.
 -   Подсети между **шлюзом локальной сети** и локальными определениями должны полностью совпадать для локальной сети.
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Шаг 7. Проверка работоспособности шлюза Azure
 
-1. Перейдите к [пробе работоспособности](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Перейдите к пробе работоспособности.
 
 2. Просмотрите предупреждение о сертификате.
 3. Если вы получите ответ, шлюз VPN считается работоспособным. Если вы не получите ответ, шлюз может быть неработоспособным, или проблема может быть вызвана наличием группы безопасности сети (NSG) в подсети шлюза. Пример ответа приведен ниже:
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
 
 Функция полной безопасности пересылки может вызвать проблемы отключения. Если для VPN-устройства включена функция полной безопасности пересылки, отключите эту функцию. Затем обновите политику IPsec VPN-шлюза.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 -   [Создание подключения типа "сеть — сеть" на портале Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Настройка политики IPsec/IKE для VPN-подключений типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть"](vpn-gateway-ipsecikepolicy-rm-powershell.md)

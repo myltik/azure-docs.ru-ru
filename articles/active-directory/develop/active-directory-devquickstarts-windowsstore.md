@@ -1,5 +1,5 @@
 ---
-title: "Azure AD универсальной платформы Windows (UWP и XAML) Приступая к работе | Документы Microsoft"
+title: "Универсальная платформа Windows (UWP и XAML) для Azure AD | Документация Майкрософт"
 description: "Создание приложений Магазина Windows, которые интегрируются с Azure AD для входа в систему и вызывают интерфейсы API, защищенные Azure AD, с помощью OAuth."
 services: active-directory
 documentationcenter: windows
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2282a59c9dd5d5d76a5b3e19f602e9d3dcc0b4ef
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD универсальной платформы Windows (UWP и XAML) Приступая к работе
+# <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Универсальная платформа Windows (UWP и XAML) для Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -89,7 +89,7 @@ ms.lasthandoff: 12/20/2017
 
 1. Инициализируйте класс `AuthenticationContext` приложения, который является основным классом ADAL. Это действие отправляет в библиотеку ADAL координаты, которые ей требуются для взаимодействия с Azure AD, и сообщает о способе кэширования маркеров.
 
-    ```C#
+    ```csharp
     public MainPage()
     {
         ...
@@ -100,7 +100,7 @@ ms.lasthandoff: 12/20/2017
 
 2. Найдите метод `Search(...)`, который вызывается при нажатии кнопки **Поиск** в пользовательском интерфейсе приложения. Этот метод выполняет запрос GET в интерфейс API Graph службы Azure AD для запроса списка пользователей, чьи имена участника-пользователя начинаются с данного слова поиска. Для отправки запросов в API Graph включите маркер доступа в заголовок **авторизации** запроса. Вот где может пригодиться ADAL.
 
-    ```C#
+    ```csharp
     private async void Search(object sender, RoutedEventArgs e)
     {
         ...
@@ -123,20 +123,20 @@ ms.lasthandoff: 12/20/2017
     Когда приложение запрашивает маркер путем вызова `AcquireTokenAsync(...)`, библиотека ADAL пытается вернуть маркер без запроса учетных данных пользователя. Если библиотека ADAL решит, что пользователь должен войти в систему для получения маркера, то она отобразит диалоговое окно входа, соберет учетные данные пользователя и вернет маркер после успешной аутентификации. Если ADAL по какой-то причине не сможет вернуть маркер, то статус *AuthenticationResult* будет представлять собой ошибку.
 3. Теперь настало время использовать только что полученный маркер доступа. Также в методе `Search(...)` добавьте маркер в запрос GET API Graph в заголовке **авторизации**:
 
-    ```C#
+    ```csharp
     // Add the access token to the Authorization header of the call to the Graph API, and call the Graph API.
     httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
 
     ```
 4. Для отображения сведений о пользователе в вашем приложении, например идентификатора пользователя, можно использовать объект `AuthenticationResult`:
 
-    ```C#
+    ```csharp
     // Update the page UI to represent the signed-in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
     ```
 5. Также с помощью ADAL можно выполнить выход пользователей из приложения. Когда пользователь нажимает кнопку **Выход**, убедитесь, что при следующем вызове `AcquireTokenAsync(...)` отображается окно входа. С помощью ADAL это так же просто сделать, как и очистить кэш маркеров:
 
-    ```C#
+    ```csharp
     private void SignOut()
     {
         // Clear session state from the token cache.

@@ -1,5 +1,5 @@
 ---
-title: "Сквозная проверка подлинности в Azure AD Connect. Обновление предварительной версии агентов проверки подлинности | Документация Майкрософт"
+title: "Сквозная аутентификация в Azure AD Connect. Обновление агентов аутентификации| Документация Майкрософт"
 description: "В этой статье описывается процесс обновления сквозной аутентификации в Azure Active Directory (Azure AD)."
 services: active-directory
 keywords: "сквозная проверка подлинности azure ad connect, установка active directory, необходимые компоненты для azure ad, единый вход"
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 01/14/2018
 ms.author: billmath
-ms.openlocfilehash: 96d4e8e240d845be5f04bf0e724d91d740ad9cdf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: f0a254b7216ca6fda40e26bafb7de57e796a5218
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Сквозная проверка подлинности в Azure Active Directory. Обновление предварительной версии агентов проверки подлинности
 
@@ -84,5 +85,5 @@ ms.lasthandoff: 12/11/2017
 >[!NOTE]
 >Если просмотреть колонку "Сквозная проверка подлинности" в [центре администрирования Azure Active Directory](https://aad.portal.azure.com) после завершения предыдущих шагов, то вы увидите по две записи агентов аутентификации на каждом сервере. При этом один из агентов аутентификации **активен**, а другой **неактивен**. Это _ожидаемое поведение_. **Неактивная** запись автоматически удалится через несколько дней.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [**Устранение неполадок**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md). Узнайте, как устранить самые распространенные проблемы с этой функцией.

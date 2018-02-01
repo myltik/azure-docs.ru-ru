@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 926005eace0acde27e26619a2787368ba0954351
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Вопросы и ответы о производительности приложений в веб-приложениях Azure
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 01/03/2018
 2. Выберите **Параметры приложения**.
 3. Установите переключатель **Всегда включено** в положение **Вкл.**
 
-## <a name="how-do-i-turned-on-failed-request-tracing"></a>Как включить трассировку неудачно завершенных запросов?
+## <a name="how-do-i-turn-on-failed-request-tracing"></a>Как включить трассировку неудачно завершенных запросов?
 
 Чтобы включить трассировку неудачно завершенных запросов, сделайте следующее:
 

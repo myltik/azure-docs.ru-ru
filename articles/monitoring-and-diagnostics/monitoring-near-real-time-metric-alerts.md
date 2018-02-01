@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: cd1002929ad749ac1742e914a9f2411f09ec91d5
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: d3e88a98e0ba93a630d131c25ca4dd5cb16f1b1a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Оповещения на основе метрик практически в реальном времени (предварительная версия)
 Azure Monitor теперь поддерживает новый тип оповещений на основе метрик, который называется "Оповещения на основе метрик практически в реальном времени" (предварительная версия). Эта функция сейчас доступна в виде общедоступной предварительной версии.
@@ -57,26 +57,72 @@ Azure Monitor теперь поддерживает новый тип опове
 * Microsoft.StreamAnalytics/streamingjobs
 * Microsoft.CognitiveServices/accounts
 
-## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>NEAR предупреждений в реальном времени метрики на метрики с измерениями
-Рядом с метрика предупреждений в реальном времени поддерживает предупреждения о метрики с измерениями. Измерения — это способ фильтрации вашей метрики для необходимого уровня. Почти в реальном времени метрики оповещений о показателях с измерениями поддерживаются для следующих типов ресурсов
+## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>Оповещения на основе метрик с измерениями практически в реальном времени
+Оповещения на основе метрик практически в реальном времени поддерживают оповещения на основе метрик с измерениями. Измерения — это способ фильтрации метрик до необходимого уровня. Оповещения на основе метрик с измерениями практически в реальном времени поддерживаются для следующих типов ресурсов:
 
 * Microsoft.ApiManagement/service
-* Microsoft.Storage/storageAccounts (поддерживается только для учетных записей хранения в регионах США)
-* Microsoft.Storage/storageAccounts/services (поддерживается только для учетных записей хранения в регионах США)
+* Microsoft.Storage/storageAccounts (поддерживается только для учетных записей хранения в регионах США);
+* Microsoft.Storage/storageAccounts/services (поддерживается только для учетных записей хранения в регионах США).
 
 
 ## <a name="create-a-near-real-time-metric-alert"></a>Создание оповещений на основе метрик практически в реальном времени
 Сейчас оповещения на основе метрик практически в реальном времени можно создать только на портале Azure. Реализация поддержки настройки оповещений на основе метрик практически в реальном времени с помощью PowerShell, интерфейса командной строки и REST API Azure Monitor ожидается в ближайшем времени.
 
-Создать предупреждения опыт для почти в реальном времени метрики предупреждения перемещен в новый **Alerts(Preview)** столкнуться. Несмотря на то, текущие оповещения страниц отображает **предупреждения добавьте почти в реальном времени метрика**, вы будете перенаправлены на новый интерфейс.
+Возможность создания оповещений на основе метрик практически в реальном времени перенесена в новый интерфейс **Оповещения (предварительная версия)**. Несмотря на то что на текущей странице оповещений отображается элемент **Add Near Real-Time Metric alert** (Добавить оповещение на основе метрик практически в реальном времени), вы будете перенаправлены в новый интерфейс.
 
-Можно создать практически в режиме реального времени метрики предупреждение с помощью действия, описанные [здесь](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
+Вы можете создать оповещение на основе метрик практически в реальном времени, следуя инструкциям, описанным [здесь](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
 ## <a name="managing-near-real-time-metric-alerts"></a>Управление оповещениями на основе метрик практически в реальном времени
-После создания **почти в реальном времени метрики предупреждение**, им можно управлять с помощью действия, описанные [здесь](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+Чтобы управлять созданным **оповещением на основе метрик практически в реальном времени**, выполните действия, приведенные [здесь](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="payload-schema"></a>Схема полезных данных
 
-* [Дополнительные сведения о новом интерфейсе оповещения (Предварительная версия)](monitoring-overview-unified-alerts.md)
-* [Дополнительные сведения о предупреждениях журнала в Azure Alerts (Предварительная версия)](monitor-alerts-unified-log.md)
-* [Дополнительные сведения о предупреждениях в Azure](monitoring-overview-alerts.md)
+Операция POST содержит следующие полезные данные и схему JSON для всех оповещений на основе метрик практически в реальном времени.
+
+```json
+{
+    "WebhookName": "Alert1510875839452",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
+            "condition": {
+                "metricName": "Percentage CPU",
+                "metricUnit": "Percent",
+                "metricValue": "17.7654545454545",
+                "threshold": "1",
+                "windowSize": "10",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan"
+            },
+            "resourceName": "ContosoVM1",
+            "resourceType": "microsoft.compute/virtualmachines",
+            "resourceRegion": "westus",
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "timestamp": "2017-11-16T23:54:03.9517451Z",
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/microsoft.insights/alertrules/VMMetricAlert1",
+            "name": "VMMetricAlert1",
+            "description": "A metric alert for the VM Win2012R2",
+            "conditionType": "Metric",
+            "subscriptionId": "00000000-0000-0000-0000-000000000000",
+            "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "resourceGroupName": "ContosoVM"
+        },
+        "properties": {
+                "key1": "value1",
+                "key2": "value2"
+        }
+    },
+    "RequestHeader": {
+        "Connection": "Keep-Alive",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "azure-insights/0.9",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
+}
+```
+
+## <a name="next-steps"></a>Дополнительная информация
+
+* [Подробнее о новом интерфейсе "Оповещения (предварительная версия)"](monitoring-overview-unified-alerts.md)
+* [Подробнее об оповещениях журналов в интерфейсе Azure "Оповещения (предварительная версия)"](monitor-alerts-unified-log.md)
+* [Подробнее об оповещениях в Azure](monitoring-overview-alerts.md)

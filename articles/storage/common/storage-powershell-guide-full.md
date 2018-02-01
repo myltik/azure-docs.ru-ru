@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Использование Azure PowerShell со службой хранилища Azure
 
@@ -133,7 +133,7 @@ $ctx = $storageAccount.Context
 
 * **Теги**, присвоенные учетной записи хранения. Теги часто используются для классификации ресурсов в целях выставления счетов.
 
-* **SKU** — это параметр репликации для учетной записи хранения (как, например, LRS для локально избыточного хранилища). Например, можно изменить Standard\_LRS на Standard\_GRS или Standard\_RAGRS. Обратите внимание, что невозможно изменить Standard ZRS или Premium LRS на другие SKU или заменить другие SKU этими. 
+* **SKU** — это параметр репликации для учетной записи хранения (как, например, LRS для локально избыточного хранилища). Например, можно изменить Standard\_LRS на Standard\_GRS или Standard\_RAGRS. Обратите внимание, что невозможно изменить Standard\_ZRS или Premium\_LRS на другие SKU или заменить другие SKU этими.
 
 * **Уровень доступа** для учетных записей хранилища BLOB-объектов. Для уровня доступа задано значение **Горячий** или **Холодный**, что позволяет свести к минимуму затраты, выбрав уровень доступа, соответствующий использованию учетной записи хранения. Дополнительные сведения см. в статье [Хранилище BLOB-объектов Azure: "горячий", "холодный" и архивный (предварительная версия) уровни](../blobs/storage-blob-storage-tiers.md).
 
@@ -223,7 +223,7 @@ API таблицы Azure Cosmos DB предоставляет расширенн
 * Дополнительные сведения см. в статье [Знакомство со службой Azure Cosmos DB. API таблицы](../../cosmos-db/table-introduction.md). 
 * Чтобы узнать, как использовать PowerShell для выполнения операций API таблицы Azure Cosmos DB, см. статью [Perform Azure Cosmos DB Table API operations with Azure PowerShell](../../cosmos-db/table-powershell.md) (Выполнение операций в API таблицы Azure Cosmos DB с помощью Azure PowerShell).
 
-## <a name="azures-independently-deployed-clouds"></a>Облака Azure, развернутые независимо
+## <a name="independent-cloud-deployments-of-azure"></a>Независимые облачные развертывания Azure
 
 Большинство людей используют общедоступное облако Azure для глобального развертывания Azure. Но есть и независимые развертывания Microsoft Azure для обеспечения автономности и других целей. Такие независимые развертывания называются средами. Эти доступные среды включают:
 
@@ -240,7 +240,7 @@ API таблицы Azure Cosmos DB предоставляет расширенн
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом практическом руководстве описаны стандартные операции с использованием командлетов уровня управления для учетных записей хранения. Вы научились выполнять следующие задачи: 
 

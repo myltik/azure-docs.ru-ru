@@ -1,6 +1,6 @@
 ---
-title: "Внедрение оболочки облако Azure | Документы Microsoft"
-description: "Узнайте, как внедрить оболочки облако Azure."
+title: "Внедрение Azure Cloud Shell | Документация Майкрософт"
+description: "Узнайте, как внедрить Azure Cloud Shell."
 services: cloud-shell
 documentationcenter: 
 author: jluk
@@ -14,40 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: 78b539136971aa282e5447d7882ecb02f73f346b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 3ceddb94336fc2703e6f916f05ab1ec3676cb50d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="embed-azure-cloud-shell"></a>Внедрение оболочки облако Azure
+# <a name="embed-azure-cloud-shell"></a>Внедрение Azure Cloud Shell
 
-Внедрение облака оболочки позволяет разработчикам и редакторы записи непосредственно открыть консоль облака с выделенной URL-адреса [shell.azure.com](https://shell.azure.com). Откроется сразу все возможности проверки подлинности облака оболочки, для работы с проектами, и актуальные Azure CLI или Azure PowerShell средств для пользователей.
+Внедрение Cloud Shell позволяет разработчикам и авторам напрямую открывать Cloud Shell по выделенному URL-адресу — [shell.azure.com](https://shell.azure.com). Пользователям сразу же станут доступны возможности аутентификации Cloud Shell, инструментарий и актуальные инструменты Azure CLI и Azure PowerShell.
 
-[![](https://shell.azure.com/images/launchcloudshell.png "Запустите консоль облако Azure")](https://shell.azure.com)
+Стандартная по размеру кнопка
+
+[![](https://shell.azure.com/images/launchcloudshell.png "Запуск Azure Cloud Shell")](https://shell.azure.com)
+
+Большая по размеру кнопка
+
+[![](https://shell.azure.com/images/launchcloudshell@2x.png "Запуск Azure Cloud Shell")](https://shell.azure.com)
 
 ## <a name="how-to"></a>Инструкции
 
-Интегрировать кнопку запуска оболочки облака в файлы markdown путем копирования следующее:
+Интегрируйте кнопку запуска Cloud Shell в файлы Markdown, скопировав следующий фрагмент кода:
 
 ```markdown
 [![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
 ```
 
-HTML для внедрения всплывающих оболочки облака используется следующим образом:
+Ниже приведен HTML для внедрения всплывающего меню Cloud Shell:
 ```html
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 ```
 
-## <a name="customize-experience"></a>Настройка рабочей среды
+## <a name="customize-experience"></a>Настройка среды
 
-Задайте режим работы определенная оболочка путем дополнения URL-адрес.
-|Взаимодействие   |URL-адрес   |
+Задайте определенную оболочку с помощью расширения URL-адреса.
+|Среда   |URL-адрес   |
 |---|---|
-|Последние использовавшиеся оболочки   |Shell.Azure.com           |
-|Bash                       |Shell.Azure.com/bash       |
-|PowerShell                 |Shell.Azure.com/PowerShell |
+|Последняя используемая оболочка   |shell.azure.com           |
+|Bash                       |shell.azure.com/bash       |
+|PowerShell                 |shell.azure.com/powershell |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Краткое руководство по использованию Bash в Azure Cloud Shell](quickstart.md)<br>
-[PowerShell в облаке оболочки краткое руководство](quickstart-powershell.md)
+[Краткое руководство по использованию PowerShell в Azure Cloud Shell (предварительная версия)](quickstart-powershell.md)

@@ -2,23 +2,18 @@
 title: "Устранение неполадок при репликации из VMware в Azure с помощью Azure Site Recovery | Документация Майкрософт"
 description: "Устранение ошибок при репликации виртуальных машин Azure"
 services: site-recovery
-documentationcenter: 
 author: anoopkv
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Устранение неполадок с принудительной установкой службы Mobility Service
 
@@ -74,7 +69,7 @@ ms.lasthandoff: 12/13/2017
 
 **Код ошибки** | **Возможные причины** | **Рекомендации по устранению ошибки**
 --- | --- | ---
-95108 </br>**Сообщение.** При принудительной установке службы Mobility Service на исходный компьютер произошла ошибка с кодом **EP0859**. <br>| Для установки службы Mobility Service указаны неверные учетные данные или учетная запись пользователя имеет недостаточно привилегий. <br>| Убедитесь, что указаны данные учетной записи **root**. Чтобы [добавить или изменить учетные данные пользователя](site-recovery-vmware-to-azure-manage-configuration-server.md#modify-user-accounts-and-passwords), перейдите на сервер конфигурации и щелкните значок "Cspsconfigtool" на рабочем столе. Щелкните "Управление учетной записью", чтобы добавить или изменить учетные данные.|
+95108 </br>**Сообщение.** При принудительной установке службы Mobility Service на исходный компьютер произошла ошибка с кодом **EP0859**. <br>| Для установки службы Mobility Service указаны неверные учетные данные или учетная запись пользователя имеет недостаточно привилегий. <br>| Убедитесь, что указаны данные учетной записи **root**. Чтобы добавить или изменить учетные данные пользователя, перейдите на сервер конфигурации и щелкните значок "Cspsconfigtool" на рабочем столе. Щелкните "Управление учетной записью", чтобы добавить или изменить учетные данные.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Ошибка 95265. Не удалось включить защиту (EP0902)
 
@@ -92,13 +87,14 @@ ms.lasthandoff: 12/13/2017
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>Ресурсы для устранения неполадок при принудительной установке
 
 #### <a name="troubleshoot-file-and-print-sharing-issues"></a>Устранение неполадок общего доступа к файлам и принтерам
-*  [Включение или отключение общего доступа к файлам с помощью групповой политики](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx).
-* [Как включить общий доступ к файлам и принтерам через брандмауэр Windows](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
+*  [Включение или отключение общего доступа к файлам с помощью групповой политики](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx).
+* [Как включить общий доступ к файлам и принтерам через брандмауэр Windows](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>Устранение неполадок WMI
 * [Базовое тестирование WMI](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/).
-* [Устранение неполадок WMI](https://msdn.microsoft.com/en-us/library/aa394603(v=vs.85).aspx).
-* [Устранение неполадок сценариев WMI и служб WMI](https://technet.microsoft.com/en-us/library/ff406382.aspx#H22).
+* [Устранение неполадок WMI](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx).
+* [Устранение неполадок сценариев WMI и служб WMI](https://technet.microsoft.com/library/ff406382.aspx#H22).
 
-## <a name="next-steps"></a>Дальнейшие действия
-- [Шаг 11. Включение репликации для виртуальных машин VMware, реплицируемых в Azure](vmware-walkthrough-enable-replication.md)
+## <a name="next-steps"></a>Дополнительная информация
+
+[Узнайте, как](tutorial-vmware-to-azure.md) настроить аварийное восстановление для виртуальных машин VMware.

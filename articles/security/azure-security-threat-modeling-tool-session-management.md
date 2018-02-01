@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 56471d8ef68eacacb3ecebad5056d7e7a9f3ca40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24bd0e8eff616920dba0eb5353f983444e3161cd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-session-management--articles"></a>Механизм безопасности. Управление сеансами | Статьи 
 | Продукт или служба | Статья |
@@ -43,13 +43,13 @@ ms.lasthandoff: 10/11/2017
 | **Действия** | Если приложение использует маркер доступа, выданный Azure AD, необходимо вызывать обработчик событий выхода. |
 
 ### <a name="example"></a>Пример
-```C#
+```csharp
 HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType)
 ```
 
 ### <a name="example"></a>Пример
 Кроме того, также необходимо уничтожить сеанс пользователя путем вызова метода Session.Abandon(). Ниже приведен метод безопасной реализации события выхода пользователя.
-```C#
+```csharp
     [HttpPost]
         [ValidateAntiForgeryToken]
         public void LogOff()
@@ -100,7 +100,7 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 | **Действия** | Если приложение использует токен службы токенов безопасности, выданный ADFS, чтобы выйти из системы пользователя, обработчик событий выхода должен вызвать метод WSFederationAuthenticationModule.FederatedSignOut(). Кроме того, необходимо уничтожить текущий сеанс, а также сбросить и обнулить значение токена сеанса.|
 
 ### <a name="example"></a>Пример
-```C#
+```csharp
         [HttpPost, ValidateAntiForgeryToken]
         [Authorization]
         public ActionResult SignOut(string redirectUrl)
@@ -160,7 +160,7 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 | **Действия** | Как правило, файлы cookie доступны только в домене, для которого они были заданы. К сожалению, определение "домен" не включает в себя протокол, и поэтому файлы cookie, созданные по протоколу HTTPS, доступны по протоколу HTTP. Атрибут secure указывает браузеру, что файлы cookie доступны только по протоколу HTTPS. Убедитесь, что во всех этих файлах, заданных по протоколу HTTPS, используется атрибут **secure**. Это требование можно выполнить в файле web.config, задав атрибуту requireSSL значение true. Мы рекомендуем использовать этот подход, так как он позволяет применить атрибут **secure** для всех текущих и будущих файлов cookie, не внося дополнительные изменения в код.|
 
 ### <a name="example"></a>Пример
-```C#
+```csharp
 <configuration>
   <system.web>
     <httpCookies requireSSL="true"/>
@@ -179,7 +179,7 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 | **Действия** | Если веб-приложение выступает проверяющей стороной, а в качестве сервера ADFS используется IdP, атрибут secure в токене FedAuth можно настроить, задав в разделе `system.identityModel.services` файла web.config для параметра requireSSL значение true.|
 
 ### <a name="example"></a>Пример
-```C#
+```csharp
   <system.identityModel.services>
     <federationConfiguration>
       <!-- Set requireSsl=true; domain=application domain name used by FedAuth cookies (Ex: .gdinfra.com); -->
@@ -273,7 +273,7 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 | **Действия** | Формы Anti-CSRF и ASP.NET MVC. Используйте в представлениях вспомогательный метод `AntiForgeryToken`. Вставьте `Html.AntiForgeryToken()` в форму.|
 
 ### <a name="example"></a>Пример
-```C#
+```csharp
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
@@ -281,7 +281,7 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 ```
 
 ### <a name="example"></a>Пример
-```C#
+```csharp
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
     <!-- rest of form goes here -->
@@ -289,7 +289,7 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 ```
 
 ### <a name="example"></a>Пример
-В то же время Html.AntiForgeryToken() предоставляет посетителю файл cookie __RequestVerificationToken с таким же значением, как и случайное скрытое значение, показанное выше. Затем добавьте в целевой метод действия фильтр [ValidateAntiForgeryToken], чтобы проверить входящую форму POST. Например:
+В то же время Html.AntiForgeryToken() предоставляет посетителю файл cookie __RequestVerificationToken с таким же значением, как и случайное скрытое значение, показанное выше. Затем добавьте в целевой метод действия фильтр [ValidateAntiForgeryToken], чтобы проверить входящую форму POST. Например: 
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -304,7 +304,7 @@ public ViewResult SubmitUpdate()
 
 ### <a name="example"></a>Пример
 Формы Anti-CSRF и AJAX. Токен формы может вызывать проблемы при выполнении запросов AJAX. Это связано с тем, что этот запрос может отправлять данные JSON, а не данные HTML-формы. В этом случае можно отправлять токены в настраиваемый заголовок HTTP. Следующий код создает токены с использованием синтаксиса Razor, а затем добавляет их в запрос AJAX. 
-```C#
+```csharp
 <script>
     @functions{
         public string TokenHeaderValue()
@@ -329,7 +329,7 @@ public ViewResult SubmitUpdate()
 
 ### <a name="example"></a>Пример
 При обработке запроса извлеките токены из его заголовка. Затем вызовите метод AntiForgery.Validate для проверки этих токенов. Если токены недопустимые, метод AntiForgery.Validate вызывает исключение.
-```C#
+```csharp
 void ValidateRequestHeader(HttpRequestMessage request)
 {
     string cookieToken = "";
@@ -360,7 +360,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 
 ### <a name="example"></a>Пример
 Ниже приведен код, который необходимо добавить на всех страницах.
-```C#
+```csharp
 void Page_Init (object sender, EventArgs e) {
    ViewStateUserKey = Session.SessionID;
    :
@@ -428,7 +428,7 @@ void Page_Init (object sender, EventArgs e) {
 
 ### <a name="example"></a>Пример
 Время существования токена утверждений, выданного ADFS, также должно составлять 15 минут. Чтобы задать это значение, выполните на сервере ADFS следующий командлет PowerShell:
-```C#
+```csharp
 Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProviderName @(“Active Directory”) -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
@@ -488,7 +488,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ### <a name="example"></a>Пример
 При обработке запроса извлеките токены из его заголовка. Затем вызовите метод AntiForgery.Validate для проверки этих токенов. Если токены недопустимые, метод AntiForgery.Validate вызывает исключение.
-```C#
+```csharp
 void ValidateRequestHeader(HttpRequestMessage request)
 {
     string cookieToken = "";
@@ -510,7 +510,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 
 ### <a name="example"></a>Пример
 Формы Anti-CSRF и ASP.NET MVC. Используйте в представлениях вспомогательный метод AntiForgeryToken. Вставьте Html.AntiForgeryToken() в форму.
-```C#
+```csharp
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
@@ -520,7 +520,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 
 ### <a name="example"></a>Пример
 Выходные данные приведенного выше примера будут примерно следующие:
-```C#
+```csharp
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
     <!-- rest of form goes here -->
@@ -528,7 +528,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 ```
 
 ### <a name="example"></a>Пример
-В то же время Html.AntiForgeryToken() предоставляет посетителю файл cookie __RequestVerificationToken с таким же значением, как и случайное скрытое значение, показанное выше. Затем добавьте в целевой метод действия фильтр [ValidateAntiForgeryToken], чтобы проверить входящую форму POST. Например:
+В то же время Html.AntiForgeryToken() предоставляет посетителю файл cookie __RequestVerificationToken с таким же значением, как и случайное скрытое значение, показанное выше. Затем добавьте в целевой метод действия фильтр [ValidateAntiForgeryToken], чтобы проверить входящую форму POST. Например: 
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()

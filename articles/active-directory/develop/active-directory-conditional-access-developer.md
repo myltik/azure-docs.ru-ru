@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 8ad1ed1b8a178cb8906e6233e6bd78f50d01c50c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Руководство для разработчиков по условному доступу в Azure Active Directory
 
@@ -27,7 +27,7 @@ Azure Active Directory (AD) предоставляет несколько спо
 * разрешение доступа к определенным службам только устройствам, зарегистрированным в Intune;
 * ограничение расположения пользователей и диапазонов IP-адресов.
 
-Дополнительные сведения о полных возможностях условного доступа см. в разделе [условного доступа в Azure Active Directory](../active-directory-conditional-access-azure-portal.md). 
+Дополнительные сведения обо всех возможностях условного доступа см. в статье об [условном доступе в Azure Active Directory](../active-directory-conditional-access-azure-portal.md). 
 
 В этой статье рассматриваются возможности, которые условный доступ дает разработчикам приложений для Azure AD.  Предполагается знание [однотенантных](active-directory-integrating-applications.md) и [мультитенантных](active-directory-devhowto-multi-tenant-overview.md) приложений, а также [распространенных шаблонов аутентификации](active-directory-authentication-scenarios.md).
 
@@ -73,7 +73,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ## <a name="scenarios"></a>Сценарии
 
-### <a name="prerequisites"></a>Технические условия
+### <a name="prerequisites"></a>предварительным требованиям
 
 Условный доступ Azure AD — это функция, включенная в [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  Дополнительные сведения о требованиях к лицензиям см. в статье [Отчет о нелицензированном использовании](../active-directory-conditional-access-unlicensed-usage-report.md).  Разработчики могут присоединиться к сети разработчиков [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), которая включает бесплатную подписку на Enterprise Mobility Suite, содержащую Azure AD Premium.
 
@@ -109,7 +109,7 @@ www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/
 
 Заголовок ```WWW-Authenticate``` имеет уникальную структуру. Для него сложно выполнить синтаксический анализ для извлечения значений.  Вот краткий вспомогательный метод.
 
-```C#
+```csharp
         /// <summary>
         /// This method extracts the claims value from the 403 error response from MS Graph. 
         /// </summary>
@@ -217,7 +217,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 ## <a name="see-also"></a>См. также
 
-* Дополнительные сведения о возможностях см. в разделе [условного доступа в Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+* Дополнительные сведения о возможностях условного доступа см. в статье об [условном доступе в Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * Дополнительные примеры кода Azure AD см. в [репозитории примеров кода GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Дополнительные сведения о пакете SDK ADAL и доступу к справочной документации см. в статье [Библиотеки проверки подлинности Azure Active Directory](active-directory-authentication-libraries.md).
 * Дополнительные сведения о сценариях с несколькими клиентами см. в статье [Как реализовать вход любого пользователя Azure Active Directory (AD) с помощью шаблона мультитенантного приложения](active-directory-devhowto-multi-tenant-overview.md).

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Вопросы об использовании службы Azure Backup для резервного копирования виртуальных машин
 В этой статье содержатся ответы на часто задаваемые вопросы о компонентах службы Azure Backup для резервного копирования виртуальных машин. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -68,6 +68,13 @@ ms.lasthandoff: 01/18/2018
   
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>Можно ли использовать резервные копии виртуальной машины с неуправляемым диском для восстановления после обновления дисков до управляемых?
 Да, можно использовать резервные копии, созданные до преобразования дисков из неуправляемых в управляемые. По умолчанию в задании восстановления виртуальной машины создается виртуальная машина с неуправляемыми дисками. Вы можете использовать функции восстановления дисков, чтобы восстановить их и создать виртуальную машину с управляемыми дисками. 
+
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>Как восстановить виртуальную машину до точки восстановления, определенной до преобразования неуправляемых дисков виртуальной машины в управляемые?
+Для такого сценария в задании восстановления виртуальной машины по умолчанию создается виртуальная машина с неуправляемыми дисками. Чтобы создать виртуальную машину с управляемыми дисками:
+1. [Восстановите неуправляемые диски](tutorial-restore-disk.md#restore-a-vm-disk).
+2. [Преобразуйте восстановленные диски в управляемые](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
+3. [Создайте виртуальную машину с управляемыми дисками](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk). <br>
+Командлеты Powershell см. [здесь](backup-azure-vms-automation.md#restore-an-azure-vm).
 
 ## <a name="manage-vm-backups"></a>Управление резервным копированием виртуальных машин
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Что происходит при изменении политики резервного копирования для виртуальных машин?

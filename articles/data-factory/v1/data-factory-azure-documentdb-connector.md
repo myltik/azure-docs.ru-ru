@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0338fb386fc4da3f34cb4e810dbd57d50b5d5329
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 89b860bb4174a06c17da1db2bce2eaa11832b0b2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Перемещение данных в Azure Cosmos DB и из нее с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,12 +29,12 @@ ms.lasthandoff: 12/14/2017
 > [!NOTE]
 > Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, см. статью [Копирование данных из Azure Cosmos DB с помощью фабрики данных Azure](../connector-azure-cosmos-db.md).
 
-В этой статье объясняется, как использовать действие копирования в фабрике данных Azure для перемещения данных из DB Cosmos Azure (SQL API). Этот документ является продолжением статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования. 
+В этой статье объясняется, как с помощью действия копирования в фабрике данных Azure перемещать данные в Azure Cosmos DB и обратно (API SQL). Этот документ является продолжением статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования. 
 
 Данные можно скопировать из любого поддерживаемого в качестве источника хранилища данных в Azure Cosmos DB или из Azure Cosmos DB в любое поддерживаемое в качестве приемника хранилище данных. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, приведен в таблице [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
 
 > [!IMPORTANT]
-> Соединитель Azure Cosmos DB поддерживает только API-Интерфейсы SQL.
+> Соединитель Azure Cosmos DB поддерживает только API SQL.
 
 Сведения о копировании данных "как есть" в JSON-файлы или другую коллекцию Cosmos DB либо из них см. в разделе [Импорт и экспорт документов JSON](#importexport-json-documents).
 

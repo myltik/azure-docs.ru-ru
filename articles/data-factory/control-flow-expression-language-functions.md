@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 78f21576bb7d839e5b5c4d8c2b721e381d663406
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Выражения и функции в фабрике данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -26,14 +26,14 @@ ms.lasthandoff: 12/15/2017
 
 В этой статье содержатся сведения о выражениях и функциях, поддерживаемых фабрикой данных Azure (версия 2). 
 
-## <a name="introduction"></a>Общие сведения
+## <a name="introduction"></a>Введение
 Значения JSON в определении могут быть литералами или выражениями, которые оцениваются в среде выполнения. Например:   
   
 ```json
 "name": "value"
 ```
 
- (или)  
+ или  
   
 ```json
 "name": "@pipeline().parameters.password"
@@ -56,22 +56,22 @@ ms.lasthandoff: 12/15/2017
   
  Выражения также могут содержаться внутри строк, где они заключаются в структуру `@{ ... }`, при использовании *интерполяции строк*. Например: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
- При использовании интерполяции строки результатом всегда будет строка. Предположим, определены ли `myNumber` как `42` и `myString` как `foo`:  
+ При использовании интерполяции строки результатом всегда будет строка. Предположим, `myNumber` определено как `42`, а `myString` — как `foo`:  
   
 |Значение JSON|Результат|  
 |----------------|------------|  
-|«@pipeline(). parameters.myString»| Возвращает `foo` как строку.|  
-|«@{конвейера.parameters.myString ()}»| Возвращает `foo` как строку.|  
-|«@pipeline(). parameters.myNumber»| Возвращает `42` как *номер*.|  
-|«@{конвейера.parameters.myNumber ()}»| Возвращает `42` как *строку*.|  
-|«Ответ: @{конвейера.parameters.myNumber ()}»| Возвращает строку `Answer is: 42`.|  
-|«@concat("Ответ:", string(pipeline().parameters.myNumber))»| Возвращает строку `Answer is: 42`.|  
-|«Ответ: @ {конвейера.parameters.myNumber ()}»| Возвращает строку `Answer is: @{pipeline().parameters.myNumber}`.|  
+|@pipeline().parameters.myString| Возвращает `foo` как строку.|  
+|@{pipeline().parameters.myString}| Возвращает `foo` как строку.|  
+|@pipeline().parameters.myNumber| Возвращает `42` как *номер*.|  
+|@{pipeline().parameters.myString}| Возвращает `42` как *строку*.|  
+|Answer is: @{pipeline().parameters.myNumber}| Возвращает строку `Answer is: 42`.|  
+|@concatAnswer is: @{pipeline().parameters.myNumber}| Возвращает строку `Answer is: 42`.|  
+|Answer is: @{pipeline().parameters.myNumber}| Возвращает строку `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Примеры
 
 #### <a name="a-dataset-with-a-parameter"></a>Набор данных с параметром
-В следующем примере BlobDataset принимает параметр с именем **путь**. Его значение используется для задания значения для **folderPath** свойства с помощью следующих выражений: `@{dataset().path}`. 
+В следующем примере BlobDataset принимает параметр с именем **path**. Его значение используется для задания значения свойства **folderPath** с помощью следующих выражений: `@{dataset().path}`. 
 
 ```json
 {
@@ -95,7 +95,7 @@ ms.lasthandoff: 12/15/2017
 ```
 
 #### <a name="a-pipeline-with-a-parameter"></a>Конвейер с параметром
-В следующем примере, принимает конвейера **inputPath** и **outputPath** параметров. **Путь** параметризованные большого двоичного объекта набора данных задается с помощью значения этих параметров. Синтаксис, используемый здесь: `pipeline().parameters.parametername`. 
+В следующем примере конвейер принимает параметры **inputPath** и **outputPath**. **Путь** к параметризованному набору данных большого двоичного объекта задается с помощью значений этих параметров. Синтаксис, используемый здесь: `pipeline().parameters.parametername`. 
 
 ```json
 {
@@ -264,5 +264,5 @@ ms.lasthandoff: 12/15/2017
 |adddays|Добавляет число дней (целое) к переданной метке времени (строка). Это число может быть положительным или отрицательным. По умолчанию результатом является строка в формате ISO 8601 ("o"), если описатель формата не указан. Например, `2015-02-23T13:27:36Z`:<br /><br /> `addseconds('2015-03-15T13:27:36Z', -20)`<br /><br /> **Номер параметра:** 1.<br /><br /> **Имя:** метка времени.<br /><br /> **Описание:** обязательно. Строка, содержащая время.<br /><br /> **Номер параметра:** 2.<br /><br /> **Имя:** дни.<br /><br /> **Описание:** обязательно. Количество дней, которое нужно добавить. Это значение может быть отрицательным для вычитания дней.<br /><br /> **Номер параметра:** 3.<br /><br /> **Имя:** формат.<br /><br /> **Описание:** необязательно. [Один допустимый символ описателя формата](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) или [пользовательский шаблон формата](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx), который определяет способ форматирования значения этой метки времени. Если формат не указан, используется формат ISO 8601 ("o").|  
 |formatDateTime|Возвращает строку в формате даты. По умолчанию результатом является строка в формате ISO 8601 ("o"), если описатель формата не указан. Например, `2015-02-23T13:27:36Z`:<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **Номер параметра:** 1.<br /><br /> **Имя:** дата.<br /><br /> **Описание:** обязательно. Строка, содержащая дату.<br /><br /> **Номер параметра:** 2.<br /><br /> **Имя:** формат.<br /><br /> **Описание:** необязательно. [Один допустимый символ описателя формата](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) или [пользовательский шаблон формата](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx), который определяет способ форматирования значения этой метки времени. Если формат не указан, используется формат ISO 8601 ("o").|  
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Список системных переменных, которые можно использовать в выражениях, см. в статье [System variables supported by Azure Data Factory](control-flow-system-variables.md) (Системные переменные, поддерживаемые фабрикой данных Azure).

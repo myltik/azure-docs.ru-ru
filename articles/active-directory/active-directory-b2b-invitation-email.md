@@ -1,5 +1,5 @@
 ---
-title: "Элементы электронное приглашение совместной работы B2B - Azure Active Directory | Документы Microsoft"
+title: "Элементы сообщения с приглашением службы совместной работы B2B Azure Active Directory | Документация Майкрософт"
 description: "Шаблон сообщения с приглашением в службу совместной работы Azure Active Directory B2B"
 services: active-directory
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 7b82565a337f331b8b0eda723ccd58c3beaebdd9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: b84dba6aa7ac11aef6d958d72564b8b83514a753
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Элементы электронное приглашение совместной работы B2B - Azure Active Directory
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Элементы сообщения с приглашением службы совместной работы B2B Azure Active Directory
 
 Сообщение с приглашением является важнейшим компонентом, необходимым для подключения партнеров в качестве пользователей службы совместной работы B2B в Azure AD. Их можно использовать, чтобы повысить уровень доверия получателя. Вы можете придать сообщению законность и социальную значимость, чтобы получатель был спокоен, нажимая кнопку **Начало работы** и принимая приглашение. Это доверие является ключевым компонентом в процессе налаживания совместной работы. И, конечно же, вам бы хотелось, чтобы это сообщение отлично выглядело!
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 01/05/2018
   ![когда получателю не нужно активировать приглашение](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 6e64d2238c36c8f122bbe29b937eeea156df30e0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Пакет SDK для устройств Azure IoT для C
 
@@ -68,9 +68,9 @@ ms.lasthandoff: 11/18/2017
 Существует несколько средств с открытым кодом, которые помогут вам в управлении Центром Интернета вещей.
 
 * Приложение Windows — [обозреватель устройств](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
-* Кроссплатформенная программа командной строки Azure на Node.js — [iothub-explorer](https://github.com/azure/iothub-explorer).
+* Кроссплатформенный инструмент интерфейса командной строки Python — [расширение Интернета вещей для Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-В этом руководстве описывается использование графического *обозревателя устройств*. Если вы предпочитаете инструменты CLI, вы можете использовать *iothub-explorer*.
+В этом руководстве описывается использование графического *обозревателя устройств*. Если вы предпочитаете использовать инструмент интерфейса командной строки, можно воспользоваться *расширением Интернета вещей для Azure CLI 2.0*.
 
 Обозреватель устройств использует библиотеки службы Интернета вещей Azure для выполнения различных операций в Центре Интернета вещей, включая добавление устройств. Если для добавления устройств вы используете обозреватель устройств, вы получите строку подключения для устройства. Эта строка подключения понадобится вам для запуска примеров приложений.
 
@@ -570,7 +570,7 @@ serializer_deinit();
 
 Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
-* [Развертывание Azure IoT Edge на имитированном устройстве в Linux (предварительная версия)][lnk-iotedge]
+* [Развертывание ИИ на пограничных устройствах с использованием Azure IoT Edge][lnk-iotedge]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

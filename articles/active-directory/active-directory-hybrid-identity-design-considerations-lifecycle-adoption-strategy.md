@@ -1,5 +1,5 @@
 ---
-title: "Рекомендации по проектированию гибридных решений для идентификации Azure Active Directory ― определение стратегии выбора жизненного цикла гибридной идентификации | Документация Майкрософт"
+title: "Проектирование гибридных удостоверений: стратегия внедрения жизненного цикла в Azure | Документация Майкрософт"
 description: "Эта статья поможет определить задачи управления гибридной идентификацией в соответствии с вариантами, доступными для каждого этапа жизненного цикла."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ef8c4a0f672af2540f071f40eac77dc881eb31ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Определение стратегии выбора жизненного цикла гибридной идентификации
 В этом упражнении вы определите стратегию управления идентификацией для решений гибридной идентификации в соответствии с бизнес-требованиями, определенными в разделе [Определение задач управления гибридной идентификацией](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: b7c85dd01802bd67724e405f786481ba128e559a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: c851c056095ef8e7fb40d7d2ead76457495b2118
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Руководство по интеграции Azure Active Directory c Palo Alto Networks (GlobalProtect)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Palo Alto Networks (GlobalProtect), вам потребуется:
 
@@ -146,7 +146,7 @@ ms.lasthandoff: 12/11/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_general_400.png)
 
-8. В другом окне браузера откройте сайт Palo Alto с правами администратора.
+8. В другом окне браузера откройте пользовательский интерфейс администратора брандмауэров Palo Alto с правами администратора.
 
 9. Щелкните **Device** (Устройство).
 
@@ -160,7 +160,7 @@ ms.lasthandoff: 12/11/2017
 
     ![Настройка единого входа в Palo Alto](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-    a. Укажите имя в текстовом поле **Profile Name** (Имя профиля), например Azure AD Global Protect.
+    a. Укажите имя в текстовом поле **Profile Name** (Имя профиля), например Azure AD GlobalProtect.
     
     Б. В разделе **Identity Provider Metadata** (Метаданные поставщика удостоверений) щелкните **Browse** (Обзор) и выберите файл metadata.xml, загруженный ранее с портала Azure.
     

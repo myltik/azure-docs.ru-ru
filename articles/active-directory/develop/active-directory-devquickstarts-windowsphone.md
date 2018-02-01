@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone, Приступая к работе
+# <a name="azure-ad-windows-phone-getting-started"></a>Приступая к работе с Windows Phone Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/20/2017
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* В проекте DirectorySearcher откройте `MainPage.xaml.cs`.  Замена значений в `Config Values` области отражают значения, введены в портале Azure.  Код будет использовать эти значения при каждом обращении к библиотеке ADAL.
+* В проекте DirectorySearcher откройте `MainPage.xaml.cs`.  Замените значения в разделе `Config Values`, чтобы они соответствовали значениям, которые вы ввели на портале Azure.  Код будет использовать эти значения при каждом обращении к библиотеке ADAL.
   * `tenant` — это домен вашего клиента Azure AD, например contoso.onmicrosoft.com
   * `clientId` — это идентификатор clientId приложения, скопированный с портала.
 * Теперь необходимо обнаружить uri обратного вызова для вашего приложения Windows Phone.  Установите точку останова в этой строке в методе `MainPage` :
@@ -93,7 +93,7 @@ ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-
 
 * Первый шаг состоит в инициализации `AuthenticationContext` приложения, что является основным классом ADAL.  Здесь вы отправляете в библиотеку ADAL координаты, которые ей требуются для взаимодействия с Azure AD, и сообщаете о способе кэширования маркеров.
 
-```C#
+```csharp
 public MainPage()
 {
     ...
@@ -105,7 +105,7 @@ public MainPage()
 
 * Теперь найдите метод `Search(...)` , который будет вызываться при нажатии кнопки "Поиск" в пользовательском интерфейсе приложения.  Этот метод выполняет запрос GET в интерфейс Graph API службы Azure AD для запроса списка пользователей, чьи UPN начинаются с данного слова поиска.  Но для отправки запросов в Graph API необходимо включить access_token в заголовок `Authorization` запроса — именно отсюда ADAL начинает свою работу.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     ...
@@ -128,7 +128,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 * Если требуется интерактивная проверка подлинности, для отображения страницы входа в Azure AD ADAL будет использовать брокер веб-проверки подлинности (WAB) приложения Windows Phone и [модель продолжения](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) .  При входе пользователя приложение должно отправлять в ADAL результаты взаимодействия с WAB.  Это простая процедура, идентичная реализации интерфейса `ContinueWebAuthentication` :
 
-```C#
+```csharp
 // This method is automatically invoked when the application
 // is reactivated after an authentication interaction through WebAuthenticationBroker.
 public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationEventArgs args)
@@ -141,7 +141,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 
 * Теперь настало время использовать `AuthenticationResult` , которое ADAL вернуло в ваше приложение.  В обратном вызове `QueryGraph(...)` включите полученный маркер access_token в запрос GET в заголовке авторизации:
 
-```C#
+```csharp
 private async void QueryGraph(AuthenticationResult result)
 {
     if (result.Status != AuthenticationStatus.Success)
@@ -156,15 +156,15 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-* Для отображения сведений о пользователе в вашем приложении также можно использовать объект `AuthenticationResult` . В `QueryGraph(...)` метода, использовать для отображения ИД пользователя на странице результат:
+* Для отображения сведений о пользователе в вашем приложении также можно использовать объект `AuthenticationResult` . В методе `QueryGraph(...)` используйте результат для отображения на странице идентификатора пользователя:
 
-```C#
+```csharp
 // Update the Page UI to represent the signed in user
 ActiveUser.Text = result.UserInfo.DisplayableId;
 ```
 * Наконец, для выхода пользователя из приложения также можно использовать ADAL.  Когда пользователь нажимает кнопку "Выход", необходимо убедиться, что при следующем вызове `AcquireTokenSilentAsync(...)` произойдет сбой.  С ADAL это так же просто, как и очистка кэша маркера:
 
-```C#
+```csharp
 private void SignOut()
 {
     // Clear session state from the token cache.

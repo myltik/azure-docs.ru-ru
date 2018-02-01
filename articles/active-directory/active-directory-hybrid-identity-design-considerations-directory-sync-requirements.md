@@ -1,5 +1,5 @@
 ---
-title: "Рекомендации по разработке архитектуры гибридной идентификации в Azure Active Directory ― определение требований к синхронизации каталогов | Документация Майкрософт"
+title: "Проектирование гибридных удостоверений: требования к синхронизации каталогов в Azure | Документация Майкрософт"
 description: "Определите, какие требования необходимы для синхронизации всех локальных и облачных пользователей предприятия."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 00e9ecf39c386b7c1295bfca9ebf45fa40ae7e82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 475b35c767fcc9c42b828dd2219a14890e05f779
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Определение требований к синхронизации каталога
 Синхронизация предназначена для предоставления пользователям идентификации в облаке на основе их локальной идентификации. Независимо от того, используют ли они синхронизированную учетную запись для проверки подлинности или федеративной проверки подлинности, пользователям по-прежнему будет нужно идентифицироваться в облаке.  Эту идентификацию будет необходимо поддерживать и периодически обновлять.  Обновления могут принимать различные формы от изменения заголовка до изменения пароля.  
@@ -68,7 +69,7 @@ ms.lasthandoff: 12/11/2017
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Определение требований к многофакторной проверке подлинности](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="see-also"></a>См. также

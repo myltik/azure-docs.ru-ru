@@ -1,6 +1,6 @@
 ---
-title: "Использование кода Visual Studio для разработки и развертывания Azure функции Azure IoT краю | Документы Microsoft"
-description: "Разрабатывать и развертывать функции Azure C# с Azure IoT край VS Code без переключения контекста"
+title: "Использование Visual Studio Code для разработки и развертывания решения \"Функции Azure\" в Azure IoT Edge | Документация Майкрософт"
+description: "Разработка и развертывание функций Azure на C# с помощью Azure IoT Edge в VS Code без переключения контекста"
 services: iot-edge
 keywords: 
 author: shizn
@@ -9,73 +9,73 @@ ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9637986d10a0e89568b2f79ede3d7b7468bb99a7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 219474a4577a76f5ceb9a9efaa3c349d633de047
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="use-visual-studio-code-to-develop-and-deploy-azure-functions-to-azure-iot-edge"></a>Использование кода Visual Studio для разработки и развертывания функций Azure по краю IoT Azure
+# <a name="use-visual-studio-code-to-develop-and-deploy-azure-functions-to-azure-iot-edge"></a>Использование Visual Studio Code для разработки и развертывания решения "Функции Azure" в Azure IoT Edge
 
-В этой статье приведены подробные инструкции по использованию [кода Visual Studio](https://code.visualstudio.com/) как основное средство разработки для разработки и развертывания функций Azure IoT границы. 
+В этой статье содержатся подробные инструкции по использованию [Visual Studio Code](https://code.visualstudio.com/) в качестве основного инструмента разработки и развертывания решения "Функции Azure" в IoT Edge. 
 
-## <a name="prerequisites"></a>Технические условия
-Предполагается, что вы используете компьютер или виртуальную машину с компьютера разработчика Windows или Linux. IoT пограничного устройства может быть другое физическое устройство или устройство пограничного IoT, вы можете имитировать на компьютере разработки.
+## <a name="prerequisites"></a>предварительным требованиям
+В этом руководстве предполагается, что в качестве компьютера для разработки вы используете компьютер или виртуальную машину под управлением Windows или Linux. Устройством Azure IoT Edge может быть другое физическое устройство или имитация устройства, запущенная на компьютере разработки.
 
-Убедитесь, что у вас есть завершенного следующие учебники перед началом в этом руководстве.
-- Развертывание на имитированное устройство в Azure IoT Edge [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) или [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
+Перед началом работы обязательно ознакомьтесь со следующими руководствами.
+- Развертывание Azure IoT Edge на имитированном устройстве в ОС [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) или [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
 - [Развертывание решения "Функции Azure"](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function)
 
-Ниже приведен контрольный список, который показывает элементы должны иметь после завершения предыдущей учебники.
+Ниже приведен контрольный список элементов, которые должны быть у вас после выполнения инструкций в предыдущих руководствах.
 
 - [Visual Studio Code](https://code.visualstudio.com/). 
 - [Расширение Azure IoT Edge для Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 - [C# для расширения Visual Studio Code (на платформе OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 - [Docker](https://docs.docker.com/engine/installation/)
 - [Пакет SDK для .NET Core 2.0](https://www.microsoft.com/net/core#windowscmd). 
-- [Python 2.7](https://www.python.org/downloads/)
-- [Сценарий IoT края элемента управления](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
-- Шаблон AzureIoTEdgeFunction (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
-- Центр IoT active с по крайней мере IoT периферийным устройством.
+- [Python 2.7](https://www.python.org/downloads/).
+- [Сценарий управления IoT Edge](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl).
+- Шаблон AzureIoTEdgeFunction (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`).
+- Активный Центр Интернета вещей с устройством IoT Edge (как минимум).
 
-Также рекомендуется установить [Docker поддержка VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) для лучшего управления образов и контейнеры.
+Кроме того, рекомендуем установить модуль [поддержки Docker для VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) для оптимального управления образами и контейнерами модуля.
 
 > [!NOTE]
-> В настоящее время функции Azure на границе IoT поддерживает только C#.
+> В настоящее время решение "Функции Azure" в IoT Edge поддерживает только язык C#.
 
-## <a name="deploy-azure-iot-functions-in-vs-code"></a>Развертывание Azure IoT функций в коде VS
-В учебнике [развертывание функций Azure](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function), обновлением построения и публикация изображений для вашего модуля функции в коде VS и затем посетите портал Azure для развертывания функций Azure. В этом разделе Знакомство с использованием VS Code для развертывания и мониторинга функций Azure.
+## <a name="deploy-azure-iot-functions-in-vs-code"></a>Развертывание решения "Функции Azure" в VS Code
+В руководстве по [развертыванию решения "Функции Azure"](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function) вы обновляете, создаете и публикуете образы модулей функций в VS Code, а затем выполняете развертывание решения "Функции Azure" на портале Azure. В этом разделе описывается, как использовать VS Code для развертывания и мониторинга решения "Функции Azure".
 
-### <a name="start-a-local-docker-registry"></a>Запуск реестра локального docker
-Для работы с этим руководством можно использовать любые реестры, совместимые с Docker. Две популярные службы реестров Docker, доступные в облаке, — [реестр контейнеров Azure](https://docs.microsoft.com/azure/container-registry/) и [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). В этом разделе используется [локального реестра Docker](https://docs.docker.com/registry/deploying/), который проще для тестирования во время разработки раннее.
-В VS Code **интеграции терминалов**(Ctrl + "), выполнить следующие команды для запуска в реестре локального компьютера.  
+### <a name="start-a-local-docker-registry"></a>Запуск локального реестра Docker
+Для работы с этим руководством можно использовать любые реестры, совместимые с Docker. Две популярные службы реестров Docker, доступные в облаке, — [реестр контейнеров Azure](https://docs.microsoft.com/azure/container-registry/) и [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). В этом разделе используется [локальный реестр Docker](https://docs.docker.com/registry/deploying/), который легче использовать для тестирования на этапе ранней разработки.
+Во **встроенном терминале** (CTRL+`) VS Code выполните следующие команды для запуска локального реестра.  
 
 ```cmd/sh
 docker run -d -p 5000:5000 --name registry registry:2 
 ```
 
 > [!NOTE]
-> Предыдущий пример показывает конфигурации реестра, которые подходят только для тестирования. Готовый реестра должен быть защищен протоколом TLS и в идеале следует использовать механизм управления доступом. Рекомендуется использовать [реестра контейнера Azure](https://docs.microsoft.com/azure/container-registry/) или [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) размещать модули IoT край рабочей среде.
+> В приведенном выше примере показаны конфигурации реестра, которые подходят только для тестирования. Готовый для рабочей среды реестр должен быть защищен протоколом TLS и в идеале должен использовать механизм контроля доступа. Для развертывания готовых для рабочей среды модулей IoT Edge рекомендуем использовать [реестр контейнеров Azure](https://docs.microsoft.com/azure/container-registry/) или [центр Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags).
 
 ### <a name="create-a-function-project"></a>Создание проекта функции
-На следующих этапах показано, как создать модуль IoT Edge на основе .NET Сore 2.0 с использованием Visual Studio Code и расширения Azure IoT Edge. После выполнения в этом разделе в предыдущем учебнике можно безопасно пропустить в этом разделе.
+На следующих этапах показано, как создать модуль IoT Edge на основе .NET Сore 2.0 с использованием Visual Studio Code и расширения Azure IoT Edge. Если вы выполнили этот раздел в предыдущем руководстве, здесь его можно пропустить.
 
 1. В Visual Studio Code выберите **Вид** > **Интегрированный терминал**, чтобы открыть интегрированный терминал VS Code.
-2. Установите (или обновлять) **AzureIoTEdgeFunction** шаблона в dotnet, выполните следующую команду в окне терминала интеграции:
+2. Чтобы установить (или обновить) шаблон **AzureIoTEdgeFunction** в dotnet, во встроенном терминале выполните следующую команду:
 
    ```cmd/sh
    dotnet new -i Microsoft.Azure.IoT.Edge.Function
    ```
-3. Создайте проект для нового модуля. Следующая команда создает папку проекта, **FilterFunction**, в текущей рабочей папке:
+3. Создайте проект для нового модуля. Приведенная ниже команда создает папку проекта **FilterFunction** в текущей рабочей папке.
 
    ```cmd/sh
    dotnet new aziotedgefunction -n FilterFunction
    ```
  
-4. Выберите **файл > Открыть папку**, перейдите к **FilterFunction** папку и откройте проект в VS Code.
-5. Перейдите к **FilterFunction** папку и нажмите кнопку **Выбор папки** для открытия проекта в VS Code.
-6. В обозревателе VS Code разверните **EdgeHubTrigger Csharp** папку, затем откройте **run.csx** файла.
-7. Замените содержимое файла следующим кодом:
+4. Выберите **Файл > Открыть папку**, перейдите в папку **FilterFunction** и откройте проект в VS Code.
+5. Перейдите в папку **FilterFunction** и щелкните **Выбрать папку**, чтобы открыть проект в VS Code.
+6. В обозревателе VS Code разверните папку **EdgeHubTrigger-Csharp**, а затем откройте файл **run.csx**.
+7. Замените содержимое файла на код, приведенный ниже.
 
    ```csharp
    #r "Microsoft.Azure.Devices.Client"
@@ -140,13 +140,17 @@ docker run -d -p 5000:5000 --name registry registry:2
 
 1. В обозревателе VS Code разверните папку **Docker**. Затем разверните папку для платформы своего контейнера: **linux-x64** или **windows-nano**.
 2. Щелкните правой кнопкой мыши файл **Dockerfile** и выберите **Build IoT Edge module Docker image** (Создать образ Docker модуля IoT Edge). 
-3. Перейдите к **FilterFunction** папку проекта и нажмите кнопку **Выбор папки как EXE_DIR**. 
-4. В верхней части окна VS Code введите имя образа в текстовом поле всплывающего окна. Например, `<your container registry address>/filterfunction:latest`. Если развертывается в локальном реестре, он должен быть `localhost:5000/filterfunction:latest`.
-5. Отправьте образ в репозиторий Docker. Используйте **Edge: образа Docker модуля Push IoT Edge** команд и введите URL-адрес изображения в поле всплывающие подсказки в верхней части окна VS Code. Используйте же URL-адрес изображения использовался выше шаг.
 
-### <a name="deploy-your-function-to-iot-edge"></a>Развертывание функции IoT краю
+    ![Создание образа Docker](./media/how-to-vscode-develop-csharp-function/build-docker-image.png)
 
-1. Откройте `deployment.json` файла, замените **модули** с разделом содержимого:
+3. Перейдите в папку проекта **FilterFunction** и щелкните **Select Folder as EXE_DIR** (Выбрать папку в качестве каталога выполнения). 
+4. В верхней части окна VS Code введите имя образа в текстовом поле всплывающего окна. Например, `<your container registry address>/filterfunction:latest`. Если развертывание выполняется в локальном реестре, необходимо использовать `localhost:5000/filterfunction:latest`.
+5. Отправьте образ в репозиторий Docker. Запустите команду **Edge: Push IoT Edge module Docker image** (Edge: передать образ Docker для модуля IoT Edge) и укажите URL-адрес образа во всплывающем текстовом поле в верхней части окна VS Code. Используйте тот же URL-адрес образа, что и на предыдущем шаге.
+    ![Передать образ Docker](./media/how-to-vscode-develop-csharp-function/push-image.png)
+
+### <a name="deploy-your-function-to-iot-edge"></a>Развертывание функции в IoT Edge
+
+1. Откройте файл `deployment.json`, замените раздел **modules** следующим содержимым:
    ```json
    "tempSensor": {
       "version": "1.0",
@@ -170,29 +174,35 @@ docker run -d -p 5000:5000 --name registry registry:2
    }
    ```
 
-2. Замените **маршруты** с разделом содержимого:
+2. Замените раздел **routes** следующим содержимым:
    ```json
-   {
        "routes":{
            "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterfunction/inputs/input1\")",
            "filterToIoTHub":"FROM /messages/modules/filterfunction/outputs/* INTO $upstream"
        }
-   }
    ```
    > [!NOTE]
-   > Декларативные правила в среде выполнения определяют, куда отправляются эти сообщения. Для работы с этим руководством необходимы два маршрута. Первый маршрут передает сообщения от датчика температуры функция filter через конечную точку «input1», который является конечной точкой, настроенной с обработчиком FilterMessages. Второй маршрут передает сообщения из функцию фильтров к центру IOT. В этом маршруте вышестоящего специальные назначения, который сообщает концентратора Edge для отправки сообщений в центр IoT.
+   > Декларативные правила в среде выполнения определяют, куда отправляются эти сообщения. Для работы с этим руководством необходимы два маршрута. Первый маршрут передает сообщения от датчика температуры в функцию фильтра через конечную точку input1, которая настроена с помощью обработчика FilterMessages. Второй маршрут передает сообщения из функции фильтра в Центр Интернета вещей. В этом маршруте вышестоящий источник является специальным пунктом назначения, который говорит центру Edge отправлять сообщения в Центр Интернета вещей.
 
 3. Сохраните этот файл.
-4. Выберите в палитру команд **Edge: Создание развертывания для периферийным устройством**. Выберите ИД устройства IoT Edge для создания развертывания. Или щелкните правой кнопкой мыши идентификатор устройства в списке устройств и выберите **Создание развертывания для периферийным устройством**.
-5. Выберите `deployment.json` вам о новостях. В окне вывода появится соответствующие выходные данные для развертывания.
-6. Запуск вашей среды выполнения Edge в палитру команд. **Граница: Начальному краю**
-7. Вы увидите вашей выполнения IoT Edge для запуска в обозревателе Docker с помощью имитации функции датчика и фильтр.
-8. Щелкните правой кнопкой мыши на край ИД устройства, и можно отслеживать сообщения D2C в VS Code.
+4. В палитре команд выберите **Edge: Create deployment for Edge device** (Edge: создать развертывание для устройства Edge). Затем выберите идентификатор устройства IoT Edge для создания развертывания. Или щелкните идентификатор устройства правой кнопкой мыши в списке устройств и выберите **Create deployment for Edge device** (Создать развертывание для устройства Edge).
+
+    ![Создать развертывание](./media/how-to-vscode-develop-csharp-function/create-deployment.png)
+
+5. Выберите обновленный файл `deployment.json`. В окне вывода можно увидеть соответствующие выходные данные для развертывания.
+6. Запустите среду выполнения Edge в палитре команд. **Edge: запустить Edge**
+7. Вы увидите в обозревателе Docker, что среда выполнения IoT Edge запускается с имитируемым датчиком и функцией фильтра.
+
+    ![Решение выполняется](./media/how-to-vscode-develop-csharp-function/solution-running.png)
+
+8. Щелкните идентификатор устройства Edge правой кнопкой мыши, и вы сможете отслеживать сообщения D2C в VS Code.
+
+    ![Мониторинг сообщений](./media/how-to-vscode-develop-csharp-function/monitor-d2c-messages.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-В этом учебнике создать функцию Azure IoT границы и развернут в IoT периферийным устройством в VS Code. Можно перейти к любой из следующих учебников, чтобы узнать о других сценариях при разработке Azure IoT край VS Code.
+В этом руководстве вы создали решение "Функции Azure" в IoT Edge и развернули его на устройстве IoT Edge в VS Code. Вы можете перейти к изучению любого из следующих руководств, чтобы узнать о других сценариях при разработке Azure IoT Edge в VS Code.
 
 > [!div class="nextstepaction"]
-> [Отладка функций Azure в VS Code](how-to-vscode-debug-azure-function.md)
+> [Использование Visual Studio Code для отладки решения "Функции Azure" с помощью Azure IoT Edge](how-to-vscode-debug-azure-function.md)

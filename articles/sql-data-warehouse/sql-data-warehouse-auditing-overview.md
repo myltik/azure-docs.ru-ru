@@ -13,30 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 08/21/2017
+ms.date: 01/16/2018
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Аудит в хранилище данных SQL Azure
-> [!div class="op_single_selector"]
-> * [Аудит](sql-data-warehouse-auditing-overview.md)
-> * [Обнаружение угроз](sql-data-warehouse-security-threat-detection.md)
-> 
-> 
 
-Аудит хранилища данных SQL позволяет фиксировать события, происходящие в базе данных, в журнале аудита в вашей учетной записи хранения Azure. Аудит может помочь вам соблюсти стандарты, проанализировать работу с базой данных и получить представление о расхождениях и аномалиях, которые могут указывать на бизнес-проблемы или предполагаемые нарушения безопасности. Аудит хранилища данных SQL объединен с Microsoft Power BI для создания подробных отчетов и детального анализа.
+Аудит хранилища данных SQL позволяет фиксировать события, происходящие в базе данных, в журнале аудита в вашей учетной записи хранения Azure. Аудит может помочь вам соблюсти стандарты, проанализировать работу с базой данных и получить представление о расхождениях и аномалиях, которые могут указывать на бизнес-проблемы или предполагаемые нарушения безопасности. Аудит хранилища данных SQL объединен с Microsoft Power BI для создания отчетов и анализа.
 
 Средства аудита позволяют и способствуют соблюдению стандартов, но не гарантируют соответствия им. Дополнительную информацию о программах Azure, поддерживающих проверку соблюдения стандартов, см. в <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Центре управления безопасностью Azure</a>.
 
-* [Основы аудита баз данных]
-* [Настройка аудита базы данных]
-* [Анализ журналов и отчетов аудита]
-
-## <a id="subheading-1"></a>Основы аудита баз данных хранилища данных SQL Azure
+## <a id="subheading-1"></a>Основы аудита
 Аудит базы данных хранилища данных SQL позволяет:
 
 * **Сохранить** журнал аудита выбранных событий. Вы можете указать, какие категории действий базы данных должны проходить аудит.
@@ -59,19 +50,19 @@ ms.lasthandoff: 12/21/2017
 
 Журналы аудита хранятся в учетной записи хранения Azure. Срок хранения журнала аудита можно установить.
 
-Политику аудита можно определить для конкретной базы данных или как политику сервера по умолчанию. Политика аудита по умолчанию применяется ко всем базам данных на сервере, для которых не установлена иная переопределяющая политика аудирования базы данных.
+Политику аудита можно определить для конкретной базы данных или как политику сервера по умолчанию. Политика аудита по умолчанию применяется ко всем базам данных на сервере, для которых не установлена иная переопределяющая политика аудита баз данных.
 
 Прежде чем настраивать проверку аудита, убедитесь, что вы используете [клиент прежних версий](sql-data-warehouse-auditing-downlevel-clients.md).
 
 ## <a id="subheading-2"></a>Настройка аудита базы данных
 1. Запустите <a href="https://portal.azure.com" target="_blank">портал Azure</a>.
-2. Перейдите в колонку **параметров** хранилища данных SQL, где нужно выполнить аудит. В колонке **Параметры** выберите **Аудит и обнаружение угроз**.
+2. Перейдите в колонку **Параметры** хранилища данных SQL, для которого нужно выполнить аудит. Выберите **Аудит SQL и обнаружение угроз**.
    
     ![][1]
 3. Затем включите аудит, нажав кнопку **ВКЛ** .
    
     ![][3]
-4. В колонке конфигурации аудита выберите **Сведения о хранилище**, чтобы открыть колонку хранилищ для журналов аудита. Выберите учетную запись хранения Azure, в котором будут хранится журналы, и укажите срок хранения. 
+4. На панели конфигурации аудита выберите **Сведения о хранилище**, чтобы открыть панель "Хранилище журналов аудита". Выберите учетную запись хранения Azure для журналов и укажите срок хранения. 
 >[!TIP]
 >Чтобы воспользоваться всеми возможностями шаблонов предварительно настроенных отчетов, используйте одну и ту же учетную запись хранения для всех баз данных.
    
@@ -91,11 +82,12 @@ ms.lasthandoff: 12/21/2017
 ## <a id="subheading-4"></a>Повторное создание ключа к хранилищу данных
 Обычно в рабочей среде приходится периодически обновлять ключи хранилища. При обновлении ключей необходимо сохранить политику. Процесс таков:
 
-1. В колонке конфигурации аудита (описанной выше в разделе о настройке аудита) измените значение параметра **Ключ доступа к хранилищу** с *Первичный* на *Вторичный* и нажмите кнопку **Сохранить**.
+1. На панели конфигурации аудита (описанной выше в разделе о настройке аудита) измените значение параметра **Ключ доступа к хранилищу** с *Первичный* на *Вторичный* и нажмите кнопку **Сохранить**.
 
    ![][4]
-2. Перейдите в колонку конфигурации хранилища и **повторно создайте***первичный ключ доступа*.
-3. В колонке конфигурации аудита измените значение параметра **Ключ доступа к хранилищу** с *Вторичный* на *Первичный* и нажмите кнопку **СОХРАНИТЬ**.
+2. Перейдите на панель конфигурации хранилища и **повторно создайте** *первичный ключ доступа*.
+3. Вернитесь на панель конфигурации аудита, 
+4. измените значение параметра **Ключ доступа к хранилищу** с *Вторичный* на *Первичный* и нажмите кнопку **Сохранить**.
 4. В интерфейсе хранилища **повторно создайте***вторичный ключ доступа* (для подготовки к следующему циклу обновления ключей).
 
 ## <a id="subheading-5"></a>Автоматизация (PowerShell или REST API)
@@ -103,18 +95,41 @@ ms.lasthandoff: 12/21/2017
 
 * **Командлеты PowerShell**
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
-   * [Get-AzureRMSqlServerAuditingPolicy][102]
-   * [Remove-AzureRMSqlDatabaseAuditing][103]
-   * [Remove-AzureRMSqlServerAuditing][104]
-   * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
-   * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Use-AzureRMSqlServerAuditingPolicy][107]
+   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
+   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
+   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
+   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
+   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
+   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
+   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+
+
+## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Поддержка клиентов прежних версий для аудита и динамического маскирования данных
+Аудит работает с клиентами SQL, которые поддерживают перенаправление TDS.
+
+Любой клиент, который реализует TDS 7.4, также должен поддерживать перенаправление. К исключениям относятся JDBC 4.0, где функция перенаправления поддерживается не полностью, и Tedious для Node.JS, где перенаправление не реализовано.
+
+Для клиентов прежних версий, которые поддерживают TDS 7.3 и более ранних версий, измените полное доменное имя сервера в строке подключения, как показано ниже.
+
+- Полное доменное имя сервера-источника в строке подключения: <*имя сервера*>.database.windows.net.
+- Измененное полное доменное имя сервера в строке подключения: <*имя сервера*>.database.**secure**.windows.net.
+
+Частичный список клиентов прежних версий включает:
+
+* .NET 4.0 и ниже
+* ODBC 10.0 и ниже
+* JDBC (хотя JDBC поддерживает TDS 7.4, но функция перенаправления TDS поддерживается не полностью)
+* Tedious (для Node.JS)
+
+**Примечание.** Описанное выше изменение полного доменного имени сервера можно использовать также для применения политики аудита уровня SQL Server без необходимости настройки в каждой базе данных (временное устранение рисков).     
+
+
+
 
 <!--Anchors-->
-[Основы аудита баз данных]: #subheading-1
-[Настройка аудита базы данных]: #subheading-2
-[Анализ журналов и отчетов аудита]: #subheading-3
+[Database Auditing basics]: #subheading-1
+[Set up auditing for your database]: #subheading-2
+[Analyze audit logs and reports]: #subheading-3
 
 
 <!--Image references-->
@@ -125,11 +140,3 @@ ms.lasthandoff: 12/21/2017
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
-<!--Link references-->
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy

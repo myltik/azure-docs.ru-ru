@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: c65013fefe6750e82c71cb3d201a3195acd64127
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB. Документация по API MongoDB
 
 В этой статье приведены ссылки на все содержимое Azure Cosmos DB, связанное с API MongoDB.
 
-Эти статьи не применяются к SQL API Graph API API или таблицы. 
+Эти статьи неприменимы к API SQL, API Graph или API таблиц. 
 
 ## <a name="introduction-and-concepts"></a>Основные понятия
 
@@ -31,18 +31,18 @@ ms.lasthandoff: 12/12/2017
 
 - [Общие сведения об API MongoDB](mongodb-introduction.md)
 - [Подключение к учетной записи MongoDB](connect-mongodb-account.md)
-- [Поддержка функций MongoDB и синтаксис](mongodb-feature-support.md)
+- [Поддержка возможностей и синтаксиса MongoDB в API-интерфейсе MongoDB](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>Быстрое начало работы
 
 Краткое руководство — это самый быстрый способ создать работающее приложение с помощью Azure Cosmos DB. В каждом кратком руководстве описывается, как использовать портал Azure на основе пользовательского интерфейса и привычный язык программирования для создания решения базы данных с помощью Azure Cosmos DB. Клонируемые веб-приложения из области GitHub доступны для каждого краткого руководства. 
 
 
-- [Node.js + Express + AngularJS + веб-приложений](create-mongodb-nodejs.md)
+- [Azure Cosmos DB. Перемещение имеющегося веб-приложения MongoDB Node.js](create-mongodb-nodejs.md)
 - [.NET + портал Azure + веб-приложения](create-mongodb-dotnet.md)
 - [Java + портал Azure + веб-приложения](create-mongodb-java.md)
 - [Go + портал Azure + Go](create-mongodb-golang.md)
-- [Python + термосе + портал Azure](create-mongodb-flask.md)
+- [Azure Cosmos DB. Создание приложения Flask с использованием API MongoDB](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>Учебники
 
@@ -69,5 +69,5 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="developers-guide"></a>Руководство разработчика
 
-- [Использование MongoChef](mongodb-mongochef.md)
+- [Использование MongoChef с учетной записью API для MongoDB в Azure Cosmos DB](mongodb-mongochef.md)
 - [Использование Robomongo](mongodb-robomongo.md)

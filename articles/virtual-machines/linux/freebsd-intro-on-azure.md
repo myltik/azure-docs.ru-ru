@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 2369bc893d28cf6f6174376eb961049b651c66a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e47a00a8375659f9112da57f9e7a4747f10f8f16
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Введение в FreeBSD в Azure
 В этом разделе представлен обзор запуска виртуальной машины FreeBSD в Azure.
@@ -132,6 +132,5 @@ $ sudo <COMMAND>
 ## <a name="known-issues"></a>Известные проблемы
 [Гостевой агент виртуальной машины Azure](https://github.com/Azure/WALinuxAgent/) версии 2.2.2 имеет [известную проблему] (https://github.com/Azure/WALinuxAgent/pull/517), вызывающую сбой подготовки виртуальной машины FreeBSD в Azure. Ошибка исправлена в [гостевом агенте виртуальной машины Azure](https://github.com/Azure/WALinuxAgent/) версии 2.2.3 и более поздних выпусках. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Перейдите на сайт [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) , чтобы создать виртуальную машину FreeBSD.
-* Если вы хотите перенести свою собственную виртуальную машину FreeBSD в Azure, ознакомьтесь с разделом [Создание и отправка виртуального жесткого диска FreeBSD в Azure](classic/freebsd-create-upload-vhd.md).

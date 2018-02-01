@@ -1,5 +1,5 @@
 ---
-title: "Azure Application Insights для консольных приложений | Документы Microsoft"
+title: "Azure Application Insights для консольных приложений | Документация Майкрософт"
 description: "Отслеживайте доступность, производительность и использование веб-приложений."
 services: application-insights
 documentationcenter: .net
@@ -13,51 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 1b6bef88d729a2febfca2bd236a5382d2c11bd69
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="application-insights-for-net-console-applications"></a>Application Insights для .NET консольных приложений
-[Application Insights](app-insights-overview.md) позволяет вести наблюдение за веб-приложения для обеспечения доступности, производительности и использования.
+# <a name="application-insights-for-net-console-applications"></a>Application Insights для консольных приложений .NET
+[Application Insights](app-insights-overview.md) позволяет отслеживать доступность, производительность и использование вашего веб-приложения.
 
-Вам потребуется подписка с [Microsoft Azure](http://azure.com). Войдите с учетной записью Майкрософт, который можно использовать для Windows, Xbox Live или других облачных служб Майкрософт. Возможно, у вашей группы есть подписка организации Azure: попросите ее владельца добавить вас к ней с помощью вашей учетной записи Майкрософт.
+Вам потребуется подписка [Microsoft Azure](http://azure.com). Войдите с помощью учетной записи Майкрософт, которую вы, возможно, уже используете для Windows, XBox Live или других облачных служб Майкрософт. Возможно, у вашей группы есть подписка организации Azure: попросите ее владельца добавить вас к ней с помощью вашей учетной записи Майкрософт.
 
 ## <a name="getting-started"></a>Приступая к работе
 
 * На [портале Azure](https://portal.azure.com) [создайте ресурс Application Insights](app-insights-create-new-resource.md). Для параметра типа приложения выберите приложение ASP.NET.
-* Сделайте копию ключа инструментирования. Найти параметр в раскрывающемся списке Essentials созданный новый ресурс. 
-* Установить последние [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) пакета.
-* Установите ключ инструментирования в коде перед любой телеметрии отслеживания (или задать переменную среды APPINSIGHTS_INSTRUMENTATIONKEY). После этого можно будет вручную отслеживать телеметрии и отображается на портале Azure
+* Сделайте копию ключа инструментирования. Найдите ключ в раскрывающемся списке "Основные компоненты" нового ресурса, который вы создали. 
+* Установите последнюю версию пакета [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights).
+* Прежде чем отслеживать телеметрию, задайте ключ инструментирования в коде или переменную среды APPINSIGHTS_INSTRUMENTATIONKEY. После этого вы сможете отслеживать телеметрию вручную и просматривать данные телеметрии на портале Azure.
 
-```C#
+```csharp
 TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
 var telemetryClient = new TelemetryClient();
 telemetryClient.TrackTrace("Hello World!");
 ```
 
-* Установите последнюю версию [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) пакета - автоматически отслеживает HTTP, SQL или некоторые другие вызовы внешних зависимостей.
+* Установите последнюю версию пакета [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector), который позволяет автоматически отслеживать HTTP-вызовы, SQL-вызовы или другие внешние вызовы зависимостей.
 
-Можно инициализировать и настроить Application Insights из кода или с помощью `ApplicationInsights.config` файла. Убедитесь, что инициализация происходит, как можно раньше.
+Вы можете инициализировать и настроить Application Insights с помощью кода или файла `ApplicationInsights.config`. Выполните инициализацию как можно раньше.
 
-### <a name="using-config-file"></a>С помощью файла конфигурации
+### <a name="using-config-file"></a>Использование файла конфигурации
 
-По умолчанию, пакет SDK Application Insights ищет `ApplicationInsights.config` файл в рабочий каталог при `TelemetryConfiguration` создается
+По умолчанию пакет SDK для Application Insights ищет файл `ApplicationInsights.config` в рабочей папке при создании `TelemetryConfiguration`.
 
-```C#
+```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Read ApplicationInsights.config file if present
 ```
 
-Можно также указать путь к файлу конфигурации.
+Вы также можете указать путь к файлу конфигурации.
 
-```C#
+```csharp
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration("ApplicationInsights.config");
 ```
 
-Дополнительные сведения см. в разделе [ссылка на файл конфигурации](app-insights-configuration-with-applicationinsights-config.md).
+Дополнительные сведения см. в [справочных материалах по файлу конфигурации](app-insights-configuration-with-applicationinsights-config.md).
 
-Полный пример файла конфигурации можно получить, установив последнюю версию [Microsoft.ApplicationInsights.WindowsServer](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer) пакета. Вот **минимальные** конфигурации для коллекции зависимости, которое эквивалентно значению в примере кода.
+Чтобы получить полный пример файла конфигурации, установите последнюю версию пакета [Microsoft.ApplicationInsights.WindowsServer](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer). В этом руководстве приводится **минимальная** конфигурация для коллекции зависимостей, как в примере кода ниже.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -86,11 +86,11 @@ TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfigur
 
 ```
 
-### <a name="configuring-telemetry-collection-from-code"></a>Настройка сбора данных телеметрии из кода
+### <a name="configuring-telemetry-collection-from-code"></a>Настройка сбора данных телеметрии с помощью кода
 
-* Во время запуска приложения создайте и настройте `DependencyTrackingTelemetryModule` экземпляра - он должен быть одиночным и должен сохраняться в течение всего времени существования приложения.
+* При запуске приложения создайте и настройте экземпляр `DependencyTrackingTelemetryModule`. Он должен быть одноэлементным и сохраняться в течение всего времени существования приложения.
 
-```C#
+```csharp
 var module = new DependencyTrackingTelemetryModule();
 
 // prevent Correlation Id to be sent to certain endpoints. You may add other domains as needed.
@@ -107,9 +107,9 @@ module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.EventHubs");
 module.Initialize(configuration);
 ```
 
-* Добавить общие инициализаторы телеметрии
+* Добавьте общие инициализаторы телеметрии.
 
-```C#
+```csharp
 // stamps telemetry with correlation identifiers
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 
@@ -117,11 +117,11 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelation
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-* Для приложения .NET Framework ОС Windows можно также установить и инициализировать модуль счетчика производительности сборщика, как описано [здесь](http://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* Для приложения .NET Framework для Windows можно также установить и инициализировать модуль сборщика для счетчика производительности, как описано [здесь](http://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/).
 
 #### <a name="full-example"></a>Полный пример
 
-```C#
+```csharp
 static void Main(string[] args)
 {
     TelemetryConfiguration configuration = TelemetryConfiguration.Active;
@@ -172,6 +172,6 @@ static DependencyTrackingTelemetryModule IntitializeDependencyTracking(Telemetry
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
-* [Мониторинг зависимостей](app-insights-asp-net-dependencies.md) для просмотра, если REST, SQL или другим внешним ресурсам замедляя вы.
+## <a name="next-steps"></a>Дополнительная информация
+* [Отслеживайте зависимости](app-insights-asp-net-dependencies.md), чтобы выяснить, что стало причиной медленной работы — REST, SQL или другие внешние ресурсы.
 * [Используйте API](app-insights-api-custom-events-metrics.md) для отправки собственных событий и метрик для более четкого представления о производительности и использовании приложения.

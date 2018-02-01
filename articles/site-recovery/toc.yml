@@ -123,6 +123,8 @@
           href: site-recovery-create-recovery-plans.md
         - name: Добавление модулей Runbook Azure в планы восстановления
           href: site-recovery-runbook-automation.md
+        - name: Добавление сценариев VMM в планы восстановления
+          href: site-recovery-how-to-add-vmmscript.md
         - name: Отработка отказа
           items:
             - name: Сведения об отработке отказа

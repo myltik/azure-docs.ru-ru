@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: b1f2881da21849c3ac09b008640fc9f72dc158dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 3bad625e598d4249496849d3be020be083f8da7f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Краткое руководство. Знакомство со службой "Аналитика временных рядов Azure"
 Это краткое руководство покажет вам, как начать работу с обозревателем службы "Аналитика временных рядов Azure" в бесплатной демонстрационной среде. Вы узнаете, как использовать веб-браузер для визуализации больших объемов данных Интернета вещей, и ознакомитесь с ключевыми возможностями обозревателя службы "Аналитика временных рядов Azure". 
@@ -71,7 +71,7 @@ ms.lasthandoff: 11/15/2017
 
 После завершения работы с кратким руководством можно поэкспериментировать с примером набора данных, создавая различные визуализации. 
 
-### <a name="next-steps"></a>Дальнейшие действия
+### <a name="next-steps"></a>Дополнительная информация
 Теперь вы готовы создать собственную среду службы "Аналитика временных рядов":
 > [!div class="nextstepaction"]
 > [Планирование среды службы "Аналитика временных рядов"](time-series-insights-environment-planning.md)

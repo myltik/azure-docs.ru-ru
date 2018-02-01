@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3c3b036a8294e17aec103ba470402c1f8f707d8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Выполнение действия с Runbook службы автоматизации на основе результатов поиска Log Analytics
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Запуск runbook из результатов поиска по журналам
 
-Чтобы отреагировать на событие и запустить runbook из результатов поиска по журналам, выполните поиск по журналам и на основе результатов вызовите runbook по запросу.  Это можно сделать через функцию поиска по журналам в Azure или на [портале OMS](../log-analytics/log-analytics-log-searches.md).  В этом примере мы выполняем поиск по журналам на портале Azure, демонстрируя основные возможности этой функции.
+Чтобы отреагировать на событие и запустить runbook из результатов поиска по журналам, выполните поиск по журналам и на основе результатов вызовите runbook по запросу.  Это можно сделать через функцию поиска по журналам или на [портале Azure](../log-analytics/log-analytics-log-search-new.md).  В этом примере мы выполняем поиск по журналам на портале Azure, демонстрируя основные возможности этой функции.
 
 1. На портале Azure в меню "Центр" щелкните **Другие службы** и выберите **Log Analytics**.  
 2. В колонке Log Analytics выберите рабочую область Log Analytics и в колонке рабочей области выберите **Поиск по журналам**.  
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 При выборе модуля runbook, который был настроен для [вызова из оповещения Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md), он имеет входной параметр с именем **WebhookData** типа **Объект**.  Если входной параметр является обязательным, вам потребуется передать результаты поиска в runbook, чтобы преобразовать строку в формате JSON в тип объекта, что позволит вам выполнить фильтрацию по конкретным элементам, на которые вы будете ссылаться в действиях runbook.  Это можно сделать, выбрав **результат поиска (Объект)** в раскрывающемся списке.<br><br> ![Выбор объекта данных Webhook для параметра runbook](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Полный список полей и аспектов для поиска, доступных в Log Analytics, см. в [справочнике по поиску в журналах Log Analytics](log-analytics-search-reference.md).
-* Сведения об автоматическом вызове runbook службы автоматизации см. в статье [Вызов модуля Runbook службы автоматизации Azure из оповещения OMS Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* Сведения об автоматическом вызове runbook службы автоматизации см. в статье [Вызов модуля Runbook службы автоматизации Azure из оповещения Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md).  

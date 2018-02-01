@@ -1,5 +1,5 @@
 ---
-title: "Рекомендации по разработке архитектуры гибридной идентификации в Azure Active Directory ― определение требований к защите данных | Документация Майкрософт"
+title: "Проектирование гибридных удостоверений: требования к защите данных в Azure | Документация Майкрософт"
 description: "При планировании гибридного решения для идентификации определите требования к защите данных для вашего бизнеса и варианты наилучшего выполнения этих требований."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 1a2feca8d24fabda4c191b5a181ab6606c912657
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Планирование повышения безопасности данных благодаря надежному решению для идентификации
 Первый шаг для защиты данных — определение того, кто должен иметь доступ к этим данным. Для этого необходимо иметь решение для идентификации, которое можно быстро интегрировать в систему для реализации проверки подлинности и авторизации. Проверку подлинности и авторизацию часто путают друг с другом, понимая их роли неправильно. На самом деле между ними есть довольно большие различия, как показано на рисунке ниже:
@@ -79,7 +80,7 @@ ms.lasthandoff: 12/11/2017
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
  [Определение требований к управлению содержимым](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 ## <a name="see-also"></a>См. также

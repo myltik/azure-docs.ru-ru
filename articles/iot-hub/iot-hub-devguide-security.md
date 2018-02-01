@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 43917e4fe4ce7643ea034d128f303a5397dbcdc2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Управление доступом к Центру Интернета вещей
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/18/2017
 > [!NOTE]
 > Дополнительные сведения см. в статье о [разрешениях](#iot-hub-permissions).
 
-## <a name="authentication"></a>Аутентификация
+## <a name="authentication"></a>Authentication
 
 Центр Интернета вещей Azure предоставляет доступ к конечным точкам, проверяя маркер на соответствие политикам общего доступа и учетным данным безопасности в реестре удостоверений.
 
@@ -130,7 +130,7 @@ ms.lasthandoff: 11/18/2017
 
 Это ожидаемые значения:
 
-| Значение | Описание |
+| Значение | ОПИСАНИЕ |
 | --- | --- |
 | {signature} |Строка подписи HMAC-SHA256 формата `{URL-encoded-resourceURI} + "\n" + expiry`. **Важно!**Ключ шифруется в кодировке base64 и используется для вычислений HMAC-SHA256. |
 | {resourceURI} |Начинающийся с имени узла Центра Интернета вещей (без протокола) префикс URI (по сегменту) для конечных точек, доступ к которым можно получить с помощью этого маркера. Например, `myHub.azure-devices.net/devices/device1` |
@@ -193,7 +193,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
 Принцип создания маркера безопасности в C#:
 
-```C#
+```csharp
 using System;
 using System.Globalization;
 using System.Net;
@@ -268,7 +268,7 @@ var token = generateSasToken(endpoint, deviceKey, null, 60);
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Маркер SAS можно создать с помощью инструмента [обозреватель устройств][lnk-device-explorer] на основе .NET или с помощью кроссплатформенной служебной программы командной строки [iothub-explorer][lnk-iothub-explorer] на основе Node.
+> Маркер SAS можно создать с помощью инструмента [Обозреватель устройств][lnk-device-explorer] на основе .NET или с помощью кроссплатформенной служебной программы командной строки [Расширение Интернета вещей для Azure CLI 2.0][lnk-IoT-extension-CLI-2.0] на основе Python.
 
 ### <a name="use-a-shared-access-policy"></a>Использование политики общего доступа
 
@@ -424,7 +424,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 В следующей таблице указаны разрешения, с помощью которых можно управлять доступом к Центру Интернета вещей.
 
-| Разрешение | Примечания |
+| Разрешение | Заметки |
 | --- | --- |
 | **RegistryRead** |Предоставляет доступ на чтение к реестру удостоверений. Дополнительные сведения см. в разделе о [реестре удостоверений][lnk-identity-registry]. <br/>Это разрешение используется серверными облачными службами. |
 | **RegistryReadWrite** |Предоставляет доступ на чтение и запись к реестру удостоверений. Дополнительные сведения см. в разделе о [реестре удостоверений][lnk-identity-registry]. <br/>Это разрешение используется серверными облачными службами. |
@@ -441,7 +441,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 * В статье [Справочник — язык запросов Центра Интернета вещей для двойников устройств, заданий и маршрутизации сообщений][lnk-query] описывается язык запросов, который можно использовать для получения сведений о двойниках устройств и заданиях из Центра Интернета вещей.
 * Статья [Поддержка MQTT в Центре Интернета вещей][lnk-devguide-mqtt] содержит дополнительные сведения о поддержке протокола MQTT в Центре Интернета вещей.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Теперь, когда вы узнали, как управлять доступом к Центру Интернета вещей, вас могут заинтересовать следующие статьи в руководстве разработчика для Центра Интернета вещей:
 
@@ -452,10 +452,8 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 Чтобы применить на практике некоторые основные понятия, описанные в этой статье, просмотрите следующие руководства по Центру Интернета вещей:
 
 * [Приступая к работе с Центром Интернета вещей Azure][lnk-getstarted-tutorial]
-* 
-            [Учебник: как отправлять сообщения из облака на устройства с помощью Центра Интернета вещей и .Net][lnk-c2d-tutorial]
-* 
-            [Учебник: как обрабатывать сообщения, отправляемые с устройства Центра Интернета вещей в облако, с помощью .Net][lnk-d2c-tutorial]
+* [Как отправлять сообщения из облака на устройства с помощью Центра Интернета вещей][lnk-c2d-tutorial]
+* [Как обрабатывать сообщения, отправляемые с устройства Центра Интернета вещей в облако][lnk-d2c-tutorial]
 
 <!-- links and images -->
 
@@ -489,7 +487,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
