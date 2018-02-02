@@ -4,6 +4,8 @@
   items:
     - name: Сведения о базах данных SQL
       href: sql-database-technical-overview.md
+    - name: PaaS или IaaS
+      href: sql-database-paas-vs-sql-server-iaas.md
 - name: Быстрое начало работы
   expanded: true
   items:
@@ -59,7 +61,7 @@
       href: sql-database-powershell-samples.md
 - name: Основные понятия
   items:
-    - name: Функции службы
+    - name: Служба баз данных
       items:
         - name: Серверы и базы данных
           href: sql-database-servers-databases.md
@@ -73,42 +75,22 @@
           href: sql-database-elastic-pool.md
         - name: Архитектура подключения
           href: sql-database-connectivity-architecture.md
-        - name: Правила файрволла
-          href: sql-database-firewall-configure.md
-        - name: Правила брандмауэра для виртуальной сети
-          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: DTU и eDTU
           href: sql-database-what-is-a-dtu.md
         - name: Тест производительности DTU
           href: sql-database-benchmark-overview.md
-        - name: PaaS или IaaS
-          href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Аудит
-          href: sql-database-auditing.md
-        - name: Обнаружение угроз
-          href: sql-database-threat-detection.md
-        - name: Резервные копии базы данных
-          href: sql-database-automated-backups.md
-        - name: Хранение резервных копий
-          href: sql-database-long-term-retention.md
-        - name: Группы отработки отказа
-          href: sql-database-geo-replication-overview.md
-        - name: Эластичная клиентская библиотека
-          href: sql-database-elastic-database-client-library.md
-        - name: Эластичные запросы
-          href: sql-database-elastic-query-overview.md
-        - name: Эластичные транзакции
-          href: sql-database-elastic-transactions-overview.md
-        - name: Задания обработки эластичных БД
-          href: sql-database-elastic-jobs-overview.md
-        - name: Оценка уязвимостей SQL
-          href: sql-vulnerability-assessment.md
         - name: Общие компоненты SQL Server
           href: sql-database-features.md
+    - name: высокую доступность;
+      href: sql-database-high-availability.md
     - name: Безопасность
       items:
         - name: Обзор
           href: sql-database-security-overview.md
+        - name: Правила файрволла
+          href: sql-database-firewall-configure.md
+        - name: Правила брандмауэра для виртуальной сети
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: управление доступом;
           href: sql-database-control-access.md
         - name: Azure AD
@@ -117,16 +99,28 @@
           href: sql-database-manage-logins.md
         - name: Многофакторная идентификация
           href: sql-database-ssms-mfa-authentication.md
+        - name: Аудит
+          href: sql-database-auditing.md
+        - name: Обнаружение угроз
+          href: sql-database-threat-detection.md
         - name: Аудит таблиц и TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Маскирование данных
+        - name: Динамическое маскирование данных
           href: sql-database-dynamic-data-masking-get-started.md
-    - name: высокую доступность;
-      href: sql-database-high-availability.md
+        - name: Оценка уязвимостей
+          href: sql-vulnerability-assessment.md
+        - name: Обнаружение и классификация данных
+          href: sql-database-data-discovery-and-classification.md
     - name: Непрерывность бизнес-процессов
       items:
         - name: Обзор
           href: sql-database-business-continuity.md
+        - name: Резервные копии базы данных
+          href: sql-database-automated-backups.md
+        - name: Хранение резервных копий
+          href: sql-database-long-term-retention.md
+        - name: Группы отработки отказа
+          href: sql-database-geo-replication-overview.md
         - name: Восстановление базы данных
           href: sql-database-recovery-using-backups.md
         - name: Настройка безопасности
@@ -185,6 +179,14 @@
       items:
         - name: Обзор
           href: sql-database-elastic-scale-introduction.md
+        - name: Эластичная клиентская библиотека
+          href: sql-database-elastic-database-client-library.md
+        - name: Эластичные запросы
+          href: sql-database-elastic-query-overview.md
+        - name: Эластичные транзакции
+          href: sql-database-elastic-transactions-overview.md
+        - name: Задания обработки эластичных БД
+          href: sql-database-elastic-jobs-overview.md
         - name: Карты сегментов
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Маршрутизация запросов
@@ -299,6 +301,8 @@
           href: sql-database-advisor-portal.md
         - name: Включение автоматической настройки
           href: sql-database-automatic-tuning-enable.md
+        - name: Автоматическая настройка получения уведомлений по электронной почте
+          href: sql-database-automatic-tuning-email-notifications.md
         - name: Устранение проблем производительности Intelligent Insights
           href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: Использование динамических административных представлений для мониторинга производительности

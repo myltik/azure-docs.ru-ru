@@ -117,6 +117,7 @@
 ### [Настройка локальных кодировщиков для использования с облачными кодировщиками](media-services-live-encoders-overview.md)
 #### [Кодировщик Elemental Live](media-services-configure-elemental-live-encoder.md)
 #### [Кодировщик FMLE](media-services-configure-fmle-live-encoder.md)
+#### [Кодировщик Haivision KB](media-services-configure-kb-live-encoder.md)
 #### [Кодировщик NewTek TriCaster](media-services-configure-tricaster-live-encoder.md)
 #### [Кодировщик Wirecast](media-services-configure-wirecast-live-encoder.md)
 ### [Обработка длительных операций](media-services-dotnet-long-operations.md)

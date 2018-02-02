@@ -29,6 +29,10 @@
       href: understading-cost-reports.md
 - name: Практические руководства
   items:
+    - name: Активация подписок и учетных записей Azure
+      href: activate-subs-accounts.md
+    - name: Добавление расширенных метрик для виртуальных машин
+      href: azure-vm-extended-metrics.md
     - name: Использование отчетов службы "Управление затратами"
       href: use-reports.md
 - name: Ресурсы

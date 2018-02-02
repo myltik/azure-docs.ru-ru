@@ -37,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Пользовательский интерфейс
           href: tutorial-copy-data-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-copy-data-dot-net.md
     - name: 3. Копирование локальных данных в облако
       items:
@@ -90,7 +90,7 @@
       items:
         - name: Пользовательский интерфейс
           href: tutorial-control-flow-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-control-flow.md
 - name: Примеры
   items:
@@ -350,6 +350,8 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Вызов пакетов Integration Services при помощи хранимой процедуры
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: Планирование среды выполнения интеграции Azure-SSIS
+          href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Создание триггеров
       items:
         - name: Создание триггера расписания

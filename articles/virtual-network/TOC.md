@@ -15,7 +15,9 @@
 ### [Списки управления доступом](virtual-networks-acl.md)
 
 # Начало работы
-## [Создание первой собственной виртуальной сети](virtual-network-get-started-vnet-subnet.md)
+## [Создание виртуальной сети — портал](quick-create-portal.md)
+## [Создание виртуальной сети — PowerShell](quick-create-powershell.md)
+## [Создание виртуальной сети — Azure CLI](quick-create-cli.md)
 
 # Практическое руководство
 ## Планирование и проектирование

@@ -20,8 +20,6 @@
 ### [Определение зависимости между ресурсами](resource-group-define-dependencies.md)
 ### [Развертывание нескольких экземпляров ресурсов в шаблонах Azure Resource Manager](resource-group-create-multiple.md)
 ### [Обновление ресурса](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Схемы проектирования шаблонов](best-practices-resource-manager-design-templates.md)
-
 
 ## Развертывание
 ### Azure PowerShell
@@ -80,7 +78,7 @@
 #### [Проблемы с развертыванием в Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [Сведения об ошибках развертывания](resource-manager-troubleshoot-tips.md)
 
-# Ссылка
+# Справочные материалы
 ## [Формат шаблона](/azure/templates/)
 ## [Функции шаблонов](resource-group-template-functions.md)
 ### [Функции массива и объекта](resource-group-template-functions-array.md)

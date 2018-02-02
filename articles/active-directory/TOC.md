@@ -176,6 +176,16 @@
 ##### [Обновление параметров реестра](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Общие сведения о безопасности и конфиденциальности](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+### [Подготовка пользователей и отзыв подготовки для приложений SaaS](active-directory-saas-app-provisioning.md)
+#### [Руководства по интеграции приложений](active-directory-saas-tutorial-list.md)
+#### [Автоматизация подготовки для приложений с поддержкой SCIM](active-directory-scim-provisioning.md)
+#### [Настройка сопоставлений атрибутов](active-directory-saas-customizing-attribute-mappings.md)
+#### [Запись выражений для сопоставления атрибутов в Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [Использование фильтров области](active-directory-saas-scoping-filters.md)
+#### [Отчеты об автоматической подготовке пользователей](active-directory-saas-provisioning-reporting.md)
+#### [Устранение неполадок с подготовкой пользователей](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [Удаленный доступ к приложениям с помощью прокси приложения](active-directory-application-proxy-get-started.md)
 #### Начало работы
@@ -219,7 +229,7 @@
 #### [Расширенные параметры подписи сертификатов для приложений SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Скрытие приложения в интерфейсе пользователя](active-directory-coreapps-hide-third-party-app.md)
 ### [Настройка автоматического ускорения входа с помощью политики обнаружения домашней области](active-directory-auto-acceleration-using-hrd.md)
-
+### [Перенос приложений AD FS в Azure AD](migrate-adfs-apps-to-azure.md)
 ### [Управление доступом к приложениям](active-directory-managing-access-to-apps.md)
 #### [Доступ с единым входом](active-directory-appssoaccess-whatis.md)
 #### [Сертификаты для единого входа](active-directory-sso-certs.md)
@@ -264,7 +274,8 @@
 
 ## Делегирование доступа к ресурсам
 ### [Роли администратора](active-directory-assign-admin-roles-azure-portal.md)
-#### [Назначение ролей администратора](active-directory-users-assign-role-azure-portal.md)
+#### [Назначение роли администратора пользователю](active-directory-users-assign-role-azure-portal.md)
+#### [Сравнение пользовательских разрешений члена и гостя](users-default-permissions.md)
 ### [Административные единицы](active-directory-administrative-units-management.md)
 ### [Настройка времени существования маркеров](active-directory-configurable-token-lifetimes.md)
 ### [Управление учетными записями администратора для аварийного доступа](active-directory-admin-manage-emergency-access-accounts.md)
@@ -284,7 +295,7 @@
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
 #### [Элементы управления](active-directory-conditional-access-controls.md)
 #### [Условие расположения](active-directory-conditional-access-locations.md)
-#### [Приступая к работе](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
 #### [Миграция классических политик](active-directory-conditional-access-migration.md)
@@ -306,7 +317,7 @@
 ### Аутентификация на основе сертификата
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Приступая к работе](active-directory-certificate-based-authentication-get-started.md)
+#### [Начало работы](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Защита идентификации Azure AD](active-directory-identityprotection.md)
 #### [Включение](active-directory-identityprotection-enable.md)
@@ -321,8 +332,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [управление привилегированными пользователями;](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Интеграция других служб с Azure AD]()
-### [Включение интеграции с LinkedIn](linkedin-integration.md)
+## Интеграция других служб с Azure AD
+### [Интеграция LinkedIn с Azure AD](linkedin-integration.md)
 
 ## [Развертывание служб AD DS на виртуальных машинах Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory на виртуальных машинах Azure](active-directory-deploying-ws-ad-guidelines.md)

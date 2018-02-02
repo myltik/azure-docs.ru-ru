@@ -62,25 +62,7 @@
         - name: Защита приложений логики
           href: logic-apps-securing-a-logic-app.md
         - name: Разработка настраиваемых соединителей
-          items:
-            - name: Обзор пользовательских соединителей
-              href: custom-connector-overview.md
-            - name: Создание соединителей с помощью веб-API
-              href: custom-connector-build-web-api-app-tutorial.md
-            - name: Защита соединителей с помощью Azure AD
-              href: custom-connector-azure-active-directory-authentication.md
-            - name: Описание API-интерфейсов с помощью Postman
-              href: custom-connector-api-postman-collection.md
-            - name: Расширение OpenAPI для пользовательских соединителей
-              href: custom-connector-openapi-extensions.md
-            - name: Создание и регистрация соединителя OpenAPI
-              href: logic-apps-custom-connector-register.md
-            - name: Создание и регистрация соединителя SOAP
-              href: logic-apps-soap-connector-create-register.md
-            - name: Сертификация соединителя
-              href: custom-connector-submit-certification.md
-            - name: Часто задаваемые вопросы о пользовательских соединителях
-              href: custom-connector-faq.md
+          href: custom-connector-overview.md
         - name: Разработка настраиваемых интерфейсов API
           items:
             - name: Создание настраиваемых API для приложений логики
@@ -140,6 +122,8 @@
           href: logic-apps-enterprise-integration-transform.md
         - name: Добавление карт для преобразования XML
           href: logic-apps-enterprise-integration-maps.md
+        - name: Преобразование JSON
+          href: logic-apps-enterprise-integration-liquid-transform.md
         - name: Добавление сертификатов безопасности
           href: logic-apps-enterprise-integration-certificates.md
         - name: Устранение ошибок B2B

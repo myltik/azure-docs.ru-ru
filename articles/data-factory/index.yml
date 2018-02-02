@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/08/2017
   ms.author: spelluru
-  ms.openlocfilehash: 76d18c2966b52c508ec959074c976e84ab5e9bdf
-  ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+  ms.openlocfilehash: 0eb34f3b8cd287624e4a8a6930e8cc145d5e8fbb
+  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 01/24/2018
+  ms.lasthandoff: 02/01/2018
 abstract:
   description: "Узнайте, как использовать фабрику данных, облачную службу интеграции данных, для объединения служб хранения, перемещения и обработки данных в автоматизированные конвейеры данных. Руководства и другая документация, в которой показано, как настраивать и администрировать конвейеры данных, а также перемещать и преобразовывать данные для анализа. <p>В настоящее время версия V2 фабрики данных находится на этапе предварительной версии. Версия V1 является общедоступной. Если вы используете версию V1 службы фабрики данных, см. <a href=/azure/data-factory/v1/data-factory-introduction>документацию по этой версии.</a></p>"
   aside:
@@ -73,13 +73,13 @@ sections:
     style: ordered
     items:
     - html: "Развертывание пакетов SSIS в Azure: <a href=\"/azure/data-factory/tutorial-create-azure-ssis-runtime-portal\">пользовательский интерфейс фабрики данных</a> | <a href=\"/azure/data-factory/tutorial-deploy-ssis-packages-azure\">Azure PowerShell</a>"
-    - html: "Копирование данных в облаке: <a href=\"/azure/data-factory/tutorial-copy-data-tool\">средство копирования данных</a> | <a href=\"/azure/data-factory/tutorial-copy-data-portal\">пользовательский интерфейс фабрики данных</a> | <a href=\"/azure/data-factory/tutorial-copy-data-dot-net\">Azure PowerShell</a>"
+    - html: "Копирование данных в облаке: <a href=\"/azure/data-factory/tutorial-copy-data-tool\">средство копирования данных</a> | <a href=\"/azure/data-factory/tutorial-copy-data-portal\">пользовательский интерфейс фабрики данных</a> | <a href=\"/azure/data-factory/tutorial-copy-data-dot-net\">.NET</a>"
     - html: "Копирование локальных данных в облако: <a href=\"/azure/data-factory/tutorial-hybrid-copy-data-tool\">средство копирования данных | <a href=\"/azure/data-factory/tutorial-hybrid-copy-portal\">пользовательский интерфейс фабрики данных</a> | <a href=\"/azure/data-factory/tutorial-hybrid-copy-powershell\">Azure PowerShell</a>"
     - html: "Копирование данных в пакетном режиме: <a href=\"/azure/data-factory/tutorial-bulk-copy-portal\">пользовательский интерфейс фабрики данных</a> | <a href=\"/azure/data-factory/tutorial-bulk-copy\">Azure PowerShell</a>"
     - html: "Добавочное копирование данных: <a href=\"/azure/data-factory/tutorial-incremental-copy-portal\">пользовательский интерфейс фабрики данных</a> | <a href=\"/azure/data-factory/tutorial-incremental-copy-powershell\">Azure PowerShell</a>"
     - html: "Преобразование данных в облаке с помощью Spark: <a href=\"/azure/data-factory/tutorial-transform-data-spark-portal\">пользовательский интерфейс фабрики данных</a> | <a href=\"/azure/data-factory/tutorial-transform-data-spark-powershell\">Azure PowerShell</a>"
     - html: "Преобразование данных в виртуальной сети: <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal\">пользовательский интерфейс фабрики данных</a> | <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network\">Azure PowerShell</a>"
-    - html: "Поток управления: <a href=\"/azure/data-factory/tutorial-control-flow-portal\">пользовательский интерфейс фабрики данных</a> | <a href=\"/azure/data-factory/tutorial-control-flow\">Azure PowerShell</a>"
+    - html: "Поток управления: <a href=\"/azure/data-factory/tutorial-control-flow-portal\">пользовательский интерфейс фабрики данных</a> | <a href=\"/azure/data-factory/tutorial-control-flow\">.NET</a>"
 - title: "Примеры"
   items:
   - type: paragraph

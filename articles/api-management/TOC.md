@@ -42,7 +42,7 @@
 ## Кэш
 ### [Добавление кэширования для повышения производительности](api-management-howto-cache.md)
 ## Защита серверной части
-### [Защита серверной части веб-API с помощью AAD](api-management-howto-protect-backend-with-aad.md)
+### [Защита серверной части веб-API с помощью Azure AD](api-management-howto-protect-backend-with-aad.md)
 ### [Подключение к виртуальной сети](api-management-using-with-vnet.md)
 ### [Подключение к внутренней виртуальной сети](api-management-using-with-internal-vnet.md)
 ### [Интеграция шлюза приложений с внутренней виртуальной сетью](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -50,8 +50,8 @@
 ## Настройка процесса разработки
 ### [Изменение содержимого и макета страницы](api-management-modify-content-layout.md)
 ### [Настройка системных страниц с помощью шаблонов](api-management-developer-portal-templates.md)
-### [Аутентификация с помощью AAD](api-management-howto-aad.md)
-### [Проверка подлинности с помощью AAD B2C](api-management-howto-aad-b2c.md)
+### [Аутентификация с помощью Azure AD](api-management-howto-aad.md)
+### [Аутентификация с помощью Azure AD B2C](api-management-howto-aad-b2c.md)
 ### [Делегированная аутентификация](api-management-howto-setup-delegation.md)
 ### [Уведомления по электронной почте и шаблоны](api-management-howto-configure-notifications.md)
 ### [Обеспечение поддержки консольного приложения OAuth](api-management-howto-oauth2.md)

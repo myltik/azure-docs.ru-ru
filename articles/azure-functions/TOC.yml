@@ -63,6 +63,8 @@
       href: functions-cli-samples.md
 - name: Основные понятия
   items:
+    - name: Сравнение 1.x и 2.x
+      href: functions-versions.md
     - name: Масштабирование и размещение
       href: functions-scale.md
     - name: Триггеры и привязки
@@ -146,7 +148,7 @@
         - name: Управление приложением-функцией
           href: functions-how-to-use-azure-function-app-settings.md
         - name: Установка версии среды выполнения
-          href: functions-versions.md
+          href: set-runtime-version.md
     - name: Мониторинг
       href: functions-monitoring.md
     - name: Интеграция
@@ -175,7 +177,7 @@
           href: durable-functions-counter.md
         - name: Участие пользователя
           href: durable-functions-phone-verification.md
-- name: Ссылка
+- name: Справочные материалы
   items:
     - name: Привязки
       items:
@@ -183,6 +185,8 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-cosmosdb.md
+        - name: Служба "Сетка событий Azure"
+          href: functions-bindings-event-grid.md
         - name: Концентраторы событий
           href: functions-bindings-event-hubs.md
         - name: Внешний файл

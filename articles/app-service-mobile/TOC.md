@@ -77,7 +77,7 @@
 #### [Создание среды службы приложений с внутренней подсистемой балансировки нагрузки с помощью шаблонов Azure Resource Manager](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Создание внутренней подсистемы балансировки нагрузки](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Развернуть
+## Развертывание
 ### [Развертывание синхронизации облака](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Непрерывное развертывание](../app-service/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Промежуточные среды](../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -91,7 +91,7 @@
 #### [Масштабирование приложений в среде службы приложений](../app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 #### [Автомасштабирование приложений в среде службы приложений](../app-service/environment/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Управление
+## управление
 ### [Настройка](../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Личные домены
 #### [Приобретение и настройка личных доменов](../app-service/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -100,7 +100,7 @@
 
 ### [Клонирование существующего приложения](../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Виртуальная сеть Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Группы ресурсов](../app-service/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Группы ресурсов](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations)
 #### [Выполнение фоновых задач с веб-заданиями](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 #### [Настройка](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -135,7 +135,7 @@
 #### [Реализация многоуровневой архитектуры безопасности](../app-service/environment/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Безопасное подключение к серверным ресурсам](../app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Резервное копирование
+## Архивация
 ### [Архивация приложения в Azure](../app-service/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Восстановление приложения в Azure](../app-service/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 

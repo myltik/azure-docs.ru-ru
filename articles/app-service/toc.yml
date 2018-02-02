@@ -41,6 +41,8 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java с MySQL
           href: app-service-web-tutorial-java-mysql.md
+        - name: Использование Python и PostgreSQL
+          href: app-service-web-tutorial-python-postgresql.md
     - name: 1. Создание REST API
       href: app-service-web-tutorial-rest-api.md
     - name: 2. Сопоставление пользовательского домена
@@ -162,7 +164,7 @@
         - name: Клонирование приложения
           href: app-service-web-app-cloning.md
         - name: Перемещение ресурсов
-          href: app-service-move-resources.md
+          href: '../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
     - name: Выполнение фоновых задач
       items:
         - name: Создание веб-заданий
