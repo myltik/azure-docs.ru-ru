@@ -9,6 +9,10 @@
 ## Остановка и возобновление вычислений
 ### [Портал](pause-and-resume-compute-portal.md)
 ### [PowerShell](pause-and-resume-compute-powershell.md)
+## Масштабирование вычислительных ресурсов
+### [Портал](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
 
 
 # Учебники
@@ -113,8 +117,6 @@
 ### [Анализ рабочей нагрузки](analyze-your-workload.md)
 
 ## Масштабирование
-### [Управление вычислениями (портал)](sql-data-warehouse-manage-compute-portal.md)
-### [Управление вычислениями (PowerShell)](sql-data-warehouse-manage-compute-powershell.md)
 ### [Управление вычислениями (REST API)](sql-data-warehouse-manage-compute-rest-api.md)
 ### [Автоматизация уровней вычислений](manage-compute-with-azure-functions.md)
 

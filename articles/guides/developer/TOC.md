@@ -1,7 +1,5 @@
 # Обзор
 ## [Руководство для разработчиков](azure-developer-guide.md) 
-## [Общие сведения о службах Azure](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Общие сведения о портале Azure](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Пакеты SDK и средства](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Быстрый запуск
@@ -56,7 +54,7 @@
 ### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
 ### [Не связанные с сервером приложения](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Кластеры микрослужб](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
-## Развернуть
+## Развертывание
 ### [Веб-приложения и мобильные приложения: система управления версиями](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
 ### [Использование микрослужб локально](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
@@ -81,7 +79,7 @@
 ### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Виртуальные машины](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
-## Монитор
+## Мониторинг
 ### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
 ### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
@@ -102,7 +100,7 @@
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
 ## Интерфейсы командной строки
-### [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/)
+### [интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/)
 ### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Выставление счетов](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
