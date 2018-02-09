@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Тестирование решения с помощью виртуальных устройств
 
@@ -131,24 +131,24 @@ ms.lasthandoff: 02/01/2018
 1. Чтобы включить доступ по протоколу SSH к виртуальной машине, выполните следующую команду, подставив имя группы безопасности сети из предыдущего шага:
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     Чтобы просмотреть список правил для входящих подключений сети, выполните следующую команду:
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. Чтобы изменить пароль виртуальной машины на известный, выполните следующую команду. Используйте имя виртуальной машины, записанное ранее, и пароль по своему выбору:
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. Чтобы найти IP-адрес виртуальной машины, используйте следующую команду и запишите общедоступный IP-адрес:
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. Теперь к виртуальной машине можно подключаться по протоколу SSH. Команда `ssh` предварительно установлена в Cloud Shell. Используйте общедоступный IP-адрес из предыдущего шага и при появлении запроса на ввод укажите пароль, настроенный для виртуальной машины:

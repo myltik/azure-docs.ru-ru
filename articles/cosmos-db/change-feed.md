@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: rafats
-ms.openlocfilehash: d179f2880b026cb10db53c1218507e7d1e396b8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3fa321a3354be3eb7dce2ff886cd40c6c9f1ebbb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Работа с поддержкой веб-канала изменений в Azure Cosmos DB
 
@@ -179,6 +179,7 @@ ms.lasthandoff: 02/01/2018
 
 Обратите внимание, что при наличии двух бессерверных функций Azure, которые отслеживают одну и ту же коллекцию и используют одинаковую аренду, эти функции могут получить разные документы в зависимости от того, как библиотека обработчика решит обработать секции.
 
+<a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Основные сведения о библиотеке обработчика канала изменений
 
 Существует четыре основных компонента реализации обработчика веб-канала изменений: отслеживаемая коллекция, коллекция аренд, узел обработчика и потребители. 
