@@ -15,17 +15,17 @@ ms.date: 06/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 073b8adfcbe5fdcc2a6d1dba820a1101fac83218
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Часто задаваемые вопросы о приложении Microsoft Authenticator
 
 В этой статье содержатся ответы на часто задаваемые вопросы о приложении Microsoft Authenticator. Если вы не нашли ответ на свой вопрос, то перейдите на [форум приложения Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Сведения об определенных функциях приложения также можно найти в разделе часто задаваемых вопросов статьи [Sign in with your phone, not your password](microsoft-authenticator-app-phone-signin-faq.md) (Вход с помощью телефона, а не пароля).
 
-Приложение Microsoft Authenticator пришло на смену приложению Azure Authenticator. Это приложение, рекомендуемое при использовании Многофакторной идентификации Azure. Приложение Microsoft Authenticator доступно для [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Приложение Microsoft Authenticator пришло на смену приложению Azure Authenticator. Это приложение, рекомендуемое при использовании Многофакторной идентификации Azure. Приложение Microsoft Authenticator доступно для [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) и [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 12/11/2017
 
 Значок с изображением замка означает, что устройство зарегистрировано в Azure AD и зарегистрировано в учетной записи. Регистрация устройства для системы iOS выполняется при регистрации в Microsoft Intune.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 ### <a name="contact-us"></a>Свяжитесь с нами
 Если в этой статье вы не получили ответ на свой вопрос, сообщите нам об этом. Перейдите на [форум приложения Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) и задайте там свой вопрос, чтобы получить помощь от сообщества, или оставьте комментарий на этой странице.

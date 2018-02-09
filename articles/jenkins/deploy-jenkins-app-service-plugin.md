@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Развертывание в службе приложений Azure с помощью подключаемого модуля Jenkins 
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/22/2017
 
 Из этого руководства вы узнаете, как выполнять такие задачи:
 > [!div class="checklist"]
-> * Настройте Jenkins для развертывания веб-приложений через Git или FTP.
+> * Настройка Jenkins для развертывания веб-приложений через Git или по протоколу FTP.
 > * Настройка Jenkins для развертывания веб-приложений для контейнеров.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Создание и настройка экземпляра Jenkins
@@ -64,14 +64,14 @@ sudo apt-get install -y maven
 3. Чтобы добавить субъект-службу Microsoft Azure, выберите **Add Credentials** (Добавить учетные данные). Укажите значения в полях **идентификатора подписки**, **идентификатора клиента**, **секрета клиента** и **конечной точки маркера OAuth 2.0**. Задайте **mySp** в качестве значения поля **идентификатора**. Мы будем использовать этот идентификатор в последующих шагах этой статьи.
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Настройка Jenkins для развертывания веб-приложений путем загрузки файлов
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Настройка Jenkins для развертывания веб-приложений путем отправки файлов
 
 Чтобы развернуть проект в веб-приложении, можно отправить артефакты сборки (например, WAR-файл на языке Java) с использованием Git или FTP.
 
 Перед настройкой задания в Jenkins требуется план службы приложений Azure и веб-приложение для запуска приложения Java.
 
 
-1. Создайте план службы приложений Azure с ценовой категорией **Бесплатный** с помощью [команды Azure CLI](/cli/azure/appservice/plan#create) `az appservice plan create`. От плана службы приложений зависят физические ресурсы, используемые для размещения приложений. Все приложения, назначенные плану службы приложений, совместно используют эти ресурсы. Эти ресурсы позволяют сэкономить при размещении нескольких приложений.
+1. Создайте план службы приложений Azure с ценовой категорией **Бесплатный** с помощью [команды Azure CLI](/cli/azure/appservice/plan#az_appservice_plan_create) `az appservice plan create`. От плана службы приложений зависят физические ресурсы, используемые для размещения приложений. Все приложения, назначенные плану службы приложений, совместно используют эти ресурсы. Эти ресурсы позволяют сэкономить при размещении нескольких приложений.
 2. Создайте веб-приложение. Воспользуйтесь [порталом Azure](/azure/app-service-web/web-sites-configure) или выполните следующую команду `az` Azure CLI:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -104,7 +104,7 @@ sudo apt-get install -y maven
 8. Если вы хотите выполнить развертывание в слот, отличный от рабочего, можно также задать имя **слота**.
 9. Сохраните проект и создайте его. Веб-приложение развертывается в Azure после сборки.
 
-### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Развертывание веб-приложений путем загрузки файлов с помощью конвейера Jenkins
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Развертывание веб-приложений путем отправки файлов с помощью конвейера Jenkins
 
 Подключаемый модуль Jenkins службы приложений Azure готов к использованию в конвейере. Следующий пример доступен в репозитории GitHub.
 
@@ -227,7 +227,7 @@ sudo apt-get install -y maven
 
 3. Перейдите по адресу: http://&lt;имя_вашего_приложения>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Замените &lt;x> и &lt;y> любыми числами для получения сумы x + y.
     
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы выполнили развертывание в Azure с помощью подключаемого модуля Jenkins службы приложений Azure.
 

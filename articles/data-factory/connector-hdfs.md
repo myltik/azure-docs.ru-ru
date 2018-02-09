@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 01/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 80892d5f87c1f7a588023e4baa5de79bd73329a5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: fb4802a6a3bed163f0d2bba04cf9d80a917ba7ba
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Копирование данных из HDFS и обратно с помощью фабрики данных Azure
+# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Копирование данных из HDFS с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Версия 1 — общедоступная](v1/data-factory-hdfs-connector.md)
 > * [Версия 2 — предварительная](connector-hdfs.md)
 
-В этой статье описывается, как с помощью действия копирования в фабрике данных Azure копировать данные из HDFS и обратно. Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
+Из этой статьи вы узнаете, как с помощью действия копирования в фабрике данных Azure копировать данные из HDFS. Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
 
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Перемещение данных из локальной системы HDFS с помощью фабрики данных Azure](v1/data-factory-hdfs-connector.md).
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-Чтобы скопировать данные из HDFS, которая не является общедоступной, и обратно, необходимо настроить локальную среду выполнения интеграции. Дополнительные сведения см. в статье [Создание и настройка локальной среды выполнения интеграции](concepts-integration-runtime.md).
+Чтобы скопировать данные из системы HDFS, которая не является общедоступной, необходимо настроить локальную среду выполнения интеграции. Дополнительные сведения см. в статье [Создание и настройка локальной среды выполнения интеграции](concepts-integration-runtime.md).
 
 ## <a name="getting-started"></a>Приступая к работе
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="copy-activity-properties"></a>Свойства действия копирования
 
-Полный список разделов и свойств, используемых для определения действий, см. в статье [Конвейеры и действия в фабрике данных Azure](concepts-pipelines-activities.md). Этот раздел содержит список свойств, поддерживаемых типами источника HDFS и приемника.
+Полный список разделов и свойств, используемых для определения действий, см. в статье [Конвейеры и действия в фабрике данных Azure](concepts-pipelines-activities.md). Этот раздел содержит список свойств, поддерживаемых источником HDFS.
 
 ### <a name="hdfs-as-source"></a>HDFS в качестве источника
 

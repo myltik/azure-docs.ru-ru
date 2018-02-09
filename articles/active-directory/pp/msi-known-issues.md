@@ -1,9 +1,9 @@
 ---
-title: "Часто задаваемые вопросы и известные проблемы с управляемые службы удостоверений (MSI) для Azure Active Directory"
+title: "Вопросы и ответы, а также известные проблемы с управляемым удостоверением службы (MSI) для Azure Active Directory"
 description: "Известные проблемы с управляемым удостоверением службы для Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7a71010567a76569da969db3d53f71535f96f2d0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 8820691f5b7c6dbd2c15faede75de123f779b167
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Часто задаваемые вопросы и известные проблемы с управляемые службы удостоверений (MSI) для Azure Active Directory
+# <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Вопросы и ответы, а также известные проблемы с управляемым удостоверением службы (MSI) для Azure Active Directory
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/22/2017
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Можно ли использовать MSI с библиотекой аутентификации Active Directory (ADAL) или библиотекой аутентификации Microsoft (MSAL)?
 
-Нет, MSI не еще интегрирован с ADAL или MSAL. Дополнительные сведения о получении маркера MSI, с помощью конечной точки MSI REST см. в разделе [использование Azure VM управляемые службы удостоверений (MSI) для получения маркера](msi-how-to-use-vm-msi-token.md).
+Нет, MSI не еще интегрирован с ADAL или MSAL. Дополнительные сведения о том, как получить маркер MSI с использованием конечной точки MSI REST, см. в статье [Использование управляемого удостоверения службы (MSI) виртуальной машины Azure для получения маркера](msi-how-to-use-vm-msi-token.md).
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Какие дистрибутивы Linux поддерживаются?
 
@@ -57,6 +57,23 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 Описание 
 - Для Windows используется имя расширения и тип ManagedIdentityExtensionForWindows.
 - Для Linux используется имя расширения и тип ManagedIdentityExtensionForLinux.
+
+### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Существуют ли роли RBAC для пользовательского удостоверения?
+Да.
+1. Участник MSI: 
+
+- может выполнять операции CRUD с пользовательскими удостоверениями; 
+- не может назначить пользовательское удостоверение для ресурса (т. е. назначить удостоверение для виртуальной машины).
+
+2. Оператор MSI: 
+
+- может назначить пользовательское удостоверение для ресурса (т. е. назначить удостоверение для виртуальной машины);
+- не может выполнять операции CRUD с пользовательскими удостоверениями.
+
+Примечание. Встроенная роль участника позволяет выполнять все действия, описанные выше: 
+- выполнение операций CRUD с пользовательскими удостоверениями;
+- назначение пользовательского удостоверения для ресурса (т. е. назначить удостоверение для виртуальной машины);
+
 
 ## <a name="known-issues"></a>Известные проблемы
 
@@ -100,17 +117,16 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-msi-private-preview-feature"></a>Известные проблемы с MSI назначенный пользователь *(Private Предварительная версия)*
+## <a name="known-issues-with-user-assigned-msi-private-preview-feature"></a>Известные проблемы с пользовательским MSI *(функция доступна в режиме закрытой предварительной версии)*
 
-- Единственным способом удаления всех пользователей, назначенных MSI, включив в системе назначается MSI. 
-- Подготовки расширения ВМ для виртуальной Машины может завершиться ошибкой из-за сбоев поиска DNS. Перезапустите виртуальную Машину и повторите попытку. 
-- Azure CLI: `Az resource show` и `Az resource list` , будут завершаться на виртуальной Машине, пользователь MSI. Чтобы избежать этого используйте`az vm/vmss show`
-- Учебник по Azure хранилища доступен только в центре EUAP нам в данный момент. 
-- При предоставлении доступа к ресурсу MSI назначенный пользователь колонке IAM для этого ресурса показывает «Не удалось получить доступ к данным». Чтобы избежать этого используйте CLI для просмотра или редактирования назначения ролей для этого ресурса.
-- Создание, пользователь MSI с символа подчеркивания в имени, не поддерживается.
-- При добавлении второго пользователя назначении удостоверений, clientID могут оказаться недоступными для запросов токенов для него. С целью предотвращения перезапустите расширение ВМ MSI-ФАЙЛ с помощью следующих двух bash команд:
+- Единственный способ удалить все пользовательские MSI — включить назначенный системой MSI. 
+- Подготовка расширения для виртуальной машины может завершиться сбоем из-за ошибок при поиске DNS. Перезапустите виртуальную машину и повторите попытку. 
+- Добавление несуществующего MSI вызовет сбой виртуальной машины. *Примечание. Исправление ошибки из-за назначения несуществующего удостоверения MSI находится в процессе реализации.*
+- Сейчас руководство по службе хранилища Azure доступно только в центральной части США (EUAP). 
+- При создании пользовательского MSI не поддерживается использование специальных символов (например, символа подчеркивания) в имени.
+- При добавлении второго пользовательского удостоверения clientID может оказаться недоступным для токенов запросов. Чтобы устранить эту проблему, перезапустите расширение MSI для виртуальной машины с помощью следующих двух команд Bash.
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- В настоящее время VMAgent в Windows не поддерживает MSI назначен пользователь. 
-- Назначение роли для MSI-ФАЙЛ, доступ к ресурсу в настоящее время не требует специальных разрешений. 
-- Если виртуальная машина имеет MSI, пользователь, но ни одна система назначены MSI, портале пользовательского интерфейса будет отображаться MSI-ФАЙЛ как включенная. Чтобы включить систему, назначенный MSI-ФАЙЛ, используйте шаблон диспетчера ресурсов Azure, Azure CLI или пакет SDK.
+- Сейчас VMAgent на Windows не поддерживает пользовательский MSI. 
+- Чтобы назначить роль MSI для доступа к ресурсу, специальные разрешения не требуются. 
+- Если на виртуальной машине есть назначенный пользователем MSI, но отсутствует назначенный системой MSI, в пользовательском интерфейсе портала будет отображаться информация, что удостоверение MSI включено. Чтобы включить назначенный системой MSI, используйте шаблон Azure Resource Manager, Azure CLI или пакет SDK.

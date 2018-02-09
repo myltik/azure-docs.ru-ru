@@ -42,6 +42,9 @@
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Настройка перенаправления
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+## Настройка внешнего перенаправления
+### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
+### [интерфейс командной строки Azure](tutorial-external-site-redirect-powershell.md)
 ## Настройка веб-приложений в качестве элементов серверного пула
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Настройка проб работоспособности

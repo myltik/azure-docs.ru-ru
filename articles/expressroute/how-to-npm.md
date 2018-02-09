@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Настройка решения "Монитор производительности сети" для ExpressRoute (предварительная версия)
 
@@ -46,6 +46,7 @@ ms.lasthandoff: 12/13/2017
 * Западная Европа 
 * Восток США 
 * Юго-Восточная Азия 
+* Юго-Восточная Австралия
 
 ## <a name="workflow"></a>Рабочий процесс
 
@@ -174,16 +175,13 @@ ms.lasthandoff: 12/13/2017
 
 Дополнительные сведения о группах безопасности сети см. в статье [Создание групп безопасности сети с помощью портала Azure](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>Шаг 4. Запрос для включения рабочей области в список разрешений
-
 >[!NOTE]
 >Установите агенты (агент на локальном сервере и сервере Azure) и запустите сценарий PowerShell, чтобы продолжить выполнение этого шага.
 >
 >
 
-Перед тем, как начать использовать функцию мониторинга ExpressRoute NPM, отправьте запрос, чтобы включить рабочую область в список разрешений. [Щелкните здесь, чтобы перейти на страницу заполнения формы запроса](https://aka.ms/npmcohort). (Совет. Вы можете открыть эту ссылку в новом окне или вкладке). Процесс добавления в список разрешений может занять не менее одного рабочего дня. После включения рабочей области в список разрешений вы получите уведомление по электронной почте.
 
-## <a name="setupmonitor"></a>Шаг 5. Настройка NPM мониторинга ExpressRoute
+## <a name="setupmonitor"></a>Шаг 4. Настройка NPM мониторинга ExpressRoute
 
 >[!WARNING]
 >Приступите к выполнению этого шага только после того, как ваша рабочая область будет добавлена в список разрешений и вы получите подтверждение по электронной почте.
@@ -208,7 +206,7 @@ ms.lasthandoff: 12/13/2017
 
   ![плитки мониторинга](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>Шаг 6. Просмотр плиток мониторинга
+## <a name="explore"></a>Шаг 5. Просмотр плиток мониторинга
 
 ### <a name="dashboard"></a>Страница решения "Монитор производительности сети"
 

@@ -1,5 +1,5 @@
 ---
-title: "Рекомендации по работе с решениями для управления OMS | Документация Майкрософт"
+title: "Рекомендации по работе с решениями по управлению в Azure | Документация Майкрософт"
 description: 
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155a7117f4c02bafcf66d0f7abca7dd97dc1236f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>Рекомендации по созданию решений для управления в Operations Management Suite (OMS) (предварительная версия)
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Рекомендации по созданию решений по управлению в Azure (предварительная версия)
 > [!NOTE]
-> Это предварительная документация для создания решений для управления в консоли OMS, которая доступна в данный момент в режиме предварительной версии. Любые схемы, приведенные ниже, могут измениться.  
+> Это предварительная документация по созданию решений по управлению в Azure, которая доступна в данный момент в режиме предварительной версии. Любые схемы, приведенные ниже, могут измениться.  
 
-В этой статье приводятся рекомендации по [созданию файла решения для управления](operations-management-suite-solutions-solution-file.md) в Operations Management Suite (OMS).  Эти сведения будут обновляться по мере появления дополнительных рекомендаций.
+В этой статье приводятся рекомендации по [созданию файла решения по управлению](operations-management-suite-solutions-solution-file.md) в Azure.  Эти сведения будут обновляться по мере появления дополнительных рекомендаций.
 
 ## <a name="data-sources"></a>Источники данных
 - Источники данных можно [настроить с помощью шаблона Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), но их не следует включать в файл решения.  Потому что настройка источников данных в настоящее время не является идемпотентной. Это означает, что решение может перезаписать существующую конфигурацию в рабочей области пользователя.<br><br>Например, решению могут требоваться события предупреждений и ошибок из журнала событий приложения.  Если его указать в решении в качестве источника данных, то возникает риск удаления информационных событий, когда пользователь делает соответствующую настройку в своей рабочей области.  Если включить все события, то в рабочей области пользователя могут собираться избыточные информационные события.
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 - Настройте в решении [ссылку](operations-management-suite-solutions-solution-file.md#solution-resource) на правила оповещения, чтобы пользователи могли изменить свою конфигурацию.  Им может потребоваться внести изменения, например изменить список получателей или пороговое значение для оповещения, а также отключить правило оповещения. 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Ознакомьтесь с базовым процессом [разработки и создания решения по управлению](operations-management-suite-solutions-creating.md).
 * Узнайте, как [создать файл решения](operations-management-suite-solutions-solution-file.md).
 * [Добавьте сохраненные поиски и оповещения](operations-management-suite-solutions-resources-searches-alerts.md) в решение для управления.

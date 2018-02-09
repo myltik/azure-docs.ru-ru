@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4de290c2200aa3beffe277313d0b0b44a32d1fe5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Получение доступа к службе хранилища Azure с помощью назначаемого пользователем управляемого удостоверения службы (MSI) на виртуальной машине Linux
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/12/2018
 > * Предоставление доступа к экземпляру службы хранилища Azure для MSI.
 > * Получение маркера доступа с помощью назначаемого пользователем удостоверения MSI и его использование для получения доступа к службе хранилища Azure.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/12/2018
 
 Запустить примеры сценариев CLI в этом руководстве можно двумя способами:
 
-- Использовать [Azure Cloud Shell](~/articles/cloud-shell/overview.md) на портале Azure или с помощью кнопки "Попробовать", расположенной в правом верхнем углу каждого блока кода.
+- использовать службу [Azure Cloud Shell](~/articles/cloud-shell/overview.md) на портале Azure или с помощью кнопки "Попробовать", расположенной в правом верхнем углу каждого блока кода;
 - [Установить последнюю версию интерфейса командной строки (CLI) 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 или более позднюю версию), если вы предпочитаете использовать локальную консоль CLI.
 
 ## <a name="sign-in-to-azure"></a>Вход в Azure
@@ -61,21 +61,21 @@ ms.lasthandoff: 01/12/2018
 5. Чтобы выбрать новую **группу ресурсов**, в которой вы хотите создать виртуальную машину, щелкните **Создать**. По завершении нажмите кнопку **ОК**.
 6. Выберите размер виртуальной машины. Чтобы просмотреть дополнительные размеры, выберите **Просмотреть все** или измените фильтр "Поддерживаемые типы диска". В колонке параметров оставьте значения по умолчанию и нажмите кнопку **OK**.
 
-## <a name="create-a-user-assigned-msi"></a>Создание назначаемого пользователем MSI
+## <a name="create-a-user-assigned-msi"></a>Создание назначаемого пользователем удостоверения MSI
 
-1. Если вы используете консоль CLI (вместо сеанса Azure Cloud Shell), начните с входа в Azure. Используйте учетную запись, связанную с подпиской Azure, в рамках которой нужно создать удостоверение MSI:
+1. Если вы используете консоль CLI (вместо сеанса Azure Cloud Shell), сначала войдите в Azure. Используйте учетную запись, связанную с подпиской Azure, в рамках которой нужно создать удостоверение MSI:
 
     ```azurecli
     az login
     ```
 
-2. Создайте назначаемое пользователем MSI с помощью команды [az identity create](/cli/azure/identity#az_identity_create). Параметр `-g` указывает группу ресурсов, в которой создается MSI, а параметр `-n` указывает его имя. Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<MSI NAME>` собственными:
+2. Создайте назначаемое пользователем MSI с помощью команды [az identity create](/cli/azure/identity#az_identity_create). Параметр `-g` указывает группу ресурсов, в которой создается удостоверение MSI, а параметр `-n` — его имя. Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<MSI NAME>` собственными:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
 
-    Ответ содержит подробные сведения о созданном назначаемом пользователем MSI, подобные следующему примеру. Запишите значение `id` удостоверения MSI, так как оно будет использоваться на следующем шаге:
+    Ответ содержит подробные сведения о созданном назначаемом пользователем удостоверения MSI, подобные следующему примеру. Запишите значение `id` удостоверения MSI, так как оно будет использоваться на следующем шаге:
 
     ```json
     {
@@ -92,11 +92,11 @@ ms.lasthandoff: 01/12/2018
     }
     ```
 
-## <a name="assign-your-user-assigned-msi-to-your-linux-vm"></a>Присвоение назначаемого пользователем MSI виртуальной машине Linux
+## <a name="assign-your-user-assigned-msi-to-your-linux-vm"></a>Назначение пользовательского удостоверения MSI виртуальной машине Linux
 
-В отличие от удостоверения MSI, назначаемого системой, назначаемое пользователем удостоверение MSI может использоваться клиентами на множестве ресурсов Azure. В этом руководстве мы назначим его отдельной виртуальной машине. Вы также можете назначить удостоверение нескольким виртуальным машинам.
+В отличие от удостоверения MSI, назначаемого системой, назначаемое пользователем удостоверение MSI может использоваться клиентами в множестве ресурсов Azure. В этом руководстве мы назначим его отдельной виртуальной машине. Вы также можете назначить удостоверение нескольким виртуальным машинам.
 
-Присвойте удостоверение MSI, назначаемое пользователем, виртуальной машине Linux с помощью команды [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<VM NAME>` собственными. Используйте свойство `id`, возвращенное на предыдущем шаге, в качестве значения параметра `--identities`:
+Назначьте пользовательское удостоверение MSI виртуальной машине Linux с помощью команды [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Не забудьте заменить значения параметров `<RESOURCE GROUP>` и `<VM NAME>` собственными. Используйте свойство `id`, возвращенное на предыдущем шаге, в качестве значения параметра `--identities`:
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
@@ -134,10 +134,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 С помощью MSI код может получить маркеры доступа, чтобы пройти аутентификацию и получить доступ к ресурсам, поддерживающим аутентификацию Azure AD. В этом руководстве используется служба хранилища Azure.
 
-Сначала идентификатору MSI предоставляется доступ к контейнеру службы хранилища Azure. В этом случае используется контейнер, созданный ранее. Обновите `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>` и `<CONTAINER NAME>` значениями, соответствующими вашей среде. Замените `<CLIENT ID>` свойством `clientId`, возвращенным командой `az identity create` в разделе [Создание назначаемого пользователем MSI](#create-a-user-assigned-msi):
+Сначала идентификатору MSI предоставляется доступ к контейнеру службы хранилища Azure. В этом случае используется контейнер, созданный ранее. Обновите `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>` и `<CONTAINER NAME>` значениями, соответствующими вашей среде. Также замените `<MSI PRINCIPALID>` свойством `principalId`, возвращенным командой `az identity create` в разделе [Создание назначаемого пользователем удостоверения MSI](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 Ответ включает сведения о созданных назначениях ролей:

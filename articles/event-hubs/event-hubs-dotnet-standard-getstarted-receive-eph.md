@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: a88b5da8fa504e0528caa7fa212d4cec26d1cf66
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Основные сведения о получении сообщений с помощью узла EventProcessorHost в .NET Standard
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/28/2017
 
 В этом руководстве показано, как создать консольное приложение .NET Core для получения сообщений из концентратора событий с помощью библиотеки **узла обработчика событий**. Вы можете запустить решение [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) "как есть", заменив соответствующие строки своими значениями для концентратора событий и учетной записи хранения. Или следуйте инструкциям этого руководства, чтобы создать собственное решение.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * [Microsoft Visual Studio 2015 или Microsoft Visual Studio 2017](http://www.visualstudio.com). В примерах в этом руководстве используется Visual Studio 2017, но также поддерживается Visual Studio 2015.
 * [Инструментарий Visual Studio 2015 или Visual Studio 2017 для .NET Core](http://www.microsoft.com/net/core).
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="create-an-azure-storage-account"></a>Создание учетной записи хранения Azure  
 
-1. Выполните вход на [портал Azure](https://portal.azure.com).  
+1. Войдите на [портале Azure](https://portal.azure.com).  
 2. В области навигации слева на странице портала щелкните **Создать** > **Хранилище** > **Учетная запись хранения**.  
 3. Заполните поля в окне учетной записи хранения и нажмите кнопку **Создать**.
 
@@ -214,10 +214,10 @@ ms.lasthandoff: 11/28/2017
 
 Поздравляем! Теперь вы можете получать сообщения из концентратора событий с помощью узла EventProcessorHost.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о концентраторах событий см. в следующих источниках:
 
-* [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 * [Создание концентратора событий](event-hubs-create.md)
 * [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
 

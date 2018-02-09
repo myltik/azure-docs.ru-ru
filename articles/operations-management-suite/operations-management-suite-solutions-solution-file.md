@@ -1,6 +1,6 @@
 ---
-title: "Создание решений для управления в Operations Management Suite (OMS) | Документация Майкрософт"
-description: "Решения для управления расширяют функции консоли Operations Management Suite (OMS), предоставляя упакованные сценарии управления, которые клиенты могут добавить в свое рабочее пространство OMS.  В этой статье описано, как создавать решения для управления, которые можно использовать в своей среде или предоставлять другим пользователям."
+title: "Создание файла решения по управлению в Azure | Документация Майкрософт"
+description: "Решения по управлению предоставляют упакованные сценарии управления, которые клиенты могут добавить в свою среду Azure.  В этой статье описано, как создавать решения для управления, которые можно использовать в своей среде или предоставлять другим пользователям."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d896fb7c5ffed5c0fe338c2d2f1ef864aacd6f79
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Создание файла решения по управлению в Operations Management Suite (OMS) (предварительная версия)
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>Создание файла решения по управлению в Azure (предварительная версия)
 > [!NOTE]
-> Это предварительная документация для создания решений для управления в консоли OMS, которая доступна в данный момент в режиме предварительной версии. Любые схемы, приведенные ниже, могут измениться.  
+> Это предварительная документация по созданию решений по управлению в Azure, которая доступна в данный момент в режиме предварительной версии. Любые схемы, приведенные ниже, могут измениться.  
 
-Решения по управлению в Operations Management Suite (OMS) реализованы в виде [шаблонов Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  Поэтому создание решения для управления — это, по сути, [создание шаблона](../azure-resource-manager/resource-group-authoring-templates.md).  В этой статье подробно описываются шаблоны, используемые для решений, а также способы настойки ресурсов для типичного решения.
+Решения по управлению в Azure реализуются как [шаблоны управления ресурсами](../azure-resource-manager/resource-manager-template-walkthrough.md).  Поэтому создание решения для управления — это, по сути, [создание шаблона](../azure-resource-manager/resource-group-authoring-templates.md).  В этой статье подробно описываются шаблоны, используемые для решений, а также способы настойки ресурсов для типичного решения.
 
 
 ## <a name="tools"></a>Средства
@@ -53,7 +53,8 @@ ms.lasthandoff: 01/10/2018
 ## <a name="parameters"></a>Параметры
 [Параметры](../azure-resource-manager/resource-group-authoring-templates.md#parameters) — это значения, которые пользователь указывает при установке решения для управления.  Существуют стандартные параметры для всех решений. При необходимости можно добавить дополнительные параметры для конкретного решения.  Каким образом пользователи будут указывать значения параметров при установке решения, будет зависеть от конкретного параметра и способа установки решения.
 
-Если пользователь устанавливает решение для управления с помощью [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) или [шаблонов быстрого запуска Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), ему будет предложено выбрать [рабочую область OMS и учетную запись службы автоматизации](operations-management-suite-solutions.md#oms-workspace-and-automation-account).  Их используют для заполнения значений для каждого из стандартных параметров.  Здесь пользователю совсем не обязательно указывать значения для всех стандартных параметров, а только для дополнительных.
+Если пользователь устанавливает решение по управлению с помощью [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) или [шаблонов быстрого запуска Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), ему будет предложено выбрать [рабочую область Log Analytics и учетную запись службы автоматизации](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account).  Их используют для заполнения значений для каждого из стандартных параметров.  Здесь пользователю совсем не обязательно указывать значения для всех стандартных параметров, а только для дополнительных.
+
 
 При установке решения [другим способом](operations-management-suite-solutions.md#finding-and-installing-management-solutions) пользователю нужно указать значения для всех стандартных и дополнительных параметров.
 
@@ -168,8 +169,9 @@ ms.lasthandoff: 01/10/2018
 ### <a name="dependencies"></a>Зависимости
 Элемент **dependsOn** указывает [зависимость](../azure-resource-manager/resource-group-define-dependencies.md) от другого ресурса.  При установке решения ресурс не создается, пока не будут созданы все его зависимости.  Например, при установке решение может [запустить модуль Runbook](operations-management-suite-solutions-resources-automation.md#runbooks) с помощью [ресурса задания](operations-management-suite-solutions-resources-automation.md#automation-jobs).  Ресурс задания будет зависеть от ресурса модуля Runbook. Таким образом обеспечивается создание модуля Runbook до задания.
 
-### <a name="oms-workspace-and-automation-account"></a>Рабочая область OMS и учетная запись службы автоматизации
-Решения для управления требуют [рабочую область OMS](../log-analytics/log-analytics-manage-access.md) для хранения представлений и [учетную запись службы автоматизации](../automation/automation-security-overview.md#automation-account-overview) для хранения модулей Runbook и связанных ресурсов.  К ним нужно предоставить доступ перед созданием ресурсов решения. Их не нужно определять в самом решении.  Пользователь указывает [рабочую область и учетную запись](operations-management-suite-solutions.md#oms-workspace-and-automation-account) при развертывании решения. Однако разработчик решения должен учитывать следующие моменты.
+### <a name="log-analytics-workspace-and-automation-account"></a>Рабочая область Log Analytics и учетная запись службы автоматизации
+Решениям по управлению требуется [рабочая область Log Analytics](../log-analytics/log-analytics-manage-access.md) для хранения представлений и [учетная запись службы автоматизации](../automation/automation-security-overview.md#automation-account-overview) для хранения модулей Runbook и связанных ресурсов.  К ним нужно предоставить доступ перед созданием ресурсов решения. Их не нужно определять в самом решении.  Пользователь указывает [рабочую область и учетную запись](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) при развертывании решения. Однако разработчик решения должен учитывать следующие моменты.
+
 
 ## <a name="solution-resource"></a>Ресурс решения
 Для каждого решения требуется запись ресурса в элементе **resources**, который определяет само решение.  Ресурс представлен типом **Microsoft.OperationsManagement/solutions** и имеет следующую структуру. К ним относятся [стандартные параметры](#parameters) и [переменные](#variables), которые, как правило, используются для определения свойств решения.

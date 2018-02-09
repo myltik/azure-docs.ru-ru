@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="review-usage-and-costs"></a>Просмотр сведений об использовании и затратах
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="open-the-cloudyn-portal"></a>Переход на портал Cloudyn
 
-Все сведения об использовании и затратах можно просмотреть на портале Cloudyn. Открыть портал Cloudyn на портале Azure или https://azure.cloudyn.com, войдите.
+Все сведения об использовании и затратах можно просмотреть на портале Cloudyn. Откройте портал Cloudyn из портала Azure или перейдите по адресу https://azure.cloudyn.com и выполните вход.
 
 ## <a name="track-usage-and-cost-trends"></a>Отслеживание тенденций использования и затрат
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 12/15/2017
 Для оповещений также можно задать метрику порогового значения Cost Percentage vs. Budget (Доля затрат от бюджета). Эта метрика позволяет использовать вместо денежных сумм значения в процентах от бюджета.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого руководства вы узнали, как выполнить следующие задачи:
 

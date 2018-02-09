@@ -1,10 +1,10 @@
 ---
-title: "Проверка подключения с помощью службы \"Наблюдатель за сетями\" Azure (Azure CLI 2.0) | Документация Майкрософт"
-description: "На этой странице объясняется, как использовать проверку подключения с помощью службы \"Наблюдатель за сетями\" в интерфейсе командной строки Azure CLI 2.0"
+title: "Устранение неполадок подключений с помощью службы \"Наблюдатель за сетями Azure\" в Azure CLI 2.0 | Документация Майкрософт"
+description: "Узнайте, как использовать функцию устранения неполадок подключений с помощью службы \"Наблюдатель за сетями Azure\" с помощью Azure CLI 2.0."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,31 +13,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 507ec614e54b035d5470ec34bcfd8e71cf98083c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: dfe77b0a9620ccb8ac91fa8843d01d1cb7bdc44f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Проверка возможности подключения с помощью службы Azure "Наблюдатель за сетями" в Azure CLI 2.0
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>Устранение неполадок подключений с помощью службы "Наблюдатель за сетями Azure" с помощью Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Узнайте, как проверить возможность прямого подключения TCP между виртуальной машиной и определенной конечной точкой.
+Узнайте, как проверить возможность прямого подключения TCP между виртуальной машиной и определенной конечной точкой с помощью функции устранения неполадок подключения.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
 В данной статье предполагается, что у вас есть следующие ресурсы:
 
-* экземпляр службы "Наблюдатель за сетями" в регионе, в котором нужно проверить возможность подключения;
-
-* виртуальные машины, возможность подключения к которым необходимо проверить.
+* Экземпляр службы "Наблюдатель за сетями" в регионе, в котором нужно устранить проблему подключения.
+* Виртуальные машины, на которых требуется устранить неполадки подключения.
 
 > [!IMPORTANT]
-> Для проверки возможности подключения требуется расширение виртуальной машины `AzureNetworkWatcherExtension`. Информацию об установке расширения для виртуальной машины Windows см. в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Windows](../virtual-machines/windows/extensions-nwa.md), а для виртуальной машины Linux — в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Linux](../virtual-machines/linux/extensions-nwa.md).
+> Для устранения неполадок подключений требуется расширение виртуальной машины `AzureNetworkWatcherExtension`. Информацию об установке расширения для виртуальной машины Windows см. в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Windows](../virtual-machines/windows/extensions-nwa.md), а для виртуальной машины Linux — в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Проверка возможности подключения к виртуальной машине
 

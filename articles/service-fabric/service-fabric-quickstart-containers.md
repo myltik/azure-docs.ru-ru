@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Развертывание приложения-контейнера Service Fabric для Windows в Azure
 Azure Service Fabric — это платформа распределенных систем для развертывания масштабируемых надежных микрослужб и контейнеров и управления ими. 
@@ -35,10 +35,10 @@ Azure Service Fabric — это платформа распределенных 
 > * Создание и упаковка приложений Service Fabric
 > * развертывание приложения-контейнера в Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Подписка Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Компьютер для разработки, на котором установлено ПО, перечисленное ниже.
-  * Visual Studio 2015 или Visual Studio 2017.
+  * Visual Studio 2015 или Visual Studio 2017.
   * [Пакет SDK и средства для Service Fabric](service-fabric-get-started.md).
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>Упаковка контейнера образов Docker с помощью Visual Studio
@@ -79,24 +79,44 @@ Azure Service Fabric — это платформа распределенных 
 Полный пример файла ApplicationManifest.xml приведен в конце этой статьи.
 
 ## <a name="create-a-cluster"></a>Создание кластера
-Для развертывания приложения в кластере Azure можно создать собственный кластер или использовать кластер сообщества.
+Для развертывания приложения в кластере Azure можно [создать собственный кластер в Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) или использовать кластер сообщества.
 
-Кластеры сообщества — это бесплатные кластеры Service Fabric, которые доступны в течение ограниченного времени. Эти кластеры размещены в Azure и поддерживаются командой Service Fabric. Любой пользователь может развертывать приложения на этих кластерах и знакомиться с платформой. Чтобы получить доступ к кластеру сообщества, следуйте инструкциям на [этом сайте](http://aka.ms/tryservicefabric).  
+Кластеры сообщества — это бесплатные кластеры Service Fabric, которые доступны в течение ограниченного времени. Эти кластеры размещены в Azure и поддерживаются командой Service Fabric. Любой пользователь может развертывать приложения на этих кластерах и знакомиться с платформой. Кластер использует один самозаверяющий сертификат для обмена данными между узлами и обеспечения безопасности при взаимодействии между клиентом и узлом. 
 
-См. дополнительные сведения о [создании кластера Service Fabric в Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Войдите в систему и [присоедините кластер Windows](http://aka.ms/tryservicefabric). Загрузите сертификат PFX на компьютер, щелкнув ссылку **PFX**. Сертификат и значение **конечной точки подключения** будут использоваться в дальнейшем.
 
-Запишите конечную точку подключения. Она понадобится вам на следующем шаге.  
+![Конечная точка подключения и файл PFX](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+На компьютере Windows установите PFX в хранилище сертификатов: *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Помните об отпечатке для следующего шага.  
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Развертывание приложения в Azure с помощью Visual Studio
 Теперь, когда приложение готово, можно развернуть его в кластер напрямую из Visual Studio.
 
 Щелкните правой кнопкой мыши **MyFirstContainer** в обозревателе решений и выберите команду **Опубликовать**. Появится диалоговое окно "Опубликовать".
 
-![Диалоговое окно "Опубликовать"](./media/service-fabric-quickstart-dotnet/publish-app.png)
+Скопируйте **конечную точку подключения** со страницы кластера сообщества в поле **Конечная точка подключения**. Например, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Щелкните **Дополнительные параметры подключения** и укажите следующие сведения.  Значения *FindValue* и *ServerCertThumbprint* должны соответствовать отпечатку сертификата, который установлен на предыдущем шаге. 
 
-Укажите конечную точку подключения кластера в поле **Конечная точка подключения**. При регистрации для доступа к кластеру сообщества конечная точка подключения отображается в браузере, например `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Нажмите кнопку **Опубликовать**, чтобы развернуть приложение.
+![Диалоговое окно "Опубликовать"](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Откройте браузер и перейдите по адресу http://winh1x87d1d.westus.cloudapp.azure.com:80. Откроется веб-страница IIS по умолчанию. ![Веб-страница IIS по умолчанию][iis-default]
+Щелкните **Опубликовать**.
+
+Имя каждого приложения в кластере должно быть уникальным.  Кластеры сообщества — это открытая общедоступная среда. Но они могут конфликтовать с существующим приложением.  В случае конфликта имен переименуйте проект Visual Studio и повторите развертывание.
+
+Откройте браузер и перейдите по адресу http://zwin7fh14scd.westus.cloudapp.azure.com:80. Откроется веб-страница IIS по умолчанию. ![Веб-страница IIS по умолчанию][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Полные примеры манифестов службы и приложения Service Fabric
 Ниже приведены полные коды манифестов службы и приложения, используемых в этом кратком руководстве.
@@ -167,6 +187,7 @@ Azure Service Fabric — это платформа распределенных 
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 
@@ -183,7 +204,7 @@ Azure Service Fabric — это платформа распределенных 
 </ApplicationManifest>
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Из этого руководства вы узнали, как выполнить следующие действия:
 > [!div class="checklist"]
 > * упаковка контейнера образов Docker;

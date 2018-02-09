@@ -4,19 +4,19 @@ description: "Узнайте, как создать приложение Docker 
 services: app-service\web
 documentationcenter: python
 author: berndverst
-manager: erikre
+manager: cfowler
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/29/2017
-ms.author: beverst
+ms.date: 01/28/2018
+ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0bd4f390e4507fccd1ca564c48c0f321412e229d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 01320b93920ae04c72ed80f6a6090232c673f228
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Создание в Azure веб-приложения Docker Python с подключением к базе данных PostgreSQL
 
@@ -24,9 +24,20 @@ ms.lasthandoff: 12/14/2017
 
 ![Приложение Docker Python Flask в службе приложений на платформе Linux](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
+Из этого руководства вы узнаете, как выполнять такие задачи:
+
+> [!div class="checklist"]
+> * Создание базы данных PostgreSQL в Azure
+> * Подключение приложения Python к MySQL
+> * Развертывание приложения в Azure
+> * Обновление модели данных и повторное развертывание приложения.
+> * Управление приложением на портале Azure.
+
 Выполните приведенные ниже действия в macOS. Инструкции для Linux и Windows в большей степени совпадают, но различия не описаны в этом руководстве.
  
-## <a name="prerequisites"></a>Технические условия
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством:
 
@@ -35,18 +46,12 @@ ms.lasthandoff: 12/14/2017
 1. [установите и запустите PostgreSQL](https://www.postgresql.org/download/);
 1. [установите Docker Community Edition](https://www.docker.com/community-edition).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Если вы решили установить и использовать интерфейс командной строки локально, для работы с этой статьей вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>Проверка локальной установки PostgreSQL и создание базы данных
 
-Откройте окно терминала и выполните команду `psql postgres` для подключения к локальному серверу PostgreSQL.
+Откройте окно терминала и выполните команду `psql` для подключения к локальному серверу PostgreSQL.
 
 ```bash
-psql postgres
+sudo -u postgres psql
 ```
 
 Если подключение успешно установлено, это означает, что база данных PostgreSQL запущена. В противном случае запустите локальную базу данных PostgreSQL, выполнив инструкции по [скачиванию ядра PostgreSQL](https://www.postgresql.org/download/).
@@ -58,7 +63,7 @@ CREATE DATABASE eventregistration;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
-Введите *\q*, чтобы выйти из клиента PostgreSQL. 
+Введите `\q`, чтобы выйти из клиента PostgreSQL. 
 
 <a name="step2"></a>
 
@@ -107,7 +112,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Откройте браузер и перейдите по адресу `http://127.0.0.1:5000`. Щелкните **Зарегистрировать** и создайте тестового пользователя.
+Откройте браузер и перейдите по адресу `http://localhost:5000`. Щелкните **Зарегистрировать** и создайте тестового пользователя.
 
 ![Приложение Python Flask, выполняемое в локальной среде](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -115,40 +120,26 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
 
 Чтобы остановить Flask в любое время, введите Ctrl+C в окне терминала. 
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## <a name="create-a-production-postgresql-database"></a>Создание рабочей базы данных PostgreSQL
 
 На этом шаге вы создадите базу данных PostgreSQL в Azure. При развертывании приложения в Azure используется эта облачная база данных.
 
-### <a name="log-in-to-azure"></a>Вход в Azure
-
-Теперь создадим ресурсы, необходимые для размещения приложения Python на платформе "Веб-приложения для контейнеров", с помощью Azure CLI 2.0.  Войдите в подписку Azure с помощью команды [az login](/cli/azure/?view=azure-cli-latest#az_login) и следуйте инструкциям на экране.
-
-```azurecli
-az login
-```
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Создайте [группу ресурсов](../../azure-resource-manager/resource-group-overview.md) с помощью команды [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
-
-[!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
-
-В следующем примере создается группа ресурсов в регионе "Западная часть США".
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-Чтобы вывести список доступных расположений, используйте команду Azure CLI [az appservice list-locations](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations).
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Создание сервера базы данных Azure для PostgreSQL
 
-Создайте сервер PostgreSQL с помощью команды [az postgres server create](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create).
+Создайте сервер PostgreSQL с помощью команды [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create).
 
 В следующей команде замените заполнитель *\<postgresql_name>* уникальным именем сервера, а заполнитель *\<admin_username>* — именем пользователя. Это имя используется как часть конечной точки PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), поэтому оно должно быть уникальным на всех серверах в Azure. Имя пользователя необходимо для создания учетной записи администратора исходной базы данных. Вам будет предложено выбрать пароль для этого пользователя.
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>
+az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>  --storage-size 51200
 ```
 
 После создания сервера базы данных Azure для PostgreSQL в Azure CLI отображаются следующие сведения.
@@ -220,7 +211,7 @@ CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
 
-Введите *\q*, чтобы выйти из клиента PostgreSQL.
+Введите `\q`, чтобы выйти из клиента PostgreSQL.
 
 ### <a name="test-the-application-locally-against-the-azure-postgresql-database"></a>Тестирование приложения локально с базой данных Azure для PostgreSQL
 
@@ -241,7 +232,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Перейдите по адресу http://127.0.0.1:5000 в браузере. Щелкните **Зарегистрировать** и создайте тестовую регистрацию. Теперь приложение записывает данные в базу данных Azure.
+В браузере перейдите по адресу http://localhost:5000. Щелкните **Зарегистрировать** и создайте тестовую регистрацию. Теперь приложение записывает данные в базу данных Azure.
 
 ![Приложение Python Flask, выполняемое в локальной среде](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -260,13 +251,13 @@ Docker отображает подтверждение успешного соз
 Successfully built 7548f983a36b
 ```
 
-Добавьте переменные среды базы данных в файл переменных среды *db.env*. Приложение подключается к рабочей базе данных, выполняемой в Базе данных Azure для PostgreSQL.
+В корне репозитория добавьте файл переменной среды с именем _db.env_, а затем добавьте в него следующие переменные среды базы данных. Приложение подключается к рабочей базе данных, выполняемой в Базе данных Azure для PostgreSQL.
 
 ```text
-DBHOST="<postgresql_name>.postgres.database.azure.com"
-DBUSER="manager@<postgresql_name>"
-DBNAME="eventregistration"
-DBPASS="supersecretpass"
+DBHOST=<postgresql_name>.postgres.database.azure.com
+DBUSER=manager@<postgresql_name>
+DBNAME=eventregistration
+DBPASS=supersecretpass
 ```
 
 Запустите приложение из контейнера Docker. Следующая команда указывает файл переменных среды и сопоставляет порт Flask по умолчанию 5000 с локальным портом 5000.
@@ -352,8 +343,15 @@ az acr credential show -n <registry_name>
 
 ### <a name="upload-your-docker-container-to-azure-container-registry"></a>Передача контейнера Docker в реестр контейнеров Azure
 
+Войдите в системный реестр. В ответ на запрос введите полученный пароль.
+
 ```bash
-docker login <registry_name>.azurecr.io -u <registry_name> -p "<registry_password>"
+docker login <registry_name>.azurecr.io -u <registry_name>
+```
+
+Отправьте образ Docker в реестр.
+
+```bash
 docker tag flask-postgresql-sample <registry_name>.azurecr.io/flask-postgresql-sample
 docker push <registry_name>.azurecr.io/flask-postgresql-sample
 ```
@@ -364,64 +362,18 @@ docker push <registry_name>.azurecr.io/flask-postgresql-sample
 
 ### <a name="create-an-app-service-plan"></a>Создание плана службы приложений
 
-Создайте план службы приложений, выполнив команду [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
-
-[!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
-
-В следующем примере создается план службы приложений на основе Linux *myAppServicePlan* в ценовой категории S1:
-
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
-```
-
-После создания плана службы приложений в Azure CLI отображаются следующие сведения:
-
-```json
-{
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "West US",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-  "kind": "linux",
-  "location": "West US",
-  "maximumNumberOfWorkers": 10,
-  "name": "myAppServicePlan",
-  "numberOfSites": 0,
-  "perSiteScaling": false,
-  "provisioningState": "Succeeded",
-  "reserved": true,
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "capabilities": null,
-    "capacity": 1,
-    "family": "S",
-    "locations": null,
-    "name": "S1",
-    "size": "S1",
-    "skuCapacity": null,
-    "tier": "Standard"
-  },
-  "status": "Ready",
-  "subscription": "00000000-0000-0000-0000-000000000000",
-  "tags": null,
-  "targetWorkerCount": 0,
-  "targetWorkerSizeId": 0,
-  "type": "Microsoft.Web/serverfarms",
-  "workerTierName": null
-}
-```
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ### <a name="create-a-web-app"></a>Создание веб-приложения
 
-Создайте веб-приложение в рамках плана *myAppServicePlan* службы приложений с помощью команды [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
+Создайте веб-приложение в рамках плана *myAppServicePlan* службы приложений с помощью команды [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
 
 Веб-приложение предоставляет место для размещения и развертывания кода, а также URL-адрес для просмотра развернутого приложения. Создайте веб-приложение.
 
 В следующей команде замените заполнитель *\<app_name>* уникальным именем приложения. Это имя используется в URL-адресе по умолчанию для веб-приложения, поэтому оно должно быть уникальным для всех приложений в службе приложений Azure.
 
 ```azurecli
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-container-image-name "<registry_name>.azurecr.io/flask-postgresql-sample"
 ```
 
 После создания веб-приложения в Azure CLI отображаются следующие сведения:
@@ -445,7 +397,7 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 
 Ранее в этом руководстве вы определили переменные среды для подключения к базе данных PostgreSQL.
 
-В службе приложений переменные среды устанавливаются как _параметры приложения_ с помощью команды [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
+В службе приложений переменные среды задаются в качестве _параметров приложения_ с помощью команды [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
 
 Код ниже указывает сведения о подключении к базе данных как параметры приложения. Кроме того, в нем определена переменная *PORT*, которая сопоставляет порт 5000 из контейнера Docker для получения трафика HTTP через порт 80.
 
@@ -458,7 +410,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 Служба приложений может автоматически скачать и запустить контейнер Docker.
 
 ```azurecli
-az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-custom-image-name "<registry_name>.azurecr.io/flask-postgresql-sample" --docker-registry-server-url "https://<registry_name>.azurecr.io"
+az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-registry-server-url "https://<registry_name>.azurecr.io"
 ```
 
 При обновлении контейнера Docker или изменении параметров следует перезапустить приложение. Это позволяет применить все параметры и извлечь из реестра последний контейнер.
@@ -503,7 +455,6 @@ git diff 0.1-initialapp 0.2-migration
 
 Выполните приведенные ниже команды, чтобы проверить изменения в локальной среде, запустив сервер Flask.
 
-MAC и Linux:
 ```bash
 source venv/bin/activate
 cd app
@@ -511,7 +462,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Перейдите по адресу http://127.0.0.1:5000 в браузере, чтобы просмотреть изменения. Создайте тестовую регистрацию.
+Перейдите по адресу http://localhost:5000 в браузере, чтобы просмотреть изменения. Создайте тестовую регистрацию.
 
 ![Приложение Python Flask из контейнера Docker, выполняемое в локальной среде](./media/tutorial-docker-python-postgresql-app/local-app-v2.png)
 
@@ -520,6 +471,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 Создайте образ Docker, отправьте его в реестр контейнеров и перезапустите приложение.
 
 ```bash
+cd ..
 docker build -t flask-postgresql-sample .
 docker tag flask-postgresql-sample <registry_name>.azurecr.io/flask-postgresql-sample
 docker push <registry_name>.azurecr.io/flask-postgresql-sample
@@ -546,7 +498,7 @@ http://<app_name>.azurewebsites.net
 
 ![Страница службы приложений на портале Azure](./media/tutorial-docker-python-postgresql-app/app-mgmt.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Перейдите к следующему руководству, чтобы научиться сопоставлять пользовательские DNS-имена с веб-приложением.
 

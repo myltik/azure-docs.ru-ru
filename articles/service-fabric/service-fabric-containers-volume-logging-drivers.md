@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Использование подключаемых модулей томов и драйверов ведения журналов Docker в контейнере
 Azure Service Fabric позволяет указывать [подключаемые модули томов Docker](https://docs.docker.com/engine/extend/plugins_volume/) и [драйверы ведения журналов Docker](https://docs.docker.com/engine/admin/logging/overview/) для службы контейнеров. Так вы можете хранить данные в [службе "Файлы Azure"](https://azure.microsoft.com/services/storage/files/), даже если ваш контейнер перемещен на другой узел или перезапущен на нем.
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 не поддерживает подключение SMB на узле ([поддерживается только в Windows Server версии 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Это предотвращает использование определенных драйверов тома, например драйверов тома службы файлов Azure. Вместо этого можно подключать общие папки напрямую в контейнер с помощью **net use**. 
+> Windows Server 2016 Datacenter не поддерживает сопоставление подключений SMB с контейнерами ([поддерживается только в Windows Server версии 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Это предотвращает сопоставление сетевых томов и использование драйверов томов службы файлов Azure в версиях, предшествующих версии 1709. 
 >   
 
 

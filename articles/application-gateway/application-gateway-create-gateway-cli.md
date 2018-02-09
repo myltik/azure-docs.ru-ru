@@ -1,211 +1,186 @@
 ---
-title: "Создание шлюза приложений с помощью Azure CLI 2.0 | Документация Майкрософт"
-description: "Узнайте, как создать шлюз приложений с помощью Azure CLI 2.0 в Resource Manager."
+title: "Создание шлюза приложений с помощью Azure CLI | Документация Майкрософт"
+description: "Узнайте, как создать шлюз приложений с помощью Azure CLI."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
-ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: bf7e22e86e593045d25a9f31166aebe992caeb45
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Создание шлюза приложений с помощью Azure CLI 2.0
+# <a name="create-an-application-gateway-using-the-azure-cli"></a>Создание шлюза приложений с помощью Azure CLI
 
-> [!div class="op_single_selector"]
-> * [портал Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-gateway-arm.md)
-> * [Классическая модель — Azure PowerShell](application-gateway-create-gateway.md)
-> * [Шаблон Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
-> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
+Используя Azure CLI, вы можете создавать шлюзы приложений и управлять ими из командной строки или с помощью скриптов. В этом кратком руководстве показано, как создать сетевые ресурсы, внутренние серверы и шлюз приложений.
 
-Шлюз приложений Azure — это выделенный виртуальный модуль, предоставляющий контроллер доставки приложений (ADC) как услугу, который обеспечивает для приложения множество функций балансировки нагрузки уровня 7.
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-## <a name="cli-versions"></a>Версии интерфейса командной строки
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Вы можете создать шлюз приложений, используя одну из следующих версий интерфейса командной строки:
+Если вы решили установить и использовать CLI локально, для выполнения инструкций из этого руководства вам потребуется Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-* [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md) — это интерфейс командной строки для классической модели развертывания и модели развертывания с помощью Resource Manager;
-* [Azure CLI 2.0](application-gateway-create-gateway-cli.md) — это интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
+## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Предварительные требования. Установка Azure CLI 2.0
+Создайте группу ресурсов, используя команду [az group create](/cli/azure/group#az_group_create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. 
 
-Для выполнения действий, описанных в этой статье, требуется [установить Azure CLI для Mac, Linux и Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
+В следующем примере создается группа ресурсов с именем *myResourceGroupAG* в расположении *eastus*.
 
-> [!NOTE]
-> Для создания шлюза приложений требуется учетная запись Azure. Если у вас ее нет, зарегистрируйтесь, чтобы [воспользоваться бесплатной пробной версией](../active-directory/sign-up-organization.md).
-
-## <a name="scenario"></a>Сценарий
-
-В этом сценарии вы узнаете, как создать шлюз приложений с помощью портала Azure.
-
-Вы узнаете:
-
-* как создать средний шлюз приложений с двумя экземплярами;
-* как создать виртуальную сеть AdatumAppGatewayVNET с зарезервированным блоком CIDR (10.0.0.0/16);
-* как создать подсеть с именем Appgatewaysubnet и блоком CIDR (10.0.0.0/28);
-
-> [!NOTE]
-> Дальнейшая настройка шлюза приложений, включая пользовательские пробы работоспособности, серверный пул адресов и дополнительные правила, осуществляется после создания шлюза приложений, а не во время первоначального развертывания.
-
-## <a name="before-you-begin"></a>Перед началом работы
-
-Шлюзу приложений требуется собственная подсеть. При создании виртуальной сети обязательно обеспечьте достаточное адресное пространство для нескольких подсетей. После развертывания шлюза приложений в подсети в нее можно будет добавлять только дополнительные шлюзы приложений.
-
-## <a name="sign-in-to-azure"></a>Вход в Azure
-
-Откройте **командную строку Microsoft Azure** и выполните вход.
-
-```azurecli-interactive
-az login -u "username"
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
 ```
 
-> [!NOTE]
-> Команду `az login` также можно использовать без параметра для входа на устройство, при котором требуется ввести код на странице aka.ms/devicelogin.
+## <a name="create-network-resources"></a>Создание сетевых ресурсов 
 
-После выполнения предыдущей команды вы получите код. В браузере перейдите по адресу https://aka.ms/devicelogin, чтобы продолжить процедуру входа.
-
-![Команда, выводящая имя пользователя устройства][1]
-
-В браузере введите полученный код. Вы будете перенаправлены на страницу входа.
-
-![Ввод кода в браузере][2]
-
-Введите код, чтобы выполнить вход, а затем закройте браузер, чтобы продолжить.
-
-![Вход выполнен][3]
-
-## <a name="create-the-resource-group"></a>Создание группы ресурсов
-
-Прежде чем создать шлюз приложений, создайте для него группу ресурсов. Используйте следующую команду:
+Создайте виртуальную сеть и подсеть, выполнив команду [az network vnet create](/cli/azure/vnet#az_vnet_create). Создайте общедоступный IP-адрес с помощью команды [az network public-ip create](/cli/azure/public-ip#az_public_ip_create).
 
 ```azurecli-interactive
-az group create --name myresourcegroup --location "eastus"
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet   \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
+
+## <a name="create-backend-servers"></a>Создание внутренних серверов
+
+В этом примере вы создадите две виртуальные машины, которые будут использоваться как внутренние серверы для шлюза приложений. Вы также установите службы NGINX на виртуальных машинах, чтобы убедиться, что шлюз приложений успешно создан.
+
+### <a name="create-two-virtual-machines"></a>Создание двух виртуальных машин
+
+Тот же самый файл конфигурации cloud-init можно использовать и для установки NGINX, а также для запуска простого приложения Node.js "Hello World" на виртуальной машине Linux. В текущей оболочке создайте файл cloud-init.txt и вставьте в него следующую конфигурацию. Убедитесь, что весь файл cloud-init скопирован правильно, особенно первая строка.
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+```
+
+Создайте сетевые интерфейсы с помощью команды [az network nic create](/cli/azure/network/nic#az_network_nic_create). Создайте виртуальные машины с помощью команды [az vm create](/cli/azure/vm#az_vm_create).
+
+```azurecli-interactive
+for i in `seq 1 2`; do
+  az network nic create \
+    --resource-group myResourceGroupAG \
+    --name myNic$i \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet
+  az vm create \
+    --resource-group myResourceGroupAG \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+done
 ```
 
 ## <a name="create-the-application-gateway"></a>Создание шлюза приложений
 
-Используйте внутренние IP-адреса для внутренних серверов. Эти значения могут быть частными IP-адресами в виртуальной сети, общедоступными IP-адресами или полными доменными именами для внутренних серверов. В следующем примере создается шлюз приложений с дополнительными параметрами конфигурации, задающими настройки HTTP, порты и правила.
+Создайте шлюз приложений с помощью команды [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create). При создании шлюза приложений с помощью Azure CLI укажите такие сведения о конфигурации, как емкость, номер SKU и параметры HTTP. Частные IP-адреса сетевых интерфейсов добавляются как внутренний пул шлюза приложений.
 
 ```azurecli-interactive
+address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
+address2=$(az network nic show --name myNic2 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
 az network application-gateway create \
---name "AdatumAppGateway" \
---location "eastus" \
---resource-group "myresourcegroup" \
---vnet-name "AdatumAppGatewayVNET" \
---vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet" \
---subnet-address-prefix "10.0.0.0/28" \
---servers 10.0.0.4 10.0.0.5 \
---capacity 2 \
---sku Standard_Small \
---http-settings-cookie-based-affinity Enabled \
---http-settings-protocol Http \
---frontend-port 80 \
---routing-rule-type Basic \
---http-settings-port 80 \
---public-ip-address "pip2" \
---public-ip-address-allocation "dynamic" \
-
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --capacity 2 \
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Enabled \
+  --public-ip-address myAGPublicIPAddress \
+  --vnet-name myVNet \
+  --subnet myAGSubnet \
+  --servers "$address1" "$address2"
 ```
 
-В предыдущем примере показано несколько свойств, которые не являются обязательными во время создания шлюза приложений. Следующий пример кода создает шлюз приложений с использованием требуемой информации.
+Создание шлюза приложений может занять несколько минут. Когда шлюз приложений будет создан, вы увидите такие функции шлюза:
 
-```azurecli-interactive
-az network application-gateway create \
---name "AdatumAppGateway" \
---location "eastus" \
---resource-group "myresourcegroup" \
---vnet-name "AdatumAppGatewayVNET" \
---vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet" \
---subnet-address-prefix "10.0.0.0/28" \
---servers "10.0.0.5"  \
---public-ip-address pip
+- *appGatewayBackendPool* — шлюз приложений должен иметь по крайней мере один внутренний пул адресов.
+- *appGatewayBackendHttpSettings* — указывает, что для обмена данными используются порт 80 и протокол HTTP.
+- *appGatewayHttpListener* — прослушиватель по умолчанию, связанный с *appGatewayBackendPool*.
+- *appGatewayFrontendIP* — назначает адрес *myAGPublicIPAddress* для прослушивателя *appGatewayHttpListener*.
+- *rule1* — правило маршрутизации по умолчанию, связанное с прослушивателем *appGatewayHttpListener*.
+
+## <a name="test-the-application-gateway"></a>Тестирование шлюза приложений
+
+Чтобы получить общедоступный IP-адрес шлюза приложений, используйте команду [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Скопируйте общедоступный IP-адрес и вставьте его в адресную строку браузера.
+
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+``` 
+
+![Тестирование шлюза приложений](./media/application-gateway-create-gateway-cli/application-gateway-nginxtest.png)
+
+## <a name="clean-up-resources"></a>Очистка ресурсов
+
+Выполните команду [az group delete](/cli/azure/group#az_group_delete), чтобы удалить группу ресурсов, шлюз приложений и все связанные ресурсы, если они вам больше не нужны.
+
+```azurecli-interactive 
+az group delete --name myResourceGroupAG
 ```
  
-> [!NOTE]
-> Чтобы вывести список параметров, указываемых во время создания, выполните команду `az network application-gateway create --help`.
+## <a name="next-steps"></a>Дополнительная информация
 
-В этом примере создается базовый шлюз приложений с параметрами по умолчанию для прослушивателя, внутреннего пула, внутренними параметрами HTTP и параметрами правил. Вы сможете изменить эти параметры в соответствии с развертыванием после успешного завершения подготовки.
+В этом кратком руководстве вы создали группу ресурсов, сетевые ресурсы и внутренние серверы. В дальнейшем вы можете использовать эти ресурсы для создания шлюза приложений. Чтобы узнать больше о шлюзах приложений и связанных с ними ресурсах, перейдите к статьям с инструкциями.
 
-Если веб-приложение было определено с использованием внутреннего пула на предыдущих шагах, то сейчас начнется балансировка нагрузки.
-
-## <a name="get-the-application-gateway-dns-name"></a>Получение DNS-имени шлюза приложений
-После создания шлюза настраивается внешний интерфейс для обмена данными. Если вы используете общедоступный IP-адрес, то шлюзу приложений требуется динамически назначаемое DNS-имя, не являющееся понятным именем. Чтобы пользователи могли попасть в шлюз приложений, используйте запись CNAME, чтобы указать общедоступную конечную точку шлюза приложений. Дополнительные сведения см. в статье [Использование Azure DNS для указания параметров личного домена для службы Azure](../dns/dns-custom-domain.md).
-
-Чтобы настроить псевдоним, извлеките подробные сведения о шлюзе приложений и соответствующий IP-адрес или DNS-имя с помощью элемента PublicIPAddress, связанного со шлюзом приложений. Используйте DNS-имя шлюза приложений для создания записи CNAME, указывающей двум веб-приложениям на это DNS-имя. Не следует использовать записи A, так как виртуальный IP-адрес может измениться после перезапуска шлюза приложений
-
-
-```azurecli-interactive
-az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
-```
-
-```
-{
-  "dnsSettings": {
-    "domainNameLabel": null,
-    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
-    "reverseFqdn": null
-  },
-  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "40.121.167.250",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
-    "name": null,
-    "privateIpAddress": null,
-    "privateIpAllocationMethod": null,
-    "provisioningState": null,
-    "publicIpAddress": null,
-    "resourceGroup": "AdatumAppGatewayRG",
-    "subnet": null
-  },
-  "location": "eastus",
-  "name": "pip2",
-  "provisioningState": "Succeeded",
-  "publicIpAddressVersion": "IPv4",
-  "publicIpAllocationMethod": "Dynamic",
-  "resourceGroup": "AdatumAppGatewayRG",
-  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
-  "tags": {
-    "cli[2] owner[administrator]": ""
-  },
-  "type": "Microsoft.Network/publicIPAddresses"
-}
-```
-
-## <a name="delete-all-resources"></a>Удаление всех ресурсов
-
-Чтобы удалить все ресурсы, созданные при работе с этой статьей, выполните приведенную ниже команду.
-
-```azurecli-interactive
-az group delete --name AdatumAppGatewayRG
-```
- 
-## <a name="next-steps"></a>Дальнейшие действия
-
-Чтобы узнать, как создать пользовательские пробы работоспособности, ознакомьтесь с разделом [Создание пользовательской пробы для шлюза приложений с помощью портала](application-gateway-create-probe-portal.md).
-
-Чтобы узнать, как настроить разгрузку SSL и отказаться от использования дорогостоящей расшифровки SSL на веб-серверах, ознакомьтесь с разделом [Настройка шлюза приложений для разгрузки SSL с помощью диспетчера ресурсов Azure](application-gateway-ssl-arm.md).
-
-<!--Image references-->
-
-[scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
-[1]: ./media/application-gateway-create-gateway-cli/figure1.png
-[2]: ./media/application-gateway-create-gateway-cli/figure2.png
-[3]: ./media/application-gateway-create-gateway-cli/figure3.png

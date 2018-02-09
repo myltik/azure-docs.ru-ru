@@ -2,17 +2,17 @@
 title: "Доставка и повторные попытки доставки сетки событий Azure"
 description: "В статье описывается, как сетка событий Azure передает события и обрабатывает недоставленные сообщения."
 services: event-grid
-author: djrosanova
+author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/10/2018
-ms.author: darosa
-ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.date: 01/30/2018
+ms.author: tomfitz
+ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Доставка и повторные попытки доставки сообщений сетки событий 
 
@@ -58,11 +58,11 @@ ms.lasthandoff: 01/11/2018
 6. 30 минут
 7. 1 час
 
-Сетка событий добавляет небольшой случайный выбор во все интервалы повторных попыток.
+Сетка событий добавляет небольшой случайный выбор во все интервалы повторных попыток. Через 1 час доставка событий повторяется один раз в час.
 
 ## <a name="retry-duration"></a>Длительность повтора
 
-В предварительной версии сетка событий Azure завершает срок действия любых событий, которые не были доставлены в течение двух часов.
+Служба "Сетка событий Azure" завершает срок действия всех событий, которые не были доставлены в течение 24 часов.
 
 ## <a name="next-steps"></a>Дополнительная информация
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Обзор. Группы отработки отказа и активная георепликация
 Активная георепликация позволяет настроить до четырех доступных для чтения баз данных-получателей в одном или в разных расположениях (регионах) центров обработки данных. Базы данных-получатели доступны для выполнения запросов и отработки отказа при сбое центра обработки данных или невозможности подключения к базе данных-источнику. Отработка отказа должна инициироваться вручную приложением пользователя. После отработки отказа у новой базы данных-источника будет другая конечная точка подключения. 
@@ -140,7 +140,7 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Управление отработкой отказа базы данных SQL с помощью Transact-SQL
 
-| Команда | Описание |
+| Get-Help | ОПИСАНИЕ |
 | --- | --- |
 | [ALTER DATABASE (база данных SQL Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Используйте аргумент ADD SECONDARY ON SERVER, чтобы создать базу данных-получатель для существующей базы данных и начать репликацию данных. |
 | [ALTER DATABASE (база данных SQL Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Используйте аргумент FAILOVER или FORCE_FAILOVER_ALLOW_DATA_LOSS, чтобы задать базу данных-получатель в качестве базы данных-источника для запуска отработки отказа. |
@@ -153,7 +153,7 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="manage-sql-database-failover-using-powershell"></a>Управление отработкой отказа базы данных SQL с помощью PowerShell
 
-| Командлет | Описание |
+| Командлет | ОПИСАНИЕ |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Получает одну или несколько баз данных. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Создает базу данных-получатель для существующей базы данных и начинает репликацию данных. |
@@ -172,7 +172,7 @@ ms.lasthandoff: 10/31/2017
 >
 
 ## <a name="manage-sql-database-failover-using-the-rest-api"></a>Управление отработкой отказа базы данных SQL с помощью REST API
-| API | Описание |
+| API | ОПИСАНИЕ |
 | --- | --- |
 | [Создание или обновление базы данных (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Создает, обновляет или восстанавливает базу данных-источник или базу данных-получатель. |
 | [Получение, создание или обновление состояния базы данных](/rest/api/sql/Databases/CreateOrUpdate) |Возвращает состояние во время операции создания. |
@@ -190,7 +190,7 @@ ms.lasthandoff: 10/31/2017
 | [Обновление группы отработки отказа](/rest/api/sql/failovergroups/update) | Обновляет группу отработки отказа. |
 |  | |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Ознакомьтесь с примерами скриптов в следующих статьях:
    - [Настройка активной георепликации для отдельной базы данных SQL Azure с помощью PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
    - [Настройка активной георепликации для базы данных SQL Azure в составе пула с помощью PowerShell](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

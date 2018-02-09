@@ -17,12 +17,14 @@
 # Примеры
 ## [Развертывание ресурсов Azure с помощью Terraform в Bash](example-terraform-bash.md)
 
+## [Запуск Ansible в Bash](../ansible/ansible-run-playbook-in-cloudshell.md)
+
 # [Внедрение Cloud Shell](embed-cloud-shell.md)
 
 # [Устранение неполадок](troubleshooting.md)
 
 # Справочные материалы
-## [Интерфейс командной строки Azure](/cli/azure)
+## [интерфейс командной строки Azure](/cli/azure)
 ## [Azure PowerShell](/powershell/azure)
 
 # Ресурсы

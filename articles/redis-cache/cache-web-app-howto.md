@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: wesmc
-ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 98750c4f8d2449fb4fdf68b03a00d846e636a93a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Как создать веб-приложение с использованием кэша Redis
 > [!div class="op_single_selector"]
@@ -30,14 +30,14 @@ ms.lasthandoff: 01/24/2018
 > 
 > 
 
-В этом руководстве описано, как создать и развернуть веб-приложение ASP.NET в веб-приложение службы приложений Azure с помощью Visual Studio 2017. В примере приложения отображается список статистических данных команды из базы данных и различные способы использования кэша Redis для Azure для хранения и извлечения данных из кэша. Завершив работу с руководством, вы получите рабочее веб-приложение, которое выполняет чтение и запись в базе данных, оптимизировано для работы с кэшем Redis для Azure и размещено в Azure.
+В этом руководстве описано, как создать и развернуть веб-приложение ASP.NET в веб-приложение службы приложений Azure с помощью Visual Studio 2017. В примере приложения отображается список статистических данных команды из базы данных и различные способы использования кэша Redis для Azure для хранения и извлечения данных из кэша. Завершив работу с руководством, вы получите рабочее веб-приложение, которое выполняет чтение и запись в базе данных, оптимизированное для работы с кэшем Redis для Azure и размещенное в Azure.
 
-Вы узнаете следующее:
+Вы узнаете:
 
 * как создать веб-приложение ASP.NET MVC 5 в Visual Studio;
 * как получить доступ к данным из базы данных с использованием Entity Framework;
 * как улучшить пропускную способность данных и снизить нагрузку на базу данных за счет хранения и извлечения данных с помощью кэша Redis для Azure;
-* как получить 5 лучших команд с помощью отсортированного набора Redis;
+* как получить пять лучших команд с помощью отсортированного набора Redis;
 * как подготовить ресурсы Azure к работе для приложения с помощью шаблона Resource Manager;
 * как опубликовать приложение в Azure с помощью Visual Studio.
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 01/24/2018
 
 ### <a name="add-the-entity-framework-nuget-package"></a>Добавление пакета Entity Framework NuGet
 
-1. В меню **Сервис** выберите **Диспетчер пакетов NuGet**, а затем — **Консоль диспетчера пакетов**.
+1. В Visual Studio щелкните **Инструменты > Диспетчер пакетов NuGet > Консоль диспетчера пакетов.**.
 2. В окне **консоли диспетчера пакетов** запустите следующую команду:
     
     ```
@@ -185,15 +185,15 @@ ms.lasthandoff: 01/24/2018
 1. В **обозревателе решений** дважды щелкните файл **web.config**, чтобы открыть его.
    
     ![Web.config][cache-web-config]
-2. Добавьте следующий раздел `connectionStrings`. Имя строки подключения должно соответствовать имени класса контекста базы данных Entity Framework ( `TeamContext`).
+2. Добавьте раздел `connectionStrings` в раздел `configuration`. Имя строки подключения должно соответствовать имени класса контекста базы данных Entity Framework ( `TeamContext`).
 
     ```xml
     <connectionStrings>
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
 
-    Вы можете добавить новый раздел `connectionStrings`, чтобы он следовал за разделом `configSections`, как показано в следующем примере.
+    В следующем примере показаны разделы `connectionStrings` и `configSections` в разделе `configuration`.
 
     ```xml
     <configuration>
@@ -275,7 +275,7 @@ ms.lasthandoff: 01/24/2018
 ![Начальное приложение][cache-starter-application]
 
 ## <a name="configure-the-application-to-use-redis-cache"></a>Настройка приложения для использования кэша Redis
-В этом разделе руководства будет настроен пример приложения для хранения и извлечения статистики команды Contoso из экземпляра кэша Redis для Azure с помощью клиента кэша [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) .
+В этом разделе руководства будет настроен пример приложения для хранения и извлечения статистики команды Contoso из экземпляра кэша Redis для Azure с помощью клиента кэша [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis).
 
 * [Настройка приложения для использования StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
 * [Обновление класса TeamsController для возвращения результатов из кэша или базы данных](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
@@ -283,7 +283,7 @@ ms.lasthandoff: 01/24/2018
 * [Обновление представления индекса команд для работы с кэшем](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>Настройка приложения для использования StackExchange.Redis
-1. Чтобы настроить клиентское приложение в Visual Studio, используя пакет StackExchange.Redis из NuGet, выберите в меню **Сервис** последовательно элементы **Диспетчер пакетов NuGet** и **Консоль диспетчера пакетов**.
+1. Чтобы настроить клиентское приложение в Visual Studio, используя пакет [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) из NuGet, выберите **Инструменты > Диспетчер пакетов NuGet > Консоль диспетчера пакетов**.
 2. Выполните следующую команду в окне `Package Manager Console`:
     
     ```
@@ -322,14 +322,15 @@ ms.lasthandoff: 01/24/2018
 
 6. Создайте на компьютере файл с именем `WebAppPlusCacheAppSecrets.config` и поместите его в расположение, которое не будет записано после изменения с исходным кодом примера приложения, если его нужно будет записать где-нибудь после изменения. В этом примере файл `AppSettingsSecrets.config` находится в папке `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
    
-    Измените файл `WebAppPlusCacheAppSecrets.config` и добавьте содержимое, приведенное ниже. При локальном запуске приложения эти сведения используются для подключения к экземпляру кэша Redis для Azure. Далее в этом руководстве будет подготовлен к работе экземпляр кэша Redis для Azure и обновлены имя и пароль для него. Если пример приложения не планируется запускать локально, создавать этот файл необязательно. В таком случае можно пропустить последующие шаги, в которых он указан, так как при развертывании в Azure приложение получает сведения о подключении кэша из параметра приложения для веб-приложения, а не из этого файла. Так как файл `WebAppPlusCacheAppSecrets.config` не развертывается в Azure с приложением, он не нужен, если приложение не будет запускаться локально.
+    Измените файл `WebAppPlusCacheAppSecrets.config` и добавьте содержимое, приведенное ниже.
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 
+    При локальном запуске приложения эти сведения используются для подключения к экземпляру кэша Redis для Azure. Далее в этом руководстве будет подготовлен к работе экземпляр кэша Redis для Azure и обновлены имя и пароль для него. Если пример приложения не планируется запускать локально, создавать этот файл необязательно. В таком случае можно пропустить последующие шаги, в которых он указан, так как при развертывании в Azure приложение получает сведения о подключении кэша из параметра приложения для веб-приложения, а не из этого файла. Так как файл `WebAppPlusCacheAppSecrets.config` не развертывается в Azure с приложением, он не нужен, если приложение не будет запускаться локально.
 
 1. В **обозревателе решений** дважды щелкните файл **web.config**, чтобы открыть его.
    
@@ -338,7 +339,7 @@ ms.lasthandoff: 01/24/2018
    
    * До: `<appSettings>`
    * После: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
-     
+  
    Среда выполнения ASP.NET объединяет содержимое внешнего файла с разметкой в элементе `<appSettings>`. Если указанный файл не удается найти, среда выполнения игнорирует атрибут файла. Секреты (строка подключения к вашему кэшу) не включаются в исходный код приложения. При развертывании веб-приложения в Azure файл `WebAppPlusCacheAppSecrests.config` не будет развернут (как и нужно). Существует несколько способов указать эти секреты в Azure. В этом руководстве они настраиваются автоматически при [подготовке ресурсов Azure к работе](#provision-the-azure-resources) на следующем шаге. Дополнительные сведения о работе с секретами в Azure см. в статье [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (Рекомендации по развертыванию паролей и других конфиденциальных данных в ASP.NET и в службе приложений Azure).
 
 ### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>Обновление класса TeamsController для возвращения результатов из кэша или базы данных
@@ -349,14 +350,14 @@ ms.lasthandoff: 01/24/2018
 > 
 > 
 
-1. В начале файла `TeamsController.cs` добавьте следующие операторы `using` к остальным операторам `using`:
+1. В начале файла `TeamsController.cs` добавьте следующие операторы `using` к остальным операторам `using`.
 
     ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
-2. Замените текущую реализацию метода `public ActionResult Index()` следующей реализацией:
+2. Замените текущую реализацию метода `public ActionResult Index()` следующей реализацией.
 
     ```csharp
     // GET: Teams
@@ -576,7 +577,7 @@ ms.lasthandoff: 01/24/2018
 ### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>Обновление методов создания, изменения и удаления для работы с кэшем
 Код для формирования шаблонов, созданный в этом примере, содержит методы для добавления, изменения и удаления команд. При каждом добавлении, изменении или удалении команды данные в кэше устаревают. В этом разделе приведенные метода будут изменены, чтобы очистить кэшированные команды. Это поможет синхронизировать кэш с базой данных.
 
-1. Перейдите к методу `Create(Team team)` в классе `TeamsController`. Добавьте вызов в метод `ClearCachedTeams` , как показано в следующем примере.
+1. Перейдите к методу `Create(Team team)` в классе `TeamsController`. Добавьте вызов в метод `ClearCachedTeams`, как показано в следующем примере.
 
     ```csharp
     // POST: Teams/Create
@@ -601,7 +602,7 @@ ms.lasthandoff: 01/24/2018
     ```
 
 
-1. Перейдите к методу `Edit(Team team)` в классе `TeamsController`. Добавьте вызов в метод `ClearCachedTeams` , как показано в следующем примере.
+1. Перейдите к методу `Edit(Team team)` в классе `TeamsController`. Добавьте вызов в метод `ClearCachedTeams`, как показано в следующем примере.
 
     ```csharp
     // POST: Teams/Edit/5
@@ -625,7 +626,7 @@ ms.lasthandoff: 01/24/2018
     ```
 
 
-1. Перейдите к методу `DeleteConfirmed(int id)` в классе `TeamsController`. Добавьте вызов в метод `ClearCachedTeams` , как показано в следующем примере.
+1. Перейдите к методу `DeleteConfirmed(int id)` в классе `TeamsController`. Добавьте вызов в метод `ClearCachedTeams`, как показано в следующем примере.
 
     ```csharp
     // POST: Teams/Delete/5
@@ -804,11 +805,11 @@ ms.lasthandoff: 01/24/2018
 После выбора или создания кэша перейдите к нему на портале Azure и извлеките соответствующие [имя узла](cache-configure.md#properties) и [ключи доступа](cache-configure.md#access-keys). Инструкции см. в разделе [Настройка параметров кэша Redis](cache-configure.md#configure-redis-cache-settings).
 
 1. Откройте файл `WebAppPlusCacheAppSecrets.config` , созданный на шаге [Настройка приложения для использования кэша Redis](#configure-the-application-to-use-redis-cache) этого руководства при помощи выбранного редактора.
-2. Измените атрибут `value`, замените `MyCache.redis.cache.windows.net` [именем узла](cache-configure.md#properties) кэша и укажите [первичный или вторичный ключ](cache-configure.md#access-keys) кэша в качестве пароля.
+2. Измените атрибут `value`, замените `YourCacheName.redis.cache.windows.net` [именем узла](cache-configure.md#properties) кэша, а `YourAccessKey` — [первичным или вторичным ключом](cache-configure.md#access-keys) кэша в качестве пароля.
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 

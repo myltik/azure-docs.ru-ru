@@ -1,6 +1,6 @@
 ---
 title: "Приступая к работе с Центром Интернета вещей Azure (.NET) | Документация Майкрософт"
-description: "Узнайте, как отправлять сообщения из устройства в облако в Центр Интернета вещей Azure с помощью пакетов SDK для Центра Интернета вещей для .NET. Создайте виртуальное устройство и приложения службы для регистрации устройства, отправки сообщений и чтения сообщений из Центра Интернета вещей."
+description: "Узнайте, как отправлять сообщения из устройства в облако в Центр Интернета вещей Azure с помощью пакетов SDK для Центра Интернета вещей для .NET. Создайте имитированное устройство и приложения службы для регистрации устройства, отправки сообщений и чтения сообщений из Центра Интернета вещей."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec9ff4a866ef8736ed260b4d17aa997433c1ef8d
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3ea8979f21fcc8a85e80db9b49377ba9a48836e2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>Подключение устройства к Центру Интернета вещей с помощью .NET
 
@@ -31,9 +31,9 @@ ms.lasthandoff: 12/07/2017
 * **ReadDeviceToCloudMessages** — отображает данные телеметрии, отправленные приложением устройства.
 * **SimulatedDevice** — подключается к Центру Интернета вещей с созданным ранее удостоверением устройства и один раз в секунду отправляет сообщения телеметрии с использованием протокола MQTT.
 
-Вы можете скачать или клонировать решения Visual Studio, которые содержат три приложения с Github.
+Следуйте инструкциям из этого руководства, чтобы создать примеры приложений с нуля. Также вы можете [загрузить](https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app/archive/master.zip) или клонировать готовые решения Visual Studio с Github:
 
-```bash
+```cmd/sh
 git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app.git
 ```
 
@@ -42,7 +42,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
 Для работы с этим учебником требуется:
 
-* Visual Studio 2015 или Visual Studio 2017.
+* Visual Studio 2015 или Visual Studio 2017.
 * Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -54,6 +54,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
 <a id="D2C_csharp"></a>
 ## <a name="receive-device-to-cloud-messages"></a>Получение сообщений с устройства в облако
+
 В этом разделе вы создадите консольное приложение .NET, которое считывает сообщения, передаваемые с устройства в облако из Центра Интернета вещей. Центр Интернета вещей предоставляет совместимую с [концентраторами событий Azure][lnk-event-hubs-overview] конечную точку для считывания сообщений, отправляемых с устройства в облако. Для простоты в этом руководстве создается базовый модуль чтения, который не подходит для развертывания с высокой пропускной способностью. В руководстве по [обработке сообщений, отправляемых с устройства в облако][lnk-process-d2c-tutorial], показано, как обрабатывать такие сообщения в больших количествах. Дополнительные сведения о способах обработки сообщений из концентраторов событий см. в руководстве [Приступая к работе с концентраторами событий][lnk-eventhubs-tutorial]. (Это руководство относится к конечным точкам, совместимым с концентраторами событий в Центре Интернета вещей.)
 
 > [!NOTE]
@@ -63,18 +64,18 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
     ![Новый проект классического приложения Windows на языке Visual C#][10a]
 
-2. В обозревателе решений щелкните правой кнопкой мыши проект **ReadDeviceToCloudMessages** и выберите **Manage NuGet Packages** (Управление пакетами NuGet).
+1. В обозревателе решений щелкните правой кнопкой мыши проект **ReadDeviceToCloudMessages** и выберите **Manage NuGet Packages** (Управление пакетами NuGet).
 
-3. В окне **Диспетчер пакетов NuGet** найдите пакет **WindowsAzure.ServiceBus**, щелкните **Установить** и примите условия использования. Эта процедура выполняет загрузку и установку [служебной шины Azure][lnk-servicebus-nuget] со всеми ее зависимостями, а также добавляет соответствующую ссылку. С помощью этого пакета приложение может подключаться к конечной точке, совместимой с концентратором событий, в Центре Интернета вещей.
+1. В окне **Диспетчер пакетов NuGet** найдите пакет **WindowsAzure.ServiceBus**, щелкните **Установить** и примите условия использования. Эта процедура выполняет загрузку и установку [служебной шины Azure][lnk-servicebus-nuget] со всеми ее зависимостями, а также добавляет соответствующую ссылку. С помощью этого пакета приложение может подключаться к конечной точке, совместимой с концентратором событий, в Центре Интернета вещей.
 
-4. Добавьте следующие инструкции `using` в начало файла **Program.cs** :
+1. Добавьте следующие инструкции `using` в начало файла **Program.cs** :
 
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     using System.Threading;
     ```
 
-5. Добавьте следующие поля в класс **Program** . Замените значения заполнителей строкой подключения к Центру Интернета вещей, созданному в разделе "Создание центра Интернета вещей".
+1. Добавьте следующие поля в класс **Program** . Замените значения заполнителей строкой подключения к Центру Интернета вещей, созданному в разделе "Создание центра Интернета вещей".
 
     ```csharp
     static string connectionString = "{iothub connection string}";
@@ -82,7 +83,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
     static EventHubClient eventHubClient;
     ```
 
-6. Добавьте следующий метод в класс **Program** .
+1. Добавьте следующий метод в класс **Program** .
 
     ```csharp
     private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
@@ -102,7 +103,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
     Этот метод использует экземпляр **EventHubReceiver** для получения сообщений из всех разделов Центра Интернета вещей, которые отвечают за прием сообщений, передаваемых с устройства в облако. Обратите внимание, что при создании объекта `DateTime.Now`EventHubReceiver **параметр**  передается так, чтобы получать только сообщения, отправленные после его запуска. Этот фильтр удобно использовать в тестовой среде для просмотра текущего набора сообщений. В рабочей среде убедитесь, что ваш код обрабатывает все сообщения. Дополнительные сведения см. в руководстве [по обработке сообщений Центра Интернета вещей, отправляемых с устройства в облако][lnk-process-d2c-tutorial].
 
-7. Наконец, добавьте следующие строки в метод **Main** :
+1. Наконец, добавьте следующие строки в метод **Main** :
 
     ```csharp
     Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
@@ -123,7 +124,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
     foreach (string partition in d2cPartitions)
     {
         tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
-    }  
+    }
     Task.WaitAll(tasks.ToArray());
     ```
 
@@ -135,18 +136,18 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
     ![Новый проект классического приложения Windows на языке Visual C#][10b]
 
-2. В обозревателе решений щелкните правой кнопкой мыши проект **SimulatedDevice** и выберите **Manage NuGet Packages** (Управление пакетами NuGet).
+1. В обозревателе решений щелкните правой кнопкой мыши проект **SimulatedDevice** и выберите **Manage NuGet Packages** (Управление пакетами NuGet).
 
-3. В окне **Диспетчер пакетов NuGet** нажмите кнопку **Обзор**, найдите **Microsoft.Azure.Devices.Client**, щелкните **Установить**, чтобы установить пакет **Microsoft.Azure.Devices.Client**, и примите условия использования. В результате выполняется скачивание и установка [пакета NuGet SDK для устройств Azure IoT][lnk-device-nuget] и его зависимостей, а также добавляется соответствующая ссылка.
+1. В окне **Диспетчер пакетов NuGet** нажмите кнопку **Обзор**, найдите **Microsoft.Azure.Devices.Client**, щелкните **Установить**, чтобы установить пакет **Microsoft.Azure.Devices.Client**, и примите условия использования. В результате выполняется скачивание и установка [пакета NuGet SDK для устройств Azure IoT][lnk-device-nuget] и его зависимостей, а также добавляется соответствующая ссылка.
 
-4. Добавьте следующий оператор `using` в начало файла **Program.cs** .
+1. Добавьте следующий оператор `using` в начало файла **Program.cs** .
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Newtonsoft.Json;
     ```
 
-5. Добавьте следующие поля в класс **Program** . Замените `{iot hub hostname}` на имя узла Центра Интернета вещей, полученное в разделе "Создание Центра Интернета вещей". Замените `{device key}` на ключ устройства, полученный в разделе "Создание удостоверение устройства".
+1. Добавьте следующие поля в класс **Program** . Замените `{iot hub hostname}` на имя узла Центра Интернета вещей, полученное в разделе "Создание Центра Интернета вещей". Замените `{device key}` на ключ устройства, полученный в разделе "Создание удостоверение устройства".
 
     ```csharp
     static DeviceClient deviceClient;
@@ -154,7 +155,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
     static string deviceKey = "{device key}";
     ```
 
-6. Добавьте следующий метод в класс **Program** .
+1. Добавьте следующий метод в класс **Program** .
 
     ```csharp
     private static async void SendDeviceToCloudMessagesAsync()
@@ -190,7 +191,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
     Этот метод отправляет новое сообщение с устройства в облако каждую секунду. Сообщение содержит объект сериализации JSON с идентификатором устройства и случайные числа, что позволяет имитировать датчик температуры и влажности.
 
-7. Наконец, добавьте следующие строки в метод **Main** :
+1. Наконец, добавьте следующие строки в метод **Main** :
 
     ```csharp
     Console.WriteLine("Simulated device\n");
@@ -215,15 +216,15 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
     ![Свойства запускаемого проекта][41]
 
-2. Нажмите клавишу **F5** , чтобы запустить оба приложения. В выходных данных консоли для приложения **SimulatedDevice** будут отображаться сообщения, которые приложение устройства отправляет в Центр Интернета вещей. В выходных данных консоли для приложения **ReadDeviceToCloudMessages** будут отображаться сообщения, которые получает Центр Интернета вещей.
+1. Нажмите клавишу **F5** , чтобы запустить оба приложения. В выходных данных консоли для приложения **SimulatedDevice** будут отображаться сообщения, которые приложение устройства отправляет в Центр Интернета вещей. В выходных данных консоли для приложения **ReadDeviceToCloudMessages** будут отображаться сообщения, которые получает Центр Интернета вещей.
 
     ![Выходные данные консоли для приложений][42]
 
-3. На плитке **Использование** на [портале Azure][lnk-portal] отображается количество сообщений, отправленных в Центр Интернета вещей.
+1. На плитке **Использование** на [портале Azure][lnk-portal] отображается количество сообщений, отправленных в Центр Интернета вещей.
 
     ![Плитка "Использование" на портале Azure][43]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 С помощью этого руководства вы настроили Центр Интернета вещей на портале Azure и создали удостоверение устройства в реестре удостоверений этого Центра. Это удостоверение позволяет приложению устройства отправлять в Центр Интернета вещей сообщения, передаваемые из устройства в облако. Кроме того, мы создали приложение, которое отображает сообщения, полученные Центром Интернета вещей.
 
@@ -243,7 +244,6 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 [10a]: ./media/iot-hub-csharp-csharp-getstarted/create-receive-csharp1.png
 [10b]: ./media/iot-hub-csharp-csharp-getstarted/create-device-csharp1.png
-
 
 <!-- Links -->
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md

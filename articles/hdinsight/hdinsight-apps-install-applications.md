@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: b23e62d3ae0fa3468a8a9a5608eb3d316852f086
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Установка сторонних приложений Hadoop в Azure HDInsight
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/06/2017
 * **DATAIKU DDS on HDInsight** позволяет специалистам по работе с данными моделировать, создавать и развертывать высокоспециализированные службы, преобразовывающие необработанные данные в эффективные бизнес-прогнозы.
 * **Datameer**. [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) предоставляет аналитикам возможность находить, анализировать и визуализировать результаты по большим данным в интерактивном режиме. С его помощью вы можете с легкостью обнаруживать новые связи и быстро получать необходимые ответы, используя дополнительные источники данных.
 * **H2O Artificial Intelligence для HDInsight (бета-версия)**. H2O Sparkling Water поддерживает следующие распределенные алгоритмы: GLM, упрощенный алгоритм Байеса, распределенный случайный лес, машины градиентного бустинга, глубокие нейронные сети, глубокое обучение, метод K-средних, анализ главных компонентов, обобщенные модели низкорангового представления, обнаружение аномалий и автокодировщики.
-* **Kyligence Analytics Platform** (KAP) — хранилище данных корпоративного уровня на платформе Apache Kylin и Apache Hadoop, которое обеспечивает обработку запросов в больших масштабируемых наборах данных с задержкой менее секунды и упрощает анализ данных для бизнес-пользователей и аналитиков. 
+* **Kyligence Analytics Platform** (KAP) — хранилище данных корпоративного уровня на платформе Apache Kylin и Apache Hadoop, которое обеспечивает обработку запросов в больших масштабируемых наборах данных с задержкой менее секунды и упрощает анализ данных для бизнес-пользователей и аналитиков. 
 * **Paxata Self-service Data Preparation**.
 * **SnapLogic Hadooplex**. SnapLogic Hadooplex в HDInsight позволяет клиентам быстрее получать аналитическую бизнес-информацию благодаря самостоятельному приему и подготовке данных практически из любого источника для облачной платформы Microsoft Azure.
 * **Spark Job Server для KNIME Spark Executor** — используется для подключения платформы KNIME Analytics Platform к кластерам HDInsight.
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/06/2017
 
 В этой статье используется портал Azure. Вы можете экспортировать шаблон Azure Resource Manager с портала или получить его копию у поставщиков, а затем развернуть его с помощью Azure PowerShell и интерфейса командной строки Azure.  Ознакомьтесь со статьей [Создание кластеров Hadoop в HDInsight с помощью шаблонов Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Если вы хотите установить приложение HDInsight в существующем кластере HDInsight, вы должны создать кластер HDInsight. Инструкции по созданию кластера см. в [этом разделе](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Вы также можете установить приложения HDInsight во время создания кластера HDInsight.
 
 ## <a name="install-applications-to-existing-clusters"></a>Установка приложений в имеющиеся кластеры
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/06/2017
 
 **Установка приложения HDInsight**
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. В меню слева щелкните **Кластеры HDInsight** .
 3. Щелкните кластер HDInsight.  Если у вас нет кластера, сначала его необходимо создать.  См. [этот раздел](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 4. В категории **Конфигурации** щелкните **Приложения**. Отобразится список установленных приложений. Если параметр "Приложения" не отображается, это означает, что приложения для этой версии кластера HDInsight отсутствуют.
@@ -75,9 +75,9 @@ ms.lasthandoff: 11/06/2017
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Отображение списка установленных приложений HDInsight и их свойств
 На портале содержится список установленных приложений HDInsight для кластера и их свойств.
 
-**Отображение списка приложений и их свойств**
+**Список приложений HDInsight и их свойств**
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. В меню слева щелкните **Кластеры HDInsight** . 
 3. Щелкните кластер HDInsight.
 4. В разделе **Параметры** щелкните **Приложения** в категории **Общие**. Установленные приложения перечислены справа. 
@@ -100,7 +100,7 @@ ms.lasthandoff: 11/06/2017
 ## <a name="troubleshoot"></a>Устранение неполадок
 См. раздел [Устранение неполадок, связанных с установкой](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md)— узнайте, как развернуть в HDInsight неопубликованное приложение HDInsight.
 * [Публикация приложений HDInsight в Azure Marketplace](hdinsight-apps-publish-applications.md)— узнайте, как опубликовать пользовательские приложения HDInsight в Azure Marketplace.
 * [Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(Установка приложения HDInsight) — узнайте, как определить приложения HDInsight.

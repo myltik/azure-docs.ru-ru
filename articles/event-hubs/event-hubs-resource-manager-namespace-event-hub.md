@@ -12,19 +12,19 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/30/2018
 ms.author: sethm;shvija
-ms.openlocfilehash: 4cc9a0b9eaabb15a5a316e094deb178ef2219692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16fafd8f786f86dfbe701a8d4a61ad6b261b1590
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Создание пространства имен концентраторов событий с концентратором событий и группой потребителей с помощью шаблона Azure Resource Manager
 
-Из этой статьи вы узнаете, как с помощью шаблона Azure Resource Manager создать пространство имен типа EventHubs с одним концентратором событий и одной группой потребителей. Здесь показано, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
+Из этой статьи вы узнаете, как с помощью шаблона Azure Resource Manager создать пространство имен типа [концентраторы событий](event-hubs-what-is-event-hubs.md) с одним концентратором событий и одной группой потребителей. Здесь показано, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
-Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Authoring Azure Resource Manager templates].
+Дополнительные сведения о создании шаблонов см. в статье о [создании шаблонов Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Полный шаблон приведен в разделе [Event Hub and consumer group template][Event Hub and consumer group template] (Шаблон концентратора событий и группы потребителей) на сайте GitHub.
 
@@ -34,20 +34,21 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="what-will-you-deploy"></a>Что вы развернете?
-С помощью этого шаблона вы развернете пространство имен концентраторов событий с концентратором событий и группой потребителей.
 
-[Концентраторы событий](event-hubs-what-is-event-hubs.md) — это служба обработки событий, используемая для крупномасштабной передачи данных событий и телеметрии в Azure. Работа службы характеризуется низкой задержкой и высокой надежностью.
+С помощью этого шаблона вы развернете пространство имен "Концентраторы событий" с концентратором событий и группой потребителей.
 
 Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
 
 [![Развертывание в Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Параметры
+
 С помощью диспетчера ресурсов Azure можно определить параметры значений, которые должны указываться на этапе развертывания шаблона. В шаблоне есть раздел `Parameters` , содержащий все значения параметров. Для изменяющихся значений нужно определить параметры с учетом развертываемого проекта либо окружения, где выполняется развертывание. Не определяйте параметры для значений, которые не меняются. Значение каждого параметра в шаблоне определяет развертываемые ресурсы.
 
 Ниже описаны параметры, которые определяет шаблон.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
+
 Имя создаваемого пространства имен концентраторов событий.
 
 ```json
@@ -57,6 +58,7 @@ ms.lasthandoff: 10/11/2017
 ```
 
 ### <a name="eventhubname"></a>eventHubName
+
 Имя концентратора событий, создаваемого в пространстве имен концентраторов событий.
 
 ```json
@@ -66,6 +68,7 @@ ms.lasthandoff: 10/11/2017
 ```
 
 ### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
+
 Имя группы потребителей, создаваемой для концентратора событий.
 
 ```json
@@ -75,6 +78,7 @@ ms.lasthandoff: 10/11/2017
 ```
 
 ### <a name="apiversion"></a>версия_API
+
 Версия API шаблона.
 
 ```json
@@ -84,6 +88,7 @@ ms.lasthandoff: 10/11/2017
 ```
 
 ## <a name="resources-to-deploy"></a>Развертываемые ресурсы
+
 Создает пространство имен типа **EventHubs** с концентратором событий и группой потребителей.
 
 ```json
@@ -128,24 +133,28 @@ ms.lasthandoff: 10/11/2017
 ```
 
 ## <a name="commands-to-run-deployment"></a>Команды для выполнения развертывания
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
+
 Дополнительные сведения о концентраторах событий см. в следующих источниках:
 
-* [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 * [Создание концентратора событий](event-hubs-create.md)
 * [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
 

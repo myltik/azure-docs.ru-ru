@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 43917e4fe4ce7643ea034d128f303a5397dbcdc2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Управление доступом к Центру Интернета вещей
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 01/24/2018
 
 Каждый поддерживаемый протокол, например MQTT, AMQP и HTTPS, передает маркеры разными способами.
 
-При использовании протокола MQTT пакет CONNECT содержит код deviceId как значение ClientId, {iothubhostname}/{deviceId} в поле "Имя пользователя", а маркер SAS — в поле "Пароль". {iothubhostname} — это полная запись CName Центра Интернета вещей (например, contoso.azure-devices.net).
+При использовании протокола MQTT пакет CONNECT содержит код deviceId как значение ClientId, `{iothubhostname}/{deviceId}` — в поле "Имя пользователя", а маркер SAS — в поле "Пароль". `{iothubhostname}` — это полная запись CName Центра Интернета вещей (например, contoso.azure-devices.net).
 
 При использовании [AMQP][lnk-amqp] Центр Интернета вещей поддерживает механизм [SASL PLAIN][lnk-sasl-plain] и стандарт [защиты AMQP на основе утверждений][lnk-cbs].
 

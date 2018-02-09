@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: e2f48b6e72072ce6bf019b3adc138ae83c162f25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dda0e2efa72356f00b0372e4f6ce961719946b8d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Сетка событий: безопасность и проверка подлинности 
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="webhook-event-delivery"></a>Доставка событий веб-перехватчика
 
-Веб-перехватчики — это один из многих способов получения событий в режиме реального времени из сетки событий Azure. Каждый раз, когда имеется новое событие, готовое к доставке, сетка событий отправляет в конечную точку веб-перехватчика HTTP-запрос, в теле которого находится событие.
+Веб-перехватчики — это один из многих способов получения событий в режиме реального времени из сетки событий Azure. Каждый раз, когда новое событие готово к доставке, сетка событий отправляет в конечную точку веб-перехватчика HTTP-запрос, в теле которого находится событие.
 
 При регистрации собственной конечной точки веб-перехватчика с сеткой событий он отправляет запрос POST с кодом простой проверки для подтверждения владения конечной точкой. В ответ приложение должно вернуть код проверки. Сетка событий не доставляет события на конечные точки веб-перехватчика, которые не прошли проверку.
 
@@ -46,7 +46,9 @@ ms.lasthandoff: 10/11/2017
     "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
-  "eventTime": "2017-08-06T22:09:30.740323Z"
+  "eventTime": "2018-01-25T22:12:19.4556811Z",
+  "metadataVersion": "1",
+  "dataVersion": "1"
 }]
 ```
 
@@ -234,6 +236,6 @@ az role definition create --role-definition @<file path>
 az role assignment create --assignee <user name> --role "<name of role>"
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Общие сведения о сетке событий см. в статье [Сведения о сетке событий](overview.md)

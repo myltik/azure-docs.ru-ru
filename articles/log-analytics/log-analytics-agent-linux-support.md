@@ -1,6 +1,6 @@
 ---
-title: "Устранение неполадок агента Linux Azure Log Analytics | Документы Microsoft"
-description: "Описаны проблемы, причины и разрешения для наиболее распространенных проблем с агентом Linux аналитика журналов."
+title: "Устранение неполадок агента Azure Log Analytics для Linux | Документация Майкрософт"
+description: "Описание симптомов, причин и решений для наиболее распространенных проблем с агентом Azure Log Analytics для Linux."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/17/2017
+ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 5f598da9b82b4425ca509a26a2e6e366ba4c3394
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Устранение неполадок с агентом Linux для службы анализа журналов
+# <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Устранение неполадок с агентом Azure Log Analytics для Linux
 
-Эта статья содержит сведения об устранении проблем ошибки могут возникнуть с агентом Linux для службы анализа журналов и предлагает возможные решения по их устранению.
+Эта статья содержит справку по распространенным ошибкам, которые могут возникнуть в работе агента Azure Log Analytics для Linux, и предлагает возможные решения для их устранения.
 
 ## <a name="issue-unable-to-connect-through-proxy-to-log-analytics"></a>Проблема. Не удается подключиться к Log Analytics через прокси-сервер
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/19/2017
 1. Повторно подключитесь к службе Log Analytics, используя службу OMS для Linux и следующую команду с включенным параметром `-v`. За счет этого подробные выходные данные агента могут подключиться к службе OMS через прокси-сервер. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Просмотрите раздел [Настройка агента для использования со шлюзом OMS или прокси-сервером](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway), чтобы убедиться в правильности настройки агента для обмена данными через прокси-сервер.    
+2. Просмотрите раздел [Обновление параметров прокси-сервера](log-analytics-agent-manage.md#update-proxy-settings), чтобы убедиться в правильности настройки агента для обмена данными через прокси-сервер.    
 * Внимательно проверьте включение в список разрешенных следующих конечных точек службы Log Analytics:
 
     |Ресурс агента| порты; |  

@@ -183,6 +183,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Устранение неполадок Azure Backup Server
           href: backup-azure-mabs-troubleshoot.md
+        - name: Устранение неполадок при работе с System Center Data Protection Manager
+          href: backup-azure-scdpm-troubleshooting.md
         - name: Устранение неполадок агента Azure Backup
           href: backup-azure-mars-troubleshoot.md
 - name: Справочные материалы

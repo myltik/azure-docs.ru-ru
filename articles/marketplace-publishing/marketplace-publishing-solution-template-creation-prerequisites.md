@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 40f0e2b1b1b6144b2f9aa5814a4408b4964ede97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0aa9ab99aea08f5e368efbb97d8a1be7fbb79552
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Технические компоненты, необходимые для создания шаблона решения для Azure Marketplace
 Прежде чем начать работу, внимательно прочтите описание и разберитесь, где и зачем выполняется каждый шаг. Постарайтесь подготовить максимально подробные сведения о своей компании и другие данные, загрузить необходимые средства и/или создать технические компоненты до того, как начнете создавать предложение.  
@@ -26,13 +26,12 @@ ms.lasthandoff: 10/11/2017
 ## <a name="developing-building-blocks"></a>Разработка структурных элементов
 Необходимо выбрать основные модули решения, прежде чем переходить к публикации шаблона решения на портале. Ниже приведены некоторые ссылки на документы, которые могут вам помочь.
 
-1. [Рекомендации по разработке шаблонов диспетчера ресурсов Azure](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
-2. [Создание шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
-3. Шаблоны быстрого запуска Azure:
+1. [Создание шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+2. Шаблоны быстрого запуска Azure:
    * [https://azure.microsoft.com/ru-ru/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
    * [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы ознакомились с необходимыми компонентами и выполнили необходимые задачи, можно переходить к созданию предложения шаблона решения, как описано в [руководстве по созданию шаблона решения](marketplace-publishing-solution-template-creation.md). Инструкции по возвращению на главную страницу задач издателя см. в статье [Как опубликовать предложение и управлять им в Azure Marketplace](marketplace-publishing-getting-started.md).
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md

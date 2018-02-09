@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Программное масштабирование кластера Service Fabric 
 
@@ -93,7 +93,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 Уменьшение масштаба похоже на его увеличение. Изменения масштабируемого набора виртуальных машин практически ничем не отличаются. Но, как было описано ранее, служба Service Fabric автоматически очищает только удаленные узлы с уровнем устойчивости Gold или Silver. Таким образом, при уменьшении масштаба на узле с уровнем устойчивости Bronze необходимо взаимодействовать с кластером Service Fabric для завершения работы узла, который нужно удалить, а затем удалить его состояние.
 
-Подготовка узла к завершению работы предусматривает поиск узла, который нужно удалить (последний добавленный узел), и его отключение. В случае с неначальными узлами более новые узлы можно найти с помощью сравнения `NodeInstanceId`. 
+Подготовка узла к завершению работы предусматривает поиск узла, который нужно удалить (последний добавленный экземпляр масштабируемого набора виртуальных машин), и его отключение. Экземпляры масштабируемого набора виртуальных машин нумеруются в порядке, в котором они добавляются. Поэтому новые узлы можно находить, сравнивая числовые суффиксы в именах узлов (которые соответствует именам базовых экземпляров масштабируемого набора виртуальных машин). 
 
 ```csharp
 using (var client = new FabricClient())
@@ -101,11 +101,14 @@ using (var client = new FabricClient())
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
         .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
         .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
-        .OrderByDescending(n => n.NodeInstanceId)
+        .OrderByDescending(n =>
+        {
+            var instanceIdIndex = n.NodeName.LastIndexOf("_");
+            var instanceIdString = n.NodeName.Substring(instanceIdIndex + 1);
+            return int.Parse(instanceIdString);
+        })
         .FirstOrDefault();
 ```
-
-В случае с начальными узлами не всегда выполняется правило, в соответствии с которым первыми удаляются экземпляры с большим значением идентификатора.
 
 После обнаружения узла, который следует удалить, его можно отключить и удалить с помощью того же экземпляра `FabricClient` и экземпляра `IAzure` более ранней версии.
 

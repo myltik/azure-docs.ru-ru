@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Управление записью пакетов с помощью Наблюдателя за сетями Azure на портале Azure
 
@@ -80,6 +80,7 @@ ms.lasthandoff: 01/19/2018
 
 **Параметры записи**
 
+- **Путь к локальному файлу** — это локальный путь на виртуальной машине, где сохранена запись пакетов (является допустимым, только если выбран **[файл]**). Необходимо указать допустимый путь. Для виртуальной машины Linux путь должен начинаться с / var / captures.
 - **Учетная запись хранения**. Определяет, нужно ли сохранять запись пакетов в учетной записи хранения.
 - **Файл**. Определяет, нужно ли сохранять запись пакетов локально на виртуальной машине.
 - **Учетные записи хранения**. Указывает учетную запись хранения, в которой следует сохранять запись пакетов. По умолчанию используется расположение такого вида: https://{имя_учетной_записи_хранения}.blob.core.windows.net/network-watcher-logs/subscriptions/{идентификатор_подписки}/resourcegroups/{имя_группы_ресурсов}/providers/microsoft.compute/virtualmachines/{имя_виртуальной_машины}/{ГГ}/{ММ}/{ДД}/packetcapture_{ЧЧ}_{ММ}_{ММ}_{XXX}.cap. (Этот параметр доступен, только если выбран параметр **Хранилище**.)

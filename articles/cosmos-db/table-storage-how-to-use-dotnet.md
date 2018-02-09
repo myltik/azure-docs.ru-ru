@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: 0019858e1142c1f7e7b6fedea5c2ec97518548c9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: f95d66950feb8729a7edcad3e02ea9a932123e16
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Приступая к работе с хранилищем таблиц Azure с помощью .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -29,14 +29,18 @@ ms.lasthandoff: 01/18/2018
 Хранилище таблиц можно использовать для хранения гибких наборов данных, например пользовательских данных для веб-приложений, адресных книг, сведений об устройстве или метаданных любого другого типа, которые требуются вашей службе. В таблице можно хранить любое количество сущностей, а учетная запись хранения может содержать любое количество таблиц в пределах емкости учетной записи.
 
 ### <a name="about-this-tutorial"></a>О данном учебнике
-В этом руководстве объясняется, как использовать [клиентскую библиотеку хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) в распространенных сценариях хранилища таблиц Azure. Эти сценарии представлены с помощью примеров C# для создания и удаления таблиц, а также вставки, обновления, удаления и запроса данных таблицы.
+Из этого руководства вы узнаете, как использовать [библиотеку таблиц Microsoft Azure Cosmos DB для .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) в распространенных сценариях хранилища таблиц Azure. Имя пакета указывает на то, что он предназначен для использования с Azure Cosmos DB. Но пакет можно использовать и с Azure Cosmos DB, и с хранилищем таблиц Azure, просто для каждой службы предусмотрена уникальная конечная точка. Эти сценарии рассматриваются с использованием примеров C#, которые демонстрируют выполнение следующих задач:
+* создание и удаление таблиц;
+* вставка, обновление и удаление записей;
+* Запросы к таблицам
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством требуются следующие компоненты.
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Клиентская библиотека хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Общая библиотека службы хранилища Azure для .NET (предварительная версия)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Это обязательный пакет в предварительной версии, который поддерживается в рабочих средах. 
+* [Библиотека таблиц Microsoft Azure Cosmos DB для .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
 * [Диспетчер конфигураций Azure для .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Учетная запись хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
@@ -47,17 +51,120 @@ ms.lasthandoff: 01/18/2018
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+## <a name="create-an-azure-service-account"></a>Создание учетной записи службы Azure
 
-[!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
+Вы можете работать с таблицами, используя хранилище таблиц Azure или Azure Cosmos DB. Дополнительные сведения о различиях между службами см. в разделе о [предложениях для работы с таблицами](table-introduction.md#table-offerings). Для службы, которую вы планируете использовать, потребуется создать учетную запись. 
+
+### <a name="create-an-azure-storage-account"></a>Создание учетной записи хранения Azure
+Самый простой способ создать первую учетную запись хранения Azure — воспользоваться [порталом Azure](https://portal.azure.com). Дополнительную информацию см. в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
+Кроме того, создать учетную запись хранения Azure можно с помощью [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md) или [клиентской библиотеки поставщика ресурсов хранилища для .NET](/dotnet/api/microsoft.azure.management.storage).
+
+Если вы не хотите сейчас создавать учетную запись хранения, код можно протестировать в локальной среде с помощью эмулятора хранения Azure. Дополнительные сведения см. в статье [Использование эмулятора хранения Azure для разработки и тестирования](../storage/common/storage-use-emulator.md).
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Создание учетной записи API таблиц Azure Cosmos DB
+
+Инструкции по созданию учетной записи API таблиц Azure Cosmos DB см. в [этом разделе](create-table-dotnet.md#create-a-database-account).
+
+## <a name="set-up-your-development-environment"></a>Настройка среды разработки
+Теперь настройте среду разработки в Visual Studio для работы с примерами кода из этого руководства.
+
+### <a name="create-a-windows-console-application-project"></a>Создание нового проекта консольного приложения Windows
+В Visual Studio создайте новое консольное приложение Windows. Ниже показано, как создать консольное приложение в Visual Studio 2017 г. Эти же действия можно выполнить и в других версиях Visual Studio.
+
+1. Выберите **Файл** > **Создать** > **Проект**.
+2. Выберите **Установлено** > **Visual C#** > **Классический рабочий стол Windows**.
+3. Выберите **Консольное приложение (.NET Framework)**.
+4. В поле **Имя** введите имя приложения.
+5. Нажмите кнопку **ОК**.
+
+Все примеры кода из этого руководства можно добавить в метод `Main()` в файле `Program.cs` консольного приложения.
+
+Вы можете использовать библиотеку таблиц Azure Cosmos DB в любом приложении .NET, в том числе в облачной службе Azure, веб-приложении Azure, классическом или мобильном приложении. Для упрощения в этом руководстве мы будем использовать консольное приложение.
+
+### <a name="use-nuget-to-install-the-required-packages"></a>Установка необходимых пакетов с помощью NuGet
+Для работы с этим руководством вам нужно указать в проекте три пакета:
+
+* [Общая библиотека службы хранилища Azure для .NET (предварительная версия)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). 
+* [Библиотека таблиц Microsoft Azure Cosmos DB для .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Этот пакет предоставляет программный доступ к ресурсам данных в вашей учетной записи хранилища таблиц или API таблиц Azure Cosmos DB.
+* [Библиотека Microsoft Azure Configuration Manager для .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) — этот пакет предоставляет класс для анализа строки подключения в файле конфигурации независимо от среды выполнения приложения.
+
+Вы можете использовать NuGet для установки обоих пакетов. Выполните следующие действия.
+
+1. Щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Управление пакетами NuGet**.
+2. Выполните поиск в Интернете по запросу "Microsoft.Azure.Storage.Common" и выберите **Установить**, чтобы установить общую библиотеку службы хранилища Azure для .NET (предварительная версия) и ее зависимости. Убедитесь, что установлен флажок **Включить предварительные выпуски**, так как используется предварительная версия пакета.
+3. Выполните поиск в Интернете по запросу "Microsoft.Azure.CosmosDB.Table" и выберите **Установить**, чтобы установить библиотеку таблиц Microsoft Azure Cosmos DB.
+4. Выполните поиск в Интернете по запросу "WindowsAzure.ConfigurationManager" и нажмите кнопку **Установить**, чтобы установить библиотеку диспетчера конфигураций Microsoft Azure.
+
+> [!NOTE]
+> Зависимости ODataLib в общей библиотеке хранилища для .NET разрешаются с помощью пакетов ODataLib, доступных в NuGet, а не в WCF Data Services. Библиотеки ODataLib можно скачать напрямую или указать на них ссылку в проекте через NuGet. К специальным пакетам ODataLib, используемым клиентскими библиотеками хранения, относятся [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) и [Spatial](http://nuget.org/packages/System.Spatial/). Хотя эти библиотеки используются классами хранилища таблиц Azure, они являются обязательными зависимостями для программирования с использованием общей библиотеки хранилища.
+> 
+> 
+
+### <a name="determine-your-target-environment"></a>Определение целевой среды
+Примеры из этого руководства можно выполнять в двух средах.
+
+* Вы можете выполнить код в учетной записи хранения Azure в облаке. 
+* Вы можете выполнить код в учетной записи Azure Cosmos DB в облаке.
+* Вы можете выполнить код в эмуляторе хранения Azure. Эмулятор хранения — это локальная среда, эмулирующая учетную запись хранения Azure в облаке. Эмулятор можно использовать как бесплатный вариант для тестирования и отладки кода, пока приложение находится на стадии разработки. Эмулятор использует известную учетную запись и ключ. Дополнительные сведения см. в руководстве по [использованию эмулятора хранения Azure для разработки и тестирования](../storage/common/storage-use-emulator.md).
+
+Выбрав учетную запись хранения в облаке, скопируйте первичный ключ доступа к этой учетной записи хранения с портала Azure. Дополнительные сведения см. в разделе [Просмотр и копирование ключей доступа к хранилищу](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+
+> [!NOTE]
+> Вы можете указать эмулятор хранения, чтобы избежать затрат, связанных с хранилищем Azure. Однако если вы выберете учетную запись хранения Azure в облаке, затраты на выполнение заданий в учебнике будут незначительны.
+> 
+> 
+
+Выбрав учетную запись Azure Cosmos DB, скопируйте первичный ключ доступа к учетной записи API таблиц с портала Azure. Дополнительные сведения см. в разделе [Обновление строки подключения](create-table-dotnet.md#update-your-connection-string).
+
+### <a name="configure-your-storage-connection-string"></a>Настройка строки подключения хранилища
+Общая библиотека службы хранилища Azure для .NET поддерживает использование строки подключения для настройки конечных точек и учетных данных для доступа к службам хранилища. Строку подключения хранилища рекомендуется хранить в файле конфигурации. 
+
+Дополнительные сведения о строках подключения см. в руководстве по [настройке строк подключения службы хранилища Azure](../storage/common/storage-configure-connection-string.md).
+
+> [!NOTE]
+> Ключ учетной записи похож на корневой пароль для вашей учетной записи хранения. Не забудьте защитить ключ учетной записи хранения. Не сообщайте его другим пользователям, не определяйте его в коде и не храните его в текстовом файле, доступном другим пользователям. Повторно создайте ключ с помощью портала Azure, если вы считаете, что он мог быть скомпрометирован.
+> 
+> 
+
+Чтобы настроить строку подключения, откройте файл `app.config` в обозревателе решений Visual Studio. Добавьте содержимое элемента `<appSettings>` , показанное ниже. Замените `account-name` именем своей учетной записи, а `account-key` — ключом доступа своей учетной записи:
+
+```xml
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+    <appSettings>
+        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+    </appSettings>
+</configuration>
+```
+
+Например, если вы используете учетную запись хранения Azure, параметры конфигурации будут приблизительно следующими:
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
+```
+
+Если вы используете учетную запись Azure Cosmos DB, параметры конфигурации будут приблизительно следующими:
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
+```
+
+Чтобы указать эмулятор хранения, можно использовать ярлык, который сопоставляется с хорошо известным именем и ключом. В этом случае параметр строки подключения будет таким:
+
+```xml
+<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+```
 
 ### <a name="add-using-directives"></a>Добавление директив using
 Добавьте в верхнюю часть файла `Program.cs` следующие директивы **using**:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
+using Microsoft.Azure.Storage.Common; // Namespace for StorageAccounts
+using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types
 ```
 
 ### <a name="parse-the-connection-string"></a>Проанализируйте строку подключения

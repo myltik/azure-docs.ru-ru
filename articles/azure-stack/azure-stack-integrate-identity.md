@@ -5,19 +5,17 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: mabrigg
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Интеграция центра обработки данных Azure Stack: идентификация
-
-*Область применения: интегрированные системы Azure Stack*
-
 Azure Stack можно развернуть с помощью Azure Active Directory (Azure AD) или служб федерации Active Directory (AD FS) в качестве поставщика удостоверений. Сделать выбор следует перед развертыванием Azure Stack. Развертывание с помощью AD FS также называется развертыванием Azure Stack в отключенном режиме.
 
 В следующей таблице показаны различия между двумя вариантами идентификации.
@@ -26,7 +24,7 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 |---------|---------|---------|
 |Выставление счетов|Должна быть оплата на основе емкости.<br> Только при наличии соглашения Enterprise (EA).|Оплата на основе емкости или оплата по мере использования.<br>EA или поставщик облачных решений (CSP).|
 |Удостоверение|Должны быть службы AD FS.|Azure AD или AD FS.|
-|Синдикация Marketplace|В настоящее время недоступно.|Поддерживаются<br>Лицензирование BYOL.|
+|Синдикация Marketplace|Поддерживаются<br>Лицензирование BYOL.|Поддерживаются<br>Лицензирование BYOL.|
 |Регистрация|Рекомендуется, требуется съемный носитель<br> и отдельное подключенное устройство.|Автоматическая регистрация.|
 |Исправления и обновления|Установка обязательна, требуется съемный носитель<br> и отдельное подключенное устройство.|Пакет обновления можно скачать напрямую<br> из Интернета в Azure Stack.|
 
@@ -64,7 +62,7 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 Необходимо указать следующие сведения в качестве входных данных для параметров службы автоматизации.
 
 
-|Параметр|Описание|Пример|
+|Параметр|ОПИСАНИЕ|Пример|
 |---------|---------|---------|
 |CustomADGlobalCatalog|Полное доменное имя целевого леса Active Directory<br>для интеграции.|Contoso.com|
 |CustomADAdminCredentials|Пользователь с разрешением на чтение LDAP.|ВАШ_ДОМЕН\graphservice|
@@ -105,7 +103,7 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 
 Служба Graph в Azure Stack использует приведенные ниже протоколы и порты для связи с целевой службой Active Directory.
 
-|Тип|Порт|Протокол|
+|type|Порт|Протокол|
 |---------|---------|---------|
 |LDAP|389|TCP или UDP|
 |LDAP SSL|636|TCP|
@@ -116,7 +114,7 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 
 Необходимо указать следующие сведения в качестве входных для параметров службы автоматизации:
 
-|Параметр|Описание|Пример|
+|Параметр|ОПИСАНИЕ|Пример|
 |---------|---------|---------|
 |CustomAdfsName|Имя поставщика утверждений. <cr>Так оно отображается на целевой странице AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Ссылка на метаданные федерации:|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -155,7 +153,7 @@ Azure Stack можно развернуть с помощью Azure Active Direc
 Необходимо указать следующие сведения в качестве входных для параметров службы автоматизации:
 
 
-|Параметр|Описание|Пример|
+|Параметр|ОПИСАНИЕ|Пример|
 |---------|---------|---------|
 |CustomAdfsName|Имя поставщика утверждений. Так оно отображается на целевой странице AD FS.|Contoso|
 |CustomADFSFederationMetadataFile|Файл метаданных федерации:|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -333,6 +331,6 @@ Azure Stack можно развернуть с помощью Azure Active Direc
    ```
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-[Интеграция центра обработки данных Azure Stack. Публикация конечных точек](azure-stack-integrate-endpoints.md)
+[Регистрация Azure Stack](azure-stack-registration.md)

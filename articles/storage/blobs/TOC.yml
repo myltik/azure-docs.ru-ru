@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Работа с большими двоичными объектами с помощью Python
       href: storage-quickstart-blobs-python.md
+    - name: Работа с большими двоичными объектами с использованием Go
+      href: storage-quickstart-blobs-go.md
     - name: Работа с большими двоичными объектами с помощью Ruby
       href: storage-quickstart-blobs-ruby.md
     - name: Работа с большими двоичными объектами с помощью Node.js

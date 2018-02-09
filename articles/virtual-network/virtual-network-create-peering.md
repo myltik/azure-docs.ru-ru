@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: anavin;jdial
-ms.openlocfilehash: ab62164c85ece30181217a36a51d19fda52907bc
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 70fe948070147c01922fab68fb55a0f00c26a0f3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-same-subscription"></a>Создание пиринга между виртуальными сетями, развернутыми с помощью Resource Manager в одной подписке
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 11/06/2017
 
 Используйте приведенный ниже сценарий.
 
-- Для его работы требуется Azure CLI 2.0.4 или более поздней версии. Чтобы найти версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Для его работы требуется Azure CLI 2.0.4 или более поздней версии. Чтобы найти версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Этот сценарий работает в оболочке Bash. Сведения о параметрах выполнения скриптов Azure CLI в клиенте Windows см. в статье [Использование Azure CLI в Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 Вместо установки интерфейса командной строки и его зависимостей вы можете использовать Azure Cloud Shell. Azure Cloud Shell — это бесплатная оболочка Bash, которую можно запускать непосредственно на портале Azure. Она включает предварительно установленный интерфейс Azure CLI и настроена для использования с вашей учетной записью. Нажмите кнопку **Попробовать** в следующем скрипте, чтобы запустить службу Cloud Shell, с помощью которой можно войти в свою учетную запись Azure. Чтобы выполнить скрипт, нажмите кнопку **Скопировать** и вставьте содержимое в Cloud Shell.
@@ -243,7 +243,7 @@ ms.lasthandoff: 11/06/2017
 |VNet1|[Участник сети](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 |VNet2|[Участник сети](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 
-Узнайте больше о [встроенных ролях](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) и назначении разрешений, определенных для [настраиваемых ролей](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (только для Resource Manager).
+Подробнее о [встроенных ролях](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) и присвоении разрешений, определенных для [настраиваемых ролей](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (только для Resource Manager).
 
 ## <a name="delete"></a>Удаление ресурсов
 По завершении работы с этим руководством может потребоваться удалить созданные в его рамках ресурсы, чтобы за их использование не взималась плата. При удалении группы ресурсов будут также удалены все ресурсы, содержащиеся в ней.
@@ -272,9 +272,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 
 ## <a name="register"></a>Регистрация для предварительной версии пиринга между виртуальными сетями в разных регионах
 
-Возможность установки пиринга между виртуальными сетями в разных регионах сейчас находится в предварительной версии. Эта возможность доступна в ограниченном ряде регионов (изначально в центрально-западной части США, центральной Канаде и западной части США 2). Пиринг между виртуальными сетями в разных регионах может не предоставлять тот же уровень доступности и надежности, что и пиринг между виртуальными сетями в одном регионе. Актуальные сведения о доступности и состоянии этой функции см. на странице [обновлений виртуальной сети Azure](https://azure.microsoft.com/updates/?product=virtual-network).
-
-Чтобы создать пиринг между виртуальными сетями в разных регионах, сначала нужно зарегистрироваться для использования предварительной версии, выполнив приведенные ниже действия (в рамках подписки каждой виртуальной сети, для которой требуется пиринг), используя Azure PowerShell или Azure CLI.
+Функция создания пиринговых связей между виртуальными сетями в одном регионе является общедоступной. Функция пиринга между виртуальными сетями в разных регионах сейчас находится на этапе предварительной версии. Доступные регионы перечислены в разделе [Обновления Azure](https://azure.microsoft.com/en-us/updates/?product=virtual-network). Чтобы создать пиринг между виртуальными сетями в разных регионах, сначала нужно зарегистрироваться для использования предварительной версии, выполнив приведенные ниже действия (в рамках подписки каждой виртуальной сети, для которой требуется пиринг), используя Azure PowerShell или Azure CLI.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -320,7 +318,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 
     Не выполняйте инструкции в разделах для портала, PowerShell, Azure CLI или шаблона Resource Manager в этой статье, пока значение **RegistrationState** (Состояние регистрации) в выходных данных приведенной выше команды не станет **Registered** (Зарегистрировано) для обеих подписок.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Внимательно ознакомьтесь с важными [ограничениями и особенностями работы пиринга виртуальных сетей](virtual-network-manage-peering.md#requirements-and-constraints), прежде чем создавать пиринг виртуальных сетей для рабочей среды.
 - Узнайте о [параметрах пиринга виртуальных сетей](virtual-network-manage-peering.md#create-a-peering).

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 242ec5bfbe33acd4731809efed9b70897b7a9608
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 2e49613cf37fa625efc7859802db86780dcb128a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -120,6 +120,13 @@ Azure Cosmos DB — быстрая и гибкая распределенная
 6. **Реализация интервала задержки для RetryAfter**
 
     Во время проверки производительности следует увеличивать нагрузку до тех пор, пока регулирование не будет выполняться при небольшой частоте запросов. При регулировании клиентское приложение должно реализовать интервал частоты повтора для частоты повтора сервера. Это гарантирует, что время ожидания между повторными попытками будет минимальным. В пакетах SDK SQL для [.NET](sql-api-sdk-dotnet.md) и [Java](sql-api-sdk-java.md) версии 1.8.0 и выше, в пакетах SDK для [Node.js](sql-api-sdk-node.md) и [Python](sql-api-sdk-python.md) версии 1.9.0 и выше, а также во всех поддерживаемых пакетах SDK для [.NET Core](sql-api-sdk-dotnet-core.md) включена поддержка политики повтора. Дополнительные сведения см. в разделах [Превышение лимита зарезервированной пропускной способности](request-units.md#RequestRateTooLarge) и [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    
+    В версии 1.19 и последующих версиях пакета SDK для .NET появился механизм для регистрации дополнительных диагностических сведений и устранения проблем, связанных с задержкой, как показано в следующем примере. Вы можете зарегистрировать строку диагностики для запросов с высокой задержкой чтения. Записанная строка диагностики поможет вам узнать, сколько раз возникала ошибка 429 для этого запроса.
+    ```csharp
+    ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
+    readDocument.RequestDiagnosticsString 
+    ```
+    
 7. **Развертывание рабочей нагрузки клиента**
 
     При проверке с высокой пропускной способностью (более 50 000 единиц запроса в секунду) клиентское приложение может стать узким местом из-за того, что на компьютере будут достигнуты максимальные уровни использования ЦП и сети. Если вы достигли этой точки, то можете повысить производительность Azure Cosmos DB, развернув клиентские приложения на нескольких серверах.

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7dc10d0cc73960fac4759a0cebec8d294cf1b463
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23249b92b4e99628d49bbd811b4ad1f1dc9cc9b0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Схема событий службы "Сетка событий Azure" для подписок
 
@@ -24,14 +24,14 @@ ms.lasthandoff: 11/11/2017
 
 Подписки Azure создают события управления из Azure Resource Manager, например при создании виртуальной машины или удалении учетной записи хранения.
 
-| Тип события | Описание |
+| Тип события | ОПИСАНИЕ |
 | ---------- | ----------- |
-| Microsoft.Resources.ResourceWriteSuccess | Возникает при успешном выполнении операции создания или обновления ресурса. |
-| Microsoft.Resources.ResourceWriteFailure | Возникает при неудачном выполнении операции создания или обновления ресурса. |
-| Microsoft.Resources.ResourceWriteCancel | Возникает при отмене операции создания или обновления ресурса. |
-| Microsoft.Resources.ResourceDeleteSuccess | Возникает при успешном выполнении операции удаления ресурса. |
-| Microsoft.Resources.ResourceDeleteFailure | Возникает при неудачном выполнении операции удаления ресурса. |
-| Microsoft.Resources.ResourceDeleteCancel | Возникает при отмене операции удаления ресурса. Это событие происходит при отмене развертывания шаблона. |
+| Microsoft.Resources.ResourceWriteSuccess | Возникает при успешном создании или обновлении ресурса. |
+| Microsoft.Resources.ResourceWriteFailure | Возникает при неудачном создании или обновлении ресурса. |
+| Microsoft.Resources.ResourceWriteCancel | Возникает при отмене создания или обновления ресурса. |
+| Microsoft.Resources.ResourceDeleteSuccess | Возникает при успешном удалении ресурса. |
+| Microsoft.Resources.ResourceDeleteFailure | Возникает при неудачном удалении ресурса. |
+| Microsoft.Resources.ResourceDeleteCancel | Возникает при отмене удаления ресурса. Это событие происходит при отмене развертывания шаблона. |
 
 ## <a name="example-event"></a>Пример события
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/11/2017
 
 ```json
 [
-    {
+  {
     "topic":"/subscriptions/{subscription-id}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
@@ -57,11 +57,13 @@ ms.lasthandoff: 11/11/2017
         "subscriptionId":"{subscription-id}",
         "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
         },
-    }
+      "dataVersion": "",
+      "metadataVersion": "1"
+  }
 ]
 ```
 
-Схема для события удаления ресурса аналогична:
+Схема события удаления ресурса аналогична:
 
 ```json
 [{
@@ -81,39 +83,43 @@ ms.lasthandoff: 11/11/2017
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
 ## <a name="event-properties"></a>Свойства события
 
-Событие содержит следующие данные верхнего уровня:
+Событие содержит следующие высокоуровневые данные:
 
-| Свойство | Тип | Описание |
+| Свойство | type | ОПИСАНИЕ |
 | -------- | ---- | ----------- |
-| Раздел | string | Полный путь к ресурсу для источника событий. Это поле защищено от записи. |
-| subject | string | Определенный издателем путь к субъекту событий. |
-| eventType | string | Один из зарегистрированных типов событий для этого источника событий. |
-| eventTime | string | Время создания события с учетом времени поставщика в формате UTC. |
-| id | string | Уникальный идентификатор события. |
+| Раздел | строка | Полный путь к ресурсу для источника событий. Это поле защищено от записи. Это значение предоставляет служба "Сетка событий". |
+| subject | строка | Определенный издателем путь к субъекту событий. |
+| eventType | строка | Один из зарегистрированных типов событий для этого источника событий. |
+| eventTime | строка | Время создания события с учетом времени поставщика в формате UTC. |
+| id | строка | Уникальный идентификатор события. |
 | data | object | Данные события подписки. |
+| dataVersion | строка | Версия схемы объекта данных. Версию схемы определяет издатель. |
+| metadataVersion | строка | Версия схемы метаданных события. Служба "Сетка событий" определяет схему свойств верхнего уровня. Это значение предоставляет служба "Сетка событий". |
 
 Объект данных имеет следующие свойства:
 
-| Свойство | Тип | Описание |
+| Свойство | type | ОПИСАНИЕ |
 | -------- | ---- | ----------- |
-| authorization | string | Запрошенная авторизация для операции. |
-| claims | string | Свойства утверждений. |
-| correlationId | string | Идентификатор операции для устранения неполадок. |
-| httpRequest | string | Подробные сведения об операции. |
-| resourceProvider | string | Поставщик ресурсов, выполняющий операцию. |
-| resourceUri | string | URI ресурса в операции. |
-| operationName | string | Операция, которая была выполнена. |
-| status | string | Состояние операции. |
-| subscriptionId | string | Идентификатор подписки ресурса. |
-| tenantId | string | Идентификатор клиента ресурса. |
+| authorization | строка | Запрошенная авторизация для операции. |
+| claims | строка | Свойства утверждений. |
+| correlationId | строка | Идентификатор операции для устранения неполадок. |
+| httpRequest | строка | Подробные сведения об операции. |
+| resourceProvider | строка | Поставщик ресурсов, выполняющий операцию. |
+| resourceUri | строка | URI ресурса в операции. |
+| operationName | строка | Операция, которая выполнена. |
+| status | строка | Состояние операции. |
+| subscriptionId | строка | Идентификатор подписки ресурса. |
+| tenantId | строка | Идентификатор клиента ресурса. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Общие сведения о Сетке событий Azure см. в [этой статье](overview.md).
 * Дополнительные сведения о создании подписки на Сетку событий Azure см. в статье [Схема подписки для службы "Сетка событий"](subscription-creation-schema.md).

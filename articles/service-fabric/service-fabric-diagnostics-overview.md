@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 43a45a31efffcd623e6381049876c3607663ec4f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Мониторинг и диагностика для Azure Service Fabric
 
@@ -136,5 +136,6 @@ ms.lasthandoff: 01/11/2018
 
 * Дополнительные сведения о мониторинге платформы и событиях, предоставляемых Service Fabric, см. в статье [Создание событий и журналов на уровне платформы](service-fabric-diagnostics-event-generation-infra.md).
 * Сведения о начале работы с инструментированием приложений см. в статье [Создание событий и журналов на уровне приложений и служб](service-fabric-diagnostics-event-generation-app.md).
-* Ознакомьтесь с руководством [Мониторинг и диагностика приложения ASP.NET Core в Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
+* Выполните процедуру настройки AI для приложения, следуя указаниям в разделе [Мониторинг и диагностика приложения ASP.NET Core в Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
+* Узнайте, как настроить OMS Log Analytics для наблюдения за контейнерами: [Мониторинг контейнера Windows в Service Fabric с помощью OMS](service-fabric-tutorial-monitoring-wincontainers.md).
 

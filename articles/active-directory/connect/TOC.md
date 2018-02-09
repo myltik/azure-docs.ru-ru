@@ -9,7 +9,7 @@
 ## [Что такое Azure AD Connect и федерация?](active-directory-aadconnectfed-whatis.md)
 
 
-# Приступая к работе
+# Начало работы
 ## [Предварительные требования](active-directory-aadconnect-prerequisites.md)
 ## [Установка Azure AD Connect](active-directory-aadconnect-select-installation.md)
 ### [Стандартные параметры](active-directory-aadconnect-get-started-express.md)
@@ -19,7 +19,7 @@
 ### [Установка с помощью существующей базы данных ADSync](active-directory-aadconnect-existing-database.md)
 
 # Практическое руководство
-## планирование и разработка
+## Планирование и проектирование
 ### [Принципы проектирования](active-directory-aadconnect-design-concepts.md)
 ### [Топологии Azure AD Connect.](active-directory-aadconnect-topologies.md)
 ### [Службы федерации Active Directory в Azure](active-directory-aadconnect-azure-adfs.md)
@@ -55,6 +55,7 @@
 ### [Синхронизация паролей](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Учетная запись службы Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Мастер установки](active-directory-aadconnectsync-installation-wizard.md)
+### [Заполнение UserPrincipalName](active-directory-aadconnect-userprincipalname.md)
 ### [Изменение конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Настройка фильтрации](active-directory-aadconnectsync-configure-filtering.md)
 ### [Планировщик](active-directory-aadconnectsync-feature-scheduler.md)

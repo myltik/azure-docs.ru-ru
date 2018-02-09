@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
-ms.author: sethm; babanisa
-ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/30/2018
+ms.author: sethm
+ms.openlocfilehash: 9b7be70d726edfa9dbda3719d431e532106724b6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-event-hubs"></a>Что такое концентраторы событий?
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="event-hubs-features"></a>Особенности концентраторов событий
 
-Концентраторы событий содержат следующие основные элементы.
+Концентраторы событий содержат следующие основные элементы:
 
 - [**Производители и издатели событий**](event-hubs-features.md#event-publishers) — это сущность, которая отправляет данные в концентратор событий. Событие публикуется по протоколу AMQP 1.0 или HTTPS.
 - [**Запись**](event-hubs-features.md#capture) позволяет записывать данные потоковой передачи концентраторов событий и хранить их в учетной записи хранения больших двоичных объектов Azure.
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 Технические сведения об этих и других возможностях концентраторов событий см. в статье [Event Hubs features overview](event-hubs-features.md) (Обзор функций концентраторов событий). 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Подробные сведения о ценах см. на странице [цен на концентраторы событий](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 
 * Начните работу с [руководства по концентраторам событий](event-hubs-dotnet-standard-getstarted-send.md)
 * [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
-* [Примеры приложений, использующих концентраторы событий](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+* [Примеры приложений, использующие концентраторы событий](https://github.com/Azure/azure-event-hubs/tree/master/samples)
  
  
 

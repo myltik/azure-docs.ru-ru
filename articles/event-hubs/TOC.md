@@ -7,12 +7,10 @@
 ## [Создание концентратора событий](event-hubs-create.md)
 ## Отправка событий
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## Получение событий
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Регистрация событий
@@ -21,7 +19,7 @@
 ## [Руководство по программированию](event-hubs-programming-guide.md)
 
 # Практическое руководство
-## планирование и разработка
+## Планирование и проектирование
 ### [Управляемые удостоверения службы (предварительная версия)](event-hubs-managed-service-identity.md)
 ### [Управление доступом на основе ролей (предварительная версия)](event-hubs-role-based-access-control.md)
 ### [Аварийное восстановление и георепликация](event-hubs-geo-dr.md)
@@ -30,12 +28,14 @@
 ### [Доступность и согласованность](event-hubs-availability-and-consistency.md)
 ### [Автоматическое масштабирование единиц пропускной способности](event-hubs-auto-inflate.md)
 ## Разработка
+### [Отправка событий с помощью .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Получение событий с помощью .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Доступные интерфейсы API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Журналы диагностики](event-hubs-diagnostic-logs.md)
 ### [Руководство по использованию протокола AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## Управление
+## управление
 ### [Мониторинг концентраторов событий с помощью Azure Monitor](event-hubs-metrics-azure-monitor.md)
 ### [Библиотеки управления концентраторами событий](event-hubs-management-libraries.md)
 ### Регистрация

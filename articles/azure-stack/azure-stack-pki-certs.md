@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 8f0bb2266cb3a8a869ad50c40a46eb82985d17ed
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Требования к сертификатам инфраструктуры открытых ключей Azure Stack
 В Azure Stack есть открытая сеть инфраструктуры, которая использует общедоступные IP-адреса. Эти IP-адреса назначаются небольшому набору служб Azure Stack и по возможности виртуальным машинам клиента. Во время развертывания Azure Stack требуются сертификаты PKI с соответствующими DNS-именами для открытых конечных точек инфраструктуры Azure Stack. Эта статья описывает следующее:
@@ -91,8 +91,9 @@ ms.lasthandoff: 01/17/2018
 
 <sup>2</sup> A &#42;групповой сертификат .appservice.*&lt;регион>.&lt;полное доменное имя>* нельзя использовать вместо этих трех сертификатов: api.appservice.*&lt;регион>.&lt;полное доменное имя>*, ftp.appservice.*&lt;регион>.&lt;полное доменное имя>* и sso.appservice.*&lt;регион>.&lt;полное доменное имя>*. Служба приложений явно требует использовать отдельные сертификаты для этих конечных точек. 
 
+## <a name="learn-more"></a>Подробнее
+Узнайте, как [создать сертификаты PKI для развертывания Azure Stack](azure-stack-get-pki-certs.md). 
 
 ## <a name="next-steps"></a>Дополнительная информация
-[Создание сертификатов PKI для развертывания Azure Stack](azure-stack-get-pki-certs.md) 
-
+[Интеграция удостоверений](azure-stack-integrate-identity.md)
 

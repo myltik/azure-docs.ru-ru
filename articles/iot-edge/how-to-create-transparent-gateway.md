@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 25f4cea1908a0f9bdf387ddfed5f29e6d19bdd20
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 1a35a6adae1eec88b314252ea0e3f2eb86f10c1d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Создание устройства IoT Edge, которое работает как прозрачный шлюз — предварительная версия
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 12/07/2017
 >[!NOTE]
 >В данный момент:
 > * если шлюз не подключен к Центру Интернета вещей, подчиненные устройства не смогут выполнить аутентификацию с помощью шлюза;
-> * устройства IoT Edge не смогут подключиться к шлюзам IoT Edge.
+> * устройства IoT Edge не могут подключиться к шлюзам IoT Edge.
 
 ## <a name="understand-the-azure-iot-device-sdk"></a>Общие сведения о пакете SDK для устройств Azure IoT
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/07/2017
 >Этот образец предназначен только для целей тестирования. Для рабочих сценариев инструкции для Azure IoT о том, как защитить ваше решение Интернета вещей и соответствующим образом подготовить свой сертификат, см. в статье [Защита развертывания IoT][lnk-iothub-secure-deployment].
 
 
-1. Клонируйте из репозитория GitHub [пакеты SDK для Microsoft Azure IoT и библиотеки для C]:
+1. Клонируйте из репозитория GitHub пакеты SDK для Microsoft Azure IoT и библиотеки для C:
 
    ```
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
@@ -177,7 +177,7 @@ ms.lasthandoff: 12/07/2017
 
 Эти два действия позволят приложению устройства подключиться к устройству шлюза.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Understand the requirements and tools for developing IoT Edge modules - preview][lnk-module-dev] (Сведения о требованиях и средствах разработки модулей IoT Edge (предварительная версия)).
 
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md

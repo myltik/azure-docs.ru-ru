@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connectors-list"></a>Список соединителей
 Сведения о поиске триггеров и действий, определяемых описанием Swagger каждого соединителя и любыми ограничениями соединителя, см. в статье [Connectors](/connectors/) (Соединители).
@@ -82,7 +82,7 @@ ms.lasthandoff: 01/19/2018
 | --- | --- | --- | --- |
 | [![Значок API][as2icon]<br/>**Декодирование</br>AS2**][as2decode] | [![Значок API][as2icon]<br/>**Кодирование</br>AS2**][as2encode] | [![Значок API][x12icon]<br/>**Декодирование</br>EDIFACT**][EDIFACTdecode] | [![Значок API][x12icon]<br/>**Кодирование</br>EDIFACT**][EDIFACTencode] |
 [![Значок API][flatfileicon]<br/>**Кодирование</br>неструктурированного файла**][flatfiledoc] | [![Значок API][flatfiledecodeicon]<br/>**Декодирование</br>неструктурированного файла**][flatfiledecodedoc] | [![Значок API][integrationaccounticon]<br/>**Учетная запись<br/>интеграции**][integrationaccountdoc] | [![Значок API][xmltransformicon]<br/>**Преобразование<br/>XML**][xmltransformdoc] |
-| [![Значок API][x12icon]<br/>**Декодирование</br>Х12**][x12decode] | [![Значок API][x12icon]<br/>**Кодирование</br>Х12**][x12encode] | [![Значок API][xmlvalidateicon]<br/>**Проверка<br/>XML**][xmlvalidatedoc] | |
+| [![Значок API][x12icon]<br/>**Декодирование</br>Х12**][x12decode] | [![Значок API][x12icon]<br/>**Кодирование</br>Х12**][x12encode] | [![Значок API][xmlvalidateicon]<br/>**Проверка<br/>XML**][xmlvalidatedoc] | [![Значок API][liquidicon]<br/>**Преобразование <br/>JSON**][JSONliquidtransformdoc] |
 
 ### <a name="enterprise-connectors"></a>Корпоративные соединители
 
@@ -189,6 +189,7 @@ ms.lasthandoff: 01/19/2018
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Дополнительные сведения о декодировании EDIFACT в рамках корпоративной интеграции."
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Дополнительные сведения о кодировке EDIFACT в рамках корпоративной интеграции."
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Поиск схем, карт, партнеров и другого в вашей учетной записи интеграции"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Дополнительные сведения о преобразованиях JSON с помощью Liquid"
 
 
 [boxDoc]: ./connectors-create-api-box.md "Подключение к Box. Отправка, получение, удаление файлов, отображение их списка и другие действия"
@@ -328,3 +329,4 @@ ms.lasthandoff: 01/19/2018
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: be3fe7199308606aaab002290319df9c82149433
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: a9136ebd15a995361a325804ca81ece0db30b3e6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: настройка пользовательского интерфейса Azure AD B2C
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="the-page-ui-customization-feature"></a>Возможность настройки пользовательского интерфейса
 
-Вы можете изменять внешний вид страниц регистрации, входа в систему, сброса пароля и изменения профиля клиента (за счет настройки [политик](active-directory-b2c-reference-policies.md)). При переходе между приложением и страницами, которые обслуживает Azure AD B2C, ваши клиенты не заметят никакой разницы в работе.
+Вы можете изменять внешний вид страниц регистрации, входа в систему (см. примечание выше для исключений, связанных с брендингом), сброса пароля и изменения профиля клиента с помощью настройки [политик](active-directory-b2c-reference-policies.md). При переходе между приложением и страницами, которые обслуживает Azure AD B2C, ваши клиенты не заметят никакой разницы в работе.
 
 В отличие от других служб с параметрами пользовательского интерфейса в Azure AD B2C предусмотрен простой и современный подход к настройке пользовательского интерфейса.
 

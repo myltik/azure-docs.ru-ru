@@ -75,6 +75,8 @@
       href: app-service-local-cache-overview.md
     - name: Диагностика
       href: app-service-diagnostics.md
+    - name: Установка исправлений для ОС и среды выполнения
+      href: app-service-patch-os-runtime.md
 - name: Практические руководства
   items:
     - name: Настройка приложения

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Топологии Azure AD Connect.
 В этой статье описываются различные локальные топологии и топологии Active Directory Azure (Azure AD), в которых служба синхронизации Azure AD Connect используется в качестве основного решения интеграции. Здесь описываются и поддерживаемые, и неподдерживаемые конфигурации.
@@ -110,10 +110,11 @@ ms.lasthandoff: 01/18/2018
 Некоторые рабочие нагрузки Office 365 налагают ряд ограничений на поддерживаемые топологии.
 
 | Рабочая нагрузка | Ограничения |
---------- | ---------
+| --------- | --------- |
 | Exchange Online | Дополнительные сведения о гибридных топологиях, поддерживаемых Exchange Online, см. в разделе [Гибридные развертывания в нескольких лесах Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype для бизнеса | При использовании нескольких локальных лесов единственной поддерживаемой топологией является лес ресурсов учетной записи. Дополнительные сведения см. в статье [Требования к среде Skype для бизнеса Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
+Более крупным организациям рекомендуется использовать компонент [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md). Он позволяет определить, в каком регионе центра обработки данных расположены ресурсы пользователя.
 
 ## <a name="staging-server"></a>промежуточного сервера
 ![Промежуточный сервер в топологии](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

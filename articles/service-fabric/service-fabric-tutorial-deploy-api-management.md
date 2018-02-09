@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/10/2017
+ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: c685e5250943098f43f232b2b09d3ae55c0380d0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 6b0d523dd4c3a03daef0a713c4d57e5ca868af2a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>развертывание службы управления API с помощью Service Fabric.
-Это руководство представляет собой четвертую часть цикла.  Расширенный сценарий развертывания для службы управления API Azure в Service Fabric.  Управление API позволяет публиковать API-интерфейсы с широким набором правил маршрутизации для служб серверной части Service Fabric. Обычно, облачным приложениям требуется интерфейсный шлюз, который предоставляет единую точку передачи входящего трафика пользователей, устройств или других приложений. В Service Fabric шлюз может быть любой службы без отслеживания состояния, предназначенный для входящего трафика, таких как приложения ASP.NET Core, концентраторы событий, центр IoT или API управления Azure. 
+Это руководство представляет собой четвертую часть цикла.  Расширенный сценарий развертывания для службы управления API Azure в Service Fabric.  Управление API позволяет публиковать API-интерфейсы с широким набором правил маршрутизации для служб серверной части Service Fabric. Обычно, облачным приложениям требуется интерфейсный шлюз, который предоставляет единую точку передачи входящего трафика пользователей, устройств или других приложений. В Service Fabric шлюзом может быть любая служба без отслеживания состояния, предназначенная для обработки входящего трафика, например приложение ASP.NET Core, концентраторы событий, Центр Интернета вещей или служба управления API Azure. 
 
 В нем показано, как настроить [службу управления API Azure](../api-management/api-management-key-concepts.md) с помощью Service Fabric для перенаправления трафика во внутреннюю службу в Service Fabric.  Выполнив инструкции из этого руководства, вы развернете службу управления API в виртуальной сети и настроите API для отправки трафика во внутренние службы без отслеживания состояния. Дополнительные сведения о сценариях службы управления API Azure и Service Fabric см. в [обзорной статье](service-fabric-api-management-overview.md).
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/03/2018
 > * [обновление среды выполнения кластера;](service-fabric-tutorial-upgrade-cluster.md)
 > * развертывание службы управления API с помощью Service Fabric.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Перед началом работы с этим руководством выполните следующие действия:
 - Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Установите [модуль Azure PowerShell версии 4.1 или более поздней версии](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) либо [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -81,8 +81,8 @@ az account set --subscription <guid>
 
  1. В Visual Studio выберите последовательно «Файл» -> «Создать проект».
  2. Выберите шаблон приложения Service Fabric в облаке и присвойте ему имя **ApiApplication**.
- 3. Выберите шаблон службы ASP.NET Core и назовите проект **WebApiService**.
- 4. Выберите шаблон проекта ASP.NET Core 1.1 для веб-API.
+ 3. Выберите шаблон службы ASP.NET Core без отслеживания состояния и присвойте проекту имя **WebApiService**.
+ 4. Выберите шаблон проекта ASP.NET Core 2.0 для веб-API.
  5. После создания проекта откройте файл `PackageRoot\ServiceManifest.xml` и удалите атрибут `Port` из конфигурации ресурса конечной точки:
  
     ```xml
@@ -144,11 +144,15 @@ az account set --subscription <guid>
 
 5. Откройте браузер и введите в адресной строке http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Отобразится сообщение "[version 1.0]Hello World!!!" .
 
-## <a name="download-and-understand-the-resource-manager-template"></a>Скачивание и изучение шаблона Resource Manager
-Скачайте и сохраните представленный ниже шаблон Resource Manager и файл параметров.
+## <a name="download-and-understand-the-resource-manager-templates"></a>Загрузка и изучение шаблонов Resource Manager
+Загрузите и сохраните следующие шаблоны Resource Manager и файл параметров:
  
+- [network-apim.json][network-arm]
+- [network-apim.parameters.json][network-parameters-arm]
 - [apim.json][apim-arm]
 - [apim.parameters.json][apim-parameters-arm]
+
+Шаблон *network-apim.json* развертывает новую подсеть и группу безопасности сети в виртуальной сети, где развертывается кластер Service Fabric.
 
 В следующих разделах описаны ресурсы, которые определяются в шаблоне *apim.json*. Дополнительные сведения вы можете получить по ссылкам на справочную документацию по шаблонам, которые представлены в каждом разделе. Параметры, определяемые в файле параметров *apim.parameters.json*, описаны ниже в этой статье.
 
@@ -198,7 +202,7 @@ az account set --subscription <guid>
  - Выбор реплики для служб с отслеживанием состояния.
  - Условия, при которых разрешение выполняется повторно, что позволяет указать условия для повторного разрешения расположения службы и повторной отправки запроса.
 
-**policyContent** содержит политику в JSON-сериализованном формате XML.  В рамках этого руководства создайте внутреннюю политику, направляющую запросы напрямую в службу без отслеживания состояния .NET или Java, которую вы развернули ранее. Добавьте политику `set-backend-service` в узел входящих политик.  Замените строку service-name значением `fabric:/ApiApplication/WebApiService`, если вы развернули серверную службу .NET, или значением `fabric:/EchoServerApplication/EchoServerService`, если используете службу Java.
+**policyContent** содержит политику в JSON-сериализованном формате XML.  В рамках этого руководства создайте внутреннюю политику, направляющую запросы напрямую в службу без отслеживания состояния .NET или Java, которую вы развернули ранее. Добавьте политику `set-backend-service` в узел входящих политик.  Замените значение *sf-service-instance-name* значением `fabric:/ApiApplication/WebApiService`, если вы развернули серверную службу .NET, или значением `fabric:/EchoServerApplication/EchoServerService`, если вы используете службу Java.  *backend-id* ссылается на внутренний ресурс, в нашем примере это ресурс `Microsoft.ApiManagement/service/backends`, определенный в шаблоне *apim.json*. *backend-id* может также ссылаться на другой внутренний ресурс, созданный с помощью API-интерфейсов управления API. В этом руководстве для *backend-id* присваивается значение параметра *service_fabric_backend_name*.
     
 ```xml
 <policies>
@@ -246,7 +250,7 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 [System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
 ```
 
-В узле *inbound_policy* замените строку service-name значением `fabric:/ApiApplication/WebApiService`, если вы развернули серверную службу .NET, или значением `fabric:/EchoServerApplication/EchoServerService`, если используете службу Java.
+В узле *inbound_policy* замените значение *sf-service-instance-name* значением `fabric:/ApiApplication/WebApiService`, если вы развернули серверную службу .NET, или значением `fabric:/EchoServerApplication/EchoServerService`, если вы используете службу Java. *backend-id* ссылается на внутренний ресурс, в нашем примере это ресурс `Microsoft.ApiManagement/service/backends`, определенный в шаблоне *apim.json*. *backend-id* может также ссылаться на другой внутренний ресурс, созданный с помощью API-интерфейсов управления API. В этом руководстве для *backend-id* присваивается значение параметра *service_fabric_backend_name*.
 
 ```xml
 <policies>
@@ -269,12 +273,19 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 Используйте приведенный ниже сценарий, чтобы развернуть шаблон Resource Manager и файлы параметров для службы управления API.
 
 ```powershell
-$ResourceGroupName = "sfclustertutorialgroup"
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+$groupname = "sfclustertutorialgroup"
+$clusterloc="southcentralus"
+$templatepath="C:\clustertemplates"
+
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\network-apim.json" -TemplateParameterFile "$templatepath\network-apim.parameters.json" -Verbose
+
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\apim.json" -TemplateParameterFile "$templatepath\apim.parameters.json" -Verbose
 ```
 
 ```azurecli
 ResourceGroupName="sfclustertutorialgroup"
+az group deployment create --name ApiMgmtNetworkDeployment --resource-group $ResourceGroupName --template-file network-apim.json --parameters @network-apim.parameters.json
+
 az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json 
 ```
 
@@ -295,21 +306,12 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
 
     Vary: Origin
 
-    Access-Control-Allow-Origin: https://apimanagement.hosting.portal.azure.net
+    Ocp-Apim-Trace-Location: https://apimgmtstodhwklpry2xgkdj.blob.core.windows.net/apiinspectorcontainer/PWSQOq_FCDjGcaI1rdMn8w2-2?sv=2015-07-08&sr=b&sig=MhQhzk%2FEKzE5odlLXRjyVsgzltWGF8OkNzAKaf0B1P0%3D&se=2018-01-28T01%3A04%3A44Z&sp=r&traceId=9f8f1892121e445ea1ae4d2bc8449ce4
 
-    Access-Control-Allow-Credentials: true
+    Date: Sat, 27 Jan 2018 01:04:44 GMT
 
-    Access-Control-Expose-Headers: Transfer-Encoding,Date,Server,Vary,Ocp-Apim-Trace-Location
-
-    Ocp-Apim-Trace-Location: https://apimgmtstuvyx3wa3oqhdbwy.blob.core.windows.net/apiinspectorcontainer/RaVVuJBQ9yxtdyH55BAsjQ2-1?sv=2015-07-08&sr=b&sig=Ab6dPyLpTGAU6TdmlEVu32DMfdCXTiKAASUlwSq3jcY%3D&se=2017-09-15T05%3A49%3A53Z&sp=r&traceId=ed9f1f4332e34883a774c34aa899b832
-
-    Date: Thu, 14 Sep 2017 05:49:56 GMT
-
-
-    [
-    "value1",
-    "value2"
-    ]
+    
+    ["value1", "value2"]
     ```
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
@@ -328,7 +330,7 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
@@ -340,14 +342,11 @@ az group delete --name $ResourceGroupName
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-[apim-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/apim.json
-[apim-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/apim.parameters.json
+[apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
+[apim-parameters-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.parameters.json
 
-[network-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
-[network-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
-
-[cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
-[cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+[network-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.json
+[network-parameters-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.json
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

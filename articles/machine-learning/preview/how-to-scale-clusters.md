@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 49e22c5136da67f62a43374817fb1e462fcbcaf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Масштабирование кластера для управления пропускной способностью веб-службы
 
@@ -159,6 +159,6 @@ Starting to serve on 127.0.0.1:8010
 
 На главном экране панели мониторинга на левой панели навигации щелкните **Развернутые приложения**. Если панель навигации не отображается, выберите этот значок ![Меню, состоящее из трех коротких горизонтальных линий](media/how-to-scale-clusters/icon-hamburger.png) в левом верхнем углу.
 
-Найдите развертывание, которое необходимо изменить, и щелкните этот значок ![Значок меню, состоящий из трех вертикальных точек](media/how-to-scale-clusters/icon-kebab.png) справа, а затем нажмите **View/edit YAML** (Просмотр или изменение YAML).
+Найдите развертывание, которое необходимо изменить, и щелкните этот значок ![Значок меню, состоящий из трех вертикальных точек](media/how-to-scale-clusters/icon-kebab.png) справа, а затем нажмите **View/Edit YAML** (Просмотр или изменение YAML).
 
 На экране редактирования развертывания, найдите узел *spec*, измените значения *реплик* и щелкните **Обновить**.

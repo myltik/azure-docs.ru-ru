@@ -13,17 +13,20 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 6265c6b72e37f5f25234c03080b2d5e6c5533cd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 37b984229a4be6c8f3ab337ea25820428922a466
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure
 В этом руководстве представлены шаги по подготовке среды выполнения интеграции (IR) Azure SSIS в фабрике данных. Затем можно использовать SQL Server Data Tools (SSDT) ​​или SQL Server Management Studio (SSMS) для развертывания пакетов служб SSIS для этой среды выполнения в Azure. Вот какие шаги выполняются в этом руководстве:
 
+> [!NOTE]
+> В этой статье используется Azure PowerShell для подготовки служб среды выполнения интеграции Integration Services Azure. Дополнительные сведения о работе с пользовательским интерфейсом фабрики данных для подготовки среды выполнения интеграции Integration Services Azure см. в руководстве по [созданию среды выполнения интеграции SSIS Azure](tutorial-create-azure-ssis-runtime-portal.md). 
+
 > [!div class="checklist"]
-> * Создадите фабрику данных.
+> * создадите фабрику данных;
 > * Создание среды выполнения интеграции Azure SSIS.
 > * Запуск среды выполнения интеграции Azure SSIS.
 > * Развертывание пакетов служб SSIS.
@@ -33,6 +36,7 @@ ms.lasthandoff: 01/23/2018
 > Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, ознакомьтесь с [документацией по фабрике данных версии 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу. См. дополнительные сведения о [среде выполнения интеграции Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).
+
 
 ## <a name="prerequisites"></a>предварительным требованиям
 - **Сервер базы данных SQL Azure**. Если у вас еще нет сервера базы данных, создайте его на портале Azure перед началом работы. На этом сервере размещается база данных каталога служб SSIS (SSISDB). Мы рекомендуем создать сервер базы данных в одном регионе Azure со средой интеграции. Эта конфигурация позволяет среде выполнения интеграции записывать журналы выполнения в SSISDB, не пересекая регионы Azure. 
@@ -136,7 +140,7 @@ Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных
+## <a name="create-a-data-factory"></a>Создать фабрику данных
 Чтобы создать фабрику данных, выполните следующие команды:
 
 ```powershell
@@ -206,7 +210,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 
 > [!NOTE]
 > - Скрипт подключается к базе данных SQL Azure для подготовки базы данных каталога SSIS (SSISDB). Скрипт также настраивает разрешения и параметры виртуальной сети, если это указано, и подключает к ней новый экземпляр среды выполнения интеграции Azure SSIS.
-> - При подготовке экземпляра базы данных SQL для размещения SSISDB также устанавливается пакет функций Azure для служб SSIS и распространяемый компонент Access. Эти компоненты обеспечивают подключение к файлам Excel и Access и к другим источникам данных Azure, кроме тех, которые поддерживаются встроенными компонентами. Сейчас вы не можете установить сторонние компоненты для служб SSIS (в том числе такие сторонние компоненты от Майкрософт, как компоненты Oracle и Teradata от Attunity и SAP BI).
+> - При подготовке экземпляра среды выполнения интеграции Integration Services Azure также устанавливается пакет функций Azure для служб SSIS и распространяемый компонент Access. Эти компоненты обеспечивают подключение к файлам Excel и Access и другим источникам данных Azure, кроме тех, которые поддерживаются встроенными компонентами. Сейчас вы не можете установить сторонние компоненты для служб SSIS (в том числе такие сторонние компоненты от Майкрософт, как компоненты Oracle и Teradata от Attunity и SAP BI).
 
 
 Список поддерживаемых **ценовых категорий** базы данных SQL Azure см. в статье [Ограничения ресурсов базы данных SQL Azure](../sql-database/sql-database-resource-limits.md). 
@@ -305,7 +309,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 Из этого руководства вы узнали, как выполнить следующие задачи: 
 
 > [!div class="checklist"]
-> * Создадите фабрику данных.
+> * создадите фабрику данных;
 > * Создание среды выполнения интеграции Azure SSIS.
 > * Запуск среды выполнения интеграции Azure SSIS.
 > * Развертывание пакетов служб SSIS.

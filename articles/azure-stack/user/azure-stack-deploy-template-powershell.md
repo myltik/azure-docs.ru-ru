@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 В этом примере шаблона в качестве виртуального жесткого диска используется WindowsServer-2012-R2-Datacenter.
 
-1. Откройте <этот репозиторий>, найдите шаблон **101-simple-windows-vm** и сохраните его в следующее расположение: c:\\templates\\azuredeploy-101-simple-windows-vm.json.
+1. Откройте <http://aka.ms/AzureStackGitHub>, найдите шаблон **101-simple-windows-vm** и сохраните его в следующее расположение: c:\\templates\\azuredeploy-101-simple-windows-vm.json.
 2. В PowerShell выполните следующий сценарий развертывания. Замените *username* и *password* своими значениями. При последующем использовании увеличивайте значение параметра *$myNum*, чтобы избежать перезаписи развертывания.
    
    ```PowerShell

@@ -6,52 +6,52 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: eff2352066a76010d6d882a7b7e1961870cd2d46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a915473c67a7577582837b56d1a9ccec4d21c461
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-subscription-schema"></a>Схема подписки для службы "Сетка событий"
 
 Чтобы создать подписку для службы "Сетка событий", отправьте запрос на выполнение операции по созданию подписки на события. Используйте следующий формат:
 
 ```
-PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2017-06-15-preview
+PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 Например, чтобы создать подписку на события для учетной записи хранения с именем `examplestorage` в группе ресурсов `examplegroup`, используйте следующий формат:
 
 ```
-PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2017-06-15-preview
+PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 В этой статье приведены свойства и схема для основного текста запроса.
  
 ## <a name="event-subscription-properties"></a>Свойства подписки на события
 
-| Свойство | Тип | Описание |
+| Свойство | type | ОПИСАНИЕ |
 | -------- | ---- | ----------- |
 | ресурс destination | object | Объект, который определяет конечную точку. |
 | фильтр | object | Необязательное поле для фильтрации событий по типам. |
 
 ### <a name="destination-object"></a>Объект destination
 
-| Свойство | Тип | Описание |
+| Свойство | type | ОПИСАНИЕ |
 | -------- | ---- | ----------- |
-| endpointType | string | Тип конечной точки для подписки (веб-перехватчик или HTTP, концентратор событий либо очередь). | 
-| endpointUrl | string |  | 
+| endpointType | строка | Тип конечной точки для подписки (веб-перехватчик или HTTP, концентратор событий либо очередь). | 
+| endpointUrl | строка | URL-адрес назначения для событий в подписке на событие. | 
 
 ### <a name="filter-object"></a>Объект filter
 
-| Свойство | Тип | Описание |
+| Свойство | type | ОПИСАНИЕ |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | Выполняет сопоставление, если тип события, указанный в сообщении о событии, полностью соответствует одному из этих типов. Вызывает ошибку, если имя события не соответствует зарегистрированному имени типа для источника события. По умолчанию соответствует всем типам событий. |
-| subjectBeginsWith | string | Фильтр соответствия префиксу для поля темы в сообщении о событии. Строка по умолчанию или пустая строка соответствует всем типам. | 
-| subjectEndsWith | string | Фильтр соответствия суффиксу для поля темы в сообщении о событии. Строка по умолчанию или пустая строка соответствует всем типам. |
-| subjectIsCaseSensitive | string | Управляет сопоставлением с учетом регистра в фильтрах. |
+| subjectBeginsWith | строка | Фильтр соответствия префиксу для поля темы в сообщении о событии. Строка по умолчанию или пустая строка соответствует всем типам. | 
+| subjectEndsWith | строка | Фильтр соответствия суффиксу для поля темы в сообщении о событии. Строка по умолчанию или пустая строка соответствует всем типам. |
+| subjectIsCaseSensitive | строка | Управляет сопоставлением с учетом регистра в фильтрах. |
 
 
 ## <a name="example-subscription-schema"></a>Пример схемы подписки
@@ -75,6 +75,6 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * См. дополнительные сведения о [службе "Сетка событий Azure"](overview.md).

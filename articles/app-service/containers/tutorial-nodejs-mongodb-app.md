@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c2087af14ad456c679479334c9391055f6b2e45e
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: f497e9427885ab1d2e827e9fa1dd3c468aa39239
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Разработка веб-приложения на основе Node.js и MongoDB в службе приложений Azure на платформе Linux
 
 > [!NOTE]
-> В этой статье развертывает приложение службы приложений на платформе Linux. Для развертывания на службы приложений на _Windows_, в разделе [построения Node.js и MongoDB веб-приложения в Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
+> В этой статье мы развернем приложение в службе приложений на платформе Linux. Сведения о развертывании в службе приложений на платформе _Windows_ см. в руководство по [созданию веб-приложений Node.js с MongoDB в Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
 >
 
 [Служба приложений на платформе Linux](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом руководстве показано, как создать веб-приложение Node.js, подключить его локально к базе данных MongoDB, а затем развернуть в службе приложений Azure, подключенной к базе данных CosmosDB, с помощью API MongoDB. Выполнив действия, описанные в этом руководстве, вы получите приложение MEAN (MongoDB, Express, AngularJS и Node.js), работающее в службе приложений на платформе Linux. Для простоты в примере приложения используется [веб-платформа MEAN.js](http://meanjs.org/).
@@ -41,7 +41,9 @@ ms.lasthandoff: 12/15/2017
 > * Потоковая передача журналов диагностики из Azure.
 > * Управление приложением на портале Azure.
 
-## <a name="prerequisites"></a>Технические условия
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством:
 
@@ -49,8 +51,6 @@ ms.lasthandoff: 12/15/2017
 1. [установите Node.js 6.0 или более поздней версии и NPM](https://nodejs.org/);
 1. [Gulp.js](http://gulpjs.com/) (требуется для [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started));
 1. [Установите и запустите MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/).
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="test-local-mongodb"></a>Проверка локальной базы данных MongoDB
 
@@ -130,7 +130,7 @@ MEAN.JS version: 0.5.0
 
 ### <a name="create-a-cosmos-db-account"></a>Создание учетной записи Cosmos DB
 
-В Cloud Shell создайте учетную запись Cosmos DB при помощи команды [az cosmosdb create](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create).
+В Cloud Shell создайте учетную запись Cosmos DB при помощи команды [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create).
 
 В следующей команде замените заполнитель *\<cosmosdb_name>* уникальным именем базы данных Cosmos DB. Это имя используется как часть конечной точки Cosmos DB (`https://<cosmosdb_name>.documents.azure.com/`), поэтому оно должно быть уникальным для всех учетных записей Cosmos DB в Azure. В нем могут использоваться только строчные буквы, цифры и дефис (-). Его длина должна быть от 3 до 50 знаков.
 
@@ -164,7 +164,7 @@ az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kin
 
 ### <a name="retrieve-the-database-key"></a>Получение ключа базы данных
 
-Для подключения к базе данных Cosmos DB потребуется ключ базы данных. Чтобы получить первичный ключ, выполните в Cloud Shell команду [az cosmosdb list-keys](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys).
+Для подключения к базе данных Cosmos DB потребуется ключ базы данных. Чтобы получить первичный ключ, выполните в Cloud Shell команду [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys).
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -248,7 +248,9 @@ MEAN.JS version: 0.5.0
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-linux-based-web-app"></a>Создание веб-приложения на основе Linux
+<a name="create"></a>
+
+### <a name="create-a-web-app"></a>Создание веб-приложения
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
@@ -256,7 +258,7 @@ MEAN.JS version: 0.5.0
 
 По умолчанию _config/env/local-production.js_ хранится в проекте MEAN.js вне репозитория Git. Поэтому для веб-приложения Azure вам нужно использовать параметры приложения, чтобы определить строку подключения MongoDB.
 
-Чтобы задать параметры приложения, используйте [az webapp конфигурации appsettings набор](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) в оболочке облака.
+Чтобы задать параметры приложения, выполните команду [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) в Cloud Shell.
 
 В следующем примере настраивается параметр приложения `MONGODB_URI` в веб-приложении Azure. Замените заполнители *\<app_name>*, *\<cosmosdb_name>* и *\<primary_master_key>*.
 
@@ -266,7 +268,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 В коде Node.js для доступа к этому параметру приложения, как и к любой переменной среды, используется `process.env.MONGODB_URI`. 
 
-В локальном репозитории MEAN.js откройте файл _config/env/production.js_ (не _config/env/local-production.js_), который содержит конфигурацию для конкретной рабочей среды. Обратите внимание, что приложение MEAN.js по умолчанию уже настроено для использования созданной переменной среды `MONGODB_URI`.
+В локальном репозитории MEAN.js откройте файл _config/env/production.js_ (не _config/env/local-production.js_), который содержит конфигурацию для конкретной рабочей среды. Приложение MEAN.js по умолчанию уже настроено для использования созданной переменной среды `MONGODB_URI`.
 
 ```javascript
 db: {
@@ -425,9 +427,6 @@ gulp prod
 NODE_ENV=production node server.js
 ```
 
-> [!NOTE]
-> Помните, что ваши изменения в _config/env/production.js_ были отменены, и переменная среды `MONGODB_URI` задается только в веб-приложении, а не на локальном компьютере. Если взглянуть на файл конфигурации, вы увидите, что по умолчанию в рабочей конфигурации используется локальная база данных MongoDB. Это гарантирует, что при локальном тестировании изменений кода рабочие данные не будут затронуты.
-
 Откройте в браузере адрес `http://localhost:8443` и убедитесь, что вход выполнен.
 
 Выберите **Администрирование > Управление статьями** и добавьте статью, нажав кнопку **+**.
@@ -469,7 +468,7 @@ git push azure master
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Вы научились выполнять следующие задачи:
 

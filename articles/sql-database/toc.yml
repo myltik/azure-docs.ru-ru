@@ -237,6 +237,10 @@
           href: sql-database-use-batching-to-improve-performance.md
         - name: Руководство по настройке подключений
           href: sql-database-connectivity-issues.md
+        - name: Общие сведения о псевдониме DNS
+          href: dns-alias-overview.md
+        - name: DNS-псевдоним в PowerShell
+          href: dns-alias-powershell.md
         - name: 'Порты: ADO.NET'
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: Практические руководства

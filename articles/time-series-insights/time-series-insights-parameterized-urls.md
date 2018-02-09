@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Предоставление общего доступа к пользовательскому представлению с помощью параметризованного URL-адреса
 
@@ -63,14 +63,16 @@ ms.lasthandoff: 12/21/2017
 
 Параметр `timeSeriesDefinitions=<collection of term objects>` указывает условия представления службы "Аналитика временных рядов", которые содержат такие элементы:
 
-- `name=<string>`
+- "name":"<string>"
   - имя *условия*;
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - имя столбца, по которому выполняется *разбиение*;
-- `measureName=<string>`
+- "measureName":"<string>"
   - имя столбца *меры*;
-- `predicate=<string>`
+- "predicate":"<string>"
   - предложение *where* для фильтрации на стороне сервера.
+-  "useSum":"true"
+  - Это необязательный параметр, который определяет использование функции суммирования для меры.  Обратите внимание: если выбрана мера "События", число выбрано по умолчанию.  Обратите внимание: если мера "События" не выбрана, по умолчанию выбирается среднее значение.  
 
 Параметр "multiChartStack=<true/false>" активирует наложение в диаграмме, а "multiChartSameScale=<true/false>" позволяет использовать одну и ту же шкалу оси Y для всех условий в пределах необязательного параметра.  
 
@@ -118,5 +120,5 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 ![Представление диаграммы](media/parameterized-url/url2.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Запрос данных с помощью C#](time-series-insights-query-data-csharp.md)

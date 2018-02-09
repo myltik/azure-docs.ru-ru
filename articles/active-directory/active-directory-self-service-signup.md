@@ -1,5 +1,5 @@
 ---
-title: "Самостоятельная (или вирусная) регистрация в Azure Active Directory | Документация Майкрософт"
+title: "Самостоятельная или пробная регистрация в Azure Active Directory | Документация Майкрософт"
 description: "Узнайте, как использовать самостоятельную регистрацию в клиенте Azure Active Directory (Azure AD)."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 01/28/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 2b41bb1b72cc773c29d464228c3177fbd1d9f5e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 9f2b541d5028596f9beabc7fd82001b4c9dacad4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Что такое самостоятельная регистрация для Azure Active Directory?
 В этой статье объясняется, что такое самостоятельная регистрация и как ее использовать в Azure Active Directory (Azure AD). Если требуется сменить доменное имя из неуправляемого клиента Azure AD, то см. статью [Смена неуправляемого каталога от имени администратора в Azure Active Directory](domains-admin-takeover.md).
@@ -46,7 +46,12 @@ ms.lasthandoff: 12/11/2017
 Администратор может настраивать эти возможности с помощью следующих параметров командлета Azure AD Set-MsolCompanySettings:
 
 * **AllowEmailVerifiedUsers** отвечает за то, может ли пользователь создать или присоединить неуправляемый каталог. Если задать для этого параметра значение $false, учетные записи пользователей, проверяемые с помощью электронной почты, не смогут присоединиться к каталогу.
-* **AllowAdHocSubscriptions** управляет самостоятельной регистрацией пользователей. Если задать для этого параметра значение $false, пользователи не смогут выполнять самостоятельную регистрацию.
+* **AllowAdHocSubscriptions** управляет самостоятельной регистрацией пользователей. Если задать для этого параметра значение $false, пользователи не смогут выполнять самостоятельную регистрацию. 
+  
+  > [!NOTE]
+  > Вы не можете управлять пробными подписками Flow и PowerApps с помощью параметра **AllowAdHocSubscriptions**. Дополнительные сведения см. в следующих статьях:
+  > * [Как запретить имеющимся пользователям начать работу с Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+  > * [Вопросы и ответы об использовании Flow в организации](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Как совместно использовать эти элементы управления?
 Эти два параметра можно использовать совместно для определения более точного управления самостоятельной регистрацией. Например, следующая команда позволит пользователям выполнять самостоятельную регистрацию, но только если у этих пользователей уже есть учетная запись в Azure AD (другими словами, пользователям нужно будет иметь проверенную с помощью электронной почты учетную запись, чтобы получить возможность выполнить самостоятельную регистрацию):
@@ -60,7 +65,7 @@ ms.lasthandoff: 12/11/2017
 
 Дополнительные сведения об этих параметрах и примеры их использования см. в статье [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Добавление имени личного домена в Azure Active Directory](add-custom-domain.md)
 * [Как установить и настроить Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)

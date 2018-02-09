@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 91aa10b1e7dfbe47107257fa0a5fe14f7b43ff71
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Коллекции модулей Runbook и других модулей для службы автоматизации Azure
 Вы можете не создавать собственные модули Runbook и другие модули в службе автоматизации Azure, а воспользоваться разнообразными сценариями, уже созданными корпорацией Майкрософт и сообществом.  Эти готовые сценарии можно применять без изменений или использовать в качестве отправной точки, модифицируя их под свои задачи.
@@ -26,9 +26,9 @@ ms.lasthandoff: 01/04/2018
 Модули Runbook можно получить из [коллекции Runbook](#runbooks-in-runbook-gallery), а другие модули — из [коллекции PowerShell](#modules-in-powerShell-gallery).  Также вы можете поделиться с сообществом сценариями, которые вы разработали.
 
 ## <a name="runbooks-in-runbook-gallery"></a>Модули Runbook в коллекции Runbook
-[Коллекция Runbook](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) содержит разнообразные модули Runbook, созданные корпорацией Майкрософт и сообществом, которые вы можете импортировать в службу автоматизации Azure. Runbook можно загрузить из коллекции, которая размещается в [центра сценариев TechNet](https://gallery.technet.microsoft.com/scriptcenter/site/upload), или можно непосредственно импортировать Runbook из коллекции на портале Azure.
+[Коллекция Runbook](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) содержит разнообразные модули Runbook, созданные корпорацией Майкрософт и сообществом, которые вы можете импортировать в службу автоматизации Azure. Модуль runbook можно скачать из коллекции в [центре скриптов TechNet](https://gallery.technet.microsoft.com/scriptcenter/site/upload) или импортировать непосредственно из коллекции на портале Azure.
 
-Можно только импортировать напрямую из коллекции с помощью портала Azure. Windows PowerShell не поддерживает эту функцию.
+Можно импортировать runbook напрямую из коллекции runbook через портал Azure. Windows PowerShell не поддерживает эту функцию.
 
 > [!NOTE]
 > Обязательно проверяйте содержимое всех модулей Runbook, которые вы получаете из коллекции Runbook, и соблюдайте предельную осторожность при их установке и запуске в рабочей среде.|
@@ -37,11 +37,8 @@ ms.lasthandoff: 01/04/2018
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Импорт модуля Runbook из коллекции Runbook с помощью портала Azure
 1. На портале Azure выберите свою учетную запись службы автоматизации.
-2. Щелкните плитку **Модули Runbook** , чтобы открыть список модулей Runbook.
-3. Нажмите кнопку **Обзор коллекции** .
-   
-    ![Кнопка «Обзор коллекции»](media/automation-runbook-gallery/browse-gallery-button.png)
-4. Найдите нужный элемент коллекции и выберите его, чтобы просмотреть сведения о нем.
+2. В разделе **Автоматизация процессов** выберите пункт **Коллекция модулей Runbook**.
+3. Найдите нужный элемент коллекции и выберите его, чтобы просмотреть сведения о нем. Слева можно ввести дополнительные параметры для издателя и типа.
    
     ![Обзор коллекции](media/automation-runbook-gallery/browse-gallery.png)
 5. Щелкните **Просмотреть исходный проект** , чтобы открыть соответствующий элемент в [центре сценариев TechNet](http://gallery.technet.microsoft.com/).
@@ -94,21 +91,15 @@ ms.lasthandoff: 01/04/2018
    
     ![Сведения о модуле PowerShell](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
 7. Чтобы установить модуль непосредственно в службу автоматизации Azure, нажмите кнопку **Импорт** .
-   
-    ![Кнопка импорта модуля](media/automation-runbook-gallery/module-import-button.png)
 8. Когда на панели **Импорт** вы нажмете одноименную кнопку, вы увидите имя импортируемого модуля. Если установлены все зависимости, кнопка **ОК** будет активна. Если какие-либо зависимости отсутствуют, необходимо будет импортировать их перед импортом этого модуля.
-9. Щелкните **ОК**, чтобы импортировать модуль. Когда служба автоматизации Azure импортирует модуль в вашу учетную запись, она извлекает метаданные о модуле и командлетах.
-   
-    ![Страница импорта модуля](media/automation-runbook-gallery/module-import-blade.png)
-   
-    Это может занять несколько минут, поскольку каждое действие необходимо извлечь.
+9. На странице **импорта** нажмите кнопку **ОК**, чтобы импортировать модуль. Когда служба автоматизации Azure импортирует модуль в вашу учетную запись, она извлекает метаданные о модуле и командлетах. Это может занять несколько минут, поскольку каждое действие необходимо извлечь.
 10. Вы получите два уведомления о начале и завершении развертывания модуля соответственно.
 11. Когда модуль будет импортирован, вы увидите доступные действия и сможете использовать его ресурсы в модулях runbook и ресурсах настройки требуемого состояния.
 
 ## <a name="requesting-a-runbook-or-module"></a>Запрос на создание модуля Runbook или другого модуля
 Свой запрос можно отправить на сайте [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Если вам нужна помощь в написании модуля Runbook или освоении PowerShell, опубликуйте вопрос на нашем [форуме](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о том, как начать работу с модулями Runbook, см. в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md).
 * Чтобы понять различия между PowerShell и рабочим процессом PowerShell с модулями Runbook, см. статью [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md).
 

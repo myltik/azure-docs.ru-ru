@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/27/2018
 ms.author: JeffGoldner
-ms.openlocfilehash: d6a0cbf696d59cec5b70e147de2879a311d88687
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Элементы Azure Marketplace, доступные для Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 
 ## <a name="virtual-machine-extensions"></a>Расширения виртуальных машин
@@ -38,8 +38,6 @@ ms.lasthandoff: 01/22/2018
 | ![](media/azure-stack-marketplace-azure-items/cse.png) | [VMAccess для Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Скачайте это обновление для встроенной версии расширения VMAccess для Linux. Это важно, если вы планируете использовать виртуальные машины Debian Linux.</b> | Microsoft | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Расширение Acronis Backup для Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Расширение Acronis Backup для Microsoft Azure входит в семейство продуктов Acronis Backup для защиты данных. | Acronis International GmbH. | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Расширение Acronis Backup для Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Расширение Acronis Backup для Microsoft Azure входит в семейство продуктов Acronis Backup для защиты данных. | Acronis International GmbH. | Windows |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent для Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Расширение Trend Micro Deep Security для Linux. | Trend Micro | Linux |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent для Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Расширение Trend Micro Deep Security для Windows. | Trend Micro | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Образы виртуальных машин и шаблоны решений Майкрософт
 
@@ -47,7 +45,7 @@ Microsoft Azure Stack поддерживает указанные ниже ви�
 
 |  | Имя элемента. | ОПИСАНИЕ | ИЗДАТЕЛЬ |
 | --- | --- | --- | --- |
-| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Экономичные решения корпоративного уровня для приложений и пользователей, которые легко развертывать. Эти образы регулярно обновляются с установкой последних исправлений. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Экономичные решения корпоративного уровня для приложений и пользователей, которые легко развертывать. Эти образы регулярно обновляются с установкой последних исправлений. <b>Важная информация. Образы, скачанные до 18 января 2018 года, необходимо удалить и заменить последними версиями.</b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Remote Desktop Services (RDS) Deployment](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) (Развертывание служб удаленных рабочих столов (RDS)) | Создание базового развертывания служб RDS. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Пробная версия SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Пробная версия Microsoft SharePoint Server 2013 на Windows Server 2012 Datacenter и Visual Studio 2017 Community Edition. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Пробная версия SharePoint Server  2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Пробная версия Microsoft SharePoint Server 2016 на Windows Server 2016 Datacenter. | Microsoft |

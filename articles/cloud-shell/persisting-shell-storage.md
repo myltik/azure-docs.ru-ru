@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d8188634846a7ce75b5294cb3012069d9eafafc1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-bash-in-cloud-shell-storage-works"></a>Как работает Bash в хранилище Cloud Shell 
 Bash в Cloud Shell позволяет сохранять файлы с помощью обоих приведенных ниже методов. 
@@ -69,7 +69,7 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 ![Выполнение команды clouddrive unmount](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Хотя при выполнении этой команды никакие ресурсы не удаляются, ручное удаление группы ресурсов, учетной записи хранения или файлового ресурса, сопоставленного с Cloud Shell, приведет к удалению образа диска каталога `$Home` и всех файлов в файловом ресурсе. Это действие невозможно отменить.
+> Хотя при выполнении этой команды ресурсы не удаляются, ручное удаление группы ресурсов, учетной записи хранения или файлового ресурса, сопоставленного с Cloud Shell, приведет к удалению образа диска каталога `$Home` и всех файлов в файловом ресурсе. Это действие невозможно отменить.
 
 ## <a name="list-clouddrive"></a>Вывод объектов `clouddrive`
 Чтобы узнать, какой файловый ресурс подключен как `clouddrive`, выполните команду `df`. 
@@ -88,9 +88,9 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Краткое руководство по Bash в Cloud Shell](quickstart.md) <br>
-[Введение в хранилище Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Сведения о хранилище файлов Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Использование тегов для организации ресурсов в Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

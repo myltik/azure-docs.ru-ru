@@ -1,5 +1,5 @@
 ---
-title: "Руководство по настройке Workday для автоматической подготовки пользователей с помощью локальной службы Active Directory и Azure Active Directory | Документы Майкрософт"
+title: "Руководство по настройке Workday для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт"
 description: "Узнайте, как использовать Workday в качестве источника данных удостоверений для Active Directory и Azure Active Directory."
 services: active-directory
 author: asmalser-msft
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Руководство по настройке Workday для автоматической подготовки пользователей с помощью локальной службы Active Directory и Azure Active Directory
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Руководство по настройке Workday для автоматической подготовки пользователей
+
 Цель этого руководства — показать, какие действия необходимо выполнить для импорта пользователей из Workday в Active Directory и Azure Active Directory с необязательной обратной записью некоторых атрибутов в Workday. 
 
 
@@ -51,7 +52,7 @@ ms.lasthandoff: 12/11/2017
 
 Прежде чем приступить к интеграции Workday, проверьте, выполнены ли указанные ниже предварительные условия, и прочтите следующее руководство о том, как сопоставить текущую архитектуру Active Directory и требования к подготовке пользователей с решениями, предоставляемыми Azure Active Directory.
 
-### <a name="prerequisites"></a>Технические условия
+### <a name="prerequisites"></a>предварительным требованиям
 
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -347,7 +348,7 @@ Azure Active Directory поддерживает готовые соединит�
 | **AddressLineData**    |  streetAddress  |     |   Создание и обновление |
 | **PrimaryWorkTelephone**  |  TelephoneNumber   |     | Создание и обновление |
 | **BusinessTitle**   |  title     |     |  Создание и обновление |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, «m»,), "([ñńňÑŃŇN])», «n»,),"([öòőõôóÖÒŐÕÔÓO])», «o»,), "([P])», «p»,),"([Q])», «q»,), "([řŘR])», «r»,),"([ßšśŠŚS])», «s»,), "([TŤť])», «t»,),"([üùûúůűÜÙÛÚŮŰU])», «u»,), "([V])», «v»,),"([W])», «w»,), "([ýÿýŸÝY])», «y»,),"([źžżŹŽŻZ])», «z»,), "»,,,»»,), «contoso.com»)**   | userPrincipalName     |     | Создание и обновление                                                   
+| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Создание и обновление                                                   
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Создание и обновление |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Часть 3. Настройка локального агента синхронизации
@@ -648,6 +649,6 @@ Azure Active Directory поддерживает готовые соединит�
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Сведения о просмотре журналов и получении отчетов о действиях по подготовке](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)

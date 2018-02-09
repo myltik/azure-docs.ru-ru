@@ -3,21 +3,21 @@ title: "Доступ к Azure Key Vault с помощью MSI виртуальн
 description: "В рамках этого руководства вы узнаете, как получить доступ к Azure Key Vault с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: 074cfd9ab478c977eb8ae0f5b97aafc2767ee4e7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: 5dd90d527afd81ad225b9693b126f48e48bde884
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Доступ к Azure Key Vault с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 > * предоставлять виртуальной машине доступ к секрету в Key Vault; 
 > * получать маркер доступа с помощью удостоверения виртуальной машины и использовать его для получения секрета из Key Vault. 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

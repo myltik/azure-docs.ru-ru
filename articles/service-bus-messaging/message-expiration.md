@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 504010a39a4012b9a9edb60bb9a5b33ac20499c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e1f6177ccacf24955763982189bcdb1ef69c788
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-expiration-time-to-live"></a>Срок действия сообщения (срок жизни)
 
@@ -25,11 +25,11 @@ ms.lasthandoff: 10/11/2017
 
 Для среды разработки и тестовой среды, в которых очереди и разделы часто используются в контексте частичного запуска приложений или частей приложений, желательно также выполнять автоматическую сборку мусора для удаления потерянных тестовых сообщений, чтобы следующий тест можно было выполнить "с чистого листа".
 
-Истечением срока действия любого отдельного сообщения можно управлять, задав системное свойство [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), которое указывает относительный срок. Срок действия истекает мгновенно, когда сообщение помещается в очередь в сущности. В этот момент свойство [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) принимает значение [**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+Истечением срока действия любого отдельного сообщения можно управлять, задав системное свойство [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), которое указывает относительный срок. Срок действия истекает мгновенно, когда сообщение помещается в очередь в сущности. В этот момент свойство [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) принимает значение [**(EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
 
 После того, как момент **ExpiresAtUtc** пройдет, сообщения станут недоступными для получения. Срок действия не влияет на сообщения, доставка которых в настоящий момент заблокирована. Эти сообщения по-прежнему обрабатываются обычным образом. Если срок действия блокировки истекает или сообщение отбрасывается, его срок действия вступает в силу немедленно.
 
-Во время блокировки сообщения приложение может посчитать, что его срок действия номинально истек. Будет ли приложение обрабатывать это сообщение или отбросит его, определяется разработчиком.
+Во время блокировки сообщения приложение может посчитать, что его срок действия истек. Будет ли приложение обрабатывать это сообщение или отбросит его, определяется разработчиком.
 
 ## <a name="entity-level-expiration"></a>Срок действия уровня сущности
 
@@ -51,10 +51,10 @@ ms.lasthandoff: 10/11/2017
 
 Эта функция включается с помощью свойства [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues), в котором задается длительность простоя сущности (время, в течение которого она не используется), прежде чем она автоматически удаляется. Минимальная длительность составляет 5 минут.
  
-Это свойство должно быть установлено посредством операции Azure Resource Manager или с помощью интерфейсов API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) клиента .NET Framework. Его нельзя установить на портале.
+Свойство **autoDeleteOnIdle** должно быть установлено посредством операции Azure Resource Manager или с помощью интерфейсов API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) клиента .NET Framework. Его нельзя установить на портале.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об обмене сообщениями через служебную шину см. в следующих статьях:
 

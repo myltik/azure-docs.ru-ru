@@ -4,7 +4,7 @@ description: "Узнайте, как воспользоваться преиму
 services: batch
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: batch
@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 01/05/2018
 ms.author: danlep
-ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: dc28c3a9d46baa8e8d2136ffccbb4e7ff6675b1e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Использование экземпляров с поддержкой RDMA или графического процессора (GPU) в пулах пакетной службы
 
@@ -50,10 +50,10 @@ ms.lasthandoff: 01/19/2018
 | Размер | Функция | Операционные системы | Необходимое программное обеспечение | Параметры пула |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS<br/>SUSE Linux Enterprise Server 12 HPC или<br/>Экземпляр HPC на платформе CentOS<br/>(Microsoft Azure Marketplace) | Intel MPI 5 | Включение связи между узлами, отключение параллельного выполнения задач |
-| [Серия NC*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | Графический процессор NVIDIA Tesla K80 | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3 или<br/>Версия 7.3 на основе CentOS<br/>(Microsoft Azure Marketplace) | Драйверы для набора средств NVIDIA CUDA Toolkit 9.0 | Недоступно | 
+| [Серия NC, NCv2, ND*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | Графический процессор NVIDIA Tesla (зависит от серии) | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3 или<br/>Версия 7.3 на основе CentOS<br/>(Microsoft Azure Marketplace) | Драйверы для набора средств NVIDIA CUDA Toolkit 9.1 | Недоступно | 
 | [Серия NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | Графический процессор NVIDIA Tesla M60 | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3 или<br/>Версия 7.3 на основе CentOS<br/>(Microsoft Azure Marketplace) | Драйверы для NVIDIA GRID 4.3 | Недоступно |
 
-* Подключение RDMA на виртуальных машинах NC24r поддерживается в экземпляре HPC на платформе Ubuntu 16.04 LTS или CentOS-based 7.3 (из Azure Marketplace) с Intel MPI.
+* Подключение RDMA на виртуальных машинах NC24r, NC24r_v2 и ND24r поддерживается в экземпляре HPC на платформе Ubuntu 16.04 LTS или на базе CentOS 7.3 (из Azure Marketplace) с Intel MPI.
 
 
 
@@ -62,10 +62,10 @@ ms.lasthandoff: 01/19/2018
 | Размер | Функция | Операционные системы | Необходимое программное обеспечение | Параметры пула |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 или<br/>Windows Server 2012 (Microsoft Azure Marketplace) | Microsoft MPI 2012 R2 или более поздней версии либо<br/> Intel MPI 5<br/><br/>Расширение виртуальных машин Azure HpcVMDrivers | Включение связи между узлами, отключение параллельного выполнения задач |
-| [Серия NC*](../virtual-machines/windows/n-series-driver-setup.md) | Графический процессор NVIDIA Tesla K80 | Windows Server 2016 или <br/>Windows Server 2012 R2 (Microsoft Azure Marketplace) | Драйверы NVIDIA Tesla или драйверы набора средств CUDA Toolkit 9.0| Недоступно | 
+| [Серия NC, NCv2, ND*](../virtual-machines/windows/n-series-driver-setup.md) | Графический процессор NVIDIA Tesla (зависит от серии) | Windows Server 2016 или <br/>Windows Server 2012 R2 (Microsoft Azure Marketplace) | Драйверы NVIDIA Tesla или драйверы набора средств CUDA Toolkit 9.1| Недоступно | 
 | [Серия NV](../virtual-machines/windows/n-series-driver-setup.md) | Графический процессор NVIDIA Tesla M60 | Windows Server 2016 или<br/>Windows Server 2012 R2 (Microsoft Azure Marketplace) | Драйверы для NVIDIA GRID 4.3 | Недоступно |
 
-* Подключение RDMA на виртуальных машинах NC24r поддерживается на Windows Server 2012 R2 (из Azure Marketplace) с расширением HpcVMDrivers и Microsoft MPI или Intel MPI.
+*Подключение RDMA на виртуальных машинах NC24r, NC24r_v2 и ND24r поддерживается на Windows Server 2012 R2 (из Azure Marketplace) с расширением HpcVMDrivers и Microsoft MPI или Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Пулы Windows — конфигурация облачных служб
 

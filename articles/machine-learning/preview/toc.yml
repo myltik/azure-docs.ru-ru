@@ -92,7 +92,7 @@
           href: deployment-setup-configuration.md
         - name: Масштабирование кластеров и служб
           href: how-to-scale-clusters.md
-        - name: Настройка SSL-сертификата в кластере MLC
+        - name: Включение SSL в кластере MLC
           href: how-to-setup-ssl-on-mlc.md
         - name: Развертывание веб-службы
           href: model-management-service-deploy.md

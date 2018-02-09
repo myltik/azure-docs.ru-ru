@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 20614aaabc05513e93eb001c1676a73f85003947
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка
 Службы синхронизации Azure Active Directory Connect (службы синхронизации Azure AD Connect) являются основным компонентом Azure AD Connect. Они отвечают за все операции, относящиеся к синхронизации идентификационных данных между локальной средой и Azure AD. Служба синхронизации Azure AD Connect — это преемник таких решений, как DirSync, Azure AD Sync и Forefront Identity Manager с настроенным соединителем Azure Active Directory.
 
 В этой статье описывается **служба синхронизации Azure AD Connect** (также называемая **модулем синхронизации**) и приводятся ссылки на другие статьи на эту тему. Ссылки на ресурсы, посвященные Azure AD Connect, приведены в статье [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-Служба синхронизации состоит из двух компонентов — локального компонента **синхронизации Azure AD Connect** и компонента на стороне службы в Azure AD, который называется **службой синхронизации Azure AD Connect**. 
+Служба синхронизации состоит из двух компонентов — локального компонента **синхронизации Azure AD Connect** и компонента на стороне службы в Azure AD, который называется **службой синхронизации Azure AD Connect**.
 
 ## <a name="azure-ad-connect-sync-topics"></a>Статьи, имеющие отношение к службе синхронизации Azure AD Connect
 | Раздел | Содержание и целевая аудитория |
@@ -49,6 +49,7 @@ ms.lasthandoff: 01/18/2018
 | [Службы синхронизации Azure AD Connect: реализация синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md) |Описано, как работает синхронизация паролей, как реализовать и использовать эту функцию, а также как устранять связанные с ней неполадки. |
 | [Обратная запись устройств](active-directory-aadconnect-feature-device-writeback.md) |Описывается, как работает обратная запись устройства в Azure AD Connect. |
 | [Расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md) |Описывается, как расширить схему Azure AD с помощью собственных пользовательских атрибутов. |
+| [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Объясняется, как разместить ресурсы Office 365 пользователя в том же регионе, в котором находится пользователь. |
 | **Служба синхронизации** | |
 | [Функции службы синхронизации Azure AD Connect](active-directory-aadconnectsyncservice-features.md) |Описание компонента на стороне службы синхронизации и действий по изменению параметров синхронизации в Azure AD. |
 | [Устойчивость повторяющихся атрибутов](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |Описание включения и применения функции устойчивости значений повторяющихся атрибутов **userPrincipalName** и **proxyAddresses**. |
@@ -64,4 +65,3 @@ ms.lasthandoff: 01/18/2018
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-

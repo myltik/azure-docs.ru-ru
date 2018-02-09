@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 043de0e8a934a2fd92522eeb70261203afac180e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 2c64c1dfa558576b47f47c718a80d46ad6687e6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="_Toc395783175"></a>Создание веб-приложения Node.js с использованием Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Этот Node.js учебнике рассказывается, как использовать Azure Cosmos DB и API-Интерфейсы SQL для хранения и доступа к данным из Node.js Express приложения, размещенного на веб-сайтов Azure. Вы создадите простое веб-приложение для управления задачами (приложение ToDo), позволяющее создавать, извлекать и выполнять задачи. Задачи будут храниться в виде документов JSON в Azure Cosmos DB. В этом руководстве описано, как создать и развернуть приложение, а также объясняется каждый фрагмент кода.
+В этом руководстве по Node.js показано, как использовать API Azure Cosmos DB и API SQL для хранения данных и обеспечения доступа к ним из приложения Node.js Express, размещенного на веб-сайтах Azure. Вы создадите простое веб-приложение для управления задачами (приложение ToDo), позволяющее создавать, извлекать и выполнять задачи. Задачи будут храниться в виде документов JSON в Azure Cosmos DB. В этом руководстве описано, как создать и развернуть приложение, а также объясняется каждый фрагмент кода.
 
 ![Снимок экрана приложения "Мой список дел", созданного с помощью этого учебника](./media/sql-api-nodejs-application/cosmos-db-node-js-mytodo.png)
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/18/2017
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js][Node.js] версии 0.10.29 или более поздней.
+* [Node.js][Node.js] версии 0.10.29 или более поздней. Корпорация Майкрософт рекомендует использовать Node.js 6.10 или более поздней версии.
 * [Генератор Express](http://www.expressjs.com/starter/generator.html) (его можно установить через `npm install express-generator -g`).
 * [Git][Git].
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 12/18/2017
    
     ![Изучение Node.js — снимок экрана приложения "Привет, мир" в окне браузера](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
-    Затем, чтобы остановить приложение, нажмите клавиши CTRL + C в окне терминала и щелкните **Y** для завершения пакетного задания.
+    Затем, чтобы остановить приложение, нажмите клавиши CTRL+C в окне терминала, затем щелкните клавишу **Y** для завершения пакетного задания (только на компьютерах Windows).
 
 ## <a name="_Toc395783179"></a>Шаг 3. Установка дополнительных модулей
 Файл **package.json** является одним из файлов, создаваемых в корневой папке проекта. Этот файл содержит список дополнительных модулей, необходимых для приложения Node.js. Позднее, при развертывании этого приложения на веб-сайтах Azure, этот файл будет использоваться для определения модулей, которые должны быть установлены в Azure для поддержки вашего приложения. Для этого учебного примера нам нужно установить еще два пакета.
@@ -91,29 +91,6 @@ ms.lasthandoff: 12/18/2017
 2. Установите модуль **documentdb** с помощью npm. В этом модуле заключена вся "магия" Azure Cosmos DB.
    
         npm install documentdb --save
-3. Быстрая проверка файла **package.json** приложения должна показать дополнительные модули. Этот файл сообщит Azure, какие пакеты следует загрузить и установить при запуске приложения. Он должен выглядеть подобно приведенному ниже примеру.
-   
-        {
-          "name": "todo",
-          "version": "0.0.0",
-          "private": true,
-          "scripts": {
-            "start": "node ./bin/www"
-          },
-          "dependencies": {
-            "async": "^2.1.4",
-            "body-parser": "~1.15.2",
-            "cookie-parser": "~1.4.3",
-            "debug": "~2.2.0",
-            "documentdb": "^1.10.0",
-            "express": "~4.14.0",
-            "jade": "~1.11.0",
-            "morgan": "~1.7.0",
-            "serve-favicon": "~2.3.0"
-          }
-        }
-   
-    Это сообщает Node (и позже Azure), что ваше приложение зависит от указанных дополнительных модулей.
 
 ## <a name="_Toc395783180"></a>Шаг 4. Использование службы Azure Cosmos DB в приложении Node
 После завершения начальной установки и настройки давайте перейдем к собственно написанию кода приложения, использующего Azure Cosmos DB.
@@ -384,13 +361,13 @@ ms.lasthandoff: 12/18/2017
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
         module.exports = config;
-3. В файле **config.js** замените значения HOST и AUTH_KEY значениями, найденными в колонке "Ключи" учетной записи Azure Cosmos DB на [портале Microsoft Azure](https://portal.azure.com).
+3. В файле **config.js** замените значения HOST и AUTH_KEY значениями, найденными на странице "Ключи" учетной записи Azure Cosmos DB на [портале Microsoft Azure](https://portal.azure.com).
 4. Сохраните и закройте файл **config.js** .
 
 ### <a name="modify-appjs"></a>Изменение app.js
@@ -513,7 +490,7 @@ ms.lasthandoff: 12/18/2017
 3. Страница должна обновиться, чтобы отобразить только что созданный элемент в списке ToDo.
    
     ![Снимок экрана приложения с новым элементом в списке дел](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
-4. Чтобы завершить задачу, просто установите флажок в столбце "Завершено" и нажмите кнопку **Обновить задачи**. Созданный документ будет обновлен.
+4. Чтобы завершить задачу, просто установите флажок в столбце "Завершено" и нажмите кнопку **Обновить задачи**. После этого созданный документ будет обновлен и удален из представления.
 
 5. Чтобы остановить приложение, нажмите клавиши CTRL + C в окне терминала и нажмите клавишу **Y** для завершения пакетного задания.
 

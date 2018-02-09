@@ -1,7 +1,7 @@
 ---
 title: "Добавление условий и запуск рабочих процессов в Azure Logic Apps | Документация Майкрософт"
 description: "Узнайте, как управлять запуском рабочих процессов в Azure Logic Apps с помощью добавления условной логики, триггеров, действий и параметров."
-author: stepsic-microsoft-com
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
-ms.author: LADocs; stepsic
-ms.openlocfilehash: 5a3957ffcc149bdaf5c196960c7c7f23913f8b5c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: LADocs; estfan
+ms.openlocfilehash: 751bcc21397effc501931c00afef05f2dab24e4a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-logic-apps-features"></a>Использование функций приложений логики
 

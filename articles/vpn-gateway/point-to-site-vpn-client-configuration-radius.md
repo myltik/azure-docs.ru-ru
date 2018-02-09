@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 01/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 838065287279f1c17e7f294bc919c4a0421e2a58
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Создание и установка файлов конфигурации VPN-клиента для аутентификации при подключениях типа "точка — сеть" с использованием RADIUS
 
@@ -56,7 +56,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 Выполненная команда возвращает ссылку. Скопируйте и вставьте ссылку в веб-браузер, чтобы скачать файл VpnClientConfiguration.zip. Распакуйте файл. Отобразятся следующие папки: 
  
 * **WindowsAmd64** и **WindowsX86**. Эти папки содержат пакеты установщика 64- и 32-разрядной версий Windows. 
-* **GenericDevice**. Эта папка содержит общие сведения для создания конфигурации VPN-клиента. Эта папка не требуется, чтобы настроить аутентификацию имени пользователя и пароля.
+* **Generic**. Эта папка содержит общие сведения для создания конфигурации VPN-клиента. Эта папка не требуется, чтобы настроить аутентификацию имени пользователя и пароля.
 * **Mac**. Если при создании шлюза виртуальной сети настроен протокол IKEv2, отобразится папка с именем Mac, которая содержит файл **mobileconfig**. Этот файл используется для настройки клиентов Mac.
 
 Если вы уже создали файлы конфигурации клиента, получить их можно с помощью командлета Get-AzureRmVpnClientConfiguration. Но если вы измените конфигурацию VPN-подключения "точка — сеть", например тип VPN-протокола или аутентификации, конфигурация не обновится автоматически. Необходимо выполнить командлет New-AzureRmVpnClientConfiguration для создания скачиваемого файла конфигурации.
@@ -125,7 +125,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 Вы можете создать файлы конфигурации VPN-клиента для аутентификации на основе сертификата. Вы можете создать файлы конфигурации VPN-клиента с помощью следующей команды:
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
 Выполненная команда возвращает ссылку. Скопируйте и вставьте ссылку в веб-браузер, чтобы скачать файл VpnClientConfiguration.zip. Распакуйте файл. Отобразятся следующие папки:
@@ -138,7 +138,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 Чтобы получить созданные файлы конфигурации, используйте следующую команду:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
 ## <a name="setupusername"></a> 2. Настройка VPN-клиентов Windows и Mac

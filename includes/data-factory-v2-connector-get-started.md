@@ -1,4 +1,13 @@
 <!--
-    Separate the generic "Getting started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
+    Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-Конвейер можно создать с помощью операции копирования и пакета SDK для .NET, Python, Azure PowerShell или API REST либо с помощью шаблона Azure Resource Manager. Пошаговые инструкции по созданию конвейера с действием копирования см. в [руководстве по действию копирования](../articles/data-factory/quickstart-create-data-factory-dot-net.md).
+Можно создать конвейер с использованием действия копирования, воспользовавшись одним из приведенных ниже инструментов или пакетов SDK. Щелкните ссылку, чтобы перейти к учебнику, содержащему пошаговые инструкции по созданию конвейера с использованием действия копирования. 
+
+- [Средство копирования данных](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
+- [портал Azure](../articles/data-factory/quickstart-create-data-factory-portal.md)
+- [ПАКЕТ SDK .NET](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
+- [Пакет SDK для Python](../articles/data-factory/quickstart-create-data-factory-python.md)
+- [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)
+- [REST API](../articles/data-factory/quickstart-create-data-factory-rest-api.md)
+- [Шаблон Azure Resource Manager](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md) 
+

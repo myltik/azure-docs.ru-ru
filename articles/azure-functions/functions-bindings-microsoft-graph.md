@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Graph привязки для функций Azure"
+title: "Привязки Microsoft Graph для службы \"Функции Azure\""
 description: "Узнайте, как использовать триггеры и привязки Microsoft Graph в решении \"Функции Azure\"."
 services: functions
 author: mattchenderson
@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 63b94c0a9b77a3f3a6fd394a130bf8f132d51369
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 5d0f266047e1b083cdf23f8d1c55950a46406f61
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph привязки для функций Azure
+# <a name="microsoft-graph-bindings-for-azure-functions"></a>Привязки Microsoft Graph для службы "Функции Azure"
 
 В этой статье объясняется, как настраивать и использовать триггеры и привязки Microsoft Graph в решении "Функции Azure". Они помогут вам использовать решение "Функции Azure" для работы с данными, аналитической информацией и событиями в [Microsoft Graph](https://graph.microsoft.io).
 
@@ -25,8 +25,8 @@ ms.lasthandoff: 01/04/2018
 - [Входная привязка токена аутентификации](#token-input) позволяет взаимодействовать с любым API Microsoft Graph.
 - [Входная привязка таблицы Excel](#excel-input) позволяет считывать данные из Excel.
 - [Выходная привязка таблицы Excel](#excel-output) позволяет изменять данные в Excel.
-- Объект [файл OneDrive входной привязки](#onedrive-input) дает возможность чтения файлов из OneDrive.
-- Объект [файл OneDrive привязка для вывода](#onedrive-output) позволяет записывать файлы в OneDrive.
+- [Входная привязка файлов OneDrive](#onedrive-input) позволяет считывать файлы из OneDrive.
+- [Выходная привязка файлов OneDrive](#onedrive-output) позволяет записывать данные в файлы OneDrive.
 - [Выходная привязка сообщений Outlook](#outlook-output) позволяет отправлять сообщения с помощью Outlook.
 - Коллекция [привязок и триггеров веб-перехватчиков Microsoft Graph](#webhooks) позволяет реагировать на события из Microsoft Graph.
 
@@ -37,17 +37,17 @@ ms.lasthandoff: 01/04/2018
 
 ## <a name="setting-up-the-extensions"></a>Настройка расширений
 
-Доступ к привязкам Microsoft Graph можно получить, используя _расширения привязок_. Расширения привязок — это дополнительные компоненты для среды выполнения решения "Функции Azure". В этом разделе показано, как настроить Microsoft Graph и расширения токена проверки подлинности.
+Доступ к привязкам Microsoft Graph можно получить, используя _расширения привязок_. Расширения привязок — это дополнительные компоненты для среды выполнения решения "Функции Azure". В этом разделе объясняется, как настроить расширения Microsoft Graph и маркера проверки подлинности.
 
 ### <a name="enabling-functions-20-preview"></a>Включение выпуска 2.0 решения "Функции Azure" (предварительная версия)
 
-Расширения привязки доступны только для предварительной версии 2.0 функций Azure. 
+Расширения привязок доступны только для выпуска 2.0 решения "Функции Azure" (предварительная версия). 
 
-Сведения о приложении функции для использования версии среды выполнения функции предварительной версии 2.0 см. в разделе [ориентированные на среду выполнения версии 2.0](functions-versions.md#target-the-version-20-runtime).
+Сведения о настройке приложения-функции для использования среды выполнения Функций версии 2.0 (предварительная версия) см. в статье [Выбор целевых версий среды выполнения Функций Azure](set-runtime-version.md).
 
 ### <a name="installing-the-extension"></a>Установка расширения
 
-Чтобы установить расширение на портале Azure, перейдите в шаблоне или привязка, которая ссылается на него. Создайте новую функцию и в окне выбора шаблона выберите сценарий Microsoft Graph. Выберите один из шаблонов в этом сценарии. Кроме того можно перейти на вкладку «Интеграция» существующую функцию и выберите одну из привязок, описанные в данной статье.
+Чтобы установить расширение с портала Azure, перейдите к шаблону или привязке, которые ссылаются на это расширение. Создайте новую функцию и в окне выбора шаблона выберите сценарий Microsoft Graph. Выберите один из шаблонов в этом сценарии. Вы также можете перейти на вкладку "Интегрировать" имеющейся функции и выбрать одну из привязок, которые рассматриваются в этой статье.
 
 В обоих случаях появится предупреждение о том, что необходимо установить расширение. Нажмите кнопку **Установить**, чтобы получить расширение.
 
@@ -58,21 +58,21 @@ ms.lasthandoff: 01/04/2018
 - [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/);
 - [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-### <a name="configuring-authentication--authorization"></a>Настройка проверки подлинности и авторизации
+### <a name="configuring-authentication--authorization"></a>Настройка аутентификации или авторизации
 
-Привязки, описанные в этой статье требуется идентификатор, который необходимо использовать. Это позволит Microsoft Graph принудительно применять разрешения и выполнять аудит взаимодействия. Под удостоверением может подразумеваться пользователь, который пытается получить доступ к приложению, или само приложение. Чтобы настроить это удостоверение, настройте [проверки подлинности службы для приложения / авторизации](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) с Azure Active Directory. Вам также понадобится запросить все разрешения на ресурсы, требуемые для функций.
+Для привязок, приведенных в этой статье, необходимо использовать удостоверение. Это позволит Microsoft Graph принудительно применять разрешения и выполнять аудит взаимодействия. Под удостоверением может подразумеваться пользователь, который пытается получить доступ к приложению, или само приложение. Чтобы настроить это удостоверение, настройте [аутентификацию и авторизацию в службе приложений](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) с помощью Azure Active Directory. Вам также понадобится запросить все разрешения на ресурсы, требуемые для функций.
 
 > [!Note] 
-> Расширения Microsoft Graph поддерживает только проверку подлинности Azure AD. Для входа пользователи должны указывать рабочую или учебную учетную запись.
+> Расширение Microsoft Graph поддерживает только аутентификацию с помощью Azure AD. Для входа пользователи должны указывать рабочую или учебную учетную запись.
 
-Если вы используете портал Azure, вы увидите предупреждение ниже командной строке, чтобы установить расширение. Предупреждение предложит настроить проверку подлинности службы приложения и требует авторизации и запрос все разрешения, шаблон или привязки. Нажмите кнопку **Настройка Azure AD теперь** или **Теперь добавьте разрешения** соответствующим образом.
+Если используется портал Azure, под запросом на установку расширения появится предупреждение о том, что необходимо настроить аутентификацию и авторизацию в службе приложений и запросить все разрешения, требуемые для шаблонов или привязок. Щелкните **Configure Azure AD now** (Настроить Azure AD сейчас) или **Добавить разрешения сейчас** соответственно.
 
 
 
 <a name="token-input"></a>
-## <a name="auth-token"></a>Токен проверки подлинности
+## <a name="auth-token"></a>Маркер проверки подлинности
 
-Привязка ввода токена проверки подлинности возвращает токен Azure AD для данного ресурса и предоставляет его в код в виде строки. Может использоваться любой ресурс, на который у приложения есть разрешения. 
+Эта входная привязка маркера проверки подлинности позволяет получить маркер Azure AD для определенного ресурса и вставить его в код в виде строки. Может использоваться любой ресурс, на который у приложения есть разрешения. 
 
 Этот раздел содержит следующие подразделы:
 
@@ -81,18 +81,18 @@ ms.lasthandoff: 01/04/2018
 * [Конфигурация](#auth-token---configuration)
 * [Использование](#auth-token---usage)
 
-### <a name="auth-token---example"></a>Токен проверки подлинности — пример
+### <a name="auth-token---example"></a>Пример с маркером проверки подлинности
 
 Языковой пример см. в разделах:
 
-* [Скрипт C# (.csx)](#auth-token---c-script-example)
+* [Скрипт C# (CSX)](#auth-token---c-script-example)
 * [JavaScript](#auth-token---javascript-example)
 
-#### <a name="auth-token---c-script-example"></a>Токен проверки подлинности — пример скрипта C#
+#### <a name="auth-token---c-script-example"></a>Пример с маркером проверки подлинности: скрипт C#
 
-Следующий пример возвращает сведения о профиле пользователя.
+В следующем примере возвращаются сведения о профиле пользователя.
 
-*Function.json* файла определяет триггер HTTP с помощью токена входной привязки:
+Файл *function.json* определяет триггер HTTP с входной привязкой маркера:
 
 ```json
 {
@@ -119,7 +119,7 @@ ms.lasthandoff: 01/04/2018
 }
 ```
 
-Код скрипта C# использует маркер, чтобы сделать вызов HTTP для Microsoft Graph и возвращает результат:
+В коде скрипта C# маркер используется для выполнения HTTP-вызова к Microsoft Graph и вывода результатов.
 
 ```csharp
 using System.Net; 
@@ -134,11 +134,11 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string
 }
 ```
 
-#### <a name="auth-token---javascript-example"></a>Токен проверки подлинности — пример JavaScript
+#### <a name="auth-token---javascript-example"></a>Пример с маркером проверки подлинности: JavaScript
 
-Следующий пример возвращает сведения о профиле пользователя.
+В следующем примере возвращаются сведения о профиле пользователя.
 
-*Function.json* файла определяет триггер HTTP с помощью токена входной привязки:
+Файл *function.json* определяет триггер HTTP с входной привязкой маркера:
 
 ```json
 {
@@ -165,7 +165,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string
 }
 ```
 
-Код JavaScript использует маркер, чтобы сделать вызов HTTP для Microsoft Graph и возвращает результат.
+Код JavaScript использует маркер для выполнения HTTP-вызова к Microsoft Graph и вывода результатов.
 
 ```js
 const rp = require('request-promise');
@@ -197,11 +197,11 @@ module.exports = function (context, req) {
 };
 ```
 
-### <a name="auth-token---attributes"></a>Маркер проверки подлинности - атрибуты
+### <a name="auth-token---attributes"></a>Атрибуты маркера проверки подлинности
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [маркера](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/).
 
-### <a name="auth-token---configuration"></a>Маркер проверки подлинности - настройки
+### <a name="auth-token---configuration"></a>Настройка маркера проверки подлинности
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `Token`.
 
@@ -213,12 +213,12 @@ module.exports = function (context, req) {
 |**identity**|**Удостоверение**|Обязательное. Удостоверение, которое будет использоваться для выполнения действия. Принимается одно из следующих значений:<ul><li><code>userFromRequest</code> — применяется только с [триггером HTTP]. Позволяет использовать удостоверение вызывающего пользователя.</li><li><code>userFromId</code> — позволяет использовать удостоверение пользователя, ранее вошедшего в систему, с указанным идентификатором. См. описание свойства <code>userId</code>.</li><li><code>userFromToken</code> — позволяет использовать удостоверение, представленное указанным токеном. См. описание свойства <code>userToken</code>.</li><li><code>clientCredentials</code> — позволяет использовать удостоверение приложения-функции.</li></ul>|
 |**userId**|**UserId**  |Требуется, только если для свойства _identity_ задано значение `userFromId`. Идентификатор субъекта-пользователя, связанный с пользователем, ранее вошедшим в систему.|
 |**userToken**|**UserToken**|Требуется, только если для свойства _identity_ задано значение `userFromToken`. Токен, предназначенный для приложения-функции. |
-|**Ресурс**|**resource**|Требуемая URL ресурсов Azure AD, для которого запрашивается токен.|
+|**Ресурс**|**resource**|Обязательное. URL-адрес ресурса Azure AD, для которого запрашивается маркер.|
 
 <a name="token-input-code"></a>
-### <a name="auth-token---usage"></a>Токен проверки подлинности — использование
+### <a name="auth-token---usage"></a>Использование маркера проверки подлинности
 
-Самой привязки не требуется ни разрешений Azure AD, но в зависимости от того, как используется токен, может потребоваться запросить дополнительные разрешения. Просмотрите требования ресурса, к которому необходимо получить доступ с помощью токена.
+Самой привязке не требуются разрешения Azure AD, но в зависимости от того, как используется маркер, может потребоваться запросить дополнительные разрешения. Просмотрите требования ресурса, к которому необходимо получить доступ с помощью токена.
 
 В коде токен всегда представлен виде строки.
 
@@ -226,9 +226,9 @@ module.exports = function (context, req) {
 
 
 <a name="excel-input"></a>
-## <a name="excel-input"></a>Входные данные Excel
+## <a name="excel-input"></a>Входная привязка Excel
 
-Входной привязки таблицы Excel считывает содержимое таблицы Excel в OneDrive.
+Эта входная привязка таблицы Excel позволяет считывать содержимое из таблицы, хранящейся в OneDrive.
 
 Этот раздел содержит следующие подразделы:
 
@@ -237,16 +237,16 @@ module.exports = function (context, req) {
 * [Конфигурация](#excel-input---configuration)
 * [Использование](#excel-input---usage)
 
-### <a name="excel-input---example"></a>Excel входные данные - пример
+### <a name="excel-input---example"></a>Пример со входной привязкой Excel
 
 Языковой пример см. в разделах:
 
-* [Скрипт C# (.csx)](#excel-input---c-script-example)
+* [Скрипт C# (CSX)](#excel-input---c-script-example)
 * [JavaScript](#excel-input---javascript-example)
 
-#### <a name="excel-input---c-script-example"></a>Excel input — пример скрипта C#
+#### <a name="excel-input---c-script-example"></a>Пример со входной привязкой Excel: скрипт C#
 
-Следующие *function.json* файла определяет триггер HTTP с помощью привязки ввода Excel:
+Следующий файл *function.json* определяет триггер HTTP с входной привязкой Excel:
 
 ```json
 {
@@ -275,7 +275,7 @@ module.exports = function (context, req) {
 }
 ```
 
-Следующий код скрипта C# считывает содержимое указанной таблицы и возвращает их пользователю.
+В следующем коде скрипта C# считывается и возвращается пользователю содержимое указанной таблицы.
 
 ```csharp
 using System.Net;
@@ -288,9 +288,9 @@ public static IActionResult Run(HttpRequest req, string[][] excelTableData, Trac
 }
 ```
 
-#### <a name="excel-input---javascript-example"></a>Excel input — пример JavaScript
+#### <a name="excel-input---javascript-example"></a>Пример со входной привязкой Excel: JavaScript
 
-Следующие *function.json* файла определяет триггер HTTP с помощью привязки ввода Excel:
+Следующий файл *function.json* определяет триггер HTTP с входной привязкой Excel:
 
 ```json
 {
@@ -319,7 +319,7 @@ public static IActionResult Run(HttpRequest req, string[][] excelTableData, Trac
 }
 ```
 
-Следующий код JavaScript, считывает содержимое указанной таблицы и возвращает их пользователю.
+Следующий код скрипта JavaScript считывает и возвращает пользователю содержимое указанной таблицы.
 
 ```js
 module.exports = function (context, req) {
@@ -330,11 +330,11 @@ module.exports = function (context, req) {
 };
 ```
 
-### <a name="excel-input---attributes"></a>Excel входных - атрибуты
+### <a name="excel-input---attributes"></a>Атрибуты входной привязки Excel
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-### <a name="excel-input---configuration"></a>Входные данные — в формате Excel конфигурации
+### <a name="excel-input---configuration"></a>Конфигурация входной привязки Excel
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `Excel`.
 
@@ -351,9 +351,9 @@ module.exports = function (context, req) {
 |**tableName**|**TableName**|Это имя таблицы. Если это свойство не указано, будет использоваться содержимое листа.|
 
 <a name="excel-input-code"></a>
-### <a name="excel-input---usage"></a>Excel input — использование
+### <a name="excel-input---usage"></a>Использование входной привязки Excel
 
-Эта привязка необходимы следующие разрешения Azure AD:
+Для этой привязки требуются следующие разрешения Azure AD:
 |Ресурс|Разрешение|
 |--------|--------|
 |Microsoft Graph|Чтение файлов пользователей|
@@ -373,9 +373,9 @@ module.exports = function (context, req) {
 
 
 <a name="excel-output"></a>
-## <a name="excel-output"></a>В формате Excel
+## <a name="excel-output"></a>Выходная привязка Excel
 
-Excel выходной привязки изменяет содержимое таблицы Excel в OneDrive.
+Эта выходная привязка Excel позволяет изменять содержимое таблицы Excel, хранящейся в OneDrive.
 
 Этот раздел содержит следующие подразделы:
 
@@ -384,18 +384,18 @@ Excel выходной привязки изменяет содержимое т
 * [Конфигурация](#excel-output---configuration)
 * [Использование](#excel-output---usage)
 
-### <a name="excel-output---example"></a>Excel вывод — пример
+### <a name="excel-output---example"></a>Пример с выходной привязкой Excel
 
 Языковой пример см. в разделах:
 
-* [Скрипт C# (.csx)](#excel-output---c-script-example)
+* [Скрипт C# (CSX)](#excel-output---c-script-example)
 * [JavaScript](#excel-output---javascript-example)
 
-#### <a name="excel-output---c-script-example"></a>Output - Excel пример скрипта C#
+#### <a name="excel-output---c-script-example"></a>Пример с выходной привязкой Excel: скрипт C#
 
-Пример добавления строк в таблицу Excel.
+Показанный ниже пример добавляет строки в таблицу Excel.
 
-*Function.json* файл определяет триггер HTTP с помощью Excel привязка для вывода:
+Файл *function.json* определяет триггер HTTP с выходной привязкой Excel.
 
 ```json
 {
@@ -425,7 +425,7 @@ Excel выходной привязки изменяет содержимое т
 }
 ```
 
-Код скрипта C# добавляет новую строку в таблицу (предполагается один столбец) на основе данных из строки запроса:
+В следующем коде скрипта C# в таблицу (предполагается, что это таблица с одним столбцом) добавляется новая строка на основе входных данных из строки запроса.
 
 ```csharp
 using System.Net;
@@ -444,11 +444,11 @@ public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRo
 }
 ```
 
-#### <a name="excel-output---javascript-example"></a>Output - Excel пример JavaScript
+#### <a name="excel-output---javascript-example"></a>Пример с выходной привязкой Excel: JavaScript
 
-Пример добавления строк в таблицу Excel.
+Показанный ниже пример добавляет строки в таблицу Excel.
 
-*Function.json* файл определяет триггер HTTP с помощью Excel привязка для вывода:
+Файл *function.json* определяет триггер HTTP с выходной привязкой Excel.
 
 ```json
 {
@@ -478,7 +478,7 @@ public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRo
 }
 ```
 
-Следующий код JavaScript добавляет новую строку в таблицу (предполагается один столбец) на основании входных данных из строки запроса.
+В следующем примере кода JavaScript в таблицу (предполагается, что это таблица с одним столбцом) добавляется новая строка на основе входных данных из строки запроса.
 
 ```js
 module.exports = function (context, req) {
@@ -490,11 +490,11 @@ module.exports = function (context, req) {
 };
 ```
 
-### <a name="excel-output---attributes"></a>Excel результаты - атрибуты
+### <a name="excel-output---attributes"></a>Атрибуты выходной привязки Excel
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-### <a name="excel-output---configuration"></a>Excel вывода - конфигурации
+### <a name="excel-output---configuration"></a>Конфигурация выходной привязки Excel
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `Excel`.
 
@@ -509,12 +509,12 @@ module.exports = function (context, req) {
 |**path**|**Путь**|Обязательное. Путь к книге Excel в OneDrive.|
 |**worksheetName**|**WorksheetName**|Лист, на котором находится таблица.|
 |**tableName**|**TableName**|Это имя таблицы. Если это свойство не указано, будет использоваться содержимое листа.|
-|**updateType**|**Тип обновления**|Обязательное. Тип изменения, которое требуется внести в таблицу. Принимается одно из следующих значений:<ul><li><code>update</code> — замена содержимого таблицы в OneDrive.</li><li><code>append</code> — добавление полезных данных в конец таблицы в OneDrive путем создания новых строк.</li></ul>|
+|**updateType**|**UpdateType**|Обязательное. Тип изменения, которое требуется внести в таблицу. Принимается одно из следующих значений:<ul><li><code>update</code> — замена содержимого таблицы в OneDrive.</li><li><code>append</code> — добавление полезных данных в конец таблицы в OneDrive путем создания новых строк.</li></ul>|
 
 <a name="excel-output-code"></a>
-### <a name="excel-output---usage"></a>Output - Excel использования
+### <a name="excel-output---usage"></a>Использование выходной привязки Excel
 
-Эта привязка необходимы следующие разрешения Azure AD:
+Для этой привязки требуются следующие разрешения Azure AD:
 |Ресурс|Разрешение|
 |--------|--------|
 |Microsoft Graph|Полный доступ к файлам пользователя|
@@ -530,9 +530,9 @@ module.exports = function (context, req) {
 
 
 <a name="onedrive-input"></a>
-## <a name="file-input"></a>Файл входных данных
+## <a name="file-input"></a>Входная привязка файла
 
-Привязки входного файла OneDrive считывает содержимое файла, сохраненным в OneDrive.
+Эта входная привязка файлов OneDrive позволяет считывать содержимое файла, хранящегося в OneDrive.
 
 Этот раздел содержит следующие подразделы:
 
@@ -541,18 +541,18 @@ module.exports = function (context, req) {
 * [Конфигурация](#file-input---configuration)
 * [Использование](#file-input---usage)
 
-### <a name="file-input---example"></a>Файлового ввода - пример
+### <a name="file-input---example"></a>Пример со входной привязкой файла
 
 Языковой пример см. в разделах:
 
-* [Скрипт C# (.csx)](#file-input---c-script-example)
+* [Скрипт C# (CSX)](#file-input---c-script-example)
 * [JavaScript](#file-input---javascript-example)
 
-#### <a name="file-input---c-script-example"></a>Файлового ввода - пример скрипта C#
+#### <a name="file-input---c-script-example"></a>Пример со входной привязкой файла: скрипт C#
 
-В следующем примере считывается файл, который хранится в OneDrive.
+В следующем примере считывается файл, хранящийся в OneDrive.
 
-*Function.json* файла определяет триггер HTTP с привязкой входной файл OneDrive:
+Файл *function.json* определяет триггер HTTP с входной привязкой файла OneDrive:
 
 ```json
 {
@@ -580,7 +580,7 @@ module.exports = function (context, req) {
 }
 ```
 
-Код скрипта C# считывает файл, указанный в строке запроса и регистрирует его длина:
+В следующем коде скрипта C# считывается файл, указанный в строке запроса, и регистрируется размер файла.
 
 ```csharp
 using System.Net;
@@ -591,11 +591,11 @@ public static void Run(HttpRequestMessage req, Stream myOneDriveFile, TraceWrite
 }
 ```
 
-#### <a name="file-input---javascript-example"></a>Файлового ввода - пример JavaScript
+#### <a name="file-input---javascript-example"></a>Пример со входной привязкой файла: JavaScript
 
-В следующем примере считывается файл, который хранится в OneDrive.
+В следующем примере считывается файл, хранящийся в OneDrive.
 
-*Function.json* файла определяет триггер HTTP с привязкой входной файл OneDrive:
+Файл *function.json* определяет триггер HTTP с входной привязкой файла OneDrive:
 
 ```json
 {
@@ -623,7 +623,7 @@ public static void Run(HttpRequestMessage req, Stream myOneDriveFile, TraceWrite
 }
 ```
 
-Следующий код JavaScript, считывает файл, указанный в строке запроса и возвращает его длину.
+Следующий код JavaScript считывает файл, указанный в строке запроса, и возвращает размер файла.
 
 ```js
 module.exports = function (context, req) {
@@ -634,11 +634,11 @@ module.exports = function (context, req) {
 };
 ```
 
-### <a name="file-input---attributes"></a>Файлового ввода - атрибуты
+### <a name="file-input---attributes"></a>Атрибуты входной привязки файла
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-### <a name="file-input---configuration"></a>Файлового ввода - конфигурации
+### <a name="file-input---configuration"></a>Конфигурация входной привязки файла
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `OneDrive`.
 
@@ -653,9 +653,9 @@ module.exports = function (context, req) {
 |**path**|**Путь**|Обязательное. Путь к файлу в OneDrive.|
 
 <a name="onedrive-input-code"></a>
-### <a name="file-input---usage"></a>Файлового ввода - использования
+### <a name="file-input---usage"></a>Использование входной привязки файла
 
-Эта привязка необходимы следующие разрешения Azure AD:
+Для этой привязки требуются следующие разрешения Azure AD:
 |Ресурс|Разрешение|
 |--------|--------|
 |Microsoft Graph|Чтение файлов пользователей|
@@ -672,9 +672,9 @@ module.exports = function (context, req) {
 
 
 <a name="onedrive-output"></a>
-## <a name="file-output"></a>Выходной файл
+## <a name="file-output"></a>Выходная привязка файла
 
-Файл OneDrive выходной привязки изменяет содержимое файлов, хранящихся в OneDrive.
+Эта выходная привязка файла OneDrive позволяет изменять содержимое файла, хранящегося в OneDrive.
 
 Этот раздел содержит следующие подразделы:
 
@@ -683,18 +683,18 @@ module.exports = function (context, req) {
 * [Конфигурация](#file-output---configuration)
 * [Использование](#file-output---usage)
 
-### <a name="file-output---example"></a>Файл вывода - пример
+### <a name="file-output---example"></a>Пример с выходной привязкой файла
 
 Языковой пример см. в разделах:
 
-* [Скрипт C# (.csx)](#file-output---c-script-example)
+* [Скрипт C# (CSX)](#file-output---c-script-example)
 * [JavaScript](#file-output---javascript-example)
 
-#### <a name="file-output---c-script-example"></a>Файл вывода - пример скрипта C#
+#### <a name="file-output---c-script-example"></a>Пример с выходной привязкой файла: скрипт C#
 
-Следующий пример записывает в файл, который хранится в OneDrive.
+В следующем примере данные записываются в файл, хранящийся в OneDrive.
 
-*Function.json* файл определяет триггер HTTP с OneDrive привязка для вывода:
+Файл *function.json* определяет триггер HTTP с выходной привязкой OneDrive:
 
 ```json
 {
@@ -722,7 +722,7 @@ module.exports = function (context, req) {
 }
 ```
 
-Код C# сценарий получает текст из строки запроса и записывает его в текстовый файл (FunctionsTest.txt, определенный в предыдущем примере) в корне вызывающего OneDrive:
+В следующем коде скрипта C# текст извлекается из строки запроса и записывается в текстовый файл (FunctionsTest.txt, как определено в предыдущем примере) в корневой папке в OneDrive вызывающего пользователя.
 
 ```csharp
 using System.Net;
@@ -738,11 +738,11 @@ public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDrive
 }
 ```
 
-#### <a name="file-output---javascript-example"></a>Файл вывода - пример JavaScript
+#### <a name="file-output---javascript-example"></a>Пример с выходной привязкой файла: JavaScript
 
-Следующий пример записывает в файл, который хранится в OneDrive.
+В следующем примере данные записываются в файл, хранящийся в OneDrive.
 
-*Function.json* файл определяет триггер HTTP с OneDrive привязка для вывода:
+Файл *function.json* определяет триггер HTTP с выходной привязкой OneDrive:
 
 ```json
 {
@@ -770,7 +770,7 @@ public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDrive
 }
 ```
 
-Код JavaScript получает текст из строки запроса и записывает его в текстовый файл (FunctionsTest.txt, как определено в файле config выше) в корне OneDrive вызывающего.
+В коде JavaScript текст извлекается из строки запроса и записывается в текстовый файл (FunctionsTest.txt, как определено в файле конфигурации выше) в корневой папке в OneDrive вызывающего пользователя.
 
 ```js
 module.exports = function (context, req) {
@@ -779,11 +779,11 @@ module.exports = function (context, req) {
 };
 ```
 
-### <a name="file-output---attributes"></a>Файл вывода - атрибуты
+### <a name="file-output---attributes"></a>Атрибуты выходной привязки файла
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-### <a name="file-output---configuration"></a>Выходные данные - файл конфигурации
+### <a name="file-output---configuration"></a>Конфигурация выходной привязки файла
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `OneDrive`.
 
@@ -798,9 +798,9 @@ module.exports = function (context, req) {
 |**path**|**Путь**|Обязательное. Путь к файлу в OneDrive.|
 
 <a name="onedrive-output-code"></a>
-#### <a name="file-output---usage"></a>Файл вывода - использования
+#### <a name="file-output---usage"></a>Использование выходной привязки файла
 
-Эта привязка необходимы следующие разрешения Azure AD:
+Для этой привязки требуются следующие разрешения Azure AD:
 |Ресурс|Разрешение|
 |--------|--------|
 |Microsoft Graph|Полный доступ к файлам пользователя|
@@ -816,9 +816,9 @@ module.exports = function (context, req) {
 
 
 <a name="outlook-output"></a>
-## <a name="outlook-output"></a>Выходные данные Outlook
+## <a name="outlook-output"></a>Выходная привязка Outlook
 
-Сообщения Outlook вывода привязки отправляет сообщение электронной почты через Outlook.
+Выходная привязка сообщений Outlook позволяет отправлять сообщения электронной почты через Outlook.
 
 Этот раздел содержит следующие подразделы:
 
@@ -827,18 +827,18 @@ module.exports = function (context, req) {
 * [Конфигурация](#outlook-output---configuration)
 * [Использование](#outlook-outnput---usage)
 
-### <a name="outlook-output---example"></a>Вывод Outlook — пример
+### <a name="outlook-output---example"></a>Пример с выходной привязкой Outlook
 
 Языковой пример см. в разделах:
 
-* [Скрипт C# (.csx)](#outlook-output---c-script-example)
+* [Скрипт C# (CSX)](#outlook-output---c-script-example)
 * [JavaScript](#outlook-output---javascript-example)
 
-#### <a name="outlook-output---c-script-example"></a>Outlook результаты - пример скрипта C#
+#### <a name="outlook-output---c-script-example"></a>Пример с выходной привязкой Outlook: скрипт C#
 
-Следующий пример отправляет по электронной почте через Outlook.
+Следующий пример позволяет отправлять сообщения электронной почты через Outlook.
 
-*Function.json* файл определяет триггер HTTP с Outlook привязка для вывода сообщений:
+Файл *function.json* определяет триггер HTTP с выходной привязкой сообщений Outlook:
 
 ```json
 {
@@ -859,7 +859,7 @@ module.exports = function (context, req) {
 }
 ```
 
-Код скрипта C# отправляет почту из вызывающего получателя, указанного в строке запроса:
+В следующем коде скрипта C# отправляется электронное сообщение от вызывающего пользователя получателю, указанному в строке запроса.
 
 ```csharp
 using System.Net;
@@ -888,11 +888,11 @@ public class Recipient {
 }
 ```
 
-#### <a name="outlook-output---javascript-example"></a>Outlook результаты - пример JavaScript
+#### <a name="outlook-output---javascript-example"></a>Пример с выходной привязкой Outlook: JavaScript
 
-Следующий пример отправляет по электронной почте через Outlook.
+Следующий пример позволяет отправлять сообщения электронной почты через Outlook.
 
-*Function.json* файл определяет триггер HTTP с Outlook привязка для вывода сообщений:
+Файл *function.json* определяет триггер HTTP с выходной привязкой сообщений Outlook:
 
 ```json
 {
@@ -913,7 +913,7 @@ public class Recipient {
 }
 ```
 
-Код JavaScript отправляет почту из вызывающего получателя, указанного в строке запроса:
+В коде JavaScript отправляется электронное сообщение от вызывающего пользователя получателю, указанному в строке запроса.
 
 ```js
 module.exports = function (context, req) {
@@ -928,11 +928,11 @@ module.exports = function (context, req) {
 };
 ```
 
-### <a name="outlook-output---attributes"></a>Outlook результаты - атрибуты
+### <a name="outlook-output---attributes"></a>Атрибуты выходной привязки Outlook
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-### <a name="outlook-output---configuration"></a>Выходные данные Outlook - конфигурации
+### <a name="outlook-output---configuration"></a>Конфигурация выходной привязки Outlook
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `Outlook`.
 
@@ -946,9 +946,9 @@ module.exports = function (context, req) {
 |**userToken**|**UserToken**|Требуется, только если для свойства _identity_ задано значение `userFromToken`. Токен, предназначенный для приложения-функции. |
 
 <a name="outlook-output-code"></a>
-### <a name="outlook-output---usage"></a>Output - Outlook использования
+### <a name="outlook-output---usage"></a>Использование выходной привязки Outlook
 
-Эта привязка необходимы следующие разрешения Azure AD:
+Для этой привязки требуются следующие разрешения Azure AD:
 |Ресурс|Разрешение|
 |--------|--------|
 |Microsoft Graph|Отправка почты от имени пользователя|
@@ -966,14 +966,14 @@ module.exports = function (context, req) {
 
 ## <a name="webhooks"></a>Объекты Webhook
 
-Веб-перехватчики позволяют реагировать на события с помощью Microsoft Graph. Для поддержки веб-перехватчиков функциям требуется возможность создавать и обновлять _подписки на веб-перехватчики_, а также реагировать на них. Сочетание следующие привязки, необходимых для завершения веб-перехватчика решения:
+Веб-перехватчики позволяют реагировать на события с помощью Microsoft Graph. Для поддержки веб-перехватчиков функциям требуется возможность создавать и обновлять _подписки на веб-перехватчики_, а также реагировать на них. Для полноценного решения веб-перехватчика требуется сочетание следующих привязок:
 - [Триггер веб-перехватчика Microsoft Graph](#webhook-trigger) — позволяет реагировать на действия входящего веб-перехватчика.
 - [Входная привязка подписок на веб-перехватчики Microsoft Graph](#webhook-input) — позволяет вывести список существующих подписок и при необходимости обновить их.
 - [Выходная привязка подписок на веб-перехватчики Microsoft Graph](#webhook-output) — позволяет создавать и удалять подписки на веб-перехватчики.
 
-Привязки не требуется ни разрешений Azure AD, но необходимо запрашивать разрешения, относящиеся к тип ресурса, который вы хотите реагировать на. Список необходимых разрешений для каждого типа ресурса см. в разделе [о разрешениях для подписок](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
+Самим привязкам не требуются разрешения Azure AD, но вам необходимо запросить разрешения в соответствии с типом ресурса, на действия которого необходимо реагировать. Список необходимых разрешений для каждого типа ресурса см. в разделе [о разрешениях для подписок](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
 
-Дополнительные сведения о веб-привязок см. в разделе [работа с веб-привязок в Microsoft Graph].
+Дополнительные сведения о веб-перехватчиках см. в статье [Работа с веб-перехватчиками в Microsoft Graph].
 
 
 
@@ -981,7 +981,7 @@ module.exports = function (context, req) {
 
 ## <a name="webhook-trigger"></a>Триггер веб-перехватчика
 
-Триггер веб-перехватчика Microsoft Graph позволяет функцию реагировать на перехватчик входящих Microsoft Graph. Каждый экземпляр этого триггера может реагировать на один тип ресурса Microsoft Graph.
+Этот триггер веб-перехватчика Microsoft Graph позволяет функции реагировать на действия входящего веб-перехватчика в Microsoft Graph. Каждый экземпляр этого триггера может реагировать на один тип ресурса Microsoft Graph.
 
 Этот раздел содержит следующие подразделы:
 
@@ -990,18 +990,18 @@ module.exports = function (context, req) {
 * [Конфигурация](#webhook-trigger---configuration)
 * [Использование](#webhook-trigger---usage)
 
-### <a name="webhook-trigger---example"></a>Веб-перехватчика триггер - пример
+### <a name="webhook-trigger---example"></a>Пример с триггером веб-перехватчика
 
 Языковой пример см. в разделах:
 
-* [Скрипт C# (.csx)](#webhook-trigger---c-script-example)
+* [Скрипт C# (CSX)](#webhook-trigger---c-script-example)
 * [JavaScript](#webhook-trigger---javascript-example)
 
-#### <a name="webhook-trigger---c-script-example"></a>Веб-перехватчика триггер - пример скрипта C#
+#### <a name="webhook-trigger---c-script-example"></a>Пример с триггером веб-перехватчика: скрипт C#
 
-Следующий пример обрабатывает веб-перехватчиков для входящих сообщений Outlook. Для использования веб-перехватчика триггера вы [создать подписку](#webhook-output---example), и вы можете [обновление подписки](#webhook-subscription-refresh) чтобы предотвратить истечение срока действия.
+В следующем примере обрабатываются веб-перехватчики для входящих сообщений Outlook. Чтобы использовать триггер веб-перехватчика, необходимо [создать подписку](#webhook-output---example). Вы также можете [обновить подписку](#webhook-subscription-refresh), чтобы предотвратить истечение ее срока действия.
 
-*Function.json* файл определяет триггер веб-перехватчика:
+Файл *function.json* определяет триггер веб-перехватчика:
 
 ```json
 {
@@ -1017,7 +1017,7 @@ module.exports = function (context, req) {
 }
 ```
 
-Код скрипта C# реагирует на входящие почтовые сообщения и журналы текст из них отправленное получателем и имеющее «Функции Azure» в поле темы:
+В следующем примере кода скрипта C# показана реакция на входящие электронные сообщения и регистрация текста сообщений с темой "Функции Azure", отправленных получателем.
 
 ```csharp
 #r "Microsoft.Graph"
@@ -1035,11 +1035,11 @@ public static async Task Run(Message msg, TraceWriter log)
 }
 ```
 
-#### <a name="webhook-trigger---javascript-example"></a>Веб-перехватчика триггер - пример JavaScript
+#### <a name="webhook-trigger---javascript-example"></a>Пример с триггером веб-перехватчика: JavaScript
 
-Следующий пример обрабатывает веб-перехватчиков для входящих сообщений Outlook. Для использования веб-перехватчика триггера вы [создать подписку](#webhook-output---example), и вы можете [обновление подписки](#webhook-subscription-refresh) чтобы предотвратить истечение срока действия.
+В следующем примере обрабатываются веб-перехватчики для входящих сообщений Outlook. Чтобы использовать триггер веб-перехватчика, необходимо [создать подписку](#webhook-output---example). Вы также можете [обновить подписку](#webhook-subscription-refresh), чтобы предотвратить истечение ее срока действия.
 
-*Function.json* файл определяет триггер веб-перехватчика:
+Файл *function.json* определяет триггер веб-перехватчика:
 
 ```json
 {
@@ -1055,7 +1055,7 @@ public static async Task Run(Message msg, TraceWriter log)
 }
 ```
 
-Код JavaScript реагирует на входящие почтовые сообщения и журналы текст из них отправленное получателем и имеющее «Функции Azure» в поле темы:
+В коде JavaScript показана реакция на входящие электронные сообщения и регистрация текста сообщений с темой "Функции Azure", отправленных получателем.
 
 ```js
 module.exports = function (context) {
@@ -1069,11 +1069,11 @@ module.exports = function (context) {
 };
 ```
 
-### <a name="webhook-trigger---attributes"></a>Веб-перехватчика триггер - атрибуты
+### <a name="webhook-trigger---attributes"></a>Атрибуты триггера веб-перехватчика
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-### <a name="webhook-trigger---configuration"></a>Веб-перехватчика триггер - конфигурации
+### <a name="webhook-trigger---configuration"></a>Конфигурация триггера веб-перехватчика
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `GraphWebHookTrigger`.
 
@@ -1082,24 +1082,24 @@ module.exports = function (context) {
 |**name**||Обязательное. Имя переменной, используемое в коде функции для сообщения электронной почты. Дополнительные сведения см. в разделе [Использование выходной привязки сообщений Outlook в коде](#outlook-output-code).|
 |**type**||Обязательное. Необходимо задать значение `graphWebhook`.|
 |**direction**||Обязательное. Необходимо задать значение `trigger`.|
-|**resourceType**|**Типа ресурса**|Обязательное. Ресурс Graph, для которого эта функция должна отвечать на вызовы веб-перехватчиков. Принимается одно из следующих значений:<ul><li><code>#Microsoft.Graph.Message</code> — изменения, которые вносятся в сообщения Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code> — изменения, которые вносятся в корневые элементы OneDrive.</li><li><code>#Microsoft.Graph.Contact</code>-изменения, внесенные в личных контактов в Outlook.</li><li><code>#Microsoft.Graph.Event</code>-изменения, внесенные в элементы календаря Outlook.</li></ul>|
+|**resourceType**|**ResourceType**|Обязательное. Ресурс Graph, для которого эта функция должна отвечать на вызовы веб-перехватчиков. Принимается одно из следующих значений:<ul><li><code>#Microsoft.Graph.Message</code> — изменения, которые вносятся в сообщения Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code> — изменения, которые вносятся в корневые элементы OneDrive.</li><li><code>#Microsoft.Graph.Contact</code> —изменения, которые вносятся в личные контакты в Outlook.</li><li><code>#Microsoft.Graph.Event</code> — изменения, которые вносятся в элементы календаря Outlook.</li></ul>|
 
 > [!Note]
-> Приложение функция может иметь только одну функцию, зарегистрированного для данного `resourceType` значение.
+> У приложения-функции может быть только одна функция, зарегистрированная для заданного значения `resourceType`.
 
-### <a name="webhook-trigger---usage"></a>Веб-перехватчика триггер - использования
+### <a name="webhook-trigger---usage"></a>Использование триггера веб-перехватчика
 
 Привязка предоставляет следующие типы функций .NET:
-- Пакет SDK для Microsoft Graph типы актуальны для типа ресурса, например `Microsoft.Graph.Message` или `Microsoft.Graph.DriveItem`.
+- Типы пакетов SDK для Microsoft Graph, соответствующие типам ресурсов, например `Microsoft.Graph.Message` или `Microsoft.Graph.DriveItem`.
 - пользовательские типы объектов (указанные с помощью привязки структурной модели).
 
 
 
 
 <a name="webhook-input"></a>
-## <a name="webhook-input"></a>Входные данные веб-перехватчика
+## <a name="webhook-input"></a>Входная привязка веб-перехватчика
 
-Входной привязки веб-перехватчика Microsoft Graph позволяет получить список подписок, управляемых этим приложением функции. Привязки считывает из функции приложения хранилища, поэтому он не отражает другие подписки, созданные из за пределами приложения.
+Входная привязка веб-перехватчика в Microsoft Graph позволяет получить список подписок, управляемых этим приложением-функцией. Привязка позволяет считывать данные из хранилища приложений-функций и не выводит другие подписки, созданные вне приложения.
 
 Этот раздел содержит следующие подразделы:
 
@@ -1108,18 +1108,18 @@ module.exports = function (context) {
 * [Конфигурация](#webhook-input---configuration)
 * [Использование](#webhook-input---usage)
 
-### <a name="webhook-input---example"></a>Входные данные веб-перехватчика - пример
+### <a name="webhook-input---example"></a>Пример со входной привязкой веб-перехватчика
 
 Языковой пример см. в разделах:
 
-* [Скрипт C# (.csx)](#webhook-input---c-script-example)
+* [Скрипт C# (CSX)](#webhook-input---c-script-example)
 * [JavaScript](#webhook-input---javascript-example)
 
-#### <a name="webhook-input---c-script-example"></a>Input — веб-перехватчика пример скрипта C#
+#### <a name="webhook-input---c-script-example"></a>Пример со входной привязкой веб-перехватчика: скрипт C#
 
-Следующий пример возвращает все подписки для вызывающего пользователя и удаляет их.
+В следующем примере выводятся и удаляются все подписки для вызывающего пользователя.
 
-*Function.json* файла определяет триггер HTTP с привязкой ввода подписки и подписку вывода, привязка, которая использует действие delete:
+Файл *function.json* определяет триггер HTTP с входной и выходной привязкой подписки с использованием действия удаления:
 
 ```json
 {
@@ -1152,7 +1152,7 @@ module.exports = function (context) {
 }
 ```
 
-Код скрипта C# возвращает подписки и удаляет их.
+В следующем коде скрипта C# возвращаются, а затем удаляются подписки.
 
 ```csharp
 using System.Net;
@@ -1168,11 +1168,11 @@ public static async Task Run(HttpRequest req, string[] existingSubscriptions, IA
 }
 ```
 
-#### <a name="webhook-input---javascript-example"></a>Input — веб-перехватчика пример JavaScript
+#### <a name="webhook-input---javascript-example"></a>Пример со входной привязкой веб-перехватчика: JavaScript
 
-Следующий пример возвращает все подписки для вызывающего пользователя и удаляет их.
+В следующем примере выводятся и удаляются все подписки для вызывающего пользователя.
 
-*Function.json* файла определяет триггер HTTP с привязкой ввода подписки и подписку вывода, привязка, которая использует действие delete:
+Файл *function.json* определяет триггер HTTP с входной и выходной привязкой подписки с использованием действия удаления:
 
 ```json
 {
@@ -1205,7 +1205,7 @@ public static async Task Run(HttpRequest req, string[] existingSubscriptions, IA
 }
 ```
 
-Код JavaScript возвращает подписки и удаляет их.
+В коде JavaScript возвращаются, а затем удаляются подписки.
 
 ```js
 module.exports = function (context, req) {
@@ -1220,11 +1220,11 @@ module.exports = function (context, req) {
 };
 ```
 
-### <a name="webhook-input---attributes"></a>Input — веб-перехватчика атрибуты
+### <a name="webhook-input---attributes"></a>Атрибуты входной привязки веб-перехватчика
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-### <a name="webhook-input---configuration"></a>Входные данные веб-перехватчика - конфигурации
+### <a name="webhook-input---configuration"></a>Конфигурация входной привязки веб-перехватчика
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `GraphWebHookSubscription`.
 
@@ -1233,9 +1233,9 @@ module.exports = function (context, req) {
 |**name**||Обязательное. Имя переменной, используемое в коде функции для сообщения электронной почты. Дополнительные сведения см. в разделе [Использование выходной привязки сообщений Outlook в коде](#outlook-output-code).|
 |**type**||Обязательное. Необходимо задать значение `graphWebhookSubscription`.|
 |**direction**||Обязательное. Необходимо задать значение `in`.|
-|**filter**|**Filter**| Если значение `userFromRequest`, то привязка будет получать только подписок, принадлежащих вызывающему пользователю (доступен только при использовании [триггером HTTP]).| 
+|**filter**|**Filter**| Если задано значение `userFromRequest`, привязка будет получать только подписки, принадлежащие вызывающему пользователю (применяется только с [триггером HTTP]).| 
 
-### <a name="webhook-input---usage"></a>Input — веб-перехватчика использования
+### <a name="webhook-input---usage"></a>Использование входной привязки веб-перехватчика
 
 Привязка предоставляет следующие типы функций .NET:
 - string[]
@@ -1247,9 +1247,9 @@ module.exports = function (context, req) {
 
 
 
-## <a name="webhook-output"></a>Выходные данные веб-перехватчика
+## <a name="webhook-output"></a>Выходная привязка веб-перехватчика
 
-Веб-перехватчика подписку вывода привязка позволяет создавать, удалять и обновлять веб-перехватчика подписок в Microsoft Graph.
+Выходная привязка подписки веб-перехватчика позволяет создавать, удалять и обновлять подписки веб-перехватчиков в Microsoft Graph.
 
 Этот раздел содержит следующие подразделы:
 
@@ -1258,18 +1258,18 @@ module.exports = function (context, req) {
 * [Конфигурация](#webhook-output---configuration)
 * [Использование](#webhook-output---usage)
 
-### <a name="webhook-output---example"></a>Выходные данные веб-перехватчика - пример
+### <a name="webhook-output---example"></a>Пример с выходной привязкой веб-перехватчика
 
 Языковой пример см. в разделах:
 
-* [Скрипт C# (.csx)](#webhook-output---c-script-example)
+* [Скрипт C# (CSX)](#webhook-output---c-script-example)
 * [JavaScript](#webhook-output---javascript-example)
 
-#### <a name="webhook-output---c-script-example"></a>Output - веб-перехватчика пример скрипта C#
+#### <a name="webhook-output---c-script-example"></a>Пример с выходной привязкой веб-перехватчика: скрипт C#
 
-В следующем примере создается подписка. Вы можете [обновление подписки](#webhook-subscription-refresh) чтобы предотвратить истечение срока действия.
+В следующем примере создается подписка. Вы можете [обновить подписку](#webhook-subscription-refresh), чтобы предотвратить истечение ее срока действия.
 
-*Function.json* файла определяет триггер HTTP с помощью привязки с использованием действие создания вывода подписки:
+Файл *function.json* определяет триггер HTTP с выходной привязкой подписки с использованием действия создания:
 
 ```json
 {
@@ -1300,7 +1300,7 @@ module.exports = function (context, req) {
 }
 ```
 
-Код скрипта C# регистрирует webhook, который будет уведомлять приложение функции вызывающий пользователь получает сообщение Outlook:
+В следующем коде скрипта C# регистрируется веб-перехватчик, который отправит уведомление этому приложению-функции, когда вызывающий пользователь получит сообщение в Outlook.
 
 ```csharp
 using System;
@@ -1314,11 +1314,11 @@ public static HttpResponseMessage run(HttpRequestMessage req, out string clientS
 }
 ```
 
-#### <a name="webhook-output---javascript-example"></a>Output - веб-перехватчика пример JavaScript
+#### <a name="webhook-output---javascript-example"></a>Пример с выходной привязкой веб-перехватчика: JavaScript
 
-В следующем примере создается подписка. Вы можете [обновление подписки](#webhook-subscription-refresh) чтобы предотвратить истечение срока действия.
+В следующем примере создается подписка. Вы можете [обновить подписку](#webhook-subscription-refresh), чтобы предотвратить истечение ее срока действия.
 
-*Function.json* файла определяет триггер HTTP с помощью привязки с использованием действие создания вывода подписки:
+Файл *function.json* определяет триггер HTTP с выходной привязкой подписки с использованием действия создания:
 
 ```json
 {
@@ -1349,7 +1349,7 @@ public static HttpResponseMessage run(HttpRequestMessage req, out string clientS
 }
 ```
 
-Код JavaScript регистрирует webhook, который будет уведомлять приложение функции вызывающий пользователь получает сообщение Outlook:
+В коде JavaScript показана регистрация веб-перехватчика, который отправит уведомление этому приложению-функции, когда вызывающий пользователь получит сообщение в Outlook.
 
 ```js
 const uuidv4 = require('uuid/v4');
@@ -1360,11 +1360,11 @@ module.exports = function (context, req) {
 };
 ```
 
-### <a name="webhook-output---attributes"></a>Output - веб-перехватчика атрибуты
+### <a name="webhook-output---attributes"></a>Атрибуты выходной привязки веб-перехватчика
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) атрибут, который определен в пакет NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-### <a name="webhook-output---configuration"></a>Выходные данные веб-перехватчика - конфигурации
+### <a name="webhook-output---configuration"></a>Конфигурация выходной привязки веб-перехватчика
 
 В следующей таблице описываются свойства конфигурации привязки, которые задаются в файле *function.json* и атрибуте `GraphWebHookSubscription`.
 
@@ -1377,10 +1377,10 @@ module.exports = function (context, req) {
 |**userId**|**UserId**  |Требуется, только если для свойства _identity_ задано значение `userFromId`. Идентификатор субъекта-пользователя, связанный с пользователем, ранее вошедшим в систему.|
 |**userToken**|**UserToken**|Требуется, только если для свойства _identity_ задано значение `userFromToken`. Токен, предназначенный для приложения-функции. |
 |**action**|**Действие**|Обязательное. Указывает действие, которое необходимо выполнить с помощью привязки. Принимается одно из следующих значений:<ul><li><code>create</code> — регистрация новой подписки.</li><li><code>delete</code> — удаление указанной подписки.</li><li><code>refresh</code> — обновление указанной подписки. Позволяет предотвратить истечение срока действия.</li></ul>|
-|**subscriptionResource**|**SubscriptionResource**|Требуется, только если для свойства _action_ задано значение `create`. Указывает ресурс Microsoft Graph, изменения которого будут отслеживаться. Дополнительные сведения см. в статье [работа с веб-привязок в Microsoft Graph]. |
+|**subscriptionResource**|**subscriptionResource**|Требуется, только если для свойства _action_ задано значение `create`. Указывает ресурс Microsoft Graph, изменения которого будут отслеживаться. Дополнительные сведения см. в статье [Работа с веб-перехватчиками в Microsoft Graph]. |
 |**changeType**|**ChangeType**|Требуется, только если для свойства _action_ задано значение `create`. Указывает тип изменения в подписанном ресурсе, при внесении которого будет создано уведомление. Поддерживаются такие значения: `created`, `updated`, `deleted`. Можно объединить несколько значений, указав их через запятую.|
 
-### <a name="webhook-output---usage"></a>Output - веб-перехватчика использования
+### <a name="webhook-output---usage"></a>Использование выходной привязки веб-перехватчика
 
 Привязка предоставляет следующие типы функций .NET:
 - строка
@@ -1397,23 +1397,23 @@ module.exports = function (context, req) {
 - Использование удостоверения приложения для всех подписок. Для этого потребуется согласие администратора Azure Active Directory. Этот способ можно применять ко всем языкам, которые поддерживает решение "Функции Azure".
 - Использование удостоверения, связанного с каждой подпиской, путем привязки каждого идентификатора пользователя вручную. В этом случае для выполнения привязки потребуется пользовательский код. Этот метод можно использовать только с функциями .NET.
 
-Этот раздел содержит пример для каждого из этих подходов:
+В этом разделе содержатся примеры для каждого из этих подходов:
 
-* [Пример идентификаторов приложений](#webhook-subscription-refresh---app-identity-example)
-* [Пример удостоверение пользователя](#webhook-subscription-refresh---user-identity-example)
+* [Пример с удостоверением приложения](#webhook-subscription-refresh---app-identity-example)
+* [Пример с удостоверением пользователя](#webhook-subscription-refresh---user-identity-example)
 
-### <a name="webhook-subscription-refresh---app-identity-example"></a>Обновление подписки веб-перехватчика - пример идентификаторов приложений
+### <a name="webhook-subscription-refresh---app-identity-example"></a>Пример обновления подписки веб-перехватчика с использованием удостоверения приложения
 
 Языковой пример см. в разделах:
 
-* [Скрипт C# (.csx)](#app-identity-refresh---c-script-example)
+* [Скрипт C# (CSX)](#app-identity-refresh---c-script-example)
 * [JavaScript](#app-identity-refresh---javascript-example)
 
-### <a name="app-identity-refresh---c-script-example"></a>Обновление удостоверения приложение - пример скрипта C#
+### <a name="app-identity-refresh---c-script-example"></a>Пример обновления с использованием удостоверения приложения: скрипт C#
 
-Следующий пример использует удостоверение приложения для обновления подписки.
+В следующем примере для обновления подписки используется удостоверение приложения.
 
-*Function.json* определяет триггер таймера в подписку входной привязки и подписку вывода привязки:
+Файл *function.json* определяет триггер таймера со входной и выходной привязками подписки.
 
 ```json
 {
@@ -1441,7 +1441,7 @@ module.exports = function (context, req) {
 }
 ```
 
-Код скрипта C# обновляет подписок:
+Обновление подписок с использованием кода скрипта C#:
 
 ```csharp
 using System;
@@ -1459,11 +1459,11 @@ public static void Run(TimerInfo myTimer, string[] existingSubscriptions, IColle
 }
 ```
 
-### <a name="app-identity-refresh---c-script-example"></a>Обновление удостоверения приложение - пример скрипта C#
+### <a name="app-identity-refresh---c-script-example"></a>Пример обновления с использованием удостоверения приложения: скрипт C#
 
-Следующий пример использует удостоверение приложения для обновления подписки.
+В следующем примере для обновления подписки используется удостоверение приложения.
 
-*Function.json* определяет триггер таймера в подписку входной привязки и подписку вывода привязки:
+Файл *function.json* определяет триггер таймера со входной и выходной привязками подписки.
 
 ```json
 {
@@ -1491,7 +1491,7 @@ public static void Run(TimerInfo myTimer, string[] existingSubscriptions, IColle
 }
 ```
 
-Код JavaScript обновляет подписок:
+Обновление подписок с использованием кода JavaScript:
 
 ```js
 // This template uses application permissions and requires consent from an Azure Active Directory admin.
@@ -1509,11 +1509,11 @@ module.exports = function (context) {
 };
 ```
 
-### <a name="webhook-subscription-refresh---user-identity-example"></a>Обновление подписки веб-перехватчика - пример удостоверение пользователя
+### <a name="webhook-subscription-refresh---user-identity-example"></a>Пример обновления подписки веб-перехватчика с использованием удостоверения пользователя
 
-Следующий пример использует удостоверение пользователя для обновления подписки.
+В следующем примере для обновления подписки используется удостоверение пользователя.
 
-*Function.json* файла определяет триггер таймера и переложить привязка подписки ввода кода функции:
+Файл *function.json* определяет триггер таймера и передает входную привязку подписки в код функции:
 
 ```json
 {
@@ -1534,7 +1534,7 @@ module.exports = function (context) {
 }
 ```
 
-Код скрипта C# обновляет подписки и создает выходной привязки в коде, используя удостоверение каждого пользователя.
+В следующем примере кода скрипта C# обновляются подписки и создается выходная привязка с использованием удостоверения каждого пользователя.
 
 ```csharp
 using System;
@@ -1566,10 +1566,10 @@ public class UserSubscription {
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)
 
 [триггером HTTP]: functions-bindings-http-webhook.md
-[работа с веб-привязок в Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
+[Работа с веб-перехватчиками в Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks

@@ -3,21 +3,21 @@ title: "Использование MSI виртуальной машины Linux
 description: "Руководство по использованию удостоверений управляемой службы (MSI) виртуальной машины Linux для доступа к хранилищу Azure с учетными данными SAS вместо ключа доступа учетной записи хранения."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: a4dda36ce1ae01c4fe66394a86dd9624b3c41d9f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: d612e71b7a765a2243be54964a56f5be7bfdc09b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Использование управляемого удостоверения службы виртуальной машины Linux для доступа к службе хранилища Azure с учетными данными SAS
 
@@ -33,7 +33,7 @@ SAS службы предоставляет определенной служб�
 > * предоставлять виртуальной машине доступ к подписанным URL-адресам учетной записи хранения в Resource Manager; 
 > * получать маркер доступа с помощью удостоверения виртуальной машины и использовать его для извлечения SAS из Resource Manager. 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -254,7 +254,7 @@ az storage blob download --container-name
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Общие сведения об MSI см. в разделе [Управляемое удостоверение службы (MSI) для Azure Active Directory](../active-directory/msi-overview.md).
 - Чтобы узнать, как выполнить шаги из этого руководства с помощью ключа учетной записи хранения, см. статью [Доступ к службе хранилища Azure с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-storage.md).

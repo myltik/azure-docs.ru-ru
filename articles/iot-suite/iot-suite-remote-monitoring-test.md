@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 0bf1cff4058bfe46b54f3f0b6836ede3e04ed5dd
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Тестирование решения с помощью виртуальных устройств
 
@@ -77,6 +77,10 @@ ms.lasthandoff: 01/24/2018
 > * моделировать реакцию на событие пользовательского устройства;
 > * добавлять новый тип устройства на панель мониторинга;
 > * отправлять пользовательские данные телеметрии из имеющегося типа устройства.
+
+В следующем видео показано пошаговое соединение имитированного и реального устройств с решением для удаленного мониторинга.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
 ## <a name="prerequisites"></a>предварительным требованиям
 

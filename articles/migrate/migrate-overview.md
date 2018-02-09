@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 393f2dfa29b930622a37b8ad90ee17b794c70aeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="about-azure-migrate"></a>Сведения о службе "Миграция Azure"
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="what-do-i-need-to-pay-for"></a>За что будет взиматься плата?
 
-За использование службы "Миграция Azure" не нужно дополнительно платить. Но на этапе общедоступной предварительной версии взимается дополнительная плата за визуализацию зависимостей. Для [визуализации зависимостей](concepts-dependency-visualization.md) в службе "Миграция Azure" по умолчанию создается рабочая область Log Analytics. Если вы используете визуализацию зависимостей или рабочую область вне службы "Миграция Azure", с вас будет взиматься плата за использование рабочей области. [Подробные сведения](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) о тарифах. Когда выйдет общедоступная версия службы, плата за визуализацию зависимостей взиматься не будет.
+См. дополнительные сведения о [ценах на Миграцию Azure](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/).
 
 
 ## <a name="whats-in-an-assessment"></a>Что такое оценка?

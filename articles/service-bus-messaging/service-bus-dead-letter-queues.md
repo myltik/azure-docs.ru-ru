@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: e5070e225387f5d4ae9d49234b4e260a57436291
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a82d70e7bf776bf470d14e7f061774ccbb136316
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Обзор очередей недоставленных сообщений служебной шины
 
-Очереди служебной шины и подписки на разделы формируют дополнительную вложенную очередь, которая называется *очередью недоставленных сообщений* (DLQ). Очередь недоставленных сообщений не нужно создавать явно, также ее нельзя удалить или управлять ею другим образом, независимо от основной сущности.
+Очереди служебной шины Azure и подписки на разделы формируют дополнительную вложенную очередь, которая называется *очередью недоставленных сообщений* (DLQ). Очередь недоставленных сообщений не нужно создавать явно, также ее нельзя удалить или управлять ею другим образом, независимо от основной сущности.
 
-В этой статье рассматриваются очереди недоставленных сообщений в Azure Service Bus. Большую часть статьи иллюстрирует [пример для очередей недоставленных сообщений](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue), доступный на сайте GitHub.
+В этой статье рассматриваются очереди недоставленных сообщений в служебной шине. Большую часть статьи иллюстрирует [пример для очередей недоставленных сообщений](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue), доступный на сайте GitHub.
  
 ## <a name="the-dead-letter-queue"></a>Очередь недоставленных сообщений
 
 Очередь недоставленных сообщений предназначена для хранения сообщений, которые невозможно доставить ни одному адресату, либо сообщений, которые не удалось обработать. Сообщение из очереди DLQ можно извлечь и изучить. Приложение с помощью оператора может исправить проблемы и повторно отправить это сообщение, зарегистрировать ошибку и предпринять действие по исправлению. 
 
-С точки зрения интерфейса API и протокола очередь DLQ очень похожа на другие очереди за исключением того, что сообщения могут отправляться только через жест недоставленных сообщений родительской сущности. Кроме того, в ней не отслеживается время жизни, поэтому удалить сообщение из очереди DLQ невозможно. Очередь недоставленных сообщений полностью поддерживает доставку с блокировкой для просмотра и транзакционные операции.
+С точки зрения интерфейса API и протокола очередь DLQ очень похожа на другие очереди за исключением того, что сообщения могут отправляться только посредством операции недоставленного сообщения родительской сущности. Кроме того, в ней не отслеживается время жизни, поэтому удалить сообщение из очереди DLQ невозможно. Очередь недоставленных сообщений полностью поддерживает доставку с блокировкой для просмотра и транзакционные операции.
 
 Обратите внимание, что автоматическая очистка очереди DLQ не предусмотрена. Сообщения остаются в очереди DLQ, пока вы явно не извлечете их оттуда и не вызовете метод [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) для недоставленного сообщения.
 
@@ -52,19 +52,23 @@ ms.lasthandoff: 10/13/2017
 | Явное перемещение приложением в очередь недоставленных сообщений |Задается приложением |Задается приложением |
 
 ## <a name="exceeding-maxdeliverycount"></a>Превышено значение MaxDeliveryCount
+
 Очереди и подписки имеют свойства [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) и [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) соответственно. Значение по умолчанию — 10. Всякий раз, когда сообщение доставляется с блокировкой ([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), но затем от него явно отказываются или срок действия блокировки истекает, значение счетчика [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) увеличивается. Когда значение [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) превышает [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), сообщение перемещается в очередь DLQ с указанием кода причины `MaxDeliveryCountExceeded`.
 
 Это правило нельзя отключить, однако можно задать для параметра [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) очень большое значение.
 
 ## <a name="exceeding-timetolive"></a>Превышение значения TimeToLive
+
 Когда свойство [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) или [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) имеет значение **true** (по умолчанию — **false**), все просроченные сообщения перемещаются в очередь DLQ с указанием кода причины `TTLExpiredException`.
 
-Обратите внимание, что просроченные сообщения удаляются и, следовательно, перемещаются в очередь DLQ только при наличии по крайней мере одного активного получателя, который получает сообщения из основной очереди или подписки. Это поведение по умолчанию.
+Обратите внимание, что просроченные сообщения удаляются и перемещаются в очередь DLQ только при наличии по крайней мере одного активного получателя, который получает сообщения из основной очереди или подписки. Это поведение по умолчанию.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Ошибки при обработке правил подписки
+
 Когда для подписки активировано свойство [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnFilterEvaluationExceptions), любые ошибки, возникающие при исполнении правила SQL-фильтрации подписки, фиксируются в очереди DLQ вместе с сообщением, вызвавшим ошибку.
 
 ## <a name="application-level-dead-lettering"></a>Недоставленные сообщения на уровне приложения
+
 Помимо системных функций работы с недоставленными сообщениями, приложения могут использовать очередь DLQ для явного отклонения недопустимых сообщений. К ним могут относиться сообщения, которые невозможно должным образом обработать из-за каких-либо системных проблем, сообщения, содержащие полезные данные неправильного формата, или сообщения, не прошедшие проверку подлинности при использовании какой-либо схемы безопасности на уровне сообщений.
 
 ## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>Недоставка сообщений в сценариях ForwardTo или SendVia
@@ -78,6 +82,7 @@ ms.lasthandoff: 10/13/2017
 Для получения этих недоставленных сообщений можно создать получатель с помощью вспомогательного метода [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath).
 
 ## <a name="example"></a>Пример
+
 Следующий фрагмент кода создает получатель сообщений. В цикле получения для основной очереди код получает сообщение с помощью метода [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_), который запрашивает у брокера мгновенный возврат любых доступных сообщений или возврат без результата. Если код получает сообщение, он немедленно отказывается от него, что ведет к увеличению `DeliveryCount`. Когда система перемещает сообщение в очередь DLQ, основная очередь оказывается пуста и осуществляется выход из цикла, так как [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_) возвращает значение **null**.
 
 ```csharp
@@ -97,7 +102,8 @@ while(true)
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
+
 Дополнительные сведения об очередях служебной шины см. в следующих статьях:
 
 * [Начало работы с очередями служебной шины](service-bus-dotnet-get-started-with-queues.md)

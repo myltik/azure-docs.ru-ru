@@ -12,54 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 57a4cb560825e0c05ac49df26ac12ee52da52c3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: d4559007aece8850b4c2d707686effd706ec468c
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-cloud-services"></a>Включение Application Insights Profiler на виртуальных машинах Azure, в Service Fabric и облачных службах
 
-В этой статье показано, как включить Azure Application Insights Profiler в приложении ASP.NET, размещенном в ресурсе службы вычислений Azure. 
+В этой статье показано, как включить Azure Application Insights Profiler в приложении ASP.NET, размещенном в ресурсе службы вычислений Azure.
 
 Примеры в этой статье предусматривают поддержку виртуальных машин Azure, масштабируемых наборов виртуальных машин Azure, Azure Service Fabric и облачных служб Azure. Для всех примеров используются шаблоны, которые поддерживают модель развертывания [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  
 
 
 ## <a name="overview"></a>Обзор
 
-На рисунке ниже показано, как профилировщик Application Insights работает с ресурсами Azure. На этом рисунке в качестве примера используется виртуальная машина Azure.
+На схеме ниже показано, как профилировщик Application Insights работает с вычислительными ресурсами Azure. К вычислительным ресурсам Azure относятся виртуальные машины, масштабируемые наборы виртуальных машин, облачные службы и кластеры Service Fabric. На этом рисунке в качестве примера используется виртуальная машина Azure.  
 
   ![Обзор](./media/enable-profiler-compute/overview.png)
 
 Чтобы включить профилировщик, необходимо изменить конфигурацию в трех местах:
 
-* Область экземпляра Application Insights на портале Azure.
+* колонка экземпляра Application Insights на портале Azure;
 * Исходный код приложения (например, веб-приложения ASP.NET).
-* Исходный код определения развертывания среды (например, JSON-файл шаблона развертывания виртуальной машины).
+* исходный код определения развертывания среды (например, шаблон Azure Resource Manager в JSON-файле).
 
 
 ## <a name="set-up-the-application-insights-instance"></a>Настройка экземпляра Application Insights
 
-На портале Azure создайте экземпляр Application Insights или перейдите к экземпляру, который вы хотите использовать. Запишите ключ инструментирования экземпляра. Ключ инструментирования будет использоваться в других шагах настройки.
+[Создайте новый ресурс Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource) или выберите существующий.
+Перейдите к ресурсу Application Insights и скопируйте ключ инструментирования.
 
   ![Расположение ключа инструментирования](./media/enable-profiler-compute/CopyAIKey.png)
 
-Этот экземпляр должен быть таким же, как приложение. Он настраивается для отправки данных телеметрии после каждого запроса.
-Результаты профилировщика также будут доступны в этом экземпляре.  
-
-На портале Azure выполните действия, описанные в разделе [Включение профилировщика](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler), чтобы завершить настройку экземпляра Application Insights для профилировщика. Для работы с примером в этой статье не нужно связывать веб-приложения. Просто включите профилировщик на портале.
+Затем выполните действия, описанные в разделе [включения профилировщика](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler), чтобы завершить настройку экземпляра Application Insights для профилировщика. Не нужно связывать веб-приложения, так как соответствующие инструкции предназначены для ресурса службы приложений. Просто включите профилировщик в колонке *Настройки* профилировщика.
 
 
 ## <a name="set-up-the-application-source-code"></a>Настройка исходного кода приложения
 
+### <a name="aspnet-web-applications-cloud-services-web-roles-or-service-fabric-aspnet-web-frontend"></a>Веб-приложения ASP.NET, веб-роли облачных служб или внешние веб-приложения ASP.NET в Service Fabric
 Настройте приложение для отправки данных телеметрии в экземпляр Application Insights после каждой операции `Request`.  
 
-1. Добавьте в проект приложения [пакет SDK для Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started). Убедитесь, что версии пакета NuGet совпадают с приведенными ниже:  
+Добавьте в проект приложения [пакет SDK для Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started). Убедитесь, что версии пакета NuGet совпадают с приведенными ниже:  
   - Для приложений ASP.NET: [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) версии 2.3.0 и выше.
   - Для приложений ASP.NET Core: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) версии 2.1.0 и выше.
   - Для других приложений .NET и .NET Core (например, служба без отслеживания состояния Service Fabric, рабочая роль облачной службы): [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) или [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) версии 2.3.0 и выше.  
 
-2. Если приложение *не* является приложением ASP.NET или ASP.NET Core (например, рабочие роли облачных служб Microsoft Azure, API-интерфейсы без отслеживания состояния Service Fabric), потребуется следующая дополнительная настройка инструментирования:  
+### <a name="cloud-services-worker-roles-or-service-fabric-stateless-backend"></a>Рабочие роли облачных служб или внутренние службы без отслеживания состояния Service Fabric
+Если приложение *не* является приложением ASP.NET или ASP.NET Core (например, рабочие роли облачных служб Microsoft Azure или API-интерфейсы Service Fabric без отслеживания состояния), то помимо действий, приведенных выше, потребуется следующая дополнительная настройка инструментирования.  
 
   1. Добавьте следующий код в раннюю точку во времени существования приложения:  
 
@@ -204,7 +204,7 @@ ms.lasthandoff: 12/08/2017
   ```
 
 2. Если нужное приложение выполняется с помощью [IIS](https://www.microsoft.com/web/platform/server.aspx), необходимо включить компонент Windows `IIS Http Tracing`:  
-  
+
   1. Установите удаленный доступ к среде, а затем используйте окно [Добавить функции Windows]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) или выполните следующую команду в PowerShell (с правами администратора):  
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
@@ -217,11 +217,11 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="enable-the-profiler-on-on-premises-servers"></a>Включение профилировщика на локальных серверах
 
-Включение профилировщика на локальном сервере приравнивается к работе Application Insights Profiler в автономном режиме (он не привязан к изменениям расширения системы диагностики Azure). 
+Включение профилировщика на локальном сервере приравнивается к работе Application Insights Profiler в автономном режиме (он не привязан к изменениям расширения системы диагностики Azure).
 
 Мы не планируем официальную поддержку профилировщика для локальных серверов. Если вы хотите поэкспериментировать с этим сценарием, [ скачайте код поддержки](https://github.com/ramach-msft/AIProfiler-Standalone). Мы *не* несем ответственность за обслуживание этого кода и не предоставляем ответы на запросы по поводу проблем и функций, связанных с ним.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Создайте трафик к приложению (например, запустите [тест доступности](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Подождите 10–15 минут, пока трассировки не начнут отправляться в экземпляр Application Insights.
 - См. раздел [Включение профилировщика](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler).

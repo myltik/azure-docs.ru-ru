@@ -1,11 +1,24 @@
- ---
-title: Импорт среды Postman для вызовов REST в службах мультимедиа Azure description: В этой статье приведено определение среды Postman для вызовов REST в службах мультимедиа Azure.
-services: media-services documentationcenter: '' author: Juliako manager: cfowler editor: ''
-
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
-
 ---
-
+title: "Импорт среды Postman для вызовов REST в службах мультимедиа Azure"
+description: "В этом разделе приведено определение среды Postman для вызовов REST в службах мультимедиа Azure."
+services: media-services
+documentationcenter: 
+author: Juliako
+manager: cfowler
+editor: 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/04/2018
+ms.author: juliako
+ms.openlocfilehash: aa3e1bb4c6ae53e24e3153dd55f6a6d07e29e091
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 02/01/2018
+---
 # <a name="import-the-postman-environment"></a>Импорт среды Postman 
 
 Эта статья содержит определение переменных среды **Postman**, которые используются в [коллекции Postman](postman-collection.md), содержащий сгруппированные HTTP-запросы для вызова REST API служб мультимедиа. Файлы среды и коллекции используются в учебнике[Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md) (Настройка Postman для вызовов REST API служб мультимедиа).

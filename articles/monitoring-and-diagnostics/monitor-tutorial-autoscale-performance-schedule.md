@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Создание параметра автомасштабирования для ресурсов Azure на основе данных о производительности или расписания
 
@@ -35,11 +35,11 @@ ms.lasthandoff: 01/24/2018
 Войдите на [портал Azure](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Создание веб-приложения и плана службы приложений
-В левой области навигации выберите **Создать**.
+1. В области навигации слева выберите **Создать**.
 
-Найдите и выберите элемент *Веб-приложение* и нажмите кнопку **Создать**.
+2. Найдите и выберите элемент *Веб-приложение* и нажмите кнопку **Создать**.
 
-Выберите имя приложения, такое как *MyTestScaleWebApp*. Создайте группу ресурсов "myResourceGroup" и поместите ее в группу ресурсов по своему выбору.
+3. Выберите имя приложения, такое как *MyTestScaleWebApp*. Создайте группу ресурсов *myResourceGroup* и поместите ее в нужную группу ресурсов.
 
 Подготовка ресурсов закончится через несколько минут. Используйте веб-приложение и соответствующий план службы приложений в оставшейся части этого руководства.
 

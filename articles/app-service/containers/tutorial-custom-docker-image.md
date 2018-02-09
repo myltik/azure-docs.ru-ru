@@ -16,17 +16,28 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2580c2109ce33b1ce99aa491f7d0002edf060693
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 5f60dde981465709c16a9813ca24335c67252585
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Использование пользовательского образа Docker для платформы "Веб-приложения для контейнеров".
 
 Платформа [Веб-приложения для контейнеров](app-service-linux-intro.md) предоставляет встроенные образы Docker на базе Linux с поддержкой определенных версий, включая PHP 7.0 и Node.js 4.5. Платформа "Веб-приложения для контейнеров" использует технологию контейнеров Docker для размещения встроенных и пользовательских образов в качестве платформы как услуги. Из этого руководства вы узнаете, как создать пользовательский образ Docker и развернуть его на платформе "Веб-приложения для контейнеров". Этот шаблон используется, если встроенные образы не содержат нужный язык или для приложения требуется определенная конфигурация, которую не предоставляют встроенные образы.
 
-## <a name="prerequisites"></a>Технические условия
+Из этого руководства вы узнаете, как выполнять такие задачи:
+
+> [!div class="checklist"]
+> * Развертывание пользовательского образа Docker в Azure.
+> * Настройка переменных среды для запуска контейнера.
+> * Обновление и повторное развертывание образа Docker.
+> * Подключение контейнера с помощью SSH.
+> * Развертывание частного образа Docker в Azure.
+
+[!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
@@ -34,8 +45,6 @@ ms.lasthandoff: 12/14/2017
 * Активная [подписка Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * [Docker](https://docs.docker.com/get-started/#setup)
 * [Учетная запись Docker Hub](https://docs.docker.com/docker-id/).
-
-[!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Скачивание примера приложения
 
@@ -76,7 +85,7 @@ EXPOSE 8000 2222
 ENTRYPOINT ["init.sh"]
 ```
 
-Чтобы создать образ Docker, выполните команду `docker build`, указав имя `mydockerimage` и тег `v1.0.0`. Замените `<docker-id>` идентификатором вашей учетной записи Docker Hub.
+Чтобы создать образ Docker, выполните команду `docker build`, указав имя _mydockerimage_ и тег _v1.0.0_. Замените _\<docker-id>_ идентификатором учетной записи Docker Hub.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
@@ -107,7 +116,7 @@ Successfully built e7cf08275692
 Successfully tagged cephalin/mydockerimage:v1.0.0
 ```
 
-Проверьте, работает ли сборка, запустив контейнер Docker. Выполните команду [​​docker run](https://docs.docker.com/engine/reference/commandline/run/), указав имя и тег образа. Обязательно укажите порт с помощью аргумента `-p`.
+Проверьте, работает ли сборка, запустив контейнер Docker. Выполните команду [​​`docker run`](https://docs.docker.com/engine/reference/commandline/run/), указав имя и тег образа. Обязательно укажите порт с помощью аргумента `-p`.
 
 ```bash
 docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
@@ -124,23 +133,23 @@ docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry such as Azure Container Registry. Select the appropriate tab for your scenario below (your selection will switch multiple tabs on this page). -->
 
 > [!NOTE]
-> Дополнительные сведения о передаче образа в частный реестр Docker см. в разделе [Передача образа Docker в частный реестр](#push-a-docker-image-to-private-registry-optional).
+> Дополнительные сведения о передаче образа в частный реестр Docker см. в разделе [Использование образа Docker из любого частного реестра (необязательно)](#use-a-docker-image-from-any-private-registry-optional).
 
 <!--## [Docker Hub](#tab/docker-hub)-->
 
-Docker Hub — это реестр образов Docker, который позволяет размещать ваши собственные репозитории, как общедоступные, так и частные. Чтобы передать пользовательский образ Docker в общедоступный центр Docker Hub, используйте команду [​​docker push](https://docs.docker.com/engine/reference/commandline/push/) и укажите полное имя и тег образа. Полное имя и тег выглядят как в следующем примере:
+Docker Hub — это реестр образов Docker, который позволяет размещать ваши собственные репозитории, как общедоступные, так и частные. Чтобы передать пользовательский образ Docker в общедоступный центр Docker Hub, используйте команду [`docker push`](https://docs.docker.com/engine/reference/commandline/push/) и укажите полное имя и тег образа. Полное имя и тег выглядят как в следующем примере:
 
 ```
 <docker-id>/image-name:tag
 ```
 
-Если вы не вошли в Docker Hub, сделайте это с помощью команды [​​docker login](https://docs.docker.com/engine/reference/commandline/login/), прежде чем отправлять образ.
+Чтобы отправить образ, вам нужно выполнить вход в центр Docker Hub с помощью команды [`docker login`](https://docs.docker.com/engine/reference/commandline/login/). Вместо _\<docker-id>_ укажите имя вашей учетной записи, а когда в консоли появится запрос, введите пароль.
 
 ```bash
-docker login --username <docker-id> --password <docker-hub-password>
+docker login --username <docker-id>
 ```
 
-При успешном выполнении входа появится сообщение "Вход выполнен". После входа можно передать образ в центр Docker с помощью команды [docker push](https://docs.docker.com/engine/reference/commandline/push/).
+При успешном выполнении входа появится сообщение "Вход выполнен". После входа можно передать образ в центр Docker Hub с помощью команды [`docker push`](https://docs.docker.com/engine/reference/commandline/push/).
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0
@@ -192,7 +201,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ### <a name="create-a-web-app"></a>Создание веб-приложения
 
-В Cloud Shell создайте [веб-приложение](app-service-linux-intro.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Не забудьте заменить `<app_name>` уникальным именем приложения, а <docker-ID> — идентификатором Docker.
+В Cloud Shell создайте [веб-приложение](app-service-linux-intro.md) в рамках плана службы приложений `myAppServicePlan` с помощью команды [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Замените _<appname>_ уникальным именем приложения, а _\<docker-ID>_ — идентификатором Docker.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -219,7 +228,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 В большинстве образов Docker есть переменные среды, которые нужно настроить. Если вы используете существующий образ Docker, созданный кем-то другим, образ может использовать порт, отличный от порта 80. Чтобы сообщить Azure, какой порт использует образ, примените параметр приложения `WEBSITES_PORT`. На странице GitHub с [примером кода Python в этом руководстве](https://github.com/Azure-Samples/docker-django-webapp-linux) показано, что для параметра `WEBSITES_PORT` необходимо задать значение _8000_.
 
-Чтобы задать параметры приложения, используйте [az webapp конфигурации appsettings набор](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) в оболочке облака. Параметры приложения чувствительны к регистру и используются с разделителями-пробелами.
+Чтобы задать параметры приложения, выполните команду [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) в Cloud Shell. Параметры приложения чувствительны к регистру и используются с разделителями-пробелами.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -296,7 +305,7 @@ SSH обеспечивает безопасный обмен данными ме
     EXPOSE 8000 2222
     ```
 
-* Убедитесь, что [запуск службы ssh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) , используя сценарий в каталоге/Bin.
+* Убедитесь, что [служба SSH запущена](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) с помощью скрипта оболочки в каталоге /bin.
  
     ```bash
     #!/bin/bash
@@ -340,7 +349,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 
 В разделе [Создание веб-приложения](#create-a-web-app) вы указали образ в Docker Hub с помощью команды `az webapp create`. Этот способ подходит для общедоступного образа. Чтобы использовать частный образ, нужно настроить идентификатор учетной записи Docker и пароль в веб-приложении Azure.
 
-В Cloud Shell после команды `az webapp create` выполните команду [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Замените *\<app_name>*, _<docker-id>_ и _<password>_, указав свой идентификатор Docker и пароль.
+В Cloud Shell выполните команды `az webapp create` и [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Замените *\<app_name>*, _\<docker-id>_ и _\<password>_, указав свой идентификатор Docker и пароль.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
@@ -380,7 +389,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 ### <a name="create-an-azure-container-registry"></a>Создание реестра контейнеров Azure
 
-В Cloud Shell создайте реестр контейнеров Azure с помощью команды [az acr create](/cli/azure/acr?view=azure-cli-latest#az_acr_create). Передайте имя, группу ресурсов и `Basic` для SKU. Доступные номера SKU: `Classic`, `Basic`, `Standard` и `Premium`.
+В Cloud Shell создайте реестр контейнеров Azure с помощью команды [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az_acr_create). Передайте имя, группу ресурсов и `Basic` для SKU. Доступные номера SKU: `Classic`, `Basic`, `Standard` и `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -418,7 +427,7 @@ Use an existing service principal and assign access:
 
 ### <a name="log-in-to-azure-container-registry"></a>Вход в реестр контейнеров Azure
 
-Для передачи образа в реестр необходимо предоставить учетные данные, чтобы реестр принял образ. Эти учетные данные можно получить, выполнив команду [az acr show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) в Cloud Shell. 
+Для передачи образа в реестр необходимо предоставить учетные данные, чтобы реестр принял образ. Эти учетные данные можно получить, выполнив команду [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az_acr_show) в Cloud Shell. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -442,10 +451,10 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-В окне терминала на локальном компьютере войдите в реестр контейнеров Azure с помощью команды `docker login`. Для входа укажите имя сервера. Используйте формат `{azure-container-registry-name>.azurecr.io`.
+В окне терминала на локальном компьютере войдите в реестр контейнеров Azure с помощью команды `docker login`. Для входа укажите имя сервера. Используйте формат `{azure-container-registry-name>.azurecr.io`. Когда в консоли появится запрос, введите пароль.
 
 ```bash
-docker login <azure-container-registry-name>.azurecr.io --username <registry-username> --password <password> 
+docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
 ```
 
 Убедитесь, что вход выполнен успешно. 
@@ -482,7 +491,7 @@ az acr repository list -n <azure-container-registry-name>
 
 Можно настроить платформу "Веб-приложения для контейнеров" для запуска контейнера, хранящегося в реестре контейнеров Azure. Использование реестра контейнеров Azure идентично использованию любого частного реестра, включая ваш собственный.
 
-В Cloud Shell выполните команду [az acr credential show](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show), чтобы отобразить имя пользователя и пароль для реестра контейнеров Azure. Скопируйте имя пользователя и один из паролей, чтобы использовать их для настройки веб-приложения на следующем шаге.
+В Cloud Shell выполните команду [`az acr credential show`](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show), чтобы отобразить имя пользователя и пароль для реестра контейнеров Azure. Скопируйте имя пользователя и один из паролей, чтобы использовать их для настройки веб-приложения на следующем шаге.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -504,10 +513,10 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-В Cloud Shell выполните команду [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set), чтобы назначить пользовательский образ Docker для веб-приложения. Замените значения *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ и _\<password>_. Для реестра контейнеров Azure значение *\<docker-registry-server-url>* указывается в формате `https://<azure-container-registry-name>.azurecr.io`. 
+В Cloud Shell выполните команду [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set), чтобы назначить пользовательский образ Docker для веб-приложения. Замените значения *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ и _\<password>_. Для реестра контейнеров Azure значение *\<docker-registry-server-url>* указывается в формате `https://<azure-container-registry-name>.azurecr.io`. При использовании любого реестра помимо Docker Hub имя образа должно начинаться с полного доменного имени (FQDN) реестра. Имя реестра контейнеров Azure будет выглядеть следующим образом: `<azure-container-registry>.azurecr.io/mydockerimage`. 
 
 ```azurecli-interactive
-az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
+az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
 ```
 
 > [!NOTE]
@@ -543,7 +552,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Создание в Azure веб-приложения Docker Python с подключением к базе данных PostgreSQL](tutorial-docker-python-postgresql-app.md)

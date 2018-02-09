@@ -1,5 +1,5 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Salesforce | Документация Майкрософт"
+title: "Руководство по настройке Salesforce для автоматической подготовки пользователей с помощью Azure Active Directory | Документация Майкрософт"
 description: "Узнайте, как настроить единый вход Azure Active Directory в приложении Salesforce."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 1c7d029515f27610e5d24c56ec1c60d6830e9e45
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.openlocfilehash: 812bc3c2e13c4513161eebb30b93fee21cc091b7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Руководство по настройке Salesforce для автоматической подготовки пользователей
+# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Руководство по настройке Salesforce для автоматической подготовки пользователей
 
 Цель этого учебника — показать, как в Salesforce и Azure AD необходимо выполнять автоматическую подготовку и отмену подготовки учетных записей пользователей из Azure AD в Salesforce.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 12/22/2017
 
 10. Скопируйте маркер, перейдите к окну Azure AD и вставьте его в поле **Секретный токен**.
 
-11. **URL-адрес клиента** следует вводить в том случае, если экземпляр Salesforce в облаке государственных Salesforce. В противном случае это необязательно. Введите URL-адрес клиента в формате https://your-instance.my.salesforce.com, заменяя ваш экземпляр с именем экземпляра Salesforce.
+11. **URL-адрес клиента** нужно вводить, если экземпляр Salesforce находится в облаке для государственных организаций Salesforce. В других случаях это необязательный параметр. Введите URL-адрес клиента в формате https://ваш_экземпляр.my.salesforce.com, заменив "ваш_экземпляр" именем экземпляра Salesforce.
 
 12. На портале Azure щелкните **Проверить подключение**, чтобы убедиться, что Azure AD может подключиться к приложению Salesforce.
 

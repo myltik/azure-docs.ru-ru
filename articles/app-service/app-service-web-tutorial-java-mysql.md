@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Создание веб-приложения Java в Azure с подключением к базе данных MySQL
 
 > [!NOTE]
-> В этой статье развертывает приложение службы приложений для Windows. Для развертывания на службы приложений на _Linux_, в разделе [развертывание контейнерного Spring загрузки приложения в Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+> В этой статье мы развернем приложение в службе приложений на платформе Windows. Чтобы развернуть приложение в службе приложений на платформе _Linux_, см. статью [Развертывание приложения Spring Boot в Azure с помощью подключаемого модуля Maven для веб-приложений Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
 >
 
 В этом руководстве показано, как создать веб-приложение Java в Azure и подключить его к базе данных MySQL. Когда вы выполните инструкции руководства, у вас будет приложение [Spring Boot](https://projects.spring.io/spring-boot/), данные которого хранятся в [базе данных Azure для MySQL](https://docs.microsoft.com/azure/mysql/overview), которая работает в [веб-приложениях службы приложений Azure](app-service-web-overview.md).
@@ -41,14 +41,13 @@ ms.lasthandoff: 12/15/2017
 > * Потоковая передача журналов диагностики из Azure.
 > * Мониторинг приложения на портале Azure
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 1. [Скачайте и установите Git](https://git-scm.com/)
 1. [Скачайте и установите Java 7 JDK или более поздней версии](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) (этот компонент потребуется запустить) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prepare-local-mysql"></a>Подготовка локальной базы данных MySQL 
 
@@ -126,7 +125,7 @@ select * from todo_item;
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md) с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов Azure — это логический контейнер, в котором происходит развертывание и администрирование связанных ресурсов (веб-приложений, баз данных и учетных записей хранения). 
+Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md) с помощью команды [`az group create`](/cli/azure/group#az_group_create). Группа ресурсов Azure — это логический контейнер, в котором происходит развертывание и администрирование связанных ресурсов (веб-приложений, баз данных и учетных записей хранения). 
 
 В следующем примере создается группа ресурсов в регионе "Северная Европа".
 
@@ -134,12 +133,11 @@ select * from todo_item;
 az group create --name myResourceGroup --location "North Europe"
 ```    
 
-Чтобы увидеть доступные значения для `--location`, выполните команду [az appservice list-locations](/cli/azure/appservice#list-locations).
+Чтобы увидеть доступные значения для `--location`, выполните команду [`az appservice list-locations`](/cli/azure/appservice#list-locations).
 
 ### <a name="create-a-mysql-server"></a>Создание сервера MySQL
 
-В Cloud Shell создайте сервер в базе данных Azure для MySQL (предварительная версия), выполнив команду [az mysql server create](/cli/azure/mysql/server#create).    
-В приведенной команде замените заполнитель `<mysql_server_name>` уникальным именем сервера MySQL. Это имя является частью имени узла сервера MySQL (`<mysql_server_name>.mysql.database.azure.com`), поэтому оно должно быть глобально уникальным. Кроме того, замените `<admin_user>` и `<admin_password>` собственными значениями.
+В Cloud Shell создайте сервер в службе "База данных Azure для MySQL" (предварительная версия), выполнив команду [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). В приведенной команде замените заполнитель `<mysql_server_name>` уникальным именем сервера MySQL. Это имя является частью имени узла сервера MySQL (`<mysql_server_name>.mysql.database.azure.com`), поэтому оно должно быть глобально уникальным. Кроме того, замените `<admin_user>` и `<admin_password>` собственными значениями.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
@@ -163,7 +161,7 @@ az mysql server create --name <mysql_server_name> --resource-group myResourceGro
 
 ### <a name="configure-server-firewall"></a>Настройка брандмауэра сервера
 
-В Cloud Shell создайте правило брандмауэра для сервера MySQL, чтобы разрешить подключения клиентов, выполнив команду [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create). 
+В Cloud Shell создайте правило брандмауэра для сервера MySQL, чтобы разрешить подключения клиентов, выполнив команду [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -205,7 +203,7 @@ quit
 
 ## <a name="deploy-the-sample-to-azure-app-service"></a>Развертывание примера в службе приложений Azure
 
-Создайте план службы приложений Azure с ценовой категорией **Бесплатный** с помощью команды CLI [az appservice plan create](/cli/azure/appservice/plan#create). От плана службы приложений зависят физические ресурсы, используемые для размещения приложений. Все приложения, назначенные плану службы приложений, совместно используют ресурсы, которые позволяют сэкономить при размещении нескольких приложений. 
+Создайте план службы приложений Azure с ценовой категорией **Бесплатный** с помощью команды CLI [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create). От плана службы приложений зависят физические ресурсы, используемые для размещения приложений. Все приложения, назначенные плану службы приложений, совместно используют ресурсы, которые позволяют сэкономить при размещении нескольких приложений. 
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -231,7 +229,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ### <a name="create-an-azure-web-app"></a>Создание веб-приложения Azure
 
- В Cloud Shell с помощью команды CLI [az webapp create](/cli/azure/appservice/web#create) создайте определение веб-приложения в плане службы приложений `myAppServicePlan`. Определение веб-приложения предоставляет URL-адрес для доступа к приложению и настраивает несколько параметров для развертывания кода в Azure. 
+В Cloud Shell с помощью команды CLI [`az webapp create`](/cli/azure/appservice/web#az_appservice_web_create) создайте определение веб-приложения в плане службы приложений `myAppServicePlan`. Определение веб-приложения предоставляет URL-адрес для доступа к приложению и настраивает несколько параметров для развертывания кода в Azure. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -258,7 +256,7 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 
 ### <a name="configure-java"></a>Настройка Java 
 
-В Cloud Shell настройте конфигурацию среды выполнения Java, необходимую для работы приложения, с помощью команды [az appservice web config update](/cli/azure/appservice/web/config#update).
+В Cloud Shell настройте конфигурацию среды выполнения Java, необходимую для работы приложения, с помощью команды [`az webapp config set`](/cli/azure/webapp/config#az_webapp_config_set).
 
 Следующая команда настраивает веб-приложение для запуска в Java 8 JDK и [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -270,7 +268,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 Перед запуском примера приложения измените параметры веб-приложения, чтобы оно использовало базу данных Azure MySQL, созданную в Azure. Эти свойства доступны для веб-приложения как переменные среды. Они переопределяют значения, заданные в application.properties внутри упакованного веб-приложения. 
 
-В Cloud Shell задайте параметры приложения с помощью команды CLI [az webapp config appsettings](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings):
+В Cloud Shell задайте параметры приложения с помощью команды CLI [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings).
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -287,7 +285,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>Получение учетных данных FTP для развертывания 
 Для развертывания веб-приложения в службе приложений Azure можно использовать FTP, локальный репозиторий Git, GitHub, Visual Studio Team Services и BitBucket. В этом примере используется FTP для развертывания WAR-файла, ранее созданного на локальном компьютере в службе приложений Azure.
 
-Чтобы определить, какие учетные данные передавать в команде ftp для веб-приложения, выполните команду [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) в Cloud Shell. 
+Чтобы определить, какие учетные данные передавать в команде ftp для веб-приложения, выполните команду [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) в Cloud Shell. 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -372,7 +370,7 @@ put target/TodoDemo-0.0.1-SNAPSHOT.war ROOT.war
     repository.save(item);
     ```
 
-4. Добавьте поддержку нового поля в шаблоне Thymeleaf. Добавьте в файл *src/main/resources/templates/index.html* новый заголовок таблицы для отметки времени и новое поле для отображения значения отметки времени в каждой строке таблицы данных.
+4. Добавьте поддержку нового поля в шаблоне `Thymeleaf`. Добавьте в файл *src/main/resources/templates/index.html* новый заголовок таблицы для отметки времени и новое поле для отображения значения отметки времени в каждой строке таблицы данных.
 
     ```html
     <th>Name</th>
@@ -401,7 +399,7 @@ put target/TodoDemo-0.0.1-SNAPSHOT.war ROOT.war
 
 При запуске приложения Java в службе приложений Azure можно передавать журналы консоли прямо в свой терминал. Таким образом, вы будете получать те же диагностические сообщения, которые помогут устранить ошибки приложения.
 
-Чтобы настроить потоки для журналов, выполните команду [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) в Cloud Shell.
+Чтобы настроить потоки для журналов, выполните команду [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) в Cloud Shell.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 
@@ -409,19 +407,17 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="manage-your-azure-web-app"></a>Управление веб-приложением Azure
 
-Перейти на портал Azure, чтобы увидеть созданное веб-приложение.
-
-Для этого войдите на портал [https://portal.azure.com](https://portal.azure.com).
+Перейдите на [портал Azure](https://portal.azure.com), чтобы увидеть созданное веб-приложение.
 
 В меню слева выберите **Служба приложений**, а затем щелкните имя своего веб-приложения Azure.
 
 ![Переход к веб-приложению Azure на портале](./media/app-service-web-tutorial-java-mysql/access-portal.png)
 
-По умолчанию колонка веб-приложения отображает страницу **обзора**. Здесь вы можете наблюдать за работой приложения. Вы также можете выполнять базовые задачи управления, например завершение, запуск, перезагрузку и удаление. На вкладках в левой части колонки отображаются различные страницы конфигурации, которые можно открыть.
+По умолчанию на странице веб-приложения отображается страница **обзора**. Здесь вы можете наблюдать за работой приложения. Вы также можете выполнять базовые задачи управления, например завершение, запуск, перезагрузку и удаление. На вкладках в левой части страницы отображаются различные страницы конфигурации, которые можно открыть.
 
-![Колонка службы приложений на портале Azure](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
+![Страница службы приложений на портале Azure](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
 
-На вкладках в колонке содержится множество полезных функций, которые вы можете добавить в веб-приложение. Ниже представлены лишь некоторые из возможностей:
+На вкладках страницы содержится множество полезных функций, которые вы можете добавить в веб-приложение. Ниже представлены лишь некоторые из возможностей:
 * сопоставление настраиваемого DNS-имени;
 * привязка настраиваемого SSL-сертификата;
 * настройка непрерывного развертывания;
@@ -438,7 +434,7 @@ az group delete --name myResourceGroup
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="checklist"]
 > * Создание базы данных MySQL в Azure.

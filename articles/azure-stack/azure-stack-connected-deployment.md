@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: c1a3b2107abdc3ef19a314616518c494687d81bf
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Планирование развертываний с подключением к Azure для интегрированных систем Azure Stack
 Когда вы решите, [как интегрировать Azure Stack с гибридной облачной средой](azure-stack-deployment-decisions.md), вы сможете спланировать развертывание Azure Stack.
@@ -57,9 +57,8 @@ ms.lasthandoff: 01/17/2018
 
 |Сценарий|Варианты доменов и подписок|
 |-----|-----|
-|Вы являетесь прямым или непрямым партнером CSP и будете использовать Azure Stack|Используйте подписку CSL (Common Service Layer).|
-|Вы являетесь прямым или непрямым партнером CSP и будете использовать Azure Stack|В Центре партнеров создайте клиент Azure AD с описательным именем, например <your organization>CSPAdmin, и подписку CSP Azure, связанную с клиентом.|
-|Вы являетесь непрямым торговым посредником CSP и будете использовать Azure Stack|Попросите непрямого поставщика CSP с помощью Центра партнеров создать клиент Azure AD для вашей организации и подписку Azure CSP, связанную с ним.|
+|Вы являетесь **прямым партнером CSP** или **непрямым поставщиком CSP** и будете использовать Azure Stack.|Используйте подписку CSL (Common Service Layer).<br>     или<br>Создайте клиент Azure AD с описательным именем в Центре партнеров. Например, &lt;ваша_организация> CSPAdmin со связанной подпиской Azure CSP.|
+|Вы являетесь **непрямым торговым посредником CSP** и будете использовать Azure Stack.|Попросите непрямого поставщика CSP создать клиент Azure AD для вашей организации и подписку Azure CSP, связанную с ним, в Центре партнеров.|
 
 ### <a name="capacity-based-billing"></a>Выставление счетов на основе емкости
 Если вы решили использовать модель выставления счетов на основе емкости, вам нужно приобрести номер SKU плана емкости Azure Stack на основе емкости вашей системы. Для этого необходимо знать число физических ядер в вашей инфраструктуре Azure Stack, чтобы приобрести нужный номер. 
@@ -70,3 +69,6 @@ ms.lasthandoff: 01/17/2018
 - Дополнительные сведения об использовании, покупке, партнерах и поставщиках оборудования OEM см. на странице продукта [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
 - Сведения о стратегии развития и географической доступности интегрированных систем Azure Stack см. в техническом документе: [Azure Stack: An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/) (Azure Stack: расширение Azure (PDF)). 
 - Чтобы узнать больше о пакетах и ценах Microsoft Azure Stack, [скачайте документ PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+
+## <a name="next-steps"></a>Дополнительная информация
+[Интеграция сетей Центра обработки данных](azure-stack-network.md)

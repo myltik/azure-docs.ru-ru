@@ -16,16 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 02761b0e4a25e9aa2312d66bb8c6ab861fb0c3cc
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Разрешение пользователям доступа к Ambari Views
 
-[Кластеры HDInsight, присоединенные к домену](./domain-joined/apache-domain-joined-introduction.md), обеспечивают возможности корпоративного уровня, включая аутентификацию на основе Azure Active Directory. Вы можете синхронизировать новых пользователей.
-<!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in Ambari is supported for both domain-joined HDInsight cluster and standard HDInsight cluster.
+[Кластеры HDInsight, присоединенные к домену](./domain-joined/apache-domain-joined-introduction.md), обеспечивают возможности корпоративного уровня, включая аутентификацию на основе Azure Active Directory. Вы можете синхронизировать новых пользователей <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) -->, добавленных в группы Azure AD, которым был предоставлен доступ к кластеру, что позволяет определенным пользователям выполнять конкретные действия. Работа с пользователями, группами и разрешениями в Ambari поддерживается как для кластера HDInsight, присоединенного к домену, так и для стандартного кластера HDInsight.
 
 Пользователи Active Directory могут входить на узлы кластера с использованием своих учетных данных домена. Кроме того, эти учетные данные можно использовать для аутентификации в других утвержденных конечных точках, например Hue, Ambari Views, ODBC, JDBC, PowerShell и интерфейсах REST API.
 

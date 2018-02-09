@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: c7516c6d4fa8cfe8e146c325af7ca7ca70475a94
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Планирование ресурсов виртуальной машины Hyper-V с помощью решения "Емкость и производительность" (предварительная версия)
 
@@ -47,10 +47,10 @@ ms.lasthandoff: 12/13/2017
 |---|---|---|
 | [Агенты Windows](log-analytics-windows-agent.md) | Yes | Решение собирает сведения о емкости и производительности из агентов Windows. |
 | [Агенты Linux](log-analytics-linux-agents.md) | Нет     | Решение не собирает сведения о емкости и производительности из прямых агентов Linux.|
-| [Группы управления SCOM](log-analytics-om-agents.md) | Yes |Решение собирает сведения о емкости и производительности из агентов в подключенной группе управления SCOM. Прямое подключение агента SCOM к OMS не требуется. Данные пересылаются из группы управления в репозиторий OMS.|
+| [Группы управления SCOM](log-analytics-om-agents.md) | Yes |Решение собирает сведения о емкости и производительности из агентов в подключенной группе управления SCOM. Прямое подключение агента SCOM к Log Analytics не требуется.|
 | [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет  | Служба хранилища Azure не содержит сведения о емкости и производительности.|
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Агенты Windows или Operations Manager должны быть установлены на узлах Hyper-V под управлением Windows Server 2012 (или более поздней версии), а не на виртуальных машинах.
 
@@ -59,11 +59,11 @@ ms.lasthandoff: 12/13/2017
 
 Чтобы добавить решение "Емкость и производительность" в рабочую область, сделайте следующее:
 
-- Добавьте решение "Емкость и производительность" в рабочую область OMS, используя указания в статье [Добавление решений для управления Azure Log Analytics в рабочую область](log-analytics-add-solutions.md).
+- Добавьте решение "Емкость и производительность" в рабочую область Log Analytics, используя указания в статье [Добавление решений для управления Azure Log Analytics в рабочую область](log-analytics-add-solutions.md).
 
 ## <a name="management-packs"></a>Пакеты управления
 
-Если группа управления SCOM подключена к рабочей области OMS, при добавлении этого решения в SCOM будут установлены следующие пакеты. Никакая настройка или обслуживание для этих пакетов управления не требуются.
+Если группа управления SCOM подключена к рабочей области Log Analytics, при добавлении этого решения в SCOM будут установлены следующие пакеты. Никакая настройка или обслуживание для этих пакетов управления не требуются.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 
@@ -144,5 +144,5 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 | Показатель общей задержки на всех общих томах кластера | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Read Latency" or CounterName == "CSV Write Latency") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Используйте [поиск по журналам в Log Analytics](log-analytics-log-searches.md), чтобы просмотреть подробные сведения о емкости и производительности.

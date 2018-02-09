@@ -1,5 +1,5 @@
 ---
-title: "Загрузка данных из Azure Storage Blob в хранилище данных SQL Azure с помощью Polybase | Документация Майкрософт"
+title: "Руководство. Загрузка данных из Azure Storage Blob в хранилище данных SQL Azure с помощью Polybase | Документация Майкрософт"
 description: "В этом руководстве используется портал Azure и SQL Server Management Studio для загрузки данных такси Нью-Йорка из хранилища BLOB-объектов Azure в хранилище данных SQL Azure."
 services: sql-data-warehouse
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 64315945d977ba912634eb626491a4513def1556
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a1f504f5bb728ce080e51678d44ed4eef4c3faa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL Azure с помощью PolyBase
+# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Руководство. Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL Azure с помощью PolyBase
 
 PolyBase — это стандартная технология загрузки данных в хранилище данных SQL. В этом руководстве PolyBase используется для загрузки данных такси Нью-Йорка из хранилища BLOB-объектов Azure в хранилище данных SQL Azure. В рамках этого руководства [портал Azure](https://portal.azure.com) и [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) используются, чтобы выполнить такие действия: 
 

@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 01/26/2018
 ms.author: markscu
-ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Использование низкоприоритетных виртуальных машин в пакетной службе
 
@@ -74,6 +74,9 @@ ms.lasthandoff: 11/11/2017
 -   Низкоприоритетные виртуальные машины имеют отдельную квоту на виртуальные ЦП, которая отличается от квоты выделенных виртуальных машин. 
     Квота для низкоприоритетных виртуальных машин выше, чем для выделенных виртуальных машин, так как они меньше стоят. Дополнительные сведения см. в разделе о [квотах и ограничениях пакетной службы](batch-quota-limit.md#resource-quotas).    
 
+> [!NOTE]
+> Сейчас виртуальные машины с низким приоритетом не поддерживаются для учетных записей пакетной службы, созданных в [режиме подписки пользователя](batch-api-basics.md#account).
+>
 
 ## <a name="create-and-update-pools"></a>Создание и обновление пулов
 
@@ -108,7 +111,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard\_D2\_v2",
+    virtualMachineSize: "Standard_D2_v2",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 
@@ -181,7 +184,7 @@ pool.Resize(targetDedicatedComputeNodes: 0, targetLowPriorityComputeNodes: 25);
 
 ![Метрики для узлов с низким приоритетом](media/batch-low-pri-vms/low-pri-metrics.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Информация, необходимая для тех, кто готовится использовать пакетную службу, доступна в статье [Обзор функций пакетной службы для разработчиков](batch-api-basics.md). Эта статья содержит дополнительные подробные сведения о таких ресурсах пакетной службы, как пулы, узлы, задания, задачи и многие функции API, которые можно использовать при создании приложения пакетной службы.
 * См. дополнительные сведения об [API-интерфейсах и средствах пакетной службы](batch-apis-tools.md) для сборки решений пакетной службы.

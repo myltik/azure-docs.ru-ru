@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl;garye;v-donglo
-ms.openlocfilehash: c56ce659766536772d203d0366ef6b53e544a82b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: raymondl;garye
+ms.openlocfilehash: d228021564cdfe5c898c67cce0038b3ec36d014b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Программное переобучение моделей машинного обучения
 В этом пошаговом руководстве вы узнаете, как выполнить программное переобучение веб-службы машинного обучения Azure с использованием C# и службы пакетного выполнения машинного обучения.
@@ -167,7 +167,7 @@ ms.lasthandoff: 10/11/2017
 
 В полученных выходных данных скопируйте значения параметров *BaseLocation*, *RelativeLocation* и *SasBlobToken*. Они вам потребуются в процессе переобучения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Если вы развернули прогнозную веб-службу с помощью команды **Deploy Web Service [Classic]** (Развернуть веб-службу [классическую]), см. статью [Переобучение классической веб-службы](retrain-a-classic-web-service.md).
 
 Если вы развернули прогнозную веб-службу с помощью команды **Deploy Web Service [New]** (Развернуть веб-службу [новую]), см. статью [Переобучение новой веб-службы с помощью командлетов управления PowerShell машинного обучения](retrain-new-web-service-using-powershell.md).

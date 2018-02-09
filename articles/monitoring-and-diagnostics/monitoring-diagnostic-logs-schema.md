@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 1/24/2018
 ms.author: johnkem
-ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Поддерживаемые службы, схемы и категории для журналов диагностики Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/06/2017
 ## <a name="supported-services-and-schemas-for-resource-diagnostic-logs"></a>Поддерживаемые службы и схемы для журналов диагностики ресурсов
 Схема для журналов диагностики ресурсов зависит от типа ресурса и категории журнала.   
 
-| служба | Схемы и документы |
+| Service | Схемы и документы |
 | --- | --- |
 | службы Analysis Services | Схема недоступна. |
 | Управление API | [Журналы диагностики управления API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
@@ -38,16 +38,16 @@ ms.lasthandoff: 12/06/2017
 | Сеть доставки содержимого | Схема недоступна. |
 | Cosmos DB | [Журнал ведения диагностики Azure Cosmos DB](../cosmos-db/logging.md) |
 | Data Lake Analytics |[Доступ к журналам диагностики для Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Хранилище озера данных |[Доступ к журналам диагностики Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Data Lake Store |[Доступ к журналам диагностики Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Концентраторы событий |[Журналы диагностики концентраторов событий Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Центр Интернета вещей | [Использование Azure Monitor](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Хранилище ключей |[Ведение журнала хранилища ключей Azure](../key-vault/key-vault-logging.md) |
-| Балансировщик нагрузки |[Log Analytics для Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
-| Приложения логики |[Настраиваемая схема отслеживания сообщений B2B для приложений логики](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| хранилище ключей; |[Ведение журнала хранилища ключей Azure](../key-vault/key-vault-logging.md) |
+| Подсистема балансировки нагрузки |[Log Analytics для Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
+| приложения логики; |[Настраиваемая схема отслеживания сообщений B2B для приложений логики](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | группы сетевой безопасности; |[Аналитика журналов для групп безопасности сети](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Защита от атак DDoS | Схема недоступна. |
 | Службы восстановления | [Модель данных для Azure Backup](../backup/backup-azure-reports-data-model.md)|
-| Поиск |[Включение и использование аналитики поискового трафика](../search/search-traffic-analytics.md) |
+| поиска |[Включение и использование аналитики поискового трафика](../search/search-traffic-analytics.md) |
 | Управление сервером | Схема недоступна. |
 | Служебная шина |[Журналы диагностики служебной шины Azure](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | База данных SQL | [Метрики и журналы диагностики базы данных SQL Azure](../sql-database/sql-database-metrics-diag-logging.md) |
@@ -57,9 +57,8 @@ ms.lasthandoff: 12/06/2017
 ## <a name="supported-log-categories-per-resource-type"></a>Поддерживаемые категории журнала для каждого типа ресурса
 |Тип ресурса|Категория|Отображаемое имя категории|
 |---|---|---|
-|microsoft.aadiam/tenants|Signin|Signin|
 |Microsoft.AnalysisServices/servers|Двигатель|Двигатель|
-|Microsoft.AnalysisServices/servers|служба|служба|
+|Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Журналы, относящихся к шлюзу ApiManagement.|
 |Microsoft.Automation/automationAccounts|JobLogs|Журналы заданий|
 |Microsoft.Automation/automationAccounts|JobStreams|Потоки заданий|
@@ -73,7 +72,7 @@ ms.lasthandoff: 12/06/2017
 |Microsoft.DataLakeAnalytics/accounts|Аудит|Журналы аудита|
 |Microsoft.DataLakeAnalytics/accounts|Запросы|Журналы запросов|
 |Microsoft.DataLakeStore/accounts|Аудит|Журналы аудита|
-|Microsoft.DataLakeStore/accounts|Запросы|Журналы запросов|
+|Microsoft.DataLakeStore/accounts|Requests|Журналы запросов|
 |Microsoft.Devices/IotHubs|Подключения|Подключения|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Телеметрия устройства|
 |Microsoft.Devices/IotHubs|C2DCommands|Команды, отправляемые из облака на устройство|
@@ -116,6 +115,8 @@ ms.lasthandoff: 12/06/2017
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Реплицированные элементы Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Статистика репликации Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Точки восстановления Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Периодичность отправки данных репликации Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Обновление данных защищенного диска Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Журналы операций|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Журналы операций|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Статистика среды выполнения хранилища запросов|
@@ -125,6 +126,7 @@ ms.lasthandoff: 12/06/2017
 |Microsoft.Sql/servers/databases|Время ожидания|Время ожидания|
 |Microsoft.Sql/servers/databases|Блоки|Блоки|
 |Microsoft.Sql/servers/databases|SQLInsights|Аналитика SQL|
+|Microsoft.Sql/servers/databases|Аудит|Журналы аудита|
 |Microsoft.StreamAnalytics/streamingjobs|Выполнение|Выполнение|
 |Microsoft.StreamAnalytics/streamingjobs|Разработка|Разработка|
 

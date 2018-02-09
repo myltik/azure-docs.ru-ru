@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 62a69aeb7499a961f95739fb3836942b670c7320
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Обзор API- интерфейсов отчетов для корпоративных клиентов
 Интерфейсы API отчетов позволяют корпоративным клиентам Azure извлекать данные о потреблении и выставлении счетов программным способом и передавать их в предпочитаемые средства анализа данных. 
@@ -35,20 +35,23 @@ ms.lasthandoff: 10/11/2017
 ## <a name="consumption-apis"></a>Интерфейсы API потребления
 [Здесь](https://consumption.azure.com/swagger/ui/index) вы можете найти конечную точку Swagger для интерфейсов API, описанных ниже. С ее помощью можно упростить самоанализ API и создать клиентские пакеты SDK, используя [AutoRest](https://github.com/Azure/AutoRest) или [Swagger CodeGen](http://swagger.io/swagger-codegen/). С 1 мая 2014 г. данные доступны через этот API. 
 
-* **Баланс и сводка**. [Интерфейс API для управления балансом и просмотра сводки](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) предоставляет ежемесячную сводку о состоянии баланса, новых покупках, расходах на службы Azure Marketplace, корректировках и взимании платы за превышение.
+* **Баланс и сводка**. [Интерфейс API для управления балансом и просмотра сводки](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) отображает ежемесячную сводку о состоянии баланса, новых покупках, расходах на службу Azure Marketplace, корректировках и оплате за избыток.
 
 * **Сведения об использовании**. [Интерфейс API сведений об использовании](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) предоставляет сводку об израсходованных объемах и предполагаемых расходах для каждой регистрации с разбивкой по дням. Результаты также содержат сведения об экземплярах, метриках и отделах. Запрашивать данные в API можно по расчетному периоду или по дате начала и окончания. 
 
-* **Платежи в Marketplace**. [Интерфейс API платежей в Marketplace](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) предоставляет сводку о расходах в Marketplace с разбивкой по дням. Данные основаны на фактическом использовании и отображаются для указанного расчетного периода или дат начала и окончания (однократные сборы не включаются).
+* **Платежи в Marketplace**. [Интерфейс API платежей в Marketplace](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) отображает сводку о расходах в Marketplace с разбивкой по дням. Данные основаны на фактическом использовании и отображаются для указанного расчетного периода или дат начала и окончания (однократные сборы не включаются).
 
 * **Прейскурант**. [API прейскуранта](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) предоставляет соответствующий тариф для каждой метрики в отдельной регистрации и за определенный расчетный период. 
+
+## <a name="data-freshness"></a>Актуальность данных
+Теги ETag возвращаются в ответе API, упомянутого выше. Изменение ETag означает, что данные обновлены.  В последующих вызовах этого же API с теми же параметрами передайте записанный ETag с ключом If-None-Match в заголовке HTTP-запроса. Код состояния будет содержать ответ NotModified, если данные больше не обновлялись, и данные не будут возвращены. API будет возвращать полный набор данных за требуемый период при каждом изменении ETag.
 
 ## <a name="helper-apis"></a>Интерфейсы API вспомогательного приложения
  **Список расчетных периодов**. [API расчетных периодов](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) возвращает список расчетных периодов, которые содержат данные о потреблении для определенной регистрации, приведенные в обратном хронологическом порядке. Каждый период содержит свойство, указывающее на маршрут API к четырем наборам данных: BalanceSummary, UsageDetails, Marketplace Charges и Price Sheet.
 
 
 ## <a name="api-response-codes"></a>Коды ответов API  
-|Код состояния отклика|Сообщение|Описание|
+|Код состояния отклика|Сообщение|ОПИСАНИЕ|
 |-|-|-|
 |200| ОК|Без ошибок|
 |401| Не авторизовано| Ключ API не найден, недопустимый формат, срок действия истек и т. д.|

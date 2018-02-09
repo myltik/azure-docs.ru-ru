@@ -1,6 +1,6 @@
 ---
-title: "Приступая к работе с рабочего стола Windows Azure Active Directory v2 | Документы Microsoft"
-description: "Как получить маркер доступа приложения .NET рабочего стола Windows (XAML) и вызова API, защищенные v2 конечной точкой Azure Active Directory."
+title: "Начало работы с Azure Active Directory версии 2 для Windows Desktop | Документация Майкрософт"
+description: "Здесь описывается, как приложение .NET (XAML) для Windows Desktop может получить маркер доступа и вызвать API, защищенный конечной точкой Azure Active Directory версии 2."
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4b809f3f77cfcefcd52821c5c92d9f6c9b79fb38
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 884c3a19a1278be910e53d28842a6bbf2b23290f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 [!INCLUDE [1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-introduction.md)]
 [!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-setup.md)]
 [!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-use.md)]
 [!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-configure.md)]
-[!INCLUDE  [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-test.md)]
+[!INCLUDE [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-test.md)]

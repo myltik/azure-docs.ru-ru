@@ -12,15 +12,16 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f57b5304b8dc575d157f970312e71463496bf10d
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 8b871c28c2d666bebcc192403cf0c8ef238fef4f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Регистрация устройств TPM в службе подготовки устройств Центра Интернета вещей с помощью пакета SDK для службы Java
 > [!div class="op_single_selector"]
 > * [Java](quick-enroll-device-tpm-java.md)
+> * [C#](quick-enroll-device-tpm-csharp.md)
 > * [Node.js](quick-enroll-device-tpm-node.md)
 
 В этой статье на примере приложения Java описано, как выполнить программную регистрацию имитированного устройства TPM в службе подготовки устройств Центра Интернета вещей Azure с помощью [пакета SDK для службы Java](https://azure.github.io/azure-iot-sdk-java/service/). В этой статье процесс регистрации описан на примере компьютера под управлением Windows. Но пакет SDK для службы Java также успешно работает на Linux.
@@ -49,7 +50,7 @@ ms.lasthandoff: 12/22/2017
     mvn --version
     ```
 
-5. Убедитесь, что система [git](https://git-scm.com/download/) установлена на компьютере и добавлена в переменную среды с именем `PATH`. 
+5. Обязательно установите на компьютер систему [git](https://git-scm.com/download/) и добавьте ее в переменную среды `PATH`. 
 
 
 <a id="javasample"></a>
@@ -90,7 +91,7 @@ ms.lasthandoff: 12/22/2017
 
     3. Также службу подготовки можно настроить с помощью этого примера кода:
         - Чтобы добавить эту конфигурацию в пример, выполните следующие действия:
-            1. Откройте на [портале Azure](https://portal.azure.com) Центр Интернета вещей, связанный с используемой службой подготовки. Откройте для этого центра вкладку **Обзор** и скопируйте значение **Hostname**. Присвойте значение **Hostname** параметру *IOTHUB_HOST_NAME*.
+            1. На [портале Azure](https://portal.azure.com) откройте Центр Интернета вещей, связанный с используемой службой подготовки. Откройте для этого центра вкладку **Обзор** и скопируйте значение **Hostname**. Присвойте значение **Hostname** параметру *IOTHUB_HOST_NAME*.
                 ```Java
                 private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
                 ```

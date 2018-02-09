@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 22eafca56eb5677c63a833d298799b725c50f768
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d8ffd9b3b9a315129ab0442908a9b3ad3bbecd1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Автоматическое изменение размера переданных изображений с помощью службы "Сетка событий"
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/05/2017
 > * развертывание бессерверного кода с помощью службы "Функции Azure";
 > * создание подписки на событие хранилища BLOB-объектов в службе "Сетка событий".
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством:
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="create-an-azure-storage-account"></a>Создание учетной записи хранения Azure
 
-Для службы "Функции Azure" требуется общая учетная запись хранения. Создайте отдельную общую учетную запись хранения в группе ресурсов с помощью команды [az storage account create](/cli/azure/storage/account#create).
+Для службы "Функции Azure" требуется общая учетная запись хранения. Создайте отдельную общую учетную запись хранения в группе ресурсов с помощью команды [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 Имя учетной записи хранения должно содержать от 3 до 24 символов и состоять только из цифр и строчных букв. 
 
@@ -65,7 +65,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>Создание приложения-функции  
 
-Для выполнения функций вам понадобится приложение-функция, предоставляющее среду для выполнения кода функции без сервера. Создайте приложение-функцию с помощью команды [az functionapp create](/cli/azure/functionapp#create). 
+Для выполнения функций вам понадобится приложение-функция, предоставляющее среду для выполнения кода функции без сервера. Создайте приложение-функцию с помощью команды [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
 
 В следующей команде замените `<function_app>` уникальным именем своего приложения-функции везде, где встречается этот заполнитель. `<function_app>` используется по умолчанию в качестве домена DNS для приложения-функции. Поэтому это имя должно быть уникальным для всех приложений в Azure. В данном случае `<general_storage_account>` — это имя созданной общей учетной записи хранения.  
 
@@ -78,7 +78,7 @@ az functionapp create --name <function_app> --storage-account  <general_storage_
 
 ## <a name="configure-the-function-app"></a>Настройка приложения-функции
 
-Для подключения к учетной записи хранения BLOB-объектов функции требуется строка подключения. В данном случае `<blob_storage_account>` — это имя учетной записи хранения BLOB-объектов, созданной при изучении предыдущего руководства. Получите строку подключения, выполнив команду [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Кроме того, в качестве имени контейнера эскизов изображений нужно задать `thumbs`. Добавьте эти параметры приложения в приложение-функцию с помощью команды [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+Для подключения к учетной записи хранения BLOB-объектов функции требуется строка подключения. В данном случае `<blob_storage_account>` — это имя учетной записи хранения BLOB-объектов, созданной при изучении предыдущего руководства. Получите строку подключения, выполнив команду [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). Кроме того, в качестве имени контейнера эскизов изображений нужно задать `thumbs`. Добавьте эти параметры приложения в приложение-функцию с помощью команды [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -95,7 +95,7 @@ myContainerName=thumbs
 
 ## <a name="deploy-the-function-code"></a>Развертывание кода функции 
 
-Функция C#, которая изменяет размер изображения, доступна в этом [примере репозитория GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Разверните этот проект кода функции в приложение-функцию с помощью команды [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+Функция C#, которая изменяет размер изображения, доступна в этом [примере репозитория GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Разверните этот проект кода функции в приложение-функцию с помощью команды [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config). 
 
 В следующей команде `<function_app>` — это приложение-функция, созданное в предыдущем сценарии.
 
@@ -106,7 +106,9 @@ az functionapp deployment source config --name <function_app> \
 ```
 
 Функция изменения размера изображения активируется подпиской на событие создания большого двоичного объекта. Данные, передаваемые в триггер, содержат URL-адрес большого двоичного объекта, который, в свою очередь, передается во входную привязку для получения переданного изображения из хранилища BLOB-объектов. Функция создает эскиз и записывает результирующий поток в отдельный контейнер в хранилище BLOB-объектов. Чтобы узнать больше об этой функции, ознакомьтесь с [файлом сведений в примере репозитория](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
- 
+
+Этот проект использует `EventGridTrigger` как тип триггера. Рекомендуется использовать триггер Сетки событий, а не универсальные триггеры HTTP. Сетка событий автоматически проверяет триггеры функций Сетки событий. При использовании универсальных триггеров HTTP вам нужно реализовать [ответ проверки](security-authentication.md#webhook-event-delivery).
+
 Код проекта функция развертывается непосредственно из общедоступного примера репозитория. Чтобы узнать больше о параметрах развертывания службы "Функции Azure", ознакомьтесь с разделом [Непрерывное развертывание для Функций Azure](../azure-functions/functions-continuous-deployment.md).
 
 ## <a name="create-your-event-subscription"></a>Создание подписки на событие
@@ -125,12 +127,12 @@ az functionapp deployment source config --name <function_app> \
 
     ![Создание подписки на событие из функции на портале Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
 
-    | Настройка      | Рекомендуемое значение  | Описание                                        |
+    | Параметр      | Рекомендуемое значение  | Описание                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Имя** | imageresizersub | Имя, которое идентифицирует новую подписку на событие. | 
     | **Тип раздела** |  учетные записи хранения; | Выберите поставщик событий учетной записи хранения. | 
-    | **Подписка** | Ваша подписка | По умолчанию должна быть выбрана ваша текущая подписка.   |
-    | **Группа ресурсов** | myResourceGroup | Щелкните **Использовать существующую** и выберите группу ресурсов, используемую в этом разделе.  |
+    | **Подписка** | Ваша подписка Azure. | По умолчанию должна быть выбрана ваша текущая подписка Azure.   |
+    | **Группа ресурсов** | myResourceGroup | Щелкните **Использовать существующую** и выберите группу ресурсов, используемую в этом руководстве.  |
     | **Экземпляр** |  `<blob_storage_account>` |  Выберите учетную запись хранения BLOB-объектов, созданную вами. |
     | **Типы событий** | Blob created | Снимите флажки всех типов, кроме **Blob created** (Большой двоичный объект создан). Только события типа `Microsoft.Storage.BlobCreated` будут передаваться в функцию.| 
     | **Конечная точка подписчика** | autogenerated | Используйте URL-адрес конечной точки, созданный автоматически. | 
@@ -150,9 +152,9 @@ az functionapp deployment source config --name <function_app> \
 
 ![Опубликованное веб-приложение в браузере Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * создание общей учетной записи хранения Azure;

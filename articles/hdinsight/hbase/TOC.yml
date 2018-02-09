@@ -145,6 +145,9 @@
             - name: Использование Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Масштабирование кластера HDInsight
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
         - name: Управление журналами для кластера HDInsight
           href: ../hdinsight-log-management.md
           maintainContext: true

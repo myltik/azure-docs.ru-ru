@@ -1,6 +1,6 @@
 ---
-title: "Автоматизированный скрипт для создания веб-приложения Service Manager для подключения к OMS с помощью соединителя управления ИТ-службами | Документация Microsoft"
-description: "Создание веб-приложения Service Manager с помощью автоматизированного скрипта для подключения к OMS с помощью соединителя управления ИТ-службами, а также централизованный мониторинг и управление рабочими элементами ITSM."
+title: "Автоматизированный скрипт для создания веб-приложения Service Manager для подключения к Azure с помощью соединителя управления ИТ-услугами | Документация Майкрософт"
+description: "Создание веб-приложения Service Manager с помощью автоматизированного скрипта для подключения к Azure с помощью соединителя управления ИТ-услугами, а также централизованный мониторинг и управление рабочими элементами ITSM."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ec15781776fc8373cd6c9dafa75010e942e167
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Создание веб-приложения Service Manager с помощью автоматизированного скрипта (предварительная версия)
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Создание веб-приложения Service Manager с помощью автоматизированного скрипта
 
 Чтобы создать веб-приложение для экземпляра Service Manager используйте следующий скрипт. См. дополнительные сведения о подключении [Service Manager](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service).
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 Сохраните эти значения. Вы сможете их использовать при создании подключения с помощью соединителя управления ИТ-службами.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
  Windows Management Framework версии 5.0 или выше.
 По умолчанию в Windows 10 используется версия 5.1. Скачать нужную версию можно [отсюда](https://www.microsoft.com/download/details.aspx?id=53347):
@@ -318,5 +318,5 @@ if(!$err)
 }
 
 ```
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Настройка гибридного подключения](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).

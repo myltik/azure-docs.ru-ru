@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 76db735ca7bbad550e792d61658fa65fe8a53caf
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Обновление приложения Службы контейнеров Azure (AKS)
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/18/2017
 
 Также был клонирован репозиторий приложения, включая исходный код приложения и предварительно созданный файл Docker Compose, используемый в этом руководстве. Проверьте, создали ли вы клон репозитория и изменили ли каталоги на клонированный каталог. Внутри репозитория находится каталог `azure-vote` и файл `docker-compose.yaml`.
 
-Если вы еще не выполнит эти действия и хотите попробовать, вернуться к [учебник 1 – Создание образов контейнеров][aks-tutorial-prepare-app]. 
+Если вы не выполнили эти действия и хотите продолжить изучение материала, вернитесь к руководству по [созданию образов контейнеров][aks-tutorial-prepare-app]. 
 
 ## <a name="update-application"></a>Обновление приложения
 
@@ -61,7 +61,7 @@ SHOWHOST = 'false'
 
 ## <a name="update-container-image"></a>Обновление образа контейнера
 
-Используйте [составления docker] [ docker-compose] для повторного создания образа переднего плана и запуска обновленное приложение. Аргумент `--build` указывает Docker Compose, что требуется повторно создать образ приложения.
+Используйте команду [docker-compose][docker-compose] для повторного создания образа внешнего приложения и запуска обновленного приложения. Аргумент `--build` указывает Docker Compose, что требуется повторно создать образ приложения.
 
 ```console
 docker-compose up --build -d
@@ -77,27 +77,27 @@ docker-compose up --build -d
 
 Добавьте к образу `azure-vote-front` тег loginServer реестра контейнеров. 
 
-Получите имя сервера входа, выполнив команду [az acr list](/cli/azure/acr#list).
+Получите имя сервера входа, выполнив команду [az acr list](/cli/azure/acr#az_acr_list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Используйте [тега docker] [ docker-tag] для маркировки изображения. Замените `<acrLoginServer>` именем сервера входа реестра контейнеров Azure или именем узла общедоступного реестра. Также обратите внимание на то, что образ обновлен до версии `redis-v2`.
+Используйте команду [docker tag][docker-tag], чтобы добавить тег для образа. Замените `<acrLoginServer>` именем сервера входа реестра контейнеров Azure или именем узла общедоступного реестра. Также обратите внимание на то, что образ обновлен до версии `v2`.
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Используйте [отправки в docker] [ docker-push] передача изображения в системный реестр. Замените `<acrLoginServer>` именем сервера входа реестра контейнеров Azure.
+Используйте команду [docker push][docker-push], чтобы передать образ в реестр. Замените `<acrLoginServer>` именем сервера входа реестра контейнеров Azure.
 
 ```console
-docker push <acrLoginServer>/azure-vote-front:redis-v2
+docker push <acrLoginServer>/azure-vote-front:v2
 ```
 
 ## <a name="deploy-update-application"></a>Развертывание обновленного приложения
 
-Чтобы обеспечить максимальное время доступности, должны быть запущены несколько экземпляров группы контейнеров приложения. Проверьте конфигурацию [kubectl получить pod] [ kubectl-get] команды.
+Чтобы обеспечить максимальное время доступности, должны быть запущены несколько экземпляров группы контейнеров приложения. Проверьте эту конфигурацию с помощью команды [kubectl get pod][kubectl-get].
 
 ```
 kubectl get pod
@@ -120,13 +120,13 @@ azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Чтобы обновить приложение, используйте [набор kubectl] [ kubectl-set] команды. Обновите `<acrLoginServer>`, используя имя сервера входа или имя узла реестра контейнеров.
+Чтобы обновить приложение, используйте команду [kubectl set][kubectl-set]. Обновите `<acrLoginServer>`, используя имя сервера входа или имя узла реестра контейнеров.
 
 ```azurecli
-kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
+kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
-Для мониторинга развертывания, используйте [kubectl получить pod] [ kubectl-get] команды. По мере развертывания обновленного приложения ваши группы контейнеров прекращают работу и воссоздаются с новым образом контейнера.
+Для мониторинга развертывания используйте команду [kubectl get pod][kubectl-get]. По мере развертывания обновленного приложения ваши группы контейнеров прекращают работу и воссоздаются с новым образом контейнера.
 
 ```azurecli
 kubectl get pod
@@ -154,7 +154,7 @@ kubectl get service azure-vote-front
 
 ![Схема кластера Kubernetes в Аzure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы обновили приложение и развернули это обновление в кластер Kubernetes. Были выполнены следующие задачи:
 
@@ -167,7 +167,7 @@ kubectl get service azure-vote-front
 Перейдите к следующему руководству, чтобы узнать о мониторинге Kubernetes с помощью Operations Management Suite.
 
 > [!div class="nextstepaction"]
-> [Монитор Kubernetes с помощью аналитики журналов][aks-tutorial-monitor]
+> [Мониторинг кластера Kubernetes с помощью Log Analytics][aks-tutorial-monitor]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

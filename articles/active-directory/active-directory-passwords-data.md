@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8fae46088bad5cbcbdb879f0b5a948fb85b76875
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Развертывание сброса пароля без регистрации пользователя
 
@@ -31,6 +31,8 @@ ms.lasthandoff: 01/12/2018
 Для правильной работы номера телефонов должны быть указаны в формате *+код_страны номер_телефона*. Например, +1 4255551234.
 
 > [!NOTE]
+> Между кодом страны и номером телефона должен быть пробел.
+>
 > Функция сброса пароля не поддерживает добавочные номера. Даже добавочные номера в формате +1 4255551234X12345 будут удаляться.
 
 ## <a name="fields-populated"></a>Заполненные поля
@@ -42,6 +44,11 @@ ms.lasthandoff: 01/12/2018
 | TelephoneNumber | Рабочий телефон | Дополнительный телефон |
 | mobile | Мобильный телефон | Номер телефона |
 
+Эти поля могут отображаться пустыми, пока пользователь не подтвердит свои данные аутентификации.
+
+Глобальный администратор может вручную задать контактные данные пользователя для аутентификации, как показано на следующем снимке экрана.
+
+![Контакт][Contact]
 
 ## <a name="security-questions-and-answers"></a>Контрольные вопросы и ответы на них
 
@@ -152,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Обзор всех параметров SSPR и их значение](active-directory-passwords-how-it-works.md)
 * [Как устранить неполадки самостоятельного сброса пароля](active-directory-passwords-troubleshoot.md)
 * [Вопросы, не вошедшие в другие статьи](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Глобальные администраторы могут изменять контактные данные для аутентификации пользователя"
