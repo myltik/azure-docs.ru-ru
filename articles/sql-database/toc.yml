@@ -359,6 +359,8 @@
           items:
             - name: Развертывание примера приложения
               href: saas-standaloneapp-get-started-deploy.md
+            - name: Подготовка клиентов
+              href: saas-standaloneapp-provision-and-catalog.md
         - name: Однотенантная база данных
           href: saas-dbpertenant-wingtip-app-overview.md
           items:

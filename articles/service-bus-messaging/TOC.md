@@ -4,7 +4,7 @@
 ## [Архитектура служебной шины](service-bus-architecture.md)
 ## [Часто задаваемые вопросы](service-bus-faq.md)
 
-# Начало работы
+# Быстрое начало работы
 ## [Создание пространства имен](service-bus-create-namespace-portal.md)
 ## Использование очередей
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)

@@ -133,6 +133,8 @@
           href: functions-run-local.md
         - name: Разработка в Visual Studio
           href: functions-develop-vs.md
+        - name: Обработка ошибок
+          href: functions-bindings-error-pages.md
     - name: Развертывание
       items:
         - name: Непрерывное развертывание

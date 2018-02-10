@@ -2,7 +2,7 @@
 ## [Что такое ретранслятор?](relay-what-is-it.md)
 ## [Часто задаваемые вопросы](relay-faq.md)
 
-# Начало работы
+# Быстрое начало работы
 ## [Создание пространства имен](relay-create-namespace-portal.md)
 ## [Создание гибридных локальные и облачных приложений](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## через гибридные подключения
@@ -21,7 +21,7 @@
 ### [Доступные интерфейсы API](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
-## Управление
+## управление
 ### [Мониторинг ретранслятора Azure с помощью Azure Monitor](relay-metrics-azure-monitor.md)
 
 # Справочные материалы

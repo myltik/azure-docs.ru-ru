@@ -3,7 +3,7 @@
 ## [Особенности концентраторов событий](event-hubs-features.md)
 ## [Часто задаваемые вопросы](event-hubs-faq.md)
 
-# Начало работы
+# Быстрое начало работы
 ## [Создание концентратора событий](event-hubs-create.md)
 ## Отправка событий
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
