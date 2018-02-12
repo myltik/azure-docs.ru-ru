@@ -90,7 +90,6 @@
 ### [Введение в службу интеграции журналов Azure](security-azure-log-integration-overview.md)
 #### [Приступая к работе со службой интеграции журналов Azure](security-azure-log-integration-get-started.md)
 #### [Интеграция журналов аудита Azure Active Directory](security-azure-log-integration-ad.md)
-#### [Интеграция оповещений центра безопасности](security-azure-log-integration-security-center.md)
 #### [Интеграция журналов из Key Vault с помощью концентраторов событий](security-azure-log-integration-keyvault-eventhub.md)
 #### [Часто задаваемые вопросы](security-azure-log-integration-faq.md)
 
