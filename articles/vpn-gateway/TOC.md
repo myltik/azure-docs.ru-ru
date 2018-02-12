@@ -34,6 +34,7 @@
 ### Настройка VPN для подключений "точка — сеть"
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [Создание и установка файлов конфигурации VPN-клиента](point-to-site-vpn-client-configuration-radius.md)
+### [Интеграция аутентификации VPN-подключений "точка — сеть" по протоколу RADIUS и сервера политики сети](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## Настройка подключений между виртуальными сетями
 ### [портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

@@ -157,6 +157,7 @@
 #### [Интерфейс командной строки Azure](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Журналы](virtual-network-nsg-manage-log.md)
+### [Таблицы маршрутов](manage-route-table.md)
 ### Сетевые интерфейсы
 #### [Создание, изменение и удаление сетевых интерфейсов](virtual-network-network-interface.md)
 #### [Добавление, изменение и удаление IP-адресов](virtual-network-network-interface-addresses.md)
@@ -177,6 +178,7 @@
 ### [Тестирование пропускной способности](virtual-network-bandwidth-testing.md)
 ### [Не удается удалить виртуальные сети](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [Проблемы с подключением между виртуальными машинами](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [Настройка записи типа PTR для проверки заголовка SMTP](create-ptr-for-smtp-service.md)
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
