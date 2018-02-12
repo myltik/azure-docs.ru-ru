@@ -33,6 +33,10 @@
       href: activate-subs-accounts.md
     - name: Добавление расширенных метрик для виртуальных машин
       href: azure-vm-extended-metrics.md
+    - name: Подключение учетной записи Google
+      href: connect-google-account.md
+    - name: Подключение учетной записи AWS
+      href: connect-aws-account.md
     - name: Использование отчетов службы "Управление затратами"
       href: use-reports.md
 - name: Ресурсы

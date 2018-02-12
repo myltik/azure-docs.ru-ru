@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 02/01/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Анализ использования данных в службе Log Analytics
-Log Analytics содержит сведения об объеме собранных данных, компьютерах, которые отправляют эти данные, а также различных типах отправленных данных.  Используйте панель мониторинга **использования службы Log Analytics**, чтобы просмотреть объем данных, отправленных в службу Log Analytics. На панели мониторинга отображаются объем данных, собранных каждым решением, и объем данных, отправляемый компьютерами.
+Log Analytics содержит сведения об объеме собранных данных, системах, которые отправляют эти данные, а также различных типах отправленных данных.  Используйте панель мониторинга **использования службы Log Analytics**, чтобы просмотреть объем данных, отправленных в службу Log Analytics. На панели мониторинга отображаются объем данных, собранных каждым решением, и объем данных, отправляемый компьютерами.
 
 ## <a name="understand-the-usage-dashboard"></a>Основные сведения о панели мониторинга "Использование"
 На панели мониторинга **Log Analytics usage** (Использование Log Analytics) отображается следующая информация.
@@ -37,24 +37,18 @@ Log Analytics содержит сведения об объеме собранн
     - узлы Insight and Analytics;
     - узлы автоматизации и управления;
     - узлы безопасности.
-- Производительность
-    - время, затраченное на сбор и индексирование данных;
 - список запросов.
 
 ![панель мониторинга "Использование"](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Работа с данными об использовании
-1. Войдите на [портал Azure](https://portal.azure.com), используя подписку Azure, если вы еще этого не сделали.
-2. В меню **концентратора** щелкните **Больше служб**, а затем в списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Щелкните **Log Analytics**.  
-    ![Концентратор Azure](./media/log-analytics-usage/hub.png)
-3. На панели мониторинга **Log Analytics** отобразится список рабочих областей. Выберите рабочую область.
-4. На панели мониторинга *рабочей области* щелкните **Log Analytics usage** (Использование Log Analytics).
-5. На панели мониторинга **Log Analytics usage** (Использование Log Analytics) щелкните **Time: Last 24 hours** (Время: последние 24 часа), чтобы изменить период времени.  
-    ![период времени](./media/log-analytics-usage/time.png)
-6. Просмотрите колонки категорий использования, которые вас интересуют. Выберите колонку, а затем щелкните в ней элемент, чтобы увидеть дополнительные сведения на панели мониторинга [Поиск по журналу](log-analytics-log-searches.md).  
-    ![пример колонки использования данных](./media/log-analytics-usage/blade.png)
-7. На панели мониторинга "Поиск по журналу" просмотрите результаты, возвращенные в результате поиска.  
-    ![пример поиска по журналу использования](./media/log-analytics-usage/usage-log-search.png)
+1. Войдите на [портале Azure](https://portal.azure.com).
+2. На портале Azure щелкните **Другие службы** в нижнем левом углу. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.<br><br> ![портал Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. В списке рабочих областей Log Analytics выберите рабочую область.
+4. В списке в левой области выберите **Использование службы анализа журналов**.
+5. На панели мониторинга **Log Analytics usage** (Использование Log Analytics) щелкните **Time: Last 24 hours** (Время: последние 24 часа), чтобы изменить период времени.<br><br> ![период времени](./media/log-analytics-usage/time.png)<br><br>
+6. Просмотрите колонки категорий использования, которые вас интересуют. Выберите колонку, а затем щелкните в ней элемент, чтобы увидеть дополнительные сведения на панели мониторинга [Поиск по журналу](log-analytics-log-searches.md).<br><br> ![пример колонки использования данных](./media/log-analytics-usage/blade.png)<br><br>
+7. На панели мониторинга "Поиск по журналу" просмотрите результаты, возвращенные в результате поиска.<br><br> ![пример поиска по журналу использования](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Создание оповещения для превышенного объема сбора данных
 В этом разделе описывается создание оповещения для следующих случаев:
@@ -63,20 +57,20 @@ Log Analytics содержит сведения об объеме собранн
 
 [Оповещения](log-analytics-alerts-creating.md) Log Analytics используют поисковые запросы. Следующий запрос содержит результат, когда за сутки собрано более 100 ГБ данных:
 
-`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
 Следующий запрос использует простую формулу для прогноза, что в течение 24 часов будет отправлено более 100 ГБ данных: 
 
-`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
 
 Чтобы создать оповещения для различных объемов данных, измените значение "100" в запросах на число ГБ, для которых вы хотите создать оповещения.
 
 Выполните действия, описанные в разделе [Создание правила оповещения](log-analytics-alerts-creating.md#create-an-alert-rule), чтобы получать уведомления при превышении объема данных.
 
-При создании оповещения для первого запроса, когда имеется объем данных, превышающий 100 ГБ в сутки, задайте параметрам следующие значения:
-- **имени** — *объем данных, превышающий 100 ГБ в сутки*;
-- **серьезности** — *предупреждение*;
-- **поисковому запросу** — `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`;
+При создании оповещения для первого запроса, когда имеется объем данных, превышающий 100 ГБ в сутки, задайте параметрам следующие значения:  
+- **имени** — *объем данных, превышающий 100 ГБ в сутки*;  
+- **серьезности** — *предупреждение*;  
+- **поисковому запросу** — `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`;   
 - **окну времени** *24 часа*;
 - **периодичности оповещений** — 1 час, так как данные об использовании обновляются только один раз в час;
 - параметру **создания оповещения на основе** задайте *число результатов*;
@@ -87,7 +81,7 @@ Log Analytics содержит сведения об объеме собранн
 При создании оповещения для второго запроса, когда спрогнозировано, что суточный объем данных превысит 100 ГБ, задайте параметрам следующие значения:
 - **имени** — *объем данных, превышающий 100 ГБ в сутки*;
 - **серьезности** — *предупреждение*;
-- **поисковому запросу** — `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`;
+- **поисковому запросу** — `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`;
 - **окну времени** — *3 часа*;
 - **периодичности оповещений** — 1 час, так как данные об использовании обновляются только один раз в час;
 - параметру **создания оповещения на основе** задайте *число результатов*;
@@ -115,33 +109,29 @@ Log Analytics содержит сведения об объеме собранн
 
 Обратите внимание на диаграмму *объема данных по времени*. Чтобы просмотреть решения и типы данных, которые отправляют наибольший объем данных для определенного компьютера, щелкните имя компьютера. Щелкните имя первого компьютера в списке.
 
-На следующем снимке экрана тип данных *Управление журналами / Perf* отправляет наибольший объем данных для определенного компьютера. 
-
-![Объем данных для компьютера](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
+На следующем снимке экрана тип данных *Управление журналами / Perf* отправляет наибольший объем данных для определенного компьютера.<br><br> ![объем данных для компьютера](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
 
 Затем вернитесь на панель мониторинга *Использование* и просмотрите диаграмму *Том данных по решениям*. Чтобы просмотреть компьютеры, отправляющие наибольший объем данных для решения, щелкните имя решения в списке. Щелкните имя первого решения в списке. 
 
-На следующем снимке экрана мы видим подтверждение, что компьютер *acmetomcat* отправляет наибольший объем данных для решения управления журналами.
-
-![объем данных для решения](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
+На следующем снимке экрана мы видим подтверждение, что компьютер *acmetomcat* отправляет наибольший объем данных для решения управления журналами.<br><br> ![Объем данных решения](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 При необходимости выполните дополнительный анализ, чтобы определить большие объемы в рамках типа данных или решения. Примеры запросов приведены ниже.
 
 + Решение по **безопасности**
-  - `Type=SecurityEvent | measure count() by EventID`
+  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + Решение для **управления журналами**
-  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
+  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
 + Тип данных **Perf**
-  - `Type=Perf | measure count() by CounterPath`
-  - `Type=Perf | measure count() by CounterName`
+  - `Perf | summarize AggregatedValue = count() by CounterPath`
+  - `Perf | summarize AggregatedValue = count() by CounterName`
 + Тип данных **Event**
-  - `Type=Event | measure count() by EventID`
-  - `Type=Event | measure count() by EventLog, EventLevelName`
+  - `Event | summarize AggregatedValue = count() by EventID`
+  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
 + Тип данных **Syslog**
-  - `Type=Syslog | measure count() by Facility, SeverityLevel`
-  - `Type=Syslog | measure count() by ProcessName`
+  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
+  - `Syslog | summarize AggregatedValue = count() by ProcessName`
 + Тип данных **AzureDiagnostics**
-  - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
+  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
 Чтобы уменьшить объем собранных журналов, сделайте следующее:
 
@@ -155,20 +145,31 @@ Log Analytics содержит сведения об объеме собранн
 | Данные решений с компьютеров, которым не требуется решение | Используйте [нацеливание решений](../operations-management-suite/operations-management-suite-solution-targeting.md), чтобы выполнять сбор данных только в нужных группах компьютеров. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Проверьте, превышено ли число узлов
-Если у вас ценовая категория с оплатой *за каждый узел (OMS)*, то плата взимается на основании числа используемых узлов и решений. В разделе *offerings* (предложения) панели мониторинга "Использование" можно увидеть, сколько узлов из каждого предложения используется.
-
-![панель мониторинга "Использование"](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+Если у вас ценовая категория с оплатой *за каждый узел (OMS)*, то плата взимается на основании числа используемых узлов и решений. В разделе *offerings* (предложения) панели мониторинга "Использование" можно увидеть, сколько узлов из каждого предложения используется.<br><br> ![Панель мониторинга "Использование"](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Щелкните **Просмотреть все**, чтобы просмотреть полный список компьютеров, отправляющих данные для выбранного предложения.
 
 Используйте [нацеливание решений](../operations-management-suite/operations-management-suite-solution-targeting.md), чтобы выполнять сбор данных только в нужных группах компьютеров.
 
+## <a name="check-if-there-is-ingestion-latency"></a>Проверка задержки приема данных
+В Log Analytics ожидается наличие задержки приема собранных данных.  Невозможно точно определить время, когда индексированные данные станут доступными для поиска. Раньше на панели мониторинга отображалась диаграмма производительности, которая показывала время сбора и индексирования данных. После введения нового языка запросов мы временно удалили эту диаграмму.  Пока мы не опубликуем обновленные метрики задержки приема данных, используйте в качестве временного решения приведенный ниже запрос. С его помощью можно регулировать задержку каждого типа данных.  
 
-## <a name="next-steps"></a>Дальнейшие действия
+    search *
+    | where TimeGenerated > ago(8h)
+    | summarize max(TimeGenerated) by Type
+    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
+    | project Type, LatencyInMinutes
+    | sort by LatencyInMinutes desc
+
+> [!NOTE]
+> Запрос на задержку приема не показывает историю задержки, а возвращает только результаты для текущего времени.  Значение *TimeGenerated* заполняется в агенте журналов общей схемы и в конечной точке сбора пользовательских журналов.  
+>
+
+## <a name="next-steps"></a>Дополнительная информация
 * Ознакомьтесь со статьей [Поиск данных по журналам](log-analytics-log-searches.md), чтобы узнать, как использовать язык поиска. Вы можете использовать поисковые запросы, чтобы выполнить дополнительный анализ данных об использовании.
 * Выполните действия, описанные в разделе [Создание правила оповещения](log-analytics-alerts-creating.md#create-an-alert-rule), чтобы получать уведомления при выполнении условий поиска.
 * Используйте [нацеливание решений](../operations-management-suite/operations-management-suite-solution-targeting.md), чтобы собирать данные только в нужных группах компьютеров.
-* Выберите [события со стандартным или минимальным уровнем безопасности](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/).
+* Сведения о настройке эффективной политики сбора событий безопасности см. в статье [Сбор данных в центре безопасности Azure](../security-center/security-center-enable-data-collection.md).
 * Измените [конфигурацию счетчика производительности](log-analytics-data-sources-performance-counters.md).
-* Измените [конфигурацию журнала событий](log-analytics-data-sources-windows-events.md).
-* Измените [конфигурацию системного журнала](log-analytics-data-sources-syslog.md).
+* Сведения об изменении параметров сбора событий см. в статье [Windows event log data sources in Log Analytics](log-analytics-data-sources-windows-events.md) (Источники данных журнала событий Windows в Log Analytics).
+* Сведения об изменении конфигурации системного журнала см. в статье [Источники данных системного журнала в Log Analytics](log-analytics-data-sources-syslog.md).

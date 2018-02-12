@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 5cf01580b53b551064a46282b9005ade6afe9604
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f59f88d47bfcb3e761f509a3d87c6d068f44e0db
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Приступая к отправке событий в концентраторы событий Azure на платформе .NET Standard
 
@@ -27,14 +27,14 @@ ms.lasthandoff: 10/11/2017
 
 В этом руководстве показано, как написать консольное приложение для .NET Core, которое отправляет набор событий в концентратор событий. Вы можете запустить решение [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) "как есть", заменив строки `EhConnectionString` и `EhEntityPath` своими значениями для концентратора событий. Или следуйте инструкциям этого руководства, чтобы создать собственное решение.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * [Microsoft Visual Studio 2015 или Microsoft Visual Studio 2017](http://www.visualstudio.com). В примерах в этом руководстве используется Visual Studio 2017, но также поддерживается Visual Studio 2015.
 * [Инструментарий Visual Studio 2015 или Visual Studio 2017 для .NET Core](http://www.microsoft.com/net/core).
 * Подписка Azure.
 * Пространство имен концентратора событий.
 
-Для отправки сообщений в концентратор событий мы напишем консольное приложение C# в Visual Studio.
+В этом руководстве для отправки сообщений в концентратор событий мы напишем консольное приложение C# в Visual Studio.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Создание пространства имен концентраторов событий и концентратора событий
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Написание кода для отправки сообщений в концентратор событий
 
-1. Добавьте следующие операторы `using` в начало файла program.cs.
+1. Добавьте следующие операторы `using` в начало файла Program.cs.
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -77,8 +77,8 @@ ms.lasthandoff: 10/11/2017
     private static async Task MainAsync(string[] args)
     {
         // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-        // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-        // we are using the connection string from the namespace.
+        // Typically, the connection string should have the entity path in it, but this simple scenario
+        // uses the connection string from the namespace.
         var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
         {
             EntityPath = EhEntityPath
@@ -151,8 +151,8 @@ ms.lasthandoff: 10/11/2017
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-                // we are using the connection string from the namespace.
+                // Typically, the connection string should have the entity path in it, but this simple scenario
+                // uses the connection string from the namespace.
                 var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
                 {
                     EntityPath = EhEntityPath
@@ -197,11 +197,11 @@ ms.lasthandoff: 10/11/2017
 
 Поздравляем! Теперь вы можете отправлять сообщения в концентратор событий.
 
-## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о концентраторах событий см. в следующих источниках:
+## <a name="next-steps"></a>Дополнительная информация
+Дополнительные сведения о концентраторах событий см. по следующим ссылкам:
 
 * [Основные сведения о получении сообщений с помощью узла EventProcessorHost в .NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 * [Создание концентратора событий](event-hubs-create.md)
 * [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
 

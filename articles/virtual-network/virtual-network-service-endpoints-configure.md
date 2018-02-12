@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Настройка конечных точек служб виртуальной сети
 
@@ -65,17 +65,17 @@ ms.lasthandoff: 12/08/2017
 2. Последовательно выберите "+Создать" > "Сеть" > "Виртуальная сеть" > "+Добавить".
 3. В окне "Создание виртуальной сети" введите приведенные ниже значения, а затем щелкните "Создать":
 
-Настройка | Значение
+Параметр | Значение
 ------- | -----
-Имя    | myVnet
+ИМЯ    | myVnet
 Пространство адресов | 10.0.0.0/16
 Имя подсети|mySubnet
 Диапазон адресов подсети|10.0.0.0/24
 Группа ресурсов|Оставьте выбранным пункт "Создать" и введите имя.
 Расположение|Любой поддерживаемый регион, например восточная Австралия
-Подписки|Выберите свою подписку.
+Подписка|Выберите свою подписку.
 __ServiceEndpoints__|Включено
-__Службы__ | Выберите одну или все доступные службы. Во время действия предварительной версии поддерживаются следующие службы: __Microsoft.Storage, Microsoft.Sql__.
+__Службы__ | Выберите одну или все доступные службы. Поддерживаются следующие службы: __Microsoft.Storage, Microsoft.Sql__.
 
 Выберите службы для создания конечных точек: ![Выбор служб для создания конечных точек](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -136,7 +136,7 @@ Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
 Выходные данные: 
-Имя | ИД | Тип
+ИМЯ | ИД | type
 -----|----|-------
 Microsoft.Storage;|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
 Microsoft.Sql|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Sql|Microsoft.Network/virtualNetworkEndpointServices
@@ -387,7 +387,7 @@ az network vnet subnet update -g myRG -n mySubnet --vnet-name myVNet --service-e
 
 Узнайте больше о [встроенных ролях](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) и назначении разрешений, определенных для [настраиваемых ролей](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-Виртуальные сети и ресурсы служб Azure могут находиться в одной или разных подписках. Если они находятся в разных подписках, на момент действия этой предварительной версии ресурсы должны быть размещены в одном клиенте Active Directory (AD).
+Виртуальные сети и ресурсы служб Azure могут находиться в одной или разных подписках. Если они находятся в разных подписках, ресурсы должны быть размещены в одном клиенте Active Directory (AD).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

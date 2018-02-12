@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c10f4c575c7b9a68e7a1ff8fedf0f17f4fb8599d
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 767b378331d994bb48a83726b1ebbfcb99649d12
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Создание виртуальной машины Linux с помощью Azure CLI
 
 Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью скриптов. Из этого краткого руководства вы узнаете, как с помощью Azure CLI развернуть виртуальную машину под управлением Ubuntu Server. После развертывания сервера создается подключение по протоколу SSH и устанавливается веб-сервер NGINX.
 
-Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , прежде чем начинать работу.
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -77,10 +77,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="ssh-into-your-vm"></a>SSH-подключение к виртуальной машине
 
-Используйте следующую команду для создания сеанса SSH с виртуальной машиной. Замените *<publicIpAddress>* общедоступным IP-адресом виртуальной машины.  В примере выше виртуальная машина имела следующий IP-адрес: *40.68.254.142*.
+Используйте следующую команду для создания сеанса SSH с виртуальной машиной. Замените адрес **publicIpAddress** правильным общедоступным IP-адресом виртуальной машины.  В примере выше виртуальная машина имела следующий IP-адрес: *40.68.254.142*.
 
 ```bash 
-ssh <publicIpAddress>
+ssh publicIpAddress
 ```
 
 ## <a name="install-nginx"></a>Установка nginx
@@ -99,7 +99,7 @@ sudo apt-get -y install nginx
 
 Установив nginx и открыв через Интернет порт 80 на виртуальной машине, вы можете просмотреть страницу приветствия nginx по умолчанию в любом браузере. Чтобы перейти на страницу по умолчанию, используйте значение *publicIpAddress*, записанное ранее. 
 
-![Сайт nginx по умолчанию](./media/quick-create-cli/nginx.png) 
+![Сайт NGINX по умолчанию](./media/quick-create-cli/nginx.png) 
 
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
@@ -110,7 +110,7 @@ sudo apt-get -y install nginx
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого краткого руководства вы узнали о том, как развернуть простую виртуальную машину, о правилах группы безопасности сети и об установке веб-сервера. Дополнительные сведения о виртуальных машинах Azure см. в руководстве для виртуальных машин Linux.
 

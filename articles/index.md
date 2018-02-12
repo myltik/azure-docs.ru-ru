@@ -5,11 +5,11 @@ title: "Документация по Microsoft Azure"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
 featureFlags:
 - clicktale
-ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4263,12 +4263,12 @@ Azure CLI 2.0 </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Набор рекомендуемых архитектур для облачных приложений. Каждая архитектура включает в себя рекомендации, предписания и исполняемый компонент, в котором воплощены рекомендации.
+В Центре архитектуры Azure содержатся рекомендации по созданию комплексных решений на базе Microsoft Azure. Здесь вы найдете примеры архитектуры, рекомендации, конструктивные шаблоны, руководства по сценариям и примеры реализации.
                                     </p>
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/guide/">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4278,8 +4278,27 @@ Azure CLI 2.0 </h3>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
+                                                    <h3>Центр архитектуры Azure</h3>
+                                                    <p>Рекомендации по созданию комплексных решений на базе Microsoft Azure.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/architecture/guide/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
                                                     <h3>Руководство по архитектуре приложений Azure</h3>
-                                                    <p>Основные сведения для успешной работы с облаком. Если вы еще не работали с облаком или платформой Azure, начните с этой информации.</p>
+                                                    <p>В этом руководстве представлен структурированный подход к разработке масштабируемых, отказоустойчивых и высокодоступных приложений в Azure. Он основан на проверенных методах, о которых мы узнали благодаря клиентам.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4318,27 +4337,6 @@ Azure CLI 2.0 </h3>
                                                 <div class="cardText">
                                                     <h3>Конструктивные шаблоны облачных решений</h3>
                                                     <p>Конструктивные шаблоны для облака. Каждый шаблон описывает проблему, шаблон, который устраняет проблему, а также пример решения на платформе Azure.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/architecture/best-practices/api-design">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_best-practices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Советы и рекомендации для облачных приложений</h3>
-                                                    <p>
-Набор рекомендаций для облачных приложений, охватывающих такие аспекты, как автоматическое масштабирование, кэширование, секционирование данных, структура API и мониторинг.
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

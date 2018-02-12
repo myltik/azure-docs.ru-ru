@@ -41,6 +41,8 @@
           href: monitoring-overview-autoscale.md
         - name: Журнал действий
           href: monitoring-overview-activity-logs.md
+        - name: Оповещения журнала действий (предварительная версия)
+          href: monitoring-activity-log-alerts-new-experience.md
         - name: Группы действий
           href: monitoring-action-groups.md
         - name: Журналы диагностики
@@ -84,8 +86,8 @@
           href: insights-alerts-command-line-interface.md
         - name: Настройка оповещений с помощью Azure PowerShell
           href: insights-alerts-powershell.md
-        - name: Вызов веб-перехватчика с помощью оповещения метрики
-          href: insights-webhooks-alerts.md
+        - name: Действия веб-перехватчика для оповещений журнала
+          href: monitor-alerts-unified-log-webhook.md
         - name: Создание оповещения метрики с помощью шаблона Resource Manager
           href: monitoring-enable-alerts-using-template.md
     - name: Использование автомасштабирования

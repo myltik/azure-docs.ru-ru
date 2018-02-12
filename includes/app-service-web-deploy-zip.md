@@ -1,9 +1,23 @@
-## <a name="deploy-uploaded-zip-file"></a>Развертывание загруженного ZIP-файла
+---
+title: "включение файла"
+description: "включение файла"
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: 917f8cc4a22199351614d101f1300b80052ee9a9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 02/03/2018
+---
+## <a name="deploy-zip-file"></a>Развертывание ZIP-файла
 
-В Cloud Shell разверните загруженный ZIP-файл в веб-приложение с помощью команды [`az webapp deployment source config-zip`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip). Обязательно замените значение *\<имя_приложения>* именем вашего веб-приложения.
+Откройте браузер и перейдите по адресу `https://<app_name>.scm.azurewebsites.net/ZipDeploy`.
 
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myAppFiles.zip
-```
+Загрузите ZIP-файл, созданный при выполнении действий из раздела [Создание ZIP-файла проекта](#create-a-project-zip-file), перетащив его в область проводника файлов на веб-странице.
 
-Эта команда позволяет развертывать файлы и каталоги из ZIP-файлов в папку для приложения службы приложений по умолчанию (`\home\site\wwwroot`). Затем приложение перезапускается. Если настроен любой дополнительный пользовательский процесс сборки, он также запустится.
+Во время развертывания значок в верхнем правом углу показывает ход выполнения в процентах. Кроме того, на странице внизу области обозревателя отображаются подробные сообщения об операции. После завершения отобразится последнее сообщение о развертывании со следующим содержимым: `Deployment successful`.

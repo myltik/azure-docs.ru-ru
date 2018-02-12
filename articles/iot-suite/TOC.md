@@ -40,7 +40,7 @@
 
 
 
-## Диагностическое обслуживание
+## диагностическое обслуживание;
 ### [Обзор решения для диагностического обслуживания](iot-suite-predictive-overview.md)
 ### [Пошаговое руководство по решению для диагностического обслуживания](iot-suite-predictive-walkthrough.md)
 
@@ -58,7 +58,9 @@
 ### [Использование правил для обнаружения проблем](iot-suite-remote-monitoring-automate.md)
 ### [Управление устройствами](iot-suite-remote-monitoring-manage.md)
 ### [Устранение неполадок с устройствами](iot-suite-remote-monitoring-maintain.md)
-### [Использование виртуальных устройств](iot-suite-remote-monitoring-test.md)
+### [Общие сведения о схеме модели устройства](iot-suite-remote-monitoring-device-schema.md)
+### [Общие сведения о поведении модели устройства](iot-suite-remote-monitoring-device-behavior.md)
+### [Создание имитированного устройства](iot-suite-remote-monitoring-test.md)
 ### [Настройка решения](iot-suite-remote-monitoring-customize.md)
 ### [Развертывание с помощью интерфейса командной строки](iot-suite-remote-monitoring-deploy-cli.md)
 ### Подключение физического устройства
@@ -87,7 +89,7 @@
 ## [Все аспекты безопасности](securing-iot-ground-up.md)
 
 # Сопутствующие материалы
-## [Анализ потока](/azure/stream-analytics/)
+## [Stream Analytics](/azure/stream-analytics/)
 ## [Концентраторы событий](/azure/event-hubs/)
 ## [Центр Интернета вещей](/azure/iot-hub/)
 ## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)

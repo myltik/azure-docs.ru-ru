@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/25/2018
 ms.author: mazha
-ms.openlocfilehash: 81a88f6495ca9092ca3b55b8ffb3e41def3b4623
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-azure-cdn"></a>Начало работы с Azure CDN
-В этой статье описывается, как включить сеть доставки содержимого (CDN) Azure путем создания профиля CDN и конечной точки.
-
-> [!IMPORTANT]
-> Общие сведения о CDN и соответствующих функциях см. в статье [Общие сведения о сети доставки содержимого(CDN) Azure](cdn-overview.md).
-> 
-> 
+В этой статье описывается, как включить [сеть доставки содержимого (CDN)](cdn-overview.md) Azure путем создания профиля CDN и конечной точки.
 
 ## <a name="create-a-new-cdn-profile"></a>Создание нового профиля сети CDN
 Профиль сети CDN представляет собой коллекцию конечных точек сети CDN. В каждом профиле может содержаться одна или несколько конечных точек сети CDN. Для упорядочения конечных точек сети CDN по домену Интернета, веб-приложению или согласно другим условиям можно использовать несколько профилей.

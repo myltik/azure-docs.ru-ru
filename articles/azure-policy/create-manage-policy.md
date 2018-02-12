@@ -9,11 +9,11 @@ ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Создание политик и управление ими для обеспечения соответствия требованиям
 
@@ -370,7 +370,7 @@ az policy definition list
 
 5. Выберите **Назначить**.
 
-## <a name="resolve-a-non-compliant-or-denied-resource"></a>Обход запрета на создание несоответствующих или отклоненных ресурсов
+## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Исключение несоответствующих или отклоненных ресурсов
 
 После назначения определения политики, требующего SQL Server версии 12.0, попытка создать SQL Server другой версии будет отклонена. В этом разделе вы решите проблему с невозможностью создания сервера SQL Server другой версии. Для этого потребуется запросить исключение. Исключение предотвращает принудительное применение политик. Исключения можно применять к группе ресурсов. Вы также можете сузить область применения исключения отдельными ресурсами.
 

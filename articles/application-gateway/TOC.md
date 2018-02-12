@@ -40,11 +40,19 @@
 ## Настройка размещения нескольких сайтов
 ### [портал Azure](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Настройка перенаправления
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [интерфейс командной строки Azure](tutorial-multisite-cli.md)
 ## Настройка внешнего перенаправления
-### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
-### [интерфейс командной строки Azure](tutorial-external-site-redirect-powershell.md)
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [интерфейс командной строки Azure](tutorial-external-site-redirect-cli.md)
+## Настройка внутреннего перенаправления
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [интерфейс командной строки Azure](tutorial-internal-site-redirect-cli.md)
+## Настройка перенаправления из HTTP в HTTPS
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [интерфейс командной строки Azure](tutorial-http-redirect-cli.md)
+## Настройка перенаправления URL-адресов
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [интерфейс командной строки Azure](tutorial-url-redirect-cli.md)
 ## Настройка веб-приложений в качестве элементов серверного пула
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Настройка проб работоспособности

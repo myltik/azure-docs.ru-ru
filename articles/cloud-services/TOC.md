@@ -64,13 +64,13 @@
 
 ## Мониторинг
 ### [Мониторинг облачной службы](cloud-services-how-to-monitor.md)
+### [Использование счетчиков производительности](diagnostics-performance-counters.md)
 ### [Тестирование производительности](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Тестирование с помощью профилировщика Visual Studio](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Включение диагностики
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Использование счетчиков производительности в системе диагностики Azure](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Хранение и просмотр диагностических данных в службе хранилища Azure](cloud-services-dotnet-diagnostics-storage.md)
 ### [Трассировка облачной службы с помощью системы диагностики](cloud-services-dotnet-diagnostics-trace-flow.md)
 ### [Отправка диагностических данных в App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)

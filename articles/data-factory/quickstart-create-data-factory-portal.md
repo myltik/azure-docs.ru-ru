@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 0973a7ae8316d413244367f5407a89d1ba809847
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Создание фабрики данных с помощью пользовательского интерфейса службы "Фабрика данных Azure"
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/25/2018
 Это видео поможет составить представление о пользовательском интерфейсе службы "Фабрика данных": 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных
+## <a name="create-a-data-factory"></a>Создать фабрику данных
 
 1. Перейдите на [портал Azure](https://portal.azure.com). 
 2. В меню слева выберите **Создать**, **Данные+аналитика**, **Фабрика данных**. 
@@ -133,7 +133,7 @@ ms.lasthandoff: 01/25/2018
 
    c. Укажите имя **OutputDataset**.
 
-   d. Введите имя папки **adftutorial/output**. При помощи действия копирования будет создана папка выходных данных, если ее еще нет.
+   d. Введите имя папки **adftutorial/output**. Если папка **output** отсутствует, действие копирования создаст ее во время выполнения.
 
    д. Введите имя файла `@CONCAT(pipeline().RunId, '.txt')`. 
    
@@ -180,7 +180,7 @@ ms.lasthandoff: 01/25/2018
 ## <a name="trigger-the-pipeline-manually"></a>Aктивация конвейера вручную
 На этом шаге вы развернете сущности (связанные службы, наборы данных и конвейеры) в службе "Фабрика данных Azure". После этого вы вручную запустите конвейер. Кроме того, можно опубликовать сущности в собственном репозитории Git службы Visual Studio Team Services, который рассматривается в [другом руководстве](tutorial-copy-data-portal.md?#configure-code-repository).
 
-1. Перед запуском конвейера необходимо опубликовать сущности в службе "Фабрика данных Azure". Для этого щелкните **Опубликовать** в области слева. 
+1. Перед запуском конвейера необходимо опубликовать сущности в службе "Фабрика данных Azure". Для этого щелкните **Опубликовать все** в области слева. 
 
    ![Кнопка "Опубликовать"](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. Чтобы вручную запустить конвейер, выберите **Trigger** (Запустить) на панели инструментов и **Trigger Now** (Запустить сейчас). 
@@ -224,9 +224,9 @@ ms.lasthandoff: 01/25/2018
 5. Ознакомьтесь с предупреждающим сообщением и нажмите кнопку **Готово**.
 
    ![Предупреждение и кнопка "Готово"](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Щелкните **Publish** (Опубликовать), чтобы перенести изменения в службу "Фабрика данных". 
+6. Щелкните **Опубликовать все**, чтобы перенести изменения в службу "Фабрика данных". 
 
-   ![Кнопка "Опубликовать"](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![Кнопка "Опубликовать"](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Перейдите на вкладку **Мониторинг** слева. Щелкните **Обновить**, чтобы обновить список. Вы увидите, что конвейер запускается каждую минуту в течение всего периода — от времени публикации до времени окончания. 
 
    Обратите внимание на значения в столбце **Активировано**. Здесь указан запуск вручную, который вы выполняли на предыдущем шаге (**Trigger Now** (Запустить сейчас)). 

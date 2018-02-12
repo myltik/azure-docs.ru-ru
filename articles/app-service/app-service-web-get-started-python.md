@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 34e26e9dfdf53536c21023b9519209c474253b25
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6256ffe9f616ec35f97f792545c72dbb25b3efa6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Создание веб-приложения Python в Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/01/2018
 
 ![Пример приложения, выполняющегося в Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-Выполните действия, приведенные ниже, с помощью компьютера Mac, Windows или Linux. После установки необходимых компонентов для выполнения этих шагов потребуется около пяти минут.
+Выполните инструкции, приведенные в этом руководстве, на компьютере Mac, Windows или Linux. После установки необходимых компонентов для выполнения этих шагов потребуется около пяти минут.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -88,9 +88,11 @@ python main.py
 
 Перейдите к только что созданному веб-приложению. Замените _&lt;app name>_ уникальным именем приложения.
 
-```bash
+```
 http://<app name>.azurewebsites.net
 ```
+
+Новое веб-приложение должно выглядеть так:
 
 ![Пустая страница веб-приложения](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
@@ -181,7 +183,7 @@ git push azure master
 
 Отобразится страница обзора вашего веб-приложения. Вы можете выполнять базовые задачи управления: обзор, завершение, запуск, перезагрузку и удаление.
 
-![Колонка службы приложений на портале Azure](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
+![Страница службы приложений на портале Azure](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 В меню слева доступно несколько страниц для настройки приложения.
 

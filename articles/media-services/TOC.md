@@ -171,6 +171,7 @@
 #### [Пошаговое руководство по скрытию лиц](media-services-redactor-walkthrough.md)
 ### [Обработка с помощью эскизов видео](media-services-video-summarization.md)
 ### [Обработка с помощью распознавания текста](media-services-video-optical-character-recognition.md)
+### [Использование Content Moderator](media-services-content-moderation.md)
 
 ## [Настройка телеметрии](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

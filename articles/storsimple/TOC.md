@@ -236,6 +236,7 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Блог по маркетингу](http://blogs.technet.com/b/cis/)
 ## [Маркетинг](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [Варианты поддержки StorSimple](storsimple-8000-support-options.md)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Цены](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

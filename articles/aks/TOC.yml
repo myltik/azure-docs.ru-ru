@@ -35,28 +35,38 @@
       href: container-service-quotas.md
 - name: Практические руководства
   items:
-    - name: Масштабирование кластера AKS
-      href: scale-cluster.md
-    - name: Обновление кластера AKS
-      href: upgrade-cluster.md
-    - name: Аутентификация с помощью ACR
-      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
-    - name: Запуск приложений с помощью Helm
-      href: kubernetes-helm.md
-    - name: Разработка приложений с помощью Draft
-      href: kubernetes-draft.md
-    - name: Интеграция с Azure с помощью OSBA
-      href: integrate-azure.md
-    - name: Использование панели мониторинга Kubernetes
-      href: kubernetes-dashboard.md
-    - name: Создание субъекта-службы
-      href: kubernetes-service-principal.md
+    - name: Операции с кластером
+      items:
+        - name: Масштабирование кластера AKS
+          href: scale-cluster.md
+        - name: Обновление кластера AKS
+          href: upgrade-cluster.md
+        - name: Удаление кластера AKS
+          href: delete-cluster.md
     - name: Конфигурирование томов данных
       items:
         - name: "Диски Azure\_— постоянные тома"
           href: azure-disks-dynamic-pv.md
         - name: "Файлы Azure\_— постоянные тома"
           href: azure-files-dynamic-pv.md
+    - name: Безопасность и проверка подлинности
+      items:
+        - name: Создание субъекта-службы
+          href: kubernetes-service-principal.md
+        - name: Аутентификация с помощью ACR
+          href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+    - name: Разработка и запуск приложений
+      items:
+        - name: Запуск приложений с помощью Helm
+          href: kubernetes-helm.md
+        - name: Разработка приложений с помощью Draft
+          href: kubernetes-draft.md
+        - name: Интеграция с Azure с помощью OSBA
+          href: integrate-azure.md
+    - name: Базовые сведения о Kubernetes
+      items:
+        - name: Использование панели мониторинга Kubernetes
+          href: kubernetes-dashboard.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

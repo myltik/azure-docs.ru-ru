@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kumud
-ms.openlocfilehash: d71e2391b6415b2403447479dea4fd0a3b818ed0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 4613e152336eda7ce7cdc4c44b0c6b5e96abac10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>Приступая к работе с частными зонами Azure DNS с помощью PowerShell
 
 Эта статья поможет вам создать свою первую частную зону и первую запись DNS с помощью Azure PowerShell.
 
+[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+
 Зона DNS используется для размещения DNS-записей определенного домена. Чтобы разместить свой домен в Azure DNS, необходимо создать зону DNS для этого доменного имени. Каждая запись DNS для вашего домена создается внутри этой зоны DNS. Чтобы опубликовать частную зону DNS в виртуальной сети, укажите список виртуальных сетей, которые могут разрешать записи в зоне.  Мы называем их сетями разрешения.  Кроме того, можно указать набор виртуальных сетей, для которых служба Azure DNS будет поддерживать записи имени узла всякий раз, когда виртуальная машина создается, меняет IP-адрес или удаляется.  Мы называем их сетями регистрации.
 
-Так как эта функция в настоящее время находится в управляемой предварительной версии, будет предоставлен модуль PowerShell предварительной версии.
+Так как эта функция в настоящее время находится в управляемой предварительной версии, будет предоставлен модуль PowerShell предварительной версии. Для этого отправьте сообщение электронное почты на адрес [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com).
 
-[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+## <a name="get-the-preview-powershell-module"></a>Получение предварительной версии модуля PowerShell
+
+Чтобы создать частную зону DNS с помощью PowerShell, отправьте сообщение электронной почты на адрес [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com). После этого вы получите предварительную версию модуля PowerShell.
 
 ## <a name="create-the-resource-group"></a>Создание группы ресурсов
 
@@ -83,7 +87,7 @@ Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyResourceGro
 Remove-AzureRMResourceGroup -Name MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об использовании частных зон DNS см. в статье [Using Azure DNS for private domains](private-dns-overview.md) (Использование Azure DNS для частных доменов).
 

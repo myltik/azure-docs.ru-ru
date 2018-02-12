@@ -83,6 +83,7 @@
 #### [Назначение лицензий группе](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Поиск и устранение проблем с лицензированием групп](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
+#### [Перенос пользователей между лицензиями на продукт](active-directory-licensing-group-product-migration.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
 #### [Примеры Azure PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
 #### [Справочник по продуктам и планам службы в Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
@@ -200,8 +201,6 @@
 ##### [Соединители](application-proxy-understand-connectors.md)
 ##### [Безопасность](application-proxy-security-considerations.md)
 ##### [Сети](application-proxy-network-topology-considerations.md)
-
-
 ##### [Обновление с TMG или UAG](application-proxy-transition-from-uag-tmg.md)
 
 #### Расширенные конфигурации
@@ -212,6 +211,8 @@
 ##### [Автоматическая установка](active-directory-application-proxy-silent-installation.md)
 ##### [Пользовательская домашняя страница](application-proxy-office365-app-launcher.md)
 ##### [Преобразование встроенных ссылок](application-proxy-link-translation.md)
+##### [Шаблоны приложений](active-directory-application-proxy-wildcard.md)
+
 #### Пошаговые руководства по публикации
 ##### [Удаленный рабочий стол](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -293,8 +294,9 @@
 
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
-#### [Элементы управления](active-directory-conditional-access-controls.md)
+#### [Условия](active-directory-conditional-access-conditions.md)
 #### [Условие расположения](active-directory-conditional-access-locations.md)
+#### [Элементы управления](active-directory-conditional-access-controls.md)
 #### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
