@@ -1,4 +1,5 @@
 - name: Документация по виртуальной машине для обработки и анализа данных
+  href: index.yml
   items: null
 - name: Обзор
   expanded: true

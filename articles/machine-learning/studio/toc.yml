@@ -1,5 +1,5 @@
 - name: Документация по Студии машинного обучения
-  href: index.md
+  href: index.yml
 - name: Обзор
   expanded: true
   items:

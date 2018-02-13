@@ -3,7 +3,7 @@
 ## [Что такое Центр Интернета вещей в Azure?](iot-hub-what-is-iot-hub.md)
 ## [Обзор управления устройствами](iot-hub-device-management-overview.md)
 
-# [Начало работы](iot-hub-get-started.md)
+# [Приступите к работе](iot-hub-get-started.md)
 
 ## Настройка устройства
 ### [Моделирование устройства на ПК](iot-hub-get-started-simulated.md)
@@ -107,6 +107,7 @@
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-device-management-get-started.md)
 #### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java: серверный компонент и устройство](iot-hub-java-java-device-management-getstarted.md)
+#### [Серверная часть и устройство Python](iot-hub-python-python-device-management-get-started.md)
 ### Как использовать свойства двойников
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
