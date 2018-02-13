@@ -29,8 +29,6 @@
       href: apache-kafka-mirroring.md
     - name: Анализ журналов Kafka
       href: apache-kafka-log-analytics-operations-management.md
-    - name: Использование Kafka со Службой контейнеров Azure
-      href: apache-kafka-azure-container-services.md
     - name: Создание конвейеров потоковой передачи
       items:
         - name: Kafka и Spark (структурированный поток)
@@ -45,6 +43,10 @@
         - name: Kafka и Storm
           href: ../hdinsight-apache-storm-with-kafka.md
           maintainContext: true
+        - name: Использование Kafka со Службой контейнеров Azure
+          href: apache-kafka-azure-container-services.md
+        - name: Kafka и Функции Azure
+          href: apache-kafka-azure-functions.md
     - name: Разработка
       items:
         - name: Использование API производителя и потребителя Kafka

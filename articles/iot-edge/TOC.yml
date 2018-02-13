@@ -24,8 +24,6 @@
       href: tutorial-deploy-machine-learning.md
     - name: Развертывание решения "Функции Azure"
       href: tutorial-deploy-function.md
-    - name: Создание развертывания IoT Edge с помощью расширения IoT для Azure CLI 2.0
-      href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: Практические руководства
   items:
     - name: Создание шлюзов
@@ -34,6 +32,8 @@
           href: how-to-create-transparent-gateway.md
         - name: Шлюз Modbus
           href: deploy-modbus-gateway.md
+    - name: Использование расширения Интернета вещей для Azure CLI 2.0
+      href: tutorial-create-deployment-with-cli-iot-extension.md
     - name: Развертывание и мониторинг в нужном масштабе
       href: how-to-deploy-monitor.md
     - name: Подготовка устройства с ОС "Windows 10 IoT Базовая"

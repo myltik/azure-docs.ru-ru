@@ -51,12 +51,12 @@
           href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
         - name: Практическое руководство
           items:
-            - name: Создание узла Docker
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/dockerextension'
-            - name: Использование виртуальной машины Docker
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-machine'
-            - name: Использование Docker Compose
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-compose-quickstart'
+            - name: Создание приложения-контейнера в Windows
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'
+            - name: Создание приложения-контейнера в Linux
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux'
+            - name: Контейнеризация существующего приложения .NET
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container'
     - name: Контейнеры Windows
       href: 'https://docs.microsoft.com/azure/virtual-machines/windows/overview'
       items:
@@ -64,7 +64,7 @@
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
         - name: Сведения о контейнерах Windows
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/about/index'
-    - name: Ссылка
+    - name: Справочные материалы
       items:
         - name: Служба "Экземпляры контейнеров Azure" (az container)
           href: 'https://docs.microsoft.com/cli/azure/container'

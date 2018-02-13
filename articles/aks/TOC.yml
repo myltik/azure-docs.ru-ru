@@ -37,6 +37,8 @@
   items:
     - name: Операции с кластером
       items:
+        - name: Создание кластера AKS
+          href: create-cluster.md
         - name: Масштабирование кластера AKS
           href: scale-cluster.md
         - name: Обновление кластера AKS
@@ -45,10 +47,14 @@
           href: delete-cluster.md
     - name: Конфигурирование томов данных
       items:
-        - name: "Диски Azure\_— постоянные тома"
+        - name: Диски Azure
           href: azure-disks-dynamic-pv.md
-        - name: "Файлы Azure\_— постоянные тома"
+        - name: Файлы Azure
           href: azure-files-dynamic-pv.md
+    - name: Настройка сети
+      items:
+        - name: Статический IP-адрес
+          href: static-ip.md
     - name: Безопасность и проверка подлинности
       items:
         - name: Создание субъекта-службы

@@ -54,35 +54,37 @@
         - name: Перенос экземпляров AWS в Azure
           href: tutorial-migrate-aws-to-azure.md
         - name: Перенос виртуальных машин Azure в другой регион
-          href: tutorial-migrate-azure-to-azure.md
+          href: azure-to-azure-tutorial-migrate.md
 - name: Основные понятия
   items:
-    - name: "Архитектура: репликация из Azure\_в Azure"
-      href: concepts-azure-to-azure-architecture.md
-    - name: "Архитектура: репликация из VMware\_в Azure"
-      href: concepts-vmware-to-azure-architecture.md
-    - name: "Архитектура: репликация из Hyper-V\_в Azure"
-      href: concepts-hyper-v-to-azure-architecture.md
-    - name: 'Архитектура: репликация физических компьютеров в Azure'
-      href: concepts-physical-to-azure-architecture.md
-    - name: 'Архитектура: репликация Hyper-V на дополнительный сайт'
-      href: concepts-hyper-v-to-secondary-architecture.md
-    - name: Матрица Azure — Azure
-      href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Матрица поддержки "VMware — Azure"
-      href: support-matrix-vmware-to-azure.md
-    - name: Матрица поддержки "Hyper-V — Azure"
-      href: support-matrix-hyper-v-to-azure.md
-    - name: "Матрица поддержки репликации из локальной среды\_в Azure"
-      href: site-recovery-support-matrix-to-azure.md
-    - name: "Матрица поддержки репликации из локальной среды\_на дополнительный сайт"
-      href: site-recovery-support-matrix-to-sec-site.md
-    - name: Типы восстановления размещения
-      href: concepts-types-of-failback.md
-    - name: Аварийное восстановление для рабочих нагрузок
-      href: site-recovery-workload.md
-    - name: Миграция в Azure
-      href: site-recovery-migrate-to-azure.md
+    - name: Архитектура
+      items:
+        - name: "Архитектура: репликация из Azure\_в Azure"
+          href: azure-to-azure-architecture.md
+        - name: "Архитектура: репликация из VMware\_в Azure"
+          href: concepts-vmware-to-azure-architecture.md
+        - name: "Архитектура: репликация из Hyper-V\_в Azure"
+          href: concepts-hyper-v-to-azure-architecture.md
+        - name: 'Архитектура: репликация физических компьютеров в Azure'
+          href: concepts-physical-to-azure-architecture.md
+        - name: 'Архитектура: репликация Hyper-V на дополнительный сайт'
+          href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Матрица требований к поддержке
+      items:
+        - name: Матрица Azure — Azure
+          href: azure-to-azure-support-matrix.md
+        - name: Матрица поддержки "VMware — Azure"
+          href: support-matrix-vmware-to-azure.md
+        - name: Матрица поддержки "Hyper-V — Azure"
+          href: support-matrix-hyper-v-to-azure.md
+        - name: "Матрица поддержки репликации из локальной среды\_в Azure"
+          href: site-recovery-support-matrix-to-azure.md
+        - name: "Матрица поддержки репликации из локальной среды\_на дополнительный сайт"
+          href: site-recovery-support-matrix-to-sec-site.md
+        - name: Аварийное восстановление для рабочих нагрузок
+          href: site-recovery-workload.md
+        - name: Миграция в Azure
+          href: site-recovery-migrate-to-azure.md
     - name: Предоставление доступа на основе ролей
       href: site-recovery-role-based-linked-access-control.md
     - name: Часто задаваемые вопросы
@@ -92,9 +94,9 @@
     - name: Сеть
       items:
         - name: Настройка сети для аварийного восстановления виртуальных машин Azure (предварительная версия)
-          href: site-recovery-azure-to-azure-networking-guidance.md
+          href: azure-to-azure-about-networking.md
         - name: Настройка сетевого сопоставления для аварийного восстановления виртуальных машин Azure (предварительная версия)
-          href: site-recovery-network-mapping-azure-to-azure.md
+          href: azure-to-azure-network-mapping.md
         - name: Сохранение IP-адреса для аварийного восстановления виртуальных машин Azure (предварительная версия)
           href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Подготовка сетевого сопоставления для репликации виртуальных машин Hyper-V в Azure
@@ -108,7 +110,7 @@
     - name: Аварийное восстановление
       items:
         - name: Аварийное восстановление виртуальных машин Azure после миграции в Azure
-          href: site-recovery-azure-to-azure-after-migration.md
+          href: azure-to-azure-replicate-after-migration.md
         - name: Аварийное восстановление физических серверов в Azure
           href: tutorial-physical-to-azure.md
         - name: Репликация виртуальных машин Hyper-V на дополнительный сайт
@@ -142,7 +144,7 @@
         - name: Повторное включение защиты виртуальных машин после отработки отказа
           items:
             - name: "Повторное включение репликации из дополнительного региона Azure\_в основной регион Azure"
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
+              href: azure-to-azure-how-to-reprotect.md
             - name: "Повторное включение защиты: Azure\_— локальная среда"
               href: site-recovery-how-to-reprotect.md
         - name: Восстановление размещения из Azure
@@ -153,6 +155,12 @@
               href: site-recovery-failback-from-azure-to-hyper-v.md
         - name: Настройка главного целевого сервера Linux для восстановления размещения
           href: site-recovery-how-to-install-linux-master-target.md
+    - name: Миграция
+      items:
+        - name: Общие сведения о миграции
+          href: site-recovery-migrate-to-azure.md
+        - name: Репликация виртуальных машин Azure после миграции в другой регион
+          href: azure-to-azure-replicate-after-migration.md
     - name: Емкость и масштабирование
       items:
         - name: Планирование емкости для репликации VMware в Azure
@@ -210,7 +218,7 @@
         - name: Включение репликации
           items:
             - name: "Включение репликации из Azure\_в Azure"
-              href: site-recovery-replicate-azure-to-azure.md
+              href: azure-to-azure-how-to-enable-replication.md
             - name: "Включение репликации из VMware\_в Azure"
               href: site-recovery-replicate-vmware-to-azure.md
         - name: Развертывание службы Mobility Service для VMware
@@ -272,7 +280,7 @@
     - name: Мониторинг и устранение неполадок
       items:
         - name: "Проблемы с репликацией из Azure\_в Azure"
-          href: site-recovery-azure-to-azure-troubleshoot-errors.md
+          href: azure-to-azure-troubleshoot-errors.md
         - name: Проблемы репликации из локальной среды в Azure
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
         - name: Неполадки службы Mobility Service
