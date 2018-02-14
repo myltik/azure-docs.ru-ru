@@ -95,8 +95,8 @@ ms.lasthandoff: 10/11/2017
     <tr>
         <td><a href="data-lake-analytics-manage-use-portal.md">Портал</a></td>
         <td><a href="data-lake-analytics-manage-use-powershell.md">Python</a></td>
-        <td><a href="data-lake-analytics-manage-use-cli.md">Интерфейс командной строки Azure</a></td>
-        <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">Пакет SDK для .NET</a></td>
+        <td><a href="data-lake-analytics-manage-use-cli.md">интерфейс командной строки Azure</a></td>
+        <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">ПАКЕТ SDK .NET</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">Пакет SDK для Python</a></td>
         <td><a href="data-lake-analytics-get-started-java-sdk.md">Пакет SDK для Java</a></td>
     </tr>
@@ -140,7 +140,7 @@ ms.lasthandoff: 10/11/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datalakeanalytics/">ИНТЕРФЕЙС REST API</a></p>
+                        <p><a href="/rest/api/datalakeanalytics/">REST API</a></p>
                     </div>
                 </div>
             </div>

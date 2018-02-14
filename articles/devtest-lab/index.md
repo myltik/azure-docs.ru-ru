@@ -139,7 +139,7 @@ ms.lasthandoff: 10/11/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/dtl/">ИНТЕРФЕЙС REST API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/dtl/">REST API</a></p>
                     </div>
                 </div>
             </div>

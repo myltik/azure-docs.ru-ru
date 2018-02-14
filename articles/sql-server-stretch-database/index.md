@@ -1,6 +1,6 @@
 ---
-title: "Документация по базе данных SQL Server Stretch. Руководства и справочник по API | Документация Майкрософт"
-description: "Узнайте, как использовать базу данных SQL Server Stretch для безопасного переноса \"холодных\" данных в Azure без изменения запросов и приложений. Руководства и другие документы."
+title: "Документация по SQL Server Stretch Database. Руководства и справочник по API | Документация Майкрософт"
+description: "Узнайте, как использовать SQL Server Stretch Database для безопасного переноса \"холодных\" данных в Azure без изменения запросов и приложений. Руководства и другие документы."
 services: sql-server-stretch-database
 author: czeumault
 manager: carolz
@@ -18,9 +18,9 @@ ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
 ---
-#<a name="sql-server-stretch-database-documentation"></a>Документация по базе данных SQL Server Stretch
+#<a name="sql-server-stretch-database-documentation"></a>Документация по SQL Server Stretch Database
 
-Узнайте, как использовать базу данных SQL Server Stretch для прозрачного и безопасного переноса "холодных" данных в облако Azure. В руководствах и других документах объясняется, как без лишних затрат получать доступ к базам данных с редко используемыми данными, не изменяя существующие запросы и приложения.
+Узнайте, как использовать SQL Server Stretch Database для прозрачного и безопасного переноса "холодных" данных в облако Azure. В руководствах и других документах объясняется, как без лишних затрат получать доступ к базам данных с редко используемыми данными, не изменяя существующие запросы и приложения.
 
 
 <ul class="panelContent cardsFTitle">
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Подробнее о базе данных SQL Server Stretch Azure</h3>
+                        <h3>Подробнее о службе SQL Server Stretch Database в Azure</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Видеотека по базе данных SQL Server Stretch Azure</h3>
+                        <h3>Видеотека по SQL Server Stretch Database в Azure</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Начало работы с базой данных SQL Server Stretch</h3>
+                        <h3>Начало работы со службой SQL Server Stretch Database</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ ms.lasthandoff: 10/11/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Начало работы с мастером базы данных SQL Server Stretch</h3>
+                        <h3>Начало работы с мастером SQL Server Stretch Database</h3>
                     </div>
                 </div>
             </div>

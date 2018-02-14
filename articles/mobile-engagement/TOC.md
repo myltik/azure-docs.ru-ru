@@ -79,7 +79,7 @@
 
 ### Доступ к API служб
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)
-#### [Пакет SDK для .NET](mobile-engagement-dotnet-sdk-service-api.md)
+#### [ПАКЕТ SDK .NET](mobile-engagement-dotnet-sdk-service-api.md)
 
 ## [Управление](mobile-engagement-user-interface-home.md)
 ### [Учетная запись](mobile-engagement-user-interface-my-account.md)
@@ -137,7 +137,7 @@
 ## Заметки о выпуске
 ### [Пакет SDK для Android](mobile-engagement-android-release-notes.md)
 ### [пакета SDK iOS](mobile-engagement-ios-release-notes.md)
-### [Веб-пакет SDK](mobile-engagement-web-release-notes.md)
+### [веб-пакет SDK](mobile-engagement-web-release-notes.md)
 ### [Пакет SDK для Windows Phone Silverlight](mobile-engagement-windows-phone-release-notes.md)
 ### [Пакет SDK для универсальных приложений для Windows](mobile-engagement-windows-store-release-notes.md)
 

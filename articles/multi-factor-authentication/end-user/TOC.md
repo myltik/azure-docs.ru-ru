@@ -2,7 +2,7 @@
 ## [Что такое двухфакторная проверка подлинности?](multi-factor-authentication-end-user.md)
 ## [Как это влияет на меня?](multi-factor-authentication-end-user-signin.md)
 
-# Приступая к работе
+# Начало работы
 ## [Настройка учетной записи](multi-factor-authentication-end-user-first-time.md)
 
 # Практическое руководство

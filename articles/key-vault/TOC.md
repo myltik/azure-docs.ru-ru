@@ -23,7 +23,7 @@
 #### [Ключи учетной записи хранения](key-vault-ovw-storage-keys.md)
 #### [Регулирование](key-vault-ovw-throttling.md)
 
-## Управление
+## управление
 ### [Ведение журнала Azure Key Vault](key-vault-logging.md)
 ### [Доступ за брандмауэрами](key-vault-access-behind-firewall.md)
 ### [Доступность и избыточность](key-vault-disaster-recovery-guidance.md)
@@ -40,7 +40,7 @@
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
-## [Интерфейс командной строки Azure](/cli/azure/keyvault)
+## [интерфейс командной строки Azure](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js

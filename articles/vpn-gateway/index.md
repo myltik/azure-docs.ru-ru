@@ -145,7 +145,7 @@ ms.lasthandoff: 10/11/2017
                         <h3>Командная строка</h3>
                         <p><a href="/powershell/module/azurerm.network/#vpn">PowerShell (Resource Manager)</a></p>
                         <p><a href="/powershell/module/azure/#networking">PowerShell (классическая модель)</a></p> 
-                        <p><a href="/cli/azure/network/vnet-gateway">Интерфейс командной строки Azure</a></p> 
+                        <p><a href="/cli/azure/network/vnet-gateway">интерфейс командной строки Azure</a></p> 
                     </div>
                 </div>
             </div>

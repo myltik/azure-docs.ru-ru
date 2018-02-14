@@ -42,7 +42,7 @@
 #### [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 #### [Windows](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 
-## Управление
+## управление
 ### [Регистрации](notification-hubs-push-notification-registration-management.md)
 ### [Проверка подлинности на основе маркеров APNs](notification-hubs-push-notification-http2-token-authentification.md)
 

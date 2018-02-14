@@ -1,6 +1,6 @@
 # [Обзор](active-directory-developers-guide.md)
 ## [Почему именно Azure?](https://azure.microsoft.com/develop/identity/signin/)
-## [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md)
+## [Базовые сведения об аутентификации ](active-directory-authentication-scenarios.md)
 ## [Типы приложений](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Начало работы
 ## Классические и мобильные приложения

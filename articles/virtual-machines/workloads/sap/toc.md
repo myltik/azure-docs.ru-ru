@@ -1,5 +1,5 @@
 # Обзор
-## [Приступая к работе](get-started.md)
+## [Приступая к работе с условным доступом](get-started.md)
 ## [Сертификаты](sap-certifications.md)
 # SAP HANA в Azure (большие экземпляры)
 ## [Обзор и архитектура](hana-overview-architecture.md)

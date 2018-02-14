@@ -48,7 +48,7 @@
 ### [Дополнительное занятие. Динамическая безопасность](tutorials/aas-supplemental-lesson-dynamic-security.md)
 ### [Дополнительное занятие. Неоднородные иерархии](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
-# Ссылка
+# Справочные материалы
 ## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)

@@ -79,7 +79,7 @@
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
-    - name: Интерфейс REST API
+    - name: ИНТЕРФЕЙС REST API
       href: /rest/api/appservice/
 - name: Ресурсы
   items:

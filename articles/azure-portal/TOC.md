@@ -3,17 +3,17 @@
 # Учебники
 ## [Разработка и операции на портале Azure](tutorial-azureportal-devops.md)
 # Основные понятия
-## [Диспетчер ресурсов Azure](../azure-resource-manager/resource-group-overview.md)
+## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Сочетания клавиш](azure-portal-keyboard-shortcuts.md)
 ## [Поддерживаемые браузеры и устройства](../azure-preview-portal-supported-browsers-devices.md)
 ## [Структура панелей мониторинга Azure](azure-portal-dashboards-structure.md)
 # Практические руководства
-## Развернуть
+## Развертывание
 ### [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 ### [Развертывание с помощью шаблона Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Создание панелей мониторинга Azure и предоставление общего доступа к ним](azure-portal-dashboards.md)
 ### [Создание панелей мониторинга Azure программными средствами](azure-portal-dashboards-create-programmatically.md)
-## Управление
+## управление
 ### [Включение режима высокой контрастности или изменение темы](azure-portal-change-theme-high-contrast.md)
 ### [Управление ресурсами с помощью портала](../azure-resource-manager/resource-group-portal.md)
 ### [Управление доступом на основе ролей](../active-directory/role-based-access-control-configure.md)
@@ -21,7 +21,7 @@
 ### [Организация ресурсов с помощью тегов](../azure-resource-manager/resource-group-using-tags.md)
 ### [Как масштабировать свои ресурсы](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Создание субъекта-службы Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-## Монитор
+## Мониторинг
 ### [Мониторинг метрик службы](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
 ### [Включение мониторинга и диагностики](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
 ### [Мониторинг доступности и скорости реагирования любого веб-сайта](../application-insights/app-insights-monitor-web-app-availability.md)

@@ -67,7 +67,7 @@
               href: azure-stack-understanding-dns.md
             - name: DNS в Azure Stack
               href: azure-stack-dns.md
-        - name: Хранилище ключей
+        - name: хранилище ключей;
           items:
             - name: Обзор
               href: azure-stack-kv-intro.md

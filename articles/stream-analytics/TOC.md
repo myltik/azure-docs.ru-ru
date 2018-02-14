@@ -36,7 +36,7 @@
 
 ## Использование инструментов Visual Studio
 ### [Установка](stream-analytics-tools-for-visual-studio-install.md)
-### [Начало работы](stream-analytics-tools-for-visual-studio.md)
+### [Приступая к работе с условным доступом](stream-analytics-tools-for-visual-studio.md)
 ### [Настройка конвейеров CI/CD](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Мониторинг и оптимизация

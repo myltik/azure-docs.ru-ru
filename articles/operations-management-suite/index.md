@@ -47,7 +47,7 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 * [Антивредоносное решение](../log-analytics/log-analytics-malware.md) предоставляет отчеты о состоянии защиты от вредоносных программ в управляемых системах.  
 * Решение для системных обновлений проводит анализ обновлений безопасности и других обновлений в управляемых системах, чтобы помочь вам определить системы, требующие установки исправлений.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)
 * Дополнительные сведения о [службе автоматизации Azure](../automation/automation-intro.md)
 * Дополнительные сведения о [службе архивации Azure](http://azure.microsoft.com/documentation/services/backup).

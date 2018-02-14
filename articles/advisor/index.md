@@ -88,7 +88,7 @@ Azure Advisor — это персонализированный облачный
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Интерфейс REST API</h3>
+                        <h3>ИНТЕРФЕЙС REST API</h3>
                         <p><a href="/rest/api/advisor">справочник по API REST</a></p>
                         <h3>Интерфейс командной строки</h3>
                         <p><a href="/cli/azure/advisor">Справочник по CLI</a></p>

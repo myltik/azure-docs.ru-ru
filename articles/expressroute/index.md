@@ -90,7 +90,7 @@ ms.lasthandoff: 10/11/2017
                     <div class="cardText">
                         <h3>Командная строка</h3>
                         <p><a href="/powershell/module/azurerm.network/#expressroute">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/express-route">Интерфейс командной строки Azure</a></p>
+                        <p><a href="/cli/azure/network/express-route">интерфейс командной строки Azure</a></p>
                     </div>
                 </div>
             </div> 

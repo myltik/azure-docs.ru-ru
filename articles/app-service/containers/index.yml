@@ -78,7 +78,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-    - html: "<a href=\"/cli/azure/appservice\">Интерфейс командной строки Azure</a>"
+    - html: "<a href=\"/cli/azure/appservice\">интерфейс командной строки Azure</a>"
 - title: "Справочные материалы"
   items:
   - type: list

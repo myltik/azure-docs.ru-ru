@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
                     <div class="cardText">
                         <h3>Командная строка</h3>
                         <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
-                        <p><a href="/cli/azure/vm">Интерфейс командной строки Azure</a></p>
+                        <p><a href="/cli/azure/vm">интерфейс командной строки Azure</a></p>
                     </div>
                 </div>
             </div>

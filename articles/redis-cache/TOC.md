@@ -31,7 +31,7 @@
 ## Интеграция с ASP.NET
 ###[Поставщик состояний сеансов](cache-aspnet-session-state-provider.md)
 ###[Поставщик кэша вывода](cache-aspnet-output-cache-provider.md)
-## Управление
+## управление
 ###[Настройка на портале Azure](cache-configure.md)
 ###[Настройка георепликации](cache-how-to-geo-replication.md)
 ###[Импорт и экспорт данных](cache-how-to-import-export-data.md)

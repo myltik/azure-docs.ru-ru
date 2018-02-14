@@ -6,7 +6,7 @@
 ## [Основные понятия](azure-operations-guide.md#azure-key-concepts)
 ### [Общие сведения о портале Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 
 ### [Управление ресурсами Azure с помощью портала](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)
-### [Установка и настройка Azure PowerShell](/powershell/azure/install-azurerm-ps)
+### [Как установить и настроить Azure PowerShell](/powershell/azure/install-azurerm-ps)
 ### [Установка Azure CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Справочник по пакету SDK Azure для REST](https://docs.microsoft.com/rest/api/index)
 
@@ -16,7 +16,7 @@
 ### [Калькулятор цен в Интернете](http://azure.microsoft.com/pricing/calculator)
 ### [Настройка платежных оповещений](../../billing/billing-set-up-alerts.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
-## [Диспетчер ресурсов Azure](azure-operations-guide.md#azure-resource-manager)
+## [Azure Resource Manager](azure-operations-guide.md#azure-resource-manager)
 
 ### [Создание шаблонов диспетчера ресурсов Azure](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ###[Развертывание шаблонов с помощью портала Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

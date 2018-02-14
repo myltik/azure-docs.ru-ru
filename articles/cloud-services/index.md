@@ -126,7 +126,7 @@ ms.lasthandoff: 11/10/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute/cloudservices">ИНТЕРФЕЙС REST API</a></p>
+                        <p><a href="/rest/api/compute/cloudservices">REST API</a></p>
                     </div>
                 </div>
             </div>

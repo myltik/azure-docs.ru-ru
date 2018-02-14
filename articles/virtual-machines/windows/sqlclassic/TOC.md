@@ -16,7 +16,7 @@
 ### [Настройка внутреннего прослушивателя для группы доступности](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Настройка внешнего прослушивателя для группы доступности](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 ### [Расширение локальной группы доступности в Azure](virtual-machines-windows-classic-sql-onprem-availability.md)
-## Управление
+## управление
 ### [Использование расширения агента IaaS для SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md)
 ### [Автоматическое исправление](virtual-machines-windows-classic-sql-automated-patching.md)
 ### [Настройка интеграции с хранилищем ключей Azure](virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -35,7 +35,7 @@
 
 # Справочные материалы
 ## [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
-## [Интерфейс командной строки Azure](/cli/azure/)
+## [интерфейс командной строки Azure](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [Драйверы SQL Server](https://docs.microsoft.com/sql/connect/sql-server-drivers)
 ## [REST](/rest/api/)

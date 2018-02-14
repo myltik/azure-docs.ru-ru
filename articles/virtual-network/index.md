@@ -127,7 +127,7 @@ ms.lasthandoff: 10/11/2017
                         <h3>Командная строка</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network">PowerShell (Resource Manager)</a></p>
                         <p><a href="/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking">PowerShell (классическая модель)</a></p>
-                        <p><a href="/cli/azure/network">Интерфейс командной строки Azure</a></p>
+                        <p><a href="/cli/azure/network">интерфейс командной строки Azure</a></p>
                     </div>
                 </div>
             </div>

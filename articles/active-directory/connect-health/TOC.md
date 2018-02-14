@@ -1,7 +1,7 @@
 # Обзор
 ## [Что такое Azure AD Connect Health?](active-directory-aadconnect-health.md)
 
-# Приступая к работе
+# Начало работы
 ## [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
 ## [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
 ## [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)

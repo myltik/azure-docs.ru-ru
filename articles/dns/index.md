@@ -108,7 +108,7 @@ ms.lasthandoff: 10/11/2017
                 <div class="cardText">
                     <h3>Командная строка</h3>
                     <p><a href="/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns">PowerShell</a></p>
-                    <p><a href="/cli/azure/network/dns">Интерфейс командной строки Azure</a></p>
+                    <p><a href="/cli/azure/network/dns">интерфейс командной строки Azure</a></p>
                 </div>
             </div>
         </div>
@@ -136,7 +136,7 @@ ms.lasthandoff: 10/11/2017
             <div class="card">
                 <div class="cardText">
                     <h3>REST</h3>
-                    <p><a href="/rest/api/dns/">ИНТЕРФЕЙС REST API</a></p>
+                    <p><a href="/rest/api/dns/">REST API</a></p>
                 </div>
             </div>
         </div>

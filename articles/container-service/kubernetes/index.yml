@@ -53,7 +53,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: "<a href=\"/azure/container-service/cli-samples\">Интерфейс командной строки Azure</a>"
+    - html: "<a href=\"/azure/container-service/cli-samples\">интерфейс командной строки Azure</a>"
 - title: "Справочные материалы"
   items:
   - type: list
@@ -61,6 +61,6 @@ sections:
     className: cardsD
     items:
     - title: "Командная строка"
-      html: "<p><a href=\"/cli/azure/acs\">Интерфейс командной строки Azure</a></p>"
+      html: "<p><a href=\"/cli/azure/acs\">интерфейс командной строки Azure</a></p>"
     - title: REST
-      html: "<p><a href=\"/rest/api/container-service\">ИНТЕРФЕЙС REST API</a></p>"
+      html: <p><a href="/rest/api/container-service">REST API</a></p>

@@ -72,7 +72,7 @@ sections:
     items:
     - html: "<a href=\"tutorial-prepare-azure\">Подготовка Azure</a>."
     - html: "<a href=\"tutorial-migrate-on-premises-to-azure\">Миграция локальных компьютеров</a> или <a href=\"tutorial-migrate-aws-to-azure\">экземпляров AWS в Azure</a>"
-- title: "Ссылка"
+- title: "Справочные материалы"
   items:
   - type: list
     style: cards

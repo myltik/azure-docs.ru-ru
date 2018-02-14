@@ -1,4 +1,4 @@
-# Приступая к работе
+# Начало работы
 ## [Предотвращение непредвиденных расходов](billing-getting-started.md)
 ## [Создание служб, доступных в бесплатной учетной записи](billing-create-free-services-included-free-account.md)
 ## [Как не платить за бесплатную учетную запись](billing-avoid-charges-free-account.md)

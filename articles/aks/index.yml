@@ -55,6 +55,6 @@ sections:
     className: cardsD
     items:
     - title: "Команда"
-      html: "<p><a href=\"/cli/azure/aks\">Интерфейс командной строки Azure</a></p>"
+      html: "<p><a href=\"/cli/azure/aks\">интерфейс командной строки Azure</a></p>"
     - title: REST
-      html: "<p><a href=\"/rest/api/aks\">ИНТЕРФЕЙС REST API</a></p>"
+      html: <p><a href="/rest/api/aks">REST API</a></p>

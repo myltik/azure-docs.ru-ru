@@ -45,7 +45,7 @@
       href: container-service-draft-up.md
     - name: Изменение масштаба кластера
       href: container-service-scale.md
-    - name: Монитор
+    - name: Мониторинг
       items:
         - name: Мониторинг с помощью OMS
           href: container-service-kubernetes-oms.md

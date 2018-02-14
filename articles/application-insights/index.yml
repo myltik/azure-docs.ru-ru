@@ -83,7 +83,7 @@ sections:
     className: cardsD
     items:
     - title: "Языки"
-      html: "<p><a href=\"https://docs.loganalytics.io/\">Аналитика</a></p><p><a href=\"/dotnet/api/microsoft.applicationinsights\">.NET</a></p><p><a href=\"/java/api/com.microsoft.applicationinsights\">Java</a></p><p><a href=\"https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md\">JavaScript</a></p><p><a href=\"https://dev.applicationinsights.io/\">API доступа к данным</a></p>"
+      html: "<p><a href=\"https://docs.loganalytics.io/\">Аналитика в Application Insights</a></p><p><a href=\"/dotnet/api/microsoft.applicationinsights\">.NET</a></p><p><a href=\"/java/api/com.microsoft.applicationinsights\">Java</a></p><p><a href=\"https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md\">JavaScript</a></p><p><a href=\"https://dev.applicationinsights.io/\">API доступа к данным</a></p>"
     - title: "Модель данных"
       html: "<p><a href=\"application-insights-data-model-request-telemetry\">Запрос</a></p><p><a href=\"application-insights-data-model-dependency-telemetry\">Dependency</a></p><p><a href=\"application-insights-data-model-exception-telemetry\">Исключение</a></p><p><a href=\"application-insights-data-model-trace-telemetry\">Трассировка</a></p><p><a href=\"application-insights-data-model-event-telemetry\">Event</a></p><p><a href=\"application-insights-data-model-metric-telemetry\">Метрика</a></p><p><a href=\"application-insights-data-model-context\">Контекст</a></p>"
     - title: "Корреляция данных телеметрии"

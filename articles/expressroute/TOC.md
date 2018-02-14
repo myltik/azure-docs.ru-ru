@@ -19,24 +19,24 @@
 ## Создание и изменение канала
 ### [Портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-circuit-arm.md)
-### [Интерфейс командной строки Azure](howto-circuit-cli.md)
+### [интерфейс командной строки Azure](howto-circuit-cli.md)
 ## Создание и изменение конфигурации пиринга
 ### [Портал Azure](expressroute-howto-routing-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-routing-arm.md)
-### [Интерфейс командной строки Azure](howto-routing-cli.md)
+### [интерфейс командной строки Azure](howto-routing-cli.md)
 ## Связывание виртуальной сети с каналом ExpressRoute
 ### [Портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
-### [Интерфейс командной строки Azure](howto-linkvnet-cli.md)
+### [интерфейс командной строки Azure](howto-linkvnet-cli.md)
 ## [Настройка VPN-подключения "сеть — сеть" через пиринг Майкрософт](site-to-site-vpn-over-microsoft-peering.md)
 ## Настройка шлюза виртуальной сети для ExpressRoute
-### [Портал Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [портал Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Настройка параллельных подключений ExpressRoute и "сеть — сеть"](expressroute-howto-coexist-resource-manager.md)
 ## Настройка фильтров маршрутов для пиринга Майкрософт
-### [Портал Azure](how-to-routefilter-portal.md)
+### [портал Azure](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
-### [Интерфейс командной строки Azure](how-to-routefilter-cli.md)
+### [интерфейс командной строки Azure](how-to-routefilter-cli.md)
 ## [Переход с общедоступного пиринга на пиринг Майкрософт](how-to-move-peering.md)
 ## [Перемещение каналов из классического развертывания в развертывание с помощью Resource Manager](expressroute-howto-move-arm.md)
 ## [Перенос связанных виртуальных сетей из классической модели развертывания в модель развертывания Resource Manager](expressroute-migration-classic-resource-manager.md)
@@ -66,7 +66,7 @@
 
 # Справочные материалы
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
-## [Интерфейс командной строки Azure](/cli/azure/network/express-route)
+## [интерфейс командной строки Azure](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/azure/dn606310)
 
@@ -74,7 +74,7 @@
 ## [Виртуальная сеть](/azure/virtual-network/)
 ## [VPN-шлюз](/azure/vpn-gateway/)
 ## [Виртуальные машины](/azure/virtual-machines/)
-## [Подсистема балансировки нагрузки](/azure/load-balancer/)
+## [Балансировщик нагрузки](/azure/load-balancer/)
 ## [Диспетчер трафика](/azure/traffic-manager/)
 
 # Ресурсы
@@ -84,7 +84,7 @@
 ## [Цены](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=expressroute)
-## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla/)
+## [Соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/)
 ## [Ограничения подписки и службы](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 ## [ExpressRoute для поставщиков облачных решений (CSP)](expressroute-for-cloud-solution-providers.md)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)

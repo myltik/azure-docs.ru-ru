@@ -42,7 +42,7 @@
 
 # Справочные материалы
 ## [Azure PowerShell](/powershell/azure/overview)
-## [Интерфейс командной строки Azure](/cli/azure/)
+## [интерфейс командной строки Azure](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [Драйверы SQL Server](https://docs.microsoft.com/sql/connect/sql-connection-libraries)
 ## [REST](/rest/api/)
