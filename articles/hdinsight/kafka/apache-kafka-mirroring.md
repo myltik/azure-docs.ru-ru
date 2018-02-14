@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: a7063375ac4a2f9f172b5c380c2d5472a12e1bfb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 87b5912e7f9244dc1be74ac357200122b194dbdc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Репликация разделов Apache Kafka с помощью Kafka в HDInsight и MirrorMaker
 
@@ -210,6 +210,41 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
 
     Дополнительные сведения о конфигурации производителя см. в [этом разделе](https://kafka.apache.org/documentation#producerconfigs) на сайте kafka.apache.org.
 
+5. Чтобы найти узлы Zookeeper для целевого кластера, используйте следующие команды:
+
+    ```bash
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+    Замените `$CLUSTERNAME` именем целевого кластера. При появлении запроса введите пароль для учетной записи администратора, чтобы войти на кластер.
+
+7. В конфигурации по умолчанию для Kafka в HDInsight не предусматривается автоматическое создание разделов. Прежде чем начать процесс зеркального отображения, используйте один из следующих параметров:
+
+    * **Create the topics on the destination cluster** (Создание разделов на целевом кластере). Этот параметр также позволяет задать число секций и коэффициент репликации.
+
+        Вы можете создать разделы заранее, выполнив следующую команду:
+
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        ```
+
+        Замените `testtopic` именем создаваемого раздела.
+
+    * **Configure the cluster for automatic topic creation** (Настройка кластера для автоматического создания разделов). Этот параметр позволяет средству MirrorMaker автоматически создавать разделы. Но это средство может создать разделы с не таким числом секций и коэффициентом репликации, как в исходном разделе.
+
+        Чтобы настроить автоматическое создание разделов в целевом кластере, выполните следующие действия:
+
+        1. На [портале Azure](https://portal.azure.com) выберите целевой кластер Kafka.
+        2. На странице сведений о кластере выберите __Панель мониторинга кластера__. Затем выберите __Панель мониторинга кластера HDInsight__. Когда появится запрос, пройдите проверку подлинности, используя учетные данные (администратора) входа для кластера.
+        3. В списке в левой части страницы выберите службу __Kafka__.
+        4. Выберите __Configs__ (Конфигурации) в середине страницы.
+        5. В поле __Фильтр__ введите значение параметра `auto.create`. Будет отфильтрован список свойств и отобразится параметр `auto.create.topics.enable`.
+        6. Измените значение параметра `auto.create.topics.enable` на true и выберите __Сохранить__. Добавьте заметку и выберите __Сохранить__ еще раз.
+        7. Выберите службу __Kafka__ и щелкните __Перезапустить__, а затем выберите __Restart all affected__ (Перезапустить все затронутые). Когда появится запрос, выберите __Conform Restart All__ (Подтвердить перезапуск всех).
+
 ## <a name="start-mirrormaker"></a>Запуск MirrorMaker
 
 1. Чтобы запустить процесс MirrorMaker, выполните следующие команды в рамках SSH-подключения к **целевому** кластеру:
@@ -247,11 +282,9 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
 
      При переходе в пустую строку с курсором введите несколько текстовых сообщений. Сообщения отправляются в раздел в **исходном** кластере. По завершении нажмите клавиши **Ctrl+C**, чтобы завершить процесс производителя.
 
-3. Чтобы завершить процесс MirrorMaker, нажмите клавиши **Ctrl+C** в рамках SSH-подключения к **целевому** кластеру. Чтобы проверить состояние репликации разделов и сообщений в целевое назначение, используйте следующие команды:
+3. Чтобы завершить процесс MirrorMaker, нажмите клавиши **Ctrl+C** в рамках SSH-подключения к **целевому** кластеру. Завершение этого процесса может занять несколько секунд. Чтобы проверить состояние репликации сообщений в целевое назначение, используйте следующую команду:
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 

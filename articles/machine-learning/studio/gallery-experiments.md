@@ -1,6 +1,6 @@
 ---
-title: "Экспериментов в коллекции Azure AI | Документы Microsoft"
-description: "Обнаружение и совместно использовать экспериментов в коллекции Azure AI."
+title: "Эксперименты в коллекции решений ИИ Azure | Документация Майкрософт"
+description: "Поиск и публикация экспериментов в коллекции решений ИИ Azure."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: 80c2ab0cd97ce5afef7e38bad9f0fa0e4f3f363c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-experiments-in-azure-ai-gallery"></a>Обнаружение экспериментов в коллекции Azure AI
+# <a name="discover-experiments-in-azure-ai-gallery"></a>Поиск экспериментов в коллекции решений ИИ Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Эксперименты для Студии машинного обучения
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/06/2018
 ## <a name="download"></a>Загрузка
 В рабочую область Студии машинного обучения можно загрузить копию любого эксперимента из коллекции. Затем можно изменить свою копию для создания собственных решений.
 
-Коллекции AI Azure предлагает два способа импортировать копию эксперимента.
+Коллекция решений ИИ Azure поддерживает два способа импорта копии эксперимента.
 
 * **Из коллекции**. Если вы нашли нужный эксперимент в коллекции, его копию можно скачать, а затем открыть в рабочей области Студии машинного обучения.
 * **Из Студии машинного обучения Azure**. Любой эксперимент из коллекции в Студии машинного обучения можно использовать в качестве шаблона для создания эксперимента.

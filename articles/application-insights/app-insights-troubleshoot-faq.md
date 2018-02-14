@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: вопросы и ответы
 
@@ -152,7 +152,7 @@ ms.lasthandoff: 01/03/2018
 
 Это возможно, если ваш код отправляет такие данные. Это также может происходить, если переменные в трассировках стека содержат персональные данные. Ваша команда разработчиков должна провести оценку рисков, чтобы обеспечить надлежащую обработку персональных данных. [Дополнительные сведения о хранении и конфиденциальности данных](app-insights-data-retention-privacy.md).
 
-После получения порталом последний октет веб-адреса клиента всегда устанавливается в значение 0.
+Для **всех** октетов веб-адреса клиента всегда задается значение 0 после подстановки атрибутов географического расположения.
 
 ## <a name="my-ikey-is-visible-in-my-web-page-source"></a>Мой ключ iKey доступен в исходном коде веб-страницы. 
 
@@ -242,7 +242,7 @@ ms.lasthandoff: 01/03/2018
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Можно ли отправлять данные телеметрии на портал Application Insights?
 
-Мы рекомендуем использовать наши пакеты SDK и использовать [API пакета SDK](app-insights-api-custom-events-metrics.md). Существуют разновидности пакетов SDK для разных [платформ](app-insights-platforms.md). Эти пакеты SDK управляют буферизацией, сжатием, регулированием, повторными попытками и другими операциями. Однако [схема приема](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) и [протокол конечной точки](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) являются открытыми.
+Мы рекомендуем использовать наши пакеты SDK, а также [API пакета SDK](app-insights-api-custom-events-metrics.md). Существуют разновидности пакетов SDK для разных [платформ](app-insights-platforms.md). Эти пакеты SDK управляют буферизацией, сжатием, регулированием, повторными попытками и другими операциями. Однако [схема приема](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) и [протокол конечной точки](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) являются открытыми.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Можно ли отслеживать веб-сервер в интрасети?
 

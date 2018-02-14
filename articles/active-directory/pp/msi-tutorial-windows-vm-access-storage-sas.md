@@ -3,22 +3,22 @@ title: "Использование управляемого удостовере
 description: "Руководство по использованию управляемого удостоверения службы (MSI) виртуальной машины Windows для доступа к службе хранилища Azure с учетными данными SAS вместо ключа доступа к учетной записи хранения."
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
-editor: bryanla
+author: daveba
+manager: mtillman
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0c6150c01c8ca31bba748741b2285cb4f29beaa6
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 9102ea255e533e4233b2cba77a6f7f38b992e2a5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Использование управляемого удостоверения службы виртуальной машины Windows для доступа к службе хранилища Azure с учетными данными SAS
 
@@ -34,7 +34,7 @@ SAS службы позволяет предоставить определен�
 > * предоставлять виртуальной машине доступ к подписанным URL-адресам учетной записи хранения в Resource Manager; 
 > * получать маркер доступа с помощью удостоверения виртуальной машины и использовать его для извлечения SAS из Resource Manager. 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -94,7 +94,7 @@ MSI на виртуальной машине позволяет получить
 3. Щелкните **+ Контейнер** в верхней части страницы, после чего появится панель "Новый контейнер".
 4. Присвойте контейнеру имя, выберите уровень доступа, а затем нажмите кнопку **ОК**. Указанное имя будет использоваться далее в этом руководстве. 
 
-    ! [Создание container]~/articles/active-directory/(media/msi-tutorial-linux-vm-access-storage/create-blob-container.png) хранилища
+    ![Создание контейнера хранилища]~/articles/active-directory/(media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>Предоставление прав на использование SAS хранилища для MSI виртуальной машины 
 

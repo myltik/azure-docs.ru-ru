@@ -1,9 +1,9 @@
 ---
-title: "Настройка MSI, назначенный пользователем для ВМ Azure с помощью шаблона Azure"
-description: "Пошагово, пошаговые инструкции по настройке назначенный пользователем управляемые службы удостоверений (MSI) для виртуальной Машины Azure, с помощью шаблона диспетчера ресурсов Azure."
+title: "Настройка назначаемого пользователем удостоверения MSI для виртуальной машины Azure с помощью шаблона Azure"
+description: "Пошаговые инструкции по настройке назначаемого пользователем управляемого удостоверения службы (MSI) на виртуальной машине Azure с помощью шаблона Azure Resource Manager."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,23 +12,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d97f0fa2d6c1c92aaa3d5c74dd6715de00d32438
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: e01e4c397e0d0a19280a32fc1e8341b57b47e4eb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Настройка назначенный пользователем управляемые службы удостоверений (MSI) для виртуальной Машины, с помощью шаблона Azure
+# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Настройка назначаемого пользователем управляемого удостоверения службы (MSI) для виртуальной машины с помощью шаблона Azure
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Управляемое удостоверение службы предоставляет служб Azure с использованием управляемого удостоверения Azure Active Directory. Этот идентификатор можно использовать для проверки подлинности для служб, которые поддерживают проверку подлинности Azure AD, без использования учетных данных в коде. 
+Управляемое удостоверение службы предоставляет службы Azure с управляемыми удостоверениями в Azure Active Directory. Это удостоверение можно использовать для аутентификации в службах, которые поддерживают аутентификацию Azure AD, без учетных данных в коде. 
 
-В этой статье вы узнаете, как для включения и удаления MSI, назначенный пользователем для виртуальной Машины Azure, с помощью шаблона развертывания диспетчера ресурсов Azure.
+Из этой статьи вы узнаете, как включить и удалить назначаемое пользователем удостоверение MSI для виртуальной машины Azure с помощью шаблона развертывания Azure Resource Manager.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -41,9 +41,9 @@ ms.lasthandoff: 12/22/2017
    - Использование локального [редактора JSON (например, VS Code)](~/articles/azure-resource-manager/resource-manager-create-first-template.md), а затем передача и развертывание с помощью PowerShell или интерфейса командной строки.
    - Использование [проекта группы ресурсов Azure](~/articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) Visual Studio для создания и развертывания шаблона.  
 
-Независимо оттого, какой вариант выбран, во время первоначального развертывания и повторного развертывания в шаблоне используется одинаковый синтаксис. Создание и назначение MSI, назначенный пользователем для новой или существующей виртуальной Машины выполняется таким же образом. Коме того, по умолчанию Azure Resource Manager выполняет [добавочное обновление](~/articles/azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) для развертываний.
+Независимо оттого, какой вариант выбран, во время первоначального развертывания и повторного развертывания в шаблоне используется одинаковый синтаксис. Создание и назначение пользовательского MSI для новой или существующей виртуальной машины выполняется таким же образом. Коме того, по умолчанию Azure Resource Manager выполняет [добавочное обновление](~/articles/azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) для развертываний.
 
-1. Войдите в Azure локально или через портал Azure, используйте учетную запись, которая связана с подпиской Azure, содержит ли MSI-ФАЙЛ и виртуальной Машины. Также убедитесь, что ваша учетная запись принадлежит роли, которая предоставляет разрешения на запись на подписку или ресурсов (например, роль «владелец»).
+1. После входа в Azure локально или через портал Azure используйте учетную запись, связанную с подпиской Azure, содержащей MSI и виртуальную машину. Кроме того, убедитесь, что ваша учетная запись принадлежит роли, которая предоставляет разрешения на запись в подписке или ресурсах (например, "Владелец").
 
 2. Загрузив шаблон в редактор, найдите ресурс `Microsoft.Compute/virtualMachines` в разделе `resources`. Имя вашего ресурса может немного отличаться от указанного на этом снимке экрана, в зависимости от используемого редактора и от того, изменяете ли вы шаблон для нового или имеющегося развертывания.
 

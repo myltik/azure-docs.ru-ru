@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="event-hubs-samples"></a>Примеры концентраторов событий 
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/20/2017
 - [Примеры кода для разработчиков на сайте MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
 - [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-Дополнительные сведения о различных версиях платформы .NET Framework см. в разделе [платформы и целевых объектов](/dotnet/articles/standard/frameworks).
+Дополнительные сведения о различных версиях платформы .NET Framework см. в статье [Требуемые версии .NET Framework](/dotnet/articles/standard/frameworks).
 
 Со временем примеры будут добавляться, поэтому регулярно проверяйте наличие обновлений.
 
@@ -61,15 +61,11 @@ ms.lasthandoff: 12/20/2017
 
 В [этом примере](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) демонстрируется, как с помощью [узла обработчика событий](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) распределить рабочую нагрузку потребления потока концентраторов событий. В нем показано, как реализовать объекты **EventProcessor** и **EventProcessorFactory** для управления потоком событий. 
 
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>Извлечение данных из SQL в концентратор событий
-
-В [этом примере](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) показано, как извлечь данные из таблицы SQL и передать их в концентратор событий для использования в качестве входных данных для нижестоящих аналитических приложений.
-
 ### <a name="pull-web-data-into-an-event-hub"></a>Извлечение веб-данных в концентратор событий 
 
 В [этом примере](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) показано, как извлечь данные из общедоступных веб-каналов (например, из информационного веб-канала Министерства транспорта США) и передать их в концентратор событий.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о версиях платформы .NET Framework см. по следующим ссылкам:
 

@@ -1,6 +1,6 @@
 ---
-title: "Учебники Azure коллекции AI | Документы Microsoft"
-description: "Обнаружение и совместно использовать учебники в коллекции Azure AI."
+title: "Руководства из коллекции решений ИИ Azure | Документация Майкрософт"
+description: "Поиск и публикация руководств в коллекции решений ИИ Azure."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: 9a93a027ed5243496a86efff0d86de7092f44b43
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Обнаружение и совместно использовать учебники в коллекции Azure AI
+# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Поиск и публикация руководств в коллекции решений ИИ Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="tutorials"></a>Учебники
-Коллекции AI Azure предлагает несколько вариантов [учебники](https://gallery.cortanaintelligence.com/tutorials) , можно подробно машины обучение технологии и основные понятия. В них также описываются передовые методы решения различных задач машинного обучения.
+В коллекции решений ИИ Azure доступен ряд [руководств](https://gallery.cortanaintelligence.com/tutorials), в которых описаны технологии и основные понятия машинного обучения. В них также описываются передовые методы решения различных задач машинного обучения.
 
 ## <a name="discover"></a>Поиск
 Для поиска руководств [в коллекции](http://gallery.cortanaintelligence.com) в разделе **More** (Дополнительно) выберите **Tutorials** (Руководства).
@@ -72,7 +72,7 @@ ms.lasthandoff: 01/06/2018
 
 7. Нажмите кнопку **Создать**.
 
-Этот учебник теперь находится в коллекции Azure AI. Оно появится на странице вашей учетной записи на вкладке **Items** (Элементы).
+Это руководство теперь доступно в коллекции решений ИИ Azure. Оно появится на странице вашей учетной записи на вкладке **Items** (Элементы).
 
 **[Перейти к коллекции](http://gallery.cortanaintelligence.com)**
 

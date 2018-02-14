@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: b4bdf3339e585a7b22a1945871f802854020fb94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Планирование загрузки кластеров HDInsight
 
@@ -67,9 +67,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="choose-a-cluster-type"></a>Выбор типа кластера
 
-Тип кластера определяет рабочую нагрузку, для выполнения которой настроен кластер HDInsight. Примеры: Hadoop, Storm, Kafka, Spark. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-Каждый тип кластера имеет определенную топологию развертывания, которая включает в себя требования к размеру и количеству узлов.
+Тип кластера определяет рабочую нагрузку, для выполнения которой настроен кластер HDInsight. Примеры: Hadoop, Storm, Kafka, Spark. Подробное описание доступных типов кластеров см. в статье [Общие сведения об Azure HDInsight и стеке технологий Hadoop и Spark](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Каждый тип кластера имеет определенную топологию развертывания, которая включает в себя требования к размеру и количеству узлов.
 
 ## <a name="choose-the-vm-size-and-type"></a>Выбор типа и размера виртуальной машины
 
@@ -96,9 +94,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="cluster-lifecycle"></a>Жизненный цикл кластера
 
-Плата взимается на протяжении времени существования кластера. Если работающий кластер требуется вам только в определенные моменты времени, можно создать кластеры по требованию с помощью фабрики данных Azure.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-Можно также создать сценарии PowerShell, которые подготавливают и удаляют кластер, и запланировать выполнение этих сценариев с помощью [службы автоматизации Azure](https://azure.microsoft.com/services/automation/).
+Плата взимается на протяжении времени существования кластера. Если работающий кластер требуется вам только в определенные моменты времени, можно [создавать кластеры по требованию с помощью фабрики данных Azure](hdinsight-hadoop-create-linux-clusters-adf.md). Можно также создать сценарии PowerShell, которые подготавливают и удаляют кластер, и запланировать выполнение этих сценариев с помощью [службы автоматизации Azure](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
 > При удалении кластера также удаляется его метахранилище Hive по умолчанию. Чтобы сохранить метахранилище для следующего повторного создания кластера, используйте внешнее хранилище метаданных, такое как база данных Azure или Oozie.
@@ -118,7 +114,7 @@ ms.lasthandoff: 10/11/2017
 
 Однако существуют некоторые фиксированные квоты, например, одна подписка Azure может содержать не более 10 000 ядер. Сведения об этих ограничениях см. в статье [Подписка Azure, границы, квоты и ограничения службы](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Установка кластеров в HDInsight с использованием Hadoop, Spark, Kafka и других технологий](hdinsight-hadoop-provision-linux-clusters.md): узнайте, как установить и настроить кластеры в HDInsight с использованием Hadoop, Spark, Kafka, Interactive Hive, HBase, R Server или Storm.
 * [Мониторинг производительности кластера](hdinsight-key-scenarios-to-monitor.md): изучите основные сценарии, которые могут влиять на емкость кластера HDInsight и требуют его мониторинга.

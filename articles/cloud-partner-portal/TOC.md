@@ -15,14 +15,14 @@
 #### [Форма номеров SKU](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus)
 ##### [Цены](./cloud-partner-portal-publish-virtual-machine.md#pricing)
 ##### [Образы виртуальных машин](cloud-partner-portal-publish-virtual-machine.md#vm-images)
-#### [Форма Marketplace](./cloud-partner-portal-publish-virtual-machine.md#marketplace-form)
+#### [Форма Microsoft Azure Marketplace](./cloud-partner-portal-publish-virtual-machine.md#marketplace-form)
 #### [Форма службы поддержки](cloud-partner-portal-publish-virtual-machine.md#support-form)
 ### [Публикация предложения виртуальной машины](./Cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md)
 
 ### [Обновление имеющегося предложения](./cloud-partner-portal-update-existing-offer.md)
 ### [Удаление предложения виртуальной машины или номера SKU](./cloud-partner-portal-delete-an-offer.md)
 ### [Переход на облачный портал для партнеров](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
-## [Руководство по Azure Marketplace для продавца](./cloud-partner-portal-seller-guide.md)
+## [Руководство по Microsoft Azure Marketplace для продавца](./cloud-partner-portal-seller-guide.md)
 
 ## [Получение сведений о потенциальных заказчиках](./cloud-partner-portal-get-customer-leads.md)
 ### [Таблица Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)

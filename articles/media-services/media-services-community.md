@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/29/2018
 ms.author: juliako
-ms.openlocfilehash: 96bd97abf598414ebc88e955437c02873ff43ca8
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2743ef7e60371329bcad0090733eb8e40560c5f1
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-media-services-community"></a>Сообщество служб мультимедиа Azure
 На этой странице сообщества служб мультимедиа Azure (AMS) описаны разные способы получения новых сведений об AMS. Вы можете просматривать видео и прослушивать подкасты, а также задавать вопросы и отправлять отзывы.   
@@ -29,26 +29,27 @@ ms.lasthandoff: 01/08/2018
 - [Защита мультимедийного содержимого при помощи шифрования AES](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) 
 - [Подробный обзор служб мультимедиа Azure для разработчиков](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) 
 - [Индексатор мультимедийных данных Azure автоматически создает запись ваших мультимедийных данных](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)  
-- [Microsoft Hyperlapse в службах мультимедиа Azure с Адаршем Соланки (Adarsh Solanki)](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/) 
+
 
 ## <a name="provide-feedback-and-make-suggestions"></a>Отзывы и предложения
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>Обсуждение
 ### <a name="twitter"></a>Twitter
-Используйте дескриптор [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) для подписки на новости AMS и обновления в Twitter. Вы можете использовать дескриптор [@AzureSupport](https://twitter.com/azuresupport) для запроса поддержки в Twitter.  
+Используйте имя пользователя Twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) для связи с нами и отслеживания новостей в Twitter. Вы можете использовать дескриптор [@AzureSupport](https://twitter.com/azuresupport) для запроса поддержки в Twitter.  
 
 ### <a name="online-forums"></a>Интернет-форумы
 Можно использовать указанные ниже форумы для отправки вопросов о существующих продуктах и функциях.
 
-В настоящее время MSDN является основным форумом по вопросам AMS.
+Сейчас MSDN —это основной форум сообщества разработчиков Служб мультимедиа.
 
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
+Команда разработчиков также отслеживает вопросы с тегом "azure-media-services" на сайте Stack Overflow.
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Связаться с командой
-Основной адрес электронной почты для служб мультимедиа Azure: **mediaservices@microsoft.com**.
+Основной адрес электронной почты службы поддержки Служб мультимедиа Azure: **amshelp@microsoft.com**.
 
 В следующей таблице перечислены адреса электронной почты подгрупп разработчиков различных функций.
 

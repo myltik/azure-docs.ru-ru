@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.date: 02/01/2018
+ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Расширения Python для подготовки данных
 В качестве способа заполнения функциональных пробелов между встроенными функциями подготовка данных в Машинном обучении Azure включает в себя расширяемость на нескольких уровнях. В этом документе описана расширяемость с помощью скрипта Python. 
@@ -124,8 +124,8 @@ import scipy as sp
 
 `./pip install <libraryname>`
 
-## <a name="use-custom-modules"></a>Использовать пользовательские модули
-В преобразование потока данных (сценарий) напишите python код следующим образом:
+## <a name="use-custom-modules"></a>Использование пользовательских модулей
+В блоке Transform Dataflow (Script) напишите следующий код Python:
 
 ```python
 import sys
@@ -135,7 +135,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-В добавление столбца (сценарий), задайте тип блока кода = модуля и написать код, следующий python:
+В блоке Add Column (Script) задайте для типа блока кода значение Module и напишите следующий код Python
 
 ```python 
 import sys
@@ -146,7 +146,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-Контекстов выполнения различных (local, spark docker) Укажите абсолютный путь в нужном месте. Можно использовать «os.getcwd() + relativePath» найдите его.
+Для различных контекстов выполнения (локальная среда, Docker, Spark) укажите абсолютный путь к нужному расположению. Для его поиска можно использовать os.getcwd() + relativePath.
 
 
 ## <a name="column-data"></a>Данные столбцов 

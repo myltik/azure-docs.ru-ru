@@ -15,11 +15,11 @@ ms.prod: vs-devops-alm
 ms.date: 01/30/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 813022f1778e2c7f3174e11192b845c2c33ad219
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 599a890be4d014d22bae899be4cf6e281c4109d4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a id="top"> </a> Образы Visual Studio в Azure
 Запуск Visual Studio на предварительно настроенной виртуальной машине Azure — самый простой и быстрый способ получить "с нуля" готовую к работе среду разработки.  Образы системы с различными конфигурациями Visual Studio доступны в [Azure Marketplace](https://portal.azure.com/). Просто загрузите виртуальную машину и приступайте к работе.
@@ -27,14 +27,14 @@ ms.lasthandoff: 02/01/2018
 Впервые работаете с Azure? [Создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>Какие конфигурации и версии доступны?
-В Azure Marketplace можно найти образы самых последних основных версий: Visual Studio 2017 и Visual Studio 2015.  Для каждого основного номера версии доступны изначально выпущенная версия (т. н. RTW) и последние обновленные версии.  Для каждой из этих разных версий доступны выпуски Visual Studio Enterprise и Visual Studio Community.
+В Azure Marketplace можно найти образы самых последних основных версий: Visual Studio 2017 и Visual Studio 2015.  Для каждого основного номера версии доступны изначально выпущенная версия (т. н. RTW) и последние обновленные версии.  Для каждой из этих разных версий доступны выпуски Visual Studio Enterprise и Visual Studio Community.  Корпорация Майкрософт обновлять эти изображения по крайней мере раз в месяц для включения последних обновлений Visual Studio и Windows.  Хотя имена образов не меняются, описание каждого образа содержит версию установленного продукта и дату выпуска образа.
 
-|               Версия выпуска              |          Выпуски            |    Версия продукта    |
-|:------------------------------------------:|:----------------------------:|:---------------------:|
-| Последняя версия Visual Studio 2017 (версия 15.5) |    Enterprise, Community     |     Версия 15.5.3    |
-|         Visual Studio 2017 RTW           |    Enterprise, Community     |     Версия 15.0.7    |
-|   Последняя версия Visual Studio 2015 (обновление 3)   |    Enterprise, Community     | Версия 14.0.25431.01 |
-|         Visual Studio 2015 RTW           | Нет (истек срок обслуживания) |          ---          |
+|               Версия выпуска              |          Выпуски            |     Версия продукта     |
+|:------------------------------------------:|:----------------------------:|:-----------------------:|
+| Последняя версия Visual Studio 2017 (версия 15.5) |    Enterprise, Community     |      Версия 15.5.3     |
+|         Visual Studio 2017 RTW           |    Enterprise, Community     |      Версия 15.0.7     |
+|   Последняя версия Visual Studio 2015 (обновление 3)   |    Enterprise, Community     |  Версия 14.0.25431.01  |
+|         Visual Studio 2015 RTW           |              None            | (Истек срок обслуживания) |
 
 > [!NOTE]
 > В соответствии с политикой обслуживания корпорации Майкрософт истек срок обслуживания изначально выпущенной версии (RTW) Visual Studio 2015.  Поэтому Visual Studio 2015 с обновлением 3 — единственная предлагаемая версия в линейке продуктов Visual Studio 2015.
@@ -52,20 +52,32 @@ ms.lasthandoff: 02/01/2018
 
 Это командная строка, используемая для установки Visual Studio при создании образов:
 
-   * vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
-   * add Microsoft.Net.Component.4.7.SDK ^
-   * add Microsoft.Net.Component.4.7.TargetingPack ^ 
-   * add Microsoft.Net.Component.4.6.2.SDK ^
-   * add Microsoft.Net.Component.4.6.2.TargetingPack ^
-   * add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
-   * add Microsoft.VisualStudio.Component.FSharp ^
-   * add Component.GitHub.VisualStudio ^
-   * add Microsoft.VisualStudio.Component.LinqToSql
+```
+    vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
+       add Microsoft.Net.Component.4.7.SDK ^
+       add Microsoft.Net.Component.4.7.TargetingPack ^ 
+       add Microsoft.Net.Component.4.6.2.SDK ^
+       add Microsoft.Net.Component.4.6.2.TargetingPack ^
+       add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
+       add Microsoft.VisualStudio.Component.FSharp ^
+       add Component.GitHub.VisualStudio ^
+       add Microsoft.VisualStudio.Component.LinqToSql
+```
 
 Если образ не содержит требуемый компонент Visual Studio, сообщите об этом с помощью инструмента обратной связи (в правом верхнем углу страницы).
 
 ## <a name="what-size-vm-should-i-choose"></a>Какой размер виртуальной машины следует выбрать?
-Подготовить новую виртуальную машину легко, и Azure предлагает самые разные размеры виртуальных машин.  Как и в случае приобретения оборудования, требуется правильно соотнести производительность и стоимость.  Так как Visual Studio является мощным многопоточным приложением, вам нужен размер виртуальной машины, которая содержит по крайней мере два процессора и 7 ГБ памяти.  Дополнительные сведения о последних размерах виртуальных машин см. в статье [Размеры виртуальных машин Windows в Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+Подготовить новую виртуальную машину легко, и Azure предлагает самые разные размеры виртуальных машин.  Как и в случае приобретения оборудования, требуется правильно соотнести производительность и стоимость.  Так как Visual Studio является мощным многопоточным приложением, вам нужен размер виртуальной машины, в котором предусмотрено по крайней мере два процессора и 7 ГБ памяти.  Ниже приведены рекомендуемые размеры виртуальных машин для образов Visual Studio:
+
+   * Standard_D2_v3
+   * Standard_D2s_v3
+   * Standard_D4_v3
+   * Standard_D4s_v3
+   * Standard_D2_v2
+   * Standard_D2S_v2
+   * Standard_D3_v2
+    
+Дополнительные сведения о последних размерах виртуальных машин см. в статье [Размеры виртуальных машин Windows в Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
 
 Благодаря Azure вы не будете ограничены первым выбранным вариантом. Его всегда можно заново сбалансировать, изменив размер виртуальной машины.  Можно также подготовить новую виртуальную машину, размер которой лучше подходит для ваших задач, или изменить размер существующей виртуальной машины, выбрав другое базовое оборудование.  Дополнительные сведения см. в статье [Изменение размера виртуальной машины Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm).
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 0fd6de8b59400270e42d428664df74d81d790f62
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Привязки хранилища таблиц Azure для службы "Функции Azure"
 
@@ -35,8 +35,8 @@ ms.lasthandoff: 01/02/2018
 
 Языковой пример см. в разделах:
 
-* [Чтение одной сущности в C#](#input---c-example-1)
-* [Чтение нескольких сущностей в C#](#input---c-example-2)
+* [C# — чтение одной сущности](#input---c-example-1);
+* [C# — чтение нескольких сущностей](#input---c-example-2);
 * [Скрипт C# — чтение одной сущности](#input---c-script-example-1);
 * [Скрипт C# — чтение нескольких сущностей](#input---c-script-example-2);
 * [F#](#input---f-example-2)
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/02/2018
 
 ### <a name="input---c-example-1"></a>Пример 1 входных данных C#
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) , считывает одну строку. 
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая считывает одну строку таблицы. 
 
 Значение ключа строки {queueTrigger} указывает, что ключ строки получен из строки сообщения очереди.
 
@@ -64,14 +64,14 @@ public class TableStorage
         [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
         TraceWriter log)
     {
-        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
     }
 }
 ```
 
 ### <a name="input---c-example-2"></a>Пример 2 входных данных C#
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) , считывает несколько строк таблицы. Обратите внимание, что класс `MyPoco` является производным от `TableEntity`.
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая считывает несколько строк таблицы. Обратите внимание, что класс `MyPoco` является производным от `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -286,7 +286,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Входные атрибуты
  
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте следующие атрибуты для настройки привязки входной таблицы:
+В [библиотеках класса C#](functions-dotnet-class-library.md) используйте следующие атрибуты для настройки входной привязки таблицы:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -316,7 +316,7 @@ module.exports = function (context, myQueueItem) {
   }
   ```
 
-  Полный пример см. в разделе [входные данные - пример на C#](#input---c-example).
+  Полный пример см. в разделе [примеров входных данных C#](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), определенный в пакете NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -390,13 +390,13 @@ module.exports = function (context, myQueueItem) {
 Языковой пример см. в разделах:
 
 * [C#](#output---c-example)
-* [Скрипт C# (.csx)](#output---c-script-example)
+* [Скрипт C# (CSX)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Пример выходных данных C#
 
-В следующем примере показан [функции C#](functions-dotnet-class-library.md) триггер HTTP, используемую при записи строки одной таблицы. 
+В следующем примере показана [функция C#](functions-dotnet-class-library.md), которая использует триггер HTTP для записи одной строки таблицы. 
 
 ```csharp
 public class TableStorage
@@ -569,7 +569,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Выходные атрибуты
 
-В [библиотеки классов C#](functions-dotnet-class-library.md), используйте [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), которая определена в пакет NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+В [библиотеках классов C#](functions-dotnet-class-library.md) используйте атрибут [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), который определен в пакете NuGet с именем [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Конструктор атрибута использует имя таблицы. Его можно использовать с параметром `out` или возвращаемым значением функции, как показано в следующем примере.
 
@@ -597,7 +597,7 @@ public static MyPoco TableOutput(
 }
 ```
 
-Полный пример см. в разделе [выходные данные - пример на C#](#output---c-example).
+Полный пример см. в разделе [Пример выходных данных C#](#output---c-example).
 
 Чтобы указать учетную запись хранения на уровне класса, метода или параметра, можно использовать атрибут `StorageAccount`. Дополнительные сведения см. в разделе [Входные атрибуты](#input---attributes).
 
@@ -635,7 +635,7 @@ public static MyPoco TableOutput(
 
   В функциях JavaScript доступ к выходным данным таблицы можно получить, используя `context.bindings.<name>`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md)

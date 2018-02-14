@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Информация о нерекомендованных дистрибутивах
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ ms.lasthandoff: 10/11/2017
 * Для работы агента Linux для Azure требуется Python v2.6+.
 * Для агента также необходим модуль python-pyasn1. В большинстве дистрибутивов он предоставляется в виде отдельно устанавливаемого пакета.
 * В некоторых случаях агент Linux для Azure может быть несовместим с NetworkManager. Многие пакеты RPM/Deb, предоставленные вместе с дистрибутивами, настраивают NetworkManager с использованием параметров, конфликтующих с пакетом waagent, поэтому это приведет к удалению NetworkManager при установке пакета агента Linux.
+* Версия агента Linux для Azure должна быть выше минимальной поддерживаемой версии. Дополнительные сведения см. в этой [статье](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 ## <a name="general-linux-system-requirements"></a>Общие системные требования для Linux
 

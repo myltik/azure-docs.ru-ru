@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/12/2017
-ms.openlocfilehash: e576d44a854159054d4f7886fe7859ae34875c8f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.date: 02/01/2018
+ms.openlocfilehash: 128a4ae124f01a0514160450a3e9069b488274cd
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>Пример пользовательских преобразований столбцов (Python) 
 В меню этот сценарий преобразования имеет название **Добавление столбца (скрипт)**.
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/04/2018
     row["Col1"] - datetime.datetime.utcfromtimestamp(0)).total_seconds()
 ```
 
-## <a name="hash-a-column-value-into-a-new-column"></a>Хэш-значение столбца в новый столбец
+## <a name="hash-a-column-value-into-a-new-column"></a>Создание хэша для значения столбца в новом столбце
 ```python
     import hashlib
     hash(row["MyColumnToHashCol1"])

@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Решение "Соединитель Application Insights" (предварительная версия) в Operations Management Suite (OMS)
+# <a name="application-insights-connector-management-solution-preview"></a>Решение по управлению "Соединитель Application Insights" (предварительная версия) 
 
 ![Символ Application Insights](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-С помощью решения "Соединитель Application Insights" можно диагностировать проблемы с производительностью, а также узнать, какие действия пользователи выполняют в вашем приложении, которое отслеживается с помощью [Application Insights](../application-insights/app-insights-overview.md). В OMS доступны представления данных телеметрии приложения, которые отображаются для разработчиков в Application Insights. Тем не менее при интеграции приложений Application Insights с OMS видимость приложений увеличивается, так как данные операций и приложения находятся в одном месте. Наличие тех же представлений, что и у разработчиков, поможет вам сотрудничать с ними. Благодаря общим представлениям вы сможете быстрее обнаруживать проблемы с платформой и приложением, а также решать их.
+С помощью решения "Соединитель Application Insights" можно диагностировать проблемы с производительностью, а также узнать, какие действия пользователи выполняют в вашем приложении, которое отслеживается с помощью [Application Insights](../application-insights/app-insights-overview.md). В Log Analytics доступны представления данных телеметрии приложения, которые отображаются для разработчиков в Application Insights. Тем не менее при интеграции приложений Application Insights с Log Analytics видимость приложений увеличивается, так как данные операций и приложений находятся в одном месте. Наличие тех же представлений, что и у разработчиков, поможет вам сотрудничать с ними. Благодаря общим представлениям вы сможете быстрее обнаруживать проблемы с платформой и приложением, а также решать их.
 
 Используя решение, вы можете:
 
 - просматривать все приложения Application Insights в одном месте, даже если они находятся в разных подписках Azure;
 - сопоставлять данные инфраструктуры с данными приложений;
 - визуализировать данные приложения с перспективами в поиске по журналам;
-- сводить данные из Log Analytics в приложение Application Insights в OMS и на порталах Azure.
+- сводить данные из Log Analytics в приложении Application Insights на портале Azure.
 
 ## <a name="connected-sources"></a>Подключенные источники
 
@@ -63,8 +63,8 @@ ms.lasthandoff: 02/01/2018
 
 Моменты, которые следует учитывать:
 
-- Приложения Application Insights можно связать только с одной рабочей областью OMS.
-- С OMS Log Analytics можно связать [ресурсы Application Insights только уровня "Стандартный" или "Премиум"](https://azure.microsoft.com/pricing/details/application-insights). Тем не менее можно использовать уровень "Бесплатный" Log Analytics.
+- Приложения Application Insights можно связать только с одной рабочей областью Log Analytics.
+- С Log Analytics можно связать [ресурсы Application Insights только уровня "Стандартный" или "Премиум"](https://azure.microsoft.com/pricing/details/application-insights). Тем не менее можно использовать уровень "Бесплатный" Log Analytics.
 
 ## <a name="management-packs"></a>Пакеты управления
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/01/2018
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Сведение в приложение на портале Azure
 
-Колонки соединителя Application Insights предназначены для сведения данных в выбранное приложение Application Insights *при использовании портала OMS*. Решение можно использовать как высокоуровневую платформу мониторинга, которая позволяет устранять неполадки в приложении. При появлении потенциальной проблемы в одном из подключенных приложений вы можете получить о ней дополнительные сведения в поиске OMS или свести их непосредственно в приложение Application Insights.
+Колонки соединителя Application Insights предназначены для сведения данных в выбранное приложение Application Insights *при использовании портала OMS*. Решение можно использовать как высокоуровневую платформу мониторинга, которая позволяет устранять неполадки в приложении. При появлении потенциальной проблемы в одном из подключенных приложений вы можете получить о ней дополнительные сведения в поиске Log Analytics или свести их непосредственно в приложении Application Insights.
 
 Чтобы свести данные, нажмите символ с многоточием (**…**), который отображается в конце каждой строки, а затем выберите **Open in Application Insights** (Открыть в Application Insights).
 
@@ -140,7 +140,7 @@ ms.lasthandoff: 02/01/2018
 
 ### <a name="sample-corrected-data"></a>Данные исправления выборки
 
-В Application Insights предоставлена функция *[исправления выборки](../application-insights/app-insights-sampling.md)*, с помощью которой можно уменьшить трафик данных телеметрии. При включении выборки в приложении Application Insights уменьшается количество записей, хранимых в Application Insights и в службе OMS. В то время как на странице **соединителя Application Insights** и в перспективах данные остаются согласованными, для пользовательских запросов данные выборки необходимо исправлять вручную.
+В Application Insights предоставлена функция *[исправления выборки](../application-insights/app-insights-sampling.md)*, с помощью которой можно уменьшить трафик данных телеметрии. При включении выборки в приложении Application Insights уменьшается количество записей, хранимых в Application Insights и в службе Log Analytics. В то время как на странице **соединителя Application Insights** и в перспективах данные остаются согласованными, для пользовательских запросов данные выборки необходимо исправлять вручную.
 
 Ниже приведен пример исправления выборки в запросе поиска по журналам:
 
@@ -162,7 +162,7 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 - Просмотры страниц. Чтобы ваша рабочая область получала данные о просмотре страниц, в приложении необходимо настроить сбор этих сведений. Дополнительные сведения см. в разделе [Просмотры страниц](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Настраиваемые события. Чтобы ваша рабочая область получала данные о настраиваемых событиях, в приложении необходимо настроить сбор этих сведений. Дополнительные сведения см. в разделе [TrackEvent (Отслеживание событий)](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
-Как только данные станут доступными, они поступают из Application Insights в OMS.
+Как только данные станут доступны, они поступят из Application Insights в Log Analytics.
 
 ## <a name="output-data"></a>Выходные данные
 

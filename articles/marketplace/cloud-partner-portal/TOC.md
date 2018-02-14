@@ -15,7 +15,7 @@
 #### [Форма номеров SKU](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus)
 ##### [Цены](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md#pricing)
 ##### [Образы виртуальных машин](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md#vm-images)
-#### [Форма Marketplace](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md#marketplace-form)
+#### [Форма Microsoft Azure Marketplace](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md#marketplace-form)
 #### [Форма службы поддержки](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md#support-form)
 ### [Публикация предложения виртуальной машины](./Cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md)
 

@@ -64,7 +64,7 @@
 
 ### <a name="graphics-and-rendering"></a>Графика и отрисовка
 
-* [Autodesk Maya, 3ds Max и Arnold](../articles/batch/batch-rendering-service.md) в пакетной службе Azure (предварительная версия)
+* [Autodesk Maya, 3ds Max и Arnold](../articles/batch/batch-rendering-service.md) в пакетной службе Azure 
 
 ### <a name="ai-and-deep-learning"></a>Искусственный интеллект и глубокое обучение
 
@@ -103,11 +103,12 @@ Azure предлагает различные размеры для виртуа
 
 Ниже перечислено, что вы можете узнать.
 
-* [Сведения о начале разработки с помощью пакетной службы](../articles/batch/batch-dotnet-get-started.md)
+* [Сведения о начале разработки с помощью пакетной службы](../articles/batch/quick-run-dotnet.md)
 * [Примеры использования кода пакетной службы](https://github.com/Azure/azure-batch-samples)
 * [Использование низкоприоритетных виртуальных машин в пакетной службе](../articles/batch/batch-low-pri-vms.md)
 * [Сведения о запуске контейнерных рабочих нагрузок HPC с помощью Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Сведения об использовании языка R с пакетной службой](https://github.com/Azure/doAzureParallel)
+* [Запуск набора средств для инжиниринга распределенных данных в пакетной службе Azure](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Диспетчеры рабочих нагрузок
 
@@ -127,6 +128,7 @@ Azure предлагает различные размеры для виртуа
 Подробнее.
 
 * [Параллельные файловые системы для хранилища HPC в Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* Высокопроизводительные облачные решения для хранения данных от [Avere](http://www.averesystems.com/about-us/about-avere) (компания уже [объединена с корпорацией Майкрософт](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
 ## <a name="related-azure-services"></a>Связанные службы Azure
@@ -139,11 +141,14 @@ Azure предлагает различные размеры для виртуа
 * [Хранилище файлов](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Данные и аналитика
-* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) для кластеров Hadoop в Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Фабрика данных](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Машинное обучение](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [База данных SQL](../articles/sql-database/sql-database-technical-overview.md)
+
+### <a name="ai-and-cognitive-services"></a>ИИ и Cognitive Services
+* [Искусственный интеллект пакетной службы](../articles/batch-ai/overview.md)
 
 ### <a name="networking"></a>Сеть
 * [Виртуальная сеть](../articles/virtual-network/virtual-networks-overview.md)
@@ -172,7 +177,7 @@ Azure предлагает различные размеры для виртуа
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о решениях больших вычислений для [технического моделирования](https://simulation.azure.com/), [рендеринга](https://simulation.azure.com/), [банковских рынков и рынков капитала](https://finance.azure.com/), а также [геномики](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
 * Последние объявления см. в [блоге группы Microsoft HPC и пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](https://azure.microsoft.com/blog/tag/hpc/).
 

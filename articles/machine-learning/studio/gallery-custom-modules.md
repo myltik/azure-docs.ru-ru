@@ -1,6 +1,6 @@
 ---
-title: "Пользовательские модули Azure коллекции AI | Документы Microsoft"
-description: "Обнаружение модулей обучения настраиваемой машины в коллекции Azure AI."
+title: "Пользовательские модули в коллекции решений ИИ Azure | Документация Майкрософт"
+description: "Поиск пользовательских модулей машинного обучения в коллекции решений ИИ Azure."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 278a24c44b76e6df097355b91d94a146be4aa9a9
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: bec2860d1da5044ad6969e2b23142256aa90042e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Обнаружение модулей обучения настраиваемой машины в коллекции Azure AI
+# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Поиск пользовательских модулей машинного обучения в коллекции решений ИИ Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Пользовательские модули для Студии машинного обучения
-Коллекции AI Azure предлагает несколько вариантов [пользовательские модули](https://gallery.cortanaintelligence.com/customModules) , расширить возможности студии машинного обучения Azure. Вы можете импортировать эти модули и использовать их в экспериментах, чтобы создать еще более сложные решения для прогнозной аналитики.
+В коллекции решений ИИ Azure есть несколько [пользовательских модулей](https://gallery.cortanaintelligence.com/customModules), которые расширяют возможности Студии машинного обучения Azure. Вы можете импортировать эти модули и использовать их в экспериментах, чтобы создать еще более сложные решения для прогнозной аналитики.
 
 В настоящее время коллекция предлагает модули для *аналитики временных рядов*, *правил взаимосвязей*, *алгоритмов кластеризации* (помимо К-средних), а также для *визуализаций* и других основных служебных модулей.
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/06/2018
 ## <a name="import"></a>Импорт
 Любой пользовательский модуль из коллекции можно импортировать в свои эксперименты.
 
-Коллекции AI Azure предлагает два способа импортировать копию модуля.
+Коллекция решений ИИ Azure поддерживает два способа импорта копии модуля.
 
 * **Из коллекции**. При импорте пользовательского модуля из коллекции можно также получить пример эксперимента, который поможет разобраться, как можно использовать этот модуль.
 * **Из Студии машинного обучения Azure**. Любой пользовательский модуль можно импортировать во время работы в Студии машинного обучения (в этом случае вы не получите пример эксперимента).

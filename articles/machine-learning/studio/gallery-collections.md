@@ -1,6 +1,6 @@
 ---
-title: "Azure AI коллекции коллекций | Документы Microsoft"
-description: "Обнаружение и совместного использования коллекций в коллекции Azure AI."
+title: "Коллекции в коллекции решений ИИ Azure | Документация Майкрософт"
+description: "Поиск и публикация коллекций в коллекции решений ИИ Azure."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: b7850b55baa690df22d8ebe14e9fa17fd91e0bad
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Обнаружение и совместного использования коллекций в коллекции Azure AI
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Поиск и публикация коллекций в коллекции решений ИИ Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>Коллекции
@@ -71,7 +71,7 @@ ms.lasthandoff: 01/06/2018
     ![Выбор Public (Общедоступная) или Unlisted (Вне списка)](./media/gallery-collections/create-collection-page-3.png)
 7. Нажмите кнопку **Создать**.
 
-Ваша коллекция находится в коллекции Azure AI. Ваши коллекции появятся на вкладке **Collection** (Коллекция) на странице вашей учетной записи.
+Эта коллекция теперь доступна в коллекции решений ИИ Azure. Ваши коллекции появятся на вкладке **Collection** (Коллекция) на странице вашей учетной записи.
 
 ### <a name="add-items-to-a-collection"></a>Добавление элементов в коллекцию
 Чтобы добавить элементы в коллекцию, откройте коллекцию, выберите **Edit** (Изменить), а затем **Add Item** (Добавить элемент).

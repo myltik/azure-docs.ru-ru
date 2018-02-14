@@ -1,6 +1,6 @@
 ---
-title: "Azure AI коллекции состязаниях | Документы Microsoft"
-description: "Обнаружение состязаниях в коллекции Azure AI."
+title: "Конкурсы в коллекции решений ИИ Azure | Документация Майкрософт"
+description: "Поиск конкурсов в коллекции решений ИИ Azure."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 1e39d636b3322201465700a4c9de83dda1bbefcc
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: 35f269f6d0dc55fd4a419ee1d7fe41b4f12ebb4c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Обнаружение состязаниях в коллекции Azure AI
+# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Поиск конкурсов в коллекции решений ИИ Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Конкурсы Cortana Intelligence
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/06/2018
 Ответы на часто задаваемые вопросы о конкурсах см. в статье [Часто задаваемые вопросы о конкурсах Microsoft Cortana Intelligence](competition-faq.md).
 
 ## <a name="discover"></a>Поиск
- **[Состязаниях](https://gallery.cortanaintelligence.com/competitions)**  страницы ([aka.ms/CIComp](http://aka.ms/CIComp)) отображает список наиболее популярных решений конкурентов.
+На странице **[конкурсов](https://gallery.cortanaintelligence.com/competitions)** ([aka.ms/CIComp](http://aka.ms/CIComp)) отобразится список наиболее популярных конкурсов.
 
 ![Переход в раздел конкурсов с главной страницы коллекции](./media/gallery-competitions/select-competitions-in-gallery.png)
 

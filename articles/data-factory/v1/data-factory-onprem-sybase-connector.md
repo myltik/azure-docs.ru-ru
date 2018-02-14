@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e7694b2b5703175e4b83a84869ba2964bad7671e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 26c0f3216014afdaaa6556537f15f23c844e4c19
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Перемещение данных из Sybase с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,9 @@ ms.lasthandoff: 01/23/2018
 > Советы по устранению неполадок, связанных со шлюзом или подключением, см. в разделе [Устранение неполадок в работе шлюза](data-factory-data-management-gateway.md#troubleshooting-gateway-issues).
 
 ## <a name="supported-versions-and-installation"></a>Поддерживаемые версии и установка
-Для подключения шлюза управления данными к базе данных Sybase необходимо установить [поставщик данных для Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) версии 16 и более в одной системе со шлюзом управления данными. Поддерживается Sybase версии 16 и более.
+Для подключения шлюза управления данными к базе данных Sybase необходимо установить [поставщик данных для Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) версии 16 и более в одной системе со шлюзом управления данными. 
+
+Поддерживается SAP Sybase SQL Anywhere (ASA) версии 16 и выше; IQ и ASE не поддерживаются.
 
 ## <a name="getting-started"></a>Приступая к работе
 Вы можете создать конвейер с действием копирования, которое перемещает данные из локального хранилища данных Cassandra, с помощью разных инструментов и интерфейсов API. 

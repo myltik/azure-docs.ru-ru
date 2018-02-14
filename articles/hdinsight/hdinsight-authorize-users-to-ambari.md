@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Разрешение пользователям доступа к Ambari Views
 
-[Кластеры HDInsight, присоединенные к домену](./domain-joined/apache-domain-joined-introduction.md), обеспечивают возможности корпоративного уровня, включая аутентификацию на основе Azure Active Directory. Вы можете синхронизировать новых пользователей <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) -->, добавленных в группы Azure AD, которым был предоставлен доступ к кластеру, что позволяет определенным пользователям выполнять конкретные действия. Работа с пользователями, группами и разрешениями в Ambari поддерживается как для кластера HDInsight, присоединенного к домену, так и для стандартного кластера HDInsight.
+[Кластеры HDInsight, присоединенные к домену](./domain-joined/apache-domain-joined-introduction.md), обеспечивают возможности корпоративного уровня, включая аутентификацию на основе Azure Active Directory. Вы можете [синхронизировать новых пользователей](hdinsight-sync-aad-users-to-cluster.md), добавленных в группы Azure Active Directory, которым был предоставлен доступ к кластеру, что позволит определенным пользователям выполнять конкретные действия. Работа с пользователями, группами и разрешениями в Ambari поддерживается как для кластера HDInsight, присоединенного к домену, так и для стандартного кластера HDInsight.
 
 Пользователи Active Directory могут входить на узлы кластера с использованием своих учетных данных домена. Кроме того, эти учетные данные можно использовать для аутентификации в других утвержденных конечных точках, например Hue, Ambari Views, ODBC, JDBC, PowerShell и интерфейсах REST API.
 
@@ -145,5 +145,4 @@ ms.lasthandoff: 02/01/2018
 * [Настройка политик Hive в присоединенном к домену кластере HDInsight (предварительная версия)](./domain-joined/apache-domain-joined-run-hive.md)
 * [Управление присоединенными к домену кластерами HDInsight](./domain-joined/apache-domain-joined-manage.md)
 * [Использование представления Hive с Hadoop в HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
-
-<!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->
+* [Синхронизация пользователей Azure Active Directory с кластером HDInsight](hdinsight-sync-aad-users-to-cluster.md)

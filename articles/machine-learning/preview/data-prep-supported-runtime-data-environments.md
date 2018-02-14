@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.date: 02/01/2018
+ms.openlocfilehash: 9025982d2a350941ef82733292ebbf15ab48d7fe
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-matrix-for-this-release"></a>Поддерживаемая матрица для этого выпуска 
 Когда в коде выполняется загрузка данных с помощью источников данных службы "Машинное обучение Azure" или средств подготовки данных в этой службе, при получении таблицы данных Spark или Pandas поддерживаются следующие сочетания экспериментальных вычислительных сред и расположений данных:
@@ -37,4 +37,4 @@ Azure Data Lake Store в настоящее время не поддержива
 
 ** Использование драйвера SQL Server Maven JDBC версии 6.2.1. Этот пакет (или другой совместимый) должен быть включен в файл spark_dependencies.yml для вычислительной среды.
 
-Поддерживает базы данных SQL Azure или SQL Server при условии, что базы данных можно получить из среды вычислений. 
+*** Поддержка службы "База данных SQL Azure" или SQL Server, если к базе данных можно получить доступ из вычислительной среды. 

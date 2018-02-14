@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/12/2018
+ms.date: 02/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de82062f605d060dc388022cdb8ee9d5c09b2b89
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 421e594f7bd4df1bc1c5faedc2c8bfab0540ca61
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Установка драйверов GPU NVIDIA на виртуальные машины серии N под управлением Linux
 
@@ -101,18 +101,21 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 7.3 или Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS или Red Hat Enterprise Linux 7.3 или 7.4
 
-1. Установите последнюю версию Linux Integration Services для Hyper-V.
+1. Обновите ядро.
 
-  > [!IMPORTANT]
-  > Если вы установили на виртуальную машину NC24r образ HPC на основе CentOS, перейдите к шагу 3. Так как драйверы Azure RDMA и службы интеграции Linux предварительно установлены в образ HPC, служба интеграции Linux не обновляется и обновления ядра отключены по умолчанию.
-  >
+  ```
+  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+  
+  sudo reboot
+
+2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
  
   cd LISISO
  
@@ -124,8 +127,6 @@ sudo reboot
 3. Повторно подключитесь к виртуальной машине и продолжите установку с помощью следующих команд:
 
   ```bash
-  sudo yum install kernel-devel
-
   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
   sudo yum install dkms
@@ -162,20 +163,22 @@ sudo reboot
 ![Состояние устройства NVIDIA](./media/n-series-driver-setup/smi.png)
 
 
-
-## <a name="rdma-network-connectivity"></a>Сетевое подключение к RDMA
+## <a name="rdma-network-connectivity"></a>Сетевое подключение RDMA
 
 Сетевое подключение RDMA можно включить на виртуальных машинах серии N с поддержкой RDMA, таких как NC24r, развернутых в одной группе доступности. Сеть RDMA поддерживает трафик MPI (Message Passing Interface) для приложений, использующих Intel MPI 5.x или более поздней версии. Дополнительные требования приведены ниже.
 
 ### <a name="distributions"></a>Дистрибутивы
 
-Разверните виртуальные машины серии N с поддержкой RDMA из одного из следующих образов, поддерживающих подключение RDMA, в Azure Marketplace:
+Разверните виртуальные машины серии N с поддержкой RDMA из образа, поддерживающего подключение RDMA для виртуальных машин серии N, в Azure Marketplace:
   
-* **Ubuntu** — Ubuntu Server 16.04 LTS. Настройте драйверы RDMA на виртуальной машине и выполните регистрацию на сайте Intel, чтобы скачать Intel MPI.
+* **Ubuntu 16.04 LTS**. Настройте драйверы RDMA на виртуальной машине и выполните регистрацию на сайте Intel, чтобы скачать Intel MPI.
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **HPC на основе CentOS** — HPC на основе CentOS 7.3. Драйверы RDMA и Intel MPI 5.1 будут установлены на виртуальной машине. 
+> [!NOTE]
+> Образы HPC на основе centOS сейчас не рекомендуется использовать для подключения RDMA на виртуальных машинах серии N. RDMA не поддерживается на последнем ядре CentOS 7.4 с поддержкой графических процессоров NVIDIA.
+> 
+
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>Установка драйверов GRID для виртуальных машин NV
 
@@ -237,7 +240,7 @@ sudo reboot
 9. Перезапустите виртуальную машину и приступите к проверке установки.
 
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 7.3 или Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS или Red Hat Enterprise Linux 
 
 1. Обновите ядро и DKMS.
  
@@ -262,9 +265,9 @@ sudo reboot
 3. Перезагрузите виртуальную машину, повторно подключитесь и установите последнюю версию служб интеграции Linux для Hyper-v.
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
 
   cd LISISO
 
@@ -343,8 +346,6 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 Этот файл можно вызывать с правами привилегированного пользователя во время загрузки, создав для него запись в `/etc/rc.d/rc3.d`.
 
 ## <a name="troubleshooting"></a>Устранение неполадок
-
-* Может возникать известная проблема, связанная с работой драйверов CUDA на виртуальных машинах Azure серии N под управлением ядра Linux версии 4.4.0-75 на Ubuntu 16.04 LTS. Если вы обновляете более раннюю версию ядра, обновите ее как минимум до версии 4.4.0-77.
 
 * Когда необходимо запрашивать карты, для быстрого получения выходных данных команды можно задать режим сохранения с помощью команды `nvidia-smi`. Чтобы задать режим сохранения, выполните `nvidia-smi -pm 1`. Обратите внимание, что в случае перезапуска виртуальной машины настройка режима не сохранится. Всегда можно написать сценарий настройки режима для выполнения при запуске.
 

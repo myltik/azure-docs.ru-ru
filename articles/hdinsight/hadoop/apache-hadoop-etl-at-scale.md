@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 47c2d129cb296f6387142e03b14356bcd83ad698
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 8b55bafee83dd43d535f9ebb0488134b5c7b3446
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Извлечение, преобразование и загрузка (ETL) в масштабе
 
@@ -42,9 +42,7 @@ ETL представляет собой процесс, с помощью кот
 
 Apache Oozie — это система координации рабочих процессов, которая управляет заданиями Hadoop. Oozie работает в кластере HDInsight и интегрирована со стеком Hadoop. Эта система поддерживает задания Hadoop для Apache MapReduce, Apache Pig, Apache Hive и Apache Sqoop. Ее также можно использовать для планирования относящихся к системе заданий, например Java-программ и сценариев оболочки.
 
-Дополнительные сведения см. в статье [Использование Oozie с Hadoop для определения и запуска рабочих процессов в Azure HDInsight под управлением Linux](../hdinsight-use-oozie-linux-mac.md).
-
-<!-- For a deep dive showing how to use Oozie to drive an end-to-end pipeline, see [Operationalize the Data Pipeline](hdinsight-operationalize-data-pipeline.md). -->
+Дополнительные сведения см. в статье [Использование Oozie с Hadoop для определения и запуска рабочих процессов в Azure HDInsight под управлением Linux](../hdinsight-use-oozie-linux-mac.md). Более подробные сведения об использовании Oozie для управления сквозным конвейером см. в статье [Ввод в эксплуатацию конвейера аналитики данных](../hdinsight-operationalize-data-pipeline.md). 
 
 ### <a name="azure-data-factory"></a>Фабрика данных Azure
 
@@ -145,4 +143,4 @@ Apache Flume — это распределенная, надежная и дос
 ## <a name="next-steps"></a>Дополнительная информация
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
-<!-- * [Using Apache Hive as an ETL Tool](hdinsight-using-apache-hive-as-an-etl-tool.md) -->
+* [Использование Apache Hive как средства для извлечения, преобразования и загрузки](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

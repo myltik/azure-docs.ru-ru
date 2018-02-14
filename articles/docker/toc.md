@@ -1,6 +1,6 @@
 # [Документация по Docker](index.md)
 # Быстрый запуск
-## [Шаблон Docker Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS)
+## [Шаблон Docker в Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS)
 # Учебники
 ## [Веб-приложение Python и Docker, PostgreSQL](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app)
 ## [Непрерывная интеграция и доставка с помощью Docker Swarm и VSTS](/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine)

@@ -4,7 +4,11 @@
 ### <a name="nc-ncv2-and-nd-instances---nvidia-cuda-drivers"></a>Драйверы NVIDIA CUDA для экземпляров NC, NCv2 и ND
 | Дистрибутив | Драйвер |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> Версия 7.3 на основе CentOS | NVIDIA CUDA 9.1, ветвь драйверов R387 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 или 7.4<br/><br/> CentOS 7.3 или 7.4 | NVIDIA CUDA 9.1, драйвер серии R390 |
+
+> [!IMPORTANT]
+> Убедитесь, что вы установили последнюю версию драйверов CUDA для своего дистрибутива или выполнили обновление до этой версии. В драйверах более ранних версий, чем R390, могут возникать проблемы при работе с обновленными ядрами Linux.
+>
 
 ### <a name="nv-instances---nvidia-grid-drivers"></a>Драйверы NVIDIA GRID для экземпляров NV
 

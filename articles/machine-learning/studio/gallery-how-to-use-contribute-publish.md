@@ -1,6 +1,6 @@
 ---
-title: "Коллекция Azure AI | Документы Microsoft"
-description: "Совместное использование и обнаруживать ресурсы аналитика и многое другое в коллекции Azure AI. Учитесь у других и вносите свой вклад в сообщество."
+title: "Коллекция решений ИИ Azure | Документация Майкрософт"
+description: "Находите ресурсы аналитики и многое другое, а также обменивайтесь ими с помощью коллекции решений ИИ Azure. Учитесь у других и вносите свой вклад в сообщество."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: d60815e848277637e3d692a676dbde838b249754
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: 5ccb595e24d8ee169cc6ee589a3ddc2f9fef5dcd
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Совместное использование и поиска ресурсов в коллекции Azure AI
+# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Поиск и публикация ресурсов в коллекции решений ИИ Azure
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/06/2018
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Ресурсы, содержащиеся в коллекции
-Коллекции AI Azure включает широкий набор ресурсов, которые можно использовать для разработки собственного аналитические решения.
+Коллекция решений ИИ Azure содержит множество ресурсов, которые можно использовать для разработки собственных аналитических решений.
 
 * **[Эксперименты.](gallery-experiments.md)** Коллекция содержит разнообразные эксперименты, разработанные в Студии машинного обучения Azure. К ним относятся как эксперименты, демонстрирующие конкретный метод машинного обучения, так и готовые решения для сложных задач машинного обучения.
 * **[Записные книжки Jupyter.](gallery-jupyter-notebooks.md)** Эти записные книжки содержат код, визуализации данных и документацию на отдельном интерактивном холсте.
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/06/2018
 
 Наконец, в разделе **[Конкурсы](gallery-competitions.md)** можно бросить вызов сообществу специалистов по обработке и анализу данных в решении сложных проблем с помощью пакета Cortana Intelligence Suite.
 
-![Домашняя страница Azure AI коллекции](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Коллекция решений ИИ Azure: домашняя страница](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Находите и изучайте
 В коллекции каждый пользователь может найти и изучить различные типы ресурсов, добавленных корпорацией Майкрософт и большим аналитическим сообществом.

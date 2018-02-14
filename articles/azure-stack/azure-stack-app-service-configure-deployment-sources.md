@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>Настройка источников развертывания
 *Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
@@ -49,8 +49,7 @@ ms.lasthandoff: 02/01/2018
 2. Введите имя в поле **Application name** (Имя приложения), например "Служба приложений в Azure Stack".
 3. Введите значение в поле **Homepage URL** (URL-адрес домашней страницы). URL-адресом домашней страницы должен быть адрес портала Azure Stack. Например, https://portal.local.azurestack.external.
 4. Введите текст в поле **Application Description** (Описание приложения).
-5. Введите значение в поле **Authorization callback URL** (URL-адрес обратного вызова авторизации).  В стандартном развертывании Azure Stack используется URL-адрес в формате https://portal.local.azurestack.external/tokenauthorize. Если вы используете другой домен, введите его вместо домена azurestack.local.
-    ![GitHub — регистрация нового приложения с заполненными значениями][4]
+5. Введите значение в поле **Authorization callback URL** (URL-адрес обратного вызова авторизации).  В стандартном развертывании Azure Stack используется URL-адрес вида https://portal.local.azurestack.external/tokenauthorize. Если вы используете другой домен, введите его вместо домена local.azurestack.external. ![Страница регистрации приложения на GitHub с заполненными значениями][4]
 6. Щелкните **Register application** (Зарегистрировать приложение).  Откроется следующая страница, на которой вы увидите значения **Client ID** (Идентификатор клиента) и **Client Secret** (Секрет клиента) для нового приложения.
     ![Приложение зарегистрировано на GitHub][5]
 7.  В новой вкладке или новом окне браузера войдите на портал администрирования Azure Stack (https://adminportal.local.azurestack.external) с учетной записью администратора служб.

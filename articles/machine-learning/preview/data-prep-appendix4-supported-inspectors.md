@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.date: 02/01/2018
+ms.openlocfilehash: 1046f08d4e3b1111f8f82551b71252856174a308
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Поддерживаемые инспекторы в средстве подготовки данных службы "Машинное обучение Azure" (предварительная версия)
 В этой статье приведен набор инспекторов, доступных в этой предварительной версии.
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 - медиана;
 - верхний квартиль;
 - Максимальная
-- Средняя
+- Среднее
 - Стандартное отклонение
 
 
@@ -52,6 +52,7 @@ ms.lasthandoff: 12/18/2017
 - Default Number of Buckets (Число контейнеров по умолчанию) — правило Скотта. 
 - Show halo (Показать эффект)
 - Kernel Density Plot Overlay (Наложение графика ядерной оценки плотности) — Гауссово ядро. 
+- Использовать логарифмическую шкалу.
 
 
 ### <a name="actions"></a>Действия
@@ -65,6 +66,7 @@ ms.lasthandoff: 12/18/2017
 - По убыванию
 - Include null/error values (Включать значения Null или ошибочные значения)
 - Show halo (Показать эффект)
+- Использовать логарифмическую шкалу.
 
 
 ### <a name="actions"></a>Действия 

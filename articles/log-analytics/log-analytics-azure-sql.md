@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: e2176a41a115d77a60a8348d2d1b5928109dd65b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Мониторинг базы данных SQL Azure с помощью служб анализа SQL Azure (предварительная версия) в Log Analytics
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/13/2017
 | [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет  | Log Analytics не считывает данные из учетной записи хранения. |
 | [Система диагностики Azure](log-analytics-azure-storage.md) | Yes | Данные метрик и журнала Azure отправляются в Log Analytics непосредственно из Azure. |
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Подписка Azure. Если у вас ее нет, вы можете создать ее [бесплатно](https://azure.microsoft.com/free/).
 - Рабочая область Log Analytics. Вы можете использовать имеющуюся рабочую область или же [создать ее](log-analytics-quick-create-workspace.md), прежде чем начать использовать это решение.
@@ -157,7 +157,7 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
-Используя запросы на основе оповещений, можно создавать предупреждения об определенных пороговых значениях для баз данных и эластичных пулов SQL Azure. Чтобы настроить оповещение для рабочей области OMS, сделайте следующее.
+Используя запросы на основе оповещений, можно создавать предупреждения об определенных пороговых значениях для баз данных и эластичных пулов SQL Azure. Чтобы настроить оповещение для рабочей области Log Analytics, сделайте следующее:
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>Чтобы настроить оповещение для рабочей области, сделайте следующее.
 
@@ -170,7 +170,7 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 6. На странице **Добавить правило оповещения** настройте соответствующие свойства и определенные пороговые значения, а затем нажмите кнопку **Сохранить**.  
 ![Добавление правила оповещения](./media/log-analytics-azure-sql/create-alert02.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Используйте [поиск по журналам](log-analytics-log-searches.md) в Log Analytics для просмотра подробных данных SQL Azure.
 - [Создавайте пользовательские панели мониторинга](log-analytics-dashboards.md), отображающие данные SQL Azure.

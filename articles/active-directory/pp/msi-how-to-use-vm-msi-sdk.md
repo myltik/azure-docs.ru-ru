@@ -1,10 +1,10 @@
 ---
-title: "Как использовать назначенный пользователем управляемого удостоверения службы с Azure SDK на виртуальной Машине"
-description: "Примеры кода с использованием Azure SDK с MSI назначенный пользователем на виртуальной Машине."
+title: "Как использовать назначаемое пользователем управляемое удостоверение службы из пакетов SDK Azure на виртуальной машине"
+description: "Примеры кода для использования пакетов SDK Azure с назначаемым пользователем управляемым удостоверением службы на виртуальной машине."
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -12,24 +12,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f9a31a0500a6f5f1c49fc45d5811e28788e6f2b1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 59d65e42c9b32bd0acd98645342833b4d57ad7a4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="use-azure-sdks-with-a-user-assigned-managed-service-identity-msi"></a>Используйте пакеты SDK Azure с назначенный пользователем управляемые службы удостоверений (MSI)
+# <a name="use-azure-sdks-with-a-user-assigned-managed-service-identity-msi"></a>Использование пакетов SDK Azure с назначаемым пользователем управляемым удостоверением службы (MSI)
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]В этой статье список образцов SDK, которые демонстрируют использование поддержки их соответствующих Azure SDK для MSI, назначенный пользователем.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+В этой статье приведен список примеров пакетов SDK, в которых поддерживается пакет Azure SDK для назначаемого пользователем удостоверения MSI.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 > [!IMPORTANT]
-> - Во всех примерах кода или скриптов в этой статье предполагается, что клиент выполняется на виртуальной машине с поддержкой MSI. Используйте функцию подключения виртуальной машины на портале Azure для удаленного подключения к своей виртуальной машине. Дополнительные сведения о включении MSI на виртуальной Машине см. в разделе [Настройка виртуальной Машины управляемые службы удостоверений (MSI) с помощью Azure CLI](msi-qs-configure-cli-windows-vm.md), или один из вариантов статей (с помощью PowerShell, портала Azure, шаблон или пакет Azure SDK). 
+> - Во всех примерах кода или скриптов в этой статье предполагается, что клиент выполняется на виртуальной машине с поддержкой MSI. Используйте функцию подключения виртуальной машины на портале Azure для удаленного подключения к своей виртуальной машине. Дополнительные сведения о включении MSI на виртуальной машине см. в статье [Настройка управляемого удостоверения службы (MSI) на виртуальной машине Azure с помощью Azure CLI](msi-qs-configure-cli-windows-vm.md) или в одном из вариантов статей (с использованием PowerShell, портала Azure, шаблона или пакета SDK для Azure). 
 
 ## <a name="sdk-code-samples"></a>Примеры кода SDK
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 12/22/2017
 | Python          | [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) (Использование MSI для простой проверки подлинности внутри виртуальной машины) |
 | Ruby            | [Управление ресурсами из виртуальных машин с поддержкой MSI](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - В разделе [Пакеты SDK](https://azure.microsoft.com/downloads/) приведен полный список ресурсов для пакета Azure SDK, включая файлы для скачивания библиотеки, документацию и многое другое.
 
