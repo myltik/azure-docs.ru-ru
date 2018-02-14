@@ -8,7 +8,7 @@
 
 # Справочные материалы
 ## [Документация по SQL Server в Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
-## [Интерфейс командной строки Azure](/cli/azure/)
+## [интерфейс командной строки Azure](/cli/azure/)
 ## [PowerShell](/powershell/azure/overview)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [Драйверы SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)

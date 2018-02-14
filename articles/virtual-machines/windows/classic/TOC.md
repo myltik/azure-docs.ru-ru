@@ -53,7 +53,7 @@
 ### [Сброс пароля удаленного рабочего стола](reset-rdp.md)
 ### [Подключение виртуального жесткого диска для устранения неполадок виртуальной машины](troubleshoot-recovery-disks-portal.md)
 
-# Ссылка
+# Справочные материалы
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Интерфейс командной строки Azure](/cli/azure/vm)
 ## [Java](/java/api)

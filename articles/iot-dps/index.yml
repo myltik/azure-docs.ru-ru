@@ -54,4 +54,4 @@ sections:
     className: cardsD
     items:
     - title: REST
-      html: "<p><a href=\"/rest/api/iot-dps\">ИНТЕРФЕЙС REST API</a></p>"
+      html: <p><a href="/rest/api/iot-dps">REST API</a></p>

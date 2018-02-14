@@ -103,7 +103,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: "<a href=\"/azure/cosmos-db/cli-samples\">Интерфейс командной строки Azure</a>"
+    - html: "<a href=\"/azure/cosmos-db/cli-samples\">интерфейс командной строки Azure</a>"
     - html: <a href="/azure/cosmos-db/powershell-samples">Azure PowerShell</a>
 - title: "Справочные материалы"
   items:

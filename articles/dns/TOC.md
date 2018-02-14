@@ -9,9 +9,9 @@
 # Начало работы
 
 ## Создание зоны и записи DNS
-### [Портал Azure](dns-getstarted-portal.md)
+### [портал Azure](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [Интерфейс командной строки Azure](dns-getstarted-cli.md)
+### [интерфейс командной строки Azure](dns-getstarted-cli.md)
 
 ## Создание частной зоны и записи DNS
 ### [PowerShell](private-dns-getstarted-powershell.md)
@@ -21,14 +21,14 @@
 # Практическое руководство
 
 ## Управление зонами DNS
-### [Портал Azure](dns-operations-dnszones-portal.md)
+### [портал Azure](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Интерфейс командной строки Azure](dns-operations-dnszones-cli.md)
 
 ## Управление зонами DNS
-### [Портал Azure](dns-operations-recordsets-portal.md)
+### [портал Azure](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [Интерфейс командной строки Azure](dns-operations-recordsets-cli.md)
+### [интерфейс командной строки Azure](dns-operations-recordsets-cli.md)
 
 ## Управление обратным поиском DNS
 ### [Обзор](dns-reverse-dns-overview.md)
@@ -47,7 +47,7 @@
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
 ## [Azure PowerShell](/powershell/module/azurerm.dns)
-## [Интерфейс командной строки Azure](/cli/azure/network/dns)
+## [интерфейс командной строки Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
@@ -59,7 +59,7 @@
 ## [Шлюз приложений](/azure/application-gateway/)
 ## [Виртуальная сеть](/azure/virtual-network/)
 ## [Виртуальная машина](/azure/virtual-machines/)
-## [Подсистема балансировки нагрузки](/azure/load-balancer/)
+## [Балансировщик нагрузки](/azure/load-balancer/)
 ## [Диспетчер трафика](/azure/traffic-manager/)
 ## [Веб-приложения](/azure/app-service/)
 

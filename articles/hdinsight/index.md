@@ -267,7 +267,7 @@ Azure HDInsight — это полностью управляемая компл�
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/hdinsight/">ИНТЕРФЕЙС REST API</a></p>
+                        <p><a href="/rest/api/hdinsight/">REST API</a></p>
                         <p><a href="/rest/api/hdinsightspark/">REST API (Spark)</a></p>
                     </div>
                 </div>

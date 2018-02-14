@@ -34,7 +34,7 @@
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
 ## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
-## [Интерфейс командной строки Azure](/cli/azure/network/traffic-manager)
+## [интерфейс командной строки Azure](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
@@ -43,7 +43,7 @@
 
 # Сопутствующие материалы
 ## [Шлюз приложений](/azure/application-gateway/)
-## [Подсистема балансировки нагрузки](/azure/load-balancer/)
+## [Балансировщик нагрузки](/azure/load-balancer/)
 ## [Azure DNS](/azure/dns/)
 
 # Ресурсы
@@ -54,5 +54,5 @@
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Ограничения служб](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=traffic-manager)
-## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+## [Соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)

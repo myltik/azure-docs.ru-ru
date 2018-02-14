@@ -109,7 +109,7 @@ ms.lasthandoff: 10/11/2017
                     <div class="cardText">
                         <h3>Языки</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/traffic-manager">Интерфейс командной строки Azure</a></p>
+                        <p><a href="/cli/azure/network/traffic-manager">интерфейс командной строки Azure</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_traffic_manager">Ruby</a></p>

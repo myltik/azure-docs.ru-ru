@@ -8,7 +8,7 @@
       items:
         - name: Конвейеры и действия
           href: data-factory-create-pipelines.md
-        - name: НАБОРЫ ДАННЫХ
+        - name: Наборы данных
           href: data-factory-create-datasets.md
         - name: Планирование и исполнение с использованием фабрики данных
           href: data-factory-scheduling-and-execution.md
@@ -26,7 +26,7 @@
           href: data-factory-copy-activity-tutorial-using-visual-studio.md
         - name: Azure PowerShell
           href: data-factory-copy-activity-tutorial-using-powershell.md
-        - name: Интерфейс REST API
+        - name: ИНТЕРФЕЙС REST API
           href: data-factory-copy-activity-tutorial-using-rest-api.md
         - name: .NET API
           href: data-factory-copy-activity-tutorial-using-dotnet-api.md
@@ -41,7 +41,7 @@
           href: data-factory-build-your-first-pipeline-using-powershell.md
         - name: Шаблон диспетчера ресурсов Azure
           href: data-factory-build-your-first-pipeline-using-arm.md
-        - name: Интерфейс REST API
+        - name: ИНТЕРФЕЙС REST API
           href: data-factory-build-your-first-pipeline-using-rest-api.md
     - name: Перемещение данных между локальной средой и облаком
       href: data-factory-move-data-between-onprem-and-cloud.md
@@ -78,7 +78,7 @@
               href: data-factory-azure-datalake-connector.md
             - name: поиск Azure;
               href: data-factory-azure-search-connector.md
-            - name: База данных SQL Azure
+            - name: Базы данных SQL Azure
               href: data-factory-azure-sql-connector.md
             - name: "Хранилище данных SQL\_Azure"
               href: data-factory-azure-sql-data-warehouse-connector.md
@@ -116,7 +116,7 @@
               href: data-factory-sap-hana-connector.md
             - name: SFTP
               href: data-factory-sftp-connector.md
-            - name: SQL Server
+            - name: SQL Server;
               href: data-factory-sqlserver-connector.md
             - name: Sybase
               href: data-factory-onprem-sybase-connector.md

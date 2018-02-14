@@ -53,4 +53,4 @@ sections:
     className: cardsD
     items:
     - title: "Командная строка"
-      html: "<p><a href=\"/cli/azure/mysql\">Интерфейс командной строки Azure</a></p>"
+      html: "<p><a href=\"/cli/azure/mysql\">интерфейс командной строки Azure</a></p>"

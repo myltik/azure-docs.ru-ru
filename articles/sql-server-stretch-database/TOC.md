@@ -1,5 +1,5 @@
 # Обзор
-## [Что такое база данных Stretch?](/sql/sql-server/stretch-database/stretch-database)
+## [Что такое Stretch Database?](/sql/sql-server/stretch-database/stretch-database)
 ## [Проблемы, связанные с ограничениями и блокировкой](/sql/sql-server/stretch-database/limitations-for-stretch-database)
 
 # Начало работы
@@ -11,13 +11,13 @@
 ### [Включение базы данных](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database)
 ### [Включение таблицы](/sql/sql-server/stretch-database/enable-stretch-database-for-a-table)
 ### [Выбор строк для переноса](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
-## Управление
+## управление
 ### [Отслеживание переноса данных](/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database)
 ### [Приостановка и возобновление переноса](/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)
 ### [Управление и устранение неполадок](/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database)
 ### [Резервное копирование](/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database)
 ### [Restore](/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database)
-### [Отключение базы данных Stretch](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
+### [Отключение Stretch Database](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=sql-server-database)
