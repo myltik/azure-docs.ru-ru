@@ -20,7 +20,7 @@ ms.lasthandoff: 11/28/2017
 
 Используйте базу данных Azure для PostgreSQL, чтобы восстановить базу данных сервера с более ранней точки во времени за период от 7 до 35 дней.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Вот что вам нужно, чтобы выполнить инструкции, приведенные в этом руководстве:
 - [сервер и база данных Azure для PostgreSQL](quickstart-create-server-database-azure-cli.md);
 
@@ -52,7 +52,7 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 ```
 
 Для команды `az postgres server restore` обязательны указанные ниже параметры.
-| Настройка | Рекомендуемое значение | Описание  |
+| Параметр | Рекомендуемое значение | ОПИСАНИЕ  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Группа ресурсов, в которой находится исходный сервер.  |
 | name | mypgserver-restored | Имя нового сервера, созданного командой restore. |
@@ -67,5 +67,5 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 
 После завершения восстановления найдите новый сервер, чтобы убедиться, что данные были восстановлены, как и ожидалось.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Библиотеки подключений для базы данных Azure для PostgreSQL](concepts-connection-libraries.md)

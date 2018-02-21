@@ -22,7 +22,7 @@ ms.lasthandoff: 10/12/2017
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Подключение обозревателя службы хранилища к подписке Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 Обозреватель службы хранилища Azure (предварительная версия) — это автономное приложение, позволяющее легко работать с данными из хранилища Azure Stack на платформе Windows, macOS и Linux. Доступно несколько средств для перемещения данных в хранилище Azure Stack и из него. Дополнительные сведения см. в статье [Средства для хранилища Azure Stack](azure-stack-storage-transfer.md).
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/12/2017
 
 Чтобы получить доступ к подписке Azure Stack, обозревателю службы хранилища требуется доступ к рабочему столу хост-компьютера или VPN-подключение. Дополнительные сведения о настройке VPN-подключения в Azure Stack см. в разделе [Подключение c VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-Для комплекта разработки Azure Stack необходимо экспортировать корневой сертификат центра сертификации Azure Stack.
+Для Пакета средств разработки Azure Stack необходимо экспортировать корневой сертификат центра сертификации Azure Stack.
 
 ### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>Экспорт и импорт сертификата Azure Stack
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 10/12/2017
 
     ![Список учетных записей хранения, включая учетные записи подписки Azure Stack][31]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Приступая к работе с обозревателем службы хранилища (предварительная версия)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Хранилище Azure Stack. Отличия и рекомендации](azure-stack-acs-differences.md)
 

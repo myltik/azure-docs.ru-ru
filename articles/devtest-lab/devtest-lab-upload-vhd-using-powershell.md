@@ -16,7 +16,7 @@ ms.date: 01/10/2017
 ms.author: v-craic
 ms.openlocfilehash: 27a80ddb110ba47bf9c1284aa48d2f3af1a87145
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -58,7 +58,7 @@ ms.lasthandoff: 01/02/2018
 > 
 > В зависимости от размера VHD-файла и скорости подключения отправка файла может быть продолжительной.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Управление пользовательскими образами Azure DevTest Labs для создания виртуальных машин](devtest-lab-create-template.md)
 - [Создание пользовательского образа из VHD-файла с помощью PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

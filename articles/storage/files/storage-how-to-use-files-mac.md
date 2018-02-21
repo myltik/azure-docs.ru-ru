@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Моментальный снимок подключенной общей папки Azure](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительную информацию о службе файлов Azure см. по следующим ссылкам.
 
 * [Использование функции общего доступа к файлам на компьютере Mac](https://support.apple.com/HT204445)

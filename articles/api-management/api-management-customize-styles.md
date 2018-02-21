@@ -36,9 +36,9 @@ ms.lasthandoff: 12/04/2017
 
 ![Настройка стиля](./media/modify-developer-portal-style/developer_portal.png)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
-+ Выполните задачи из краткого руководства по [созданию экземпляра службы управления API Azure](get-started-create-service-instance.md).
++ Выполните задачи в кратком руководстве по [созданию экземпляра службы управления API Azure](get-started-create-service-instance.md).
 + Кроме того, выполните задачи из руководства по [импорту и публикации API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
@@ -75,9 +75,9 @@ ms.lasthandoff: 12/04/2017
 1. Перейдите на портал разработчика.
 2. Вы увидите внесенные изменения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * настройка стиля элементов на страницах **портала разработчика**;

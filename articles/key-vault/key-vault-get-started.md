@@ -57,7 +57,7 @@ Get-Help Login-AzureRmAccount -Detailed
 
 Чтобы ознакомиться с моделью развертывания с помощью Azure Resource Manager в Azure PowerShell, можно также прочитать следующие статьи:
 
-* [Установка и настройка Azure PowerShell](/powershell/azure/overview)
+* [Как установить и настроить Azure PowerShell](/powershell/azure/overview)
 * [Использование Azure PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md)
 
 ## <a id="connect"></a>Подключение к подпискам
@@ -68,7 +68,7 @@ Login-AzureRmAccount
 ```
 
 >[!NOTE]
- При использовании определенного экземпляра Azure примените параметр -Environment. Например: 
+ При использовании определенного экземпляра Azure примените параметр -Environment. Например:  
  ```powershell
  Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
@@ -142,7 +142,7 @@ $key.id
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Импорт существующего PFX-файла в Azure Key Vault
 
-Если существующие ключи хранятся в PFX-файле, который требуется отправить в Azure Key Vault, шаги будут отличаться. Например:
+Если существующие ключи хранятся в PFX-файле, который требуется отправить в Azure Key Vault, шаги будут отличаться. Например: 
 - если у вас есть ключ с программной защитой в PFX-файле;
 - PFX-файлу присвоено имя softkey.pfx; 
 - файл хранится на диске C.
@@ -221,7 +221,7 @@ $secret.Id
 
 Чтобы зарегистрировать приложение в Azure Active Directory:
 
-1. Выполните вход на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. Слева щелкните **Регистрация приложений**. Если зарегистрированные приложения не отображаются, щелкните **Больше служб** и найдите их там.  
 >[!NOTE]
 Вам необходимо выбрать каталог, содержащий подписку Azure, которую вы использовали для создания хранилища ключей. 
@@ -309,7 +309,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 - `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'` — пример того, как удалить конкретный ключ;
 - `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'` — пример того, как удалить конкретный секрет.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Общие сведения о хранилище ключей Azure см. в статье [Что такое хранилище ключей Azure?](key-vault-whatis.md)
 - Сведения об использовании хранилища ключей см. в статье [Ведение журнала хранилища ключей Azure](key-vault-logging.md).

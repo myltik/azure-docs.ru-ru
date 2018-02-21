@@ -17,7 +17,7 @@ ms.date: 08/16/2016
 ms.author: gwallace
 ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -120,7 +120,7 @@ ms.lasthandoff: 12/21/2017
 
 Вы не можете удалять наборы записей типа SOA и NS на вершине зоны (имя = "@"), которые создаются автоматически вместе с зоной. Они удаляются автоматически при удалении зоны.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения об Azure DNS см. в статье [Обзор Azure DNS](dns-overview.md).
 * Дополнительные сведения об автоматизации DNS см. в статье [Создание зон и наборов записей DNS с помощью пакета SDK для .NET](dns-sdk.md).

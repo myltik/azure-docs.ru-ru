@@ -49,14 +49,14 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 
 Чтобы быстро выбрать дистрибутив, можно воспользоваться псевдонимами интерфейса командной строки Azure для большинства распространенных дистрибутивов ОС. В следующей таблице перечислены псевдонимы (для интерфейса командной строки Azure версии 0.10). Все развертывания с использованием команды `quick-create` по умолчанию устанавливают резервные виртуальные машины с поддержкой хранилища на основе твердотельных накопителей (SSD), что обеспечивает более быструю подготовку к работе и доступ к диску с высокой производительностью. (Эти псевдонимы представляют лишь небольшую часть дистрибутивов, доступных в Azure. Чтобы найти другие образы в Azure Marketplace, выполните поиск в [PowerShell](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [Интернете](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) или [загрузите собственный пользовательский образ](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
-| Alias | Издатель | ПРЕДЛОЖЕНИЕ | SKU | Версия |
+| Alias | ИЗДАТЕЛЬ | ПРЕДЛОЖЕНИЕ | SKU | Version (версия) |
 |:--- |:--- |:--- |:--- |:--- |
-| CentOS |OpenLogic |CentOS |7,2 |последних |
+| CentOS |OpenLogic |CentOS |7,2 |последняя |
 | CoreOS |CoreOS |CoreOS |Stable |последняя |
 | Debian |credativ |Debian |8 |последняя |
-| openSUSE |SUSE |openSUSE |13.2 |последних |
-| RHEL |Red Hat |RHEL |7,2 |последних |
-| UbuntuLTS |Canonical |Сервер Ubuntu |14.04.4-LTS |последних |
+| openSUSE |SUSE |openSUSE |13.2 |последняя |
+| RHEL |Red Hat |RHEL |7,2 |последняя |
+| UbuntuLTS |Canonical |Сервер Ubuntu |14.04.4-LTS |последняя |
 
 В следующих разделах для параметра **ImageURN** (`-Q`) используется псевдоним `UbuntuLTS`, чтобы развернуть виртуальную машину на базе сервера Ubuntu 14.04.4 LTS.
 
@@ -200,7 +200,7 @@ applicable law.
 myAdminUser@myVM:~$
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 С помощью команды `azure vm quick-create` можно быстро развернуть виртуальную машину, чтобы войти в оболочку Bash и начать работу. Однако использование `vm quick-create` не дает возможностей всестороннего контроля или создания более сложной среды.  Чтобы развернуть виртуальную машину Linux, настроенную для вашей инфраструктуры, выполните инструкции, приведенные в любой из следующих статей:
 
 * [Создание полной среды Linux с помощью интерфейса командной строки Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

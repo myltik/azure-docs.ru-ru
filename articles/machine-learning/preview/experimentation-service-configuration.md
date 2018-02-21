@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 09/28/2017
 ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -222,7 +222,7 @@ _**Обзор удаленного выполнения скриптов Python 
 HDInsight — это популярная платформа для анализа больших данных, которая поддерживает Apache Spark. Приложение Workbench позволяет выполнять эксперименты с большими данными в кластерах HDInsight Spark. 
 
 >[!NOTE]
->Кластер HDInsight должны использовать больших двоичных объектов Azure в качестве основного хранилища. Использование хранилища Azure Data Lake еще не поддерживается.
+>Кластер HDInsight должен использовать в качестве основного хранилища хранилище BLOB-объектов Azure. Использование хранилища Azure Data Lake еще не поддерживается.
 
 Вы можете создать целевой объект вычислений и запустить конфигурацию кластера HDInsight Spark с помощью следующей команды:
 
@@ -279,6 +279,6 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 az ml experiment prepare -c remotevm
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Create Azure Machine Learning preview accounts and install Azure Machine Learning Workbench](quickstart-installation.md) (Создание учетных записей для предварительной версии Машинного обучения Azure и установка Azure Machine Learning Workbench).
 * [Управление моделями](model-management-overview.md)

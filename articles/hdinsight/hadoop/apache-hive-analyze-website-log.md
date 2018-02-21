@@ -37,7 +37,7 @@ ms.lasthandoff: 11/03/2017
 
 ![HDI.Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Вы должны были подготовить кластер Hadoop в Azure HDInsight. Инструкции см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * У вас должен быть установлен Microsoft Excel 2013 или Microsoft Excel 2010.
 * У вас должен быть [Microsoft Hive ODBC драйвер](http://www.microsoft.com/download/details.aspx?id=40886) для импорта данных из Hive в Excel.
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/03/2017
 3. На открывшейся веб-странице выберите вкладку **Getting Started Gallery** (Коллекция для начала работы), а затем в категории **Solutions with Sample Data** (Решения с примером данных) щелкните пример **Анализ журналов веб-сайта**.
 4. Следуйте инструкциям, представленным на веб-странице, чтобы закончить образец.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Попробуйте следующий пример: [Анализ данных датчика с помощью Hive с HDInsight](apache-hive-analyze-sensor-data.md).
 
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md

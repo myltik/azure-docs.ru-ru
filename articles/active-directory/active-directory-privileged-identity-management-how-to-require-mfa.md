@@ -17,7 +17,7 @@ ms.author: billmath
 ms.custom: pim
 ms.openlocfilehash: faee62bdaca3f80fdd8f6be8aaf28c881314333a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -46,6 +46,6 @@ ms.lasthandoff: 12/11/2017
 В другом случае, если пользователи проходят проверку подлинности локально, за MFA может отвечать поставщик удостоверений. Например, если службы федерации AD требуют проверку подлинности на основе смарт-карты для доступа к Azure AD, можете воспользоваться инструкциями по настройке AD FS для отправки утверждений в Azure AD, приведенными в разделе [Защита облачных ресурсов с помощью Многофакторной идентификации Azure и AD FS](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md). Когда пользователь попытается активировать роль, компонент управления привилегированными пользователями Azure AD примет тот факт, что MFA уже была выполнена для этого пользователя при получении соответствующих утверждений.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

@@ -44,10 +44,10 @@ ms.lasthandoff: 10/11/2017
 
 | **Свойства ссылки на образ** | **Пример** |
 | --- | --- |
-| Издатель |Canonical |
+| ИЗДАТЕЛЬ |Canonical |
 | ПРЕДЛОЖЕНИЕ |UbuntuServer |
 | SKU |14.04.4-LTS |
-| Версия |последних |
+| Version (версия) |последняя |
 
 > [!TIP]
 > Дополнительные сведения об этих свойствах и о том, как получить список образов из Marketplace, см. в статье [Выбор образов виртуальных машин Linux с помощью интерфейса командной строки Azure (Azure CLI)](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Обратите внимание, что не все образы из Marketplace в настоящее время совместимы с пакетной службой. Дополнительные сведения см. в разделе [Номер SKU агента узла](#node-agent-sku).
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 Агент узла пакетной службы — это программа, которая выполняется на каждом узле в пуле и предоставляет интерфейс контроля и управления между узлом и пакетной службой. Существуют различные реализации агента узла, известные как номера SKU, для различных операционных систем. По существу, при создании конфигурации виртуальной машины сначала следует указать ссылку на образ виртуальной машины, а затем указать агент узла, который будет установлен на этом образе. Как правило, каждый номер SKU агента узла совместим с несколькими образами виртуальных машин. Вот несколько примеров номеров SKU агентов узлов:
 
 * batch.node.ubuntu 14.04;
-* batch.node.centos 7;
+* batch.node.centos 7
 * batch.node.windows amd64
 
 > [!IMPORTANT]
@@ -215,26 +215,26 @@ ImageReference imageReference = new ImageReference(
 
 | **Издатель** | **ПРЕДЛОЖЕНИЕ** | **Номер SKU образа** | **Версия** | **Идентификатор SKU агента узла** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| Canonical | UbuntuServer | 14.04.5-LTS | последних | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 16.04.0-LTS | последних | batch.node.ubuntu 16.04 |
-| Credativ | Debian | 8 | последних | batch.node.debian 8 |
-| OpenLogic | CentOS | 7.0 | последних | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.1. | последних | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.1. | последних | batch.node.centos 7 |
-| OpenLogic | CentOS | 7,2 | последних | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.0 | последних | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7,2 | последних | batch.node.centos 7 |
-| SUSE | openSUSE | 13.2 | последних | batch.node.opensuse 13.2 |
-| SUSE | openSUSE-Leap | 42.1 | последних | batch.node.opensuse 42.1 |
-| SUSE | SLES | 12-SP1 | последних | batch.node.opensuse 42.1 |
-| SUSE | SLES-HPC | 12-SP1 | последних | batch.node.opensuse 42.1 |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | последних | batch.node.centos 7; |
-| microsoft-ads | standard-data-science-vm | standard-data-science-vm | последних | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | последних | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | последних | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | последних | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | последних | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | последних | batch.node.windows amd64 |
+| Canonical | UbuntuServer | 14.04.5-LTS | последняя | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 16.04.0-LTS | последняя | batch.node.ubuntu 16.04 |
+| Credativ | Debian | 8 | последняя | batch.node.debian 8 |
+| OpenLogic | CentOS | 7.0 | последняя | batch.node.centos 7 |
+| OpenLogic | CentOS | 7.1. | последняя | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1. | последняя | batch.node.centos 7 |
+| OpenLogic | CentOS | 7,2 | последняя | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.0 | последняя | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7,2 | последняя | batch.node.centos 7 |
+| SUSE | openSUSE | 13.2 | последняя | batch.node.opensuse 13.2 |
+| SUSE | openSUSE-Leap | 42.1 | последняя | batch.node.opensuse 42.1 |
+| SUSE | SLES | 12-SP1 | последняя | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12-SP1 | последняя | batch.node.opensuse 42.1 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | последняя | batch.node.centos 7 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | последняя | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | последняя | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | последняя | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | последняя | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | последняя | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | последняя | batch.node.windows amd64 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Подключение к узлам Linux с помощью SSH
 Во время разработки или устранения неполадок может потребоваться войти на узлы в пуле. В отличие от вычислительных узлов Windows, для подключения к узлам Linux нельзя использовать протокол удаленного рабочего стола (RDP). Вместо этого пакетная служба включает доступ по протоколу SSH на каждом узле для удаленного подключения.
@@ -315,7 +315,7 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 При развертывании приложений на узлах пакетной службы с помощью [пакетов приложений](batch-application-packages.md) также взимается плата за ресурсы службы хранилища Azure, используемые пакетами приложений. Как правило, эти затраты на службу хранилища Azure минимальны. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 ### <a name="batch-python-tutorial"></a>Учебник по пакетной службе (Python)
 Более подробные инструкции по работе с пакетной службой с использованием Python см. в статье [Приступая к работе с клиентом Python пакетной службы Azure](batch-python-tutorial.md). Сопутствующий [пример кода][github_samples_pyclient] включает в себя вспомогательную функцию `get_vm_config_for_distro`, которая предоставляет другой метод получения конфигурации виртуальной машины.
 

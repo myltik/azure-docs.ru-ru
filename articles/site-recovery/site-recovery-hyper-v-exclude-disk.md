@@ -26,7 +26,7 @@ ms.lasthandoff: 12/13/2017
 ## <a name="supported-scenarios"></a>Поддерживаемые сценарии использования.
 **Компонент** | **VMware в VMware** | **Hyper-V в Azure** | **Из Azure в Azure**| **Из Hyper-V в Hyper-V** 
 --|--|--|--|--
-Исключение диска | Да | Да | Нет | Нет
+Исключение диска | Yes | Yes | Нет  | Нет 
 
 ## <a name="why-exclude-disks-from-replication"></a>Зачем исключать диски из репликации
 Исключение дисков из репликации часто бывает необходимо:
@@ -231,5 +231,5 @@ DB-Disk3 | Диск 3 | F:\ | Пользовательские данные 2
 
 ![Параметры файла подкачки на виртуальной машине Azure](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover-2.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Настроив и запустив развертывание, вы можете ознакомиться с [дополнительными сведениями](site-recovery-failover.md) о различных типах обработки отказа.

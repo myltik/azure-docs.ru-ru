@@ -18,7 +18,7 @@ ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 250e84550fdf3253f28d682e85fe4bf855e40a4d
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -100,7 +100,7 @@ ms.lasthandoff: 12/11/2017
 
    ![Лицензия назначена правильно](media/active-directory-licensing-group-assignment-azure-portal/license-correctly-assigned.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о наборе функций для управления лицензиями с помощью групп см. в следующих статьях:
 

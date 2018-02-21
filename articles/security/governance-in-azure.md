@@ -16,7 +16,7 @@ ms.date: 11/01/2017
 ms.author: TomSh
 ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -484,7 +484,7 @@ Azure Operations Manager расширяет их функциональные в
 - **System Center Operations Manager (SCOM)** предназначен для отслеживания крупных облачных установок и управления ими. Возможно, вы уже использовали эту службу в качестве средства управления для локальных облаков на базе Windows Sever и Hyper-V, однако с ее помощью также можно выполнить интеграцию и администрирование приложений Azure. Помимо прочего, она позволяет установить Application Insights в имеющихся интерактивных приложениях. Если приложение выйдет из строя, вы сразу же об этом узнаете.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Рекомендации по созданию шаблонов Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
 

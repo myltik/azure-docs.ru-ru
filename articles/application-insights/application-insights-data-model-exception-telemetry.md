@@ -44,7 +44,7 @@ ms.lasthandoff: 11/01/2017
 
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - В [этой статье](application-insights-data-model.md) представлены типы данных и модель данных для Application Insights.
 - Вы можете научиться [диагностировать исключения в веб-приложениях с помощью Application Insights](app-insights-asp-net-exceptions.md).

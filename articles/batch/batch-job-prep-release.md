@@ -17,7 +17,7 @@ ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: aecce83b4d4444f2651f48475b596fa76cb5f44a
 ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/15/2017
 ---
@@ -183,7 +183,7 @@ Sample complete, hit ENTER to exit...
 
 ![Свойства подготовки задания на портале Azure][1]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 ### <a name="application-packages"></a>Пакеты приложений
 Для подготовки вычислительных узлов к выполнению задач вы можете использовать не только задачи подготовки заданий, но и функцию пакетной службы [Пакет приложения](batch-application-packages.md) . Эта функция особенно полезна для развертывания приложений, которые не требуют выполнения установщика, приложений с большим числом файлов (более 100) и приложений, требующих строгого управления версиями.
 

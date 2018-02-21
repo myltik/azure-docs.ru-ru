@@ -8,7 +8,7 @@ ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/12/2017
 ---
@@ -43,6 +43,6 @@ ms.lasthandoff: 12/12/2017
 
 Не удаляйте рабочую область, созданную службой "Миграция Azure", если только вы не удаляете проект миграции. В противном случае зависимости не будут работать ожидаемым образом.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Группирование компьютеров на основе зависимостей](how-to-create-group-machine-dependencies.md)

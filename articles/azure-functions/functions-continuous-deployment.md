@@ -148,7 +148,7 @@ ms.lasthandoff: 10/11/2017
 
 [GitHub]: https://github.com/
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Best Practices for Azure Functions](functions-best-practices.md) (Рекомендации по Функциям Azure)

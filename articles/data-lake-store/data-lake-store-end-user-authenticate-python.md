@@ -35,7 +35,7 @@ ms.lasthandoff: 01/10/2018
 
 В этой статье рассматриваются оба типа. См. дополнительные сведения [аутентификации между службами с помощью Data Lake Store и Python](data-lake-store-service-to-service-authenticate-python.md).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Python**. Скачать Python можно [здесь](https://www.python.org/downloads/). В этой статье используется версия Python 3.6.2.
 

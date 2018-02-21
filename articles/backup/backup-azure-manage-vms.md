@@ -16,7 +16,7 @@ ms.date: 11/28/2016
 ms.author: trinadhk;markgal
 ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -218,5 +218,5 @@ ms.lasthandoff: 12/21/2017
 
     После удаления отобразится сообщение с соответствующим уведомлением.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Сведения о восстановлении виртуальных машин из точки восстановления см. в статье [Восстановление виртуальных машин в Azure](backup-azure-arm-restore-vms.md). Сведения о защите виртуальных машин см. в статье [Первое знакомство. Защита виртуальных машин Azure в хранилище служб восстановления](backup-azure-vms-first-look-arm.md). Дополнительные сведения о мониторинге событий см. в статье [Мониторинг предупреждений в резервных копиях виртуальных машин Azure](backup-azure-monitor-vms.md).

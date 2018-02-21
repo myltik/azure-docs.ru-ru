@@ -1,7 +1,7 @@
 ### <a name="azure-storage-linked-service"></a>Связанная служба хранилища Azure
 **Связанная служба хранилища Azure** позволяет связать учетную запись хранения Azure с фабрикой данных Azure с помощью **ключа учетной записи**, который предоставляет фабрике данных глобальный доступ к службе хранилища Azure. В таблице ниже приведено описание элементов JSON, которые относятся к связанной службе хранилища Azure.
 
-| Свойство | ОПИСАНИЕ | Требуется |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип |Для свойства type необходимо задать значение **AzureStorage** |Yes |
 | connectionString |В свойстве connectionString указываются сведения, необходимые для подключения к службе хранилища Azure. |Yes |
@@ -29,12 +29,12 @@
 > Теперь фабрика данных Azure поддерживает только **SAS службы**, а не SAS учетной записи. Сведения об этих двух типах и способах их создания см. в разделе [Типы подписанных URL-адресов](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). Обратите внимание: URL-адрес SAS, который можно создать на портале Azure или в обозревателе хранилищ, является учетной записью SAS, которая не поддерживается в фабрике данных.
 
 > [!TIP]
-> Можно выполнить ниже команды PowerShell для создания SAS службы для учетной записи (замены месте владельцев и предоставьте необходимые разрешения):`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
+> Чтобы сгенерировать подписанный URL-адрес службы для учетной записи хранения, выполните такие команды PowerShell, предварительно заменив заполнители и предоставив необходимые разрешения: `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`.
 
 Связанная служба SAS хранилища Azure позволяет связать учетную запись хранения Azure с фабрикой данных Azure с помощью подписанного URL-адреса (SAS). В этом случае фабрика данных получает ограниченный или привязанный ко времени доступ ко всем или конкретным ресурсам (BLOB-объектам или контейнерам) в хранилище. В таблице ниже приведено описание элементов JSON, которые относятся к связанной службе SAS хранилища Azure. 
 
-| Свойство | ОПИСАНИЕ | Требуется |
+| Свойство | ОПИСАНИЕ | Обязательно |
 |:--- |:--- |:--- |
 | Тип |Для свойства type необходимо задать значение **AzureStorageSas** |Yes |
 | sasUri |Укажите URI подписанного URL-адреса к ресурсам хранилища Azure, например BLOB-объектам, контейнерам или таблицам.  |Yes |

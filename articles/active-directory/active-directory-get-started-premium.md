@@ -35,7 +35,7 @@ ms.lasthandoff: 12/11/2017
 
 Подробные инструкции см. в видео [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Как существующие клиенты могут приобрести Azure Active Directory Premium) и [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Как новые клиенты могут приобрести Azure Active Directory Premium).  
 
-### <a name="enterprise-mobility--security"></a>Enterprise Mobility + Security
+### <a name="enterprise-mobility--security"></a>Enterprise Mobility + Security.
 Enterprise Mobility + Security (EMS) — это эффективное средство, с помощью которого организации могут совместно использовать службы Azure Active Directory Premium, Azure Information Protection и Microsoft Intune в рамках одного плана лицензирования. Дополнительные сведения об EMS вы найдете на [веб-сайте Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security). Информацию о типах лицензий EMS, которые можно приобрести, см. на странице [Цены на Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing).  
 
 Вы можете начать работу с Azure AD при помощи лицензий EMS, выбрав один из следующих вариантов лицензирования:
@@ -61,7 +61,7 @@ Enterprise Mobility + Security (EMS) — это эффективное сре
 
 1. Чтобы начать активацию, щелкните **Вход** или **Регистрация**.
    
-    ![входа][1]
+    ![Вход][1]
 
     - Если у вас есть существующий клиент, щелкните **Вход** и выполните вход с существующей учетной записью администратора. Войдите в систему с учетными данными глобального администратора клиента, для которого нужно активировать лицензии.
 
@@ -92,7 +92,7 @@ Enterprise Mobility + Security (EMS) — это эффективное сре
 
 После активации, которая обычно занимает несколько минут, вы получите доступ к Azure AD для управления. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Из этого краткого руководства вы узнали, как зарегистрироваться для работы с Azure AD Premium и активировать доступ к Azure Active Directory. 
 
 Если у вас уже есть подписка Azure, воспользуйтесь ссылкой ниже, чтобы запустить пробную версию, или приобретите лицензии Azure AD Premium на портале Azure.

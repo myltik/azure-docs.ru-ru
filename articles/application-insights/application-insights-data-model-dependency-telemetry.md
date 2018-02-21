@@ -22,7 +22,7 @@ ms.lasthandoff: 11/01/2017
 
 Телеметрия зависимостей (в [Application Insights](app-insights-overview.md)) представляет взаимодействие отслеживаемого компонента с удаленным, таким как SQL или конечная точка HTTP.
 
-## <a name="name"></a>Имя
+## <a name="name"></a>ИМЯ
 
 Имя команды, инициированной этим вызовом зависимости. Низкое значение кратности. Примерами являются имя хранимой процедуры и шаблон пути URL-адреса.
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/01/2017
 
 Команда, инициированная этим вызовом зависимости. Примерами являются оператор SQL и HTTP URL со всеми параметрами запроса.
 
-## <a name="type"></a>Тип
+## <a name="type"></a>type
 
 Имя типа зависимости. Низкое значение кратности для логической группировки зависимостей и интерпретации других полей, таких как commandName и resultCode. Примерами являются SQL, таблица Azure и HTTP.
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/01/2017
 
 Целевой сайт вызова зависимости. Примерами являются имя сервера, адрес узла. Дополнительные сведения см. на странице [корреляции](application-insights-correlation.md).
 
-## <a name="duration"></a>Длительность
+## <a name="duration"></a>Duration
 
 Длительность запроса в формате: `DD.HH:MM:SS.MMMMMM`. Должно быть меньше `1000` дн.
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/01/2017
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Настройка отслеживания зависимостей для платформы [.NET](app-insights-asp-net-dependencies.md)
 - Настройка отслеживания зависимостей для платформы [Java](app-insights-java-agent.md)

@@ -153,7 +153,7 @@ ms.lasthandoff: 10/11/2017
 |---|------------|
 |WEBSITE\_NODE\_DEFAULT_VERSION|6.5.0|
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Узнайте, как обновлять параметры приложения](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)

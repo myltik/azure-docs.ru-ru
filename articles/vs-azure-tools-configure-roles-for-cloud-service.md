@@ -275,6 +275,6 @@ ms.lasthandoff: 10/11/2017
 
 1. Когда откроется окно проводника Windows, введите в текстовое поле **поиска** запрос "MyLocalStorageTest.txt'' и нажмите клавишу **ВВОД**, чтобы начать поиск. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о проектах Azure в Visual Studio см. в статье [Настройка проекта облачной службы в Visual Studio](vs-azure-tools-configuring-an-azure-project.md). Дополнительные сведения о схеме облачной службы см. в статье [Справка по схемам Windows Azure](https://msdn.microsoft.com/library/azure/dd179398).
 

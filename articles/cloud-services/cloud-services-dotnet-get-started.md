@@ -45,7 +45,7 @@ ms.lasthandoff: 11/16/2017
 * Как отправлять файлы и хранить их в службе BLOB-объектов Azure.
 * Как использовать службу очередей Azure для связи между уровнями.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 В руководстве предполагается, что вы понимаете [базовые концепции облачной службы Azure](cloud-services-choose-me.md), такие как термины *веб-роль* и *рабочая роль*.  Кроме того, предполагается, что вы знаете, как работать с проектами [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) или [веб-форм](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) в Visual Studio. Пример приложения использует MVC, но многое в руководство также применимо к веб-формам.
 
 Вы можете запускать приложение локально без подписки Azure, но она понадобится для развертывания приложения в облаке. Если у вас нет учетной записи, можно [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) или [подписаться на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -126,7 +126,7 @@ ms.lasthandoff: 11/16/2017
 5. Задайте регион, в котором требуется развернуть приложение.
 
     В этом поле указывается в каком центре обработки данных будет размещаться облачная служба. В рабочем приложении следует выбрать регион, ближайший к заказчикам. Выберите здесь ближайший к вам регион.
-5. Щелкните **Создать**.
+5. Нажмите кнопку **Создать**.
 
     На следующем рисунке показано, как создается облачная служба с использованием URL-адреса CSvccontosoads.cloudapp.net.
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 11/16/2017
 9. Нажмите кнопку **Выбрать** для нового сервера.
 
     ![Новый сервер базы данных SQL](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. Щелкните **Создать**.
+10. Нажмите кнопку **Создать**.
 
 ### <a name="create-an-azure-storage-account"></a>Создание учетной записи хранения Azure
 Учетная запись хранилища Azure обеспечивает ресурсы для хранения данных очередей и больших двоичных объектов в облаке.
@@ -178,7 +178,7 @@ ms.lasthandoff: 11/16/2017
     Когда облачная служба и учетная запись хранения находятся в разных центрах обработки данных (различных областях), увеличивается задержка и вам потребуется оплачивать пропускную способность за пределами центра обработки данных. Пропускная способность в рамках центра обработки данных предоставляется бесплатно.
 
     Территориальные группы Azure обеспечивают механизм для минимизации расстояния между ресурсами в центре обработки данных, что позволяет уменьшить задержку. В этом учебнике территориальные группы не используются. Дополнительные сведения см. в разделе о [создании территориальной группы в Azure](http://msdn.microsoft.com/library/jj156209.aspx).
-7. Щелкните **Создать**.
+7. Нажмите кнопку **Создать**.
 
     ![Новая учетная запись хранения](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -760,7 +760,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 
 Для запуска приложения с полным эмулятором следует открыть Visual Studio с правами администратора.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Приложение Contoso Ads намеренно сделано простым для руководства по началу работы. Например, оно не реализует [вставку зависимостей](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) или [репозиторий и блок рабочих шаблонов](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), не использует [интерфейс для журналов](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), не использует [EF Code First Migrations](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) для управления изменениями модели данных или [EF Connection Resiliency](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) для управления кратковременными ошибками сети и т. д.
 
 Есть несколько примеров приложений облачной службы, которые демонстрируют более жизненные примеры кодирования — от менее сложных к более сложным:

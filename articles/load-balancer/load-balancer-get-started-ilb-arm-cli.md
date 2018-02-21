@@ -208,7 +208,7 @@ azure group create <resource group name> <location>
 azure network lb delete --resource-group nrprg --name ilbset
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Настройка режима распределения балансировщика нагрузки с помощью соответствия исходному IP-адресу](load-balancer-distribution-mode.md)
 

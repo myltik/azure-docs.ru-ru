@@ -15,7 +15,7 @@ ms.date: 05/24/2017
 ms.author: gwallace
 ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/14/2017
 * сопоставлять состояние соответствия в учетных записях службы автоматизации;
 * визуализировать журнал соответствия узла с течением времени.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы начать отправку отчетов Automation DSC в Log Analytics, необходимо следующее:
 
@@ -190,7 +190,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 Log Analytics предоставляет расширенный оперативный контроль над данными Automation DSC и позволяет быстрее устранять инциденты.  
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Чтобы узнать больше о том, как создавать различные поисковые запросы и просматривать журналы Automation DSC с помощью Log Analytics, см. статью [Поиск данных по журналам](../log-analytics/log-analytics-log-searches.md).
 * Дополнительные сведения об использовании Azure Automation DSC см. в статье [Приступая к работе с DSC службы автоматизации Azure](automation-dsc-getting-started.md).

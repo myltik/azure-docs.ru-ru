@@ -78,7 +78,7 @@ Get-AzureRmPublicIpAddress `
     -Name myPublicIp
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Дополнительные сведения о [зонах доступности](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 - Дополнительные сведения об [общедоступных IP-адресах](virtual-network-public-ip-address.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 

@@ -101,7 +101,7 @@ ms.lasthandoff: 10/11/2017
     | Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `
     | Update-AzureVM
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Зарезервированный IP-адрес](virtual-networks-reserved-public-ip.md)
 
 [Общедоступный IP-адрес уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md)

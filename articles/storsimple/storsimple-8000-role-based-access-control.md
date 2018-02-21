@@ -184,7 +184,7 @@ PS C:\WINDOWS\system32>
     ![Просмотр пользователей в роли администратора инфраструктуры StorSimple](./media/storsimple-8000-role-based-access-control/rbac-infra-admin-permissions1.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения см. в статье [Общие сведения об управлении доступом на основе ролей](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md).
 

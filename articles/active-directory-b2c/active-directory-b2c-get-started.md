@@ -16,7 +16,7 @@ ms.date: 06/07/2017
 ms.author: parja
 ms.openlocfilehash: afca6cf8f19c9b96de292881582e27133e35f096
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/11/2017
 
 Из этого краткого руководства вы узнаете, как создать клиент Microsoft Azure Active Directory (Azure AD) B2C за несколько минут. По завершении у вас будет клиент B2C (каталог) для регистрации приложений B2C.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/11/2017
 
 Чтобы получить доступ к колонке, можно также ввести `Azure AD B2C` в поле **Поиск ресурсов** в верхней части портала. В списке результатов выберите **Azure AD B2C** для доступа к колонке параметров B2C.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Azure Active Directory B2C: регистрация приложения](active-directory-b2c-app-registration.md)

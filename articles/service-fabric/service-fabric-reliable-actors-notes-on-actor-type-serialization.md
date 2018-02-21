@@ -144,7 +144,7 @@ public class VoicemailBox implements Serializable
 ```
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md)
 * [Таймеры и напоминания субъекта](service-fabric-reliable-actors-timers-reminders.md)
 * [События субъекта](service-fabric-reliable-actors-events.md)

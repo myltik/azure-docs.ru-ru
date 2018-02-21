@@ -16,7 +16,7 @@ ms.date: 07/04/2017
 ms.author: juliako
 ms.openlocfilehash: d2312803a4471e207d3696ca8350a86e3c4761e6
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -63,7 +63,7 @@ ms.lasthandoff: 12/21/2017
    
     Новые зарезервированные единицы выделяются сразу после нажатия кнопки "СОХРАНИТЬ".
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Просмотрите схемы обучения работе со службами мультимедиа.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

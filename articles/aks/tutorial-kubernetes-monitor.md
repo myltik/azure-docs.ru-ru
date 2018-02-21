@@ -11,7 +11,7 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -19,7 +19,7 @@ ms.lasthandoff: 12/21/2017
 
 Мониторинг кластера Kubernetes и контейнеров крайне важен, особенно в том случае, если вы управляете рабочим кластером в нужном масштабе с несколькими приложениями.
 
-В этом учебнике настроить наблюдение за кластера AKS с помощью [контейнеры решения для анализа журналов][log-analytics-containers].
+В этом руководстве описывается, как настроить мониторинг кластера AKS с помощью [решения "Контейнеры" для Log Analytics][log-analytics-containers].
 
 В этом руководстве (часть семь из восьми) рассматриваются следующие задачи:
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/21/2017
 
 В предыдущих руководствах приложение было упаковано в образы контейнеров, образы были отправлены в реестр контейнеров Azure и был создан кластер Kubernetes.
 
-Если вы не были выполнены следующие действия и при необходимости дальнейшей работы, вернуться к [учебник 1 – Создание образов контейнеров][aks-tutorial-prepare-app].
+Если вы не выполнили эти действия, вы можете ознакомиться со статьей [Prepare application for Azure Container Service (AKS)][aks-tutorial-prepare-app] (Подготовка приложений для службы контейнеров Azure (AKS)).
 
 ## <a name="configure-the-monitoring-solution"></a>Настройка решения для мониторинга
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="configure-monitoring-agents"></a>Настройка агентов мониторинга
 
-Следующий файл манифеста Kubernetes можно использовать для настройки агентов мониторинга контейнеров в кластере Kubernetes. Он создает Kubernetes [DaemonSet][kubernetes-daemonset], один pod, запущенный на каждом узле кластера.
+Следующий файл манифеста Kubernetes можно использовать для настройки агентов мониторинга контейнеров в кластере Kubernetes. Он создает [DaemonSet][kubernetes-daemonset] Kubernetes, который запускает отдельный pod на каждом узле кластера.
 
 Сохраните следующий текст в файл `oms-daemonset.yaml` и замените значения заполнителей `WSID` и `KEY` идентификатором и ключом рабочей области Log Analytics.
 
@@ -158,9 +158,9 @@ omsagent   3         3         3         3            3           beta.kubernete
 
 ![панель мониторинга](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-В разделе [документации Azure Log Analytics] [ log-analytics-docs] подробное руководство по запросу и анализ данных наблюдения.
+Подробные сведения о создании запросов и анализе данных мониторинга см. в [документации по Log Analytics][log-analytics-docs].
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы выполнили мониторинг кластера Kubernetes с помощью OMS, в частности такие задачи:
 

@@ -22,9 +22,9 @@ ms.lasthandoff: 10/11/2017
 
 Сведения о развертывании веб сервера NGINX на виртуальной машине под управлением Ubuntu:
 
-- [Портал Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [портале Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Интерфейс командной строки Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [интерфейс командной строки Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="step-by-step-tutorials"></a>Пошаговые руководства
 
@@ -32,11 +32,11 @@ ms.lasthandoff: 10/11/2017
 
 - [Manage Linux virtual machines with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm) (Управление виртуальными машинами Linux с помощью Azure CLI)
 - [Manage Azure disks with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-disks) (Управление дисками Azure с помощью Azure CLI)
-- [How to customize a Linux virtual machine on first boot](/azure/virtual-machines/linux/tutorial-automate-vm-deployment) (Настройка виртуальной машины Linux при первой загрузке)
+- [Автоматизация настройки виртуальной машины](/azure/virtual-machines/linux/tutorial-automate-vm-deployment)
 - [Создание образа настраиваемой виртуальной машины](/azure/virtual-machines/linux/tutorial-custom-images)
 - [Создание высокодоступных виртуальных машин](/azure/virtual-machines/linux/tutorial-availability-sets)
 - [Create a Virtual Machine Scale Set and deploy a highly available app on Linux](/azure/virtual-machines/linux/tutorial-create-vmss) (Создание масштабируемого набора виртуальных машин и развертывание высокодоступного приложения в Linux)
-- [How to load balance Linux virtual machines in Azure to create a highly available application](/azure/virtual-machines/linux/tutorial-load-balancer) (Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения)
+- [Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения](/azure/virtual-machines/linux/tutorial-load-balancer)
 - [Управление виртуальными сетями Azure и виртуальными машинами Linux с помощью Azure CLI](/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Back up Linux virtual machines in Azure](/azure/virtual-machines/linux/tutorial-backup-vms) (Резервное копирование виртуальных машин Linux в Azure)
 - [How to monitor a Linux virtual machine in Azure](/azure/virtual-machines/linux/tutorial-monitoring) (Мониторинг виртуальной машины Linux в Azure)
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 
 Развертывание первого приложения в Azure.
 
-- [Интерфейс командной строки Azure](/azure/virtual-machines/virtual-machines-linux-cli-samples)
+- [интерфейс командной строки Azure](/azure/virtual-machines/virtual-machines-linux-cli-samples)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-powershell-samples)
 
 ## <a name="more"></a>Подробнее

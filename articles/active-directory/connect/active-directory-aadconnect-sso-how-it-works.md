@@ -16,7 +16,7 @@ ms.date: 09/19/2017
 ms.author: billmath
 ms.openlocfilehash: 0a28cd9016588d266670aa5a7fcbdd854d7ebce0
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -68,7 +68,7 @@ ms.lasthandoff: 12/11/2017
 
 Простой единый вход — ситуативно-обусловленная функция. Это означает, что если в ней происходит сбой, процедура входа выполняется стандартно, то есть пользователь, как и прежде, должен просто ввести пароль для входа.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [**Краткое руководство**](active-directory-aadconnect-sso-quick-start.md). Настройка и подготовка к работе простого единого входа Azure AD.
 - [**Часто задаваемые вопросы**](active-directory-aadconnect-sso-faq.md). Ответы на часто задаваемые вопросы.

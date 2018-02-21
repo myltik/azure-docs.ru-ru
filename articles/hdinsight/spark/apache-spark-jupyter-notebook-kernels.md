@@ -19,7 +19,7 @@ ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 
 В этой статье вы узнаете, как использовать эти ядра, а также преимущества их использования.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](apache-spark-jupyter-spark-sql.md).
 

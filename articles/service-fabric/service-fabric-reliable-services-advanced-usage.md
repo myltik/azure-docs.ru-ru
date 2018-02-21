@@ -62,7 +62,7 @@ ms.lasthandoff: 11/04/2017
 * void OnAbort()
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные разделы, относящиеся к Service Fabric, приведены ниже.
 
 * [Настройка надежных служб с отслеживанием состояния](service-fabric-reliable-services-configuration.md)

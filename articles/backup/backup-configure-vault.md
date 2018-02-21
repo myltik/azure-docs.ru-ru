@@ -17,7 +17,7 @@ ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
 ms.openlocfilehash: 89553ee973e4aebc96b60caef9eefa80178fadfb
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/06/2018
 ---
@@ -254,7 +254,7 @@ ms.lasthandoff: 01/06/2018
 ## <a name="questions"></a>Вопросы?
 Если вы хотите задать вопрос или предложить добавить какие-либо функции, [отправьте нам свой отзыв](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения об архивации виртуальных машин и других рабочих нагрузок см. в следующих разделах:
 
 * Теперь, когда вы выполнили резервное копирование файлов и папок, вы можете [управлять хранилищами и серверами](backup-azure-manage-windows-server.md).

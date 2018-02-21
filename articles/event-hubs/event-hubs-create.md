@@ -60,10 +60,10 @@ ms.lasthandoff: 11/07/2017
 
 Теперь концентратор событий создан, и у вас есть строки подключения, необходимые для отправки и приема событий.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о концентраторах событий см. в следующих статьях:
 
-* [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 * [Общие сведения об API концентраторов событий](event-hubs-api-overview.md)
 
 [Azure portal]: https://portal.azure.com/

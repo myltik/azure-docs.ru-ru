@@ -19,7 +19,7 @@
 3. В разделе **Параметры** щелкните **Конечные точки**. На странице **Конечные точки** перечислены все текущие конечные точки виртуальной машины. (В этом примере используется виртуальная машина Windows. На виртуальных машинах Linux по умолчанию отображается конечная точка для SSH.)
 
    <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
-   ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
+   ![Конечные точки](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
 4. На панели команд над записями конечных точек щелкните **Добавить**.
 5. На странице **Добавление конечной точки** укажите **имя** конечной точки.

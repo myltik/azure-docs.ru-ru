@@ -13,7 +13,7 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.openlocfilehash: c7d4079c9106226e0d07aa97c4a52c16ddb257c3
 ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/08/2018
 ---
@@ -66,7 +66,7 @@ ms.lasthandoff: 01/08/2018
 
    ![Управление источником Time Series Insights — результаты](media/data-access/getstarted-grant-data-access5.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте о том, [как добавить источник событий концентратора событий в среду "Аналитика временных рядов Azure"](time-series-insights-how-to-add-an-event-source-eventhub.md).
 * [Отправьте события](time-series-insights-send-events.md) в источник событий.
 * Просмотрите среду в [обозревателе службы "Аналитика временных рядов"](https://insights.timeseries.azure.com).

@@ -29,9 +29,9 @@ ms.lasthandoff: 11/18/2017
 * [Поиск определенных сообщений журнала](#search-for-specific-log-messages).
 * [Создание оповещений о событиях](#create-alerts-for-tracking-events).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
-* Для использования Log Analytics необходимо настроить кластер HDInsight. Инструкции см. в статье [Использование Azure Log Analytics для мониторинга кластеров HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
+* Для использования Log Analytics необходимо настроить кластер HDInsight. Инструкции см. в статье [Use Azure Log Analytics to monitor HDInsight clusters (Preview)](hdinsight-hadoop-oms-log-analytics-tutorial.md) (Использование Azure Log Analytics для мониторинга кластеров HDInsight (предварительная версия)).
 
 * Необходимо добавить решение по управлению кластером HDInsight в рабочую область [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) согласно инструкциям из статьи [Добавление решений по управлению кластерами HDInsight в Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
 

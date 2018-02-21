@@ -202,7 +202,7 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
 ## <a name="publish-your-application"></a>Публикация приложения
 Чтобы опубликовать приложение, сначала импортируйте параметры публикации с помощью командлета [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) . После этого опубликуйте приложение, используя командлет [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) . Подробнее о входе: [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительную информацию можно найти в [Центре разработчика PHP](/develop/php/).
 
 [Пакет Azure SDK для PHP]: /develop/php/common-tasks/download-php-sdk/

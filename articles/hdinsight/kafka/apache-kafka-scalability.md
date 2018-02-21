@@ -55,7 +55,7 @@ Kafka в HDInsight использует локальный диск для ви�
 
 Весь шаблон, в котором показано, как настроить управляемые диски, см. на странице [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о работе с Kafka HDInsight см. в следующих документах:
 

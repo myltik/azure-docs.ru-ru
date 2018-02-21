@@ -42,7 +42,7 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 Кроме того, вы можете просмотреть [репозиторий GitHub с шаблонами быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates), в котором находятся папки, содержащие `vmss`. Ознакомьтесь с примерами готовых шаблонов, которые используются для развертывания масштабируемых наборов. Список шаблонов, в которых уже используются управляемые диски, см. [здесь](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об управляемых дисках в целом см. в [этой статье](../virtual-machines/windows/managed-disks-overview.md).
 

@@ -1,6 +1,6 @@
 ---
 title: "Создание субъекта-службы для Azure Stack | Документация Майкрософт"
-description: "Описывается создание субъекта-службы, который можно использовать в Azure Resource Manager в сочетании с управлением доступа на основе ролей для управления доступом к ресурсам."
+description: "Описывается создание субъекта-службы, который можно использовать в Azure Resource Manager в сочетании с контролем доступа на основе ролей для управления доступом к ресурсам."
 services: azure-resource-manager
 documentationcenter: na
 author: heathl17
@@ -21,7 +21,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Предоставление приложениям доступа к Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 Если приложению нужен доступ для развертывания или настройки ресурсов Azure Stack через Azure Resource Manager, вам следует создать субъект-службу, который будет использоваться как учетные данные для этого приложения.  Этому субъекту-службе вы сможете делегировать только минимально необходимые разрешения.  
 
@@ -35,11 +35,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="getting-started"></a>Приступая к работе
 
-Прежде всего нужно создать субъект-службу. Процесс будет разным в зависимости от способа развертывания Azure Stack.  В этом документе описывается создание субъекта-службы для [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) и [службы федерации Active Directory (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  После создания субъекта-службы вы [делегируете разрешения](azure-stack-create-service-principals.md#assign-role-to-service-principal) для этой роли, используя единый процесс для AD FS и Azure AD.     
+Прежде всего нужно создать субъект-службу. Процесс будет разным в зависимости от способа развертывания Azure Stack.  В этом документе описывается создание субъекта-службы для [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) и [службы федерации Active Directory (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Создав субъект-службу, вы [делегируете разрешения](azure-stack-create-service-principals.md#assign-role-to-service-principal) для этой роли, используя единый процесс для AD FS и Azure AD.     
 
 ## <a name="create-service-principal-for-azure-ad"></a>Создание субъекта-службы для Azure AD
 
-Если Azure Stack развернут с использованием Azure AD в качестве хранилища идентификаторов, создание субъекта-службы выполняется точно так же, как для Azure.  В этом разделе описан процесс с использованием портала.  Прежде чем приступать, убедитесь в наличии [необходимых разрешений Azure AD](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
+Если Azure Stack развернут с использованием Azure AD в качестве хранилища идентификаторов, создание субъекта-службы выполняется точно так же, как для Azure.  В этом разделе описан процесс с использованием портала.  Прежде чем начать, проверьте [необходимые разрешения Azure AD](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
 
 ### <a name="create-service-principal"></a>Создание субъекта-службы
 В этом разделе вы создадите в Azure AD приложение (субъект-службу), которое будет представлять ваше приложение.
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 2. Выберите **Azure Active Directory** > **Регистрация приложений** > **Добавить**.   
 3. Укажите имя и URL-адрес для приложения. Выберите тип создаваемого приложения: **веб-приложение или API** или **собственное приложение**. Выбрав нужные значения, нажмите кнопку **Создать**.
 
-На этом создание субъекта-службы для приложения завершается.
+Субъект-служба для приложения создан.
 
 ### <a name="get-credentials"></a>Получение учетных данных
 Если вход выполняется программными средствами, вам потребуются идентификатор приложения и ключ аутентификации. Получить эти значения можно следующим образом.
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
 ![сохраненный ключ](./media/azure-stack-create-service-principal/image15.png)
 
 
-После завершения этого процесса [назначьте приложению роль](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+После этого [назначьте приложению роль](azure-stack-create-service-principals.md#assign-role-to-service-principal).
 
 ## <a name="create-service-principal-for-ad-fs"></a>Создание субъекта-службы для AD FS
 Когда вы развернете Azure Stack с использованием AD FS, для создания субъекта-службы, назначения роли для доступа и входа с этим идентификатором можно использовать PowerShell.
@@ -83,14 +83,14 @@ ms.lasthandoff: 10/11/2017
 Import-Module .\Identity\AzureStack.Identity.psm1
 ```
 
-При импорте модуля может появиться сообщение об ошибке, информирующее о том, что AzureStack.Connect.psm1 не имеет цифровой подписи и скрипт не будет выполнен в системе. Чтобы устранить эту проблему, создайте политику выполнения, которая разрешает запуск скрипта. Для этого в сеансе PowerShell с повышенными привилегиями выполните следующую команду:
+При импорте модуля может появиться сообщение об ошибке, информирующее о том, что AzureStack.Connect.psm1 не имеет цифровой подписи и Скрипт не будет выполнен в системе". Чтобы устранить эту проблему, создайте политику выполнения, которая разрешает запуск скрипта. Для этого в сеансе PowerShell с повышенными привилегиями выполните следующую команду:
 
 ```PowerShell
 Set-ExecutionPolicy Unrestricted
 ```
 
 ### <a name="create-the-service-principal"></a>Создание субъекта-службы
-Чтобы создать субъект-службу, выполните следующую команду, указав правильное значение для параметра *DisplayName*:
+Чтобы создать субъект-службу, выполните следующую команду, указав требуемое значение для параметра *DisplayName*:
 ```powershell
 $servicePrincipal = New-AzSADGraphServicePrincipal `
  -DisplayName "<YourServicePrincipalName>" `
@@ -137,6 +137,6 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 
 Итак, вы создали субъект-службу и назначили ему роль. Теперь вы можете использовать его в приложении для доступа к ресурсам Azure Stack.  
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Управление разрешениями пользователей](azure-stack-manage-permissions.md)

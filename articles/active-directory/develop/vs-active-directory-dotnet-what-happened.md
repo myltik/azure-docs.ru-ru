@@ -17,7 +17,7 @@ ms.author: kraigb
 ms.custom: aaddev
 ms.openlocfilehash: eccff00847968b4293b6e7142af0cceff0476c46
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -156,6 +156,6 @@ ms.lasthandoff: 12/21/2017
 ### <a name="your-azure-active-directory-app-was-updated"></a>Обновлено приложение Azure Active Directory
 В приложение Azure Active Directory добавлено разрешение *Чтение данных каталога*. Кроме того, создан дополнительный ключ, который затем использовался в качестве параметра *ida:ClientSecret* в файле **web.config**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 

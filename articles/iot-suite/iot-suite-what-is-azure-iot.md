@@ -23,7 +23,7 @@ ms.lasthandoff: 11/10/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Теперь, когда вы изучили типичную архитектуру Интернета вещей, рассмотрите разные варианты реализации с помощью продуктов Microsoft Azure IoT в [этой статье](iot-suite-options.md).
 

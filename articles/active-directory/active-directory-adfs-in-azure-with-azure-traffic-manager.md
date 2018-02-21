@@ -119,7 +119,7 @@ ms.lasthandoff: 12/11/2017
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Методы маршрутизации трафика средствами диспетчера трафика](../traffic-manager/traffic-manager-routing-methods.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Управление профилем диспетчера трафика Azure](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Добавление, отключение, включение и удаление конечных точек](../traffic-manager/traffic-manager-endpoints.md) 
 

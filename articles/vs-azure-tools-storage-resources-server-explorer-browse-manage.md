@@ -16,7 +16,7 @@ ms.date: 8/24/2017
 ms.author: kraigb
 ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -295,6 +295,6 @@ BLOB-объект откроется в редакторе по умолчани
 
 Удаление учетной записи хранения из обозревателя сервера не влияет на вашу учетную запись хранения или содержащиеся в ней данные. Удаляется только ссылка из обозревателя сервера. Чтобы окончательно удалить учетную запись хранения, используйте [портал Azure](https://portal.azure.com/).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об использовании служб хранилища Azure см. в статье, посвященной [доступу к службам хранилища Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).

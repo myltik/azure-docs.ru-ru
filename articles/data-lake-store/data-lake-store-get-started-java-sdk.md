@@ -33,7 +33,7 @@ ms.lasthandoff: 01/10/2018
 
 Документацию по API пакета Java SDK для Azure Data Lake Store можно найти [здесь](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 * Комплект разработчика Java (JDK 7 или более поздней версии с использованием Java версии 1.7 или более поздней).
 * Учетная запись Azure Data Lake Store. Следуйте инструкциям в разделе [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).
 * [Maven](https://maven.apache.org/install.html). В этом руководстве это средство используется для создания зависимостей проекта. Хотя зависимости можно создать и без использования таких систем, как Maven или Gradle, они существенно упрощают управление ими.

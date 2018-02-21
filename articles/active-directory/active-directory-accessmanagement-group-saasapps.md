@@ -18,7 +18,7 @@ ms.reviewer: piotrci
 ms.custom: it-pro
 ms.openlocfilehash: 49a2c86516f0882f341597876d2a44ea3a312ea8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/11/2017
 6. Выберите любое количество групп или пользователей, затем щелкните или коснитесь **Выбрать**, чтобы добавить их в список **Добавление назначения**. На этом этапе можно также назначить роль пользователю.
 7. Щелкните **Назначить**, чтобы назначить пользователей или группы для выбранного корпоративного приложения.
 
-### <a name="next-steps"></a>Дальнейшие действия
+### <a name="next-steps"></a>Дополнительная информация
 В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)

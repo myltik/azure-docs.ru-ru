@@ -122,5 +122,5 @@ $ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p te
 - Нажмите кнопку **обзора**, чтобы найти файл базы данных. 
 - Нажмите кнопку **Перейти**, чтобы экспортировать резервную копию, выполнить команды SQL и повторно создать базу данных.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Как подключить приложения к базе данных Azure для MySQL](./howto-connection-string.md)

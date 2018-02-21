@@ -120,7 +120,7 @@ report.switchMode("edit");
 
 [Приступая к работе с примером Microsoft Power BI Embedded](get-started-sample.md)  
 [Внедрение отчета в Power BI Embedded](embed-report.md)  
-[Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Аутентификация и авторизация в коллекциях рабочих областей Power BI)  
+[Аутентификация и авторизация в коллекциях рабочих областей Power BI](app-token-flow.md)  
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
 [Пример внедрения JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Репозиторий PowerBI-CSharp на сайте GitHub](https://github.com/Microsoft/PowerBI-CSharp)  

@@ -107,7 +107,7 @@ rescan-scsi-bus.sh
 
 ![fdisk-l.png](media/HowToHLI/HASetupWithStonith/fdisk-l.png)
 
-## <a name="2---initialize-the-sbd-device"></a>2)   Инициализация устройства SBD
+## <a name="2---initialize-the-sbd-device"></a>2.   Инициализация устройства SBD
 
 2.1. Инициализируйте устройство SBD на **обоих** узлах.
 

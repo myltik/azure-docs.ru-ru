@@ -16,7 +16,7 @@ ms.author: gwallace
 ms.custom: mvc
 ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/05/2018
 
 [Хранилище BLOB-объектов](../common/storage-introduction.md#blob-storage) представляет собой надежную службу для хранения файлов для приложений. Этот учебник дополняет сведения в [предыдущем разделе][previous-tutorial] и описывает процедуру защиты доступа к учетной записи хранения из веб-приложения. По окончании работы изображения шифруются, и для доступа к эскизам веб-приложение использует маркеры безопасности SAS.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы пройти действия в этом учебнике, необходимо выполнить задачи в предыдущим учебнике по хранилищу: [Автоматическое изменение размера переданных изображений с помощью сетки событий][previous-tutorial]. 
 
@@ -212,7 +212,7 @@ curl http://<storage-account-name>.blob.core.windows.net/<container>/<blob-name>
 HTTP/1.1 400 The account being accessed does not support http.
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В третьей части серии вы узнали, как обеспечить безопасность доступа к учетной записи хранения путем выполнения приведенных ниже задач.
 

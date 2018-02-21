@@ -69,7 +69,7 @@ Azure DNS поддерживает только размещение "стати
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>Поддерживает ли Azure DNS регистрацию доменных имен?
 
-№ Azure DNS в настоящее время не поддерживает приобретение доменных имен. Если вы хотите приобрести домены, вам потребуется использовать регистратор доменных имен стороннего поставщика. Регистратор обычно взимает небольшую годовую плату. Затем вы сможете разместить домены в Azure DNS, чтобы управлять записями DNS. Дополнительные сведения см. в статье [Делегирование домена в Azure DNS](dns-domain-delegation.md).
+Нет. Azure DNS в настоящее время не поддерживает приобретение доменных имен. Если вы хотите приобрести домены, вам потребуется использовать регистратор доменных имен стороннего поставщика. Регистратор обычно взимает небольшую годовую плату. Затем вы сможете разместить домены в Azure DNS, чтобы управлять записями DNS. Дополнительные сведения см. в статье [Делегирование домена в Azure DNS](dns-domain-delegation.md).
 
 Это функция, которую мы отслеживаем в очереди невыполненной работы. Вы можете воспользоваться нашим сайтом для отзывов и предложений, чтобы [поддержать эту функцию](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
@@ -86,13 +86,13 @@ Azure DNS поддерживает только размещение "стати
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Поддерживает ли Azure DNS передачу зон (AXFR-IXFR)?
 
-№ Сейчас Azure DNS не поддерживает передачу зон. Зоны DNS можно [импортировать в Azure DNS с помощью Azure CLI](dns-import-export.md). Затем записями DNS можно управлять с помощью [портала управления Azure DNS](dns-operations-recordsets-portal.md), нашего [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [пакета SDK](dns-sdk.md), [командлетов PowerShell](dns-operations-recordsets.md) или [программы командной строки](dns-operations-recordsets-cli.md).
+Нет. Сейчас Azure DNS не поддерживает передачу зон. Зоны DNS можно [импортировать в Azure DNS с помощью Azure CLI](dns-import-export.md). Затем записями DNS можно управлять с помощью [портала управления Azure DNS](dns-operations-recordsets-portal.md), нашего [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [пакета SDK](dns-sdk.md), [командлетов PowerShell](dns-operations-recordsets.md) или [программы командной строки](dns-operations-recordsets-cli.md).
 
 Это функция, которую мы отслеживаем в очереди невыполненной работы. Вы можете воспользоваться нашим сайтом для отзывов и предложений, чтобы [поддержать эту функцию](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
 ### <a name="does-azure-dns-support-url-redirects"></a>Поддерживает ли Azure DNS перенаправление URL-адресов?
 
-№ Службы перенаправления URL-адресов не являются службами DNS. Они работают на уровне протокола HTTP, а не на уровне DNS. Некоторые поставщики DNS добавляют службу перенаправления URL-адресов в свои предложения. На данный момент эта функция не поддерживается Azure DNS.
+Нет. Службы перенаправления URL-адресов не являются службами DNS. Они работают на уровне протокола HTTP, а не на уровне DNS. Некоторые поставщики DNS добавляют службу перенаправления URL-адресов в свои предложения. На данный момент эта функция не поддерживается Azure DNS.
 
 Она отслеживается в очереди невыполненной работы. Вы можете воспользоваться нашим сайтом для отзывов и предложений, чтобы [поддержать эту функцию](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
 
@@ -150,7 +150,7 @@ Azure DNS поддерживает только размещение "стати
 
 Международные доменные имена (IDN) в Azure DNS можно настроить, предварительно преобразовав имя зоны или имя набора записей в формат Punycode. Azure DNS в настоящее время не поддерживает встроенное преобразование в Punycode.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Дополнительные сведения об Azure DNS](dns-overview.md)
 <br>

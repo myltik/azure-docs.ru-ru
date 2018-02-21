@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Начало работы со службой DNS Azure с помощью Azure CLI 2.0
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](dns-getstarted-portal.md)
+> * [портал Azure](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
@@ -113,7 +113,7 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 az group delete --name MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о службе DNS Azure см. в статье [Обзор Azure DNS](dns-overview.md).
 

@@ -17,7 +17,7 @@ ms.author: barclayn
 ms.custom: pim
 ms.openlocfilehash: b04544c6a1d288524783ed6d323146c0ef7bfe95
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/11/2017
 - завершаются все действующие проверки доступа для ролей Azure AD и удаляются параметры конфигурации Azure AD Privileged Identity Management;
 - Azure AD Privileged Identity Management прекращает отправку сообщений электронной почты об изменении назначений ролей.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Приступая к работе с управлением привилегированными пользователями Azure AD](../active-directory-privileged-identity-management-getting-started.md)
 - [Роли в службе управления привилегированными пользователями Azure AD](../active-directory-privileged-identity-management-roles.md)

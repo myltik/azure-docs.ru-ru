@@ -58,7 +58,7 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 
 ![Таблица для расчета стоимости][Image1]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о секционировании служб см. в статье [Секционирование служб Reliable Services в Service Fabric][10].
 
 <!--Image references-->

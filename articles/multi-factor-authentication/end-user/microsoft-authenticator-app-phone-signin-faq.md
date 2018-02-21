@@ -17,7 +17,7 @@ ms.reviewer: librown
 ms.custom: end-user
 ms.openlocfilehash: 86cf6ba2f2ec86a609b4ec60cc143b07d9e542b3
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -87,7 +87,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="can-i-sign-in-with-my-windows-phone"></a>Можно ли войти с использованием Windows Phone?  
 В настоящее время эта функция недоступна для Microsoft Authenticator в Windows Phone. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Если вы не используете приложение Microsoft Authenticator, узнайте о нем подробнее. Приложение Microsoft Authenticator доступно для [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), а функция входа с помощью телефона — для [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 Если у вас есть вопросы о приложении в целом, посетите страницу с [часто задаваемыми вопросами о приложении Microsoft Authenticator](microsoft-authenticator-app-faq.md).

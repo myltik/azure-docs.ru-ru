@@ -12,7 +12,7 @@ ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/07/2017
 ---
@@ -20,7 +20,7 @@ ms.lasthandoff: 12/07/2017
 
 С помощью портала Azure вы можете публиковать [управляемые приложения Azure](overview.md), предназначенные для членов вашей организации. Например, отдел ИТ может публиковать управляемые приложения, которые обеспечивают соответствие стандартам организации. Эти управляемые приложения доступны в каталоге служб, а не в Azure Marketplace.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 При публикации управляемого приложения необходимо указать удостоверение для управления ресурсами. Мы рекомендуем указать группу пользователей Azure Active Directory См. дополнительные сведения о [создании группы пользователей и добавлении в нее пользователей в Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md). 
 
@@ -58,7 +58,7 @@ ZIP-файл, содержащий определение управляемог
 
    ![Создание управляемого приложения](./media/publish-portal/create-app.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Общие сведения об управляемых приложениях Azure см. в разделе [Обзор управляемых приложений Azure](overview.md).
 * См. дополнительные сведения о [примерах проектов для управляемых приложений Azure](sample-projects.md).

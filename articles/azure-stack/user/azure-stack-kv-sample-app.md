@@ -24,7 +24,7 @@ ms.lasthandoff: 12/11/2017
 
 В этой статье показано, как запустить пример приложения (HelloKeyVault), которое извлекает ключи и секреты из хранилища ключей в Azure Stack.
 
-## <a name="prerequisites"></a>Предварительные требования 
+## <a name="prerequisites"></a>предварительным требованиям 
 
 Выполните следующие предварительные требования из [комплекта разработки](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) или из внешнего клиента для Windows при [подключении через VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
@@ -141,7 +141,7 @@ Write-Host
 Приложение входит в Azure AD, а затем использует этот маркер для проверки подлинности в хранилище ключей Azure Stack. Приложение выполняет такие операции, как создание, шифрование, оборачивание и удаление ключей и секретов из хранилища ключей. В приложение можно также передать определенные параметры, такие как *encrypt* и *decrypt*, что гарантирует, что приложение выполнит с хранилищем только эти операции. 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Развертывание виртуальной машины с помощью пароля из хранилища ключей](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Create a virtual machine and include certificate retrieved from a key vault](azure-stack-kv-push-secret-into-vm.md) (Создание виртуальной машины с сертификатом хранилища ключей)

@@ -25,9 +25,9 @@ ms.lasthandoff: 10/11/2017
 
 Узнайте, как с помощью портала Azure создавать учетные записи Azure Data Lake Analytics, определять задания в [U-SQL](data-lake-analytics-u-sql-get-started.md) и отправлять их в службу Data Lake Analytics. Дополнительные сведения о Data Lake Analytics см. в [обзоре Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
-Прежде чем приступать к изучению этого руководства, необходимо оформить **подписку Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
+Прежде чем приступать к изучению этого руководства, необходимо оформить **подписку Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-data-lake-analytics-account"></a>Создание учетной записи аналитики озера данных
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
    * **Расположение.** выберите центр обработки данных Azure для учетной записи аналитики озера данных.
    * **Data Lake Store.** Следуйте инструкциям для создания учетной записи Data Lake Store или выберите имеющуюся. 
 4. При необходимости выберите ценовую категорию для учетной записи Data Lake Analytics.
-5. Щелкните **Создать**. 
+5. Нажмите кнопку **Создать**. 
 
 
 ## <a name="your-first-u-sql-script"></a>Первый скрипт U-SQL

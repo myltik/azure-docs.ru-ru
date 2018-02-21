@@ -97,7 +97,7 @@ SQL Server устанавливается обычным образом. Его 
 
 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Настройка и установка на DSVM 
-|Платформа|Размещение установки ($SPARK_HOME)|
+|платформа|Размещение установки ($SPARK_HOME)|
 |:--------|:--------|
 |Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|

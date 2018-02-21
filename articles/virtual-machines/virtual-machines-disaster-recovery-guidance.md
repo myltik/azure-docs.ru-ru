@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Начните [защищать приложения, работающие на виртуальных машинах Azure](https://aka.ms/a2a-getting-started), с помощью Azure Site Recovery
 

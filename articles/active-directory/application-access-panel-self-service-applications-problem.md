@@ -16,7 +16,7 @@ ms.author: asteen
 ms.reviewer: japere
 ms.openlocfilehash: dcd3ea1269ff40e4777cc9b0ca46f0b64560f923
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -95,5 +95,5 @@ ms.lasthandoff: 12/11/2017
 
 -   трассировки Fiddler.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Настройка Azure Active Directory для самостоятельного управления группами](active-directory-accessmanagement-self-service-group-management.md)

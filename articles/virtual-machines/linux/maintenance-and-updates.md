@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об управлении плановым обслуживанием см. в статье [Handling planned maintenance notifications for Windows virtual machines](maintenance-notifications.md) (Обработка уведомлений о плановом обслуживании для виртуальных машин Windows).
 

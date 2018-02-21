@@ -17,7 +17,7 @@ ms.author: billmath
 ms.custom: pim
 ms.openlocfilehash: 8bd8a72653699df4f4953053d61c16e30a2a101d
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -67,7 +67,7 @@ ms.lasthandoff: 12/11/2017
 
    ![Снимок экрана: отмена ожидающего запроса][4]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Ниже приведены ссылки на подробные сведения об управлении привилегированными пользователями Azure AD.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

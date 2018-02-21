@@ -18,7 +18,7 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.openlocfilehash: d31aa3b1399bab2b1dcfdb2eb6ece393610c769f
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/11/2017
 7. В колонке ***имя_приложения*** - **Свойства** для параметра **Включен ли вход для пользователей?** выберите значение **Нет**.
 8. Щелкните **Сохранить** .
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Просмотр всех моих групп](active-directory-groups-view-azure-portal.md)
 * [Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
 * [Удаление назначения пользователя или группы из корпоративного приложения](active-directory-coreapps-remove-assignment-azure-portal.md)

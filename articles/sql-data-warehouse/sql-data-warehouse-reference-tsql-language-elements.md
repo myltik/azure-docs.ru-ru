@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 * [|= (битовый OR EQUALS)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [&= (битовый AND EQUALS)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>Функции
+## <a name="functions"></a>Functions
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -278,7 +278,7 @@ ms.lasthandoff: 10/11/2017
 * [SET TRANSACTION ISOLATION LEVEL](https://msdn.microsoft.com/library/ms173763.aspx)
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные справочные сведения см. в статье [Справочные темы по хранилищу данных SQL][SQL Data Warehouse reference overview].
 
 <!--Image references-->

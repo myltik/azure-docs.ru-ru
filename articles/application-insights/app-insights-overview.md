@@ -76,12 +76,12 @@ Application Insights — это расширяемая служба управл
 | [**Работа с Application Insights в Visual Studio**](app-insights-visual-studio.md)<br/>Просматривайте данные производительности в коде. Перейдите к коду из трассировки стека.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Debug Snapshots on Exceptions in .NET Apps**](app-insights-snapshot-debugger.md) (Отладка моментальных снимков при исключениях в приложениях .NET)<br/>Отладка моментальных снимков, выбранных из активных операций со значениями параметров.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Использование данных Application Insights в Power BI**](app-insights-export-power-bi.md)<br/>Интегрируйте метрики использования с другими метриками бизнес-аналитики.| ![Power BI](./media/app-insights-overview/power-bi.png)|
-| [**Use the Application Insights REST API to build custom solutions**](https://dev.applicationinsights.io/) (Использование интерфейса REST API Application Insights для создания пользовательских решений)<br/>Напишите код для выполнения запросов с помощью метрик и необработанных данных.| ![Интерфейс REST API](./media/app-insights-overview/rest-tn.png) |
+| [**Use the Application Insights REST API to build custom solutions**](https://dev.applicationinsights.io/) (Использование интерфейса REST API Application Insights для создания пользовательских решений)<br/>Напишите код для выполнения запросов с помощью метрик и необработанных данных.| ![ИНТЕРФЕЙС REST API](./media/app-insights-overview/rest-tn.png) |
 | [**Экспорт данных телеметрии из Application Insights**](app-insights-export-telemetry.md)<br/>Выполняйте массовый экспорт необработанных данных в хранилище по мере их поступления. |![экспорт.](./media/app-insights-overview/export-tn.png) |
 
 ## <a name="how-do-i-use-application-insights"></a>Как использовать Application Insights?
 
-### <a name="monitor"></a>Монитор
+### <a name="monitor"></a>Мониторинг
 Установите Application Insights в веб-приложении, настройте [доступность веб-тестов](app-insights-monitor-web-app-availability.md) и:
 
 * настройте [панель мониторинга](app-insights-dashboards.md) для комнаты своей команды, чтобы следить за нагрузкой, скоростью реагирования и производительностью зависимостей, загрузки страниц и вызовов AJAX;
@@ -102,7 +102,7 @@ Application Insights — это расширяемая служба управл
 * записывайте пользовательскую телеметрию в свой код;
 * основывайте следующий цикл разработки на объективных данных телеметрии.
 
-## <a name="get-started"></a>Приступая к работе
+## <a name="get-started"></a>Начало работы
 Application Insights — одна из многих служб, размещенных в Microsoft Azure, и данные телеметрии отправляются в нее для анализа и представления. Поэтому, чтобы приступить к каким-либо действиям, вам потребуется подписка на [Microsoft Azure](http://azure.com). Плата за регистрацию не взимается, и если выбрать [тарифный план](https://azure.microsoft.com/pricing/details/application-insights/) "Базовый" Application Insights, то плата не будет взиматься, пока ваше приложение не начнет значительно использовать ресурсы. Если у вашей организации уже есть подписка, в нее можно добавить вашу учетную запись Майкрософт.
 
 Начать работу можно несколькими способами. Начните с того, который вам лучше подходит. Остальные можно использовать позже.
@@ -121,7 +121,7 @@ Application Insights — одна из многих служб, размещен
 * **[Тесты доступности](app-insights-monitor-web-app-availability.md)** с наших серверов для регулярной проверки связи с вашим веб-сайтом.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Приступите к работе во время выполнения с помощью:
 
 * [сервера IIS;](app-insights-monitor-performance-live-website-now.md)

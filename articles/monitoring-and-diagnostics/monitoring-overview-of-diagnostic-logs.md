@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
    
    ![Добавление параметра диагностики — имеющиеся параметры](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-configure.png)
     
-4. Щелкните **Сохранить**.
+4. Выберите команду **Сохранить**.
 
 Через несколько секунд появится новый параметр в списке параметров для данного ресурса, и сразу же после создания данных о событии журналы диагностики отправятся по указанным назначениям.
 
@@ -174,7 +174,7 @@ azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource 
 ## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Поддерживаемые службы, категории и схемы для журналов диагностики ресурсов
 С полным списком поддерживаемых служб, категорий и схем журнала, используемых этими службами, ознакомьтесь в [этой статье](monitoring-diagnostic-logs-schema.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Потоковая передача журналов диагностики Azure в **концентраторы событий**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Создание или обновление диагностического параметра](https://msdn.microsoft.com/library/azure/dn931931.aspx)

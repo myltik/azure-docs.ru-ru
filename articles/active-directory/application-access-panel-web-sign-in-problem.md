@@ -16,7 +16,7 @@ ms.author: asteen
 ms.reviwer: japere
 ms.openlocfilehash: 0f50a705d4453970d039c2219aef8e1a411fd533
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -288,5 +288,5 @@ ms.lasthandoff: 12/11/2017
 
 -   трассировки Fiddler.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)

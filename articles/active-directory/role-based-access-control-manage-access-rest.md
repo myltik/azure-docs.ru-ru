@@ -3,7 +3,7 @@ title: "Управление доступом на основе ролей с п
 description: "Управление доступом на основе ролей с помощью интерфейса REST API"
 services: active-directory
 documentationcenter: na
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: andredm
-ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.author: rolyon
+ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Управление доступом на основе ролей с помощью REST API
 > [!div class="op_single_selector"]
@@ -151,7 +151,7 @@ ms.lasthandoff: 12/21/2017
 
 ```
 
-| Имя элемента | Требуется | type | ОПИСАНИЕ |
+| Имя элемента | Обязательно | type | ОПИСАНИЕ |
 | --- | --- | --- | --- |
 | roleDefinitionId |Yes |Строка |Идентификатор роли. Он указывается в формате `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |Yes |Строка |ObjectId субъекта Azure AD (пользователя, группы или субъекта-службы), которому назначается роль. |
@@ -434,7 +434,7 @@ ms.lasthandoff: 12/21/2017
 
 ```
 
-| Имя элемента | Требуется | type | ОПИСАНИЕ |
+| Имя элемента | Обязательно | type | ОПИСАНИЕ |
 | --- | --- | --- | --- |
 | name |Yes |Строка |Идентификатор GUID настраиваемой роли. |
 | properties.roleName |Yes |Строка |Отображаемое имя настраиваемой роли. Не может быть более 128 символов в длину. |
@@ -537,7 +537,7 @@ ms.lasthandoff: 12/21/2017
 
 ```
 
-| Имя элемента | Требуется | type | ОПИСАНИЕ |
+| Имя элемента | Обязательно | type | ОПИСАНИЕ |
 | --- | --- | --- | --- |
 | name |Yes |Строка |Идентификатор GUID настраиваемой роли. |
 | properties.roleName |Yes |Строка |Отображаемое имя обновленной настраиваемой роли. |
@@ -647,6 +647,6 @@ ms.lasthandoff: 12/21/2017
 
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]

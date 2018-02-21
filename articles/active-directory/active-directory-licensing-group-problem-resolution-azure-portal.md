@@ -18,7 +18,7 @@ ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5bd28eeb8d67dc0dcb3303fdb0e3c20b32f7c431
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -155,7 +155,7 @@ Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.co
 
 Например, если вы получили некоторые лицензии путем удаления прямых назначений лицензий пользователям, вам необходимо активировать обработку групп, в которых ранее не удалось полностью лицензировать всех пользователей. Для повторной обработки группы перейдите в область группы, откройте **Лицензии**, а потом нажмите кнопку **Повторная обработка** на панели инструментов.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Чтобы получить дополнительные сведения о сценариях управления лицензиями с помощью групп, см. ссылки ниже.
 

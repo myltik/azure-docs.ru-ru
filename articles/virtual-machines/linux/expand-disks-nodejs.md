@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 - [Azure CLI 1.0](#prerequisites) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager (в этой статье).
 - [Azure CLI 2.0](expand-disks.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Вам потребуется установить [последнюю версию Azure CLI 1.0](../../cli-install-nodejs.md) и войти в [учетную запись Azure](https://azure.microsoft.com/pricing/free-trial/) в режиме Resource Manager, как показано ниже:
 
 ```azurecli
@@ -73,5 +73,5 @@ azure config mode arm
     /dev/sda1        49G  1.3G   48G   3% /
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Если вам требуется дополнительное место для хранения, можно также [добавить диски данных в виртуальную машину Linux](add-disk.md). Дополнительные сведения о шифровании диска см. в статье [Encrypt disks on a Linux VM using the Azure CLI](encrypt-disks.md) (Шифрование дисков на виртуальной машине Linux с помощью Azure CLI).

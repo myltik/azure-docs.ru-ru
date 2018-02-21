@@ -33,14 +33,14 @@ OpenShift включает Kubernetes для оркестрации контей
 
 Доступны несколько версий OpenShift, две из которых используются в Azure:
 
-- OpenShift Origin
+- Источник OpenShift
 - Платформа контейнеров OpenShift
 - OpenShift Online
 - OpenShift Dedicated
 
 Пользователи могут использовать две версии (из четырех описанных в этой статье) для самостоятельного развертывания в Azure решений OpenShift Origin и OpenShift Container Platform.
 
-## <a name="openshift-origin"></a>OpenShift Origin
+## <a name="openshift-origin"></a>Источник OpenShift
 
 OpenShift Origin — это вышестоящий проект OpenShift с [открытым кодом](https://www.openshift.org/), который поддерживается сообществом. OpenShift Origin можно установить в ОС CentOS или Red Hat Enterprise Linux (RHEL).
 
@@ -60,7 +60,7 @@ OpenShift Online — это *мультитенантная* платформа 
 
 OpenShift Dedicated — это *однотенантная* платформа OpenShift (на базе Container Platform) под управлением Red Hat. Red Hat управляет всей базовой инфраструктурой (виртуальными машинами, кластером OpenShift, сетью, хранилищем и т. д.). Кластер связан только с одним клиентом. Выполняется он в общедоступном облаке (AWS или Google; выпуск для Azure ожидается в начале 2018 года). Начальный кластер включает четыре узла приложений стоимостью 48 000 долл. США в год (оплачивается заранее).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Общие предварительные требования для OpenShift в Azure](./openshift-prerequisites.md)
 - [Развертывание OpenShift Origin в Azure](./openshift-origin.md)

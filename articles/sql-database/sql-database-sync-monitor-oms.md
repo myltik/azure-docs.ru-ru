@@ -52,7 +52,7 @@ ms.lasthandoff: 11/10/2017
 
 -   [Представление журнала OMS синхронизации данных](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 
 Настройте следующие компоненты:
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 11/10/2017
 
 1.  На портале OMS выберите **Log Search** (Поиск по журналам).
 
-2.  Создайте запрос, чтобы выбрать ошибки и предупреждения по группе синхронизации в течение выбранного интервала. Например:
+2.  Создайте запрос, чтобы выбрать ошибки и предупреждения по группе синхронизации в течение выбранного интервала. Например: 
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 
@@ -140,7 +140,7 @@ ms.lasthandoff: 11/10/2017
 
 5.  В разделе **Действия** задайте для параметра **Уведомление по электронной почте** значение "Да". Введите необходимые электронные адреса получателей.
 
-6.  Щелкните **Сохранить**. Теперь при возникновении ошибок заданные получатели будут получать уведомления по электронной почте.
+6.  Выберите команду **Сохранить**. Теперь при возникновении ошибок заданные получатели будут получать уведомления по электронной почте.
 
 ## <a name="create-an-oms-view-for-monitoring"></a>Создание представления OMS для мониторинга
 
@@ -188,11 +188,11 @@ ms.lasthandoff: 11/10/2017
 
 -   [Представление журнала OMS синхронизации данных](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о синхронизации данных SQL:
 
 -   [Синхронизация данных в нескольких облачных и локальных базах данных с помощью синхронизации данных SQL](sql-database-sync-data.md)
--   [Настройка синхронизации данных SQL Azure](sql-database-get-started-sql-data-sync.md).
+-   [Начало работы с синхронизацией данных SQL Azure (предварительная версия)](sql-database-get-started-sql-data-sync.md)
 -   [Best practices for SQL Data Sync (Preview)](sql-database-best-practices-data-sync.md) (Рекомендации по синхронизации данных SQL (предварительная версия))
 -   [Устранение неполадок с синхронизацией данных SQL Azure (предварительная версия)](sql-database-troubleshoot-data-sync.md)
 

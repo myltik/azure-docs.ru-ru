@@ -15,7 +15,7 @@ ms.date: 09/05/2016
 ms.author: vigunase
 ms.openlocfilehash: a3d78945f862d1ae12cec05da0cf0ea7df511f43
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 ![Рисунок](images/kmsi.PNG)
 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Клиент Azure AD B2C, настроенный для разрешения регистрации или входа с локальной учетной записью, как описано в [руководстве по началу работы](active-directory-b2c-get-started-custom.md).
 

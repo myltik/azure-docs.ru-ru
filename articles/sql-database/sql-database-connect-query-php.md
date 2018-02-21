@@ -25,7 +25,7 @@ ms.lasthandoff: 11/30/2017
 
 В этом кратком руководстве показано, как использовать [PHP](http://php.net/manual/en/intro-whatis.php) для создания программы, которая подключается к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос данных.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Ниже указаны требования для работы с этим кратким руководством.
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 11/30/2017
 
 2. Убедитесь, что возвращены первые 20 строк, а затем закройте окно приложения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Проектирование первой базы данных SQL Azure](sql-database-design-first-database.md)
 - [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/) (Драйверы Microsoft PHP для SQL Server)
 - [Сообщите о проблемах или задайте вопросы](https://github.com/Microsoft/msphpsql/issues)

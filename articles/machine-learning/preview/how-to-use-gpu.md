@@ -12,14 +12,14 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: ce1557aed09384b0d7a0b65aabd473fe72ab740c
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Как использовать GPU в службе "Машинное обучение Azure"
 Графический процессор (GPU) широко используется для обработки ресурсоемких задач, которые обычно выполняются при обучении определенных моделей глубокой нейронной сети. С помощью GPU можно значительно сократить время обучения моделей. Из этого документа вы узнаете, как настроить в Azure ML Workbench использование [DSVM (виртуальная машина для обработки и анализа данных)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview), оснащенную GPU, в качестве целевой среды выполнения. 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 - Чтобы поработать с этим пошаговым руководством, сначала необходимо установить [Azure ML Workbench](quickstart-installation.md).
 - Необходимо иметь доступ к компьютерам, оснащенным графическими процессорами NVidia.
     - Скрипты можно выполнять напрямую на локальных компьютерах (Windows или macOS) с графическими процессорами,
@@ -149,5 +149,5 @@ Free memory: 11.11GiB
 
 Поздравляем! Вы использовали возможности GPU в контейнере Docker в скрипте.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Ознакомьтесь с примером использования GPU для ускорения обучения глубокой нейронной сети в коллекции Azure ML.

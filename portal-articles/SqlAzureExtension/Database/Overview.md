@@ -22,9 +22,9 @@ ms.lasthandoff: 10/11/2017
 
 Сведения о создании базы данных SQL, управлении ею с помощью SQL Management Studio и разработке в C#, Java, Python, Node.js и Ruby.
 
-- [Портал Azure](/azure/sql-database/sql-database-get-started-portal)
+- [портале Azure](/azure/sql-database/sql-database-get-started-portal)
 - [Azure PowerShell](/azure/sql-database/sql-database-get-started-powershell)
-- [Интерфейс командной строки Azure](/azure/sql-database/sql-database-get-started-cli)
+- [интерфейс командной строки Azure](/azure/sql-database/sql-database-get-started-cli)
 
 ## <a name="step-by-step-tutorials"></a>Пошаговые руководства
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 Поиск скриптов для выполнения типовых задач.
 
-- [Интерфейс командной строки Azure](/azure/sql-database/sql-database-cli-samples)
+- [интерфейс командной строки Azure](/azure/sql-database/sql-database-cli-samples)
 - [Azure PowerShell](/azure/sql-database/sql-database-powershell-samples)
 
 ## <a name="more"></a>Подробнее

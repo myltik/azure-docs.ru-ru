@@ -87,7 +87,7 @@ ms.lasthandoff: 12/11/2017
 </td>
 </tr>
 <tr>
-<td>База данных SQL Azure</td>
+<td>Базы данных SQL Azure</td>
 <td>Здесь хранятся таблицы, представления, хранимые процедуры и данные отслеживания, используемые службой BizTalk.
 <br/><br/>
 При создании службы BizTalk можно использовать существующий сервер SQL Server Azure, базу данных SQL Azure или автоматически создать новый сервер или базу данных.
@@ -163,10 +163,10 @@ ms.lasthandoff: 12/11/2017
 
  Дополнительные сведения, в том числе о создании гибридных подключений и управлении ими, см. в статье [Гибридные подключения](integration-hybrid-connection-overview.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 После создания службы BizTalk ознакомьтесь со статьей [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](biztalk-dashboard-monitor-scale-tabs.md). Служба BizTalk готова для использования в приложениях. Чтобы приступить к созданию приложений, перейдите по ссылке [Службы BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Службы BizTalk: диаграмма выпусков](biztalk-editions-feature-chart.md)<br/>
 * [Службы BizTalk: диаграмма состояния](biztalk-service-state-chart.md)<br/>
 * [Службы BizTalk: резервное копирование и восстановление](biztalk-backup-restore.md)<br/>

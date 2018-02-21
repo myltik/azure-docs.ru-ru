@@ -16,7 +16,7 @@ ms.date: 11/25/2016
 ms.author: v-craic
 ms.openlocfilehash: a3b52bb8db0bcd46badb15d4bc65b85977faaadc
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -47,6 +47,6 @@ DevTest Labs поддерживает создание виртуальных м
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 После настройки разрешения образов Azure Marketplace при создании виртуальной машины необходимо [добавить виртуальную машину в лабораторию](devtest-lab-add-vm.md).
 

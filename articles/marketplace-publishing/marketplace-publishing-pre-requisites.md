@@ -73,12 +73,12 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Когда выполнены требования, не относящиеся к технической стороне вопроса, следует заняться техническими требованиями, которые относятся к конкретному предложению. Щелкните ссылку на статью для соответствующего типа предложения, который вы хотите использовать в Azure Marketplace.
 
 * [Предварительные технические требования для виртуальной машины](marketplace-publishing-vm-image-creation-prerequisites.md)
 * [Предварительные технические требования для шаблона решения](marketplace-publishing-solution-template-creation-prerequisites.md)
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
 

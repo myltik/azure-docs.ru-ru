@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: barbkess
 ms.openlocfilehash: 4221bcd5a50fad680427a500e32837c1e75dd990
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -354,7 +354,7 @@ JOIN    [cso].[DimProduct]      AS p ON f.[ProductKey] = p.[ProductKey]
 GROUP BY p.[BrandName]
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Чтобы загрузить полный набор данных хранилища данных Contoso Retail, используйте сценарий из раздела "Рекомендации по разработке и методики программирования" статьи [Проектные решения и методики программирования для хранилища данных SQL][SQL Data Warehouse development overview].
 
 <!--Image references-->

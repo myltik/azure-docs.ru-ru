@@ -26,7 +26,7 @@ ms.lasthandoff: 12/04/2017
 + Это можно сделать, используя добавление, удаление и переименование в экземпляре службы управления API. 
 + Вы можете изменить Swagger API.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 + [Создание экземпляра службы управления API Azure](get-started-create-service-instance.md)
 + [Импорт и публикация первого API](import-and-publish.md)
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/04/2017
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Примеры политик службы управления API](policy-samples.md)

@@ -120,7 +120,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0.
 | 2.0.0-2.x.y |False/не указан |200 – OK |
 | 3.0.0-3.x.y |False/не указан |400 – неверный запрос |
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * [Перенос существующей мобильной службы Azure в службу приложений Azure]
 
 [Клиенты мобильных служб]: #MobileServicesClients

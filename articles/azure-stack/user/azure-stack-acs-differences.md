@@ -22,11 +22,11 @@ ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Хранилище Azure Stack. Отличия и рекомендации
 
-*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 Хранилище Azure Stack — это набор облачных служб хранилища в Microsoft Azure Stack. Хранилище Azure Stack предоставляет такие согласованные с Azure компоненты и функции: большой двоичный объект, таблицу, очередь и функцию управления учетными записями.
 
-В этой статье перечислены известные различия между хранилищем Azure Stack и службой хранилища Azure. Здесь также содержатся дополнительные рекомендации, которые необходимо учитывать при развертывании Azure Stack. Дополнительные сведения о высокоуровневых различиях между Azure Stack и Azure см. в [этой статье](azure-stack-considerations.md).
+В этой статье перечислены известные различия между хранилищем Azure Stack и службой хранилища Azure. Здесь также содержатся дополнительные рекомендации, которые необходимо учитывать при развертывании Azure Stack. См. дополнительные сведения о [ключевых различиях](azure-stack-considerations.md) между Azure Stack и Azure.
 
 ## <a name="cheat-sheet-storage-differences"></a>Памятка. Различия хранилищ
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/09/2017
 * Службы данных службы хранилища Azure: [REST API версии 2015-04-05](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN).
 * Службы управления службы хранилища Azure: [2015-05-01-preview, 2015-06-15 и 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN). 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Приступая к работе со средствами разработки хранилища Azure Stack](azure-stack-storage-dev.md)
 * [Общие сведения о хранилище Azure Stack](azure-stack-storage-overview.md)

@@ -221,7 +221,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Окончательные выходные данные в Arduino IDE](media/iot-hub-sparkfun-thing-dev-get-started/14_arduino-ide-final-output.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Вы успешно подключили плату Sparkfun ESP8266 Thing Dev к Центру Интернета вещей и отправили данные, полученные от датчика. 
 

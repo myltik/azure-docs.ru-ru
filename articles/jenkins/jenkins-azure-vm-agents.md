@@ -33,7 +33,7 @@ ms.lasthandoff: 10/26/2017
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Подписка Azure
 * Главный сервер Jenkins. Если у вас его нет, просмотрите [краткое руководство](install-jenkins-solution-template.md) по его настройке в Azure.
@@ -54,8 +54,8 @@ ms.lasthandoff: 10/26/2017
 2. Прокрутите до нижней части страницы и найдите раздел **Cloud** (Облако) с раскрывающимся списком **Add new cloud** (Добавление нового облака) и выберите **Microsoft Azure VM Agents** (Агенты виртуальных машин Microsoft Azure).
 3. Выберите имеющийся субъект-службу в раскрывающемся списке **Add** (Добавить) в разделе **Azure Credentials** (Учетные данные Azure). Если его в списке нет, выполните действия ниже, чтобы [создать субъект-службу](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) для учетной записи Azure и добавить его в конфигурацию Jenkins.   
 
-    а. Щелкните **Add** (Добавить) рядом с разделом **Azure Credentials** (Учетные данные Azure) и выберите **Jenkins**.   
-    b. В диалоговом окне **добавления учетных данных** выберите **субъект-службу Microsoft Azure** в раскрывающемся списке **Kind** (Вид).   
+    a. Щелкните **Add** (Добавить) рядом с разделом **Azure Credentials** (Учетные данные Azure) и выберите **Jenkins**.   
+    Б. В диалоговом окне **добавления учетных данных** выберите **субъект-службу Microsoft Azure** в раскрывающемся списке **Kind** (Вид).   
     c. Создайте субъект-службу Active Directory с помощью Azure CLI или [Cloud Shell](/azure/cloud-shell/overview).
     
     ```azurecli-interactive
@@ -142,7 +142,7 @@ ms.lasthandoff: 10/26/2017
 
 ![Вывод на консоль](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Развертывание в службе приложений Azure с использованием подключаемого модуля Jenkins](java-deploy-webapp-tutorial.md)

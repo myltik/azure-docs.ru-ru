@@ -15,7 +15,7 @@ ms.date: 11/27/2017
 ms.author: bradsev;
 ms.openlocfilehash: 6512bf204a1fdc7a413a553b571e3b64b547855b
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/08/2017
 
 Вы используете эти шаблоны на свой риск. Применяются [стандартные заявления об отказе от ответственности](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Гибкая разработка проектов обработки и анализа данных](agile-development.md). Из этого документа вы узнаете, как с помощью командного процесса обработки и анализа данных выполнять проекты по обработке и анализу данных с соблюдением системного подхода, контролем версий и поддержкой совместной работы.
 

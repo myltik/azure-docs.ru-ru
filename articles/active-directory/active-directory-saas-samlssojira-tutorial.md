@@ -15,7 +15,7 @@ ms.date: 05/18/2017
 ms.author: jeedes
 ms.openlocfilehash: 3a3224acd2376efca19a29576980b6a3ca6a9e99
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для настройки интеграции Azure AD с SAML SSO for Jira by resolution GmbH требуется:
 

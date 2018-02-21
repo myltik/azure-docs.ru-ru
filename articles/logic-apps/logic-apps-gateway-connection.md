@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 *   сервер приложений SAP; 
 *   сервер сообщений SAP;
 *   SharePoint
-*   SQL Server
+*   SQL Server;
 *   Teradata
 
 Далее представлена процедура настройки локального шлюза данных для работы с приложениями логики. Дополнительные сведения о поддерживаемых соединителях см. статье [Список соединителей](../connectors/apis-list.md). 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 
 <a name="create-gateway-resource"></a>
 
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2) Создание ресурса для локального шлюза данных Azure
+### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Создание ресурса для локального шлюза данных Azure
 
 После установки шлюза на локальном компьютере вам необходимо создать шлюз данных в качестве ресурса в Azure. На этом шаге также связывается ресурс шлюза с подпиской Azure.
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 10/11/2017
     Чтобы добавить ресурс шлюза на панель мониторинга Azure, выберите **Закрепить на панели мониторинга**. 
     Когда все будет готово, выберите **Создать**.
 
-    Например:
+    Например: 
 
     ![Предоставление сведений для создания локального шлюза данных](./media/logic-apps-gateway-connection/createblade.png)
 
@@ -170,7 +170,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Защита приложений логики](./logic-apps-securing-a-logic-app.md)
 * [Распространенные примеры и сценарии использования приложений логики](./logic-apps-examples-and-scenarios.md)

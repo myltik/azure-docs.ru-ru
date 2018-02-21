@@ -75,10 +75,10 @@ Azure Site Recovery предоставляет 3 встроенные роли �
 
 Попробуйте использовать [встроенные роли](../active-directory/role-based-access-built-in-roles.md) "Участник виртуальных машин" и "Участник классических виртуальных машин" для развертывания с помощью модели Resource Manager и классической модели соответственно.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Управление доступом на основе ролей](../active-directory/role-based-access-control-configure.md). Начало работы с RBAC на портале Azure.
 * Сведения об управлении доступом с помощью следующих средств:
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
-  * [Интерфейс командной строки Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
-  * [ИНТЕРФЕЙС REST API](../active-directory/role-based-access-control-manage-access-rest.md)
+  * [интерфейс командной строки Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
+  * [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 * [Устранение неполадок при управлении доступом на основе ролей](../active-directory/role-based-access-control-troubleshooting.md). Рекомендации по устранению распространенных проблем.

@@ -51,7 +51,7 @@ ms.lasthandoff: 11/01/2017
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Эти диагностические средства позволяют проверять данные телеметрии из приложения:
 
 * [Обозреватель метрик](app-insights-metrics-explorer.md)

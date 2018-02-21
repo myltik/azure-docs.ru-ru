@@ -86,13 +86,13 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |PageTitleApis|Интерфейсы API|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Предварительная версия приложения|  
 |WebApplicationsRequirementsHeader|Требования|  
@@ -101,13 +101,13 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Вы действительно хотите удалить приложение?|  
 |WebDevelopersAppNotPublished|Не опубликовано|  
 |WebDevelopersAppNotSubminted|Не отправлено|  
 |WebDevelopersAppTableCategoryHeader|Категория|  
-|WebDevelopersAppTableNameHeader|Имя|  
+|WebDevelopersAppTableNameHeader|ИМЯ|  
 |WebDevelopersAppTableStateHeader|Состояние|  
 |WebDevelopersEditLink|Редактирование|  
 |WebDevelopersRegisterAppLink|Регистрация приложения|  
@@ -117,13 +117,13 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
-|WebApplicationsHeader|Приложения|  
+|WebApplicationsHeader|ПРИЛОЖЕНИЯ|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |NoItemsToDisplay|Результаты отсутствуют.|  
 |GeneralExceptionMessage|Возникла проблема. Возможно, это временный сбой или ошибка. Повторите попытку позже.|  
@@ -134,7 +134,7 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |ButtonLabelCancel|Отмена|  
 |ButtonLabelSave|Сохранить|  
@@ -158,7 +158,7 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="Documentation"></a> Documentation  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Недопустимый заголовок "{0}"|  
 |WebDocumentationInvalidRequestErrorMessage|Недопустимый URL-адрес запроса|  
@@ -306,7 +306,7 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |LinkLabelBack|Назад|  
 |LinkLabelHomePage|домашняя страница|  
@@ -324,7 +324,7 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |WebIssuesIndexTitle|Проблемы|  
 |WebIssuesNoActiveSubscriptions|У вас нет активных подписок. Чтобы сообщить о проблеме, необходимо подписаться на продукт.|  
@@ -335,7 +335,7 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |LinkLabelHomePage|домашняя страница|  
 |LinkLabelSendUsEmail|Отправьте нам сообщение электронной почты.|  
@@ -350,7 +350,7 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |WebProductsAgreement|Подписавшись на продукт {0}, я принимаю `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Условия использования|  
@@ -372,13 +372,13 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |PageTitleProducts|Продукты|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|В данный момент вход отключен администратором.|  
 |TextboxExternalIdentitiesSigninInvitation|Вход можно выполнить с помощью|  
@@ -386,7 +386,7 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |PrincipalNotFound|Субъект не найден или недопустимая подпись.|  
 |ErrorSsoAuthenticationFailed|Сбой проверки подлинности SSO.|  
@@ -482,7 +482,7 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Забыли пароль?|  
 |WebAuthenticationIfAdministrator|Если вы являетесь администратором, войдите `<a href="{0}"\>here</a\>`.|  
@@ -494,7 +494,7 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |PageTitleSignup|Регистрация|  
 |WebAuthenticationAlreadyAMember|Уже являетесь участником?|  
@@ -504,7 +504,7 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Вы действительно хотите отменить эту подписку?|  
 |SubscriptionRenewConfirmation|Вы действительно хотите обновить эту подписку?|  
@@ -516,7 +516,7 @@ ms.lasthandoff: 10/11/2017
 |ButtonLabelRenewSubscription|Возобновление|  
 |WebDevelopersSubscriptionReqested|Дата запроса: {0}|  
 |WebDevelopersSubscriptionRequestedState|Запрошено|  
-|WebDevelopersSubscriptionTableNameHeader|Имя|  
+|WebDevelopersSubscriptionTableNameHeader|ИМЯ|  
 |WebDevelopersSubscriptionTableStateHeader|Состояние|  
 |WebDevelopersUsageStatisticsLink|Аналитические отчеты|  
 |WebDevelopersYourSubscriptions|Ваши подписки|  
@@ -527,7 +527,7 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Хотите закрыть учетную запись?|  
 |PageTitleDeveloperProfile|Профиль|  
@@ -538,14 +538,14 @@ ms.lasthandoff: 10/11/2017
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Обновить профиль|  
 |PageTitleUpdateProfile|Обновить сведения об учетной записи|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|Имя|текст|  
+|ИМЯ|текст|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Изменение сведений об учетной записи|  
 |ButtonLabelChangePassword|Изменить пароль|  
@@ -576,5 +576,5 @@ ms.lasthandoff: 10/11/2017
   
  Полный список глифов см. на странице с [Glyphicons на сайте Bootstrap](http://getbootstrap.com/components/#glyphicons).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md).

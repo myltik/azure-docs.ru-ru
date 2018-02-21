@@ -38,7 +38,7 @@ ms.lasthandoff: 12/01/2017
 > [!NOTE]
 > Если необходимо, вы можете получить SSL-сертификат непосредственно на портале Azure и привязать его к веб-приложению. Следуйте указаниям в [руководстве по сертификатам службы приложений](web-sites-purchase-ssl-web-site.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством:
 
@@ -220,7 +220,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ![Принудительное использование HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-По завершении операции перейдите по любому из URL-адресов HTTP, которые указывают на ваше приложение. Например:
+По завершении операции перейдите по любому из URL-адресов HTTP, которые указывают на ваше приложение. Например: 
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
@@ -272,9 +272,9 @@ New-AzureRmWebAppSSLBinding `
 
 ![Передача открытого сертификата](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * Выбор более высокой ценовой категории.

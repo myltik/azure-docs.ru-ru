@@ -324,7 +324,7 @@ ms.lasthandoff: 10/11/2017
     Start-HPCIaaSNode.ps1 -Name <prefix>-00*
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Попробуйте запустить другие рабочие нагрузки Linux. Например, ознакомьтесь со следующими статьями:
 
 * [Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](hpcpack-cluster-namd.md)

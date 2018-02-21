@@ -17,7 +17,7 @@ ms.custom: it-pro
 ms.reviewer: harshja
 ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -124,7 +124,7 @@ ms.lasthandoff: 01/05/2018
 1. В разделе [Публикация конечной точки узла удаленных рабочих столов](#publish-the-rd-host-endpoint) (шаг 1) в качестве метода предварительной аутентификации выберите **Сквозной режим**.
 2. В разделе [Направление трафика RDS в прокси приложения](#direct-rds-traffic-to-application-proxy) полностью пропустите шаг 8.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Настройка удаленного доступа к SharePoint с помощью прокси приложения Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
 [Вопросы безопасности при удаленном доступе к приложениям через прокси приложения Azure AD](application-proxy-security-considerations.md)

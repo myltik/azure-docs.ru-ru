@@ -99,7 +99,7 @@ Dockerfile использует инструкцию [`CMD` ](https://docs.docke
     CMD ["/bin/init_container.sh"]
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о веб-приложениях Azure для контейнеров см. в следующих ресурсах. Если у вас возникли вопросы, опубликуйте их на [нашем форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 

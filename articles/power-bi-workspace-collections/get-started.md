@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 **Коллекции рабочих областей Power BI** — это служба Azure, которая позволяет разработчикам приложений добавлять интерактивные отчеты Power BI в свои приложения. Служба **Коллекции рабочих областей Power BI** работала с существующими приложениями, вам не нужно изменять способ, с помощью которого пользователи выполняют вход.
 
 > [!IMPORTANT]
-> Использовать службу "Коллекции рабочих областей Power BI" не рекомендуется. Она будет доступна до июня 2018 года или до даты, указанной в контракте. Мы советуем спланировать перенос в Power BI Embedded, чтобы избежать прерывания в работе приложения. Сведения о том, как перенести данные из коллекций рабочих областей Power BI в Power BI Embedded, см. в [этой статье](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Использовать службу "Коллекции рабочих областей Power BI" не рекомендуется. Она будет доступна до июня 2018 года или до даты, указанной в договоре. Мы советуем организовать перенос приложения в Power BI Embedded, чтобы избежать прерываний в его работе. Сведения о том, как перенести данные из коллекций рабочих областей Power BI в Power BI Embedded, см. в [этой статье](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Ресурсы для службы **Коллекции рабочих областей Power BI** подготавливаются с помощью интерфейсов [API Azure Resource Manager](https://msdn.microsoft.com/library/mt712306.aspx). В нашем примере подготавливаемый ресурс — это **коллекция рабочих областей Power BI**.
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-power-bi-datasets-and-reports-using-apis"></a>Создание наборов данных и отчетов Power BI с помощью API
 
-### <a name="datasets"></a>НАБОРЫ ДАННЫХ
+### <a name="datasets"></a>Наборы данных
 
 Вы можете создавать наборы данных в коллекциях рабочих областей Power BI с помощью REST API. Затем данные можно передать в свой набор данных. Это позволит работать с данными без использования Power BI Desktop. Дополнительные сведения см. в статье о [публикации наборов данных](https://msdn.microsoft.com/library/azure/mt778875.aspx).
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="see-also"></a>См. также
 
 [Приступая к работе с примером Microsoft Power BI Embedded](get-started-sample.md)  
-[Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Аутентификация и авторизация в коллекциях рабочих областей Power BI)  
+[Аутентификация и авторизация в коллекциях рабочих областей Power BI](app-token-flow.md)  
 [Внедрение отчета в Power BI Embedded](embed-report.md)  
 [Create a new report from a dataset in Power BI Workspace Collections](create-report-from-dataset.md) (Создание отчета из набора данных в коллекциях рабочих областей Power BI)
 [Сохранение отчетов](save-reports.md)  

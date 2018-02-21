@@ -22,9 +22,9 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Развертывание шаблонов в Azure Stack с помощью Visual Studio
 
-*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
-С помощью Visual Studio можно развертывать шаблоны Azure Resource Manager в пакет средств разработки Azure Stack.
+С помощью Visual Studio можно развертывать шаблоны Azure Resource Manager в Пакет средств разработки Azure Stack.
 
 1. [Выполните установку и подключение](azure-stack-install-visual-studio.md) к Azure Stack с помощью Visual Studio.
 2. Откройте Visual Studio.
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 11. Из списка **Расположение группы ресурсов** выберите расположение, затем нажмите кнопку **Развернуть**.
 12. В диалоговом окне **Изменить параметры** введите значения параметров (которые зависят от шаблона), а затем нажмите кнопку **Сохранить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Развертывание шаблонов с помощью командной строки](azure-stack-deploy-template-command-line.md)
 
 [Разработка шаблонов для Azure Stack](azure-stack-develop-templates.md)

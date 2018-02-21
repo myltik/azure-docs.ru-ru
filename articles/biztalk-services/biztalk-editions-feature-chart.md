@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
         <th>Developer</th>
         <th>базовая;</th>
         <th>Стандартная</th>
-        <th>Premium</th>
+        <th>Премиум</th>
 </tr>
 
 <tr>
@@ -243,7 +243,7 @@ BizTalk Server на виртуальных машинах Azure предоста
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>Включена ли сюда служба адаптера BizTalk? Как получить это программное обеспечение?
 Да, служба адаптера BizTalk вместе с пакетом BizTalk Adapter Pack включена в пакет SDK для служб BizTalk Azure [загрузить](http://www.microsoft.com/download/details.aspx?id=39087).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Чтобы создать службы BizTalk Azure на портале Azure, перейдите по ссылке [Службы BizTalk: подготовка с использованием портала Azure](biztalk-provision-services.md). Чтобы приступить к созданию приложений, перейдите по ссылке [Службы BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы

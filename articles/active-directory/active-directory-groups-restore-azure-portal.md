@@ -18,7 +18,7 @@ ms.reviewer: kairaz.contractor
 ms.custom: it-pro
 ms.openlocfilehash: 66b76b9bfd63f270c1bb86454908e2bae0897d04
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/11/2017
 - Группа станет доступна из любой конечной точки Exchange и из других рабочих нагрузок Office 365, которые поддерживают группы Office 365.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В следующих статьях содержатся дополнительные сведения о группах Azure Active Directory.
 
 * [Просмотр существующих групп](active-directory-groups-view-azure-portal.md)

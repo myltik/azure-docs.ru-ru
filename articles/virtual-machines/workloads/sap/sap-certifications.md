@@ -60,7 +60,7 @@ ms.lasthandoff: 11/17/2017
 
 | Продукт SAP | Гостевая ОС | Реляционная СУБД | Типы виртуальных машин |
 | --- | --- | --- | --- |
-| SAP Business One на SQL Server | Windows  | SQL Server | Все типы виртуальных машин, сертифицированные NetWeaver |
+| SAP Business One на SQL Server | Windows  | SQL Server; | Все типы виртуальных машин, сертифицированные NetWeaver |
 | SAP BPC 10.01 MS SP08 | Windows | | Все типы виртуальных машин, сертифицированные NetWeaver<br /> Примечание к SAP № 2451795 |
 | Платформа SAP BusinessObjects BI | Windows | | Примечание к SAP № 2145537 |
 | SAP Data Services 4.2 | | | Примечание к SAP № 2288344 |

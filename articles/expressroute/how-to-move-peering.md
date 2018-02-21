@@ -50,9 +50,9 @@ ms.lasthandoff: 11/11/2017
 
 Убедитесь, что включен пиринг Майкрософт и объявленные общедоступные префиксы находятся в настроенном состоянии.
 
-  * [Портал Azure](expressroute-howto-routing-portal-resource-manager.md#getmsft)
+  * [портал Azure](expressroute-howto-routing-portal-resource-manager.md#getmsft)
   * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)
-  * [Интерфейс командной строки Azure](howto-routing-cli.md#getmsft)
+  * [интерфейс командной строки Azure](howto-routing-cli.md#getmsft)
 
 ## <a name="routefilter"></a>3. Настройка и подключение фильтра маршрутов к каналу
 

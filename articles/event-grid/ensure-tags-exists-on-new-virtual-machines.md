@@ -33,7 +33,7 @@ ms.lasthandoff: 12/07/2017
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы выполнить инструкции из этого руководства, вам понадобится [учетная запись службы автоматизации Azure](../automation/automation-offering-get-started.md), в которой будет храниться runbook для запуска из подписки служба "Сетка событий".
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 12/07/2017
 
     ![Уведомление для Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом руководстве вы настроили интеграцию между Сеткой событий и службой автоматизации. Вы научились выполнять следующие задачи:
 
 > [!div class="checklist"]

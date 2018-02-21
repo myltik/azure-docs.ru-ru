@@ -17,7 +17,7 @@ ms.date: 07/25/2017
 ms.author: anzaman,cherylmc
 ms.openlocfilehash: fa55cbad9fca799faff4e4cef87f9eedb8d2023f
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -142,6 +142,6 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 
 Разрешение можно освободить, удалив подключение, связывающее канал ExpressRoute и виртуальную сеть.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об ExpressRoute см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).

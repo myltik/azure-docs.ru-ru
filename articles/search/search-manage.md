@@ -17,7 +17,7 @@ ms.date: 11/09/2017
 ms.author: heidist
 ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -176,7 +176,7 @@ Azure реализует [глобальную модель авторизаци
 
 <a id="next-steps"></a>
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Разобравшись с понятиями, связанными с администрированием службы, вы можете перейти к использованию [PowerShell](search-manage-powershell.md) для автоматизации задач.
 
 Мы также рекомендуем ознакомиться со статьей, посвященной [производительности и оптимизации](search-performance-optimization.md).

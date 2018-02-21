@@ -34,10 +34,10 @@ ms.lasthandoff: 12/04/2017
 
 ![Версия, отображаемая на портале разработчика](media/api-management-getstarted-publish-versions/azure_portal.PNG)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 + Выполните задачи в кратком руководстве по [созданию экземпляра службы управления API Azure](get-started-create-service-instance.md).
-+ Также выполните задачи в руководстве по [импорту и публикации первого API](import-and-publish.md).
++ Также выполните задачи из руководства по [импорту и публикации первого API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/04/2017
 
 ![Контекстное меню API: добавление версии](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
-1. В списке API выберите **Conference API** (API для конференций).
+1. В списке API выберите **Conference API**.
 2. Выберите контекстное меню (**...** ) рядом с пунктом.
 3. Выберите **+ Add Version** (+ Добавить версию).
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 12/04/2017
 
     ![Контекстное меню API: добавление версии](media/api-management-getstarted-publish-versions/developer_portal.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого руководства вы узнаете, как выполнять такие задачи:
 

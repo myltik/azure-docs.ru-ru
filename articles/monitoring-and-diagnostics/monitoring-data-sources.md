@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 | Оповещения о метриках Application Insights | Уведомления | Application Insights | <ul><li>**Webhook:** [оповещения Application Insights](../application-insights/app-insights-alerts.md).</li></ul> |
 | Веб-тесты Application Insights | Уведомления | Application Insights | <ul><li>**Webhook:** [оповещения Application Insights](../application-insights/app-insights-alerts.md).</li></ul> |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Узнайте больше о [метриках Azure Monitor](monitoring-overview-metrics.md).
 - Узнайте больше о [журнале действий Azure](monitoring-overview-activity-logs.md).

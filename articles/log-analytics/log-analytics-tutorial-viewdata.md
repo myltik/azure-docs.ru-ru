@@ -153,7 +153,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![График](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом руководстве рассматривалось создание базовых запросов поиска по журналам для анализа данных событий и производительности.  Перейдите к следующему руководству, чтобы узнать, как визуализировать данные путем создания панели мониторинга.
 
 > [!div class="nextstepaction"]

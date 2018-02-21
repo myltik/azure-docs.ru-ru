@@ -16,7 +16,7 @@ ms.date: 01/23/2017
 ms.author: davidmu
 ms.openlocfilehash: 7ca9307e8a78f6dade4b231fa3a0d83a68af3f21
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -217,7 +217,7 @@ VirtualIPs    : {10.0.0.10}
 DnsName       : appgw-b2a11563-2b3a-4172-a4aa-226ee4c23eed.cloudapp.net
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о параметрах балансировки нагрузки в целом см. в статьях:
 
 * [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)

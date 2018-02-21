@@ -106,9 +106,9 @@ sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir -m 777 /home/$JENKINS_USER/.ku
 2. Из среды с Jenkins проверьте, что кластер Kubernetes доступен.  Для этого подключитесь по протоколу SSH к виртуальной машине Jenkins: `ssh <your_jenkins_user>@<your_jenkins_public_ip>`.  Затем убедитесь, что Jenkins может подключиться к кластеру: `kubectl cluster-info`.
     
 
-## <a name="create-a-jenkins-workflow"></a>Создание рабочего процесса Jenkins
+## <a name="create-a-jenkins-workflow"></a>создание рабочего процесса Jenkins;
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 
 - Учетная запись GitHub для репозитория кода.
 - Учетная запись Docker Hub для хранения и обновления образов.
@@ -197,7 +197,7 @@ sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir -m 777 /home/$JENKINS_USER/.ku
     kubectl rollout history deployment/go-web
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Выполните развертывание реестра контейнеров Azure и сохраните образы в безопасном репозитории. Ознакомьтесь с [документацией по реестру контейнеров Azure](https://docs.microsoft.com/azure/container-registry).
 - Создайте более сложный рабочий процесс, который включает в себя параллельное развертывание и автоматическое тестирование в Jenkins.

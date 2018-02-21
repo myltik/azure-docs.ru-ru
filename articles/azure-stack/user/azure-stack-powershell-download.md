@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Скачивание средств Azure Stack из GitHub
 
-AzureStack-Tools — это репозиторий GitHub, в котором размещены модули PowerShell. Их можно использовать для администрирования и развертывания ресурсов в Azure Stack. Вы можете скачать и использовать эти модули PowerShell с пакетом SDK для Azure Stack или внешним клиентом на базе Windows (при планировании VPN-подключения). Чтобы получить эти средства, клонируйте репозиторий GitHub или скачайте папку AzureStack-Tools, выполнив следующий скрипт:
+AzureStack-Tools — это репозиторий GitHub, в котором размещены модули PowerShell. Их можно использовать для администрирования и развертывания ресурсов в Azure Stack. Вы можете скачать и использовать эти модули PowerShell с Пакетом средств разработки Azure Stack или внешним клиентом на базе Windows (при планировании VPN-подключения). Чтобы получить эти средства, клонируйте репозиторий GitHub или скачайте папку AzureStack-Tools, выполнив следующий скрипт:
 
 ```PowerShell
 # Change directory to the root directory 
@@ -47,7 +47,7 @@ cd AzureStack-Tools-master
 
 Репозиторий AzureStack-Tools содержит модули PowerShell с поддержкой следующих функций для работы в среде Azure Stack:  
 
-| Функции | Описание | Кто может использовать этот модуль? |
+| Функции | ОПИСАНИЕ | Кто может использовать этот модуль? |
 | --- | --- | --- |
 | [Возможности облачных служб](azure-stack-validate-templates.md) | Этот модуль используется для получения возможностей облачных служб. Например, с помощью этого модуля можно получить возможности использования версий API, ресурсов Azure Resource Manager, расширений виртуальных машин и т. д. для Azure Stack и облаков Azure. | Администраторы и пользователи облака. |
 | [Политика Resource Manager для Azure Stack](azure-stack-policy-module.md) | Этот модуль используется для настройки подписки Azure или группы ресурсов Azure с такой же версией и уровнем доступности службы, как и в Azure Stack. | Администраторы и пользователи облака |
@@ -55,6 +55,6 @@ cd AzureStack-Tools-master
 | [Проверяющий элемент управления шаблона](azure-stack-validate-templates.md) | Этот модуль позволяет проверить, можно ли развернуть существующий или новый шаблон в Azure Stack. | Администраторы и пользователи облака |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) (Настройка пользовательской среды PowerShell в Azure Stack)   
-* [Подключение к Azure Stack с помощью VPN](azure-stack-connect-azure-stack.md)  
+* [Подключение к Пакету средств разработки Azure Stack с помощью VPN](azure-stack-connect-azure-stack.md)  

@@ -210,7 +210,7 @@ ms.lasthandoff: 10/11/2017
 * [Приступая к работе со службой таблиц Azure в .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Приступая к работе со службой файлов Azure в .NET](../storage-dotnet-how-to-use-files.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о примерах для других языков см. здесь:
 

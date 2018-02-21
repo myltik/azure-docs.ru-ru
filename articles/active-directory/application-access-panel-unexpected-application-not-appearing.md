@@ -16,7 +16,7 @@ ms.author: asteen
 ms.reviwer: japere
 ms.openlocfilehash: 0abb9e992f408ab6df073891047c9afc7716054f
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -667,6 +667,6 @@ Azure AD не предоставляет URL-адреса для получен�
 >
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Добавление новых пользователей в Azure Active Directory](active-directory-users-create-azure-portal.md)
 

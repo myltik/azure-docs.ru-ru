@@ -18,7 +18,7 @@ ms.author: gwallace
 ms.custom: 
 ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/14/2017
 > * Назначение конфигурации узла управляемому узлу.
 > * Проверка состояния соответствия управляемого узла
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим учебником требуется:
 
@@ -158,7 +158,7 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 $reports[0]
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Сведения о развертывании узлов для управления с помощью Azure Automation DSC см. в статье [Подключение компьютеров для управления с помощью Azure Automation DSC](automation-dsc-onboarding.md).
 * Дополнительные сведения об использовании DSC службы автоматизации Azure см. в статье [Приступая к работе с DSC службы автоматизации Azure](automation-dsc-getting-started.md).

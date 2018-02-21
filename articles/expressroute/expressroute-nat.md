@@ -66,7 +66,7 @@ ms.lasthandoff: 10/13/2017
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * См. сведения о требованиях к [маршрутизации](expressroute-routing.md) и [качеству обслуживания](expressroute-qos.md).
 * Сведения о рабочем процессе см. в статье [Процедуры ExpressRoute для подготовки каналов и состояний каналов](expressroute-workflows.md).
 * Настройте подключение ExpressRoute.

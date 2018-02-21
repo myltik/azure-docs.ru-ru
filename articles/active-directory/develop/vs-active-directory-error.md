@@ -17,7 +17,7 @@ ms.author: kraigb
 ms.custom: aaddev
 ms.openlocfilehash: 186bb1ede11c869b1352906b7ebafe57025f4f09
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -95,5 +95,5 @@ ms.lasthandoff: 12/11/2017
 
 Дополнительные сведения см. в статье [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md).
 
-#<a name="next-steps"></a>Дальнейшие действия
+#<a name="next-steps"></a>Дополнительная информация
 - [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md)

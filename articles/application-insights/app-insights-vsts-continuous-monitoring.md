@@ -11,7 +11,7 @@ ms.topic: article
 manager: carmonm
 ms.openlocfilehash: 5bfbdd0033f966422a84071a694845627827f016
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -87,6 +87,6 @@ ms.lasthandoff: 12/08/2017
 
 ![Журналы](.\media\app-insights-continuous-monitoring\006.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Чтобы получить сведения о компоненте VSTS "Сборка и выпуск", изучите эти [краткие руководства](https://docs.microsoft.com/vsts/build-release/).

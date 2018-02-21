@@ -96,7 +96,7 @@ Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Re
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения об обновлении кластера и секционировании служб см. в следующих статьях.
 
 * [Узнайте об обновлениях кластера.](service-fabric-cluster-upgrade.md)

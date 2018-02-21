@@ -17,7 +17,7 @@ ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -100,7 +100,7 @@ ms.lasthandoff: 12/11/2017
 ### <a name="more-information"></a>Дополнительные сведения
 Дополнительные сведения о пробной версии AppSource см. [в этом видео](https://aka.ms/trialexperienceforwebapps). 
  
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о разработке приложений, поддерживающих вход с помощью Azure Active Directory, см. в статье [Сценарии аутентификации в Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios). 
 

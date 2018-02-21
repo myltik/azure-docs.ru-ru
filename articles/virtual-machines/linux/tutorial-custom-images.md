@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e73494ff4827b74cbb42b2b0f1f9738c78960e23
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 297faeb56ac2d4743bfe5887e369be066e91fbd3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Создание пользовательского образа виртуальной машины Azure с помощью интерфейса командной строки
 
@@ -98,7 +98,7 @@ az image create \
  
 ## <a name="create-vms-from-the-image"></a>Создание виртуальных машин из образа
 
-Теперь, когда образ готов, из него можно создать одну или несколько виртуальных машин с помощью команды [az vm create](/cli/azure/vm#create). В следующем примере создается виртуальная машина *myVMfromImage* из образа *myImage*.
+Теперь, когда образ готов, из него можно создать одну или несколько виртуальных машин с помощью команды [az vm create](/cli/azure/vm#az_vm_create). В следующем примере создается виртуальная машина *myVMfromImage* из образа *myImage*.
 
 ```azurecli-interactive 
 az vm create \
@@ -128,7 +128,7 @@ az image delete \
     --resource-group myResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В рамках этого руководства вы создали пользовательский образ виртуальной машины. Вы научились выполнять следующие задачи:
 

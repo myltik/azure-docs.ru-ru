@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fb646a56b51960d5b076027d942dabe8f2afbe97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 2354a8bf81189f70bb8d0d63c3df3236403c11fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Настройка политик условного доступа на основе устройств для Azure Active Directory
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 12/11/2017
 
 В эпоху мобильных и облачных технологий Azure Active Directory обеспечивает единый вход для устройств, приложений и служб из любого расположения. Но для некоторых ресурсов в вашей среде может быть недостаточно просто предоставить доступ соответствующим пользователям. Помимо этого для доступа к ресурсу может потребоваться доверенное устройство. В среде можно определить доверенное устройство, основываясь на следующих критериях:
 
-- [Платформы устройств](active-directory-conditional-access-azure-portal.md#device-platforms) на устройстве.
+- [Платформы устройств](active-directory-conditional-access-conditions.md#device-platforms) на устройстве.
 - Является ли устройство совместимым.
 - Подключено ли устройство к домену. 
 
-[Платформы устройств](active-directory-conditional-access-azure-portal.md#device-platforms) характеризуются операционной системой, установленной на устройстве. В политике условного доступа на основе устройств можно ограничить доступ к определенным ресурсам определенными платформами устройств.
+[Платформы устройств](active-directory-conditional-access-conditions.md#device-platforms) характеризуются операционной системой, установленной на устройстве. В политике условного доступа на основе устройств можно ограничить доступ к определенным ресурсам определенными платформами устройств.
 
 
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 12/11/2017
 ![Облачные приложения](./media/active-directory-conditional-access-policy-connected-applications/25.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Перед настройкой политики условного доступа на основе устройств в своей среде ознакомьтесь со статей [Рекомендации по работе с условным доступом в Azure Active Directory](active-directory-conditional-access-best-practices.md).
 

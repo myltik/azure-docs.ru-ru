@@ -22,9 +22,9 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Установка Visual Studio и подключение к Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
-С помощью Visual Studio можно создавать и развертывать [шаблоны Azure Resource Manager](azure-stack-arm-templates.md) в Azure Stack. С помощью приведенных в этой статье инструкций можно установить Visual Studio, используя [пакет SDK для Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) или внешний клиент на базе Windows (при подключении через [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)). В этой статье вы выполните новую установку Visual Studio 2015 Community Edition. См. дополнительные сведения о [сосуществовании](https://msdn.microsoft.com/library/ms246609.aspx) других версий Visual Studio.
+С помощью Visual Studio можно создавать и развертывать [шаблоны Azure Resource Manager](azure-stack-arm-templates.md) в Azure Stack. С помощью приведенных в этой статье инструкций можно установить Visual Studio, используя [Пакет средств разработки Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) или внешний клиент на базе Windows (при подключении через [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)). В этой статье вы выполните новую установку Visual Studio 2015 Community Edition. См. дополнительные сведения о [сосуществовании](https://msdn.microsoft.com/library/ms246609.aspx) других версий Visual Studio.
 
 ## <a name="install-visual-studio"></a>Установка Visual Studio
 1. Скачайте и запустите [установщик веб-платформы](https://www.microsoft.com/web/downloads/platform.aspx).             

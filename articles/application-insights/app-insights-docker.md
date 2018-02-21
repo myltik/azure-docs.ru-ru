@@ -124,7 +124,7 @@ ms.lasthandoff: 11/01/2017
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Application Insights для Java](app-insights-java-get-started.md)
 * [Application Insights для Node.js](app-insights-nodejs.md)

@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 # <a name="get-started-with-azure-dns-using-powershell"></a>Приступая к работе со службой DNS Azure с помощью PowerShell
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](dns-getstarted-portal.md)
+> * [портал Azure](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
 > * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
@@ -99,7 +99,7 @@ MaxNumberOfRecordSets : 5000
 Remove-AzureRMResourceGroup -Name MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о службе DNS Azure см. в статье [Обзор Azure DNS](dns-overview.md).
 

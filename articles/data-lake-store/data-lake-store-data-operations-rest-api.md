@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 В этой статье содержатся сведения об использовании интерфейсов REST API WebHDFS и REST API Data Lake Store для выполнения операций файловой системы в Azure Data Lake Store. Дополнительные сведения о том, как выполнять операции управления учетными записями в Data Lake Store с помощью REST API, см. в статье [Начало работы с Azure Data Lake Store с помощью интерфейсов REST API](data-lake-store-get-started-rest-api.md).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 * **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Учетная запись хранилища озера данных Azure**. Следуйте инструкциям в разделе [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).

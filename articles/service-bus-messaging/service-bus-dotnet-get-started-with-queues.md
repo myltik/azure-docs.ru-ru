@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 3. Написание консольного приложения .NET Core для отправки набора сообщений в очередь.
 4. Написание консольного приложения .NET Core для получения этих сообщений из очереди.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 1. [Visual Studio 2017 с обновлением 3 (версия 15.3, 26730.01)](http://www.visualstudio.com/vs) или более новая версия.
 2. [Пакет SDK для .NET Core](https://www.microsoft.com/net/download/windows) версии 2.0 или более новой.
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/11/2017
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-queue-using-the-azure-portal"></a>2) Создание очереди с помощью портала Azure
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Создание очереди с помощью портала Azure
 
 Если очередь служебной шины уже создана, перейдите к разделу [Отправка сообщений в очередь](#3-send-messages-to-the-queue).
 
@@ -409,7 +409,7 @@ ms.lasthandoff: 12/11/2017
 
 Поздравляем! Теперь вы создали очередь, отправили в нее набор сообщений и получили сообщения из нее.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Ознакомьтесь с [примерами в репозитории GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples), демонстрирующими расширенные возможности обмена сообщениями служебной шины.
 

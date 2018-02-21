@@ -60,7 +60,7 @@ Azure AD обнаруживает подозрительные действия
 - **Состояние** — состояние входа.
 
 
-![События входа, представляющие риск](./media/active-directory-reporting-security-risky-sign-ins/01.png)
+![события входа, представляющие риск.](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
 Ознакомившись со сведениями о входе, представляющем риск, вы можете отправить отзыв в Azure Active Directory в виде одной из следующих команд.
 
@@ -69,7 +69,7 @@ Azure AD обнаруживает подозрительные действия
 - Игнорировать
 - Повторно активировать
 
-![События входа, представляющие риск](./media/active-directory-reporting-security-risky-sign-ins/21.png)
+![события входа, представляющие риск.](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 Дополнительные сведения см. в разделе [Закрытие событий риска вручную](active-directory-identityprotection.md#closing-risk-events-manually).
 
@@ -79,7 +79,7 @@ Azure AD обнаруживает подозрительные действия
 - загрузка данных отчета.
 
 
-![События входа, представляющие риск](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+![события входа, представляющие риск.](./media/active-directory-reporting-security-risky-sign-ins/93.png)
 
 
 ## <a name="azure-active-directory-premium-editions"></a>Выпуски Azure Active Directory Premium
@@ -91,7 +91,7 @@ Azure AD обнаруживает подозрительные действия
 - Возможность скачать отчет.
 
 
-![События входа, представляющие риск](./media/active-directory-reporting-security-risky-sign-ins/456.png)
+![события входа, представляющие риск.](./media/active-directory-reporting-security-risky-sign-ins/456.png)
 
 
 При выборе события риска отображается подробное представление отчета об этом событии, предоставляющее перечисленные ниже возможности.
@@ -105,7 +105,7 @@ Azure AD обнаруживает подозрительные действия
 - [Ручное закрытие события риска](active-directory-identityprotection.md#closing-risk-events-manually) или повторная активация события риска, закрытого вручную. 
 
 
-![События входа, представляющие риск](./media/active-directory-reporting-security-risky-sign-ins/457.png)
+![события входа, представляющие риск.](./media/active-directory-reporting-security-risky-sign-ins/457.png)
 
 При выборе пользователя отображается подробное представление отчета об этом пользователе, предоставляющее перечисленные ниже возможности.
 
@@ -118,20 +118,20 @@ Azure AD обнаруживает подозрительные действия
 - Изучение обнаруженных событий риска для пользователя. 
 
 
-![События входа, представляющие риск](./media/active-directory-reporting-security-risky-sign-ins/324.png)
+![события входа, представляющие риск.](./media/active-directory-reporting-security-risky-sign-ins/324.png)
 
 
 Чтобы изучить событие риска, выберите его из списка.  
 Откроется колонка **Сведения** для этого события риска. В колонке **Сведения** вы можете либо [вручную закрыть событие риска](active-directory-identityprotection.md#closing-risk-events-manually), либо повторно активировать событие риска, закрытое вручную. 
 
 
-![События входа, представляющие риск](./media/active-directory-reporting-security-risky-sign-ins/325.png)
+![события входа, представляющие риск.](./media/active-directory-reporting-security-risky-sign-ins/325.png)
 
 
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Дополнительные сведения о защите идентификации Azure см. в статье [Защита идентификации Azure Active Directory](active-directory-identityprotection.md).
 

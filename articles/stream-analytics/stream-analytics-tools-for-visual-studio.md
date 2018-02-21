@@ -17,14 +17,14 @@ ms.date: 03/28/2017
 ms.author: sujie
 ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Использование инструментов Azure Stream Analytics для Visual Studio
 Выпущена общедоступная версия инструментов Azure Stream Analytics для Visual Studio. Эти инструменты расширяют возможности пользователя Stream Analytics для устранения неполадок, а также позволяют создавать сложные запросы и даже записывать их на локальный компьютер. Кроме того, можно экспортировать задание Stream Analytics в проект Visual Studio.
 
-## <a name="introduction"></a>Общие сведения
+## <a name="introduction"></a>Введение
 В этом руководстве вы узнаете, как использовать средства Stream Analytics для Visual Studio для создания, разработки, локального тестирования, отладки заданий Stream Analytics и управления ими. 
 
 После работы с этим учебником вы сможете выполнить следующие задачи:
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/08/2017
 * Использовать мониторинг для устранения неполадок.
 * Экспортировать существующие задания в проекты.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Для работы с данным руководством вам потребуется:
 
 * Выполните действия до раздела "Создание задания Stream Analytics" руководства [Создание решения IoT с помощью Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
@@ -264,7 +264,7 @@ ms.lasthandoff: 12/08/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
 * [Приступая к работе с Azure Stream Analytics: выявление мошенничества в режиме реального времени](stream-analytics-get-started.md)
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)

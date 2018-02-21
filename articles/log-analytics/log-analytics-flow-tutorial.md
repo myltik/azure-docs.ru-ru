@@ -75,7 +75,7 @@ ms.lasthandoff: 10/16/2017
 3. По завершении последовательности проверьте почту получателя, которую вы указали.  Вы должны получить сообщение с текстом, подобным этому:<br><br>![Пример электронного сообщения](media/log-analytics-flow-tutorial/flow08.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Дополнительные сведения о [поиске по журналам Log Analytics](log-analytics-log-search-new.md).
 - Дополнительные сведения о [Microsoft Flow](https://ms.flow.microsoft.com).

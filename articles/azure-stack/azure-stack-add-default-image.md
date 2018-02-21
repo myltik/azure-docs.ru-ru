@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: be4a61f185435238db68e4dc43c323a30a754f03
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Добавление образа виртуальной машины Windows Server 2016 в Azure Stack Marketplace
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="add-the-image-by-downloading-it-from-the-azure-marketplace"></a>Добавление образа путем скачивания его из Azure Marketplace
 
-1. Разверните Azure Stack и затем войдите в свой пакет средств разработки Azure Stack.
+1. Разверните Azure Stack и затем войдите в свой Пакет средств разработки Azure Stack.
 
 2. Щелкните **Больше служб** > **Marketplace Management** (Управление Marketplace) > **Add from Azure** (Добавить из Azure). 
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 01/24/2018
 
 ### <a name="new-azsserver2016vmimage"></a>New-AzsServer2016VMImage 
 
-Этот командлет позволяет создать и отправить образ основных серверных компонентов для Windows Server 2016 и (или) полный образ, а также создать для него элемент Marketplace.
+Создает и отправляет новый образ Server 2016 Core или полный образ, а также создает для него элемент Marketplace.
 
 | Параметры | Обязательно | Пример | ОПИСАНИЕ |
 |-----|-----|------|---- |

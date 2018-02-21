@@ -17,7 +17,7 @@ ms.date: 03/15/2017
 ms.author: sasubram
 ms.openlocfilehash: 439219087d0a5027c729e9d0e0ecb90bd2a9de3c
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) поддерживает настройку у
 Сведения о том, как добавлять и редактировать утверждения, см. в статье [Настройка утверждений, выпущенных в маркере SAML для предварительно интегрированных приложений в Azure Active Directory](develop/active-directory-saml-claims-customization.md). По соображениям безопасности сопоставление NameID и имени участника-пользователя между клиентами для пользователей службы совместной работы B2B запрещено.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B:
 

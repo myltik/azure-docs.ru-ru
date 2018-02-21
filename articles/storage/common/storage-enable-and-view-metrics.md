@@ -130,7 +130,7 @@ blobClient.SetServiceProperties(properties);
 * $MetricsMinutePrimaryTransactionsTable
 * $MetricsMinutePrimaryTransactionsQueue
 
-### <a name="capacity"></a>Емкость
+### <a name="capacity"></a>Capacity
 * $MetricsCapacityBlob
 
 Подробные сведения о схемах для этих таблиц см. в разделе [Схема таблицы метрик аналитики хранилища](https://msdn.microsoft.com/library/azure/hh343264.aspx). В примере строк ниже отражена только часть доступных столбцов, однако он иллюстрирует некоторые важные возможности сохранения метрик с помощью метрик хранилища:
@@ -212,5 +212,5 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 * Если за каждый час служба использует каждый API в каждой службе, то каждый час в таблицах транзакций метрик сохраняется примерно 12 КБ данных, если сводка охватывает только уровень службы.
 * В таблице емкости больших двоичных объектов ежедневно добавляются две строки (если пользователь выбрал использование журналов). При этом размер этой таблицы ежедневно увеличивается примерно на 300 байтов.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Включение ведения журнала и доступа к данным журнала хранилища](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Подключение хранилища файлов Azure на виртуальных машинах Linux с помощью протокола SMB
 
@@ -67,7 +67,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
 
 Для работы с этим подробным пошаговым руководством необходимо сначала создать общую папку хранилища файлов и подключить ее по протоколу SMB к виртуальной машине Linux.
 
-1. С помощью команды [az group create](/cli/azure/group#create) создайте группу ресурсов для хранения файлового ресурса.
+1. С помощью команды [az group create](/cli/azure/group#az_group_create) создайте группу ресурсов для хранения файлового ресурса.
 
     Чтобы создать группу ресурсов `myResourceGroup` в регионе "Западная часть США", воспользуйтесь следующим примером.
 
@@ -75,7 +75,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
     az group create --name myResourceGroup --location westus
     ```
 
-2. С помощью команды [az storage account create](/cli/azure/storage/account#create) создайте учетную запись хранения для файлов.
+2. С помощью команды [az storage account create](/cli/azure/storage/account#az_storage_account_create) создайте учетную запись хранения для файлов.
 
     Чтобы создать учетную запись хранения mystorageaccount, использующую номер SKU службы хранилища Standard_LRS, воспользуйтесь следующим примером.
 
@@ -90,7 +90,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
 
     При создании учетной записи хранения ключи учетной записи создаются парами, поэтому их можно менять без прерывания работы службы. При смене одного из ключей в паре создается еще одна пара ключей. Так как новые ключи учетной записи хранения всегда создаются парами, у вас всегда будет по крайней мере один неиспользованный ключ учетной записи хранения, на который можно сменить текущий ключ.
 
-    Ключи учетной записи хранения можно просмотреть, выполнив команду [az storage account keys list](/cli/azure/storage/account/keys#list). В следующем примере отображаются ключи для учетной записи хранения `mystorageaccount`.
+    Ключи учетной записи хранения можно просмотреть, выполнив команду [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). В следующем примере отображаются ключи для учетной записи хранения `mystorageaccount`.
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
 
 4. Создайте общий ресурс хранилища файлов.
 
-    Общий ресурс хранилища файлов используется для хранения общего ресурса SMB. Создайте его, выполнив команду [az storage share create](/cli/azure/storage/share#create). Квота всегда измеряется в гигабайтах (ГБ). Передайте один из ключей из предыдущей команды `az storage account keys list`. Создайте общий ресурс mystorageshare с квотой в 10 ГБ, используя приведенный ниже пример.
+    Общий ресурс хранилища файлов используется для хранения общего ресурса SMB. Создайте его, выполнив команду [az storage share create](/cli/azure/storage/share#az_storage_share_create). Квота всегда измеряется в гигабайтах (ГБ). Передайте один из ключей из предыдущей команды `az storage account keys list`. Создайте общий ресурс mystorageshare с квотой в 10 ГБ, используя приведенный ниже пример.
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,10 +137,10 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
     При перезагрузке виртуальной машины Linux подключенный общий ресурс SMB отключается во время завершения работы. Чтобы общий ресурс SMB повторно подключался при загрузке, добавьте строку в файл Linux /etc/fstab. Linux использует файл fstab, чтобы получить список файловых систем, которые следует подключить во время загрузки. Если добавить общий ресурс SMB, общая папка хранилища файлов станет постоянно подключенной файловой системой в виртуальной машине Linux. Общий ресурс SMB в хранилище файлов можно добавить в новую виртуальную машину, используя cloud-init.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Настройка виртуальной машины Linux во время создания с помощь cloud-init](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Добавление диска к виртуальной машине Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

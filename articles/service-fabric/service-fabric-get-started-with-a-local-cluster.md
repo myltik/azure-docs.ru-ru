@@ -216,7 +216,7 @@ ms.lasthandoff: 11/04/2017
    
     ![Результат установки кластера][cluster-setup-success-1-node]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Теперь, когда вы развернули и обновили предварительно собранные приложения, вы можете [выполнить сборку своего приложения в Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 * Все описанные в этой статье действия, выполняемые в локальном кластере, можно также выполнять в [кластере Azure](service-fabric-cluster-creation-via-portal.md) .
 * В этой статье описано простое обновление. Чтобы узнать больше о преимуществах и гибкости обновлений Service Fabric, см. [документацию по обновлению](service-fabric-application-upgrade.md).

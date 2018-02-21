@@ -18,7 +18,7 @@ ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.openlocfilehash: 6e856ed740849a072f183d1e566d46d6132f5ffc
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -90,7 +90,7 @@ ms.lasthandoff: 12/11/2017
 
 Чтобы получить номера телефонов службы поддержки, перейдите на страницу [Обратитесь в корпорацию Майкрософт для поддержки](https://portal.office.com/Support/ContactUs.aspx).
 
-##  <a name="next-steps"></a>Дальнейшие действия
+##  <a name="next-steps"></a>Дополнительная информация
 
 * [Техническое сообщество Майкрософт](https://techcommunity.microsoft.com/)
 

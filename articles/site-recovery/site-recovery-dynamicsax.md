@@ -16,7 +16,7 @@ ms.date: 12/11/2017
 ms.author: asgang
 ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 
 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для реализации аварийного восстановления для приложения Dynamics AX с помощью Site Recovery необходимо выполнить следующие предварительные требования:
 
@@ -189,5 +189,5 @@ ms.lasthandoff: 12/11/2017
 ## <a name="summary"></a>Сводка
 С помощью Site Recovery можно создать полностью автоматизированный план аварийного восстановления для приложения Dynamics AX. Отработку отказа можно запустить из любого места в течение нескольких секунд в случае сбоя и восстановить таким образом работоспособность приложения за считанные минуты.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о защите корпоративных рабочих нагрузок с помощью Azure Site Recovery см. в статье [Какие рабочие нагрузки можно защитить с помощью службы Azure Site Recovery?](site-recovery-workload.md)

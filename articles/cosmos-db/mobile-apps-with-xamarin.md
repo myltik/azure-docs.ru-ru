@@ -16,7 +16,7 @@ ms.date: 11/15/2017
 ms.author: arramac
 ms.openlocfilehash: 34952fb1cbe5577fa00ed7799d51ba46e7173d7e
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -101,7 +101,7 @@ Azure Cosmos DB — это управляемая база данных как 
 
 Поздравляем! Вы создали решение, и теперь у вас есть мобильное приложение, разработанное с помощью Xamarin и Azure Cosmos DB. Аналогичные действия можно выполнить для создания приложений Cordova, в которых используется пакет SDK JavaScript для Azure Cosmos DB, и собственных приложений iOS или Android с использованием REST API для Azure Cosmos DB.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Просмотрите исходный код для [Xamarin и Azure Cosmos DB на сайте GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 * Скачайте [пакет SDK .NET Core для Azure Cosmos DB](sql-api-sdk-dotnet-core.md).
 * Ознакомьтесь с другими примерами кода для [приложений .NET](sql-api-dotnet-samples.md).

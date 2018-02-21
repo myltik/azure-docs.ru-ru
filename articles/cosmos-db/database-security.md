@@ -89,7 +89,7 @@ ms.lasthandoff: 11/15/2017
 
 На следующем снимке экрана показано, как можно выполнять мониторинг учетной записи с помощью журналов аудита и действий: ![журналы действий для Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о главных ключах и маркерах ресурсов см. в статье о [защите доступа к ресурсам Azure Cosmos DB](secure-access-to-data.md).
 

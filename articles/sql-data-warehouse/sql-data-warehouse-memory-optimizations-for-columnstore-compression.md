@@ -150,7 +150,7 @@ OPTION (MAXDOP 1);
 - При наличии DWU 600 и largerc выделение памяти составит 800 МБ.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные способы повышения производительности в хранилище данных SQL см. в статье [Monitor user queries in Azure SQL Data Warehouse](sql-data-warehouse-overview-manage-user-queries.md) (Мониторинг пользовательских запросов в хранилище данных Azure SQL).
 

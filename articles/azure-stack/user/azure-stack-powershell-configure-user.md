@@ -22,9 +22,9 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Настройка пользовательской среды PowerShell в Azure Stack
 
-Как пользователь Azure Stack вы можете настроить среду PowerShell для работы с пакетом SDK для Azure Stack. После этого PowerShell можно использовать для администрирования ресурсов Azure Stack. Вы сможете подписываться на предложения, создавать виртуальные машины, развертывать шаблоны Azure Resource Manager и т. д. В этом разделе описывается только использование пользовательских сред. Но вы также можете [настроить среду PowerShell оператора Azure Stack](../azure-stack-powershell-configure-admin.md). 
+Как пользователь Azure Stack вы можете настроить среду PowerShell для работы с Пакетом средств разработки Azure Stack. После этого PowerShell можно использовать для администрирования ресурсов Azure Stack. Вы сможете подписываться на предложения, создавать виртуальные машины, развертывать шаблоны Azure Resource Manager и т. д. В этом разделе описывается только использование пользовательских сред. Но вы также можете [настроить среду PowerShell оператора Azure Stack](../azure-stack-powershell-configure-admin.md). 
 
-## <a name="prerequisites"></a>Предварительные требования 
+## <a name="prerequisites"></a>предварительным требованиям 
 
 Выполните следующие предварительные требования с помощью либо [пакета средств разработки](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), либо внешнего клиента на базе Windows (при [подключении через VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)).
 
@@ -124,6 +124,6 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Разработка шаблонов для Azure Stack](azure-stack-develop-templates.md)
 * [Развертывание шаблонов с помощью PowerShell](azure-stack-deploy-template-powershell.md)

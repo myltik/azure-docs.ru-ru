@@ -16,7 +16,7 @@ ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -249,6 +249,6 @@ Content-Type: application/json
 
 Для удобства чтения статьи мы опустили довольно длинный ответ JSON на данный запрос. Этот ответ содержит сведения о развертывании, созданном на основе шаблона.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Сведения об обработке асинхронных операций REST см. в статье [Отслеживание асинхронных операций Azure](resource-manager-async-operations.md).

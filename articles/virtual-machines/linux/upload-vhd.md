@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 7c297725c26ea6c44403a10ecdcc3542f89f10b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d72094fb34c73e511b1003be25594a1dedddb1e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Создание виртуальной машины Linux на основе настраиваемого диска с помощью Azure CLI 2.0
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="quick-commands"></a>Быстрые команды
 
-При создании виртуальной машины, используя команду [az vm create](/cli/azure/vm#create), на основе настраиваемого или специализированного диска, вы **подключаете** диск (--attach-os-disk), вместо того чтобы указать настраиваемый образ или образ Marketplace (--image). В следующем примере создается виртуальная машина с именем *myVM* на основе управляемого диска *myManagedDisk*, созданного из настраиваемого VHD.
+При создании виртуальной машины, используя команду [az vm create](/cli/azure/vm#az_vm_create), на основе настраиваемого или специализированного диска, вы **подключаете** диск (--attach-os-disk), вместо того чтобы указать настраиваемый образ или образ Marketplace (--image). В следующем примере создается виртуальная машина с именем *myVM* на основе управляемого диска *myManagedDisk*, созданного из настраиваемого VHD.
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location eastus --name myVM \
@@ -56,7 +56,7 @@ az vm create --resource-group myResourceGroup --location eastus --name myVM \
 > 
 
 
-* Обязательно установите последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
+* Обязательно установите последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#az_login).
 
 В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: *myResourceGroup*, *mystorageaccount* и *mydisks*.
 
@@ -87,7 +87,7 @@ Azure поддерживает различные дистрибутивы Linux
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Перед отправкой пользовательского диска и созданием виртуальных машин необходимо создать группу ресурсов с помощью команды [az group create](/cli/azure/group#create).
+Перед отправкой пользовательского диска и созданием виртуальных машин необходимо создать группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create).
 
 В указанном ниже примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*. [Обзор управляемых дисков Azure](../windows/managed-disks-overview.md).
 ```azurecli
@@ -98,7 +98,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>Создайте учетную запись хранения.
 
-Создайте учетную запись хранения для пользовательского диска и виртуальных машин с помощью команды [az storage account create](/cli/azure/storage/account#create). 
+Создайте учетную запись хранения для пользовательского диска и виртуальных машин с помощью команды [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 В следующем примере создается учетная запись хранения с именем *mystorageaccount* в ранее созданной группе ресурсов:
 
@@ -112,7 +112,7 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>Вывод списка ключей учетной записи хранения
-Azure создает два 512-разрядных ключа доступа для каждой учетной записи хранения. Эти ключи используются при проверке подлинности в учетной записи хранения, например, для выполнения операций записи. Узнайте больше об управлении доступом к хранилищу [здесь](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Просмотрите список ключей доступа с помощью команды [az storage account keys list](/cli/azure/storage/account/keys#list).
+Azure создает два 512-разрядных ключа доступа для каждой учетной записи хранения. Эти ключи используются при проверке подлинности в учетной записи хранения, например, для выполнения операций записи. Узнайте больше об управлении доступом к хранилищу [здесь](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Просмотрите список ключей доступа с помощью команды [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 Просмотрите ключи доступа для созданной учетной записи хранения.
 
@@ -136,7 +136,7 @@ info:    storage account keys list command OK
 Запишите значение **key1**, так как оно будет использоваться для работы с учетной записью хранения на следующих шагах.
 
 ### <a name="create-a-storage-container"></a>Создание контейнера хранилища
-Точно так же, как вы создаете различные каталоги для логической организации локальной файловой системы, вы создаете контейнеры в учетной записи хранения, чтобы упорядочить диски. Учетная запись хранения может содержать любое количество контейнеров. Создайте контейнер с помощью команды [az storage container create](/cli/azure/storage/container#create).
+Точно так же, как вы создаете различные каталоги для логической организации локальной файловой системы, вы создаете контейнеры в учетной записи хранения, чтобы упорядочить диски. Учетная запись хранения может содержать любое количество контейнеров. Создайте контейнер с помощью команды [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 В следующем примере создается контейнер с именем *mydisks*.
 
@@ -147,7 +147,7 @@ az storage container create \
 ```
 
 ### <a name="upload-the-vhd"></a>Отправка виртуального жесткого диска
-Теперь передайте пользовательский диск с помощью команды [az storage blob upload](/cli/azure/storage/blob#upload). Пользовательский диск передается и хранится как страничный BLOB-объект.
+Теперь передайте пользовательский диск с помощью команды [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload). Пользовательский диск передается и хранится как страничный BLOB-объект.
 
 Укажите ключ доступа, созданный на предыдущем шаге контейнер и путь к пользовательскому диску на локальном компьютере:
 
@@ -164,7 +164,7 @@ az storage blob upload --account-name mystorageaccount \
 ### <a name="create-a-managed-disk"></a>Создание управляемого диска
 
 
-Создайте управляемый диск из VHD, выполнив команду [az disk create](/cli/azure/disk#create). В следующем примере создается управляемый диск с именем *myManagedDisk* из виртуального жесткого диска, переданного в учетную запись хранения и сохраненного в контейнере:
+Создайте управляемый диск из VHD, выполнив команду [az disk create](/cli/azure/disk#az_disk_create). В следующем примере создается управляемый диск с именем *myManagedDisk* из виртуального жесткого диска, переданного в учетную запись хранения и сохраненного в контейнере:
 
 ```azurecli
 az disk create \
@@ -210,7 +210,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>Создание виртуальной машины
 
-Теперь создайте виртуальную машину, выполнив команду [az vm create](/cli/azure/vm#create), и подключите (--attach-os-disk) управляемый диск как диск операционной системы. В следующем примере создается виртуальная машина с именем *myNewVM* на основе управляемого диска, созданного из отправленного ранее виртуального жесткого диска.
+Теперь создайте виртуальную машину, выполнив команду [az vm create](/cli/azure/vm#az_vm_create), и подключите (--attach-os-disk) управляемый диск как диск операционной системы. В следующем примере создается виртуальная машина с именем *myNewVM* на основе управляемого диска, созданного из отправленного ранее виртуального жесткого диска.
 
 ```azurecli
 az vm create \
@@ -223,6 +223,6 @@ az vm create \
 
 Вы должны иметь возможность подключиться к виртуальной машине по протоколу SSH, используя учетные данные исходной виртуальной машины. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 После подготовки и передачи пользовательского виртуального диска ознакомьтесь с дополнительными сведениями об [использовании Resource Manager и шаблонов](../../azure-resource-manager/resource-group-overview.md). Возможно, вам также потребуется [добавить диск данных](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) для новых виртуальных машин. Если на виртуальных машинах запущены приложения, к которым необходим доступ, [откройте порты и конечные точки](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

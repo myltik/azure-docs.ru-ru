@@ -236,6 +236,6 @@ ms.lasthandoff: 10/11/2017
         while (continuationToken != null);
     }
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 

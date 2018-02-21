@@ -17,7 +17,7 @@ ms.author: bryanla
 ms.custom: aaddev
 ms.openlocfilehash: 85731afd18304e848f8577d8a6665dca3f9ee5d8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -65,7 +65,7 @@ ms.lasthandoff: 12/11/2017
 
 На шаге 3 каждый из клиентов-потребителей приложения по управлению персоналом (Contoso и Fabrikam) имеет собственный объект субъекта-службы. И каждый из них представляет использование экземпляра приложения во время выполнения. Это использование зависит от разрешений, предоставленных соответствующим администратором.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Доступ к объекту приложения можно получить через API Azure AD Graph, с помощью редактора манифеста приложения на [портале Azure][AZURE-Portal] или с помощью [командлетов Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), как определено в [сущности приложения][AAD-Graph-App-Entity] OData.
 
 Доступ к объекту субъекта-службы приложения можно получить через API Azure AD Graph или с помощью [командлетов Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), как определено в [сущности субъекта-службы][AAD-Graph-Sp-Entity] OData.

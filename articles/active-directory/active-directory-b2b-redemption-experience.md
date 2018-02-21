@@ -17,7 +17,7 @@ ms.date: 05/24/2017
 ms.author: sasubram
 ms.openlocfilehash: c0e74d9b3718fc8baa0227e109b690724b6a7d01
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B:
 

@@ -35,6 +35,6 @@ ms.lasthandoff: 10/11/2017
 - Исправление задания экспорта. 
 - Устранение неполадок средства импорта и экспорта Azure, возникающих при его использовании. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Using the Azure Import/Export Tool](../storage-import-export-tool-how-to.md) (Использование средства импорта и экспорта Azure)

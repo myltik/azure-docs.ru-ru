@@ -141,7 +141,7 @@ cf scale -i 2 hello-spring-cloud
 Если выполнить команду `cf app` в приложении, мы увидим, что Cloud Foundry создает другой экземпляр приложения. После запуска приложения Cloud Foundry автоматически запускает балансировку нагрузки по трафику к нему.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Ознакомьтесь с документацией по Cloud Foundry][cloudfoundry-docs]
 - [Настройте подключаемый модуль Visual Studio Team Services для Cloud Foundry][vsts-plugin]

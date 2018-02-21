@@ -16,13 +16,13 @@ ms.date: 08/15/2017
 ms.author: sethm
 ms.openlocfilehash: 28585a1b6a6c7c642c8bccf4615382d15f89d11c
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Отправка событий в концентраторы событий Azure с помощью Java
 
-## <a name="introduction"></a>Общие сведения
+## <a name="introduction"></a>Введение
 Концентраторы событий — это высокомасштабируемая система, способная принимать миллионы событий в секунду, благодаря которой приложения могут обрабатывать и анализировать большие объемы данных от подключенных устройств и приложений. После сбора данных в концентраторах событий их можно преобразовать и сохранить с помощью любого поставщика аналитики в реальном времени или в кластере хранилища.
 
 Дополнительные сведения см. в [обзоре концентраторов событий][Event Hubs overview].
@@ -94,7 +94,7 @@ public class Send
 
 ``` 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о концентраторах событий см. в следующих источниках:
 
 * [Receive events using the EventProcessorHost](event-hubs-java-get-started-receive-eph.md) (Получение событий с помощью EventProcessorHost)

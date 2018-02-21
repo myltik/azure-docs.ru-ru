@@ -16,7 +16,7 @@ ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: 32a3f7498d3c8891178818436e33221f91ae2f8f
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 
 В этой статье приведены сведения о настройке локальной среды для запуска репликации виртуальных машин VMware в Azure.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с руководством требуются следующие компоненты.
 - Хранилище служб восстановления на [портале Azure](http://portal.azure.com "портал Azure").
@@ -99,5 +99,5 @@ ms.lasthandoff: 12/21/2017
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Настройка целевой среды](./site-recovery-prepare-target-vmware-to-azure.md) в Azure.

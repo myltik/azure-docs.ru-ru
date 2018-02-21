@@ -44,10 +44,10 @@ ms.lasthandoff: 11/09/2017
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- | 
-|операнд1 |Да |int |Первое слагаемое. |
-|операнд2 |Да |int |Второе слагаемое. |
+|операнд1 |Yes |int |Первое слагаемое. |
+|операнд2 |Yes |int |Второе слагаемое. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 11/09/2017
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
@@ -115,10 +115,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| loopName | Нет | string | Имя цикла для получения итерации. |
-| offset |Нет |int |Число, добавляемое к отсчитываемому от нуля значению итерации. |
+| loopName | Нет  | строка | Имя цикла для получения итерации. |
+| offset |Нет  |int |Число, добавляемое к отсчитываемому от нуля значению итерации. |
 
 ### <a name="remarks"></a>Примечания
 
@@ -161,10 +161,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| операнд1 |Да |int |Делимое. |
-| операнд2 |Да |int |Делитель. Не может иметь значение 0. |
+| операнд1 |Yes |int |Делимое. |
+| операнд2 |Yes |int |Делитель. Не может иметь значение 0. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -207,7 +207,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -232,9 +232,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| arg1 |Да |строка или целое число |Значение, которое необходимо преобразовать в число с плавающей запятой. |
+| arg1 |Yes |строка или целое число |Значение, которое необходимо преобразовать в число с плавающей запятой. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 Число с плавающей запятой.
@@ -266,9 +266,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Да |строка или целое число |Значение, которое необходимо преобразовать в целое число. |
+| valueToConvert |Yes |строка или целое число |Значение, которое необходимо преобразовать в целое число. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -301,9 +301,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
-| intResult | int | 4 |
+| intResult | int | 4. |
 
 Развернуть этот пример шаблона с помощью Azure CLI можно так:
 
@@ -326,9 +326,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| arg1 |Да |массив целых чисел или разделенный запятыми список целых чисел |Коллекция, для которой необходимо получить максимальное значение. |
+| arg1 |Yes |массив целых чисел или разделенный запятыми список целых чисел |Коллекция, для которой необходимо получить максимальное значение. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -364,7 +364,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
@@ -390,9 +390,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| arg1 |Да |массив целых чисел или разделенный запятыми список целых чисел |Коллекция, для которой необходимо получить минимальное значение. |
+| arg1 |Yes |массив целых чисел или разделенный запятыми список целых чисел |Коллекция, для которой необходимо получить минимальное значение. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -428,7 +428,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -454,10 +454,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| операнд1 |Да |int |Делимое. |
-| операнд2 |Да |int |Делитель, не может быть равен 0. |
+| операнд1 |Yes |int |Делимое. |
+| операнд2 |Yes |int |Делитель, не может быть равен 0. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 Целое число, представляющее остаток.
@@ -499,7 +499,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -524,10 +524,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| операнд1 |Да |int |Первый множитель. |
-| операнд2 |Да |int |Второй множитель. |
+| операнд1 |Yes |int |Первый множитель. |
+| операнд2 |Yes |int |Второй множитель. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -570,7 +570,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -595,10 +595,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| операнд1 |Да |int |Уменьшаемое. |
-| операнд2 |Да |int |Вычитаемое. |
+| операнд1 |Yes |int |Уменьшаемое. |
+| операнд2 |Yes |int |Вычитаемое. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 Целое число, представляющее разность.
@@ -640,9 +640,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
-| subResult | int | 4 |
+| subResult | int | 4. |
 
 Развернуть этот пример шаблона с помощью Azure CLI можно так:
 
@@ -656,7 +656,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Описание разделов в шаблоне Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 * Инструкции по объединению нескольких шаблонов см. в статье [Использование связанных шаблонов в Azure Resource Manager](resource-group-linked-templates.md).
 * Указания по выполнению заданного количества циклов итерации при создании типа ресурса см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md).

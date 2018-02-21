@@ -17,7 +17,7 @@ ms.date: 03/08/2017
 ms.author: danlep
 ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -177,7 +177,7 @@ PuTTY — это общераспространенный SSH-клиент дл�
     ![Выбор закрытого ключа PuTTY для проверки подлинности](./media/ssh-from-windows/putty-auth-dialog.png)
 4. Щелкните **Открыть** , чтобы подключится к виртуальной машине.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Открытые и закрытые ключи можно также создавать в [OS X и Linux](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Дополнительные сведения о Bash для Windows и преимуществах средств OSS на компьютере Windows см. в записи блога [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash для Ubuntu в Windows).

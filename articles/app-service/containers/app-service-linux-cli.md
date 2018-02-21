@@ -101,7 +101,7 @@ az webapp config set -n sname -g rgname --linux-fx-version "node|6.11"
 az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> --branch <branch>
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Общие сведения о службе приложений на платформе Linux](app-service-linux-intro.md).
 * [Установите Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).

@@ -82,7 +82,7 @@ Azure Logic Apps предоставляет шаблоны Azure Resource Manage
 
 Ниже приводится описание параметров в шаблоне.
 
-| Параметр | Описание | Пример определения JSON | 
+| Параметр | ОПИСАНИЕ | Пример определения JSON | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Определяет имя приложения логики, которое создает этот шаблон. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
 | `testUri` | Определяет расположение для проверки связи. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
@@ -126,7 +126,7 @@ azure group deployment create --template-uri https://raw.githubusercontent.com/A
 * Если у вас возникли вопросы, то посетите [форум Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Отправить идею по поводу возможности или проголосовать за нее вы можете на [сайте отзывов пользователей Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Мониторинг приложений логики](../logic-apps/logic-apps-monitor-your-logic-apps.md)

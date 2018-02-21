@@ -16,7 +16,7 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 6dc89bda31af35e4c7eb0f2255db301b39ac05eb
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -145,7 +145,7 @@ Remove-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clu
   - Вам не нужно поддерживать множество экземпляров или реплик службы, пока не появились клиенты.
   - Если клиент откажется от ваших услуг, то для удаления его информации из вашей службы достаточно, чтобы служба диспетчера удалила созданную для этого клиента службу или приложение.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о понятиях Service Fabric см. в следующих статьях:
 
 * [Доступность служб структуры служб](service-fabric-availability-services.md)

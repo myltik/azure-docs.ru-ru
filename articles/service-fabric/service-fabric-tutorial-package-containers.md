@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Упаковка и развертывание контейнеров в виде приложения Service Fabric
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/11/2018
 > * развертывание и запуск приложения; 
 > * очистка приложения.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Образы контейнеров, переданные в реестр контейнеров Azure при изучении [первой части](service-fabric-tutorial-create-container-images.md) этого цикла руководств.
 - [Настроенная](service-fabric-tutorial-create-container-images.md) среда разработки Linux.
@@ -218,9 +218,17 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 На этом этапе данного руководства шаблон для приложения пакета службы доступен для развертывания в кластере. В следующем руководстве это приложение развертывается и запускается в кластере Service Fabric.
 
 ## <a name="create-a-service-fabric-cluster"></a>Создание кластера Service Fabric
-Для развертывания приложения в кластере Azure можно использовать собственный кластер или кластер сообщества.
+Чтобы развернуть приложение в кластере Azure, создайте собственный кластер.
 
-Кластеры сообщества — это бесплатные временные кластеры Service Fabric, размещенные в Azure. Их обслуживает команда Service Fabric. Любой пользователь может развертывать приложения в этих кластерах и изучать платформу. Чтобы получить доступ к кластеру сообщества, следуйте инструкциям в [этом разделе](http://aka.ms/tryservicefabric). 
+Кластеры сообщества — это бесплатные временные кластеры Service Fabric, размещенные в Azure. Их запускает команда Service Fabric. Любой пользователь может развертывать приложения в этих кластерах и изучать платформу. Чтобы получить доступ к кластеру сообщества, следуйте инструкциям в [этом разделе](http://aka.ms/tryservicefabric). 
+
+Чтобы выполнять операции управления на безопасном общедоступном кластере, можно использовать Service Fabric Explorer, CLI или Powershell. Чтобы использовать Service Fabric Explorer, необходимо скачать с веб-сайта общедоступного кластера PFX-файл и импортировать сертификат в хранилище сертификатов (Windows или Mac) или сам браузер (Ubuntu). Пароль для самозаверяющих сертификатов из общедоступного кластера стороны отсутствует. 
+
+Для выполнения операций управления с помощью Powershell или CLI, требуется PFX-файл (Powershell) или PEM-файл (CLI). Чтобы преобразовать PFX-файл в PEM-файл, используйте следующую команду:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 См. дополнительные сведения о [создании кластера Service Fabric в Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -230,7 +238,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 Подключитесь к кластеру Service Fabric в Azure. Замените заполнитель конечной точки своей конечной точкой. Конечная точка должна быть в формате полного URL-адреса, как показано ниже.
 
 ```bash
-sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 С помощью сценария установки в каталоге **TestContainer** скопируйте пакет приложения в хранилище образов кластера, зарегистрируйте тип приложения и создайте экземпляр приложения.

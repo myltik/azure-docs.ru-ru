@@ -81,7 +81,7 @@ response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 
 Операции, которые создают, обновляют или удаляют ресурсы (PUT, PATCH, DELETE), обычно возвращают значение `provisioningState`. После завершения операции возвращается одно из следующих трех значений: 
 
-* Успешно
+* Succeeded
 * Сбой
 * Canceled
 
@@ -191,7 +191,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 Если запрос все еще выполняется, вы получите код состояния 202. Если запрос завершен, вы получите код состояния 200, а в тексте ответа будут указаны свойства созданной учетной записи хранения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Документацию по каждой операции REST см. в [справочнике по REST API](/rest/api/).
 * Сведения об управлении ресурсами с помощью REST API в Resource Manager см. [здесь](resource-manager-rest-api.md).

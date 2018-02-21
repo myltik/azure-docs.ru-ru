@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="viewing-extension-status"></a>Просмотр состояния расширения
 Шаблоны Azure Resource Manager можно выполнять из Azure PowerShell. После выполнения шаблона состояние расширения можно узнать в обозревателе ресурсов Azure или с помощью средств командной строки.
 
-Пример:
+Вот пример: 
 
 Azure PowerShell.
 

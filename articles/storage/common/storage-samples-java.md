@@ -210,7 +210,7 @@ ms.lasthandoff: 10/11/2017
 * [Getting Started with Azure Table Service in Java](../../cosmos-db/table-storage-how-to-use-java.md) (Приступая к работе со службой таблиц Azure на языке Java)
 * [Getting Started with Azure File Service in Java](../storage-java-how-to-use-file-storage.md) (Приступая к работе с файловой службой Azure на языке Java)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о примерах для других языков см. здесь:
 

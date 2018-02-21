@@ -1,16 +1,16 @@
 ## <a name="azure-dns"></a>Azure DNS
 Azure DNS является службой размещения для доменов DNS, предоставляющей разрешение имен с помощью инфраструктуры Microsoft Azure.
 
-| Свойство | Описание | Образец значения |
+| Свойство | ОПИСАНИЕ | Образец значения |
 | --- | --- | --- |
 | **DNSzones** |Информация о зоне домена для размещения записей DNS определенного домена. |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com" |
 
 ### <a name="dns-record-sets"></a>Наборы записей DNS
 Зоны DNS имеют дочерний объект, называемый набором записей. Наборы записей представляют собой упорядоченную по типу коллекцию записей узла для зоны DNS. Типы записей: A, AAAA, CNAME, MX, NS, SOA, SRV и TXT.
 
-| Свойство | Описание | Образец значения |
+| Свойство | ОПИСАНИЕ | Образец значения |
 | --- | --- | --- |
-| Файл , |Тип записи IPv4 |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
+| A |Тип записи IPv4 |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
 | AAAA |Тип записи IPv6 |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
 | CNAME |Тип записи канонического имени <sup>1</sup> |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
 | MX |Тип записи почты |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |

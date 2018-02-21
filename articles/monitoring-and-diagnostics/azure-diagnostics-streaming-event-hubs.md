@@ -16,7 +16,7 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/14/2017
 * Как просмотреть данные потока концентраторов событий.
 * Как устранить неполадки подключения.  
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Прием данных из системы диагностики Azure с помощью концентраторов событий поддерживается для облачных служб, виртуальных машин, масштабируемых наборов виртуальных машин и Service Fabric, начиная с выпуска пакета SDK для Azure 2.9 и соответствующих средств Azure для Visual Studio.
 
 * Расширение системы диагностики Azure версии 1.6 (в[пакете SDK для Azure для .NET 2.9 или более поздней версии](https://azure.microsoft.com/downloads/) оно используется по умолчанию).
@@ -322,7 +322,7 @@ namespace EventHubListener
 
     Попробуйте найти в службе хранилища Azure таблицу, которая содержит журналы и ошибки для самой системы диагностики Azure: **WADDiagnosticInfrastructureLogsTable**. Для этого можно использовать, например, [обозреватель хранилищ Azure](http://www.storageexplorer.com). Подключитесь к соответствующей учетной записи хранения, просмотрите эту таблицу и выполните запрос по метке времени за последние 24 часа. С помощью этого инструмента можно экспортировать информацию в CSV-файл и открыть его в таком приложении, как Microsoft Excel. Excel упрощает поиск строк телефонных карточек, таких как **EventHubs**, чтобы узнать, какая обнаружена ошибка.  
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 •    [Дополнительные сведения о концентраторах событий](https://azure.microsoft.com/services/event-hubs/)
 
 ## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Приложение. Полный пример файла конфигурации системы диагностики Azure (WADCFGX-файл)
@@ -504,7 +504,7 @@ namespace EventHubListener
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о концентраторах событий см. в следующих источниках:
 
 * [Event Hubs overview](../event-hubs/event-hubs-what-is-event-hubs.md)

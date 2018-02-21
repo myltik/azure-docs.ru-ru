@@ -28,7 +28,7 @@ ms.lasthandoff: 11/01/2017
 
 ## <a name="getting-started"></a>Приступая к работе
 
-* В обозревателе решений Visual Studio щелкните проект правой кнопкой мыши и выберите **Настроить Application Insights** или **Добавить > Application Insights**. [Подробнее](app-insights-asp-net.md).
+* В обозревателе решений Visual Studio щелкните проект правой кнопкой мыши и выберите **Настроить Application Insights** или **Добавить > Application Insights**. [Узнайте больше](app-insights-asp-net.md).
 * Если вы не видите эти пункты меню, следуйте указаниям в [руководстве по началу работы вручную](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started). Это может потребоваться, если проект был создан в версии Visual Studio, предшествующей Visual Studio 2017.
 
 ## <a name="using-application-insights"></a>Работа с Application Insights
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/01/2017
 [Чтение кода и дополнительные наработки](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Добавьте данные телеметрии на веб-страницы](app-insights-javascript.md) для мониторинга использования и производительности страниц.
 * [Отслеживайте зависимости](app-insights-asp-net-dependencies.md) , чтобы выяснить, что стало причиной медленной работы: REST, SQL или другие внешние ресурсы.
 * [Используйте API](app-insights-api-custom-events-metrics.md) для отправки собственных событий и метрик для более четкого представления о производительности и использовании приложения.

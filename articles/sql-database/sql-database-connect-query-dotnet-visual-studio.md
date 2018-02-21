@@ -25,7 +25,7 @@ ms.lasthandoff: 11/30/2017
 
 В этом кратком руководстве показано, как использовать платформу [.NET Framework](https://www.microsoft.com/net/) для создания программы C# с помощью Visual Studio для подключения к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос данных.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Ниже указаны требования для работы с этим кратким руководством.
 
@@ -127,7 +127,7 @@ namespace sqltest
 1. Нажмите клавишу **F5** для запуска приложения.
 2. Убедитесь, что возвращены первые 20 строк, а затем закройте окно приложения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Узнайте, как [подключиться и отправить запрос к базе данных SQL Azure с помощью .NET Core](sql-database-connect-query-dotnet-core.md) в Windows, Linux и Mac OS.  
 - См. дополнительные сведения о [начале работы с .NET Core в Windows, Linux и Mac OS с помощью командной строки](/dotnet/core/tutorials/using-with-xplat-cli).

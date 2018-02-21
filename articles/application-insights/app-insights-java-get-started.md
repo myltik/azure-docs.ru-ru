@@ -44,7 +44,7 @@ ms.lasthandoff: 11/01/2017
 
     ![В обзоре нового ресурса щелкните "Свойства" и скопируйте ключ инструментирования](./media/app-insights-java-get-started/03-key.png)
 
-## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2) Добавление в проект пакета SDK Application Insights для Java
+## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Добавление в проект пакета SDK Application Insights для Java
 *Выберите подходящий метод для проекта.*
 
 #### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Если вы используете Eclipse для создания проекта Maven или динамического веб-проекта…
@@ -379,7 +379,7 @@ Application Insights может тестировать ваш веб-сайт ч
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Отслеживайте вызовы зависимостей.](app-insights-java-agent.md)
 * [Отслеживайте счетчики производительности Unix.](app-insights-java-collectd.md)
 * Добавляйте [мониторинг на веб-страницы](app-insights-javascript.md), чтобы отслеживать время загрузки страниц, вызовы AJAX и исключения браузера.

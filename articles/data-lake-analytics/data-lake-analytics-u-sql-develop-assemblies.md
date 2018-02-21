@@ -31,7 +31,7 @@ U-SQL позволяет с легкостью добавлять собстве
 
 Чтобы устранить эти недостатки, код программной части можно преобразовать в сборки и зарегистрировать их в каталоге Data Lake Analytics.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Visual Studio 2017, Visual Studio 2015, Visual Studio 2013 с обновлением 4 или Visual Studio 2012 с установленным Visual C++.
 * Пакет SDK Microsoft Azure для .NET (версии 2.5 или выше).  Установите эти средства с помощью установщика веб-платформы или установщика Visual Studio.
 * Учетная запись аналитики озера данных.  См. статью [Руководство. Начало работы с Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-get-started-portal.md).
@@ -73,7 +73,7 @@ U-SQL позволяет с легкостью добавлять собстве
 
 Ознакомьтесь с разделом [Использование средств Azure Data Lake для Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Приступая к работе с аналитикой озера данных с помощью PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Приступая к работе с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
 * [Использование инструментов озера данных для Visual Studio для разработки приложений U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

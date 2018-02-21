@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Анализ журналов веб-сайта с помощью Azure Data Lake Analytics
 Сведения об анализе журналов веб-сайтов с помощью службы аналитики озера, а также информация об источниках ссылок, которые столкнулись с ошибками во время попытки посетить веб-сайт.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * **Visual Studio 2015 или Visual Studio 2013**.
 * **[Средства Data Lake для Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 2. Выберите тип «Проект U-SQL».
 
     ![Новый проект U-SQL в Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. Нажмите кнопку **ОК**. Visual Studio создает решение с помощью файла Script.usql.
+3. Последовательно выберите **ОК**. Visual Studio создает решение с помощью файла Script.usql.
 4. Скопируйте следующий сценарий в файл Script.usql.
 
         // Create a database for easy reuse, so you don't need to read from a file every time.
@@ -172,7 +172,7 @@ ms.lasthandoff: 10/11/2017
 3. Дважды щелкните файл **UnsuccessfulResponsees.log**.
 4. Кроме того, вы можете дважды щелкнуть выходной файл в графическом представлении задания для перехода непосредственно к выходным данным.
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 Для начала работы с аналитикой озера данных с использованием различных средств см. следующие статьи.
 
 * [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)

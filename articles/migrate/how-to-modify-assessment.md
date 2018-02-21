@@ -8,7 +8,7 @@ ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: ce47790f6214864afdba33eb5cbe3a9e49b81cd5
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/12/2017
 ---
@@ -38,6 +38,6 @@ ms.lasthandoff: 12/12/2017
 3. Нажмите кнопку **Сохранить**, чтобы обновить оценку.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Узнайте больше](concepts-assessment-calculation.md) о вычислении оценок.

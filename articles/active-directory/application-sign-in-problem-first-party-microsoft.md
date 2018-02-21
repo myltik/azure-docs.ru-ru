@@ -15,7 +15,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 880be5f27ca4198004511e01e63cdb3d72f107d5
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -524,6 +524,6 @@ ms.lasthandoff: 12/11/2017
 
 -   Вы также можете принудительно реализовать согласие на уровне администратора, выполнив инструкции из раздела **Запрос разрешений у администратора каталога** статьи [Использование конечной точки предоставления согласия администратора](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Использование конечной точки предоставления согласия администратора](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
 

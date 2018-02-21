@@ -125,7 +125,7 @@ Azure взимает [почасовую оплату](https://azure.microsoft.c
 * [Общие сведения о службе контейнеров Azure](../../container-service/container-service-intro.md)
 * [Развертывание кластера службы контейнеров Azure](../../container-service/dcos-swarm/container-service-deployment.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Вы ознакомились с общими сведениями об использовании Linux в Azure.  Теперь пора приступить к делу и создать несколько виртуальных машин.
 
 * [См. обновляемый список с примерами скриптов для выполнения стандартных задач с помощью Azure CLI.](cli-samples.md)

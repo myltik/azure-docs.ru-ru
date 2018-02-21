@@ -46,7 +46,7 @@ ms.lasthandoff: 10/31/2017
 
 * Дополнительные сведения: [Защита базы данных SQL](sql-database-security-overview.md).
 
-## <a name="authentication"></a>Аутентификация
+## <a name="authentication"></a>Authentication
 * База данных SQL Azure поддерживает пользователей и имена для входа аутентификации SQL Server, а также пользователей и имена для входа [аутентификации Azure Active Directory](sql-database-aad-authentication.md) .
 * Требуется указать конкретную базу данных, а не базу данных *master* , используемую по умолчанию.
 * В базе данных SQL невозможно использовать инструкцию Transact-SQL **USE myDatabaseName;** для переключения на другую базу данных.
@@ -74,5 +74,5 @@ ms.lasthandoff: 10/31/2017
 * [Маршрутизация, зависящая от данных](sql-database-elastic-scale-data-dependent-routing.md).
 * [Начало работы с эластичным масштабированием базы данных SQL Azure (предварительная версия)](sql-database-elastic-scale-get-started.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Вы можете изучить все [возможности Базы данных SQL](sql-database-technical-overview.md).

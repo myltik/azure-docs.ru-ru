@@ -17,7 +17,7 @@ ms.date: 06/03/2017
 ms.author: joflore
 ms.openlocfilehash: 63b717fb08861b0efe902400a8765f9515ed5b1a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/11/2017
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Узнайте о [принципах работы службы Многофакторной идентификации](multi-factor-authentication-how-it-works.md).
 

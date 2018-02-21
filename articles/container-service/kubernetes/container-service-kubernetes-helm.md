@@ -26,7 +26,7 @@ Helm состоит из двух компонентов:
 
 * **Tiller** — сервер, который выполняется в кластере Kubernetes и управляет жизненным циклом приложений Kubernetes. 
  
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * [Создание кластера Kubernetes](container-service-kubernetes-walkthrough.md) в Службе контейнеров Azure
 
@@ -145,7 +145,7 @@ sudo mysql –h v1-mariadb
  
  
  
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения об управлении чартами Kubernetes см. в [документации по Helm](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
 

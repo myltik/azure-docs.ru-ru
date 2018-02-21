@@ -1,6 +1,6 @@
 ---
-title: "Архивация сервера Exchange Server в службу архивации Azure с помощью Сервера резервного копирования Azure | Документация Майкрософт"
-description: "Узнайте, как выполнить архивацию сервера Exchange Server в службу архивации Azure с помощью Сервера резервного копирования Azure."
+title: "Резервное копирование сервера Exchange Server в службу Azure Backup с помощью Azure Backup Server | Документация Майкрософт"
+description: "Узнайте, как выполнить резервное копирование сервера Exchange Server в службу Azure Backup с помощью Azure Backup Server."
 services: backup
 documentationcenter: 
 author: pvrk
@@ -20,11 +20,11 @@ ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Архивация сервера Exchange Server в службу архивации Azure с помощью Сервера резервного копирования Azure
-В этой статье описывается, как настроить Сервер резервного копирования Microsoft Azure (MABS) для архивации сервера Microsoft Exchange Server в Azure.  
+# <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Резервное копирование сервера Exchange Server в службу Azure Backup с помощью Azure Backup Server
+В этой статье описывается, как настроить Microsoft Azure Backup Server (MABS) для резервного копирования сервера Microsoft Exchange Server в Azure.  
 
-## <a name="prerequisites"></a>Предварительные требования
-Прежде чем продолжить, убедитесь, что Сервер резервного копирования Azure [установлен и подготовлен](backup-azure-microsoft-azure-backup.md).
+## <a name="prerequisites"></a>предварительным требованиям
+Прежде чем продолжить, убедитесь, что Azure Backup Server [установлен и подготовлен](backup-azure-microsoft-azure-backup.md).
 
 ## <a name="mabs-protection-agent"></a>Агент защиты MABS
 Чтобы установить агент защиты MABS на сервер Exchange Server, выполните следующее.
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 
    * «Мне нужна краткосрочная защита с использованием диска»;
    * «Мне нужна оперативная защита».
-6. Щелкните **Далее**.
+6. Нажмите кнопку **Далее**.
 7. Выберите параметр **Запустить программу Eseutil для проверки целостности данных** , чтобы проверить целостность баз данных Exchange Server.
 
     После этого проверка согласованности резервных копий будет выполняться на сервере MABS, что позволит исключить операции ввода-вывода при выполнении команды **eseutil** на сервере Exchange Server.
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
    > ![ошибка Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Щелкните **Далее**.
+8. Нажмите кнопку **Далее**.
 9. Выберите базу данных для **копирующей архивации**, а затем нажмите кнопку **Далее**.
 
    > [!NOTE]
@@ -73,10 +73,10 @@ ms.lasthandoff: 10/11/2017
 11. Проверьте, есть ли на диске свободное место, и нажмите кнопку **Далее**.
 12. Выберите время создания сервером MABS начальной репликации и нажмите кнопку **Далее**.
 13. Выберите параметры проверки согласованности и нажмите кнопку **Далее**.
-14. Выберите базу данных для резервного копирования в Azure и нажмите кнопку **Далее**. Например:
+14. Выберите базу данных для резервного копирования в Azure и нажмите кнопку **Далее**. Например: 
 
     ![Выбор оперативной защиты данных](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Определите расписание для **службы архивации Azure** и нажмите кнопку **Далее**. Например:
+15. Определите расписание для **службы архивации Azure** и нажмите кнопку **Далее**. Например: 
 
     ![Выбор расписания оперативного резервного копирования](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -109,5 +109,5 @@ ms.lasthandoff: 10/11/2017
 
     ![Выбор оперативной репликации](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)

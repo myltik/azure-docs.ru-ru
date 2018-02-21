@@ -15,7 +15,7 @@ ms.date: 06/15/2017
 ms.author: gwallace
 ms.openlocfilehash: 5390ba34a25713aed84d6e778335e30f27c2b1f8
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 В этом примере мы создадим сценарий PowerShell, который вызывает [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) для запуска модуля runbook PowerShell, передавая содержимое файла JSON в runbook.
 Модуль runbook PowerShell запускает виртуальную машину Azure, получая параметры для нее из переданного файла JSON.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Для работы с этим учебником требуется:
 
 * Подписка Azure. Если у вас ее нет, [активируйте преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или <a href="/pricing/free-account/" target="_blank">[зарегистрируйте бесплатную учетную запись](https://azure.microsoft.com/free/).
@@ -112,7 +112,7 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
 
 Модуль runbook использует значения из файла JSON для запуска виртуальной машины.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения о редактировании модулей Runbook PowerShell и рабочих процессов PowerShell с помощью текстового редактора см. в статье [Изменение текстовых модулей Runbook в службе автоматизации Azure](automation-edit-textual-runbook.md). 
 * Дополнительные сведения о создании и импорте модулей runbook см. в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md).

@@ -17,7 +17,7 @@ ms.date: 03/15/2017
 ms.author: sasubram
 ms.openlocfilehash: beca92e9259835fffa9178f558e9762637594570
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/11/2017
 Дополнительные сведения: [запись блога](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [документация](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).  | Дополнительные сведения: [страница продукта](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [документация](https://docs.microsoft.com/azure/active-directory-b2c/).
 
 
-### <a name="next-steps"></a>Дальнейшие действия
+### <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B:
 

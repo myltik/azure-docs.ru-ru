@@ -18,7 +18,7 @@ ms.custom: H1Hack27Feb2017
 robots: noindex
 ms.openlocfilehash: 471099c58a7fc1dfd520e693873a76f64c0fbf0a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -39,5 +39,5 @@ ms.lasthandoff: 12/11/2017
 9. Щелкните **НАЗНАЧИТЬ**.
 10. Щелкните **Да** при появлении запроса.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]

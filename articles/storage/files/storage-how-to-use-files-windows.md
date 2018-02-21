@@ -29,14 +29,14 @@ ms.lasthandoff: 10/21/2017
 
 | Версия Windows        | Версия SMB | Возможность подключения на виртуальной машине Azure | Возможность подключения в локальной среде |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server Semi-Annual Channel<sup>1</sup> | SMB 3.0 | Да | Да |
-| Windows 10<sup>2</sup>  | SMB 3.0 | Да | Да |
-| Windows Server 2016    | SMB 3.0     | Да                   | Да                  |
-| Windows 8.1            | SMB 3.0     | Да                   | Да                  |
-| Windows Server 2012 R2 | SMB 3.0     | Да                   | Да                  |
-| Windows Server 2012    | SMB 3.0     | Да                   | Да                  |
-| Windows 7              | SMB 2.1     | Да                   | Нет                   |
-| Windows Server 2008 R2 | SMB 2.1     | Да                   | Нет                   |
+| Windows Server Semi-Annual Channel<sup>1</sup> | SMB 3.0 | Yes | Yes |
+| Windows 10<sup>2</sup>  | SMB 3.0 | Yes | Yes |
+| Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
+| Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
+| Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
+| Windows Server 2012    | SMB 3.0     | Yes                   | Yes                  |
+| Windows 7              | SMB 2.1     | Yes                   | Нет                    |
+| Windows Server 2008 R2 | SMB 2.1     | Yes                   | Нет                    |
 
 <sup>1</sup>Windows Server версии 1709.  
 <sup>2</sup>Windows 10 версии 1507, 1607, 1703 и 1709.
@@ -120,7 +120,7 @@ ms.lasthandoff: 10/21/2017
 >   cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 >   ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительную информацию о службе файлов Azure см. по следующим ссылкам.
 
 * [Часто задаваемые вопросы](../storage-files-faq.md)

@@ -78,7 +78,7 @@ ms.lasthandoff: 11/17/2017
 - [Оптимизированные для хранилища](../virtual-machines-windows-sizes-storage.md)
 - [Оптимизированные для GPU](sizes-gpu.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Контрольные списки для использования экземпляров с большим объемом вычислений с пакетом HPC на Windows Server см. в статье [Настройка кластера RDMA в Windows с помощью пакета HPC для запуска приложений MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

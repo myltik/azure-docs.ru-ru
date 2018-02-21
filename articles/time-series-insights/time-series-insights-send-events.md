@@ -145,7 +145,7 @@ namespace Microsoft.Rdx.DataGenerator
 ```
 #### <a name="output---1-event"></a>Выходные данные, одно событие
 
-|id|Timestamp|
+|id|timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
@@ -167,7 +167,7 @@ namespace Microsoft.Rdx.DataGenerator
 ```
 #### <a name="output---2-events"></a>Выходные данные, два события
 
-|id|Timestamp|
+|id|timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
@@ -243,6 +243,6 @@ namespace Microsoft.Rdx.DataGenerator
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 > [!div class="nextstepaction"]
 > [Просмотрите свою среду в обозревателе службы "Аналитика временных рядов"](https://insights.timeseries.azure.com).

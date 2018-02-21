@@ -66,7 +66,7 @@ ms.lasthandoff: 12/21/2017
 
 ![Обработка входящих запросов ретранслятора WCF](./media/relay-what-is-it/ic690645.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Вопросы и ответы по ретранслятору](relay-faq.md)
 * [Создание пространства имен](relay-create-namespace-portal.md)

@@ -17,7 +17,7 @@ ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 9c858b8f2d5a4a348bc0b4443ddbe0000a5b62f4
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -41,6 +41,6 @@ Azure Active Directory предоставляет разнообразные о�
    * [Справочник по использованию API аудита](active-directory-reporting-api-audit-reference.md) 
    * [Справочник по использованию API отчетов о действиях при входе](active-directory-reporting-api-sign-in-activity-reference.md)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 Если вы хотите ознакомиться со всеми доступными конечными точками API Graph Azure AD, воспользуйтесь этой ссылкой: [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
 

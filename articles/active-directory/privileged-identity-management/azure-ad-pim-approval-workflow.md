@@ -16,7 +16,7 @@ ms.author: barclayn
 ms.custom: pim
 ms.openlocfilehash: f30dd06417d9ce4d71c88ba170a4f3169b5fccd7
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -187,6 +187,6 @@ ms.lasthandoff: 12/11/2017
 
 ![](media/azure-ad-pim-approval-workflow/image043.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Ваш отзыв очень важен для нас. Вы можете связаться с нами, оставив свои комментарии или отзывы здесь!

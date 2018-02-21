@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 > * Импорт данных MongoDB с помощью mongoimport
 > * Импорт данных MongoDB с помощью mongorestore
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Увеличьте пропускную способность. Продолжительность переноса данных зависит от пропускной способности, настроенной для коллекций. Увеличьте пропускную способность для крупных миграций. После переноса уменьшите пропускную способность для экономии расходов. Дополнительные сведения об увеличении пропускной способности на [портале Azure](https://portal.azure.com) см. в статье [Прекращение использования уровней производительности S1, S2 и S3 в DocumentDB](performance-levels.md).
 
@@ -87,9 +87,9 @@ ms.lasthandoff: 10/11/2017
 
 2. Вычислите приблизительную стоимость ЕЗ при записи одного документа:
 
-    а. Подключитесь к базе данных MongoDB в Azure Cosmos DB из оболочки MongoDB. Инструкции доступны в статье [Подключение приложения MongoDB к Azure Cosmos DB](connect-mongodb-account.md).
+    a. Подключитесь к базе данных MongoDB в Azure Cosmos DB из оболочки MongoDB. Инструкции доступны в статье [Подключение приложения MongoDB к Azure Cosmos DB](connect-mongodb-account.md).
     
-    b. Выполните пример команды insert, используя один из примеров документов из оболочки MongoDB:
+    Б. Выполните пример команды insert, используя один из примеров документов из оболочки MongoDB:
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
@@ -106,13 +106,13 @@ ms.lasthandoff: 10/11/2017
         }
         ```
         
-    г) Запишите значение RequestCharge (стоимость запроса).
+    d. Запишите значение RequestCharge (стоимость запроса).
     
 3. Определите задержку между вашим компьютером и облачной службой Azure Cosmos DB:
     
-    а. Включите ведение подробного журнала из оболочки MongoDB с помощью команды ```setVerboseShell(true)```.
+    a. Включите ведение подробного журнала из оболочки MongoDB с помощью команды ```setVerboseShell(true)```.
     
-    b. Выполните простой запрос к базе данных: ```db.coll.find().limit(1)```. В результате будет получен ответ, аналогичный этому:
+    Б. Выполните простой запрос к базе данных: ```db.coll.find().limit(1)```. В результате будет получен ответ, аналогичный этому:
 
         ```
         Fetched 1 record(s) in 100(ms)
@@ -134,7 +134,7 @@ ms.lasthandoff: 10/11/2017
     |--------|-----|
     |batchSize| 24 |
     |Подготовленные ЕЗ | 10 000 |
-    |Задержка | 0,100 с |
+    |Latency | 0,100 с |
     |ЕЗ, использованные для записи 1 документа | 10 ЕЗ |
     |numInsertionWorkers | ? |
     
@@ -146,7 +146,7 @@ ms.lasthandoff: 10/11/2017
    mongoimport.exe --host anhoh-mongodb.documents.azure.com:10255 -u anhoh-mongodb -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
    ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Вы можете перейти к следующему руководству, из которого вы узнаете, как запрашивать данные MongoDB с помощью Azure Cosmos DB. 
 

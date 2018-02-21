@@ -114,7 +114,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="context"></a>Context
 Для каждого типа данных телеметрии приведен пример с разделом контекста. Не все эти поля передаются со всеми точками данных.
 
-| Путь | Тип | Примечания |
+| Путь | type | Заметки |
 | --- | --- | --- |
 | context.custom.dimensions [0] |объект [ ] |Набор пар "ключ — значение", заданный параметром пользовательских свойств. Максимальная длина ключа — 100, максимальная длина значения —1024. Более 100 уникальных значений. Свойства можно использовать для поиска, но не для сегментации. Максимальное количество — 200 ключей на ключ ikey. |
 | context.custom.metrics [0] |объект [ ] |Набор пар "ключ — значение", заданный параметром пользовательских измерений и метриками TrackMetric. Максимальная длина ключа — 100. Значения могут быть числовыми. |
@@ -156,7 +156,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="events"></a>События
 Пользовательские события, создаваемые элементом [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent).
 
-| Путь | Тип | Примечания |
+| Путь | type | Заметки |
 | --- | --- | --- |
 | event [0] count |целое число |100/(частота[выборки](app-insights-sampling.md) ). Например, 4 = &gt; 25 %. |
 | event [0] name |строка |Имя события.  Максимальная длина: 250 |
@@ -167,12 +167,12 @@ ms.lasthandoff: 11/01/2017
 ## <a name="exceptions"></a>Исключения
 Отправляются сведения об [исключениях](app-insights-asp-net-exceptions.md) на сервере и в браузере.
 
-| Путь | Тип | Примечания |
+| Путь | type | Заметки |
 | --- | --- | --- |
 | basicException [0] assembly |строка | |
 | basicException [0] count |целое число |100/(частота[выборки](app-insights-sampling.md) ). Например, 4 = &gt; 25 %. |
 | basicException [0] exceptionGroup |строка | |
-| basicException [0] exceptionType |string | |
+| basicException [0] exceptionType |строка | |
 | basicException [0] failedUserCodeMethod |строка | |
 | basicException [0] failedUserCodeAssembly |строка | |
 | basicException [0] handledAt |строка | |
@@ -196,7 +196,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="trace-messages"></a>Сообщения трассировки
 Отправитель: [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) и [адаптеры ведения журналов](app-insights-asp-net-trace-logs.md).
 
-| Путь | Тип | Примечания |
+| Путь | type | Заметки |
 | --- | --- | --- |
 | message [0] loggerName |строка | |
 | message [0] parameters |строка | |
@@ -206,7 +206,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="remote-dependency"></a>Удаленная зависимость
 Отправитель: TrackDependency. Используется для создания отчетов о производительности и использовании [вызовов к зависимостям](app-insights-asp-net-dependencies.md) на сервере, а также вызовов AJAX в браузере.
 
-| Путь | Тип | Примечания |
+| Путь | type | Заметки |
 | --- | --- | --- |
 | remoteDependency [0] async |Логическое | |
 | remoteDependency [0] baseName |строка | |
@@ -224,10 +224,10 @@ ms.lasthandoff: 11/01/2017
 | remoteDependency [0] urlData.hashTag |строка | |
 | remoteDependency [0] urlData.host |строка |Максимальная длина: 200 |
 
-## <a name="requests"></a>Requests (Запросы)
+## <a name="requests"></a>Requests
 Отправитель: [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). Используется стандартными модулями для создания отчетов о времени отклика сервера (измеряется на сервере).
 
-| Путь | Тип | Примечания |
+| Путь | type | Заметки |
 | --- | --- | --- |
 | request [0] count |целое число |100/(частота[выборки](app-insights-sampling.md) ). Например: 4 =&gt; 25 %. |
 | request [0] durationMetric.value |number |Время от поступления запроса до отклика. 1e7 = 1 с. |
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/01/2017
 
 Контекстные значения показывают версию клиентской ОС и версию браузера.
 
-| Путь | Тип | Примечания |
+| Путь | type | Заметки |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |целое число |Время от завершения получения HTML до отображения страницы. |
 | clientPerformance [0] name |строка | |
@@ -262,9 +262,9 @@ ms.lasthandoff: 11/01/2017
 ## <a name="page-views"></a>Просмотры страницы
 Отправитель: trackPageView() или [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views)
 
-| Путь | Тип | Примечания |
+| Путь | type | Заметки |
 | --- | --- | --- |
-| view [0] count |целое число |100/(частота[выборки](app-insights-sampling.md) ). Например, 4 = &gt; 25 %. |
+| view [0] count |целое число |100/(частота[выборки](app-insights-sampling.md) ). Например, 4 =&gt; 25 %. |
 | view [0] durationMetric.value |целое число |При необходимости значение можно указать в методе trackPageView() или с помощью метода start/stopTrackPage(). Не совпадает со значениями clientPerformance. |
 | view [0] name |строка |Заголовок страницы.  Максимальная длина: 250 |
 | view [0] url |строка | |
@@ -275,7 +275,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="availability"></a>Доступность
 Это свойство создает отчеты о [веб-тестах на доступность](app-insights-monitor-web-app-availability.md).
 
-| Путь | Тип | Примечания |
+| Путь | type | Заметки |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |строка |Доступность |
 | availability [0] availabilityMetric.value |number |1,0 или 0,0. |
@@ -296,7 +296,7 @@ ms.lasthandoff: 11/01/2017
 
 Значение метрики можно найти в context.custom.metrics[0].
 
-Например:
+Например: 
 
     {
      "metric": [ ],
@@ -322,7 +322,7 @@ ms.lasthandoff: 11/01/2017
     }
 
 ## <a name="about-metric-values"></a>О значениях метрик
-Значения метрик (как в отчетах, так и в других элементах) сообщаются в рамках стандартной структуры объекта. Например:
+Значения метрик (как в отчетах, так и в других элементах) сообщаются в рамках стандартной структуры объекта. Например: 
 
       "durationMetric": {
         "name": "contoso.org",
@@ -346,7 +346,7 @@ ms.lasthandoff: 11/01/2017
 ### <a name="durations"></a>Длительность
 За исключением оговоренных случаев, показатели длительности представлены в десятых долях микросекунды, то есть 10 000 000,0 — это 1 с.
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Application Insights](app-insights-overview.md)
 * [Непрерывный экспорт](app-insights-export-telemetry.md)
 * [Примеры кода](app-insights-export-telemetry.md#code-samples)

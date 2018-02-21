@@ -99,7 +99,7 @@ Azure DNS управляет записями DNS как наборами зап
 [SRV-запись (Википедия)](https://en.wikipedia.org/wiki/SRV_record)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Ознакомьтесь со статьей [Зоны и записи DNS](dns-zones-records.md).
 * Чтобы начать работу с Azure DNS, узнайте, как [создать зону DNS](dns-getstarted-create-dnszone-portal.md) и [записи DNS](dns-getstarted-create-recordset-portal.md).

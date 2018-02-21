@@ -158,9 +158,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| имя_параметра |Да |string |Имя параметра, который требуется вернуть. |
+| имя_параметра |Yes |строка |Имя параметра, который требуется вернуть. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -245,11 +245,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | stringOutput | Строка | вариант 1 |
 | intOutput | int | 1 |
-| objectOutput | Объект | {"one": "a", "two": "b"} |
+| objectOutput | Объект. | {"one": "a", "two": "b"} |
 | arrayOutput | Массив, | [1, 2, 3] |
 | crossOutput | Строка | вариант 1 |
 
@@ -274,9 +274,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| variableName |Да |Строка |Имя переменной, которую необходимо вернуть. |
+| variableName |Yes |Строка |Имя переменной, которую необходимо вернуть. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -348,12 +348,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | exampleOutput1 | Строка | myVariable |
 | exampleOutput2 | Массив, | [1, 2, 3, 4] |
 | exampleOutput3 | Строка | myVariable |
-| exampleOutput4 |  Объект | {"property1": "value1", "property2": "value2"} |
+| exampleOutput4 |  Объект. | {"property1": "value1", "property2": "value2"} |
 
 Развернуть этот пример шаблона с помощью Azure CLI можно так:
 
@@ -367,7 +367,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Описание разделов в шаблоне Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 * Инструкции по объединению нескольких шаблонов см. в статье [Использование связанных шаблонов в Azure Resource Manager](resource-group-linked-templates.md).
 * Указания по выполнению заданного количества циклов итерации при создании типа ресурса см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md).

@@ -26,6 +26,6 @@ ms.lasthandoff: 10/11/2017
 
  Универсальный код ресурса (URI) резервных копий манифестов диска для задания можно получить, вызвав операцию [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). Универсальный код ресурса (URI) большого двоичного объекта возвращается в свойство `ManifestUri` для каждого диска.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Использование REST API службы импорта и экспорта Azure](storage-import-export-using-the-rest-api.md)

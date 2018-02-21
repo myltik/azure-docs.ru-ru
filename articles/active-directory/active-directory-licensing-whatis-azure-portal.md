@@ -19,7 +19,7 @@ ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 9cfa8c42c1f3955adad5e4ce596d96c4e98e40a1
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/11/2017
 
 Если вы хотите оставить отзыв или запрос на создание функции, это можно сделать на [форуме](https://feedback.azure.com/forums/169401-azure-active-directory/category/317677-group-based-licensing).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о других сценариях управления лицензиями на основе группы см. в следующих статьях:
 

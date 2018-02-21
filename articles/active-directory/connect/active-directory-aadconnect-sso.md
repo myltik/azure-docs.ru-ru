@@ -57,11 +57,11 @@ ms.lasthandoff: 01/09/2018
 
 | Операционная система и браузер |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Yes|Нет |Yes|Да\*|Н/Д
-|Windows 8.1|Yes|Н/Д|Yes|Да\*|Н/Д
-|Windows 8|Yes|Н/Д|Yes|Да\*|Н/Д
-|Windows 7|Yes|Н/Д|Yes|Да\*|Н/Д
-|Mac OS X|Н/Д|Н/Д|Да\*|Да\*|Да\*
+|Windows 10|Yes|Нет |Yes|Да\*|Недоступно
+|Windows 8.1|Yes|Недоступно|Yes|Да\*|Недоступно
+|Windows 8|Yes|Недоступно|Yes|Да\*|Недоступно
+|Windows 7|Yes|Недоступно|Yes|Да\*|Недоступно
+|Mac OS X|Недоступно|Недоступно|Да\*|Да\*|Да\*
 
 \*Требуется [дополнительная настройка](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 

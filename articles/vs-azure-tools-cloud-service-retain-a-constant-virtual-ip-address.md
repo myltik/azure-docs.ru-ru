@@ -55,6 +55,6 @@ ms.lasthandoff: 11/16/2017
    
     ![Публикация приложения Azure: страница "Сводка"](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-summary.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Использование мастера публикации приложений Azure в Visual Studio](vs-azure-tools-publish-azure-application-wizard.md)
 

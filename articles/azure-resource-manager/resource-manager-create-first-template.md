@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 Для создания и изменения шаблонов нужен редактор JSON, например [Visual Studio Code](https://code.visualstudio.com/). Это упрощенный кроссплатформенный редактор с открытым исходным кодом. Для создания шаблонов Resource Manager мы настоятельно рекомендуем использовать Visual Studio Code. В этом документе предполагается, что вы используете VS Code. Но вы можете использовать и другой редактор JSON (например, Visual Studio).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Visual Studio Code. При необходимости установите его со страницы [https://code.visualstudio.com/](https://code.visualstudio.com/).
 * Подписка Azure. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
@@ -401,7 +401,7 @@ Remove-AzureRmResourceGroup -Name examplegroup
 az group delete --name examplegroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Чтобы упростить разработку шаблонов, вы можете установить расширение VS Code. Дополнительные сведения см. в статье [Создание шаблона Azure Resource Manager c помощью расширения Visual Studio Code](resource-manager-vscode-extension.md).
 * Дополнительные сведения о структуре шаблона см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 * Дополнительные сведения о свойствах учетной записи хранения см. в статье [Microsoft.Storage/storageAccounts template reference](/azure/templates/microsoft.storage/storageaccounts) (Справочник по шаблону Microsoft.Storage/storageAccounts).

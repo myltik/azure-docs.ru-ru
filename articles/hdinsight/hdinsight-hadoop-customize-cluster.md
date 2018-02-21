@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 
 HDInsight предоставляет несколько скриптов для установки следующих компонентов в кластерах HDInsight:
 
-| Имя | Скрипт |
+| ИМЯ | Скрипт |
 | --- | --- |
 | **Установка Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Ознакомьтесь со статьей [Установка и использование Spark в кластерах HDInsight Hadoop с помощью действия сценария][hdinsight-install-spark]. |
 | **Установка R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Ознакомьтесь со статьей [Установка и использование R на кластерах HDInsight Hadoop][hdinsight-install-r]. |
@@ -70,7 +70,7 @@ HDInsight предоставляет несколько скриптов для 
 
     <table border='1'>
         <tr><th>Свойство</th><th>Значение</th></tr>
-        <tr><td>Имя</td>
+        <tr><td>ИМЯ</td>
             <td>Укажите имя для действия сценария.</td></tr>
         <tr><td>URI-адрес сценария</td>
             <td>Укажите URI для сценария, который вызывается для настройки кластера. s</td></tr>
@@ -310,7 +310,7 @@ HDInsight предоставляет несколько скриптов для 
 ## <a name="develop-script-action-scripts"></a>Разработка скрипта действия сценария
 Ознакомьтесь со статьей [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script].
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * В статье [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision-cluster] приведены указания по созданию кластера HDInsight с использованием других настраиваемых параметров.
 * [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script]
 * [Установка и использование Spark в кластерах HDInsight Hadoop с помощью действия сценария][hdinsight-install-spark]

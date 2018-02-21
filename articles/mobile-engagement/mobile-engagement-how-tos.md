@@ -114,7 +114,7 @@ ms.lasthandoff: 10/11/2017
 Режим доставки "Только за пределами приложения" предоставляет push-уведомление при закрытии приложения. Это стандартное push-уведомление.
 При выборе режима "Только за пределами приложения" вы должны заранее предоставить сертификаты с платформы, на основе которых создается приложение (APNS или GCM).
 
-### <a name="see-also"></a>Дополнительные материалы
+### <a name="see-also"></a>См. также
 * [Служба push-уведомлений Apple — сертификаты](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), [Google Cloud Messaging — сертификат](http://developer.android.com/google/gcm/index.html) 
 
 ### <a name="in-app-only-delivery-mode"></a>Режим доставки "Только в приложении"

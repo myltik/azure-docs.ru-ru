@@ -17,7 +17,7 @@ ms.date: 01/03/2018
 ms.author: jgao
 ms.openlocfilehash: 12791da56f32ffffa4b1131c408829f50f6e9124
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/03/2018
 ## <a name="use-sqlline"></a>Использование SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) — это программа командной строки для выполнения SQL.
 
-### <a name="prerequisites"></a>Технические условия
+### <a name="prerequisites"></a>предварительным требованиям
 Для использования SQLLine требуются следующие компоненты:
 
 * **Кластер HBase в HDInsight.** Чтобы создать его, см. сведения в статье [Начало работы с примером Apache HBase в HDInsight](./apache-hbase-tutorial-get-started-linux.md).
@@ -68,7 +68,7 @@ ms.lasthandoff: 01/03/2018
 
 Дополнительные сведения см. в [руководстве по SQLLine](http://sqlline.sourceforge.net/#manual) и статье о [грамматике Phoenix](http://phoenix.apache.org/language/index.html).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этой статье вы изучили использование Apache Phoenix в HDInsight. Дополнительные сведения см. в статьях ниже:
 
 * [Что такое HBase в HDInsight: база данных NoSQL, которая предоставляет возможности, схожие BigTable, для Hadoop][hdinsight-hbase-overview].

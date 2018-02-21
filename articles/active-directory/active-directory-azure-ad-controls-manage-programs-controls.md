@@ -15,7 +15,7 @@ ms.date: 09/19/2017
 ms.author: billmath
 ms.openlocfilehash: f322bff427384e6432fcc0c288704f6bb605c900
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) включает в себя проверки 
 
 Если программа больше не нужна и с ней не связаны элементы управления, вы можете ее удалить.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Создание проверки доступа для членства в группе или работы с приложением](active-directory-azure-ad-controls-create-access-review.md)
 

@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="pause-and-start-your-power-bi-embedded-capacity-in-the-azure-portal"></a>Приостановка и запуск емкости Power BI Embedded на портале Azure
 
-В этой статье содержится пошаговое руководство по приостановке и запуску емкости Power BI Embedded в Microsoft Azure. При этом подразумевается, что емкость Power BI Embedded уже создана. Если это не так, чтобы приступить к работе, ознакомьтесь с разделом [Создание емкости Power BI Embedded на портале Azure](create-capacity.md).
+В этой статье содержится пошаговое руководство по приостановке и запуску емкости Power BI Embedded в Microsoft Azure. При этом подразумевается, что емкость Power BI Embedded уже создана. Если нет, см. статью [Создание емкости Power BI Embedded на портале Azure](create-capacity.md).
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 
-2. Выберите **Больше служб** > **Power BI Embedded**, чтобы просмотреть имеющиеся емкости.
+2. Выберите **Больше служб** > **Power BI Embedded**, чтобы просмотреть доступные емкости.
 
     ![Раздел "Больше служб" на портале Azure](media/pause-start/azure-portal-more-services.png)
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 
-2. Выберите **Больше служб** > **Power BI Embedded**, чтобы просмотреть имеющиеся емкости.
+2. Выберите **Больше служб** > **Power BI Embedded**, чтобы просмотреть доступные емкости.
 
     ![Раздел "Больше служб" на портале Azure](media/pause-start/azure-portal-more-services.png)
 
@@ -75,10 +75,10 @@ ms.lasthandoff: 10/11/2017
 
 Если этой емкости назначено какое-либо содержимое, оно станет доступно после ее запуска.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Если необходимо масштабировать емкость, просчитайте раздел [Масштабирование емкости Power BI Embedded](scale-capacity.md).
 
 Чтобы начать внедрение содержимого Power BI в приложение, прочитайте раздел [Внедрение панелей мониторинга, отчетов и плиток Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/).
 
-У вас имеются и другие вопросы? [Попробуйте задать их в сообществе Power BI](http://community.powerbi.com/)
+У вас имеются и другие вопросы? [Задайте их в сообществе Power BI](http://community.powerbi.com/).

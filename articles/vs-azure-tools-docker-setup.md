@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>Обзор
 В этой статье приводятся инструкции по настройке экземпляра Docker по умолчанию с помощью машины Docker и VirtualBox. При использовании [бета-версии Docker для Windows](http://beta.docker.com/)эта настройка не требуется.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Должны быть установлены следующие средства.
 
 * [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)

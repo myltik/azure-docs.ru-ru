@@ -17,7 +17,7 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 465b6cac8ac04b48d27890893c1a4459e652dc28
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -106,7 +106,7 @@ ms.lasthandoff: 12/11/2017
 - [Развертывание веб-службы мобильных приложений сервера Многофакторной идентификации Azure](multi-factor-authentication-get-started-server-webservice.md).
 - [Расширенная настройка VPN с Многофакторной идентификацией Azure](multi-factor-authentication-advanced-vpn-configurations.md) для устройств Cisco ASA, Citrix Netscaler и Juniper/Pulse Secure VPN, использующих LDAP или RADIUS.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Хотя в данной статье приводятся некоторые рекомендации по работе с Azure MFA, существуют другие ресурсы, которые также можно использовать при планировании развертывания MFA. Ниже приведен список ключевых статей, которые могут помочь вам в этом процессе.
 
 * [Отчеты в службе Многофакторной идентификации Azure](multi-factor-authentication-manage-reports.md)

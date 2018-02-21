@@ -17,7 +17,7 @@ ms.date: 11/03/2017
 ms.author: daleche
 ms.openlocfilehash: 1d756aa023ae143608acc988ddd0ae8acee1a113
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -80,7 +80,7 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 3. Проверьте строку подключения и другие параметры подключения. Ознакомьтесь с разделом "Строка подключения" в [статье о проблемах подключения](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Проверьте работоспособность службы на панели мониторинга. Если вы считаете, что имеет место региональный сбой, выполните инструкции по восстановлению в новый регион из раздела [Восстановление после сбоя](sql-database-disaster-recovery.md) .
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Устранение проблем производительности базы данных SQL Azure](sql-database-troubleshoot-performance.md)
 * [Поиск документации по Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [Просмотр последних обновлений для службы базы данных SQL Azure](http://azure.microsoft.com/updates/?service=sql-database)

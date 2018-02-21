@@ -68,7 +68,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="creating-a-resource-automatically"></a>Автоматическое создание ресурса
 Вы можете написать [Сценарий PowerShell](app-insights-powershell.md) для автоматического создания ресурса.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Создание панели мониторинга](app-insights-dashboards.md)
 * [Поиск по журналу диагностики](app-insights-diagnostic-search.md)
 * [Изучение метрик](app-insights-metrics-explorer.md)

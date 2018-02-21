@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 При размещении приложения на веб-сайте можно задать переменную среды **WEBSITE_NODE_DEFAULT_VERSION** с нужной версией.
 
 ## <a name="versioning-cloud-services-with-powershell"></a>Управление версиями облачных служб с использованием PowerShell
-В случае размещения приложения в облачной службе и при использовании для развертывания Azure PowerShell, версию Node.js по умолчанию можно переопределить с помощью командлета **Set-AzureServiceProjectRole** . Например:
+В случае размещения приложения в облачной службе и при использовании для развертывания Azure PowerShell, версию Node.js по умолчанию можно переопределить с помощью командлета **Set-AzureServiceProjectRole** . Например: 
 
     Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 

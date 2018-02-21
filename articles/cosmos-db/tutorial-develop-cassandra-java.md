@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: mvc
 ms.openlocfilehash: 53987e5863d9fc11b4fa377295d198293819269c
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 
 Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете быстро создавать и запрашивать документы, пары "ключ — значение" и базы данных графов, используя преимущества возможностей глобального распределения и горизонтального масштабирования базы данных Azure Cosmos DB. 
 
-Этого учебника показано, как создать учетную запись Azure Cosmos DB с помощью портала Azure, а затем создайте Cassandra Table(sql-api-partition-data.md#partition-keys) с помощью [Cassandra API](cassandra-introduction.md). Если при создании таблицы вы определите первичный ключ, вы сможете легко масштабировать приложение по мере увеличения объема данных. 
+В этом руководстве показано, как создать учетную запись Azure Cosmos DB на портале Azure, а затем таблицу Cassandra (sql-api-partition-data.md#partition-keys) с помощью [API-интерфейса Cassandra](cassandra-introduction.md). Если при создании таблицы вы определите первичный ключ, вы сможете легко масштабировать приложение по мере увеличения объема данных. 
 
 В этом руководстве описано, как выполнить следующие задачи с помощью API-интерфейса Cassandra:
 
@@ -37,7 +37,7 @@ Azure Cosmos DB — это глобально распределенная мн
 > * Запрос данных
 > * просмотр соглашений об уровне обслуживания.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Войдите в предварительную версию API Cassandra Azure Cosmos DB. Если вы еще не подали заявку на получение доступа, [зарегистрируйтесь сейчас](https://aka.ms/cosmosdb-cassandra-signup).
 
@@ -219,7 +219,7 @@ Azure Cosmos DB — это глобально распределенная мн
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом кратком руководстве вы узнали, как выполнять следующие задачи:
 

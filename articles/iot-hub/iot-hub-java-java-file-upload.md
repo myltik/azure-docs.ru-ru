@@ -16,7 +16,7 @@ ms.date: 06/28/2017
 ms.author: dobett
 ms.openlocfilehash: b6e1ef5a5b3f9298134a7c312ac7d1927cf41a7f
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -260,7 +260,7 @@ mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 
 ![Отправленный файл](media/iot-hub-java-java-upload/uploaded-file.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководство показано, как использовать возможности передачи файлов Центра Интернета вещей, чтобы упростить передачу файлов из устройств. Изучение функций и сценариев Центра Интернета вещей можно продолжить в следующих руководствах:
 

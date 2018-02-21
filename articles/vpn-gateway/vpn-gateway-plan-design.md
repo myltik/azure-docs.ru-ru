@@ -135,7 +135,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Схема принудительного туннелирования VPN-шлюза Azure](./media/vpn-gateway-plan-design/forced-tunneling-diagram.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о проектировании см. в статьях [VPN-шлюз: вопросы и ответы](vpn-gateway-vpn-faq.md) и [Шлюзы VPN](vpn-gateway-about-vpngateways.md).
 

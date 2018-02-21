@@ -16,7 +16,7 @@ ms.date: 10/20/2017
 ms.author: parja
 ms.openlocfilehash: 676b277ae3fbf4554838eee70c5d3e2d8e12c33d
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -106,7 +106,7 @@ Azure AD B2C позволяет администратору управлять 
 >[!NOTE]
 > Для завершения выхода из сеанса SAML требуются `SessionIndex` и `NameID`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Мы ценим отзывы и предложения. Если у вас возникли проблемы с этим, опубликуйте их на сайте Stack Overflow, используя тег [azure-ad-b2c](https://stackoverflow.com/questions/tagged/azure-ad-b2c). Чтобы запросить какие-либо функции, можно проголосовать за них на нашем [форуме обратной связи](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 

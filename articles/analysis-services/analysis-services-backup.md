@@ -56,7 +56,7 @@ ms.lasthandoff: 11/02/2017
 
     ![Сохранение параметров архивации](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>Резервное копирование
+## <a name="backup"></a>Архивация
 
 ### <a name="to-backup-by-using-ssms"></a>Архивация с помощью SSMS
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 11/02/2017
 ### <a name="powershell"></a>PowerShell
 Используйте командлет [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet).
 
-## <a name="restore"></a>Восстановление
+## <a name="restore"></a>восстановление;
 При восстановлении файл архивной копии должен находиться в учетной записи хранения, настроенной для вашего сервера. Если нужно переместить файл архивной копии из локального расположения в учетную запись хранилища, используйте [обозреватель хранилищ Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) или служебную программу командной строки [AzCopy](../storage/common/storage-use-azcopy.md). 
 
 

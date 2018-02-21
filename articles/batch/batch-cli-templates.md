@@ -13,7 +13,7 @@ ms.date: 12/18/2017
 ms.author: markscu
 ms.openlocfilehash: c2d4a33cd6c4c9db608a76b24935b474b551b291
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/19/2017
 ---
@@ -259,7 +259,7 @@ az batch file download --file-group ffmpeg-output --local-path
 
 Попробуйте использовать расширение пакетной службы для Azure CLI и оставьте отзыв или предложения в комментариях к этой статье или на [форуме по пакетной службе Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Прочитайте запись блога о пакетной службе: [Running Azure Batch jobs using the Azure CLI – no code required](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/) (Выполнение пакетных заданий Azure с помощью Azure CLI без написания кода).
 - Подробная документация по установке и использованию, примеры и исходный код доступны в [репозитории Azure GitHub](https://github.com/Azure/azure-batch-cli-extensions).

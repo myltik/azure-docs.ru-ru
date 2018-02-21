@@ -17,7 +17,7 @@ ms.date: 12/14/2017
 ms.author: kevin;barbkess
 ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/16/2017
 ---
@@ -88,7 +88,7 @@ ms.lasthandoff: 12/16/2017
 | sys.dm_pdw_os_event_logs |10 000 |
 | sys.dm_pdw_sql_requests |Последняя 1000 запросов SQL, которые хранятся в sys.dm_pdw_exec_requests. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные справочные сведения см. в статье [Справочные темы по хранилищу данных SQL][SQL Data Warehouse reference overview].
 
 <!--Image references-->

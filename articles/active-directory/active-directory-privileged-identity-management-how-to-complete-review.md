@@ -17,7 +17,7 @@ ms.author: kgremban
 ms.custom: pim
 ms.openlocfilehash: 3866438de8fba7a6c42777bbb57746eadf1158eb
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/11/2017
 > [!IMPORTANT]
 > Учтите, что при удалении проверки предупреждение не выдается. Поэтому убедитесь, что выбрана нужная проверка. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->

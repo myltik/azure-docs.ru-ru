@@ -34,7 +34,7 @@
     
     ![][5]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Подробные сведения о том, как настроить созданные опубликованные скрипты, см. в статье [Использование скриптов Windows PowerShell для публикации в средах разработки и тестирования](http://msdn.microsoft.com/library/dn642480.aspx).
 
 [0]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_NewProject.PNG

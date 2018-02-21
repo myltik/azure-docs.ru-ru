@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Развертывание приложения-контейнера Azure Service Fabric для Linux в Azure
 Azure Service Fabric — это платформа распределенных систем для развертывания масштабируемых надежных микрослужб и контейнеров и управления ими. 
@@ -34,50 +34,47 @@ Azure Service Fabric — это платформа распределенных 
 > * Масштабирование и отработка отказа контейнеров в Service Fabric
 
 ## <a name="prerequisite"></a>Предварительные требования
-Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+1. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
 
-Если вы решили установить и использовать интерфейс командной строки (CLI), вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду az --version. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+2. Если вы решили установить и использовать интерфейс командной строки (CLI), вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду az --version. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="get-application-package"></a>Получение пакета приложения
 Чтобы развернуть контейнеры в кластер Service Fabric, вам понадобится набор файлов манифеста (определение приложения), которые описывают отдельные контейнеры и приложение.
 
 В Cloud Shell используйте git, чтобы клонировать копию определения приложения.
 
-```azurecli-interactive
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
 cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
+## <a name="deploy-the-application-to-azure"></a>Развертывание приложения в Azure
 
-## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Развертывание контейнеров в кластер Service Fabric в Azure
-Для развертывания приложения в кластере Azure можно использовать собственный кластер или кластер сообщества.
+### <a name="set-up-your-azure-service-fabric-cluster"></a>Настройка кластера Azure Service Fabric
+Чтобы развернуть приложение в кластере Azure, создайте собственный кластер.
 
-> [!Note]
-> Приложения должны быть развернуты в кластере Azure, а не в кластере Service Fabric на локальном компьютере для разработки. 
->
+Кластеры сообщества — это бесплатные временные кластеры Service Fabric, размещенные в Azure. Их запускает команда Service Fabric. Любой пользователь может развертывать приложения в этих кластерах и изучать платформу. Чтобы получить доступ к кластеру сообщества, следуйте инструкциям в [этом разделе](http://aka.ms/tryservicefabric). 
 
-Кластеры сообщества — это бесплатные временные кластеры Service Fabric, размещенные в Azure. Их обслуживает команда Service Fabric. Любой пользователь может развертывать приложения в этих кластерах и изучать платформу. Чтобы получить доступ к кластеру сообщества, следуйте инструкциям на [этом сайте](http://aka.ms/tryservicefabric). 
+Чтобы выполнять операции управления на безопасном общедоступном кластере, можно использовать Service Fabric Explorer, CLI или Powershell. Чтобы использовать Service Fabric Explorer, необходимо скачать с веб-сайта общедоступного кластера PFX-файл и импортировать сертификат в хранилище сертификатов (Windows или Mac) или сам браузер (Ubuntu). Пароль для самозаверяющих сертификатов из общедоступного кластера стороны отсутствует. 
+
+Для выполнения операций управления с помощью Powershell или CLI, требуется PFX-файл (Powershell) или PEM-файл (CLI). Чтобы преобразовать PFX-файл в PEM-файл, используйте следующую команду:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 См. дополнительные сведения о [создании кластера Service Fabric в Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> Служба веб-интерфейса ожидает передачи данных через порт 80 для входящего трафика. Убедитесь, что порт открыт в кластере. При использовании кластера сообщества этот порт открыт.
+> Служба веб-интерфейса ожидает передачи данных через порт 80 для входящего трафика. Убедитесь, что порт открыт в кластере. При использовании кластера сообщества этот порт открыт.
 >
 
 ### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Установка интерфейса командной строки Service Fabric и подключение к кластеру
-Установка [интерфейса командной строки Service Fabric (sfctl)](service-fabric-cli.md) в среде CLI
 
-```azurecli-interactive
-pip3 install --user sfctl 
-export PATH=$PATH:~/.local/bin
-```
+Подключитесь к кластеру Service Fabric в Azure с помощью Azure CLI. Конечная точка — это конечная точка управления кластера. Например: `https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-Подключитесь к кластеру Service Fabric в Azure с помощью Azure CLI. Конечная точка — это конечная точка управления кластера. Например: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
-
-```azurecli-interactive
-sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
+```bash
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 ### <a name="deploy-the-service-fabric-application"></a>Развертывание приложения Service Fabric 
@@ -86,13 +83,13 @@ sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:190
 #### <a name="deploy-using-service-fabric-application-package"></a>Развертывание с помощью пакета приложений Service Fabric
 С помощью скрипта установки скопируйте определения приложения для голосования в кластер, зарегистрируйте тип приложения и создайте экземпляр приложения.
 
-```azurecli-interactive
+```bash
 ./install.sh
 ```
 
 #### <a name="deploy-the-application-using-docker-compose"></a>Развертывание приложения с помощью Docker Compose
 Разверните и установите приложение в кластере Service Fabric с помощью Docker Compose, выполнив следующую команду.
-```azurecli-interactive
+```bash
 sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 

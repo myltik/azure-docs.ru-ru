@@ -16,7 +16,7 @@ ms.date: 03/24/2017
 ms.author: v-craic
 ms.openlocfilehash: 78c0255f142bd3d4b2311ac953541153b72ac12d
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -53,5 +53,5 @@ ms.lasthandoff: 01/02/2018
 ## <a name="related-blog-posts"></a>Связанные записи в блогах
 * [Custom images or formulas? (Пользовательские изображения или формулы?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Часто задаваемые вопросы о DevTest Labs](devtest-lab-faq.md)

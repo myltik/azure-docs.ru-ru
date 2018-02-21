@@ -29,7 +29,7 @@ ms.lasthandoff: 01/10/2018
 
 При наличии кластера HDInsight с доступом к Data Lake Store можно использовать такие средства экосистемы Hadoop, как DistCp, для **копирования** данных из хранилища кластера HDInsight (WASB) в учетную запись Data Lake Store и обратно. В этой статье содержатся инструкции по использованию средства DistCp.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Учетная запись хранения озера данных Azure**. Инструкции по созданию учетной записи см. в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).

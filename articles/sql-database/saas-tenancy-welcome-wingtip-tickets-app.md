@@ -53,7 +53,7 @@ ms.lasthandoff: 11/28/2017
 
 Изучите [руководства][docs-tutorials-for-wingtip-mt] и код на сайте GitHub […/Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 #### <a name="conceptual-descriptions"></a>Основные описания
 

@@ -17,7 +17,7 @@ ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a203548575eacb2d0eb0d09a4aaf239b11caad3c
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 
 Также существует расширение панели доступа для браузеров [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) и [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998). Для их установки права администратора не требуются.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 * Вы уже настроили [доменные службы Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)и подключили компьютеры пользователей к домену.
 * У вас есть разрешение на изменение параметров для редактирования объекта групповой политики. По умолчанию такое разрешение имеют члены следующих групп безопасности: «Администраторы домена», «Администраторы предприятия» и «Владельцы-создатели групповой политики». [Подробнее.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 

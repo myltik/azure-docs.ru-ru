@@ -21,7 +21,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Добавление образов Linux в Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack* 
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack* 
 
 Виртуальные машины Linux можно развернуть в Azure Stack, добавив образ на базе Linux в Azure Stack Marketplace. Проще всего добавить образ Linux в Azure Stack с помощью управления Marketplace.
 
@@ -62,10 +62,10 @@ ms.lasthandoff: 10/11/2017
    
     Выполните приведенные ниже инструкции, чтобы установить агент Linux для Azure вручную.
    
-   а. Сначала скачайте последнюю версию агента Linux для Azure с сайта [GitHub](https://github.com/Azure/WALinuxAgent/releases), например:
+   a. Сначала скачайте последнюю версию агента Linux для Azure с сайта [GitHub](https://github.com/Azure/WALinuxAgent/releases), например:
      
             # wget https://github.com/Azure/WALinuxAgent/archive/v2.2.16.tar.gz
-   b. Распакуйте агент для Azure:
+   Б. Распакуйте агент для Azure:
      
             # tar -vzxf v2.2.16.tar.gz
    c. Установите python-setuptools.
@@ -94,6 +94,6 @@ ms.lasthandoff: 10/11/2017
 2. [Добавьте образ в Marketplace](azure-stack-add-vm-image.md). Убедитесь, что для параметра `OSType` задано значение `Linux`.
 3. После добавления образа в Marketplace создается элемент Marketplace, и пользователи могут развернуть виртуальную машину Linux.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Общие сведения о предложении служб в Azure Stack](azure-stack-offer-services-overview.md)
 

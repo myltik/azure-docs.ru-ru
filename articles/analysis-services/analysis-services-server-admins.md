@@ -38,8 +38,8 @@ ms.lasthandoff: 11/02/2017
    
     ![Добавление администраторов сервера в SSMS](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
 
-## <a name="next-steps"></a>Дальнейшие действия 
+## <a name="next-steps"></a>Дополнительная информация 
 [Аутентификация и пользовательские разрешения](analysis-services-manage-users.md)  
 [Управление ролями и пользователями базы данных](analysis-services-database-users.md)  
-[Контроль доступа на основе ролей](../active-directory/role-based-access-control-what-is.md)  
+[Управление доступом на основе ролей](../active-directory/role-based-access-control-what-is.md)  
 

@@ -35,7 +35,7 @@ ms.lasthandoff: 11/22/2017
 3. Выберите **Download ZIP** (Скачать ZIP-файл) и сохраните файл.
 4. Щелкните правой кнопкой мыши этот ZIP-файл и выберите **Свойства**. Имя ZIP-файла будет соответствовать имени репозитория. (Например, _WingtipTicketsSaaS-DbPerTenant-master.zip_.)
 5. На вкладке **Общие** выберите **Разблокировать**.
-6. Нажмите кнопку **ОК**.
+6. Последовательно выберите **ОК**.
 7. Извлеките файлы.
 
 Файлы сценариев находятся в папке *..\\Learning Modules*.
@@ -115,7 +115,7 @@ ms.lasthandoff: 11/22/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Развертывание изолированного приложения SaaS Wingtip Tickets](saas-standaloneapp-get-started-deploy.md)
 - [Развертывание приложения SaaS Wingtip Tickets для однотенантной базы данных](saas-dbpertenant-get-started-deploy.md)
 - [Развертывание приложения SaaS Wingtip Tickets для мультитенантной базы данных](saas-multitenantdb-get-started-deploy.md)

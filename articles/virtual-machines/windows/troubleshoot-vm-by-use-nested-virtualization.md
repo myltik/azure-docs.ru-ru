@@ -16,7 +16,7 @@ ms.date: 11/06/2017
 ms.author: genli
 ms.openlocfilehash: b50d139f62ef773fb5b9bb2638e40f8154e80979
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -137,6 +137,6 @@ ms.lasthandoff: 01/03/2018
 
 Чтобы создать виртуальную машину с диска, вы можете также использовать Azure PowerShell. Дополнительные сведения см. в разделе [Создание виртуальной машины](create-vm-specialized.md#create-the-new-vm). 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 При возникновении проблем с подключением к виртуальной машине ознакомьтесь со статьей [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](troubleshoot-rdp-connection.md). Для устранения проблем с доступом к приложениям, выполняющимся на виртуальной машине, прочитайте статью [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](troubleshoot-app-connection.md).

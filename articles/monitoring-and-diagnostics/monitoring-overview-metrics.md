@@ -16,7 +16,7 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -127,7 +127,7 @@ Azure Monitor также имеет новые метрики построени
 ## <a name="learn-about-supported-services-and-metrics"></a>Поддерживаемые службы и метрики
 Подробный список поддерживаемых служб и их метрики см. в статье [Метрики, поддерживаемые Azure Monitor](monitoring-supported-metrics.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Перейдите по ссылкам в этой статье. Кроме того, ознакомьтесь со следующими материалами:  
 
 * [Общие метрики автомасштабирования Azure Monitor](insights-autoscale-common-metrics.md)

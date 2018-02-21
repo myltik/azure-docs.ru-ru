@@ -94,7 +94,7 @@ ms.lasthandoff: 12/01/2017
 
 8. Перезапустите VS Code, а затем снова перейдите к редактору сценариев, который работает на базе **интерактивной среды PySpark службы HDInsight**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 ### <a name="demo"></a>Демонстрация
 * HDInsight для VS Code: [видео](https://go.microsoft.com/fwlink/?linkid=858706)

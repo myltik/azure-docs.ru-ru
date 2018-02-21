@@ -16,7 +16,7 @@ ms.date: 12/18/2017
 ms.author: ryanwi
 ms.openlocfilehash: dc7e536ce40bf95e1950e1e44844cd8fe26ea1a1
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/19/2017
 ---
@@ -99,7 +99,7 @@ Azure Service Fabric — это платформа распределенных 
 Дополнительные сведения см. в статье [Общие сведения о модели программирования Service Fabric](service-fabric-choose-framework.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о платформе Service Fabric см. в следующих статьях.
 
 * [Общие сведения о Service Fabric](service-fabric-overview.md)

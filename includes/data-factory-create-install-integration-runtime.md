@@ -111,9 +111,9 @@
 
     ![Вкладка «Диагностика»](media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png)   
 
-    а. На странице **Configuration Manager** перейдите на вкладку **Diagnostics** (Диагностика).
+    a. На странице **Configuration Manager** перейдите на вкладку **Diagnostics** (Диагностика).
 
-    b. В качестве типа источника данных выберите **SqlServer**.
+    Б. В качестве типа источника данных выберите **SqlServer**.
 
     c. Введите имя сервера.
 

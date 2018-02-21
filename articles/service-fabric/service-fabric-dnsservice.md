@@ -124,7 +124,7 @@ public class ValuesController : Controller
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о взаимодействии служб в кластере см. в статье [Подключение к службам в Service Fabric и взаимодействие с ними](service-fabric-connect-and-communicate-with-services.md).
 
 [0]: ./media/service-fabric-connect-and-communicate-with-services/dns.png

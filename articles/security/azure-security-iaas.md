@@ -192,7 +192,7 @@ Security Compliance Manager является бесплатным инструм
 По возможности рабочие нагрузки, перемещенные в Azure, должны интегрироваться с существующими решениями для архивации. Кроме того, для обеспечения соответствия требованиям к архивации можно использовать [службу архивации Azure](../backup/backup-azure-arm-vms.md).
 
 
-## <a name="monitor"></a>Монитор
+## <a name="monitor"></a>Мониторинг
 
 [Центр безопасности](../security-center/security-center-intro.md) обеспечивает непрерывную оценку состояния безопасности ресурсов Azure, чтобы выявить потенциальные уязвимости. Список рекомендаций помогает выполнить процедуру настройки необходимого средства контроля.
 
@@ -224,7 +224,7 @@ Security Compliance Manager является бесплатным инструм
 
 ![Базовые показатели системы безопасности OMS](./media/azure-security-iaas/oms-security-baseline.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Блог группы безопасности Azure](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Центр Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)

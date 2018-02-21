@@ -107,7 +107,7 @@ ms.lasthandoff: 11/16/2017
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Службы, поддерживающие автомасштабирование
-| служба | Схемы и документы |
+| Service | Схемы и документы |
 | --- | --- |
 | Веб-приложения |[Scaling Web Apps (Масштабирование веб-приложения)](insights-how-to-scale.md) |
 | Облачные службы |[Автомасштабирование облачной службы](../cloud-services/cloud-services-how-to-scale-portal.md) |
@@ -116,7 +116,7 @@ ms.lasthandoff: 11/16/2017
 | Виртуальные машины: масштабируемые наборы Linux |[Масштабирование и масштабируемые наборы виртуальных машин в Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
 | Виртуальные машины: пример с Windows |[Расширенная настройка автомасштабирования с помощью шаблонов Resource Manager для набора масштабирования виртуальных машин](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения об автомасштабировании см. в пошаговых руководствах по автомасштабированию выше, а также в следующих статьях:
 
 * [Общие метрики автомасштабирования Azure Monitor](insights-autoscale-common-metrics.md)

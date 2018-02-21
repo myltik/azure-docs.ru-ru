@@ -28,7 +28,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="app-running-in-emulator"></a>Приложение, запущенное в эмуляторе
 Указывает, что приложение выполняется в эмуляторе.
 
-| Тип | Пример |
+| type | Пример |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@emulated" |
 | Код |var x = RoleEnvironment.IsEmulated; |
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="deployment-id"></a>Идентификатор развертывания
 Получает идентификатор развертывания для экземпляра.
 
-| Тип | Пример |
+| type | Пример |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@id" |
 | Код |var deploymentId = RoleEnvironment.DeploymentId; |
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="role-id"></a>Идентификатор роли
 Получает идентификатор текущей роли для экземпляра.
 
-| Тип | Пример |
+| type | Пример |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@id" |
 | Код |var id = RoleEnvironment.CurrentRoleInstance.Id; |
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="update-domain"></a>Обновление домена
 Получает домен обновления для экземпляра.
 
-| Тип | Пример |
+| type | Пример |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | Код |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
@@ -60,7 +60,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="fault-domain"></a>Домен сбоя
 Получает домен сбоя для экземпляра.
 
-| Тип | Пример |
+| type | Пример |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | Код |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
@@ -68,7 +68,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="role-name"></a>Имя роли
 Получает имя роли для экземпляров.
 
-| Тип | Пример |
+| type | Пример |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@roleName" |
 | Код |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="config-setting"></a>Параметр конфигурации
 Получает значение указанного параметра конфигурации.
 
-| Тип | Пример |
+| type | Пример |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
 | Код |var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
@@ -84,7 +84,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="local-storage-path"></a>Путь к локальному хранилищу
 Получает путь к локальному хранилищу для экземпляра.
 
-| Тип | Пример |
+| type | Пример |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
 | Код |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1").RootPath; |
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="local-storage-size"></a>Размер локального хранилища
 Получает размер локального хранилища для экземпляра.
 
-| Тип | Пример |
+| type | Пример |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@sizeInMB" |
 | Код |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1").MaximumSizeInMegabytes; |
@@ -100,7 +100,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="endpoint-protocol"></a>Протокол конечной точки
 Получает протокол конечной точки для экземпляра.
 
-| Тип | Пример |
+| type | Пример |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@protocol" |
 | Код |var prot = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].Protocol; |
@@ -108,7 +108,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="endpoint-ip"></a>IP-адрес конечной точки
 Получает IP-адрес указанной конечной точки.
 
-| Тип | Пример |
+| type | Пример |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@address" |
 | Код |var address = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Address |
@@ -116,7 +116,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="endpoint-port"></a>Порт конечной точки
 Получает порт конечной точки для экземпляра.
 
-| Тип | Пример |
+| type | Пример |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
 | Код |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/16/2017
 </WorkerRole>
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше о файле [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) .
 
 Создайте пакет [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) .

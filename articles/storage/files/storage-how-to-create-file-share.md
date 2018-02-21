@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 * [Как создать общую папку Azure с помощью PowerShell](#Create file share using PowerShell)
 * [Как создать общую папку Azure с помощью CLI](#create-file-share-using-command-line-interface-cli)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Чтобы создать общую папку в службе файлов Azure, вы можете использовать существующую учетную запись хранения Azure или [создать новую](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Чтобы создать общую папку в службе файлов Azure с помощью PowerShell, вам потребуется ключ учетной записи и имя учетной записи хранения. Если вы планируете использовать PowerShell или интерфейс командной строки, вам потребуется ключ учетной записи хранения.
 
 ## <a name="create-file-share-through-the-azure-portal"></a>Создание общей папки с помощью портала Azure
@@ -87,7 +87,7 @@ ms.lasthandoff: 10/11/2017
     az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Mount an Azure File share and access the share in Windows](storage-how-to-use-files-windows.md) (Подключение файлового ресурса Azure и доступ к нему в Windows)
 * [Использование хранилища файлов Azure в Linux](../storage-how-to-use-files-linux.md)
 * [Mount Azure File share over SMB with macOS](storage-how-to-use-files-mac.md) (Использование хранилища файлов Azure с помощью протокола SMB в macOS)

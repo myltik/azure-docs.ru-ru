@@ -18,7 +18,7 @@ ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
 ms.openlocfilehash: aaccc501526d313a572692ff8f2f5c9da38849d3
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -72,7 +72,7 @@ Azure Active Directory (Azure AD) — это комплексное решен�
 * [Синхронизация локальной группы с Azure с помощью Azure AD Connect](active-directory-aadconnect.md)
 * [Управление владельцами группы](active-directory-accessmanagement-managing-group-owners.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь вы знаете основы управления доступом. Приведенные ниже статьи содержат информацию о доступных в Azure Active Directory дополнительных возможностях управления доступом к приложениям и ресурсам.
 
 * [Использование атрибутов для создания расширенных правил](active-directory-groups-dynamic-membership-azure-portal.md)

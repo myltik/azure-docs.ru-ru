@@ -101,7 +101,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="changing-default-settings-for-client-roles"></a>Изменение параметров по умолчанию для ролей клиента
 При необходимости в файле манифеста кластера клиенту можно предоставить возможность администрирования. Чтобы изменить значения по умолчанию, во время [создания кластера](service-fabric-cluster-creation-via-portal.md) перейдите к настройкам **Fabric Settings** (Параметры структуры), а затем укажите параметры, приведенные выше, в полях **Имя**, **Администратор**, **Пользователь** и **Значение**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Защита кластера Service Fabric](service-fabric-cluster-security.md)
 
 [Настройка кластера Service Fabric на портале Azure](service-fabric-cluster-creation-via-portal.md)

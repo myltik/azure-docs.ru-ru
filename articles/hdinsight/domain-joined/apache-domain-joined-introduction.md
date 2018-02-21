@@ -18,7 +18,7 @@ ms.date: 10/31/2016
 ms.author: saurinsh
 ms.openlocfilehash: 0a3558973014e47d470ef89d5d0f7c9ac15cb4d9
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -54,7 +54,7 @@ ms.lasthandoff: 12/14/2017
 ### <a name="encryption"></a>Шифрование
 Защита данных важна для соответствия требованиям корпоративной безопасности и обеспечения соответствия требованиям. Для защиты данных нужно не только ограничивать доступ к данным для несанкционированных сотрудников, но и шифровать их. Хранилища данных для кластеров HDInsight, хранилище BLOB-объектов Azure и Azure Data Lake Store поддерживают [шифрование неактивных данных](../../storage/common/storage-service-encryption.md) на стороне сервера. Защищенные кластеры HDInsight полностью совместимы с возможностью шифрования неактивных данных на стороне сервера.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Сведения о настройке присоединенного к домену кластера HDInsight см. в [этой статье](apache-domain-joined-configure.md).
 * Сведения об управлении присоединенными к домену кластерами HDInsight см. в [этой статье](apache-domain-joined-manage.md).
 * Сведения о настройке политик Hive и выполнении запросов Hive для присоединенного к домену кластера HDInsight см. [здесь](apache-domain-joined-run-hive.md).

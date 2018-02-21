@@ -33,7 +33,7 @@ ms.lasthandoff: 11/03/2017
 > При использовании HDInsight 3.4 или более поздней версии см. сведения о выполнении запросов Hive непосредственно в кластере из командной строки: [Использование Hive с Hadoop в HDInsight с применением Beeline](apache-hadoop-use-hive-beeline.md).
 
 ## <a id="prereq"></a>Предварительные требования
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
+Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
 * Кластер HDInsight на платформе Windows (Hadoop в HDInsight).
 * Клиентский компьютер под управлением Windows 10, Windows 8 или Windows 7.
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/03/2017
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Эти операторы выполняют следующие действия.
+    Эти операторы выполняют следующие действия:
 
    * **DROP TABLE**: удаление таблицы и файла данных, если таблица уже существует.
    * **CREATE EXTERNAL TABLE**: создание новой "внешней" таблицы в Hive. Внешние таблицы хранят только определение самой таблицы в Hive, в то время как данные остаются в исходном расположении.
@@ -79,7 +79,7 @@ ms.lasthandoff: 11/03/2017
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    Эти операторы выполняют следующие действия.
+    Эти операторы выполняют следующие действия:
 
    * **CREATE TABLE IF NOT EXISTS**: создание таблицы, если она до этого не существовала. Так как ключевое слово **EXTERNAL** не использовалось, такая таблица будет внутренней, то есть хранящейся в хранилище данных Hive и полностью управляемой Hive.
 

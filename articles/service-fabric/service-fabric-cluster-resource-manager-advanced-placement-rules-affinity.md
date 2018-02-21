@@ -77,7 +77,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ### <a name="partitioning-support"></a>Поддержка секционирования
 И, наконец, отношения сопоставления не поддерживаются, если родительский элемент секционирован. Возможно, со временем секционированные родительские службы будут поддерживаться, но на данный момент эта возможность отсутствует.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Дополнительные сведения о настройке служб см. в разделе [Настройка параметров Cluster Resource Manager для служб Service Fabric](service-fabric-cluster-resource-manager-configure-services.md).
 - О том, как ограничить выполнение служб небольшим набором компьютеров или объединить нагрузку служб, рассказывается в разделе [Введение в группы приложений](service-fabric-cluster-resource-manager-application-groups.md).
 

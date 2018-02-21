@@ -17,7 +17,7 @@ ms.date: 03/15/2017
 ms.author: sasubram
 ms.openlocfilehash: aa0d8dc9bed0a56d998e782283c84e7d2571b1f1
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 2. Администратор главной организации настраивает политики, позволяющие Сэму (Sam) идентифицировать и добавлять других пользователей из партнерской организации (Litware).
 3. Теперь Сэм может добавлять других пользователей из Litware в каталог, группы или приложения WoodGrove без отправки и активации приглашений. Если у Сэма есть соответствующие привилегии на перечисление в Litware, то это происходит автоматически.
 
-### <a name="next-steps"></a>Дальнейшие действия
+### <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B:
 

@@ -16,7 +16,7 @@ ms.date: 12/18/2017
 ms.author: jeedes
 ms.openlocfilehash: 62d148d78d9f98b6a3ddf1259177936b3976aeab
 ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/22/2017
 ---
@@ -26,13 +26,13 @@ ms.lasthandoff: 12/22/2017
 
 Интеграция Pluralsight с Azure AD обеспечивает приведенные далее преимущества.
 
-- Можно управлять в Azure AD, который имеет доступ к Pluralsight.
-- Позволяет пользователям автоматически получить вошедшего в Pluralsight (Single Sign-On) с помощью своих учетных записей Azure AD.
+- С помощью Azure AD вы можете контролировать доступ к Pluralsight.
+- Вы можете включить автоматический вход пользователей в Pluralsight (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — на портале Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Pluralsight, вам потребуется:
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/22/2017
 
     ![Кнопка "Новое приложение"][3]
 
-4. В поле поиска введите **Pluralsight**выберите **Pluralsight** из панели результатов щелкните **добавить** кнопку, чтобы добавить приложение.
+4. В поле поиска введите **Pluralsight**, выберите **Pluralsight** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
     ![Pluralsight в списке результатов](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_addfromgallery.png)
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 12/22/2017
 
 1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Pluralsight](#create-a-pluralsight-test-user)**  — на аналог Саймон Britta в Pluralsight, связанного с представлением Azure AD пользователя.
+3. **[Создание тестового пользователя Pluralsight](#create-a-pluralsight-test-user)** требуется для того, чтобы в Pluralsight существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
 5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
@@ -104,9 +104,9 @@ ms.lasthandoff: 12/22/2017
  
     ![Диалоговое окно "Единый вход"](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_samlbase.png)
 
-3. На **URL-адреса и домена Pluralsight** выполните следующие действия:
+3. В разделе **Домены и URL-адреса приложения Pluralsight** выполните следующие действия.
 
-    ![URL-адреса и домена Pluralsight единого входа сведения](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_url.png)
+    ![Сведения о домене и URL-адресах единого входа для приложения Pluralsight](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_url.png)
 
     a. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<instancename>.pluralsight.com/sso/<companyname>`
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 12/22/2017
     c. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<instancename>.pluralsight.com/sp/ACS.saml2`.
      
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Измените их на фактические значения URL-адреса ответа и URL-адреса входа. Обратитесь к [группа поддержки клиента Pluralsight](mailto:support@pluralsight.com) для получения этих значений. 
+    > Эти значения приведены в качестве примера. Измените их на фактические значения URL-адреса ответа и URL-адреса входа. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов Pluralsight](mailto:support@pluralsight.com). 
 
 4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
@@ -207,7 +207,7 @@ ms.lasthandoff: 12/22/2017
 
 2. В списке приложений выберите **Pluralsight**.
 
-    ![Pluralsight ссылку в список приложений](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_app.png)  
+    ![Ссылка на Pluralsight в списке "Приложения"](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_app.png)  
 
 3. В меню слева выберите **Пользователи и группы**.
 

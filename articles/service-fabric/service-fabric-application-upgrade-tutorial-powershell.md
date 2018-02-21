@@ -16,7 +16,7 @@ ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: 54ca664a29ed8c6337bb27fe1fa17276e480c911
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -135,7 +135,7 @@ Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects
 
 В качестве упражнения вы можете выполнить обновление с версии 2 до версии 3 или с версии 2 до версии 1. Переход с версии 2 на версию 1 также считается обновлением. Попробуйте изменить значения времени ожидания и параметры политики работоспособности в качестве тренировки. При развертывании в кластере Azure необходимо правильно настроить параметры. Рекомендуется использовать консервативный подход при настройке значений времени ожидания.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Руководство по обновлению приложений Service Fabric с помощью Visual Studio](service-fabric-application-upgrade-tutorial.md) поможет вам выполнить поэтапное обновление приложения с помощью Visual Studio.
 
 Управление обновлениями приложения осуществляется с помощью [параметров обновления](service-fabric-application-upgrade-parameters.md).

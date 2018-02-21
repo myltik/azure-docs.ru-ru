@@ -19,7 +19,7 @@ ms.lasthandoff: 12/01/2017
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Настройка параметров конфигурации сервера с помощью Azure CLI
 С помощью служебной программы командной строки (Azure CLI) можно вывести список параметров конфигурации для сервера базы данных Azure для MySQL, а также отобразить и обновить их. Только подмножество конфигураций ядра предоставляется на уровне сервера и может быть изменено. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Прежде чем приступить к выполнению этого руководства, необходимы следующие компоненты:
 - [Сервер базы данных Azure для MySQL.](quickstart-create-mysql-server-database-using-azure-cli.md)
 - Служебная программа командной строки [Azure CLI 2.0](/cli/azure/install-azure-cli) (или используйте Azure Cloud Shell в браузере).
@@ -53,5 +53,5 @@ az mysql server configuration set --name slow_query_log --resource-group myresou
 ```
 Этот код выполняет сброс конфигурации **slow\_query\_log** к значению по умолчанию **OFF**. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Настройка [параметров сервера на портале Azure](howto-server-parameters.md)

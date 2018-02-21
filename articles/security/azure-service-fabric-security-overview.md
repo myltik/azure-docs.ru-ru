@@ -16,7 +16,7 @@ ms.date: 08/04/2017
 ms.author: tomsh
 ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -189,6 +189,6 @@ Azure AD позволяет организациям (известным как 
 -   [Защита взаимодействия служб в Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication)
 -   [Защита службы при использовании стека взаимодействия на основе WCF](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication#help-secure-a-service-when-youre-using-a-wcf-based-communication-stack)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Основные сведения о безопасности кластера см. в статье [Создание кластера Service Fabric в Azure с помощью Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) и на [портале Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal).
 - Дополнительные сведения о безопасности кластера Service Fabric см. в статье [Сценарии защиты кластера Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).

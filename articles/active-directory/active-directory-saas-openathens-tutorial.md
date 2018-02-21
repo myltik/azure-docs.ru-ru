@@ -16,7 +16,7 @@ ms.date: 09/05/2017
 ms.author: jeedes
 ms.openlocfilehash: af26e007c953c4157f5ee7a4251a52e9c45a6eac
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 
 Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с OpenAthens, вам потребуется:
 

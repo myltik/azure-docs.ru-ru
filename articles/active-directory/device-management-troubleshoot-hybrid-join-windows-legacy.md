@@ -16,7 +16,7 @@ ms.author: markvi
 ms.reviewer: jairoc
 ms.openlocfilehash: f1b92c604e20198714e9697bf4d08b3f71f23ae3
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -107,6 +107,6 @@ ms.lasthandoff: 12/11/2017
 
   - пользователь достиг предела подключенных устройств. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Ответы на вопросы можно найти в статье [Azure Active Directory device management FAQ](device-management-faq.md) (Часто задаваемые вопросы по управлению устройствами Azure Active Directory).  

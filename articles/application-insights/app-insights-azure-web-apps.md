@@ -58,7 +58,6 @@ ms.lasthandoff: 11/01/2017
 * Откройте колонку управления веб-приложением в Azure и в категории "Средства разработки" выберите **Расширения**. Удалите расширение Application Insights. Затем в разделе "Мониторинг" выберите пункт Application Insights и создайте или выберите нужный ресурс.
 
 ## <a name="build-the-app-with-application-insights"></a>Создание приложения с поддержкой Application Insights
-
 Установите пакет SDK в свое приложение, чтобы воспользоваться более подробными сведениями телеметрии Application Insights. В частности, можно собирать журналы трассировки, [написать код пользовательской телеметрии](app-insights-api-custom-events-metrics.md) и получать более подробные отчеты об исключениях.
 
 1. **В Visual Studio** (2013 года с обновлением 2 или более поздней версии) настройте Application Insights для проекта.
@@ -112,7 +111,7 @@ ms.lasthandoff: 11/01/2017
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Запуск профилировщика в живом приложении](app-insights-profiler.md).
 * [Функции Azure.](https://github.com/christopheranderson/azure-functions-app-insights-sample) Отслеживайте функции Azure с помощью Application Insights.
 * [Включите отправку данных диагностики Azure](app-insights-azure-diagnostics.md) в Application Insights.

@@ -15,7 +15,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -71,7 +71,7 @@ ms.lasthandoff: 12/11/2017
 
     -   Добавление приложения из коллекции приложений Azure AD
 
-## <a name="next-steps"></a>Дальнейшие действия 
+## <a name="next-steps"></a>Дополнительная информация 
 
 [Приложения, разрешения и согласие в Azure Active Directory (конечная точка версии 1)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 

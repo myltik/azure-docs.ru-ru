@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: c6a1b82b82dc89378533e375bd8a5d4868ae5308
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/05/2018
 
 Чтобы включить удаленный доступ к SharePoint с помощью прокси приложения Azure AD, следуйте пошаговым инструкциям в разделах этой статьи.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 В этой статье предполагается, что в вашей среде уже есть SharePoint 2013 или более поздней версии. Кроме того, необходимо выполнить следующие предварительные требования.
 
@@ -202,7 +202,7 @@ Klist возвращает набор целевых имен субъектов
 
 Теперь вы можете получать внешний доступ к сайту SharePoint через прокси приложения Azure AD.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Работа с пользовательскими доменами в прокси приложения Azure AD](active-directory-application-proxy-custom-domains.md)
 - [Сведения о соединителях прокси приложения Azure AD](application-proxy-understand-connectors.md)

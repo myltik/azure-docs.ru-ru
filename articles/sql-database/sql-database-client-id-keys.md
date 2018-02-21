@@ -71,7 +71,7 @@ ms.lasthandoff: 10/31/2017
 
 
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Создание базы данных SQL с помощью C#](sql-database-get-started-csharp.md)
 * [Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md)
 

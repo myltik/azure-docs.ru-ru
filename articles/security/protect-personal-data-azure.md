@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Документация по системе безопасности](https://aka.ms/AzureSecInfo)
 

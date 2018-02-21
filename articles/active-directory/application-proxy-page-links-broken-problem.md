@@ -15,7 +15,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 17f2afb0aaf3b899784a504b77f33a1284f0a232
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -44,6 +44,6 @@ ms.lasthandoff: 12/11/2017
 
 Поэтому мы настоятельно рекомендуем использовать [пользовательские домены](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains), если это возможно. Если вы хотите присоединиться к предварительной версии, отправьте электронное письмо по адресу <aadapfeedback@microsoft.com>, указав идентификаторы приложений.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Работа с имеющимися локальными прокси-серверами](application-proxy-working-with-proxy-servers.md)
 

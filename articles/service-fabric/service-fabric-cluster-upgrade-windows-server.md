@@ -16,7 +16,7 @@ ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: c95c1827d0433dcb61eace34e7a905a5610c7781
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -226,7 +226,7 @@ ms.lasthandoff: 12/21/2017
 * Обновление отпечатка издателя сертификата. Путь обновления "общее имя сертификата — A, отпечаток издателя — IT1 (основной) > общее имя сертификата — A, отпечаток издателя — IT1, IT2 (основной) > общее имя сертификата — A, отпечаток издателя — IT2 (основной)".
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте, как настроить некоторые [параметры кластера Service Fabric](service-fabric-cluster-fabric-settings.md).
 * Ознакомьтесь с концепцией [масштабирования кластера](service-fabric-cluster-scale-up-down.md).
 * Узнайте об [обновлениях приложений](service-fabric-application-upgrade.md).

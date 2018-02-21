@@ -17,7 +17,7 @@ ms.author: billmath
 ms.custom: pim
 ms.openlocfilehash: 2cf361dc879915c316e7ee907b5c70b5907459c2
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -66,6 +66,6 @@ ms.lasthandoff: 12/11/2017
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

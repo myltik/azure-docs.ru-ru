@@ -22,8 +22,8 @@ ms.lasthandoff: 10/11/2017
 
 Узнайте, как создать функцию Hello World, используя:
 
-- [Портал Azure](/azure/azure-functions/functions-create-first-azure-function)
-- [Интерфейс командной строки Azure](/azure/azure-functions/functions-create-first-azure-function-azure-cli)
+- [портале Azure](/azure/azure-functions/functions-create-first-azure-function)
+- [интерфейс командной строки Azure](/azure/azure-functions/functions-create-first-azure-function-azure-cli)
 
 ## <a name="step-by-step-tutorials"></a>Пошаговые руководства
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 Поиск скриптов для выполнения типовых задач.
 
-- [Интерфейс командной строки Azure](/azure/azure-functions/functions-cli-samples)
+- [интерфейс командной строки Azure](/azure/azure-functions/functions-cli-samples)
 
 ## <a name="more"></a>Подробнее
 

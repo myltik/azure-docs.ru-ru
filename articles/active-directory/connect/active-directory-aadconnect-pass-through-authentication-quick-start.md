@@ -16,7 +16,7 @@ ms.date: 10/19/2017
 ms.author: billmath
 ms.openlocfilehash: 1da7c064030501b5c6547b65c091b1a50da93899
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -131,7 +131,7 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 >[!NOTE]
 >Можно также скачать агент аутентификации Azure Active Directory [отсюда](https://aka.ms/getauthagent). Обязательно прочитайте и примите [условия использования](https://aka.ms/authagenteula) агента аутентификации, _прежде_ чем установить его.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Интеллектуальная блокировка](active-directory-aadconnect-pass-through-authentication-smart-lockout.md). Узнайте, как настроить возможность интеллектуальной блокировки в клиенте для защиты учетных записей пользователей.
 - [Текущие ограничения](active-directory-aadconnect-pass-through-authentication-current-limitations.md). Узнайте о том, какие сценарии поддерживаются для сквозной аутентификации, а какие нет.
 - [Подробное техническое руководство](active-directory-aadconnect-pass-through-authentication-how-it-works.md). Поймите, как работает функция сквозной аутентификации.

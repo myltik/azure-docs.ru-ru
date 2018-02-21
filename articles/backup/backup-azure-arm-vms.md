@@ -18,7 +18,7 @@ ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -95,7 +95,7 @@ ms.lasthandoff: 12/21/2017
 ## <a name="troubleshooting-errors"></a>Устранение ошибок
 Если во время архивации виртуальной машины возникнут проблемы, ознакомьтесь со [статьей об устранении неполадок виртуальной машины](backup-azure-vms-troubleshoot.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы защитили виртуальную машину, ознакомьтесь со следующими статьями, чтобы узнать о задачах управления виртуальными машинами и их восстановлении.
 
 * [Мониторинг виртуальных машин и управление ими](backup-azure-manage-vms.md)

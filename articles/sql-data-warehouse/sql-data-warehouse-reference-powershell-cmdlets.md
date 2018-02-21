@@ -86,7 +86,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 * [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]
 * [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные примеры PowerShell см. в указанных далее документах.
 
 * [Создание хранилища данных SQL с помощью PowerShell][Create a SQL Data Warehouse using PowerShell]

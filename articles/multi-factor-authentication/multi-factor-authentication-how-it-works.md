@@ -17,7 +17,7 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 0791ec4c3bf4a69e2a93b8f3dd1dcf9b649f4cff
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 
 Служба Многофакторной идентификации Azure предоставляет методы выборочной проверки для облака и сервера. Это означает, что можно выбрать, какие методы доступны пользователям: телефонный звонок, текст, уведомление от приложения или код приложения. Дополнительные сведения см. в разделе [Выбор методов проверки](multi-factor-authentication-whats-next.md#selectable-verification-methods).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Ознакомьтесь с разными [версиями и методами использования службы Многофакторной идентификации Azure](multi-factor-authentication-versions-plans.md).
 

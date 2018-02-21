@@ -17,7 +17,7 @@ ms.date: 05/25/2017
 ms.author: sasubram
 ms.openlocfilehash: f7cf0451147adf539fd11753c41b1f08c442e527
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -90,7 +90,7 @@ ms.lasthandoff: 12/11/2017
 
 ![Снятие ограничений для гостевых пользователей](media/active-directory-b2b-user-properties/remove-guest-limitations.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B:
 

@@ -31,7 +31,7 @@ ms.lasthandoff: 11/28/2017
 > Сведения о развертывании и мониторинге топологий в HDInsight под управлением Windows см. в статье [Развертывание топологий Apache Storm в HDInsight под управлением Windows и управление ими](apache-storm-deploy-monitor-topology.md).
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Storm под управлением Linux в кластере HDInsight.** Инструкции по созданию кластера см. в статье [Руководство по Apache Storm в HDInsight: начало работы с анализом больших объемов данных в HDInsight с помощью примеров Storm Starter](apache-storm-tutorial-get-started-linux.md).
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/28/2017
   * Visual Studio 2013 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=44921) или [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
-  * Visual Studio 2015 (любой выпуск)
+  * Visual Studio 2015 (любой выпуск);
 
   * Visual Studio 2017 (любой выпуск). Средства Data Lake для Visual Studio 2017 устанавливаются как часть рабочей нагрузки Azure.
 
@@ -228,7 +228,7 @@ ms.lasthandoff: 11/28/2017
 * **Из веб-интерфейса Ambari.** В верхней части страницы выберите **Services** (Службы), а затем — **Storm**. На вкладке **Summary** (Сводка) выберите **Storm UI Server** (Сервер пользовательского интерфейса Storm). Полное доменное имя узла, на котором размещены пользовательский интерфейс Storm и REST API, отображено в верхней части страницы.
 * **Из интерфейса REST API Ambari.** Используйте команду `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"`, чтобы получить сведения об узле с выполняемыми пользовательскими интерфейсами Storm и REST API. Замените **PASSWORD** паролем администратора кластера. Замените **CLUSTERNAME** именем кластера. Запись host_name в ответе будет содержать полное доменное имя узла.
 
-### <a name="authentication"></a>Аутентификация
+### <a name="authentication"></a>Authentication
 
 Для запросов REST API необходимо использовать **обычную проверку подлинности**с помощью имени и пароля администратора кластера HDInsight.
 

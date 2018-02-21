@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Узнайте, как использовать пакет SDK для Python для Azure Data Lake Store для выполнения основных операций управления учетными записям, таких как создание учетной записи Data Lake Store, перечисление учетных записей Data Lake Store и т. д. Дополнительные сведения о том, как выполнять операции файловой системы в Data Lake Store с помощью Python, см. в [этой статье](data-lake-store-data-operations-python.md).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Python**. Скачать Python можно [здесь](https://www.python.org/downloads/). В этой статье используется версия Python 3.6.2.
 

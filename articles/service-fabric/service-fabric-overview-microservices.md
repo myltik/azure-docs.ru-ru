@@ -179,7 +179,7 @@ Service Fabric предоставляет три масштабных решен
  
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Общие сведения о терминологии Service Fabric](service-fabric-technical-overview.md)
 * [Микрослужбы: революция в области приложений на основе облака](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 

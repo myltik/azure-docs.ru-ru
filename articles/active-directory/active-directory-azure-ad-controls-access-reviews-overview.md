@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 - Можно собирать элементы управления проверки доступа в программы, соответствующие вашей организации, чтобы отслеживать доступ для приложений, чувствительных к риску или нарушениям соответствия.
     
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Управление пользовательским доступом с помощью проверок доступа Azure AD](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 - [Управление гостевым доступом с помощью проверок доступа Azure AD](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)

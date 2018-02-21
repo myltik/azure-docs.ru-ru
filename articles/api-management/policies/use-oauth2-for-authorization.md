@@ -29,10 +29,10 @@ ms.lasthandoff: 12/04/2017
 
 [!code-xml[Main](../../../api-management-policy-samples/Snippets/Get OAuth2 access token from AAD and forward it to the backend.xml)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Подробнее о политиках службы управления API:
 
 + [Политики преобразования](../api-management-transformation-policies.md)
-+ [Примеры политик](../policy-samples.md)
++ [Примеры политик](../policy-samples.md).
 

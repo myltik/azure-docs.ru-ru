@@ -262,7 +262,7 @@ class MyCustomActorService : ActorService
 В рамках процесса восстановления операции, начиная с «отправной точки», записи журнала которых сохранены в папке резервного копирования, воспроизводятся в надежных объектах.  
 Этот шаг обеспечивает согласованность восстановленного состояния.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
   - [Reliable Collections](service-fabric-work-with-reliable-collections.md)
   - [Краткое руководство по надежным службам Reliable Services](service-fabric-reliable-services-quick-start.md)
   - [Уведомления Reliable Services](service-fabric-reliable-services-notifications.md)

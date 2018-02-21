@@ -158,7 +158,7 @@ ms.lasthandoff: 11/28/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого руководства вы узнали, как выполнять такие задачи:
 
@@ -170,7 +170,7 @@ ms.lasthandoff: 11/28/2017
 
 Ознакомьтесь с [руководством по мониторингу производительности](saas-dbpertenant-performance-monitoring.md).
 
-## <a name="additional-resources"></a>дополнительные ресурсы.
+## <a name="additional-resources"></a>Дополнительные ресурсы
 
 * Дополнительные [руководства по SaaS-приложению Wingtip Tickets c однотенантной БД](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 * [Клиентская библиотека эластичной базы данных](sql-database-elastic-database-client-library.md)

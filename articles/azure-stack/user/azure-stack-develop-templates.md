@@ -22,7 +22,7 @@ ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Рекомендации по использованию шаблона Azure Resource Manager
 
-*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 При разработке приложения очень важно обеспечить мобильность шаблона в контексте взаимодействия Azure и Azure Stack.  Эта статья содержит рекомендации по разработке [шаблонов](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) Azure Resource Manager. С ее помощью вы сможете создать прототип приложения и протестировать развертывание в Azure без доступа к среде Azure Stack.
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/13/2017
 * Создание ссылок на значения других ресурсов.
 * Итерация по ресурсам для развертывания нескольких экземпляров. 
 
-При создании шаблонов некоторые функции не доступны в пакете средств разработки Azure Stack и не должны использоваться. Это следующие функции:
+При создании шаблонов некоторые функции не доступны в Пакете средств разработки Azure Stack и не должны использоваться. Это следующие функции:
 
 * Skip
 * Take
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/13/2017
     }
     ]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Развертывание шаблонов с помощью PowerShell](azure-stack-deploy-template-powershell.md)
 * [Развертывание шаблонов с помощью интерфейса командной строки Azure](azure-stack-deploy-template-command-line.md)
 * [Развертывание шаблонов с помощью Visual Studio](azure-stack-deploy-template-visual-studio.md)

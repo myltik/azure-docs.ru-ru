@@ -31,15 +31,15 @@ ms.lasthandoff: 12/01/2017
 * Кластер Azure HDInsight (Hadoop в HDInsight).
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Одна из следующих версий Visual Studio:
 
     * Visual Studio 2013 Community, Professional, Premium или Ultimate с обновлением 4
 
-    * Visual Studio 2015 (любой выпуск)
+    * Visual Studio 2015 (любой выпуск);
 
-    * Visual Studio 2017 (любой выпуск)
+    * Visual Studio 2017 (любой выпуск).
 
 * Средства HDInsight для Visual Studio или инструменты Azure Data Lake Tools для Visual Studio. Пошаговые указания по установке и настройке инструментов Visual Studio Hadoop см. в статье [Приступая к работе с инструментами Azure Data Lake (в HDInsight) для Visual Studio для выполнения запроса Hive](apache-hadoop-visual-studio-tools-get-started.md).
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/01/2017
    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
    ```
 
-    Эти операторы выполняют следующие действия.
+    Эти операторы выполняют следующие действия:
 
    * `DROP TABLE`: если таблица существует, эта инструкция удаляет ее.
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 12/01/2017
    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
    ```
 
-    Эти операторы выполняют следующие действия.
+    Эти операторы выполняют следующие действия:
 
    * `CREATE TABLE IF NOT EXISTS`: создает таблицу, если она не существует. Так как не используется ключевое слово `EXTERNAL`, эта инструкция создает внутреннюю таблицу. Внутренние таблицы хранятся в хранилище данных Hive и управляются Hive.
 

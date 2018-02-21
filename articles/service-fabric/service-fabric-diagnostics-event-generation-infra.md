@@ -16,7 +16,7 @@ ms.date: 11/20/2017
 ms.author: dekapur
 ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/13/2017
 ---
@@ -109,6 +109,6 @@ Service Fabric предоставляет такие готовые каналы
 
 * Настройка диагностики для записи счетчиков производительности в таблицу. Для кластеров Azure это означает изменение конфигурации системы диагностики Azure так, чтобы выполнить сбор соответствующих счетчиков производительности из виртуальных машин в кластере, и предоставление этой службе возможности получать статистику Docker при развертывании контейнеров. Дополнительные сведения о настройке счетчиков производительности в WAD и Service Fabric для настройки их сбора см. в [этой статье](service-fabric-diagnostics-event-aggregation-wad.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Перед отправкой на платформу анализа журналы и события должны быть агрегированы. Прочтите статьи о [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) и [WAD](service-fabric-diagnostics-event-aggregation-wad.md), чтобы лучше понять некоторые рекомендуемые параметры.

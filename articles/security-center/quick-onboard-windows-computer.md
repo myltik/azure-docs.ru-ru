@@ -25,7 +25,7 @@ ms.lasthandoff: 01/08/2018
 
 В этом кратком руководстве показано, как установить агент Microsoft Monitoring Agent на компьютере Windows.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 Для начала работы с Центром безопасности необходима подписка Microsoft Azure. Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной учетной записи](https://azure.microsoft.com/pricing/free-trial/).
 
 Для работы с этим руководством требуется центр безопасности с ценовой категорией "Стандартный". См. руководство по [подключению подписки Azure к центру безопасности с ценовой категорией "Стандартный"](security-center-get-started.md). Ценовая категория "Стандартный" центра безопасности доступна для использования бесплатно в течение первых 60 дней.
@@ -81,7 +81,7 @@ ms.lasthandoff: 01/08/2018
 
 В колонке **Вычисления** представлены два типа значков:
 
-![Значок 1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Компьютер, который не относится к Azure
+![Значок 1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) компьютер, который не относится к Azure;
 
 ![Значок 2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Azure
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 01/08/2018
 В этом кратком руководстве мы выполнили подготовку агента Microsoft Monitoring Agent на компьютере Windows. Дополнительные сведения об использовании центра безопасности см. в руководстве по настройке политики безопасности и оценке безопасности ресурсов.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Define and assess security policies](tutorial-security-policy.md) (Руководство. Определение и оценка политик безопасности)
+> [Руководство: определение и оценка политик безопасности](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

@@ -40,7 +40,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Для выполнения этих действий необходимо иметь следующее.
 
 * База данных хранилища данных SQL.
@@ -241,7 +241,7 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 
 Дополнительные сведения см. в статье [Управление статистикой таблиц в хранилище данных SQL][Statistics].  
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 При разработке решений на основе PolyBase будет полезно изучить [руководство по PolyBase][PolyBase guide].
 
 <!--Image references-->

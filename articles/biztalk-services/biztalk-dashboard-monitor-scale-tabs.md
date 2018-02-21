@@ -99,7 +99,7 @@ ms.lasthandoff: 11/10/2017
 </table>
 
 
-## <a name="dashboard"></a>Панель мониторинга
+## <a name="dashboard"></a>панель мониторинга
 В зависимости от версии служб BizTalk не все параметры в списке могут быть доступны. 
 
 Если вы выберете имя своей службы BizTalk, появится вкладка "Панель мониторинга". На панели мониторинга можно выполнять следующие действия.
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/10/2017
 <td>Выводит список выпуска при создании службы BizTalk.</td>
 </tr>
 <tr>
-<td><strong>Расположение</strong></td>
+<td><strong>Местоположение.</strong></td>
 <td>Отображает географический регион, в котором размещается служба BizTalk.</td>
 </tr>
 <tr>
@@ -221,7 +221,7 @@ ms.lasthandoff: 11/10/2017
 </table>
 
 
-## <a name="monitor"></a>Монитор
+## <a name="monitor"></a>Мониторинг
 Неприменимо к выпуску Free Edition.
 
 При выборе имени службы BizTalk Service доступна вкладка "Монитор", на которой отображаются следующие элементы:
@@ -341,7 +341,7 @@ ms.lasthandoff: 11/10/2017
 * [Службы BizTalk: резервное копирование и восстановление](biztalk-backup-restore.md)
 
 ## <a name="see-also"></a>См. также
-* [Гибридные подключения](integration-hybrid-connection-overview.md)  
+* [гибридных подключений](integration-hybrid-connection-overview.md)  
 * [Службы BizTalk. Диаграмма выпусков Developer, Basic, Standard и Premium](biztalk-editions-feature-chart.md)  
 * [Создание служб BizTalk с помощью портала Azure](biztalk-provision-services.md)  
 * [Службы BizTalk: диаграмма состояния службы BizTalk](biztalk-service-state-chart.md)  

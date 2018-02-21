@@ -37,7 +37,7 @@ ms.lasthandoff: 10/21/2017
     <th rowspan="2">Очереди</th>
     <th rowspan="2">Файлы</th>
     <th rowspan="2">Бесплатно</th>
-    <th colspan="4">Платформа</th>
+    <th colspan="4">платформа</th>
   </tr>
   <tr>
     <td>Web</td>
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/21/2017
     <th rowspan="2">Очереди</th>
     <th rowspan="2">Файлы</th>
     <th rowspan="2">Бесплатно</th>
-    <th colspan="4">Платформа</th>
+    <th colspan="4">платформа</th>
   </tr>
   <tr>
     <td>Web</td>

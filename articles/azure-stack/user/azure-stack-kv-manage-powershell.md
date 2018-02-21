@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
    - сохранение криптографических ключей и секретов, а также управление ими; 
    - предоставление пользователям и приложениям разрешений на вызов операций в хранилище. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Необходимо подписаться на предложение, включающее службу Azure Key Vault.
 * [Установите PowerShell для Azure Stack](azure-stack-powershell-install.md).  
 * [Настройка пользовательской среды PowerShell в Azure Stack](azure-stack-powershell-configure-user.md).
@@ -111,7 +111,7 @@ Add-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01” -verbose -Destin
 
 ![Новый ключ](media/azure-stack-kv-manage-powershell/image5.png)
 
-Теперь вы можете использовать созданный ключ, указывая его URI. Если вы создаете или импортируете ключ, имя которого совпадает с именем существующего ключа, все указанные для нового ключа параметры сохраняются в исходном ключе. Информацию о предыдущей версии ключа можно получить с помощью URI для конкретной версии. Например: 
+Теперь вы можете использовать созданный ключ, указывая его URI. Если вы создаете или импортируете ключ, имя которого совпадает с именем существующего ключа, все указанные для нового ключа параметры сохраняются в исходном ключе. Информацию о предыдущей версии ключа можно получить с помощью URI для конкретной версии. Например:  
 
 * адрес https://vault10.vault.local.azurestack.external:443/keys/key01 всегда предоставляет актуальную версию; 
 * адрес https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a позволяет получить конкретную версию.
@@ -162,7 +162,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Создание виртуальной машины с помощью пароля, хранящегося в хранилище ключей](azure-stack-kv-deploy-vm-with-secret.md). 
 * [Создание виртуальной машины и добавление сертификатов, полученных из хранилища ключей](azure-stack-kv-push-secret-into-vm.md).
 

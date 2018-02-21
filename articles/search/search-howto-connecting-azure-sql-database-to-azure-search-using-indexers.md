@@ -294,8 +294,8 @@ ms.lasthandoff: 01/09/2018
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Поддерживаются только географические объекты типа POINT с SRID 4326 (значение по умолчанию). |
-| rowversion |Н/Д |Столбцы версии строк не могут храниться в индексе поиска, но их можно использовать для отслеживания изменений. |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |Н/Д |Не поддерживается |
+| rowversion |Недоступно |Столбцы версии строк не могут храниться в индексе поиска, но их можно использовать для отслеживания изменений. |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |Недоступно |Не поддерживается |
 
 ## <a name="configuration-settings"></a>Параметры конфигурации
 Индексатор SQL предоставляет несколько параметров конфигурации.

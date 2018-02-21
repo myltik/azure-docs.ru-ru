@@ -512,6 +512,6 @@ Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
    > Параметр `-Force` гарантирует, что удаление не потребуется подтверждать.
    > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
 

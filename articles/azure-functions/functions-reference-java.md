@@ -35,15 +35,15 @@ ms.lasthandoff: 01/08/2018
 
 Привязка | Заметка
 ---|---
-Cosmos DB | Н/Д
+Cosmos DB | Недоступно
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Мобильные приложения | Н/Д
-Центры уведомлений | Н/Д
+Мобильные приложения | Недоступно
+Центры уведомлений | Недоступно
 Большой двоичный объект хранилища | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Очередь службы хранилища | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Таблица службы хранилища | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Таймер | <ul><li>`TimerTrigger`</li></ul>
-Twilio | Н/Д
+Twilio | Недоступно
 
 Входные триггеры и выходные данные для вашего приложения можно также определять в файле [function.json](/azure/azure-functions/functions-reference#function-code).
 

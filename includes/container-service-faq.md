@@ -84,7 +84,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 4. На странице **Сводка** в разделе **Выходные данные** доступно несколько ссылок на кластеры. **SSHMaster0** предоставляет строку SSH-подключения к первому главному узлу в кластере службы контейнеров. 
 
-Как уже отмечалось, для поиска полного доменного имени главного узла можно также использовать средства Azure. Установите SSH-подключение к главному узлу, используя его полное доменное имя и имя пользователя, указанное при создании кластера. Например:
+Как уже отмечалось, для поиска полного доменного имени главного узла можно также использовать средства Azure. Установите SSH-подключение к главному узлу, используя его полное доменное имя и имя пользователя, указанное при создании кластера. Например: 
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
@@ -92,7 +92,7 @@ ssh userName@masterFQDN –A –p 22
 
 Дополнительные сведения см. в статье [Подключение к кластеру службы контейнеров Azure](../articles/container-service/kubernetes/container-service-connect.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Узнайте больше о [Службе контейнеров Azure](../articles/container-service/kubernetes/container-service-intro-kubernetes.md).
 * Разверните кластер службы контейнеров с помощью [портала](../articles/container-service/dcos-swarm/container-service-deployment.md) или [Azure CLI 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).

@@ -78,7 +78,7 @@ OUTPUT @searchlog
     /Samples/Data/SearchLog.tsv
 8. Щелкните **Отправить задание**.
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md)
 * [Начало работы с аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Начало работы с аналитикой озера данных Azure и U-SQL с помощью Visual Studio](data-lake-analytics-u-sql-get-started.md)

@@ -17,7 +17,7 @@ ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1be9947c43c70b7248201b9f470fb3cf5a11519e
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/21/2017
    ![Подтверждение создания группы](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
 * [Просмотр существующих групп](active-directory-groups-view-azure-portal.md)

@@ -54,7 +54,7 @@ Giraph можно установить в кластере любого типа
 
     <table border='1'>
         <tr><th>Свойство</th><th>Значение</th></tr>
-        <tr><td>Имя</td>
+        <tr><td>ИМЯ</td>
             <td>Укажите имя для действия сценария. Например, <b>Установка Giraph</b>.</td></tr>
         <tr><td>URI-адрес сценария</td>
             <td>Укажите универсальный идентификатор ресурса (URI) для сценария, который вызывается для настройки кластера. Например, <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i>.</td></tr>
@@ -165,7 +165,7 @@ Giraph можно установить в кластере любого типа
 ## <a name="install-giraph-using-net-sdk"></a>Установка Giraph с помощью пакета SDK для .NET
 См. статью [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). В этом примере показано, как установить Spark с помощью пакета SDK для .NET. Необходимо изменить сценарий для использования [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Установка Giraph на кластерах HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 * [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-provision-clusters.md) — общие сведения о создании кластеров HDInsight.
 * [Настройка кластера HDInsight с помощью действия сценария][hdinsight-cluster-customize]. Общая информация о настройке кластеров HDInsight с помощью действия сценария.

@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
    
     ![переход к политикам архивации](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. Щелкните **Сохранить**.
+4. Выберите команду **Сохранить**.
 
 ### <a name="take-a-manual-backup"></a>Создание резервной копии вручную
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
    
     ![Обновленный каталог резервных копий](./media/storsimple-virtual-array-backup/viewbackups3.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения см. в статье [Использование пользовательского веб-интерфейса для администрирования виртуального массива StorSimple](storsimple-ova-web-ui-admin.md).
 

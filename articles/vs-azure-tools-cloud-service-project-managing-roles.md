@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="adding-a-role-to-an-azure-cloud-service"></a>Добавление роли в облачную службу Azure
 Ниже приведены пошаговые инструкции по добавлению веб-роли или рабочей роли в проект облачной службы Azure в Visual Studio.
 
-1. Создайте или откройте проект облачной службы Azure в Visual Studio.
+1. Создайте или откройте проект облачной службы Azure в среде Visual Studio.
 
 1. В **обозревателе решений** разверните узел проекта.
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="removing-a-role-from-an-azure-cloud-service"></a>Удаление роли из облачной службы Azure
 Ниже приведены пошаговые инструкции по удалению веб-роли или рабочей роли из проекта облачной службы Azure в Visual Studio.
 
-1. Создайте или откройте проект облачной службы Azure в Visual Studio.
+1. Создайте или откройте проект облачной службы Azure в среде Visual Studio.
 
 1. В **обозревателе решений** разверните узел проекта.
 
@@ -71,5 +71,5 @@ ms.lasthandoff: 10/11/2017
        </LocalResources>
     </WebRole>
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Настройка ролей для облачной службы Azure в среде Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md)

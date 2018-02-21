@@ -15,7 +15,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 479bb75a336d17814fc439717cd59f96dab67d32
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -109,5 +109,5 @@ ms.lasthandoff: 12/11/2017
 
 Если вы можете связаться с приложением с этого компьютера, нужно искать проблемы или ошибки в самом соединителе. Некоторые распространенные ошибки приведены в [документе по устранению неполадок](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). Для выявления ошибок можно просмотреть журналы соединителя. Многие из наших сообщений об ошибках содержат более конкретные рекомендации по устранению неполадок. Чтобы научиться просматривать журналы, см. [нашу документацию по соединителям](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Сведения о соединителях прокси приложения Azure AD](application-proxy-understand-connectors.md)

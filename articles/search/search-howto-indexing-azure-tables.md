@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 Вы можете настроить индексатор хранилища таблиц Azure с помощью следующих ресурсов:
 
-* [Портал Azure](https://ms.portal.azure.com)
+* [портал Azure](https://ms.portal.azure.com)
 * [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) Поиска Azure;
 * [пакета SDK .NET для Поиска Azure](https://aka.ms/search-sdk);
 

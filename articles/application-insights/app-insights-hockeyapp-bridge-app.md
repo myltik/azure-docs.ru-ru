@@ -69,6 +69,6 @@ ms.lasthandoff: 11/15/2017
 
 [Экспорт данных телеметрии из Application Insights](app-insights-export-telemetry.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Знакомство с аналитикой в Application Insights](app-insights-analytics-tour.md)
 

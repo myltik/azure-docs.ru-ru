@@ -42,7 +42,7 @@ ms.lasthandoff: 11/03/2017
 
 Или можно скачать файл установки последнего шлюза из [центра загрузки](https://www.microsoft.com/download/details.aspx?id=39717) на других компьютерах, которые могут подключаться к центру загрузки. Затем можно скопировать файл установщика на главный компьютер шлюза и запустить его вручную, чтобы установить и обновить шлюз.
 
-### <a name="2-problem"></a>2) Проблема
+### <a name="2-problem"></a>2. Проблема
 Эта ошибка возникает при попытке установить шлюз с помощью ссылки **Установка непосредственно на этот компьютер** на портале Azure.
 
 `Error:  Abort installing a new gateway on this computer because this computer has an existing installed gateway and a computer without any installed gateway is required for installing a new gateway.`  

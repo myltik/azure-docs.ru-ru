@@ -232,8 +232,8 @@ using System.Threading.Tasks;
     }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Сведения о процессе переноса приведены в разделе [How to migrate Power BI Workspace Collection content to Power BI Embedded](migrate-from-power-bi-workspace-collections.md) (Как перенести содержимое коллекции рабочих областей Power BI в Power BI Embedded).
 
-У вас имеются и другие вопросы? [Попробуйте задать их в сообществе Power BI](http://community.powerbi.com/)
+У вас имеются и другие вопросы? [Задайте их в сообществе Power BI](http://community.powerbi.com/).

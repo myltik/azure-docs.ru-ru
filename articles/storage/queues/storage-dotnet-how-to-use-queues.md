@@ -57,7 +57,7 @@ using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 ```
 
-### <a name="parse-the-connection-string"></a>Анализ строки подключения
+### <a name="parse-the-connection-string"></a>Проанализируйте строку подключения
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-queue-service-client"></a>Создание клиента службы очередей
@@ -268,7 +268,7 @@ queue.Delete();
 ```
     
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Вы изучили основные сведения о хранилище очередей. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
 * Дополнительные сведения о доступных API-интерфейсах см. в справочной документации по службе очередей:

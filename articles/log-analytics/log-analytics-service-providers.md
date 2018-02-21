@@ -16,7 +16,7 @@ ms.date: 11/22/2016
 ms.author: richrund
 ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -77,7 +77,7 @@ Log Analytics входит в число служб Azure, доступных в
 
 Чтобы объединять данные из нескольких рабочих областей для создания отчетов для высшего руководства, можно интегрировать Log Analytics с [Power BI](log-analytics-powerbi.md). Если потребуется интеграция с другой системой отчетности, вы можете применить API поиска (через PowerShell или [REST](log-analytics-log-search-api.md)) для отправки запросов и экспорта полученных результатов.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * Автоматизация создания и настройки рабочих областей с помощью [шаблонов Resource Manager](log-analytics-template-workspace-configuration.md).
 * Автоматизация создания рабочих областей с помощью [PowerShell](log-analytics-powershell-workspace-configuration.md). 
 * Использование [оповещений](log-analytics-alerts.md) для интеграции с существующими системами.

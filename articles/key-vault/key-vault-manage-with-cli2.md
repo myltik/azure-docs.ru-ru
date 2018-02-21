@@ -38,7 +38,7 @@ ms.lasthandoff: 11/28/2017
 
 Общие сведения об Azure Key Vault см. в статье [Что такое хранилище ключей Azure?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Для работы с этим учебником требуется:
 
 * подписка на Microsoft Azure. Если у вас нет подписки, вы можете зарегистрироваться для использования [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial);
@@ -121,7 +121,7 @@ az provider register -n Microsoft.KeyVault
 ## <a name="create-a-key-vault"></a>Создайте хранилище ключей.
 Для создания хранилища ключей используйте команду `az keyvault create` . Этот сценарий предусматривает три обязательных параметра: имя группы ресурсов, имя хранилища ключей и географическое расположение.
 
-Например:
+Например: 
 
 - если имя хранилища — **ContosoKeyVault**;
 - имя группы ресурсов — **ContosoResourceGroup**;
@@ -193,7 +193,7 @@ az keyvault secret list --vault-name 'ContosoKeyVault'
 
 Пошаговые инструкции по регистрации приложения с помощью Azure Active Directory см. в статье [Интеграция приложений с Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md) или [Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md). Чтобы зарегистрировать приложение в Azure Active Directory, сделайте следующее.
 
-1. Выполните вход на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. Слева щелкните **Регистрация приложений**. Если зарегистрированные приложения не отображаются, щелкните **Больше служб** и найдите их там.  
 [!NOTE]
 Вам необходимо выбрать каталог, содержащий подписку Azure, которую вы использовали для создания хранилища ключей. 
@@ -302,7 +302,7 @@ az keyvault key delete --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
 az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Полное описание команд Azure CLI для хранилища ключей доступно в [справочнике по интерфейсу командной строки Key Vault](/cli/azure/keyvault).
 

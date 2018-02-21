@@ -39,7 +39,7 @@ ms.lasthandoff: 11/03/2017
 
 ![Схема архитектуры решения](./media/apache-hive-analyze-sensor-data/hvac-architecture.png)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Кластер HDInsight (Hadoop). Сведения о создании кластера см. в статье о [создании кластеров Hadoop в HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Microsoft Excel 2013

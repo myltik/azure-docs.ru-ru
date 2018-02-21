@@ -16,7 +16,7 @@ ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 3c8ef6fd200f67ebc216c967bb1a6250ddcc15d4
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/08/2017
 
 При настройке производительности для Spark необходимо учитывать количество приложений, которые будут выполняться в кластере.  По умолчанию в кластере HDI можно одновременно выполнять 4 приложения (настройку по умолчанию можно изменить).  Вам может понадобиться использовать меньшее количество приложений. В таком случае можно переопределить параметры по умолчанию и использовать больше ресурсов кластера для этих приложений.  
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Учетная запись хранения озера данных Azure**. Инструкции по созданию учетной записи см. в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).

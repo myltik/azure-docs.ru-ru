@@ -149,7 +149,7 @@ oauthConfig:
 
 Перезапустите основные службы OpenShift на всех главных узлах.
 
-**OpenShift Origin**
+**Источник OpenShift**
 
 ```bash
 sudo systemctl restart origin-master-api
@@ -287,7 +287,7 @@ oc create -f ocp-omsagent.yml
 
 Если вы использовали шаблон Resource Manager OCP и не включили во время установки метрики и ведение журнала, или использовали предложение OCP из Marketplace, вы можете легко включить эти настройки позднее. При работе с шаблоном Resource Manager для OpenShift Origin требуется предварительная подготовка.
 
-### <a name="openshift-origin-template-pre-work"></a>Предварительная подготовка шаблона OpenShift Origin
+### <a name="openshift-origin-template-pre-work"></a>Предварительная подготовка шаблона источника OpenShift
 
 1. Подключитесь по SSH к порту 2200 первого главного узла.
 
@@ -347,7 +347,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 -e openshift_logging_install_logging=True 
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Overview](https://docs.openshift.com/container-platform/3.6/getting_started/index.html) (Обзор)
 - [Приступая к работе с OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)

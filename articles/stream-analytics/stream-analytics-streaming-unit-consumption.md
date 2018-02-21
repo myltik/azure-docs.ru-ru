@@ -17,7 +17,7 @@ ms.date: 04/20/2017
 ms.author: jeanb
 ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -124,7 +124,7 @@ Azure Stream Analytics вычисляет показатель производ�
 ## <a name="get-help"></a>Получение справки
 За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md) (Использование параллелизации запросов в Azure Stream Analytics)
 * [Масштабирование заданий Azure Stream Analytics для повышения пропускной способности базы данных](stream-analytics-scale-jobs.md)
 

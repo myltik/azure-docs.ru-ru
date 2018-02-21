@@ -1,7 +1,7 @@
 > [!div class="op_single_selector"]
-> * [Портал Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
+> * [портал Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
-> * [Интерфейс командной строки Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
+> * [интерфейс командной строки Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
 > * [Шаблон](../articles/virtual-network/virtual-network-multiple-ip-addresses-template.md)
 >
 

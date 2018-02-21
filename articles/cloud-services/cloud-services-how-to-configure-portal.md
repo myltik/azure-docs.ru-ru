@@ -92,13 +92,13 @@ ms.lasthandoff: 11/16/2017
     ![Колонка «Конфигурация»](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Нажмите кнопку **Загрузить** .
 
-    ![Загрузить](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+    ![Загрузка](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Чтобы применить обновления конфигурации, передайте новый файл в службу:
 
-    ![Отправить](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
+    ![Передать](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Выберите файл .cscfg и нажмите **ОК**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy-portal.md).
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name-portal.md).
 * [Управление облачной службой](cloud-services-how-to-manage-portal.md).

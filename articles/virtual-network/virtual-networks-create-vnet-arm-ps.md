@@ -18,7 +18,7 @@ ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e7072ddf51570d46578111e2e392e3cbea53f2aa
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -174,7 +174,7 @@ Azure предоставляет две модели развертывания:
                                 ]
         VirtualNetworkPeerings : []
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Инструкции по подключению:
 

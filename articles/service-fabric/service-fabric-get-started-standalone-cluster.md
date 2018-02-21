@@ -87,7 +87,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 .\CleanFabric.ps1
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы настроили изолированный кластер разработки, перейдите к следующим статьям.
 * [Настройте изолированный кластер с несколькими компьютерами](service-fabric-cluster-creation-for-windows-server.md) и включите режим безопасности.
 * [Разверните приложения с помощью PowerShell](service-fabric-deploy-remove-applications.md)

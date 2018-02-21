@@ -178,7 +178,7 @@ Microsoft Azure предоставляет средства управления
 
 Сведения о настройке параметров Azure MFA, настройке предупреждений о мошенничестве, создании одноразового обхода проверки, использовании пользовательских голосовых сообщений, настройке кэширования, задании доверенных IP-адресов, создании паролей приложения, включении запоминания данных MFA на устройствах, которым доверяет пользователь, и выборе методов проверки см. в статье [Настройка параметров Многофакторной идентификации Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Защита привилегированного доступа в Azure AD](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access)
 

@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 В этой статье описывается, как использовать REST API для аутентификации пользователей с помощью Azure Data Lake Store. См. дополнительные сведения об [аутентификации между службами с помощью Data Lake Store и REST API](data-lake-store-service-to-service-authenticate-rest-api.md).
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 

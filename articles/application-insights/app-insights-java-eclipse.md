@@ -22,7 +22,7 @@ ms.lasthandoff: 11/01/2017
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Приступая к работе с Application Insights на Java в Eclipse
 Пакет SDK Application Insights передает телеметрию из веб-приложения Java, что позволяет вам анализировать параметры использования и производительности. Подключаемый модуль Eclipse для Application Insights автоматически устанавливает пакет SDK в проекте (что позволяет вам получать актуальную телеметрию) и интерфейс API, который можно использовать для написания пользовательских элементов телеметрии.   
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 В настоящее время подключаемый модуль работает для проектов Maven и динамических веб-проектов в Eclipse.
 ([Приступая к работе с Application Insights в веб-проекте Java][java].)
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/01/2017
 Оставшиеся действия выполните для каждого проекта Java.
 
 ## <a name="create-an-application-insights-resource-in-azure"></a>Создание ресурса Application Insights в Azure
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. Создайте новый ресурс Application Insights. Задайте тип приложения: веб-приложение Java.  
 
     ![Нажмите кнопку "+" и выберите пункт "Application Insights"](./media/app-insights-java-eclipse/01-create.png)  
@@ -215,7 +215,7 @@ Application Insights может тестировать ваш веб-сайт ч
 
 [Дополнительные сведения о пользовательской телеметрии][track]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 #### <a name="detect-and-diagnose-issues"></a>Обнаружение и диагностика неполадок
 * [Добавьте сбор данных телеметрии веб-клиента][usage] для получения телеметрии производительности из веб-клиента.
 * [Настройте веб-тесты][availability], которые помогут быть уверенными в том, что приложение остается работоспособным и правильно отвечает на запросы.

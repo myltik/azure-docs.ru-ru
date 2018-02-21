@@ -1,6 +1,6 @@
 ---
 layout: HubPage
-hide_bc: True
+hide_bc: 
 title: "Документация по Microsoft Azure"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
 ms.openlocfilehash: 85745cf147296e053824a879108c1ea607343f57

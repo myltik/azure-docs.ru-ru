@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 3. Введите имя учетной записи хранения и выберите расположение.
    
    ![рисунок](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
-4. Щелкните **Создать**.
+4. Нажмите кнопку **Создать**.
 5. Должна открыться колонка созданной учетной записи хранения. Если это не произошло, последовательно выберите **Обзор** > **Учетные записи хранения**. В колонке "Учетная запись хранения" выберите созданную учетную запись хранения.
 6. Выберите **Контейнеры**.
    
@@ -145,7 +145,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Отправка VHD с помощью программы командной строки для Mac и Linux
 В [программе командной строки Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) введите следующее: azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Создание образа виртуальной машины для Marketplace](marketplace-publishing-vm-image-creation.md)
 * [Настройка Azure PowerShell](marketplace-publishing-powershell-setup.md)
 

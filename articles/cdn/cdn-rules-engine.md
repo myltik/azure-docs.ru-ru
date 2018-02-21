@@ -77,9 +77,9 @@ ms.lasthandoff: 10/11/2017
    > 
    > 
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Обзор Azure CDN](cdn-overview.md)
-* [Справочник по обработчику правил](cdn-rules-engine-reference.md)
+* [Azure Content Delivery Network Rules Engine](cdn-rules-engine-reference.md) (Обработчик правил сети доставки содержимого Azure)
 * [Условия соответствия обработчика правил](cdn-rules-engine-reference-match-conditions.md)
 * [Условные выражения обработчика правил](cdn-rules-engine-reference-conditional-expressions.md)
 * [Функции обработчика правил](cdn-rules-engine-reference-features.md)

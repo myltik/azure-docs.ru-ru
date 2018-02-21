@@ -18,7 +18,7 @@ ms.author: mblythe
 ms.custom: 
 ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/18/2017
 > * создавать последовательность для отправки электронной почты, если ремонт экономически оправдан;
 > * запускать последовательности.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 + Активная [учетная запись Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) с такими же учетными данными, что и в учетной записи Azure. 
 + Сайт SharePoint, который используется в качестве источника данных для этой последовательности. Зарегистрируйтесь для использования [пробной версии Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1), если у вас нет SharePoint.
@@ -261,7 +261,7 @@ ms.lasthandoff: 12/18/2017
 
     Вы увидите, что все токены заменены правильными значениями из списка SharePoint и результатов выполнения функции.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этой статье вы выполнили следующие действия:
 
 > [!div class="checklist"]

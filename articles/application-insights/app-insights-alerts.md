@@ -90,7 +90,7 @@ Application Insights выполняет мониторинг живого при
 
 Не забывайте, что [упреждающая диагностика частоты сбоев](app-insights-proactive-failure-diagnostics.md) автоматически отслеживает скорость, с которой приложение отвечает на запросы с кодом ошибки. 
 
-## <a name="automation"></a>Автоматизация
+## <a name="automation"></a>Служба автоматизации
 * [Использование PowerShell для автоматизации настройки оповещений](app-insights-powershell-alerts.md)
 * [Использование объектов webhook для автоматизации реагирования на оповещения](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 

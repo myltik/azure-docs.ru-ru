@@ -16,7 +16,7 @@ ms.date: 09/20/2017
 ms.author: vturecek
 ms.openlocfilehash: df4a86e3de87daad22646672f278c7f3226660c6
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -387,7 +387,7 @@ string message = await helloWorldClient.HelloWorldAsync();
             });
   ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Веб-API с OWIN в модели Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Взаимодействие WCF с Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Защита обмена данными для Reliable Services](service-fabric-reliable-services-secure-communication.md)

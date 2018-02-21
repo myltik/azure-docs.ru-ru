@@ -31,7 +31,7 @@ ms.lasthandoff: 12/05/2017
 ## <a name="download-the-client-library"></a>Скачивание клиентской библиотеки
 Скачать библиотеку можно из двух расположений:
 * версия для Java доступна в репозитории [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools);
-* версия для .NET доступна в [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+* версия для .NET доступна [здесь](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>Использование ShardMapManager при маршрутизации с зависимостью от данных
 Приложения должны получить объект **ShardMapManager** во время инициализации, используя вызов фабрики **GetSQLShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)). В этом примере инициализируются как диспетчер **ShardMapManager**, так и конкретное сопоставление **ShardMap**, которое он содержит. В этом примере показаны методы GetSqlShardMapManager и GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/dn824173.aspx)).
@@ -167,7 +167,7 @@ Configuration.SqlRetryPolicy.ExecuteAction(() =&gt;
 ## <a name="transactional-consistency"></a>Согласованность транзакций
 Свойства транзакций сохраняются для всех операций, являющихся локальными для сегмента. Например, транзакции, осуществленные посредством маршрутизации, зависящей от данных, выполняются в области целевого сегмента для подключения. В данный момент нет возможности связывания нескольких подключений с транзакцией, поэтому невозможно гарантировать осуществление транзакций для операций, выполняемых через сегменты.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Сведения об отсоединении сегмента или его повторном присоединении см. в статье [Устранение проблем сопоставления сегментов с помощью класса RecoveryManager](sql-database-elastic-database-recovery-manager.md).
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

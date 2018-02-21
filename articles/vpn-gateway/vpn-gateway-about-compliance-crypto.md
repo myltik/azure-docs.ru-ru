@@ -55,7 +55,7 @@ VPN-шлюзы Azure теперь поддерживают настраивае�
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Пошаговые инструкции по настройке пользовательской политики IPsec/IKE для подключения см. в статье о [настройке политики IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md).
 
 Дополнительные сведения о параметре UsePolicyBasedTrafficSelectors см. в статье [Connect multiple policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) (Подключение нескольких VPN-устройств на основе политик).

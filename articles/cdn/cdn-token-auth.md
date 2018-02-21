@@ -68,7 +68,7 @@ ms.lasthandoff: 11/21/2017
 
        ```rand -hex <key length>```
 
-       Например:
+       Например: 
 
        ```OpenSSL> rand -hex 32``` 
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/21/2017
        > <table>
        > <tr>
        >   <th>Имя параметра</th> 
-       >   <th>Описание</th>
+       >   <th>ОПИСАНИЕ</th>
        > </tr>
        > <tr>
        >    <td><b>ec_expire</b></td>

@@ -16,7 +16,7 @@ ms.date: 01/11/2017
 ms.author: v-craic
 ms.openlocfilehash: 345d095762b75b7a177bf4c6e7a07360a9c14068
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -92,7 +92,7 @@ ms.lasthandoff: 01/02/2018
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 После создания частного репозитория Git в зависимости от потребностей можно выполнить одно или оба из следующих действий:
 * Сохраните [пользовательские артефакты](devtest-lab-artifact-author.md). Их можно использовать позже для создания виртуальных машин.
 * [Создайте среды со множеством виртуальных машин и ресурсов PaaS с помощью шаблонов Resource Manager](devtest-lab-create-environment-from-arm.md). Затем шаблоны можно сохранить в частном репозитории.

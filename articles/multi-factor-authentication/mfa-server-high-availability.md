@@ -18,7 +18,7 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: c2f9a2422ea5a47edd80948073c7f7a6cb0d0945
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -73,6 +73,6 @@ ms.lasthandoff: 12/11/2017
    ![Сервер MFA Azure. Высокая доступность пользовательского портала и службы мобильных приложений](./media/mfa-server-high-availability/mfaportal.png)
 3. Ферма серверов ADFS балансируется и публикуется в Интернете через прокси-серверы ADFS с балансировкой нагрузки в сети периметра. На каждом сервере ADFS используется агент ADFS для взаимодействия с серверами MFA Azure, которое осуществляется с помощью отдельного URL-адреса с балансировкой нагрузки (mfaapp.contoso.com) через TCP-порт 443.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Приступая к работе с сервером службы "Многофакторная идентификация Azure"](multi-factor-authentication-get-started-server.md)

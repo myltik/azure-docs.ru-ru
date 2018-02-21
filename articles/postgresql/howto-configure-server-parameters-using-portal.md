@@ -18,7 +18,7 @@ ms.lasthandoff: 11/09/2017
 # <a name="configure-server-parameters-in-azure-portal"></a>Настройка параметров сервера на портале Azure
 С помощью портала Azure можно вывести список параметров конфигурации для сервера базы данных Azure для PostgreSQL, а также отобразить и обновить их.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Чтобы приступить к выполнению этого руководства, вам потребуются следующие компоненты:
 - [сервер базы данных Azure для PostgreSQL](quickstart-create-server-database-portal.md).
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/09/2017
 8. Если вы сохранили новые значения параметров, всегда можно восстановить значения по умолчанию, выбрав **Сбросить все к значениям по умолчанию**.
 ![Сбросить все к значениям по умолчанию](./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Кроме того, вы узнаете о таких возможностях, как:
 - [Серверы базы данных Azure для PostgreSQL](concepts-servers.md)
 - [Настройка параметров конфигурации сервера с помощью Azure CLI](howto-configure-server-parameters-using-cli.md)

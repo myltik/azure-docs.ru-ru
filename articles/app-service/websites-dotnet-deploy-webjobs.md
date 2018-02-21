@@ -44,7 +44,7 @@ ms.lasthandoff: 11/22/2017
 
 ![Диаграмма, отображающая проект веб-задания, связанный с веб-проектом](./media/websites-dotnet-deploy-webjobs/link.png)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Если вы используете Visual Studio 2015, установите [пакет Azure SDK для .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 

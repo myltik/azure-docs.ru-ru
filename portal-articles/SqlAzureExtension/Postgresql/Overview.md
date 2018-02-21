@@ -22,8 +22,8 @@ ms.lasthandoff: 10/11/2017
 
 Узнайте, как создать базу данных PostgreSQL с помощью следующих средств:
 
-- [Портал Azure](/azure/postgresql/quickstart-create-server-database-portal)
-- [Интерфейс командной строки Azure](/azure/postgresql/quickstart-create-server-database-azure-cli)
+- [портале Azure](/azure/postgresql/quickstart-create-server-database-portal)
+- [интерфейс командной строки Azure](/azure/postgresql/quickstart-create-server-database-azure-cli)
 
 ## <a name="step-by-step-tutorials"></a>Пошаговые руководства
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 Поиск скриптов для выполнения типовых задач.
 
-- [Интерфейс командной строки Azure](/azure/postgresql/sample-scripts-azure-cli)
+- [интерфейс командной строки Azure](/azure/postgresql/sample-scripts-azure-cli)
 
 ## <a name="more"></a>Подробнее
 

@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: a8dca307bb97898f229b39710a3b566ee913fcca
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/05/2018
 
 После того как один из участников команды добавит вкладку, она будет отображаться для всех пользователей в канале. Все пользователи, имеющие доступ к приложению, получают возможность единого входа с помощью учетных данных, которые они используют для доступа к Microsoft Teams. Для пользователей, у которых нет доступа к приложению, будет отображаться соответствующая вкладка в Teams, однако они будут заблокированы, пока вы не предоставите им разрешения на доступ к локальному приложению и его версии, опубликованной на портале Azure. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Подробнее о [публикации локальных сайтов SharePoint](application-proxy-enable-remote-access-sharepoint.md) с помощью прокси приложения.
 - Настройка приложений для использования [личных доменов](active-directory-application-proxy-custom-domains.md) для их внешних URL-адресов. 

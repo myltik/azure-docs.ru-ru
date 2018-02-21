@@ -17,7 +17,7 @@ ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 > 
 > 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Прежде чем выполнять задачи данного руководства, выполните образец, представленный в разделе [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md), и используйте его в качестве отправной точки для дальнейшей работы.
 
 ## <a name="add-the-jspwriter-library-to-your-build-path-and-deployment-assembly"></a>Добавление библиотеки JspWriter к пути построения и сборке развертывания
@@ -184,7 +184,7 @@ ms.lasthandoff: 12/11/2017
 1. Запустите свое приложение в эмуляторе среды выполнения приложений или разверните его в среде Azure, следуя инструкциям раздела [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md).
 2. Запустите браузер и откройте в нем свое веб-приложение. После того, как вы войдете в приложение, будут показаны данные SAML, включая утверждения безопасности, предоставляемые поставщиком удостоверений.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Чтобы продолжить изучение функций ACS и поэкспериментировать с более сложными сценариями, см. документ [Служба Access Control Service 2.0][Access Control Service 2.0].
 
 [Prerequisites]: #pre

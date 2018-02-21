@@ -16,7 +16,7 @@ ms.date: 11/25/2016
 ms.author: v-craic
 ms.openlocfilehash: 46271c1122df852b37d4117f9d4008fd74f43d95
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -88,5 +88,5 @@ DevTest Labs предусматривает два типа ролей для п
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Создание лаборатории в DevTest Labs](devtest-lab-create-lab.md)

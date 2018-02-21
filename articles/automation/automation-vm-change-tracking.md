@@ -18,7 +18,7 @@ ms.author: gwallace
 ms.custom: 
 ms.openlocfilehash: 3a661fada2e768c2206183c125593d019b557c1d
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -124,7 +124,7 @@ ms.lasthandoff: 12/14/2017
 
 Дополнительные сведения о выполнении и поиске файлов журнала в Log Analytics см. в статье [Что такое Log Analytics?](../log-analytics/log-analytics-overview.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения об отслеживании изменений см. в статье [Отслеживание изменений программного обеспечения в среде с помощью решения для отслеживания изменений](../log-analytics/log-analytics-change-tracking.md).
 * Дополнительные сведения об управлении обновлениями виртуальных машин см. в статье [Решение для управления обновлениями в OMS](../operations-management-suite/oms-solution-update-management.md).

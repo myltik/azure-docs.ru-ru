@@ -16,7 +16,7 @@ ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: 977c5d64a32157b39aa6b618196dde20c4c3cc8e
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/13/2017
 ---
@@ -70,7 +70,7 @@ Operations Management Suite (OMS) — это набор служб управл
 
 В статье [Monitor containers with OMS Log Analytic](service-fabric-diagnostics-oms-containers.md) (Мониторинг контейнеров с OMS Log Analytics) рассматриваются шаги, необходимые для настройки мониторинга контейнера в кластере. Дополнительные сведения о решении OMS "Контейнеры" см. в [документации](../log-analytics/log-analytics-containers.md) по решению.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Изучите перечисленные ниже средства и параметры OMS, чтобы настроить рабочую область в соответствии с вашими потребностями.
 

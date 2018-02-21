@@ -35,7 +35,7 @@ ms.lasthandoff: 12/02/2017
 > [!NOTE]
 > Полная версия примеров топологий Storm, созданных в рамках этого руководства, доступна здесь: [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * [Java Developer Kit (JDK) версии 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 

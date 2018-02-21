@@ -42,7 +42,7 @@ ms.lasthandoff: 11/28/2017
 
 Организации могут также включить [ведение журнала диагностики](data-lake-store-diagnostic-logs.md) для своих учетных записей Azure Data Lake Store. Это позволит собирать журналы аудита доступа к данным, содержащие сведения о пользователях, которые могли удалить или обновить файл.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md)
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 

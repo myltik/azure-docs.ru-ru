@@ -16,7 +16,7 @@ ms.date: 12/05/2017
 ms.author: ninarn
 ms.openlocfilehash: 7d076b970481b68d9c352d54f3452b8e222f5c64
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/12/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/12/2017
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Для поддержки параметров автоматической настройки хранилища виртуальная машина должна:
 
 * быть подготовлена с помощью [коллекции образов SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo);
@@ -141,5 +141,5 @@ Azure создает диск на основе ваших параметров.
 >
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).

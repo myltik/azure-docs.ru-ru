@@ -441,7 +441,7 @@ ms.lasthandoff: 11/01/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Другие статьи об автоматизации:
 
 * [Создание ресурса Application Insights](app-insights-powershell-script-create-resource.md) — быстрый метод без использования шаблона.

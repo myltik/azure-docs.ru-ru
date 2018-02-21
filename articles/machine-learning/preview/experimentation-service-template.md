@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.openlocfilehash: c7f4bf0fed35ffb2c03e8b983260c6093032fe79
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -157,5 +157,5 @@ az group deployment create -n testdeploy -g <resource group name> --template-fil
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Create Azure Machine Learning preview accounts and install Azure Machine Learning Workbench](quickstart-installation.md) (Создание учетных записей для предварительной версии Машинного обучения Azure и установка Azure Machine Learning Workbench).

@@ -17,7 +17,7 @@ ms.author: jeedes
 ms.custom: aaddev
 ms.openlocfilehash: 7394857f55493b072e6ea549c8eeec54a808f5e5
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -125,7 +125,7 @@ ms.lasthandoff: 12/11/2017
     | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier |
     | http://schemas.microsoft.com/identity/claims/scope |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Указатель статьей по управлению приложениями в Azure Active Directory](../active-directory-apps-index.md)
 * [Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Отладка единого входа на основе SAML в приложения в Azure Active Directory](active-directory-saml-debugging.md)

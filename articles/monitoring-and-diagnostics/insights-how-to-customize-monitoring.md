@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 
 Как и для метрик, [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) и [пакет SDK для .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) можно использовать для программного доступа к полному набору квот на использование.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Получайте уведомления](insights-receive-alert-notifications.md) , когда метрика достигает порогового значения.
 * [Включите отслеживание и диагностику](insights-how-to-use-diagnostics.md) , чтобы собирать подробные метрики о службе с высокой частотой.
 * [Автоматически масштабируйте число экземпляров](insights-how-to-scale.md) , чтобы служба всегда была доступна.

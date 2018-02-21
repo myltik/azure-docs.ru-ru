@@ -19,7 +19,7 @@ ms.lasthandoff: 11/29/2017
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Настройка журналов сервера и получение к ним доступа с помощью Azure CLI
 Скачать журналы сервера из базы данных Azure для MySQL можно с помощью портала Azure или Azure CLI, служебной программы командной строки Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Прежде чем приступить к выполнению этого руководства, необходимы следующие компоненты:
 - [сервер базы данных Azure для MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
 - [Azure CLI 2.0](/cli/azure/install-azure-cli) (или используйте Azure Cloud Shell в браузере).

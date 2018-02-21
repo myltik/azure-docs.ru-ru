@@ -453,7 +453,7 @@ ms.lasthandoff: 11/02/2017
 > [!NOTE]
 > Эта функция доступна только в модели развертывания с помощью Azure Resource Manager.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Необходимо настроить кластер WSFC, используемый для одного экземпляра SAP ASCS/SCS, как описано в статье [SAP NetWeaver на виртуальных машинах Windows. Руководство по обеспечению высокого уровня доступности][sap-ha-guide] и как показано на этой диаграмме:
 
 ![Высокодоступный экземпляр SAP ASCS/SCS][sap-ha-guide-figure-6001]
@@ -665,7 +665,7 @@ Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$IL
 
 10. [Тестирование отработки отказа экземпляра SAP ASCS/SCS и репликации SIOS][sap-ha-guide-10].
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Ограничения сети — Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Несколько виртуальных IP-адресов для Azure Load Balancer][load-balancer-multivip-overview]

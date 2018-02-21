@@ -12,7 +12,7 @@ ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/19/2017
 ---
@@ -241,7 +241,7 @@ New-AzureRmManagedApplicationDefinition `
 
 По завершении развертывания управляемое приложение появится в группе ресурсов applicationGroup. Учетная запись хранения появится в группе ресурсов applicationGroup вместе с хэшированным строковым значением.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Общие сведения об управляемых приложениях Azure см. в разделе [Обзор управляемых приложений Azure](overview.md).
 * Примеры проектов см. в статье [Sample projects for Azure managed applications](sample-projects.md) (Примеры проектов для управляемых приложений Azure).

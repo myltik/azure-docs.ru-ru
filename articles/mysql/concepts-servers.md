@@ -49,7 +49,7 @@ ms.lasthandoff: 11/28/2017
 ## <a name="how-do-i-manage-a-server"></a>Как управлять сервером?
 Управлять серверами базы данных Azure для MySQL можно с помощью портала Azure или Azure CLI.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Обзор службы содержится в статье [What is Azure Database for MySQL? Service Introduction](./overview.md) (Что такое база данных Azure для MySQL? Общие сведения о службе).
 - Сведения о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня служб** представлены в статье [Уровни служб в базе данных Azure для MySQL](./concepts-service-tiers.md).
 - Сведения о подключении к службе см. в статье [Библиотеки подключений для базы данных Azure для MySQL](./concepts-connection-libraries.md).

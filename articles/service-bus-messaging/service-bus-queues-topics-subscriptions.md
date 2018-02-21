@@ -34,7 +34,7 @@ ms.lasthandoff: 11/07/2017
 
 Использование очередей в качестве посредника между производителями и потребителями сообщений уменьшает зависимость между компонентами. Так как производители и потребители не зависят друг от друга, обновление потребителя не оказывает влияния на производителя.
 
-Создание очереди является многоэтапным процессом. Выполнять операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов) можно с использованием класса [Microsoft.ServiceBus.NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager). Этот класс создается путем предоставления базового адреса пространства имен служебной шины и учетных данных пользователя. Класс [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) предоставляет методы для создания, перечисления и удаления сущностей обмена сообщениями. Создав объект [Microsoft.ServiceBus.TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) на основе имени и ключа SAS, а также объект управления пространством имен службы, можно создать очередь, используя метод [Microsoft.ServiceBus.NamespaceManager.CreateQueue](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateQueue_System_String_). Например:
+Создание очереди является многоэтапным процессом. Выполнять операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов) можно с использованием класса [Microsoft.ServiceBus.NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager). Этот класс создается путем предоставления базового адреса пространства имен служебной шины и учетных данных пользователя. Класс [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) предоставляет методы для создания, перечисления и удаления сущностей обмена сообщениями. Создав объект [Microsoft.ServiceBus.TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) на основе имени и ключа SAS, а также объект управления пространством имен службы, можно создать очередь, используя метод [Microsoft.ServiceBus.NamespaceManager.CreateQueue](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateQueue_System_String_). Например: 
 
 ```csharp
 // Create management credentials
@@ -43,7 +43,7 @@ TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvid
 NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
 ```
 
-Затем можно создать объект очереди и фабрику обмена сообщениями с помощью URI служебной шины в качестве аргумента. Например:
+Затем можно создать объект очереди и фабрику обмена сообщениями с помощью URI служебной шины в качестве аргумента. Например: 
 
 ```csharp
 QueueDescription myQueue;
@@ -89,7 +89,7 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, secon
 
 Продолжая сравнение, следует отметить, что при отправке из очереди сообщения распределяются непосредственно в раздел, а при извлечении — в подписку. Помимо прочего, это означает, что подписки также поддерживают схемы для очередей, описанные ранее в этом разделе, в том числе конкуренцию потребителей, временное разделение, а также выравнивание и балансировку нагрузки.
 
-Создание раздела аналогично созданию очереди, как показано в примере, приведенном в предыдущем разделе. Создайте URI службы, а затем с помощью класса [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) создайте клиент пространства имен. Затем с помощью метода [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_) можно создать раздел. Например:
+Создание раздела аналогично созданию очереди, как показано в примере, приведенном в предыдущем разделе. Создайте URI службы, а затем с помощью класса [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) создайте клиент пространства имен. Затем с помощью метода [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_) можно создать раздел. Например: 
 
 ```csharp
 TopicDescription dataCollectionTopic = namespaceClient.CreateTopic("DataCollectionTopic");
@@ -102,14 +102,14 @@ SubscriptionDescription myAgentSubscription = namespaceClient.CreateSubscription
 SubscriptionDescription myAuditSubscription = namespaceClient.CreateSubscription(myTopic.Path, "Dashboard");
 ```
 
-После этого можно создать клиент раздела. Например:
+После этого можно создать клиент раздела. Например: 
 
 ```csharp
 MessagingFactory factory = MessagingFactory.Create(serviceUri, tokenProvider);
 TopicClient myTopicClient = factory.CreateTopicClient(myTopic.Path)
 ```
 
-С помощью отправителя сообщений можно отправлять сообщения в раздел и извлекать их из раздела, как описано выше. Например:
+С помощью отправителя сообщений можно отправлять сообщения в раздел и извлекать их из раздела, как описано выше. Например: 
 
 ```csharp
 foreach (BrokeredMessage message in messageList)
@@ -157,7 +157,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Дополнительные сведения о возможных значениях фильтров см. в документации по классам [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) и [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction). Ознакомьтесь также с примерами [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Обмен сообщениями через брокер: расширенные фильтры) и [Topic Filters](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters) (Фильтры разделов).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения и примеры использования обмена сообщениями в служебной шине см. в следующих дополнительных статьях.
 
 * [Основные сведения об обмене сообщениями через служебную шину](service-bus-messaging-overview.md)

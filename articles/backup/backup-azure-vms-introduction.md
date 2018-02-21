@@ -17,7 +17,7 @@ ms.date: 7/18/2017
 ms.author: markgal;trinadhk
 ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/19/2017
 ---
@@ -147,7 +147,7 @@ ms.lasthandoff: 12/19/2017
 ## <a name="questions"></a>Вопросы?
 Если вы хотите задать вопрос или предложить добавить какие-либо функции, [отправьте нам свой отзыв](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Настройка виртуальных машин](backup-azure-arm-vms.md)
 * [Управление резервными копиями виртуальной машины](backup-azure-manage-vms.md)
 * [Восстановление виртуальных машин](backup-azure-arm-restore-vms.md)

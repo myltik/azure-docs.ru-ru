@@ -29,6 +29,6 @@ ms.lasthandoff: 12/08/2017
 ## <a name="certification"></a>Сертификация
 Сертификация Azure Stack в настоящее время находится в разработке. Следите за обновлениями.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Документация оператора по Azure Stack](https://docs.microsoft.com/azure/azure-stack/)

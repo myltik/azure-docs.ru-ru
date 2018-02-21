@@ -18,7 +18,7 @@ ms.reviewer: sahenry
 ms.custom: it-pro
 ms.openlocfilehash: 6d01dff567e49b602e98f717dace4dc75abecb4c
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/11/2017
    > [!NOTE]
    > Этот временный пароль не имеет срока действия. Он будет действовать до того момента, когда пользователь снова войдет в систему и выполнит принудительную смену пароля. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Добавление пользователей](active-directory-users-create-azure-portal.md)
 * [Назначение пользователю ролей администратора в Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)

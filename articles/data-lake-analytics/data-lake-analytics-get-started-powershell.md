@@ -25,12 +25,12 @@ ms.lasthandoff: 12/08/2017
 
 Узнайте, как использовать Azure PowerShell для создания учетных записей Azure Data Lake Analytics, а затем отправлять и выполнять задания U-SQL. Дополнительные сведения о Data Lake Analytics см. в [обзоре Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Перед началом работы с этим руководством необходимо иметь следующую информацию:
 
 * **Учетная запись Azure Data Lake Analytics**. См. раздел [Начало работы с Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
-* **Рабочая станция с Azure PowerShell**. См. статью [Установка и настройка Azure PowerShell](/powershell/azure/overview).
+* **Рабочая станция с Azure PowerShell**. Ознакомьтесь со статьей [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 

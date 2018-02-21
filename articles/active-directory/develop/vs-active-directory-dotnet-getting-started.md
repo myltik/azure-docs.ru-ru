@@ -17,7 +17,7 @@ ms.author: kraigb
 ms.custom: aaddev
 ms.openlocfilehash: efe12842cf0dd5ac865d95902f53e68affcbe54f
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -79,6 +79,6 @@ ms.lasthandoff: 12/21/2017
     &lt;/html&gt;
 </pre>
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 
 

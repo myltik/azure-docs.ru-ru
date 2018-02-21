@@ -17,7 +17,7 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 718ac36c8f4ca2367f90ad51edb175715194a17c
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -74,7 +74,7 @@ ms.lasthandoff: 12/11/2017
 9. Щелкните **Сохранить**.
 10. Щелкните **Закрыть**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Дополнительные сведения см. в разделе о [сохранении данных проверки подлинности для устройств, которым доверяют пользователи](multi-factor-authentication-whats-next.md).
 

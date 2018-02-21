@@ -17,7 +17,7 @@ ms.author: markvi
 ms.reviewer: jairoc
 ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -163,7 +163,7 @@ ms.lasthandoff: 12/11/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Чтобы получить общие сведения о том, как управлять устройствами на портале Azure, см. раздел [Управление устройствами с помощью портала Azure (предварительная версия)](device-management-azure-portal.md)
 

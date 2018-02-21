@@ -17,7 +17,7 @@ ms.date: 10/09/2017
 ms.author: cynthn
 ms.openlocfilehash: 172ad5198f7c813ed114f9fe3caea3d6a5dc6a97
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -217,6 +217,6 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     ```
 
     
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Теперь вы можете [создать виртуальную машину из универсального управляемого образа](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 

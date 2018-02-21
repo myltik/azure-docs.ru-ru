@@ -32,7 +32,7 @@ ms.lasthandoff: 12/05/2017
 
 Из этого руководства вы узнаете как обращаться к данным в CSV-файле. Сначала в Spark необходимо загрузить данные в виде кадра данных. Затем к кадру данных можно выполнять запросы с помощью записной книжки Jupyter. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Кластер Azure HDInsight Spark**. Инструкции см. в статье [Создание кластера Apache Spark в Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **Работа с записной книжкой Jupyter при использовании ядра PySpark**. Инструкции см. в разделе по [созданию записной книжки Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).

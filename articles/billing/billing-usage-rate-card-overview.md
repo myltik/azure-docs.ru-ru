@@ -63,7 +63,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="partner-solutions"></a>Решения партнеров
 В статье [Интеграция Cloud Cruiser и API выставления счетов Microsoft Azure](billing-usage-rate-card-partner-solution-cloudcruiser.md) описано, как [пакет Cloud Cruiser Express для Azure](http://www.cloudcruiser.com/partners/microsoft/) работает непосредственно с портала Windows Azure Pack (WAP). Вы можете легко управлять рабочими и финансовыми аспектами частного или общедоступного облака Microsoft Azure из единого пользовательского интерфейса.   
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Вы можете ознакомиться с примерами кода в GitHub:
   * [Пример кода API счетов](https://go.microsoft.com/fwlink/?linkid=845124)
 

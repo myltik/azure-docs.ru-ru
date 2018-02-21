@@ -16,14 +16,14 @@ ms.date: 08/04/2017
 ms.author: tomsh
 ms.openlocfilehash: 526f10bab30b7d0fae796e47f5a27a58428b9a3b
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Контрольный список для обеспечения безопасности Azure Service Fabric
 Эта статья содержит удобный контрольный список, который поможет обеспечить защиту среды Azure Service Fabric.
 
-## <a name="introduction"></a>Общие сведения
+## <a name="introduction"></a>Введение
 Azure Service Fabric — это платформа распределенных систем, которая дает возможность не только легко упаковывать и развертывать масштабируемые и надежные микрослужбы, но и управлять ими. Service Fabric также позволяет разрешить значительные трудности, возникающие при разработке облачных приложений и управлении ими. Получая гарантированную масштабируемость, надежность и управляемость, разработчики и администраторы могут сосредоточиться на реализации критически важных и ресурсоемких рабочих нагрузок вместо того, чтобы тратить силы на решение сложных проблем с инфраструктурой.
 
 ## <a name="checklist"></a>Контрольный список
@@ -46,7 +46,7 @@ Azure Service Fabric — это платформа распределенных 
 |хранилище ключей;| <ul><li>Используется для управления сертификатами кластеров Service Fabric в Azure.  </li></ul>|
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Обновление кластера Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade)
 - [Управление приложениями Service Fabric в Visual Studio](https://docs.microsoft.com/azure/service-fabric/service-fabric-manage-application-in-visual-studio)
 - [Общие сведения о наблюдении за работоспособностью системы в Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction)

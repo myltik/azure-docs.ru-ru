@@ -132,7 +132,7 @@ EndpointSuffix=core.chinacloudapi.cn;
 ## <a name="parsing-a-connection-string"></a>Анализ строки подключения
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Использование эмулятора хранения Azure для разработки и тестирования](storage-use-emulator.md)
 * [Клиентские инструменты службы хранилища Azure](storage-explorers.md)
 * [Использование подписанных URL-адресов (SAS)](storage-dotnet-shared-access-signature-part-1.md)

@@ -16,7 +16,7 @@ ms.date: 03/16/2017
 ms.author: v-craic
 ms.openlocfilehash: 921db397a9a30a102d47d5e6c379e98daba6e5c5
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -50,7 +50,7 @@ Azure DevTest Labs позволяет виртуальным машинам ла
 
 - **Пользователи Windows.** Нажмите кнопку **Подключить** на портале Azure, чтобы скачать предварительно настроенный RDP-файл и получить доступ к виртуальной машине.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Управление всеми политиками лаборатории в Azure DevTest Labs](devtest-lab-set-lab-policy.md)
 * [Настройка виртуальной сети в Azure DevTest Labs](devtest-lab-configure-vnet.md)

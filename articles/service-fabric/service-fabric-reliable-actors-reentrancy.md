@@ -109,5 +109,5 @@ static class Program
 ```
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте больше о возможностях повторного входа в [справочной документации по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx).

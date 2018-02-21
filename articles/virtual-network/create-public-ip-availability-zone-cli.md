@@ -55,7 +55,7 @@ az network public-ip create --resource-group myResourceGroup --name myPublicIp -
 az network public-ip show --resource-group myResourceGroup --name myPublicIp
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Дополнительные сведения о [зонах доступности](https://docs.microsoft.com/azure/availability-zones/az-overview)
 - Дополнительные сведения об [общедоступных IP-адресах](../virtual-network/virtual-network-public-ip-address.md) 

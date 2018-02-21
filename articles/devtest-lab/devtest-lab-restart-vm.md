@@ -16,7 +16,7 @@ ms.date: 10/13/2017
 ms.author: v-craic
 ms.openlocfilehash: ffa669e2d07a93e9e5071ac8aab81ec14ea24eab
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -53,6 +53,6 @@ ms.lasthandoff: 01/02/2018
 
 ![Перезапуск виртуальной машины с помощью кнопки с многоточием (...)](./media/devtest-lab-restart-vm/devtest-lab-restart-elipses.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * После перезагрузки виртуальной машины можно заново подключиться к ней, выбрав **Подключиться** на соответствующей панели управления.
 * Изучите [коллекцию шаблонов быстрого запуска Azure Resource Manager для DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

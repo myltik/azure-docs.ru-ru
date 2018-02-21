@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
    
     `class ViewController : EngagementViewController {`
 
-## <a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
+## <a id="monitor"></a>Подключение приложения с мониторингом в режиме реального времени
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>Включение функции отправки и приема push-уведомлений и обмена сообщениями в приложении

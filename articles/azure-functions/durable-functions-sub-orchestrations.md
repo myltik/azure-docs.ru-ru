@@ -76,7 +76,7 @@ public static async Task ProvisionNewDevices(
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Узнайте, что такое концентраторы задач и как их настраивать](durable-functions-task-hubs.md)

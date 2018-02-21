@@ -19,14 +19,14 @@ ms.lasthandoff: 10/20/2017
 
 Чтобы настроить [журналы сервера в базе данных Azure для MySQL](concepts-server-logs.md), получить их список и скачать их, можно воспользоваться порталом Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Прежде чем приступить к выполнению этого руководства, необходимы следующие компоненты:
 - [сервер базы данных Azure для MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
 ## <a name="configure-logging"></a>Настройка журнала
 Настройте доступ к журналу медленных запросов MySQL. 
 
-1. Выполните вход на [портал Azure](http://portal.azure.com/).
+1. Войдите на [портале Azure](http://portal.azure.com/).
 
 2. Выберите сервер базы данных Azure для MySQL.
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/20/2017
    ![Щелчок значка "Скачать"](./media/howto-configure-server-logs-in-portal/5-download.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Ознакомьтесь с разделом [Настройка журналов сервера и получение к ним доступа с помощью Azure CLI](howto-configure-server-logs-in-cli.md), чтобы узнать, как скачать журналы программно.
 - Узнайте больше о [журналах сервера](concepts-server-logs.md) в базе данных Azure для MySQL. 
 - Дополнительные сведения об определениях параметров и ведении журнала MySQL см. в документации MySQL по [журналам](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).

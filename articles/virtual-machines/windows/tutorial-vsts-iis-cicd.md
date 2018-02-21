@@ -33,7 +33,7 @@ ms.lasthandoff: 10/31/2017
 > * создавать определение выпуска для публикации новых пакетов веб-развертывания в IIS;
 > * Тестирование конвейера CI/CD
 
-Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="create-project-in-team-services"></a>Создание проекта в Team Services
@@ -218,7 +218,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
     ![Выполнение веб-приложения ASP.NET на виртуальной машине IIS из конвейера CI/CD](media/tutorial-vsts-iis-cicd/running_web_app_cicd.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В рамках этого руководства вы создали веб-приложение ASP.NET в Team Services, а также настроили определения сборки и выпуска для развертывания новых пакетов веб-развертывания в IIS для каждой фиксации кода. Вы научились выполнять следующие задачи:
 

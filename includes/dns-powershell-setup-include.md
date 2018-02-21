@@ -5,7 +5,7 @@
 Перед началом настройки убедитесь, что у вас есть следующие компоненты.
 
 * Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
-* Вам потребуется установить последнюю версию командлетов PowerShell Azure Resource Manager. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Вам потребуется установить последнюю версию командлетов PowerShell Azure Resource Manager. Подробнее: [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### <a name="sign-in-to-your-azure-account"></a>Вход в учетную запись Azure
 
@@ -23,7 +23,7 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 ```
 
-Выберите подписку Azure.
+Выберите, какие подписки Azure будут использоваться.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "your_subscription_name"
@@ -31,7 +31,7 @@ Select-AzureRmSubscription -SubscriptionName "your_subscription_name"
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-В диспетчере ресурсов Azure для всех групп ресурсов должно быть указано расположение. Это расположение используется в качестве расположения по умолчанию для всех ресурсов данной группы. Но так как все ресурсы DNS глобальные, а не региональные, выбор расположения группы ресурсов не влияет на Azure DNS.
+Диспетчер ресурсов Azure требует, чтобы все группы ресурсов указывали расположение. Это расположение используется в качестве расположения по умолчанию для всех ресурсов данной группы. Но так как все ресурсы DNS глобальные, а не региональные, выбор расположения группы ресурсов не влияет на Azure DNS.
 
 Если используется существующая группа ресурсов, можно пропустить этот шаг.
 

@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 PowerShell используется для создания и администрирования ресурсов в Azure Stack с помощью командной строки или скриптов.  В этом руководстве описывается, как с помощью PowerShell развернуть виртуальную машину под управлением сервера Ubuntu в Azure Stack.
 
-## <a name="prerequisites"></a>Предварительные требования 
+## <a name="prerequisites"></a>предварительным требованиям 
 
 * Убедитесь в том, что оператор Azure Stack добавил образ Ubuntu Server 16.04 LTS в Azure Stack Marketplace.  
 
@@ -219,6 +219,6 @@ ssh <Public IP Address>
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом кратком руководстве вы развернули простую виртуальную машину Linux. Дополнительные сведения о виртуальных машинах Azure Stack см. в [рекомендациях по работе с виртуальными машинами в Azure Stack](azure-stack-vm-considerations.md).

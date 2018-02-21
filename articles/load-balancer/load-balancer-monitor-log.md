@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 5. На панели **Диагностика** в разделе **Состояние** щелкните **Вкл**.
 6. Щелкните элемент **Учетная запись хранения**.
 7. В разделе **Журналы** выберите существующую учетную запись хранения или создайте новую. С помощью ползунка определите, сколько дней данные о событиях будут храниться в журналах событий. 
-8. Щелкните **Сохранить**.
+8. Выберите команду **Сохранить**.
 
     ![Портал — журналы диагностики](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
@@ -145,6 +145,6 @@ ms.lasthandoff: 10/11/2017
 * [Визуализация журналов аудита Azure с помощью Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) .
 * [Просмотр и анализ журналов аудита Azure с помощью Power BI и других средств](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) .
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Проверки балансировщика нагрузки](load-balancer-custom-probe-overview.md)

@@ -13,14 +13,15 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+experiment: 
+ms.openlocfilehash: 82f87447a2176dffd55dcf71155c389398f7d64c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Создание первой функции на портале Azure
 
@@ -30,9 +31,9 @@ ms.lasthandoff: 01/12/2018
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>Вход в Azure
+## <a name="log-in-to-azure"></a>Вход в Azure
 
-Перейдите на портал Azure. Для этого войдите на [портал Azure](https://portal.azure.com/) с помощью своей учетной записи Azure.
+Перейдите на портал Azure по адресу <http://portal.azure.com> и выполните вход со своей учетной записью Azure.
 
 ## <a name="create-a-function-app"></a>Создание приложения-функции
 
@@ -76,7 +77,7 @@ ms.lasthandoff: 01/12/2018
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Дополнительная информация
 

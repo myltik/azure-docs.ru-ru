@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 В этом руководстве показано, как написать код ASP.NET для некоторых распространенных сценариев с использованием сущностей хранилища очередей Azure. Сюда относятся такие задачи, как создание очереди Azure, а также добавление, изменение, чтение и удаление сообщений очереди.
 
-##<a name="prerequisites"></a>Предварительные требования
+##<a name="prerequisites"></a>предварительным требованиям
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Учетная запись хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -574,7 +574,7 @@ ms.lasthandoff: 10/11/2017
   
     ![Удаление очереди.](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
 
   * [Приступая к работе с хранилищем BLOB-объектов Azure и подключенными службами Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)

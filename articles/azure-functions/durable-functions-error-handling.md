@@ -132,7 +132,7 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 
 Если функция оркестратора завершается сбоем с необработанным исключением, сведения об этом исключении регистрируются в журнале, и экземпляр завершает работу с состоянием `Failed`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 > [!div class="nextstepaction"]
 > [Дополнительные сведения для диагностики неполадок](durable-functions-diagnostics.md)

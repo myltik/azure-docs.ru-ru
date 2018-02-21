@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Мы прекратим использование Служб мобильного взаимодействия Azure в марте 2018 г. Сейчас они доступны только существующим клиентам. Дополнительные сведения см. на странице [Службы мобильного взаимодействия](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 ## <a name="set-up-mobile-engagement-for-your-windows-universal-app"></a>Настройка Служб мобильного взаимодействия для универсального приложения для Windows
@@ -69,11 +69,11 @@ ms.lasthandoff: 10/11/2017
 
 1. В файле `App.xaml.cs`:
 
-    а. Добавьте оператор `using`:
+    a. Добавьте оператор `using`:
 
             using Microsoft.Azure.Engagement;
 
-    b. Добавьте метод для инициализации Engagement.
+    Б. Добавьте метод для инициализации Engagement.
 
            private void InitEngagement(IActivatedEventArgs e)
            {
@@ -111,21 +111,21 @@ ms.lasthandoff: 10/11/2017
         class MainPage : EngagementPageOverlay
 3. В файле `MainPage.xaml`:
 
-    а. Добавьте в объявления пространств имен:
+    a. Добавьте в объявления пространств имен:
 
         xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
-    b. В имени XML-тега измените **Page** на **engagement:EngagementPageOverlay**.
+    Б. В имени XML-тега измените **Page** на **engagement:EngagementPageOverlay**.
 
 > [!IMPORTANT]
 > Если страница переопределяет метод `OnNavigatedTo`, необходимо обязательно вызвать `base.OnNavigatedTo(e)`. В противном случае о действии не будет сообщено (`EngagementPage` вызывает `StartActivity` внутри метода `OnNavigatedTo`). Это особенно важно в проекте Windows Phone, где шаблон по умолчанию включает метод `OnNavigatedTo` .
 >
 > Для **универсальных приложений Windows 10** используйте метод, рекомендованный в разделе "Рекомендуемый метод: перегрузка классов" статьи [Создание расширенных отчетов с помощью пакета SDK службы Engagement для универсальных приложений для Windows](mobile-engagement-windows-store-advanced-reporting.md) вместо приведенного выше.
 
-## <a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
+## <a id="monitor"></a>Подключение приложения с мониторингом в режиме реального времени
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Включение push-уведомлений и обмена сообщениями в приложении
+## <a id="integrate-push"></a>Включение функции отправки и приема push-уведомлений и обмена сообщениями в приложении
 Службы мобильного взаимодействия позволяют взаимодействовать и связываться с пользователями при помощи push-уведомлений и сообщений в приложении в контексте кампаний. На портале Служб мобильного взаимодействия этот модуль называется МОДУЛЕМ ОБРАБОТКИ РЕКЛАМНЫХ КАМПАНИЙ.
 В следующих разделах показано, как настроить приложение для приема уведомлений и сообщений.
 

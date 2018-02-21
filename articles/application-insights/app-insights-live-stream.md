@@ -37,7 +37,7 @@ ms.lasthandoff: 11/01/2017
 
 Служба Live Metrics Stream в настоящее время доступна для приложений ASP.NET, работающих в локальной среде или облаке. 
 
-## <a name="get-started"></a>Приступая к работе
+## <a name="get-started"></a>Начало работы
 
 1. Если вы еще не [установили Application Insights](app-insights-asp-net.md) в своем веб-приложении ASP.NET или [приложении Windows Server](app-insights-windows-services.md), сделайте это сейчас. 
 2. **Выполните обновление до последней версии** пакета Application Insights. В Visual Studio щелкните проект правой кнопкой мыши и выберите пункт **Управление пакетами NuGet**. Откройте вкладку **Обновления**, установите флажок **Включить предварительные выпуски** и выберите все пакеты Microsoft.ApplicationInsights.*.
@@ -154,7 +154,7 @@ ms.lasthandoff: 11/01/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Отслеживание использования Application Insights.](app-insights-web-track-usage.md)
 * [Использование диагностического поиска](app-insights-diagnostic-search.md)
 * [Профилировщик](app-insights-profiler.md)

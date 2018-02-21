@@ -17,7 +17,7 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.openlocfilehash: 1f82f0f867173da10907d06c6c093ddcc569565f
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/05/2018
     ![Открытие сведений о работе](./media/active-directory-users-profile-azure-portal/active-directory-create-users-profile.png)
 6. Добавьте или измените данные профиля. На панели команд нажмите **Сохранить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Добавление новых пользователей в Azure Active Directory](active-directory-users-create-azure-portal.md)
 * [Сброс пароля пользователя в Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
 * [Назначение пользователю ролей администратора в Azure Active Directory](active-directory-users-assign-role-azure-portal.md)

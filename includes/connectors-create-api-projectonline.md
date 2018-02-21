@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 * Учетная запись [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365). 
 
 Чтобы использовать учетную запись ProjectOnline в приложении логики, вы должны авторизовать приложение логики для подключения к вашей учетной записи ProjectOnline. К счастью, это можно легко сделать из приложения логики на портале Azure. 

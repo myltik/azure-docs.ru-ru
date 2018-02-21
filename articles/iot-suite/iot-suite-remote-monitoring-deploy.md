@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.openlocfilehash: 768c32e30509c74a292b2355a249ec010af2cd1b
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/13/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/13/2017
 > * Развертывание предварительно настроенного решения.
 > * Вход в предварительно настроенное решение.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством требуется активная подписка Azure.
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 12/13/2017
 
 1. Панель решения для удаленного мониторинга отображается в браузере.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого руководства вы узнали, как выполнить следующие задачи:
 

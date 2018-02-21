@@ -101,12 +101,12 @@ ExpressRoute обладает постоянно растущей экосист
 
 Ответы на часто задаваемые вопросы об ExpressRoute см. в [этой статье](expressroute-faqs.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Узнайте о [моделях подключения ExpressRoute](expressroute-connectivity-models.md).
 * Узнайте больше о подключениях ExpressRoute и доменах маршрутизации. См. статью [Каналы ExpressRoute и домены маршрутизации](expressroute-circuit-peerings.md).
 * Найти поставщика услуг. См. статью [Партнеры и одноранговые расположения ExpressRoute](expressroute-locations.md).
-* Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования и контрольный список для ExpressRoute](expressroute-prerequisites.md).
+* Убедитесь, что выполнены все необходимые условия. Ознакомьтесь с разделом [Предварительные требования и контрольный список для ExpressRoute](expressroute-prerequisites.md).
 * См. сведения о требованиях для [маршрутизации](expressroute-routing.md) и [NAT](expressroute-nat.md) и [QoS](expressroute-qos.md).
 * Настройте подключение ExpressRoute.
   * [Создание канала ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)

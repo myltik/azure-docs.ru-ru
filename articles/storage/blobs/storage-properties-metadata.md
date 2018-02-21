@@ -105,6 +105,6 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Справочные материалы клиентской библиотеки хранилища Azure для .NET](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
 * [Клиентская библиотека хранилища Azure для пакетов NuGet .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

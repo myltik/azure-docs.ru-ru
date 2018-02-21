@@ -7,8 +7,8 @@
 
 В следующих разделах описаны эти предварительные условия и представлены сведения, необходимые для использования командлетов PowerShell в дальнейшем.
 
-### <a name="install-azure-powershell"></a>Установка Azure PowerShell
-Убедитесь, что установлен последний пакет SDK Azure PowerShell. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+### <a name="install-azure-powershell"></a>Установите Azure PowerShell
+Убедитесь, что установлен последний пакет SDK Azure PowerShell. Подробнее: [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### <a name="create-an-azure-active-directory"></a>Создайте Azure Active Directory
 Во-первых, в вашей подписке должна быть служба [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD). Среди прочих преимуществ она дает возможность предоставить доступ к вашему хранилищу ключей для определенных пользователей и приложений.

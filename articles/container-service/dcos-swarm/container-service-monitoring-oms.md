@@ -104,6 +104,6 @@ $ dcos package uninstall msoms
 ## <a name="let-us-know"></a>Сообщите нам!
 Что работает? Чего не хватает? Что еще необходимо улучшить, чтобы этот инструмент был полезным для вас? Сообщите нам по адресу <a href="mailto:OMSContainers@microsoft.com">OMSContainers</a>.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
  Теперь, когда вы настроили OMS для мониторинга контейнеров, [просмотрите свою панель мониторинга контейнера](../../log-analytics/log-analytics-containers.md).

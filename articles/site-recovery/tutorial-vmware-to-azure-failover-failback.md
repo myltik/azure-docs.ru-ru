@@ -2,24 +2,18 @@
 title: "Отработка отказа и восстановление размещения виртуальных машин VMware и физических серверов, реплицированных в Azure, с помощью Site Recovery | Документы Майкрософт"
 description: "Сведения об отработке отказа виртуальных машин VMware и физических серверов в Azure и восстановление размещения на локальном сайте с помощью Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 28a14a9b28dfe9c2014add9b9f691bce6ba91a4c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f074312ecee39d4b3022df64b51aadd2bb8f968c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Отработка отказа и восстановление размещения виртуальных машин VMware и физических серверов, реплицированных в Azure
 
@@ -38,7 +32,7 @@ ms.lasthandoff: 11/01/2017
 1. [Подготовка Azure](tutorial-prepare-azure.md)
 2. [Подготовка локальной среды VMware](tutorial-prepare-on-premises-vmware.md)
 3. [Настройка аварийного восстановления](tutorial-vmware-to-azure.md)
-4. [Выполнение отработки аварийного восстановления](tutorial-dr-drill-azure.md)
+4. [Run a disaster recovery drill to Azure](tutorial-dr-drill-azure.md) (Выполнение отработки аварийного восстановления в Azure)
 
 ## <a name="preparing-for-failover-and-failback"></a>Подготовка к отработке отказа и восстановлению размещения
 

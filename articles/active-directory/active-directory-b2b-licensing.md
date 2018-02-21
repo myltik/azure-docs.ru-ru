@@ -19,7 +19,7 @@ ms.reviewer: sasubram
 ms.custom: it-pro
 ms.openlocfilehash: 664398eb71501ff450b785928992729f91740a19
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -69,7 +69,7 @@ ms.lasthandoff: 12/11/2017
 
       * Организация конгломерата не использует Azure AD или не имеет достаточно лицензий. В таком случае следуйте формуле 1:5, изложенной ранее в этом документе.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B:
 

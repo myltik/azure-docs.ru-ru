@@ -16,7 +16,7 @@ ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -351,7 +351,7 @@ ms.lasthandoff: 12/21/2017
 #### <a name="sample-application-scripts"></a>Примеры сценариев приложения
 Если шаблон успешно выполняется, можно настроить веб-сервер и сервер приложений с простым веб-приложением, с помощью которых можно протестировать эту конфигурацию сети периметра. Пример приложения для этого и других примеров сети периметра можно скачать по [этой ссылке][SampleApp].
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Разверните этот пример.
 * Создайте пример приложения.

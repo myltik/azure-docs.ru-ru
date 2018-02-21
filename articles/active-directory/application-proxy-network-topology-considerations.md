@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: f4ca4856333bf8b10a00952356080ed332dc266b
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -170,7 +170,7 @@ ms.lasthandoff: 01/05/2018
 
 ![Схема, показывающая, что пользователи, прокси и соединитель находятся в США, а приложение — в ЕС](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Включение прокси приложения](active-directory-application-proxy-enable.md)
 - [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)

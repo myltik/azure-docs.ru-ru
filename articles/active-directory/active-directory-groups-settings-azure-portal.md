@@ -18,7 +18,7 @@ ms.reviewer: kairaz.contractor
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 8f1013419f7e54f5760636f169635b84c8bd118e
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/11/2017
 
    ![Сохранение изменений свойств](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
 * [Просмотр существующих групп](active-directory-groups-view-azure-portal.md)

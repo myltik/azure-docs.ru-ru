@@ -16,7 +16,7 @@ ms.date: 11/02/2017
 ms.author: vturecek;mikhegn
 ms.openlocfilehash: 8c29b54415a42ec435f2b4c3ce6b407b2155f70c
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -140,7 +140,7 @@ ms.lasthandoff: 12/21/2017
    
     ![Отключение трассировки удаленной потоковой передачи][disablestreamingtraces]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Проверка службы Service Fabric](service-fabric-testability-overview.md)
 * [Управление приложениями Service Fabric в Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 

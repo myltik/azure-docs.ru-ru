@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.date: 10/15/2017
 ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/03/2018
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 - Вам понадобится доступ к подписке Azure и разрешение для создания в ней ресурсов. 
 - Необходимо установить приложение Azure Machine Learing Workbench, следуя [краткому руководству по установке и созданию](quickstart-installation.md). 
 
@@ -265,7 +265,7 @@ $ az ml service run realtime -i <web service id> -d <input data>
 az group delete --name <resource group name>
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 В этом руководстве было продемонстрировано, как использовать функции предварительной версии служб машинного обучения Azure для: 
 > [!div class="checklist"]
 > * настройки учетной записи Экспериментирования и создания рабочей области;

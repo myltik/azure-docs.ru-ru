@@ -17,7 +17,7 @@ ms.author: bryanla
 ms.custom: aaddev
 ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -176,7 +176,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="web-client"></a>веб-клиента
 Тип [клиентского приложения](#client-application), которое выполняет весь код на веб-сервере и может выступать в роли "конфиденциального" клиента, обеспечивая безопасное хранение учетных данных на сервере. Дополнительные сведения см. в разделе о [типах и профилях клиента OAuth2][OAuth2-Client-Types].
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Руководство разработчика по Azure AD][AAD-Dev-Guide] охватывает все темы, связанные с разработкой для Azure AD, включая обзор[интеграции приложений][AAD-How-To-Integrate], а также основные сведения об [аутентификации Azure AD и поддерживаемых сценариях аутентификации][AAD-Auth-Scenarios].  Руководства и примеры кода для быстрого начала работы можно найти также на сайте [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 В следующем разделе комментариев вы можете поделиться своим мнением и помочь нам улучшить и сформировать наши материалы. Вы можете также запросить создание новых определений или обновление существующих.

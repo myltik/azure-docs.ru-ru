@@ -17,7 +17,7 @@
      ![Брандмауэр](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. В окне **Проверка необходимых компонентов** программа установки проверяет возможность установки. Если появится предупреждение о **проверке глобальной синхронизации времени**, убедитесь, что время системных часов (параметры **даты и времени**) соответствует часовому поясу.
 
-    ![Предварительные требования](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+    ![предварительным требованиям](./media/site-recovery-add-configuration-server/combined-wiz5.png)
 7. На странице **Конфигурация MySQL** создайте учетные данные для входа в экземпляр сервера MySQL, который будет установлен.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)

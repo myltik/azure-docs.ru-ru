@@ -17,7 +17,7 @@ ms.date: 04/12/2017
 ms.author: sasubram
 ms.openlocfilehash: 315cc3bcab1909b385b98138c971b2c7d405da2b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/11/2017
 
 Вы можете также экспортировать эти журналы из Azure AD и с помощью любого инструмента для создания отчетов создавать собственные настраиваемые отчеты.
 
-### <a name="next-steps"></a>Дальнейшие действия
+### <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B:
 

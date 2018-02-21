@@ -28,7 +28,7 @@ ms.lasthandoff: 11/01/2017
 * [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
-* [Инструменты Visual Studio](app-insights-release-notes-vsix.md)
+* [Средства Visual Studio](app-insights-release-notes-vsix.md)
 * [другие платформы.](https://github.com/Microsoft/ApplicationInsights-Home)
 
 Ознакомьтесь также с нашими [блогами](https://azure.microsoft.com/blog/tag/application-insights/) и [обновлениями службы](https://azure.microsoft.com/updates/?service=application-insights), которые содержат сводку основных улучшений службы Application Insights в целом.

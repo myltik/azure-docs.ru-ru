@@ -149,4 +149,4 @@ ms.lasthandoff: 10/11/2017
 |   |   | 
 
 ## <a name="learn-more"></a>Подробнее
-[Обзор Пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md)
+[Дополнительные сведения о Пакете интеграции Enterprise](logic-apps-enterprise-integration-overview.md)

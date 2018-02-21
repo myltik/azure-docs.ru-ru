@@ -53,14 +53,14 @@ API надежных коллекций являются развитием API 
 * [надежная очередь](https://msdn.microsoft.com/library/azure/dn971527.aspx) (реплицируемая, транзакционная и асинхронная очередь, функционирующая строго по методу FIFO; как и в **ConcurrentQueue**, значение может быть любого типа).
 * [Надежная параллельная очередь](service-fabric-reliable-services-reliable-concurrent-queue.md) — реплицируемая, транзакционная и асинхронная упорядочивающая очередь для обеспечения высокой пропускной способности. Как и в **ConcurrentQueue**, значение может быть любого типа.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Reliable Collections: руководства и рекомендации](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Работа с Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Транзакции и блокировки](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * [Внутренние компоненты Reliable State Manager и Reliable Collections](service-fabric-reliable-services-reliable-collections-internals.md)
 * Управление данными
   * [Резервное копирование и восстановление](service-fabric-reliable-services-backup-restore.md)
-  * [Notifications](service-fabric-reliable-services-notifications.md)
+  * [Уведомления](service-fabric-reliable-services-notifications.md)
   * [Сериализация надежной коллекции](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Влияние сериализации данных на обновление приложений](service-fabric-application-upgrade-data-serialization.md)
   * [Конфигурация диспетчера надежных состояний](service-fabric-reliable-services-configuration.md)

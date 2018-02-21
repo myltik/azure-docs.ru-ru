@@ -17,7 +17,7 @@ ms.date: 09/11/2017
 ms.author: sasubram
 ms.openlocfilehash: 2f2cfc351d372d665aac054d52d6e1520e1ffe48
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -104,7 +104,7 @@ ms.lasthandoff: 12/11/2017
 
 Сейчас политики выполнения входа на основе рисков не применяются к пользователям B2B, так как оценка рисков выполняется в домашней организации этих пользователей.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B:
 

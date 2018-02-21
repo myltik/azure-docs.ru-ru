@@ -18,7 +18,7 @@ ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 81182f5a03821dc42aed2390d9a0145460b1ddd7
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/14/2017
 
 Теперь вы можете удаленно подключиться к виртуальной машине с помощью DNS-имени, например `ssh azureuser@mydns.westus.cloudapp.azure.com`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда у виртуальной машины имеется общедоступный IP-адрес и DNS-имя, можно развернуть общие программные платформы или службы, например nginx, MongoDB, Docker и т. д.
 
 Изучите дополнительные сведения об [использовании Resource Manager](../../azure-resource-manager/resource-group-overview.md), чтобы получить советы по созданию развертываний Azure.

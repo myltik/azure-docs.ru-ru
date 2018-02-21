@@ -16,7 +16,7 @@ ms.date: 11/11/2017
 ms.author: kraigb
 ms.openlocfilehash: fc6f88ee3b808e46e693de7c31b836be86728cd5
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/08/2017
 
 Если вы хотите создать сертификат самостоятельно, следуйте инструкциям в статье [Общие сведения о сертификатах для облачных служб Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) и вручную передайте сертификат на [портал Azure](https://portal.azure.com/).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Документация по веб-приложениям](https://docs.microsoft.com/azure/app-service/)
 - [Развертывание приложения в службе приложений Azure](https://docs.microsoft.com/azure/app-service/app-service-deploy-local-git) 

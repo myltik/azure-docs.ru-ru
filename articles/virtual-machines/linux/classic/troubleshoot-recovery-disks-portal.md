@@ -26,7 +26,7 @@ ms.lasthandoff: 11/08/2017
 
 [!INCLUDE [virtual-machines-classic-recovery-disks-portal](../../../../includes/virtual-machines-classic-recovery-disks-portal.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 При возникновении проблем с подключением к виртуальной машине ознакомьтесь со статьей [Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux: сбой, ошибка или отклонение](../troubleshoot-ssh-connection.md). 
 
 Для устранения проблем с доступом к приложениям, выполняющимся на виртуальной машине, ознакомьтесь со статьей [Устранение проблем с подключением к приложениям на виртуальных машинах Linux в Azure](../troubleshoot-app-connection.md).

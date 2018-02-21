@@ -39,7 +39,7 @@ ms.lasthandoff: 12/05/2017
 
 Хотите создать такое же приложение с помощью Angular? См. [серию видеоруководств по Angular](tutorial-develop-mongodb-nodejs.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * [Node.js](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>Готовый проект
@@ -97,7 +97,7 @@ ms.lasthandoff: 12/05/2017
 1. В меню слева на портале Azure щелкните **Группы ресурсов**, а затем выберите имя созданного ресурса. 
 2. На странице группы ресурсов щелкните **Удалить**, в текстовом поле введите имя ресурса для удаления и щелкните **Удалить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого руководства вы узнали, как выполнять такие задачи:
 
@@ -113,5 +113,5 @@ ms.lasthandoff: 12/05/2017
 Вы можете перейти к следующему руководству, из которого вы узнаете, как импортировать данные MongoDB в Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Перенос данных в DocumentDB с помощью mongoimport и mongorestore](mongodb-migrate.md)
+> [Перенос данных MongoDB в Azure Cosmos DB](mongodb-migrate.md)
  

@@ -61,7 +61,7 @@ await client.OpenAsync();
 Twin twin = await client.GetTwinAsync(); 
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
  - [Общие сведения о среде выполнения Azure IoT Edge и ее архитектуре][lnk-runtime]
 
 <!-- Images -->

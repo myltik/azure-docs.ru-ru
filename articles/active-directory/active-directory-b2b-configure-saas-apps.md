@@ -17,7 +17,7 @@ ms.date: 05/23/2017
 ms.author: sasubram
 ms.openlocfilehash: dc0bb3950f30b2ea676de406538e3a463ad21429
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -100,7 +100,7 @@ ms.lasthandoff: 12/11/2017
 
 Как и в Dropbox, приглашенные Box также должны активировать свои приглашения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B перечислены ниже.
 

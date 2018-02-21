@@ -78,6 +78,6 @@ IntelliTrace можно использовать, если ваше прилож
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Параметры отладки облачных служб Azure](vs-azure-tools-debugging-cloud-services-overview.md)
 - [Публикация облачной службы с помощью инструментов Azure](vs-azure-tools-publishing-a-cloud-service.md)

@@ -120,13 +120,13 @@ zypper install mdadm
 
 2. Создайте файловую систему на новом RAID-устройстве.
    
-    а. **CentOS, Oracle Linux, SLES 12, openSUSE и Ubuntu**
+    a. **CentOS, Oracle Linux, SLES 12, openSUSE и Ubuntu**
 
     ```bash   
     sudo mkfs -t ext4 /dev/md127
     ```
    
-    b. **SLES 11**
+    Б. **SLES 11**
 
     ```bash
     sudo mkfs -t ext3 /dev/md127

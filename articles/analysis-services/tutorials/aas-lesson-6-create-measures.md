@@ -33,7 +33,7 @@ ms.lasthandoff: 01/09/2018
   
 Предполагаемое время выполнения этого занятия: **30 минут**  
   
-## <a name="prerequisites"></a>Необходимые компоненты  
+## <a name="prerequisites"></a>предварительным требованиям  
 Этот раздел входит в учебник по табличному моделированию, который следует изучать в предложенном порядке. Прежде чем выполнять задачи в этом разделе, нужно завершить предыдущее занятие: [Занятие 5. Создание вычисляемых столбцов](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
 ## <a name="create-measures"></a>Создание мер  
@@ -90,7 +90,7 @@ ms.lasthandoff: 01/09/2018
 
     |столбец|Имя меры|Автосумма (∑)|Формула|  
     |----------------|----------|-----------------|-----------|  
-    |SalesOrderLineNumber|InternetOrderLinesCount|Количество|=COUNTA([SalesOrderLineNumber])|  
+    |SalesOrderLineNumber|InternetOrderLinesCount|Count|=COUNTA([SalesOrderLineNumber])|  
     |OrderQuantity|InternetTotalUnits|Sum|=SUM([OrderQuantity])|  
     |DiscountAmount|InternetTotalDiscountAmount|Sum|=SUM([DiscountAmount])|  
     |TotalProductCost|InternetTotalProductCost|Sum|=SUM([TotalProductCost])|  

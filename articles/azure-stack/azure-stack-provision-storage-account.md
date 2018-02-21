@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
     ![](media/azure-stack-provision-storage-account/image03.png)
 
-### <a name="next-steps"></a>Дальнейшие действия
+### <a name="next-steps"></a>Дополнительная информация
 [Использование шаблонов Azure Resource Manager](user/azure-stack-arm-templates.md)
 
 [Узнайте об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md)

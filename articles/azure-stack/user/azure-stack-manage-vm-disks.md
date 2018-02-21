@@ -23,7 +23,7 @@ ms.lasthandoff: 12/15/2017
 ---
 # <a name="virtual-machine-disk-storage-for-azure-stack"></a>Хранение дисков виртуальных машин для Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 Azure Stack поддерживает использование [неуправляемых дисков](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) в виртуальной машине в качестве диска операционной системы и диска данных. Чтобы использовать неуправляемые диски, нужно создать [учетную запись хранения](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), а потом сохранить в ней диски в качестве страничных BLOB-объектов в контейнерах. Эти диски называются дисками виртуальной машины.
 

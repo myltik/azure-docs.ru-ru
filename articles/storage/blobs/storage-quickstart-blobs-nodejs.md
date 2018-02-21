@@ -2,30 +2,24 @@
 title: "Краткое руководство по Azure. Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью Node.js | Документация Майкрософт"
 description: "Краткие сведения о передаче объектов в хранилище BLOB-объектов Azure и обратно с помощью Node.js"
 services: storage
-documentationcenter: storage
-author: georgewallace
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2017
-ms.author: gwallace
-ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.date: 02/06/2018
+ms.author: tamram
+ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью Node.js
 
 Из этого краткого руководства вы узнаете, как использовать Node.js для передачи, скачивания и перечисления блочных BLOB-объектов в контейнере в хранилище BLOB-объектов Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим кратким руководством сделайте следующее:
 
@@ -109,9 +103,9 @@ Sample finished running. When you hit <ENTER> key, the temporary files will be d
 
 ### <a name="get-references-to-the-storage-objects"></a>Получение ссылок на объекты хранилища
 
-Сначала необходимо создать ссылки на `BlobService`, используемые для доступа к хранилищу BLOB-объектов и управлению им. Эти объекты зависят друг от друга — каждый объект используется следующим в списке объектом.
+Сначала необходимо создать ссылки на **BlobService**, используемые для доступа к хранилищу BLOB-объектов и управлению им. Эти объекты зависят друг от друга — каждый объект используется следующим в списке объектом.
 
-* Создайте экземпляр объекта **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)**, указывающий на службу BLOB-объектов в учетной записи хранения.
+* Создайте экземпляр объекта [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor), указывающий на службу BLOB-объектов в учетной записи хранения.
 
 * Создайте контейнер, а затем задайте для него разрешения, чтобы предоставить общий доступ к большим двоичным объектам по URL-адресу. Название контейнера начинается с **quickstartcontainer-**.
 
@@ -192,11 +186,11 @@ console.log('6. Deleting block Blob\n');
         fs.unlinkSync(DOWNLOADED_FILE_PATH);
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом кратком руководстве вы узнали, как передавать файлы между локальным диском и хранилищем BLOB-объектов Azure с помощью Node.js. Дополнительные сведения о работе с хранилищем BLOB-объектов см. в соответствующем практическом руководстве.
 
 > [!div class="nextstepaction"]
 > [Практическое руководство по операциям в хранилище BLOB-объектов](storage-nodejs-how-to-use-blob-storage.md)
 
-Дополнительные сведения об обозревателе объектов и BLOB-объектах см. в статье [Управление ресурсами хранилища BLOB-объектов Azure с помощью обозревателя хранилищ](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Справочник по Node.js для хранилища Azure см. в пакете [azure-storage](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).

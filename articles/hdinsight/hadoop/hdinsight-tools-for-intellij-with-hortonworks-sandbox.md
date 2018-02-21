@@ -19,7 +19,7 @@ ms.date: 12/20/2017
 ms.author: jgao
 ms.openlocfilehash: 6bb29dc4e231bc859be620e56a606fbbfade102b
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) — это интегрированная среда разработки (IDE) Java для создания программного обеспечения для компьютеров. После разработки и тестирования приложений в песочнице Hortonworks их можно переместить в [Azure HDInsight](apache-hadoop-introduction.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Перед началом работы с этим руководством необходимо иметь следующее:
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 12/21/2017
 
 3. Нажмите кнопку **Submit** (Отправить). Журналы отправки заданий отображаются в окне инструмента отправки Spark.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Узнайте, как [создавать приложения Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для IntelliJ](../spark/apache-spark-intellij-tool-plugin.md).
 

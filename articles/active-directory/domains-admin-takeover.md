@@ -18,7 +18,7 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.openlocfilehash: f18e5883fca9291eb1447c1eebfe0883936fe84f
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -162,7 +162,7 @@ ms.lasthandoff: 12/11/2017
 
 Успешный запрос защиты возвращает строки без ошибок.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Добавление имени личного домена в Azure Active Directory](add-custom-domain.md)
 * [Как установить и настроить Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)

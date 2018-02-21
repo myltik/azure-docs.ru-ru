@@ -56,11 +56,11 @@ ms.lasthandoff: 10/11/2017
 
 ![Сущности](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>Поиск
+### <a name="search"></a>поиска
 
 На вкладке **Поиск** представлены все типы журналов, доступные для сущности. Для каждого типа журнала можно просмотреть количество доступных записей. Щелкнув каждый тип журнала, можно перейти на экран поиска. На экране поиска можно уточнить параметры поиска и использовать различные функции, такие как настройка оповещений. В текущем выпуске вкладка поиска доступна только для сущностей пользователей и компьютеров.
 
-![Поиск](./media/security-center-investigation/security-center-investigation-fig5.png)
+![поиска](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>Исследование
 

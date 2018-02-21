@@ -41,7 +41,7 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][development overview].
 
 <!--Image references-->

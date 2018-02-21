@@ -39,5 +39,5 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-step"></a>Дальнейшие действия
 Получив предварительное утверждение по программе сертификации Microsoft Azure, можно перейти к [ регистрации учетной записи Майкрософт в качестве продавца Майкрософт](marketplace-publishing-accounts-creation-registration.md).
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)

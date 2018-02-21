@@ -79,7 +79,7 @@ Visual Studio предоставляет свойство, называемое 
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Модель приложений Service Fabric](service-fabric-application-model.md)
 * [Развертывание приложений Service Fabric](service-fabric-deploy-remove-applications.md)
 * [Управление параметрами приложения для нескольких сред](service-fabric-manage-multiple-environment-app-configuration.md)

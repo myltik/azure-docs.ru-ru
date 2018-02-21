@@ -22,7 +22,7 @@ ms.lasthandoff: 11/16/2017
 # <a name="region-or-sku-unavailable"></a>Регион или номер SKU недоступен
 В этой статье описывается, как устранить проблему с подпиской Azure, если для нее недоступен какой-либо регион или номер SKU виртуальной машины.
 
-## <a name="symptoms"></a>Симптомы
+## <a name="symptoms"></a>Проблемы
 
 ### <a name="when-deploying-a-virtual-machine-you-receive-one-of-the-following-error-messages"></a>При развертывании виртуальной машины появляется одно из приведенных ниже сообщений об ошибке.
 ```

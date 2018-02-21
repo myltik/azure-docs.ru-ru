@@ -17,7 +17,7 @@ ms.date: 05/24/2017
 ms.author: sasubram
 ms.openlocfilehash: 28c93212e247dae23cfb35a587d0d6e87cb56a6f
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 
 Не забывайте, что этот код предоставлен в качестве примера для демонстрации использования API приглашения службы Azure Active Directory B2B. Перед развертыванием в рабочем сценарии его должна настроить и проверить ваша команда разработчиков или ваш партнер.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B:
 * [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)

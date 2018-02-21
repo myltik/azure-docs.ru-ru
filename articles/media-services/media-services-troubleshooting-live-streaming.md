@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
   
     rtp://test2-amstest009.rtp.channel.mediaservices.windows.net:2010/ 
   
-    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
+    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
 
 > [!NOTE]
 > Если после выполнения этих действий воспроизвести поток по-прежнему не получается, отправьте запрос в службу поддержки с помощью портала Azure.

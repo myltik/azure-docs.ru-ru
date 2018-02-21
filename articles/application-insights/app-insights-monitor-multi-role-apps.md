@@ -125,6 +125,6 @@ ms.lasthandoff: 11/01/2017
 ![Поиск по компонентам](./media/app-insights-monitor-multi-role-apps/search-across-components.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Отделение телеметрии стадий разработки, тестирования и эксплуатации](app-insights-separate-resources.md)

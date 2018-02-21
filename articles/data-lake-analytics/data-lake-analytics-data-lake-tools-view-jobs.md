@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 
 По умолчанию служба Data Lake Analytics архивирует задания на 30 дней. Срок хранения можно настроить на портале Azure в настраиваемой политике окончания срока действия. Доступ к данным задания по истечении этого срока невозможен. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 См. раздел о [предварительных требованиях в отношении средств Data Lake для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Доступ к браузеру заданий

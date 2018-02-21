@@ -2,23 +2,17 @@
 title: "Планирование ресурсов и масштабирования для репликации из VMware в Azure с помощью Azure Site Recovery | Документы Майкрософт"
 description: "Используйте эту статью, чтобы запланировать ресурсы и масштабирование при репликации виртуальных машин VMware в Azure с помощью Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: 
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: rayne
-ms.openlocfilehash: 0f4d82d450a6ca2e73c68452a409f300841dbf32
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Планирование загрузки и масштабирования для репликации из VMware с помощью Azure Site Recovery
 
@@ -140,6 +134,6 @@ ms.lasthandoff: 10/30/2017
 3. В поле **Выбор целевого сервера обработки** выберите новый сервер обработки, который нужно использовать, а затем — виртуальные машины, с которыми он будет работать. Щелкните значок сведений, чтобы получить сведения о сервере. Чтобы помочь принять решение о скачивании, отображается средний объем свободного места, требуемый для репликации каждой выбранной виртуальной машины на новом сервере обработки. Щелкните значок галочки, чтобы начать репликацию на новом сервере обработки.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Скачайте и запустите [планировщик ресурсов Azure Site Recovery](https://aka.ms/asr-deployment-planner)

@@ -16,7 +16,7 @@ ms.date: 06/01/2017
 ms.author: bwren
 ms.openlocfilehash: e4a8ab0e68d6614fea1b44f0115a1c633f145277
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -104,7 +104,7 @@ Runbook рабочих процессов PowerShell представляют с
 * Нельзя преобразовать модули Runbook из графического типа в текстовый или наоборот.
 * При использовании других типов дочерних модулей Runbook могут действовать некоторые ограничения.  Дополнительные сведения см. в статье [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о графической разработке модулей Runbook см. в статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md).
 * Чтобы понять различия между PowerShell и рабочими процессами PowerShell для модулей Runbook, см. статью [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md).
 * Дополнительные сведения о создании и импорте модуля Runbook см. в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md).

@@ -107,7 +107,7 @@ ms.lasthandoff: 11/17/2017
 
 Вы можете настроить этот шаблон в соответствии с конкретными потребностями. Есть очень много способов применить Power BI в сочетании с журналами потоков для групп безопасности сети. 
 
-## <a name="notes"></a>Примечания
+## <a name="notes"></a>Заметки
 
 * Журналы по умолчанию хранятся в следующем расположении: `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 

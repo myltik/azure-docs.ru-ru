@@ -50,7 +50,7 @@ Azure Service Fabric — это надежная и гибкая платфор
 ![Приложение, использующее службу без отслеживания состояния][Image2]
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Просмотрите видео с [примерами реальных клиентов](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
 ).

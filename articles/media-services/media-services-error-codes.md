@@ -118,7 +118,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="see-also"></a>См. также
 [Media Services Management Error Codes](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx) (Коды ошибок управления службами мультимедиа)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Отзывы

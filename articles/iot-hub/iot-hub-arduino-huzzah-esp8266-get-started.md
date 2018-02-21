@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Подключение между DHT22, Feather HUZZAH ESP8266 и Центром Интернета вещей](media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
 
-## <a name="what-you-do"></a>В рамках этого руководства мы:
+## <a name="what-you-do"></a>Что нужно сделать
 
 
 В рамках этого руководства мы подключим плату Adafruit Feather HUZZAH ESP8266 к созданному Центру Интернета вещей Azure. Затем мы запустим пример приложения на ESP8266, чтобы собрать данные о температуре и влажности, зафиксированные датчиком DHT22. После этого отправим данные с датчика в Центр Интернета вещей.
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 
 * Датчик температуры и влажности Adafruit DHT22.
 * Монтажная плата.
-* Многомодовый оптоволоконный кабель с разъемами на обоих концах.
+* Многомодовый оптоволоконный кабель с разъемами на обоих концах
 
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
@@ -224,7 +224,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Конечные выходные данные в Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/14_arduino-ide-final-output.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Вы успешно подключили плату Feather HUZZAH ESP8266 к Центру Интернета вещей и отправили в него собранные данные датчика. 
 

@@ -28,9 +28,9 @@ ms.lasthandoff: 12/04/2017
 
 В таблице ниже содержатся краткие описания встроенных ролей. Эти роли можно назначать с помощью портала Azure или других инструментов, включая Azure [PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), [Azure CLI](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli) и [REST API](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). Дополнительные сведения о том, как назначать встроенные роли, см. в разделе [Начало работы с управлением доступом на портале Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
 
-| Роль          | Доступ на чтение<sup>[1]</sup> | Доступ на запись<sup>[2]</sup> | Создание, удаление и масштабирование служб, настройка VPN и личных доменов | Доступ к устаревшему порталу издателя | Описание
+| Роль          | Доступ на чтение<sup>[1]</sup> | Доступ на запись<sup>[2]</sup> | Создание, удаление и масштабирование служб, настройка VPN и личных доменов | Доступ к устаревшему порталу издателя | ОПИСАНИЕ
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
-| Azure API Management Service Contributor | ✓ | ✓  | ✓  | ✓ | Суперпользователь. Имеет полный доступ CRUD к службам и сущностям управления API (например, к интерфейсам API и политикам). Имеет доступ к устаревшему порталу издателя. |
+| Azure API Management Service Contributor | ✓ | ✓ | ✓ | ✓ | Суперпользователь. Имеет полный доступ CRUD к службам и сущностям управления API (например, к интерфейсам API и политикам). Имеет доступ к устаревшему порталу издателя. |
 | Azure API Management Service Reader | ✓ | | || Имеет доступ на чтение к службам и сущностям управления API. |
 | Azure API Management Service Operator | ✓ | | ✓ | | Может управлять службами управления API, но не может управлять сущностями.|
 | Azure API Management Service Editor<sup>*</sup> | ✓ | ✓ | |  | Может управлять сущностями управления API, но не может управлять службами.|
@@ -68,7 +68,7 @@ New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinit
 >
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Чтобы узнать больше об управлении доступом на основе ролей в Azure, см. следующие статьи:
   * [Начало работы с управлением доступом на портале Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/)

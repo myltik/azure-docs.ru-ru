@@ -16,7 +16,7 @@ ms.author: asteen
 ms.reviewer: japere
 ms.openlocfilehash: cdd8646557aa92ce0a294294ece44c6d02a977dd
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -82,5 +82,5 @@ ms.lasthandoff: 12/11/2017
 
 Эти утверждения поддерживают только отдельные рабочие процессы, то есть если вы зададите несколько утверждающих лиц, отдельное утверждающее лицо может подтвердить доступ к приложению.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Настройка Azure Active Directory для самостоятельного управления группами](active-directory-accessmanagement-self-service-group-management.md)

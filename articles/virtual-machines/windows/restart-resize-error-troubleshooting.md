@@ -18,7 +18,7 @@ ms.author: delhan
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 482a194535cba8715b70ecff4679691515b206a9
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -63,6 +63,6 @@ ms.lasthandoff: 01/03/2018
   2. После остановки всех виртуальных машин увеличьте размер требуемой виртуальной машины.
   3. Выберите виртуальную машину с измененным размером, нажмите кнопку **Запустить**и запустите каждую из остановленных виртуальных машин.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 При возникновении проблем во время создания виртуальной машины Windows в Azure ознакомьтесь со статьей, посвященной [устранению неполадок в развертывании](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

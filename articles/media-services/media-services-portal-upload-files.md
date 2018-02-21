@@ -37,7 +37,7 @@ ms.lasthandoff: 12/18/2017
 >
 
 ## <a name="upload-files"></a>Отправка файлов
-1. Создание учетной записи служб мультимедиа Azure с помощью [портала Azure](https://portal.azure.com/).
+1. Выберите учетную запись служб мультимедиа Azure на [портале Azure](https://portal.azure.com/).
 2. Установите флажок **Параметры** > **Ресурсы-контейнеры**. Затем нажмите кнопку **Отправить**.
    
     ![Отправка файлов](./media/media-services-portal-vod-get-started/media-services-upload.png)
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/18/2017
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте, как [закодировать отправленные ресурсы](media-services-portal-encode.md).
 
 * Вы также можете использовать службу "Функции Azure", чтобы активировать задание кодирования, когда файл поступит в настроенный контейнер. Дополнительные сведения см. в примере в статье [Media Services: Integrating Azure Media Services with Azure Functions and Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/) (Службы мультимедиа: интеграция служб мультимедиа Azure со службой "Функции Azure" и Azure Logic Apps).

@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 * [Системные представления Transact-SQL][Transact-SQL system views]
 * [Командлеты PowerShell][PowerShell cmdlets]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Сведения о разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][development overview].
 
 <!--Image references-->

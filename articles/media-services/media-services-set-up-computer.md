@@ -41,7 +41,7 @@ ms.lasthandoff: 10/24/2017
 
 Дополнительные сведения о подключении к API служб мультимедиа Azure см. в статье [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md) (Получение доступа к API служб мультимедиа Azure с помощью проверки подлинности Azure AD).  
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Найдите несколько примеров кода в коллекции **образцов кода Azure**: [Примеры кода Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 

@@ -85,6 +85,6 @@ ms.lasthandoff: 10/11/2017
 #### <a name="include-the-azure-search-portal-ip-addresses"></a>Включение IP-адресов портала Поиска Azure
 Если для создания индексатора используется портал Azure, то в процессе создания логике портала службы поиска Azure также необходим доступ к виртуальной машине SQL Azure. Чтобы найти IP-адреса портала службы поиска Azure, можно выполнить проверку связи с `stamp2.search.ext.azure.com`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Когда настройка выполнена, SQL Server на виртуальной машине Azure можно указать в качестве источника данных для индексатора службы поиска Azure. Дополнительные сведения см. в статье [Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
 

@@ -17,7 +17,7 @@ ms.date: 09/17/2017
 ms.author: miprasad
 ms.openlocfilehash: 7db93786b71fb7876ae02fd8fd006a1e8e0c2271
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/18/2017
 
 Для данного решения будет использован конкретный пример построения модели прогнозирования оттока клиентов для телекоммуникационных компаний.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 * [Учетная запись Azure](https://azure.microsoft.com/free/) (доступны бесплатные пробные версии).
 

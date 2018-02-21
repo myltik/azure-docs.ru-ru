@@ -17,7 +17,7 @@ ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017
 ms.openlocfilehash: 4a45e1bdbce299dce38a01a17a65024dc41a353f
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -40,6 +40,6 @@ ms.lasthandoff: 12/11/2017
 * Чтобы научиться добавлять пользователей в роли и удалять их, а также изменять назначения с постоянных на временные, ознакомьтесь с разделом, посвященным [добавлению и удалению ролей пользователей](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
 * Если вы хотите предоставить доступ к управлению PIM большему количеству пользователей, ознакомьтесь с разделом, посвященным [предоставлению доступа к управлению в PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

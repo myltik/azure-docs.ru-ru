@@ -16,7 +16,7 @@ ms.date: 01/26/2017
 ms.author: sama
 ms.openlocfilehash: f0aa3d19e15837b75888293f0cd19683b7621a6a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -101,7 +101,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 Политика входа рекомендуется, если вам не нужно локализовать политики либо если вам требуются ограниченные возможности для настройки фирменного оформления и встроенные возможности сброса паролей.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Настройка токена, сеанса и единого входа](active-directory-b2c-token-session-sso.md)
 * [Azure Active Directory B2C: отключение проверки адреса электронной почты во время регистрации потребителя](active-directory-b2c-reference-disable-ev.md)
 

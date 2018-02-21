@@ -329,7 +329,7 @@ ms.lasthandoff: 11/15/2017
     --query    : JMESPath query string. See http://jmespath.org/ for more information and examples.
     --verbose  : Increase logging verbosity. Use --debug for full debug logs.
 
-Команда
+Get-Help
 
     az ml service run realtime
 

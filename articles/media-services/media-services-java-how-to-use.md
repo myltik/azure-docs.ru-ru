@@ -25,7 +25,7 @@ ms.lasthandoff: 12/08/2017
 
 В этом руководстве описано, как реализовать простую службу доставки видео с помощью служб мультимедиа Azure и клиентского пакета SDK для Java.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Ниже перечислены необходимые условия для выполнения действий, описанных в этом учебнике.
 
@@ -306,7 +306,7 @@ ms.lasthandoff: 12/08/2017
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="additional-resources"></a>дополнительные ресурсы.
+## <a name="additional-resources"></a>Дополнительные ресурсы
 Дополнительные сведения о разработке приложений Java в Azure см. в [центре разработчиков Java][Azure Java Developer Center] и в документации [Azure для разработчиков Java][Azure for Java developers].
 
 

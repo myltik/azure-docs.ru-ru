@@ -22,8 +22,8 @@ ms.lasthandoff: 10/11/2017
 
 Узнайте, как создать базу данных MySQL в Azure с помощью следующих средств:
 
-- [Портал Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
-- [Интерфейс командной строки Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
+- [портале Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
+- [интерфейс командной строки Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 
 ## <a name="step-by-step-tutorials"></a>Пошаговые руководства
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 Поиск скриптов для выполнения типовых задач.
 
-- [Интерфейс командной строки Azure](/azure/mysql/reference-azure-cli)
+- [интерфейс командной строки Azure](/azure/mysql/reference-azure-cli)
 
 ## <a name="more"></a>Подробнее
 

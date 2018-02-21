@@ -17,7 +17,7 @@ ms.date: 11/10/2017
 ms.author: dobett
 ms.openlocfilehash: e5804cda921e9d598d0ed02c4fafccdb40fbe7a5
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -93,7 +93,7 @@ ms.lasthandoff: 12/18/2017
 
 Если точно известно, что у вас есть подписка Azure, проверьте сопоставление клиентов для своей подписки и убедитесь, что в раскрывающемся списке выбран правильный клиент. Если клиент выбран правильно, следуйте приведенной выше схеме и проверьте сопоставление подписки и этого клиента AAD.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Чтобы продолжить изучение IoT Suite, см. статью [Настройка предварительно настроенного решения][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png

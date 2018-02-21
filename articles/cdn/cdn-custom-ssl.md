@@ -186,7 +186,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
    Нет, в настоящее время не требуется запись авторизации центра сертификации. Однако если у вас она есть, она должна включать DigiCert в качестве действительного центра сертификации.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Узнайте, как настроить [личный домен в конечной точке Azure CDN](./cdn-map-content-to-custom-domain.md).
 

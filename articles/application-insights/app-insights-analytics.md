@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analytics-in-application-insights"></a>Аналитика в Application Insights
 Analytics — это мощный инструмент [Application Insights](app-insights-overview.md) для поиска и создания запросов. Analytics — это веб-инструмент, поэтому дополнительная настройка не требуется. Если вы уже настроили Application Insights для одного из приложений, вы можете проанализировать данные приложения, открыв Analytics в [колонке обзора](app-insights-dashboards.md) своего приложения.
@@ -47,15 +47,15 @@ requests
 
 Язык имеет много привлекательных функций.
 
-* [Фильтрация](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) необработанных данных телеметрии приложения по любым полям, включая пользовательские свойства и метрики.
-* [Соединение](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) нескольких таблиц — соотношение запросов с просмотрами страниц, вызовами зависимостей, исключениями и трассировками журнала.
-* Сложные статистические [агрегаты](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions).
+* [Фильтрация](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) необработанных данных телеметрии приложения по любым полям, включая пользовательские свойства и метрики.
+* [Соединение](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) нескольких таблиц — соотношение запросов с просмотрами страниц, вызовами зависимостей, исключениями и трассировками журнала.
+* Сложные статистические [агрегаты](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 * Мгновенные яркие визуализации.
 * [REST API](https://dev.applicationinsights.io/), который можно использовать для программного выполнения запросов, например из PowerShell.
 
 [Полный справочник по языку](https://go.microsoft.com/fwlink/?linkid=856079), который описывает все поддерживаемые команды. Он регулярно обновляется.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Начало работы с [порталом Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
 * [Написание запросов](https://go.microsoft.com/fwlink/?linkid=856078)
 * Просмотр [памятки для пользователей SQL](https://aka.ms/sql-analytics), которая содержит самые распространенные идиомы для преобразования.

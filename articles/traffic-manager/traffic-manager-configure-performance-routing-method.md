@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Настройка метода маршрутизации трафика по производительности с помощью диспетчера трафика][1]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Узнайте о [методе взвешенной маршрутизации трафика](traffic-manager-configure-weighted-routing-method.md).
 - Узнайте о [методе маршрутизации по приоритету](traffic-manager-configure-priority-routing-method.md).

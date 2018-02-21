@@ -16,7 +16,7 @@ ms.date: 08/16/2017
 ms.author: saeeda
 ms.openlocfilehash: eb187a120399089f1c3c145a06fbe993f50fb92b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure Active Directory B2C (Azure AD B2C) поддерживает изменение требований сложности к паролям, которые пользователи указывают при создании учетной записи.  По умолчанию Azure AD B2C использует **надежные** пароли.  Azure AD B2C также поддерживает параметры конфигурации для управления сложностью паролей, используемых клиентами.  В этой статье рассказывается о настройке сложности пароля в настраиваемых политиках.  Вы также можете ознакомиться со статьей [Azure AD B2C: Настройка требований к сложности паролей](active-directory-b2c-reference-password-complexity.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Клиент Azure AD B2C, необходимый для регистрации или входа с использованием локальной учетной записи, как описано в статье [Azure Active Directory B2C. Приступая к работе с настраиваемыми политиками](active-directory-b2c-get-started-custom.md).
 

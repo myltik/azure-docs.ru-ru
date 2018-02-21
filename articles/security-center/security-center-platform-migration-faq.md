@@ -16,7 +16,7 @@ ms.date: 10/30/2017
 ms.author: terrylan
 ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/13/2017
 ---
@@ -241,7 +241,7 @@ Microsoft Monitoring Agent можно удалить вручную. Это не
 ### <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>В моих рабочих областях уже есть решение для обеспечения безопасности. Как это влияет на выставление счетов?
 Чтобы включить для виртуальных машин Azure функции центра безопасности на уровне "Стандартный", используется решение "Безопасность и аудит". Если решение "Безопасность и аудит" уже установлено в рабочей области, центр безопасности использует существующее решение. Счета будут выставляться без изменений.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о миграции платформы центра безопасности см. в следующих статьях:
 
 - [Миграция платформы центра безопасности Azure](security-center-platform-migration.md).

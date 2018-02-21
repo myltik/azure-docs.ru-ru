@@ -28,14 +28,14 @@ ms.lasthandoff: 12/14/2017
 
 Также можно использовать обозреватель данных в подключенной службе для создания хранимых процедур, определяемых пользователем функций и триггеров, чтобы реализовать бизнес-логику на стороне сервера. Обозреватель данных отображает все встроенные возможности программного доступа к данным, доступные в API, а также обеспечивает быстрый доступ к данным.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Убедитесь, что у вас есть указанные ниже компоненты.
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
 * Учетная запись Azure Cosmos DB. Если у вас еще нет этой учетной записи, см. инструкции по [ созданию учетной записи Azure Cosmos DB с помощью портала Azure](create-sql-api-dotnet.md). Или см. инструкции по [созданию учетной записи Azure Cosmos DB в средстве подключенной службы](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
 * Если вы хотите использовать локальную среду для разработки, можно использовать [эмулятор Azure Cosmos DB](local-emulator.md). Среда эмулирует службу Azure Cosmos DB.
-* [Visual Studio](http://www.visualstudio.com/)
+* [Visual Studio](http://www.visualstudio.com/).
 * Последняя версия подключенной службы Azure Cosmos DB. Скачайте подключенную службу Azure Cosmos DB из Visual Studio Marketplace, как показано на следующем снимке экрана. Откройте **Visual Studio** на компьютере. В меню **Средства** выберите **Расширения и обновление...**, а затем — **В сети** / **Visual Studio Marketplace**. Для поиска службы введите запрос **cosmosdb**.
 
     Можно также установить подключенную службу Azure Cosmos DB из [Visual Studio Marketplace](https://go.microsoft.com/fwlink/?linkid=858709).
@@ -108,7 +108,7 @@ ms.lasthandoff: 12/14/2017
 
 Просмотрите это видео, чтобы узнать, как использовать подключенную службу Azure Cosmos DB в Visual Studio: [Cosmos DB Connected Service in Visual Studio](https://go.microsoft.com/fwlink/?linkid=858711) (Подключенная служба Cosmos DB в Visual Studio)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Изучив эту статью, вы научились выполнять следующие задачи:
 
 > [!div class="checklist"]

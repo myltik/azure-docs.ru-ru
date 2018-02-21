@@ -17,7 +17,7 @@ ms.author: markvi
 ms.reviewer: jairoc
 ms.openlocfilehash: 1e0d40b996e181a606d16d26633f890b9169ecbb
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -236,7 +236,7 @@ ms.lasthandoff: 12/11/2017
 
 ![Журналы аудита](./media/device-management-azure-portal/65.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Общие сведения об управлении устройствами в Azure Active Directory](device-management-introduction.md)
 

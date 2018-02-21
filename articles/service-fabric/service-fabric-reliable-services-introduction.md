@@ -113,7 +113,7 @@ Service Fabric управляет временем существования с
 * Приложению необходимо поддерживать историю изменений своих единиц состояния.
 * Вам нужно разработать свои настраиваемые поставщики состояний или использовать сторонние.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Краткое руководство по надежным службам Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Продвинутое использование надежных служб](service-fabric-reliable-services-advanced-usage.md)
 * [Модель программирования надежных субъектов](service-fabric-reliable-actors-introduction.md)

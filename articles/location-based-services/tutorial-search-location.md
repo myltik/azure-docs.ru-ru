@@ -1,6 +1,6 @@
 ---
 title: "Поиск с помощью Azure Location Based Services | Документация Майкрософт"
-description: "Поиск ближайшего объекта с помощью Azure Location Based Services"
+description: "Поиск ближайшего объекта с помощью Azure Location Based Services."
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,25 +12,25 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 791992028d11633fc20f55ae1a34e7fcd442bf3a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Поиск ближайшего объекта с помощью Azure Location Based Services.
+# <a name="search-nearby-points-of-interest-using-azure-location-based-services"></a>Поиск ближайших объектов с помощью Azure Location Based Services
 
 В этом руководстве показано, как настроить учетную запись Azure Location Based Services, а затем использовать предоставленные API для поиска объекта. Из этого руководства вы узнаете, как выполнять такие задачи:
 
 > [!div class="checklist"]
 > * Создание учетной записи Azure Location Based Services
 > * Получение первичного ключа для учетной записи Azure Location Based Services
-> * Создание веб-страницы с помощью API Map Control.
-> * Использование службы поиска для поиска ближайшего объекта.
+> * Создание веб-страницы с помощью API Map Control
+> * Использование Службы поиска для поиска ближайшего объекта
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
 
-# <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
+## <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
 Войдите на [портал Azure](https://portal.azure.com).
 
 <a id="createaccount"></a>

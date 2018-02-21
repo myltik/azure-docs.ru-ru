@@ -17,7 +17,7 @@ ms.author: asteen
 ms.reviewer: asteen
 ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -151,7 +151,7 @@ ms.lasthandoff: 12/11/2017
 
 Мы надеемся, что вам нравится использовать улучшенные возможности Azure AD. Поделитесь своими впечатлениями с нами! Вы можете опубликовать свои отзывы и предложения в разделе, посвященном **порталу администрирования** на нашем [форуме для обратной связи](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Мы работаем над новыми интересными возможностями и хотим учитывать ваши отзывы.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения см. в статье [Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md).
 

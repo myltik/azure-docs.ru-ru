@@ -14,11 +14,11 @@
  
 ### <a name="what-are-the-connectivity-requirements-to-ensure-that-the-azure-gateway-is-able-to-reach-an-on-premises-radius-server"></a>Какие требования к подключению необходимо выполнить, чтобы обеспечить шлюзу Azure доступ к локальному серверу RADIUS?
 
-Требуется VPN-подключение типа "сеть — сеть" к локальному сайту с правильно настроенными маршрутами.  
+Требуется VPN-подключение "сеть — сеть" к локальному сайту с правильно настроенными маршрутами.  
  
 ### <a name="can-traffic-to-an-on-premises-radius-server-from-the-azure-vpn-gateway-be-routed-over-an-expressroute-connection"></a>Может ли трафик направляться на локальный сервер RADIUS (из VPN-шлюза Azure) через подключение ExpressRoute?
 
-Нет. Он может направляться только через подключение типа "сеть — сеть".
+Нет. Он может направляться только через подключение "сеть — сеть".
  
 ### <a name="is-there-a-change-in-the-number-of-sstp-connections-supported-with-radius-authentication-what-is-the-maximum-number-of-sstp-and-ikev2-connections-supported"></a>Изменилось ли количество поддерживаемых SSTP-подключений с аутентификацией RADIUS? Каково максимальное количество поддерживаемых SSTP- и IKEv2-подключений?
 

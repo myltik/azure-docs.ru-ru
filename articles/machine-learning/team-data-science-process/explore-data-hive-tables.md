@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 В этой статье предполагается, что вы:
 
 * Создали учетную запись хранения Azure. Инструкции см. в разделе [Создание учетной записи хранения](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/10/2017
 3. Получение уровней в столбце категорий   
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
 4. Узнайте число уровней в сочетании двух столбцов категорий `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
-5. Получение распределения для числовых столбцов   
+5. Получение распределения для числовых столбцов  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. Извлечение записей из двух объединенных таблиц
    

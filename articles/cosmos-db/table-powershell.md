@@ -37,7 +37,7 @@ API таблицы Azure Cosmos DB позволяет хранить и запр
 > * запрос к таблице;
 > * удаление сущностей таблицы.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством требуется модуль Azure PowerShell 4.4.0 или более поздней версии. В окне PowerShell выполните `Get-Module -ListAvailable AzureRM`, чтобы найти версию. Если версия не отображается или нужно установить обновление, ознакомьтесь со статьей [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Установка и настройка Azure PowerShell). 
 
@@ -100,7 +100,7 @@ PowerShell не поддерживает удаление таблиц из Azur
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом практическом руководстве описаны распространенные операции в API таблицы, выполняемые с помощью PowerShell, в частности: 
 

@@ -5,7 +5,7 @@
 
 Для DC/OS и Docker Swarm мы советуем создать туннель Secure Shell (SSH) от локального компьютера к системе управления кластером. После установления туннеля можно выполнять команды, которые используют конечные точки HTTP, и просматривать веб-интерфейс оркестратора (при наличии) из локальной системы. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * Кластер Kubernetes, DC/OS или Docker Swarm, [развернутый в службе контейнеров Azure](../articles/container-service/dcos-swarm/container-service-deployment.md).
 * Файл закрытого ключа RSA (SSH), соответствующий открытому ключу, добавленному в кластер во время развертывания. В этих командах предполагается, что закрытый ключ SSH хранится на вашем компьютере в папке `$HOME/.ssh/id_rsa`. Дополнительные сведения см. в статьях [Как создать и использовать пару из открытого и закрытого ключей SSH для виртуальных машин Linux в Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md) и [Использование ключей SSH с Windows в Azure](../articles/virtual-machines/linux/ssh-from-windows.md). Если SSH-подключение не работает, может потребоваться [сбросить ключи SSH](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
@@ -40,7 +40,7 @@ az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --na
 
 Эта команда загрузит учетные данные кластера в папку `$HOME/.kube/config`, где средство `kubectl` будет их искать.
 
-Вы также можете с помощью `scp` безопасно скопировать файл на локальный компьютер из папки `$HOME/.kube/config` на главной виртуальной машине. Например:
+Вы также можете с помощью `scp` безопасно скопировать файл на локальный компьютер из папки `$HOME/.kube/config` на главной виртуальной машине. Например: 
 
 ```bash
 mkdir $HOME/.kube
@@ -145,7 +145,7 @@ ssh -fNL 2375:localhost:2375 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp
 export DOCKER_HOST=:2375
 ```
 
-Выполните команды Docker, открывающие туннель к кластеру Docker Swarm. Например:
+Выполните команды Docker, открывающие туннель к кластеру Docker Swarm. Например: 
 
 ```bash
 docker info
@@ -193,7 +193,7 @@ docker info
 
 После настройки туннеля для Docker Swarm откройте параметры Windows, чтобы указать значение `:2375` для системной переменной среды `DOCKER_HOST`. Теперь вы можете обращаться к кластеру Swarm из интерфейса командной строки Docker.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Развертывание контейнеров в кластере и управление ими.
 
 * [Работа со службой контейнеров Azure и Kubernetes](../articles/container-service/kubernetes/container-service-kubernetes-ui.md)

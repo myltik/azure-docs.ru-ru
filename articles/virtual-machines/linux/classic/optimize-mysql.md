@@ -310,7 +310,7 @@ MySQL — база данных с высокой степенью паралл
 
 | Параметры | значение по умолчанию | Оптимизация |
 | --- | --- | --- |
-| **innodb_buffer_pool_size** |None |7 ГБ |
+| **innodb_buffer_pool_size** |Нет |7 ГБ |
 | **innodb_log_file_size** |5 МБ |512 МБ |
 | **max_connections** |100 |5000 |
 | **innodb_file_per_table** |0 |1 |

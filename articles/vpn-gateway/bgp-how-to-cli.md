@@ -308,6 +308,6 @@ az network vpn-connection create -n VNet2ToVNet1 -g TestBGPRG2 --vnet-gateway1 /
 
 Подключение будет установлено через несколько минут после выполнения этих действий. Сразу после создания подключения между виртуальными сетями начнется сеанс пиринга BGP.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Установив подключение, можно добавить виртуальные машины в виртуальные сети. Пошаговые инструкции см. в статье о [создании виртуальной машины](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

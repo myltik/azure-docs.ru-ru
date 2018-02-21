@@ -70,7 +70,7 @@ ms.lasthandoff: 11/13/2017
   client_secret = "<password-returned-from-creating-a-service-principal>"
   ```
 
-## <a name="2-create-a-terraform-configuration-file"></a>2) Создание файла конфигурации Terraform
+## <a name="2-create-a-terraform-configuration-file"></a>2. Создание файла конфигурации Terraform
 
 В этом разделе вы создадите файл с определениями ресурсов для инфраструктуры.
 
@@ -274,7 +274,7 @@ ms.lasthandoff: 11/13/2017
 
 ![Применение плана выполнения Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Просмотрите список [модулей Azure Terraform](https://registry.terraform.io/modules/Azure).
 - Создайте [масштабируемый набор виртуальных машин с помощью Terraform](terraform-create-vm-scaleset-network-disks-hcl.md).

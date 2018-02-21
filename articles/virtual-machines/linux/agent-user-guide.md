@@ -133,7 +133,7 @@ ms.lasthandoff: 12/02/2017
 * daemon: запуск waagent в качестве управляющей программы для контроля взаимодействия с платформой. Этот аргумент указывается для waagent в сценарии инициализации waagent.
 * start: запуск waagent как фонового процесса
 
-## <a name="configuration"></a>Конфигурация
+## <a name="configuration"></a>Параметр Configuration
 Файл конфигурации (/ etc/waagent.conf) определяет действия waagent. Ниже приводится пример файла конфигурации:
 
     Provisioning.Enabled=y

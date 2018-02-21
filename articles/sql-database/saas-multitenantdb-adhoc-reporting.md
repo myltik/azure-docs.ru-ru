@@ -145,9 +145,9 @@ ms.lasthandoff: 11/28/2017
    ![query](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-Из этого руководства вы узнали следующее:
+Из этого руководства вы узнали, как выполнять такие задачи:
 
 > [!div class="checklist"]
 

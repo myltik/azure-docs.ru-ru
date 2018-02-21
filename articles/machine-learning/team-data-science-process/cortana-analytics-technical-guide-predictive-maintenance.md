@@ -71,7 +71,7 @@ ms.lasthandoff: 11/28/2017
 С помощью [службы "Машинное обучение Azure"](https://azure.microsoft.com/services/machine-learning/) (оркестрация с помощью фабрики данных Azure) создайте прогнозы на оставшийся период эксплуатации (RUL) конкретного двигателя самолета с учетом полученных входных данных. 
 
 ## <a name="data-publishing"></a>Публикация данных
-### <a name="azure-sql-database"></a>База данных SQL Azure
+### <a name="azure-sql-database"></a>Базы данных SQL Azure
 С помощью службы [База данных SQL Azure](https://azure.microsoft.com/services/sql-database/) сохраняйте прогнозы, полученные службой "Машинное обучение Azure", которые затем будут использоваться на панели мониторинга [Power BI](https://powerbi.microsoft.com).
 
 ## <a name="data-consumption"></a>Использование данных

@@ -168,7 +168,7 @@ Visual Studio и Eclipse оснащены инструментами для на
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Начать работу с Application Insights легко. Ниже перечислены основные возможности.
 
 * Инструментирование уже работающего веб-приложения. При этом вы получаете всю встроенную телеметрию производительности. Эта функция доступна для [Java](app-insights-java-live.md) и [серверов IIS](app-insights-monitor-performance-live-website-now.md), а также для [веб-приложений Azure](app-insights-azure.md).

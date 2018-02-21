@@ -17,7 +17,7 @@ ms.date: 08/29/2017
 ms.author: arramac
 ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -102,7 +102,7 @@ ms.lasthandoff: 12/11/2017
 
 После запуска приложения вы можете опробовать различные [политики индексирования](indexing-policies.md) и [уровни согласованности](consistency-levels.md), чтобы понять, как они влияют на пропускную способность и задержки. Вы также можете просмотреть исходный код и реализовывать аналогичные настройки в ваших тестовых наборах или приложениях в рабочей среде.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этой статье мы рассмотрели способы тестирования производительности и масштабируемости с Azure Cosmos DB с помощью консольного приложения .NET. Дополнительные сведения см. в следующих статьях:
 
 * [Пример для тестирования производительности Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)

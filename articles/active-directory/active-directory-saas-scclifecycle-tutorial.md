@@ -15,7 +15,7 @@ ms.date: 07/14/2017
 ms.author: jeedes
 ms.openlocfilehash: c7e6cc4a78b3e31b1357671fdb19d8eb9cf927ce
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/05/2018
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с SCC LifeCycle, вам потребуется:
 

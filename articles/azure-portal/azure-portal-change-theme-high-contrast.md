@@ -12,7 +12,7 @@ ms.custom: accessibility
 manager: timlt
 ms.openlocfilehash: 6099bc9d19216dced5611785c2a484d50fde7883
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -37,6 +37,6 @@ ms.lasthandoff: 12/11/2017
     ![Снимок экрана: параметры темы на портале Azure](./media/azure-portal-change-theme-high-contrast/azure-portal-theme-options.png)
 1. Нажмите кнопку **Применить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Сочетания клавиш на портале Azure](azure-portal-keyboard-shortcuts.md)
 - [Поддерживаемые браузеры и устройства](../azure-preview-portal-supported-browsers-devices.md)

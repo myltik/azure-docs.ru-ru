@@ -50,7 +50,7 @@ Azure CLI 2.0 возвращает строку JSON, представляющу
 
 * В настоящее время не поддерживается автоматическое масштабирование узлов агентов в кластере службы контейнеров.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Изучите [дополнительные примеры](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) использования команд Azure CLI 2.0 для работы со службой контейнеров Azure.
 * См. дополнительные сведения о [пулах агентов DC/OS](../articles/container-service/dcos-swarm/container-service-dcos-agents.md) в службе контейнеров Azure.
 

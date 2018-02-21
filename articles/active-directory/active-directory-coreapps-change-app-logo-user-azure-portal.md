@@ -18,7 +18,7 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.openlocfilehash: 2a1420b3f41ccc435ca128f003bcc23899a284c5
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/11/2017
     ![Изменение свойств для логотипа или имени приложения](./media/active-directory-coreapps-change-app-logo-azure-portal/change-logo.png)
 8. Щелкните **Сохранить** .
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Просмотр всех моих групп](active-directory-groups-view-azure-portal.md)
 * [Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
 * [Удаление назначения пользователя или группы из корпоративного приложения](active-directory-coreapps-remove-assignment-azure-portal.md)

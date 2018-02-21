@@ -344,7 +344,7 @@ az network vnet subnet create \
 
 Чтобы узнать больше о создании виртуальной сети с помощью портала, PowerShell или шаблона Azure Resource Manager, прочитайте раздел [Создание виртуальной сети с несколькими подсетями](virtual-networks-create-vnet-arm-pportal.md).
 
-## <a name="delete-resources"></a>Удаление ресурсов
+## <a name="delete-resources"></a>Удаление ресурсов.
 
 По завершении работы с этим руководством может потребоваться удалить созданные ресурсы, чтобы за их использование не взималась плата: При удалении группы ресурсов будут также удалены все ресурсы, содержащиеся в ней. В окне сеанса интерфейса командной строки введите следующую команду:
 
@@ -352,7 +352,7 @@ az network vnet subnet create \
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Создайте [высокодоступный сетевой виртуальный модуль](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Сетевые виртуальные модули часто содержат несколько сетевых интерфейсов и используют несколько IP-адресов. Узнайте, как [добавить сетевые интерфейсы в существующую виртуальную машину](virtual-network-network-interface-vm.md#vm-add-nic) и как [добавить IP-адреса в существующий сетевой интерфейс](virtual-network-network-interface-addresses.md#add-ip-addresses). Виртуальные машины любых размеров могут содержать по крайней мере два сетевых интерфейса. Каждый размер виртуальной машины поддерживает определенное максимальное количество сетевых интерфейсов. Чтобы узнать, какое количество сетевых интерфейсов поддерживает каждый размер виртуальной машины, ознакомьтесь с размерами виртуальных машин [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) и [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 

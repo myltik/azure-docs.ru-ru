@@ -61,6 +61,6 @@ ms.lasthandoff: 12/13/2017
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 Чтобы очистить ресурсы, созданные при работе с этим кратким руководством, удалите [группу ресурсов Azure](../azure-resource-manager/resource-group-overview.md).  Чтобы удалить группу ресурсов, перейдите к созданному экземпляру Azure Database Migration Service. Выберите имя **группы ресурсов** и щелкните **Удалить группу ресурсов**.  Это действие удаляет все ресурсы в группе ресурсов, а также саму группу.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 > [!div class="nextstepaction"]
 > [Миграция с SQL Server в базу данных SQL Azure](tutorial-sql-server-to-azure-sql.md)

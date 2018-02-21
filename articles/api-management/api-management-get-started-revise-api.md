@@ -33,7 +33,7 @@ ms.lasthandoff: 12/04/2017
 
 ![Журнал изменений на портале разработчика](media/api-management-getstarted-revise-api/azure_portal.PNG)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 + Выполните задачи в кратком руководстве по [созданию экземпляра службы управления API Azure](get-started-create-service-instance.md).
 + Также выполните задачи из руководства по [импорту и публикации первого API](import-and-publish.md).
@@ -92,11 +92,11 @@ ms.lasthandoff: 12/04/2017
 5. Выберите **API Change History** (Журнал изменений API) под именем API.
 6. Обратите внимание на запись журнала изменений в этом списке.
 
-    ![Портал разработчика](media/api-management-getstarted-revise-api/developer_portal.PNG)
+    ![Developer portal](media/api-management-getstarted-revise-api/developer_portal.PNG)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * Добавление новой редакции

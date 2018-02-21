@@ -96,7 +96,7 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 ![Диски и тома в консоли администрирования](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 После установки Backup Server узнайте, как подготовить сервер или обеспечить защиту рабочей нагрузки.
 
 - [Подготовка к резервному копированию рабочих нагрузок с использованием Azure Backup Server](backup-azure-microsoft-azure-backup.md)

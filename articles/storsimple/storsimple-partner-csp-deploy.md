@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 В этой статье описывается, как партнер CSP может добавить клиента или новую подписку имеющегося клиента, а затем создать службу для развертывания виртуального массива StorSimple в CSP.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Перед началом работы убедитесь, что выполнены следующие условия:
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Создание службы диспетчера устройств StorSimple](./media/storsimple-partner-csp-deploy/image8.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Если у вас есть дополнительные вопросы о StorSimple в CSP, перейдите к статье [StorSimple in CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple в CSP: часто задаваемые вопросы).
 - Если вы уже готовы развернуть StorSimple, перейдите к статье [Развертывание виртуального массива StorSimple для программы поставщика облачных решений](storsimple-partner-csp-deploy.md).

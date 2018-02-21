@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Настройка метода взвешенной маршрутизации трафика с помощью диспетчера трафика][1]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Узнайте больше о [методе маршрутизации по приоритету](traffic-manager-configure-priority-routing-method.md).
 - Узнайте больше о [методе маршрутизации по производительности](traffic-manager-configure-performance-routing-method.md).

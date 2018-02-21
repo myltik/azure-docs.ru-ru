@@ -72,7 +72,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Разрешения мониторинга и настраиваемые роли RBAC
 Если приведенные выше встроенные роли не отвечают потребностям вашей команды, вы можете [создать настраиваемую роль RBAC](../active-directory/role-based-access-control-custom-roles.md) с более детализированными разрешениями. Ниже приведены распространенные операции RBAC для Azure Monitor с описаниями.
 
-| Операция | Описание |
+| Операция | ОПИСАНИЕ |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Чтение, запись и удаление групп действий. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Чтение, запись и удаление оповещений журнала действий. |
@@ -174,7 +174,7 @@ New-AzureRmRoleDefinition -Role $role
    New-AzureRmRoleDefinition -Role $role 
    ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Прочитайте о RBAC и разрешениях в Resource Manager](../active-directory/role-based-access-control-what-is.md)
 * [Прочитайте общие сведения о мониторинге в Azure](monitoring-overview.md)
 

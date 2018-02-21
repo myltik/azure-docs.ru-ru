@@ -511,6 +511,6 @@ ms.lasthandoff: 10/11/2017
 
 ![Журнал Error в таблице](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этой статье предоставлены примеры кода обработки обычных сценариев для работы с очередями Azure. Дополнительная информация об использовании веб-заданий Azure и пакета SDK для веб-заданий доступна в [ресурсах с документацией по веб-заданиям Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 

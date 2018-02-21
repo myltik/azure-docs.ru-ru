@@ -16,7 +16,7 @@ ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: e10b58743fad5f7c2c4f00b51f06d4ec9bcb6768
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -252,7 +252,7 @@ AND     tb.name = 'T1'
 ;
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения о разработке таблиц см. в статьях, посвященных [общим сведениям о таблицах][Overview], [табличным типам данных][Data Types], [распределению][Distribute], [индексированию][Index] и [секционированию таблиц][Partition], а также [временным таблицам][Temporary]. 
 * Дополнительные рекомендации см. в статье [Рекомендации по использованию хранилища данных SQL][SQL Data Warehouse Best Practices].  

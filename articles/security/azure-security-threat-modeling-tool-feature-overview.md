@@ -16,7 +16,7 @@ ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -204,7 +204,7 @@ ms.lasthandoff: 12/18/2017
 
 ![Отчет](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Чтобы разместить шаблон для сообщества, перейдите на нашу станицу [GitHub](https://github.com/Microsoft/threat-modeling-templates). 
 * Чтобы приступить к работе со средством, перейдите на страницу [скачивания](https://aka.ms/tmtpreview).

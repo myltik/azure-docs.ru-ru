@@ -3,7 +3,7 @@ title: "Просмотр назначений доступа к ресурсам
 description: "Просмотр всех назначений управления доступом на основе ролей и управление ими для любого пользователя или группы на портале Azure."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: jeffsta
 ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
-ms.author: andredm
-ms.openlocfilehash: 51b158ebfeea52e726213edd042277779f52124b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.author: rolyon
+ms.openlocfilehash: e893aeeabf6a34707fbfe6576293a9e0726dd975
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Просмотр назначенных прав доступа для пользователей и групп на портале Azure
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/21/2017
 2. Выберите **Удалить** и щелкните **Да** для подтверждения.
     ![Снимок экрана: удаление назначения доступа](./media/role-based-access-control-manage-assignments/delete_assignment.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Приступите к управлению доступом на основе ролей, чтобы [использовать назначение ролей для управления доступом к ресурсам в подписке Azure](role-based-access-control-configure.md)
 * Ознакомьтесь со статьей [RBAC: встроенные роли](role-based-access-built-in-roles.md)

@@ -11,7 +11,7 @@ ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 6f5467d0fbcc577a548f1100ed6e4d380fe38759
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/13/2017
 ---
@@ -110,7 +110,7 @@ dcos marathon app add hello-web.json
 
 Если применяется другой порт, необходимо добавить правило циклического перебора и зонд для этого порта в подсистему балансировки нагрузки. Это можно сделать в [интерфейсе командной строки Azure](../../azure-resource-manager/xplat-cli-azure-resource-manager.md) с помощью команд `azure network lb rule create` и `azure network lb probe create`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого учебника вы узнали о балансировке нагрузки в ACS с помощью подсистемы балансировки нагрузки Marathon и Azure Load Balancer и выполнили следующие действия:
 

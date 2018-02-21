@@ -1,4 +1,4 @@
-#### <a name="prerequisites"></a>Предварительные требования
+#### <a name="prerequisites"></a>предварительным требованиям
 * Учетная запись Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free).
 * Учетная запись [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3). 
 

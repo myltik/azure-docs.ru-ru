@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 | S. Нет. | Убедитесь, | Модель |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
-| 2) |Cisco |SFP-H10GB-CU2M |
+| 2. |Cisco |SFP-H10GB-CU2M |
 | 3. |Cisco |SFP-H10GB-CU3M |
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 | S. Нет. | Убедитесь, | Модель |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
-| 2) |Cisco |N3K-C3048-ZM-F |
+| 2. |Cisco |N3K-C3048-ZM-F |
 | 3. |Cisco |N5K-C5596UP-FA |
 
 ## <a name="list-of-devices-tested-in-the-field"></a>Список устройств, протестированных на местах
@@ -69,10 +69,10 @@ Mellanox проверила следующие подключаемые прие
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Кабели и модули, поддерживаемые Mellanox
 Ниже перечислены кабели и модули, поддерживаемые Mellanox. Они не были проверены корпорацией Майкрософт, но, скорее всего, подходят для работы с устройством StorSimple.
 
-| S. Нет. | Speed | Модель | Описание | Убедитесь, |
+| S. Нет. | Speed | Модель | ОПИСАНИЕ | Убедитесь, |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |Пассивный медный кабель SFP + 10 Гбит/с, 1 м |Arista |
-| 2) |10 GbE |CAB-SFP-SFP-2M |Пассивный медный кабель SFP + 10 Гбит/с, 2 м |Arista |
+| 2. |10 GbE |CAB-SFP-SFP-2M |Пассивный медный кабель SFP + 10 Гбит/с, 2 м |Arista |
 | 3. |10 GbE |CAB-SFP-SFP-3M |Пассивный медный кабель SFP + 10 Гбит/с, 3 м |Arista |
 | 4. |10 GbE |CAB-SFP-SFP-5M |Пассивный медный кабель SFP + 10 Гбит/с, 5 м |Arista |
 | 5. |10 GbE |Cisco SFP-H10GBCU1M |Кабель SFP + Cisco |Cisco |
@@ -110,16 +110,16 @@ Mellanox проверила следующие подключаемые прие
 ### <a name="switches-supported-by-mellanox"></a>Коммутаторы, поддерживаемые Mellanox
 Ниже перечислены коммутаторы, поддерживаемые Mellanox. Они не были проверены корпорацией Майкрософт, но, скорее всего, подходят для работы с устройством StorSimple.
 
-| S. Нет. | Speed | Модель | Описание | Убедитесь, |
+| S. Нет. | Speed | Модель | ОПИСАНИЕ | Убедитесь, |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |516733-B21 |Коммутатор HP ProCurve 6120XG 10GbE Ethernet Blade Switch |HP |
 | 2) |10GbE |538113-B21 |Переходный модуль (PTM) HP 10GbE |HP |
-| 3) |10GbE |EN4093 |Масштабируемый модуль коммутатора IBM PureFlex System Fabric EN4093 10 Gigabit |IBM |
+| 3. |10GbE |EN4093 |Масштабируемый модуль коммутатора IBM PureFlex System Fabric EN4093 10 Gigabit |IBM |
 | 4. |1GbE |3020 |Колонка коммутатора Cisco Catalyst 3020 1GbE |Cisco |
 | 5. |1GbE |3020X |Колонка коммутатора Cisco Catalyst 3020X 1GbE |Cisco |
 | 6. |1GbE |438030-B21 |Модуль коммутатора HP 1GbE — GbE2c Layer 2/3 Ethernet Blade Switch |HP |
 | 7. |1GbE |6120G |Колонка коммутатора HP ProCurve 6120G/XG 1GbE |HP |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Дополнительные сведения об аппаратных компонентах и состоянии StorSimple](storsimple-monitor-hardware-status.md).
 

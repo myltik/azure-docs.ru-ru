@@ -17,7 +17,7 @@ ms.author: billmath
 ms.custom: pim
 ms.openlocfilehash: dd6cecf9211dada02025d93e4d63234ff0a73949
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -57,6 +57,6 @@ ms.lasthandoff: 12/11/2017
 Установите флажок **Роль** для ролей, которые требуется включить в журнал, и снимите его для остальных ролей.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

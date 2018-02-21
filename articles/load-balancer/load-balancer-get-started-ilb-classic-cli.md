@@ -174,7 +174,7 @@ azure vm endpoint delete DB1 tcp-1433-1433
 
 Дополнительные сведения см. в `azure vm endpoint --help`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Настройка режима распределения балансировщика нагрузки с помощью соответствия исходному IP-адресу](load-balancer-distribution-mode.md)
 

@@ -16,7 +16,7 @@ ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: e898ee203276b072605fe0f21af633ecfdaae1fe
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -70,5 +70,5 @@ ms.lasthandoff: 12/11/2017
 | **Настроить параметры синхронизации** |Изменение текущей конфигурации, например добавление в нее дополнительных лесов Active Directory или активация параметров синхронизации, таких как обратная запись для пользователей, групп, устройств или паролей. |
 | **Включить промежуточный режим** |Промежуточные сведения, которые сразу не синхронизируются и не экспортируются в Azure AD или локальной каталог Active Directory.  Эта функция позволяет просмотреть результаты синхронизации до ее выполнения. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения об интеграции локальных удостоверений см. в статье [Подключение Active Directory к Azure Active Directory](active-directory-aadconnect.md).

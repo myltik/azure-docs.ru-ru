@@ -102,6 +102,6 @@ ms.lasthandoff: 12/11/2017
 6. В поле **Имя учетной записи** введите название компании или организации, которое будет отображаться в мобильном приложений для этой учетной записи.
    ![Настройка сервера MFA, параметры для мобильного приложения](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Расширенные сценарии с использованием Многофакторной идентификации Azure и VPN сторонних поставщиков](multi-factor-authentication-advanced-vpn-configurations.md).

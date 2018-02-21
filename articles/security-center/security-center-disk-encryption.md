@@ -122,7 +122,7 @@ ms.lasthandoff: 12/08/2017
 
 **$resourceGroupName**
 
-Нажмите клавишу **ВВОД**. Должно отобразиться имя группы ресурсов, в которой расположены ваши виртуальные машины. Например:
+Нажмите клавишу **ВВОД**. Должно отобразиться имя группы ресурсов, в которой расположены ваши виртуальные машины. Например: 
 
 ![Вывод PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 12/08/2017
 
 **$vmName**
 
-Нажмите клавишу **ВВОД**. Должно отобразиться имя виртуальной машины, которую требуется зашифровать. Например:
+Нажмите клавишу **ВВОД**. Должно отобразиться имя виртуальной машины, которую требуется зашифровать. Например: 
 
 ![Вывод PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
@@ -171,7 +171,7 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMNa
 
 ![Свойства дисков](./media/security-center-disk-encryption/security-center-disk-encryption-fig12.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Из этого документа вы узнали, как зашифровать виртуальную машину Azure. Дополнительные сведения о Центре безопасности Azure см. в следующих статьях:
 
 * [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md) — узнайте, как наблюдать за работоспособностью ресурсов Azure.

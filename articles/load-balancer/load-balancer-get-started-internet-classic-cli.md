@@ -143,7 +143,7 @@ azure vm endpoint delete web1 tcp-80-80
 > [!NOTE]
 > Вы можете отобразить дополнительные параметры для управления конечными точками с помощью команды `azure vm endpoint --help`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
 

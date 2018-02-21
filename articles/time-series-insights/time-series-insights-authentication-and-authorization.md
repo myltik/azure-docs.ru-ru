@@ -101,7 +101,7 @@ ms.lasthandoff: 11/28/2017
 
 Используйте идентификатор и ключ приложения для аутентификации с помощью службы "Аналитика временных рядов Azure". 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Пример кода, который вызывает API Time Series Insights, см. в статье [Запрос данных из среды Azure Time Series Insights с помощью C##](time-series-insights-query-data-csharp.md).
 - Справочные сведения об API см. в статье об [API запросов к службе "Аналитика временных рядов Azure"](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
 

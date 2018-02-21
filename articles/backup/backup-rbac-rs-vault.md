@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 Контроль доступа на основе ролей (RBAC) Azure обеспечивает точное управление доступом для Azure. С помощью RBAC вы можете распределить обязанности внутри команды и предоставить пользователям доступ на уровне, который им необходим для выполнения поставленных задач.
 
 > [!IMPORTANT]
-> Роли, предоставленные службой архивации Azure, ограничены действиями, которые можно выполнить на портале Azure или в командлетах PowerShell хранилища служб восстановления. Эти роли не управляют действиями, выполняемыми в пользовательском интерфейсе клиента агента службы архивации Azure, System Center Data Protection Manager или Сервера резервного копирования Azure.
+> Роли, предоставленные службой архивации Azure, ограничены действиями, которые можно выполнить на портале Azure или в командлетах PowerShell хранилища служб восстановления. Эти роли не управляют действиями, выполняемыми в пользовательском интерфейсе клиента агента службы Azure Backup, System Center Data Protection Manager или Azure Backup Server.
 
 Служба архивации Azure предоставляет три встроенные роли для управления операциями управления резервным копированием. Дополнительные сведения см. в статье о [встроенных ролях RBAC в Azure](../active-directory/role-based-access-built-in-roles.md).
 
@@ -50,13 +50,13 @@ ms.lasthandoff: 10/11/2017
 | Изменение политики архивации виртуальных машин Azure | Участник архивации |
 | Удаление политики архивации виртуальных машин Azure | Участник архивации |
 | Прекращение архивации (с сохранением или удалением данных) виртуальной машины | Участник архивации |
-| Регистрация локального сервера Windows Server, клиента, SCDPM или Сервера резервного копирования Azure | Оператор архивации |
-| Удаление зарегистрированного локального сервера Windows Server, клиента, SCDPM или Сервера резервного копирования Azure | Участник архивации |
+| Регистрация локального сервера Windows Server, клиента, SCDPM или Azure Backup Server | Оператор архивации |
+| Удаление зарегистрированного локального сервера Windows Server, клиента, SCDPM или Azure Backup Server | Участник архивации |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Управление доступом на основе ролей.](../active-directory/role-based-access-control-configure.md) Начало работы с RBAC на портале Azure.
 * Сведения об управлении доступом с помощью следующих средств:
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
-  * [Интерфейс командной строки Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
-  * [ИНТЕРФЕЙС REST API](../active-directory/role-based-access-control-manage-access-rest.md)
+  * [интерфейс командной строки Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
+  * [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 * [Устранение неполадок при управлении доступом на основе ролей](../active-directory/role-based-access-control-troubleshooting.md). Рекомендации по устранению распространенных проблем.

@@ -195,7 +195,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > В настоящее время не регистрируются события, относящиеся к обработке запросов WebSocket. Эта возможность будет добавлена в следующем выпуске.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Статистическая обработка и сбор событий с помощью системы диагностики Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md) для обеспечения сбора журналов в кластерах Azure.
 * Чтобы просмотреть события Service Fabric в Visual Studio, ознакомьтесь с разделом [Мониторинг и диагностика состояния служб в локальной среде разработки](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 * Примеры шаблонов Azure Resource Manager для настройки разных параметров проверки сертификата службы для защищенного обратного прокси-сервера см. в разделе [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services).

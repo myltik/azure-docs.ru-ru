@@ -11,7 +11,7 @@ ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
 ---
@@ -193,7 +193,7 @@ Azure IoT Edge позволяет составить несколько моду
 
 ### <a name="edge-agent-twin-desired-properties"></a>Требуемые свойства двойника агента Edge
 
-| Свойство | ОПИСАНИЕ | Требуется |
+| Свойство | ОПИСАНИЕ | Обязательно |
 | -------- | ----------- | -------- |
 | schemaVersion | Должно быть "1.0". | Yes |
 | runtime.type | Должно быть "docker". | Yes |
@@ -281,7 +281,7 @@ Azure IoT Edge позволяет составить несколько моду
 | clients.{удостоверение устройства или модуля}.lastConnectTime | Время последнего подключения модуля или устройства. |
 | clients.{удостоверение устройства или модуля}.lastDisconnectTime | Время последнего отключения модуля или устройства. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Теперь, когда вы знаете, как используются модули IoT Edge, ознакомьтесь со статьей [Understand the requirements and tools for developing IoT Edge modules - preview][lnk-module-dev] (Общие сведения о требованиях и средствах разработки модулей IoT Edge (предварительная версия)).
 

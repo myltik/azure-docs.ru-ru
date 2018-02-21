@@ -10,7 +10,7 @@ ms.topic: article
 ms.service: monitoring-and-diagnostics
 ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -120,7 +120,7 @@ Grafana использует субъект-службу Azure Active Directory 
 1. В меню слева на портале Azure щелкните **Группы ресурсов**, а затем выберите **Grafana**. 
 2. На странице группы ресурсов щелкните **Удалить**, в текстовом поле введите **Grafana** и выберите **Удалить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Обзор метрик в Microsoft Azure](monitoring-overview-metrics.md)
 
 

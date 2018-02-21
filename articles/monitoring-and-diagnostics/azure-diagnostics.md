@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-is-azure-diagnostics"></a>Что такое система диагностики Azure
 Система диагностики Azure позволяет выполнять сбор диагностических данных в развернутом приложении. Можно использовать модуль диагностики из различных источников. В настоящее время поддерживаются и веб-роли, и рабочие роли облачной службы Azure, и виртуальные машины Azure под управлением Microsoft Windows и Service Fabric. Другие службы Azure располагают собственной диагностикой.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="data-you-can-collect"></a>Собираемые данные
 Система диагностики Azure может собирать следующие типы данных:
 
-| Источник данных | Описание |
+| источник данных | ОПИСАНИЕ |
 | --- | --- |
 | Счетчики производительности |Системные и пользовательские счетчики производительности |
 | Журналы приложений |Сообщения трассировки, записанные вашим приложением |
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="versioning"></a>Управление версиями
 См. [Журнал версий системы диагностики Microsoft Azure](azure-diagnostics-versioning-history.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Выберите службы, в которых вы хотите собирать данные диагностики, и выполните действия, описанные в перечисленных ниже статьях. Справку по отдельным задачам см. в общих статьях о диагностике Azure.
 
 ## <a name="web-apps"></a>Веб-приложения
@@ -75,6 +75,6 @@ ms.lasthandoff: 10/11/2017
 ## <a name="general-azure-diagnostics-articles"></a>Общие статьи о диагностике Azure
 * [Схема конфигурации системы диагностики Azure](https://msdn.microsoft.com/library/azure/mt634524.aspx) — узнайте, как изменить файл схемы для сбора и маршрутизации диагностических данных. Для изменения файла схемы можно также использовать Visual Studio.
 * [Хранение и просмотр диагностических данных в хранилище Azure](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) — узнайте названия таблиц и больших двоичных объектов, в которые записываются диагностические данные.
-* Узнайте, как [использовать счетчики производительности в Azure](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
+* Узнайте, как [использовать счетчики производительности в Azure](../cloud-services/diagnostics-performance-counters.md).
 * Узнайте, как [направлять данные диагностики Azure в Application Insights](azure-diagnostics-configure-application-insights.md).
 * Если возникнут проблемы с запуском диагностики или поиском данных в таблицах хранилища Azure, см. статью [Устранение неполадок с помощью системы диагностики Azure](azure-diagnostics-troubleshooting.md).

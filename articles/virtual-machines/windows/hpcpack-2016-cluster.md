@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 Используйте один из [шаблонов Azure Resource Manager](https://github.com/MsHpcPack/HPCPack2016) для развертывания кластера пакета HPC 2016. Есть несколько вариантов топологии кластера с разным числом головных узлов кластера и с вычислительными узлами на основе Linux или Windows.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 ### <a name="pfx-certificate"></a>Сертификат PFX
 
@@ -153,6 +153,6 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 3. Щелкните **Подключение**, чтобы войти на любой из головных узлов с помощью протокола удаленного рабочего стола с учетной записью администратора, указанной вами. Если развернутый кластер находится в домене Active Directory, то имя пользователя имеет вид <privateDomainName>\<имя_администратора> (например, hpc.local\hpcadmin).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Отправьте задания в свой кластер. Ознакомьтесь с разделами [Отправка заданий в кластер пакета HPC в Azure](hpcpack-cluster-submit-jobs.md) и [Manage an HPC Pack 2016 cluster in Azure using Azure Active Directory](hpcpack-cluster-active-directory.md) (Управление кластером пакета HPC 2016 в Azure с помощью Azure Active Directory).
 

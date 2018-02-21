@@ -22,7 +22,7 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-the-azure-stack-portal"></a>Использование портала Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
 Как пользователь служб Azure Stack, вы можете с помощью портала Azure Stack подписаться на открытые предложения и использовать службы, которые предоставляются в составе этих предложений. Если вы уже работали с порталом Azure, пользовательский интерфейс будет вам знаком.
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 Оператор Azure Stack (поставщик службы или администратор в вашей организации) сообщит вам правильный URL-адрес для доступа к порталу. 
 
 - В интегрированной системе URL-адрес зависит от региона оператора и внешнего доменного имени. Он будет иметь формат https://portal. &lt; *регион*&gt;.&lt;*полное_доменное_имя*&gt;.
-- При работе с пакетом SDK для Azure Stack портал находится по адресу https://portal.local.azurestack.external.
+- При работе с Пакетом средств разработки Azure Stack портал можно найти по адресу https://portal.local.azurestack.external.
 
 ![Снимок экрана пользовательского портала Azure Stack](media/azure-stack-use-portal/UserPortal.png)
 
@@ -68,8 +68,8 @@ ms.lasthandoff: 12/11/2017
 
 Если вам нужна дополнительная помощь, обратитесь к поставщику услуг или ответственному лицу в вашей организации. 
 
-Если вы используете пакет SDK для Azure Stack, поддержку вы сможете получить только на [форуме по Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
+Если вы используете Пакет средств разработки Azure Stack, поддержку вы сможете получить только на [форуме по Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md) (Важные аспекты использования служб и создания приложений в Azure Stack)

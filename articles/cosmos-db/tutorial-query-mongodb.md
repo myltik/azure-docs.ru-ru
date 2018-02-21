@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: mvc
 ms.openlocfilehash: 1818476a95ddf373701ad93860b02ea4c2ad761d
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -302,7 +302,7 @@ ms.lasthandoff: 12/14/2017
 
 Результаты не будут выведены, так как у семей в нашем файле не более 2 детей. Этот запрос будет успешным и вернет полный документ, только если параметр будет равен 2.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы выполнили следующее:
 

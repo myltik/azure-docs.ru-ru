@@ -96,5 +96,5 @@ ms.lasthandoff: 10/11/2017
 - [Центр партнеров](http://partnercenter.microsoft.com/) 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Если вы уже готовы развернуть StorSimple, перейдите к статье [Deploy your StorSimple in CSP](storsimple-partner-csp-deploy.md) (Развертывание StorSimple в рамках программы CSP).

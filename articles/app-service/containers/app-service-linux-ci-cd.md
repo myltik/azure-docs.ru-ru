@@ -61,7 +61,7 @@ az webapp deployment container show-cd-url -n sname1 -g rgname
 
 ## <a name="add-a-web-hook"></a>Добавление веб-перехватчика
 
-### <a name="azure-container-registry"></a>Реестр контейнеров Azure
+### <a name="azure-container-registry"></a>реестр контейнеров Azure;
 
 В колонке реестра щелкните **Webhooks** (Объекты webhook), создайте webhook, нажав кнопку **Добавить**. В колонке **Создание webhook** задайте имя для webhook. В качестве URI webhook необходимо указать URL-адрес, полученный на **шаге 3**.
 
@@ -83,11 +83,11 @@ az webapp deployment container show-cd-url -n sname1 -g rgname
 
 При обновлении образа веб-приложение будет автоматически обновлено с использованием нового образа.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Общие сведения о службе приложений на платформе Linux](./app-service-linux-intro.md).
 * [Реестр контейнеров Azure](https://azure.microsoft.com/services/container-registry/)
-* [Использование .NET Core в службе приложений Azure на платформе Linux](quickstart-dotnetcore.md)
+* [Использование .NET Core в службе приложений Azure на платформе Linux](quickstart-dotnetcore.md).
 * [Использование Ruby в службе приложений Azure на платформе Linux](quickstart-ruby.md)
 * [Использование пользовательского образа Docker для платформы "Веб-приложения для контейнеров"](quickstart-custom-docker-image.md).
 * [Вопросы и ответы о платформе "Веб-приложения для контейнеров" в службе приложений Azure](./app-service-linux-faq.md)

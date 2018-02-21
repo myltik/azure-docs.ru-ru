@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 <tbody>
 <tr>
 <td>Имя свойства</td>
-<td>Описание</td>
+<td>ОПИСАНИЕ</td>
 </tr>
 <tr>
 <td>Псевдоним входных данных</td>
@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="get-help"></a>Получение справки
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Вы получили основные сведения о Stream Analytics, управляемой службе аналитики потоковой передачи данных из Интернета вещей. Дополнительные сведения об этой службе см. на следующих ресурсах:
 
 * [Приступая к работе с Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

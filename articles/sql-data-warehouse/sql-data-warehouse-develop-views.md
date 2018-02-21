@@ -66,7 +66,7 @@ RENAME OBJECT DimDate_New TO DimDate;
 * Не поддерживаются указания для EXPAND и NOEXPAND.
 * В хранилище данных SQL нет индексированных представлений.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][SQL Data Warehouse development overview].
 Сведения о синтаксисе `CREATE VIEW` см. в статье [CREATE VIEW][CREATE VIEW].
 

@@ -147,7 +147,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 
 | Параметр | value |
 | --- | --- |
-| Имя |simpletestdiskwrite |
+| ИМЯ |simpletestdiskwrite |
 | Расположение этого правила генерации оповещений |Восток США |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |

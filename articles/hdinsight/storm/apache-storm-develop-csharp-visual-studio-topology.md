@@ -56,7 +56,7 @@ ms.lasthandoff: 11/28/2017
 
 * Visual Studio 2015 или [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
-* Visual Studio 2017 (любой выпуск)
+* Visual Studio 2017 (любой выпуск).
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Установка средств Data Lake для Visual Studio
 
@@ -746,7 +746,7 @@ Context.Logger.Info("Component started");
 * Пакет JDK не находится по требуемому пути в среде разработки. Убедитесь в том, что пакет JDK установлен в среде разработки, а `%JAVA_HOME%/bin` находится по требуемому пути.
 * Отсутствует зависимость Java. Убедитесь в том, что все необходимые файлы JAR включены в отправляемые данные.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Пример обработки данных из концентраторов событий см. в статье [Обработка событий из концентраторов событий Azure с помощью Storm в HDInsight](apache-storm-develop-csharp-event-hub-topology.md).
 

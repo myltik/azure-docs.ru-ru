@@ -16,7 +16,7 @@ ms.date: 04/19/2017
 ms.author: adegeo
 ms.openlocfilehash: 4032a429901c675436cb5e7fb04aa5645925fa30
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -92,7 +92,7 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ### <a name="linux"></a>Linux
 В [этой](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) статье рассматривается создание сертификатов с использованием SSH.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Передача сертификата службы на портал Azure](cloud-services-configure-ssl-certificate-portal.md).
 
 Передайте на портал Azure [сертификат API управления](../azure-api-management-certs.md).

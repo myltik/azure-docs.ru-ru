@@ -36,7 +36,7 @@ ms.lasthandoff: 11/01/2017
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Просмотр журналов трассировки .NET в Application Insights](app-insights-asp-net-trace-logs.md).
 - [Просмотр журналов трассировки Java в Application Insights](app-insights-java-trace-logs.md).

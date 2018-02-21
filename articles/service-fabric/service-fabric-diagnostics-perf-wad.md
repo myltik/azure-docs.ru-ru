@@ -74,7 +74,7 @@ ms.lasthandoff: 11/07/2017
 
 5. После завершения обновления (занимает 15–45 минут) система диагностики Microsoft Azure должна собирать данные счетчиков производительности и отправлять их в таблицу в учетной записи хранения, объявленную в `WadCfg`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Просматривайте данные счетчиков производительности в Application Insights путем добавления приемника Application Insights в раздел `WadCfg`. Сведения о настройке приемника Application Insights см. в разделе *Добавление приемника Application Insights в шаблон Resource Manager* статьи [Анализ и визуализация событий с помощью Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
 * Собирайте данные дополнительных счетчиков производительности для кластера. Список счетчиков, данные которых следует собирать, см. в статье [Метрики производительности](service-fabric-diagnostics-event-generation-perf.md).
 * [Используйте мониторинг и систему диагностики с виртуальной машиной Windows и шаблонами Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md), чтобы внести изменения в раздел `WadCfg`, включая настройку дополнительных учетных записей хранения для отправки данных диагностики.

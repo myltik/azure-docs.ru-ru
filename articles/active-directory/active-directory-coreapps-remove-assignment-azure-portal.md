@@ -18,7 +18,7 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.openlocfilehash: 8459f9a890f6f57e8c93da9b1d703449b09ba666
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/11/2017
 
     ![Выбор команды "Удалить"](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-users.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Просмотр всех моих групп](active-directory-groups-view-azure-portal.md)
 * [Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
 * [Отключение входа пользователя в корпоративное приложение](active-directory-coreapps-disable-app-azure-portal.md)

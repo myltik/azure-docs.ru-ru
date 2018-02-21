@@ -112,7 +112,7 @@ ms.lasthandoff: 10/11/2017
 * [DROP USER](https://msdn.microsoft.com/library/ms189438.aspx)
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные примеры TSQL см. в статье [Справочные темы по хранилищу данных SQL][SQL Data Warehouse reference overview].
 
 <!--Image references-->

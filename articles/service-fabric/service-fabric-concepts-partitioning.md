@@ -363,7 +363,7 @@ Service Fabric упрощает процесс разработки масшта
 
 Весь исходный код этого примера доступен на [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Сведения о понятиях, принятых для структуры служб, см. в следующих статьях:
 
 * [Доступность служб структуры служб](service-fabric-availability-services.md)

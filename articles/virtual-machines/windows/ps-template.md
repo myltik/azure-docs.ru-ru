@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 Процедура, описанная в этой статье, занимает около 5 минут.
 
-## <a name="install-azure-powershell"></a>Установка Azure PowerShell
+## <a name="install-azure-powershell"></a>Установите Azure PowerShell
 
-Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка служб Azure PowerShell](../../powershell-install-configure.md).
+Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Как установить и настроить службы Azure PowerShell](../../powershell-install-configure.md).
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 

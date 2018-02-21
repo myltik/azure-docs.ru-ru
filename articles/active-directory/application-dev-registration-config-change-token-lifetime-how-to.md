@@ -15,7 +15,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 8067ecf3e274f65abe2c82f20dd2f4469344f3b6
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ Azure AD Premium позволяет разработчикам приложен�
 
  * Дополнительные сведения о создании пользовательских параметров см. в документе [Настройка времени существования токенов](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Настройка времени существования токенов](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
 
 [Справочник по токенам в Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)

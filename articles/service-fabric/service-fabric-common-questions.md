@@ -147,6 +147,6 @@ Reliable Services обычно состоит из нескольких разд
 
 Переводить среду выполнения Service Fabric на открытый исходный код пока не планируется.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Дополнительные сведения об основных понятиях и рекомендациях Service Fabric](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)

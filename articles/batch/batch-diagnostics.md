@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * [Учетная запись пакетной службы Azure](batch-account-create-portal.md)
 * [Учетная запись хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   
@@ -89,7 +89,7 @@ ms.lasthandoff: 10/11/2017
 | [Task complete][task_complete] |
 | [Task fail][task_fail] |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Помимо хранения событий журнала диагностики в учетной записи хранения Azure вы можете настроить потоковую передачу событий журнала пакетной службы в [концентратор событий Azure](../event-hubs/event-hubs-what-is-event-hubs.md) для передачи в [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
 
 * [Потоковая передача журналов диагностики Azure в концентраторы событий](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)

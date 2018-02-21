@@ -22,11 +22,11 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-the-azure-stack-operators-powershell-environment"></a>Настройка среды PowerShell оператора Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
-Как оператор Azure Stack вы можете настроить среду PowerShell для работы с пакетом средств разработки Azure Stack. После настройки среду PowerShell можно использовать для управления ресурсами Azure Stack, например для создания предложений, планов и квот, управления оповещениями и т. д. Эта статья касается работы только с облачными средами оператора. Если нужно настроить PowerShell для пользовательской среды, см. статью [Настройка пользовательской среды PowerShell в Azure Stack](user/azure-stack-powershell-configure-user.md). 
+Как оператор Azure Stack вы можете настроить среду PowerShell для работы с Пакетом средств разработки Azure Stack. После настройки среду PowerShell можно использовать для управления ресурсами Azure Stack, например для создания предложений, планов и квот, управления оповещениями и т. д. Эта статья касается работы только с облачными средами оператора. Если нужно настроить PowerShell для пользовательской среды, см. статью [Настройка пользовательской среды PowerShell в Azure Stack](user/azure-stack-powershell-configure-user.md). 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Выполните следующие предварительные требования с помощью либо [пакета средств разработки](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), либо внешнего клиента на базе Windows (при [подключении через VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)). 
 
@@ -110,6 +110,6 @@ $KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Разработка шаблонов для Azure Stack](user/azure-stack-develop-templates.md)
 * [Развертывание шаблонов с помощью PowerShell](user/azure-stack-deploy-template-powershell.md)

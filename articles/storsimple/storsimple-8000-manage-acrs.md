@@ -20,7 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Использование службы диспетчера StorSimple для управления записями контроля доступа
+# <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Использование службы StorSimple Manager для управления записями контроля доступа
 
 ## <a name="overview"></a>Обзор
 Записи системы контроля доступа (ACR) позволяют указать, какие узлы могут подключаться к тому на устройстве StorSimple. Записи системы контроля доступа настроены для конкретного тома и содержат полные имена iSCSI (IQN) для узлов. Если узел пытается подключиться к тому, устройство проверяет запись контроля доступа, сопоставленную с томом для имени, и в случае совпадения соединение устанавливается. Раздел **Конфигурация** в колонке службы диспетчера устройств StorSimple отображает все записи контроля доступа и имена IQN соответствующих узлов.
@@ -90,7 +90,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Изменение записей контроля доступа](./media/storsimple-8000-manage-acrs/editacr2.png)
 
-4. Щелкните **Сохранить**. При появлении запроса на подтверждение нажмите кнопку **Да**. 
+4. Выберите команду **Сохранить**. При появлении запроса на подтверждение нажмите кнопку **Да**. 
 
     ![Изменение записей контроля доступа](./media/storsimple-8000-manage-acrs/editacr3.png)
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Переход к записям контроля доступа](./media/storsimple-8000-manage-acrs/deleteacr5.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте больше об [управлении томами StorSimple](storsimple-8000-manage-volumes-u2.md).
-* Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).
+* Узнайте больше об [использовании службы StorSimple Manager для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).
 

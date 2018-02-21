@@ -20,7 +20,7 @@
       Если у вас имеются данные об использовании пропускной способности, возможно, вы сможете выделять пропускную способность по расписанию, указав значение в разделе **Выберите шаблон пропускной способности**. Чтобы ознакомиться с пошаговой процедурой, перейдите к разделу [Добавление шаблона пропускной способности](../articles/storsimple/storsimple-8000-manage-bandwidth-templates.md#add-a-bandwidth-template).
 
       ![Колонка "Контейнер томов"](./media/storsimple-8000-create-volume-container/createvolumecontainer6b.png)
-   7. Щелкните **Создать**.
+   7. Нажмите кнопку **Создать**.
 
         ![Колонка "Контейнер томов"](./media/storsimple-8000-create-volume-container/createvolumecontainer6.png)
    

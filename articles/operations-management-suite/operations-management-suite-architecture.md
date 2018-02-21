@@ -78,7 +78,7 @@ Azure Site Recovery предполагает три основных сцена�
 
 ![Общая архитектура Azure Site Recovery](media/operations-management-suite-architecture/site-recovery.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)
 * Дополнительные сведения о [службе автоматизации Azure](https://azure.microsoft.com/documentation/services/automation)
 * Дополнительные сведения о [службе архивации Azure](http://azure.microsoft.com/documentation/services/backup).

@@ -152,7 +152,7 @@ ms.lasthandoff: 10/20/2017
 
      ![Представление запросов в Azure Log Analytics](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Мониторинг сообщений B2B](../logic-apps/logic-apps-monitor-b2b-message.md)
 

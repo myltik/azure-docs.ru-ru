@@ -15,7 +15,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: c9e268aad5d3a7dcde9102216e9b3e8abfcca2cb
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -108,5 +108,5 @@ ms.lasthandoff: 12/11/2017
 
 Если подготовка групп включена, обязательно ознакомьтесь с атрибутами сопоставления, чтобы убедиться, что для соответствующего идентификатора используется соответствующее поле. Это может быть отображающееся имя или псевдоним электронной почты, так как группа и ее участники не будут подготовлены, если соответствующее свойство пустое или не заполнено для группы в Azure AD.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory](active-directory-saas-app-provisioning.md)

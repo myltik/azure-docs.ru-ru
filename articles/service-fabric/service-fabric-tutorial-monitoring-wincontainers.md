@@ -17,7 +17,7 @@ ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/08/2017
 > * использование рабочей области OMS для просмотра и запроса журналов из контейнеров и узлов;
 > * настройка агента OMS для сбора метрик контейнеров и узлов.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Для работы с этим руководством вам потребуется:
 - использовать имеющийся кластер в Azure или [создать новый с помощью данного руководства](service-fabric-tutorial-create-vnet-and-windows-cluster.md);
 - [развернуть в нем контейнерное приложение](service-fabric-host-app-in-a-container.md).
@@ -230,7 +230,7 @@ ms.lasthandoff: 12/08/2017
 ![Счетчики производительности 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого руководства вы узнали, как выполнить следующие задачи:
 

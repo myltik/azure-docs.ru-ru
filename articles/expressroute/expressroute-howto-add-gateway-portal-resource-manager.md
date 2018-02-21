@@ -17,7 +17,7 @@ ms.date: 04/17/2017
 ms.author: cherylmc
 ms.openlocfilehash: 2bd0cf8be87937044ad515a2c6f253b1711bb2bf
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -85,5 +85,5 @@ ms.lasthandoff: 12/21/2017
 13. Проверьте параметры. В нижней части колонки можно выбрать параметр **Закрепить на панели мониторинга**, если необходимо, чтобы шлюз отображался на панели мониторинга.
 14. Щелкните **Создать** , чтобы создать шлюз. После проверки параметров шлюз будет развернут. Создание шлюза виртуальной сети может длиться до 45 минут.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 После создания шлюза виртуальной сети вы можете связать виртуальную сеть с каналом ExpressRoute. Ознакомьтесь со статьей [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md).

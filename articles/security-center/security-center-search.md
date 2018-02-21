@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 Дополнительные сведения о выполнении запроса данных в выбранной рабочей области см. в статье [Справочник по поиску в Log Analytics](../log-analytics/log-analytics-search-reference.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этой статье вы узнали, как получить доступ к поиску в центре безопасности. Центр безопасности использует поиск Log Analytics. Дополнительные сведения о поиске Log Analytics см. в следующих статьях:
 
 - [Что такое Log Analytics?](../log-analytics/log-analytics-overview.md) Общие сведения о Log Analytics.

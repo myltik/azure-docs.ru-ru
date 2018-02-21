@@ -27,7 +27,7 @@ ms.lasthandoff: 12/01/2017
 
 Решение для аналитики телеметрии автомобилей демонстрирует, как поставщики автомобилей, производители автомобилей и страховые компании могут использовать Cortana Intelligence. Они могут получать прогнозы и актуальную информацию об исправности автомобиля и манере вождения в реальном времени, чтобы повышать качество обслуживания клиентов, оптимизировать исследование, разработку и маркетинговые кампании. Эти пошаговые инструкции показывают, как можно настроить отчеты и панель мониторинга Power BI после развертывания решения в подписке. 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Разверните решение [аналитики телеметрии автомобиля](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 
 * [Установите Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
 * Получите [подписку Azure](https://azure.microsoft.com/pricing/free-trial/). Если у вас нет подписки Azure, для начала получите бесплатную подписку Azure.
@@ -176,11 +176,11 @@ ms.lasthandoff: 12/01/2017
 
 3. Чтобы добавить **фильтр уровня страницы** для отображения данных автомобилей, которые требуют обслуживания: 
 
-   а. Перетащите поле **MaintenanceLabel** в область **Фильтры уровня страницы**.
+   a. Перетащите поле **MaintenanceLabel** в область **Фильтры уровня страницы**.
   
       ![Фильтры на уровне страницы](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n1.png)
 
-    b. В нижней части **Page Level Filters MaintenanceLabel** (Фильтры уровня страницы MaintenanceLabel) выберите **Простая фильтрация**.
+    Б. В нижней части **Page Level Filters MaintenanceLabel** (Фильтры уровня страницы MaintenanceLabel) выберите **Простая фильтрация**.
 
       ![Простая фильтрация](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n2.png) 
 
@@ -204,9 +204,9 @@ ms.lasthandoff: 12/01/2017
 
 8. В разделе **Формат** измените **Цвета данных** в визуализации: 
 
-    а. Измените **минимальное** значение цвета на **F2C812**.
+    a. Измените **минимальное** значение цвета на **F2C812**.
 
-    b. Измените **максимальное** значение цвета на **FF6300**.
+    Б. Измените **максимальное** значение цвета на **FF6300**.
 
     ![Новые цвета данных](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4r.png)
 
@@ -418,31 +418,31 @@ ms.lasthandoff: 12/01/2017
 
 7. **На странице 3** закрепите следующее содержимое:  
 
-    а. **Count of vin** (Количество VIN).  
+    a. **Count of vin** (Количество VIN).  
 
    ![Страница 3. Количество VIN](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png)
 
-    b. **Агрессивно управляемые автомобили по моделям — каскадная диаграмма** 
+    Б. **Агрессивно управляемые автомобили по моделям — каскадная диаграмма** 
 
    ![Страница 3, диаграмма 4](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
 
 8. **На странице 5** закрепите следующее содержимое: 
 
-    а. **Count of vin** (Количество VIN).
+    a. **Count of vin** (Количество VIN).
 
    ![Страница 5, диаграмма 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)
 
-    b. **Автомобили с экономным расходом топлива по моделям: гистограмма с группировкой.**
+    Б. **Автомобили с экономным расходом топлива по моделям: гистограмма с группировкой.**
 
    ![Страница 5, диаграмма 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
 
 9. **На странице 4** закрепите следующее содержимое:  
 
-    а. **Count of vin** (Количество VIN). 
+    a. **Count of vin** (Количество VIN). 
 
    ![Страница 4, диаграмма 7](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard7.png) 
 
-    b. **Отозванные автомобили по городам, моделям: диаграмма дерева.**
+    Б. **Отозванные автомобили по городам, моделям: диаграмма дерева.**
 
    ![Страница 4, диаграмма 8](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard8.png)  
 

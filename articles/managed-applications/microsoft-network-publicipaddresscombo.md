@@ -15,7 +15,7 @@ ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 990b84cf0df74b7b08a5fa105c2c2213aa251f9d
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/22/2017
 ---
@@ -87,7 +87,7 @@ ms.lasthandoff: 12/22/2017
 - Если для `options.hideNone` указать значение **true**, `newOrExistingOrNone` будет иметь только значения **new** или **existing**.
 - Если для `options.hideDomainNameLabel` указать значение **true**, `domainNameLabel` не объявляется.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Общие сведения об управляемых приложениях Azure см. в [этой статье](overview.md).
 * Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](create-uidefinition-overview.md).
 * Дополнительные сведения об общих свойствах элементов пользовательского интерфейса см. в статье [Элементы CreateUiDefinition](create-uidefinition-elements.md).

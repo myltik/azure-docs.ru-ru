@@ -17,7 +17,7 @@ ms.date: 03/30/2017
 ms.author: kevin;barbkess
 ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -73,7 +73,7 @@ ms.lasthandoff: 12/18/2017
 | Ограничения хранимых процедур |Ознакомьтесь с [ограничениями хранимых процедур][Stored procedure limitations]. |
 | Определяемые пользователем функции не поддерживают инструкции SELECT |Это текущее ограничение определяемых пользователем функций.  Сведения о поддерживаемом синтаксисе см. в статье, посвященной инструкции [CREATE FUNCTION][CREATE FUNCTION]. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Если не удалось найти решение для приведенной выше проблемы, то можно ознакомиться со следующими ресурсами, которые могут помочь.
 
 * [Блоги]

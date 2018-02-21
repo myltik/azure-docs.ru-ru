@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 Добавляя содержимое в [Azure Stack Marketplace](azure-stack-marketplace.md), вы предоставляете себе и своим клиентам возможность развертывать ваши решения.  Набор средств Marketplace создает файлы пакетов Azure Marketplace (AZPKG), основанные на шаблонах IaaS Azure Resource Manager или расширениях виртуальных машин.  Также набор средств Marketplace позволяет публиковать AZPKG-файлы, созданные с помощью этого средства или [вручную](azure-stack-create-and-publish-marketplace-item.md).  Из этой статьи вы узнаете, как скачать это средство, как создать элемент Marketplace на основе шаблона виртуальной машины и как опубликовать этот элемент в Azure Stack Marketplace.     
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
  - Для запуска набора средств следует использовать узел Azure Stack или создать [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)-подключение к нему с того компьютера, где будет выполняться набор средств.
 
  - Скачайте [шаблоны быстрого запуска Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) и извлеките их содержимое.
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 
 1.  Мастеру нужны следующие сведения для публикации решения:
     
-    |Поле|Описание|
+    |Поле|ОПИСАНИЕ|
     |-----|-----|
     | Имя администратора службы | Учетная запись администратора службы.  Пример: ServiceAdmin@mydomain.onmicrosoft.com |
     | Пароль | Пароль для учетной записи администратора службы. |
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="support-files"></a>Файлы поддержки
-| Описание | Образец |
+| ОПИСАНИЕ | Образец |
 | ----- | ----- |
 | значок 40×40 в формате PNG | ![](./media/azure-stack-marketplace-publisher/image1.png) |
 | значок 90×90 в формате PNG | ![](./media/azure-stack-marketplace-publisher/image2.png) |

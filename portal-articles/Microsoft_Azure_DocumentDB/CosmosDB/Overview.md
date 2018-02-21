@@ -60,7 +60,7 @@ Azure Cosmos DB – это глобально распределенная сл
 
 Поиск скриптов для выполнения типовых задач.
 
-- [Интерфейс командной строки Azure](/azure/cosmos-db/cli-samples)
+- [интерфейс командной строки Azure](/azure/cosmos-db/cli-samples)
 - [Azure PowerShell](/azure/cosmos-db/powershell-samples)
 
 ## <a name="more"></a>Подробнее

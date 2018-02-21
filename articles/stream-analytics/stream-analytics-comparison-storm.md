@@ -72,11 +72,11 @@ Azure предоставляет несколько решений для ана
             </td>
             <td width="204" valign="top">
                 <p>
-Да </p>
+Yes </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Да </p>
+Yes </p>
             </td>
         </tr>
         <tr>

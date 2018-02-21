@@ -16,7 +16,7 @@ ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
 ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/19/2017
 ---
@@ -196,7 +196,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 2. Эта функция предоставляется в предварительной версии. [Подробнее](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. Оповещения отправляются с адреса "alerts-noreply@mail.windowsazure.com". В настоящее время невозможно изменить отправителя электронной почты.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Журналы событий позволяют проводить эффективный анализ и аудит операций резервного копирования. В журналы записываются следующие операции:
 
 * Register; 

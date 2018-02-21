@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: magoedte;sngun
 ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -137,7 +137,7 @@ ms.lasthandoff: 12/14/2017
 
   ![Кнопка "Отключить"](media/automation-source-control-integration/automation_12_Disconnect.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения об интеграции системы управления версиями см. в следующих ресурсах:  
 
 * [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  

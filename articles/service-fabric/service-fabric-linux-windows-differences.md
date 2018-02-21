@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Подготовка среды разработки в Linux](service-fabric-get-started-linux.md)
 * [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md)
 * [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-java.md)

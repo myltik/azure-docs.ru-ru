@@ -74,7 +74,7 @@ ms.lasthandoff: 12/11/2017
 12. Щелкнув пакет обновления, вы можете просмотреть его состояние в области **Update run details** (Сведения о выполнении обновления). Также вы можете выбрать здесь действие **Download full logs** (Скачать журналы полностью).
 13. Когда обновление завершится, на плитке обновлений отобразится номер новой версии Azure Stack.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Общие сведения об управлении обновлениями в Azure Stack](azure-stack-updates.md)
 - [Azure Stack servicing policy](azure-stack-servicing-policy.md) (Политика обслуживания Azure Stack).

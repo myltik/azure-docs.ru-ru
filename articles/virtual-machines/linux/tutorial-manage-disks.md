@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 87b410fdcd5901499e809f8d2b9a7b8788134cfc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Управление дисками Azure с помощью Azure CLI
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 01/03/2018
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Создайте виртуальную машину с помощью команды [az vm create]( /cli/azure/vm#create). Аргумент `--datadisk-sizes-gb` указывает, что должен быть создан дополнительный диск, подключаемый к виртуальной машине. Чтобы создать и подключить несколько дисков, используйте список значений размеров дисков, разделенный пробелами. В следующем примере создается виртуальная машина с двумя дисками емкостью по 128 ГБ. Так как размеры дисков составляют 128 ГБ, они настроены как диски типа P10, которые обеспечивают до 500 операций ввода-вывода на диск.
+Создайте виртуальную машину с помощью команды [az vm create]( /cli/azure/vm#az_vm_create). Аргумент `--datadisk-sizes-gb` указывает, что должен быть создан дополнительный диск, подключаемый к виртуальной машине. Чтобы создать и подключить несколько дисков, используйте список значений размеров дисков, разделенный пробелами. В следующем примере создается виртуальная машина с двумя дисками емкостью по 128 ГБ. Так как размеры дисков составляют 128 ГБ, они настроены как диски типа P10, которые обеспечивают до 500 операций ввода-вывода на диск.
 
 ```azurecli-interactive 
 az vm create \
@@ -122,7 +122,7 @@ az vm create \
 
 ### <a name="attach-disk-to-existing-vm"></a>Подключение диска к существующей виртуальной машине
 
-Чтобы создать диск и подключить его к существующей виртуальной машине, выполните команду [az vm disk attach](/cli/azure/vm/disk#attach). Приведенный ниже пример создает диск уровня "Премиум" размера в 128 ГБ и подключает его к виртуальной машине, созданной на предыдущем шаге.
+Чтобы создать диск и подключить его к существующей виртуальной машине, выполните команду [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach). Приведенный ниже пример создает диск уровня "Премиум" размера в 128 ГБ и подключает его к виртуальной машине, созданной на предыдущем шаге.
 
 ```azurecli-interactive 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
@@ -207,13 +207,13 @@ exit
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-Обратите внимание, что виртуальная машина должна быть освобождена. Используйте команду [az vm deallocate]( /cli/azure/vm#deallocate), чтобы остановить и освободить виртуальную машину.
+Обратите внимание, что виртуальная машина должна быть освобождена. Используйте команду [az vm deallocate]( /cli/azure/vm#az_vm_deallocate), чтобы остановить и освободить виртуальную машину.
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-Введите команду [az disk update](/cli/azure/vm/disk#update), чтобы изменить размер диска. Приведенный пример увеличивает размер диска *myDataDisk* до 1 ТБ.
+Введите команду [az disk update](/cli/azure/vm/disk#az_vm_disk_update), чтобы изменить размер диска. Приведенный пример увеличивает размер диска *myDataDisk* до 1 ТБ.
 
 ```azurecli-interactive 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
@@ -225,7 +225,7 @@ az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-Если вы изменили размер диска операционной системы, автоматически разворачивается секции. Если вы изменили размер диска данных, потребуется расширить все текущие разделы в операционной системе виртуальной машины.
+Если вы изменили размер диска операционной системы, ее раздел будет автоматически расширен. Если вы изменили размер диска данных, потребуется расширить все текущие разделы в операционной системе виртуальной машины.
 
 ## <a name="snapshot-azure-disks"></a>Создание моментальных снимков дисков Azure по умолчанию
 
@@ -283,7 +283,7 @@ datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')]
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы ознакомились с дисками виртуальных машин, а именно с:
 

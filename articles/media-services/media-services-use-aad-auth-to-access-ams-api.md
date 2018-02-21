@@ -149,7 +149,7 @@ API служб мультимедиа Azure — это REST API. Его можн
 - [Интеграция приложений с Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)
 - [Управление доступом на основе ролей с помощью Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Узнайте, как использовать [аутентификацию Azure AD для работы с API служб мультимедиа Azure](media-services-portal-get-started-with-aad.md) с помощью портала Azure.
 * Используйте аутентификацию Azure AD для [доступа к API служб мультимедиа Azure с помощью .NET](media-services-dotnet-get-started-with-aad.md).

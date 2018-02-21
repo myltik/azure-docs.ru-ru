@@ -41,13 +41,13 @@ ms.lasthandoff: 11/22/2017
 
 | Защита конечных точек               | Платформы                             | Установка центра безопасности | Обнаружение центра безопасности |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Защитник Windows (антивредоносное ПО Майкрософт)                  | Windows Server 2016                   | Нет, встроен в ОС           | Да                       |
-| System Center Endpoint Protection (антивредоносное ПО Майкрософт) | Windows Server 2012 R2, 2012, 2008 R2 | Через расширение                | Да                       |
-| Trend Micro — все версии         | Семейство Windows Server                 | Через расширение                | Да                       |
-| Symantec v12.1.1100+                     | Семейство Windows Server                 | Нет                           | Да                        |
-| MacAfee                           | Семейство Windows Server                 | Нет                           | Нет                        |
-| Kaspersky                         | Семейство Windows Server                 | Нет                           | Нет                        |
-| Sophos                            | Семейство Windows Server                 | Нет                           | Нет                        |
+| Защитник Windows (антивредоносное ПО Майкрософт)                  | Windows Server 2016                   | Нет, встроен в ОС           | Yes                       |
+| System Center Endpoint Protection (антивредоносное ПО Майкрософт) | Windows Server 2012 R2, 2012, 2008 R2 | Через расширение                | Yes                       |
+| Trend Micro — все версии         | Семейство Windows Server                 | Через расширение                | Yes                       |
+| Symantec v12.1.1100+                     | Семейство Windows Server                 | Нет                            | Yes                        |
+| MacAfee                           | Семейство Windows Server                 | Нет                            | Нет                         |
+| Kaspersky                         | Семейство Windows Server                 | Нет                            | Нет                         |
+| Sophos                            | Семейство Windows Server                 | Нет                            | Нет                         |
 
 
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 11/22/2017
 ![Источники данных](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этой статьи вы узнали, как интегрировать партнерские решения в центре безопасности. Дополнительные сведения о центре безопасности см. в следующих статьях:
 

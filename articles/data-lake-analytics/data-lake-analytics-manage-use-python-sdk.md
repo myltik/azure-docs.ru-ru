@@ -95,7 +95,7 @@ import logging, getpass, pprint, uuid, time
 
 Запустите этот сценарий, чтобы проверить, можно ли импортировать модули.
 
-## <a name="authentication"></a>Аутентификация
+## <a name="authentication"></a>Authentication
 
 ### <a name="interactive-user-authentication-with-a-pop-up"></a>Интерактивная аутентификация пользователей с помощью всплывающего окна
 
@@ -251,7 +251,7 @@ newPolicyParams = ComputePolicyCreateOrUpdateParameters(userAadObjectId, "User",
 adlaAccountClient.computePolicies.createOrUpdate(rg, adla, "GaryMcDaniel", newPolicyParams)
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Для просмотра учебника с помощью других средств используйте вкладки-селекторы в верхней части страницы.
 - Для знакомства с U-SQL см. статью о [начале работы с языком U-SQL для Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).

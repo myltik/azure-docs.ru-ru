@@ -209,5 +209,5 @@ Azure PowerShell предоставляет командлеты для упра
 
         $TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Узнайте больше](https://msdn.microsoft.com/library/azure/mt637930.aspx) об использовании командлетов PowerShell инструмента Azure Resource Manager для службы Azure Site Recovery.

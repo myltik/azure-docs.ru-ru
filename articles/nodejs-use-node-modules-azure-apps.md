@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы научились использовать модули Node.js с Azure, узнайте, как [указать версию Node.js], [создать и развернуть веб-приложение Node.js](app-service/app-service-web-get-started-nodejs.md) и [использовать интерфейс командной строки Azure для Mac и Linux].
 
 Дополнительную информацию см. в [центре разработчиков Node.js](/nodejs/azure/).

@@ -16,7 +16,7 @@ ms.date: 06/07/2017
 ms.author: lakasa
 ms.openlocfilehash: 0a05a0d28899cc3db11f8fda8aec5bd6ed9bd5f8
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -121,7 +121,7 @@ Microsoft Azure прилагает все усилия, чтобы защити�
 
 Ответ. По любым вопросам, связанным с шифрованием службы хранилища, обращайтесь по адресу [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com). 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 *   Дополнительные сведения о комплексном наборе функций, помогающем разработчикам создавать безопасные приложения, см. в разделе [Руководство по безопасности службы хранилища Azure](https://docs.microsoft.com/azure/storage/storage-security-guide).
 *   Общие сведения о Azure Key Vault см. в статье [Что такое хранилище ключей Azure?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)

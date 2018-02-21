@@ -15,7 +15,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: fafd7c03141f67f4fc9ffbedb7a27632754b8d59
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -71,5 +71,5 @@ ms.lasthandoff: 12/11/2017
 
    ![Уведомление](./media/application-proxy-config-how-to/error-message2.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Публикация приложений с помощью прокси приложения Azure AD](application-proxy-publish-azure-portal.md)

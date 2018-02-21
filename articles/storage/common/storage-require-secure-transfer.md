@@ -16,7 +16,7 @@ ms.date: 06/20/2017
 ms.author: fryu
 ms.openlocfilehash: 797ac45a41cdf655e7465a01875a0394081c08a7
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/07/2017
 ---
@@ -122,5 +122,5 @@ EnableHttpsTrafficOnly : True
 
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Служба хранилища Azure предоставляет полный набор возможностей обеспечения безопасности, которые в совокупности позволяют разработчикам создавать защищенные приложения. Дополнительные сведения можно получить в [руководстве по безопасности службы хранилища](storage-security-guide.md).

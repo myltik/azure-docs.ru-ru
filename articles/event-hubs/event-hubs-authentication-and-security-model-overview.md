@@ -16,7 +16,7 @@ ms.date: 12/20/2017
 ms.author: sethm;clemensv
 ms.openlocfilehash: bfe7b95236c1a5336c1bb3a93d0eb5ca880adabf
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -106,7 +106,7 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 В отсутствие проверки подлинности SAS для отдельных групп потребителей можно использовать ключи SAS для защиты всех групп потребителей общим ключом. Такой подход позволяет приложению получать данные от любых групп потребителей концентратора событий.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Чтобы узнать больше о концентраторах событий, посетите следующие разделы:
 

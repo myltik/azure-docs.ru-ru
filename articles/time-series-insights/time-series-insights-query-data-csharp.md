@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.openlocfilehash: 561ad848e7bddc6bf9d71328db4ddbba9bc5d2b4
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/19/2017
 ---
@@ -449,6 +449,6 @@ namespace TimeSeriesInsightsQuerySample
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 > [!div class="nextstepaction"]
 > [Справочник по API-интерфейсам запросов](/rest/api/time-series-insights/time-series-insights-reference-queryapi)

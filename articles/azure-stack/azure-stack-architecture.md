@@ -1,6 +1,6 @@
 ---
-title: "Архитектура пакета SDK для Microsoft Azure Stack | Документация Майкрософт"
-description: "Обзор архитектуры пакета SDK для Microsoft Azure Stack."
+title: "Архитектура Пакета средств разработки Azure Stack | Документация Майкрософт"
+description: "Обзор архитектуры Пакета средств разработки Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -20,21 +20,21 @@ ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="microsoft-azure-stack-development-kit-architecture"></a>Архитектура пакета SDK для Microsoft Azure Stack.
+# <a name="microsoft-azure-stack-development-kit-architecture"></a>Архитектура Пакета средств разработки Azure Stack
 
-*Область применения: пакет SDK для Azure Stack*
+*Область применения: Пакет средств разработки Azure Stack*
 
-Пакет SDK для Azure Stack — это развертывание Azure Stack с использованием одного узла. Все компоненты устанавливаются на виртуальных машинах, запущенных на одном хост-компьютере. 
+Пакет средств разработки Azure Stack — это развертывание Azure Stack с использованием одного узла. Все компоненты устанавливаются на виртуальных машинах, запущенных на одном хост-компьютере. 
 
 ## <a name="logical-architecture-diagram"></a>Схема: логическая архитектура
-На следующей схеме показана логическая архитектура пакета SDK для Azure Stack и его компонентов.
+На следующей схеме показана логическая архитектура Пакета средств разработки Azure Stack и его компонентов.
 
 ![](media/azure-stack-architecture/image1.png)
 
 ## <a name="virtual-machine-roles"></a>Роли виртуальной машины
-Пакет SDK для Azure Stack предлагает службы, которые используют следующие виртуальные машины на узле:
+Пакет средств разработки Azure Stack предлагает службы, которые используют следующие виртуальные машины на узле:
 
-| Имя | Описание |
+| ИМЯ | ОПИСАНИЕ |
 | ----- | ----- |
 | **AzS-ACS01** | Службы хранилища Azure Stack.|
 | **AzS-ADFS01** | Службы федерации Active Directory (AD FS).  |
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 | **AzS-XRP01** | Контроллер управления инфраструктурой для Microsoft Azure Stack, включая поставщиков вычислительных и сетевых ресурсов, а также ресурсов хранения.|
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Развертывание Azure Stack](azure-stack-deploy.md)
 
 [Первые пробные сценарии](azure-stack-first-scenarios.md)

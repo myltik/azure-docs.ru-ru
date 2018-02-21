@@ -49,5 +49,5 @@ ms.lasthandoff: 10/11/2017
     ![Снимок экрана вкладки SSL Robomongo](./media/mongodb-robomongo/SSL.png)
 7. Наконец, нажмите кнопку **Test** (Проверить), чтобы проверить возможность подключения, затем нажмите кнопку **Save** (Сохранить).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Ознакомьтесь с [примерами](mongodb-samples.md) API для MongoDB в Azure Cosmos DB.

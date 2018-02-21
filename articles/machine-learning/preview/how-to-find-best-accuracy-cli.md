@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.openlocfilehash: 40e066fe602e8c4680043158f1d401a884e07c19
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -68,5 +68,5 @@ $find_runs_query = '@[?Accuracy >= sum(`[{0}, -{1}]`)] | sort_by(@, &duration)' 
 az ml history list --query $find_runs_query
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о записи в журнал см. в статье [Как использовать компоненты "Журнал выполнения" и "Метрики модели" в Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md).    

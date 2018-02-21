@@ -144,7 +144,7 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 
 Обратите внимание, что субъект не может удалить себя, воспользовавшись одним из собственных методов, поскольку нельзя удалить субъект, выполняемый в контексте вызова субъектов, где для обеспечения однопоточного доступа среда выполнения блокирует вызов субъекта.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Таймеры и напоминания субъекта](service-fabric-reliable-actors-timers-reminders.md)
 * [События субъекта](service-fabric-reliable-actors-events.md)
 * [Повторный вход субъекта](service-fabric-reliable-actors-reentrancy.md)

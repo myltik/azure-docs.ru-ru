@@ -16,7 +16,7 @@ ms.date: 06/05/2016
 ms.author: mlearned
 ms.openlocfilehash: d2c059fe415b743e4b2265d6dda492878307be93
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -261,7 +261,7 @@ ms.lasthandoff: 12/11/2017
 ## <a name="summary"></a>Сводка
 В этом руководстве содержатся сведения о некоторых возможностях платформы Azure, которые позволяют быстро включать непрерывное развертывание, выполнять разработку, тестирование, мониторинг и устранение неполадок приложений, а также управлять основными стратегиями, такими как аварийное восстановление, управление удостоверениями и доступом на основе ролей. Платформа Azure поддерживает рабочие процессы DevOps, что позволяет эффективно выполнять различные задачи непосредственно на портале.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Чтобы включить рабочие процессы DevOps на платформе Azure, требуется Azure Resource Manager.  Дополнительные сведения см. в [обзоре Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 * См. дополнительные сведения о [развертывании приложений в службе приложений Azure](../app-service/app-service-deploy-local-git.md).
 

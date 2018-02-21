@@ -18,7 +18,7 @@ ms.lasthandoff: 12/11/2017
 
 Вместе с [каталогом услуг Kubernetes][kubernetes-service-catalog] открытый компонент Service Broker для Azure (OSBA) позволяет разработчикам использовать службы под управлением Azure в Kubernetes. Это руководство посвящено развертыванию каталога услуг Kubernetes, открытого компонента Service Broker для Azure (OSBA) и приложений, использующих службы под управлением Azure с помощью Kubernetes.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 * Подписка Azure
 
 * Azure CLI 2.0. Вы можете [установить его локально][azure-cli-install] или использовать в [Azure Cloud Shell][azure-cloud-shell].
@@ -180,7 +180,7 @@ helm install azure/wordpress --name wordpress --namespace wordpress --set resour
 kubectl get secrets -n wordpress -o yaml
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Следуя указаниям в этой статье, вы развернули каталог услуг в кластер Службы контейнеров Azure (AKS). Вы использовали открытый компонент Service Broker для Azure, чтобы развернуть установку WordPress, которая использует службы под управлением Azure (в данном случае — базу данных Azure для MySQL).
 

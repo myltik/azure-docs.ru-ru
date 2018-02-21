@@ -140,7 +140,7 @@ ms.lasthandoff: 11/01/2017
 ### <a name="to-add-properties-to-the-filter-list"></a>Добавление свойств в список фильтров
 Вам необходимо фильтровать данные телеметрии по выбранным вами категориям? Например, вы распределили пользователей по различным категориям и хотели бы сегментировать данные по этим категориям.
 
-[Создайте собственное свойство](app-insights-api-custom-events-metrics.md#properties). Задайте его в [инициализаторе телеметрии](app-insights-api-custom-events-metrics.md#defaults) , чтобы оно было включено во все данные телеметрии, включая стандартные данные телеметрии, отправляемые различными модулями SDK.
+[Создайте собственное свойство](app-insights-api-custom-events-metrics.md#properties). Задайте его в [инициализаторе телеметрии](app-insights-api-custom-events-metrics.md#defaults), чтобы оно было включено во все данные телеметрии, включая стандартные данные телеметрии, отправляемые различными модулями SDK.
 
 ## <a name="edit-the-chart-type"></a>Изменение типа диаграммы
 Обратите внимание, что можно переключаться между сетками и диаграммами.
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/01/2017
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Отслеживание использования Application Insights.](app-insights-web-track-usage.md)
 * [Использование диагностического поиска](app-insights-diagnostic-search.md)
 

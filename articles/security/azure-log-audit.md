@@ -16,12 +16,12 @@ ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Ведение журналов и аудит Azure
-## <a name="introduction"></a>Общие сведения
+## <a name="introduction"></a>Введение
 ### <a name="overview"></a>Обзор
 Чтобы помочь текущим и потенциальным клиентам Azure понять и правильно использовать различные функции безопасности, доступные в платформе Azure и связанных продуктах, корпорация Майкрософт разработала ряд технических документов, обзоров возможностей безопасности, рекомендаций и контрольных списков. Содержимое разделов периодически обновляется с точки зрения охвата и углубленности материала. Данный документ является частью этого цикла, как описано в приведенной ниже аннотации.
 ### <a name="azure-platform"></a>Платформа Azure
@@ -417,7 +417,7 @@ Log Analytics — это служба в [Operations Management Suite (OMS)](htt
 
 -   [Интеграция оповещений центра обеспечения безопасности с помощью интеграции журналов Azure (предварительная версия)](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) — в этом документе показано, как синхронизировать оповещения центра безопасности, а также события безопасности виртуальных машин, собранные системой диагностики Azure и в журналах аудита Azure, с решением Log Analytics или SIEM.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - [Аудит и ведение журнала](https://www.microsoft.com/trustcenter/security/auditingandlogging)
 

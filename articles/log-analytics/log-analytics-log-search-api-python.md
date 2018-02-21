@@ -25,7 +25,7 @@ ms.lasthandoff: 11/04/2017
 >[!NOTE]
 > В этой статье используется API поиска по журналам для языка запросов прежней версии Log Analytics.  В эту статью будет включено обновление для рабочих областей, обновленных для использования [языка запросов новой версии Log Analytics](log-analytics-log-search-upgrade.md).
 
-## <a name="authentication"></a>Аутентификация
+## <a name="authentication"></a>Authentication
 Этот скрипт использует субъект-службу в Azure Active Directory для проверки подлинности в рабочей области.  Субъекты-службы позволяют клиентскому приложению запрашивать выполнение службой проверки подлинности учетной записи, даже если у клиента нет ее имени. Перед выполнением скрипта необходимо создать субъект-службу, как описано в статье [Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md).  В скрипте необходимо указать идентификатор приложения, идентификатор клиента и ключ проверки подлинности. 
 
 > [!NOTE]
@@ -121,5 +121,5 @@ print ("Total records:" + str(data["__metadata"]["total"]))
 print ("Returned top:" + str(data["__metadata"]["top"]))
 pprint (data["value"])
 ```
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Дополнительные сведения о API REST поиска по журналам Log Analytics см. в [этой статье](log-analytics-log-search-api.md).

@@ -43,7 +43,7 @@ ms.lasthandoff: 11/02/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Руководство по Adventure Works](/tutorials/aas-adventure-works-tutorial.md)   
 [Локальный шлюз данных Azure](analysis-services-gateway.md)  

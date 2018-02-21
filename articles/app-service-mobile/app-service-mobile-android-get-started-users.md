@@ -16,7 +16,7 @@ ms.date: 11/16/2017
 ms.author: crdun
 ms.openlocfilehash: 4ee71e00807fcfe698a7e965979434f338f5b870
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
 ---
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/04/2018
 ## <a name="cache-tokens"></a>Кэширование маркеров проверки подлинности на клиенте
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Вы прошли этот учебник по обычной проверке подлинности и теперь можете перейти к одному из следующих учебников:
 
 * [Добавление push-уведомлений в приложение Android](app-service-mobile-android-get-started-push.md).

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: cde484dd59ec6e2821678766726c02362222d496
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 230ce6a6b33e63bcced5f520b57b63ef4ed05448
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Мониторинг и обновление виртуальных машин Linux в Azure
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/08/2018
 
 ## <a name="create-vm"></a>Создание виртуальной машины
 
-Чтобы увидеть данные диагностики и метрики в действии, необходима виртуальная машина. Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем *myResourceGroupMonitor* в расположении *eastus*.
+Чтобы увидеть данные диагностики и метрики в действии, необходима виртуальная машина. Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create). В следующем примере создается группа ресурсов с именем *myResourceGroupMonitor* в расположении *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupMonitor --location eastus
@@ -64,7 +64,7 @@ az vm create \
 
 Во время загрузки виртуальных машин Linux расширение системы диагностики записывает выходные данные загрузки и сохраняет их в хранилище Azure. Эти данные можно использовать для устранения неполадок загрузки виртуальной машины. При создании виртуальной машины Linux с помощью Azure CLI диагностика загрузки не включается автоматически.
 
-Перед включением диагностики загрузки необходимо создать учетную запись хранения для хранения журналов загрузки. Имена учетных записей хранения должны быть глобально уникальными, иметь длину от 3 до 24 символов и содержать только цифры и буквы в нижнем регистре. Создайте учетную запись хранения с помощью команды [az storage account create](/cli/azure/storage/account#create). В этом примере для создания уникального имени учетной записи хранения используется случайная строка. 
+Перед включением диагностики загрузки необходимо создать учетную запись хранения для хранения журналов загрузки. Имена учетных записей хранения должны быть глобально уникальными, иметь длину от 3 до 24 символов и содержать только цифры и буквы в нижнем регистре. Создайте учетную запись хранения с помощью команды [az storage account create](/cli/azure/storage/account#az_storage_account_create). В этом примере для создания уникального имени учетной записи хранения используется случайная строка. 
 
 ```azurecli-interactive 
 storageacct=mydiagdata$RANDOM
@@ -94,13 +94,13 @@ az vm boot-diagnostics enable \
 
 ## <a name="view-boot-diagnostics"></a>Просмотр диагностики загрузки
 
-Если включена диагностика загрузки, каждый раз при остановке и запуске виртуальной машины сведения о процессе загрузки записываются в файл журнала. В этом примере сначала освободите виртуальную машину с помощью команды [az vm deallocate](/cli/azure/vm#deallocate) следующим образом:
+Если включена диагностика загрузки, каждый раз при остановке и запуске виртуальной машины сведения о процессе загрузки записываются в файл журнала. В этом примере сначала освободите виртуальную машину с помощью команды [az vm deallocate](/cli/azure/vm#az_vm_deallocate) следующим образом:
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Теперь запустите виртуальную машину с помощью команды [az vm start]( /cli/azure/vm#stop) следующим образом:
+Теперь запустите виртуальную машину с помощью команды [az vm start]( /cli/azure/vm#az_vm_stop) следующим образом:
 
 ```azurecli-interactive 
 az vm start --resource-group myResourceGroupMonitor --name myVM

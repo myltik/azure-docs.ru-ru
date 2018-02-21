@@ -110,7 +110,7 @@ Get-AzureRmHDInsightJobOutput `
 
 Как можно видеть, Azure PowerShell позволяет с легкостью выполнять запросы Hive в кластере HDInsight, отслеживать состояние задания и получать выходные данные.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Общая информация о Hive в HDInsight:
 

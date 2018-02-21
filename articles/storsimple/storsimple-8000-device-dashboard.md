@@ -92,7 +92,7 @@ ms.lasthandoff: 10/11/2017
     ![Щелкните диаграмму использования](./media/storsimple-8000-device-dashboard/device-summary13.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте больше об [использовании колонки сводки службы StorSimple](storsimple-8000-service-dashboard.md)
 * Узнайте больше об [использовании службы диспетчера устройств StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).
 

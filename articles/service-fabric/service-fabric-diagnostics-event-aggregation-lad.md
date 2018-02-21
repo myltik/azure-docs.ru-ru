@@ -16,7 +16,7 @@ ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: b70780b2e1d169aced3412f6fe6d13ad4dab82be
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -49,7 +49,7 @@ Service Fabric создает несколько готовых журналов
 Это необходимо для того, чтобы настроить агент LAD для наблюдения за указанными файлами журнала. Каждый раз при добавлении новой стройки в файл он создает запись системного журнала, которая отправляется в указанное вами хранилище (таблицу).
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 1. Дополнительные сведения о том, какие события нужно анализировать при устранении неполадок, см. в [документации по LTTng](http://lttng.org/docs) и статье [Использование диагностического расширения Linux для мониторинга данных о состоянии и производительности виртуальных машин под управлением Linux](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 2. [Настройте агент OMS](service-fabric-diagnostics-event-analysis-oms.md) для сбора метрик, отслеживания развернутых в кластере контейнеров и визуализации журналов. 

@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Обзор интеграции машинного обучения в Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Чтобы начать, у вас должны быть следующие компоненты:
 
 * Активная подписка Azure.
@@ -160,7 +160,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Параметры для новых входных данных задания](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. Щелкните **Создать**.
+4. Нажмите кнопку **Создать**.
 
 ### <a name="configure-the-job-output"></a>Настройка выходных данных для задания
 Задание передает результаты в то же хранилище BLOB-объектов, в котором получает входные данные. 
@@ -179,7 +179,7 @@ ms.lasthandoff: 10/11/2017
 
    ![Параметры для новых выходных данных задания](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. Щелкните **Создать**.   
+4. Нажмите кнопку **Создать**.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Добавление функции машинного обучения 
@@ -204,7 +204,7 @@ ms.lasthandoff: 10/11/2017
   
     ![Параметры для добавления функции машинного обучения в задание Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-5. Щелкните **Создать**.
+5. Нажмите кнопку **Создать**.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Создание запроса для преобразования данных
 
@@ -269,7 +269,7 @@ Stream Analytics использует декларативный запрос н
 * **События функций** отображает количество событий в запросе. По умолчанию каждый запрос к веб-службе машинного обучения может содержать до 1000 событий.  
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)

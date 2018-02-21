@@ -64,9 +64,9 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| входная_строка |Да |string |Значение, которое нужно вернуть в кодировке base64. |
+| входная_строка |Yes |строка |Значение, которое нужно вернуть в кодировке base64. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -115,11 +115,11 @@ ms.lasthandoff: 10/11/2017
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | base64Output | Строка | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Строка | one, two, three |
-| toJsonOutput | Объект | {"one": "a", "two": "b"} |
+| toJsonOutput | Объект. | {"one": "a", "two": "b"} |
 
 Развернуть этот пример шаблона с помощью Azure CLI можно так:
 
@@ -142,9 +142,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| base64Value |Да |string |Представление в кодировке base64, которое необходимо преобразовать в объект JSON. |
+| base64Value |Yes |строка |Представление в кодировке base64, которое необходимо преобразовать в объект JSON. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -193,11 +193,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | base64Output | Строка | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Строка | one, two, three |
-| toJsonOutput | Объект | {"one": "a", "two": "b"} |
+| toJsonOutput | Объект. | {"one": "a", "two": "b"} |
 
 Развернуть этот пример шаблона с помощью Azure CLI можно так:
 
@@ -220,9 +220,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| base64Value |Да |string |Представление в кодировке base64, которое необходимо преобразовать в строку. |
+| base64Value |Yes |строка |Представление в кодировке base64, которое необходимо преобразовать в строку. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -271,11 +271,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | base64Output | Строка | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Строка | one, two, three |
-| toJsonOutput | Объект | {"one": "a", "two": "b"} |
+| toJsonOutput | Объект. | {"one": "a", "two": "b"} |
 
 Развернуть этот пример шаблона с помощью Azure CLI можно так:
 
@@ -298,10 +298,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| arg1 |Да |строка или массив |Первое значение для сцепки. |
-| дополнительные аргументы |Нет |string |Дополнительные значения в последовательном порядке для сцепки. |
+| arg1 |Yes |строка или массив |Первое значение для сцепки. |
+| дополнительные аргументы |Нет  |строка |Дополнительные значения в последовательном порядке для сцепки. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 Строка или массив объединенных значений.
@@ -332,7 +332,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | concatOutput | Строка | prefix-5yj4yjf5mbg72 |
 
@@ -385,7 +385,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | return | Массив, | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -410,10 +410,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| container |Да |массив, объект или строка |Значение, содержащее значение, которое необходимо найти. |
-| itemToFind |Да |строка или целое число |Значение, которое необходимо найти. |
+| container |Yes |массив, объект или строка |Значение, содержащее значение, которое необходимо найти. |
+| itemToFind |Yes |строка или целое число |Значение, которое необходимо найти. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -474,13 +474,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
-| stringTrue | Bool | Да |
+| stringTrue | Bool | Истина |
 | stringFalse | Bool | Ложь |
-| objectTrue | Bool | Да |
+| objectTrue | Bool | Истина |
 | objectFalse | Bool | Ложь |
-| arrayTrue | Bool | Да |
+| arrayTrue | Bool | Истина |
 | arrayFalse | Bool | Ложь |
 
 Развернуть этот пример шаблона с помощью Azure CLI можно так:
@@ -504,9 +504,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Да |string |Значение, которое необходимо преобразовать в URI данных. |
+| stringToConvert |Yes |строка |Значение, которое необходимо преобразовать в URI данных. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -546,7 +546,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | dataUriOutput | Строка | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | Строка | Привет, мир! |
@@ -572,9 +572,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Да |string |Значение URI данных, которое необходимо преобразовать. |
+| dataUriToConvert |Yes |строка |Значение URI данных, которое необходимо преобразовать. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -614,7 +614,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | dataUriOutput | Строка | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | Строка | Привет, мир! |
@@ -640,9 +640,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Да |массив, объект или строка |Значение, которое необходимо проверить на наличие содержимого. |
+| itemToTest |Yes |массив, объект или строка |Значение, которое необходимо проверить на наличие содержимого. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -691,11 +691,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | Да |
-| objectEmpty | Bool | Да |
-| stringEmpty | Bool | Да |
+| arrayEmpty | Bool | Истина |
+| objectEmpty | Bool | Истина |
+| stringEmpty | Bool | Истина |
 
 Развернуть этот пример шаблона с помощью Azure CLI можно так:
 
@@ -718,10 +718,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Да |string |Значение, содержащее элемент, который необходимо найти. |
-| stringToFind |Да |string |Значение, которое необходимо найти. |
+| stringToSearch |Yes |строка |Значение, содержащее элемент, который необходимо найти. |
+| stringToFind |Yes |строка |Значение, которое необходимо найти. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -767,13 +767,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
-| startsTrue | Bool | Да |
+| startsTrue | Bool | Истина |
 | startsCapTrue | Bool | Да |
 | startsFalse | Bool | Ложь |
-| endsTrue | Bool | Да |
-| endsCapTrue | Bool | Да |
+| endsTrue | Bool | Истина |
+| endsCapTrue | Bool | Истина |
 | endsFalse | Bool | Ложь |
 
 Развернуть этот пример шаблона с помощью Azure CLI можно так:
@@ -797,9 +797,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| arg1 |Да |массив или строка |Значение, из которого необходимо извлечь первый элемент или знак. |
+| arg1 |Yes |массив или строка |Значение, из которого необходимо извлечь первый элемент или знак. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -836,7 +836,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | arrayOutput | Строка | one |
 | stringOutput | Строка | O |
@@ -861,10 +861,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| baseString |Да |string |Значение, используемое в хэш-функции для создания GUID. |
-| Дополнительные параметры (если необходимы) |Нет |string |Можно добавить столько строк, сколько необходимо для создания значения, которое задает уровень уникальности. |
+| baseString |Yes |строка |Значение, используемое в хэш-функции для создания GUID. |
+| Дополнительные параметры (если необходимы) |Нет  |строка |Можно добавить столько строк, сколько необходимо для создания значения, которое задает уровень уникальности. |
 
 ### <a name="remarks"></a>Примечания
 
@@ -945,10 +945,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Да |string |Значение, содержащее элемент, который необходимо найти. |
-| stringToFind |Да |string |Значение, которое необходимо найти. |
+| stringToSearch |Yes |строка |Значение, содержащее элемент, который необходимо найти. |
+| stringToFind |Yes |строка |Значение, которое необходимо найти. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -990,7 +990,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | firstT | int | 0 |
 | lastT | int | 3 |
@@ -1019,9 +1019,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| arg1 |Да |массив или строка |Значение, из которого необходимо извлечь последний элемент или знак. |
+| arg1 |Yes |массив или строка |Значение, из которого необходимо извлечь последний элемент или знак. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1058,7 +1058,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | arrayOutput | Строка | three |
 | stringOutput | Строка | e |
@@ -1084,10 +1084,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Да |string |Значение, содержащее элемент, который необходимо найти. |
-| stringToFind |Да |string |Значение, которое необходимо найти. |
+| stringToSearch |Yes |строка |Значение, содержащее элемент, который необходимо найти. |
+| stringToFind |Yes |строка |Значение, которое необходимо найти. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1129,7 +1129,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | firstT | int | 0 |
 | lastT | int | 3 |
@@ -1158,9 +1158,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| arg1 |Да |массив или строка |Массив, который необходимо использовать для получения числа элементов, или строка — для получения числа знаков. |
+| arg1 |Yes |массив или строка |Массив, который необходимо использовать для получения числа элементов, или строка — для получения числа знаков. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1204,7 +1204,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13. |
@@ -1230,11 +1230,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| значение_для_заполнения  |Да |строка или целое число |Значение, выравниваемое по правому краю. |
-| общая_длина |Да |int |Общее число символов в возвращаемой строке. |
-| символ_заполнения |Нет |один знак |Символ, используемый для заполнения левой части до достижения общей длины. Значение по умолчанию — пробел. |
+| значение_для_заполнения  |Yes |строка или целое число |Значение, выравниваемое по правому краю. |
+| общая_длина |Yes |int |Общее число символов в возвращаемой строке. |
+| символ_заполнения |Нет  |один знак |Символ, используемый для заполнения левой части до достижения общей длины. Значение по умолчанию — пробел. |
 
 Если длина исходной строки превышает число знаков для заполнения, то знаки не добавляются.
 
@@ -1268,7 +1268,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | stringOutput | Строка | 0000000123 |
 
@@ -1293,11 +1293,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| исходная_строка |Да |string |Значение, в котором все экземпляры одной строки заменены другой строкой. |
-| oldString |Да |string |Строка, которая удаляется из исходной строки. |
-| newString |Да |string |Строка, добавляемая вместо удаляемой строки. |
+| исходная_строка |Yes |строка |Значение, в котором все экземпляры одной строки заменены другой строкой. |
+| oldString |Yes |строка |Строка, которая удаляется из исходной строки. |
+| newString |Yes |строка |Строка, добавляемая вместо удаляемой строки. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1333,7 +1333,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | firstOutput | Строка | 1231231234 |
 | secodeOutput | Строка | 123-123-xxxx |
@@ -1359,10 +1359,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| originalValue |Да |массив или строка |Массив или строка, используемые для пропуска. |
-| numberToSkip |Да |int |Число элементов или знаков, которые необходимо пропустить. Если это значение меньше или равно 0, то возвращаются все элементы или знаки в значении. Если это значение превышает длину массива или строки, то возвращается пустой массив или пустая строка. |
+| originalValue |Yes |массив или строка |Массив или строка, используемые для пропуска. |
+| numberToSkip |Yes |int |Число элементов или знаков, которые необходимо пропустить. Если это значение меньше или равно 0, то возвращаются все элементы или знаки в значении. Если это значение превышает длину массива или строки, то возвращается пустой массив или пустая строка. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1414,7 +1414,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | arrayOutput | Массив, | ["three"] |
 | stringOutput | Строка | two three |
@@ -1440,10 +1440,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| входная_строка |Да |string |Строка для разделения. |
-| delimiter |Да |строка или массив строк |Разделитель для разбиения строки. |
+| входная_строка |Yes |строка |Строка для разделения. |
+| delimiter |Yes |строка или массив строк |Разделитель для разбиения строки. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1486,7 +1486,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | firstOutput | Массив, | ["one", "two", "three"] |
 | secondOutput | Массив, | ["one", "two", "three"] |
@@ -1512,10 +1512,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Да |string |Значение, содержащее элемент, который необходимо найти. |
-| stringToFind |Да |string |Значение, которое необходимо найти. |
+| stringToSearch |Yes |строка |Значение, содержащее элемент, который необходимо найти. |
+| stringToFind |Yes |строка |Значение, которое необходимо найти. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1561,13 +1561,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
-| startsTrue | Bool | Да |
+| startsTrue | Bool | Истина |
 | startsCapTrue | Bool | Да |
 | startsFalse | Bool | Ложь |
-| endsTrue | Bool | Да |
-| endsCapTrue | Bool | Да |
+| endsTrue | Bool | Истина |
+| endsCapTrue | Bool | Истина |
 | endsFalse | Bool | Ложь |
 
 Развернуть этот пример шаблона с помощью Azure CLI можно так:
@@ -1584,16 +1584,16 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="string" />
 
-## <a name="string"></a>string
+## <a name="string"></a>строка
 `string(valueToConvert)`
 
 Преобразует указанное значение в строку.
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Да | Любой |Значение, которое необходимо преобразовать в строку. Можно преобразовать любой тип значения, включая объекты и массивы. |
+| valueToConvert |Yes | Любой |Значение, которое необходимо преобразовать в строку. Можно преобразовать любой тип значения, включая объекты и массивы. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1648,7 +1648,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | objectOutput | Строка | {"valueA":10,"valueB":"Example Text"} |
 | arrayOutput | Строка | ["a","b","c"] |
@@ -1675,11 +1675,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Да |string |Исходная строка, из которой извлекается подстрока. |
-| startIndex |Нет |int |Отсчитываемая от нуля позиция первого знака для подстроки. |
-| длина |Нет |int |Число символов в подстроке. Этот параметр должен ссылаться на позицию в строке. |
+| stringToParse |Yes |строка |Исходная строка, из которой извлекается подстрока. |
+| startIndex |Нет  |int |Отсчитываемая от нуля позиция первого знака для подстроки. |
+| длина |Нет  |int |Число символов в подстроке. Этот параметр должен ссылаться на позицию в строке. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1724,7 +1724,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | substringOutput | Строка | two |
 
@@ -1749,10 +1749,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| originalValue |Да |массив или строка |Массив или строка, из которых берутся элементы. |
-| numberToTake |Да |int |Число элементов или знаков, которые необходимо взять. Если это значение меньше или равно 0, то возвращается пустой массив или строка. Если это значение превышает длину заданного массива или строки, то возвращаются все элементы в массиве или строке. |
+| originalValue |Yes |массив или строка |Массив или строка, из которых берутся элементы. |
+| numberToTake |Yes |int |Число элементов или знаков, которые необходимо взять. Если это значение меньше или равно 0, то возвращается пустой массив или строка. Если это значение превышает длину заданного массива или строки, то возвращаются все элементы в массиве или строке. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1804,7 +1804,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | arrayOutput | Массив, | ["one", "two"] |
 | stringOutput | Строка | on |
@@ -1830,9 +1830,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| изменяемая_строка |Да |string |Значение, преобразовываемое в нижний регистр. |
+| изменяемая_строка |Yes |строка |Значение, преобразовываемое в нижний регистр. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1868,7 +1868,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | toLowerOutput | Строка | one two three |
 | toUpperOutput | Строка | ONE TWO THREE |
@@ -1894,9 +1894,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| изменяемая_строка |Да |string |Значение, преобразовываемое в верхний регистр. |
+| изменяемая_строка |Yes |строка |Значение, преобразовываемое в верхний регистр. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1932,7 +1932,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | toLowerOutput | Строка | one two three |
 | toUpperOutput | Строка | ONE TWO THREE |
@@ -1958,9 +1958,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Да |string |Обрезаемое значение. |
+| stringToTrim |Yes |строка |Обрезаемое значение. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -1992,7 +1992,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | return | Строка | one two three |
 
@@ -2017,10 +2017,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| baseString |Да |string |Значение, используемое в хэш-функции для создания уникальной строки. |
-| Дополнительные параметры (если необходимы) |Нет |string |Можно добавить столько строк, сколько необходимо для создания значения, которое задает уровень уникальности. |
+| baseString |Yes |строка |Значение, используемое в хэш-функции для создания уникальной строки. |
+| Дополнительные параметры (если необходимы) |Нет  |строка |Можно добавить столько строк, сколько необходимо для создания значения, которое задает уровень уникальности. |
 
 ### <a name="remarks"></a>Примечания
 
@@ -2106,10 +2106,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| baseUri |Да |string |Строка базового универсального кода ресурса (URI). |
-| relativeUri |Да |string |Строка относительного универсального кода ресурса (URI), добавляемая к строке базового универсального кода ресурса (URI). |
+| baseUri |Yes |строка |Строка базового универсального кода ресурса (URI). |
+| relativeUri |Yes |строка |Строка относительного универсального кода ресурса (URI), добавляемая к строке базового универсального кода ресурса (URI). |
 
 Значение параметра **baseUri** может включать в себя определенный файл, однако при построении универсального кода ресурса (URI) используется только базовый путь. Например, если передать `http://contoso.com/resources/azuredeploy.json` в качестве параметра baseUri, то базовый универсальный код ресурса (URI) будет иметь значение `http://contoso.com/resources/`.
 
@@ -2156,7 +2156,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | uriOutput | Строка | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Строка | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2183,9 +2183,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Да |string |Значение для кодирования. |
+| stringToEncode |Yes |строка |Значение для кодирования. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -2224,7 +2224,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | uriOutput | Строка | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Строка | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2251,9 +2251,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>Параметры
 
-| Параметр | Обязательно | Тип | Описание |
+| Параметр | Обязательно | type | ОПИСАНИЕ |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Да |string |Значение, закодированное в формате URI, которое необходимо преобразовать в строку. |
+| uriEncodedString |Yes |строка |Значение, закодированное в формате URI, которое необходимо преобразовать в строку. |
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -2292,7 +2292,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Выходные данные из предыдущего примера со значениями по умолчанию:
 
-| Имя | Тип | Значение |
+| ИМЯ | type | Значение |
 | ---- | ---- | ----- |
 | uriOutput | Строка | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Строка | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2310,7 +2310,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Описание разделов в шаблоне Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 * Инструкции по объединению нескольких шаблонов см. в статье [Использование связанных шаблонов в Azure Resource Manager](resource-group-linked-templates.md).
 * Указания по выполнению заданного количества циклов итерации при создании типа ресурса см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md).

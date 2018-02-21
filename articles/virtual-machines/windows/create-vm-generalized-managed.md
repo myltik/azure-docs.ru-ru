@@ -40,7 +40,7 @@ ms.lasthandoff: 12/07/2017
 
 ## <a name="use-powershell"></a>Использование PowerShell
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 
 Убедитесь, что у вас установлены последние версии модулей PowerShell AzureRM.Compute и AzureRM.Network PowerShell. Чтобы установить их, откройте командную строку PowerShell с правами администратора и выполните следующую команду.
 
@@ -210,6 +210,6 @@ $vmList = Get-AzureRmVM -ResourceGroupName $rgName
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Сведения об управлении новыми виртуальными машинами с помощью PowerShell см. в статье [Создание виртуальных машин Windows и управление ими с помощью модуля Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

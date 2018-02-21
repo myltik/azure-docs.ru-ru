@@ -125,7 +125,7 @@ ms.lasthandoff: 11/23/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[База данных SQL Azure;](https://azure.microsoft.com/services/sql-database/?v=16.50) 
+[база данных SQL Azure;](https://azure.microsoft.com/services/sql-database/?v=16.50) 
 
 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 

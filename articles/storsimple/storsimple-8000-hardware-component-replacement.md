@@ -66,11 +66,11 @@ ms.lasthandoff: 10/11/2017
 
 | Компоненты | Количество | Подключаемый модуль? | Процедура замены |
 |:--- |:--- |:--- |:--- |
-| Корпус |1 |Нет |[Замена корпуса устройства StorSimple](storsimple-8000-chassis-replacement.md) |
-| Основные контроллеры |2 |Да |[Замена модуля контроллера на устройстве StorSimple](storsimple-8000-controller-replacement.md) |
-| Блоки питания и охлаждения (БПО) мощностью 764 Вт |2 |Да |[Замена блока питания и охлаждения на устройстве StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
-| Резервный аккумулятор |2 |Да |[Замена резервного аккумулятора на устройстве StorSimple](storsimple-8000-battery-replacement.md) |
-| Диски |12 |Да |[Замена диска на устройстве StorSimple](storsimple-8000-disk-drive-replacement.md) |
+| Корпус |1 |Нет  |[Замена корпуса устройства StorSimple](storsimple-8000-chassis-replacement.md) |
+| Основные контроллеры |2 |Yes |[Замена модуля контроллера на устройстве StorSimple](storsimple-8000-controller-replacement.md) |
+| Блоки питания и охлаждения (БПО) мощностью 764 Вт |2 |Yes |[Замена блока питания и охлаждения на устройстве StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
+| Резервный аккумулятор |2 |Yes |[Замена резервного аккумулятора на устройстве StorSimple](storsimple-8000-battery-replacement.md) |
+| Диски |12 |Yes |[Замена диска на устройстве StorSimple](storsimple-8000-disk-drive-replacement.md) |
 
 **Таблица 1.** Компоненты оборудования в основном корпусе
 
@@ -78,10 +78,10 @@ ms.lasthandoff: 10/11/2017
 
 | Компоненты | Количество | Подключаемый модуль? | Процедура замены |
 |:--- |:--- |:--- |:--- |
-| Корпус |1 |Нет |[Замена корпуса устройства StorSimple](storsimple-8000-chassis-replacement.md) |
-| Контроллеры EBOD |2 |Да |[Замена контроллера EBOD на устройстве StorSimple](storsimple-8000-ebod-controller-replacement.md) |
-| Блоки питания и охлаждения (БПО) мощностью 580 Вт |2 |Да |[Замена блока питания и охлаждения на устройстве StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
-| Диски |12 |Да |[Замена диска на устройстве StorSimple](storsimple-8000-disk-drive-replacement.md) |
+| Корпус |1 |Нет  |[Замена корпуса устройства StorSimple](storsimple-8000-chassis-replacement.md) |
+| Контроллеры EBOD |2 |Yes |[Замена контроллера EBOD на устройстве StorSimple](storsimple-8000-ebod-controller-replacement.md) |
+| Блоки питания и охлаждения (БПО) мощностью 580 Вт |2 |Yes |[Замена блока питания и охлаждения на устройстве StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
+| Диски |12 |Yes |[Замена диска на устройстве StorSimple](storsimple-8000-disk-drive-replacement.md) |
 
 **Таблица 2.** Компоненты оборудования в корпусе EBOD
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
 
 **Рис. 1.** Передняя часть устройства
 
-| Метка | Описание |
+| Метка | ОПИСАНИЕ |
 |:--- |:--- |
 | 0–11 |Дисковые накопители (всего 12) |
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 10/11/2017
 
 **Рис. 2.** Обратная сторона основного корпуса
 
-| Метка | Описание |
+| Метка | ОПИСАНИЕ |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -112,12 +112,12 @@ ms.lasthandoff: 10/11/2017
 
 **Рис. 3.** Обратная сторона корпуса EBOD
 
-| Метка | Описание |
+| Метка | ОПИСАНИЕ |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
 | 3 |Контроллер EBOD 0 |
-| 4 |Контроллер EBOD 1 |
+| 4. |Контроллер EBOD 1 |
 
 ## <a name="field-replaceable-units"></a>Блоки, заменяемые в полевых условиях
 Для устройства StorSimple доступны следующие блоки, заменяемые в полевых условиях:
@@ -133,6 +133,6 @@ ms.lasthandoff: 10/11/2017
 
 [Обратитесь в службу поддержки Microsoft](storsimple-8000-contact-microsoft-support.md) для заказа любых из этих запасных частей.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Перед заменой компонентов оборудования StorSimple ознакомьтесь со всеми [мерами предосторожности](storsimple-safety.md) .
 

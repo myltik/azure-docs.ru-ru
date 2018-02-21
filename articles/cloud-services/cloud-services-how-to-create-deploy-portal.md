@@ -91,7 +91,7 @@ ms.lasthandoff: 11/16/2017
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Общая настройка облачной службы](cloud-services-how-to-configure-portal.md).
 * Настройка [пользовательского имени домена](cloud-services-custom-domain-name-portal.md).
 * [Управление облачной службой](cloud-services-how-to-manage-portal.md).

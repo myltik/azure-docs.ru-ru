@@ -1,6 +1,6 @@
 ---
 title: "Добавление новой учетной записи клиента Azure Stack в Azure Active Directory | Документация Майкрософт"
-description: "Развернув пакет SDK для Microsoft Azure Stack, создайте хотя бы одну учетную запись клиента, чтобы вы могли просматривать портал клиента."
+description: "Развернув Пакет средств разработки Azure Stack, создайте хотя бы одну учетную запись клиента, чтобы вы могли просматривать портал клиента."
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -20,10 +20,10 @@ ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
-*Область применения: пакет SDK для Azure Stack*
+*Область применения: Пакет средств разработки Azure Stack*
 
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Добавление новой учетной записи клиента Azure Stack в Azure Active Directory
-[Развернув пакет SDK для Microsoft Azure Stack](azure-stack-run-powershell-script.md), создайте учетную запись клиента, чтобы вы могли просматривать портал клиента и тестировать предложения и планы. Учетную запись можно создать с помощью [портала Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) или [PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
+[Развернув Пакет средств разработки Azure Stack](azure-stack-run-powershell-script.md), создайте учетную запись клиента, чтобы вы могли просматривать портал клиента и тестировать предложения и планы. Учетную запись можно создать с помощью [портала Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) или [PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Создание учетной записи клиента Azure Stack с помощью портала Azure
 Для использования портала Azure необходима подписка Azure.
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/08/2017
 Если у вас нет подписки Azure, вы не сможете использовать портал Azure для добавления учетной записи клиента. В таком случае вы можете использовать модуль Azure Active Directory для Windows PowerShell.
 
 > [!NOTE]
-> Если вы работаете с учетной записью Майкрософт (Live ID) для развертывания пакета SDK для Azure Stack, вы не сможете использовать AAD PowerShell для создания учетной записи клиента. 
+> Если вы работаете с учетной записью Майкрософт (Live ID) для развертывания Пакета средств разработки Azure Stack, вы не сможете использовать AAD PowerShell для создания учетной записи клиента. 
 > 
 > 
 

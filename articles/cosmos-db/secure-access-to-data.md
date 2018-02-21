@@ -179,7 +179,7 @@ foreach (Permission perm in permFeed)
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о безопасности базы данных Cosmos DB см. в статье [Безопасность базы данных в Azure Cosmos DB](database-security.md).
 * Сведения об управлении главными ключами и ключами только для чтения см. в разделе [Просмотр, копирование и повторное создание ключей доступа](manage-account.md#keys).
 * Сведения о создании маркеров проверки подлинности Azure Cosmos DB см. в статье [Access control in the DocumentDB API](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) (Управление доступом в API DocumentDB).

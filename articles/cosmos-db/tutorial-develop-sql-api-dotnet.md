@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Разработку с использованием API-Интерфейсы SQL в .NET | Документы Microsoft"
-description: "Дополнительные сведения о разработке с помощью API Azure Cosmos DB SQL, с помощью .NET"
+title: "Разработка с помощью API SQL в Azure Cosmos DB на .NET | Документация Майкрософт"
+description: "Сведения о разработке с помощью API SQL службы Azure Cosmos DB на языке .NET"
 services: cosmos-db
 documentationcenter: 
 author: rafats
@@ -18,19 +18,19 @@ ms.author: rafats
 ms.custom: mvc
 ms.openlocfilehash: e37a0993567b6cec7ed6a91e6dad1f2e2c097198
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: Разработку с использованием API-Интерфейсы SQL в .NET
+# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Разработка с помощью API SQL в Azure Cosmos DB на .NET
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете быстро создавать и запрашивать документы, пары "ключ — значение" и базы данных графов, используя преимущества возможностей глобального распределения и горизонтального масштабирования базы данных Azure Cosmos DB. 
 
-Этого учебника показано, как создать учетную запись Azure Cosmos DB с помощью портала Azure, а затем создайте базу данных документов и коллекции с [ключ раздела](sql-api-partition-data.md#partition-keys) с помощью [API-Интерфейсы .NET SQL](sql-api-introduction.md). Определив ключ секции при создании коллекции, вы сможете легко масштабировать приложение по мере увеличения объема данных. 
+В этом руководстве показано, как создать учетную запись Azure Cosmos DB на портале Azure, а затем базу данных документов и коллекцию с [ключом секции](sql-api-partition-data.md#partition-keys) с помощью [API SQL для .NET](sql-api-introduction.md). Определив ключ секции при создании коллекции, вы сможете легко масштабировать приложение по мере увеличения объема данных. 
 
-В этом учебнике приведены следующие задачи с помощью [API-Интерфейсы .NET SQL](sql-api-sdk-dotnet.md):
+В этом руководстве описано, как выполнить следующие задачи с помощью [API SQL для .NET](sql-api-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * создание учетной записи Azure Cosmos DB;
@@ -42,7 +42,7 @@ Azure Cosmos DB — это глобально распределенная мн
 > * Удаление документа
 > * удаление базы данных.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Убедитесь, что у вас есть указанные ниже компоненты.
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
@@ -81,7 +81,7 @@ Azure Cosmos DB — это глобально распределенная мн
     Если появится сообщение о просмотре изменений в решении, нажмите кнопку **ОК**. Если появится сообщение о принятии условий лицензионного соглашения, щелкните **Принимаю**.
 
 ## <a id="Connect"></a>Добавление ссылок в проект
-Оставшиеся шаги в этом учебнике предоставляют API-Интерфейсы SQL фрагменты кода, необходимые для создания и обновления Azure Cosmos DB ресурсов в проекте.
+На остальных шагах в этом руководстве приведены фрагменты кода API SQL, необходимые для создания и обновления ресурсов Azure Cosmos DB в проекте.
 
 Сначала добавьте эти ссылки в приложение.
 <!---These aren't added by default when you install the pkg?--->
@@ -121,7 +121,7 @@ DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
 ## <a id="create-database"></a>Создание базы данных
 
-Создайте базу данных Azure Cosmos [базы данных](sql-api-resources.md#databases) с помощью [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) метода или [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) метод  **DocumentClient** класса из [SQL .NET SDK](sql-api-sdk-dotnet.md). База данных представляет собой логический контейнер для хранения документов JSON, разделенных между коллекциями.
+Затем создайте [базу данных](sql-api-resources.md#databases) Azure Cosmos DB с помощью метода [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) или [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) класса **DocumentClient** из [пакета SDK .NET для SQL](sql-api-sdk-dotnet.md). База данных представляет собой логический контейнер для хранения документов JSON, разделенных между коллекциями.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -261,7 +261,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## <a name="parallel-query-execution"></a>Параллельное выполнение запросов
-Cosmos DB SQL пакеты SDK Azure 1.9.0 и выше параметры выполнения параллельных запросов поддержки, которые позволяют выполнять низкой задержкой запросы к секционированных коллекций, даже в том случае, если их нужно touch большее число секций. Например, следующий запрос настроен на выполнение параллельно по секциям.
+Пакеты SDK для SQL в Azure Cosmos DB версии 1.9.0 и более поздних версий поддерживают параллельное выполнение запросов, что позволяет выполнять запросы с низким уровнем задержки к секционированным коллекциям, даже если число секций в них очень велико. Например, следующий запрос настроен на выполнение параллельно по секциям.
 
 ```csharp
 // Cross-partition Order By queries
@@ -277,7 +277,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 * Параметр `MaxDegreeOfParallelism` позволяет управлять степенью параллелизма, т. е. устанавливать максимальное число одновременных сетевых подключений к секциям коллекции. Если установить значение -1, то степень параллелизма будет регулироваться пакетом SDK. Если параметр `MaxDegreeOfParallelism` не указан или имеет значение 0 (значение по умолчанию), к секциям коллекции будет установлено одно сетевое подключение.
 * Параметр `MaxBufferedItemCount` обеспечивает баланс между задержкой запросов и использованием памяти на стороне клиента. Если пропустить этот параметр или задать значение -1, то число буферизованных элементов при параллельном выполнении запросов будет регулироваться пакетом SDK.
 
-При неизменном состоянии коллекции параллельный запрос будет возвращать результаты в том же порядке, что и при последовательном выполнении. При выполнении запроса между разделами, включающего Сортировка (ORDER BY и TOP), пакет SDK SQL выдает запрос параллельно в секциях и объединяет частично отсортированных результатов на стороне клиента для создания глобально упорядочивания результатов.
+При неизменном состоянии коллекции параллельный запрос будет возвращать результаты в том же порядке, что и при последовательном выполнении. При выполнении межсекционного запроса, включающего в себя сортировку (ORDER BY и/или TOP), пакет SDK для SQL параллельно выполняет запрос между секциями и объединяет частично отсортированные результаты на стороне клиента для получения глобально упорядоченных результатов.
 
 ## <a name="execute-stored-procedures"></a>Выполнение хранимых процедур
 Наконец, можно выполнять атомарные транзакции с документами с одинаковым идентификатором устройства, т. е. если вы храните статистические выражения или последнее состояние устройства в одном документе, добавив следующий код в проект.
@@ -298,7 +298,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 1. В меню слева на портале Azure щелкните **Группы ресурсов**, а затем выберите уникальное имя созданного ресурса. 
 2. На странице группы ресурсов щелкните **Удалить**, в текстовом поле введите имя ресурса для удаления и щелкните **Удалить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы выполнили следующее: 
 

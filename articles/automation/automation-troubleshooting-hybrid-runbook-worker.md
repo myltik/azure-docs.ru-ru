@@ -16,7 +16,7 @@ ms.date: 07/25/2017
 ms.author: magoedte
 ms.openlocfilehash: 75f4ac1bc940a2b1d8e4ac6aeac8b80c642489da
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -56,6 +56,6 @@ ms.lasthandoff: 12/14/2017
 #### <a name="solution"></a>Решение
 Проверьте журнал событий **Microsoft-SMA** на наличие соответствующего события с описанием *Процесс Win32 завершен с кодом [4294967295]*.  Эта ошибка возникла из-за того, что аутентификация в модулях Runbook еще не настроена или для группы гибридных рабочих ролей указаны учетные данные запуска от имени.  Просмотрите [разрешения для модулей Runbook](automation-hrw-run-runbooks.md#runbook-permissions) , чтобы убедиться, что аутентификация для этих модулей настроена правильно.  
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительную информацию об устранении других неполадок в службе автоматизации см. в разделе [Советы по устранению распространенных ошибок в работе службе автоматизации Azure](automation-troubleshooting-automation-errors.md). 

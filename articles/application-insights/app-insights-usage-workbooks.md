@@ -114,9 +114,9 @@ Workbooks предлагают четыре типа визуализации а
 2. Нажмите кнопку "..." рядом с книгой, которую требуется закрепить.
 3. Щелкните **Закрепить на панели мониторинга**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Чтобы обеспечить оптимальное использование, начните отправлять [пользовательские события](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) или [сведения о просмотрах страниц](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Если вы уже сделали это, изучите инструменты использования, чтобы узнать, как пользователи используют службу.
     - [Пользователи, сеансы, события](app-insights-usage-segmentation.md)

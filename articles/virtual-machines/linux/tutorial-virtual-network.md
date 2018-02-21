@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0e7f4308290a14e592cf1739fa5b0b3360d7c68b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: cce0cebc4a31cd78dd7c0c73424e1b674134d360
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Управление виртуальными сетями Azure и виртуальными машинами Linux с помощью Azure CLI
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/03/2018
 
 В этом руководстве создается виртуальная сеть с двумя подсетями: интерфейсная подсеть для размещения веб-приложения и внутренняя подсеть для размещения сервера базы данных.
 
-Прежде чем создать виртуальную сеть, выполните команду [az group create](/cli/azure/group#create), чтобы создать группу ресурсов. Следующий пример позволяет создать группу ресурсов *myRGNetwork* в расположении eastus.
+Прежде чем создать виртуальную сеть, выполните команду [az group create](/cli/azure/group#az_group_create), чтобы создать группу ресурсов. Следующий пример позволяет создать группу ресурсов *myRGNetwork* в расположении eastus.
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -68,7 +68,7 @@ az group create --name myRGNetwork --location eastus
 
 ### <a name="create-virtual-network"></a>Создание виртуальной сети
 
-Создайте виртуальную сеть с помощью команды [az network vnet create](/cli/azure/network/vnet#create). В этом примере создается сеть *mvVnet* с префиксом адреса *10.0.0.0/16*, а также подсеть *myFrontendSubnet* с префиксом *10.0.1.0/24*. Далее в этом руководстве мы подключим интерфейсную виртуальную машину к этой подсети. 
+Создайте виртуальную сеть с помощью команды [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). В этом примере создается сеть *mvVnet* с префиксом адреса *10.0.0.0/16*, а также подсеть *myFrontendSubnet* с префиксом *10.0.1.0/24*. Далее в этом руководстве мы подключим интерфейсную виртуальную машину к этой подсети. 
 
 ```azurecli-interactive 
 az network vnet create \
@@ -81,7 +81,7 @@ az network vnet create \
 
 ### <a name="create-subnet"></a>Создание подсети
 
-Добавьте новую подсеть к виртуальной сети с помощью команды [az network vnet subnet create](/cli/azure/network/vnet/subnet#create). В этом примере создается подсеть *myBackendSubnet* с префиксом адреса *10.0.2.0/24*. Она используется со всеми внутренними службами.
+Добавьте новую подсеть к виртуальной сети с помощью команды [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). В этом примере создается подсеть *myBackendSubnet* с префиксом адреса *10.0.2.0/24*. Она используется со всеми внутренними службами.
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -103,11 +103,11 @@ az network vnet subnet create \
 az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
 ```
 
-При создании виртуальной машины с помощью команды [az vm create](/cli/azure/vm#create) по умолчанию выделяется динамический общедоступный IP-адрес. При создании виртуальной машины с помощью команды [az vm create](/cli/azure/vm#create) добавьте аргумент `--public-ip-address-allocation static`, чтобы назначить статический общедоступный IP-адрес. Эта операция не описана в этом руководстве, но в следующем разделе показано, как изменить динамический IP-адрес на статический. 
+При создании виртуальной машины с помощью команды [az vm create](/cli/azure/vm#az_vm_create) по умолчанию выделяется динамический общедоступный IP-адрес. При создании виртуальной машины с помощью команды [az vm create](/cli/azure/vm#az_vm_create) добавьте аргумент `--public-ip-address-allocation static`, чтобы назначить статический общедоступный IP-адрес. Эта операция не описана в этом руководстве, но в следующем разделе показано, как изменить динамический IP-адрес на статический. 
 
 ### <a name="change-allocation-method"></a>Изменение метода выделения
 
-Метод выделения IP-адресов можно изменить с помощью команды [az network public-ip update](/cli/azure/network/public-ip#update). В этом примере метод выделения IP-адреса интерфейсной виртуальной машины изменяется на статический.
+Метод выделения IP-адресов можно изменить с помощью команды [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update). В этом примере метод выделения IP-адреса интерфейсной виртуальной машины изменяется на статический.
 
 Сначала отмените подготовку виртуальной машины.
 
@@ -115,7 +115,7 @@ az network public-ip create --resource-group myRGNetwork --name myPublicIPAddres
 az vm deallocate --resource-group myRGNetwork --name myFrontendVM
 ```
 
-Обновите метод выделения, используя команду [az network public-ip update](/cli/azure/network/public-ip#update). В этом случае для параметра `--allocation-method` необходимо задать значение *static*.
+Обновите метод выделения, используя команду [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update). В этом случае для параметра `--allocation-method` необходимо задать значение *static*.
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myPublicIPAddress --allocation-method static
@@ -133,7 +133,7 @@ az vm start --resource-group myRGNetwork --name myFrontendVM --no-wait
 
 ## <a name="create-a-front-end-vm"></a>Создание интерфейсной виртуальной машины.
 
-Выполните команду [az vm create](/cli/azure/vm#create), чтобы создать виртуальную машину *myFrontendVM*, использующую *myPublicIPAddress*.
+Выполните команду [az vm create](/cli/azure/vm#az_vm_create), чтобы создать виртуальную машину *myFrontendVM*, использующую *myPublicIPAddress*.
 
 ```azurecli-interactive 
 az vm create \
@@ -157,7 +157,7 @@ az vm create \
 
 Все группы NSG содержат набор правил по умолчанию. Эти правила нельзя удалить, но у них самый низкий приоритет, поэтому их можно переопределить, создав другие правила.
 
-Ниже перечислены правила по умолчанию для Nsg
+Стандартные правила для NSG:
 
 - **Виртуальная сеть.** Входящий и исходящий трафик виртуальной сети разрешен в обоих направлениях.
 - **Интернет.** Исходящий трафик разрешен, но входящий трафик заблокирован.
@@ -165,11 +165,11 @@ az vm create \
 
 ### <a name="create-network-security-groups"></a>Создание групп безопасности сети
 
-Группу безопасности сети можно создать вместе с виртуальной машиной, используя команду [az vm create](/cli/azure/vm#create). В этом случае группа безопасности сети связывается с сетевым интерфейсом виртуальных машин и автоматически создается правило NSG, разрешающее прохождение трафика через порт *22* из любого источника. Ранее в этом руководстве мы создали интерфейсную виртуальную машину, вместе с которой была автоматически создана группа безопасности сети переднего плана. Кроме того, было также создано правило NSG для порта 22. 
+Группу безопасности сети можно создать вместе с виртуальной машиной, используя команду [az vm create](/cli/azure/vm#az_vm_create). В этом случае группа безопасности сети связывается с сетевым интерфейсом виртуальных машин и автоматически создается правило NSG, разрешающее прохождение трафика через порт *22* из любого источника. Ранее в этом руководстве мы создали интерфейсную виртуальную машину, вместе с которой была автоматически создана группа безопасности сети переднего плана. Кроме того, было также создано правило NSG для порта 22. 
 
 В некоторых случаях есть смысл заранее создать группу безопасности сети, например, если не нужно создавать правила SSH по умолчанию или если группу безопасности сети нужно присоединить к подсети. 
 
-Создайте группу безопасности сети с помощью команды [az network nsg create](/cli/azure/network/nsg#create).
+Создайте группу безопасности сети с помощью команды [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create).
 
 ```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myBackendNSG
@@ -191,7 +191,7 @@ az network vnet subnet update \
 
 При создании интерфейсной виртуальной машины также было создано правило NSG, разрешающее входящий трафик через порт 22. Это правило разрешает SSH-подключения к виртуальной машине. В этом примере трафик также необходимо разрешить через порт *80*. Такая конфигурация обеспечивает доступ к веб-приложению на виртуальной машине.
 
-Создайте правило для порта *80* с помощью команды [az network nsg rule create](/cli/azure/network/nsg/rule#create).
+Создайте правило для порта *80* с помощью команды [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create).
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -208,7 +208,7 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-Интерфейсная виртуальная машина доступна только через порты *22* и *80*. Весь остальной входящий трафик блокируется группой безопасности сети. Иногда есть смысл визуализировать конфигурации правил NSG. Получите конфигурацию правила NSG с помощью команды [az network rule list](/cli/azure/network/nsg/rule#list). 
+Интерфейсная виртуальная машина доступна только через порты *22* и *80*. Весь остальной входящий трафик блокируется группой безопасности сети. Иногда есть смысл визуализировать конфигурации правил NSG. Получите конфигурацию правила NSG с помощью команды [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
@@ -218,7 +218,7 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG -
 
 Правила группы безопасности сети также можно применить между виртуальными машинами. В этом примере интерфейсная виртуальная машина должна взаимодействовать с внутренней виртуальной машиной через порт *22* и *3306*. Эта конфигурация разрешает SSH-подключения из интерфейсной виртуальной машины, а также разрешает приложению, расположенному на этой виртуальной машине, взаимодействовать с внутренней базой данных MySQL. Весь остальной трафик между интерфейсной и внутренней виртуальными машинами должен блокироваться.
 
-Создайте правило для порта 22 с помощью команды [az network nsg rule create](/cli/azure/network/nsg/rule#create). Обратите внимание, что аргумент `--source-address-prefix` имеет значение *10.0.1.0/24*. Такая конфигурация гарантирует, что только трафик из интерфейсной подсети сможет пройти через группу безопасности сети.
+Создайте правило для порта 22 с помощью команды [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). Обратите внимание, что аргумент `--source-address-prefix` имеет значение *10.0.1.0/24*. Такая конфигурация гарантирует, что только трафик из интерфейсной подсети сможет пройти через группу безопасности сети.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -285,13 +285,13 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Внутренняя виртуальная машина доступна только через порты *22* и *3306* из интерфейсной подсети. Весь остальной входящий трафик блокируется группой безопасности сети. Иногда есть смысл визуализировать конфигурации правил NSG. Получите конфигурацию правила NSG с помощью команды [az network rule list](/cli/azure/network/nsg/rule#list). 
+Внутренняя виртуальная машина доступна только через порты *22* и *3306* из интерфейсной подсети. Весь остальной входящий трафик блокируется группой безопасности сети. Иногда есть смысл визуализировать конфигурации правил NSG. Получите конфигурацию правила NSG с помощью команды [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы создали и защитили сети Azure с точки зрения виртуальных машин. Вы научились выполнять следующие задачи:
 

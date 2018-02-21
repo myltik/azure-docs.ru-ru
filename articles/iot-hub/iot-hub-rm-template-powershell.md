@@ -143,7 +143,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 > [!NOTE]
 > В этом примере приложения добавляется стандартный Центр Интернета вещей S1, который подлежит оплате. Когда закончите, Центр Интернета вещей можно удалить через [портал Azure][lnk-azure-portal] или с помощью командлета PowerShell **Remove-AzureRmResource**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 После развертывания Центра Интернета вещей с использованием шаблона Azure Resource Manager и PowerShell вас могут заинтересовать следующие статьи:
 
@@ -152,12 +152,12 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 Дополнительные сведения о разработке для Центра Интернета вещей см. в следующих статьях:
 
-* [Знакомство с пакетом SDK для устройств Azure IoT для C][lnk-c-sdk]
+* [Знакомство с пакетом SDK для устройств Центра Интернета вещей Azure для C][lnk-c-sdk]
 * [IoT Hub SDKs][lnk-sdks] (Пакеты SDK для Центра Интернета вещей)
 
 Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
-* [Развертывание Azure IoT Edge на имитированном устройстве в Linux (предварительная версия)][lnk-iotedge]
+* [Развертывание ИИ на пограничных устройствах с использованием Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

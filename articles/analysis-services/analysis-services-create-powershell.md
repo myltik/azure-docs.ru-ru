@@ -30,7 +30,7 @@ ms.lasthandoff: 11/02/2017
 > [!NOTE]
 > При создании сервера вам могут выставляться счета за новую службу. Дополнительные сведения см. в разделе [цен на службы Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Для работы с этим кратким руководством вам понадобится:
 
 * **Подписка Azure**: откройте ссылку на [бесплатную пробную версию Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), чтобы создать учетную запись.
@@ -76,7 +76,7 @@ New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "my
 Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Управление службами Azure Analysis Services с помощью PowerShell](analysis-services-powershell.md)   
 [Развертывание модели из SSDT](analysis-services-deploy.md)   
 [Создание модели на портале Azure](analysis-services-create-model-portal.md)

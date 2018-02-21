@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: v-daljep
 ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -141,7 +141,7 @@ ms.lasthandoff: 12/08/2017
 
 Этот журнал производительности Intelligent Insights можно передать в [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) или стороннее решение для разработки настраиваемых функций оповещения и отчетности в соответствии с процедурами DevOps.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Ознакомьтесь с понятиями [Intelligent Insights](sql-database-intelligent-insights.md).
 - Узнайте как [устранять проблемы с производительностью базы данных SQL Azure с помощью Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Ознакомьтесь с [мониторингом базы данных SQL Azure с помощью службы "Аналитика SQL Azure"](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).

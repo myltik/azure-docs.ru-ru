@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="modifying-a-hostname"></a>Изменение имени узла
 Вы можете изменить имя узла для любой виртуальной машины или экземпляра роли, отправив измененный файл конфигурации службы или переименовав компьютер из сеанса удаленного рабочего стола.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Разрешение имен (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 [Схема конфигурации службы Azure (CSCFG-файл)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)

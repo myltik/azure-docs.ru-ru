@@ -16,7 +16,7 @@ ms.date: 08/15/2017
 ms.author: jeedes
 ms.openlocfilehash: 4231b5e72ea0852de344e7484bdf20997243cee6
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/20/2017
 
 Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы настроить интеграцию Azure AD с Absorb LMS, вам потребуется:
 

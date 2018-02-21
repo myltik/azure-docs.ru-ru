@@ -36,7 +36,7 @@ ms.lasthandoff: 12/05/2017
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Перед переходом к этой части руководства убедитесь, что выполнены все задачи из [части 2](tutorial-develop-mongodb-nodejs-part2.md).
 
@@ -547,7 +547,7 @@ ms.lasthandoff: 12/05/2017
 
      ![Приложение Hero, которое выполняется в локальной среде](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этой части руководства мы выполнили следующую задачу:
 

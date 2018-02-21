@@ -16,7 +16,7 @@ ms.date: 12/20/2017
 ms.author: sethm
 ms.openlocfilehash: face684190456fbf4b78a84ac3afe7a4ead8995a
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -215,7 +215,7 @@ using (var ch = cf.CreateChannel())
 </behaviors>
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Вы ознакомились с базовыми понятиями о ретрансляторе Azure. Дополнительные сведения см. по следующим ссылкам:
 
 * [Что такое ретранслятор Azure?](relay-what-is-it.md)

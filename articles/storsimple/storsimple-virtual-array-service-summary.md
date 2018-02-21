@@ -44,6 +44,6 @@ ms.lasthandoff: 10/11/2017
 
 ![Журналы действий](./media/storsimple-virtual-array-service-summary/activity-log.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте, как с помощью локального веб-интерфейса [администрировать виртуальный массив StorSimple](storsimple-ova-web-ui-admin.md).
 

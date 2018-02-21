@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 
 Если вы используете JavaScript, Python, F#, Bash, пакетную службу или PowerShell, то для создания проекта необходимо выполнить [следующие действия в интерфейсе командной строки функций](../azure-functions/functions-run-local.md).  Если вы разрабатываете функцию на C#, можете использовать [библиотеку классов C#](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/) в текущем решении для функции Azure.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Создание бессерверной панели мониторинга социальных сетей](logic-apps-scenario-social-serverless.md)
 * [Управление приложениями логики из Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)

@@ -15,7 +15,7 @@ ms.assetid:
 ms.custom: it-pro
 ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -118,7 +118,7 @@ Microsoft Azure предоставляет несколько вариантов
 * [Что такое лицензирование Microsoft Azure Active?](active-directory-licensing-whatis-azure-portal.md)
 * [Как обнаруживать несанкционированные облачные приложения, которые используются в моей организации](active-directory-cloudappdiscovery-whatis.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Ознакомившись с основными сведениями об идентификации Azure, а также с доступными решениями, теперь можно приступить к внедрению выбранного варианта, используя следующие ресурсы:
 

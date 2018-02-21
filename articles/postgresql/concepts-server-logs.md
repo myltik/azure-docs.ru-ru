@@ -38,6 +38,6 @@ ms.lasthandoff: 10/26/2017
 
 Дополнительные сведения об этих настройках см. в документации на странице [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html) (Отчеты об ошибках и ведение журнала). Чтобы настроить конкретно параметры сервера базы данных Azure для PostgreSQL, см. статью [Настройка параметров конфигурации сервера с помощью Azure CLI](howto-configure-server-parameters-using-cli.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Сведения о доступе к журналам с помощью Azure CLI приведены в статье [Настройка журналов сервера и получение к ним доступа с помощью Azure CLI](howto-configure-server-logs-using-cli.md).
 - Дополнительные сведения о параметрах сервера см. в статье [Настройка параметров службы в базе данных Azure для PostgreSQL](howto-configure-server-parameters-using-cli.md).

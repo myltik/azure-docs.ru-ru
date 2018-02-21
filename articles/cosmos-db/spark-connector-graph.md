@@ -17,7 +17,7 @@ ms.date: 09/08/2017
 ms.author: khdang
 ms.openlocfilehash: d2ea692c5c353586cc2b653e57eca7ccb8c9c7ce
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 
 Используя одновременно Azure Cosmos DB и Spark, вы можете выполнять рабочие нагрузки OLTP и OLAP с помощью Gremlin. В этом кратком руководстве показано, как выполнять запросы Gremlin в Azure Cosmos DB в кластере Azure HDInsight Spark.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для выполнения этого примера вам потребуется:
 * Кластер Azure HDInsight Spark 2.0.
@@ -400,7 +400,7 @@ ms.lasthandoff: 12/11/2017
 > Чтобы увидеть более подробные сведения журнала, задайте более подробный уровень ведения журнала в каталоге `conf/log4j-console.properties`.
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого краткого руководства вы узнали, как работать с графами с помощью Azure Cosmos DB и Spark.
 

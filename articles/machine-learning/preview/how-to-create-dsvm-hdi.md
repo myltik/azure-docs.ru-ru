@@ -182,7 +182,7 @@ $ az ml experiment prepare -c <compute target name>
 ```
 Теперь у вас все готово для выполнения экспериментов с этим кластером Spark.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 См. также:
 - [Обзор службы "Экспериментирование в Машинном обучении Azure"](experimentation-service-configuration.md).

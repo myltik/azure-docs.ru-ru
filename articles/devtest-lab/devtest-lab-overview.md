@@ -16,7 +16,7 @@ ms.date: 01/11/2017
 ms.author: v-craic
 ms.openlocfilehash: 97afbb5de949587e0844a1f3467167ea9405652c
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -47,6 +47,6 @@ DevTest Labs позволяет создавать готовые среды, в
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Основные понятия DevTest Labs](devtest-lab-concepts.md)
 

@@ -39,7 +39,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="deployment-steps"></a>Шаги по развертыванию
 Выполните эти обязательные действия по настройке и подключению устройства StorSimple к службе диспетчера устройств StorSimple. Помимо обязательных существуют дополнительные шаги и процедуры, которые могут потребоваться в ходе развертывания. В пошаговых инструкциях по развертыванию будет рассказано, когда необходимо предпринять каждый из этих дополнительных шагов.
 
-| Шаг | Description (Описание) |
+| Шаг | ОПИСАНИЕ |
 | --- | --- |
 | **ПРЕДВАРИТЕЛЬНЫЕ ТРЕБОВАНИЯ** |При подготовке к предстоящему развертыванию необходимо выполнить следующее. |
 | [Контрольный список конфигурации развертывания](#deployment-configuration-checklist) |Этот контрольный список служит для сбора и записи информации до и во время развертывания. |
@@ -196,7 +196,7 @@ ms.lasthandoff: 11/03/2017
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Deploy and manage a StorSimple Cloud Appliance in Azure (Update 3 and later)](storsimple-8000-cloud-appliance-u2.md) (Развертывание и администрирование облачного устройства StorSimple в Azure (обновление 3 и более поздней версии)).
 * [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md) (Использование службы диспетчера устройств StorSimple для управления устройством StorSimple).
 

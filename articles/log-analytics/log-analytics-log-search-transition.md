@@ -40,7 +40,7 @@ ms.lasthandoff: 11/28/2017
 
 В следующей таблице на примере нескольких стандартных запросов приводится сравнение эквивалентных команд старого и нового языков запросов Azure Log Analytics.
 
-| Описание | Прежняя версия | new |
+| ОПИСАНИЕ | Прежняя версия | new |
 |:--|:--|:--|
 | Поиск по всем таблицам      | error | Поиск по слову "ошибка" (без учета регистра) |
 | Выбор данных из таблицы | Type=Event |  Событие |
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/28/2017
 |                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" (без учета регистра)<br>Event &#124; where Computer contains "Contoso" (с учетом регистра) |
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | Сравнение данных        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
-|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
+|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &amp;#124; where TimeGenerated between (datetime(2017-05-01) . datetime(2017-05-31)) |
 | Сравнение логических значений     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |
 | Сортировать                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Event &#124;| sort by Computer asc, EventLog desc, EventLevelName asc |
 | Уникальные значения               | Type=Event &#124; dedup Computer &#124;| select Computer | Event &#124; summarize by Computer, EventLog |
@@ -63,6 +63,6 @@ ms.lasthandoff: 11/28/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Изучите [руководство по написанию запросов](https://go.microsoft.com/fwlink/?linkid=856078) на новом языке.
 - Обратитесь к [справочнику по языку запросов](https://go.microsoft.com/fwlink/?linkid=856079), чтобы подробно изучить все команды, операторы и функции нового языка запросов.  

@@ -247,7 +247,7 @@ Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse 
 
 Нет. [Службы вычислений Azure не поддерживают отправку сообщений электронной почты на внешние домены](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения см. [в статье Википедии об обратном просмотре DNS](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>

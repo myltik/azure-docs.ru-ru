@@ -16,7 +16,7 @@ ms.date: 12/12/2017
 ms.author: jroth
 ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/12/2017
 ---
@@ -143,7 +143,7 @@ Server=mysqlvm;Integrated Security=true
 > [!TIP]
 > Действия, описанные в таблице выше, уже выполнены при настройке подключения на портале. Эти действия следует использовать только для проверки конфигурации или настройки подключения к SQL Server вручную.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Инструкции по подготовке и действия по подключению приведены в статье [Подготовка виртуальной машины SQL Server на портале Azure](virtual-machines-windows-portal-sql-server-provision.md).
 

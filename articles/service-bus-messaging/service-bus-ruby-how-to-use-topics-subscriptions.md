@@ -157,7 +157,7 @@ azure_service_bus_service.delete_topic("test-topic")
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Вы узнали основные сведения о разделах служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
 * См. статью [Очереди, разделы и подписки](service-bus-queues-topics-subscriptions.md).

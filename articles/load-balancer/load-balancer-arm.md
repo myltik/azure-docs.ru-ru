@@ -65,7 +65,7 @@ Azure Load Balancer с Resource Manager содержит следующие до
 * [Использование Azure CLI с диспетчером ресурсов Azure (ARM)](../xplat-cli-azure-resource-manager.md)
 * [Интерфейсы API REST подсистемы балансировки нагрузки](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Создайте доступную из Интернета подсистему балансировки нагрузки](load-balancer-get-started-internet-arm-ps.md) и настройте тип [режима распределения](load-balancer-distribution-mode.md) для определенного поведения сетевого трафика балансировщика нагрузки.
 

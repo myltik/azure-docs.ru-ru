@@ -176,7 +176,7 @@ ms.lasthandoff: 12/08/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о функциях Azure триггера с таймером см. [здесь](../azure-functions/functions-create-scheduled-function.md).
 

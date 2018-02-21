@@ -17,7 +17,7 @@ ms.date: 07/17/2017
 ms.custom: it-pro
 ms.openlocfilehash: e5eafd4d25d2638ab5d9f904a7e0c00b36501d68
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -75,5 +75,5 @@ Azure AD также включает полный набор возможнос�
 
 * [Начните использовать пробную версию](https://azure.microsoft.com/trial/get-started-active-directory/) — зарегистрируйтесь сегодня, чтобы использовать бесплатную пробную версию в течение 30 дней и приступить к интеграции приложения с Azure AD.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Основные сведения об управлении удостоверениями и доступом в Azure](https://docs.microsoft.com/azure/active-directory/identity-fundamentals)

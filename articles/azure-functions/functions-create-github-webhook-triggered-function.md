@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 
 ![Функция, активируемая объектом Github webhook, на портале Azure](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 + Учетная запись GitHub с хотя бы одним проектом.
 + Подписка Azure. Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начать работу.
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/14/2017
 
     ![Задание URL-адреса объекта webhook и секрета](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
-| Настройка | Рекомендуемое значение | Описание |
+| Параметр | Рекомендуемое значение | ОПИСАНИЕ |
 |---|---|---|
 | **Payload URL** (URL-адрес полезных данных) | Скопированное значение | Используйте значение, возвращенное командой **< /> Получить URL-адрес функции**. |
 | **Секрет**   | Скопированное значение | Используйте значение, возвращенное командой **< /> Получить секрет GitHub**. |
@@ -105,7 +105,7 @@ ms.lasthandoff: 12/14/2017
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Вы создали функцию, которая выполняется при получении запроса объекта webhook GitHub.
 

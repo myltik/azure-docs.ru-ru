@@ -127,7 +127,7 @@ ms.lasthandoff: 10/11/2017
               </intent-filter>
             </receiver>
 
-Затем можно переопределить обратные вызовы `onDataPushStringReceived` и `onDataPushBase64Received`. Пример:
+Затем можно переопределить обратные вызовы `onDataPushStringReceived` и `onDataPushBase64Received`. Вот пример: 
 
             public class MyDataPushReceiver extends EngagementReachDataPushReceiver
             {
@@ -415,7 +415,7 @@ ms.lasthandoff: 10/11/2017
 ##### <a name="system-notifications"></a>Системные уведомления
 За счет расширения `EngagementDefaultNotifier` можно переопределить `onNotificationPrepared`, чтобы изменить уведомление, которое было предусмотрено в реализации по умолчанию.
 
-Например:
+Например: 
 
             @Override
             protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content)

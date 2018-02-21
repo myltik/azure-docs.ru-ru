@@ -86,7 +86,7 @@ Service Fabric поддерживает управление полным жиз
 * Отслеживать работу балансировщика ресурсов, который управляет распространением приложений в кластере. Service Fabric выполняет восстановление после сбоев и оптимизирует распределение нагрузки с учетом доступных ресурсов.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения
   * [Разработка приложений с использованием микрослужб](service-fabric-overview-microservices.md)
   * [Общие сведения о терминологии](service-fabric-technical-overview.md)

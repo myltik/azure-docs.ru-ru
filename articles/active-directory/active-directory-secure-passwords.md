@@ -15,7 +15,7 @@ ms.date: 08/28/2017
 ms.author: barlan
 ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -80,7 +80,7 @@ Azure AD и учетные записи Майкрософт обеспечив�
   >Если вы являетесь администратором Azure AD, возможно, вам понадобится использовать [Windows Hello](https://www.microsoft.com/windows/windows-hello), чтобы избежать создания традиционных паролей пользователями.
   >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Как изменить свой пароль](active-directory-passwords-update-your-own-password.md)
 * [Основы управления удостоверениями Azure](fundamentals-identity.md)

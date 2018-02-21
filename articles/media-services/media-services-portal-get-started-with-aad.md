@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 
 Узнайте, как использовать аутентификацию Azure Active Directory (Azure AD) для доступа к API служб мультимедиа Azure с помощью портала Azure.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Учетная запись Azure. Если у вас нет учетной записи Azure, начните с получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/). 
 - Учетная запись служб мультимедиа. Дополнительные сведения см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md).
@@ -108,6 +108,6 @@ ms.lasthandoff: 10/11/2017
 
 ![Страница "Управление приложением"](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started05.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Приступите к [передаче файлов в учетную запись](media-services-portal-upload-files.md).

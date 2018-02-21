@@ -85,5 +85,5 @@ ms.lasthandoff: 10/11/2017
     </HealthPolicy>
 </Policies>
 ```
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о развертывании приложений см. в статье [Развертывание гостевого исполняемого файла в Service Fabric](service-fabric-deploy-existing-app.md).

@@ -16,7 +16,7 @@ ms.date: 08/09/2017
 ms.author: parakhj
 ms.openlocfilehash: 9d2df39118741d4254f7b7fe4c419a00ceb4ba8e
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -127,7 +127,7 @@ scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_ac
 
 Мы всегда рады вашим отзывам и предложениям! Если у вас возникли проблемы с этим, опубликуйте их на сайте Stack Overflow, используя тег [azure-ad-b2c](https://stackoverflow.com/questions/tagged/azure-ad-b2c). Запросы функций оставляйте на форуме [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Создайте веб-API с помощью [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi).
 * Создайте веб-API с помощью [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).

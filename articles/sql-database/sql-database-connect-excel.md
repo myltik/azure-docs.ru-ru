@@ -75,7 +75,7 @@ ms.lasthandoff: 10/31/2017
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте, как [подключаться к базе данных SQL с помощью SQL Server Management Studio](sql-database-connect-query-ssms.md) для выполнения сложных запросов и анализа.
 * Узнайте о преимуществах использования [пулов эластичных БД](sql-database-elastic-pool.md).
 * Узнайте, как [создавать веб-приложения, которые подключаются к базе данных SQL в серверной части](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).

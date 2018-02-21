@@ -16,7 +16,7 @@ ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 В этой статье описаны дополнительные сценарии создания отчетов в приложении Android. Эти параметры можно применить для приложения, созданного в учебнике [по началу работы](mobile-engagement-android-get-started.md) .
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 Для изученного учебника были намеренно подобраны понятные и простые задания, однако для выбора доступны и дополнительные параметры.

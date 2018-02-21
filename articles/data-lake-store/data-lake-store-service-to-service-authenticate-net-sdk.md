@@ -31,7 +31,7 @@ ms.lasthandoff: 01/10/2018
 В этой статье описывается, как использовать пакет SDK для .NET для аутентификации между службами с помощью Azure Data Lake Store. Дополнительные сведения об аутентификации пользователей с помощью Data Lake Store и пакета SDK для .NET см. в статье [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md) (Аутентификация пользователя с помощью Data Lake Store и .NET SDK).
 
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 * **Visual Studio 2013, 2015 или 2017**. В инструкциях ниже используется Visual Studio 2017.
 
 * **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).

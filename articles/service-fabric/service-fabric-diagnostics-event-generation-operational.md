@@ -28,7 +28,7 @@ ms.lasthandoff: 11/06/2017
 
 Ниже приведен полный список журналов, созданных Service Fabric в операционном канале. 
 
-| EventId | Имя | Источник (задача) | Уровень |
+| EventId | ИМЯ | Источник (задача) | Уровень |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | Информация |
 | 25621 | NodeOpenedSuccess | FabricNode | Информация |
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/06/2017
 | 18566 | ServiceCreated | FM | Информация |
 | 18567 | ServiceDeleted | FM | Информация |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения о создании событий на уровне платформы в Service Fabric см. в [этом разделе](service-fabric-diagnostics-event-generation-infra.md).
 * Изменение конфигурации [системы диагностики Azure](service-fabric-diagnostics-event-aggregation-wad.md) для сбора дополнительных журналов

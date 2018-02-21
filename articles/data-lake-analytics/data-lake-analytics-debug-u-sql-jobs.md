@@ -16,7 +16,7 @@ ms.date: 11/31/2017
 ms.author: yanacai
 ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -109,7 +109,7 @@ U-SQL поддерживает для C# модель расширяемости
 
 3. Повторно отправьте задание U-SQL.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Руководство по программированию U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 - [Разработка определяемых пользователем операторов U-SQL для заданий аналитики озера данных Azure](data-lake-analytics-u-sql-develop-user-defined-operators.md)

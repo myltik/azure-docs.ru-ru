@@ -87,7 +87,7 @@ ms.lasthandoff: 10/11/2017
 
 Ситуация с взаимоблокировкой является хорошим примером того, как блокировка изменений может предотвратить возникновение взаимоблокировки.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Работа с Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Уведомления Reliable Services](service-fabric-reliable-services-notifications.md)
 * [Архивация и восстановление (аварийное восстановление) надежных служб](service-fabric-reliable-services-backup-restore.md)

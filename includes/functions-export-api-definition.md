@@ -14,7 +14,7 @@
 
 1. В области справа используйте параметры, указанные в таблице ниже.
 
-    |Настройка|Описание|
+    |Параметр|ОПИСАНИЕ|
     |--------|------------|
     |**Режим экспорта**|Выберите **Express**, чтобы автоматически создать пользовательский API. При выборе значения **Вручную** экспортируется определение API, но затем вы должны вручную импортировать его в PowerApps и Microsoft Flow. См. дополнительные инструкции по [экспорту в PowerApps и Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md).|
     |**Среда**|Выберите среду, в которую нужно сохранить пользовательский API. См. дополнительные сведения о [среде PowerApps](https://powerapps.microsoft.com/tutorials/environments-overview/) и [среде Microsoft Flow](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
@@ -23,4 +23,4 @@
  
     ![Экспорт в PowerApps и Microsoft Flow](media/functions-export-api-definition/export-api-2.png)
 
-1. Нажмите кнопку **ОК**. После этого будет создан пользовательский API, а затем добавлен в указанную среду.
+1. Последовательно выберите **ОК**. После этого будет создан пользовательский API, а затем добавлен в указанную среду.

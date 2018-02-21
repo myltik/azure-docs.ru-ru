@@ -127,6 +127,6 @@ $vm = Add-AzureRmVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Создайте [моментальный снимок](snapshot-copy-managed-disk.md).

@@ -75,7 +75,7 @@ Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn
 
 ## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Настройка времени ожидания TCP для набора конечных точек с балансировкой нагрузки
 
-Если набор балансировки нагрузки для конечных точек содержит конечные точки, для него следует установить время ожидания TCP. Например:
+Если набор балансировки нагрузки для конечных точек содержит конечные точки, для него следует установить время ожидания TCP. Например: 
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
@@ -151,7 +151,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Prot
 </LoadBalancedEndpointList>
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Обзор внутренней подсистемы балансировки нагрузки](load-balancer-internal-overview.md)
 

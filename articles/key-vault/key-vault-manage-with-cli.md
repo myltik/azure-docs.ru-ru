@@ -34,7 +34,7 @@ ms.lasthandoff: 11/16/2017
 
 Общие сведения о хранилище ключей Azure см. в статье [Что такое хранилище ключей Azure?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим учебником требуется:
 
@@ -118,7 +118,7 @@ azure provider register Microsoft.KeyVault
 
 Для создания хранилища ключей используйте команду `azure keyvault create` . Этот сценарий предусматривает три обязательных параметра: имя группы ресурсов, имя хранилища ключей и географическое расположение.
 
-Например:
+Например: 
 - если имя хранилища — **ContosoKeyVault**,
 - имя группы ресурсов — **ContosoResourceGroup**,
 - а расположение — **Восточная Азия**.
@@ -179,7 +179,7 @@ azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassw
 
 Пошаговые инструкции по регистрации приложения с помощью Azure Active Directory см. в статье [Интеграция приложений с Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md) или [Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md). Чтобы зарегистрировать приложение в Azure Active Directory, сделайте следующее.
 
-1. Выполните вход на [портал Azure](https://portal.azure.com).
+1. Войдите на [портале Azure](https://portal.azure.com).
 2. Слева щелкните **Регистрация приложений**. Если зарегистрированные приложения не отображаются, щелкните **Больше служб** и найдите их там.  
     >[!NOTE]
     Вам необходимо выбрать каталог, содержащий подписку Azure, которую вы использовали для создания хранилища ключей. 
@@ -298,7 +298,7 @@ azure keyvault secret delete --vault-name 'ContosoKeyVault' --secret-name 'SQLPa
 ```
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Справочные материалы по программированию см. в статье [Руководство разработчика хранилища ключей Azure](key-vault-developers-guide.md).
 - Общие сведения о хранилище ключей Azure см. в статье [Что такое хранилище ключей Azure?](key-vault-whatis.md)
 - Сведения о том, как работать с Azure Key Vault с помощью PowerShell, см. в разделе [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md).

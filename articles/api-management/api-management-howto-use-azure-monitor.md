@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 445723242a76dcef4a6b137439728235d5d6e32a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-published-apis"></a>Мониторинг опубликованных API-интерфейсов
 
@@ -50,7 +50,7 @@ Azure Monitor — это служба Azure, которая предоставл
 Журналы действий позволяют подробно проанализировать операции, выполненные в службах управления API. С помощью журналов изменений можно ответить на вопросы "что? кто? когда?" о любой операции записи (PUT, POST, DELETE) в службах управления API. 
 
 > [!NOTE]
-> Журналы действий не содержат операций чтения (GET), операций, выполненных на классическом портале издателя или с помощью исходных API управления.
+> Журналы действий не содержат операций чтения (GET) и операций, выполненных на портале Azure или с помощью исходных API управления.
 
 Вы можете получить доступ к журналам действий в службе управления API или получить доступ к журналам всех ресурсов Azure в Azure Monitor. 
 

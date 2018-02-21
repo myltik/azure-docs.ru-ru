@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 * Отправленные наборы данных будет невозможно скачать, и их потребуется создать повторно с помощью интерфейсов REST API Power BI для службы Power BI.
 * Скачать PBIX-файлы, импортированные до 26 ноября 2016 года, будет невозможно.
 
-## <a name="download"></a>Загрузить
+## <a name="download"></a>Загрузка
 
 Вы можете скачать пример средства миграции с сайта [GitHub](https://github.com/Microsoft/powerbi-migration-sample). Можно скачать ZIP-файл репозитория или клонировать его на локальный компьютер. После скачивания файл *powerbi миграции sample.sln* можно открыть в Visual Studio, чтобы выполнить сборку и запуск средства миграции.
 
@@ -262,10 +262,10 @@ ms.lasthandoff: 10/11/2017
 * [Обновление строки подключения DirectQuery в Power BI Embedded](migrate-code-snippets.md#update-directquery-connection-string-in-power-bi-embedded)
 * [Настройка учетных данных DirectQuery в Power BI Embedded](migrate-code-snippets.md#set-directquery-credentials-in-power-bi-embedded)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Теперь, когда отчеты перенесены из коллекций рабочей области Power BI в Power BI Embedded, можно обновить приложение и начать внедрение отчетов в эту рабочую область приложения.
 
 Дополнительные сведения см. разделе [How to migrate Power BI Workspace Collection content to Power BI Embedded](migrate-from-power-bi-workspace-collections.md) (Как перенести содержимое коллекции рабочих областей Power BI в Power BI Embedded).
 
-У вас имеются и другие вопросы? [Попробуйте задать их в сообществе Power BI](http://community.powerbi.com/)
+У вас имеются и другие вопросы? [Задайте их в сообществе Power BI](http://community.powerbi.com/).

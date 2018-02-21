@@ -17,7 +17,7 @@ ms.date: 09/10/2017
 ms.author: bradsev
 ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -90,7 +90,7 @@ ms.lasthandoff: 12/18/2017
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## <a name="prerequisites"></a>Технические условия 
+## <a name="prerequisites"></a>предварительным требованиям 
 
 * Подписка [Azure](https://azure.microsoft.com/free/).
 * Azure Machine Learning Workbench. Сведения см. в [руководстве по установке](quickstart-installation.md). Сейчас Azure Machine Learning Workbench можно установить только в следующих операционных системах: 

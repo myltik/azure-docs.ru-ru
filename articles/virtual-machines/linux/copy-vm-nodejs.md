@@ -110,6 +110,6 @@ azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Чтобы узнать, как использовать интерфейс командной строки Azure для управления новой виртуальной машиной, ознакомьтесь со статьей [Команды Azure CLI в режиме Resource Manager](../azure-cli-arm-commands.md).
 

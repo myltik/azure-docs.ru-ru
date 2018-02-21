@@ -16,7 +16,7 @@ ms.date: 08/04/2017
 ms.author: saeda
 ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
 ---
@@ -113,6 +113,6 @@ traces \| where timestamp > ago(1d) | Просмотр всех журналов
 
 
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Изучите данные в Application Insights, чтобы понять, как работает платформа Identity Experience Framework, лежащая в основе B2C, чтобы предоставить собственные удостоверения.

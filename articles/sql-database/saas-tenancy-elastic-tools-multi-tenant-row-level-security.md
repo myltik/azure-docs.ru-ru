@@ -39,7 +39,7 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="download-the-sample-project"></a>Загрузка примера проекта
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 
 - Используйте Visual Studio 2012 или более поздней версии. 
 - Создайте три базы данных SQL Azure. 
@@ -215,7 +215,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ```
 
-## <a name="2-data-tier-create-row-level-security-policy"></a>2) Уровень данных. Создание политики безопасности на уровне строк
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. Уровень данных. Создание политики безопасности на уровне строк
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Создание политики безопасности для фильтрации строк, доступных для всех клиентов
 

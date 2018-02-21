@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Визуализация данных, поступающих от датчиков в реальном времени, из Центра Интернета вещей с помощью Power BI
 
-![Сквозная схема](media/iot-hub-get-started-e2e-diagram/4.png)
+![Комплексная схема](media/iot-hub-get-started-e2e-diagram/4.png)
 
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="what-you-do"></a>Что нужно сделать
 
-- Добавить группу потребителей, чтобы обеспечить доступ к данным в Центре Интернета вещей.
+- добавим группу потребителей, чтобы обеспечить доступ к данным в Центре Интернета вещей;
 - Создать задание Stream Analytics, настроить и запустить его для передачи данных из Центра Интернета вещей в учетную запись Power BI.
 - Создать отчет Power BI и опубликовать его, чтобы визуализировать данные.
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 
    ![Создание задания Stream Analytics в Azure](media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
-1. Щелкните **Создать**.
+1. Нажмите кнопку **Создать**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Добавление входных данных в задание Stream Analytics
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
    **Источник**. Выберите **Центр Интернета вещей**.
 
    **Группа потребителей**. Выберите созданную вами группу потребителей.
-1. Щелкните **Создать**.
+1. Нажмите кнопку **Создать**.
 
    ![Добавление входных данных в задание Stream Analytics в Azure](media/iot-hub-live-data-visualization-in-power-bi/3_add-input-to-stream-analytics-job-azure.png)
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 10/11/2017
    **Имя набора данных**. Введите имя набора данных.
 
    **Имя таблицы**. Введите имя таблицы.
-1. Щелкните **Создать**.
+1. Нажмите кнопку **Создать**.
 
    ![Добавление выходных данных в задание Stream Analytics в Azure](media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
@@ -107,7 +107,7 @@ ms.lasthandoff: 10/11/2017
 1. В разделе **Топология задания** щелкните **Запрос**.
 1. Замените значение `[YourInputAlias]` значением псевдонима входных данных задания.
 1. Замените значение `[YourOutputAlias]` значением псевдонима выходных данных задания.
-1. Щелкните **Сохранить**.
+1. Выберите команду **Сохранить**.
 
    ![Добавление запроса в задание Stream Analytics в Azure](media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 10/11/2017
 
 Корпорация Майкрософт также предлагает [мобильные приложения Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) для просмотра информационных панелей и отчетов Power BI, а также взаимодействия с ними.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Вы успешно использовали Power BI для визуализации данных, полученных от датчика в режиме реального времени, из Центра Интернета вещей Azure.
 Но это не единственный способ для визуализации данных из Центра Интернета вещей Azure. Дополнительные сведения см. в статье [Визуализация данных, поступающих от датчиков в реальном времени, из Центра Интернета вещей с помощью веб-приложений Azure](iot-hub-live-data-visualization-in-web-apps.md).

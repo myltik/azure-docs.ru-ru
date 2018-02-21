@@ -39,14 +39,14 @@ ms.lasthandoff: 12/05/2017
 > [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Перед переходом к этой части руководства убедитесь, что выполнены все задачи из [части 4](tutorial-develop-mongodb-nodejs-part4.md).
 
 > [!TIP]
 > В этом руководстве изложены пошаговые инструкции по созданию приложения. Готовое приложение можно скачать из [репозитория angular-cosmosdb](https://github.com/Azure-Samples/angular-cosmosdb) на GitHub.
 
-## <a name="use-mongoose-to-connect-to-azure-cosmos-db"></a>Использование Mongoose для подключения к Azure Cosmos DB.
+## <a name="use-mongoose-to-connect-to-azure-cosmos-db"></a>подключение к Azure Cosmos DB с помощью Mongoose;
 
 1. Установите модуль npm mongoose, который обычно используется API для обмена данными с MongoDB.
 
@@ -227,7 +227,7 @@ ms.lasthandoff: 12/05/2017
 
    В нашем приложении пока еще нет элементов hero. Но в следующей части руководства мы добавим функции Put, Push и Delete, чтобы добавлять, обновлять и удалять элементы hero из пользовательского интерфейса с использованием подключений Mongoose к нашей базе данных Azure Cosmos DB. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этой части руководства мы выполнили следующую задачу:
 

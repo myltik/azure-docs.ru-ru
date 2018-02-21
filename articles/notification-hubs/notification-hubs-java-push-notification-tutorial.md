@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
     hub.setWindowsCredential(new WindowsCredential("sid","key"));
     hub = namespaceManager.createNotificationHub(hub);
 
- ИЛИ
+ Или
 
     hub = new NotificationHub("connection string", "hubname");
 

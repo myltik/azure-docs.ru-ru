@@ -44,7 +44,7 @@ ms.lasthandoff: 11/14/2017
 
 Исходный код издателя OPC можно найти в репозитории GitHub [издателя OPC для Azure IoT Edge](https://github.com/Azure/iot-edge-opc-publisher).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы создать приложение, необходим [пакет SDK для .NET Core 1.1.](https://docs.microsoft.com/dotnet/core/sdk) для операционной системы.
 
@@ -382,7 +382,7 @@ docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT
 
 #### <a name="using-bind-mounts-shared-filesystem"></a>Использование подключения привязки (общая файловая система)
 
-В некоторых сценариях требуется считать данные о конфигурации с узла или записать на него файлы журнала, вместо использования файловой системы контейнера. Чтобы настроить такое поведение, используйте параметр `-v` команды `docker run` в режиме подключения привязки. Например:
+В некоторых сценариях требуется считать данные о конфигурации с узла или записать на него файлы журнала, вместо использования файловой системы контейнера. Чтобы настроить такое поведение, используйте параметр `-v` команды `docker run` в режиме подключения привязки. Например: 
 
 ```cmd/sh
 -v //D/docker:/build/out/Logs
@@ -468,6 +468,6 @@ service ssh start
 DebugAdapterHost.Launch /LaunchJson:"<path-to-the-launch.json-file-you-saved>"
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Далее мы советуем ознакомиться с тем, как [развертывать шлюз в Windows или Linux для предварительно настроенного решения подключенной фабрики](iot-suite-connected-factory-gateway-deployment.md).

@@ -42,7 +42,7 @@ ms.lasthandoff: 11/14/2017
 ### <a name="scripts"></a>Сценарии
 В этом пошаговом руководстве описаны только основные шаги. Вы можете скачать полный **скрипт U-SQL**, а также **записную книжку Jupyter** из [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Прежде чем начать работу по этим разделам, необходимо обеспечить наличие следующего:
 
 * Подписка Azure. Если у вас ее нет, см. статью [о получении бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -81,7 +81,7 @@ ms.lasthandoff: 11/14/2017
 ### <a name="create-an-azure-data-lake-analytics-account"></a>Создание учетной записи Аналитики озера данных Azure
 Создайте учетную запись ADLA на [портале Azure](http://portal.azure.com). Дополнительные сведения см. в статье [Руководство. Начало работы с Azure Data Lake Analytics с помощью портала Azure](../../data-lake-analytics/data-lake-analytics-get-started-portal.md). 
 
- ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
+ ![4.](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>Создание учетной записи хранения BLOB-объектов Azure
 Создайте учетную запись хранилища BLOB-объектов Azure на [портале Azure](http://portal.azure.com). Дополнительные сведения см. в разделе "Создайте учетную запись хранения" в статье [Об учетных записях хранения Azure](../../storage/common/storage-create-storage-account.md).

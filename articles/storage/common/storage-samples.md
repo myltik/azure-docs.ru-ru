@@ -71,7 +71,7 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 | Node.js | [Справочник по клиентской библиотеке Node.js](http://azure.github.io/azure-storage-node) | [Исходный код для клиентской библиотеки хранилища Node.js](https://github.com/Azure/azure-storage-node) |
 | C++ | [Справочник по клиентской библиотеке C++](http://azure.github.io/azure-storage-cpp/) | [Исходный код для клиентской библиотеки хранилища C++](https://github.com/Azure/azure-storage-cpp)|
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Следующие статьи содержат указатель примеров, упорядоченный по службам (служба больших двоичных объектов, служба файлов, служба очередей, служба таблиц).
 

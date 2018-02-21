@@ -79,11 +79,11 @@ ms.lasthandoff: 10/11/2017
     ![][3]
 4. В файле `App.xaml.cs`:
    
-    а. Добавьте оператор `using`:
+    a. Добавьте оператор `using`:
    
             using Microsoft.Azure.Engagement;
    
-    b. Инициализируйте пакет SDK в методе `Application_Launching`:
+    Б. Инициализируйте пакет SDK в методе `Application_Launching`:
    
             private void Application_Launching(object sender, LaunchingEventArgs e)
             {
@@ -108,13 +108,13 @@ ms.lasthandoff: 10/11/2017
         class MainPage : EngagementPage 
 3. В файле `MainPage.xml`:
    
-    а. Добавьте в объявления пространств имен:
+    a. Добавьте в объявления пространств имен:
    
             xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
    
-    b. В имени XML-тега замените `phone:PhoneApplicationPage` на `engagement:EngagementPage`.
+    Б. В имени XML-тега замените `phone:PhoneApplicationPage` на `engagement:EngagementPage`.
 
-## <a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
+## <a id="monitor"></a>Подключение приложения с мониторингом в режиме реального времени
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>Включение функции отправки и приема push-уведомлений и обмена сообщениями в приложении

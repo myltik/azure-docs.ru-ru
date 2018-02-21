@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 Сведения об отработке отказа физического устройства StorSimple на облачное устройство StorSimple см. в статье [Fail over to your StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md) (Отработка отказа на облачное устройство StorSimple). Сведения об отработке отказа физического устройства на то же устройство см. в статье [Fail over to a StorSimple 8000 series physical device](storsimple-8000-device-failover-same-device.md) (Отработка отказа на то же физическое устройство StorSimple).
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Обязательно ознакомьтесь с рекомендациями по отработке отказа устройств. Дополнительные сведения см. в статье с [общими рекомендациями по отработке отказа устройств](storsimple-8000-device-failover-disaster-recovery.md).
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 
         ![Выбор цели](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev6.png)
 
-   3. Наконец, просмотрите все настройки отработки отказа в разделе **Сводка**. Просмотрев настройки, установите флажок, указывающий, что тома в выбранных контейнерах отключены. Нажмите кнопку **ОК**.
+   3. Наконец, просмотрите все настройки отработки отказа в разделе **Сводка**. Просмотрев настройки, установите флажок, указывающий, что тома в выбранных контейнерах отключены. Последовательно выберите **ОК**.
 
        ![Просмотр параметров отработки отказа](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev8.png)
   
@@ -81,7 +81,7 @@ ms.lasthandoff: 10/11/2017
        ![Просмотр целевых контейнеров томов](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev16.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * После отработки отказа, возможно, нужно будет [отключить или удалить устройство StorSimple](storsimple-8000-deactivate-and-delete-device.md).
 * Сведения об использовании службы диспетчера устройств StorSimple см. в статье [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md) (Администрирование устройства StorSimple с помощью службы диспетчера устройств StorSimple).

@@ -18,7 +18,7 @@ ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
 ms.openlocfilehash: 1aaebb66287edc375909f7367648da6cf5f4cc40
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/11/2017
    ![Открытие колонки группы](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
 4. В колонке **Пользователи и группы — Все группы** можно добавить или удалить отображаемые столбцы, отфильтровать список для поиска группы или внести изменения в группы, для которых имеются необходимые разрешения на изменение.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
 * [Просмотр существующих групп](active-directory-groups-view-azure-portal.md)

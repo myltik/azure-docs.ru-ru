@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 
 -->
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 У группы консультирования клиентов (CAT) также есть полезное руководство по хранилищу данных SQL, которое они публикуют в блогах.  Прочитайте их статью [Migrating data to Azure SQL Data Warehouse in practice][Migrating data to Azure SQL Data Warehouse in practice] (Перенос данных в хранилище данных SQL Azure на практике), чтобы ознакомиться с дополнительными рекомендациями по переносу.
 
 <!--Image references-->

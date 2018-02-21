@@ -98,7 +98,7 @@ ms.lasthandoff: 12/18/2017
     api-key: [api-key]
 
 
-При успешном выполнении запроса возвращается код состояния 201 (индекс создан). Дополнительные сведения о создании индекса с помощью REST API см. в [справочнике по API](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Дополнительные сведения о других кодах состояния HTTP, которые могут быть возвращены в случае сбоя, см. в статье [Коды состояния HTTP (поиск Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+При успешном выполнении запроса возвращается код состояния 201 (индекс создан). Дополнительные сведения о создании индекса с помощью REST API см. в [справочнике по API](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Дополнительные сведения о других кодах состояния HTTP, которые могут быть возвращены в случае сбоя, см. в статье [Коды состояния HTTP (поиск в Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 Если вы завершили работу с индексом и хотите удалить его, просто отправьте HTTP-запрос DELETE. Например, индекс hotels удаляется так:
 
@@ -106,5 +106,5 @@ ms.lasthandoff: 12/18/2017
     api-key: [api-key]
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Создав индекс службы поиска Azure, вы сможете [передать в него содержимое](search-what-is-data-import.md) и искать нужные вам данные.

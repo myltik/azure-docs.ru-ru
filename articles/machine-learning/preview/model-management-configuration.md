@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.openlocfilehash: 151e7c2dc808a8fa117a0d7a1950185abe9e3152
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -167,5 +167,5 @@ az ml account modelmanagement set -n [your account name] -g [resource group it w
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-### <a name="next-steps"></a>Следующие шаги
+### <a name="next-steps"></a>Дальнейшие действия
 Воспользуйтесь одним из многих примеров в коллекции.

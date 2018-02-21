@@ -146,6 +146,6 @@ ms.lasthandoff: 12/11/2017
 См. [руководство по устранению неполадок](active-directory-reporting-troubleshoot-content-pack.md). Общие сведения о Power BI см. в [справочных статьях](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
  
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Общие сведения об отчетах Azure Active Directory см. в [этой статье](active-directory-reporting-azure-portal.md).

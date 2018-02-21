@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -86,7 +86,7 @@ ms.lasthandoff: 01/05/2018
 
 Нам нужна ваша помощь, чтобы обеспечить работу функции во всех ваших приложениях. Мы поддерживаем поиск более 30 тегов в HTML и CSS, а также рассматриваем, в каких случаях поддерживать JavaScript. Если у вас есть пример созданных ссылок, которые не были преобразованы, отправьте фрагмент кода [сюда](mailto:aadapfeedback@microsoft.com). 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Работа с пользовательскими доменами в прокси приложения Azure AD](active-directory-application-proxy-custom-domains.md)
 
 [Настройка альтернативных сопоставлений доступа для SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

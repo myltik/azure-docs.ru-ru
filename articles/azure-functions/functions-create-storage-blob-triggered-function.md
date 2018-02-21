@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 
 ![Просмотр сообщения в журналах](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 + Скачайте и установите [обозреватель хранилищ Microsoft Azure](http://storageexplorer.com/).
 + Подписка Azure. Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начать работу.
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/14/2017
 
     ![Создание функции, активируемой хранилищем BLOB-объектов.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
-    | Настройка | Рекомендуемое значение | Описание |
+    | Параметр | Рекомендуемое значение | Описание |
     |---|---|---|
     | **Имя** | Уникальное для вашего приложения-функции | Имя функции, активируемой большим двоичным объектом. |
     | **Путь**   | samples-workitems/{name}    | Расположение в хранилище BLOB-объектов отслеживается. Имя файла большого двоичного объекта передается в привязке как параметр _name_.  |
@@ -110,7 +110,7 @@ ms.lasthandoff: 12/14/2017
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Вы создали функцию, которая выполняется при добавлении или обновлении большого двоичного объекта в хранилище BLOB-объектов. 
 

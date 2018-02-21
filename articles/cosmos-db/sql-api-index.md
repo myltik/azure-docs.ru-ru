@@ -102,7 +102,7 @@ Azure Cosmos DB предоставляет различные пакеты SDK �
 - [Node.js](sql-api-sdk-node.md)
 - [Python](sql-api-sdk-python.md)
 
-## <a name="reference"></a>Ссылка
+## <a name="reference"></a>Справочные материалы
 
 - [REST](/rest/api/documentdb/)
 - [Поставщик ресурсов REST](/rest/api/documentdbresourceprovider/)

@@ -22,9 +22,9 @@ ms.lasthandoff: 12/11/2017
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Скачивание средств Azure Stack из GitHub
 
-*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
-**AzureStack-Tools** — это репозиторий GitHub, в котором размещены модули PowerShell для администрирования и развертывания ресурсов в Azure Stack. Если вы планируете установить VPN-подключение, можно скачать эти модули PowerShell в пакет SDK для Azure Stack или внешний клиент под управлением Windows. Чтобы получить эти средства, клонируйте репозиторий GitHub или скачайте папку **AzureStack-Tools**, выполнив следующий скрипт:
+**AzureStack-Tools** — это репозиторий GitHub, в котором размещены модули PowerShell для администрирования и развертывания ресурсов в Azure Stack. Если вы планируете установить VPN-подключение, можно скачать эти модули PowerShell в Пакет средств разработки Azure Stack или внешний клиент под управлением Windows. Чтобы получить эти средства, клонируйте репозиторий GitHub или скачайте папку **AzureStack-Tools**, выполнив следующий скрипт:
 
 ```PowerShell
 # Change directory to the root directory. 
@@ -49,7 +49,7 @@ cd AzureStack-Tools-master
 
 Репозиторий **AzureStack-Tools** содержит модули PowerShell с поддержкой следующих функций для работы в среде Azure Stack:  
 
-| Функции | Описание | Кто может использовать этот модуль? |
+| Функции | ОПИСАНИЕ | Кто может использовать этот модуль? |
 | --- | --- | --- |
 | [Возможности облачных служб](user/azure-stack-validate-templates.md) | Этот модуль используется для получения возможностей облачных служб. Например, этот модуль позволяет использовать версии API и ресурсы Azure Resource Manager. Также с помощью модуля можно получить расширения виртуальных машин для Azure Stack и облаков Azure. | Операторы и пользователи облака. |
 | [Администрирование вычислений Azure Stack](azure-stack-add-vm-image.md) | Этот модуль используется для добавления или удаления образа виртуальной машины из Azure Stack Marketplace. | Операторы облака. |
@@ -62,6 +62,6 @@ cd AzureStack-Tools-master
 | [Проверяющий элемент управления шаблона](user/azure-stack-validate-templates.md) | Этот модуль используется для проверки, если в Azure Stack можно развернуть существующий или новый шаблон. | Операторы и пользователи облака.|
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md) (Настройка пользовательской среды PowerShell в Azure Stack)   
-* [Подключение к Azure Stack с помощью VPN](azure-stack-connect-azure-stack.md)  
+* [Подключение к Пакету средств разработки Azure Stack с помощью VPN](azure-stack-connect-azure-stack.md)  

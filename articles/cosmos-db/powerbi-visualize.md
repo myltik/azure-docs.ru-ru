@@ -17,7 +17,7 @@ ms.date: 08/16/2017
 ms.author: mimig
 ms.openlocfilehash: 6414cdc942c43f6eb13ca8f050d6503bdd3e0b42
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/11/2017
 > [!NOTE]
 > Чтобы подключить Azure Cosmos DB к Power BI с помощью API MongoDB, используйте [драйвер ODBC MongoDB Simba](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Перед выполнением инструкций в этом руководстве по Power BI убедитесь в наличии доступа к следующим ресурсам:
 
 * [Последняя версия Power BI Desktop](https://powerbi.microsoft.com/desktop).
@@ -222,7 +222,7 @@ ms.lasthandoff: 12/11/2017
 5. Разверните узел **Расписание обновлений** и настройте расписание для обновлений набора данных. 
 6. По завершении настройки расписания обновлений нажмите кнопку **Применить** .
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Дополнительные сведения о Power BI см. в статье [Приступая к работе с Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * Дополнительные сведения о Cosmos DB см. на [целевой странице документации по Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).
 

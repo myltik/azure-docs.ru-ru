@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 - Для сбора метрик CollectD необходим агент OMS для Linux версии 1.1.0-217 или более поздней версии.
 
 
-## <a name="configuration"></a>Конфигурация
+## <a name="configuration"></a>Параметр Configuration
 Ниже приведены основные шаги по настройке сбора данных CollectD в Log Analytics.
 
 1. Настройте отправку данных CollectD в агент OMS для Linux с помощью подключаемого модуля write_http.  
@@ -111,15 +111,15 @@ ms.lasthandoff: 10/11/2017
 | Поле метрики CollectD | Поле Log Analytics |
 |:--|:--|
 | host | Компьютер |
-| plugin | None |
+| plugin | Нет |
 | plugin_instance | Имя экземпляра<br>Если **plugin_instance** имеет значение *null*, то InstanceName="*_Total*" |
-| type | ObjectName |
+| Тип | ObjectName |
 | type_instance | CounterName<br>Если **type_instance** имеет значение *null*, то CounterName=**blank** |
 | dsnames[] | CounterName |
-| dstypes | None |
+| dstypes | Нет |
 | values[] | CounterValue |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений. 
 * Используйте [настраиваемые поля](log-analytics-custom-fields.md) для анализа данных из записей системного журнала в отдельных полях.
 

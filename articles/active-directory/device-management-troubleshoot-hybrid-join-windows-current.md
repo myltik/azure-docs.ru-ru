@@ -16,7 +16,7 @@ ms.author: markvi
 ms.reviewer: jairoc
 ms.openlocfilehash: 3b98d31efcdbd61cf12e2c905f200c1e54f68f69
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -123,6 +123,6 @@ ms.lasthandoff: 12/11/2017
 
 - Прокси-сервер HTTP не найден.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Ответы на вопросы можно найти в статье [Azure Active Directory device management FAQ](device-management-faq.md) (Часто задаваемые вопросы по управлению устройствами Azure Active Directory). 

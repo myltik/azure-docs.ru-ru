@@ -99,6 +99,6 @@ Kubernetes — это популярный инструмент оркестра
 >
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Разверните кластер службы контейнеров с помощью [портала](container-service-deployment.md) или [Azure CLI 2.0](container-service-create-acs-cluster-cli.md).

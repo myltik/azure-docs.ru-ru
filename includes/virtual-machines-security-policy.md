@@ -31,5 +31,5 @@
 С помощью [управления доступом на основе ролей (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) вы можете распределить обязанности внутри команды и предоставить пользователям виртуальной машины доступ на уровне, который им необходим для выполнения поставленных задач. Вместо того чтобы предоставлять всем неограниченные разрешения для виртуальной машины, можно разрешить только определенные действия. Вы можете настроить управление доступом для виртуальной машины на [портале Azure](../articles/active-directory/role-based-access-control-configure.md) с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/role) или [Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md).
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Выполните действия для мониторинга безопасности виртуальной машины в центре безопасности Azure для [Linux](../articles/virtual-machines/linux/tutorial-azure-security.md) или [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md).

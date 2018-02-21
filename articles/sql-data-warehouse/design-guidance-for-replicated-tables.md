@@ -16,7 +16,7 @@ ms.date: 10/23/2017
 ms.author: rortloff;barbkess
 ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/08/2017
 > Функция реплицированной таблицы в настоящее время находится в общедоступной предварительной версии. Некоторое поведение может быть изменено.
 > 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 В этой статье предполагается, что вы знакомы с распределением данных и основными понятиями перемещения данных в хранилище данных SQL.  Дополнительные сведения см. в статье об [архитектуре](massively-parallel-processing-mpp-architecture.md). 
 
 При проектировании таблиц необходимо максимально четко понять, как устроены данные и как выполняются запросы к данным.  Например, для этого можно использовать следующие вопросы:
@@ -197,7 +197,7 @@ SELECT [ReplicatedTable] = t.[name]
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
  
-## <a name="next-steps"></a>Дальнейшие действия 
+## <a name="next-steps"></a>Дополнительная информация 
 Чтобы создать реплицированную таблицу, воспользуйтесь одной из следующих инструкций:
 
 - [CREATE TABLE (хранилище данных Azure SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)

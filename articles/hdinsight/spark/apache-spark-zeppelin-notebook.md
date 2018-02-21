@@ -31,7 +31,7 @@ ms.lasthandoff: 11/29/2017
 
 **Предварительные требования:**
 
-* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="launch-a-zeppelin-notebook"></a>Запуск записной книжки Zeppelin
@@ -129,9 +129,9 @@ ms.lasthandoff: 11/29/2017
     Нажмите кнопку **Сохранить**, а затем перезапустите интерпретатор Livy.
 4. **Подсказка.** Вот как можно получить значение указанного выше ключа.
    
-    а. Найдите пакет в репозитории Maven. В этом руководстве мы используем [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Найдите пакет в репозитории Maven. В этом руководстве мы используем [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
-    b. В репозитории найдите значения для параметров **GroupId**, **ArtifactId** и **Version**.
+    Б. В репозитории найдите значения для параметров **GroupId**, **ArtifactId** и **Version**.
    
     ![Использование внешних пакетов с записными книжками Jupyter](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Использование внешних пакетов с записными книжками Jupyter")
    

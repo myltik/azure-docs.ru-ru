@@ -179,7 +179,7 @@ function main() {
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Вызов пользовательского статистического выражения JavaScript в запросе ASA
 
-На портале Azure откройте задание, измените запрос и вызовите функцию TWA() с обязательным префиксом "uda". Например:
+На портале Azure откройте задание, измените запрос и вызовите функцию TWA() с обязательным префиксом "uda". Например: 
 
 ````SQL
 WITH value AS
@@ -233,7 +233,7 @@ GROUP BY TumblingWindow(minute, 5)
 
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
 * [Приступая к работе с Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

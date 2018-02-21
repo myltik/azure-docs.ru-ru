@@ -115,9 +115,9 @@ ms.lasthandoff: 11/08/2017
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Управление серверами SQL Azure, базами данных и брандмауэрами с помощью PowerShell
 
-Для создания сервера Azure SQL, баз данных и брандмауэров и управления ими с помощью Azure PowerShell используйте приведенные ниже командлеты PowerShell. Если вам нужно выполнить установку или обновление PowerShell, прочитайте статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Изучите дополнительные сведения о создании [эластичных пулов](sql-database-elastic-pool.md) и управлении ими.
+Для создания сервера Azure SQL, баз данных и брандмауэров и управления ими с помощью Azure PowerShell используйте приведенные ниже командлеты PowerShell. Если вам нужно выполнить установку или обновление PowerShell, см. статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Изучите дополнительные сведения о создании [эластичных пулов](sql-database-elastic-pool.md) и управлении ими.
 
-| Командлет | Описание |
+| Командлет | ОПИСАНИЕ |
 | --- | --- |
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Создает базу данных. |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Получает одну или несколько баз данных.|
@@ -142,7 +142,7 @@ ms.lasthandoff: 11/08/2017
 
 Для создания сервера Azure SQL, баз данных и брандмауэров и управления ими с помощью [Azure CLI](/cli/azure/overview) используйте приведенные ниже команды [Azure CLI для Базы данных SQL](/cli/azure/sql/db). Запускайте интерфейс командной строки в браузере с помощью [Cloud Shell](/azure/cloud-shell/overview) либо [установите](/cli/azure/install-azure-cli) его на платформе macOS, Linux или Windows. Изучите дополнительные сведения о создании [эластичных пулов](sql-database-elastic-pool.md) и управлении ими.
 
-| Командлет | Описание |
+| Командлет | ОПИСАНИЕ |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Создает базу данных.|
 |[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Выводит список всех баз данных и хранилищ данных на сервере или всех баз данных в эластичном пуле.|
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/08/2017
 > С помощью Transact-SQL невозможно создать или удалить сервер.
 >
 
-| Команда | Описание |
+| Get-Help | ОПИСАНИЕ |
 | --- | --- |
 |[CREATE DATABASE (база данных SQL Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Создает базу данных. Для создания базы данных требуется подключение к базе данных master.|
 | [ALTER DATABASE (база данных SQL Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Изменяет базу данных SQL Azure. |
@@ -202,7 +202,7 @@ ms.lasthandoff: 11/08/2017
 
 Для создания сервера Azure SQL Server, баз данных и брандмауэров и управления используются приведенные ниже запросы REST API.
 
-| Команда | Описание |
+| Get-Help | ОПИСАНИЕ |
 | --- | --- |
 |[Серверы: создание или обновление](/rest/api/sql/servers/createorupdate)|Создает или обновляет сервер.|
 |[Серверы: удаление](/rest/api/sql/servers/delete)|Удаляет сервер SQL Server.|
@@ -224,7 +224,7 @@ ms.lasthandoff: 11/08/2017
 |[Правила брандмауэра: получение](/rest/api/sql/firewallrules/get)|Получает правило брандмауэра.|
 |[Правила брандмауэра: вывод списка по серверу](/rest/api/sql/firewallrules/listbyserver)|Возвращает список правил брандмауэра.|
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Чтобы узнать больше об объединении баз данных в эластичные пулы, ознакомьтесь с разделом [Эластичные пулы помогают управлять несколькими базами данных SQL и масштабировать их](sql-database-elastic-pool.md).
 - Сведения о службе базы данных SQL Azure см. в статье [Функции службы базы данных SQL Azure](sql-database-technical-overview.md).

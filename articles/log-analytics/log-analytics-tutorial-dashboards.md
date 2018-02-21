@@ -70,7 +70,7 @@ Perf | where CounterName == "% Processor Time" and ObjectName == "Processor" and
 
 ![Завершенная конфигурация примера панели мониторинга](media/log-analytics-tutorial-dashboards/log-analytics-modify-dashboard-02.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Из этого руководства вы узнали, как создавать панель мониторинга на портале Azure и добавлять к ней запрос поиска по журналам.  Перейдите к следующему руководству, чтобы узнать о различных ответах, которые можно реализовать на основе результатов поиска по журналам.  
 
 > [!div class="nextstepaction"]

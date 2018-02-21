@@ -46,7 +46,7 @@ Spark предоставляет примитивы для кластерных 
 ## <a name="what-is-apache-spark-on-azure-hdinsight"></a>Apache Spark в Azure HDInsight
 Кластеры Spark в HDInsight предлагают полностью управляемую службу Spark. Преимущества создания кластера Spark в HDInsight приведены здесь.
 
-| Функция | Описание |
+| Функция | ОПИСАНИЕ |
 | --- | --- |
 | Простота создания кластеров Spark |Создание кластера Spark в HDInsight с помощью портала Azure, Azure PowerShell или пакета SDK .NET HDInsight занимает всего несколько минут. См. инструкции по [началу работы с кластером Spark в HDInsight](apache-spark-jupyter-spark-sql.md). |
 | Простота использования |Кластер Spark в HDInsight включает записные книжки Jupyter и Zeppelin. Их можно использовать для интерактивной обработки и визуализации данных.|

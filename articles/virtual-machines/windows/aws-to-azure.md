@@ -60,7 +60,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
 > В AWS взимается плата за передачу данных при скачивании VHD-файла. Дополнительные сведения см. на странице [Цены на Amazon S3](https://aws.amazon.com/s3/pricing/).
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Теперь можно передать VHD в Azure и создать виртуальную машину. 
 

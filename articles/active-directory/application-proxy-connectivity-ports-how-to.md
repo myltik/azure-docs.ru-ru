@@ -15,7 +15,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 8d4be108db8c938c0340a7c00a528713d152f126
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -35,5 +35,5 @@ ms.lasthandoff: 12/11/2017
 
 -   Убедитесь, что все прокси-серверы или брандмауэры, которые применяются к соединителю, также применяются к этой странице. Для этого в Internet Explorer выберите **Параметры** -&gt; **Свойства обозревателя** -&gt; **Подключения** -&gt; **Настройка сети**. На этой странице появится флажок "Использовать прокси-сервер для локальной сети". Установите этот флажок и укажите адрес прокси-сервера в поле "Адрес".
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Сведения о соединителях прокси приложения Azure AD](application-proxy-understand-connectors.md)

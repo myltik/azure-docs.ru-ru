@@ -48,7 +48,7 @@ ms.lasthandoff: 11/03/2017
 
 **Предварительные требования**:
 
-* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Кластер HDInsight**. Инструкции по различным способам создания таких кластеров см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **Рабочая станция с Azure PowerShell**.
 
@@ -210,7 +210,7 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
                                 -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate"
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Из этой статьи, а также из статей, сопровождающих каждый пример, вы узнали, как с помощью среды Azure PowerShell выполнять примеры, включенные в кластеры HDInsight. Учебники по использованию Pig, Hive и MapReduce в службе HDInsight см. в следующих статьях.
 
 * [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][hdinsight-get-started]

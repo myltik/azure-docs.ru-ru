@@ -113,7 +113,7 @@ SAS можно использовать, когда доступ к ресурс
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Имя | Сегмент SAS | Описание |
+| ИМЯ | Сегмент SAS | ОПИСАНИЕ |
 | --- | --- | --- |
 | URI BLOB-объекта |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Адрес BLOB-объекта. Обратите внимание, что настоятельно рекомендуется использовать HTTPS. |
 | Версия служб хранилища |`sv=2015-04-05` |Для служб хранилища версии 2012-02-12 и более поздней этот параметр указывает используемую версию. |
@@ -133,7 +133,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| Имя | Сегмент SAS | Описание |
+| ИМЯ | Сегмент SAS | ОПИСАНИЕ |
 | --- | --- | --- |
 | Универсальный код ресурса (URI) |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Конечная точка службы BLOB-объектов с параметрами для получения свойств службы (для запроса GET) или задания свойств службы (для запроса SET). |
 | Службы |`ss=bf` |SAS применяется к службам больших двоичных объектов и службам файлов. |

@@ -85,7 +85,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Открытие службы работоспособности ресурсов из меню "Больше служб"](./media/resource-health-overview/FromOtherServices.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Ознакомьтесь с этими материалами, чтобы узнать больше о работоспособности ресурсов:
 -  [Resource types and health checks in Azure resource health](resource-health-checks-resource-types.md) (Типы ресурсов и проверки работоспособности в службе работоспособности ресурсов Azure)

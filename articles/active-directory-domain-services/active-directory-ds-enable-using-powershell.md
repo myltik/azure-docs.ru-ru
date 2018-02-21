@@ -16,7 +16,7 @@ ms.date: 12/06/2017
 ms.author: maheshu
 ms.openlocfilehash: a456a6265400abe1d3a3620df74e41d8b4399b97
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -225,7 +225,7 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 * Включите синхронизацию паролей с доменными службами Azure AD, чтобы пользователи могли входить в управляемый домен с рабочими учетными данными.
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 После создания управляемого домена выполните следующие операции настройки, чтобы использовать управляемый домен.
 
 * [Обновление настроек DNS для виртуальной сети Azure](active-directory-ds-getting-started-dns.md)

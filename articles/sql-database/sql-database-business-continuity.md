@@ -18,7 +18,7 @@ ms.date: 08/25/2017
 ms.author: sashan
 ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -155,5 +155,5 @@ ms.lasthandoff: 12/14/2017
 ## <a name="upgrade-an-application-with-minimal-downtime"></a>Обновление приложения с минимальным простоем
 Иногда приложение нужно перевести в автономный режим для планового обслуживания, например, чтобы обновить его. В статье [Управление последовательными обновлениями для облачных приложений с помощью активной георепликации базы данных SQL](sql-database-manage-application-rolling-upgrade.md) описывается, как с помощью активной георепликации обеспечить последовательное обновление облачного приложения, чтобы свести к минимуму простой при обновлениях и обеспечить путь восстановления, если случится сбой. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Вопросы разработки приложений для автономных баз данных и пулов эластичных БД рассматриваются в статьях [Создание приложения для аварийного восстановления облака с использованием активной георепликации в базе данных SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) и [Стратегии аварийного восстановления для приложений с использованием пула эластичных баз данных SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

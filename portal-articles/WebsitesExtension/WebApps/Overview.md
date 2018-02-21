@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 Поиск скриптов для выполнения типовых задач.
 
-- [Интерфейс командной строки Azure](/azure/app-service/app-service-cli-sample)
+- [интерфейс командной строки Azure](/azure/app-service/app-service-cli-sample)
 - [Azure PowerShell](/azure/app-service/app-service-powershell-samples)
 
 ## <a name="more"></a>Подробнее

@@ -16,7 +16,7 @@ ms.date: 12/10/2017
 ms.author: magoedte
 ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -295,7 +295,7 @@ ms.lasthandoff: 12/11/2017
 
 Если в будущем вы захотите снова подключить свою группу управления к рабочей области OMS, вам потребуется повторно импортировать файл пакета управления `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` из последней версии накопительного пакета обновления для вашей группы управления.  Этот файл находится в папке `%ProgramFiles%\Microsoft System Center 2012` или `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Чтобы добавить функциональность и собрать данные, [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md).
 
 

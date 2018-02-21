@@ -197,7 +197,7 @@ ASC анализирует сведения из разных источнико
 
 Инструкции по реализации решения по оценке уязвимостей см. в статье [Оценка уязвимостей в центре безопасности Azure](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Краткое руководство по центру безопасности Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 

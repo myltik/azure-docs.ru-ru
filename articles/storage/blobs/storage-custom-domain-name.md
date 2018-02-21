@@ -160,6 +160,6 @@ ms.lasthandoff: 11/11/2017
       -CustomDomainName ""
   ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Сопоставление содержимого Azure CDN с пользовательским доменом](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Использование Azure CDN для доступа к BLOB-объектам с помощью личных доменов по протоколу HTTPS](storage-https-custom-domain-cdn.md)

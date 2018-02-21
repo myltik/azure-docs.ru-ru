@@ -32,7 +32,7 @@ ms.lasthandoff: 11/14/2017
 
 Сведения, приведенные в этой статье, относятся к развертыванию виртуальных массивов StorSimple на портале Azure, а также в облаке Microsoft Azure для государственных организаций.
 
-### <a name="get-started"></a>Приступая к работе
+### <a name="get-started"></a>Начало работы
 Рабочий процесс развертывания состоит из подготовки портала, подготовки виртуального массива к работе в виртуальной среде и настройки. Чтобы приступить к развертыванию виртуального массива StorSimple в качестве файлового сервера или сервера iSCSI, изучите ресурсы, приведенные в таблице ниже.
 
 #### <a name="deployment-articles"></a>Статьи по развертыванию
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/14/2017
 * Скачайте [контрольный список для настройки виртуального массива StorSimple в качестве файлового сервера](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Скачайте [контрольный список для настройки виртуального массива StorSimple в качестве сервера iSCSI](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Ниже приведены предварительные требования для настройки службы диспетчера устройств StorSimple, виртуального массива StorSimple и сети центра обработки данных.
 

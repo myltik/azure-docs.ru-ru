@@ -2,8 +2,8 @@
 
 Чтобы перейти к своему экземпляру службы управления API, выполните следующие действия:
 
-1. Выполните вход на [портал Azure](https://portal.azure.com). 
-2. Выберите пункт ![стрелка](./media/api-management-navigate-to-instance/arrow.png).
+1. Войдите на [портале Azure](https://portal.azure.com). 
+2. Выберите пункт ![Стрелка](./media/api-management-navigate-to-instance/arrow.png).
 3. В поле поиска введите "api".
 4. Щелкните **Службы управления API**.
 

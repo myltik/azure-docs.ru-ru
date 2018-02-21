@@ -17,7 +17,7 @@ ms.date: 10/16/2017
 ms.author: bradsev
 ms.openlocfilehash: 0f7a6d0a58e2dcfd94e20a81ae12b42f238016c8
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -110,7 +110,7 @@ ms.lasthandoff: 12/18/2017
 ### <a name="example-project-report"></a>Пример отчета по проекту
 Ознакомьтесь с [примером отчета по проекту](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md). Этот отчет по проекту [классификации доходов в США](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) показывает, как создать экземпляр шаблона TDSP и использовать его для проекта по обработке и анализу данных.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Чтобы вам было легче понять, как использовать структуру и шаблоны TDSP в проектах службы "Машинное обучение Microsoft Azure", мы предоставляем несколько примеров реализованных проектов в документации по службе "Машинное обучение Microsoft Azure".
 
 - Пример процесса создания проекта TDSP в службе "Машинное обучение Microsoft Azure" см. в статье [Income classification with Team Data Science Process project](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) (Классификация доходов с помощью проекта процесса обработки и анализа данных группы).

@@ -49,7 +49,7 @@
 
 * **Docker Swarm**: [Docker Security](https://www.docker.com/docker-security) (Защита Docker)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения об архитектуре Docker и защите контейнера см. в руководстве [Introduction to Container Security. Understanding the isolation properties of Docker](https://www.docker.com/sites/default/files/WP_IntrotoContainerSecurity_08.19.2016.pdf) (Обзор безопасности контейнеров. Свойства изоляции Docker).
 

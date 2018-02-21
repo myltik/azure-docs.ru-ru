@@ -16,7 +16,7 @@ ms.date: 10/26/2017
 ms.author: maheshu
 ms.openlocfilehash: fb28c7a66d26119444dd720c2e134f2818d46cfc
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -62,7 +62,7 @@ Azure AD позволяет управлять идентификаторами 
 | Отлично подойдет для: | мобильных или настольных устройств пользователей | виртуальных машин сервера, развернутых в Azure |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 ### <a name="learn-more-about-azure-ad-domain-services"></a>Дополнительные сведения о доменных службах Azure AD
 * [Доменные службы Azure AD](active-directory-ds-overview.md)
 * [Функции](active-directory-ds-features.md)

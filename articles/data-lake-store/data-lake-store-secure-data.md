@@ -30,11 +30,11 @@ ms.lasthandoff: 11/28/2017
 
 В этой статье представлены инструкции по использованию портала Azure для выполнения указанных выше задач. Подробные сведения о реализации безопасности на уровне учетной записи и данных в Data Lake Store см. в статье [Обеспечение безопасности в Azure Data Lake Store](data-lake-store-security-overview.md). Подробные сведения о реализации списков ACL в Azure Data Lake Store см. в статье [Контроль доступа в Azure Data Lake Store](data-lake-store-access-control.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Учетная запись Azure Data Lake Store.** Инструкции по созданию учетной записи см. в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).
+* **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Учетная запись хранения озера данных Azure**. Инструкции по созданию учетной записи см. в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Создание групп безопасности в Azure Active Directory
 Инструкции по созданию групп безопасности AAD и добавлению пользователей в группу см. в статье [Управление группами в Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/28/2017
     ![Добавление группы безопасности](./media/data-lake-store-secure-data/adl.add.user.2.png "Добавление группы безопасности")
    
     Если вы хотите добавить группу или пользователя, которые отсутствуют в списке, вы можете пригласить их, щелкнув значок **Пригласить** и указав адрес электронной почты пользователя или группы.
-6. Нажмите кнопку **ОК**. Вы увидите группы безопасности, как показано ниже.
+6. Последовательно выберите **ОК**. Вы увидите группы безопасности, как показано ниже.
    
     ![Добавленная группа безопасности](./media/data-lake-store-secure-data/adl.add.user.3.png "Добавленная группа безопасности")
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 11/28/2017
 4. Щелкните значок **Добавить**, чтобы открыть колонку **Добавить настраиваемый доступ**. В этой колонке щелкните **Выберите пользователя или группу**, а затем в колонке **Выберите пользователя или группу** найдите группу безопасности, созданную ранее в Azure Active Directory. Если у вас много групп для поиска, воспользуйтесь текстовым полем в верхней части для фильтрации по имени группы. Выберите группу, которую необходимо добавить, и нажмите кнопку **Выбрать**.
    
     ![Добавление группы](./media/data-lake-store-secure-data/adl.acl.3.png "Добавление группы")
-5. Щелкните **Выберите разрешения**, выберите необходимые разрешения, а затем укажите, назначить ли разрешения как список ACL по умолчанию, список ACL для доступа или оба этих параметра. Нажмите кнопку **ОК**.
+5. Щелкните **Выберите разрешения**, выберите необходимые разрешения, а затем укажите, назначить ли разрешения как список ACL по умолчанию, список ACL для доступа или оба этих параметра. Последовательно выберите **ОК**.
    
     ![Назначение разрешений для группы](./media/data-lake-store-secure-data/adl.acl.4.png "Назначение разрешений для группы")
    
@@ -150,9 +150,9 @@ ms.lasthandoff: 11/28/2017
    
     ![Назначение разрешений для группы](./media/data-lake-store-secure-data/adl.remove.acl.png "Назначение разрешений для группы")
 
-## <a name="see-also"></a>Дополнительные материалы
-* [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
-* [Копирование данных из больших двоичных объектов службы хранилища Azure в Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
+## <a name="see-also"></a>См. также
+* [Обзор Azure Data Lake Store](data-lake-store-overview.md)
+* [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Начало работы с хранилищем озера данных с помощью PowerShell](data-lake-store-get-started-powershell.md)

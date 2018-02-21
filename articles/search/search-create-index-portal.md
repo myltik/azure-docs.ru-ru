@@ -15,7 +15,7 @@ ms.date: 06/20/2017
 ms.author: heidist
 ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/21/2017
 
 Используйте встроенный конструктор на портале Azure для создания [индекса поиска](search-what-is-an-index.md) и его выполнения в службе Поиска Azure. 
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 В этой статье предполагается наличие [подписки Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) и [службы поиска Azure](search-create-service-portal.md).  
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 12/21/2017
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 После создания индекса службы поиска Azure можно перейти к следующему шагу: [отправке доступных для поиска данных в индекс](search-what-is-data-import.md).
 

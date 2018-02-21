@@ -22,9 +22,9 @@ ms.lasthandoff: 10/11/2017
 
 Сведения о развертывании веб сервера IIS на виртуальной машине под управлением Windows Server 2016:
 
-- [Портал Azure](/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [портале Azure](/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-- [Интерфейс командной строки Azure](/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [интерфейс командной строки Azure](/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="step-by-step-tutorials"></a>Пошаговые руководства
 
@@ -32,11 +32,11 @@ ms.lasthandoff: 10/11/2017
 
 - [Manage Windows virtual machines with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm) (Управление виртуальными машинами Windows с помощью Azure PowerShell)
 - [Manage Azure disks with the Azure CLI](/azure/virtual-machines/windows/tutorial-manage-data-disk) (Управление дисками Azure с помощью Azure CLI)
-- [How to customize a Linux virtual machine on first boot](/azure/virtual-machines/windows/tutorial-automate-vm-deployment) (Настройка виртуальной машины Linux при первой загрузке)
+- [Автоматизация настройки виртуальной машины](/azure/virtual-machines/windows/tutorial-automate-vm-deployment)
 - [Создание образа настраиваемой виртуальной машины](/azure/virtual-machines/windows/tutorial-custom-images)
 - [Создание высокодоступных виртуальных машин](/azure/virtual-machines/windows/tutorial-availability-sets)
 - [Create a Virtual Machine Scale Set and deploy a highly available app on Linux](/azure/virtual-machines/windows/tutorial-create-vmss) (Создание масштабируемого набора виртуальных машин и развертывание высокодоступного приложения в Linux)
-- [How to load balance Linux virtual machines in Azure to create a highly available application](/azure/virtual-machines/windows/tutorial-load-balancer) (Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения)
+- [Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения](/azure/virtual-machines/windows/tutorial-load-balancer)
 - [Управление виртуальными сетями Azure и виртуальными машинами Windows с помощью Azure PowerShell](/azure/virtual-machines/windows/tutorial-virtual-network)
 - [Back up Windows virtual machines in Azure](/azure/virtual-machines/windows/tutorial-backup-vms) (Резервное копирование виртуальных машин Windows в Azure)
 - [How to monitor a Linux virtual machine in Azure](/azure/virtual-machines/windows/tutorial-monitoring) (Мониторинг виртуальной машины Linux в Azure)
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 
 Развертывание первого приложения в Azure.
 
-- [Интерфейс командной строки Azure](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [интерфейс командной строки Azure](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="more"></a>Подробнее

@@ -39,14 +39,14 @@ Install-Package WindowsAzure.ServiceBus
 ```
 
 ## <a name="create-an-event-hub"></a>Создание концентратора событий
-Для создания концентраторов событий можно использовать класс [NamespaceManager][] . Например:
+Для создания концентраторов событий можно использовать класс [NamespaceManager][] . Например: 
 
 ```csharp
 var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.windows.net");
 var description = manager.CreateEventHub("MyEventHub");
 ```
 
-В большинстве случаев рекомендуется использовать методы [CreateEventHubIfNotExists][] , чтобы избежать возникновения исключений в случае перезапуска службы. Например:
+В большинстве случаев рекомендуется использовать методы [CreateEventHubIfNotExists][] , чтобы избежать возникновения исключений в случае перезапуска службы. Например: 
 
 ```csharp
 var description = manager.CreateEventHubIfNotExists("MyEventHub");
@@ -65,7 +65,7 @@ var client = EventHubClient.Create(description.Path);
 
 Этот метод использует сведения о подключении к служебной шине в файле App.config в разделе `appSettings`. Пример раздела XML `appSettings`, в котором хранятся данные подключения к служебной шине, см. в документации по методу [Microsoft.ServiceBus.Messaging.EventHubClient.Create(System.String)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_).
 
-Кроме того, можно создать клиент из строки подключения. Это удобно в случаях, когда используются рабочие роли Azure, поскольку строку можно хранить в свойствах конфигурации для исполнителя. Например:
+Кроме того, можно создать клиент из строки подключения. Это удобно в случаях, когда используются рабочие роли Azure, поскольку строку можно хранить в свойствах конфигурации для исполнителя. Например: 
 
 ```csharp
 EventHubClient.CreateFromConnectionString("your_connection_string");
@@ -123,7 +123,7 @@ public void SendBatch(IEnumerable<EventData> eventDataList);
 События можно отправлять в концентратор событий асинхронно. Асинхронная отправка позволяет увеличить скорость, с которой клиент способен отправлять события. В асинхронной версии доступны оба метода, [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) и [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendbatch), которые возвращают объект [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Несмотря на то что этот способ позволяет увеличить пропускную способность, он также может привести к возникновению ситуации, когда клиент продолжает отправлять события, даже когда отправка регулируется службой концентраторов событий. В случае неправильной реализации это может привести к возникновению ошибок на стороне клиента или к потере сообщений. Кроме того, на стороне клиента можно использовать свойство [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity.retrypolicy) для управления параметрами повторного выполнения попыток клиентом.
 
 ## <a name="create-a-partition-sender"></a>Создание отправителя секции
-Несмотря на то, что наиболее распространена отправка событий в концентратор событий без ключа секции, в некоторых случаях может потребоваться отправить события напрямую в указанную секцию. Например:
+Несмотря на то, что наиболее распространена отправка событий в концентратор событий без ключа секции, в некоторых случаях может потребоваться отправить события напрямую в указанную секцию. Например: 
 
 ```csharp
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
@@ -142,7 +142,7 @@ EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
 var receiver = group.CreateReceiver(client.GetRuntimeInformation().PartitionIds[0]);
 ```
 
-Метод [CreateReceiver](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup#methods_summary) имеет несколько перегрузок, которые облегчают контроль над созданием модуля чтения. Эти методы включают указание смещения в качестве строки или метки времени, а также возможность указать, следует ли включать это указанное смещение в возвращаемый поток или запустить после него. После создания получателя можно начать прием событий в возвращаемом объекте. Метод [Receive](/dotnet/api/microsoft.servicebus.messaging.eventhubreceiver#methods_summary) имеет четыре перегрузки, которые управляют параметрами операции приема, такими как размер пакета и время ожидания. Для увеличения пропускной способности потребителя можно использовать асинхронные версии этих методов. Например:
+Метод [CreateReceiver](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup#methods_summary) имеет несколько перегрузок, которые облегчают контроль над созданием модуля чтения. Эти методы включают указание смещения в качестве строки или метки времени, а также возможность указать, следует ли включать это указанное смещение в возвращаемый поток или запустить после него. После создания получателя можно начать прием событий в возвращаемом объекте. Метод [Receive](/dotnet/api/microsoft.servicebus.messaging.eventhubreceiver#methods_summary) имеет четыре перегрузки, которые управляют параметрами операции приема, такими как размер пакета и время ожидания. Для увеличения пропускной способности потребителя можно использовать асинхронные версии этих методов. Например: 
 
 ```csharp
 bool receive = true;
@@ -182,7 +182,7 @@ while(receive)
 
 Дополнительные сведения об отзыве издателя и отправке в концентраторы событий в качестве издателя см. в примере, приведенном в статье [Event Hubs Large Scale Secure Publishing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) (Крупномасштабная безопасная публикация концентраторов событий).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о сценариях концентраторов событий см. в разделах, ссылки на которые указаны ниже.
 
 * [Общие сведения об API концентраторов событий](event-hubs-api-overview.md)

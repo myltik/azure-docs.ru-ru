@@ -17,7 +17,7 @@ ms.date: 12/18/2017
 ms.author: kumud
 ms.openlocfilehash: 0a0808d3963cc037aaf113c67fd01679ee8c1d40
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/19/2017
 ---
@@ -132,7 +132,7 @@ Azure DNS поддерживает использование тегов Azure R
 
 | Заголовок | Поведение |
 | --- | --- |
-| None |PUT всегда завершается успешно (без проверки Etag) |
+| Нет |PUT всегда завершается успешно (без проверки Etag) |
 | If-match <etag> |PUT завершается успешно, только если ресурс существует и Etag соответствует |
 | If-match * |PUT завершается успешно, только если ресурс существует |
 | If-none-match* |PUT завершается успешно, только если ресурс не существует |
@@ -144,7 +144,7 @@ Azure DNS поддерживает использование тегов Azure R
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Чтобы начать работу с Azure DNS, узнайте, как [создать зону DNS](dns-getstarted-create-dnszone-portal.md) и [записи DNS](dns-getstarted-create-recordset-portal.md).
 * Чтобы перенести имеющуюся зону DNS, узнайте, как [импортировать и экспортировать файл зоны DNS](dns-import-export.md).

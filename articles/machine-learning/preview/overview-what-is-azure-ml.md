@@ -59,7 +59,7 @@ ms.lasthandoff: 10/27/2017
 - Bing;
 - Xbox;
 - Office;
-- SQL Server
+- SQL Server;
 
 Ниже перечислены некоторые технологии машинного обучения корпорации Майкрософт, включенные в службу "Машинное обучение Microsoft Azure":
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/27/2017
 - [microsoftml](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package);
 - [revoscalepy](https://docs.microsoft.com/r-server/python-reference/revoscalepy/revoscalepy-package).
 
-## <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
+## <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench;
 Azure Machine Learning Workbench — это классическое приложение с программами командной строки для ОС Windows и macOS. Вы сможете управлять решениями на базе машинного обучения на всех этапах цикла обработки и анализа данных, таких как:
 
 - прием и подготовка данных;

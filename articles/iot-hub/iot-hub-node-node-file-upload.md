@@ -16,7 +16,7 @@ ms.date: 06/28/2017
 ms.author: v-masebo
 ms.openlocfilehash: cff0f2fc664e0c09bfa1f8f0e0d488a049a6f448
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -213,7 +213,7 @@ node SimulatedDevice.js
 
 ![Отправленный файл](./media/iot-hub-node-node-file-upload/uploaded-file.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководство показано, как использовать возможности передачи файлов Центра Интернета вещей, чтобы упростить передачу файлов из устройств. Изучение функций и сценариев Центра Интернета вещей можно продолжить в следующих руководствах:
 

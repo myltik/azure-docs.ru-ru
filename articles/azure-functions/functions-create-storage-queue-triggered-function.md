@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 
 ![Просмотр сообщения в журналах](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Скачайте и установите [обозреватель хранилищ Microsoft Azure](http://storageexplorer.com/).
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/14/2017
 3. Затем используйте настройки, указанные в таблице под изображением.
     ![Настройка функции, активируемой очередью хранилища](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
     
-    | Настройка | Рекомендуемое значение | Описание |
+    | Параметр | Рекомендуемое значение | Описание |
     |---|---|---|
     | **Имя** | Уникальное для вашего приложения-функции | Имя функции, активируемой очередью. |
     | **Имя очереди**   | myqueue-items    | Имя очереди для подключения к вашей учетной записи хранения. |
@@ -109,7 +109,7 @@ ms.lasthandoff: 12/14/2017
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Вы создали функцию, которая выполняется при добавлении сообщения в очередь хранилища.
 

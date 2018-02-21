@@ -13,7 +13,7 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.openlocfilehash: 20156432e17d5eca90779271bd18dc49fa988d7c
 ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/08/2018
 ---
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/08/2018
 
 После успешного развертывания можно выбрать функцию **Перейти к ресурсу**, чтобы настроить другие свойства, определить уровень защиты с помощью политики доступа к данным, добавить источники событий и выполнить другие действия.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Определите политики доступа к данным](time-series-insights-data-access.md) для защиты среды.
 * [Добавьте источник событий концентратора событий](time-series-insights-how-to-add-an-event-source-eventhub.md) в среду "Аналитика временных рядов Azure". 
 * [Отправьте события](time-series-insights-send-events.md) в источник событий.

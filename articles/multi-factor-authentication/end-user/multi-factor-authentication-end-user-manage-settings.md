@@ -18,7 +18,7 @@ ms.author: barlan
 ms.custom: end-user
 ms.openlocfilehash: 8d84574283aa0c94ce303b0a7e3bde335c0eb2b8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -67,6 +67,6 @@ ms.lasthandoff: 12/11/2017
 ## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>Как удалить Microsoft Authenticator со старого устройства и перенести на новое?
 При удалении приложения с устройства или сбросе его параметров активация на внутреннем сервере не удаляется. Дополнительные сведения можно найти в статье [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * См. советы и справочные сведения по устранению неполадок в статье [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) (Трудности с двухфакторной проверкой подлинности).
 * Настройте [пароли приложений](multi-factor-authentication-end-user-app-passwords.md) для всех приложений, которые не поддерживают двухфакторную проверку подлинности.

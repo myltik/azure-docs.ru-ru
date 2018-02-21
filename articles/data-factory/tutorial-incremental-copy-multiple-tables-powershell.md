@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 9eeb265e063e6642b90dd641d41d0a54cbc6951e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 593894b33dfcab4bc03a6223e2fdee1ff9bd7d15
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Добавочная загрузка данных из нескольких таблиц в SQL Server в базу данных SQL Azure
 В этом руководстве вы создадите фабрику данных Azure с конвейером, который загружает разностные данные из нескольких таблиц локальной базы данных SQL Server в базу данных SQL Azure.    
@@ -26,10 +26,10 @@ ms.lasthandoff: 01/23/2018
 
 > [!div class="checklist"]
 > * подготовите исходное и конечное хранилища данных;
-> * Создадите фабрику данных.
+> * создадите фабрику данных;
 > * Создайте локальную среду выполнения интеграции.
 > * Установка среды выполнения интеграции. 
-> * создание связанных служб. 
+> * создадите связанные службы; 
 > * Создание наборов данных источника, приемника и предела.
 > * создадите и запустите конвейер, а также начнете его мониторинг;
 > * Просмотрите результаты.
@@ -66,7 +66,7 @@ ms.lasthandoff: 01/23/2018
 
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
-## <a name="prerequisites"></a>предварительным требованиям
+## <a name="prerequisites"></a>Предварительные требования
 * **SQL Server.** В этом руководстве используйте локальную базу данных SQL Server в качестве исходного хранилища данных. 
 * **База данных SQL Azure**. Базу данных SQL используйте в качестве принимающего хранилища данных. Если у вас нет базы данных SQL, создайте ее, следуя указаниям в статье [Создание базы данных SQL Azure на портале Azure](../sql-database/sql-database-get-started-portal.md). 
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 01/23/2018
     
     ```
 
-### <a name="create-destination-tables-in-your-sql-database"></a>Создание целевых таблиц в базе данных SQL
+### <a name="create-destination-tables-in-your-azure-sql-database"></a>Создание целевых таблиц в базе данных SQL Azure
 1. Откройте SQL Server Management Studio и подключитесь к базе данных SQL Server.
 
 2. В **обозревателе сервера** щелкните правой кнопкой мыши базу данных и выберите **Создать запрос**.
@@ -133,7 +133,7 @@ ms.lasthandoff: 01/23/2018
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Создание дополнительной таблицы в базе данных SQL для хранения значения верхнего предела
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Создание дополнительной таблицы в базе данных SQL Azure для хранения значения верхнего предела
 1. Выполните указанную ниже команду SQL для базы данных SQL, чтобы создать таблицу с именем `watermarktable` для хранения значения предела. 
     
     ```sql
@@ -155,7 +155,7 @@ ms.lasthandoff: 01/23/2018
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Создание хранимой процедуры в базе данных SQL 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Создание хранимой процедуры в базе данных SQL Azure 
 
 Выполните указанную ниже команду, чтобы создать хранимую процедуру в базе данных SQL. Эта хранимая процедура обновляет значение предела после каждого запуска конвейера. 
 
@@ -173,7 +173,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Создание типов данных и дополнительные хранимые процедуры
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Создание типов данных и дополнительных хранимых процедур в Базе данных Azure SQL
 Выполните следующий запрос для создания двух хранимых процедур и двух типов данных в базе данных SQL. Они используются для объединения данных из исходных в целевые таблицы.
 
 ```sql
@@ -227,7 +227,7 @@ END
 ### <a name="azure-powershell"></a>Azure PowerShell
 Чтобы установить новые модули Azure PowerShell, выполните инструкции из статьи [Установка и настройка Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных
+## <a name="create-a-data-factory"></a>Создать фабрику данных
 1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) в двойных кавычках, а затем выполните команду. Например, `"adfrg"`. 
    
      ```powershell
@@ -876,10 +876,10 @@ project_table   2017-10-01 00:00:00.000
 
 > [!div class="checklist"]
 > * подготовите исходное и конечное хранилища данных;
-> * Создадите фабрику данных.
+> * создадите фабрику данных;
 > * Создание локальной среды выполнения интеграции (IR).
 > * Установка среды выполнения интеграции.
-> * создание связанных служб. 
+> * создадите связанные службы; 
 > * Создание наборов данных источника, приемника и предела.
 > * создадите и запустите конвейер, а также начнете его мониторинг;
 > * Просмотрите результаты.

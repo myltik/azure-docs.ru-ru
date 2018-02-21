@@ -38,7 +38,7 @@ ms.lasthandoff: 12/06/2017
 ## <a name="use-agent-pools"></a>Использование пулов агента
 По умолчанию **Marathon** развертывает все новые приложения на *частных* узлах агентов. Приложение на *общедоступных* узлах необходимо явно развернуть во время создания приложения. Перейдите на вкладку **Необязательно** и присвойте параметру **Accepted Resource Roles** (Принятые роли ресурсов) значение **slave_public**. Этот процесс описан [здесь](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) и в документации по [DC/OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте больше об [управлении контейнерами DC/OS](container-service-mesos-marathon-ui.md).
 
 * Узнайте, как [открыть брандмауэр](container-service-enable-public-access.md), предоставляемый Azure, чтобы разрешить общий доступ к контейнеру DC/OS.

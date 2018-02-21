@@ -31,8 +31,8 @@ ms.lasthandoff: 10/23/2017
 ![Концептуальная схема базы данных Azure для MySQL](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
 
 В этой статье рассматриваются основные понятия и функции базы данных Azure для MySQL, относящиеся к производительности, масштабируемости и управляемости. Также приведены ссылки для более подробного изучения. См. эти краткие руководства по быстрому запуску:
-- [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) (Создание сервера базы данных Azure для MySQL с помощью портала Azure)
-- [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md) (Создание базы данных Azure для сервера MySQL с помощью Azure CLI)
+- [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) (Создание базы данных Azure для сервера MySQL с помощью портала Azure)
+- [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md) (Создание сервера базы данных Azure для MySQL с помощью Azure CLI)
 
 Примеры использования Azure CLI:
 - [Примеры Azure CLI для базы данных Azure для MySQL](sample-scripts-azure-cli.md)
@@ -53,8 +53,8 @@ ms.lasthandoff: 10/23/2017
 
 По умолчанию в службе базы данных Azure для MySQL настроено обязательное использование [безопасного SSL-подключения](./concepts-ssl-connection-security.md) для данных, перемещаемых по сети. Применение SSL-соединений между сервером базы данных и клиентскими приложениями обеспечивает защиту от атак "злоумышленник в середине" за счет шифрования потока данных между сервером и приложением.  При необходимости можно отключить обязательное использование SSL при подключении к службе базы данных, если клиентское приложение не поддерживает SSL-соединения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 После ознакомления с базовыми понятиями о базе данных Azure для MySQL и ответив на вопрос "Что такое база данных Azure для MySQL", вы можете перейти к следующим действиям.
 - Ознакомьтесь со страницей цен для сравнения цен и доступа к калькуляторам. [Цены](https://azure.microsoft.com/pricing/details/mysql/)
-- Приступите к работе, создав первый сервер. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) (Создание сервера базы данных Azure для MySQL с помощью портала Azure)
+- Приступите к работе, создав первый сервер. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) (Создание базы данных Azure для сервера MySQL с помощью портала Azure)
 - Создайте свое первое приложение на привычном языке: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md).

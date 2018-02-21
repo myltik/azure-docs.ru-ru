@@ -67,10 +67,10 @@ Azure PowerShell — это набор командлетов PowerShell для 
 
 Дополнительные сведения о том, как использовать Azure PowerShell, см. в [этой статье][powershell-tools].
 
-## <a name="azure-cli"></a>Интерфейс командной строки Azure
+## <a name="azure-cli"></a>Инфраструктура CLI Azure
 CLI Azure — это набор команд для развертывания и управления службами Azure, например веб-сайтами Azure и виртуальными машинами Azure. Сведения об установке Azure CLI см. [здесь](cli-install-nodejs.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительную информацию можно найти в [Центре разработчика PHP](/develop/php/).
 
 [install-php]: http://www.php.net/manual/en/install.php

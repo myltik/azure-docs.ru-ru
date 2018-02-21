@@ -114,7 +114,7 @@ topologyBuilder.SetJavaBolt(
 
 Вы можете загрузить полную версию проекта, созданного в этом руководстве, с сайта [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Но вам нужно будет указать параметры конфигурации, выполнив действия, описанные в этом учебнике.
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 
 * [Кластер Apache Storm в HDInsight версии 3.5 или 3.6](apache-storm-tutorial-get-started-linux.md).
 
@@ -144,7 +144,7 @@ topologyBuilder.SetJavaBolt(
 
 1. Создав **концентратор событий**, просмотрите его колонку на портале Azure и щелкните **Политики общего доступа**. Воспользуйтесь ссылкой **+ Добавить**, чтобы добавить следующие политики.
 
-   | Имя | Разрешения |
+   | ИМЯ | Разрешения |
    | --- | --- |
    | writer |Отправка |
    | reader |Прослушивание |
@@ -227,7 +227,7 @@ topologyBuilder.SetJavaBolt(
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом документе рассмотрено использование объектов spout и bolt Java службы концентраторов событий из топологии C# для работы с данными в концентраторе событий Azure. Дополнительные сведения о создании топологий C# см. в следующих статьях:
 

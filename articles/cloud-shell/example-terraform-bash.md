@@ -186,6 +186,6 @@ Destroy complete! Resources: 1 destroyed.
 
 Ресурс Azure успешно создан с помощью Terraform. Ознакомьтесь со следующими действиями, чтобы продолжить изучение Cloud Shell.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Microsoft AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/#) (Поставщик Microsoft AzureRM)<br>
 [Краткое руководство по Bash в Azure Cloud Shell](quickstart.md)

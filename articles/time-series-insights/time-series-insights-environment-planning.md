@@ -84,6 +84,6 @@ ms.lasthandoff: 11/15/2017
 
 Сведения о том, как предотвратить задержки и регулирование, вы найдете в [этой статье](time-series-insights-environment-mitigate-latency.md). 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Как создать источник событий концентратора событий](time-series-insights-how-to-add-an-event-source-eventhub.md)
 - [Как создать источник событий Центра Интернета вещей](time-series-insights-how-to-add-an-event-source-iothub.md)

@@ -17,7 +17,7 @@ ms.author: barclayn
 ms.custom: 
 ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -167,7 +167,7 @@ Azure обновит виртуальную машину и конфигурац
 
 Чтобы защитить ключи, которые используются при шифровании данных в Azure, компания может использовать Azure Key Vault. Это упрощает процесс управления ключами и позволяет компании поддерживать контроль над ключами, которые обеспечивают доступ к персональным данным и их шифрование.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Руководство по устранению неполадок шифрования дисков Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 

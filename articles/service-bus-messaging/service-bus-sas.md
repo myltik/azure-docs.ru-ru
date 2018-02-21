@@ -16,7 +16,7 @@ ms.date: 12/21/2017
 ms.author: sethm
 ms.openlocfilehash: cdbac0fd18ad440ece35881cbe165c3c7eff8914
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/22/2017
 ---
@@ -357,7 +357,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 | Удаление правила |управление |../myTopic/Subscriptions/mySubscription |
 | Перечисление правил |Управление или прослушивание |../myTopic/Subscriptions/mySubscription/Rules 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительную информацию об обмене сообщениями через служебную шину см. в следующих разделах.
 

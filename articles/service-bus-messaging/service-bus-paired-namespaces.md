@@ -16,7 +16,7 @@ ms.date: 12/21/2017
 ms.author: sethm
 ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/22/2017
 ---
@@ -98,7 +98,7 @@ ms.lasthandoff: 12/22/2017
 ## <a name="closefault-behavior"></a>Поведение при закрытии или сбое
 Размещенный в приложении процесс выкачивания продолжает работать при закрытии или сбое основного или дополнительного экземпляра [MessagingFactory][MessagingFactory], если его партнер также не был закрыт или в нем также не произошел сбой и процесс выкачивания это не обнаружил. Если другой экземпляр [MessagingFactory][MessagingFactory] не закрывается в течение 5 секунд, процесс выкачивания завершит работу открытого экземпляра [MessagingFactory][MessagingFactory] со сбоем.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Подробное описание асинхронного обмена сообщениями в служебной шине см. в статье [Шаблоны асинхронного обмена сообщениями и высокий уровень доступности][Asynchronous messaging patterns and high availability]. 
 
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_

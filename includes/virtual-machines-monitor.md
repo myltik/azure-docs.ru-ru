@@ -2,7 +2,7 @@
 
 ## <a name="diagnostics-and-metrics"></a>Диагностика и метрики 
 
-Можно выполнять настройку и мониторинг сбора [данных диагностики](https://docs.microsoft.com/cli/azure/vm/diagnostics) с помощью [метрик](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md) на портале Azure, а также при помощи Azure CLI, Azure PowerShell и программных интерфейсов (API). Вот что вы можете, к примеру, делать:
+Можно выполнять настройку и мониторинг сбора [данных диагностики](https://docs.microsoft.com/cli/azure/vm/diagnostics) с помощью [метрик](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md) на портале Azure, а также при помощи Azure CLI, Azure PowerShell и программных интерфейсов (API). Например, вы можете просматривать:
 
 - **Отслеживать основные метрики для виртуальной машины.** Основные метрики, представленные на экране обзора на портале Azure, включают показатели использования ЦП и сети, общую емкость диска в байтах и число операций с диском в секунду.
 
@@ -59,6 +59,6 @@
 
 - [Наблюдатель за сетями](../articles/network-watcher/network-watcher-monitoring-overview.md) позволяет выполнять мониторинг виртуальной машины и связанных с ней ресурсов, которые находятся в одной сети. На виртуальной машине [Linux](../articles/virtual-machines/linux/extensions-nwa.md) или [Windows](../articles/virtual-machines/windows/extensions-nwa.md) можно установить расширения для агента Наблюдателя за сетями.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Выполните инструкции в статьях [Мониторинг виртуальных машин Windows с помощью Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) или [Мониторинг виртуальных машин Linux в Azure](../articles/virtual-machines/linux/tutorial-monitoring.md).
 - Ознакомьтесь с рекомендациями по [мониторингу и диагностике](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).

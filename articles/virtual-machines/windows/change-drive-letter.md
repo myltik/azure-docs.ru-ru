@@ -17,7 +17,7 @@ ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: a4e29ce7ebb20753c3313e1148e1c91e853f49f5
 ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -62,6 +62,6 @@ ms.lasthandoff: 01/03/2018
 8. Нажмите кнопку **Применить**. Вы получите предупреждение о том, что для вступления изменений в силу необходимо перезагрузить компьютер.
 9. Перезапустите виртуальную машину.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Вы можете увеличить объем хранилища, доступный виртуальной машине, [подключив дополнительный диск данных](attach-managed-disk-portal.md).
 

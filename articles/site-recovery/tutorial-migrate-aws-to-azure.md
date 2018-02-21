@@ -2,28 +2,22 @@
 title: "Миграция виртуальных машин из AWS в Azure с помощью Azure Site Recovery | Документация Майкрософт"
 description: "В этой статье описано, как перенести виртуальные машины, запущенные в Amazon Web Services (AWS), в Azure с помощью Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: ddb412fd-32a8-4afa-9e39-738b11b91118
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 4acdc540ca1a87a4545130eb5fbc096633b0605c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Перенос виртуальных машин Amazon Web Services (AWS) в Azure
 
-Из этого руководства вы узнаете, как перенести виртуальные машины Amazon Web Services (AWS) в виртуальные машины Azure с помощью Site Recovery. При миграции EC2 экземпляров в Azure, виртуальные машины рассматриваются, как если бы они были физических, локальных компьютеров. Из этого руководства вы узнаете, как выполнять такие задачи:
+Из этого руководства вы узнаете, как перенести виртуальные машины Amazon Web Services (AWS) в виртуальные машины Azure с помощью Site Recovery. При миграции экземпляров EC2 в Azure виртуальные машины считаются физическими локальными компьютерами. Из этого руководства вы узнаете, как выполнять такие задачи:
 
 > [!div class="checklist"]
 > * Подготовка ресурсов Azure
@@ -258,7 +252,7 @@ ms.lasthandoff: 12/11/2017
 
     
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом разделе вы узнали, как перенести экземпляры EC2 AWS на виртуальные машины Azure. Дополнительные сведения о виртуальных машинах Azure см. в руководствах для виртуальных машин Windows.
 

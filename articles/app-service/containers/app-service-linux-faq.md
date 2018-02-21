@@ -17,7 +17,7 @@ ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -155,7 +155,7 @@ var io = require('socket.io')(server,{
 
 Вы можете отправить свои идеи на [форум отзывов о веб-приложениях](https://aka.ms/webapps-uservoice). Добавьте [Linux] в заголовок своей идеи.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Общие сведения о службе приложений на платформе Linux](app-service-linux-intro.md).
 * [Настройка промежуточных сред в службе приложений Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

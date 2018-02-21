@@ -12,7 +12,7 @@ ms.date: 10/26/2017
 ms.author: tomfitz
 ms.openlocfilehash: d3c955d7be0e7e6d45751c0e685bad498e524d94
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/07/2017
 ---
@@ -93,7 +93,7 @@ az policy assignment show --name locationAssignment --scope $managedGroup --quer
 
 ![Просмотр назначения политики](./media/update-managed-resources/assignment.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Общие сведения об управляемых приложениях Azure см. в разделе [Обзор управляемых приложений Azure](overview.md).
 * Примеры проектов см. в статье [Примеры проектов для управляемых приложений Azure](sample-projects.md).

@@ -46,7 +46,7 @@ ms.lasthandoff: 11/01/2017
 * `myWebAppName` — идентификатор веб-приложения.
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Включение расширения диагностики как части развертывания облачной службы
-Параметр `ExtensionConfiguration` командлета `New-AzureDeployment` принимает массив значений для конфигурации диагностики. Их можно создать с помощью командлета `New-AzureServiceDiagnosticsExtensionConfig` . Например:
+Параметр `ExtensionConfiguration` командлета `New-AzureDeployment` принимает массив значений для конфигурации диагностики. Их можно создать с помощью командлета `New-AzureServiceDiagnosticsExtensionConfig` . Например: 
 
 ```ps
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/01/2017
 ```
 
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Мониторинг приложений облачных служб Azure с помощью Application Insights](app-insights-cloudservices.md)
 * [Отправка данных системы диагностики Azure в Application Insights](app-insights-azure-diagnostics.md)
 * [Use PowerShell to set alerts in Application Insights](app-insights-powershell-alerts.md)

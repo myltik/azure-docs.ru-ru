@@ -40,7 +40,7 @@ ms.lasthandoff: 11/01/2017
 
 В следующей таблице описаны параметры фильтра.
 
-| Настройка | Описание |
+| Параметр | ОПИСАНИЕ |
 |:---|:---|
 | Имя поля | Имя поля, используемого для фильтрации.  Оно должно соответствовать полю summarize в **запросе значений**. |
 | Запрос значений | Запрос, выполняемый для заполнения раскрывающегося списка фильтров для пользователя.  Он должен содержать оператор [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) или [distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator), чтобы предоставлять уникальные значения для определенного поля, и он должен соответствовать **имени поля**.  Можно использовать оператор [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) для сортировки значений, отображаемых для пользователя. |
@@ -53,8 +53,8 @@ ms.lasthandoff: 11/01/2017
 | Имя поля | Запрос значений | Тег |
 |:--|:--|:--|
 | Компьютер   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Компьютеры |
-| EventLevelName | Event &#124; distinct EventLevelName | Severity |
-| SeverityLevel | Syslog &#124; distinct SeverityLevel | Severity |
+| EventLevelName | Event &#124; distinct EventLevelName | Уровень серьезности |
+| SeverityLevel | Syslog &#124; distinct SeverityLevel | Уровень серьезности |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 
@@ -74,5 +74,5 @@ ms.lasthandoff: 11/01/2017
 
     Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте больше об [элементах визуализации](log-analytics-view-designer-parts.md), которые можно добавить в представление.

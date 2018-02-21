@@ -16,7 +16,7 @@ ms.date: 10/24/2017
 ms.author: v-craic
 ms.openlocfilehash: a27423a75cb2b5063156109ea9ee3a45fa036c07
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -94,6 +94,6 @@ ms.lasthandoff: 01/02/2018
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * После создания виртуальной машины вы можете подключиться к ней, выбрав **Подключиться** на соответствующей панели управления.
 * Изучите [коллекцию шаблонов быстрого запуска для Azure Resource Manager в DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

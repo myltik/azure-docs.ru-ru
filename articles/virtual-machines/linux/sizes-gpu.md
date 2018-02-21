@@ -17,7 +17,7 @@ ms.date: 12/14/2017
 ms.author: jonbeck
 ms.openlocfilehash: 9e8b682d8d7e409f97144d344ec58e710327df7a
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/16/2017
 ---
@@ -43,5 +43,5 @@ ms.lasthandoff: 12/16/2017
 - [Оптимизированные для хранилища](sizes-storage.md)
 - [Для высокопроизводительных вычислений](sizes-hpc.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](acu.md) сравнить производительность вычислений для различных номеров SKU Azure.

@@ -25,7 +25,7 @@ ms.lasthandoff: 11/29/2017
 
 В этом кратком руководстве показано, как использовать [Node.js](https://nodejs.org/en/) для создания программы, которая подключается к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос данных.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Ниже указаны требования для работы с этим кратким руководством.
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 11/29/2017
 
 2. Убедитесь, что возвращены первые 20 строк, а затем закройте окно приложения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Ознакомьтесь со сведениями о [драйвере Microsoft Node.js для SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/).
 - Узнайте, как [подключиться и отправить запрос к базе данных SQL Azure с помощью .NET Core](sql-database-connect-query-dotnet-core.md) в Windows, Linux и Mac OS.  

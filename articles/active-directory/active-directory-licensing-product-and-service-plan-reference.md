@@ -17,7 +17,7 @@ ms.date: 10/26/2017
 ms.author: piotrci
 ms.openlocfilehash: 421c7472442c0f01a99ac2ae8c49417b26724573
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -196,7 +196,7 @@ ms.lasthandoff: 12/11/2017
 | YAMMER_EDU    | 2078e8df-cff6-4290-98cb-5408261a760a |
 | YAMMER_MIDSIZE    | 41bf139a-4e60-409f-9346-a1361efc6dfb |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о наборе функций для управления лицензиями с помощью групп см. по ссылкам ниже.
 

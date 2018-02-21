@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="log-analytics-data-security"></a>Защита данных Log Analytics
 Корпорация Майкрософт заботится о вашей конфиденциальности и безопасности ваших данных, выпуская программное обеспечение и службы, которые помогают вам управлять ИТ-инфраструктурой своей организации. Мы понимаем, что когда вы доверяете свои данные сторонним организациям, они требуют надежной защиты. Корпорация Майкрософт следует строгим нормативным требованиям и указаниям по безопасности — от создания кода до эксплуатации служб.
 
-Защита данных — главный приоритет корпорации Майкрософт. Отправляйте свои вопросы, предложения и сообщения о неполадках, связанные с представленными ниже сведениями, включая наши политики защиты, в [службу поддержки Azure](http://azure.microsoft.com/support/options/).
+Безопасность и защита данных — главный приоритет корпорации Майкрософт. Отправляйте свои вопросы, предложения и сообщения о неполадках, связанные с представленными ниже сведениями, включая наши политики защиты, в [службу поддержки Azure](http://azure.microsoft.com/support/options/).
 
 В этой статье описываются сбор, обработка и защита данных с помощью Log Analytics в Operations Management Suite (OMS). Вы можете подключиться к веб-службе с помощью агентов, собирать рабочие данные с помощью System Center Operations Manager и получать данные системы диагностики Azure с помощью Log Analytics. Собранные данные отправляются через Интернет в службу Log Analytics, которая размещается в Microsoft Azure, по протоколу SSL 3 с использованием проверки подлинности на основе сертификата. Перед отправкой агент сжимает данные.
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 | **Тип данных** | **Поля** |
 | --- | --- |
 | Предупреждение |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
-| Конфигурация |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| Параметр Configuration |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
 | Событие |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Примечание.** OMS собирает данные событий с настраиваемыми полями при их записи в журнал событий Windows. |
 | Метаданные |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Производительность |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
@@ -162,5 +162,5 @@ OMS Log Analytics соответствует следующим требован
 
 На портале OMS можно экспортировать данные в CSV-файл и получить доступ к ним, используя API-интерфейсы для поиска. В CSV-файл можно экспортировать не более 50 000 строк за один раз. В рамках одной операции поиска для данных API предусмотрено ограничение в 5000 строк.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Приступая к работе с Log Analytics](log-analytics-get-started.md) .

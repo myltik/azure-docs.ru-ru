@@ -77,6 +77,6 @@ ms.lasthandoff: 11/22/2017
 * В имени свойства метки времени _учитывается регистр_.
 * Так как значение свойства метки времени из источника событий является строкой JSON, оно должно иметь формат _гггг-мм-ддТчч:мм:сс.FFFFFFFK_. Например 2008-04-12T12:53Z.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - Чтобы получить помощь по этим темам, начните дискуссию на [форуме MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) или [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 
 - Также вы можете обратиться в [службу поддержки Azure](https://azure.microsoft.com/support/options/).

@@ -114,7 +114,7 @@ ms.lasthandoff: 10/11/2017
 
 В качестве примера был использован полностью секционированный запрос Stream Analytics. Если требуется более сложный запрос, посетите [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). Это превосходный ресурс, на котором можно получить дополнительные сведения от разработчиков Stream Analytics.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о службе Stream Analytics см. в следующих статьях:
 
 * [Приступая к работе с Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

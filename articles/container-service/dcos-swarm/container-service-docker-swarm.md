@@ -109,6 +109,6 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 Конечно, вы можете использовать команду `docker-compose ps` для просмотра только контейнеров, определенных в файле `compose.yml`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Дополнительные сведения о Docker Swarm](https://docs.docker.com/swarm/)
 

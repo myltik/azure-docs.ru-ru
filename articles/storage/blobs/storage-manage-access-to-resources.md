@@ -36,7 +36,7 @@ ms.lasthandoff: 10/18/2017
 
 Чтобы установить разрешения для контейнера, можно использовать:
 
-* [Портал Azure](https://portal.azure.com)
+* [портал Azure](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Azure CLI 2.0](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * программный метод с помощью одной из клиентских библиотек службы хранилища или REST API.
@@ -148,7 +148,7 @@ public static void DownloadBlobAnonymously()
 | Get Page Ranges (Получение диапазона страницы) |Все |Все |
 | Добавление больших двоичных объектов |Только владелец |Только владелец |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Проверка подлинности для служб хранилища Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Использование подписанных URL-адресов (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -16,14 +16,14 @@ ms.date: 07/17/2017
 ms.author: magoedte
 ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>Решение для мониторинга работоспособности агентов в OMS
 Решение для мониторинга работоспособности агентов в OMS помогает выявлять среди всех агентов, отправляющих отчеты непосредственно в OMS или подключенную к OMS группу управления System Center Operations Manager, агенты, которые не отвечают на запросы и которые отправляют оперативные данные.  Вы также можете отслеживать число развернутых агентов и их географическое распределение, а также выполнять другие запросы, чтобы знать о распределении агентов, развернутых в Azure, других облачных средах или в локальной среде.    
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Перед развертыванием этого решения убедитесь, что у вас есть поддерживаемые [агенты Windows](../log-analytics/log-analytics-windows-agent.md), которые отправляют отчеты в рабочую область OMS или [группу управления Operations Manager](../log-analytics/log-analytics-om-agents.md), интегрированную с вашей рабочей областью OMS.    
 
 ## <a name="solution-components"></a>Компоненты решения
@@ -131,6 +131,6 @@ ms.lasthandoff: 01/03/2018
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Географическое расположение агентов |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Число установленных шлюзов OMS |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Дополнительные сведения о генерации оповещений из Log Analytics см. в статье [Оповещения в Log Analytics](../log-analytics/log-analytics-alerts.md).

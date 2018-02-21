@@ -17,7 +17,7 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 23e72fdb2ed063f416e65d34727ca9babc143a26
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -53,6 +53,6 @@ ms.lasthandoff: 12/11/2017
 
 При поступлении запроса с IP-адреса, который имеется в списке разрешений, двухфакторная проверка подлинности пропускается. Утвержденный список IP-адресов сравнивается с IP-адресом, который предоставляется в атрибуте *ratNASIPAddress* запроса RADIUS. При поступлении запроса RADIUS без атрибута ratNASIPAddress регистрируется следующее предупреждение: P_WHITE_LIST_WARNING::IP Whitelist is being ignored as source IP is missing in RADIUS request in NasIpAddress attribute (P_WHITE_LIST_WARNING: утвержденный список IP-адресов игнорируется, так как в атрибуте NasIpAddress запроса RADIUS отсутствует исходный IP-адрес).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Устранение ошибок, связанных с расширением NPS для Многофакторной идентификации Azure](multi-factor-authentication-nps-errors.md)

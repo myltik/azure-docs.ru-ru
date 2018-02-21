@@ -25,7 +25,7 @@ ms.lasthandoff: 11/29/2017
 
 Это краткое руководство демонстрирует, как использовать [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) для подключения к базе данных SQL Azure. Также демонстрируется применение инструкций Transact-SQL для запроса и изменения данных.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Ниже указаны требования для работы с этим кратким руководством.
 
@@ -289,7 +289,7 @@ ms.lasthandoff: 11/29/2017
    Deleted 1 rows successfully.
    ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Проектирование первой базы данных SQL Azure](sql-database-design-first-database.md)
 - [Драйвер Go для Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)

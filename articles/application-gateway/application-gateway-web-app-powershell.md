@@ -157,6 +157,6 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Чтобы узнать, как настроить перенаправление, ознакомьтесь со статьей [Настройка перенаправления в шлюзе приложений с помощью PowerShell](application-gateway-configure-redirect-powershell.md).

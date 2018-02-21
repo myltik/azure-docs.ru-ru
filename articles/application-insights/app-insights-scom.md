@@ -91,7 +91,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="view-telemetry-in-application-insights"></a>Просмотр данных телеметрии в Application Insights
 На [портале Azure](https://portal.azure.com)перейдите к ресурсу для вашего приложения. Вы увидите [диаграммы телеметрии](app-insights-dashboards.md) для этого приложения. (Если они еще не отображаются на главной странице, щелкните "Live Metrics Stream" (Динамический поток метрик).)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Настройка панели мониторинга](app-insights-dashboards.md) для объединения важнейших диаграмм мониторинга этого и других приложений.
 * [Дополнительная информация о метриках](app-insights-metrics-explorer.md)
 * [Настройка оповещений](app-insights-alerts.md)

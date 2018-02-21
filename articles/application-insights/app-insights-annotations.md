@@ -102,7 +102,7 @@ ms.lasthandoff: 11/01/2017
 
 Сценарий легко изменить, например, чтобы создать заметки для предыдущих выпусков.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Создание рабочих элементов](app-insights-diagnostic-search.md#create-work-item)
 * [Автоматизация с помощью PowerShell](app-insights-powershell.md)

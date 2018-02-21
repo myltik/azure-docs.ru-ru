@@ -37,7 +37,7 @@ Azure предоставляет механизмы безопасности, о
 
 * Управление доступом на основе ролей
 * Защита от вредоносных программ;
-* Multi-Factor Authentication
+* Многофакторная идентификация
 * ExpressRoute
 * Шлюзы виртуальной сети
 * Управление привилегированными пользователями (PIM)
@@ -69,14 +69,14 @@ Azure также поддерживает продукт Symantec End Point Prot
 * [Установка и настройка Symantec Endpoint Protection на виртуальной машине Windows](../virtual-machines/windows/classic/install-symantec.md)
 * [Новые возможности защиты виртуальных машин Azure от вредоносных программ — McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Многофакторная идентификация
 Azure Multi-factor Authentication (MFA) — это метод проверки подлинности, который требует применения более одного метода проверки и добавляет критически важный второй уровень безопасности для операций входа и транзакций пользователя. Эта служба помогает защитить доступ к данным и приложениям, при этом не усложняя процесс входа пользователя в систему. Она обеспечивает строгую проверку подлинности с помощью различных способов — телефонного звонка, текстового сообщения, уведомления в мобильном приложении, кода подтверждения или OATH-токенов третьей стороны.
 
 Подробнее.
 
 * [Многофакторная проверка подлинности](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Что такое Azure Multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
-* [Принципы работы службы Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+* [Что такое Многофакторная идентификация Azure?](../multi-factor-authentication/multi-factor-authentication.md)
+* [Принципы работы службы Многофакторной идентификации Azure](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 Microsoft Azure ExpressRoute позволяет переносить локальные сети в облако Microsoft по выделенному закрытому соединению, которое обеспечивается поставщиком услуг подключения. ExpressRoute позволяет устанавливать подключения к облачным службам Майкрософт, таким как Microsoft Azure, Office 365 и CRM Online. Это может быть подключение типа "любой к любому" (IP VPN), подключение Ethernet типа "точка-точка" или виртуальное кросс-подключение через поставщика услуг подключения на совместно используемом сервере. Подключения ExpressRoute не проходят через общедоступный Интернет. Это обеспечивает повышенный уровень безопасности, надежности и быстродействия подключений ExpressRoute и более низкий уровень задержки по сравнению с типовыми подключениями через Интернет.

@@ -15,7 +15,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 57dddcc9114aeec1337b5b5ad8cfda3004fb0a76
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -170,5 +170,5 @@ Azure AD поддерживает четыре основных типа при�
 
 7.  После загрузки приложения щелкните **Подготовка** в меню навигации слева.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md)

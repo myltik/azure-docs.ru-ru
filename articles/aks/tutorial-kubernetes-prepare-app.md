@@ -11,7 +11,7 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: 60e0feb1e45ac5d9f35eac9667eaf9004d77e86a
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/18/2017
 ---
@@ -32,9 +32,9 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-Для выполнения действий, описанных в этом руководстве, необходимо базовое понимание основных понятий Docker, таких как контейнеры, образы контейнеров и основные команды Docker. При необходимости в разделе [начало работы с Docker] [ docker-get-started] для Знакомство с основами контейнера. 
+Для выполнения действий, описанных в этом руководстве, необходимо базовое понимание основных понятий Docker, таких как контейнеры, образы контейнеров и основные команды Docker. При необходимости см. руководство по [началу работы с Docker][docker-get-started], чтобы ознакомиться с базовыми сведениями о контейнерах. 
 
-Для работы с этим руководством требуется среда разработки Docker. Docker содержит пакеты, которые легко настроить Docker для какого-либо [Mac][docker-for-mac], [Windows][docker-for-windows], или [Linux] [ docker-for-linux] системы.
+Для работы с этим руководством требуется среда разработки Docker. Docker предоставляет пакеты, которые позволяют быстро настроить Docker в любой системе [Mac][docker-for-mac], [Windows][docker-for-windows] или [Linux][docker-for-linux].
 
 Azure Cloud Shell не включает в себя компоненты Docker, необходимые для выполнения каждого шага этого руководства. Таким образом мы рекомендуем полную среду разработки Docker.
 
@@ -58,7 +58,7 @@ cd azure-voting-app-redis
 
 ## <a name="create-container-images"></a>Создание образов контейнеров
 
-[Создание сообщения docker] [ docker-compose] можно использовать для автоматизации создания образов контейнеров и развертывание приложений с несколькими контейнера.
+С помощью [Docker Compose][docker-compose] можно автоматизировать создание дополнительных образов контейнеров и развертывание многоконтейнерных приложений.
 
 Выполните файл `docker-compose.yaml`, чтобы создать образ контейнера, скачать образ Redis и запустить приложение.
 
@@ -66,7 +66,7 @@ cd azure-voting-app-redis
 docker-compose up -d
 ```
 
-После завершения использования [образов docker] [ docker-images] команду, чтобы увидеть созданный изображения.
+После завершения выполните команду [docker images][docker-images], чтобы просмотреть созданные образы.
 
 ```console
 docker images
@@ -81,7 +81,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Запустите [docker ps] [ docker-ps] команду, чтобы увидеть запущенные контейнеры.
+Выполните команду [docker ps][docker-ps], чтобы просмотреть выполняемые контейнеры.
 
 ```console
 docker ps
@@ -119,7 +119,7 @@ docker-compose down
 
 По завершении у вас будет образ контейнера, содержащий приложение Azure Vote.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы протестировали приложение и создали для него образы контейнеров. Были выполнены следующие действия:
 
@@ -131,7 +131,7 @@ docker-compose down
 Переходите к следующему руководству, чтобы узнать о хранении образов контейнеров в реестре контейнеров Azure.
 
 > [!div class="nextstepaction"]
-> [Образы принудительной реестр контейнера Azure][aks-tutorial-prepare-acr]
+> [Принудительная отправка образов в Реестр контейнеров Azure][aks-tutorial-prepare-acr]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

@@ -33,7 +33,7 @@ ms.lasthandoff: 11/06/2017
 
 В этой статье описан пример того, как отправлять отчеты о работоспособности из кода службы. В примере также показано, как можно использовать инструменты, предоставляемые Service Fabric, для проверки состояния работоспособности. Эта статья представляет собой краткое изложение возможностей Service Fabric по отслеживанию работоспособности. Для получения дополнительных сведений вы можете прочесть серию подробных статей о работоспособности, начиная со статьи, ссылка на которую приведена в конце этой статьи.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Должны быть установлены следующие компоненты:
 
 * Visual Studio 2015 или Visual Studio 2017
@@ -67,13 +67,13 @@ ms.lasthandoff: 11/06/2017
 2. Откройте файл Stateful1.cs и найдите вызов `myDictionary.TryGetValueAsync` в методе `RunAsync`. Как видите, этот метод возвращает `result` , который содержит текущее значение счетчика, так как основная логика этого приложения — поддерживать работу счетчика. В настоящем приложении, если отсутствие результата означает сбой, необходимо сообщить о нарушении работоспособности.
 3. Чтобы сообщить о событии отсутствия результата, что представляет собой сбой, сделайте следующее:
    
-    а. Добавьте в файл Stateful1.cs пространство имен `System.Fabric.Health` .
+    a. Добавьте в файл Stateful1.cs пространство имен `System.Fabric.Health` .
    
     ```csharp
     using System.Fabric.Health;
     ```
    
-    b. Добавьте приведенный ниже код после вызова `myDictionary.TryGetValueAsync` .
+    Б. Добавьте приведенный ниже код после вызова `myDictionary.TryGetValueAsync` .
    
     ```csharp
     if (!result.HasValue)
@@ -95,13 +95,13 @@ ms.lasthandoff: 11/06/2017
     ```
 4. Если служба запущена с правами администратора или кластер не является [безопасным](service-fabric-cluster-security.md), для отправки сведений о работоспособности также можно использовать `FabricClient`, как показано ниже.  
    
-    а. Создайте экземпляр `FabricClient` после объявления `var myDictionary`.
+    a. Создайте экземпляр `FabricClient` после объявления `var myDictionary`.
    
     ```csharp
     var fabricClient = new FabricClient(new FabricClientSettings() { HealthReportSendInterval = TimeSpan.FromSeconds(0) });
     ```
    
-    b. Добавьте приведенный ниже код после вызова `myDictionary.TryGetValueAsync` .
+    Б. Добавьте приведенный ниже код после вызова `myDictionary.TryGetValueAsync` .
    
     ```csharp
     if (!result.HasValue)
@@ -147,7 +147,7 @@ var activationContext = FabricRuntime.GetActivationContext();
 activationContext.ReportApplicationHealth(healthInformation);
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Подробный обзор работоспособности в Service Fabric](service-fabric-health-introduction.md)
 * [REST API for reporting service health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service) (REST API для формирования отчетов о работоспособности службы)
 * [REST API for reporting application health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application) (REST API для формирования отчетов о работоспособности приложения)

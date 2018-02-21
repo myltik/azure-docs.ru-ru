@@ -16,7 +16,7 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/14/2017
 ---
@@ -92,6 +92,6 @@ ms.lasthandoff: 12/14/2017
 ## <a name="receiving-the-package"></a>Получение посылки
  После обработки задания экспорта вы получите диски с зашифрованными данными. Чтобы получить ключ BitLocker для каждого диска выполните операцию [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). Затем разблокируйте диск с помощью ключа. Файл манифеста диска на каждом диске содержит список файлов на диске, а также исходный адрес большого двоичного объекта для каждого файла.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Использование REST API службы импорта и экспорта Azure](storage-import-export-using-the-rest-api.md)

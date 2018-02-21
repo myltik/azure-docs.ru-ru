@@ -17,7 +17,7 @@ ms.date: 02/14/2017
 ms.author: nepeters
 ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -56,7 +56,7 @@ docker run -it azuresdk/azure-cli-python:latest bash
 
 После завершения начнется сеанс Bash, в котором предварительно скачаны средства Azure CLI.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Примеры сценариев интерфейса командной строки для виртуальных машин Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

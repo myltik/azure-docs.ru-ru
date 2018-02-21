@@ -21,7 +21,7 @@ ms.lasthandoff: 12/05/2017
 
 Выполняя следующие действия, вы скачаете официальный [образ Nginx](https://store.docker.com/images/nginx) из общедоступного реестра Docker Hub, поместите его в частный реестр контейнеров Azure, отправите его в свой реестр, а затем извлечете его от туда.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Реестр контейнеров Azure.** Создайте реестр контейнеров в своей подписке Azure. Это можно сделать на [портале Azure](container-registry-get-started-portal.md) или с помощью [Azure CLI 2.0](container-registry-get-started-azure-cli.md).
 * **Интерфейс командной строки Docker**. Установите [Docker](https://docs.docker.com/engine/installation/), чтобы настроить локальный компьютер в качестве узла Docker и получить доступ к командам Docker CLI.
@@ -121,6 +121,6 @@ docker rmi myregistry.azurecr.io/samples/nginx
 az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Теперь, когда вы знаете основы, можно приступать к использованию реестра. Например, разверните образы контейнера из реестра в кластер [службы контейнеров Azure](../aks/tutorial-kubernetes-prepare-app.md).

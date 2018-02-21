@@ -16,7 +16,7 @@ ms.date: 04/24/2017
 ms.author: joroja
 ms.openlocfilehash: dfd33a9ecdce7b21f58660fb39a5f2d7b4ce6f43
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/11/2017
 
 Мы можем проверить, не входит ли имя, указанное пользователем в политике изменения профиля, в список исключений.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Клиент Azure AD B2C, необходимый для регистрации или входа с использованием локальной учетной записи, как описано в статье [Azure Active Directory B2C. Приступая к работе с настраиваемыми политиками](active-directory-b2c-get-started-custom.md).
 - Конечная точка REST API, с которой устанавливается взаимодействие. Для этого руководства мы настроили демонстрационный сайт [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/), используя службу REST API.
@@ -127,7 +127,7 @@ return request.CreateResponse(HttpStatusCode.OK);
 2. Проверьте файл политики изменения профиля проверяющей стороны с помощью кнопки **Запустить**.
 3. Выполните проверку, указав одно из имеющихся имен (например, mcvinny) в поле **Заданное имя**. Если все настроено правильно, то должно отобразиться сообщение, указывающее, что playerTag уже используется.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Azure Active Directory B2C. Создание и использование настраиваемых атрибутов в пользовательской политике изменения профиля](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 

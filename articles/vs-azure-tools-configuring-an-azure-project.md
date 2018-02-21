@@ -48,6 +48,6 @@ ms.lasthandoff: 10/11/2017
 
 1. На панели инструментов Visual Studio нажмите кнопку **Сохранить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Настройка проекта Azure с помощью нескольких конфигураций службы](vs-azure-tools-multiple-services-project-configurations.md)
 

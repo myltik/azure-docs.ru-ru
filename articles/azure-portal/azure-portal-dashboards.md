@@ -16,7 +16,7 @@ ms.date: 09/06/2016
 ms.author: sewatson
 ms.openlocfilehash: 7f90c882285170bac34bfe020831d3ac04010a11
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -91,7 +91,7 @@ ms.lasthandoff: 12/11/2017
 
 ![управление контролем доступа](./media/azure-portal-dashboards/manage-access.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Сведения об управлении ресурсами см. в статье [Управление ресурсами Azure через портал](../azure-resource-manager/resource-group-portal.md).
 * Сведения о развертывании ресурсов см. в статье [Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md) (Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure).
 

@@ -18,7 +18,7 @@ ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cf18076c81ecf7471771674fe40d36dba3b9866d
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -230,7 +230,7 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 
 - Лицензирование на основе группы не регистрирует ошибки, когда лицензию невозможно назначить пользователю из-за дублирующейся конфигурации прокси-адреса в Exchange Online; во время назначения лицензии такие пользователи пропускаются. Дополнительные сведения о выявлении и устранении этой проблемы см. в [ этом разделе](./active-directory-licensing-group-problem-resolution-azure-portal.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения о других сценариях управления лицензиями на основе группы см. в следующих статьях:
 

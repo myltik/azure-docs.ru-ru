@@ -16,7 +16,7 @@ ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 В этом разделе описаны дополнительные сценарии создания отчетов в универсальном приложении для Windows. В них описываются параметры, которые можно применить для приложения, созданного в [учебнике по началу работы](mobile-engagement-windows-store-dotnet-get-started.md) .
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 Прежде чем приступать к этому учебнику, необходимо изучить учебник [по началу работы](mobile-engagement-windows-store-dotnet-get-started.md) , в котором намеренно подобраны понятные и простые задания. В этом учебнике рассматриваются дополнительные параметры, доступные для выбора.

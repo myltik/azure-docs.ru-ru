@@ -62,5 +62,5 @@ ms.lasthandoff: 12/11/2017
  
 Вышеуказанная операция добавит домен fabrikam.com в федерацию с тем же экземпляром AD FS. Параметры обоих доменов можно проверить с помощью командлета Get-MsolDomainFederationSettings.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Подключение Active Directory к Azure Active Directory](active-directory-aadconnect.md)

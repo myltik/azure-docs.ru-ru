@@ -16,7 +16,7 @@ ms.date: 8/10/2017
 ms.author: chackdan
 ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -210,7 +210,7 @@ Output:
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Обновления ОС на виртуальных машинах, составляющих кластер
 Вы должны обновить образ ОС на виртуальных машинах кластера; поочередно для каждой виртуальной машины. За это обновление отвечаете вы: в настоящее время автоматизация этой функции отсутствует.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Узнайте, как настроить некоторые [параметры Service Fabric для кластера](service-fabric-cluster-fabric-settings.md)
 * Ознакомьтесь с концепцией [масштабирования кластера](service-fabric-cluster-scale-up-down.md)
 * Узнайте об [обновлениях приложений](service-fabric-application-upgrade.md)

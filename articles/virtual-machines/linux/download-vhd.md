@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 3eb88478b43f8e3a36ae04bf3703f238e8cb1f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03a29faeed71334253f9aa5bc88653fd689cc55b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Скачивание виртуального жесткого диска Linux из Azure
 
@@ -43,7 +43,7 @@ VHD невозможно скачать из Azure, если он подключ
     exit 
     ```
 
-2. Войдите в свою учетную запись Azure с помощью команды [az login](https://docs.microsoft.com/cli/azure/#login).
+2. Войдите в свою учетную запись Azure с помощью команды [az login](https://docs.microsoft.com/cli/azure/#az_login).
 3. Остановите виртуальную машину и отмените ее выделение.
 
     ```azurecli
@@ -58,7 +58,7 @@ VHD невозможно скачать из Azure, если он подключ
 
 Для использования VHD в качестве диска для нового экземпляра существующей виртуальной машины или диска данных выполните следующие действия:
 
-1.  Войдите на [портал Azure](https://portal.azure.com/).
+1.  Войдите на [портале Azure](https://portal.azure.com/).
 2.  В главном меню щелкните **Виртуальные машины**.
 3.  Выберите виртуальную машину из списка.
 4.  В колонке виртуальной машины нажмите кнопку **Остановить**.
@@ -85,7 +85,7 @@ VHD невозможно скачать из Azure, если он подключ
 
     ![Нажатие кнопки "Сохранить" в браузере](./media/download-vhd/export-save.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Узнайте, как [передать пользовательский диск и создать на его основе виртуальную машину Linux с помощью Azure CLI 2.0](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Управление дисками Azure с помощью Azure CLI](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 * Учетная запись Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free).
 * [Учетная запись хранилища BLOB-объектов Azure](../articles/storage/common/storage-create-storage-account.md), включая имя учетной записи хранения и ее ключ доступа. Эта информация указана в свойствах учетной записи хранения на портале Azure. Узнайте больше о [службе хранилища Azure](../articles/storage/common/storage-introduction.md).
 

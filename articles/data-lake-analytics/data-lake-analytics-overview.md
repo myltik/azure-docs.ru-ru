@@ -44,7 +44,7 @@ Azure Data Lake Analytics — это служба обработки задан
   
     Data Lake Analytics оптимизирована для работы с Azure Data Lake, благодаря чему обеспечивается наивысший уровень производительности, пропускной способности и параллельной обработки для рабочих нагрузок больших данных.  Data Lake Analytics также может работать с хранилищем больших двоичных объектов Azure и базой данных SQL Azure.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
  
   * Начало работы с Data Lake Analytics с помощью [портала Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli2.md)
   * Управление Data Lake Analytics с использованием [портала Azure](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)

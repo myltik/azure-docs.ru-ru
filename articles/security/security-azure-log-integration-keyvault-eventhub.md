@@ -51,8 +51,8 @@ ms.lasthandoff: 10/11/2017
 
 3. Установленная служба [интеграции журналов Azure](https://www.microsoft.com/download/details.aspx?id=53324). Чтобы установить службу:
 
-   а. Подключитесь к системе, упомянутой в шаге 2, через удаленный рабочий стол.   
-   b. Скопируйте в систему установщик интеграции журналов Azure. Можно [скачать файлы установки](https://www.microsoft.com/download/details.aspx?id=53324).   
+   a. Подключитесь к системе, упомянутой в шаге 2, через удаленный рабочий стол.   
+   Б. Скопируйте в систему установщик интеграции журналов Azure. Можно [скачать файлы установки](https://www.microsoft.com/download/details.aspx?id=53324).   
    c. Запустите установщик и примите условия лицензионного соглашения на использование программного обеспечения корпорации Майкрософт.   
    d. Если вы указываете данные телеметрии, оставьте флажок установленным. Если вы не хотите отправлять сведения об использовании в корпорацию Майкрософт, снимите флажок.
    
@@ -64,8 +64,8 @@ ms.lasthandoff: 10/11/2017
 
    При наличии PowerShell 5.0 (как минимум) перейдите к установке последней версии.
    
-   а. В окне PowerShell введите команду ```Install-Module Azure```. Выполните действия по установке.    
-   b. Введите команду ```Install-Module AzureRM```. Выполните действия по установке.
+   a. В окне PowerShell введите команду ```Install-Module Azure```. Выполните действия по установке.    
+   Б. Введите команду ```Install-Module AzureRM```. Выполните действия по установке.
 
    Дополнительные сведения см. в статье [Установка Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
 
@@ -114,8 +114,8 @@ ms.lasthandoff: 10/11/2017
     ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
 11. Получите все возможные расположения Azure и добавьте имена в переменную, которая может использоваться в дальнейшем:
     
-    а. ```$locationObjects = Get-AzureRMLocation```    
-    b. ```$locations = @('global') + $locationobjects.location```
+    a. ```$locationObjects = Get-AzureRMLocation```    
+    Б. ```$locations = @('global') + $locationobjects.location```
     
     Если на этом этапе вы введете `$locations`, вы увидите имена расположений без дополнительных сведений, возвращенных командлетом Get-AzureRmLocation.
 12. Создайте профиль журнала Azure Resource Manager: 
@@ -154,7 +154,7 @@ ms.lasthandoff: 10/11/2017
    ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 4. Задайте и считайте секрет для создания дополнительных записей журнала:
     
-   а. ```Set-AzureKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` Б. ```(Get-AzureKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzureKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` Б. ```(Get-AzureKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Возвращенный секрет](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 10/11/2017
 
 Приблизительно через минуту после выполнения двух последних команд вы должны увидеть созданные JSON-файлы. Их наличие можно проверить в каталоге **C:\users\AzLog\EventHubJson**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Интеграция журналов Azure: часто задаваемые вопросы](security-azure-log-integration-faq.md)
 - [Приступая к работе со службой интеграции журналов Azure](security-azure-log-integration-get-started.md)

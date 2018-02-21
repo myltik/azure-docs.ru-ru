@@ -16,7 +16,7 @@ ms.date: 04/24/2017
 ms.author: v-craic
 ms.openlocfilehash: c807789dc2b47fe3632fc4ecf597904d8b0bbf6f
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -49,7 +49,7 @@ ms.lasthandoff: 01/02/2018
 
    В колонке лаборатории отображается состояние создания виртуальной машины. Сначала это состояние **Создается**, а после запуска виртуальной машины — **Выполняется**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * После создания виртуальной машины к ней можно подключиться, щелкнув **Подключиться** в колонке виртуальной машины.
 * См. дополнительные сведения о [добавлении виртуальных машин в лабораторию](devtest-lab-add-vm.md).
 * Изучите [коллекцию шаблонов быстрого запуска Azure Resource Manager для DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).

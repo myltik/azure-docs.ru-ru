@@ -33,7 +33,7 @@ ms.lasthandoff: 11/03/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-Для работы с этим руководством необходимы указанные ниже компоненты.
+Для работы с этим учебником необходимы указанные ниже компоненты.
 
 * [Jenkins](https://jenkins.io/) с настроенными инструментами JDK и Maven. Если у вас нет системы Jenkins, создайте ее сейчас в Azure, используя [шаблон решения Jenkins](/azure/jenkins/install-jenkins-solution-template).
 * Учетная запись [GitHub](https://github.com).
@@ -180,7 +180,7 @@ ms.lasthandoff: 11/03/2017
 3. В Jenkins запустится новая сборка, активированная новой фиксацией ветви `master` репозитория. После завершения перезагрузите приложение в Azure.     
       ![Просмотр развернутого приложения в Azure](media/jenkins-java-quickstart/hello_docker_world.png)
   
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Использование агентов виртуальных машин для непрерывной интеграции с Jenkins](/azure/jenkins/jenkins-azure-vm-agents)
 - [Развертывание в службу приложений Azure с помощью Jenkins и Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline)

@@ -69,7 +69,7 @@ Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address
 Set-AzureRMDnsRecordSet -RecordSet $rs
 ```
 
-## <a name="2-create-a-cname-record-for-your-custom-domain"></a>2) Создание записи CNAME для личного домена
+## <a name="2-create-a-cname-record-for-your-custom-domain"></a>2. Создание записи CNAME для личного домена
 
 Если вашим доменом уже управляет Azure DNS (см. статью [Делегирование домена в Azure DNS](dns-domain-delegation.md)), можно использовать следующий пример, чтобы создать запись CNAME для contoso.azurewebsites.net.
 
@@ -198,6 +198,6 @@ Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites
 Set-AzureRMDnsRecordSet -RecordSet $rs
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Следуйте указаниям в разделе [Настройка личного доменного имени для службы приложений Azure](../app-service/app-service-web-tutorial-custom-domain.md) , чтобы настроить веб-приложение для использования личного домена.

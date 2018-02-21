@@ -13,11 +13,11 @@ ms.devlang:
 ms.topic: hero-article
 ms.date: 01/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 9e0b0efdf28e6d8b99d1cdf702dd0698ad87da7b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: abb5fd4953709198f6071bbdd4a1dc86900f0183
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>Подготовка среды выполнения интеграции Azure SSIS с помощью пользовательского интерфейса фабрики данных Azure
 В этом руководстве представлены шаги по подготовке с помощью портала Azure среды выполнения интеграции Azure SSIS в фабрике данных Azure. Затем можно использовать SQL Server Data Tools (SSDT) ​​или SQL Server Management Studio (SSMS) для развертывания пакетов служб SSIS для этой среды выполнения в Azure. См. дополнительные сведения о [среде выполнения интеграции Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/01/2018
 
 > [!div class="checklist"]
 > * создадите фабрику данных;
-> * Создание и запуск среды выполнения интеграции Azure SSIS.
+> * Подготовка среды выполнения интеграции Azure SSIS
 
 > [!NOTE]
 > Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, ознакомьтесь со статьей [Руководство. Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -41,8 +41,9 @@ ms.lasthandoff: 02/01/2018
  
 ## <a name="create-a-data-factory"></a>Создать фабрику данных
 
-1. Войдите на [портале Azure](https://portal.azure.com/).    
-2. В меню слева выберите **Создать**, **Данные+аналитика**, **Фабрика данных**. 
+1. Запустите веб-браузер **Microsoft Edge** или **Google Chrome**. Сейчас только эти браузеры поддерживают пользовательский интерфейс фабрики данных.
+2. Войдите на [портале Azure](https://portal.azure.com/).    
+3. В меню слева выберите **Создать**, **Данные+аналитика**, **Фабрика данных**. 
    
    ![Выбор фабрики данных в области "Создать"](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 3. На странице **Новая фабрика данных** введите **MyAzureSsisDataFactory** в поле **Имя**. 
@@ -69,7 +70,7 @@ ms.lasthandoff: 02/01/2018
 11. Когда создание завершится, откроется страница **Фабрика данных**.
    
    ![Домашняя страница фабрики данных](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-12. Выберите **Monitor & Manage** (Мониторинг и управление), чтобы открыть на отдельной вкладке пользовательский интерфейс фабрики данных. 
+12. Выберите **Мониторинг и управление**, чтобы открыть на отдельной вкладке пользовательский интерфейс фабрики данных. 
 
 ## <a name="provision-an-azure-ssis-integration-runtime"></a>Подготовка среды выполнения интеграции Azure SSIS
 
@@ -160,7 +161,7 @@ ms.lasthandoff: 02/01/2018
 
 > [!div class="checklist"]
 > * создадите фабрику данных;
-> * Создание и запуск среды выполнения интеграции Azure SSIS.
+> * Подготовка среды выполнения интеграции Azure SSIS
 
 Перейдите к следующему руководству, чтобы узнать о копировании данных из локальной среды в облако: 
 

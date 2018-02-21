@@ -46,7 +46,7 @@ ms.lasthandoff: 12/04/2017
 ##  <a name="app-actions"></a> app-actions  
  Элемент управления `app-actions` предоставляет пользовательский интерфейс для взаимодействия с приложениями на странице профиля пользователя на портале разработчика.  
   
- ![элемент управления действиями](./media/api-management-page-controls/APIM-app-actions-control.png "элемент управления действиями для службы управления API")  
+ ![элемент управления действиями](./media/api-management-page-controls/APIM-app-actions-control.png "элемент управления действиями для APIM")  
   
 ### <a name="usage"></a>Использование  
   
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="parameters"></a>Параметры  
   
-|Параметр|Описание|  
+|Параметр|ОПИСАНИЕ|  
 |---------------|-----------------|  
 |appId|Идентификатор приложения.|  
   
@@ -68,7 +68,7 @@ ms.lasthandoff: 12/04/2017
 ##  <a name="basic-signin"></a> basic-signin  
  Элемент управления `basic-signin` предоставляет интерфейс для сбора учетных данных пользователей на странице входа на портал разработчика.  
   
- ![базовый элемент управления входом](./media/api-management-page-controls/APIM-basic-signin-control.png "базовый элемент управления входом для службы управления API")  
+ ![базовый элемент управления входом](./media/api-management-page-controls/APIM-basic-signin-control.png "базовый элемент управления входом для APIM")  
   
 ### <a name="usage"></a>Использование  
   
@@ -87,7 +87,7 @@ ms.lasthandoff: 12/04/2017
 ##  <a name="paging-control"></a> paging-control  
  Элемент `paging-control` предоставляет функцию разбиения по страницам, которую можно использовать на страницах со списками на портале разработчика.  
   
- ![элемент управления разбиением по страницам ](./media/api-management-page-controls/APIM-paging-control.png "элемент управления разбиением по страницам для службы управления API")  
+ ![элемент управления разбиением по страницам ](./media/api-management-page-controls/APIM-paging-control.png "элемент управления разбиением по страницам для APIM")  
   
 ### <a name="usage"></a>Использование  
   
@@ -110,7 +110,7 @@ ms.lasthandoff: 12/04/2017
 ##  <a name="providers"></a> providers  
  Элемент управления `providers` предоставляет интерфейс для выбора поставщика проверки подлинности на странице входа на портал разработчика.  
   
- ![Элемент управления поставщиками](./media/api-management-page-controls/APIM-providers-control.png "Элемент управления поставщиками для службы управления API")  
+ ![Элемент управления поставщиками](./media/api-management-page-controls/APIM-providers-control.png "Элемент управления поставщиками для APIM")  
   
 ### <a name="usage"></a>Использование  
   
@@ -129,7 +129,7 @@ ms.lasthandoff: 12/04/2017
 ##  <a name="search-control"></a> search-control  
  Элемент `search-control` предоставляет функцию поиска, которую можно использовать на страницах со списками на портале разработчика.  
   
- ![Элемент управления поиском](./media/api-management-page-controls/APIM-search-control.png "Элемент управления поиском для службы управления API")  
+ ![Элемент управления поиском](./media/api-management-page-controls/APIM-search-control.png "Элемент управления поиском для APIM")  
   
 ### <a name="usage"></a>Использование  
   
@@ -150,7 +150,7 @@ ms.lasthandoff: 12/04/2017
 ##  <a name="sign-up"></a> sign-up  
  Элемент управления `sign-up` предоставляет интерфейс для сбора информации о профиле пользователя на странице регистрации на портале разработчика.  
   
- ![Элемент управления регистрацией](./media/api-management-page-controls/APIM-sign-up-control.png "Элемент управления регистрацией для службы управления API")  
+ ![Элемент управления регистрацией](./media/api-management-page-controls/APIM-sign-up-control.png "Элемент управления регистрацией для APIM")  
   
 ### <a name="usage"></a>Использование  
   
@@ -169,7 +169,7 @@ ms.lasthandoff: 12/04/2017
 ##  <a name="subscribe-button"></a> subscribe-button  
  Элемент `subscribe-button` предоставляет функцию оформления подписки пользователя на продукт.  
   
- ![Элемент управления подпиской](./media/api-management-page-controls/APIM-subscribe-button-control.png "Элемент управления подпиской для службы управления API")  
+ ![Элемент управления подпиской](./media/api-management-page-controls/APIM-subscribe-button-control.png "Элемент управления подпиской для APIM")  
   
 ### <a name="usage"></a>Использование  
   
@@ -188,7 +188,7 @@ ms.lasthandoff: 12/04/2017
 ##  <a name="subscription-cancel"></a> subscription-cancel  
  Элемент управления `subscription-cancel` предоставляет интерфейс для отмены подписки на продукт на странице профиля пользователя на портале разработчика.  
   
- ![Элемент управления отменой подписки](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Элемент управления отменой подписки для службы управления API")  
+ ![Элемент управления отменой подписки](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Элемент управления отменой подписки для APIM")  
   
 ### <a name="usage"></a>Использование  
   
@@ -200,7 +200,7 @@ ms.lasthandoff: 12/04/2017
   
 ### <a name="parameters"></a>Параметры  
   
-|Параметр|Описание|  
+|Параметр|ОПИСАНИЕ|  
 |---------------|-----------------|  
 |subscriptionId|Идентификатор подписки, которую следует отменить.|  
 |cancelUrl|URL-адрес для отмены подписки.|  
@@ -210,5 +210,5 @@ ms.lasthandoff: 12/04/2017
   
 -   [Продукт](api-management-product-templates.md#Product)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md).

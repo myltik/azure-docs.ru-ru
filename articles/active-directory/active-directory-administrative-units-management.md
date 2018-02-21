@@ -18,7 +18,7 @@ ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: 1e85300676eeee9259e40faa0e0ede94a36f6167
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -39,5 +39,5 @@ ms.lasthandoff: 12/11/2017
 
 Дополнительные сведения о требованиях к программному обеспечению и установке модуля Azure AD, а также информацию о командлетах управления административными единицами через модуль Azure AD, включая синтаксис, описание параметров и примеры, см. в разделе [Управление Azure AD с помощью Windows PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Выпуски Azure Active Directory](active-directory-editions.md)

@@ -17,7 +17,7 @@ ms.date: 12/20/2017
 ms.author: tomfitz
 ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/20/2017
 ---
@@ -77,6 +77,6 @@ ms.lasthandoff: 12/20/2017
 
 Если во время развертывания возникает ошибка, Resource Manager возвращает код ошибки. Сообщение об ошибке можно просмотреть на портале, в PowerShell или Azure CLI. Внешнее сообщение об ошибке может быть слишком общим для устранения неполадок. Подробные сведения об ошибке приведены во внутреннем сообщении. Дополнительные сведения см. в разделе [Определение кода ошибки](resource-manager-troubleshoot-tips.md#determine-error-code).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Сведения о действиях аудита см. в статье [Операции аудита с помощью Resource Manager](resource-group-audit.md).
 * Дополнительные сведения об определении ошибок во время развертывания см. в статье [Просмотр операций развертывания с помощью портала Azure](resource-manager-deployment-operations.md).

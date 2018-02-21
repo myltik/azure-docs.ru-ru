@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 |Microsoft.Compute/virtualMachineScaleSets/ |запись|
 |Microsoft.Network/networkWatchers/packetCaptures/ |чтение|
 |Microsoft.Network/networkWatchers/packetCaptures/| запись|
-|Microsoft.Network/networkWatchers/packetCaptures/| Удалить|
+|Microsoft.Network/networkWatchers/packetCaptures/| Delete|
 |Microsoft.Network/networkWatchers/ |запись |
 |Microsoft.Network/networkWatchers/| чтение |
 |Microsoft.Insights/alertRules/ |*|
@@ -114,7 +114,7 @@ ms.lasthandoff: 10/11/2017
 
 Данные работоспособности сетевых ресурсов предоставляются периодически. К таким ресурсам относятся VPN-шлюз и VPN-туннель. Работоспособность ресурсов можно просмотреть на портале Azure. Чтобы узнать больше о работоспособности ресурсов, ознакомьтесь со статьей [Обзор службы работоспособности ресурсов Azure](../resource-health/resource-health-overview.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 После изучения Наблюдателя за сетями можно ознакомиться со следующими темами.
 

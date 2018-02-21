@@ -6,7 +6,8 @@ ms.date: 12/06/2017
 ms.prod: sql-server
 ms.reviewer: billgib
 ms.suite: 
-ms.technology: database-engine
+ms.technology:
+- database-engine
 ms.tgt_pltfrm: 
 ms.topic: article
 author: MightyPen
@@ -74,11 +75,11 @@ ms.lasthandoff: 12/07/2017
 - [28. Управление непредсказуемыми рабочими нагрузками клиента, 1:04:36](#anchor-image-wtip-min10436).
 - [29. Мониторинг эластичного пула, 1:06:39](#anchor-image-wtip-min10639).
 - [30. Создание нагрузки и мониторинг производительности, 1:09:42](#anchor-image-wtip-min10942).
-- [31. Управление схемой в масштабе, 1:10:33.](#anchor-image-wtip-min11033).
+- [31. Управление схемой в масштабе, 1:10:33](#anchor-image-wtip-min11033).
 - [32. Распределенный запрос между базами данных клиента, 1:12:21](#anchor-image-wtip-min11221).
 - [33. Демонстрация создания билета, 1:12:32](#anchor-image-wtip-min11232).
 - [34. adhoc-аналитика SSMS, 1:12:46](#anchor-image-wtip-min11246).
-- [35. Извлечение данных клиента в хранилище данных SQL, 1:16:32.](#anchor-image-wtip-min11632).
+- [35. Извлечение данных клиента в хранилище данных SQL, 1:16:32](#anchor-image-wtip-min11632).
 - [36. График распределения ежедневных продаж, 1:16:48](#anchor-image-wtip-min11648).
 - [37. Подведение итогов и призыв к действию, 1:19:52](#anchor-image-wtip-min11952).
 - [38. Дополнительные сведения, 1:20:42](#anchor-image-wtip-min12042).
@@ -105,7 +106,7 @@ ms.lasthandoff: 12/07/2017
 
 
 &nbsp; <a name="anchor-image-wtip-min00311"/>
-#### <a name="2-session-objectives-00153"></a>2) Цели сеанса, 0:01:53
+#### <a name="2-session-objectives-00153"></a>2. Цели сеанса, 0:01:53
 [![Цели сеанса][image-wtip-min00311-session]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=113)
 
 - Альтернативные модели для мультитенатных приложений, преимущества и недостатки.
@@ -307,7 +308,7 @@ ms.lasthandoff: 12/07/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Первая статья руководства][saas-how-welcome-wingtip-app-679t]
 

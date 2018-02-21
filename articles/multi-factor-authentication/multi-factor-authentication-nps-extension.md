@@ -17,7 +17,7 @@ ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
 ms.openlocfilehash: 8c3ceb8a455ea32ebbd1393aa2484b8b8c898ef8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/11/2017
 
 VPN-серверы перенаправляют запросы на аутентификацию, поэтому они должны знать о новых NPS-серверах с поддержкой Многофакторной идентификации Azure.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 Расширение NPS предназначено для работы с существующей инфраструктурой. Прежде чем приступить к работе, убедитесь, что у вас есть следующие необходимые компоненты.
 
@@ -243,7 +243,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 Убедитесь, что адрес https://adnotifications.windowsazure.com доступен с сервера, на котором выполняется расширение NPS.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Настройте альтернативные идентификаторы для входа или настройте список исключений IP-адресов, которым не нужно выполнять двухфакторную проверку подлинности, в [дополнительных параметрах конфигурации расширения NPS для Многофакторной идентификации](nps-extension-advanced-configuration.md)
 

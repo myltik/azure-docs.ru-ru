@@ -35,7 +35,7 @@ ms.lasthandoff: 10/27/2017
 
 
 ## <a name="set-the-autogrowshrink-cluster-property"></a>Настройка свойства кластера AutoGrowShrink
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 
 * **Кластер пакета HPC 2012 R2 с обновлением 2 или более поздней версии**. Головной узел кластера можно развернуть локально или на виртуальной машине Azure. Ознакомьтесь со статьей [Настройка гибридного кластера с пакетом HPC](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md), чтобы приступить к работе с локальными головными узлами и "расширительными" узлами Azure. Ознакомьтесь со статьей [о сценарии развертывания IaaS пакета HPC](hpcpack-cluster-powershell-script.md) для быстрого развертывания кластера пакета HPC на виртуальных машинах Azure.
 
@@ -181,7 +181,7 @@ Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
 По умолчанию для параметра **SoaJobGrowThreshold** задано значение 50000, а для **SoaRequestsPerCore** — 20000. Если отправить одно задание SOA с 70 000 запросов, будет существовать одна задача, поставленная в очередь, и 70 000 входящих запросов. В данном случае пакет HPC увеличит 1 ядро для задачи в очереди и 1 ядро для входящих запросов (по формуле (70 000 – 50 000)/20 000 = 1), поэтому в итоге для этого задания SOA увеличатся 2 ядра.
 
 ## <a name="run-the-azureautogrowshrinkps1-script"></a>Запуск скрипта AzureAutoGrowShrink.ps1
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 
 * **Кластер узла HPC 2012 R2 с обновлением 1 или более поздней версии** — сценарий **AzureAutoGrowShrink.ps1** установлен в папку %CCP_HOME%bin. Головной узел кластера может быть развернут локально или на виртуальной машине Azure. Ознакомьтесь со статьей [Настройка гибридного кластера с пакетом HPC](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md), чтобы приступить к работе с локальными головными узлами и "расширительными" узлами Azure. Выполните быстрое развертывание кластера пакета HPC на виртуальных машинах Azure, как указано в [описании сценария развертывания IaaS пакета HPC](hpcpack-cluster-powershell-script.md), или см. [краткое руководство по шаблонам Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 * **Azure PowerShell 1.4.0.** В настоящее время сценарий зависит от конкретной версии Azure PowerShell.

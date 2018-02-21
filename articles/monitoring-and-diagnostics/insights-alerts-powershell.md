@@ -16,7 +16,7 @@ ms.date: 10/20/2016
 ms.author: robb
 ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -127,7 +127,7 @@ ms.lasthandoff: 12/21/2017
     Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name myLogAlertRule
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Ознакомьтесь с общими сведениями о мониторинге Azure](monitoring-overview.md) , включая типы информации, которую можно собирать и отслеживать.
 * Узнайте больше о [настройке веб-перехватчиков webhook в оповещениях](insights-webhooks-alerts.md).
 * Узнайте больше о [настройке оповещений о событиях журнала действий](monitoring-activity-log-alerts.md).

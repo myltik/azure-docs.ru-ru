@@ -96,7 +96,7 @@ ms.lasthandoff: 11/01/2017
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Панель мониторинга с данными из других источников и Application Insights
 * [Экспорт телеметрии в Power BI](app-insights-export-power-bi.md).
 
-Или
+или
 
 * Используйте SharePoint как панель мониторинга для отображения данных веб-компонентов SharePoint. [Используйте непрерывный экспорт и Stream Analytics для экспорта в SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Используйте PowerView для просмотра базы данных и создания веб-компонента SharePoint для PowerView.
 

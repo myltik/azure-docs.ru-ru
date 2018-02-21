@@ -25,8 +25,8 @@ ms.lasthandoff: 10/11/2017
 
 Узнайте, как использовать интерфейсы REST API WebHDFS и Data Lake Analytics, чтобы управлять учетными записями, заданиями и каталогом Data Lake Analytics. 
 
-## <a name="prerequisites"></a>Предварительные требования
-* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="prerequisites"></a>предварительным требованиям
+* **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Создание приложения Azure Active Directory**. Это приложение будет использоваться для проверки подлинности приложения Data Lake Analytics в Azure AD. Есть разные способы проверки подлинности приложения с помощью Azure AD: **проверка подлинности пользователя** и **проверка подлинности со взаимодействием между службами**. Инструкции и дополнительные сведения о проверке подлинности см. в статье [Аутентификация в Data Lake Store с помощью Azure Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 * [cURL](http://curl.haxx.se/). В этой статье для демонстрации вызовов REST API к учетной записи Data Lake Analytics используется cURL.
 
@@ -338,7 +338,7 @@ ms.lasthandoff: 10/11/2017
     ]
     }
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * Более сложный запрос можно посмотреть в статье [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md).
 * Чтобы приступить к разработке приложений U-SQL, ознакомьтесь со статьей [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Для знакомства с U-SQL см. статью о [начале работы с языком U-SQL для Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).

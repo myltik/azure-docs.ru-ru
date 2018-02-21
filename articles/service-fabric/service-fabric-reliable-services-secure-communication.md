@@ -16,7 +16,7 @@ ms.date: 04/20/2017
 ms.author: suchiagicha
 ms.openlocfilehash: 0804e43c3f1bb13bea92ebd661ca52c799ff2332
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/21/2017
 ---
@@ -309,5 +309,5 @@ ms.lasthandoff: 12/21/2017
         client => client.Channel.Add(2, 3)).Result;
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Веб-API с OWIN в модели Reliable Services](service-fabric-reliable-services-communication-webapi.md)

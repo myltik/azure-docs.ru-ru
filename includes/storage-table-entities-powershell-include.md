@@ -61,7 +61,7 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
 | 2 | Jessie | partition2 | NM |
-| 4 | Steven | partition2 | TX |
+| 4. | Steven | partition2 | TX |
 
 #### <a name="retrieve-entities-for-a-specific-partition"></a>Получение сущностей для определенного раздела
 

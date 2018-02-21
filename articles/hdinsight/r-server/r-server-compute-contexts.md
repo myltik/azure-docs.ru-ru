@@ -78,7 +78,7 @@ Microsoft R Server в Azure HDInsight управляет выполнением 
 
 Можно также просмотреть [руководство по распределенным вычислениям ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing), доступное в библиотеке [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этой статье вы ознакомились с параметрами, которые доступны для указания необходимости и способа выполнения параллелизации между ядрами граничного узла или кластера HDInsight. Дополнительные сведения об использовании R Server для работы с кластерами HDInsight см. в следующих статьях:
 
 * [Общие сведения об R Server в HDInsight (предварительная версия)](r-server-overview.md)

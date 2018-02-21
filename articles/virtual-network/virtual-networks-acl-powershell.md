@@ -86,6 +86,6 @@ ms.lasthandoff: 10/11/2017
         | Remove-AzureAclConfig –EndpointName "web" `
         | Update-AzureVM
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Сетевой список управления доступом](virtual-networks-acl.md)
 

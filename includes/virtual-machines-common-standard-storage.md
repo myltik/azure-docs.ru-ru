@@ -120,7 +120,7 @@
 
 Вы также можете использовать службу архивации Azure для управляемых дисков, чтобы создать задание архивации с учетом времени, политики хранения резервных копий и выполнять быстрое восстановление виртуальной машины. Дополнительные сведения см. в статье [Что такое служба архивации Azure?](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Введение в хранилище Azure](../articles/storage/common/storage-introduction.md)
 

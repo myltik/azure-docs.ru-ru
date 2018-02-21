@@ -16,7 +16,7 @@ ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -64,8 +64,8 @@ ms.lasthandoff: 12/08/2017
 | 8100 |64 ТБ |8 ТБ |
 | 8600 |64 ТБ |20 TБ |
 | **Виртуальные устройства** | | |
-| 8010 |30 ТБ |Н/Д |
-| 8020 |64 ТБ |Н/Д |
+| 8010 |30 ТБ |Недоступно |
+| 8020 |64 ТБ |Недоступно |
 
 ## <a name="the-volumes-blade"></a>Колонка "Тома"
 
@@ -324,7 +324,7 @@ ms.lasthandoff: 12/08/2017
 
 4. Щелкните **Сохранить** и при появлении запроса на подтверждение щелкните **Да**. Портал Azure отображает уведомление для обновления тома, а затем сообщение об успешном выполнении, когда том успешно обновлен.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Информация о [Клонировании тома StorSimple](storsimple-8000-clone-volume-u2.md).
 * Узнайте, как [использовать службу диспетчера устройств StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).

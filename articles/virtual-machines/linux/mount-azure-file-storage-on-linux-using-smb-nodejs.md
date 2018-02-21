@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="quick-commands"></a>Быстрые команды
 Чтобы быстро выполнить задачу, следуйте указаниям в этом разделе. Подробные сведения и контекст см. в разделе [Подробное пошаговое руководство](mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough).
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 * Группа ресурсов.
 * Виртуальная сеть Azure.
 * Группа безопасности сети с входящим трафиком SSH.
@@ -127,7 +127,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Настройка виртуальной машины Linux во время создания с помощь cloud-init](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Добавление диска к виртуальной машине Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

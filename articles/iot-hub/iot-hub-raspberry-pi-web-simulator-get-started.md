@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 <img src="media/iot-hub-raspberry-pi-web-simulator/6_button_default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5_button_click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6_button_default.png';">
 </div>
 
-## <a name="what-you-do"></a>В рамках этого руководства мы:
+## <a name="what-you-do"></a>Что нужно сделать
 
 * Изучим основы использования онлайн-симулятора Raspberry Pi.
 * Создайте Центр Интернета вещей.
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
 Должны отобразиться следующие результаты, содержащие данные датчика и сообщения, которые отправляются в Центр Интернета вещей: ![Выходные данные — данные датчика, отправленные с Raspberry Pi в Центр Интернета вещей](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Вы запустили пример приложения, чтобы собрать данные датчика и отправить их в Центр Интернета вещей.
 

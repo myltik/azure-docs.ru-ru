@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>Создание, запуск или удаление шлюза приложений с помощью PowerShell 
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](application-gateway-create-gateway-portal.md)
+> * [портал Azure](application-gateway-create-gateway-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-gateway-arm.md)
 > * [Классическая модель — Azure PowerShell](application-gateway-create-gateway.md)
 > * [Шаблон диспетчера ресурсов Azure](application-gateway-create-gateway-arm-template.md)
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/18/2017
 
 Создание шлюза приложений:
 
-1. Создайте ресурс шлюза приложений.
+1. Создание ресурса шлюза приложений.
 2. Создайте XML-файл конфигурации или объект конфигурации.
 3. Применить конфигурацию к созданному ресурсу шлюза приложений.
 
@@ -433,7 +433,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 .....
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Чтобы настроить разгрузку SSL, ознакомьтесь с [настройкой шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
 

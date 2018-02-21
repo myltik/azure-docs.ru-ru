@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 Да. Вы можете развернуть [виртуальные сетевые устройства оптимизации глобальной сети](https://azure.microsoft.com/marketplace/?term=wan+optimization), предоставляемые несколькими поставщиками через Azure Marketplace.
 
-## <a name="configuration"></a>Конфигурация
+## <a name="configuration"></a>Параметр Configuration
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Какие средства необходимо использовать для создания виртуальной сети?
 Для создания или настройки виртуальной сети можно использовать указанные ниже средства.

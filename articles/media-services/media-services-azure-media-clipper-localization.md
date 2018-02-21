@@ -137,7 +137,7 @@ ms.lasthandoff: 12/07/2017
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Ознакомьтесь со следующими шагами по настройке Azure Media Clipper:
 - [Loading assets into Azure Media Clipper](media-services-azure-media-clipper-load-assets.md) (Загрузка ресурсов в Azure Media Clipper)
 - [Configure Azure Media Clipper keyboard shortcuts](media-services-azure-media-clipper-keyboard-shortcuts.md) (Настройка пользовательских сочетаний клавиш Azure Media Clipper)

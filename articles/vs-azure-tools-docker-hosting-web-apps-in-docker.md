@@ -16,7 +16,7 @@ ms.date: 06/08/2016
 ms.author: mlearned
 ms.openlocfilehash: 60efffd9313f6972ae46fd1925d999597d3c6ba2
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/08/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/08/2017
 Docker — это облегченная платформа контейнеров, чем-то похожая на виртуальную машину, которую можно использовать для размещения приложений и служб.
 В этом руководстве пошагово описывается использование расширения [Средства Visual Studio для Docker](https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker) для развертывания приложения ASP.NET Core на узле Docker в Azure с помощью PowerShell.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Для работы с этим руководством предварительно необходимо сделать следующее:
 
 * Создать виртуальную машину для узла Docker в Azure, как описано в статье [Использование машины Docker с драйвером Azure](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -16,7 +16,7 @@ ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: 33ddfef1e23a6ff0c2cb8e359d408d2c42cbcf3a
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -73,7 +73,7 @@ ms.lasthandoff: 12/11/2017
    
      ![назначенные роли](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Сведения о списке ролей см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
 * Сведения об управлении ресурсами см. в статье [Manage Azure resources through portal](resource-group-portal.md) (Управление ресурсами Azure через портал).
 

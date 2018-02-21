@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 9b4163471f3dc8483993b9ac762694af4e926aa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 322514debd42714142434106748e4acac220ebee
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Создание и передача образа жесткого диска OpenBSD в Azure
 В этой статье описывается, как создать и передать виртуальный жесткий диск, содержащий операционную систему OpenBSD. После передачи его можно использовать как свой собственный образ для создания виртуальной машины в Azure с помощью Azure CLI.
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 В данной статье предполагается, что у вас есть следующие элементы:
 
 * **Подписка Azure.** Если у вас нет учетной записи, то ее можно создать, что займет всего лишь несколько минут. Если у вас есть подписка MSDN, см. страницу [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). В противном случае узнайте, как [создать бесплатную пробную учетную запись](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure CLI 2.0.** Обязательно установите последнюю версию [Azure CLI 2.0](/cli/azure/install-azure-cli) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
+* **Azure CLI 2.0.** Обязательно установите последнюю версию [Azure CLI 2.0](/cli/azure/install-azure-cli) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#az_login).
 * **Операционная система OpenBSD, установленная в VHD-файл**. На виртуальный жесткий диск необходимо установить поддерживаемую операционную систему OpenBSD (версия 6.1). Существует несколько средств для создания VHD-файлов. Например, для создания VHD-файла и установки операционной системы можно использовать решение для виртуализации, например Hyper-V. Инструкции по установке и использованию Hyper-V см. в статье [Установка Hyper-V и создание виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx).
 
 
@@ -102,13 +102,13 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Создание и передача ресурсов хранилища
-Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
+Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Создайте учетную запись хранения с помощью команды [az storage account create](/cli/azure/storage/account#create), чтобы передать VHD. Имя учетной записи хранения должно быть уникальным, поэтому введите собственное имя. В следующем примере создается учетная запись хранения с именем *mystorageaccount*:
+Создайте учетную запись хранения с помощью команды [az storage account create](/cli/azure/storage/account#az_storage_account_create), чтобы передать VHD. Имя учетной записи хранения должно быть уникальным, поэтому введите собственное имя. В следующем примере создается учетная запись хранения с именем *mystorageaccount*:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -117,7 +117,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-Для управления доступом к учетной записи хранения получите ключ хранилища с помощью команды [az storage account key list](/cli/azure/storage/account/keys#list) следующим образом:
+Для управления доступом к учетной записи хранения получите ключ хранилища с помощью команды [az storage account key list](/cli/azure/storage/account/keys#az_storage_account_keys_list) следующим образом:
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -126,7 +126,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-Для логического разделения виртуальных жестких дисков создайте контейнер в учетной записи хранения с помощью команды [az storage container create](/cli/azure/storage/container#create):
+Для логического разделения виртуальных жестких дисков создайте контейнер в учетной записи хранения с помощью команды [az storage container create](/cli/azure/storage/container#az_storage_container_create):
 
 ```azurecli
 az storage container create \
@@ -135,7 +135,7 @@ az storage container create \
     --account-key ${STORAGE_KEY}
 ```
 
-Наконец, отправьте ваш VHD с помощью команды [az storage blob upload](/cli/azure/storage/blob#upload) следующим образом:
+Наконец, отправьте ваш VHD с помощью команды [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) следующим образом:
 
 ```azurecli
 az storage blob upload \
@@ -148,7 +148,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>Создание виртуальной машины из VHD
-Можно создать виртуальную машину с помощью [примера скрипта](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) или напрямую с помощью команды [az vm create](/cli/azure/vm#create). Чтобы указать переданный VHD OpenBSD, используйте параметр `--image` следующим образом:
+Можно создать виртуальную машину с помощью [примера скрипта](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) или напрямую с помощью команды [az vm create](/cli/azure/vm#az_vm_create). Чтобы указать переданный VHD OpenBSD, используйте параметр `--image` следующим образом:
 
 ```azurecli
 az vm create \
@@ -173,7 +173,7 @@ ssh azureuser@<ip address>
 ```
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Если вы хотите получить дополнительные сведения о поддержке Hyper-V в OpenBSD 6.1, посетите веб-сайты [OpenBSD 6.1](https://www.openbsd.org/61.html) и [hyperv.4](http://man.openbsd.org/hyperv.4).
 
 Если требуется создать виртуальную машину из управляемого диска см. статью [Управляемые диски - az disk](/cli/azure/disk). 

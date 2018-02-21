@@ -39,7 +39,7 @@ ms.lasthandoff: 01/11/2018
 > * Отправка файла в хранилище больших двоичных объектов с помощью URL-адреса отправки.
 > * Создание в ресурсе метаданных для переданного файла мультимедиа.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), прежде чем начинать работу.
 - [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md).
@@ -97,7 +97,7 @@ ms.lasthandoff: 01/11/2018
 
     Когда истечет срок действия маркера, повторно выполните действие "Получить маркер безопасности Azure AD для субъекта-службы". 
 
-## <a name="create-an-access-policy-with-write-permission"></a>Создание политики доступа с разрешением на запись
+## <a name="create-an-access-policy-with-write-permission"></a>Создание политики доступа с разрешением на запись.
 
 ### <a name="overview"></a>Обзор 
 

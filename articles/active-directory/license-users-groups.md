@@ -17,7 +17,7 @@ ms.author: jeffgilb
 custom: it-pro
 ms.openlocfilehash: bc210b83a9eeb947a15b60548e43096bd9e11c45
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -85,7 +85,7 @@ ms.lasthandoff: 12/11/2017
 Лицензии, унаследованные пользователем от группы, невозможно удалить напрямую. Вместо этого нужно удалить пользователя из группы, от которой наследуется эта лицензия.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 В этом кратком руководстве описывается, как назначать лицензии пользователям и группам в каталоге Azure AD. 
 
 Чтобы настроить назначение лицензий подписки в Azure AD на портале Azure, воспользуйтесь следующей ссылкой.

@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы изменить число единиц потоковой передачи, сделайте следующее.
 
-1. Создание учетной записи служб мультимедиа Azure с помощью [портале Azure](https://portal.azure.com/).
+1. Выберите учетную запись служб мультимедиа Azure на [портале Azure](https://portal.azure.com/).
 2. В окне **Параметры** щелкните**Конечные точки потоковой передачи**.
 3. Щелкните конечную точку потоковой передачи, которую требуется масштабировать. 
 
@@ -47,9 +47,9 @@ ms.lasthandoff: 10/11/2017
 
 4. Переместите ползунок, чтобы указать нужное число единиц потоковой передачи.
 
-    ![конечной точки потоковой передачи](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
+    ![конечная точка потоковой передачи](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Просмотрите схемы обучения работе со службами мультимедиа.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -88,6 +88,6 @@ ms.lasthandoff: 10/11/2017
 
     ![](./media/logic-apps-enterprise-integration-partners/delete-1.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Узнайте о соглашениях и Пакете интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-agreements.md "Узнайте о соглашениях и Пакете интеграции Enterprise")  
 

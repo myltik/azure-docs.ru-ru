@@ -83,7 +83,7 @@ Get-AzureRmEnvironment | select Name, StorageEndpointSuffix
 
 Эта команда возвращает следующие результаты:
 
-| Имя| StorageEndpointSuffix|
+| ИМЯ| StorageEndpointSuffix|
 |----|----|
 |AzureChinaCloud; | core.chinacloudapi.cn|
 | AzureCloud; | core.windows.net |
@@ -101,7 +101,7 @@ Get-AzureRmEnvironment -Name AzureGermanCloud
 
 |Имя свойства|Значение|
 |----|----|
-| Имя | AzureGermanCloud |
+| ИМЯ | AzureGermanCloud |
 | EnableAdfsAuthentication | Ложь |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |
@@ -165,7 +165,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Использование учетных данных для входа в разных сеансах PowerShell](/powershell/azure/context-persistence).
 * [Azure Government storage](../../azure-government/documentation-government-services-storage.md) (Хранилище Azure для государственных организаций).

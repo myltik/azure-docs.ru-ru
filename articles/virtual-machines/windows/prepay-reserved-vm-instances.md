@@ -1,6 +1,6 @@
 ---
 title: "Предоплата за использования виртуальных машин Azure для экономии средств | Документация Майкрософт"
-description: "Узнайте, как приобрести зарезервированные экземпляры виртуальных машин Azure для сокращения затрат на вычисления."
+description: "Узнайте, как воспользоваться службой Azure Reserved Virtual Machine Instances для сокращения затрат на вычисления."
 services: virtual-machines-windows
 documentationcenter: 
 author: vikramdesai01

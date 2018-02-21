@@ -17,7 +17,7 @@ ms.date: 05/24/2017
 ms.author: sasubram
 ms.openlocfilehash: aaf7d858b45ff6b5d10846b064f40bef08bfe5e5
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/11/2017
 
 ![Настройка внешнего общего доступа в OneDrive и SharePoint Online](media/active-directory-b2b-o365-external-user/odsp-sharing-setting.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Другие статьи о службе совместной работы Azure AD B2B:
 

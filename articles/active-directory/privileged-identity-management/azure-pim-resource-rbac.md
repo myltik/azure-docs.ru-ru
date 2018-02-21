@@ -16,7 +16,7 @@ ms.date: 09/19/2017
 ms.author: barclayn
 ms.openlocfilehash: 19715f800e7d8d40336d8e9fa3bf8073795dce5b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -191,7 +191,7 @@ Azure AD PIM может управлять встроенными ролями �
 
 ![](media/azure-pim-resource-rbac/my-roles-02.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Встроенные роли управления доступом на основе ролей в Azure](../role-based-access-built-in-roles.md)
 - Дополнительные сведения см. в статье [Как активировать и деактивировать роли в компоненте управления привилегированными пользователями Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md)

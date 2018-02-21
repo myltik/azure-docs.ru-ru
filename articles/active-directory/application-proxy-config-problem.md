@@ -15,7 +15,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 5b8346ee2e02ea62b7a11b88a790cff56a7d13f4
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -47,5 +47,5 @@ ms.lasthandoff: 12/11/2017
 
    ![Уведомление](./media/application-proxy-config-problem/error-message.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Включение прокси приложения на портале Azure](active-directory-application-proxy-enable.md)

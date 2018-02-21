@@ -17,7 +17,7 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 51ef7e554b6fd3764893f0fd35464088e42e49f8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -128,7 +128,7 @@ ms.lasthandoff: 12/11/2017
 ![Снимок экрана пользовательского интерфейса для настройки параметров интегрированного приложения][app_settings]
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о добавлении приложений в Azure AD и настройке служб для приложений.
 
 * Разработчики: [Как интегрировать приложение с AAD](https://msdn.microsoft.com/library/azure/dn151122.aspx)

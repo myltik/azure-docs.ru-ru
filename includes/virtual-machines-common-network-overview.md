@@ -147,7 +147,7 @@
 | [интерфейс командной строки Azure](../articles/virtual-machines/linux/create-cli-complete.md) | Создайте виртуальную машину и подключите ее к виртуальной сети, подсети и сетевому адаптеру, созданным на отдельных шагах. |
 | [Шаблон](../articles/virtual-machines/windows/ps-template.md) | Используйте шаблон [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) (Простое развертывание виртуальной машины Windows) в качестве руководства по развертыванию виртуальной машины с помощью шаблона. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Действия по управлению виртуальными сетями Azure для виртуальных машин см. в руководствах для [Windows](../articles/virtual-machines/windows/tutorial-virtual-network.md) или [Linux](../articles/virtual-machines/linux/tutorial-virtual-network.md).
 
 Также ознакомьтесь с руководствами по распределению нагрузки виртуальных машин и созданию приложений с высоким уровнем доступности для [Windows](../articles/virtual-machines/windows/tutorial-load-balancer.md) или [Linux](../articles/virtual-machines/linux/tutorial-load-balancer.md).

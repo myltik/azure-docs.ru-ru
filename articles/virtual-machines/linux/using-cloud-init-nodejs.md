@@ -97,14 +97,14 @@ azure vm create \
 > 
 
 ## <a name="cloud-init-availability-on-azure-vm-quick-create-image-aliases"></a>Доступность cloud-init для псевдонимов быстрого создания образов виртуальных машин Azure:
-| Alias | Издатель | ПРЕДЛОЖЕНИЕ | SKU | Version (версия) | cloud-init |
+| Alias | ИЗДАТЕЛЬ | ПРЕДЛОЖЕНИЕ | SKU | Version (версия) | cloud-init |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| CentOS |OpenLogic |CentOS |7,2 |последних |Нет |
-| CoreOS |CoreOS |CoreOS |Stable |последних |Да |
-| Debian |credativ |Debian |8 |последних |Нет |
-| openSUSE |SUSE |openSUSE |13.2 |последних |Нет |
-| RHEL |Redhat |RHEL |7,2 |последних |Нет |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |последних |Да |
+| CentOS |OpenLogic |CentOS |7,2 |последняя |Нет |
+| CoreOS |CoreOS |CoreOS |Stable |последняя |Да |
+| Debian |credativ |Debian |8 |последняя |Нет |
+| openSUSE |SUSE |openSUSE |13.2 |последняя |Нет |
+| RHEL |Redhat |RHEL |7,2 |последняя |Нет |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |последняя |Да |
 
 Корпорация Майкрософт работает со своими партнерами над тем, чтобы сценарии cloud-init были добавлены в образы, предоставляемые ими для Azure.
 

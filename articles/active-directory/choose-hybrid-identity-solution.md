@@ -15,7 +15,7 @@ ms.assetid:
 ms.custom: it-pro
 ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -88,7 +88,7 @@ ms.lasthandoff: 01/03/2018
 > <sup>4</sup> AD FS можно интегрировать с корпоративной инфраструктурой открытых ключей PKI, чтобы разрешить вход с использованием сертификатов. Это могут быть программные сертификаты, развернутые с помощью доверенного канала подготовки, например MDM, GPO, или смарт-сертификаты (включая карты PIV/CAC) или Hello для бизнеса (доверенный сертификат). Дополнительные сведения о поддержке проверки подлинности с использованием смарт-карт см. в [этом блоге](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/).
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 [Дополнительные сведения о среде подтверждения концепции Azure](https://aka.ms/aad-poc)
 
 [Установка Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)

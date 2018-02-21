@@ -57,7 +57,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 В команде Azure CLI используется несколько параметров, которые описаны в следующей таблице.
 
-| Параметр | Описание |
+| Параметр | ОПИСАНИЕ |
 | --------- | ----------- |
 | `--backend-port`  | Порт, через который приложение Service Fabric ожидает передачи данных. |
 | `--frontend-port` | Порт, который подсистема балансировки нагрузки предоставляет для внешних подключений. |
@@ -105,6 +105,6 @@ $lb | Set-AzureRmLoadBalancer
 >[!NOTE]
 >Дополнительные сведения о создании подсистемы балансировки нагрузки с помощью PowerShell см. в разделе [Создание балансировщика нагрузки для Интернета в Resource Manager с помощью PowerShell](..\load-balancer\load-balancer-get-started-internet-arm-ps.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 См. дополнительные сведения о [параметрах сети в Service Fabric](service-fabric-patterns-networking.md).

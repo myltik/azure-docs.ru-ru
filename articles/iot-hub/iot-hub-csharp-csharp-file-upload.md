@@ -16,7 +16,7 @@ ms.date: 07/04/2017
 ms.author: elioda
 ms.openlocfilehash: 4362512121ca426fcae6716c74e1f8effa0986f1
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -170,7 +170,7 @@ ms.lasthandoff: 01/02/2018
 
     ![][50]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководство показано, как использовать возможности передачи файлов Центра Интернета вещей, чтобы упростить передачу файлов из устройств. Изучение функций и сценариев Центра Интернета вещей можно продолжить в следующих руководствах:
 

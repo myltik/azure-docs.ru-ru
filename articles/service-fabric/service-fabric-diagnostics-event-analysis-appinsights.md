@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 479e486dca432020d5fcbaf98971a9803888bf98
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Анализ и визуализация событий с помощью Application Insights
 
@@ -100,7 +100,7 @@ Azure Application Insights — это расширяемая платформа
 
 Как правило, в качестве решений для статистической обработки рекомендуется использовать EventFlow и WAD, так как они обеспечивают более модульный подход к диагностике и мониторингу, то есть если вы хотите изменить выходные данные EventFlow, изменять инструментирование не требуется. Достаточно внести простое изменение в файл конфигурации. Однако если вы решите инвестировать в использование Application Insights и, скорее всего, не будете переходить на другую платформу, рассмотрите возможность применения нового пакета SDK для Application Insights с целью статистической обработки событий и отправки их в Application Insights. Таким образом, вам больше не придется настраивать EventFlow для отправки данных в Application Insights. Вместо этого вы установите пакет NuGet Service Fabric для Application Insights. Подробные сведения о пакете можно найти [здесь](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-На странице [Поддержка микрослужб и контейнеров в Application Insights](https://azure.microsoft.com/app-insights-microservices/) описываются некоторые новые возможности, над которыми ведется работа (в настоящее время они доступны в виде бета-версии) и которые расширяют набор встроенных параметров мониторинга в Application Insights. Они включают в себя отслеживание зависимостей (используется при построении карты AppMap для всех служб и приложений в кластере и взаимосвязей между ними), а также улучшенное сопоставление трассировок, поступающих из служб (помогает выявлять проблемы в рабочем процессе приложения или службы).
+На странице [Поддержка микрослужб и контейнеров в Application Insights](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) описываются некоторые новые возможности, над которыми ведется работа (в настоящее время они доступны в виде бета-версии) и которые расширяют набор встроенных параметров мониторинга в Application Insights. Они включают в себя отслеживание зависимостей (используется при построении карты AppMap для всех служб и приложений в кластере и взаимосвязей между ними), а также улучшенное сопоставление трассировок, поступающих из служб (помогает выявлять проблемы в рабочем процессе приложения или службы).
 
 Если вы ведете разработку на .NET, скорее всего, будете использовать какие-либо модели программирования Service Fabric и хотите применять Application Insights в качестве платформы для визуализации и анализа данных событий и журналов, мы рекомендуем схему SDK для Application Insights в качестве рабочего процесса мониторинга и диагностики. Чтобы приступить к использованию Application Insights для сбора и отображения журналов, ознакомьтесь с [этой](../application-insights/app-insights-asp-net-more.md) и [этой](../application-insights/app-insights-asp-net-trace-logs.md) статьями.
 
@@ -112,7 +112,7 @@ Azure Application Insights — это расширяемая платформа
 
 Если щелкнуть **Аналитика**, откроется портал аналитики Application Insights, на котором доступно больше возможностей по запросу событий и трассировок. Дополнительные сведения см. в статье [Аналитика в Application Insights](../application-insights/app-insights-analytics.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Настройте оповещения в Application Insights](../application-insights/app-insights-alerts.md), чтобы узнавать об изменениях в производительности или характере использования.
 * [Интеллектуальное обнаружение в Application Insights](../application-insights/app-insights-proactive-diagnostics.md) осуществляет упреждающий анализ данных телеметрии, отправляемых в Application Insights, и предупреждает о потенциальных проблемах с производительностью.

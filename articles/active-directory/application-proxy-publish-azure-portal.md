@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: 43cabb03a698dd87f12fef8e9a4dd54ee42c3ec9
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -95,7 +95,7 @@ ms.lasthandoff: 01/05/2018
 ![Тестирование опубликованного приложения](./media/application-proxy-publish-azure-portal/test-app.png)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 - [Скачайте соединители](active-directory-application-proxy-enable.md) и [создайте группы соединителей](active-directory-application-proxy-connectors-azure-portal.md), чтобы публиковать приложения в разных сетях и расположениях.
 
 - [Настройте единый вход](application-proxy-sso-azure-portal.md) для опубликованного приложения.

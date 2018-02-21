@@ -29,7 +29,7 @@ ms.lasthandoff: 11/02/2017
 | Облако  |
 |---|
 | Хранилище BLOB-объектов Azure*  |
-| База данных SQL Azure  |
+| Базы данных SQL Azure  |
 | Хранилище данных Azure |
 
 
@@ -60,14 +60,14 @@ ms.lasthandoff: 11/02/2017
 | **Источник данных** | **В памяти** | **DirectQuery** |
 |  --- | --- | --- |
 | Хранилище данных SQL Azure |Поставщик данных .NET Framework для SQL Server |Поставщик данных .NET Framework для SQL Server |
-| База данных SQL Azure |Поставщик данных .NET Framework для SQL Server |Поставщик данных .NET Framework для SQL Server | |
+| Базы данных SQL Azure |Поставщик данных .NET Framework для SQL Server |Поставщик данных .NET Framework для SQL Server | |
 
 ### <a name="on-premises-via-gateway"></a>Локально (через шлюз)
 |**Источник данных** | **В памяти** | **DirectQuery** |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0 |Поставщик данных .NET Framework для SQL Server |
-| SQL Server |Поставщик Microsoft OLE DB для SQL Server |Поставщик данных .NET Framework для SQL Server | |
-| SQL Server |Поставщик данных .NET Framework для SQL Server |Поставщик данных .NET Framework для SQL Server | |
+| SQL Server; |SQL Server Native Client 11.0 |Поставщик данных .NET Framework для SQL Server |
+| SQL Server; |Поставщик Microsoft OLE DB для SQL Server |Поставщик данных .NET Framework для SQL Server | |
+| SQL Server; |Поставщик данных .NET Framework для SQL Server |Поставщик данных .NET Framework для SQL Server | |
 | Oracle |Поставщик Microsoft OLE DB для Oracle |Поставщик данных Oracle для .NET | |
 | Oracle |Поставщик данных Oracle для .NET |Поставщик данных Oracle для .NET | |
 | Teradata |Поставщик OLE DB для Teradata |Поставщик данных Teradata для .NET | |
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/02/2017
 
 * При использовании проверки подлинности SQL олицетворением должна быть учетная запись службы.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 При наличии локальных источников данных не забудьте установить [локальный шлюз](analysis-services-gateway.md).   
 Дополнительные сведения об управлении сервером в SSDT или SSMS см. в разделе об [управлении сервером](analysis-services-manage.md).
 

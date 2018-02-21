@@ -39,7 +39,7 @@ ms.lasthandoff: 10/16/2017
 
 Такое представление о том, что реплика может быть первичной или активной вторичной, известно как *роль реплики*. Эти реплики описаны далее в статье [Реплики и экземпляры](service-fabric-concepts-replica-lifecycle.md). 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Дополнительные сведения о понятиях Service Fabric см. в следующих статьях:
 
 - [Масштабирование служб Service Fabric](service-fabric-concepts-scalability.md)

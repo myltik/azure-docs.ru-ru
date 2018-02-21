@@ -16,7 +16,7 @@ ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: c12328a441a8cc438fa3e974863cc8adf8651b50
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
 ---
@@ -189,7 +189,7 @@ ms.lasthandoff: 01/04/2018
 * [Автономная синхронизация данных в мобильных приложениях Azure]
 * [Инструменты Visual Studio для Apache Cordova]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * Ознакомьтесь с более сложными функциями автономной синхронизации, такими как устранение конфликтов, в [этом примере].
 * Ознакомьтесь со справочной информацией об API автономной синхронизации в [документации по API](https://azure.github.io/azure-mobile-apps-js-client).
 

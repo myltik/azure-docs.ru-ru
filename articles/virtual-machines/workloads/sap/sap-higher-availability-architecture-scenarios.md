@@ -281,6 +281,6 @@ ms.lasthandoff: 11/16/2017
   * [Starting and Stopping SAP NetWeaver Management Agents](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm) (Запуск и остановка агентов управления SAP NetWeaver)
   * [How to enable auto Start of HANA Database](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html) (Настройка автоматического запуска базы данных HANA)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Информацию обо всех возможностях по повышению доступности для SAP NetWeaver с учетом приложений см. в разделе [Высокая доступность приложений SAP в Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].

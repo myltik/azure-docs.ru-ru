@@ -16,7 +16,7 @@ ms.date: 11/15/2017
 ms.author: maheshu
 ms.openlocfilehash: bd79644c6a13ccaab8eb7e14131465cc7c3165d3
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -90,7 +90,7 @@ ms.lasthandoff: 12/11/2017
 >
 >
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 После этого прокси приложения Azure AD настроен и интегрирован в управляемый домен доменных служб Azure AD.
 
 * **Перенос приложений в виртуальные машины Azure.** Приложения можно перенести из локальных серверов в виртуальные машины Azure, которые присоединены к управляемому домену. Это позволяет избавиться от затрат на поддержание инфраструктуры локальных серверов.

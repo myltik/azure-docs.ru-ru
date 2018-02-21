@@ -92,7 +92,7 @@ ms.lasthandoff: 12/06/2017
 > 
 > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Чтобы приступить к работе с CDN, см. инструкции по [началу работы с Azure CDN](cdn-create-new-endpoint.md).
 
 Если вы являетесь действующим клиентом CDN, вы можете управлять своими конечными точками CDN с помощью [портала Microsoft Azure](https://portal.azure.com) или [PowerShell](cdn-manage-powershell.md).

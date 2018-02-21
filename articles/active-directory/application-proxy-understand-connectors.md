@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -159,7 +159,7 @@ Register-AppProxyConnector
 
  ![Окно "Службы (локальные)" Azure AD](./media/application-proxy-understand-connectors/aad-connector-services.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 
 * [Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей](active-directory-application-proxy-connectors-azure-portal.md)

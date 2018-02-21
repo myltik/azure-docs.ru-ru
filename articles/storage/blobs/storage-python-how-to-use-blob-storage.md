@@ -153,7 +153,7 @@ append_blob_service.append_blob_from_text('mycontainer', 'myappendblob', u'Hello
 append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob')
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Вы ознакомились с базовыми понятиями о хранилище BLOB-объектов. Дополнительные сведения см. по следующим ссылкам.
 
 * [Центр по разработке для Python](https://azure.microsoft.com/develop/python/)

@@ -50,7 +50,7 @@
 
 Можно вручную изменить размер виртуальных машин на портале Azure в окне размера для масштабируемого набора. Вы можете использовать Azure PowerShell с AzureRmVmss Get, задав свойство номера SKU для ссылки на образ, а затем использовав [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) и [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Ознакомьтесь с дополнительными сведениями о масштабируемых наборах в статье [Рекомендации по проектированию масштабируемых наборов](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md).
 

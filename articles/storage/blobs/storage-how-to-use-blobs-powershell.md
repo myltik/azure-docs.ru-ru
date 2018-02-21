@@ -16,7 +16,7 @@ ms.date: 09/14/2017
 ms.author: robinsh
 ms.openlocfilehash: 170c3091efc90f640792682377ed10e2eab0cab3
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/03/2018
 ---
@@ -365,7 +365,7 @@ Write-Host "URL with SAS = " $SASURI
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В рамках этого руководства вы изучили основы управления хранилищем BLOB-объектов и узнали, как выполнять следующие задачи:
 

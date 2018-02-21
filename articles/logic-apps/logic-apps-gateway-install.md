@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 *   сервер приложений SAP; 
 *   сервер сообщений SAP;
 *   SharePoint
-*   SQL Server
+*   SQL Server;
 *   Teradata
 
 Ниже описывается, как установить локальный шлюз данных перед [настройкой подключения между шлюзом и приложениями логики](./logic-apps-gateway-connection.md). Дополнительные сведения о поддерживаемых соединителях см. статье [Список соединителей](https://docs.microsoft.com/azure/connectors/apis-list). 
@@ -205,7 +205,7 @@ TcpTestSucceeded       : True
 
 Шлюз создает исходящее подключение к [служебной шине Azure](https://azure.microsoft.com/services/service-bus/) и осуществляет связь через исходящие порты: TCP-порты 443 (по умолчанию), 5671, 5672 и 9350–9354. Шлюзу не требуются входящие порты. Узнайте больше о [служебной шине Azure и гибридных решениях](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| ДОМЕННЫЕ ИМЕНА | ИСХОДЯЩИЕ ПОРТЫ | ОПИСАНИЕ |
+| ДОМЕННЫЕ ИМЕНА | ИСХОДЯЩИЕ ПОРТЫ | Описание |
 | --- | --- | --- |
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.login.windows.net | 443 | HTTPS | 
@@ -337,7 +337,7 @@ TcpTestSucceeded       : True
 
 [Fiddler](http://www.telerik.com/fiddler) — это бесплатный инструмент от компании Telerik, который отслеживает трафик HTTP. Вы можете просматривать данные с помощью службы Power BI с клиентского компьютера. Эта служба позволит выявить ошибки и другие сопутствующие сведения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
     
 * [Подключение к локальным данным из приложений логики](../logic-apps/logic-apps-gateway-connection.md)
 * [Возможности интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md)

@@ -331,7 +331,7 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 | Свойство `run_elevated` не указано | Обновление не требуется.                                                                                                                                  |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 ### <a name="batch-forum"></a>Форум по Пакетной службе
 

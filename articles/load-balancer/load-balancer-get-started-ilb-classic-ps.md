@@ -62,7 +62,7 @@ Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb �
 
 ### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Шаг 2: Добавление конечных точек в экземпляр внутренней балансировки нагрузки
 
-Пример:
+Вот пример: 
 
 ```powershell
 $svc="mytestcloud"
@@ -87,7 +87,7 @@ $svc="<Cloud Service Name>"
 Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
-Чтобы использовать эти команды, заполните значения и удалите символы < и >. Пример:
+Чтобы использовать эти команды, заполните значения и удалите символы < и >. Вот пример: 
 
 ```powershell
 $svc="mytestcloud"
@@ -148,7 +148,7 @@ Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname
 
 Чтобы использовать эти команды, заполните значения и удалите символы < и >.
 
-Пример:
+Вот пример: 
 
 ```powershell
 $svc="mytestcloud"
@@ -166,7 +166,7 @@ Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 Чтобы использовать эти команды, заполните значения и удалите символы < и >.
 
-Пример:
+Вот пример: 
 
 ```powershell
 $svc="mytestcloud"
@@ -184,7 +184,7 @@ Get-Help Get-AzureInternalLoadbalancer -full
 Get-Help Remove-AzureInternalLoadBalancer -full
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Настройка режима распределения балансировщика нагрузки с помощью соответствия исходному IP-адресу](load-balancer-distribution-mode.md)
 

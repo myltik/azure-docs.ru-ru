@@ -57,6 +57,6 @@ ms.lasthandoff: 10/11/2017
 
 *  Чтобы вызвать любой API, даже тот, который не имеет документа OpenAPI или не предоставляет его, всегда можно создать запрос с помощью [действия HTTP](../connectors/connectors-native-http.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Custom connector overview](../logic-apps/custom-connector-overview.md) (Обзор настраиваемых соединителей)

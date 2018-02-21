@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Использование обозревателя Центра Интернета вещей для обмена сообщениями между устройством и Центром Интернета вещей
 
-![Сквозная схема](media/iot-hub-get-started-e2e-diagram/2.png)
+![Комплексная схема](media/iot-hub-get-started-e2e-diagram/2.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 > [!Note]
 > Устройству не нужно отправлять отдельную команду подтверждения в Центр Интернета вещей после получения сообщения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Вы узнали, как отслеживать сообщения, отправляемые из устройства Интернета вещей в облако Центра Интернета вещей, и отправлять сообщения из этого облака на устройство.
 

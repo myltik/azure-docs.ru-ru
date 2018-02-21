@@ -16,7 +16,7 @@ ms.date: 06/28/2017
 ms.author: dobett
 ms.openlocfilehash: 0c94b627ad80a1cc32bc0084d3792a917225d9c7
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/02/2018
 ---
@@ -192,7 +192,7 @@ ms.lasthandoff: 01/02/2018
 
     ![Выполнение команды для отправки сообщения из облака на устройство][img-send-command]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом учебнике вы научились отправлять и получать сообщения с облака на устройство. 
 
@@ -205,8 +205,7 @@ ms.lasthandoff: 01/02/2018
 [img-send-command]:  media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->
 
-
-            [Приступая к работе с Центром Интернета вещей Azure (Node)]: iot-hub-java-java-getstarted.md
+[Приступая к работе с Центром Интернета вещей Azure (Node)]: iot-hub-java-java-getstarted.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [руководстве разработчика для Центра Интернета вещей]: iot-hub-devguide.md
 [центре разработчиков для Интернета вещей Azure]: http://azure.microsoft.com/develop/iot

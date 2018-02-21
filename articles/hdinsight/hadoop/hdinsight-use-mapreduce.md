@@ -29,7 +29,7 @@ ms.lasthandoff: 12/01/2017
 | **Используется**... | **... чтобы сделать** | ...with этим **кластером операционной системы** | ...из этого **кластера операционной системы** |
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Использование команды Hadoop через **SSH** |Linux |Linux, Unix, Mac OS X или Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |Удаленная отправка задания с помощью **REST** (в примерах используется cURL) |Linux или Windows |Linux, Unix, Mac OS X или Windows |
+| [REST](apache-hadoop-use-mapreduce-curl.md) |Удаленная отправка задания с помощью **REST** (в примерах используется cURL) |Windows или Linux |Linux, Unix, Mac OS X или Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Удаленная отправка заданий с помощью **Windows PowerShell** |Windows или Linux |Windows |
 | [Удаленный рабочий стол](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 и 3.3) |Использование команды Hadoop с помощью **удаленного рабочего стола** |Windows |Windows |
 

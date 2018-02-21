@@ -130,7 +130,7 @@ Azure Active Directory — это комплексная служба иден�
 Для учетных записей Azure AD администраторы могут сбрасывать пароли, используя один из вариантов:
 
 - [сброс учетных записей на портале Azure](active-directory-users-reset-password-azure-portal.md);
-- [Использование PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
+- [PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -

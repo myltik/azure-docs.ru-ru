@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 После создания учетной записи интеграции, для которой определены партнеры и соглашения, вы сможете с помощью [пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md) создать рабочий процесс "бизнес — бизнес" (B2B) для приложения логики.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Чтобы использовать действия AS2 и X12, потребуется учетная запись интеграции Enterprise. Узнайте, [как создать учетную запись интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 
@@ -110,4 +110,4 @@ ms.lasthandoff: 10/11/2017
 * Вы можете дополнительно расширить возможности приложения логики, настроив обмен данными с другими приложениями и службами, например Salesforce.
 
 ## <a name="learn-more"></a>Подробнее
-[Обзор Пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md)
+[Дополнительные сведения о Пакете интеграции Enterprise](logic-apps-enterprise-integration-overview.md)

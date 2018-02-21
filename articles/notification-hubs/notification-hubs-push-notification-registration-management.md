@@ -293,7 +293,7 @@ ms.lasthandoff: 10/11/2017
 
 
 #### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Пример кода регистрации в центре уведомлений с устройства, использующего код регистрации
-Из серверной части приложения с регистрациями можно выполнять основные операции CRUDS. Например:
+Из серверной части приложения с регистрациями можно выполнять основные операции CRUDS. Например: 
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 

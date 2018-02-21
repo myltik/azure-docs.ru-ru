@@ -39,7 +39,7 @@ ms.lasthandoff: 10/20/2017
 
 Правила автомасштабирования, использующие метрики на основе узла, можно создавать с помощью одного из следующих средств:
 
-- [Портал Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [портал Azure](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 - [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/20/2017
 
 | Тип агрегирования |
 |------------------|
-| Средняя          |
+| Среднее          |
 | Минимальная          |
 | Максимальная          |
 | Всего            |
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/20/2017
 
 Затем при сравнении значений метрик с заданным порогом с помощью одного из следующих операторов активируются правила автомасштабирования.
 
-| operator                 |
+| Оператор                 |
 |--------------------------|
 | Больше             |
 | Больше или равно |
@@ -133,10 +133,10 @@ ms.lasthandoff: 10/20/2017
 - В случае маркетингового события, рекламной акции или праздничной распродажи можно заранее автоматически масштабировать количество экземпляров виртуальных машин в соответствии с прогнозируемым спросом. 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Правила автомасштабирования, использующие метрики на основе узла, можно создавать с помощью одного из следующих инструментов:
 
-- [Портал Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [портал Azure](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 - [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 

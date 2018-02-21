@@ -22,9 +22,9 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>Развертывание шаблонов в Azure Stack с помощью командной строки
 
-*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
+*Область применения: интегрированные системы Azure Stack и Пакет средств разработки Azure Stack*
 
-С помощью командной строки можно развертывать шаблоны Azure Resource Manager в пакет средств разработки Azure Stack. Используя шаблоны Azure Resource Manager, можно развернуть и подготовить все ресурсы для приложения в рамках одной скоординированной операции.
+С помощью командной строки можно развертывать шаблоны Azure Resource Manager в Пакет средств разработки Azure Stack. Используя шаблоны Azure Resource Manager, можно развернуть и подготовить все ресурсы для приложения в рамках одной скоординированной операции.
 
 ## <a name="before-you-begin"></a>Перед началом работы
  - [Выполните установку и подключение](azure-stack-connect-cli.md) к Azure Stack с помощью Azure CLI.

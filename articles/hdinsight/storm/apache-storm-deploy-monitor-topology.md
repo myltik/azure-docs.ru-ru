@@ -33,7 +33,7 @@ ms.lasthandoff: 11/03/2017
 >
 > Сведения о развертывании топологий Storm и управлении ими с помощью кластера HDInsight под управлением Linux см. в статье [Развертывание топологий Apache Storm в HDInsight под управлением Linux и управление ими](apache-storm-deploy-monitor-topology-linux.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 * **Apache Storm в HDInsight** — инструкции по созданию кластера представлены в статье [Начало работы с Apache Storm в HDInsight](apache-storm-tutorial-get-started-linux.md).
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/03/2017
    > Топологии Storm выполняются, пока не будут удалены или пока не будет удален кластер.
 
 
-## <a name="rest-api"></a>Интерфейс REST API
+## <a name="rest-api"></a>ИНТЕРФЕЙС REST API
 
 Пользовательский интерфейс Storm построен на базе REST API, поэтому функциональность отслеживания и управления можно реализовать аналогичным образом с помощью API. С помощью REST API можно создать пользовательские средства для отслеживания топологий Storm и управления ими.
 
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/03/2017
 
 Базовый универсальный код ресурса (URI) для REST API в кластерах HDInsight: **https://&lt;имя_кластера>.azurehdinsight.net/stormui/api/v1/**, где **имя_кластера** — это имя топологии Storm в кластере HDInsight.
 
-### <a name="authentication"></a>Аутентификация
+### <a name="authentication"></a>Authentication
 
 Для запросов REST API необходимо использовать **обычную проверку подлинности**с помощью имени и пароля администратора кластера HDInsight.
 

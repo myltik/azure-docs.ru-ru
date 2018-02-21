@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: 2370c4717e2cff6b4b8113b09624ef873b309647
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/05/2018
 ---
@@ -180,7 +180,7 @@ ms.lasthandoff: 01/05/2018
 На этом этапе приложение может выполнять определенную обработку. Если вы настроили прокси приложения для преобразования заголовков или URL-адресов в приложении, то при необходимости эта обработка выполняется на данном этапе.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Аспекты топологии сети при использовании прокси приложения Azure AD](application-proxy-network-topology-considerations.md)
 

@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 *Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
 
-С помощью PowerShell можно развертывать шаблоны Azure Resource Manager в пакет средств разработки Azure Stack.  Используя шаблоны Resource Manager, можно развернуть и подготовить все ресурсы для приложения в рамках одной скоординированной операции.
+С помощью PowerShell можно развертывать шаблоны Azure Resource Manager в Пакет средств разработки Azure Stack.  Используя шаблоны Resource Manager, можно развернуть и подготовить все ресурсы для приложения в рамках одной скоординированной операции.
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>Выполнение командлетов PowerShell для AzureRM
 В этом примере вы выполните скрипт для развертывания виртуальной машины в пакет средств разработки Azure Stack с помощью шаблона Resource Manager.  Прежде чем продолжить, [настройте PowerShell](azure-stack-powershell-configure-user.md).  

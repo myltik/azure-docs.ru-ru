@@ -102,7 +102,7 @@ ms.lasthandoff: 11/01/2017
 
 ![Фильтрация по свойству](./media/app-insights-separate-resources/050-filter.png)
 
-Свойство «Версия приложения» можно настроить различными способами.
+Свойство "Версия приложения" можно настроить различными способами.
 
 * Напрямую:
 
@@ -156,7 +156,7 @@ ms.lasthandoff: 11/01/2017
 Если используется Visual Studio Team Services, можно настроить [добавление маркера заметки](app-insights-annotations.md) к диаграммам при выпуске новой версии. На следующем рисунке показано, как появляется этот маркер.
 
 ![Снимок экрана, где показана диаграмма с примером заметки о новом выпуске](./media/app-insights-asp-net/release-annotation.png)
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * [Monitor multi-component applications with Application Insights (preview)](app-insights-monitor-multi-role-apps.md) (Мониторинг приложений с несколькими компонентами с помощью Application Insights (предварительная версия))
 * [Добавление свойств: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties)

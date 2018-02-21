@@ -16,7 +16,7 @@ ms.date: 12/05/2017
 ms.author: billmath
 ms.openlocfilehash: b533df58d24b3bc76a229ad09c682d1d8aeaf741
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 12/11/2017
 ---
@@ -176,7 +176,7 @@ Mozilla Firefox не выполняет аутентификацию Kerberos а
 >[!IMPORTANT]
 >Этот шаг не требуется выполнять _немедленно_ после включения функции. Меняйте ключи расшифровки Kerberos по крайней мере каждые 30 дней.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - [Подробное техническое руководство](active-directory-aadconnect-sso-how-it-works.md). Поймите, как работает функция простого единого входа.
 - [Часто задаваемые вопросы](active-directory-aadconnect-sso-faq.md). Получите ответы на часто задаваемые вопросы о простом едином входе.

@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>предварительным требованиям
 * Учетная запись [MicrosoftTranslator](https://www.microsoft.com/translator).  
 
 Перед использованием учетной записи MicrosoftTranslator в приложении логики необходимо авторизовать приложение логики для подключения к учетной записи MicrosoftTranslator. Это легко сделать в приложении логики на портале Azure.  

@@ -17,7 +17,7 @@ ms.date: 01/03/2018
 ms.author: cgronlun
 ms.openlocfilehash: 79c66fe29c8d51a8cd1db24a024974f943e89e74
 ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/04/2018
 ---
@@ -130,6 +130,6 @@ ms.lasthandoff: 01/04/2018
 
 Обязательно ознакомьтесь с другими видео из цикла "Обработка и анализ данных для начинающих" курса по Машинному обучению Microsoft Azure.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Выполните первый эксперимент по обработке и анализу данных с использованием Студии машинного обучения Microsoft Azure.](create-experiment.md)
 * [Ознакомьтесь с введением в машинное обучение в Microsoft Azure.](what-is-machine-learning.md)

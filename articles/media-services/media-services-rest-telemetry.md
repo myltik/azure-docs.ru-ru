@@ -236,7 +236,7 @@ ms.lasthandoff: 10/11/2017
 
 Сведения об использовании данных телеметрии см. в [этом](media-services-telemetry-overview.md) разделе.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

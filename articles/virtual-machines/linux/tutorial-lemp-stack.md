@@ -22,12 +22,12 @@ ms.contentlocale: ru-RU
 ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Установка веб-сервера LEMP на виртуальной машине Azure
-Эта статья содержит указания по развертыванию веб-сервера NGINX, MySQL и PHP (стека LEMP) на виртуальной машине Ubuntu в Azure. Стек LEMP является альтернативой известному [стеку LAMP](tutorial-lamp-stack.md), который также можно установить в Azure. Чтобы оценить работу сервера LEMP в действии, вы можете установить и настроить сайт WordPress. Из этого руководства вы узнаете, как выполнить следующие задачи:
+Эта статья содержит указания по развертыванию веб-сервера NGINX, MySQL и PHP (стека LEMP) на виртуальной машине Ubuntu в Azure. Стек LEMP является альтернативой известному [стеку LAMP](tutorial-lamp-stack.md), который также можно установить в Azure. Чтобы оценить работу сервера LEMP в действии, вы можете установить и настроить сайт WordPress. Из этого руководства вы узнали, как выполнять такие задачи:
 
 > [!div class="checklist"]
 > * Создание виртуальной машины Ubuntu ("L" в названии стека LEMP).
 > * Открытие порта 80 для веб-трафика
-> * Установка NGINX, MySQL и PHP.
+> * Установка NGINX, MySQL и PHP
 > * Проверка установки и настройки.
 > * Установка WordPress на сервере LEMP.
 
@@ -36,11 +36,11 @@ ms.lasthandoff: 11/28/2017
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
-## <a name="install-nginx-mysql-and-php"></a>Установка NGINX, MySQL и PHP.
+## <a name="install-nginx-mysql-and-php"></a>Установка NGINX, MySQL и PHP
 
 Чтобы обновить источники пакетов Ubuntu и установить NGINX, PHP и MySQL, выполните команду ниже. 
 
@@ -52,7 +52,7 @@ sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
 
 ![Страница с паролем привилегированного пользователя MySQL][1]
 
-## <a name="verify-installation-and-configuration"></a>Проверка установки и настройки.
+## <a name="verify-installation-and-configuration"></a>Проверка установки и настройки
 
 
 ### <a name="nginx"></a>NGINX
@@ -160,15 +160,15 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого руководства вы узнали, как развернуть сервер LEMP в Azure. Вы научились выполнять следующие задачи:
 
 > [!div class="checklist"]
 > * Создание виртуальной машины Ubuntu.
 > * Открытие порта 80 для веб-трафика
-> * Установка NGINX, MySQL и PHP.
-> * Проверка установки и настройки.
+> * Установка NGINX, MySQL и PHP
+> * Проверка установки и настройки
 > * Установка WordPress в стеке LEMP.
 
 Перейдите к следующему руководству, чтобы узнать, как защитить веб-серверы с помощью SSL-сертификатов.

@@ -25,7 +25,7 @@ ms.lasthandoff: 01/09/2018
 
 В этом кратком руководстве объясняется, как создать REST API, написанный с использованием Node.js [Express](http://expressjs.com/) с помощью определения [Swagger](http://swagger.io/), а затем развернуть его в Azure. Вы научитесь создавать приложения, используя программы командной строки, настраивать ресурсы в [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) и развертывать приложения с помощью Git.  Завершив работу, вы получите рабочий образец REST API в Azure.
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 * [Git.](https://git-scm.com/)
 * [Node.js и NPM](https://nodejs.org/)
