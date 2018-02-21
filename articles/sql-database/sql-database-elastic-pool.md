@@ -14,13 +14,12 @@ ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: Active
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 2f1ff7a7c2ecf04069ffa6afcc66e2f0f9915b35
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.topic: 02/12/2018
+ms.openlocfilehash: 7c1cbc16d968bd13d0486cd434b095f8d3ecf636
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Управление несколькими базами данных SQL Azure и их масштабирование с помощью эластичных пулов
 
@@ -171,7 +170,7 @@ ms.lasthandoff: 10/31/2017
 
 Рекомендация для пула включает следующие аспекты:
 
-- ценовая категория для пула ("Базовый", "Стандартный", "Премиум" или "Премиум RS").
+- ценовая категория для пула ("Базовый", "Стандартный" или "Премиум");
 - соответствующее количество **единиц eDTU пула** (также называемое максимальным количеством единиц eDTU для одного пула);
 - **максимальное** и **минимальное количество единиц eDTU** для каждой базы данных;
 - список рекомендуемых баз данных для пула.
@@ -262,7 +261,7 @@ ms.lasthandoff: 10/31/2017
 
 4. Выберите **Условие** (больше, меньше и т. д.) и **Пороговое значение**.
 5. Выберите **период** времени, в течение которого метрика правила должна выполнять условие, прежде чем будет активировано оповещение.
-6. Нажмите кнопку **ОК**.
+6. Последовательно выберите **ОК**.
 
 Дополнительные сведения см. в статье [Создание оповещений для базы данных SQL Azure с помощью портала Azure](sql-database-insights-alerts-portal.md).
 
@@ -300,7 +299,7 @@ ms.lasthandoff: 10/31/2017
 > Образцы скриптов PowerShell см. в статьях [Создание эластичных пулов и перемещение баз данных между пулами и из пула с помощью PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) и [Отслеживание и масштабирование эластичного пула SQL в Базе данных SQL Azure с помощью PowerShell](scripts/sql-database-monitor-and-scale-pool-powershell.md).
 >
 
-| Командлет | Описание |
+| Командлет | ОПИСАНИЕ |
 | --- | --- |
 |[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Создает пул эластичных баз данных на логическом сервере SQL.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Получает пулы эластичных баз данных и значения их свойств на логическом сервере SQL.|
@@ -325,7 +324,7 @@ ms.lasthandoff: 10/31/2017
 > Примеры скриптов для Azure CLI см. в статьях [Перемещение базы данных Azure SQL в эластичном пуле SQL с помощью интерфейса командной строки](scripts/sql-database-move-database-between-pools-cli.md) и [Масштабирование эластичного пула SQL в Базе данных SQL Azure с помощью Azure CLI](scripts/sql-database-scale-pool-cli.md).
 >
 
-| Командлет | Описание |
+| Командлет | ОПИСАНИЕ |
 | --- | --- |
 |[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Создает эластичный пул.|
 |[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Возвращает список эластичных пулов на сервере.|
@@ -342,7 +341,7 @@ ms.lasthandoff: 10/31/2017
 > С помощью Transact-SQL невозможно создать, обновить или удалить пул эластичных баз данных SQL Azure. Вы можете добавить или удалить базы данных из эластичного пула, а также вернуть сведения о существующих эластичных пулах, используя динамические административные представления.
 >
 
-| Команда | Описание |
+| Get-Help | ОПИСАНИЕ |
 | --- | --- |
 |[CREATE DATABASE (база данных SQL Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Создает новую базу данных в существующем пуле или отдельную базу данных. Для создания базы данных требуется подключение к базе данных master.|
 | [ALTER DATABASE (база данных SQL Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Перемещает базы данных из, в или между эластичными пулами.|
@@ -354,7 +353,7 @@ ms.lasthandoff: 10/31/2017
 
 Для создания эластичных пулов базы данных SQL и управления ими используйте эти запросы REST API.
 
-| Команда | Описание |
+| Get-Help | ОПИСАНИЕ |
 | --- | --- |
 |[Создание или обновление эластичных пулов](/rest/api/sql/elasticpools/createorupdate)|Создает эластичный пул или обновляет имеющийся.|
 |[Удаление эластичных пулов](/rest/api/sql/elasticpools/delete)|Удаляет эластичный пул.|
@@ -375,7 +374,7 @@ ms.lasthandoff: 10/31/2017
 |[Базы данных: вывод списка по серверу](/rest/api/sql/databases/listbyserver)|Возвращает список баз данных на сервере.|
 |[Базы данных: обновление](/rest/api/sql/databases/update)|Обновляет имеющуюся базу данных.|
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 * Мы рекомендуем просмотреть [видеокурс о возможностях эластичной базы данных SQL Azure на сайте Microsoft Virtual Academy](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554).
 * Дополнительные сведения о шаблонах разработки для приложений SaaS, использующих пулы эластичных БД, см. в статье [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).

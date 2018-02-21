@@ -3,7 +3,7 @@ title: "Оптимизация среды Active Directory с помощью Azu
 description: "Решение проверки работоспособности Active Directory можно использовать для регулярной оценки риска и состояния среды."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Оптимизация среды Active Directory с помощью решения проверки работоспособности Active Directory в Log Analytics
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="prerequisites"></a>предварительным требованиям
 
-* Для решения проверки работоспособности Active Directory на каждом компьютере с агентом Microsoft Monitoring Agent (MMA) должна быть установлена поддерживаемая платформа .NET Framework 4.5.2 или более поздней версии.  Агент MMA используется решением System Center 2016 Operations Manager и Operations Manager 2012 R2, а также службами Log Analytics. 
+* Для решения проверки работоспособности Active Directory на каждом компьютере с агентом Microsoft Monitoring Agent (MMA) должна быть установлена поддерживаемая платформа .NET Framework 4.5.2 или более поздней версии.  Агент MMA используется решением System Center 2016 Operations Manager и Operations Manager 2012 R2, а также службами Log Analytics.
 * Решение поддерживает контроллеры домена под управлением Windows Server 2008 и 2008 R2, Windows Server 2012 и 2012 R2, а также Windows Server 2016.
 * Рабочая область Log Analytics для добавления решения проверки работоспособности Active Directory в Azure Marketplace на портале Azure.  Дополнительная настройка не требуется.
 
@@ -62,13 +62,13 @@ ms.lasthandoff: 02/03/2018
 
 Для проверки работоспособности Active Directory данные собираются из следующих источников с помощью включенных агентов:
 
-- Реестр 
-- LDAP 
+- Реестр
+- LDAP
 - .NET Framework
-- Журнал событий 
+- Журнал событий
 - Интерфейс ADSI
 - Windows PowerShell
-- данные файлов; 
+- данные файлов;
 - Инструментарий управления Windows (WMI)
 - API инструмента DCDIAG
 - API службы репликации файлов (NTFRS)
@@ -109,7 +109,7 @@ ms.lasthandoff: 02/03/2018
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Просмотр рекомендаций для приоритетной области и выполнение действий по исправлению
 3. Щелкните плитку **Обзор** рабочей области Log Analytics на портале Azure.
-4. На странице **Обзор** щелкните плитку **Проверка работоспособности Active Directory**. 
+4. На странице **Обзор** щелкните плитку **Проверка работоспособности Active Directory**.
 5. На странице **Проверка работоспособности** просмотрите сводные данные в одной из колонок приоритетной области, а затем щелкните ее, чтобы ознакомиться с рекомендациями для этой приоритетной области.
 6. На всех страницах интересующей области можно просматривать приоритетные рекомендации для вашей среды. Щелкните рекомендацию в разделе **Затронутые объекты** , чтобы просмотреть сведения о причинах возникновения этой рекомендации.<br><br> ![Экран с рекомендациями по проверке работоспособности](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. В разделе **Предложенные действия**представлены действия по исправлению, которые вы можете предпринять. Когда проблема с этим элементом будет устранена, последующие оценки будут указывать, что рекомендованные действия были выполнены, и тогда оценка соответствия возрастет. Исправленные элементы отображаются как **Прошедшие проверку объекты**.
@@ -133,7 +133,7 @@ ms.lasthandoff: 02/03/2018
 2. Вставьте или введите значение RecommendationId для каждой рекомендации, которую служба Log Analytics должна игнорировать, в отдельной строке, а затем сохраните и закройте файл.
 3. Поместите файл в следующую папку на каждом компьютере, где служба Log Analytics должна игнорировать рекомендации:
    * На компьютерах с Microsoft Monitoring Agent (подключенных напрямую или через Operations Manager): *системный диск*:\Program Files\Microsoft Monitoring Agent\Agent.
-   * На сервере управления Operations Manager 2012 R2: *системный диск*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server. 
+   * На сервере управления Operations Manager 2012 R2: *системный диск*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server.
    * На сервере управления Operations Manager 2016 — *системный диск*:\Program Files\Microsoft System Center 2016\Operations Manager\Server.
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Контроль игнорирования рекомендаций

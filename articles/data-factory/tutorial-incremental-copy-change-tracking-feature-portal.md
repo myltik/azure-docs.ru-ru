@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ddc299d0a292ba17624aa3d0617e420a82f2abf3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Добавочная загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure с использованием сведений об отслеживания изменений 
 Из этого руководстве вы узнаете, как создать фабрику данных Azure с конвейером, который копирует разностные данные на основе сведений об **отслеживании изменений** в базе данных-источнике SQL Azure в хранилище BLOB-объектов Azure.  
@@ -26,8 +26,8 @@ ms.lasthandoff: 01/23/2018
 
 > [!div class="checklist"]
 > * подготовите исходное хранилище данных;
-> * Создадите фабрику данных.
-> * создание связанных служб. 
+> * создадите фабрику данных;
+> * создадите связанные службы; 
 > * создадите источник, приемник и наборы данных отслеживания изменений;
 > * создадите, запустите и начнете мониторинг конвейера полного копирования;
 > * добавите или обновите данные в исходной таблице;
@@ -149,8 +149,9 @@ ms.lasthandoff: 01/23/2018
 ### <a name="azure-powershell"></a>Azure PowerShell
 Чтобы установить модули Azure PowerShell, выполните инструкции из статьи [Установка и настройка Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных
+## <a name="create-a-data-factory"></a>Создать фабрику данных
 
+1. Запустите веб-браузер **Microsoft Edge** или **Google Chrome**. Сейчас только эти браузеры поддерживают пользовательский интерфейс фабрики данных.
 1. В меню слева щелкните **Создать**, выберите **Данные+аналитика** и щелкните **Фабрика данных**. 
    
    ![Создать -> Фабрика данных](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
@@ -360,7 +361,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 2. Вы увидите новую вкладку для настройки конвейера. Также этот конвейер появится в отображении дерева. В окне **Свойства** укажите имя **IncrementalCopyPipeline** для нового конвейера.
 
     ![Имя конвейера](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
-3. Разверните элемент **База данных SQL** в панели элементов **Действия** и перетащите действие **Поиск** в область конструктора конвейера. Задайте для этого действия имя **LookupLastChangeTrackingVersionActivity**. Это действие возвращает версию отслеживания изменений, использованную для последней операции копирования, которая хранится в таблице **table_store_ChangeTracking_version**.
+3. Разверните элемент **Общие** на панели **Действия** и перетащите действие **Поиск** в область конструктора конвейера. Задайте для этого действия имя **LookupLastChangeTrackingVersionActivity**. Это действие возвращает версию отслеживания изменений, использованную для последней операции копирования, которая хранится в таблице **table_store_ChangeTracking_version**.
 
     ![Действие поиска — имя](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Перейдите на вкладку **Настройки** в окне **Свойства** и выберите **ChangeTrackingDataset** в поле **Source Dataset** (Исходный набор данных). 
@@ -406,14 +407,15 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 12. Перейдите на вкладку *Учетная запись SQL* и выберите **AzureSqlDatabaseLinkedService** в списке **Связанная служба**. 
 
     ![Действие хранимой процедуры — учетная запись SQL](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
-13. Перейдите на вкладку **Хранимая процедура** и выполните здесь следующие действия. 
+13. Перейдите на вкладку **Хранимая процедура** и выполните здесь следующие действия: 
 
-    1. Введите **Update_ChangeTracking_Version** в поле **Имя хранимой процедуры**.  
-    2. В области **Параметры хранимой процедуры** нажмите кнопку **+ Создать**, чтобы добавить следующие два параметра.
+    1. Укажите **Update_ChangeTracking_Version** в качестве **имени хранимой процедуры**.  
+    2. Выберите **Параметр импорта**. 
+    3. В разделе **Параметры хранимой процедуры** укажите следующие значения параметров: 
 
         | ИМЯ | type | Значение | 
         | ---- | ---- | ----- | 
-        | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
+        | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | Строка | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Действие хранимой процедуры — параметры](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
@@ -423,14 +425,15 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 15. Нажмите кнопку **Проверить** на панели инструментов. Убедитесь, что проверка завершается без ошибок. Закройте **окно отчета о проверке конвейера**, щелкнув **>>**. 
 
     ![Кнопка проверки](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  Опубликуйте сущности (связанные службы, наборы данных и конвейеры) в службе фабрики данных, нажав кнопку **Публикация**. Дождитесь сообщения **Публикация успешно выполнена**. 
+16.  Опубликуйте сущности (связанные службы, наборы данных и конвейеры) в службе фабрики данных, нажав кнопку **Опубликовать все**. Дождитесь сообщения **Публикация успешно выполнена**. 
 
         ![Кнопка "Опубликовать"](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Запуск конвейера добавочного копирования
-Щелкните **Триггер** на панели инструментов конвейера, а затем **Trigger Now** (Активировать сейчас). 
+1. Щелкните **Триггер** на панели инструментов конвейера, а затем **Trigger Now** (Активировать сейчас). 
 
-![Меню Trigger Now (Активировать сейчас)](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![Меню Trigger Now (Активировать сейчас)](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+2. На странице **Запуск конвейера** нажмите кнопку **Готово**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Мониторинг конвейера добавочного копирования
 1. Щелкните вкладку **Мониторинг** слева. В открывшемся списке вы увидите запуск конвейера и его текущее состояние. Чтобы обновить этот список, щелкните **Обновить**. Ссылки в столбце **Действия** позволяют просмотреть запуски действий, связанные с этим запуском конвейера, и (или) повторно запустить конвейер. 

@@ -67,8 +67,10 @@
           href: kubernetes-helm.md
         - name: Разработка приложений с помощью Draft
           href: kubernetes-draft.md
-        - name: Интеграция с Azure с помощью OSBA
+        - name: Открытый компонент Service Broker для Azure
           href: integrate-azure.md
+        - name: Непрерывное развертывание с помощью Jenkins
+          href: jenkins-continuous-deployment.md
     - name: Базовые сведения о Kubernetes
       items:
         - name: Использование панели мониторинга Kubernetes

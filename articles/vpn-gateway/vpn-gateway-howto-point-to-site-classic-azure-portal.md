@@ -1,10 +1,10 @@
 ---
 title: "Подключение компьютера к виртуальной сети с помощью подключения типа \"точка — сеть\" и проверки подлинности на основе сертификата, используя классический портал Azure | Документация Майкрософт"
-description: "Безопасно подключайтесь к классической виртуальной сети Azure, создав VPN-подключение шлюза типа \"точка — сеть\" с помощью портала Azure."
+description: "Создание классического подключения VPN-шлюза \"точка — сеть\" с помощью портала Azure"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 150b6fcc80a57c0cded110e19cf81f5a2883e583
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bac84043eb6456feae35c59b6ee12f9be5f46297
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Настройка подключения типа "точка — сеть" к виртуальной сети с помощью проверки подлинности на основе сертификата (классическая модель), используя портал Azure
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-В этой статье показано, как создать виртуальную сеть с подключением типа "точка-сеть" в классической модели развертывания с помощью портала Azure. В этой конфигурации для проверки подлинности подключающегося клиента используются сертификаты. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:
+В этой статье показано, как создать виртуальную сеть с подключением типа "точка-сеть" в классической модели развертывания с помощью портала Azure. В этой конфигурации для аутентификации подключающегося клиента используются сертификаты — самозаверяющие или выпущенные ЦС. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:
 
 > [!div class="op_single_selector"]
 > * [Портал Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -262,3 +262,5 @@ VPN-шлюз типа "точка — сеть" (P2S) позволяет соз
 
 ## <a name="next-steps"></a>Дополнительная информация
 Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительные сведения о виртуальных машинах см. [здесь](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Дополнительные сведения о сетях и виртуальных машинах см. в статье [Azure и Linux: обзор сетей виртуальных машин](../virtual-machines/linux/azure-vm-network-overview.md).
+
+Дополнительные сведения см. в руководстве по [устранению неполадок с подключением "точка — сеть" в Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

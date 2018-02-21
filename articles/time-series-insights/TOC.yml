@@ -16,6 +16,8 @@
       href: time-series-insights-explorer.md
     - name: Устранение регулирования
       href: time-series-insights-environment-mitigate-latency.md
+    - name: Концепция срока хранения данных
+      href: time-series-insights-concepts-retention.md
     - name: Диагностирование и устранение неполадок
       href: time-series-insights-diagnose-and-solve-problems.md
     - name: Разработка
@@ -38,6 +40,8 @@
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: Подключение к Центру Интернета вещей
       href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Настройка времени хранения данных
+      href: time-series-insights-how-to-configure-retention.md
     - name: Создание набора эталонных данных
       href: time-series-insights-add-reference-data-set.md
     - name: Отправка событий

@@ -3,7 +3,7 @@ title: "Решение \"Данные передачи\" в Log Analytics | До
 description: "Данные передачи — это объединенные сетевые данные и данные производительности, передаваемые с компьютеров с установленными агентами OMS, включая агенты Operations Manager и агенты, подключенные к Windows. Сетевые данные вместе с данными журнала помогают коррелировать данные."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: magoedte;banders
-ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: magoedte
+ms.openlocfilehash: 658d92900763249aeeb3542132f4fe0c43ba005f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Решение Wire Data 2.0 (предварительная версия) в Log Analytics
 
@@ -387,7 +387,7 @@ rpm -e dependency-agent dependency-agent-connector
 | Локальные подсети | Показывает число локальных подсетей, которые обнаружили агенты.  Щелкните число, чтобы выполнить поиск по журналам: <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code>. В результате вы получите список всех подсетей и количество байт, отправленных в каждой из них. Выберите подсеть в списке, чтобы выполнить поиск по журналам и получить общее число байт, отправленных в подсети. |
 | Протоколы уровня приложений | Показывает количество используемых протоколов уровня приложений, обнаруженных агентами. Щелкните количество, чтобы выполнить поиск по журналам: <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Щелкните в списке протокол, чтобы выполнить поиск по журналам и получить общее число байт, отправленных с помощью протокола. |
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Панель мониторинга "Данные передачи"](./media/log-analytics-wire-data/wire-data-dash.png)
 

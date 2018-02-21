@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: 15257e6ee8744b11fd3965e365cf4fb0e1d429ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a89048b0d49d5b3715931285accafda2406ab969
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Сборник тренировочных заданий по обеспечению безопасности в центре безопасности Azure (предварительная версия)
 Этот документ поможет вам использовать сборники тренировочных заданий по обеспечению безопасности в центре безопасности Azure для реагирования на угрозы безопасности.
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 1.  Откройте панель мониторинга **Центр безопасности**.
 2.  В разделе **Automation & Orchestration** (Автоматизация и оркестрация) в левой области щелкните пункт **Playbooks (Preview)** (Сборники тренировочных заданий (предварительная версия)).
 
-    ![приложение логики;](./media/security-center-playbooks/security-center-playbooks-fig1.png)
+    ![приложение логики;](./media/security-center-playbooks/security-center-playbooks-fig17.png)
  
 3. На странице **Security Center - Playbooks (Preview)** (Центр безопасности. Сборники тренировочных заданий (предварительная версия)) нажмите кнопку **Добавить**.
 

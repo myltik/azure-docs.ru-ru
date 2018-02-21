@@ -88,7 +88,7 @@
     - name: Схема обучения
       href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
     - name: Форум MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge'
     - name: Цены
       href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
     - name: Калькулятор цен

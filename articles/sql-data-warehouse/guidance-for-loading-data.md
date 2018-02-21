@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Рекомендации по загрузке данных в хранилище данных SQL Azure
 Рекомендации и оптимизация производительности загрузки данных в хранилище данных SQL Azure: 
@@ -120,15 +120,19 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 Для смены ключей учетной записи службы хранилища Azure выполните следующие действия.
 
-1. Создайте второй набор учетных данных для базы данных, используя вторичный ключ доступа к хранилищу.
-2. Создайте второй внешний источник данных, используя эти учетные данные.
-3. Удалите и создайте внешнюю таблицу или таблицы, указывающие на только что созданный внешний источник данных. 
+Для каждой учетной записи хранения с измененным ключом выполните [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
 
-После переноса внешних таблиц в новый источник данных выполните следующие задачи очистки:
+Пример:
 
-1. Удалите первый внешний источник данных.
-2. Удалите первые учетные данные, собранные в базе данных, основанные на первичном ключе доступа к хранилищу.
-3. Войдите в Azure и повторно создайте первичный ключ доступа, который будет использоваться до следующей смены ключей.
+Исходный ключ создан
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+Замена ключа 1 ключом 2
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+Вносить изменения в базовые внешние источники данных больше не нужно.
 
 
 ## <a name="next-steps"></a>Дополнительная информация

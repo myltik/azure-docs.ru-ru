@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/15/2017
-ms.openlocfilehash: b0916f565d91f5a59d1bfb4653f29bfbdb573443
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 6bae66a5cd349b64b7f96bf7d6c71f4ce13678bf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sprint-2-qfe---december-2017"></a>Исправление QFE для Sprint 2 — декабрь 2017 г. 
 
 #### <a name="version-number-01171115323"></a>Номер версии: 0.1.1711.15323
 
->Узнать, как найти номер версии, можно из статьи [Azure Machine Learning Workbench: руководство по устранению неполадок и описание известных проблем](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Узнать, как найти номер версии, можно из статьи [Azure Machine Learning Workbench: руководство по устранению неполадок и описание известных проблем](known-issues-and-troubleshooting-guide.md).
 
 Представляем вам третье обновление QFE (Quick Fix Engineering), выпущенное для Azure Machine Learning Workbench. Этот выпуск является вспомогательным. Здесь рассматриваются некоторые проблемы телеметрии, что помогает команде разработчиков понять, как используется продукт. Эти знания могут быть использованы в будущем для улучшения качества продукта. 
 

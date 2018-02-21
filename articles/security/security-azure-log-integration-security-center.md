@@ -16,10 +16,10 @@ ms.date: 08/29/2017
 ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: 9acce21d544a43adcd0c0983771c02c6bb39caec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-get-your-security-center-alerts-in-azure-log-integration"></a>Как добавить оповещения центра безопасности Azure в службу интеграции журналов Azure
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 
 В случае проблем при установке и настройке создайте [запрос в службу поддержки](/azure-supportability/how-to-create-azure-support-request.md), указав **Интеграция журнала** в качестве службы, для которой запрашивается поддержка.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Чтобы узнать больше об интеграции журналов Azure, ознакомьтесь со следующими документами:
 
 * [Служба интеграции журналов Microsoft Azure для журналов Azure](https://www.microsoft.com/download/details.aspx?id=53324) — посетите Центр загрузки, чтобы получить дополнительные сведения, изучить требования к системе и получить инструкции по установке службы интеграции журналов Azure.

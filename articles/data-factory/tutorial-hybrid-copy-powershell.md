@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 221af59c211cc6ce0471718908db1544ca2d75ed
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a2abe0733f52c1e032a718fd8f870c3ec9686a41
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Руководство. Копирование данных из локальной базы данных SQL Server в хранилище BLOB-объектов Azure
 В этом руководстве для создания конвейера фабрики данных, который копирует данные из локальной базы данных SQL Server в хранилище BLOB-объектов Azure, будет использоваться Azure PowerShell. Вы создадите и будете использовать локальную среду выполнения интеграции, которая перемещает данные между локальным и облачным хранилищами данных. 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/23/2018
 Вот какие шаги выполняются в этом учебнике:
 
 > [!div class="checklist"]
-> * Создадите фабрику данных.
+> * создадите фабрику данных;
 > * Создайте локальную среду выполнения интеграции.
 > * Создадите SQL Server и связанные службы Azure. 
 > * Создадите SQL Server и наборы данных больших двоичных объектов Azure.
@@ -142,7 +142,7 @@ ms.lasthandoff: 01/23/2018
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
     ```
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных
+## <a name="create-a-data-factory"></a>Создать фабрику данных
 
 1. Определите переменную для имени группы ресурсов, которую в дальнейшем можно будет использовать в командах PowerShell. Скопируйте текст следующей команды в PowerShell, укажите имя [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) (заключенное в двойные кавычки, например `"adfrg"`), а затем выполните команду. 
    
@@ -202,6 +202,9 @@ ms.lasthandoff: 01/23/2018
 
 2. Создайте локальную среду выполнения интеграции. 
 
+    ```powershell
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    ``` 
     Пример выходных данных:
 
     ```json
@@ -210,7 +213,7 @@ ms.lasthandoff: 01/23/2018
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : onpremdf0914
     Name              : myonpremirsp0914
-    Description       :
+    Description       : selfhosted IR description
     ```
 
 3. Чтобы получить состояние созданной среды выполнения интеграции, выполните следующую команду:
@@ -670,7 +673,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
 В этом примере конвейер копирует данные из одного расположения в другое в хранилище BLOB-объектов Azure. Вы научились выполнять следующие задачи:
 
 > [!div class="checklist"]
-> * Создадите фабрику данных.
+> * создадите фабрику данных;
 > * Создайте локальную среду выполнения интеграции.
 > * Создадите SQL Server и связанные службы Azure. 
 > * Создадите SQL Server и наборы данных больших двоичных объектов Azure.

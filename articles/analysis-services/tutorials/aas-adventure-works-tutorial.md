@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ecc95181f61f556b18fa820617ea5ad0636c7a4b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services — учебник по Adventure Works
 
@@ -45,12 +45,12 @@ ms.lasthandoff: 01/09/2018
   
 -   Развертывание табличной модели на сервере **служб Azure Analysis Services** или на локальном сервере SQL Server 2017 Analysis Services.  
   
-## <a name="prerequisites"></a>Необходимые компоненты  
+## <a name="prerequisites"></a>предварительным требованиям  
 Для работы с этим учебником необходимы указанные ниже компоненты.  
   
 -   Сервер Azure Analysis Services. Подпишитесь для получения бесплатной [пробной версии служб Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) и [создайте сервер](../analysis-services-create-server.md). 
 
--   [Хранилище данных Azure SQL](../../sql-data-warehouse/create-data-warehouse-portal.md) с **примером базы данных AdventureWorksDW** или хранилище данных SQL Server с примером [базы данных Adventure Works](http://go.microsoft.com/fwlink/?LinkID=335807).
+-   [Хранилище данных Azure SQL](../../sql-data-warehouse/create-data-warehouse-portal.md) с **примером базы данных AdventureWorksDW** или хранилище данных SQL Server с примером [базы данных Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
 
     **Важно!** При установке примера базы данных в хранилище данных SQL Server и развертывании модели на сервере служб Azure Analysis Services [локальный шлюз данных](../analysis-services-gateway.md) является обязательным.
 

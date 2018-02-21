@@ -3,7 +3,7 @@ title: "Решение для мониторинга VMware в Log Analytics | �
 description: "Узнайте о том, как решение для мониторинга VMware помогает управлять журналами событий и отслеживать узлы ESXi."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: banders
-ms.openlocfilehash: 287a98c59a33b603f7186dd99505ecd0ef4f0941
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: magoedte
+ms.openlocfilehash: f54d24659ad13aa02462938711482326c5bf763c
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Решение для мониторинга VMware (предварительная версия) в Log Analytics | Microsoft Azure
 
@@ -149,7 +149,7 @@ vSphere ESXi Host версий 5.5 и 6.0.
 #### <a name="common-search-queries"></a>Распространенные поисковые запросы
 Решение включает и другие полезные запросы, которые помогают управлять узлами ESXi узлов. Сюда входят запросы к данным о переполнении дискового пространства, задержках хранилища и сбоях пути.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Запросы](./media/log-analytics-vmware/queries.png)
 

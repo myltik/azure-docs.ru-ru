@@ -3,7 +3,7 @@ title: "Просмотр аналитических данных веб-прил
 description: "Аналитику веб-приложений Azure можно использовать для углубленного анализа данных веб-приложений Azure при сборе разных метрик ресурсов веб-приложений Azure."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: banders
-ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.author: magoedte
+ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Просмотр аналитических данных для метрик ресурсов веб-приложений Azure
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/13/2017
 | [Группы управления SCOM](log-analytics-om-agents.md) | Нет  | Решение не собирает сведения из агентов в подключенной группе управления SCOM. |
 | [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет  | Решение не собирает сведения из службы хранилища Azure. |
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 
 - Для доступа к данным метрик веб-приложений Azure необходима подписка Azure.
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 12/13/2017
 
 Щелкните плитку **Аналитика веб-приложений Azure**, чтобы открыть панель мониторинга **Аналитика веб-приложений Azure**. Панель мониторинга содержит колонки, перечисленные в приведенной ниже таблице. В каждой колонке содержится до 10 элементов, соответствующих критериям для определенных области действия и диапазона времени. Вы можете выполнить поиск по журналам, в результате которого возвращаются все записи, если щелкнуть заголовок колонки или **Показать все** в ее нижней части.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | столбец | ОПИСАНИЕ |
 | --- | --- |
@@ -138,7 +138,7 @@ ms.lasthandoff: 12/13/2017
 
 Используя любой из запросов поиска по журналам в качестве отправной точки, можно легко создать оповещение. Например, можно создать оповещение, если среднее время отклика для метрики превышает 1 секунду.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 - Создание [оповещения](log-analytics-alerts-creating.md) для определенной метрики.
 - Использование [поиска по журналам](log-analytics-log-searches.md) для просмотра подробных сведений из журналов действий.

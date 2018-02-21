@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 36ff6d8fc956f5c863884e4591cbcb2909fcb200
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>Управление группами безопасности сети с помощью Azure CLI
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="prerequisite"></a>Предварительные требования
-Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) (если вы еще этого не сделали), а затем войдите с использованием учетной записи Azure, выполнив команду [az login](/cli/azure/#login). 
+Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) (если вы еще этого не сделали), а затем войдите с использованием учетной записи Azure, выполнив команду [az login](/cli/azure/#az_login). 
 
 ## <a name="view-existing-nsgs"></a>Просмотр существующих групп безопасности сети
-Чтобы просмотреть список групп безопасности сети в определенной группе ресурсов, выполните команду [az network nsg list](/cli/azure/network/nsg#list) с форматом выходных данных `-o table`:
+Чтобы просмотреть список групп безопасности сети в определенной группе ресурсов, выполните команду [az network nsg list](/cli/azure/network/nsg#az_network_nsg_list) с форматом выходных данных `-o table`:
 
 ```azurecli
 az network nsg list -g RG-NSG -o table
@@ -52,7 +52,7 @@ az network nsg list -g RG-NSG -o table
     centralus   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
 ## <a name="list-all-rules-for-an-nsg"></a>Перечисление всех правил для группы безопасности сети
-Чтобы просмотреть группу безопасности сети **NSG-FrontEnd**, выполните команду [az network nsg show](/cli/azure/network/nsg#show), используя [фильтр запроса JMESPATH](/cli/azure/query-az-cli2) и формат выходных данных `-o table`:
+Чтобы просмотреть группу безопасности сети **NSG-FrontEnd**, выполните команду [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show), используя [фильтр запроса JMESPATH](/cli/azure/query-az-cli2) и формат выходных данных `-o table`:
 
 ```azurecli
     az network nsg show \
@@ -75,7 +75,7 @@ az network nsg list -g RG-NSG -o table
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> С помощью команды [az network nsg rule list](/cli/azure/network/nsg/rule#list) можно вывести список только пользовательских правил для группы безопасности сети.
+> С помощью команды [az network nsg rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) можно вывести список только пользовательских правил для группы безопасности сети.
 >
 
 ## <a name="view-nsg-associations"></a>Просмотр связей для группы безопасности сети
@@ -151,7 +151,7 @@ az network nsg rule create  \
 ```
 
 ## <a name="change-a-rule"></a>Изменение правила
-Чтобы изменить ранее созданное правило, разрешающее входящий трафик только из **Интернета**, выполните команду [az network nsg rule update](/cli/azure/network/nsg/rule#update).
+Чтобы изменить ранее созданное правило, разрешающее входящий трафик только из **Интернета**, выполните команду [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update).
 
 ```azurecli
 az network nsg rule update \
@@ -194,7 +194,7 @@ az network nsg rule delete \
 
 
 ## <a name="associate-an-nsg-to-a-nic"></a>Связывание группы безопасности сети с сетевым адаптером
-Чтобы связать группу безопасности сети **NSG-FrontEnd** с сетевой картой **TestNICWeb1**, выполните команду [az network nic update](/cli/azure/network/nic#update):
+Чтобы связать группу безопасности сети **NSG-FrontEnd** с сетевой картой **TestNICWeb1**, выполните команду [az network nic update](/cli/azure/network/nic#az_network_nic_update):
 
 ```azurecli
 az network nic update \
@@ -277,7 +277,7 @@ az network nic update \
 
 ## <a name="dissociate-an-nsg-from-a-nic"></a>Отмена связи с сетевым адаптером для группы безопасности сети
 
-Чтобы удалить связь между группой безопасности сети **NSG-FrontEnd** и сетевой картой **TestNICWeb1**, выполните команду [az network nsg rule update](/cli/azure/network/nsg/rule#update) еще раз, но замените аргумент `--network-security-group` пустой строкой (`""`).
+Чтобы удалить связь между группой безопасности сети **NSG-FrontEnd** и сетевой картой **TestNICWeb1**, выполните команду [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) еще раз, но замените аргумент `--network-security-group` пустой строкой (`""`).
 
 ```azurecli
 az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-security-group ""
@@ -286,7 +286,7 @@ az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-secur
 В выходных данных для ключа `networkSecurityGroup` задано значение null.
 
 ## <a name="dissociate-an-nsg-from-a-subnet"></a>Отмена связи с подсетью для группы безопасности сети
-Чтобы удалить связь между группой безопасности сети **NSG-FrontEnd** и подсетью **FrontEnd**, выполните команду [az network nsg rule update](/cli/azure/network/nsg/rule#update) еще раз, но замените аргумент `--network-security-group` пустой строкой (`""`).
+Чтобы удалить связь между группой безопасности сети **NSG-FrontEnd** и подсетью **FrontEnd**, выполните команду [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) еще раз, но замените аргумент `--network-security-group` пустой строкой (`""`).
 
 ```azurecli
 az network vnet subnet update \
@@ -340,6 +340,6 @@ az network vnet subnet update \
     ```azurecli
     az network nsg delete --resource-group RG-NSG --name NSG-FrontEnd
     ```
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 * [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
 

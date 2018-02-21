@@ -12,15 +12,15 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
-ms.date: 10/05/2017
+ms.topic: tutorial
+ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2345b434a51b768793c2dea4587dc0a49ab35b70
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b8577a02f0c9396b64af986950fddaa1e00925ec
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="how-to-use-availability-sets"></a>Использование групп доступности
 
@@ -31,22 +31,24 @@ ms.lasthandoff: 11/22/2017
 > [!div class="checklist"]
 > * "Создать группу доступности"
 > * Создание виртуальной машины в группе доступности
-> * Проверка доступных размеров виртуальных машин
+> * Проверка доступных размеров виртуальных машин.
 > * Проверка службы "Помощник по Azure"
 
-Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 5.3 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure. 
 
 ## <a name="availability-set-overview"></a>Обзор групп доступности
 
 Группа доступности — это логическая группа функций, которые можно использовать в Azure, чтобы гарантировать изоляцию ресурсов виртуальной машины во время развертывания в центре обработки данных Azure. Azure гарантирует, что виртуальные машины, размещенные в группе доступности, выполняются на нескольких физических серверах, в вычислительных стойках, в пределах единиц хранения и сетевых коммутаторов. В случае сбоя оборудования или программного обеспечения в Azure затрагивается только подмножество виртуальных машин, а приложение продолжает работать и остается доступным для клиентов. Группы доступности — это важный элемент при создании надежных облачных решений.
 
-Рассмотрим стандартное решение на основе виртуальной машины, в котором может находиться 4 внешних веб-сервера и использоваться 2 внутренние виртуальные машины, содержащие базу данных. С помощью Azure вы можете определить две группы доступности перед развертыванием виртуальных машин: группу доступности для веб-уровня и группу доступности для уровня базы данных. Затем при создании виртуальной машины можно указать группу доступности в качестве параметра для команды az vm create. Azure автоматически изолирует виртуальные машины, созданные в группе доступности, в нескольких ресурсах физического оборудования. Если возникает проблема с физическим оборудованием, на котором запущены виртуальные машины сервера базы данных или веб-сервера, то другие экземпляры этих виртуальных машин по-прежнему работают, так как они используют другое оборудование.
+Рассмотрим стандартное решение на основе виртуальной машины, которое может включать четыре внешних веб-сервера и две внутренние виртуальные машины, содержащие базу данных. С помощью Azure вы можете определить две группы доступности перед развертыванием виртуальных машин: группу доступности для веб-уровня и группу доступности для уровня базы данных. Затем при создании виртуальной машины можно указать группу доступности в качестве параметра для команды az vm create. Azure автоматически изолирует виртуальные машины, созданные в группе доступности, в нескольких ресурсах физического оборудования. Если возникает проблема с физическим оборудованием, на котором запущены виртуальные машины сервера базы данных или веб-сервера, то другие экземпляры этих виртуальных машин по-прежнему работают, так как они используют другое оборудование.
 
 Если требуется развернуть надежные решения на основе виртуальной машины в Azure, используйте группы доступности.
 
 ## <a name="create-an-availability-set"></a>"Создать группу доступности"
 
-Создать группу доступности можно с помощью командлета [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). В этом примере мы задали число доменов обновления и сбоя равным *2* для группы доступности *myAvailabilitySet* в группе ресурсов *myResourceGroupAvailability*.
+Создать группу доступности можно с помощью командлета [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). В этом примере укажите число доменов обновления и сбоя равным *2* для группы доступности *myAvailabilitySet* в группе ресурсов *myResourceGroupAvailability*.
 
 Создайте группу ресурсов.
 
@@ -54,126 +56,52 @@ ms.lasthandoff: 11/22/2017
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
 ```
 
-Создайте управляемую группу доступности с помощью командлета [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) с параметром **-sku aligned**.
+Создайте управляемую группу доступности с помощью командлета [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) с параметром `-sku aligned`.
 
 ```azurepowershell-interactive
 New-AzureRmAvailabilitySet `
-   -Location EastUS `
-   -Name myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability `
-   -sku aligned `
+   -Location "EastUS" `
+   -Name "myAvailabilitySet" `
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -Sku aligned `
    -PlatformFaultDomainCount 2 `
    -PlatformUpdateDomainCount 2
 ```
 
 ## <a name="create-vms-inside-an-availability-set"></a>Создание виртуальных машин в группе доступности
-
 Чтобы виртуальные машины правильно распределялись по оборудованию, их нужно создать внутри группы доступности. Существующую виртуальную машину невозможно добавить в группу доступности после создания. 
 
 Оборудование в расположении делится на несколько доменов обновления и доменов сбоя. **Домен обновления** — это группа виртуальных машин и базового физического оборудования, которую можно перезагрузить одновременно. Виртуальные машины в одном **домене сбоя** совместно используют общее хранилище, а также общий источник питания и сетевой коммутатор. 
 
-При создании конфигурации виртуальной машины с помощью командлета [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) можно использовать параметр `-AvailabilitySetId`, чтобы указать идентификатор группы доступности.
+При создании конфигурации виртуальной машины с помощью командлета [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) можно использовать параметр `-AvailabilitySetName`, чтобы указать имя группы доступности.
+
+Сначала укажите имя и пароль администратора для виртуальной машины с помощью командлета [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+
+```azurepowershell-interactive
+$cred = Get-Credential
+```
 
 Создайте две виртуальные машины в группе доступности с помощью командлета [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```azurepowershell-interactive
-$availabilitySet = Get-AzureRmAvailabilitySet `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Name myAvailabilitySet
-
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Location EastUS `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-    
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleRDP `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -Location eastus `
-    -Name myNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupAvailability `
-    -SecurityRules $nsgRuleRDP
-    
-# Apply the network security group to a subnet
-Set-AzureRmVirtualNetworkSubnetConfig `
-    -VirtualNetwork $vnet `
-    -Name mySubnet `
-    -NetworkSecurityGroup $nsg `
-    -AddressPrefix 192.168.1.0/24
-
-# Update the virtual network
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-
 for ($i=1; $i -le 2; $i++)
 {
-   $pip = New-AzureRmPublicIpAddress `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -Name "mypublicdns$(Get-Random)" `
-        -AllocationMethod Static `
-        -IdleTimeoutInMinutes 4
-
-   $nic = New-AzureRmNetworkInterface `
-        -Name myNic$i `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -SubnetId $vnet.Subnets[0].Id `
-        -PublicIpAddressId $pip.Id `
-        -NetworkSecurityGroupId $nsg.Id
-
-   # Here is where we specify the availability set
-   $vm = New-AzureRmVMConfig `
-        -VMName myVM$i `
-        -VMSize Standard_D1 `
-        -AvailabilitySetId $availabilitySet.Id
-
-   $vm = Set-AzureRmVMOperatingSystem `
-        -ComputerName myVM$i `
-        -Credential $cred `
-        -VM $vm `
-        -Windows `
-        -EnableAutoUpdate `
-        -ProvisionVMAgent
-   $vm = Set-AzureRmVMSourceImage `
-        -VM $vm `
-        -PublisherName MicrosoftWindowsServer `
-        -Offer WindowsServer `
-        -Skus 2016-Datacenter `
-        -Version latest
-   $vm = Set-AzureRmVMOSDisk `
-        -VM $vm `
-        -Name myOsDisk$i `
-        -DiskSizeInGB 128 `
-        -CreateOption FromImage `
-        -Caching ReadWrite
-   $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-   New-AzureRmVM `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -VM $vm
+    New-AzureRmVm `
+        -ResourceGroupName "myResourceGroupAvailability" `
+        -Name "myVM$i" `
+        -Location "East US" `
+        -VirtualNetworkName "myVnet" `
+        -SubnetName "mySubnet" `
+        -SecurityGroupName "myNetworkSecurityGroup" `
+        -PublicIpAddressName "myPublicIpAddress$i" `
+        -AvailabilitySetName "myAvailabilitySet" `
+        -Credential $cred
 }
-
 ```
 
-Создание и настройка двух виртуальных машин занимает несколько минут. По завершении у вас будут две виртуальные машины, распределенные по базовому оборудованию. 
+Параметр `-AsJob` создает виртуальную машину как фоновую задачу, поэтому PowerShell отображает запрос о возврате. Подробные сведения о фоновых заданиях можно просмотреть с помощью командлета `Job`. Создание и настройка двух виртуальных машин занимает несколько минут. По завершении у вас будут две виртуальные машины, распределенные по базовому оборудованию. 
 
-Если взглянуть на группу доступности на портале, перейдя в раздел "Группы ресурсов" > "myResourceGroupAvailability" > "myAvailabilitySet", то можно увидеть, как виртуальные машины распределены между 2 доменами сбоя и обновления.
+Если посмотреть на группу доступности на портале, перейдя в раздел "Группы ресурсов" > "myResourceGroupAvailability" > "myAvailabilitySet", можно увидеть, как виртуальные машины распределены между двумя доменами сбоя и обновления.
 
 ![Группа доступности на портале](./media/tutorial-availability-sets/fd-ud.png)
 
@@ -183,8 +111,8 @@ for ($i=1; $i -le 2; $i++)
 
 ```azurepowershell-interactive
 Get-AzureRmVMSize `
-   -AvailabilitySetName myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability  
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -AvailabilitySetName "myAvailabilitySet"
 ```
 
 ## <a name="check-azure-advisor"></a>Проверка службы "Помощник по Azure" 
@@ -194,14 +122,14 @@ Get-AzureRmVMSize `
 Войдите на [портал Azure](https://portal.azure.com), выберите **Больше служб** и введите **Помощник**. Панель мониторинга службы "Помощник" отображает персонализированные рекомендации для выбранной подписки. Дополнительные сведения можно найти в разделе [Приступая к работе с Azure Advisor](../../advisor/advisor-get-started.md).
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
-Из этого руководства вы узнали, как выполнять такие задачи:
+Из этого руководства вы узнали, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * "Создать группу доступности"
 > * Создание виртуальной машины в группе доступности
-> * Проверка доступных размеров виртуальных машин
+> * Проверка доступных размеров виртуальных машин.
 > * Проверка службы "Помощник по Azure"
 
 Перейдите к следующему руководству, чтобы узнать о масштабируемых наборах виртуальных машин.

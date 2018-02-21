@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 50d2545d5145f1d93a1ea9fed3e4f98b474d41b2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Создание настраиваемых панелей мониторинга ключевых показателей эффективности с помощью Azure Application Insights
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/01/2017
 
 
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 
 Для работы с этим руководством:
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 11/01/2017
 
 3. В верхней части экрана щелкните **Просмотреть панель мониторинга**, чтобы вернуться к панели мониторинга.
 
-4. Теперь временная шкала обзора добавлена на панель мониторинга.  Щелкните и перетащите ее в нужное место, а затем щелкните **Done customizing** (Настройка завершена) и **Опубликовать изменения**. 
+4. Теперь диаграмма метрик временной шкалы добавлена на панель мониторинга. Щелкните и перетащите ее в нужное место, а затем щелкните **Done customizing** (Настройка завершена) и **Опубликовать изменения**. 
 
     ![Панель мониторинга с метриками](media/app-insights-tutorial-dashboards/dashboard-03.png)
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/01/2017
 5. Щелкните **Публикация изменений**, чтобы зафиксировать изменения на панели мониторинга, которая теперь включает различные диаграммы и визуализации из Application Insights.
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 Теперь, когда вы узнали, как создавать настраиваемые панели мониторинга, ознакомьтесь с остальной документацией по Application Insights, включая пример внедрения.
 
 > [!div class="nextstepaction"]

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8acc8deff8b635c97e8722d65a728aebf0e49bb3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3d9248d2501c7fea0492bad2687b6bdfb0b903e8
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Настройка аварийного восстановления в Azure для локальных виртуальных машин VMware
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/17/2018
 1. В **хранилище служб восстановления** щелкните имя хранилища **ContosoVMVault**.
 2. В разделе **Getting Started** (Начало работы) щелкните Site Recovery. Затем выберите **Prepare Infrastructure** (Подготовка инфраструктуры).
 3. Выберите **Protection goal** (Цель защиты)  > **Where are your machines located** (Где находятся компьютеры?), а затем — **On-premises** (Локально).
-4. В разделе Where do you want to replicate your machines (Куда следует реплицировать компьютеры?) выберите **To Azure** (В Azure).
+4. В разделе **Куда следует реплицировать компьютеры?** выберите **В Azure**.
 5. В разделе **Are your machines virtualized** (Ваши компьютеры виртуализированы?) выберите **Yes, with VMware vSphere Hypervisor** (Да, с помощью гипервизора VMware vSphere). Нажмите кнопку **ОК**.
 
 ## <a name="set-up-the-source-environment"></a>Настройка исходной среды

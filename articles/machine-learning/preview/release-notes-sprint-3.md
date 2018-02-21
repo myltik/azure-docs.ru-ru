@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/22/2018
-ms.openlocfilehash: f75fcec3b722563949b6553f17c4f3db3e223675
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 266a56d5e247fd4926031e563c8be302599838eb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sprint-3---january-2018"></a>Спринт 3 — январь 2018 г. 
 
 #### <a name="version-number-01171218263"></a>Номер версии: 0.1.1712.18263
 
->Узнать, как найти номер версии, можно из статьи [Azure Machine Learning Workbench: руководство по устранению неполадок и описание известных проблем](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Узнать, как найти номер версии, можно из статьи [Azure Machine Learning Workbench: руководство по устранению неполадок и описание известных проблем](known-issues-and-troubleshooting-guide.md).
 
 Представляем вам четвертое обновление Azure Machine Learning Workbench. Ниже приведены обновления и улучшения, представленные в этом спринте. Многие обновления являются прямым результатом реализации отзывов пользователей. 
 

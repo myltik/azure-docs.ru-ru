@@ -17,8 +17,9 @@
 ### [Технические возможности обеспечения безопасности](azure-security-technical-capabilities.md)
 ### [Управление в Azure](governance-in-azure.md)
 ### [Шифрование неактивных данных](azure-security-encryption-atrest.md)
-### Проекты архитектуры
-#### [Соответствие стандарту PCI DSS](./blueprints/payment-processing-blueprint.md)
+### Обеспечение безопасности и соответствия требованиям Azure: схемы
+#### PCI DSS
+##### [Обработка платежей для PCI DSS-совместимых сред](./blueprints/payment-processing-blueprint.md)
 ##### [Обзор требований](./blueprints/pci-dss-requirements-overview.md)
 ##### [Требование 1. Брандмауэры](./blueprints/pci-dss-requirement-1-firewall.md)
 ##### [Требование 2. Пароли](./blueprints/pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Требование 10. Мониторинг](./blueprints/pci-dss-requirement-10-monitoring.md)
 ##### [Требование 11. Тестирование](./blueprints/pci-dss-requirement-11-testing.md)
 ##### [Требование 12. Политика безопасности](./blueprints/pci-dss-requirement-12-policy.md)
-#### [Соответствие требованиям FedRAMP](./blueprints/fedramp.md)
+#### FedRAMP
+##### [Автоматизация веб-приложений](./blueprints/fedramp.md)
 ##### [Обзор средств управления безопасностью](./blueprints/fedramp-controls-overview.md)
 ##### [Контроль доступа](./blueprints/fedramp-access-controls.md)
 ##### [Аудит и система отчетности](./blueprints/fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [Защита системы и средств передачи данных](./blueprints/fedramp-system-communications-protection-controls.md)
 ##### [Защита целостности системы и данных](./blueprints/fedramp-system-information-integrity-controls.md)
 ##### [Приобретение информационных систем и служб](./blueprints/fedramp-system-services-acquisition-controls.md)
-#### [Соответствие требованиям для рабочих нагрузок, предназначенных для служебного пользования (Соединенное Королевство)](./blueprints/uk-official-three-tier-applications-overview.md)
+#### Для служебного пользования (Соединенное Королевство)
+##### [Автоматизация трехуровневых веб-приложений](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Обзор](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Обзор принципов безопасности](./blueprints/uk-official-three-tier-applications-principles-overview.md)
-#### Соответствие требованиям финансовых служб
+#### Финансовые услуги
 ##### [Финансовые услуги для контролируемых рабочих нагрузок](./blueprints/financial-services-regulated-workloads.md)
 
 # Начало работы

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cb99f121a1ddf079008ed97edde71b067d6b5edb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>Создание групп безопасности сети с помощью Azure CLI 1.0
 
@@ -36,9 +36,9 @@ ms.lasthandoff: 11/17/2017
 
 Чтобы создать группу безопасности сети *NSG-FrontEnd* по описанному выше сценарию, сделайте следующее:
 
-1. Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) (если вы еще этого не сделали), а затем войдите с использованием учетной записи Azure, выполнив команду [az login](/cli/azure/#login). 
+1. Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) (если вы еще этого не сделали), а затем войдите с использованием учетной записи Azure, выполнив команду [az login](/cli/azure/#az_login). 
 
-2. Создайте группу безопасности сети, выполнив команду [azure network nsg create](/cli/azure/network/nsg#create). 
+2. Создайте группу безопасности сети, выполнив команду [azure network nsg create](/cli/azure/network/nsg#az_network_nsg_create). 
 
     ```azurecli
     az network nsg create \
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/17/2017
 
 
 
-3. Создайте правило, которое разрешает доступ к порту 3389 (RDP) из Интернета, выполнив команду [azure network nsg rule create](/cli/azure/network/nsg/rule#create).
+3. Создайте правило, которое разрешает доступ к порту 3389 (RDP) из Интернета, выполнив команду [azure network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create).
 
     > [!NOTE]
     > В зависимости от используемой оболочки может потребоваться изменить символ `*` в следующих аргументах, чтобы не расширять их перед выполнением.
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/17/2017
     }
     ```
 
-5. Привяжите группу безопасности сети к подсети **FrontEnd**, выполнив команду [az network vnet subnet update](/cli/azure/network/vnet/subnet#update).
+5. Привяжите группу безопасности сети к подсети **FrontEnd**, выполнив команду [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
         
     ```azurecli
     az network vnet subnet update \

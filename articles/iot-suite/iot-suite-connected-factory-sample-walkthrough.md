@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 10497097bfda36a0a8a2b6b677ac26394217d8b4
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Пошаговое руководство по работе с предварительно настроенным решением подключенной фабрики
 
@@ -227,13 +227,13 @@ TSI отправляет запрос к данным узла с помощью
 > [!NOTE]
 > Для сервера OPC UA и стека OPC UA в веб-приложении подключенной фабрики реализован прозрачный обмен данными прокси-сервера OPC. Применяются все возможности обеспечения безопасности для аутентификации и шифрования в OPC UA.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Дополнительные сведения об IoT Suite см. в следующих статьях.
 
 * [Разрешения на сайте azureiotsuite.com][lnk-permissions]
 * [Развертывание шлюза в ОС Windows или Linux для предварительно настроенного решения подключенной фабрики](iot-suite-connected-factory-gateway-deployment.md)
-* [OPC Publisher for Azure IoT Edge](iot-suite-connected-factory-publisher.md) (Издатель OPC для Azure IoT Edge)
+* [OPC Publisher for Azure IoT Edge](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md) (Издатель OPC для Azure IoT Edge)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 

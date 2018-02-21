@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c8e023d68ec2c7e40675f985d3e13b0714cec8ea
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Прогнозирование рабочей нагрузки сервера на основе терабайтов данных
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/12/2018
 В этом сценарии мы рассмотрим прогноз рабочей нагрузки для каждого компьютера (или сервера). В частности, вы используете данные сеансов для каждого сервера, чтобы спрогнозировать класс его рабочей нагрузки в будущем. Вы присвоите класс (низкий, средний или высокий) нагрузке каждого сервера с помощью классификатора случайного леса в [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). Методы и рабочий процесс машинного обучения в этом примере можно легко применять для решения других подобных проблем. 
 
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>предварительным требованиям
 
 Предварительные требования для выполнения этого сценария:
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/12/2018
 * Windows 10 (если вы используете macOS, большинство инструкций будут аналогичными).
 * Виртуальная машина для обработки и анализа данных для Linux (Ubuntu), желательно в регионе "Восточная часть США", где расположены данные. Вы можете подготовить виртуальную машину для обработки и анализа данных Ubuntu, выполнив эти [инструкции](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Просмотрите также это [краткое руководство](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Рекомендуем использовать виртуальную машину с как минимум 8 ядрами и 32 ГБ памяти. 
 
-Выполните [инструкции](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present), чтобы включить доступ без пароля для пользователя с правами sudo на виртуальной машине для AML Workbench.  Вы также можете использовать [аутентификацию на основе ключей SSH для создания и использования виртуальной машины в AML Workbench](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). В этом примере для доступа к виртуальной машине мы используем пароль.  Сохраните таблицу ниже с данными виртуальной машины для обработки и анализа данных для выполнения дальнейших действий:
+Выполните [инструкции](known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present), чтобы включить доступ без пароля для пользователя с правами sudo на виртуальной машине для AML Workbench.  Вы также можете использовать [аутентификацию на основе ключей SSH для создания и использования виртуальной машины в AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). В этом примере для доступа к виртуальной машине мы используем пароль.  Сохраните таблицу ниже с данными виртуальной машины для обработки и анализа данных для выполнения дальнейших действий:
 
  Имя поля| Значение |  
  |------------|------|
@@ -330,7 +330,7 @@ run_logger.log("Test Accuracy", testAccuracy)
 
 В этом разделе вы введете модель, которую создали на предыдущих шагах, в эксплуатацию в качестве веб-службы. Вы также узнаете, как использовать веб-службу для прогнозирования рабочей нагрузки. Используйте интерфейсы командной строки (CLI) для ввода в эксплуатацию моделей машинного обучения, чтобы упаковать код и зависимости как образы Docker и опубликовать эту модель в качестве контейнерной веб-службы.
 
-Чтобы запустить интерфейсы CLI в Azure Machine Learning Workbench, вы можете воспользоваться командной строкой.  Кроме того, можно запустить интерфейсы CLI в Ubuntu Linux, следуя инструкциям в [руководстве по установке](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
+Чтобы запустить интерфейсы CLI в Azure Machine Learning Workbench, вы можете воспользоваться командной строкой.  Кроме того, можно запустить интерфейсы CLI в Ubuntu Linux, следуя инструкциям в [руководстве по установке](./deployment-setup-configuration.md#using-the-cli). 
 
 > [!NOTE]
 > Во всех командах ниже замените любую переменную аргумента фактическим значением. Выполнение задач в этом разделе займет около 40 минут.
@@ -416,7 +416,7 @@ run_logger.log("Test Accuracy", testAccuracy)
 
 8. Масштабируйте веб-службу. 
 
-   Дополнительные сведения см. в статье о [масштабировании при вводе в эксплуатацию в кластере ACS](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md).
+   Дополнительные сведения см. в статье о [масштабировании при вводе в эксплуатацию в кластере ACS](how-to-scale-clusters.md).
  
 
 ## <a name="next-steps"></a>Дополнительная информация

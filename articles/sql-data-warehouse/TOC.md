@@ -117,12 +117,11 @@
 ### [Анализ рабочей нагрузки](analyze-your-workload.md)
 
 ## Масштабирование
-### [Управление вычислениями (REST API)](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [Автоматизация уровней вычислений](manage-compute-with-azure-functions.md)
 
 
 # Справочные материалы
-
 
 ## T-SQL
 ### [Полный справочник](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -130,6 +129,7 @@
 ### [Инструкции для хранилища данных SQL](sql-data-warehouse-reference-tsql-statements.md)
 ## [Системные представления](sql-data-warehouse-reference-tsql-system-views.md)
 ## [Командлеты PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [Интерфейсы REST API](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=databases)

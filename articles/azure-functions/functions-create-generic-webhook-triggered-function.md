@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: cf86325971b607c7e1ec4b026f7df274e14c5e52
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Создание функции, активируемой универсальным веб-перехватчиком
 
@@ -28,11 +28,11 @@ ms.lasthandoff: 12/14/2017
 
 ![Функция, активируемая универсальным веб-перехватчиком, на портале Azure](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
-## <a name="prerequisites"></a>Предварительные требования 
+## <a name="prerequisites"></a>предварительным требованиям 
 
 Для работы с этим руководством:
 
-+ Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , прежде чем начинать работу.
++ Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -66,13 +66,13 @@ ms.lasthandoff: 12/14/2017
 
 1. На портале Azure перейдите к службе **Monitor**, выберите **Оповещения** и щелкните **Добавить оповещение журнала действий**.   
 
-    ![Монитор](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert.png)
+    ![Мониторинг](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert.png)
 
 2. Используйте настройки, указанные в таблице:
 
     ![Создание оповещения журнала действий](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
-    | Настройка      |  Рекомендуемое значение   | Описание                              |
+    | Параметр      |  Рекомендуемое значение   | ОПИСАНИЕ                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Имя оповещения журнала действий** | resource-group-create-alert | Имя оповещения журнала действий. |
     | **Подписка** | Ваша подписка | Подписка, используемая в этом руководстве. | 
@@ -82,7 +82,7 @@ ms.lasthandoff: 12/14/2017
     | **Группа ресурсов**<br/>и **ресурс** | Все | Отслеживает все ресурсы. |
     | **Имя операции** | Создать группу ресурсов | Фильтрует оповещения для операций создания. |
     | **Level** | Информация | Учитывает оповещения на уровне сведений. | 
-    | **Состояние** | Успешно | Фильтрует оповещения для действий, которые были успешно завершены. |
+    | **Состояние** | Succeeded | Фильтрует оповещения для действий, которые были успешно завершены. |
     | **Группа действий** | Создать | Создайте группу действий, которая определяет, какие действия будут предприняты при возникновении оповещения. |
     | **Имя группы действий** | function-webhook | Имя для идентификации группы действий.  | 
     | **Краткое название** | funcwebhook | Короткое имя для группы действий. |  
@@ -91,7 +91,7 @@ ms.lasthandoff: 12/14/2017
 
     ![Добавление группы действий](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings-2.png)
 
-    | Настройка      |  Рекомендуемое значение   | Описание                              |
+    | Параметр      |  Рекомендуемое значение   | Описание                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Имя** | CallFunctionWebhook | Имя действия. |
     | **Тип действия** | webhook | Ответ на оповещение — это вызов URL-адреса веб-перехватчика. |
@@ -128,7 +128,7 @@ ms.lasthandoff: 12/14/2017
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
             "Microsoft.Resources/subscriptions/resourcegroups"))
         {
-            log.Error("An error occured");
+            log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new
             {
                 error = "Unexpected message payload or wrong alert received."
@@ -163,7 +163,7 @@ ms.lasthandoff: 12/14/2017
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Вы создали функцию, которая выполняется при получении запроса от универсального веб-перехватчика. 
 

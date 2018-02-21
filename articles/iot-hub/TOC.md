@@ -3,7 +3,7 @@
 ## [Что такое Центр Интернета вещей в Azure?](iot-hub-what-is-iot-hub.md)
 ## [Обзор управления устройствами](iot-hub-device-management-overview.md)
 
-# [Приступите к работе](iot-hub-get-started.md)
+# [Начало работы](iot-hub-get-started.md)
 
 ## Настройка устройства
 ### [Моделирование устройства на ПК](iot-hub-get-started-simulated.md)
@@ -37,9 +37,6 @@
 ### [Управление устройствами с помощью средства iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 ### [Управление устройствами с помощью расширения IoT для Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Удаленный мониторинг и использование уведомлений с помощью Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-
-## Использование MXChip IoT DevKit
-### [Использование Azure IoT Suite для удаленного мониторинга](iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 # Практические руководства
 ## План

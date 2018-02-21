@@ -3,7 +3,7 @@ title: "Решение \"Аналитика DNS\" в Azure Log Analytics | До�
 description: "Узнайте, как настроить и использовать решение аналитики DNS в Log Analytics, чтобы собрать сведения об инфраструктуре DNS — безопасности, производительности и операциях."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
-ms.author: banders
-ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.author: magoedte
+ms.openlocfilehash: 8ead058108f39eca8682eccc296760d4b756d336
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Сбор сведений об инфраструктуре DNS с помощью решения аналитики DNS (предварительной версии)
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 12/13/2017
 
 **Примеры запросов аналитики DDI**. Содержит список наиболее распространенных поисковых запросов, которые напрямую извлекают необработанные данные аналитики.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Примеры запросов](./media/log-analytics-dns/queries.png)
 
@@ -187,6 +187,6 @@ ms.lasthandoff: 12/13/2017
 - **UserVoice**. Напишите свои предложения по улучшению функций решения аналитики DNS. Перейдите на страницу [Azure Log Analytics (OMS)](https://aka.ms/dnsanalyticsuservoice).
 - **Присоединиться к когорте наших клиентов**. Мы всегда заинтересованы в новых клиентах. Получайте доступ к новым функциям и помогайте нам улучшать решение аналитики DNS. Если вы хотите присоединиться к когорте, пройдите этот [быстрый опрос](https://aka.ms/dnsanalyticssurvey).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 [Выполните поиск по журналам](log-analytics-log-searches.md), чтобы просмотреть подробные записи журналов DNS.

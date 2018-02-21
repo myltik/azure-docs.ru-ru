@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: 0ac6226b1e5773b1212b70172e2c13a0a5c925a8
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b29c5fe9543c5fe6da9ff52da6549fdcacff868f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Что такое Azure IoT Suite?
 
@@ -80,7 +80,7 @@ Azure IoT Suite представляет собой набор *предвари
 
 |                      | удаленный мониторинг;  | диагностическое обслуживание; | подключенная фабрика. |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
-| Центр Интернета вещей              | Yes                |                        | Yes               |
+| Центр Интернета вещей              | Yes                | Yes                    | Yes               |
 | Концентраторы событий           |                    | Yes                    |                   |
 | Time Series Insights |                    |                        | Yes               |
 | Службы контейнеров   | Yes                |                        |                   |

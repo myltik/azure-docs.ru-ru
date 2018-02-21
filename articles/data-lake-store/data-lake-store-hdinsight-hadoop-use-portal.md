@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Создание кластеров HDInsight, использующих Data Lake Store, с помощью портала Azure
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 Узнайте, как использовать портал Azure для создания кластера HDInsight с учетной записью Azure Data Lake Store в качестве хранилища по умолчанию или дополнительного хранилища. Хотя дополнительное хранилище для кластера HDInsight является необязательным, бизнес-данные рекомендуется хранить в дополнительных учетных записях хранения.
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Прежде чем приступить к изучению этого руководства, убедитесь, что выполнены следующие требования.
 
 * **Подписка Azure**. Перейдите на сайт [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/21/2017
 
     ![Добавление субъекта-службы в кластер HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Добавление субъекта-службы в кластер HDInsight")
 
-    - **Выбрать учетную запись Data Lake Store**: выберите существующую учетную запись Data Lake Store. Требуется существующая учетная запись Data Lake Store.  См. раздел [Предварительные требования](#prereuisites).
+    - **Выбрать учетную запись Data Lake Store**: выберите существующую учетную запись Data Lake Store. Требуется существующая учетная запись Data Lake Store.  См. раздел [Предварительные требования](#prerequisites).
     - **Корневой путь**: введите путь к каталогу, в котором будут храниться файлы, связанные с кластером. На снимке экрана это путь __/clusters/myhdiadlcluster/__, в котором должна существовать папка __/clusters__ и в котором портал создает папку *myhdicluster*.  *myhdicluster* — это имя кластера.
     - **Доступ к Data Lake Store**: настройте доступ между учетной записью Data Lake Store и кластером HDInsight. Инструкции см. в разделе [Настройка доступа к Data Lake Store](#configure-data-lake-store-access).
     - **Дополнительные учетные записи хранения**: добавьте учетные записи хранения Azure в качестве дополнительных учетных записей хранения для кластера. Добавление дополнительных хранилищ Data Lake Store осуществляется путем предоставления разрешений на доступ к данным в кластере дополнительным учетным записям Data Lake Store. При этом учетная запись Data Lake Store настраивается в качестве основного типа хранилища. См. раздел [Настройка доступа к Data Lake Store](#configure-data-lake-store-access).

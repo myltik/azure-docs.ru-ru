@@ -3,24 +3,24 @@ title: "Управление дисками Azure с помощью Azure PowerS
 description: "Руководство по управлению дисками Azure с помощью Azure PowerShell."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
-ms.author: nepeters
+ms.date: 02/09/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: ea38fe599960db42c518603b59a60a920d1f1daf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Управление дисками Azure с помощью PowerShell
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/19/2017
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Если вы решили установить и использовать PowerShell локально, то для работы с этим руководством вам понадобится модуль Azure PowerShell версии 3.6 или более поздней. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure. 
+Чтобы установить и использовать PowerShell локально для работы с этим руководством, вам понадобится модуль Azure PowerShell 5.3 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure. 
 
 ## <a name="default-azure-disks"></a>Диски Azure по умолчанию
 
@@ -47,29 +47,29 @@ ms.lasthandoff: 12/19/2017
 
 ### <a name="temporary-disk-sizes"></a>Размеры временных дисков
 
-| type | Размер виртуальной машины | Максимальный размер временного диска (ГБ) |
+| type | Распространенные размеры | Максимальный размер временного диска (ГБ) |
 |----|----|----|
-| [Универсальные](sizes-general.md) | Серии A и D | 800 |
-| [Оптимизированные для вычислений](sizes-compute.md) | Серия F | 800 |
-| [Оптимизированные для памяти](../virtual-machines-windows-sizes-memory.md) | Серии D и G | 6144 |
-| [Оптимизированные для хранилища](../virtual-machines-windows-sizes-storage.md) | Серия L | 5630 |
+| [Универсальные](sizes-general.md) | Серии A, B и D | 1600 |
+| [Оптимизированные для вычислений](sizes-compute.md) | Серия F | 576 |
+| [Оптимизированные для памяти](sizes-memory.md) | Серии D, E, G и M | 6144 |
+| [Оптимизированные для хранилища](sizes-storage.md) | Серия L | 5630 |
 | [GPU](sizes-gpu.md) | Серия N | 1440 |
 | [Высокопроизводительные](sizes-hpc.md) | Серии A и H | 2000 |
 
 ## <a name="azure-data-disks"></a>Диски данных Azure
 
-Вы можете добавить дополнительные диски данных, чтобы установить приложения и хранить данные. Диски данных следует использовать в любой ситуации, где требуется надежное хранилище данных, обеспечивающее высокую скорость реагирования. Максимальная емкость каждого диска данных составляет 1 ТБ. Размер виртуальной машины определяет, сколько дисков данных можно к ней подключить. Для каждого виртуального ЦП виртуальной машины можно подключить два диска данных. 
+Вы можете добавить дополнительные диски данных, чтобы установить приложения и хранить данные. Диски данных следует использовать в любой ситуации, где требуется надежное хранилище данных, обеспечивающее высокую скорость реагирования. Максимальная емкость каждого диска данных составляет 4 ТБ. Размер виртуальной машины определяет, сколько дисков данных можно к ней подключить. Для каждого виртуального ЦП виртуальной машины можно подключить два диска данных. 
 
 ### <a name="max-data-disks-per-vm"></a>Максимальное число дисков данных на виртуальную машину
 
-| type | Размер виртуальной машины | Максимальное число дисков данных на виртуальную машину |
+| type | Распространенные размеры | Максимальное число дисков данных на виртуальную машину |
 |----|----|----|
-| [Универсальные](sizes-general.md) | Серии A и D | 32 |
-| [Оптимизированные для вычислений](sizes-compute.md) | Серия F | 32 |
-| [Оптимизированные для памяти](../virtual-machines-windows-sizes-memory.md) | Серии D и G | 64 |
-| [Оптимизированные для хранилища](../virtual-machines-windows-sizes-storage.md) | Серия L | 64 |
-| [GPU](sizes-gpu.md) | Серия N | 48 |
-| [Высокопроизводительные](sizes-hpc.md) | Серии A и H | 32 |
+| [Универсальные](sizes-general.md) | Серии A, B и D | 64 |
+| [Оптимизированные для вычислений](sizes-compute.md) | Серия F | 64 |
+| [Оптимизированные для памяти](sizes-memory.md) | Серии D, E, G и M | 64 |
+| [Оптимизированные для хранилища](sizes-storage.md) | Серия L | 64 |
+| [GPU](sizes-gpu.md) | Серия N | 64 |
+| [Высокопроизводительные](sizes-hpc.md) | Серии A и H | 64 |
 
 ## <a name="vm-disk-types"></a>Типы дисков виртуальной машины
 
@@ -81,50 +81,84 @@ ms.lasthandoff: 12/19/2017
 
 ### <a name="premium-disk"></a>Диск уровня "Премиум"
 
-Диски уровня "Премиум" используют высокопроизводительные твердотельные накопители с низкой задержкой. Они идеально подходят для виртуальных машин, выполняющих производственную рабочую нагрузку. Хранилище уровня "Премиум" поддерживает виртуальные машины серий DS, DSv2, GS и FS. Диски Premium делятся на пять типов (P10, P20, P30, P40, P50), определяет тип диска, размер диска. При выборе размер диска округляется в большую сторону до следующего типа. Например, если размер меньше 128 ГБ, то диск будет относиться к типу P10, от 129 до 512 ГБ — P20, более 512 ГБ — P30, более 2 ТБ — P40, а более 4 ТБ — P50. 
+Диски уровня "Премиум" используют высокопроизводительные твердотельные накопители с низкой задержкой. Они идеально подходят для виртуальных машин, выполняющих производственную рабочую нагрузку. Хранилище уровня "Премиум" поддерживает виртуальные машины серий DS, DSv2, GS и FS. Диски уровня "Премиум" бывают пяти типов: P10, P20, P30, P40, P50. Размер диска определяет его тип. При выборе размер диска округляется в большую сторону до следующего типа. Например, размерам диска до 128 ГБ, от 129 до 512 ГБ и больше 512 ГБ соответствуют типы Р10, Р20 и P30.
 
 ### <a name="premium-disk-performance"></a>Производительность диска уровня "Премиум"
 
-|Тип диска хранилища уровня "Премиум" | P10 | P20 | P30 |
-| --- | --- | --- | --- |
-| Размер диска (округленный в большую сторону) | 128 ГБ | 512 ГБ | 1024 ГБ (1 ТБ) |
-| Количество операций ввода-вывода в секунду на диск | 500 | 2300 | 5 000 |
-Пропускная способность на диск | 100 МБ/с | 150 МБ/с | 200 МБ/с |
+|Тип диска хранилища уровня "Премиум" | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Размер диска (округленный в большую сторону) | 32 ГБ | 64 ГБ | 128 ГБ | 512 ГБ | 1024 ГБ (1 ТБ) | 2048 ГБ (2 ТБ) | 4095 ГБ (4 ТБ) |
+| Макс. количество операций ввода-вывода в секунду на диск | 120 | 240 | 500 | 2300 | 5 000 | 7500 | 7500 |
+Пропускная способность на диск | 25 МБ/с | 50 МБ/с | 100 МБ/с | 150 МБ/с | 200 МБ/с | 250 МБ/с | 250 МБ/с |
 
 Хотя в таблице выше указано максимальное число операций ввода-вывода в секунду на диск, можно обеспечить более высокий уровень производительности, применив чередование нескольких дисков данных. Например, к виртуальной машине Standard_GS5 можно подключить 64 диска данных. Если каждый из этих дисков относится к размеру P30, можно добиться производительности до 80 000 операций ввода-вывода в секунду. Дополнительные сведения о максимальных количествах операций ввода-вывода в секунду для виртуальных машин см. в статье [Размеры виртуальных машин Windows в Azure](./sizes.md).
 
 ## <a name="create-and-attach-disks"></a>Создание и подключение дисков
 
-Для выполнения примера в этом руководстве требуется виртуальная машина. Этот [пример сценария](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) позволяет создать ее при необходимости. При работе с примером по мере необходимости заменяйте имена групп ресурсов и виртуальных машин.
+Для выполнения примера в этом руководстве требуется виртуальная машина. При необходимости создайте виртуальную машину с помощью следующих команд.
+
+Настройте на виртуальной машине имя пользователя и пароль для учетной записи администратора с помощью командлета [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+
+```azurepowershell-interactive
+$cred = Get-Credential
+```
+
+Создайте виртуальную машину с помощью командлета [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupDisk" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -Credential $cred `
+    -AsJob
+```
+
+Параметр `-AsJob` создает виртуальную машину как фоновую задачу, поэтому PowerShell отображает запрос о возврате. Подробные сведения о фоновых заданиях можно просмотреть с помощью командлета `Job`.
 
 Создайте начальную конфигурацию, выполнив команду [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). В следующем примере настраивается диск размером 128 ГБ.
 
 ```azurepowershell-interactive
-$diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
+$diskConfig = New-AzureRmDiskConfig `
+    -Location "EastUS" `
+    -CreateOption Empty `
+    -DiskSizeGB 128
 ```
 
 Создайте диск данных с помощью команды [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk).
 
 ```azurepowershell-interactive
-$dataDisk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myDataDisk -Disk $diskConfig
+$dataDisk = New-AzureRmDisk `
+    -ResourceGroupName "myResourceGroupDisk" `
+    -DiskName "myDataDisk" `
+    -Disk $diskConfig
 ```
 
 Получите виртуальную машину, в которую вы хотите добавить диск данных, выполнив команду [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm):
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -Name "myVM"
 ```
 
 Добавьте диск данных в конфигурацию виртуальной машины с помощью команды [Add-AzureRmVMDataDisk](/powershell/module/azurerm.compute/add-azurermvmdatadisk).
 
 ```azurepowershell-interactive
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name myDataDisk -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 1
+$vm = Add-AzureRmVMDataDisk `
+    -VM $vm `
+    -Name "myDataDisk" `
+    -CreateOption Attach `
+    -ManagedDiskId $dataDisk.Id `
+    -Lun 1
 ```
 
 Обновите виртуальную машину с помощью команды [Update-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk).
 
 ```azurepowershell-interactive
-Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
+Update-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
 ```
 
 ## <a name="prepare-data-disks"></a>Подготовка дисков данных
@@ -135,14 +169,14 @@ Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 
 Создайте RDP-подключение к виртуальной машине. Откройте PowerShell и выполните этот сценарий.
 
-```azurepowershell-interactive
+```azurepowershell
 Get-Disk | Where partitionstyle -eq 'raw' | `
 Initialize-Disk -PartitionStyle MBR -PassThru | `
 New-Partition -AssignDriveLetter -UseMaximumSize | `
 Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В этом руководстве вы ознакомились с дисками виртуальных машин, а именно с:
 

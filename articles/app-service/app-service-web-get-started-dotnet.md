@@ -1,6 +1,6 @@
 ---
 title: "Создание веб-приложения ASP.NET Core в Azure | Документация Майкрософт"
-description: "Узнайте, как запустить веб-приложение в службе приложений Azure, развернув веб-приложение ASP.NET по умолчанию."
+description: "Узнайте, как запустить веб-приложение в службе приложений Azure, развернув веб-приложение ASP.NET Core по умолчанию."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -12,26 +12,24 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 02/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 698f23507da0707a4612f8d33fe7e2995429f361
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a7f098b6c66109cb5cafbcb19e463daa15a65b59
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Создание веб-приложения ASP.NET Core в Azure
 
 > [!NOTE]
 > В этой статье мы развернем приложение в службе приложений на платформе Windows. Чтобы развернуть приложение .NET Core в службе приложений на платформе _Linux_, см. статью [Создание веб-приложения .NET Core в службе приложений на платформе Linux](./containers/quickstart-dotnetcore.md).
 >
+> Инструкции для веб-приложения ASP.NET Framework см. в статье [Создание веб-приложения ASP.NET Framework в Azure](app-service-web-get-started-dotnet-framework.md). 
+>
 
 [Веб-приложения Azure](app-service-web-overview.md) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости.  В этом кратком руководстве рассматривается развертывание первого веб-приложения ASP.NET Core при помощи функции Azure "Веб-приложения". В результате будет создана группа ресурсов, состоящая из плана службы приложений и развернутого веб-приложения Azure.
-
-> [!NOTE]
-> Если вам нужно собрать и развернуть веб-приложение ASP.NET Framework, ознакомьтесь с [этой статьей](app-service-web-get-started-dotnet-framework.md). 
->
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,7 +49,7 @@ ms.lasthandoff: 02/01/2018
 
 В диалоговом окне **Новый проект** последовательно выберите пункты **Visual C# > Веб > Веб-приложение ASP.NET Core**.
 
-Присвойте приложению имя _myFirstAzureWebApp_ и нажмите кнопку **ОК**.
+Назовите приложение _myFirstAzureWebApp_, выберите **Создать новый репозиторий Git**, а затем нажмите кнопку **ОК**.
    
 ![Диалоговое окно "Новый проект"](./media/app-service-web-get-started-dotnet/new-project.png)
 
@@ -69,68 +67,82 @@ ms.lasthandoff: 02/01/2018
 
 ![Локальный запуск приложения](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
-## <a name="publish-to-azure"></a>Публикация в Azure
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Щелкните правой кнопкой мыши проект **myFirstAzureWebApp** в **обозревателе решений** и выберите **Опубликовать**.
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-![Публикация в обозревателе решений](./media/app-service-web-get-started-dotnet/right-click-publish.png)
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
-Выберите **Служба приложений Microsoft Azure** и нажмите кнопку **Опубликовать**.
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-![Публикация с помощью страницы обзора проекта](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
-Откроется диалоговое окно **Создать службу приложений**, с помощью которого вы можете создать все ресурсы Azure, необходимые для запуска веб-приложения ASP.NET Core в Azure.
+![Пустая страница веб-приложения](media/app-service-web-get-started-html/app-service-web-service-created.png)
 
-## <a name="sign-in-to-azure"></a>Вход в Azure
+## <a name="push-to-azure-from-visual-studio"></a>Принудительная отправка в Azure из Visual Studio
 
-В диалоговом окне **Создать службу приложений** выберите **Добавить учетную запись** и выполните вход в подписку Azure. Если вы уже вошли в систему, выберите учетную запись, содержащую необходимую подписку, в раскрывающемся меню.
+Перейдите в Visual Studio и в меню **Просмотр** щелкните **Team Explorer**. Отобразится **Team Explorer**.
 
-> [!NOTE]
-> Если вы уже выполнили вход, пока не нажимайте кнопку **Создать**.
->
->
-   
-![Вход в Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
+В **домашнем** представлении щелкните **Параметры** > **Параметры репозитория**.
 
-## <a name="create-a-resource-group"></a>Создание группы ресурсов
+![Домашнее представление в Team Explorer](./media/app-service-web-get-started-dotnet/team-explorer.png)
 
-[!INCLUDE [resource group intro text](../../includes/resource-group.md)]
+В разделе **Удаленные** **параметров репозитория** щелкните **Добавить**. Откроется диалоговое окно **Добавить удаленный объект**.
 
-Рядом с **группой ресурсов** выберите команду **Создать**.
+В поле **Имя** укажите _Azure_ и задайте в поле **Извлечь** URL-адрес, сохраненный в разделе [Создание веб-приложения](#create-a-web-app). Выберите команду **Сохранить**.
 
-Присвойте группе ресурсов имя **myResourceGroup** и нажмите кнопку **ОК**.
+![Домашнее представление в Team Explorer](./media/app-service-web-get-started-dotnet/team-explorer-set-remote.png)
 
-## <a name="create-an-app-service-plan"></a>Создание плана службы приложений
+Этот параметр эквивалентен команде Git `git remote add Azure <URL>`.
 
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
+Нажмите кнопку **Домой** вверху.
 
-Рядом с **планом службы приложений** выберите команду **Создать**. 
+Выберите **Параметры** > **Global Settings** (Глобальные параметры). Убедитесь, что заданы имя и адрес электронной почты. При необходимости выберите **Обновить**.
 
-В диалоговом окне **Настроить план службы приложений** используйте параметры в таблице, которая находится под снимком экрана.
+При создании проекта в Visual Studio все файлы были зафиксированы в репозиторий Git. Все, что вам нужно сделать, — отправить эти файлы в Azure.
 
-![Создание плана службы приложений](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+Нажмите кнопку **Домой** вверху. Выберите **Синхронизация** > **Действия** > **Открыть командную строку**. 
 
-| Параметр | Рекомендуемое значение | ОПИСАНИЕ |
-|-|-|-|
-|План обслуживания приложения| myAppServicePlan | Имя плана службы приложений. |
-| Расположение | Западная Европа | Центр обработки данных, где размещается веб-приложение. |
-| Размер | Free | [Ценовая категория](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) определяет возможности размещения. |
+Введите следующую команду в командное окно и при появлении запроса введите пароль развертывания.
 
-Нажмите кнопку **ОК**.
+```
+git push Azure master
+```
 
-## <a name="create-and-publish-the-web-app"></a>Создание и публикация веб-приложения
+Выполнение этой команды может занять несколько минут. При выполнении эта команда выводит приблизительно следующие сведения:
 
-В поле **Имя веб-приложения** введите уникальное имя (допустимые символы: `a-z`, `0-9` и `-`) или примите уникальное имя, созданное автоматически. URL-адрес веб-приложения: `http://<app_name>.azurewebsites.net`, где `<app_name>` — имя веб-приложения.
+```
+Counting objects: 4, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 349 bytes | 349.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id '9e20345e9c'.
+remote: Generating deployment script.
+remote: Project file path: .\myFirstAzureWebApp\myFirstAzureWebApp.csproj
+remote: Solution file path: .\myFirstAzureWebApp.sln
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling ASP.NET Core Web Application deployment.
+remote:   Restoring packages for D:\home\site\repository\myFirstAzureWebApp\myFirstAzureWebApp.csproj...
+remote:   Restoring packages for D:\home\site\repository\myFirstAzureWebApp\myFirstAzureWebApp.csproj...
+...
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+ * [new branch]      master -> master
+```
 
-Нажмите кнопку **Создать**, чтобы начать создавать ресурсы Azure.
+## <a name="browse-to-the-app"></a>Переход в приложение
 
-![Настройка имени веб-приложения](./media/app-service-web-get-started-dotnet/web-app-name.png)
+В браузере перейдите по URL-адресу веб-приложения Azure: `http://<app_name>.azurewebsites.net`.
 
-Когда мастер завершит работу, веб-приложение ASP.NET Core будет опубликовано в Azure и запущено в браузере по умолчанию.
+Страница выполняется как веб-приложение службы приложений Azure.
 
 ![Опубликованное веб-приложение ASP.NET в Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
-
-Имя веб-приложения, указанное [на этапе создания и публикации](#create-and-publish-the-web-app), используется как префикс URL-адреса в формате `http://<app_name>.azurewebsites.net`.
 
 Поздравляем, ваше веб-приложение ASP.NET Core работает в службе приложений Azure в режиме реального времени.
 
@@ -147,11 +159,15 @@ ms.lasthandoff: 02/01/2018
 </div>
 ```
 
-Чтобы выполнить повторное развертывание в Azure, щелкните правой кнопкой мыши проект **myFirstAzureWebApp** в **обозревателе решений**, а затем выберите **Опубликовать**.
+В **обозревателе решений** щелкните правой кнопкой мыши _Pages/Index.cshtml_ и выберите **Зафиксировать**. Введите сообщение фиксации для изменения и щелкните **Зафиксировать все**.
 
-На странице публикации выберите команду **Опубликовать**.
+Снова откройте окно командной строки и отправьте изменения кода в Azure.
 
-По завершении публикации Visual Studio открывает в браузере страницу с URL-адресом веб-приложения.
+```bash
+git push Azure master
+```
+
+После завершения развертывания снова перейдите к `http://<app_name>.azurewebsites.net`.
 
 ![Обновленное веб-приложение ASP.NET в Azure](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
@@ -165,7 +181,7 @@ ms.lasthandoff: 02/01/2018
 
 Отобразится страница обзора вашего веб-приложения. Вы можете выполнять базовые задачи управления: обзор, завершение, запуск, перезагрузку и удаление. 
 
-![Колонка службы приложений на портале Azure](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+![Страница службы приложений на портале Azure](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
 В меню слева доступно несколько страниц для настройки приложения. 
 

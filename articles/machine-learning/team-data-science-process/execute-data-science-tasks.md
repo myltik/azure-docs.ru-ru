@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev;
-ms.openlocfilehash: 1ad4e8c117f93f2f085c01fae2a5ab38cdd10d2f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 7f3bf3bb5743bfb64489188d1016fb18d4967f79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Выполнение задач обработки и анализа данных: изучение, моделирование и развертывание
 
 В типичным задачам обработки и анализа данных относятся изучение, моделирование и развертывание. В этой статье показано, как использовать служебные программы для **интерактивного изучения данных, анализа данных и создания отчетов (IDEAR)** и **автоматического моделирования и создания отчетов (АМАР)** для выполнения типичных задач обработки и анализа данных, в том числе интерактивного изучения данных, анализа данных, создания отчетов и создания моделей. В ней также описаны варианты развертывания модели в рабочей среде с помощью различных платформ данных и наборов средств, в том числе следующих:
 
-- [Машинное обучение Azure](../preview/index.yml)
+- [машинное обучение Azure](../preview/index.yml)
 - [SQL Server со службами машинного обучения](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
-- [Сервер машинного обучения Майкрософт](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
 ## 1. <a name='DataQualityReportUtility-1'></a> Изучение 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/30/2017
 В настоящее время средство работает только с блоками данных в памяти. Для настройки параметров изучаемого набора данных используется YAML-файл. Дополнительные сведения см. [на странице IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils) в разделе служебных программ TDSP для обработки и анализа данных.
 
 
-## 2) <a name='ModelingUtility-2'></a> Моделирование
+## 2. <a name='ModelingUtility-2'></a> Моделирование
 
 Существуют многочисленные наборы средств и пакеты для обучения моделей на разных языках. Специалисты по обработке и анализу данных могут свободно использовать их на свой выбор, пока соблюдаются рекомендации по производительности в отношении точности и задержки для соответствующих коммерческих вариантов использования и рабочих сценариев.
 
@@ -78,19 +78,19 @@ ms.lasthandoff: 11/30/2017
 1. [Служба "Машинное обучение Azure" — служба управления моделями](../preview/index.yml)
 2. [ModelDB из MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL Server как система управления моделями](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Сервер машинного обучения Майкрософт](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 ## 3. <a name='Deployment-3'></a> Развертывание
 
-Развертывание в рабочей среде позволяет использовать модель для выполнения активной роли в организации. Прогнозы из развернутой модели можно использовать для принятия бизнес-решений.
+Развертывание в рабочей среде позволяет использовать модель для выполнения активной роли в организации. Прогнозы, полученные от развернутой модели можно использовать для принятия бизнес-решений.
 
 ### <a name="production-platforms"></a>Рабочие платформы
-Существуют различные подходы и платформы, позволяющие поместить модели в рабочую среду. Вот несколько из них:
+Поместить модели в рабочую среду можно с использованием разных подходов и платформ. Вот некоторые из них:
 
 
-- [Развертывание модели в службе "Машинное обучение Azure"](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Развертывание модели в службе "Машинное обучение Azure"](../preview/model-management-overview.md)
 - [Развертывание модели на сервере SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Сервер машинного обучения Майкрософт](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >
 >
@@ -102,10 +102,10 @@ ms.lasthandoff: 11/30/2017
 Примечание. Разработка с помощью Студии машинного обучения Azure описывается в разделе [Развертывание веб-службы машинного обучения Azure](../studio/publish-a-machine-learning-web-service.md).
 
 ### <a name="ab-testing"></a>A/B тестирование
-Когда в рабочей среде используется несколько моделей, может быть целесообразно выполнять [A/B тестирование](https://en.wikipedia.org/wiki/A/B_testing) для сравнения эффективности моделей. 
+Если в рабочей среде используется несколько моделей, удобно выполнять [A/B-тестирование](https://en.wikipedia.org/wiki/A/B_testing), чтобы сравнить их эффективность. 
 
  
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 В разделе [Ход выполнения проектов обработки и анализа данных](track-progress.md) показано, как специалист по обработке и анализу данных может отслеживать ход выполнения проекта обработки и анализа данных.
  

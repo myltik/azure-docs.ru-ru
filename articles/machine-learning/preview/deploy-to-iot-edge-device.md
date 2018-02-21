@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: a48c2a78ec22a663dd3e8a0b22611d61181e3eef
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e33ff3fdc38b5aca6bbaef2c1ac6888217797541
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Развертывание модели машинного обучения Azure для устройства Azure IoT Edge
 
 Все модели машинного обучения Azure, помещенные в контейнеры на основе веб-служб Docker, могут также работать на устройствах Azure IoT Edge. Дополнительные скрипты и инструкции можно найти в [наборе средств для работы с искусственным интеллектом для Azure IoT Edge](http://aka.ms/AI-toolkit).
 
 ## <a name="operationalize-the-model"></a>Ввод модели в эксплуатацию
-Для ввода модели в эксплуатацию необходимо выполнить инструкции из статьи [Развертывание модели машинного обучения в качестве веб-службы](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy), чтобы создать образ Docker с вашей моделью.
+Для ввода модели в эксплуатацию необходимо выполнить инструкции из статьи [Развертывание модели машинного обучения в качестве веб-службы](model-management-service-deploy.md), чтобы создать образ Docker с вашей моделью.
 
 ## <a name="deploy-to-azure-iot-edge"></a>Развертывание в Azure IoT Edge
 Azure IoT Edge позволяет перенести аналитику и пользовательскую бизнес-логику из облака на устройства. Все модели машинного обучения могут работать на устройствах Azure IoT Edge. Документацию по настройке устройства IoT Edge и созданию развертывания можно найти на странице [aka.ms/azure-iot-edge-doc](https://aka.ms/azure-iot-edge-doc).

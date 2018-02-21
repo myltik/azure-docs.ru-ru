@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: df1124ddb436f0cfeec8f4ed9728fa15278b9325
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 9bae3971f438659c121bfc18a23746a016e5ef97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Предсказание тональности высказываний в Twitter на основе векторного представления слов с помощью процесса обработки и анализа данных группы
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 01/12/2018
 
 ![Панель мониторинга Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Дополнительные сведения о вводе в эксплуатацию см. в статье [Развертывание модели машинного обучения в качестве веб-службы](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
+Дополнительные сведения о вводе в эксплуатацию см. в статье [Развертывание модели машинного обучения в качестве веб-службы](../preview/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Заключение
 
@@ -143,8 +143,8 @@ ms.lasthandoff: 01/12/2018
 * [Что такое процесс обработки и анализа данных группы?](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Использование командного процесса обработки и анализа данных (TDSP) в службе "Машинное обучение Microsoft Azure"](https://aka.ms/how-to-use-tdsp-in-aml).
 * [Шаблон проекта TDSP для службы "Машинное обучение Azure"](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/).
+* [Azure Machine Learning Workbench](../preview/index.yml).
 * [Набор данных о доходах граждан США из репозитория ML UCI](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Распознавание биомедицинских сущностей с помощью шаблона командного процесса обработки и анализа данных (TDSP)](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Распознавание биомедицинских сущностей с помощью шаблона командного процесса обработки и анализа данных (TDSP)](../preview/scenario-tdsp-biomedical-recognition.md)
 * [Работа Томаса Миколова (Tomas Mikolov) и его коллег Distributed Representations of Words and Phrases and their Compositionality. Advances in neural information processing systems (Распределенные представления слов и фраз и их композиционность. Улучшения в нейросетевых системах обработки информации) за 2013 год](https://arxiv.org/abs/1310.4546)
 * [Работа Дую Тенга (Duyu Tang) и его коллег Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification Association for Computational Linguistics (1) (Изучение векторного представления слов, характерных при составлении картины тональности высказываний в Twitter. Общество компьютерной лингвистики (1)) за 2014 год](http://www.aclweb.org/anthology/P14-1146)

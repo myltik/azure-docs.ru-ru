@@ -93,6 +93,8 @@
         - name: Надежные службы
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: Жизненный цикл реплики и экземпляра
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: 'Жизненный цикл Reliable Services (C#)'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Жизненный цикл Reliable Services (Java)
@@ -144,8 +146,6 @@
           href: service-fabric-concepts-scalability.md
         - name: Доступность служб
           href: service-fabric-availability-services.md
-        - name: Жизненный цикл реплики и экземпляра
-          href: service-fabric-concepts-replica-lifecycle.md
         - name: Reconfiguration
           href: service-fabric-concepts-reconfiguration.md
         - name: Взаимодействие служб

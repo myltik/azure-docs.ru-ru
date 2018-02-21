@@ -3,7 +3,7 @@ title: "Оптимизация среды SQL Server с помощью Azure Log
 description: "Решение проверки работоспособности SQL в Azure Log Analytics можно использовать для регулярной оценки риска и состояния среды."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Оптимизация среды SQL Server с помощью решения проверки работоспособности SQL Server в Log Analytics
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/22/2018
 
 * Для решения проверки работоспособности SQL на каждом компьютере с агентом Microsoft Monitoring Agent (MMA) должна быть установлена поддерживаемая версия платформы .NET Framework 4.  Агент MMA используется решением System Center 2016 Operations Manager и Operations Manager 2012 R2, а также службами Log Analytics.  
 * Решение поддерживает SQL Server версий 2012, 2014 и 2016.
-* Рабочая область Log Analytics для добавления решения проверки работоспособности SQL в Azure Marketplace на портале Azure.  Чтобы установить решение, вы должны быть администратором или участником подписки Azure. 
+* Рабочая область Log Analytics для добавления решения проверки работоспособности SQL в Azure Marketplace на портале Azure.  Чтобы установить решение, вы должны быть администратором или участником подписки Azure.
 
   > [!NOTE]
   > После добавления решения на серверы с агентами добавляется файл AdvisorAssessment.exe. Данные конфигурации считываются и отправляются на обработку в службу Log Analytics в облаке. К полученным данным применяется логика и облачная служба записывает данные.
@@ -61,12 +61,12 @@ ms.lasthandoff: 01/22/2018
 Если сервер SQL Server отслеживается Operations Manager, необходимо настроить учетную запись запуска от имени Operations Manager. Дополнительные сведения см. в разделе ниже [Учетные записи запуска от имени в Operations Manager для службы Log Analytics](#operations-manager-run-as-accounts-for-log-analytics).
 
 ## <a name="sql-health-check-data-collection-details"></a>Сведения о сборе данных для проверки работоспособности SQL
-Для проверки работоспособности SQL данные собираются из следующих источников с помощью включенного агента: 
+Для проверки работоспособности SQL данные собираются из следующих источников с помощью включенного агента:
 
-* Инструментарий управления Windows (WMI) 
-* Реестр 
+* Инструментарий управления Windows (WMI)
+* Реестр
 * Счетчики производительности
-* Результаты динамического административного представления SQL Server 
+* Результаты динамического административного представления SQL Server
 
 Данные собираются на сервере SQL Server и перенаправляются в службу Log Analytics каждые семь дней.
 
@@ -163,10 +163,10 @@ Log Analytics использует агент Operations Manager и группу
 Вы можете посматривать сводку оценок соответствия для инфраструктуры, а затем глубже изучить рекомендации.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Просмотр рекомендаций для приоритетной области и выполнение действий по исправлению
-1. Войдите на портал Azure по адресу [https://portal.azure.com](https://portal.azure.com). 
+1. Войдите на портал Azure по адресу [https://portal.azure.com](https://portal.azure.com).
 2. На портале Azure щелкните **Другие службы** в нижнем левом углу. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.
 3. В области подписок Log Analytics выберите рабочую область, а затем выберите плитку **Обзор**.  
-4. На странице **Обзор** щелкните плитку **Проверка работоспособности SQL**. 
+4. На странице **Обзор** щелкните плитку **Проверка работоспособности SQL**.
 5. На странице **Проверка работоспособности** просмотрите сводные данные в одной из колонок приоритетной области, а затем щелкните ее, чтобы ознакомиться с рекомендациями для этой приоритетной области.
 6. На всех страницах интересующей области можно просматривать приоритетные рекомендации для вашей среды. Щелкните рекомендацию в разделе **Затронутые объекты** , чтобы просмотреть сведения о причинах возникновения этой рекомендации.<br><br> ![Экран с рекомендациями по проверке работоспособности SQL](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. В разделе **Предложенные действия**представлены действия по исправлению, которые вы можете предпринять. Когда проблема с этим элементом будет устранена, последующие оценки будут указывать, что рекомендованные действия были выполнены, и тогда оценка соответствия возрастет. Исправленные элементы отображаются как **Прошедшие проверку объекты**.
@@ -174,7 +174,7 @@ Log Analytics использует агент Operations Manager и группу
 ## <a name="ignore-recommendations"></a>Игнорирование рекомендаций
 Если нужно проигнорировать определенные рекомендации, создайте текстовый файл, при помощи которого рекомендации будут удалены из результатов оценки в Log Analytics.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Указание рекомендаций, которые нужно проигнорировать
 1. На портале Azure на странице Log Analytics для выбранной рабочей области щелкните плитку **Поиск по журналу**.

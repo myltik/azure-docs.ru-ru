@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 29cf8e68de5e15e2b570fa2f546d8644c5cf57b1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d19f48d99d0be9d2702060be04cf29a30290a001
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Потоковая трансляция с использованием служб мультимедиа Azure для создания потоков с несколькими скоростями на портале Azure
 > [!div class="op_single_selector"]
 > * [Портал](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [ИНТЕРФЕЙС REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/18/2017
 Ниже описываются основные этапы создания стандартных приложений, предназначенных для потоковой передачи в реальном времени.
 
 > [!NOTE]
-> Сейчас максимальная рекомендуемая продолжительность интерактивного события составляет 8 часов. Если необходимо запустить канал на более длительное время, обратитесь в amslived на веб-сайте Microsoft.com.
+> Сейчас максимальная рекомендуемая продолжительность интерактивного события составляет 8 часов. Обратитесь по адресу amslived@microsoft.com, если необходимо запустить канал на более продолжительные отрезки времени.
 > 
 > 
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/18/2017
 5. Воспроизведение содержимого.
 6. Очистка.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>предварительным требованиям
 Ниже перечислены необходимые условия для выполнения действий, описанных в этом учебнике.
 
 * Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. 
@@ -190,10 +190,10 @@ ms.lasthandoff: 12/18/2017
 
 Для управления ресурсами последовательно выберите **Параметры** и **Ресурсы**.
 
-![ресурсы](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
+![Активы](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Рекомендации
-* Сейчас максимальная рекомендуемая продолжительность интерактивного события составляет 8 часов. Если необходимо запустить канал на более продолжительные отрезки времени, обратитесь в amslived на веб-сайте Microsoft.com.
+* Сейчас максимальная рекомендуемая продолжительность интерактивного события составляет 8 часов. Обратитесь по адресу amslived@microsoft.com, если необходимо запустить канал на более продолжительные отрезки времени.
 * Убедитесь, что конечная точка потоковой передачи, из которой нужно передавать содержимое потоком, находится в состоянии **Работает**.
 
 ## <a name="next-step"></a>Дальнейшие действия

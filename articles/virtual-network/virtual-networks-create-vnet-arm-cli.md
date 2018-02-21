@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 72ed9ecd7a4c8e846818f7a19ad25c566fa57f64
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Создание виртуальной сети с помощью интерфейса командной строки Azure
 
@@ -45,9 +45,9 @@ Azure предоставляет две модели развертывания:
 
 Чтобы создать виртуальную сеть с помощью интерфейса командной строки Azure, сделайте следующее:
 
-1. Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2), а затем войдите в учетную запись Azure, выполнив команду [az login](/cli/azure/#login).
+1. Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2), а затем войдите в учетную запись Azure, выполнив команду [az login](/cli/azure/#az_login).
 
-2. Создайте группу ресурсов для виртуальной сети, выполнив команду [az group create](/cli/azure/group#create) с аргументами `--name` и `--location`.
+2. Создайте группу ресурсов для виртуальной сети, выполнив команду [az group create](/cli/azure/group#az_group_create) с аргументами `--name` и `--location`.
 
     ```azurecli
     az group create --name TestRG --location centralus
@@ -184,7 +184,7 @@ Azure предоставляет две модели развертывания:
         FrontEnd  192.168.1.0/24  Succeeded
         BackEnd   192.168.2.0/24  Succeeded
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Инструкции по подключению:
 

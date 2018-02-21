@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 88123cead40968ebf7327b81f94233529f97aa2f
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 34a6722fdd06cf0b198320e551daccc21956dc69
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Быстрое развертывание самостоятельного сброса пароля в Azure AD
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/17/2018
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Включение SSPR для клиента Azure AD
 
-1. В существующем клиенте Azure AD выберите **Сброс пароля**.
+1. Из существующего клиента Azure AD на **портале Azure** под **Azure Active Directory** выберите **Сброс пароля**.
 
 2. На странице **Свойства** для параметра **Разрешен самостоятельный сброс пароля** выберите одно из следующих значений:
    * **Нет** — никто не может использовать функцию SSPR.

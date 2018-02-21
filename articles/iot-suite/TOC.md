@@ -17,6 +17,7 @@
 #### [Разрешения для azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Пошаговое руководство по решению для удаленного мониторинга](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Подключение устройства Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+#### [Подключение MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Использование C
 ###### [Смоделированные данные](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Использование реальных датчиков](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -76,7 +77,7 @@
 ## подключенная фабрика.
 ### [Развертывание шлюза для подключенного производства](iot-suite-connected-factory-gateway-deployment.md)
 ### [Настройка подключенной фабрики](iot-suite-connected-factory-customize.md)
-### [Использование издателя OPC для подключенной фабрики](iot-suite-connected-factory-publisher.md)
+### [Использование издателя OPC для подключенной фабрики](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Конфигурирование подключенной фабрики](iot-suite-connected-factory-configure.md)
 ## [Разрешения для azureiotsuite.com](iot-suite-permissions.md)
 

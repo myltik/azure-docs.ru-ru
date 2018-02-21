@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2017
+ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 63b4747164959b0e95f6d3f1908d1fd265589a98
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Масштабирование кластера Service Fabric
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/07/2017
 > * [обновление среды выполнения кластера;](service-fabric-tutorial-upgrade-cluster.md)
 > * [развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
-## <a name="prerequisites"></a>Технические условия
+## <a name="prerequisites"></a>предварительным требованиям
 Перед началом работы с этим руководством выполните следующие действия:
 - Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Установите [модуль Azure PowerShell версии 4.1 или более поздней версии](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) либо [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -85,7 +85,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Теперь, когда вы подключены, можно использовать команду для получения информации о состоянии каждого узла в кластере. Для PowerShell используйте команду `Get-ServiceFabricClusterHealth`, а для **sfctl** — ``.
+Теперь, когда вы подключены, можно использовать команду для получения информации о состоянии каждого узла в кластере. Для PowerShell используйте команду `Get-ServiceFabricClusterHealth`, а для **sfctl** — `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Масштабирование
 
@@ -95,7 +95,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
 Этот код задает значение 6 для емкости.
@@ -120,11 +120,11 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 При свертывании в масштабируемом наборе виртуальных машин он (в большинстве случаев) удаляет экземпляр виртуальной машины, который был создан последним. Поэтому необходимо найти соответствующий узел Service Fabric, созданный последним. Этот узел можно найти путем проверки наибольшего значения свойства `NodeInstanceId` на узлах Service Fabric. Следующие примеры кода сортируют по экземпляру узла и возвращают сведения об экземпляре с наибольшим значением идентификатора. 
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 ```
 
 ```azurecli
-`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
 Кластеру Service Fabric необходимо сообщить, что этот узел будет удален. Для этого нужно выполнить три шага:
@@ -146,8 +146,9 @@ sfcli: `sfctl node remove-state`
 Следующий блок кода получает последний созданный узел, отключает, останавливает и удаляет его из кластера.
 
 ```powershell
+#### After you've connected.....
 # Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 
 # Node details for the disable/stop process
 $nodename = $node.NodeName
@@ -202,7 +203,7 @@ else
 }
 ```
 
-В коде **sfctl** ниже следующая команда используется для получения значений **имени узла** и **идентификатора экземпляра узла** последнего созданного узла:`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+В коде **sfctl** ниже следующая команда используется для получения значений **имени узла** последнего созданного узла: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -219,10 +220,10 @@ sfctl node remove-state --node-name _nt1vm_5
 > Используйте следующие запросы **sfctl**, чтобы проверить состояние каждого шага.
 >
 > **Проверка состояния деактивации**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
 > **Проверка состояния остановки**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
 
@@ -248,7 +249,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дополнительная информация
 
 Из этого руководства вы узнали, как выполнить следующие задачи:
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/07/2018
 ms.author: abnarain
-ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Вопросы безопасности при перемещении данных в фабрике данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,9 +57,6 @@ ms.lasthandoff: 01/23/2018
 
    Теперь можно хранить учетные данные хранилища данных в [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) и предоставлять их фабрике данных Azure во время выполнения действия. Дополнительные сведения см. в статье [Хранение учетных данных в Azure Key Vault](store-credentials-in-key-vault.md).
 
-   > [!NOTE]
-   > В настоящее время только [соединитель Dynamics](connector-dynamics-crm-office-365.md) поддерживает эту функцию. 
-
 ### <a name="data-encryption-in-transit"></a>Шифрование данных при передаче
 Если облачное хранилище данных поддерживает протоколы HTTPS или TLS, то передача всех данных между службами перемещения данных в фабрике данных и облачным хранилищем данных выполняется через эти защищенные каналы.
 
@@ -82,10 +79,10 @@ ms.lasthandoff: 01/23/2018
 Хранилище BLOB-объектов Azure и хранилище таблиц Azure поддерживают функцию шифрования службы хранилища, которая автоматически шифрует данные перед их сохранением в хранилище и расшифровывает их до извлечения. Дополнительные сведения см. в статье [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 поддерживает шифрование неактивных данных для сервера и клиента. Дополнительные сведения см. в документации [Protecting Data Using Encryption](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html) (Защита данных с помощью шифрования). Сейчас фабрика данных не поддерживает Amazon S3 в виртуальном частном облаке.
+Amazon S3 поддерживает шифрование неактивных данных для сервера и клиента. Дополнительные сведения см. в документации [Protecting Data Using Encryption](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html) (Защита данных с помощью шифрования).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift поддерживает шифрование неактивных данных кластера. Дополнительные сведения см. в документации [Amazon Redshift Database Encryption](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) (Шифрование базы данных Amazon Redshift). Сейчас фабрика данных не поддерживает Amazon Redshift в виртуальном частном облаке. 
+Amazon Redshift поддерживает шифрование неактивных данных кластера. Дополнительные сведения см. в документации [Amazon Redshift Database Encryption](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) (Шифрование базы данных Amazon Redshift). 
 
 #### <a name="salesforce"></a>Salesforce
 SalesForce поддерживает шифрование Shield Platform Encryption, которое позволяет зашифровать все файлы, вложения и настраиваемые поля. Дополнительные сведения см. в статье [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) (Основные сведения о потоке проверки подлинности OAuth веб-сервера).  

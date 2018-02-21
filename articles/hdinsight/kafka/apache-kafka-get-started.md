@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/18/2018
 ms.author: larryfr
-ms.openlocfilehash: 6191d81d6b55f5ffe943f800be542d7ea4614eaf
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 639adb2fdc5a7d76c11397b5027199626a0a4016
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Приступая к работе с Apache Kafka в HDInsight
 
@@ -226,10 +226,12 @@ Kafka хранит *записи* в разделах. Записи создаю
 
 * [Анализ журналов Kafka](apache-kafka-log-analytics-operations-management.md)
 * [Репликация разделов Apache Kafka с помощью Kafka в HDInsight (предварительная версия) и MirrorMaker](apache-kafka-mirroring.md)
-* [Apache Kafka Producer and Consumer APIs](apache-kafka-producer-consumer-api.md) (API-интерфейсы отправителя и получателя Apache Kafka)
-* [Apache Kafka streams API](apache-kafka-streams-api.md) (API потоков Apache Kafka)
+* [Apache Kafka Producer and Consumer APIs](apache-kafka-producer-consumer-api.md) (API-интерфейсы отправителя и объекта-получателя Apache Kafka)
+* [API потоков Kafka в HDInsight](apache-kafka-streams-api.md)
 * [Пример потоковой передачи Apache Spark (DStream) с использованием Kafka (предварительная версия) в HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Использование структурированной потоковой передачи Spark с Kafka (предварительная версия) в HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Use Spark Structured Streaming with Kafka and Azure Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md) (Использование структурированной потоковой передачи Spark с Kafka и Azure Cosmos DB)
+* [Использование структурированной потоковой передачи Apache Spark из Kafka HDInsight в Azure Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Совместное использование Apache Kafka (предварительная версия) и Storm в HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Подключение к Kafka через виртуальную сеть Azure](apache-kafka-connect-vpn-gateway.md)
+* [Использование Kafka со Службой контейнеров Azure](apache-kafka-azure-container-services.md)
+* [Использование Kafka с приложениями-функциями Azure](apache-kafka-azure-functions.md)

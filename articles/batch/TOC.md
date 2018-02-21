@@ -43,6 +43,7 @@
 ## Создание пулов и управление ими
 ### [Автомасштабирование вычислительных узлов](batch-automatic-scaling.md)
 ### [Виртуальные машины для ресурсоемких вычислений](batch-pool-compute-intensive-sizes.md)
+### [Настройка доступа к вычислительным узлам](pool-endpoint-configuration.md)
 ### [Создание пула с помощью пользовательского образа](batch-custom-images.md)
 ### [Создание пула в виртуальной сети](batch-virtual-network.md)
 ### [Вычислительные узлы Linux](batch-linux-nodes.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 89a4a165690c7a308d5bc7222b8a5a9716d22785
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ac8a9f28881ff7d249a02976f310bf6a8283aeb6
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="network-security"></a>Безопасность сети
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 01/24/2018
 
  Тег службы представляет группу префиксов IP-адресов, чтобы упростить создание правила безопасности. Нельзя создать собственный тег службы или задать IP-адреса, которые будут входить в тег. Корпорация Майкрософт управляет префиксами адресов, входящих в тег службы, и автоматически обновляет этот тег при изменении адресов. Теги служб можно использовать вместо определенных IP-адресов при создании правил безопасности. В определении правила безопасности можно использовать указанные ниже теги служб. Их имена незначительно отличаются при использовании разных [моделей развертывания Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-* **VirtualNetwork** (*для развертываний с помощью Resource Manager) или **VIRTUAL_NETWORK** (для классических развертываний). Этот тег включает адресное пространство виртуальной сети (все диапазоны CIDR, определенные для виртуальной сети), все адресное пространство подключенных локальных сетей и [пиринговые](virtual-network-peering-overview.md) виртуальные сети или виртуальные сети, подключенные к [шлюзу виртуальной сети](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* **VirtualNetwork** (**для развертываний Resource Manager) или VIRTUAL_NETWORK** (для классических развертываний). Этот тег включает адресное пространство виртуальной сети (все диапазоны CIDR, определенные для виртуальной сети), все адресное пространство подключенных локальных сетей и [пиринговые](virtual-network-peering-overview.md) виртуальные сети или виртуальные сети, подключенные к [шлюзу виртуальной сети](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **AzureLoadBalancer** (для развертываний с помощью Resource Manager) или **AZURE_LOADBALANCER** (для классических развертываний). Этот тег обозначает балансировщик нагрузки инфраструктуры Azure. Он преобразуется в [IP-адрес центра обработки данных Azure](https://www.microsoft.com/download/details.aspx?id=41653), где инициируются проверки работоспособности Azure. Если подсистема балансировки нагрузки Azure не используется, это правило можно переопределить.
 * **Internet** (для развертываний с помощью Resource Manager) или **INTERNET** (для классических виртуальных машин). Этот тег обозначает пространство IP-адресов, которые находятся за пределами виртуальной сети и к которым можно получить доступ из общедоступного сегмента Интернета. К этим адресам относится [общедоступное пространство IP-адресов, принадлежащее Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (только для развертываний с помощью Resource Manager). Этот тег определяет диапазон IP-адресов для IP-адресов зонда диспетчера трафика Azure. Дополнительные сведения об IP-адресах зонда диспетчера трафика, см. в разделе [Azure Traffic Manager FAQ](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs) (Часто задаваемые вопросы о диспетчере трафика).
